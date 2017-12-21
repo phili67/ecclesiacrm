@@ -378,6 +378,12 @@
             options.buttons.confirm.callback = function(){
               selectionCallback({"RoleID": $("#targetRoleSelection option:selected").val()});
             };
+            options.buttons.cancel.callback = function(){
+              if (window.CRM.DataTableGroupView) {
+                $(".personSearch").val(null).trigger('change');
+                window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+              }
+            };
           }
           
           if (selectOptions.Type === window.CRM.groups.selectTypes.Role)
@@ -594,8 +600,8 @@
           var dashBoardGroupsCountDashboard = document.getElementById('groupsCountDashboard');
           
           if (dashBoardGroupsCountDashboard) {// We have to check if we are on the dashboard menu
-	          dashBoardGroupsCountDashboard.innerText = data.groups;
-	        }
+            dashBoardGroupsCountDashboard.innerText = data.groups;
+          }
         }, PersonCount: function (data) {
           var dashBoardPeopleStats = document.getElementById('peopleStatsDashboard');
           if (dashBoardPeopleStats) {
