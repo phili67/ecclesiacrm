@@ -571,12 +571,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   // Loop through the rows
                   while ($aRow = mysqli_fetch_array($rsAssignedGroups)) {
                       extract($aRow); ?>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <p><br/></p>
                     <!-- Info box -->
                     <div class="box box-info">
                       <div class="box-header">
-                        <h3 class="box-title"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>"><?= $grp_Name ?></a></h3>
+                        <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>"><?= $grp_Name ?></a></h3>
 
                         <div class="box-tools pull-right">
                           <div class="label bg-aqua"><?= gettext($roleName) ?></div>
@@ -609,7 +609,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
                           echo '</div><!-- /.box-body -->';
                       } ?>
-                      <div class="box-footer">
+                      <div class="box-footer" style="width:275px">
                         <code>
                           <?php if ($_SESSION['bManageGroups']) {
                           ?>
@@ -628,8 +628,13 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                                 <?php
                           } ?>
                               </ul>
+                                                            
+
                             </div>
-                            <a data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" class="btn btn-danger groupRemove" role="button"><i class="fa fa-trash-o"></i></a>
+                            <div class="btn-group">
+                            <button data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                            <!--<a data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" class="btn btn-danger groupRemove" role="button"><i class="fa fa-trash-o"></i></a>-->
                           <?php
                       } ?>
                         </code>
