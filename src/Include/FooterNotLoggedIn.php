@@ -3,7 +3,7 @@ use ChurchCRM\dto\SystemURLs;
 
 ?>
     <div style="background-color: white; padding-top: 5px; padding-bottom: 5px; text-align: center; position: fixed; bottom: 0; width: 100%">
-      <strong><?= gettext('Copyright') ?> &copy; 2015-2017 <a href="https://www.imathgeo.com" target="_blank"><b>Church</b>CRM2</a>.</strong> <?= gettext('All rights reserved')?>.
+      <strong><?= gettext('Copyright') ?> &copy; 2015-2018 <a href="https://www.imathgeo.com" target="_blank"><b>Church</b>CRM2</a>.</strong> <?= gettext('All rights reserved')?>.
     </div>
 
 
