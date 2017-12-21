@@ -1,10 +1,10 @@
 {
     "name": "ChurchCRM",
-    "version": "2.10.0",
+    "version": "2.10.1",
     "description": "Free Church CRM Software",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ChurchCRM/CRM.git"
+        "url": "https://github.com/phili67/CRM.git"
     },
     "keywords": [
         "Church",
@@ -14,7 +14,7 @@
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/ChurchCRM/CRM/issues"
+        "url": "https://github.com/phili67/CRM/issues"
     },
     "homepage": "http://www.churchcrm.io",
     "devDependencies": {

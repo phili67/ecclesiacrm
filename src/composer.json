@@ -1,6 +1,6 @@
 {
     "name": "ChurchCRM/CRM",
-    "version": "2.10.0",
+    "version": "2.10.1",
     "type": "project",
     "keywords": [
         "church",
@@ -19,14 +19,19 @@
             "name": "Charles Crossan",
             "homepage": "http://www.ccrossan.com",
             "role": "Developer"
+        },
+        {
+            "name": "Logel Philippe",
+            "homepage": "https://www.imathgeo.com",
+            "role": "Developer"
         }
     ],
     "support": {
-        "email": "info@churchcrm.io",
-        "issues": "https://github.com/ChurchCRM/CRM/issues",
+        "email": "dev-support@imathgeo.com",
+        "issues": "https://github.com/phili67/CRM/issues",
         "irc": "https://gitter.im/ChurchCRM/CRM",
-        "source": "https://github.com/ChurchCRM/CRM",
-        "docs": "https://github.com/ChurchCRM/CRM/wiki"
+        "source": "https://github.com/phili67/CRM",
+        "docs": "https://github.com/phili67/CRM/wiki"
     },
     "require": {
         "php": ">=5.6.0",

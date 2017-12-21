@@ -67,7 +67,7 @@ $MenuFirst = 1;
       <span class="logo-mini"><b>C</b>RM</span>
       <!-- logo for regular state and mobile devices -->
       <?php
-      $headerHTML = '<b>Church</b>CRM';
+      $headerHTML = 'Church<b>CRM</b>2';
       $sHeader = SystemConfig::getValue("sHeader");
       if (!empty($sHeader)) {
           $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
@@ -144,12 +144,12 @@ $MenuFirst = 1;
                 </a>
               </li>
               <li class="hidden-xxs">
-                <a href="https://gitter.im/ChurchCRM/CRM" target="_blank" title="<?= gettext('Developer Chat') ?>">
+                <a href="https://gitter.im/phili67CRM" target="_blank" title="<?= gettext('Developer Chat') ?>">
                   <i class="fa fa-commenting-o"></i> <?= gettext('Developer Chat') ?>
                 </a>
               </li>              
               <li class="hidden-xxs">
-                <a href="https://github.com/ChurchCRM/CRM/wiki/Contributing" target="_blank" title="<?= gettext('Contributing') ?>">
+                <a href="https://github.com/phili67/CRM/issues/" target="_blank" title="<?= gettext('Contributing') ?>">
                   <i class="fa fa-github"></i> <?= gettext('Contributing') ?>
                 </a>
               </li>              

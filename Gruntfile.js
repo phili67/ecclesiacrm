@@ -193,7 +193,7 @@ module.exports = function (grunt) {
         compress: {
             'zip': {
                 options: {
-                    archive: 'target/ChurchCRM-<%= package.version %>.zip',
+                    archive: 'target/ChurchCRM2-<%= package.version %>.zip',
                     mode: "zip",
                     pretty: true
                 },
@@ -208,7 +208,7 @@ module.exports = function (grunt) {
             },
             'tar': {
                 options: {
-                    archive: 'target/ChurchCRM-<%= package.version %>.tar.gz',
+                    archive: 'target/ChurchCRM2-<%= package.version %>.tar.gz',
                     mode: "tgz",
                     pretty: true
                 },
@@ -223,7 +223,7 @@ module.exports = function (grunt) {
             },
             'demo': {
                 options: {
-                    archive: 'target/Demo-ChurchCRM-<%= package.version %>.tar.gz',
+                    archive: 'target/Demo-ChurchCRM2-<%= package.version %>.tar.gz',
                     mode: "tar",
                     pretty: true
                 },
