@@ -379,7 +379,7 @@
               selectionCallback({"RoleID": $("#targetRoleSelection option:selected").val()});
             };
             options.buttons.cancel.callback = function(){
-              if (window.CRM.DataTableGroupView) {
+              if (window.CRM.DataTableGroupView) {// this part is important in the GroupView.php/js select2 textfield when you cancel the action
                 $(".personSearch").val(null).trigger('change');
                 window.CRM.DataTableGroupView.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
               }
@@ -421,6 +421,9 @@
           }
           options.message +='</div>';
           bootbox.dialog(options).init(initFunction).show();
+          
+          // this will ensure that image and table can be focused
+          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
           window.CRM.groups.get()
           .done(function(rdata){
@@ -442,7 +445,7 @@
                window.CRM.groups.getRoles(targetGroupId).done(function(rdata){
                  rolesList = $.map(rdata.ListOptions, function (item) {
                     var o = {
-                      text: item.OptionName,
+                      text: i18next.t(item.OptionName),// this is for the Teacher and Student role
                       id: item.OptionId
                     };
                     return o;
