@@ -30,7 +30,6 @@ class SystemService
             $release = $client->api('repo')->releases()->latest('phili67', 'crm');
         } catch (\Exception $e) {
         }
-        
         return $release;
     }
 
@@ -112,8 +111,8 @@ class SystemService
         mkdir($backup->backupDir,0750,true);
         $backup->headers = [];
         $backup->params = $params;
-        $backup->saveTo = "$backup->backupDir/ChurchCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
-        $backup->SQLFile = "$backup->backupDir/ChurchCRM-Database.sql";
+        $backup->saveTo = "$backup->backupDir/ChurchCRM2-" . date(SystemConfig::getValue("sDateFilenameFormat"));
+        $backup->SQLFile = "$backup->backupDir/ChurchCRM2-Database.sql";
 
         try {
             $dump = new Mysqldump('mysql:host=' . $sSERVERNAME . ';dbname=' . $sDATABASE, $sUSER, $sPASSWORD, ['add-drop-table' => true]);
@@ -137,7 +136,7 @@ class SystemService
                 $backup->saveTo .= '.tar';
                 $phar = new \PharData($backup->saveTo);
                 $phar->startBuffering();
-                $phar->addFile($backup->SQLFile, 'ChurchCRM-Database.sql');
+                $phar->addFile($backup->SQLFile, 'ChurchCRM2-Database.sql');
                 $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
                 foreach ($imageFiles as $imageFile) {
                     if (!$imageFile->isDir()) {
@@ -385,7 +384,7 @@ class SystemService
         $release = $this->getLatestRelese();
         $UpgradeDir = SystemURLs::getDocumentRoot() . '/Upgrade';
         foreach ($release['assets'] as $asset) {
-            if ($asset['name'] == "ChurchCRM-" . $release['name'] . ".zip") {
+            if ($asset['name'] == "ChurchCRM2-" . $release['name'] . ".zip") {
                 $url = $asset['browser_download_url'];
             }
         }
