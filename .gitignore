@@ -48,3 +48,7 @@ src/logs/*.log
 
 error.log
 /nbproject/private/
+vis-ci
+vagrant  
+Vagrantfile  
+vagrant-qa
