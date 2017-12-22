@@ -24,7 +24,7 @@ Welcome to Church Web CRM
 
 * [Server Check](https://github.com/ChurchCRM/Check)
 
-* [Download the lastest release](https://github.com/ChurchCRM/CRM/releases/latest)
+* [Download the lastest release](https://github.com/phili67/CRM/releases/latest)
 
 * [Checkout our online Docs](http://docs.churchcrm.io)
 
