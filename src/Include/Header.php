@@ -111,11 +111,11 @@ $MenuFirst = 1;
                   <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image img-circle no-border" alt="User Image">                
                 </td>
                 <td valign="middle" align="left" >                
-                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("Consult your profile at this place")?>" data-placement="right">
-                      <p ><i class="fa fa fa-user"></i> <?= gettext("Profile") ?></p></a>
+                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
+                      <p ><i class="fa fa fa-user"></i> <?= gettext("Personal area") ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("You can change here your password")?>" data-placement="right">
                       <p ><i class="fa fa fa-key"></i> <?= gettext('Change Password') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Change Custom Settings ")?>" data-placement="right">
+                  <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Change Custom Settings")?>" data-placement="right">
                       <p ><i class="fa fa fa-sign-out"></i> <?= gettext('Change Settings') ?></p></a>
                   <a href="Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= gettext("Lock your session")?>" data-placement="right">
                       <p ><i class="fa fa fa-pause"></i> <?= gettext('Lock') ?></p></a>

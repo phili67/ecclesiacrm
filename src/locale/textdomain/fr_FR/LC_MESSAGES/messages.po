@@ -4369,6 +4369,10 @@ msgstr "Basculer le mode de navigation"
 msgid "Change Password"
 msgstr "Modifier Mot de Passe"
 
+msgid "You can change here your password"
+msgstr "Vous pourrez modifier votre mot de passe ici"
+
+
 #: Include/Footer.php:218
 msgid "You have"
 msgstr "Vous avez"
@@ -9127,6 +9131,9 @@ msgstr "Profile"
 msgid "Sign out"
 msgstr "Se déconnecter"
 
+msgid "Quit ChurchCRM2 and close your session"
+msgstr "Quitter ChurchCRM2 et fermer votre session"
+
 #: ListEvents.php:254
 msgid "Sermon Text"
 msgstr "Texte de la Prédication"
@@ -9134,6 +9141,9 @@ msgstr "Texte de la Prédication"
 #: Include/Header.php:119 PersonView.php:377
 msgid "Change Settings"
 msgstr "Changer les Réglages"
+
+msgid "Change Custom Settings"
+msgstr "Modifier vos réglages personnels"
 
 #: SystemSettings.php:217
 msgid "Unknown Type"
@@ -9263,6 +9273,9 @@ msgstr "Activer le système de cryptage pour utiliser SSL (deprecated) ou TLS"
 msgid "Lock"
 msgstr "Verrouiller la session"
 
+msgid "Lock your session"
+msgstr "Verrouiller sa session utilisateur"
+
 #: Login.php:306
 msgid "Enter your password to retrieve your session"
 msgstr "Saisir votre mot de passe pour revenir à votre session"
@@ -9287,3 +9300,9 @@ msgstr "Moniteur"
 
 msgid "Student"
 msgstr "Etudiant"
+
+msgid "Personal area"
+msgstr "Espace personnel"
+
+msgid "For your documents family etc ..."
+msgstr "Espace personnel pour les documents"

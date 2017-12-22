@@ -185,13 +185,13 @@
             +'<tr>'
               +"<td class='LabelColumn'><span style='color: red'>*</span>" + i18next.t('Event Title') + ":</td>"
               +'<td colspan="1" class="TextColumn">'
-                +"<input type='text' id='EventTitle' value='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control'  width='100%' style='width: 100%' required>"
+                +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control'  width='100%' style='width: 100%' required>"
               +'</td>'
             +'</tr>'
             +'<tr>'
               +"<td class='LabelColumn'><span style='color: red'>*</span>" + i18next.t('Event Desc') + ":</td>"
               +'<td colspan="3" class="TextColumn">'
-                +"<textarea id='EventDesc' rows='4' maxlength='100' class='form-control'  width='100%' style='width: 100%' required >" + i18next.t("Calendar description") + "</textarea>"
+                +"<textarea id='EventDesc' rows='4' maxlength='100' class='form-control'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Calendar description") + "'></textarea>"
               +'</td>'
             +'</tr>'          
             +'<tr>'
@@ -265,7 +265,7 @@
             if (event.type == 'event'){
               bootbox.confirm({
                title:  i18next.t("Move Event") + "?",
-                message: i18next.t("Are you sure about this change?") + "\n"  + event.title + " " + i18next.t("will be dropped."),
+                message: i18next.t("Are you sure about this change?") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
                 buttons: {
                   cancel: {
                     label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
@@ -343,45 +343,58 @@
            label: i18next.t("Save"),
            className: "btn btn-primary pull-left",
            callback: function() {
-              var e = document.getElementById("eventType");
-              var eventTypeID = e.options[e.selectedIndex].value;
-                                         
               var EventTitle =  $('form #EventTitle').val();
-              var EventDesc =  $('form #EventDesc').val();
-                             
-              var e = document.getElementById("EventGroup");
-              var EventGroupID = e.options[e.selectedIndex].value;
-              var EventGroupType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
-                             
-              var Total =  $('form #Total').val();
-              var Members = $('form #Members').val();
-              var Visitors = $('form #Visitors').val();
-              var EventCountNotes = $('form #EventCountNotes').val();
-                             
-              var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
               
-              var add = false;
+              if (EventTitle) {
+                  var e = document.getElementById("eventType");
+                  var eventTypeID = e.options[e.selectedIndex].value;
+                                         
+              
+                  var EventDesc =  $('form #EventDesc').val();
+                             
+                  var e = document.getElementById("EventGroup");
+                  var EventGroupID = e.options[e.selectedIndex].value;
+                  var EventGroupType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
+                             
+                  var Total =  $('form #Total').val();
+                  var Members = $('form #Members').val();
+                  var Visitors = $('form #Visitors').val();
+                  var EventCountNotes = $('form #EventCountNotes').val();
+                             
+                  var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
+              
+                  var add = false;
                                                             
-              window.CRM.APIRequest({
-                    method: 'POST',
-                    path: 'events/',
-                    data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Total":Total,"Members":Members,"Visitors":Visitors,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":moment(start).format(),"end":moment(end).format()})
-              }).done(function(data) {                   
-                $('#calendar').fullCalendar('renderEvent', data, true); // stick? = true             
-                $('#calendar').fullCalendar('unselect');              
-                add = true;              
-                modal.modal("hide");   
+                  window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'events/',
+                        data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Total":Total,"Members":Members,"Visitors":Visitors,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":moment(start).format(),"end":moment(end).format()})
+                  }).done(function(data) {                   
+                    $('#calendar').fullCalendar('renderEvent', data, true); // stick? = true             
+                    $('#calendar').fullCalendar('unselect');              
+                    add = true;              
+                    modal.modal("hide");   
                 
-                var box = bootbox.dialog({message : i18next.t("Event was added successfully.")});
+                    var box = bootbox.dialog({message : i18next.t("Event was added successfully.")});
                 
-                setTimeout(function() {
-                    // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                    box.modal('hide');
-                }, 3000);
-                return true;
-              });
+                    setTimeout(function() {
+                        // be careful not to call box.hide() here, which will invoke jQuery's hide method
+                        box.modal('hide');
+                    }, 3000);
+                    return true;
+                  });
 
-              return add;      
+                  return add;  
+              } else {
+                  var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Error")+"</span>",message : i18next.t("You have to set a Title for your event")});
+                
+                    setTimeout(function() {
+                        // be careful not to call box.hide() here, which will invoke jQuery's hide method
+                        box.modal('hide');
+                    }, 3000);
+                    
+                  return false;
+              }    
             }
           },
           {
@@ -406,14 +419,6 @@
        
        // this will ensure that image and table can be focused
        $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-       
-       $('#EventTitle').on('click',function(){
-       		if(this.defaultValue==i18next.t("Calendar Title")){ this.defaultValue=''; this.style.color='#000';};
-       });
-       
-       $('#EventDesc').on('click',function(){	
-       	   if(this.defaultValue==i18next.t("Calendar description")){ this.defaultValue=''; this.style.color='#000';};
-			 });
        
        // this will create the toolbar for the textarea
        CKEDITOR.replace('eventPredication',{
