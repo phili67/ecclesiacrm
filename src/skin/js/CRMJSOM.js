@@ -617,8 +617,12 @@
           method: 'GET',
           path: 'dashboard/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
         }).done(function (data) {
-          for (var key in data) {
-            window["CRM"]["dashboard"]["renderers"][key](data[key]);
+          if (data[0].timeOut) {
+            window.location.replace(window.CRM.root+'/Login.php?session=Lock');
+          } else {
+            for (var key in data[1]) {
+              window["CRM"]["dashboard"]["renderers"][key](data[1][key]);
+            }
           }
         });
       }

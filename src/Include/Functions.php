@@ -37,7 +37,10 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
             Redirect('Login.php');
             exit;
         } else {
-            $_SESSION['tLastOperation'] = time();
+        		if ($_SESSION['lastPage'] != basename(__FILE__)) {
+		        		$_SESSION['lastPage'] = basename(__FILE__);        		
+    		        $_SESSION['tLastOperation'] = time();
+    		    }
         }
     }
 

@@ -19,6 +19,33 @@ require SystemURLs::getDocumentRoot() . '/vendor/ifsnop/mysqldump-php/src/Ifsnop
 
 class SystemService
 {
+    public function updateSessionLastOperation ()
+    {
+       $_SESSION['tLastOperation'] = time();
+    }
+    
+    public function isSessionStillValid ()
+    {
+      // Basic security: If the UserID isn't set (no session), redirect to the login page
+      if (!isset($_SESSION['iUserID'])) {
+        return false; // we have to return to the login page
+      }
+
+      // Check for login timeout.  If login has expired, redirect to login page
+      if (SystemConfig::getValue('iSessionTimeout') > 0) {
+          if ((time() - $_SESSION['tLastOperation']) > SystemConfig::getValue('iSessionTimeout')) {
+              return false; // we have to return to the login page
+          }// the time is set in the function page
+      }
+      
+      return true;
+    }
+    
+    public function getSessionTimeout ()
+    {
+    	return  SystemConfig::getValue('iSessionTimeout')-(time() - $_SESSION['tLastOperation']);
+    }
+    
     public function getLatestRelese()
     {
         $client = new Client();
