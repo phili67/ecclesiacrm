@@ -145,6 +145,9 @@ class TimelineService
             case 'photo':
                 $item['style'] = 'fa-camera bg-green';
                 break;
+            case 'group':
+                $item['style'] = 'fa-users bg-gray';
+                break;
             case 'cal':
                 $item['style'] = 'fa-calendar bg-green';
                 break;
