@@ -252,8 +252,10 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   <tr>
     <td class="LabelColumn"><?= gettext('State') ?>:</td>
     <td class="TextColumn">
-      <?php 
-        echo CountryDropDown::getDropDown($sState); ?>
+      <?php                          
+          $statesDD = new StateDropDown();     
+          echo $statesDD->getDropDown($sState);
+      ?>
       OR
       <input type="text" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
             echo $sState;
@@ -273,7 +275,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   <tr>
     <td class="LabelColumn"><?= gettext('Country') ?>:</td>
     <td class="TextColumnWithBottomBorder">
-      <?= StateDropDown::getDropDown($sCountry) ?>
+      <?= CountryDropDown::getDropDown($sCountry); ?>
     </td>
   </tr>
 
