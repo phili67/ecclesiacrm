@@ -942,7 +942,10 @@ require 'Include/Header.php';
                 <div class="row">
                   <div class="form-group col-md-3">
                     <label for="StatleTextBox"><?= gettext('State')?>: </label><br>
-                    <?= StateDropDown::getDropDown($sState, "FamState") ?>
+                    <?php                          
+                        $statesDDF = new StateDropDown();     
+                        echo $statesDDF->getDropDown($sState,"FamState");
+                     ?>
                   </div>
                   <div class="form-group col-md-3">
                     <label><?= gettext('None US/CND State') ?>:</label>
@@ -962,7 +965,10 @@ require 'Include/Header.php';
                   </div>
                   <div class="form-group col-md-3">
                     <label> <?= gettext('Country') ?>:</label><br>
-                    <?= CountryDropDown::getDropDown($sCountry, "FamCountry") ?>
+                    <?php
+                      $countriesDDF = new CountryDropDown();     
+                      echo $countriesDDF->getDropDown($sCountry, "FamCountry");
+                    ?>
                   </div>
                 </div>
               </div>
@@ -1046,7 +1052,10 @@ require 'Include/Header.php';
                             echo '</span>';
                         } ?>
                         </label>
-                        <?= StateDropDown::getDropDown($sState) ?>
+                        <?php                          
+                          $statesDD = new StateDropDown();     
+                          echo $statesDD->getDropDown($sState);
+                        ?>
                     </div>
                     <div class="form-group col-md-2">
                         <label><?= gettext('None State') ?>:</label>
@@ -1091,7 +1100,10 @@ require 'Include/Header.php';
                             echo '</span>';
                         } ?>
                         </label>
-                        <?= CountryDropDown::getDropDown($sCountry) ?>
+                        <?php
+                          $countriesDD = new CountryDropDown();     
+                          echo $countriesDD->getDropDown($sCountry);
+                        ?>
                     </div>
                 </div>
                 <p/>

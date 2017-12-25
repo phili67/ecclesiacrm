@@ -700,7 +700,10 @@ require 'Include/Header.php';
         <div class="row">
           <div class="form-group col-md-3">
             <label for="StatleTextBox"><?= gettext('State')?>: </label>
-            <?= StateDropDown::getDropDown($sState) ?>
+             <?php                          
+                $statesDD = new StateDropDown();     
+                echo $statesDD->getDropDown($sState);
+             ?>
           </div>
           <div class="form-group col-md-3">
             <label><?= gettext('None US/CND State') ?>:</label>
