@@ -67,7 +67,7 @@ $MenuFirst = 1;
       <span class="logo-mini"><b>C</b>RM</span>
       <!-- logo for regular state and mobile devices -->
       <?php
-      $headerHTML = 'Church<b>CRM</b>2';
+      $headerHTML = 'Ecclesia<b>CRM</b>2';
       $sHeader = SystemConfig::getValue("sHeader");
       if (!empty($sHeader)) {
           $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
