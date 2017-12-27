@@ -1,20 +1,20 @@
 {
-    "name": "ChurchCRM",
-    "version": "2.10.2",
-    "description": "Free Church CRM Software",
+    "name": "EcclesiaCRM2",
+    "version": "2.10.3",
+    "description": "Free EcclesiaCRM2 Software",
     "repository": {
         "type": "git",
-        "url": "https://github.com/phili67/CRM.git"
+        "url": "https://github.com/phili67/ecclesiacrm/releases/"
     },
     "keywords": [
-        "Church",
+        "Ecclesia",
         "CRM",
         "LAMP",
         "Free"
     ],
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/phili67/CRM/issues"
+        "url": "https://github.com/phili67/ecclesiacrm/issues"
     },
     "homepage": "http://www.churchcrm.io",
     "devDependencies": {

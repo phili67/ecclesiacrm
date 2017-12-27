@@ -43,7 +43,7 @@ class SystemService
     
     public function getSessionTimeout ()
     {
-    	return  SystemConfig::getValue('iSessionTimeout')-(time() - $_SESSION['tLastOperation']);
+      return  SystemConfig::getValue('iSessionTimeout')-(time() - $_SESSION['tLastOperation']);
     }
     
     public function getLatestRelese()
@@ -51,12 +51,11 @@ class SystemService
         $client = new Client();
         $release = null;
         try {
-            // old repo
-            //$release = $client->api('repo')->releases()->latest('churchcrm', 'crm');
-            // new repo : attention le nom de la build doit être pile 2.9.2 et non 2.9.2 update
-            $release = $client->api('repo')->releases()->latest('phili67', 'crm');
+            $json = file_get_contents('https://ecclesiacrm.imathgeo.com/download.php');
+            $release = json_decode($json,TRUE);
         } catch (\Exception $e) {
         }
+        
         return $release;
     }
 
@@ -138,8 +137,8 @@ class SystemService
         mkdir($backup->backupDir,0750,true);
         $backup->headers = [];
         $backup->params = $params;
-        $backup->saveTo = "$backup->backupDir/ChurchCRM2-" . date(SystemConfig::getValue("sDateFilenameFormat"));
-        $backup->SQLFile = "$backup->backupDir/ChurchCRM2-Database.sql";
+        $backup->saveTo = "$backup->backupDir/EcclesiaCRM2-" . date(SystemConfig::getValue("sDateFilenameFormat"));
+        $backup->SQLFile = "$backup->backupDir/EcclesiaCRM2-Database.sql";
 
         try {
             $dump = new Mysqldump('mysql:host=' . $sSERVERNAME . ';dbname=' . $sDATABASE, $sUSER, $sPASSWORD, ['add-drop-table' => true]);
@@ -163,7 +162,7 @@ class SystemService
                 $backup->saveTo .= '.tar';
                 $phar = new \PharData($backup->saveTo);
                 $phar->startBuffering();
-                $phar->addFile($backup->SQLFile, 'ChurchCRM2-Database.sql');
+                $phar->addFile($backup->SQLFile, 'EcclesiaCRM2-Database.sql');
                 $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
                 foreach ($imageFiles as $imageFile) {
                     if (!$imageFile->isDir()) {
@@ -410,8 +409,8 @@ class SystemService
     {
         $release = $this->getLatestRelese();
         $UpgradeDir = SystemURLs::getDocumentRoot() . '/Upgrade';
-        foreach ($release['assets'] as $asset) {
-            if ($asset['name'] == "ChurchCRM2-" . $release['name'] . ".zip") {
+        foreach ($release['assets'] as $asset) {        
+            if ($asset['name'] == "EcclesiaCRM2-" . $release['name'] . ".zip") {
                 $url = $asset['browser_download_url'];
             }
         }

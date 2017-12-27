@@ -815,7 +815,8 @@ CREATE TABLE `propertytype_prt` (
 INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
   (1, 'p', 'General', 'General Person Properties'),
   (2, 'f', 'General', 'General Family Properties'),
-  (3, 'g', 'General', 'General Group Properties');
+  (3, 'g', 'General', 'General Group Properties'),
+  (4, 'g', 'Menu', 'To customise the sunday school menu.');
 
 -- --------------------------------------------------------
 
