@@ -3,7 +3,7 @@
  *
  *  filename    : QueryList.php
  *  last change : 2003-01-07
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
   *
  ******************************************************************************/

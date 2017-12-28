@@ -6,7 +6,7 @@
  *  last change : 2017-11-16
  *  description : manage the full calendar
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2017 Logel Philippe
   *
  ******************************************************************************/

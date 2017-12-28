@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : Login.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  description : page header used for most pages
  *
  *  Copyright 2017 Philippe Logel

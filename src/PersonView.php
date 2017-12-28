@@ -5,7 +5,7 @@
  *  last change : 2003-04-14
  *  description : Displays all the information about a single person
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
   *
  ******************************************************************************/

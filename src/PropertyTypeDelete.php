@@ -3,7 +3,7 @@
  *
  *  filename    : PropertyTypeDelete.php
  *  last change : 2003-06-04
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001-2003 Deane Barker, Chris Gebhardt
   *
  ******************************************************************************/

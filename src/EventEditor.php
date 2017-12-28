@@ -3,7 +3,7 @@
  *
  *  filename    : EventEditor.php
  *  last change : 2005-09-10
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2005 Todd Pillars
  *                Copyright 2012 Michael Wilt
  *

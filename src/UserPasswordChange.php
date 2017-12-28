@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : UserPasswordChange.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
  *  			  Copyright 2004-2012 Michael Wilt
  *

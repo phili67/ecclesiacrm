@@ -3,7 +3,7 @@
  *
  *  filename    : FindDepositSlip.php
  *  last change : 2016-02-28
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2016 ChurchCRM
   *
  ******************************************************************************/

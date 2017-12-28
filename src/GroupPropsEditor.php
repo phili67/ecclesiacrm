@@ -3,7 +3,7 @@
  *
  *  filename    : GroupPropsEditor.php
  *  last change : 2013-02-07
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
  *                Copyright 2013 Michael Wilt
  *

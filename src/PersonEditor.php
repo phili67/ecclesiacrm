@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : PersonEditor.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
  *                Copyright 2004-2005 Michael Wilt
  *                2017 Philippe Logel

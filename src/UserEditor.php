@@ -4,7 +4,7 @@
  *  filename    : UserEditor.php
  *  description : form for adding and editing users
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
  *
  *  Updated 2005-03-19 by Everette L Mills: Updated to remove error that could be created

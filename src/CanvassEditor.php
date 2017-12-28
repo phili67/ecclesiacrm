@@ -3,7 +3,7 @@
  *
  *  filename    : CanvassEditor.php
  *  last change : 2013-02-22
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002, 2003, 2013 Deane Barker, Chris Gebhardt, Michael Wilt
   *
  ******************************************************************************/

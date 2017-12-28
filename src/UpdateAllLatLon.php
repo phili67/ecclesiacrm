@@ -3,7 +3,7 @@
  *
  *  filename    : UpdateAllLatLon.php
  *  last change : 2013-02-02
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *
  ******************************************************************************/
 

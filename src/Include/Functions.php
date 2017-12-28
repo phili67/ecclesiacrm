@@ -4,7 +4,7 @@
 /*******************************************************************************
  *
  *  filename    : /Include/Functions.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001-2003 Deane Barker, Chris Gebhardt
  *                Copyright 2004-1012 Michael Wilt
  *                Copyright 2017 Philippe Logel

@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : Include/LoadConfigs.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  description : global configuration
  *                   The code in this file used to be part of part of Config.php
  *

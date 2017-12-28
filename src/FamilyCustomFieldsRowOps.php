@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : FamilyCustomFieldsRowOps.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
  *                Copyright 2004-2012 Michael Wilt
  *  Cloned from PersonCustomFieldsRowOps.php

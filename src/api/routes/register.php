@@ -19,7 +19,7 @@ $app->group('/register', function () {
         $registrationData->Version = SystemService::getInstalledVersion();
 
         $registrationData->sComments = $input->emailmessage;
-        $curlService = curl_init('http://demo.churchcrm.io/register.php');
+        $curlService = curl_init('http://demo.ecclesiacrm.com/register.php');
 
         curl_setopt($curlService, CURLOPT_POST, true);
         curl_setopt($curlService, CURLOPT_POSTFIELDS, json_encode($registrationData));

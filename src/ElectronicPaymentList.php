@@ -5,7 +5,7 @@
  *  last change : 2014-11-29
  *  description : displays a list of all automatic payment records
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2014 Michael Wilt
   *
  ******************************************************************************/
