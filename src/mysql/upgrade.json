@@ -172,7 +172,7 @@
         ],
         "scripts": [
           "/mysql/upgrade/2.10.4-delete-ChurchCRM-folder.php"
-        ]
+        ],
         "dbVersion": "2.10.4"
     }
 }
