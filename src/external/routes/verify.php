@@ -1,12 +1,12 @@
 <?php
 
 use Slim\Views\PhpRenderer;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\TokenQuery;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Note;
-use ChurchCRM\Person;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\Person;
 
 $app->group('/verify', function () {
 

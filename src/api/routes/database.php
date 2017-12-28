@@ -1,6 +1,6 @@
 <?php
 
-use ChurchCRM\Service\SystemService;
+use EcclesiaCRM\Service\SystemService;
 
 // Routes
 

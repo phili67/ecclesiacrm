@@ -19,7 +19,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/LabelFunctions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Letters and Mailing Labels');

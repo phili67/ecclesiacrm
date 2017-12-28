@@ -1,12 +1,12 @@
 <?php
 
 
-use ChurchCRM\Service\CalendarService;
-use ChurchCRM\Service\FinancialService;
-use ChurchCRM\Service\GroupService;
-use ChurchCRM\Service\PersonService;
-use ChurchCRM\Service\ReportingService;
-use ChurchCRM\Service\SystemService;
+use EcclesiaCRM\Service\CalendarService;
+use EcclesiaCRM\Service\FinancialService;
+use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\Service\PersonService;
+use EcclesiaCRM\Service\ReportingService;
+use EcclesiaCRM\Service\SystemService;
 
 // DIC configuration
 

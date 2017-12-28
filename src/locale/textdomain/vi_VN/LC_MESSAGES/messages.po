@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: vi\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -126,9 +126,9 @@ msgstr "Quận/Huyện"
 msgid "Country"
 msgstr "Quốc gia "
 
-#: AutoPaymentEditor.php:935 ChurchCRM/Reports/PDF_Directory.php:312
-#: ChurchCRM/Reports/PDF_Directory.php:386
-#: ChurchCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
+#: AutoPaymentEditor.php:935 EcclesiaCRM/Reports/PDF_Directory.php:312
+#: EcclesiaCRM/Reports/PDF_Directory.php:386
+#: EcclesiaCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
 #: Reports/DirectoryReport.php:283 Reports/GroupReport.php:119
 #: external/templates/registration/family-register-members.php:103
 msgid "Phone"
@@ -136,9 +136,9 @@ msgstr "Điện thoại"
 
 #: AutoPaymentEditor.php:941 CSVExport.php:140 CSVImport.php:225
 #: CartToFamily.php:310 CartView.php:272
-#: ChurchCRM/Reports/PDF_Directory.php:321
-#: ChurchCRM/Reports/PDF_Directory.php:397
-#: ChurchCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:321
+#: EcclesiaCRM/Reports/PDF_Directory.php:397
+#: EcclesiaCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
 #: EventAttendance.php:175 FamilyEditor.php:770 FamilyView.php:266
 #: FamilyView.php:271 FamilyView.php:353 GroupReports.php:127
 #: PersonEditor.php:1034 PersonEditor.php:1036 PersonView.php:308
@@ -185,7 +185,7 @@ msgid "Backup Database"
 msgstr "Cơ sở dữ liệu sao lưu"
 
 #: BackupDatabase.php:47
-msgid "This tool will assist you in manually backing up the ChurchCRM database."
+msgid "This tool will assist you in manually backing up the EcclesiaCRM database."
 msgstr "Công cụ này sẽ giúp bạn tự sao lưu cơ sở dữ liệu Hệ Thống Quản Lý Hội Thánh"
 
 #: BackupDatabase.php:51
@@ -197,7 +197,7 @@ msgid "After you download the backup file, you should make two copies. Put one o
 msgstr "Sau khi bạn tải về các tập tin sao lưu, bạn nên làm cho hai bản sao. Đặt một trong số tập tin này vào nơi an toàn trong máy chủ và ngoài máy chủ."
 
 #: BackupDatabase.php:53
-msgid "If you are concerned about confidentiality of data stored in the ChurchCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
+msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
 msgstr "Nếu bạn lo lắng về tính bảo mật của dữ liệu được lưu trữ trong cơ sở dữ liệu của Hệ Thống Quản Lý Hội Thánh, bạn nên mã hóa dữ liệu sao lưu nếu nó sẽ được lưu trữ ở đâu đó có khả năng tiếp cận với những người khác"
 
 #: BackupDatabase.php:54
@@ -286,8 +286,8 @@ msgstr "Zip"
 msgid "Envelope"
 msgstr "Địa chỉ nhận thư:"
 
-#: CSVExport.php:145 ChurchCRM/Reports/PDF_Directory.php:400
-#: ChurchCRM/Reports/PDF_Directory.php:457 PersonView.php:322
+#: CSVExport.php:145 EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 PersonView.php:322
 #: Reports/DirectoryReport.php:297
 #, fuzzy
 msgid "Work/Other Email"
@@ -350,8 +350,8 @@ msgstr "Sử dụng Ctrl Key để chọn nhiều"
 msgid "Don't Filter"
 msgstr "Không lọc"
 
-#: CSVExport.php:326 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:26
-#: ChurchCRM/Service/DashboardService.php:62 FamilyEditor.php:989
+#: CSVExport.php:326 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
+#: EcclesiaCRM/Service/DashboardService.php:62 FamilyEditor.php:989
 #: PersonEditor.php:629 PrintView.php:244 PrintView.php:363 SelectList.php:570
 #: SelectList.php:1156
 #: external/templates/registration/family-register-members.php:59
@@ -359,8 +359,8 @@ msgstr "Không lọc"
 msgid "Male"
 msgstr "Nam"
 
-#: CSVExport.php:327 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:29
-#: ChurchCRM/Service/DashboardService.php:65 FamilyEditor.php:992
+#: CSVExport.php:327 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
+#: EcclesiaCRM/Service/DashboardService.php:65 FamilyEditor.php:992
 #: PersonEditor.php:632 PrintView.php:247 PrintView.php:363 SelectList.php:576
 #: SelectList.php:1157
 #: external/templates/registration/family-register-members.php:60
@@ -611,7 +611,7 @@ msgid "Add Cart to Family"
 msgstr "Thêm vào giỏ hàng rồi gửi đến Gia đình"
 
 #: CartToFamily.php:154 CartView.php:270 Checkin.php:311
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: DonationFundEditor.php:149 DonationFundEditor.php:212
 #: EditEventAttendees.php:32 EditEventAttendees.php:41 EventAttendance.php:174
 #: EventNames.php:262 FamilyCustomFieldsEditor.php:319
@@ -751,7 +751,7 @@ msgstr "Ai giữ vai trò là chủ hộ ?"
 msgid "Address"
 msgstr "Địa chỉ"
 
-#: ChurchCRM/Service/CalendarService.php:18 DirectoryReports.php:173
+#: EcclesiaCRM/Service/CalendarService.php:18 DirectoryReports.php:173
 #: FamilyView.php:352 PersonView.php:495 Reports/ConfirmReport.php:184
 #: Reports/ConfirmReport.php:203 Reports/ConfirmReportEmail.php:191
 #: Reports/ConfirmReportEmail.php:209
@@ -816,7 +816,7 @@ msgid "Save Name"
 msgstr "Lưu lại tên"
 
 #: AutoPaymentEditor.php:800
-#: ChurchCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194 FamilyView.php:199 FinancialReports.php:302
 #: Include/Footer.php:53 PersonEditor.php:795 PersonView.php:413
 #: PledgeEditor.php:507 PrintView.php:258 PropertyAssign.php:72
@@ -998,12 +998,12 @@ msgstr "Lựa chọn giới tính"
 msgid "Select Role"
 msgstr "Lựa chọn vai trò"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:23
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: ChurchCRM/Service/DashboardService.php:59
-#: ChurchCRM/Service/DashboardService.php:73
-#: ChurchCRM/Service/TimelineService.php:115
-#: ChurchCRM/model/ChurchCRM/Person.php:428 FamilyEditor.php:1016
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
+#: EcclesiaCRM/Service/DashboardService.php:59
+#: EcclesiaCRM/Service/DashboardService.php:73
+#: EcclesiaCRM/Service/TimelineService.php:115
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:428 FamilyEditor.php:1016
 #: Include/Functions.php:635 Include/Functions.php:664
 #: Include/Functions.php:884
 msgid "Unknown"
@@ -1065,8 +1065,8 @@ msgstr "Danh sách gia đình"
 msgid "Add Family"
 msgstr "Thêm gia đình"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:174
-#: ChurchCRM/model/ChurchCRM/Person.php:115 FamilyList.php:49 Menu.php:315
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:174
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:115 FamilyList.php:49 Menu.php:315
 #: PersonEditor.php:392
 msgid "Created"
 msgstr "Đã tạo"
@@ -1166,7 +1166,7 @@ msgstr "Ngày kết thúc báo cáo"
 msgid "All Families"
 msgstr "Tất cả gia đình"
 
-#: ChurchCRM/dto/SystemConfig.php:132 FinancialReports.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:132 FinancialReports.php:291
 msgid "Church Address"
 msgstr "Địa chỉ Hội Thánh"
 
@@ -1367,7 +1367,7 @@ msgstr "Thời gian/ngày bắt đầu"
 msgid "Please Login"
 msgstr "Vui lòng đăng nhập"
 
-#: ChurchCRM/Emails/users/BaseUserEmail.php:30 Login.php:213
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:213
 msgid "Email/Username"
 msgstr "Email/Tài khoản"
 
@@ -1481,7 +1481,7 @@ msgid "Latest Families"
 msgstr "Gia đình mới thêm"
 
 #: CartToFamily.php:205
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: FamilyEditor.php:653 LettersAndLabels.php:70 Menu.php:313 Menu.php:342
 #: Reports/ConfirmReport.php:115 Reports/ConfirmReportEmail.php:119
 #: SelectDelete.php:151 SelectDelete.php:277
@@ -1493,8 +1493,8 @@ msgstr "Tên gia đình"
 msgid "Updated Families"
 msgstr "Gia đình vừa cập nhật"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:179
-#: ChurchCRM/model/ChurchCRM/Person.php:120 Menu.php:344 PersonEditor.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:179
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:120 Menu.php:344 PersonEditor.php:405
 msgid "Updated"
 msgstr "Đã cập nhật"
 
@@ -1664,7 +1664,7 @@ msgstr "Tên Ban/Mục vụ"
 msgid "Notes:"
 msgstr "Ghi chú:"
 
-#: ChurchCRM/Service/TimelineService.php:127 PrintView.php:498
+#: EcclesiaCRM/Service/TimelineService.php:127 PrintView.php:498
 msgid "by"
 msgstr "bởi"
 
@@ -1778,7 +1778,7 @@ msgstr "In ấn"
 msgid "Save Settings"
 msgstr "Lưu thay đổi"
 
-#: ChurchCRM/dto/SystemConfig.php:240 Include/Footer.php:139
+#: EcclesiaCRM/dto/SystemConfig.php:240 Include/Footer.php:139
 #: SystemSettings.php:28
 msgid "System Settings"
 msgstr "Cài đặt hệ thống"
@@ -1831,9 +1831,9 @@ msgstr "Nhập mật khẩu hiện tại, sau đó nhập mật khẩu mới hai
 msgid "Old Password"
 msgstr "Mật khẩu cũ"
 
-#: ChurchCRM/Emails/users/NewAccountEmail.php:30
-#: ChurchCRM/Emails/users/PasswordChangeEmail.php:29
-#: ChurchCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:30
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
 msgid "New Password"
 msgstr "Mật khẩu mới"
 
@@ -1898,9 +1898,9 @@ msgstr "Trang chủ"
 msgid "Cell Phone"
 msgstr "Di động"
 
-#: ChurchCRM/Reports/PDF_Directory.php:315
-#: ChurchCRM/Reports/PDF_Directory.php:390
-#: ChurchCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
+#: EcclesiaCRM/Reports/PDF_Directory.php:315
+#: EcclesiaCRM/Reports/PDF_Directory.php:390
+#: EcclesiaCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
 #: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:96
 msgid "Work"
@@ -1981,7 +1981,7 @@ msgstr "Xem tất cả thành viên"
 msgid "Add New Family"
 msgstr "Thêm gia đình mới"
 
-#: ChurchCRM/dto/SystemConfig.php:246 menuconfig_mcf.php:16
+#: EcclesiaCRM/dto/SystemConfig.php:246 menuconfig_mcf.php:16
 msgid "Events"
 msgstr "Sự kiện"
 
@@ -2001,7 +2001,7 @@ msgstr "Chào mừng bạn đến với"
 msgid "Login to restored Database"
 msgstr "Đăng nhập để phục hồi cơ sở dữ liệu"
 
-#: ChurchCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Church Information"
 msgstr "Thông tin Hội Thánh"
 
@@ -2029,11 +2029,11 @@ msgstr "Di động"
 msgid "Family Members:"
 msgstr "Thành viên trong gia đình:"
 
-#: ChurchCRM/Service/CalendarService.php:17
+#: EcclesiaCRM/Service/CalendarService.php:17
 msgid "Event"
 msgstr "Sự kiện"
 
-#: ChurchCRM/Service/CalendarService.php:19 calendar.php:58
+#: EcclesiaCRM/Service/CalendarService.php:19 calendar.php:58
 msgid "Anniversary"
 msgstr "Kỷ niệm"
 
@@ -2136,13 +2136,13 @@ msgstr "Đã tạo gia đình"
 msgid "Updated via Family"
 msgstr "Đã cập nhật qua gia đình"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:250
-#: ChurchCRM/model/ChurchCRM/Person.php:223
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:250
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:223
 msgid "Profile Image Deleted"
 msgstr "Hình ảnh đại diện đã được xóa"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:263
-#: ChurchCRM/model/ChurchCRM/Person.php:247
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:263
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:247
 msgid "Profile Image uploaded"
 msgstr "Đã cập nhật hình ảnh đại diện"
 
@@ -2182,7 +2182,7 @@ msgstr "Xem gia đình không hoạt động"
 msgid "Exclude Inactive Families"
 msgstr "Ngoại trừ gia đình không hoạt động"
 
-#: ChurchCRM/model/ChurchCRM/User.php:161
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:161
 msgid "system user password changed by admin"
 msgstr "mật khẩu thành viên đã được thay đổi bởi Admin"
 

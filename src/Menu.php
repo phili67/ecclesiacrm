@@ -17,13 +17,13 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-use ChurchCRM\DepositQuery;
-use ChurchCRM\Service\DashboardService;
-use ChurchCRM\Service\FinancialService;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\ChurchMetaData;
-use ChurchCRM\dto\MenuEventsCount;
+use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\Service\DashboardService;
+use EcclesiaCRM\Service\FinancialService;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\MenuEventsCount;
 
 $financialService = new FinancialService();
 $dashboardService = new DashboardService();
@@ -248,7 +248,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
             <div class="inner">
                 <h3>
                   <?=
-                     ChurchCRM\Base\EventAttendQuery::create()
+                     EcclesiaCRM\Base\EventAttendQuery::create()
                     ->filterByCheckinDate(null, \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
                     ->filterByCheckoutDate(null, \Propel\Runtime\ActiveQuery\Criteria::EQUAL)
                     ->find()

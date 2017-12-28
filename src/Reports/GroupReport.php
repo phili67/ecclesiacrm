@@ -14,9 +14,9 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\PDF_GroupDirectory;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\PDF_GroupDirectory;
+use EcclesiaCRM\Utils\InputUtils;
 
 $bOnlyCartMembers = $_POST['OnlyCart'];
 $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');

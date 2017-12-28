@@ -14,9 +14,9 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\ListOptionQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\ListOptionQuery;
 
 $delimiter = SystemConfig::getValue("sCSVExportDelemiter");
 

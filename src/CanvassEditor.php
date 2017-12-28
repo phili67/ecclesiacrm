@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security: User must have canvasser permission to use this form
 if (!$_SESSION['bCanvasser']) {

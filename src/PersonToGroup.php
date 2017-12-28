@@ -15,8 +15,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Service\GroupService;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\Utils\InputUtils;
 
 $groupService = new GroupService();
 

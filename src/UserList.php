@@ -18,9 +18,9 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\UserQuery;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.

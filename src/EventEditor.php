@@ -23,8 +23,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 $sPageTitle = gettext('Church Event Editor');
 
@@ -497,7 +497,7 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
       <select type="text" name="EventGroup" value="<?= $nEventGroupId ?>" width="100%" style="width: 100%">
          <option value="0" <?= ($nEventGroupId == 0 ? "Selected":"") ?>><?= gettext("None") ?></option>
         <?php
-          $groups=  ChurchCRM\Base\GroupQuery::create()->find();
+          $groups=  EcclesiaCRM\Base\GroupQuery::create()->find();
             foreach ($groups as $group) {
                 ?>
          <option value="<?= $group->getId() ?>" <?= ($group->getId() == $nEventGroupId ? "Selected":"") ?>><?= $group->getName() ?></option>

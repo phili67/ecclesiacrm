@@ -19,16 +19,16 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 //Get the data on this group
-$thisGroup = ChurchCRM\GroupQuery::create()->findOneById($iGroupID);
+$thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
 
 //Look up the default role name
 $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId())->filterByOptionId($thisGroup->getDefaultRole())->findOne();

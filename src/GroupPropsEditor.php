@@ -14,7 +14,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security: user must be allowed to edit records to use this page.
 if (!$_SESSION['bEditRecords']) {

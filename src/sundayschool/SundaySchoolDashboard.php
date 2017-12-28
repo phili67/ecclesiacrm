@@ -2,9 +2,9 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use ChurchCRM\Service\DashboardService;
-use ChurchCRM\Service\SundaySchoolService;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\DashboardService;
+use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\dto\SystemURLs;
 
 $dashboardService = new DashboardService();
 $sundaySchoolService = new SundaySchoolService();

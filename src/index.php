@@ -1,6 +1,6 @@
 <?php
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 if (file_exists('Include/Config.php')) {
     require_once 'Include/Config.php';

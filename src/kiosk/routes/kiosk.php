@@ -1,10 +1,10 @@
 <?php
 
 use Slim\Views\PhpRenderer;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\PersonQuery;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use ChurchCRM\dto\Notification;
+use EcclesiaCRM\dto\Notification;
 
 
 $app->get('/', function ($request, $response, $args) use ($app) {

@@ -11,10 +11,10 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\PDF_NewsletterLabels;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\FamilyQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\PDF_NewsletterLabels;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\FamilyQuery;
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
 $bRecipientNamingMethod = $_GET['recipientnamingmethod'];

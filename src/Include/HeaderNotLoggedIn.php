@@ -1,5 +1,5 @@
 <?php
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 require_once 'Header-Security.php';
 
@@ -16,13 +16,13 @@ require_once 'Header-Security.php';
 
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/bootstrap/css/bootstrap.min.css">
-    <!-- Custom ChurchCRM styles -->
+    <!-- Custom EcclesiaCRM styles -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/churchcrm.min.css">
 
     <!-- jQuery JS -->
     <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
-    <title>ChurchCRM: <?= $sPageTitle ?></title>
+    <title>EcclesiaCRM: <?= $sPageTitle ?></title>
 
 </head>
 <body class="hold-transition login-page">

@@ -14,11 +14,11 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\PersonQuery;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');

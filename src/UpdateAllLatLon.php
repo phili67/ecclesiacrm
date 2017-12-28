@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 
-use ChurchCRM\FamilyQuery;
+use EcclesiaCRM\FamilyQuery;
 
 require 'Include/Config.php';
 require 'Include/Functions.php';

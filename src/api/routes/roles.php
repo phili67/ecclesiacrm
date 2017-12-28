@@ -1,7 +1,7 @@
 <?php
 
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonQuery;
 use LogicException;
 
 

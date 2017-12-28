@@ -18,10 +18,10 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\Emails\FamilyVerificationEmail;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Emails\FamilyVerificationEmail;
+use EcclesiaCRM\Utils\InputUtils;
 
 class EmailPDF_ConfirmReport extends ChurchInfoReport
 {

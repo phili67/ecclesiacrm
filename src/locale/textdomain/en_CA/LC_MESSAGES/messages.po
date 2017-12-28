@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: en-ca\n"
 
 #: AutoPaymentEditor.php:918 CSVExport.php:105 CSVImport.php:219
@@ -39,15 +39,15 @@ msgstr "Scan cheque"
 msgid "City, State, Zip"
 msgstr "City, Province, Postal Code"
 
-#: ChurchCRM/dto/SystemConfig.php:78
+#: EcclesiaCRM/dto/SystemConfig.php:78
 msgid "Default State - Must be 2-letter abbreviation!"
 msgstr "Default Province - Must be 2-letter abbreviation!"
 
-#: ChurchCRM/dto/SystemConfig.php:134
+#: EcclesiaCRM/dto/SystemConfig.php:134
 msgid "Church State"
 msgstr "Church Province"
 
-#: ChurchCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Church Zip"
 msgstr "Church Postal Code"
 

@@ -1,5 +1,5 @@
 <?php
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 ?>
 
@@ -7,7 +7,7 @@ use ChurchCRM\dto\SystemURLs;
 <link rel="stylesheet" type="text/css"
       href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/bootstrap/css/bootstrap.min.css">
 
-<!-- Custom ChurchCRM styles -->
+<!-- Custom EcclesiaCRM styles -->
 <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/churchcrm.min.css">
 
 <!-- jQuery 2.1.4 -->

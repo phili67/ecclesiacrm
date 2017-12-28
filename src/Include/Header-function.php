@@ -13,15 +13,15 @@
 
 require_once 'Functions.php';
 
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Service\NotificationService;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\GroupQuery;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\NotificationService;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\MenuConfigQuery;
-use ChurchCRM\UserConfigQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\MenuConfigQuery;
+use EcclesiaCRM\UserConfigQuery;
 
 function Header_system_notifications()
 {

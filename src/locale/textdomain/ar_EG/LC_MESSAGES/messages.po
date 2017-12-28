@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: ar\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -126,9 +126,9 @@ msgstr "الحي"
 msgid "Country"
 msgstr "البلد"
 
-#: AutoPaymentEditor.php:935 ChurchCRM/Reports/PDF_Directory.php:312
-#: ChurchCRM/Reports/PDF_Directory.php:386
-#: ChurchCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
+#: AutoPaymentEditor.php:935 EcclesiaCRM/Reports/PDF_Directory.php:312
+#: EcclesiaCRM/Reports/PDF_Directory.php:386
+#: EcclesiaCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
 #: Reports/DirectoryReport.php:283 Reports/GroupReport.php:119
 #: external/templates/registration/family-register-members.php:103
 msgid "Phone"
@@ -136,9 +136,9 @@ msgstr "التليفون"
 
 #: AutoPaymentEditor.php:941 CSVExport.php:140 CSVImport.php:225
 #: CartToFamily.php:310 CartView.php:272
-#: ChurchCRM/Reports/PDF_Directory.php:321
-#: ChurchCRM/Reports/PDF_Directory.php:397
-#: ChurchCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:321
+#: EcclesiaCRM/Reports/PDF_Directory.php:397
+#: EcclesiaCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
 #: EventAttendance.php:175 FamilyEditor.php:770 FamilyView.php:266
 #: FamilyView.php:271 FamilyView.php:353 GroupReports.php:127
 #: PersonEditor.php:1034 PersonEditor.php:1036 PersonView.php:308
@@ -193,8 +193,8 @@ msgid "Backup Database"
 msgstr "النسخ الاحتياطي لقاعدة البيانات"
 
 #: BackupDatabase.php:47
-msgid "This tool will assist you in manually backing up the ChurchCRM database."
-msgstr "هذه الأداة سوف تساعدك في النسخ الاحتياطي لقاعدة بيانات ChurchCRM يدويا."
+msgid "This tool will assist you in manually backing up the EcclesiaCRM database."
+msgstr "هذه الأداة سوف تساعدك في النسخ الاحتياطي لقاعدة بيانات EcclesiaCRM يدويا."
 
 #: BackupDatabase.php:51
 msgid "You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems."
@@ -205,8 +205,8 @@ msgid "After you download the backup file, you should make two copies. Put one o
 msgstr "بعد تحميل ملف النسخ الاحتياطي، يجب إجراء نسختين. احتفظ بواحد منهم في حافظة واقية من الحريق في الموقع والآخر في مكان آمن خارج الموقع."
 
 #: BackupDatabase.php:53
-msgid "If you are concerned about confidentiality of data stored in the ChurchCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
-msgstr "إذا كنت تشعر بالقلق إزاء سرية البيانات المخزنة في قاعدة البيانات ChurchCRM، يجب أن تشفير البيانات الاحتياطية إذا كان سيتم تخزينها في مكان ما يحتمل أن تكون في متناول الآخرين"
+msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
+msgstr "إذا كنت تشعر بالقلق إزاء سرية البيانات المخزنة في قاعدة البيانات EcclesiaCRM، يجب أن تشفير البيانات الاحتياطية إذا كان سيتم تخزينها في مكان ما يحتمل أن تكون في متناول الآخرين"
 
 #: BackupDatabase.php:54
 msgid "For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however."
@@ -300,8 +300,8 @@ msgstr "الرمز البريدي"
 msgid "Envelope"
 msgstr "الرقم البريدي"
 
-#: CSVExport.php:145 ChurchCRM/Reports/PDF_Directory.php:400
-#: ChurchCRM/Reports/PDF_Directory.php:457 PersonView.php:322
+#: CSVExport.php:145 EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 PersonView.php:322
 #: Reports/DirectoryReport.php:297
 msgid "Work/Other Email"
 msgstr "البريد الإلكتروني للعمل / الأخرى"
@@ -366,8 +366,8 @@ msgstr "استخدم مفتاح Ctrl لتحديد عدة عناصر"
 msgid "Don't Filter"
 msgstr "لا تصفية"
 
-#: CSVExport.php:326 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:26
-#: ChurchCRM/Service/DashboardService.php:62 FamilyEditor.php:989
+#: CSVExport.php:326 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
+#: EcclesiaCRM/Service/DashboardService.php:62 FamilyEditor.php:989
 #: PersonEditor.php:629 PrintView.php:244 PrintView.php:363 SelectList.php:570
 #: SelectList.php:1156
 #: external/templates/registration/family-register-members.php:59
@@ -375,8 +375,8 @@ msgstr "لا تصفية"
 msgid "Male"
 msgstr "ذكر"
 
-#: CSVExport.php:327 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:29
-#: ChurchCRM/Service/DashboardService.php:65 FamilyEditor.php:992
+#: CSVExport.php:327 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
+#: EcclesiaCRM/Service/DashboardService.php:65 FamilyEditor.php:992
 #: PersonEditor.php:632 PrintView.php:247 PrintView.php:363 SelectList.php:576
 #: SelectList.php:1157
 #: external/templates/registration/family-register-members.php:60
@@ -672,7 +672,7 @@ msgid "Add Cart to Family"
 msgstr "إضافة عربة للأسرة"
 
 #: CartToFamily.php:154 CartView.php:270 Checkin.php:311
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: DonationFundEditor.php:149 DonationFundEditor.php:212
 #: EditEventAttendees.php:32 EditEventAttendees.php:41 EventAttendance.php:174
 #: EventNames.php:262 FamilyCustomFieldsEditor.php:319
@@ -867,7 +867,7 @@ msgstr "عمل"
 msgid "Member"
 msgstr "الأعضاء"
 
-#: Checkin.php:457 ChurchCRM/Service/PersonService.php:39
+#: Checkin.php:457 EcclesiaCRM/Service/PersonService.php:39
 msgid " of the"
 msgstr " لأن"
 
@@ -928,7 +928,7 @@ msgstr "دليل التقارير"
 msgid "Address"
 msgstr "عنوان"
 
-#: ChurchCRM/Service/CalendarService.php:18 DirectoryReports.php:173
+#: EcclesiaCRM/Service/CalendarService.php:18 DirectoryReports.php:173
 #: FamilyView.php:352 PersonView.php:495 Reports/ConfirmReport.php:184
 #: Reports/ConfirmReport.php:203 Reports/ConfirmReportEmail.php:191
 #: Reports/ConfirmReportEmail.php:209
@@ -998,7 +998,7 @@ msgstr "عنوان الصفحة"
 msgid "Use Title Page"
 msgstr "استخدام عنوان الصفحة"
 
-#: ChurchCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
 msgid "Church Name"
 msgstr "اسم الكنيسة"
 
@@ -1148,7 +1148,7 @@ msgid "Add a New Electronic Payment Method"
 msgstr "إضافة أسلوب دفع إلكتروني الجديدة"
 
 #: AutoPaymentEditor.php:800
-#: ChurchCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194 FamilyView.php:199 FinancialReports.php:302
 #: Include/Footer.php:53 PersonEditor.php:795 PersonView.php:413
 #: PledgeEditor.php:507 PrintView.php:258 PropertyAssign.php:72

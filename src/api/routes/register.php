@@ -1,7 +1,7 @@
 <?php
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Service\SystemService;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Service\SystemService;
 
 $app->group('/register', function () {
     $this->post('', function ($request, $response, $args) {
@@ -15,7 +15,7 @@ $app->group('/register', function () {
         $registrationData->sZip = SystemConfig::getValue('sChurchZip');
         $registrationData->sCountry = SystemConfig::getValue('sChurchCountry');
         $registrationData->sEmail = SystemConfig::getValue('sChurchEmail');
-        $registrationData->ChurchCRMURL = $input->ChurchCRMURL;
+        $registrationData->EcclesiaCRMURL = $input->EcclesiaCRMURL;
         $registrationData->Version = SystemService::getInstalledVersion();
 
         $registrationData->sComments = $input->emailmessage;

@@ -12,8 +12,8 @@ require 'Include/Functions.php';
 require 'bin/vancowebservices.php';
 
 
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');

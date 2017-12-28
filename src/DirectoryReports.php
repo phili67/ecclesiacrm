@@ -15,7 +15,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Check for Create Directory user permission.
 if (!$bCreateDirectory) {

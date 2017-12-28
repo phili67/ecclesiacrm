@@ -13,8 +13,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Set the page title
 $sPageTitle = gettext('Query View');

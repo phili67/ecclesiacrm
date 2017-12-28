@@ -13,7 +13,7 @@ $sUSER = '||DB_USER||';
 $sPASSWORD = '||DB_PASSWORD||';
 $sDATABASE = '||DB_NAME||';
 
-// Root path of your ChurchCRM installation ( THIS MUST BE SET CORRECTLY! )
+// Root path of your EcclesiaCRM installation ( THIS MUST BE SET CORRECTLY! )
 //
 // Examples:
 // - if you will be accessing from http://www.yourdomain.com/churchcrm then you would enter '/churchcrm' here.
@@ -26,7 +26,7 @@ $sDATABASE = '||DB_NAME||';
 $sRootPath = '||ROOT_PATH||';
 
 // Set $bLockURL=TRUE to enforce https access by specifying exactly
-// which URL's your users may use to log into ChurchCRM.
+// which URL's your users may use to log into EcclesiaCRM.
 $bLockURL = FALSE;
 
 // URL[0] is the URL that you prefer most users use when they

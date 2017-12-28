@@ -18,8 +18,8 @@ require 'Include/CountryDropDown.php';
 require 'Include/StateDropDown.php';
 
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security: User must have add records permission
 if (!$_SESSION['bAddRecords']) {

@@ -3,8 +3,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Get the FamilyID out of the querystring
 $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');

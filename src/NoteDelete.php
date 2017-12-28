@@ -12,8 +12,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\NoteQuery;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.

@@ -6,7 +6,7 @@ $bSuppressSessionTests = true;
 require 'Include/Functions.php';
 require_once 'Include/Header-function.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Upgrade EcclesiaCRM2');

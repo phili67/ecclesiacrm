@@ -13,10 +13,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\DonationFund;
-use ChurchCRM\DonationFundQuery;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\DonationFund;
+use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: user must be administrator to use this page
 if (!$_SESSION['bAdmin']) {

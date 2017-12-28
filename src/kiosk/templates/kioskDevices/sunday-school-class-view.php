@@ -1,7 +1,7 @@
 <?php
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 // Set the page title and include HTML header
-$sPageTitle = "ChurchCRM - Sunday School Device Kiosk";
+$sPageTitle = "EcclesiaCRM - Sunday School Device Kiosk";
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
 <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/kiosk.css">

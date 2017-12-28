@@ -19,7 +19,7 @@
     "support": {
         "email": "dev-support@imathgeo.com",
         "issues": "http://www.eclisiacrm.com/issues",
-        "irc": "https://gitter.im/ChurchCRM/CRM",
+        "irc": "https://gitter.im/EcclesiaCRM/CRM",
         "source": "https://github.com/phili67/ecclesiacrm",
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
@@ -45,11 +45,11 @@
     },
     "autoload": {
         "classmap": [
-            "ChurchCRM/"
+            "EcclesiaCRM/"
         ],
         "psr-4": {
             "\\": "bin/",
-            "ChurchCRM\\": "ChurchCRM/"
+            "EcclesiaCRM\\": "EcclesiaCRM/"
         }
     },
     "repositories": {

@@ -1,10 +1,10 @@
 <?php
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Family;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\Person;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Family;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Person;
 use Slim\Views\PhpRenderer;
 
 $app->group('/register', function () {

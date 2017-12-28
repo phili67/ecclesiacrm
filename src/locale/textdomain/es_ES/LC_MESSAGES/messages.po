@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: es\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -126,9 +126,9 @@ msgstr "Estado"
 msgid "Country"
 msgstr "País"
 
-#: AutoPaymentEditor.php:935 ChurchCRM/Reports/PDF_Directory.php:312
-#: ChurchCRM/Reports/PDF_Directory.php:386
-#: ChurchCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
+#: AutoPaymentEditor.php:935 EcclesiaCRM/Reports/PDF_Directory.php:312
+#: EcclesiaCRM/Reports/PDF_Directory.php:386
+#: EcclesiaCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
 #: Reports/DirectoryReport.php:283 Reports/GroupReport.php:119
 #: external/templates/registration/family-register-members.php:103
 msgid "Phone"
@@ -136,9 +136,9 @@ msgstr "Telefono"
 
 #: AutoPaymentEditor.php:941 CSVExport.php:140 CSVImport.php:225
 #: CartToFamily.php:310 CartView.php:272
-#: ChurchCRM/Reports/PDF_Directory.php:321
-#: ChurchCRM/Reports/PDF_Directory.php:397
-#: ChurchCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:321
+#: EcclesiaCRM/Reports/PDF_Directory.php:397
+#: EcclesiaCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
 #: EventAttendance.php:175 FamilyEditor.php:770 FamilyView.php:266
 #: FamilyView.php:271 FamilyView.php:353 GroupReports.php:127
 #: PersonEditor.php:1034 PersonEditor.php:1036 PersonView.php:308
@@ -193,8 +193,8 @@ msgid "Backup Database"
 msgstr "Respaldar la Base de Datos"
 
 #: BackupDatabase.php:47
-msgid "This tool will assist you in manually backing up the ChurchCRM database."
-msgstr "Esta herramienta lo asistirá para respaldar manualmente la base de datos de ChurchCRM."
+msgid "This tool will assist you in manually backing up the EcclesiaCRM database."
+msgstr "Esta herramienta lo asistirá para respaldar manualmente la base de datos de EcclesiaCRM."
 
 #: BackupDatabase.php:51
 msgid "You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems."
@@ -205,8 +205,8 @@ msgid "After you download the backup file, you should make two copies. Put one o
 msgstr "Después de descargar el archivo de copia de seguridad, usted debe hacer dos copias. Ponga una de ellas en una caja fuerte a prueba de fuego en el lugar y la otra en un lugar seguro en otro sitio."
 
 #: BackupDatabase.php:53
-msgid "If you are concerned about confidentiality of data stored in the ChurchCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
-msgstr "Si le preocupa la confidencialidad de los datos almacenados en la base de datos de ChurchCRM, debería encriptar los datos de respaldo si es que son almacenados en un lugar potencialmente accesible a otros"
+msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
+msgstr "Si le preocupa la confidencialidad de los datos almacenados en la base de datos de EcclesiaCRM, debería encriptar los datos de respaldo si es que son almacenados en un lugar potencialmente accesible a otros"
 
 #: BackupDatabase.php:54
 msgid "For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however."
@@ -304,8 +304,8 @@ msgstr "Código Postal"
 msgid "Envelope"
 msgstr "Sobre"
 
-#: CSVExport.php:145 ChurchCRM/Reports/PDF_Directory.php:400
-#: ChurchCRM/Reports/PDF_Directory.php:457 PersonView.php:322
+#: CSVExport.php:145 EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 PersonView.php:322
 #: Reports/DirectoryReport.php:297
 msgid "Work/Other Email"
 msgstr "Otro Email de Contacto"
@@ -370,8 +370,8 @@ msgstr "Use la tecla Ctrl para seleccionar varios"
 msgid "Don't Filter"
 msgstr "No Filtrar"
 
-#: CSVExport.php:326 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:26
-#: ChurchCRM/Service/DashboardService.php:62 FamilyEditor.php:989
+#: CSVExport.php:326 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
+#: EcclesiaCRM/Service/DashboardService.php:62 FamilyEditor.php:989
 #: PersonEditor.php:629 PrintView.php:244 PrintView.php:363 SelectList.php:570
 #: SelectList.php:1156
 #: external/templates/registration/family-register-members.php:59
@@ -379,8 +379,8 @@ msgstr "No Filtrar"
 msgid "Male"
 msgstr "Hombre"
 
-#: CSVExport.php:327 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:29
-#: ChurchCRM/Service/DashboardService.php:65 FamilyEditor.php:992
+#: CSVExport.php:327 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
+#: EcclesiaCRM/Service/DashboardService.php:65 FamilyEditor.php:992
 #: PersonEditor.php:632 PrintView.php:247 PrintView.php:363 SelectList.php:576
 #: SelectList.php:1157
 #: external/templates/registration/family-register-members.php:60
@@ -773,7 +773,7 @@ msgid "Add Cart to Family"
 msgstr "Añadir el Separador a Familia"
 
 #: CartToFamily.php:154 CartView.php:270 Checkin.php:311
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: DonationFundEditor.php:149 DonationFundEditor.php:212
 #: EditEventAttendees.php:32 EditEventAttendees.php:41 EventAttendance.php:174
 #: EventNames.php:262 FamilyCustomFieldsEditor.php:319
@@ -1004,11 +1004,11 @@ msgstr "No hay Participantes Asignados a Evento"
 msgid "Member"
 msgstr "Miembro"
 
-#: Checkin.php:457 ChurchCRM/Service/PersonService.php:39
+#: Checkin.php:457 EcclesiaCRM/Service/PersonService.php:39
 msgid " of the"
 msgstr "de"
 
-#: Checkin.php:459 ChurchCRM/Service/PersonService.php:41 PersonView.php:267
+#: Checkin.php:459 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:267
 msgid "(No assigned family)"
 msgstr "(No asignado a ninguna familia)"
 
@@ -1105,7 +1105,7 @@ msgstr "Información a Incluir"
 msgid "Address"
 msgstr "Dirección"
 
-#: ChurchCRM/Service/CalendarService.php:18 DirectoryReports.php:173
+#: EcclesiaCRM/Service/CalendarService.php:18 DirectoryReports.php:173
 #: FamilyView.php:352 PersonView.php:495 Reports/ConfirmReport.php:184
 #: Reports/ConfirmReport.php:203 Reports/ConfirmReportEmail.php:191
 #: Reports/ConfirmReportEmail.php:209
@@ -1175,7 +1175,7 @@ msgstr "Título de la Página"
 msgid "Use Title Page"
 msgstr "Utilizar título de la página"
 
-#: ChurchCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
 msgid "Church Name"
 msgstr "Nombre de la Iglesia"
 
@@ -1329,7 +1329,7 @@ msgid "Add a New Electronic Payment Method"
 msgstr "Agregar un Nuevo Método de Pago Electrónico"
 
 #: AutoPaymentEditor.php:800
-#: ChurchCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194 FamilyView.php:199 FinancialReports.php:302
 #: Include/Footer.php:53 PersonEditor.php:795 PersonView.php:413
 #: PledgeEditor.php:507 PrintView.php:258 PropertyAssign.php:72
@@ -1766,12 +1766,12 @@ msgstr "Seleccione Género"
 msgid "Select Role"
 msgstr "Seleccione Rol"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:23
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: ChurchCRM/Service/DashboardService.php:59
-#: ChurchCRM/Service/DashboardService.php:73
-#: ChurchCRM/Service/TimelineService.php:115
-#: ChurchCRM/model/ChurchCRM/Person.php:428 FamilyEditor.php:1016
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
+#: EcclesiaCRM/Service/DashboardService.php:59
+#: EcclesiaCRM/Service/DashboardService.php:73
+#: EcclesiaCRM/Service/TimelineService.php:115
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:428 FamilyEditor.php:1016
 #: Include/Functions.php:635 Include/Functions.php:664
 #: Include/Functions.php:884
 msgid "Unknown"
@@ -1837,8 +1837,8 @@ msgstr "Lista de Familia"
 msgid "Add Family"
 msgstr "Agregar Familia"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:174
-#: ChurchCRM/model/ChurchCRM/Person.php:115 FamilyList.php:49 Menu.php:315
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:174
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:115 FamilyList.php:49 Menu.php:315
 #: PersonEditor.php:392
 msgid "Created"
 msgstr "Creada"
@@ -2189,7 +2189,7 @@ msgstr "Encabezado de reporte:"
 msgid "Graphic"
 msgstr "Gráfico"
 
-#: ChurchCRM/dto/SystemConfig.php:132 FinancialReports.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:132 FinancialReports.php:291
 msgid "Church Address"
 msgstr "Dirección de Iglesia"
 
@@ -2759,7 +2759,7 @@ msgstr "Demasiado accesos inválidos: su cuenta ha sido bloqueada. Póngase en c
 msgid "Please Login"
 msgstr "Ingrese"
 
-#: ChurchCRM/Emails/users/BaseUserEmail.php:30 Login.php:213
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:213
 msgid "Email/Username"
 msgstr "Email/Usuario"
 
@@ -2945,7 +2945,7 @@ msgid "Latest Families"
 msgstr "Últimas Familias"
 
 #: CartToFamily.php:205
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: FamilyEditor.php:653 LettersAndLabels.php:70 Menu.php:313 Menu.php:342
 #: Reports/ConfirmReport.php:115 Reports/ConfirmReportEmail.php:119
 #: SelectDelete.php:151 SelectDelete.php:277
@@ -2957,8 +2957,8 @@ msgstr "Nombre de Familia"
 msgid "Updated Families"
 msgstr "Familias Actualizadas"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:179
-#: ChurchCRM/model/ChurchCRM/Person.php:120 Menu.php:344 PersonEditor.php:405
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:179
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:120 Menu.php:344 PersonEditor.php:405
 msgid "Updated"
 msgstr "Actualizados"
 
@@ -3244,19 +3244,19 @@ msgstr "Asignar una Nueva Oportunidad de Voluntariado"
 msgid "Electronic Transaction Details"
 msgstr "Detalle de Transacciones Electrónicas"
 
-#: ChurchCRM/Service/FinancialService.php:480 PledgeEditor.php:270
+#: EcclesiaCRM/Service/FinancialService.php:480 PledgeEditor.php:270
 msgid "NonDeductible amount can't be greater than total amount."
 msgstr "El monto no deducible no puede ser mayor que el monto total"
 
-#: ChurchCRM/Service/FinancialService.php:485 PledgeEditor.php:277
+#: EcclesiaCRM/Service/FinancialService.php:485 PledgeEditor.php:277
 msgid "At least one fund must have a non-zero amount."
 msgstr "Al menos un fondo debe tener una cantidad diferente de cero."
 
-#: ChurchCRM/Service/FinancialService.php:510 PledgeEditor.php:294
+#: EcclesiaCRM/Service/FinancialService.php:510 PledgeEditor.php:294
 msgid "Must specify non-zero check number"
 msgstr "Debe especificar un número de cheque distinto de cero"
 
-#: ChurchCRM/Service/FinancialService.php:515 PledgeEditor.php:301
+#: EcclesiaCRM/Service/FinancialService.php:515 PledgeEditor.php:301
 msgid "Check number not valid for 'CASH' payment"
 msgstr "Compruebe el número no es válido para pago en 'EFECTIVO'"
 
@@ -3316,10 +3316,10 @@ msgstr "Trimestral"
 msgid "Once"
 msgstr "una sola vez"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:32
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:49
-#: ChurchCRM/Service/DashboardService.php:68
-#: ChurchCRM/Service/DashboardService.php:85 Include/Footer.php:113
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:32
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:49
+#: EcclesiaCRM/Service/DashboardService.php:68
+#: EcclesiaCRM/Service/DashboardService.php:85 Include/Footer.php:113
 #: PledgeEditor.php:559
 msgid "Other"
 msgstr "Otro"
@@ -3386,7 +3386,7 @@ msgstr "Notas:"
 msgid "Entered:"
 msgstr "Ingresado:"
 
-#: ChurchCRM/Service/TimelineService.php:127 PrintView.php:498
+#: EcclesiaCRM/Service/TimelineService.php:127 PrintView.php:498
 msgid "by"
 msgstr "por"
 
@@ -3610,8 +3610,8 @@ msgid "Software Registration"
 msgstr "Registro del Software"
 
 #: Register.php:35
-msgid "Please register your copy of ChurchCRM by checking over this information and pressing the Send button.  "
-msgstr "Por favor registre su copa de ChurchCRM, evaluando esta información y presionando el botón de Enviar."
+msgid "Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  "
+msgstr "Por favor registre su copa de EcclesiaCRM, evaluando esta información y presionando el botón de Enviar."
 
 #: Register.php:36
 msgid "This information is used only to track the usage of this software.  "
@@ -3811,7 +3811,7 @@ msgstr "Permiso"
 msgid "Base URL"
 msgstr "URL Base"
 
-#: ChurchCRM/dto/SystemConfig.php:240 Include/Footer.php:139
+#: EcclesiaCRM/dto/SystemConfig.php:240 Include/Footer.php:139
 #: SystemSettings.php:28
 msgid "System Settings"
 msgstr "Ajustes de Sistema"
@@ -4000,9 +4000,9 @@ msgstr "introduzca una nueva contraseña para este usuario"
 msgid "Old Password"
 msgstr "Vieja Contraseña"
 
-#: ChurchCRM/Emails/users/NewAccountEmail.php:30
-#: ChurchCRM/Emails/users/PasswordChangeEmail.php:29
-#: ChurchCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:30
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
 msgid "New Password"
 msgstr "Nueva Contraseña"
 
@@ -4179,8 +4179,8 @@ msgid "Custom Drop-Down List"
 msgstr "Lista Desplegable Personalizada"
 
 #: Include/Functions.php:100
-msgid "Thank you for registering your ChurchCRM installation."
-msgstr "Gracias por registrar su instalación de ChurchCRM."
+msgid "Thank you for registering your EcclesiaCRM installation."
+msgstr "Gracias por registrar su instalación de EcclesiaCRM."
 
 #: Include/Functions.php:104
 msgid "PDFs successfully emailed "
@@ -4251,7 +4251,7 @@ msgstr "meses"
 msgid "1 yr old"
 msgstr "1 año"
 
-#: ChurchCRM/model/ChurchCRM/Person.php:441 Include/Functions.php:630
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:441 Include/Functions.php:630
 #: Include/Functions.php:632 Include/Functions.php:677
 msgid "yrs old"
 msgstr "años"
@@ -4341,7 +4341,7 @@ msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Qué estaba usted haciendo cuando se dio cuenta del problema/oportunidad de característica nueva?"
 
 #: Include/Header-function.php:88
-msgid "When you click \"submit,\" an error report will be posted to the ChurchCRM GitHub Issue tracker."
+msgid "When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker."
 msgstr "Cuando seleccione \"enviar\", un reporte de error será publicado en el Rastreador de Problemas de ChucrchCRM GitHub"
 
 #: Include/Header-function.php:89
@@ -4484,20 +4484,20 @@ msgid "Member/Friend"
 msgstr "Miembro/Amigo"
 
 #: Reports/DirectoryReport.php:177
-msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to ChurchCRM."
-msgstr "Esta opción requiere al menos la versión 3.22 de MySQL! Pulse el botón Atrás de su navegador para volver a ChurchCRM."
+msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM."
+msgstr "Esta opción requiere al menos la versión 3.22 de MySQL! Pulse el botón Atrás de su navegador para volver a EcclesiaCRM."
 
-#: ChurchCRM/Reports/PDF_Directory.php:315
-#: ChurchCRM/Reports/PDF_Directory.php:390
-#: ChurchCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
+#: EcclesiaCRM/Reports/PDF_Directory.php:315
+#: EcclesiaCRM/Reports/PDF_Directory.php:390
+#: EcclesiaCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
 #: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:96
 msgid "Work"
 msgstr "Trabajo"
 
-#: ChurchCRM/Reports/PDF_Directory.php:318
-#: ChurchCRM/Reports/PDF_Directory.php:394
-#: ChurchCRM/Reports/PDF_Directory.php:451 Reports/DirectoryReport.php:291
+#: EcclesiaCRM/Reports/PDF_Directory.php:318
+#: EcclesiaCRM/Reports/PDF_Directory.php:394
+#: EcclesiaCRM/Reports/PDF_Directory.php:451 Reports/DirectoryReport.php:291
 #: Reports/GroupReport.php:129
 msgid "Cell"
 msgstr "Celular"
@@ -4568,32 +4568,32 @@ msgstr "Pagado por ( ) Efectivo ( ) Cheque ( ) Tarjeta de crédito _____________
 msgid "                                        Signature ________________________________________________________________"
 msgstr "                                        Firma ________________________________________________________________"
 
-#: ChurchCRM/Reports/PDF_Attendance.php:179
+#: EcclesiaCRM/Reports/PDF_Attendance.php:179
 msgid "Totals"
 msgstr "Totales"
 
-#: ChurchCRM/Reports/PDF_CertificatesReport.php:30
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
 msgstr "Certificado de Propiedad"
 
-#: ChurchCRM/Reports/PDF_Directory.php:37
-#: ChurchCRM/Reports/PDF_Directory.php:73
+#: EcclesiaCRM/Reports/PDF_Directory.php:37
+#: EcclesiaCRM/Reports/PDF_Directory.php:73
 msgid "Directory"
 msgstr "Directorio"
 
-#: ChurchCRM/Reports/PDF_Directory.php:56
+#: EcclesiaCRM/Reports/PDF_Directory.php:56
 msgid "Page"
 msgstr "Página"
 
-#: ChurchCRM/Reports/PDF_Directory.php:324
+#: EcclesiaCRM/Reports/PDF_Directory.php:324
 msgid "Wedding"
 msgstr "Boda"
 
-#: ChurchCRM/Reports/PDF_Directory.php:353
+#: EcclesiaCRM/Reports/PDF_Directory.php:353
 msgid "and"
 msgstr "y"
 
-#: ChurchCRM/Reports/PDF_GroupDirectory.php:29
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:29
 msgid "Group Directory"
 msgstr "Directorio de grupos"
 
@@ -4824,7 +4824,7 @@ msgstr "Ver todas las Personas"
 msgid "Add New Family"
 msgstr "Añadir Nueva Familia"
 
-#: ChurchCRM/dto/SystemConfig.php:246 menuconfig_mcf.php:16
+#: EcclesiaCRM/dto/SystemConfig.php:246 menuconfig_mcf.php:16
 msgid "Events"
 msgstr "Eventos"
 
@@ -4957,8 +4957,8 @@ msgid "CAUTION: This will completely erase the existing database, and replace it
 msgstr "CUIDADO: Esto borrará completamente la base de datos existente, y la remplazará con el respaldo"
 
 #: RestoreDatabase.php:37
-msgid "If you upload a backup from ChurchInfo, or a previous version of ChurchCRM, it will be automatically upgraded to the current database schema"
-msgstr "Si carga un respaldo de ChurchInfo, o una versión previa de ChurchCRM, se actualizará el esquema de la base de datos automáticamente"
+msgid "If you upload a backup from ChurchInfo, or a previous version of EcclesiaCRM, it will be automatically upgraded to the current database schema"
+msgstr "Si carga un respaldo de ChurchInfo, o una versión previa de EcclesiaCRM, se actualizará el esquema de la base de datos automáticamente"
 
 #: RestoreDatabase.php:42
 msgid "Upload Files"
@@ -4980,27 +4980,27 @@ msgstr "Ingresar a Base de Datos restaurada"
 msgid "Restore Error."
 msgstr "Error de Restauración"
 
-#: ChurchCRM/dto/SystemConfig.php:233
+#: EcclesiaCRM/dto/SystemConfig.php:233
 msgid "Church Information"
 msgstr "Información de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:234
+#: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "User setup"
 msgstr "Configuración de Usuario"
 
-#: ChurchCRM/dto/SystemConfig.php:235
+#: EcclesiaCRM/dto/SystemConfig.php:235
 msgid "Email Setup"
 msgstr "Ajustes de Email"
 
-#: ChurchCRM/dto/SystemConfig.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "Map Settings"
 msgstr "Ajustes de Mapa"
 
-#: ChurchCRM/dto/SystemConfig.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "Report Settings"
 msgstr "Ajustes de Reporte"
 
-#: ChurchCRM/dto/SystemConfig.php:243
+#: EcclesiaCRM/dto/SystemConfig.php:243
 msgid "Localization"
 msgstr "Localización"
 
@@ -5031,8 +5031,8 @@ msgid "Edit Settings"
 msgstr "Editar Ajustes"
 
 #: UpgradeCRM.php:12 UpgradeCRM.php:28
-msgid "Upgrade ChurchCRM"
-msgstr "Actualizar ChurchCRM"
+msgid "Upgrade EcclesiaCRM"
+msgstr "Actualizar EcclesiaCRM"
 
 #: UpgradeCRM.php:34
 msgid "Step 1: Backup Database"
@@ -5051,8 +5051,8 @@ msgid "Step 2: Fetch Update Package on Server"
 msgstr "Paso 2: Obtener Paquete de Actualización del Servidor"
 
 #: UpgradeCRM.php:49
-msgid "Fetch the latest files from the ChurchCRM GitHub release page"
-msgstr "Obtener los últimos archivos desde el sitio de lanzamientos de ChurchCRM GitHub"
+msgid "Fetch the latest files from the EcclesiaCRM GitHub release page"
+msgstr "Obtener los últimos archivos desde el sitio de lanzamientos de EcclesiaCRM GitHub"
 
 #: UpgradeCRM.php:50
 msgid "Fetch Update Files"
@@ -5147,32 +5147,32 @@ msgstr "Agregar"
 msgid "Enter Name"
 msgstr "Ingresar Nombre"
 
-#: ChurchCRM/tasks/RegisteredTask.php:28
+#: EcclesiaCRM/tasks/RegisteredTask.php:28
 msgid "Register Software"
 msgstr "Registrar Software"
 
-#: ChurchCRM/tasks/ChurchNameTask.php:19
+#: EcclesiaCRM/tasks/ChurchNameTask.php:19
 msgid "Update Church Info"
 msgstr "Actualizar Información de Iglesia"
 
-#: ChurchCRM/tasks/ChurchAddress.php:19
+#: EcclesiaCRM/tasks/ChurchAddress.php:19
 msgid "Set Church Address"
 msgstr "Establecer Dirección de Iglesia"
 
-#: ChurchCRM/tasks/EmailTask.php:27
+#: EcclesiaCRM/tasks/EmailTask.php:27
 msgid "Set Email Settings"
 msgstr "Ingresar Ajustes de Email"
 
-#: ChurchCRM/tasks/LatestReleaseTask.php:40
+#: EcclesiaCRM/tasks/LatestReleaseTask.php:40
 msgid "New Release"
 msgstr "Nueva Publicación"
 
-#: ChurchCRM/tasks/IntegrityCheckTask.php:36
-#: ChurchCRM/tasks/IntegrityCheckTask.php:41
+#: EcclesiaCRM/tasks/IntegrityCheckTask.php:36
+#: EcclesiaCRM/tasks/IntegrityCheckTask.php:41
 msgid "Application Integrity Check Failed"
 msgstr "Comprobación de Integridad de Aplicación Falló"
 
-#: ChurchCRM/Service/TimelineService.php:117
+#: EcclesiaCRM/Service/TimelineService.php:117
 msgid "Self Registration"
 msgstr "Auto Registro"
 
@@ -5192,7 +5192,7 @@ msgstr "Estado de Respaldo:"
 msgid "No Backup Running"
 msgstr "No hay Respaldos Corriendo"
 
-#: ChurchCRM/model/ChurchCRM/Deposit.php:291
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
 msgid "Anonymous"
 msgstr "Anónimo"
 
@@ -5304,19 +5304,19 @@ msgstr "Si necesita hacer cambios a los datos de registro, diríjase a "
 msgid "Admin->Edit General Settings"
 msgstr "Admin ->Editar Ajustes Generales"
 
-#: ChurchCRM/Service/AppIntegrityService.php:28
+#: EcclesiaCRM/Service/AppIntegrityService.php:28
 msgid "Signature definition file signature failed validation"
 msgstr "El archivo de definición de firma falló la validación de firma"
 
-#: ChurchCRM/Service/AppIntegrityService.php:31
+#: EcclesiaCRM/Service/AppIntegrityService.php:31
 msgid "Signature definition File Missing"
 msgstr "Falta archivo de definición de firma"
 
-#: ChurchCRM/Service/AppIntegrityService.php:35
+#: EcclesiaCRM/Service/AppIntegrityService.php:35
 msgid "One or more files failed signature validation"
 msgstr "Uno o más archivos fallaron la validación de firma"
 
-#: ChurchCRM/tasks/HttpsTask.php:19
+#: EcclesiaCRM/tasks/HttpsTask.php:19
 msgid "Configure HTTPS"
 msgstr "Configurar HTTPS"
 
@@ -5382,11 +5382,11 @@ msgstr "Restauración Corriendo, Por favor espere."
 msgid "Family Members:"
 msgstr "Miembros"
 
-#: ChurchCRM/Service/CalendarService.php:17
+#: EcclesiaCRM/Service/CalendarService.php:17
 msgid "Event"
 msgstr "Evento"
 
-#: ChurchCRM/Service/CalendarService.php:19 calendar.php:58
+#: EcclesiaCRM/Service/CalendarService.php:19 calendar.php:58
 msgid "Anniversary"
 msgstr "Aniversario"
 
@@ -5425,7 +5425,7 @@ msgid "Add Attendees for Event"
 msgstr "Agregar Asistentes para Evento"
 
 #: AutoPaymentEditor.php:128 Checkin.php:457
-#: ChurchCRM/Service/PersonService.php:39
+#: EcclesiaCRM/Service/PersonService.php:39
 msgid "family"
 msgstr "familia"
 
@@ -5509,15 +5509,15 @@ msgstr "Propiedades de Grupos"
 msgid "Assign a New Property:"
 msgstr "Asignar una nueva propiedad"
 
-#: ChurchCRM/model/ChurchCRM/Person.php:435 Include/Functions.php:671
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:435 Include/Functions.php:671
 msgid "mos old"
 msgstr "meses"
 
-#: ChurchCRM/model/ChurchCRM/Person.php:437 Include/Functions.php:673
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:437 Include/Functions.php:673
 msgid "mo old"
 msgstr "meses"
 
-#: ChurchCRM/model/ChurchCRM/Person.php:443 Include/Functions.php:679
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:443 Include/Functions.php:679
 msgid "yr old"
 msgstr "años"
 
@@ -5566,297 +5566,297 @@ msgstr "con esta porpiedad.."
 msgid "with this Property..."
 msgstr "con esta propiedad..."
 
-#: ChurchCRM/dto/SystemConfig.php:137 Register.php:48
+#: EcclesiaCRM/dto/SystemConfig.php:137 Register.php:48
 msgid "Church Email"
 msgstr "Email de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:65
+#: EcclesiaCRM/dto/SystemConfig.php:65
 msgid "Include only these classifications in the directory, comma seperated"
 msgstr "Incluir solo estas clasificaciones en el directorio, separadas por coma"
 
-#: ChurchCRM/dto/SystemConfig.php:66
+#: EcclesiaCRM/dto/SystemConfig.php:66
 msgid "These are the family role numbers designated as head of house"
 msgstr "Estos son los números de roles de familia designados como cabezas del hogar"
 
-#: ChurchCRM/dto/SystemConfig.php:67
+#: EcclesiaCRM/dto/SystemConfig.php:67
 msgid "These are the family role numbers designated as spouse"
 msgstr "Límite de tiempo de sesión en segundos\rColocar en cero para deshabilitar límites de tiempo de sesión."
 
-#: ChurchCRM/dto/SystemConfig.php:68
+#: EcclesiaCRM/dto/SystemConfig.php:68
 msgid "These are the family role numbers designated as child"
 msgstr "Estos son los números de rol de familia designados como niño"
 
-#: ChurchCRM/dto/SystemConfig.php:69
+#: EcclesiaCRM/dto/SystemConfig.php:69
 msgid "Session timeout length in seconds\rSet to zero to disable session timeouts."
 msgstr "Límite de tiempo de sesión en segundos\rColocar en cero para deshabilitar tiempos límite de sesión."
 
-#: ChurchCRM/dto/SystemConfig.php:70
+#: EcclesiaCRM/dto/SystemConfig.php:70
 msgid "Queries for which user must have finance permissions to use:"
 msgstr "Consultas para las cuales el usuario debe tener permisos financieros:"
 
-#: ChurchCRM/dto/SystemConfig.php:71
+#: EcclesiaCRM/dto/SystemConfig.php:71
 msgid "Should only administrators have access to the CSV export system and directory report?"
 msgstr "Deberían solo administradores tener acceso al sistema de exportación CSV y reportes de directorio?"
 
-#: ChurchCRM/dto/SystemConfig.php:72
+#: EcclesiaCRM/dto/SystemConfig.php:72
 msgid "Minimum length a user may set their password to"
 msgstr "Largo mínimo de contraseña que un usuario debe ingresar"
 
-#: ChurchCRM/dto/SystemConfig.php:73
+#: EcclesiaCRM/dto/SystemConfig.php:73
 msgid "Minimum amount that a new password must differ from the old one (# of characters changed)\rSet to zero to disable this feature"
 msgstr "Cantidad mínima de diferencia en que una nueva contraseña debe diferir de una vieja (# de caracteres  cambiados)\rColocar en cero para deshabilitar esta funcionalidad"
 
-#: ChurchCRM/dto/SystemConfig.php:74
+#: EcclesiaCRM/dto/SystemConfig.php:74
 msgid "A comma-seperated list of disallowed (too obvious) passwords."
 msgstr "Una lista de contraseñas deshabilitadas (muy obvias), separadas por coma."
 
-#: ChurchCRM/dto/SystemConfig.php:75
+#: EcclesiaCRM/dto/SystemConfig.php:75
 msgid "Maximum number of failed logins to allow before a user account is locked.\rOnce the maximum has been reached, an administrator must re-enable the account.\rThis feature helps to protect against automated password guessing attacks.\rSet to zero to disable this feature."
 msgstr "Número máximo de ingresos fallidos permitidos antes de que la cuenta de un usuario sea bloqueada.\rUna vez que el máximo haya sido alcanzado, un administrador debe restablecer la cuenta.\rEsta funcionalidad ayuda a proteger ante ataques de adivinación automático de contraseña.\rColocar en cero para deshabilitar esta funcionalidad."
 
-#: ChurchCRM/dto/SystemConfig.php:76
+#: EcclesiaCRM/dto/SystemConfig.php:76
 msgid "PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
 msgstr "Modo de manejo de PDF.\r1 = Diálogo de Guardado de Archivo\r2 = Abrir en ventana actual de navegador"
 
-#: ChurchCRM/dto/SystemConfig.php:77
+#: EcclesiaCRM/dto/SystemConfig.php:77
 msgid "Default City"
 msgstr "Ciudad por Defecto"
 
-#: ChurchCRM/dto/SystemConfig.php:78
+#: EcclesiaCRM/dto/SystemConfig.php:78
 msgid "Default State - Must be 2-letter abbreviation!"
 msgstr "Estado por Defecto - Debe ser una abreviación de 2 letras!"
 
-#: ChurchCRM/dto/SystemConfig.php:80
+#: EcclesiaCRM/dto/SystemConfig.php:80
 msgid "Default account for receiving a copy of all emails"
 msgstr "Cuenta por defecto para recibir copias de todos los emails"
 
-#: ChurchCRM/dto/SystemConfig.php:82
+#: EcclesiaCRM/dto/SystemConfig.php:82
 msgid "SMTP Server Address (mail.server.com:25)"
 msgstr "Dirección de Servidor SMTP (mail.server.com:25)"
 
-#: ChurchCRM/dto/SystemConfig.php:83
+#: EcclesiaCRM/dto/SystemConfig.php:83
 msgid "Does your SMTP server require auththentication (username/password)?"
 msgstr "Requiere su servidor SMTP autenticación (usuario/contraseña)?"
 
-#: ChurchCRM/dto/SystemConfig.php:84
+#: EcclesiaCRM/dto/SystemConfig.php:84
 msgid "SMTP Username"
 msgstr "Usuario SMTP"
 
-#: ChurchCRM/dto/SystemConfig.php:85
+#: EcclesiaCRM/dto/SystemConfig.php:85
 msgid "SMTP Password"
 msgstr "Contraseña SMTP"
 
-#: ChurchCRM/dto/SystemConfig.php:90
+#: EcclesiaCRM/dto/SystemConfig.php:90
 #, fuzzy
 msgid "Internationalization (I18n) support"
 msgstr "Soporte de internacionalización (i18n)"
 
-#: ChurchCRM/dto/SystemConfig.php:91
+#: EcclesiaCRM/dto/SystemConfig.php:91
 msgid "First month of the fiscal year"
 msgstr "Primer mes del año fiscal"
 
-#: ChurchCRM/dto/SystemConfig.php:95
+#: EcclesiaCRM/dto/SystemConfig.php:95
 msgid "Latitude of the church, used to center the Google map"
 msgstr "Latitud de la iglesia, usada para centrar el mapa de Google"
 
-#: ChurchCRM/dto/SystemConfig.php:96
+#: EcclesiaCRM/dto/SystemConfig.php:96
 msgid "Longitude of the church, used to center the Google map"
 msgstr "Longitud de la iglesia, usada para centrar el mapa de Google"
 
-#: ChurchCRM/dto/SystemConfig.php:97
+#: EcclesiaCRM/dto/SystemConfig.php:97
 msgid "Set true to disable entering addresses in Person Editor.  Set false to enable entering addresses in Person Editor."
 msgstr "Colocar en verdadero para deshabilitar ingreso de direcciones en Editor de Personas. Colocar en falso para habilitar ingreso de direcciones en Editor de Personas."
 
-#: ChurchCRM/dto/SystemConfig.php:98
+#: EcclesiaCRM/dto/SystemConfig.php:98
 msgid "Set true to disable entering Friend Date in Person Editor.  Set false to enable entering Friend Date in Person Editor."
 msgstr "Colocar en verdadero para deshabilitar ingreso de Fecha de Amistad en Editor de Personas. Colocar en falso para habilitar ingreso de Fecha de Amistad en Editor de Personas."
 
-#: ChurchCRM/dto/SystemConfig.php:99
+#: EcclesiaCRM/dto/SystemConfig.php:99
 msgid "Set true to disable management of newsletter subscriptions in the Family Editor."
 msgstr "Colocar en verdadero para deshabilitar manejo de suscripciones al boletín de noticias en el Editor de Familia."
 
-#: ChurchCRM/dto/SystemConfig.php:100
+#: EcclesiaCRM/dto/SystemConfig.php:100
 msgid "Set true to disable entering Wedding Date in Family Editor.  Set false to enable entering Wedding Date in Family Editor."
 msgstr "Colocar en verdadero para deshabilitar ingreso de Fecha de Matrimonio en Editor de Familia. Colocar en falso para habilitar ingreso de Fecha de Matrimonio en Editor de Familia."
 
-#: ChurchCRM/dto/SystemConfig.php:101
+#: EcclesiaCRM/dto/SystemConfig.php:101
 msgid "Set true to disable entering Latitude and Longitude in Family Editor.  Set false to enable entering Latitude and Longitude in Family Editor.  Lookups are still performed, just not displayed."
 msgstr "Colocar en verdadero para deshabilitar ingreso de Latitud y Longitud en Editor de Familia. Colocar en falso para habilitar ingreso de Latitud y Longitud en Editor de Familia. Búsquedas inversas aún serán efectuadas, solamente que no mostradas."
 
-#: ChurchCRM/dto/SystemConfig.php:102
+#: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "Set true to enable use of donation envelopes"
 msgstr "Colocar en verdadero para habilitar uso de sobres de donación"
 
-#: ChurchCRM/dto/SystemConfig.php:103
+#: EcclesiaCRM/dto/SystemConfig.php:103
 msgid "Enter in HTML code which will be displayed as a header at the top of each page. Be sure to close your tags! Note: You must REFRESH YOUR BROWSER A SECOND TIME to view the new header."
 msgstr "Ingresar en código HTML que será desplegado como cabecera arriba de cada página. Asegúrese de cerrar sus tags! Nota: Debe REFRESCAR SU NAVEGADOR UNA SEGUNDA VEZ para ver el nuevo encabezado."
 
-#: ChurchCRM/dto/SystemConfig.php:104
+#: EcclesiaCRM/dto/SystemConfig.php:104
 #, fuzzy
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Username"
 msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Usuario"
 
-#: ChurchCRM/dto/SystemConfig.php:105
+#: EcclesiaCRM/dto/SystemConfig.php:105
 #, fuzzy
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Password"
 msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Contraseña"
 
-#: ChurchCRM/dto/SystemConfig.php:107
+#: EcclesiaCRM/dto/SystemConfig.php:107
 msgid "Number of checks for Deposit Slip Report"
 msgstr "Número de cheques para Reporte de Fichas de Depósito"
 
-#: ChurchCRM/dto/SystemConfig.php:108
+#: EcclesiaCRM/dto/SystemConfig.php:108
 msgid "Set true to enable use of scanned checks"
 msgstr "Colocar en verdadero para habilitar el uso de cheques escaneados."
 
-#: ChurchCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid "Unit used to measure distance, miles or km."
 msgstr "Unidad usada para medir distancias, millas o km."
 
-#: ChurchCRM/dto/SystemConfig.php:111
+#: EcclesiaCRM/dto/SystemConfig.php:111
 msgid "Names of markers for Google Maps in order of classification"
 msgstr "Nombres de marcadores para Google Maps en orden de clasificación"
 
-#: ChurchCRM/dto/SystemConfig.php:113
+#: EcclesiaCRM/dto/SystemConfig.php:113
 msgid "Enable non-deductible payments"
 msgstr "Activar pagos no deducibles"
 
-#: ChurchCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Electronic Transaction Processor"
 msgstr "Procesador de Transacciones Electrónicas"
 
-#: ChurchCRM/dto/SystemConfig.php:115
+#: EcclesiaCRM/dto/SystemConfig.php:115
 msgid "Set true to enable family self registration."
 msgstr "Colocar en verdadero para activar el registro propio de familia."
 
-#: ChurchCRM/dto/SystemConfig.php:128
-msgid "ChurchCRM has been registered.  The ChurchCRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration."
-msgstr "ChurchCRM ha sido registrado. El equipo de ChurchCRM usa la información de registro para seguir su uso. Esta información es guardada de forma confidencial y nunca será publicada o vendida. Si este campo es verdadero la opción de registro en el menu de administración cambia a actualizar registro."
+#: EcclesiaCRM/dto/SystemConfig.php:128
+msgid "EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration."
+msgstr "EcclesiaCRM ha sido registrado. El equipo de EcclesiaCRM usa la información de registro para seguir su uso. Esta información es guardada de forma confidencial y nunca será publicada o vendida. Si este campo es verdadero la opción de registro en el menu de administración cambia a actualizar registro."
 
-#: ChurchCRM/dto/SystemConfig.php:129
+#: EcclesiaCRM/dto/SystemConfig.php:129
 msgid "Left Margin (1 = 1/100th inch)"
 msgstr "Margen Izquierdo (1 = 1/100 pulgadas)"
 
-#: ChurchCRM/dto/SystemConfig.php:130
+#: EcclesiaCRM/dto/SystemConfig.php:130
 msgid "Line Thickness (1 = 1/100th inch"
 msgstr "Grosor de Línea (1 = 1/100 pulgadas)"
 
-#: ChurchCRM/dto/SystemConfig.php:133
+#: EcclesiaCRM/dto/SystemConfig.php:133
 msgid "Church City"
 msgstr "Ciudad de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:134
+#: EcclesiaCRM/dto/SystemConfig.php:134
 msgid "Church State"
 msgstr "Estado de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:135
+#: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "Church Zip"
 msgstr "Código Postal de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:136
+#: EcclesiaCRM/dto/SystemConfig.php:136
 msgid "Church Phone"
 msgstr "Teléfono de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:138
+#: EcclesiaCRM/dto/SystemConfig.php:138
 msgid "Home area code of the church"
 msgstr "Código de area de iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:139 ChurchCRM/dto/SystemConfig.php:159
+#: EcclesiaCRM/dto/SystemConfig.php:139 EcclesiaCRM/dto/SystemConfig.php:159
 msgid "Verbage for top line of tax report. Dates will be appended to the end of this line."
 msgstr "Palabras para la primera línea del reporte de impuestos. Fechas serán agregadas al final de esta línea."
 
-#: ChurchCRM/dto/SystemConfig.php:140 ChurchCRM/dto/SystemConfig.php:141
-#: ChurchCRM/dto/SystemConfig.php:160 ChurchCRM/dto/SystemConfig.php:161
+#: EcclesiaCRM/dto/SystemConfig.php:140 EcclesiaCRM/dto/SystemConfig.php:141
+#: EcclesiaCRM/dto/SystemConfig.php:160 EcclesiaCRM/dto/SystemConfig.php:161
 msgid "Verbage for bottom line of tax report."
 msgstr "Palabras para la última línea del reporte de impuestos."
 
-#: ChurchCRM/dto/SystemConfig.php:142
+#: EcclesiaCRM/dto/SystemConfig.php:142
 msgid "Tax Report signer"
 msgstr "Firmante del Reporte de Impuestos"
 
-#: ChurchCRM/dto/SystemConfig.php:143
+#: EcclesiaCRM/dto/SystemConfig.php:143
 msgid "Verbage for the pledge reminder report"
 msgstr "Palabras para el reporte de recordatorios de promesas"
 
-#: ChurchCRM/dto/SystemConfig.php:144
+#: EcclesiaCRM/dto/SystemConfig.php:144
 msgid "Pledge Reminder Signer"
 msgstr "Firmante del Recordatorio de Promesa"
 
-#: ChurchCRM/dto/SystemConfig.php:145
+#: EcclesiaCRM/dto/SystemConfig.php:145
 msgid "Verbage for the pledge reminder report - No record of a pledge"
 msgstr "Palabras para el reporte de recordatorios de promesas - No hay registros de una promesa"
 
-#: ChurchCRM/dto/SystemConfig.php:146
+#: EcclesiaCRM/dto/SystemConfig.php:146
 msgid "Verbage for the pledge reminder report - No record of payments"
 msgstr "Palabras para el reporte de recordatorios de promesas -  No hay registros de pagos"
 
-#: ChurchCRM/dto/SystemConfig.php:147 ChurchCRM/dto/SystemConfig.php:148
-#: ChurchCRM/dto/SystemConfig.php:149 ChurchCRM/dto/SystemConfig.php:150
-#: ChurchCRM/dto/SystemConfig.php:151 ChurchCRM/dto/SystemConfig.php:152
+#: EcclesiaCRM/dto/SystemConfig.php:147 EcclesiaCRM/dto/SystemConfig.php:148
+#: EcclesiaCRM/dto/SystemConfig.php:149 EcclesiaCRM/dto/SystemConfig.php:150
+#: EcclesiaCRM/dto/SystemConfig.php:151 EcclesiaCRM/dto/SystemConfig.php:152
 msgid "Verbage for the database information confirmation and correction report"
 msgstr "Palabras para el reporte de confirmación y corrección de la información de la base de datos"
 
-#: ChurchCRM/dto/SystemConfig.php:153
+#: EcclesiaCRM/dto/SystemConfig.php:153
 msgid "Database information confirmation and correction report signer"
 msgstr "Firmante de la confirmación y corrección de la información de la base de datos"
 
-#: ChurchCRM/dto/SystemConfig.php:154 ChurchCRM/dto/SystemConfig.php:155
+#: EcclesiaCRM/dto/SystemConfig.php:154 EcclesiaCRM/dto/SystemConfig.php:155
 msgid "Verbage for the pledge summary report"
 msgstr "Palabras para el reporte resumido de promesas"
 
-#: ChurchCRM/dto/SystemConfig.php:156 ChurchCRM/dto/SystemConfig.php:157
+#: EcclesiaCRM/dto/SystemConfig.php:156 EcclesiaCRM/dto/SystemConfig.php:157
 msgid "Verbage for the directory report"
 msgstr "Palabras para el reporte de directorio"
 
-#: ChurchCRM/dto/SystemConfig.php:158
+#: EcclesiaCRM/dto/SystemConfig.php:158
 msgid "Church Letterhead path and file"
 msgstr "Ruta y archivo de Hoja Membretada de Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:163
+#: EcclesiaCRM/dto/SystemConfig.php:163
 msgid "lookup user images on Gravatar when no local image is present"
 msgstr "buscar imágenes de usuario en Gravatar cuando no esté presente una imagen local"
 
-#: ChurchCRM/dto/SystemConfig.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:164
 msgid "Enable Remote Backups to Cloud Services"
 msgstr "Habilitar Respaldos Automáticos a Servicios en la Nube"
 
-#: ChurchCRM/dto/SystemConfig.php:165
+#: EcclesiaCRM/dto/SystemConfig.php:165
 msgid "Cloud Service Type (Supported values: WebDAV, Local)"
 msgstr "Tipo de Servicio en la Nube (Valores soportados: WebDAV, Local)"
 
-#: ChurchCRM/dto/SystemConfig.php:166
+#: EcclesiaCRM/dto/SystemConfig.php:166
 msgid "Remote Backup Endpoint"
 msgstr "Punto de Acceso de Respaldo Remoto"
 
-#: ChurchCRM/dto/SystemConfig.php:167
+#: EcclesiaCRM/dto/SystemConfig.php:167
 msgid "Remote Backup Username"
 msgstr "Usuario de Respaldo Remoto"
 
-#: ChurchCRM/dto/SystemConfig.php:168
+#: EcclesiaCRM/dto/SystemConfig.php:168
 msgid "Remote Backup Password"
 msgstr "Contraseña de Respaldo Remoto"
 
-#: ChurchCRM/dto/SystemConfig.php:169
+#: EcclesiaCRM/dto/SystemConfig.php:169
 msgid "Interval in Hours for Automatic Remote Backups"
 msgstr "Intervalo en Horas para Respaldos Remotos Automáticos"
 
-#: ChurchCRM/dto/SystemConfig.php:170
+#: EcclesiaCRM/dto/SystemConfig.php:170
 msgid "Last Backup Timestamp"
 msgstr "Marca de Tiempo de Último Respaldo"
 
-#: ChurchCRM/dto/SystemConfig.php:171
+#: EcclesiaCRM/dto/SystemConfig.php:171
 msgid "QuickBooks Deposit Ticket Settings"
 msgstr "Ajustes de Ticket de Depósito de QuickBooks"
 
-#: ChurchCRM/dto/SystemConfig.php:172
+#: EcclesiaCRM/dto/SystemConfig.php:172
 msgid "Enable Integrity Check"
 msgstr "Habilitar Chequeo de Integridad"
 
-#: ChurchCRM/dto/SystemConfig.php:173
+#: EcclesiaCRM/dto/SystemConfig.php:173
 msgid "Interval in Hours for Integrity Check"
 msgstr "Intervalo en Horas para Chequeo de Integridad"
 
-#: ChurchCRM/dto/SystemConfig.php:174
+#: EcclesiaCRM/dto/SystemConfig.php:174
 msgid "Last Integrity Check Timestamp"
 msgstr "Marca de Tiempo de Último Chequeo de Integridad"
 
@@ -6562,36 +6562,36 @@ msgstr "Creado vía Familia"
 msgid "Updated via Family"
 msgstr "Actualizado vía Familia"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:184
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:184
 msgid "Family Data Verified"
 msgstr "Datos de Familia Verificados"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:250
-#: ChurchCRM/model/ChurchCRM/Person.php:223
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:250
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:223
 msgid "Profile Image Deleted"
 msgstr "Imagen de Perfil Borrada"
 
-#: ChurchCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid "miles"
 msgstr "millas"
 
-#: ChurchCRM/dto/SystemConfig.php:109
+#: EcclesiaCRM/dto/SystemConfig.php:109
 msgid "kilometers"
 msgstr "kilómetros"
 
-#: ChurchCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Vanco"
 msgstr "Vanco"
 
-#: ChurchCRM/dto/SystemConfig.php:114
+#: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Authorize.NET"
 msgstr "Authorize.NET"
 
-#: ChurchCRM/dto/SystemConfig.php:165
+#: EcclesiaCRM/dto/SystemConfig.php:165
 msgid "WebDAV"
 msgstr "WebDAV"
 
-#: ChurchCRM/dto/SystemConfig.php:165
+#: EcclesiaCRM/dto/SystemConfig.php:165
 msgid "Local"
 msgstr "Local"
 
@@ -7623,50 +7623,50 @@ msgstr "Zimbabue"
 msgid "By Zip Code"
 msgstr "Por Codigo Postal"
 
-#: ChurchCRM/Emails/verify/FamilyVerificationEmail.php:17
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
 msgstr "Por favor verifique la información de su familia"
 
-#: ChurchCRM/tasks/ChurchAddress.php:22
+#: EcclesiaCRM/tasks/ChurchAddress.php:22
 msgid "Church Address is not Set."
 msgstr "Dirección de Iglesia no ha sido Definida."
 
-#: ChurchCRM/tasks/ChurchNameTask.php:22
+#: EcclesiaCRM/tasks/ChurchNameTask.php:22
 msgid "Church Name is set to default value"
 msgstr "Nombre de Iglesia está definido con valor por defecto"
 
-#: ChurchCRM/tasks/EmailTask.php:32
+#: EcclesiaCRM/tasks/EmailTask.php:32
 msgid "SMTP Server info are blank"
 msgstr "El campo de Servidor de SMTP, se encuentra en blanco."
 
-#: ChurchCRM/tasks/HttpsTask.php:22
+#: EcclesiaCRM/tasks/HttpsTask.php:22
 msgid "Your system could be more secure by installing an TLS/SSL Cert."
 msgstr "Su sistema podría ser más seguro instalando un Certificado TLS/SSL."
 
-#: ChurchCRM/tasks/PersonClassificationDataCheck.php:39
+#: EcclesiaCRM/tasks/PersonClassificationDataCheck.php:39
 #, fuzzy
 msgid "Missing Classification Data"
 msgstr "Datos de Clasificación Faltantes"
 
-#: ChurchCRM/tasks/PersonClassificationDataCheck.php:44
+#: EcclesiaCRM/tasks/PersonClassificationDataCheck.php:44
 msgid "Missing Classification Data for Some People"
 msgstr "Datos de Clasificación Faltantes para Algunas Personas"
 
-#: ChurchCRM/tasks/PersonGenderDataCheck.php:39
+#: EcclesiaCRM/tasks/PersonGenderDataCheck.php:39
 #, fuzzy
 msgid "Missing Gender Data"
 msgstr "Datos de Género Faltantes"
 
-#: ChurchCRM/tasks/PersonGenderDataCheck.php:44
+#: EcclesiaCRM/tasks/PersonGenderDataCheck.php:44
 msgid "Missing Gender Data for Some People"
 msgstr "Datos de Género Faltantes para Algunas Personas"
 
-#: ChurchCRM/tasks/PersonRoleDataCheck.php:40
+#: EcclesiaCRM/tasks/PersonRoleDataCheck.php:40
 #, fuzzy
 msgid "Missing Role Data"
 msgstr "Datos de Roles Faltantes"
 
-#: ChurchCRM/tasks/RegisteredTask.php:33
+#: EcclesiaCRM/tasks/RegisteredTask.php:33
 msgid "Let us know that you are using the software"
 msgstr "Háganos saber que esta usando este software"
 
@@ -7760,41 +7760,41 @@ msgstr "Verificar en Persona"
 msgid "None State"
 msgstr "Ningún Estado"
 
-#: ChurchCRM/dto/SystemConfig.php:86
+#: EcclesiaCRM/dto/SystemConfig.php:86
 msgid "Unavailable person info inherited from assigned family for display?\rThis option causes certain info from a person's assigned family record to be\rdisplayed IF the corresponding info has NOT been entered for that person. "
 msgstr "Desplegar información no disponible de la persona desde familia asignada?\n"
 "\r Esta opción hace que cierta información de un registro de familia asignado a la persona sea\r desplegado SI la información correspondiente NO ha sido ingresada para esa persona. "
 
-#: ChurchCRM/Service/SystemService.php:75
+#: EcclesiaCRM/Service/SystemService.php:75
 msgid "Backup archive does not contain a database"
 msgstr "Archivo de respaldo no contiene una base de datos"
 
-#: ChurchCRM/Service/SystemService.php:87
+#: EcclesiaCRM/Service/SystemService.php:87
 msgid "Unknown File Type"
 msgstr "Tipo de Archivo Desconocido"
 
-#: ChurchCRM/Service/SystemService.php:87
+#: EcclesiaCRM/Service/SystemService.php:87
 msgid "from file"
 msgstr "de archivo"
 
-#: ChurchCRM/tasks/UpdateFamilyCoordinatesTask.php:36
+#: EcclesiaCRM/tasks/UpdateFamilyCoordinatesTask.php:36
 #, fuzzy
 msgid "Missing Coordinates"
 msgstr "Coordenadas faltantes"
 
-#: ChurchCRM/tasks/UpdateFamilyCoordinatesTask.php:41
+#: EcclesiaCRM/tasks/UpdateFamilyCoordinatesTask.php:41
 msgid "Family Coordinates Data for Some Families"
 msgstr "Datos de Coordenadas de Familia para Algunas Familias"
 
-#: ChurchCRM/dto/SystemConfig.php:112
+#: EcclesiaCRM/dto/SystemConfig.php:112
 msgid "Make user-entered zip/postcodes UPPERCASE when saving to the database."
 msgstr "Hacer que los códigos postales ingresados por el usuario sean en MAYÚSCULA cuando se guarden en la base de datos."
 
-#: ChurchCRM/dto/SystemConfig.php:176
+#: EcclesiaCRM/dto/SystemConfig.php:176
 msgid "Used to end a letter before Signer"
 msgstr "Usado para terminar una carta antes de Firmante"
 
-#: ChurchCRM/dto/SystemConfig.php:178
+#: EcclesiaCRM/dto/SystemConfig.php:178
 msgid "Google Analytics Tracking Code"
 msgstr "Código de Seguimiento de Google Analytics"
 
@@ -7906,8 +7906,8 @@ msgstr "Máximo tamaño de carga"
 msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "El archivo seleccionado excede el máximo tamaño de carga del servidor de"
 
-#: ChurchCRM/tasks/PrerequisiteCheckTask.php:28
-#: ChurchCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:36
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
+#: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:36
 msgid "Unmet Application Prerequisites"
 msgstr "Prerequisitos de Aplicación No Satisfechos"
 
@@ -7916,12 +7916,12 @@ msgid "All Application Prerequisites Satisfied"
 msgstr "Todos los Prerequisitos de Aplicación Satisfechos"
 
 #: IntegrityCheck.php:30
-msgid "All components that ChurchCRM relies upon are present and correctly configured on this server"
-msgstr "Todos los componentes de los que ChurchCRM depende están presentes y correctamente configurados en este servidor"
+msgid "All components that EcclesiaCRM relies upon are present and correctly configured on this server"
+msgstr "Todos los componentes de los que EcclesiaCRM depende están presentes y correctamente configurados en este servidor"
 
 #: IntegrityCheck.php:37
-msgid "Certain components that ChurchCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior."
-msgstr "Ciertos componentes de los que ChurchCRM depende no se encuentran o están inapropiadamente configurados en este servidor. La aplicación puede seguir funcionando, pero podría tener comportamientos inesperados."
+msgid "Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior."
+msgstr "Ciertos componentes de los que EcclesiaCRM depende no se encuentran o están inapropiadamente configurados en este servidor. La aplicación puede seguir funcionando, pero podría tener comportamientos inesperados."
 
 #: IntegrityCheck.php:41
 msgid "Failed"
@@ -7931,24 +7931,24 @@ msgstr "Falló"
 msgid "The previous integrity check passed.  All system file hashes match the expected values."
 msgstr "Las evaluaciones de integridad previas pasaron. Todos los hash de archivos del sistema coinciden con los valores esperados."
 
-#: ChurchCRM/dto/SystemConfig.php:92
+#: EcclesiaCRM/dto/SystemConfig.php:92
 #, fuzzy
 msgid "Google map API requires a unique key"
 msgstr "La API de Google maps requiere una clave única de https://developers.google.com/maps/documentation/javascript/get-api-key"
 
-#: ChurchCRM/dto/SystemConfig.php:162
+#: EcclesiaCRM/dto/SystemConfig.php:162
 msgid "Church Checking Account Number"
 msgstr "Número de Cuenta Corriente de Iglesia"
 
-#: ChurchCRM/tasks/PersonRoleDataCheck.php:45
+#: EcclesiaCRM/tasks/PersonRoleDataCheck.php:45
 msgid "Missing Role Data for Some People"
 msgstr "Faltan Datos de Rol para Algunas Personas"
 
-#: ChurchCRM/tasks/CheckUploadSizeTask.php:35
+#: EcclesiaCRM/tasks/CheckUploadSizeTask.php:35
 msgid "PHP Max File size too small"
 msgstr "PHP Tamaño de Archivo Máximo muy peqeño"
 
-#: ChurchCRM/tasks/CheckUploadSizeTask.php:40
+#: EcclesiaCRM/tasks/CheckUploadSizeTask.php:40
 msgid "Increase the php upload limits to allow for mobile photo upload, and backup restore."
 msgstr "Incremente los límites de tamaño de carga de php para permitir carga de foto para móviles y restauración de respaldos."
 
@@ -7964,25 +7964,25 @@ msgstr "Familia Activada"
 msgid "families"
 msgstr "familias"
 
-#: ChurchCRM/dto/SystemConfig.php:180
+#: EcclesiaCRM/dto/SystemConfig.php:180
 msgid "Deposit ticket type.  QBDT - Quickbooks"
 msgstr "Tipo de ticket de depósito. QBDT - Quickbooks"
 
-#: ChurchCRM/dto/SystemConfig.php:239
+#: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Financial Settings"
 msgstr "Ajustes Financieros"
 
-#: ChurchCRM/dto/SystemConfig.php:298 ChurchCRM/dto/SystemConfig.php:310
-#: ChurchCRM/dto/SystemConfig.php:323
+#: EcclesiaCRM/dto/SystemConfig.php:298 EcclesiaCRM/dto/SystemConfig.php:310
+#: EcclesiaCRM/dto/SystemConfig.php:323
 msgid "An invalid configuration name has been requested"
 msgstr "Un nombre ajuste inválido ha sido solicitado."
 
-#: ChurchCRM/dto/SystemConfig.php:341
+#: EcclesiaCRM/dto/SystemConfig.php:341
 msgid "An invalid configuration id has been requested"
 msgstr "Un id de configuración ha sido solicitado."
 
-#: ChurchCRM/model/ChurchCRM/Family.php:263
-#: ChurchCRM/model/ChurchCRM/Person.php:247
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:263
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:247
 msgid "Profile Image uploaded"
 msgstr "Imagen de Perfil cargada"
 
@@ -8120,51 +8120,51 @@ msgstr "Adulto Registrando Salida de Persona"
 msgid "Adult Name (Optional)"
 msgstr "Nombre de Adulto (Opcional)"
 
-#: ChurchCRM/dto/SystemConfig.php:177
+#: EcclesiaCRM/dto/SystemConfig.php:177
 msgid "Text before name in emails/reports"
 msgstr "Texto antes del nombre en emails/reportes"
 
-#: ChurchCRM/dto/SystemConfig.php:181
+#: EcclesiaCRM/dto/SystemConfig.php:181
 msgid "Set true to allow empty lastname in Person Editor.  Set false to validate last name and inherit from family when left empty."
 msgstr "Colocar en verdadero para permitir apellidos vacíos en Editor de Personas. Colocar en falso para validar el apellido y heredar de familia cuando se encuentre vacío."
 
-#: ChurchCRM/dto/SystemConfig.php:183
+#: EcclesiaCRM/dto/SystemConfig.php:183
 msgid "Display bill counts on deposit slip"
 msgstr "Mostrar cuenta en ficha de depósitos "
 
-#: ChurchCRM/dto/SystemConfig.php:184
-msgid "ChurchCRM Cloud Access URL"
-msgstr "URL para Cloud Access de ChurchCRM"
+#: EcclesiaCRM/dto/SystemConfig.php:184
+msgid "EcclesiaCRM Cloud Access URL"
+msgstr "URL para Cloud Access de EcclesiaCRM"
 
-#: ChurchCRM/Emails/users/AccountDeletedEmail.php:11
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:11
 msgid "Your Account was Deleted"
 msgstr "Su cuenta fue borrada"
 
-#: ChurchCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your ChurchCRM Account was Deleted."
-msgstr "Su Cuenta de ChurchCRM fue Borrada."
+#: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "Su Cuenta de EcclesiaCRM fue Borrada."
 
-#: ChurchCRM/Emails/users/LockedEmail.php:11
+#: EcclesiaCRM/Emails/users/LockedEmail.php:11
 msgid "Account Locked"
 msgstr "Cuenta Bloqueada"
 
-#: ChurchCRM/Emails/users/NewAccountEmail.php:18
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:18
 msgid "Your New Account"
 msgstr "Su Nueva Cuenta"
 
-#: ChurchCRM/Emails/users/PasswordChangeEmail.php:17
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
 msgid "Password Changed"
 msgstr "Contraseña Cambiada"
 
-#: ChurchCRM/Emails/users/ResetPasswordEmail.php:17
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
 msgid "Password Reset"
 msgstr "Restablecer Contraseña"
 
-#: ChurchCRM/Emails/users/UnlockedEmail.php:11
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
 msgid "Account Unlocked"
 msgstr "Cuenta Desbloqueada"
 
-#: ChurchCRM/Service/PersonService.php:37
+#: EcclesiaCRM/Service/PersonService.php:37
 msgid "Part"
 msgstr "Parte"
 
@@ -8260,7 +8260,7 @@ msgstr "Ver Familias Activas"
 msgid "View Inactive Families"
 msgstr "Ver Familias Inactivas"
 
-#: ChurchCRM/dto/SystemConfig.php:81
+#: EcclesiaCRM/dto/SystemConfig.php:81
 msgid "SMTP Server timeout in sec"
 msgstr "Tiempo de espera del Servidor SMTP en segundos"
 
@@ -8280,64 +8280,64 @@ msgstr "El rol ha sido exitosamente asignado."
 msgid "The role could not be assigned."
 msgstr "El rol no pudo ser asignado."
 
-#: ChurchCRM/dto/SystemConfig.php:93
+#: EcclesiaCRM/dto/SystemConfig.php:93
 msgid "Bing map API requires a unique key"
 msgstr "API de mapas de Bing requiere una llave única"
 
-#: ChurchCRM/dto/SystemConfig.php:94
+#: EcclesiaCRM/dto/SystemConfig.php:94
 msgid "Google Maps Zoom"
 msgstr "Zoom de Google Maps"
 
-#: ChurchCRM/dto/SystemConfig.php:106
+#: EcclesiaCRM/dto/SystemConfig.php:106
 msgid "Select GeoCoder Provider"
 msgstr "Seleccione Proveedor de GeoCoder"
 
-#: ChurchCRM/Emails/users/LockedEmail.php:16
-msgid "Your ChurchCRM account was locked."
-msgstr "Su cuenta de ChurchCRM fue bloqueada."
+#: EcclesiaCRM/Emails/users/LockedEmail.php:16
+msgid "Your EcclesiaCRM account was locked."
+msgstr "Su cuenta de EcclesiaCRM fue bloqueada."
 
-#: ChurchCRM/Emails/users/NewAccountEmail.php:23
-msgid "A ChurchCRM account was created for you"
-msgstr "Una cuenta de ChurchCRM fue creada para used"
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:23
+msgid "A EcclesiaCRM account was created for you"
+msgstr "Una cuenta de EcclesiaCRM fue creada para used"
 
-#: ChurchCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your ChurchCRM password was changed"
-msgstr "Su contraseña de ChurchCRM fue cambiada"
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
+msgid "Your EcclesiaCRM password was changed"
+msgstr "Su contraseña de EcclesiaCRM fue cambiada"
 
-#: ChurchCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your ChurchCRM password by clicking this link"
-msgstr "Puede restablecer si contraseña de ChurchCRM haciendo clic en este enlace"
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr "Puede restablecer si contraseña de EcclesiaCRM haciendo clic en este enlace"
 
-#: ChurchCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your ChurchCRM account was unlocked."
-msgstr "Su cuenta de ChurchCRM fue desbloqueada."
+#: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "Su cuenta de EcclesiaCRM fue desbloqueada."
 
-#: ChurchCRM/model/ChurchCRM/User.php:146
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:146
 msgid "system user created"
 msgstr "usuario de sistema creado"
 
-#: ChurchCRM/model/ChurchCRM/User.php:149
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:149
 msgid "system user updated"
 msgstr "usuario de sistema actualizado"
 
-#: ChurchCRM/model/ChurchCRM/User.php:152
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:152
 msgid "system user deleted"
 msgstr "usuario de sistema borrado"
 
-#: ChurchCRM/model/ChurchCRM/User.php:155
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:155
 msgid "system user password reset"
 msgstr "contraseña de usuario de sistema restablecida"
 
 #. Does this mean that the system user changed the password, or that he password of the system user changed?
-#: ChurchCRM/model/ChurchCRM/User.php:158
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:158
 msgid "system user changed password"
 msgstr "contraseña de usuario de sistema cambiada"
 
-#: ChurchCRM/model/ChurchCRM/User.php:161
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:161
 msgid "system user password changed by admin"
 msgstr "contraseña de usuario de sistema cambiada por admin"
 
-#: ChurchCRM/model/ChurchCRM/User.php:164
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:164
 msgid "system user login reset"
 msgstr "Ingreso de usuario de sistema restablecido"
 
@@ -8349,147 +8349,147 @@ msgstr "Faltan Familias? Actualice la Latitud y Longitud de la Familia ahora."
 msgid "Families without Geo Info"
 msgstr "Familias sin Info de Geo"
 
-#: ChurchCRM/dto/Notification.php:80
+#: EcclesiaCRM/dto/Notification.php:80
 msgid "Notification for"
 msgstr "Notificación para"
 
-#: ChurchCRM/dto/SystemConfig.php:33
+#: EcclesiaCRM/dto/SystemConfig.php:33
 msgid "DEBUG"
 msgstr "DEPURACIÓN"
 
-#: ChurchCRM/dto/SystemConfig.php:34
+#: EcclesiaCRM/dto/SystemConfig.php:34
 msgid "INFO"
 msgstr "INFO"
 
-#: ChurchCRM/dto/SystemConfig.php:35
+#: EcclesiaCRM/dto/SystemConfig.php:35
 msgid "NOTICE"
 msgstr "AVISO"
 
-#: ChurchCRM/dto/SystemConfig.php:36
+#: EcclesiaCRM/dto/SystemConfig.php:36
 msgid "WARNING"
 msgstr "ALERTA"
 
-#: ChurchCRM/dto/SystemConfig.php:37
+#: EcclesiaCRM/dto/SystemConfig.php:37
 msgid "ERROR"
 msgstr "ERROR"
 
-#: ChurchCRM/dto/SystemConfig.php:38
+#: EcclesiaCRM/dto/SystemConfig.php:38
 msgid "CRITICAL"
 msgstr "CRÍTICO"
 
-#: ChurchCRM/dto/SystemConfig.php:39
+#: EcclesiaCRM/dto/SystemConfig.php:39
 msgid "ALERT"
 msgstr "ALERTA"
 
-#: ChurchCRM/dto/SystemConfig.php:40
+#: EcclesiaCRM/dto/SystemConfig.php:40
 msgid "EMERGENCY"
 msgstr "EMERGENCIA"
 
-#: ChurchCRM/dto/SystemConfig.php:49
+#: EcclesiaCRM/dto/SystemConfig.php:49
 msgid "Title FirstName MiddleName LastName"
 msgstr "Título PrimerNombre SegundoNombre Apellido"
 
-#: ChurchCRM/dto/SystemConfig.php:50
+#: EcclesiaCRM/dto/SystemConfig.php:50
 msgid "Title FirstName MiddleInitial. LastName"
 msgstr "Título Nombre InicialSegundoNombre Apellido"
 
-#: ChurchCRM/dto/SystemConfig.php:51
+#: EcclesiaCRM/dto/SystemConfig.php:51
 msgid "LastName, Title FirstName MiddleName"
 msgstr "Apellido, Título PrimerNombre SegundoNombre"
 
-#: ChurchCRM/dto/SystemConfig.php:52
+#: EcclesiaCRM/dto/SystemConfig.php:52
 msgid "LastName, Title FirstName MiddleInitial"
 msgstr "Apellido, Título PrimerNombre InicialSegundoNombre"
 
-#: ChurchCRM/dto/SystemConfig.php:53
+#: EcclesiaCRM/dto/SystemConfig.php:53
 msgid "FirstName MiddleName LastName"
 msgstr "PrimerNombre SegundoNombre Apellido"
 
-#: ChurchCRM/dto/SystemConfig.php:54
+#: EcclesiaCRM/dto/SystemConfig.php:54
 msgid "Title FirstName LastName"
 msgstr "Título PrimerNombre Apellido"
 
-#: ChurchCRM/dto/SystemConfig.php:55
+#: EcclesiaCRM/dto/SystemConfig.php:55
 msgid "LastName, Title FirstName"
 msgstr "Apellido, Titulo PrimerNombre"
 
-#: ChurchCRM/dto/SystemConfig.php:64
+#: EcclesiaCRM/dto/SystemConfig.php:64
 msgid "Event Log severity to write, used by ORM and App Logs"
 msgstr "Log de eventos de gravedad a escribir, usado por ORM y Logs de App"
 
-#: ChurchCRM/dto/SystemConfig.php:110
+#: EcclesiaCRM/dto/SystemConfig.php:110
 msgid "Time zone"
 msgstr "Zona horaria"
 
-#: ChurchCRM/dto/SystemConfig.php:185
+#: EcclesiaCRM/dto/SystemConfig.php:185
 msgid "Nexmo SMS API Key"
 msgstr "Llave de API Nexmo SMS"
 
-#: ChurchCRM/dto/SystemConfig.php:186
+#: EcclesiaCRM/dto/SystemConfig.php:186
 msgid "Nexmo SMS API Secret"
 msgstr "Secreto de API Nexmo SMS"
 
-#: ChurchCRM/dto/SystemConfig.php:187
+#: EcclesiaCRM/dto/SystemConfig.php:187
 msgid "Nexmo SMS From Number"
 msgstr "Número de Nexmo SMS"
 
-#: ChurchCRM/dto/SystemConfig.php:188
+#: EcclesiaCRM/dto/SystemConfig.php:188
 msgid "OpenLP URL"
 msgstr "URL de OpenLP"
 
-#: ChurchCRM/dto/SystemConfig.php:189
+#: EcclesiaCRM/dto/SystemConfig.php:189
 msgid "OpenLP Username"
 msgstr "Usuario de OpenLP"
 
-#: ChurchCRM/dto/SystemConfig.php:190
+#: EcclesiaCRM/dto/SystemConfig.php:190
 msgid "OpenLP Password"
 msgstr "Contraseña de OpenLP"
 
-#: ChurchCRM/dto/SystemConfig.php:191
+#: EcclesiaCRM/dto/SystemConfig.php:191
 msgid "KioskVisibilityTimestamp"
 msgstr "Marca de Tiempo de Visibilidad de Quiosco"
 
-#: ChurchCRM/dto/SystemConfig.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:192
 msgid "Show/Hide Lost Password Link on the login screen"
 msgstr "Mostrar/Ocultar Enlace de Contraseña Perdida en la pantalla de ingreso"
 
-#: ChurchCRM/dto/SystemConfig.php:242
+#: EcclesiaCRM/dto/SystemConfig.php:242
 msgid "Backup"
 msgstr "Respaldo"
 
-#: ChurchCRM/dto/SystemConfig.php:244
+#: EcclesiaCRM/dto/SystemConfig.php:244
 msgid "Integration"
 msgstr "Integración"
 
-#: ChurchCRM/Emails/notifications/NotificationEmail.php:22
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:22
 msgid "Notification"
 msgstr "Notificación"
 
-#: ChurchCRM/Emails/notifications/NotificationEmail.php:28
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
 msgid "Guardian(s) of"
 msgstr "Tutor(es) de"
 
-#: ChurchCRM/Emails/notifications/NotificationEmail.php:29
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "A notification was triggered by the classroom teacher at"
 msgstr "Una notificación fue causada por el profesor de la sala en"
 
-#: ChurchCRM/Emails/notifications/NotificationEmail.php:29
+#: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "Please go to this location"
 msgstr "Por favor vaya a esta ubicación"
 
-#: ChurchCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You ChurchCRM updated password has been changed"
-msgstr "Su contraseña actualizada de ChurchCRM ha sido cambiada"
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "Su contraseña actualizada de EcclesiaCRM ha sido cambiada"
 
-#: ChurchCRM/Emails/users/ResetPasswordTokenEmail.php:17
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
 msgid "Password Reset Link"
 msgstr "Enlace de Restablecimiento de Contraseña"
 
-#: ChurchCRM/Emails/users/ResetPasswordTokenEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
 msgid "Reset Password"
 msgstr "Restablecer Contraseña"
 
-#: ChurchCRM/Service/SystemService.php:95
+#: EcclesiaCRM/Service/SystemService.php:95
 msgid "As part of the restore, external backups have been disabled.  If you wish to continue automatic backups, you must manuall re-enable the bEnableExternalBackupTarget setting."
 msgstr "Como parte de la restauración, respaldos externos han sido inhabilitados. Si desea continuar con respaldos automáticos, debe rehabilitarlos manualmente con la opción bEnableExternalBackupTarget."
 
@@ -8577,11 +8577,11 @@ msgstr "Almacenar Datos Privados en Vanco"
 msgid "Text Cart"
 msgstr "Separador de Texto"
 
-#: ChurchCRM/dto/SystemConfig.php:193
+#: EcclesiaCRM/dto/SystemConfig.php:193
 msgid "Your Church's Website"
 msgstr "Sitio Web de su Iglesia"
 
-#: ChurchCRM/Service/TimelineService.php:119
+#: EcclesiaCRM/Service/TimelineService.php:119
 msgid "Self Verification"
 msgstr "Autoverificación"
 
@@ -8609,7 +8609,7 @@ msgstr "Número de Verificación"
 msgid "Details"
 msgstr "Detalles"
 
-#: ChurchCRM/model/ChurchCRM/Family.php:188
+#: EcclesiaCRM/model/EcclesiaCRM/Family.php:188
 msgid "Verification email sent"
 msgstr "Email de verificación enviado"
 
@@ -8686,18 +8686,18 @@ msgid "Are you sure you want to unassign this property?"
 msgstr "¿Está seguro de que desea desasignar esta propiedad?"
 
 #. Cabeza is more neutral than jefe i think
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:40
-#: ChurchCRM/Service/DashboardService.php:76
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:40
+#: EcclesiaCRM/Service/DashboardService.php:76
 msgid "Head of Household"
 msgstr "Cabeza del Hogar"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:43
-#: ChurchCRM/Service/DashboardService.php:79
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:43
+#: EcclesiaCRM/Service/DashboardService.php:79
 msgid "Spouse"
 msgstr "Cónyuge"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:46
-#: ChurchCRM/Service/DashboardService.php:82
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:46
+#: EcclesiaCRM/Service/DashboardService.php:82
 msgid "Child"
 msgstr "Niño"
 
@@ -8723,15 +8723,15 @@ msgstr "Árabe - Egipto"
 msgid "Thai"
 msgstr "Tailandés"
 
-#: ChurchCRM/dto/SystemConfig.php:194
+#: EcclesiaCRM/dto/SystemConfig.php:194
 msgid "Your Church's Facebook Page"
 msgstr "Página de Facebook de Su Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:195
+#: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "Your Church's Twitter Page"
 msgstr "Página de Twitter de Su Iglesia"
 
-#: ChurchCRM/dto/SystemConfig.php:196
+#: EcclesiaCRM/dto/SystemConfig.php:196
 msgid "lookup user images on Google when no local image is present"
 msgstr "buscar imágenes de usuario en Google cuando no esté presente una imagen local"
 
@@ -8783,41 +8783,41 @@ msgstr "POST a separador requiere un arreglo de Personas, ID de Familia o ID de 
 msgid "records(s) successfully added to selected Group."
 msgstr "registro(s) agregados exitosamente al Grupo seleccionado"
 
-#: ChurchCRM/dto/SystemConfig.php:124
+#: EcclesiaCRM/dto/SystemConfig.php:124
 msgid "To export to another For european CharSet use ;"
 msgstr "Para exportar hacia otro Para caracteres europeos use ;"
 
-#: ChurchCRM/dto/SystemConfig.php:125
+#: EcclesiaCRM/dto/SystemConfig.php:125
 msgid "Default is UTF-8, For european CharSet use Windows-1252 for example for French language."
 msgstr "UTF-8 por defecto, Para caracteres euripeos use Windows-1252 por ejemplo para Francés"
 
-#: ChurchCRM/dto/SystemConfig.php:126
+#: EcclesiaCRM/dto/SystemConfig.php:126
 msgid "For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : dd/mm/yyyy for example."
 msgstr "Para definir la fecha en el Selector de Fechas, por defecto: yyyy-mm-dd, por ejemplo en Francés: dd/mm/yyyy."
 
-#: ChurchCRM/dto/SystemConfig.php:127
+#: EcclesiaCRM/dto/SystemConfig.php:127
 msgid "For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y for example."
 msgstr "Para definir la fecha en el Selector de Fechas, por defecto: Y-m-d, por ejemplo en Francés: d/m/Y."
 
-#: ChurchCRM/dto/SystemConfig.php:197
+#: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "Comma Separated list of PersonIDs of people to notify when a new family or person is added"
 msgstr "Lista separada por comas de Id de Persona para notificar cuando una nueva familia o persona es agregada."
 
-#: ChurchCRM/dto/SystemConfig.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Allow unauthenticated reads of events from the external calendar API"
 msgstr "Permitir lecturas no autentificadas de eventos de la API del calendario externo"
 
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 msgid "New Person Added"
 msgstr "Nueva Persona Agregada"
 
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
 msgid "New Family Added"
 msgstr "Nueva Familia Agregada"
 
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:53
 msgid "Church Greeter"
 msgstr "Recibidor de Personas"
 
@@ -8841,63 +8841,63 @@ msgstr "Puede crear/eliminar grupo de escuela dominical. "
 msgid "Add new roles, but not modify or rename the Student and the Teacher roles."
 msgstr "Agregar nuevos roles, pero no modificar o renombrar los roles de Estudiantes y Profesores."
 
-#: ChurchCRM/utils/GeoUtils.php:177
+#: EcclesiaCRM/utils/GeoUtils.php:177
 msgid "E"
 msgstr "E"
 
-#: ChurchCRM/utils/GeoUtils.php:175
+#: EcclesiaCRM/utils/GeoUtils.php:175
 msgid "ENE"
 msgstr "ENE"
 
-#: ChurchCRM/utils/GeoUtils.php:179
+#: EcclesiaCRM/utils/GeoUtils.php:179
 msgid "ESE"
 msgstr "ESE"
 
-#: ChurchCRM/utils/GeoUtils.php:169
+#: EcclesiaCRM/utils/GeoUtils.php:169
 msgid "N"
 msgstr "N"
 
-#: ChurchCRM/utils/GeoUtils.php:173
+#: EcclesiaCRM/utils/GeoUtils.php:173
 msgid "NE"
 msgstr "NE"
 
-#: ChurchCRM/utils/GeoUtils.php:171
+#: EcclesiaCRM/utils/GeoUtils.php:171
 msgid "NNE"
 msgstr "NNE"
 
-#: ChurchCRM/utils/GeoUtils.php:167
+#: EcclesiaCRM/utils/GeoUtils.php:167
 msgid "NNW"
 msgstr "NNO"
 
-#: ChurchCRM/utils/GeoUtils.php:165
+#: EcclesiaCRM/utils/GeoUtils.php:165
 msgid "NW"
 msgstr "NO"
 
-#: ChurchCRM/utils/GeoUtils.php:153 ChurchCRM/utils/GeoUtils.php:185
+#: EcclesiaCRM/utils/GeoUtils.php:153 EcclesiaCRM/utils/GeoUtils.php:185
 msgid "S"
 msgstr "S"
 
-#: ChurchCRM/utils/GeoUtils.php:181
+#: EcclesiaCRM/utils/GeoUtils.php:181
 msgid "SE"
 msgstr "SE"
 
-#: ChurchCRM/utils/GeoUtils.php:155
+#: EcclesiaCRM/utils/GeoUtils.php:155
 msgid "SSW"
 msgstr "SSO"
 
-#: ChurchCRM/utils/GeoUtils.php:157
+#: EcclesiaCRM/utils/GeoUtils.php:157
 msgid "SW"
 msgstr "SO"
 
-#: ChurchCRM/utils/GeoUtils.php:161
+#: EcclesiaCRM/utils/GeoUtils.php:161
 msgid "W"
 msgstr "O"
 
-#: ChurchCRM/utils/GeoUtils.php:163
+#: EcclesiaCRM/utils/GeoUtils.php:163
 msgid "WNW"
 msgstr "ONO"
 
-#: ChurchCRM/utils/GeoUtils.php:159
+#: EcclesiaCRM/utils/GeoUtils.php:159
 msgid "WSW"
 msgstr "OSO"
 
@@ -8905,55 +8905,55 @@ msgstr "OSO"
 msgid "Persons"
 msgstr "Personas"
 
-#: ChurchCRM/dto/SystemConfig.php:200
+#: EcclesiaCRM/dto/SystemConfig.php:200
 msgid "Search Family"
 msgstr "Buscar Familia"
 
-#: ChurchCRM/dto/SystemConfig.php:201
+#: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "Show Family Head of House Names"
 msgstr "Mostrar Nombres de Cabezas de Hogar"
 
-#: ChurchCRM/dto/SystemConfig.php:202
+#: EcclesiaCRM/dto/SystemConfig.php:202
 msgid "Search Groups"
 msgstr "Buscar Grupos"
 
-#: ChurchCRM/dto/SystemConfig.php:203
+#: EcclesiaCRM/dto/SystemConfig.php:203
 msgid "Search Deposits"
 msgstr "Buscar Depósitos"
 
-#: ChurchCRM/dto/SystemConfig.php:204
+#: EcclesiaCRM/dto/SystemConfig.php:204
 msgid "Search Payments"
 msgstr "Buscar Pagos"
 
-#: ChurchCRM/dto/SystemConfig.php:241
+#: EcclesiaCRM/dto/SystemConfig.php:241
 msgid "Quick Search"
 msgstr "Búsqueda Rápida"
 
-#: ChurchCRM/dto/SystemConfig.php:205
+#: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "Search Addresses"
 msgstr "Buscar Direcciones"
 
-#: ChurchCRM/dto/SystemConfig.php:207
+#: EcclesiaCRM/dto/SystemConfig.php:207
 msgid "Maximum number of Families"
 msgstr "Numero máximo de Familias"
 
-#: ChurchCRM/dto/SystemConfig.php:208
+#: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "Maximum number of Family H.O.H Names"
 msgstr "Numero máximo de Nombres HOH de Familias"
 
-#: ChurchCRM/dto/SystemConfig.php:209
+#: EcclesiaCRM/dto/SystemConfig.php:209
 msgid "Maximum number of Groups"
 msgstr "Numero máximo de Grupos"
 
-#: ChurchCRM/dto/SystemConfig.php:210
+#: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "Maximum number of Deposits"
 msgstr "Numero máximo de Depósitos"
 
-#: ChurchCRM/dto/SystemConfig.php:211
+#: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "Maximum number of Payments"
 msgstr "Numero máximo de Pagos"
 
-#: ChurchCRM/dto/SystemConfig.php:212
+#: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "Maximum number of Addresses"
 msgstr "Numero máximo de DIrecciones"
 
@@ -9013,31 +9013,31 @@ msgstr "Con Fotos"
 msgid "Create PhotoBook"
 msgstr "Crear Álbum de Fotos"
 
-#: ChurchCRM/utils/GeoUtils.php:183
+#: EcclesiaCRM/utils/GeoUtils.php:183
 msgid "SSE"
 msgstr "SSE"
 
-#: ChurchCRM/dto/SystemConfig.php:213
+#: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Height to use for images"
 msgstr "Altura a usar para imágenes"
 
-#: ChurchCRM/dto/SystemConfig.php:214
+#: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "Width to use for images"
 msgstr "Anchura a usar para imágenes"
 
-#: ChurchCRM/dto/SystemConfig.php:215
+#: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "Width to use for thumbnails"
 msgstr "Anchura a usar para miniaturas"
 
-#: ChurchCRM/dto/SystemConfig.php:216
+#: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Point size to use for initials thumbnails"
 msgstr "Tamaño de punto a usar para iniciales de miniaturas"
 
-#: ChurchCRM/dto/SystemConfig.php:217
+#: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "Client cache seconds for images"
 msgstr "Segundos de caché de cliente para imágenes"
 
-#: ChurchCRM/dto/SystemConfig.php:218
+#: EcclesiaCRM/dto/SystemConfig.php:218
 msgid "Server cache time for remote images"
 msgstr "Tiempo de caché de servidor para imágenes remotas"
 
@@ -9177,35 +9177,35 @@ msgstr "Cambiar Ajustes"
 msgid "Unknown Type"
 msgstr "Tipo Desconocido"
 
-#: ChurchCRM/dto/Cart.php:23 ChurchCRM/dto/Cart.php:82
+#: EcclesiaCRM/dto/Cart.php:23 EcclesiaCRM/dto/Cart.php:82
 msgid "PersonID for Cart must be numeric"
 msgstr "ID de Persona para Separador debe ser numérico"
 
-#: ChurchCRM/dto/Cart.php:43 ChurchCRM/dto/Cart.php:103
+#: EcclesiaCRM/dto/Cart.php:43 EcclesiaCRM/dto/Cart.php:103
 msgid "GroupID for Cart must be numeric"
 msgstr "ID de Grupo para Separador debe ser numérico"
 
-#: ChurchCRM/dto/Cart.php:58
+#: EcclesiaCRM/dto/Cart.php:58
 msgid "FamilyID for Cart must be numeric"
 msgstr "ID de Familia para Separador debe ser numérico"
 
-#: ChurchCRM/dto/SystemConfig.php:199
+#: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Search People"
 msgstr "Buscar Personas"
 
-#: ChurchCRM/dto/SystemConfig.php:206
+#: EcclesiaCRM/dto/SystemConfig.php:206
 msgid "Maximum number of People"
 msgstr "Número máximo de Personas"
 
-#: ChurchCRM/dto/SystemConfig.php:221
-msgid "Require that this ChurchCRM Database is accessed over HTTPS"
-msgstr "Requiere que esta Base de Datos de ChurchCRM sea accedida mediante HTTPS"
+#: EcclesiaCRM/dto/SystemConfig.php:221
+msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
+msgstr "Requiere que esta Base de Datos de EcclesiaCRM sea accedida mediante HTTPS"
 
-#: ChurchCRM/dto/SystemConfig.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:236
 msgid "People Setup"
 msgstr "Ajustes de Personas"
 
-#: ChurchCRM/dto/SystemConfig.php:245
+#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "Church Services"
 msgstr "Servicios Religiosos"
 
@@ -9253,11 +9253,11 @@ msgstr "Versión de Software Actual: "
 msgid "Upgrade database"
 msgstr "Actualizar base de datos"
 
-#: ChurchCRM/dto/SystemConfig.php:222
+#: EcclesiaCRM/dto/SystemConfig.php:222
 msgid "Show Birthdates Anniversaries on start up of the CRM"
 msgstr "Mostrar Cumpleaños cuando al iniciar el CRM"
 
-#: ChurchCRM/dto/SystemConfig.php:223
+#: EcclesiaCRM/dto/SystemConfig.php:223
 msgid "Number of seconds after page load until the banner disappears, default 10 seconds"
 msgstr "Número de segundos después de la carga del sitio en que el anuncio desaparecerá, 10 segundos por defecto"
 

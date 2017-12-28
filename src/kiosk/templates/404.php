@@ -1,5 +1,5 @@
 <?php
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 $sPageTitle = gettext("Page not fond");
 require(SystemURLs::getDocumentRoot() . "/Include/HeaderNotLoggedIn.php");

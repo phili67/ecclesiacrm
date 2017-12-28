@@ -4,7 +4,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/VancoConfig.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 // set into the Vanco interface by AutoPaymentEditor.php
 $iVancoAutID = InputUtils::LegacyFilterInputArr($_POST, 'customerid', 'int');

@@ -9,15 +9,15 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Person2group2roleP2g2r;
-use ChurchCRM\Map\PersonTableMap;
+use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2r;
+use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 header('Pragma: no-cache');
@@ -66,14 +66,14 @@ foreach ($groups as $group) {
     $sundayschoolClass = $group->getName();
         
         
-    $groupRoleMemberships = ChurchCRM\Person2group2roleP2g2rQuery::create()
+    $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
                             ->joinWithPerson()
                             ->orderBy(PersonTableMap::COL_PER_LASTNAME)
                             ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce per_LastName, per_FirstName
                             ->findByGroupId($iGroupID);
                             
     foreach ($groupRoleMemberships as $groupRoleMembership) {
-        $groupRole = ChurchCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
+        $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
             
         $lst_OptionName = $groupRole->getOptionName();
         $member = $groupRoleMembership->getPerson();

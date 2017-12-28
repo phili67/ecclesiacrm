@@ -1,5 +1,5 @@
 <?php
-use ChurchCRM\data\Countries;
+use EcclesiaCRM\data\Countries;
 
 class CountryDropDown extends Countries
 {

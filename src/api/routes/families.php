@@ -2,21 +2,21 @@
 
 /* Contributors Philippe Logel */
 // Routes
-use ChurchCRM\dto\MenuEventsCount;
-use ChurchCRM\dto\Photo;
-use ChurchCRM\Emails\FamilyVerificationEmail;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\Map\FamilyTableMap;
-use ChurchCRM\Map\TokenTableMap;
-use ChurchCRM\Note;
-use ChurchCRM\NoteQuery;
-use ChurchCRM\Person;
-use ChurchCRM\Token;
-use ChurchCRM\TokenQuery;
-use ChurchCRM\Utils\GeoUtils;
-use ChurchCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\MenuEventsCount;
+use EcclesiaCRM\dto\Photo;
+use EcclesiaCRM\Emails\FamilyVerificationEmail;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\TokenTableMap;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Person;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 $app->group('/families', function () {
     $this->get('/{familyId:[0-9]+}', function ($request, $response, $args) {

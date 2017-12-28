@@ -14,8 +14,8 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use ChurchCRM\Service\MailChimpService;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\dto\SystemURLs;
 
 $mailchimp = new MailChimpService();
 

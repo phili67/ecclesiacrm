@@ -15,18 +15,18 @@ require 'Include/Functions.php';
 require 'Include/CountryDropDown.php';
 require 'Include/StateDropDown.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Note;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\Emails\NewPersonOrFamilyEmail;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\Person;
-use ChurchCRM\dto\Photo;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\Family;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\PersonCustomQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person;
+use EcclesiaCRM\dto\Photo;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Family;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonCustomQuery;
 
 //Set the page title
 $sPageTitle = gettext('Person Editor');

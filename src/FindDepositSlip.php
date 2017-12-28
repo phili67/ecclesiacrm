@@ -4,7 +4,7 @@
  *  filename    : FindDepositSlip.php
  *  last change : 2016-02-28
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2016 ChurchCRM
+ *  copyright   : Copyright 2016 EcclesiaCRM
   *
  ******************************************************************************/
 
@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 $iDepositSlipID = $_SESSION['iCurrentDeposit'];
 

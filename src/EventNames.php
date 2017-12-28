@@ -18,8 +18,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 if (!$_SESSION['bAdmin'] && !$_SESSION['bAddEvent']) {
     header('Location: Menu.php');

@@ -1,8 +1,8 @@
 <?php
-use ChurchCRM\Person2group2roleP2g2r;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Group;
-use ChurchCRM\dto\Cart;
+use EcclesiaCRM\Person2group2roleP2g2r;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Group;
+use EcclesiaCRM\dto\Cart;
 
 $app->group('/cart', function () {
   

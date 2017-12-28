@@ -19,14 +19,14 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/Header.php';
 
-use ChurchCRM\EventQuery;
-use ChurchCRM\EventAttendQuery;
-use ChurchCRM\EventAttend;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\EventAttendQuery;
+use EcclesiaCRM\EventAttend;
+use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
 
 $EventID = 0;
 $CheckoutOrDelete = false;

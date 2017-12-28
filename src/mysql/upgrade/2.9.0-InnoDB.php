@@ -1,7 +1,7 @@
 <?php
 
 use Propel\Runtime\Propel;
-use ChurchCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 $connection = Propel::getConnection();
 $logger = LoggerUtils::getAppLogger();

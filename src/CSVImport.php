@@ -16,10 +16,10 @@ require 'Include/Functions.php';
 require 'Include/CountryDropDown.php';
 
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Note;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 if (!$_SESSION['bAdmin']) {
     Redirect('Menu.php');
@@ -819,7 +819,7 @@ if (isset($_POST['Clear'])) {
         RunQuery($sSQL);
         $sSQL = 'TRUNCATE `family_custom`;';
         RunQuery($sSQL);
-        $sSQL = "INSERT INTO person_per VALUES (1,NULL,'ChurchCRM',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0000,NULL,0,0,0,0,NULL,NULL,'2004-08-25 18:00:00',0,0,NULL,0);";
+        $sSQL = "INSERT INTO person_per VALUES (1,NULL,'EcclesiaCRM',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0000,NULL,0,0,0,0,NULL,NULL,'2004-08-25 18:00:00',0,0,NULL,0);";
         RunQuery($sSQL);
         $sClear = gettext('Data Cleared Successfully!');
     } else {

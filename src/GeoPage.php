@@ -19,12 +19,12 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\Utils\GeoUtils;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 function CompareDistance($elem1, $elem2)
 {

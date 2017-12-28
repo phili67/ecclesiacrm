@@ -2,11 +2,11 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\FamilyQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\FamilyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 $sMode = 'Active';
 // Filter received user input as needed

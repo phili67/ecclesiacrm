@@ -13,10 +13,10 @@ require 'Include/Config.php';
 $bNoPasswordRedirect = true; // Subdue UserPasswordChange redirect to prevent looping
 require 'Include/Functions.php';
 
-use ChurchCRM\UserQuery;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Emails\PasswordChangeEmail;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Emails\PasswordChangeEmail;
+use EcclesiaCRM\Utils\InputUtils;
 
 $bAdminOtherUser = false;
 $bAdminOther = false;

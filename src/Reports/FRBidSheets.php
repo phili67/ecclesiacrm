@@ -11,8 +11,8 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\ChurchInfoReport;
 
 $iCurrentFundraiser = $_GET['CurrentFundraiser'];
 

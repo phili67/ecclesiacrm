@@ -4,22 +4,22 @@ function skipCheck() {
 }
 
 window.CRM.checkIntegrity = function () {
-    window.CRM.renderPrerequisite("ChurchCRM File Integrity Check", "pending");
+    window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "pending");
     $.ajax({
         url: window.CRM.root + "/setup/SystemIntegrityCheck",
         method: "GET"
     }).done(function (data) {
         if (data == "success") {
-            window.CRM.renderPrerequisite("ChurchCRM File Integrity Check", "pass");
+            window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "pass");
             $("#prerequisites-war").hide();
             window.CRM.prerequisitesStatus = true;
         }
         else {
-            window.CRM.renderPrerequisite("ChurchCRM File Integrity Check", "fail");
+            window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "fail");
         }
 
     }).fail(function () {
-        window.CRM.renderPrerequisite("ChurchCRM File Integrity Check", "fail");
+        window.CRM.renderPrerequisite("EcclesiaCRM File Integrity Check", "fail");
     });
 };
 

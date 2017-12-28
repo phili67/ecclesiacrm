@@ -11,15 +11,15 @@
   *
  ******************************************************************************/
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Base\EventQuery;
-use ChurchCRM\Base\EventTypesQuery;
-use ChurchCRM\Event;
-use ChurchCRM\EventCountsQuery;
-use ChurchCRM\EventCounts;
-use ChurchCRM\Service\CalendarService;
-use ChurchCRM\dto\MenuEventsCount;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Base\EventQuery;
+use EcclesiaCRM\Base\EventTypesQuery;
+use EcclesiaCRM\Event;
+use EcclesiaCRM\EventCountsQuery;
+use EcclesiaCRM\EventCounts;
+use EcclesiaCRM\Service\CalendarService;
+use EcclesiaCRM\dto\MenuEventsCount;
+use EcclesiaCRM\Utils\InputUtils;
 
 
 $app->group('/events', function () {

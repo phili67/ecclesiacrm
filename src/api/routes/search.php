@@ -7,12 +7,12 @@
 *								 groups, families, etc...
 *
 ******************************************************************************/
-use ChurchCRM\DepositQuery;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 // Routes search

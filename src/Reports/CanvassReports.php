@@ -12,9 +12,9 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\PDF_CanvassBriefingReport;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\PDF_CanvassBriefingReport;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');

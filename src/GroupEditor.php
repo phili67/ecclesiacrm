@@ -13,11 +13,11 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\Service\GroupService;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security: User must have Manage Groups permission
 if (!$_SESSION['bManageGroups']) {

@@ -1,10 +1,10 @@
 <?php
 // Routes
-use ChurchCRM\Group;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Person2group2roleP2g2rQuery;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\Note;
+use EcclesiaCRM\Group;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Note;
 $app->group('/groups', function () {
     $this->get('/', function () {        
         echo GroupQuery::create()->find()->toJSON();
@@ -71,7 +71,7 @@ $app->group('/groups', function () {
     });
     $this->get('/{groupID:[0-9]+}/members', function ($request, $response, $args) {
         $groupID = $args['groupID'];
-        $members = ChurchCRM\Person2group2roleP2g2rQuery::create()
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
             ->findByGroupId($groupID);
         
@@ -99,7 +99,7 @@ $app->group('/groups', function () {
     
     $this->get('/{groupID:[0-9]+}/events', function ($request, $response, $args) {
         $groupID = $args['groupID'];
-        $members = ChurchCRM\Person2group2roleP2g2rQuery::create()
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
             ->findByGroupId($groupID);
         echo $members->toJSON();
@@ -151,7 +151,7 @@ $app->group('/groups', function () {
         $note->setEntered($_SESSION['iUserID']);
         $note->setPerId($person->getId());
         $note->save();
-        $members = ChurchCRM\Person2group2roleP2g2rQuery::create()
+        $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
             ->filterByPersonId($input->PersonID)
             ->findByGroupId($GroupID);
@@ -161,7 +161,7 @@ $app->group('/groups', function () {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
         $roleID = $request->getParsedBody()['roleID'];
-        $membership = ChurchCRM\Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
+        $membership = EcclesiaCRM\Person2group2roleP2g2rQuery::create()->filterByGroupId($groupID)->filterByPersonId($userID)->findOne();
         $membership->setRoleId($roleID);
         $membership->save();
         echo $membership->toJSON();
@@ -172,12 +172,12 @@ $app->group('/groups', function () {
         $input = (object) $request->getParsedBody();
         $group = GroupQuery::create()->findOneById($groupID);
         if (isset($input->groupRoleName)) {
-            $groupRole = ChurchCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
+            $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
             $groupRole->setOptionName($input->groupRoleName);
             $groupRole->save();
             return json_encode(['success' => true]);
         } elseif (isset($input->groupRoleOrder)) {
-            $groupRole = ChurchCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
+            $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($roleID)->findOne();
             $groupRole->setOptionSequence($input->groupRoleOrder);
             $groupRole->save();
             return json_encode(['success' => true]);
@@ -187,7 +187,7 @@ $app->group('/groups', function () {
     $this->get('/{groupID:[0-9]+}/roles', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $group = GroupQuery::create()->findOneById($groupID);
-        $roles = ChurchCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->find();
+        $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->find();
         echo $roles->toJSON();
     });
     $this->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {

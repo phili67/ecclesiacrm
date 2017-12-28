@@ -13,7 +13,7 @@ require '../Include/Functions.php';
 $sPageTitle = gettext('Families Self Registration');
 require '../Include/Header.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 ?>
 

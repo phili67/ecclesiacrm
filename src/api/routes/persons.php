@@ -2,11 +2,11 @@
 /* contributor Philippe Logel */
 
 // Person APIs
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\dto\Photo;
-use ChurchCRM\Utils\MiscUtils;
-use ChurchCRM\dto\MenuEventsCount;
+use EcclesiaCRM\dto\Photo;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\MenuEventsCount;
 
 $app->group('/persons', function () {
     // search person by Name
@@ -73,7 +73,7 @@ $app->group('/persons', function () {
      */
     $this->delete('/{personId:[0-9]+}', function ($request, $response, $args) {
         /**
-         * @var \ChurchCRM\User $sessionUser
+         * @var \EcclesiaCRM\User $sessionUser
          */
         $sessionUser = $_SESSION['user'];
         if (!$sessionUser->isDeleteRecordsEnabled()) {

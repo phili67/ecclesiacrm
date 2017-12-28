@@ -1,10 +1,10 @@
 <?php
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$sPageTitle = 'ChurchCRM – Setup';
+$sPageTitle = 'EcclesiaCRM – Setup';
 require '../Include/HeaderNotLoggedIn.php';
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -23,7 +23,7 @@ require '../Include/HeaderNotLoggedIn.php';
     }
 
 </style>
-<h1 class="text-center">Welcome to ChurchCRM setup wizard</h1>
+<h1 class="text-center">Welcome to EcclesiaCRM setup wizard</h1>
 <p/><br/>
 <form id="setup-form">
     <div id="wizard">
@@ -32,7 +32,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <table class="table table-condensed" id="prerequisites"></table>
             <p/>
             <div class="callout callout-warning" id="prerequisites-war">
-                This server isn't quite ready for ChurchCRM. If you know what you are doing.
+                This server isn't quite ready for EcclesiaCRM. If you know what you are doing.
                 <a href="#" onclick="skipCheck()"><b>Click here</b></a>.
             </div>
         </section>
@@ -60,10 +60,10 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="ROOT_PATH">Root Path</label>
                 <input type="text" name="ROOT_PATH" id="ROOT_PATH"
-                       value="<?= \ChurchCRM\dto\SystemURLs::getRootPath() ?>" class="form-control"
+                       value="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>" class="form-control"
                        aria-describedby="ROOT_PATH_HELP">
                 <small id="ROOT_PATH_HELP" class="form-text text-muted">
-                    Root path of your ChurchCRM installation ( THIS MUST BE SET CORRECTLY! )
+                    Root path of your EcclesiaCRM installation ( THIS MUST BE SET CORRECTLY! )
                     <p/>
                     <i><b>Examples:</b></i>
                     <p/>

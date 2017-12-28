@@ -2,7 +2,7 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use ChurchCRM\Service\CalendarService;
+use EcclesiaCRM\Service\CalendarService;
 
 $app->group('/calendar', function () {
     $this->get('/events', 'getEvents');

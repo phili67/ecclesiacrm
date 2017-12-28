@@ -14,15 +14,15 @@ require 'Include/Config.php';
 $bSuppressSessionTests = true; // DO NOT MOVE
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\UserQuery;
-use ChurchCRM\Emails\LockedEmail;
-use ChurchCRM\Service\NotificationService;
-use ChurchCRM\dto\ChurchMetaData;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Emails\LockedEmail;
+use EcclesiaCRM\Service\NotificationService;
+use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PersonQuery;
 
 if (!SystemService::isDBCurrent()) {
     Redirect('SystemDBUpdate.php');

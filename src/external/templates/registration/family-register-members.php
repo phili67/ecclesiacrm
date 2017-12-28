@@ -1,6 +1,6 @@
 <?php
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext("Family Registration");

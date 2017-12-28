@@ -1,7 +1,7 @@
 <?php
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\KioskDeviceQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\KioskDeviceQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $app->group('/kiosks', function () {

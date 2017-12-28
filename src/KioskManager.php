@@ -11,7 +11,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 //Set the page title
 $sPageTitle = gettext('Kiosk Manager');

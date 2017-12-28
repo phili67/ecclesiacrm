@@ -2,8 +2,8 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use ChurchCRM\Service\NewDashboardService;
-use ChurchCRM\Service\SystemService;
+use EcclesiaCRM\Service\NewDashboardService;
+use EcclesiaCRM\Service\SystemService;
 
 $app->group('/dashboard', function () {
    $this->get('/page', 'getDashboard');

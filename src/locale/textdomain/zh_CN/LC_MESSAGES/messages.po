@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: zh-CN\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -126,9 +126,9 @@ msgstr "国"
 msgid "Country"
 msgstr "国家"
 
-#: AutoPaymentEditor.php:935 ChurchCRM/Reports/PDF_Directory.php:312
-#: ChurchCRM/Reports/PDF_Directory.php:386
-#: ChurchCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
+#: AutoPaymentEditor.php:935 EcclesiaCRM/Reports/PDF_Directory.php:312
+#: EcclesiaCRM/Reports/PDF_Directory.php:386
+#: EcclesiaCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
 #: Reports/DirectoryReport.php:283 Reports/GroupReport.php:119
 #: external/templates/registration/family-register-members.php:103
 msgid "Phone"
@@ -136,9 +136,9 @@ msgstr "电话"
 
 #: AutoPaymentEditor.php:941 CSVExport.php:140 CSVImport.php:225
 #: CartToFamily.php:310 CartView.php:272
-#: ChurchCRM/Reports/PDF_Directory.php:321
-#: ChurchCRM/Reports/PDF_Directory.php:397
-#: ChurchCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:321
+#: EcclesiaCRM/Reports/PDF_Directory.php:397
+#: EcclesiaCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
 #: EventAttendance.php:175 FamilyEditor.php:770 FamilyView.php:266
 #: FamilyView.php:271 FamilyView.php:353 GroupReports.php:127
 #: PersonEditor.php:1034 PersonEditor.php:1036 PersonView.php:308
@@ -283,8 +283,8 @@ msgstr "邮编"
 msgid "Envelope"
 msgstr "信封"
 
-#: CSVExport.php:145 ChurchCRM/Reports/PDF_Directory.php:400
-#: ChurchCRM/Reports/PDF_Directory.php:457 PersonView.php:322
+#: CSVExport.php:145 EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 PersonView.php:322
 #: Reports/DirectoryReport.php:297
 #, fuzzy
 msgid "Work/Other Email"
@@ -352,8 +352,8 @@ msgstr "使用Ctrl键选择多个"
 msgid "Don't Filter"
 msgstr "不过滤"
 
-#: CSVExport.php:326 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:26
-#: ChurchCRM/Service/DashboardService.php:62 FamilyEditor.php:989
+#: CSVExport.php:326 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
+#: EcclesiaCRM/Service/DashboardService.php:62 FamilyEditor.php:989
 #: PersonEditor.php:629 PrintView.php:244 PrintView.php:363 SelectList.php:570
 #: SelectList.php:1156
 #: external/templates/registration/family-register-members.php:59
@@ -361,8 +361,8 @@ msgstr "不过滤"
 msgid "Male"
 msgstr "男"
 
-#: CSVExport.php:327 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:29
-#: ChurchCRM/Service/DashboardService.php:65 FamilyEditor.php:992
+#: CSVExport.php:327 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
+#: EcclesiaCRM/Service/DashboardService.php:65 FamilyEditor.php:992
 #: PersonEditor.php:632 PrintView.php:247 PrintView.php:363 SelectList.php:576
 #: SelectList.php:1157
 #: external/templates/registration/family-register-members.php:60
@@ -723,7 +723,7 @@ msgid "Add Cart to Family"
 msgstr "加入购物车家庭"
 
 #: CartToFamily.php:154 CartView.php:270 Checkin.php:311
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: DonationFundEditor.php:149 DonationFundEditor.php:212
 #: EditEventAttendees.php:32 EditEventAttendees.php:41 EventAttendance.php:174
 #: EventNames.php:262 FamilyCustomFieldsEditor.php:319
@@ -954,11 +954,11 @@ msgstr "没有分配给事件的参加者"
 msgid "Member"
 msgstr "成员"
 
-#: Checkin.php:457 ChurchCRM/Service/PersonService.php:39
+#: Checkin.php:457 EcclesiaCRM/Service/PersonService.php:39
 msgid " of the"
 msgstr "的"
 
-#: Checkin.php:459 ChurchCRM/Service/PersonService.php:41 PersonView.php:267
+#: Checkin.php:459 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:267
 msgid "(No assigned family)"
 msgstr "（没有分配的家庭）"
 
@@ -1048,7 +1048,7 @@ msgstr "信息包括"
 msgid "Address"
 msgstr "地址"
 
-#: ChurchCRM/Service/CalendarService.php:18 DirectoryReports.php:173
+#: EcclesiaCRM/Service/CalendarService.php:18 DirectoryReports.php:173
 #: FamilyView.php:352 PersonView.php:495 Reports/ConfirmReport.php:184
 #: Reports/ConfirmReport.php:203 Reports/ConfirmReportEmail.php:191
 #: Reports/ConfirmReportEmail.php:209
@@ -1122,7 +1122,7 @@ msgstr "扉页"
 msgid "Use Title Page"
 msgstr "使用标题页"
 
-#: ChurchCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
 msgid "Church Name"
 msgstr "教会名称"
 
@@ -1257,7 +1257,7 @@ msgid "Attendance Counts"
 msgstr "出席计数"
 
 #: AutoPaymentEditor.php:800
-#: ChurchCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194 FamilyView.php:199 FinancialReports.php:302
 #: Include/Footer.php:53 PersonEditor.php:795 PersonView.php:413
 #: PledgeEditor.php:507 PrintView.php:258 PropertyAssign.php:72
@@ -1618,12 +1618,12 @@ msgstr "选择性别"
 msgid "Select Role"
 msgstr "选择角色"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:23
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: ChurchCRM/Service/DashboardService.php:59
-#: ChurchCRM/Service/DashboardService.php:73
-#: ChurchCRM/Service/TimelineService.php:115
-#: ChurchCRM/model/ChurchCRM/Person.php:428 FamilyEditor.php:1016
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
+#: EcclesiaCRM/Service/DashboardService.php:59
+#: EcclesiaCRM/Service/DashboardService.php:73
+#: EcclesiaCRM/Service/TimelineService.php:115
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:428 FamilyEditor.php:1016
 #: Include/Functions.php:635 Include/Functions.php:664
 #: Include/Functions.php:884
 msgid "Unknown"
@@ -1974,7 +1974,7 @@ msgstr "报告标题："
 msgid "Graphic"
 msgstr "图形"
 
-#: ChurchCRM/dto/SystemConfig.php:132 FinancialReports.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:132 FinancialReports.php:291
 msgid "Church Address"
 msgstr "教会地址"
 
@@ -2532,7 +2532,7 @@ msgid "US Address Verification Report"
 msgstr "美国地址验证报告的"
 
 #: CartToFamily.php:205
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: FamilyEditor.php:653 LettersAndLabels.php:70 Menu.php:313 Menu.php:342
 #: Reports/ConfirmReport.php:115 Reports/ConfirmReportEmail.php:119
 #: SelectDelete.php:151 SelectDelete.php:277
@@ -2763,19 +2763,19 @@ msgstr "分配一个新的义工机会"
 msgid "Electronic Transaction Details"
 msgstr "电子交易详情"
 
-#: ChurchCRM/Service/FinancialService.php:480 PledgeEditor.php:270
+#: EcclesiaCRM/Service/FinancialService.php:480 PledgeEditor.php:270
 msgid "NonDeductible amount can't be greater than total amount."
 msgstr "不可扣除的金额不能大于总金额。"
 
-#: ChurchCRM/Service/FinancialService.php:485 PledgeEditor.php:277
+#: EcclesiaCRM/Service/FinancialService.php:485 PledgeEditor.php:277
 msgid "At least one fund must have a non-zero amount."
 msgstr "的至少一个基金必须有一个非零的量。"
 
-#: ChurchCRM/Service/FinancialService.php:510 PledgeEditor.php:294
+#: EcclesiaCRM/Service/FinancialService.php:510 PledgeEditor.php:294
 msgid "Must specify non-zero check number"
 msgstr "必须指定非零的支票号码"
 
-#: ChurchCRM/Service/FinancialService.php:515 PledgeEditor.php:301
+#: EcclesiaCRM/Service/FinancialService.php:515 PledgeEditor.php:301
 msgid "Check number not valid for 'CASH' payment"
 msgstr "检查数量不适用于“现金”支付"
 
@@ -2831,10 +2831,10 @@ msgstr "每季的"
 msgid "Once"
 msgstr "一次"
 
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:32
-#: ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:49
-#: ChurchCRM/Service/DashboardService.php:68
-#: ChurchCRM/Service/DashboardService.php:85 Include/Footer.php:113
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:32
+#: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:49
+#: EcclesiaCRM/Service/DashboardService.php:68
+#: EcclesiaCRM/Service/DashboardService.php:85 Include/Footer.php:113
 #: PledgeEditor.php:559
 msgid "Other"
 msgstr "其他"
@@ -2902,7 +2902,7 @@ msgstr "注："
 msgid "Entered:"
 msgstr "输入："
 
-#: ChurchCRM/Service/TimelineService.php:127 PrintView.php:498
+#: EcclesiaCRM/Service/TimelineService.php:127 PrintView.php:498
 msgid "by"
 msgstr "通过"
 
@@ -3127,8 +3127,8 @@ msgid "Address Info:"
 msgstr "地址信息："
 
 #: Register.php:35
-msgid "Please register your copy of ChurchCRM by checking over this information and pressing the Send button.  "
-msgstr "通过检查此资讯，按下“发送”按钮，请注册您的ChurchCRM的。"
+msgid "Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  "
+msgstr "通过检查此资讯，按下“发送”按钮，请注册您的EcclesiaCRM的。"
 
 #: Register.php:36
 msgid "This information is used only to track the usage of this software.  "
@@ -3489,9 +3489,9 @@ msgstr "输入此用户的密码。"
 msgid "Old Password"
 msgstr "旧密码"
 
-#: ChurchCRM/Emails/users/NewAccountEmail.php:30
-#: ChurchCRM/Emails/users/PasswordChangeEmail.php:29
-#: ChurchCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
+#: EcclesiaCRM/Emails/users/NewAccountEmail.php:30
+#: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
+#: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29 UserPasswordChange.php:205
 #, fuzzy
 msgid "New Password"
 msgstr "新密码"
@@ -3851,20 +3851,20 @@ msgid "Member/Friend"
 msgstr "会员/朋友"
 
 #: Reports/DirectoryReport.php:177
-msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to ChurchCRM."
-msgstr "此选项需要至少3.22版本的MySQL！命中浏览器的“后退”按钮返回到ChurchCRM的。"
+msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM."
+msgstr "此选项需要至少3.22版本的MySQL！命中浏览器的“后退”按钮返回到EcclesiaCRM的。"
 
-#: ChurchCRM/Reports/PDF_Directory.php:315
-#: ChurchCRM/Reports/PDF_Directory.php:390
-#: ChurchCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
+#: EcclesiaCRM/Reports/PDF_Directory.php:315
+#: EcclesiaCRM/Reports/PDF_Directory.php:390
+#: EcclesiaCRM/Reports/PDF_Directory.php:447 Reports/DirectoryReport.php:287
 #: Reports/GroupReport.php:124
 #: external/templates/registration/family-register-members.php:96
 msgid "Work"
 msgstr "工作"
 
-#: ChurchCRM/Reports/PDF_Directory.php:318
-#: ChurchCRM/Reports/PDF_Directory.php:394
-#: ChurchCRM/Reports/PDF_Directory.php:451 Reports/DirectoryReport.php:291
+#: EcclesiaCRM/Reports/PDF_Directory.php:318
+#: EcclesiaCRM/Reports/PDF_Directory.php:394
+#: EcclesiaCRM/Reports/PDF_Directory.php:451 Reports/DirectoryReport.php:291
 #: Reports/GroupReport.php:129
 msgid "Cell"
 msgstr "细胞"
@@ -3935,32 +3935,32 @@ msgstr "电广传媒（）现金（）检查（）信用卡_____________________
 msgid "                                        Signature ________________________________________________________________"
 msgstr "签名________________________________________________________________"
 
-#: ChurchCRM/Reports/PDF_Attendance.php:179
+#: EcclesiaCRM/Reports/PDF_Attendance.php:179
 msgid "Totals"
 msgstr "总计"
 
-#: ChurchCRM/Reports/PDF_CertificatesReport.php:30
+#: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
 msgstr "所有权证书"
 
-#: ChurchCRM/Reports/PDF_Directory.php:37
-#: ChurchCRM/Reports/PDF_Directory.php:73
+#: EcclesiaCRM/Reports/PDF_Directory.php:37
+#: EcclesiaCRM/Reports/PDF_Directory.php:73
 msgid "Directory"
 msgstr "目录"
 
-#: ChurchCRM/Reports/PDF_Directory.php:56
+#: EcclesiaCRM/Reports/PDF_Directory.php:56
 msgid "Page"
 msgstr "页"
 
-#: ChurchCRM/Reports/PDF_Directory.php:324
+#: EcclesiaCRM/Reports/PDF_Directory.php:324
 msgid "Wedding"
 msgstr "婚礼"
 
-#: ChurchCRM/Reports/PDF_Directory.php:353
+#: EcclesiaCRM/Reports/PDF_Directory.php:353
 msgid "and"
 msgstr "和"
 
-#: ChurchCRM/Reports/PDF_GroupDirectory.php:29
+#: EcclesiaCRM/Reports/PDF_GroupDirectory.php:29
 msgid "Group Directory"
 msgstr "组目录"
 

@@ -11,13 +11,13 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Map\PersonTableMap;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
 $aGrp = explode(',', $iGroupID);

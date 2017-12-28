@@ -10,7 +10,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Set the page title
 $sPageTitle = gettext('Electronic Transaction Details');

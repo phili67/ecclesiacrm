@@ -13,10 +13,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\MICRReader;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\MICRReader;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
     $micrObj = new MICRReader();
@@ -428,7 +428,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
 
 // Set Current Deposit setting for user
 if ($iCurrentDeposit) {
-    /* @var $currentUser \ChurchCRM\User */
+    /* @var $currentUser \EcclesiaCRM\User */
     $currentUser = $_SESSION['user'];
     $currentUser->setCurrentDeposit($iCurrentDeposit);
     $currentUser->save();

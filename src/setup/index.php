@@ -1,7 +1,7 @@
 <?php
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 error_reporting(E_ALL);
 ini_set('log_errors', 1);

@@ -21,9 +21,9 @@
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\UserQuery;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Utils\InputUtils;
 
 $iTenThousand = 10000;  // Constant used to offset negative choices in drop down lists
 

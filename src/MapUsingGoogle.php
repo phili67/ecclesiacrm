@@ -3,14 +3,14 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Base\FamilyQuery;
-use ChurchCRM\Base\ListOptionQuery;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Base\FamilyQuery;
+use EcclesiaCRM\Base\ListOptionQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\ChurchMetaData;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Set the page title
 $sPageTitle = gettext('View on Map');

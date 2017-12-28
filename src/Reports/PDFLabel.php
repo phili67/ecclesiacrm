@@ -22,9 +22,9 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\PDF_Label;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\PDF_Label;
+use EcclesiaCRM\Utils\InputUtils;
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {

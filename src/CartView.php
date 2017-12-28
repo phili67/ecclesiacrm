@@ -12,9 +12,9 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/LabelFunctions.php';
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\Cart;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('View Your Cart');

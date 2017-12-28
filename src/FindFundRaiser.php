@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Set the page title
 $sPageTitle = gettext('Fundraiser Listing');
@@ -100,7 +100,7 @@ require 'Include/Header.php';
 // List Fundraisers
 // Save record limit if changed
 if (isset($_GET['Number'])) {
-    /* @var $currentUser \ChurchCRM\User */
+    /* @var $currentUser \EcclesiaCRM\User */
     $currentUser = $_SESSION['user'];
     $currentUser->setSearchLimit(InputUtils::LegacyFilterInput($_GET['Number'], 'int'));
     $currentUser->save();

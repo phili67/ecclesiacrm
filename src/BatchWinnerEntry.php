@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iCurrentFundraiser = InputUtils::LegacyFilterInput($_GET['CurrentFundraiser']);

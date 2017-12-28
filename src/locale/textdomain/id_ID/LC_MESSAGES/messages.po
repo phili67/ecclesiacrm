@@ -4,7 +4,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: ChurchCRM\n"
+"Project-Id-Version: EcclesiaCRM\n"
 "Language: id\n"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -126,9 +126,9 @@ msgstr "Provinsi"
 msgid "Country"
 msgstr "Negara"
 
-#: AutoPaymentEditor.php:935 ChurchCRM/Reports/PDF_Directory.php:312
-#: ChurchCRM/Reports/PDF_Directory.php:386
-#: ChurchCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
+#: AutoPaymentEditor.php:935 EcclesiaCRM/Reports/PDF_Directory.php:312
+#: EcclesiaCRM/Reports/PDF_Directory.php:386
+#: EcclesiaCRM/Reports/PDF_Directory.php:443 DirectoryReports.php:261
 #: Reports/DirectoryReport.php:283 Reports/GroupReport.php:119
 #: external/templates/registration/family-register-members.php:103
 msgid "Phone"
@@ -136,9 +136,9 @@ msgstr "Telepon"
 
 #: AutoPaymentEditor.php:941 CSVExport.php:140 CSVImport.php:225
 #: CartToFamily.php:310 CartView.php:272
-#: ChurchCRM/Reports/PDF_Directory.php:321
-#: ChurchCRM/Reports/PDF_Directory.php:397
-#: ChurchCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
+#: EcclesiaCRM/Reports/PDF_Directory.php:321
+#: EcclesiaCRM/Reports/PDF_Directory.php:397
+#: EcclesiaCRM/Reports/PDF_Directory.php:454 EditEventAttendees.php:42
 #: EventAttendance.php:175 FamilyEditor.php:770 FamilyView.php:266
 #: FamilyView.php:271 FamilyView.php:353 GroupReports.php:127
 #: PersonEditor.php:1034 PersonEditor.php:1036 PersonView.php:308
@@ -193,8 +193,8 @@ msgid "Backup Database"
 msgstr "Backup Database"
 
 #: BackupDatabase.php:47
-msgid "This tool will assist you in manually backing up the ChurchCRM database."
-msgstr "Fungsi ini akan menolongmu dalam backup manual database ChurchCRM."
+msgid "This tool will assist you in manually backing up the EcclesiaCRM database."
+msgstr "Fungsi ini akan menolongmu dalam backup manual database EcclesiaCRM."
 
 #: BackupDatabase.php:51
 msgid "You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems."
@@ -205,8 +205,8 @@ msgid "After you download the backup file, you should make two copies. Put one o
 msgstr "Setelah unduh file backup, buatlah dua salinan. Letakkan salah satunya ke dalam lokasi yang sangat aman dan yang satu lagi di tempat aman diluar itu."
 
 #: BackupDatabase.php:53
-msgid "If you are concerned about confidentiality of data stored in the ChurchCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
-msgstr "Jika peduli dengan kerahasiaan data dalam database ChurchCRM, Anda harus enkripsi data backup-nya jika hendak disimpan di tempat yang berpotensi diakses orang lain."
+msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
+msgstr "Jika peduli dengan kerahasiaan data dalam database EcclesiaCRM, Anda harus enkripsi data backup-nya jika hendak disimpan di tempat yang berpotensi diakses orang lain."
 
 #: BackupDatabase.php:54
 msgid "For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however."
@@ -304,8 +304,8 @@ msgstr "Kode pos"
 msgid "Envelope"
 msgstr "Amplop"
 
-#: CSVExport.php:145 ChurchCRM/Reports/PDF_Directory.php:400
-#: ChurchCRM/Reports/PDF_Directory.php:457 PersonView.php:322
+#: CSVExport.php:145 EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 PersonView.php:322
 #: Reports/DirectoryReport.php:297
 msgid "Work/Other Email"
 msgstr "Email Kerja/Lainnya"
@@ -370,8 +370,8 @@ msgstr "Gunakan tombol Ctrl untuk pilih banyak"
 msgid "Don't Filter"
 msgstr "Jangan disaring"
 
-#: CSVExport.php:326 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:26
-#: ChurchCRM/Service/DashboardService.php:62 FamilyEditor.php:989
+#: CSVExport.php:326 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
+#: EcclesiaCRM/Service/DashboardService.php:62 FamilyEditor.php:989
 #: PersonEditor.php:629 PrintView.php:244 PrintView.php:363 SelectList.php:570
 #: SelectList.php:1156
 #: external/templates/registration/family-register-members.php:59
@@ -379,8 +379,8 @@ msgstr "Jangan disaring"
 msgid "Male"
 msgstr "Pria"
 
-#: CSVExport.php:327 ChurchCRM/Dashboard/PersonDemographicDashboardItem.php:29
-#: ChurchCRM/Service/DashboardService.php:65 FamilyEditor.php:992
+#: CSVExport.php:327 EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
+#: EcclesiaCRM/Service/DashboardService.php:65 FamilyEditor.php:992
 #: PersonEditor.php:632 PrintView.php:247 PrintView.php:363 SelectList.php:576
 #: SelectList.php:1157
 #: external/templates/registration/family-register-members.php:60
@@ -664,7 +664,7 @@ msgid "Add Cart to Family"
 msgstr "Tambahkan Cart di Keluarga"
 
 #: CartToFamily.php:154 CartView.php:270 Checkin.php:311
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: DonationFundEditor.php:149 DonationFundEditor.php:212
 #: EditEventAttendees.php:32 EditEventAttendees.php:41 EventAttendance.php:174
 #: EventNames.php:262 FamilyCustomFieldsEditor.php:319
@@ -879,11 +879,11 @@ msgstr "Tidak ada yang hadir pada acara"
 msgid "Member"
 msgstr "Anggota"
 
-#: Checkin.php:457 ChurchCRM/Service/PersonService.php:39
+#: Checkin.php:457 EcclesiaCRM/Service/PersonService.php:39
 msgid " of the"
 msgstr "dari"
 
-#: Checkin.php:459 ChurchCRM/Service/PersonService.php:41 PersonView.php:267
+#: Checkin.php:459 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:267
 msgid "(No assigned family)"
 msgstr "Belum ada data keluarga"
 
@@ -980,7 +980,7 @@ msgstr "Informasi yang akan ditambahkan"
 msgid "Address"
 msgstr "Alamat"
 
-#: ChurchCRM/Service/CalendarService.php:18 DirectoryReports.php:173
+#: EcclesiaCRM/Service/CalendarService.php:18 DirectoryReports.php:173
 #: FamilyView.php:352 PersonView.php:495 Reports/ConfirmReport.php:184
 #: Reports/ConfirmReport.php:203 Reports/ConfirmReportEmail.php:191
 #: Reports/ConfirmReportEmail.php:209
@@ -1050,7 +1050,7 @@ msgstr "Halaman Judul"
 msgid "Use Title Page"
 msgstr "Gunakan halaman judul"
 
-#: ChurchCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
+#: EcclesiaCRM/dto/SystemConfig.php:131 DirectoryReports.php:241 Register.php:41
 msgid "Church Name"
 msgstr "Nama Gereja"
 
@@ -1099,21 +1099,21 @@ msgid "View All Persons"
 msgstr "Lihat semua Orang"
 
 #: AutoPaymentEditor.php:128 Checkin.php:457
-#: ChurchCRM/Service/PersonService.php:39
+#: EcclesiaCRM/Service/PersonService.php:39
 msgid "family"
 msgstr "keluarga"
 
-#: ChurchCRM/Service/PersonService.php:37
+#: EcclesiaCRM/Service/PersonService.php:37
 msgid "Part"
 msgstr "Bagian"
 
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 msgid "New Person Added"
 msgstr "Orang Baru Ditambahkan"
 
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
-#: ChurchCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:45
+#: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:57
 msgid "New Family Added"
 msgstr "Keluarga Baru Ditambahkan"
 

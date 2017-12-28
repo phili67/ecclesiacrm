@@ -9,17 +9,17 @@
  *  Copyright 2017 Philippe Logel
  ******************************************************************************/
 
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\Cart;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\Cart;
 
 if (!SystemService::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
     Redirect('SystemDBUpdate.php');
     exit;
 }
 
-use ChurchCRM\Service\TaskService;
+use EcclesiaCRM\Service\TaskService;
 
 $taskService = new TaskService();
 

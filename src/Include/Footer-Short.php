@@ -10,7 +10,7 @@
   *
  ******************************************************************************/
  
-        use ChurchCRM\dto\SystemURLs;
+        use EcclesiaCRM\dto\SystemURLs;
 
         ?>
 					</td>

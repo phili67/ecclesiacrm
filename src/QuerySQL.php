@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemConfig;
 
 //Set the page title
 $sPageTitle = gettext('Free-Text Query');

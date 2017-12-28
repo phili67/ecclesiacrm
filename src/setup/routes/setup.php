@@ -1,6 +1,6 @@
 <?php
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 use Slim\Views\PhpRenderer;
 
 $app->group('/', function () {
@@ -11,12 +11,12 @@ $app->group('/', function () {
     });
 
     $this->get('SystemIntegrityCheck', function ($request, $response, $args) {
-        $AppIntegrity = ChurchCRM\Service\AppIntegrityService::verifyApplicationIntegrity();
+        $AppIntegrity = EcclesiaCRM\Service\AppIntegrityService::verifyApplicationIntegrity();
         echo $AppIntegrity['status'];
     });
 
     $this->get('SystemPrerequisiteCheck', function ($request, $response, $args) {
-        $required = ChurchCRM\Service\AppIntegrityService::getApplicationPrerequisites();
+        $required = EcclesiaCRM\Service\AppIntegrityService::getApplicationPrerequisites();
         return $response->withStatus(200)->withJson($required);
     });
 

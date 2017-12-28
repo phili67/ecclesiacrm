@@ -15,7 +15,7 @@ use Slim\Container;
 use Slim\App;
 use Slim\HttpCache\Cache;
 use Slim\HttpCache\CacheProvider;
-use ChurchCRM\Slim\Middleware\VersionMiddleware;
+use EcclesiaCRM\Slim\Middleware\VersionMiddleware;
 
 // Instantiate the app
 $settings = require __DIR__.'/../Include/slim/settings.php';

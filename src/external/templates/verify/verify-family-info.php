@@ -1,8 +1,8 @@
  <?php
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\ChurchMetaData;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext("Family Verification");

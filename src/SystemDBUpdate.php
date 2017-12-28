@@ -1,8 +1,8 @@
 <?php
 
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\Service\UpgradeService;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Service\UpgradeService;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Include the function library
 require 'Include/Config.php';

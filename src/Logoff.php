@@ -3,7 +3,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\UserQuery;
+use EcclesiaCRM\UserQuery;
 
 if (!empty($_SESSION['iUserID'])) {
     if (!isset($_SESSION['sshowPledges']) || ($_SESSION['sshowPledges'] == '')) {

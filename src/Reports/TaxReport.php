@@ -11,9 +11,9 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Reports\ChurchInfoReport;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Security
 if (!$_SESSION['bFinance'] && !$_SESSION['bAdmin']) {
@@ -493,6 +493,6 @@ if ($output == 'pdf') {
 
     // Export file
     header('Content-type: text/x-csv');
-    header('Content-Disposition: attachment; filename=ChurchCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+    header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     echo $buffer;
 }

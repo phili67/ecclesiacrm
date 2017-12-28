@@ -10,15 +10,15 @@
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Service\SystemService;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Software Registration');
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
 $domainName = $_SERVER['HTTP_HOST'].str_replace('Register.php', '', $_SERVER['REQUEST_URI']);
-$ChurchCRMURL = $protocol.$domainName;
+$EcclesiaCRMURL = $protocol.$domainName;
 
 require 'Include/Header.php';
 ?>
@@ -46,12 +46,12 @@ require 'Include/Header.php';
     <?= gettext('Zip') ?>: <?= SystemConfig::getValue('sChurchZip'); ?><br>
     <?= gettext('Country') ?>: <?= SystemConfig::getValue('sChurchCountry'); ?><br>
     <?= gettext('Church Email') ?>: <?= SystemConfig::getValue('sChurchEmail'); ?><br>
-    EcclesiaCRM2 <?= gettext('Base URL') ?>: <?= $ChurchCRMURL ?><br>
+    EcclesiaCRM2 <?= gettext('Base URL') ?>: <?= $EcclesiaCRMURL ?><br>
 		<br> <?= gettext('Message') ?>:
 		<br><textarea class="form-control" name="emailmessage" rows="20" cols="72"><?= htmlspecialchars($sEmailMessage) ?> </textarea>
 	</div>
 	<div class="box-footer">
-    <input type="hidden" name="ChurchCRMURL" value="<?= $ChurchCRMURL ?>"/>
+    <input type="hidden" name="EcclesiaCRMURL" value="<?= $EcclesiaCRMURL ?>"/>
 		<input type="submit" class="btn btn-primary" value="<?= gettext('Send') ?>" name="Submit">
 		<input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel" onclick="javascript:document.location='Menu.php';">
 	</div>
@@ -67,7 +67,7 @@ $(document).ready(function () {
       url: window.CRM.root + "/api/register",
       data: {
         emailmessage: $("textarea[name=emailmessage]").val(),
-        ChurchCRMURL: $("input[name=ChurchCRMURL]").val()
+        EcclesiaCRMURL: $("input[name=EcclesiaCRMURL]").val()
       },
       success: function (data) {
         window.location.href = window.CRM.root+"/";

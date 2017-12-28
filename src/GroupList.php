@@ -20,8 +20,8 @@ require 'Include/Functions.php';
 $sPageTitle = gettext('Group Listing');
 require 'Include/Header.php';
 
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\dto\SystemURLs;
 
 $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 

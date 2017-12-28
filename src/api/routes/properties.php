@@ -1,9 +1,9 @@
 <?php
 
 
-use ChurchCRM\PersonQuery;
-use ChurchCRM\PersonPropertyQuery;
-use ChurchCRM\PropertyQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PersonPropertyQuery;
+use EcclesiaCRM\PropertyQuery;
 
 
 $app->group('/properties', function() {

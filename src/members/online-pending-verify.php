@@ -13,7 +13,7 @@ require '../Include/Functions.php';
 $sPageTitle = gettext('Pending Self Verify');
 require '../Include/Header.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 ?>
 

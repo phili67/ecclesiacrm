@@ -10,11 +10,11 @@
  *                Copyright 2017 Philippe Logel
  ******************************************************************************/
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Service\PersonService;
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Service\PersonService;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Utils\InputUtils;
 
 $personService = new PersonService();
 $systemService = new SystemService();

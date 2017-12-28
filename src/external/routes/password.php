@@ -1,13 +1,13 @@
 <?php
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 use Slim\Views\PhpRenderer;
-use ChurchCRM\UserQuery;
-use ChurchCRM\Token;
-use ChurchCRM\Emails\ResetPasswordTokenEmail;
-use ChurchCRM\Emails\ResetPasswordEmail;
-use ChurchCRM\TokenQuery;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Token;
+use EcclesiaCRM\Emails\ResetPasswordTokenEmail;
+use EcclesiaCRM\Emails\ResetPasswordEmail;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\dto\SystemConfig;
 
 if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
 

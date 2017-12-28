@@ -17,9 +17,9 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Security: User must have Delete records permission
 // Otherwise, re-direct them to the main menu.

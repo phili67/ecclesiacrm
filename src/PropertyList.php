@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 //Get the type to display
 $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);

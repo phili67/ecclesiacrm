@@ -1,5 +1,5 @@
 <?php
-  use ChurchCRM\data\States;
+  use EcclesiaCRM\data\States;
 
   class StateDropDown extends States
   {  

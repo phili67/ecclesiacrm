@@ -15,7 +15,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must have Manage Groups permission
 if (!$_SESSION['bAdmin']) {

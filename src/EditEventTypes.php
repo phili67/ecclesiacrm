@@ -17,7 +17,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 if (!$_SESSION['bAdmin']) {
     header('Location: Menu.php');

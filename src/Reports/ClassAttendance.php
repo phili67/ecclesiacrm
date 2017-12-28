@@ -12,15 +12,15 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 require '../Include/ReportFunctions.php';
 
-use ChurchCRM\Reports\PDF_Attendance;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\GroupQuery;
-use ChurchCRM\Person2group2roleP2g2r;
-use ChurchCRM\Map\PersonTableMap;
+use EcclesiaCRM\Reports\PDF_Attendance;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2r;
+use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
@@ -102,7 +102,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     $iMaxTeachersFit = 4;
     $iStudentCnt = 0;
     
-    $groupRoleMemberships = ChurchCRM\Person2group2roleP2g2rQuery::create()
+    $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
             ->orderBy(PersonTableMap::COL_PER_LASTNAME)
             ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce per_LastName, per_FirstName
@@ -129,7 +129,7 @@ for ($i = 0; $i < $nGrps; $i++) {
                 }
             }
                             
-            $groupRole = ChurchCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
+            $groupRole = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
                 
             $lst_OptionName = $groupRole->getOptionName();
                             

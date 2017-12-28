@@ -12,13 +12,13 @@
 require "Include/Config.php";
 require "Include/Functions.php";
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Service\MailChimpService;
-use ChurchCRM\Service\TimelineService;
-use ChurchCRM\Utils\GeoUtils;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\Service\TimelineService;
+use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();

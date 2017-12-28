@@ -1,9 +1,9 @@
 <?php
 
 // Routes
-use ChurchCRM\Deposit;
-use ChurchCRM\DepositQuery;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\Deposit;
+use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\dto\SystemConfig;
 
 $app->group('/deposits', function () {
     $this->post('', function ($request, $response, $args) {
@@ -52,8 +52,8 @@ $app->group('/deposits', function () {
     $this->get('/{id:[0-9]+}/csv', function ($request, $response, $args) {
         $id = $args['id'];
     //echo DepositQuery::create()->findOneById($id)->toCSV();
-    header('Content-Disposition: attachment; filename=ChurchCRM-Deposit-'.$id.'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
-        echo ChurchCRM\PledgeQuery::create()->filterByDepid($id)
+    header('Content-Disposition: attachment; filename=EcclesiaCRM-Deposit-'.$id.'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+        echo EcclesiaCRM\PledgeQuery::create()->filterByDepid($id)
             ->joinDonationFund()->useDonationFundQuery()
             ->withColumn('DonationFund.Name', 'DonationFundName')
             ->endUse()
@@ -72,7 +72,7 @@ $app->group('/deposits', function () {
 
     $this->get('/{id:[0-9]+}/pledges', function ($request, $response, $args) {
         $id = $args['id'];
-        $Pledges = \ChurchCRM\PledgeQuery::create()
+        $Pledges = \EcclesiaCRM\PledgeQuery::create()
             ->filterByDepid($id)
             ->groupByGroupkey()
             ->withColumn('SUM(Pledge.Amount)', 'sumAmount')

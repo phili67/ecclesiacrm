@@ -14,7 +14,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 $linkBack = '';
 if (array_key_exists('linkBack', $_GET)) {

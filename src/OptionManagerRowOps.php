@@ -12,7 +12,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 // Get the Order, ID, Mode, and Action from the querystring
 if (array_key_exists('Order', $_GET)) {

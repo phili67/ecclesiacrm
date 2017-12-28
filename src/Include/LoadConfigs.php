@@ -13,24 +13,24 @@
 
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
-use ChurchCRM\ConfigQuery;
-use ChurchCRM\dto\LocaleInfo;
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Service\SystemService;
-use ChurchCRM\SQLUtils;
-use ChurchCRM\Version;
+use EcclesiaCRM\ConfigQuery;
+use EcclesiaCRM\dto\LocaleInfo;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\SQLUtils;
+use EcclesiaCRM\Version;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Propel\Runtime\Connection\ConnectionManagerSingle;
 use Propel\Runtime\Propel;
-use ChurchCRM\Utils\LoggerUtils;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 function system_failure($message, $header = 'Setup failure')
 {
     require 'Include/HeaderNotLoggedIn.php'; ?>
     <div class='container'>
-        <h3>ChurchCRM – <?= _($header) ?></h3>
+        <h3>EcclesiaCRM – <?= _($header) ?></h3>
         <div class='alert alert-danger text-center' style='margin-top: 20px;'>
             <?= gettext($message) ?>
         </div>

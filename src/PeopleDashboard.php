@@ -7,9 +7,9 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Service\DashboardService;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Service\DashboardService;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title
 $sPageTitle = gettext('People Dashboard');

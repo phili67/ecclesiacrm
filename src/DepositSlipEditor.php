@@ -12,9 +12,9 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\DepositQuery;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
 
 $iDepositSlipID = 0;
 $thisDeposit = 0;
@@ -57,7 +57,7 @@ if (isset($_POST['DepositSlipLoadAuthorized'])) {
 
 $_SESSION['iCurrentDeposit'] = $iDepositSlipID;  // Probably redundant
 
-/* @var $currentUser \ChurchCRM\User */
+/* @var $currentUser \EcclesiaCRM\User */
 $currentUser = $_SESSION['user'];
 $currentUser->setCurrentDeposit($iDepositSlipID);
 $currentUser->save();

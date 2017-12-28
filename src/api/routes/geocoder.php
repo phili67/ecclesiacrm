@@ -2,7 +2,7 @@
 
 use Slim\Http\Request;
 use Slim\Http\Response;
-use ChurchCRM\Utils\GeoUtils;
+use EcclesiaCRM\Utils\GeoUtils;
 
 $app->group('/geocoder', function () {
     $this->post('/address', 'getGeoLocals');

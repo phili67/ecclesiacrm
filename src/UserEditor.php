@@ -20,13 +20,13 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use ChurchCRM\UserQuery;
-use ChurchCRM\PersonQuery;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use ChurchCRM\Emails\NewAccountEmail;
-use ChurchCRM\User;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\Emails\NewAccountEmail;
+use EcclesiaCRM\User;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.

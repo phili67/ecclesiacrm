@@ -4,7 +4,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/VancoConfig.php';
 
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\InputUtils;
 
 $iVancoAutID = InputUtils::LegacyFilterInput($_GET['customerid'], 'int');
 

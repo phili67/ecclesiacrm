@@ -3,10 +3,10 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Service\SundaySchoolService;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\InputUtils;
 
 $sundaySchoolService = new SundaySchoolService();
 

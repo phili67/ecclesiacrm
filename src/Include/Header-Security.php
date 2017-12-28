@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 $csp = array(
     "default-src 'self'",

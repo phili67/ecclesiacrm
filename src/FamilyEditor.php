@@ -16,20 +16,20 @@ require 'Include/CanvassUtilities.php';
 require 'Include/CountryDropDown.php';
 require 'Include/StateDropDown.php';
 
-use ChurchCRM\dto\SystemConfig;
-use ChurchCRM\Note;
-use ChurchCRM\FamilyQuery;
-use ChurchCRM\PersonQuery;
-use ChurchCRM\Person;
-use ChurchCRM\Family;
-use ChurchCRM\Utils\InputUtils;
-use ChurchCRM\dto\SystemURLs;
-use ChurchCRM\Emails\NewPersonOrFamilyEmail;
-use ChurchCRM\ListOptionQuery;
-use ChurchCRM\PersonCustom;
-use ChurchCRM\PersonCustomQuery;
-use ChurchCRM\FamilyCustom;
-use ChurchCRM\FamilyCustomQuery;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person;
+use EcclesiaCRM\Family;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonCustom;
+use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\FamilyCustom;
+use EcclesiaCRM\FamilyCustomQuery;
 
 //Set the page title
 $sPageTitle = gettext('Family Editor');

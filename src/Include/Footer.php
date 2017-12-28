@@ -10,7 +10,7 @@
   *
  ******************************************************************************/
 
-use ChurchCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemURLs;
 
 $isAdmin = $_SESSION['user']->isAdmin();
 
