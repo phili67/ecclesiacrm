@@ -4,9 +4,10 @@
     "description": "Free EcclesiaCRM2 Software",
     "repository": {
         "type": "git",
-        "url": "https://github.com/phili67/ecclesiacrm/releases/"
+        "url": "https://github.com/phili67/ecclesiacrm.git"
     },
     "keywords": [
+	"Church",
         "Ecclesia",
         "CRM",
         "LAMP",
