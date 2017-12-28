@@ -176,32 +176,32 @@
               <li id="showWhenCartNotEmpty">\
                   <ul class="menu">\
                       <li>\
-                          <a href="CartView.php">\
+                          <a href="' + window.CRM.root+ '/CartView.php">\
                               <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
                           </a>\
                       </li>\
                       <li>\
-                          <a class="emptyCart" >\
+                          <a class="' + window.CRM.root+ '/emptyCart" >\
                               <i class="fa fa-trash text-danger"></i>' + i18next.t("Empty Cart") + ' \
                           </a>\
                       </li>\
                       <li>\
-                          <a id="emptyCartToGroup">\
+                          <a id="' + window.CRM.root+ '/emptyCartToGroup">\
                               <i class="fa fa-object-ungroup text-info"></i>' + i18next.t("Empty Cart to Group") + '\
                           </a>\
                       </li>\
                       <li>\
-                          <a href="CartToFamily.php">\
+                          <a href="' + window.CRM.root+ '/CartToFamily.php">\
                               <i class="fa fa fa-users text-info"></i>' + i18next.t("Empty Cart to Family") + '\
                           </a>\
                       </li>\
                       <li>\
-                          <a href="CartToEvent.php">\
+                          <a href="' + window.CRM.root+ '/CartToEvent.php">\
                               <i class="fa fa fa-ticket text-info"></i>' + i18next.t("Empty Cart to Event") + '\
                           </a>\
                       </li>\
                       <li>\
-                          <a href="MapUsingGoogle.php?GroupID=0">\
+                          <a href="' + window.CRM.root+ '/MapUsingGoogle.php?GroupID=0">\
                               <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
                           </a>\
                       </li>\
