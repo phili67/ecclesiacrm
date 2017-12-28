@@ -3,7 +3,7 @@
  *
  *  filename    : Dashboard.php
  *  last change : 2014-11-29
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2014
  *
 

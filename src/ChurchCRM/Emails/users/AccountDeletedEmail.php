@@ -13,6 +13,6 @@ class AccountDeletedEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return gettext("Your ChurchCRM Account was Deleted.");
+        return gettext("Your EcclesiaCRM2 Account was Deleted.");
     }
 }

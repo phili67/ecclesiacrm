@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : Include/Header.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  description : page header used for most pages
  *
  *  Copyright 2001-2004 Phillip Hullquist, Deane Barker, Chris Gebhardt, Michael Wilt
@@ -119,7 +119,7 @@ $MenuFirst = 1;
                       <p ><i class="fa fa fa-sign-out"></i> <?= gettext('Change Settings') ?></p></a>
                   <a href="Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= gettext("Lock your session")?>" data-placement="right">
                       <p ><i class="fa fa fa-pause"></i> <?= gettext('Lock') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Quit ChurchCRM2 and close your session")?>" data-placement="right">
+                  <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Quit EcclesiaCRM2 and close your session")?>" data-placement="right">
                       <p ><i class="fa fa fa-sign-out"></i> <?= gettext('Sign out') ?></p></a>
                 </td>
                 </tr>

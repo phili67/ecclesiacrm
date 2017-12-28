@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : LettersAndLabels.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *
  *  Contributors:
  *  2006 Ed Davis

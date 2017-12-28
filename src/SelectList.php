@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : SelectList.php
-*  website     : http://www.churchcrm.io
+*  website     : http://www.ecclesiacrm.com
 *  copyright   : Copyright 2001-2003 Deane Barker and Chris Gebhardt
 *
 *  Additional Contributors:

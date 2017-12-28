@@ -4,7 +4,7 @@
 /*******************************************************************************
  *
  *  filename    : /Include/Functions.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001-2003 Deane Barker, Chris Gebhardt
  *                Copyright 2004-1012 Michael Wilt
  *                Copyright 2017 Philippe Logel
@@ -100,7 +100,7 @@ $aPropTypes = [
 $sGlobalMessageClass = 'success';
 
 if (isset($_GET['Registered'])) {
-    $sGlobalMessage = gettext('Thank you for registering your ChurchCRM installation.');
+    $sGlobalMessage = gettext('Thank you for registering your EcclesiaCRM2 installation.');
 }
 
 if (isset($_GET['AllPDFsEmailed'])) {

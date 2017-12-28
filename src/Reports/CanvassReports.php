@@ -3,7 +3,7 @@
  *
  *  filename    : /Include/CanvassUtilities.php
  *  last change : 2013-02-22
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2013 Michael Wilt
   *
  ******************************************************************************/

@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : SettingsIndividual.php
-*  website     : http://www.churchcrm.io
+*  website     : http://www.ecclesiacrm.com
 *  description : Page where users can modify their own settings
 *                   File copied from SettingsUser.php with minor edits.
 *

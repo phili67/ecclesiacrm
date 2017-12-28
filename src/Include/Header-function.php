@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : Include/Header-functions.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  description : page header used for most pages
  *
  *  Copyright 2001-2004 Phillip Hullquist, Deane Barker, Chris Gebhardt, Michael Wilt
@@ -44,7 +44,7 @@ function Header_head_metatag()
     if (strlen($sMetaRefresh) > 0) {
         echo $sMetaRefresh;
     } ?>
-    <title>ChurchCRM: <?= $sPageTitle ?></title>
+    <title>EcclesiaCRM2: <?= $sPageTitle ?></title>
     <?php
 }
 
@@ -85,7 +85,7 @@ function Header_modals()
                             </div>
                         </div>
                         <ul>
-                            <li><?= gettext('When you click "submit," an error report will be posted to the ChurchCRM GitHub Issue tracker.') ?></li>
+                            <li><?= gettext("When you click \"submit,\" an error report will be posted to the EcclesiaCRM2 GitHub Issue tracker.") ?></li>
                             <li><?= gettext('Please do not include any confidential information.') ?></li>
                             <li><?= gettext('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
                             <li><?= gettext('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>

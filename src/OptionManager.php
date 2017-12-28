@@ -3,7 +3,7 @@
  *
  *  filename    : OptionsManager.php
  *  last change : 2003-04-16
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt
  *
  *  OptionName : Interface for editing simple selection options such as those

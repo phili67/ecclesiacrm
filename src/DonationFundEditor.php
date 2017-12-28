@@ -3,7 +3,7 @@
  *
  *  filename    : DonationFundEditor.php
  *  last change : 2003-03-29
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
  *
  *  function    : Editor for donation funds

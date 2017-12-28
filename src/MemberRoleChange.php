@@ -3,7 +3,7 @@
  *
  *  filename    : MemberRoleChange.php
  *  last change : 2003-04-03
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001-2003 Deane Barker, Lewis Franklin
   *
  ******************************************************************************/

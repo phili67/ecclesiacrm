@@ -1,37 +1,27 @@
 {
-    "name": "ChurchCRM/CRM",
-    "version": "2.10.2",
+    "name": "EcclesiaCRM2",
+    "version": "2.10.3",
     "type": "project",
     "keywords": [
         "church",
         "crm"
     ],
-    "homepage": "http://www.churchcrm.io",
-    "time": "2014-10-01",
+    "homepage": "http://www.eclisiacrm.com",
+    "time": "2017-12-26",
     "license": "MIT",
     "authors": [
         {
-            "name": "George Dawoud",
-            "homepage": "http://blog.dawouds.com",
-            "role": "Lead Developer"
-        },
-        {
-            "name": "Charles Crossan",
-            "homepage": "http://www.ccrossan.com",
-            "role": "Developer"
-        },
-        {
             "name": "Logel Philippe",
             "homepage": "https://www.imathgeo.com",
-            "role": "Developer"
+            "role": "Lead Developer"
         }
     ],
     "support": {
         "email": "dev-support@imathgeo.com",
-        "issues": "https://github.com/phili67/CRM/issues",
+        "issues": "http://www.eclisiacrm.com/issues",
         "irc": "https://gitter.im/ChurchCRM/CRM",
-        "source": "https://github.com/phili67/CRM",
-        "docs": "https://github.com/phili67/CRM/wiki"
+        "source": "https://github.com/phili67/ecclesiacrm",
+        "docs": "https://github.com/phili67/ecclesiacrm/wiki"
     },
     "require": {
         "php": ">=5.6.0",

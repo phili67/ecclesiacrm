@@ -4,7 +4,7 @@
 *  filename    : Menu.php
 *  description : menu that appears after login, shows login attempts
 *
-*  http://www.churchcrm.io/
+*  http://www.ecclesiacrm.com/
 *  Copyright 2001-2002 Phillip Hullquist, Deane Barker, Michael Wilt
 *
 *  Additional Contributors:

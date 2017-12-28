@@ -3,7 +3,7 @@
 /*******************************************************************************
  *
  *  filename    : /Include/EnvelopeFunctions.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2006 Michael Wilt
   *
  ******************************************************************************/

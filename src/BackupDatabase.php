@@ -5,7 +5,7 @@
  *  last change : 2016-01-04
  *  description : Creates a backup file of the database.
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
   *
  ******************************************************************************/
@@ -44,13 +44,13 @@ require 'Include/Header.php';
 ?>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title"><?= gettext('This tool will assist you in manually backing up the ChurchCRM database.') ?></h3>
+        <h3 class="box-title"><?= gettext('This tool will assist you in manually backing up the EcclesiaCRM2 database.') ?></h3>
     </div>
     <div class="box-body">
         <ul>
         <li><?= gettext('You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems.') ?></li><br>
         <li><?= gettext('After you download the backup file, you should make two copies. Put one of them in a fire-proof safe on-site and the other in a safe location off-site.') ?></li><br>
-        <li><?= gettext('If you are concerned about confidentiality of data stored in the ChurchCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li><br>
+        <li><?= gettext('If you are concerned about confidentiality of data stored in the EcclesiaCRM2 database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others') ?></li><br>
         <li><?= gettext('For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however.') ?></li>
         </ul>
         <BR><BR>

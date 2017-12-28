@@ -5,7 +5,7 @@
 *  last change : 2003-08-30
 *  description : Creates a Member directory
 *
-*  http://www.churchcrm.io/
+*  http://www.ecclesiacrm.com/
 *  Copyright 2003  Jason York, 2004-2005 Michael Wilt, Richard Bondi
 
 ******************************************************************************/
@@ -174,7 +174,7 @@ if ($mysqlversion >= 4) {
     $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
     $sSQL = 'SELECT DISTINCT * FROM tmp ORDER BY SortMe';
 } else {
-    die(gettext('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to ChurchCRM.'));
+    die(gettext('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM2.'));
 }
 
 $rsRecords = RunQuery($sSQL);

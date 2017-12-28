@@ -2,7 +2,7 @@
 /*******************************************************************************
 *
 *  filename    : GroupList.php
-*  website     : http://www.churchcrm.io
+*  website     : http://www.ecclesiacrm.com
 *  copyright   : Copyright 2001, 2002 Deane Barker
 *  update      : 2017-11-02, Philippe Logel
 *

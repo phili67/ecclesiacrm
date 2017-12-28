@@ -5,7 +5,7 @@
 *  last change : 2003-09-09
 *  description : Creates a group-member directory
 *
-*  http://www.churchcrm.io/
+*  http://www.ecclesiacrm.com/
 *  Copyright 2003  Chris Gebhardt, Jason York
 
 ******************************************************************************/

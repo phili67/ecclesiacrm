@@ -13,6 +13,6 @@ class LockedEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return gettext("Your ChurchCRM account was locked.");
+        return gettext("Your EcclesiaCRM2 account was locked.");
     }
 }

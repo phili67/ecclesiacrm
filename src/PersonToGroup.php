@@ -6,7 +6,7 @@
  *  description : Add a person record to a group after selection of group
  *  	and role.  This is a companion script to the Group Assign Helper.
  *
- *  http://www.churchcrm.io/
+ *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
   *
  ******************************************************************************/

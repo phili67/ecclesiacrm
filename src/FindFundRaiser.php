@@ -3,7 +3,7 @@
  *
  *  filename    : FindFundRaiser.php
  *  last change : 2009-04-16
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2009 Michael Wilt
   *
  ******************************************************************************/

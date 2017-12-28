@@ -2,7 +2,7 @@
 /*******************************************************************************
  *
  *  filename    : ISTAddressVerification.php
- *  website     : http://www.churchcrm.io
+ *  website     : http://www.ecclesiacrm.com
  *  description : USPS address verification
  *
  ******************************************************************************/
