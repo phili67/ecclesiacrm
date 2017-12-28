@@ -607,7 +607,7 @@
         </vendor>
     </table>
 
-    <table name="list_lst" idMethod="native" phpName="ListOption" description="This table stores the options for most of the drop down lists in churchCRM, including person classifications, family roles, group types, group roles, group-specific property types, and custom field value lists.">
+    <table name="list_lst" idMethod="native" phpName="ListOption" description="This table stores the options for most of the drop down lists in EcclesiaCRM, including person classifications, family roles, group types, group roles, group-specific property types, and custom field value lists.">
         <column name="lst_ID" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the list.  Since this is a composite primary key, there may be multiple List IDs"/>
         <column name="lst_OptionID" phpName="OptionId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the option in this list.  ***List ID + List Option ID must be unique***"/>
         <column name="lst_OptionSequence" phpName="OptionSequence" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true" defaultValue="0" description="The order in which to display items in this list" />
