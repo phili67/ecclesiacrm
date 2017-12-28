@@ -202,7 +202,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'src/',
                         src: '<%= projectFiles %>',
-                        dest: 'churchcrm/'
+                        dest: 'ecclesiacrm/'
                     }
                 ]
             },
@@ -217,7 +217,7 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: 'src/',
                         src: '<%= projectFiles %>',
-                        dest: 'churchcrm/'
+                        dest: 'ecclesiacrm/'
                     }
                 ]
             },
@@ -256,7 +256,7 @@ module.exports = function (grunt) {
                         '!Include/Config.php',
                         '!integrityCheck.json'
                     ],
-                    dest: 'churchcrm/'
+                    dest: 'ecclesiacrm/'
                 }]
             }
         },
