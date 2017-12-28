@@ -7,6 +7,5 @@ function delTree($dir) {
     return rmdir($dir); 
   } 
 
-delTree("ChurchCRM");
-
+  delTree("ChurchCRM");
 ?>
