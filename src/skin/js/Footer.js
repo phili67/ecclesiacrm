@@ -48,6 +48,7 @@ $("document").ready(function(){
         
         if (window.CRM.dataTableList) {
             window.CRM.dataTableList.ajax.reload();
+            window.CRM.dataTableList.ajax.reload();
         } else if (data.cartPeople) {// this part should be written like this, the code will crash at this point without this test and crash the js code
           console.log(data.cartPeople);
           $(data.cartPeople).each(function(index,data){

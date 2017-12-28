@@ -116,7 +116,7 @@ $(document).ready(function () {
   });
   
   $(document).on("click","#AddGroupToCart",function(link){
-    var groupid = link.toElement.dataset.groupid;
+    var groupid = $(this).data("groupid");
     var parent = $(this).parent().find("span");
     window.CRM.cart.addGroup(groupid,function(data){
         link.target.id = "removeGroupFromCart";
@@ -127,7 +127,7 @@ $(document).ready(function () {
   });
   
   $(document).on("click","#removeGroupFromCart",function(link){
-    var groupid = link.toElement.dataset.groupid;
+    var groupid = $(this).data("groupid");
     var parent = $(this).parent().find("span");
     window.CRM.cart.removeGroup(groupid,function(data){
         link.target.id = "AddGroupToCart";    
