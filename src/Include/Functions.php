@@ -1408,10 +1408,6 @@ function formatNumber($iNumber, $sMode = 'integer')
   }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ff5adb5d4d7f2cc6a84706c08ce1c76686b06a82
 function FilenameToFontname($filename, $family)
 {
     if ($filename == $family) {
