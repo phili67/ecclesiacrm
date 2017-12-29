@@ -22,6 +22,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
 $aGrp = explode(',', $iGroupID);
@@ -269,7 +270,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     }
 
     $pdf->SetFont('Times', 'B', 12);
-    $pdf->WriteAt($phoneX-7, $y+5, FormatDate(date('Y-m-d')));
+    $pdf->WriteAt($phoneX-7, $y+5, OutputUtils::FormatDate(date('Y-m-d')));
 }
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate

@@ -19,6 +19,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -303,7 +304,7 @@ if ($fam_ID) {
 			<tr>
 				<td class="LabelColumn"><?= gettext('Membership Date') ?>:</td>
 				<td width="<?= $iTableSpacerWidth ?>"></td>
-				<td class="TextColumn"><?= FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
+				<td class="TextColumn"><?= OutputUtils::FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
 			</tr>
 			<tr>
 				<td class="LabelColumn"><?= gettext('Classification') ?>:</td>
@@ -492,10 +493,10 @@ if ($_SESSION['bNotes']) {
     while ($aRow = mysqli_fetch_array($rsNotes)) {
         extract($aRow);
         echo '<p class="ShadedBox")>'.$nte_Text.'</p>';
-        echo '<span class="SmallText">'.gettext('Entered:').FormatDate($nte_DateEntered, true).'</span><br>';
+        echo '<span class="SmallText">'.gettext('Entered:').(OutputUtils::FormatDate($nte_DateEntered, true)).'</span><br>';
 
         if (strlen($nte_DateLastEdited)) {
-            echo '<span class="SmallText">'.gettext('Last Edited').FormatDate($nte_DateLastEdited, true).' '.gettext('by').' '.$EditedFirstName.' '.$EditedLastName.'</span><br>';
+            echo '<span class="SmallText">'.gettext('Last Edited').(OutputUtils::FormatDate($nte_DateLastEdited, true)).' '.gettext('by').' '.$EditedFirstName.' '.$EditedLastName.'</span><br>';
         }
     }
 }

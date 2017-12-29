@@ -19,6 +19,7 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -233,7 +234,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     }
     if (!SystemConfig::getValue("bHideWeddingDate") && $fam_WeddingDate != "") { /* Wedding Date can be hidden - General Settings */ ?>
                         <li><i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
-                            <span><?= FormatDate($fam_WeddingDate, false) ?></span></li>
+                            <span><?= OutputUtils::FormatDate($fam_WeddingDate, false) ?></span></li>
                         <?php
     }
     if (SystemConfig::getValue("bUseDonationEnvelopes")) {

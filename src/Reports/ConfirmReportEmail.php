@@ -22,6 +22,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 class EmailPDF_ConfirmReport extends ChurchInfoReport
 {
@@ -153,7 +154,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     $pdf->SetFont('Times', 'B', 10);
     $pdf->WriteAtCell(SystemConfig::getValue('leftX'), $curY, $dataCol - SystemConfig::getValue('leftX'), gettext('Anniversary Date'));
     $pdf->SetFont('Times', '', 10);
-    $pdf->WriteAtCell($dataCol, $curY, $dataWid, FormatDate($fam_WeddingDate));
+    $pdf->WriteAtCell($dataCol, $curY, $dataWid, OutputUtils::FormatDate($fam_WeddingDate));
     $curY += SystemConfig::getValue('incrementY');
 
     $pdf->SetFont('Times', 'B', 10);

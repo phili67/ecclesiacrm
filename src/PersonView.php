@@ -20,6 +20,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -230,7 +231,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         <p class="text-muted text-center">
           <?= gettext($sClassName);
     if ($per_MembershipDate) {
-        echo gettext(' Since:').' '.FormatDate($per_MembershipDate, false);
+        echo gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false);
     } ?>
         </p>
         <?php if ($bOkToEdit) {
@@ -290,7 +291,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
           <?php
     }
     if (!SystemConfig::getValue('bHideFriendDate') && $per_FriendDate != '') { /* Friend Date can be hidden - General Settings */ ?>
-            <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= FormatDate($per_FriendDate, false) ?></span></li>
+            <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($per_FriendDate, false) ?></span></li>
           <?php
     }
     if ($sCellPhone) {
