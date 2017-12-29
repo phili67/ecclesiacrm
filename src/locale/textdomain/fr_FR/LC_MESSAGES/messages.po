@@ -193,8 +193,8 @@ msgid "Backup Database"
 msgstr "Sauvegarder la Base de Données"
 
 #: BackupDatabase.php:47
-msgid "This tool will assist you in manually backing up the EcclesiaCRM2 database."
-msgstr "Cet outil vous aidera à effectuer une sauvegarde manuelle de la base de données de EcclesiaCRM2"
+msgid "This tool will assist you in manually backing up the EcclesiaCRM database."
+msgstr "Cet outil vous aidera à effectuer une sauvegarde manuelle de la base de données de EcclesiaCRM"
 
 #: BackupDatabase.php:51
 msgid "You should make a manual backup at least once a week unless you already have a regular backup procedule for your systems."
@@ -205,8 +205,8 @@ msgid "After you download the backup file, you should make two copies. Put one o
 msgstr "Après que vous ayez téléchargé le fichier de sauvegarde, vous devriez effectuer deux copies. Mettez-en une dans un emplacement sûr du site et l'autre dans un emplacement sûr à l'extérieur du site."
 
 #: BackupDatabase.php:53
-msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM2 database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
-msgstr "Si vous êtes inquiets concernant la confidentialité des données enregistrées dans la base de données EcclesiaCRM2, vous devriez crypter les données sauvegardées si elles sont stockées à un endroit accessible à d'autres personnes."
+msgid "If you are concerned about confidentiality of data stored in the EcclesiaCRM database, you should encrypt the backup data if it will be stored somewhere potentially accessible to others"
+msgstr "Si vous êtes inquiets concernant la confidentialité des données enregistrées dans la base de données EcclesiaCRM, vous devriez crypter les données sauvegardées si elles sont stockées à un endroit accessible à d'autres personnes."
 
 #: BackupDatabase.php:54
 msgid "For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however."
@@ -3612,8 +3612,8 @@ msgid "Software Registration"
 msgstr "Enregistrement du logiciel"
 
 #: Register.php:35
-msgid "Please register your copy of EcclesiaCRM2 by checking over this information and pressing the Send button.  "
-msgstr "Veuillez enregistrer votre copie de EcclesiaCRM2 en vérifiant les informations et en appuyant sur le bouton Envoyer."
+msgid "Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  "
+msgstr "Veuillez enregistrer votre copie de EcclesiaCRM en vérifiant les informations et en appuyant sur le bouton Envoyer."
 
 #: Register.php:36
 msgid "This information is used only to track the usage of this software.  "
@@ -4181,8 +4181,8 @@ msgid "Custom Drop-Down List"
 msgstr "Liste déroulante personnalisée"
 
 #: Include/Functions.php:100
-msgid "Thank you for registering your EcclesiaCRM2 installation."
-msgstr "Merci d'avoir enregistré votre installation de EcclesiaCRM2."
+msgid "Thank you for registering your EcclesiaCRM installation."
+msgstr "Merci d'avoir enregistré votre installation de EcclesiaCRM."
 
 #: Include/Functions.php:104
 msgid "PDFs successfully emailed "
@@ -4342,8 +4342,8 @@ msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Que faisiez vous quand le bug/problème est apparut?"
 
 #: Include/Header-function.php:88
-msgid "When you click \"submit,\" an error report will be posted to the EcclesiaCRM2 GitHub Issue tracker."
-msgstr "En cliquant sur \"Soumettre\", un rapport d'erreur sera envoyé au groupe EcclesiaCRM2."
+msgid "When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker."
+msgstr "En cliquant sur \"Soumettre\", un rapport d'erreur sera envoyé au groupe EcclesiaCRM."
 
 #: Include/Header-function.php:89
 msgid "Please do not include any confidential information."
@@ -4489,8 +4489,8 @@ msgid "Member/Friend"
 msgstr "Membre/Ami"
 
 #: Reports/DirectoryReport.php:177
-msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM2."
-msgstr "Cette option nécessite au moins la version 3.22 de MySQL! Cliquer sur le bouton retour du navigateur pour revenir à EcclesiaCRM2."
+msgid "This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM."
+msgstr "Cette option nécessite au moins la version 3.22 de MySQL! Cliquer sur le bouton retour du navigateur pour revenir à EcclesiaCRM."
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:315
 #: EcclesiaCRM/Reports/PDF_Directory.php:390
@@ -4962,8 +4962,8 @@ msgid "CAUTION: This will completely erase the existing database, and replace it
 msgstr "ATTENTION : Cette action va complètement écraser la base de données et la remplacer avec la sauvegarde"
 
 #: RestoreDatabase.php:37
-msgid "If you upload a backup from ChurchInfo, or a previous version of EcclesiaCRM2, it will be automatically upgraded to the current database schema"
-msgstr "Si vous téléchargez une sauvegarde sur Churchinfo, ou une version précédente de EcclesiaCRM2, elle sera automatiquement mise à jour avec le schéma courant de la Base de Donnés."
+msgid "If you upload a backup from ChurchInfo, or a previous version of EcclesiaCRM, it will be automatically upgraded to the current database schema"
+msgstr "Si vous téléchargez une sauvegarde sur Churchinfo, ou une version précédente de EcclesiaCRM, elle sera automatiquement mise à jour avec le schéma courant de la Base de Donnés."
 
 #: RestoreDatabase.php:42
 msgid "Upload Files"
@@ -5036,8 +5036,8 @@ msgid "Edit Settings"
 msgstr "Modifier les Réglages"
 
 #: UpgradeCRM.php:12 UpgradeCRM.php:28
-msgid "Upgrade EcclesiaCRM2"
-msgstr "Mettre à jour EcclesiaCRM2"
+msgid "Upgrade EcclesiaCRM"
+msgstr "Mettre à jour EcclesiaCRM"
 
 #: UpgradeCRM.php:34
 msgid "Step 1: Backup Database"
@@ -5056,8 +5056,8 @@ msgid "Step 2: Fetch Update Package on Server"
 msgstr "Étape 2 : télécharger le package de mise à jour sur le serveur"
 
 #: UpgradeCRM.php:49
-msgid "Fetch the latest files from the EcclesiaCRM2 GitHub release page"
-msgstr "Télécharger les dernier fichiers de mise à jour de GitHub EcclesiaCRM2"
+msgid "Fetch the latest files from the EcclesiaCRM GitHub release page"
+msgstr "Télécharger les dernier fichiers de mise à jour de GitHub EcclesiaCRM"
 
 #: UpgradeCRM.php:50
 msgid "Fetch Update Files"
@@ -5732,8 +5732,8 @@ msgid "Set true to enable family self registration."
 msgstr "Cocher Vrai pour que la famille puisse s'enregistrer elle même"
 
 #: EcclesiaCRM/dto/SystemConfig.php:128
-msgid "EcclesiaCRM2 has been registered.  The EcclesiaCRM2 team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration."
-msgstr "EcclesiaCRM2 a bien été enregistré. L&#39;équipe EcclesiaCRM2 utilise les informations d&#39;enregistrement pour suivre l'utilisation du logiciel. Cette information est confidentielle et ne sera pas transmise ni vendu. Si ce champ est coché Vrai, l&#39;option d&#39;enregistrement dans le menu admin changera pour mettre à jour l&#39;enregistrement"
+msgid "EcclesiaCRM has been registered.  The EcclesiaCRM team uses registration information to track usage.  This information is kept confidential and never released or sold.  If this field is true the registration option in the admin menu changes to update registration."
+msgstr "EcclesiaCRM a bien été enregistré. L&#39;équipe EcclesiaCRM utilise les informations d&#39;enregistrement pour suivre l'utilisation du logiciel. Cette information est confidentielle et ne sera pas transmise ni vendu. Si ce champ est coché Vrai, l&#39;option d&#39;enregistrement dans le menu admin changera pour mettre à jour l&#39;enregistrement"
 
 #: EcclesiaCRM/dto/SystemConfig.php:129
 msgid "Left Margin (1 = 1/100th inch)"
@@ -7887,12 +7887,12 @@ msgid "All Application Prerequisites Satisfied"
 msgstr "Tous les prérequis pour l'application sont validés"
 
 #: IntegrityCheck.php:30
-msgid "All components that EcclesiaCRM2 relies upon are present and correctly configured on this server"
-msgstr "Tous les composants requis pour EcclesiaCRM2 sont présents et correctement configurés sur ce serveur."
+msgid "All components that EcclesiaCRM relies upon are present and correctly configured on this server"
+msgstr "Tous les composants requis pour EcclesiaCRM sont présents et correctement configurés sur ce serveur."
 
 #: IntegrityCheck.php:37
-msgid "Certain components that EcclesiaCRM2 relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior."
-msgstr "Certains composants requis pour EcclesiaCRM2 sont absents ou mal configurés sur ce serveur. Cette application devrait fonctionner, mais risque de fonctionner de manière inapproprié."
+msgid "Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior."
+msgstr "Certains composants requis pour EcclesiaCRM sont absents ou mal configurés sur ce serveur. Cette application devrait fonctionner, mais risque de fonctionner de manière inapproprié."
 
 #: IntegrityCheck.php:41
 msgid "Failed"
@@ -8111,8 +8111,8 @@ msgid "Your Account was Deleted"
 msgstr "Votre compte a été supprimé"
 
 #: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
-msgid "Your EcclesiaCRM2 Account was Deleted."
-msgstr "Votre compte EcclesiaCRM2 a été supprimé"
+msgid "Your EcclesiaCRM Account was Deleted."
+msgstr "Votre compte EcclesiaCRM a été supprimé"
 
 #: EcclesiaCRM/Emails/users/LockedEmail.php:11
 msgid "Account Locked"
@@ -8263,24 +8263,24 @@ msgid "Select GeoCoder Provider"
 msgstr "Sélectionner Provider Geocoder"
 
 #: EcclesiaCRM/Emails/users/LockedEmail.php:16
-msgid "Your EcclesiaCRM2 account was locked."
-msgstr "Votre compte EcclesiaCRM2 a été verrouillé."
+msgid "Your EcclesiaCRM account was locked."
+msgstr "Votre compte EcclesiaCRM a été verrouillé."
 
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:23
-msgid "A EcclesiaCRM2 account was created for you"
-msgstr "Un compte EcclesiaCRM2 a été créé pour vous"
+msgid "A EcclesiaCRM account was created for you"
+msgstr "Un compte EcclesiaCRM a été créé pour vous"
 
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
-msgid "Your EcclesiaCRM2 password was changed"
-msgstr "Votre mot de passe EcclesiaCRM2 a été modifié"
+msgid "Your EcclesiaCRM password was changed"
+msgstr "Votre mot de passe EcclesiaCRM a été modifié"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
-msgid "You can reset your EcclesiaCRM2 password by clicking this link"
-msgstr "Vous pouvez réinitialiser votre mot de passe EcclesiaCRM2 en cliquant sur ce lien"
+msgid "You can reset your EcclesiaCRM password by clicking this link"
+msgstr "Vous pouvez réinitialiser votre mot de passe EcclesiaCRM en cliquant sur ce lien"
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
-msgid "Your EcclesiaCRM2 account was unlocked."
-msgstr "Votre compte EcclesiaCRM2 a été déverrouillé."
+msgid "Your EcclesiaCRM account was unlocked."
+msgstr "Votre compte EcclesiaCRM a été déverrouillé."
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:146
 msgid "system user created"
@@ -8447,8 +8447,8 @@ msgid "Please go to this location"
 msgstr "Allez à l'emplacement"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM2 updated password has been changed"
-msgstr "La Mise à jour de votre mot de passe EcclesiaCRM2 a été effectué"
+msgid "You EcclesiaCRM updated password has been changed"
+msgstr "La Mise à jour de votre mot de passe EcclesiaCRM a été effectué"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
 msgid "Password Reset Link"
@@ -9131,8 +9131,8 @@ msgstr "Profile"
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-msgid "Quit EcclesiaCRM2 and close your session"
-msgstr "Quitter EcclesiaCRM2 et fermer votre session"
+msgid "Quit EcclesiaCRM and close your session"
+msgstr "Quitter EcclesiaCRM et fermer votre session"
 
 #: ListEvents.php:254
 msgid "Sermon Text"
@@ -9178,8 +9178,8 @@ msgid "Field where last Confession is stored, must be a date type"
 msgstr "Champ où la dernière confession est enregistré, doit être sous forme de date"
 
 #: EcclesiaCRM/dto/SystemConfig.php:221
-msgid "Require that this EcclesiaCRM2 Database is accessed over HTTPS"
-msgstr "Requière que la base de données de EcclesiaCRM2 soit accessible par HTTPS"
+msgid "Require that this EcclesiaCRM Database is accessed over HTTPS"
+msgstr "Requière que la base de données de EcclesiaCRM soit accessible par HTTPS"
 
 #: EcclesiaCRM/dto/SystemConfig.php:236
 msgid "People Setup"

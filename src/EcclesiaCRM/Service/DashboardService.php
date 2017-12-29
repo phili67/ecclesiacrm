@@ -5,6 +5,7 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\ListOptionQuery;
+
 class DashboardService
 {
     public function getFamilyCount()

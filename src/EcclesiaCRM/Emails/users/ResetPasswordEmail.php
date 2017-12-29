@@ -19,7 +19,7 @@ class ResetPasswordEmail extends BaseUserEmail
 
     protected function buildMessageBody()
     {
-        return gettext("You EcclesiaCRM2 updated password has been changed").":";
+        return gettext("You EcclesiaCRM updated password has been changed").":";
     }
 
     public function getTokens()

@@ -27,14 +27,14 @@ if (AppIntegrityService::arePrerequisitesMet()) {
     ?>
   <div class="callout callout-success">
     <h4><?= gettext('All Application Prerequisites Satisfied') ?> </h4>
-    <p><?= gettext('All components that EcclesiaCRM2 relies upon are present and correctly configured on this server') ?></p>
+    <p><?= gettext('All components that EcclesiaCRM relies upon are present and correctly configured on this server') ?></p>
   </div>
   <?php
 } else {
         ?>
   <div class="callout callout-danger">
     <h4><?= gettext('Unmet Application Prerequisites') ?> </h4>
-    <p><?= gettext('Certain components that EcclesiaCRM2 relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
+    <p><?= gettext('Certain components that EcclesiaCRM relies upon are missing or improperly configured on this server.  The application may continue to function, but may produce unexpected behavior.') ?></p>
     <ul>
       <?php
       foreach (AppIntegrityService::getUnmetPrerequisites() as $prerequisiteName) {

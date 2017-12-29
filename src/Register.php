@@ -32,7 +32,7 @@ require 'Include/Header.php';
 <div class="box box-primary">
 	<div class="box-header">
 		<?php
-        echo gettext('Please register your copy of EcclesiaCRM2 by checking over this information and pressing the Send button.  ');
+        echo gettext('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  ');
         echo gettext('This information is used only to track the usage of this software.  ');
         ?>
 	</div>
@@ -46,7 +46,7 @@ require 'Include/Header.php';
     <?= gettext('Zip') ?>: <?= SystemConfig::getValue('sChurchZip'); ?><br>
     <?= gettext('Country') ?>: <?= SystemConfig::getValue('sChurchCountry'); ?><br>
     <?= gettext('Church Email') ?>: <?= SystemConfig::getValue('sChurchEmail'); ?><br>
-    EcclesiaCRM2 <?= gettext('Base URL') ?>: <?= $EcclesiaCRMURL ?><br>
+    EcclesiaCRM <?= gettext('Base URL') ?>: <?= $EcclesiaCRMURL ?><br>
 		<br> <?= gettext('Message') ?>:
 		<br><textarea class="form-control" name="emailmessage" rows="20" cols="72"><?= htmlspecialchars($sEmailMessage) ?> </textarea>
 	</div>
