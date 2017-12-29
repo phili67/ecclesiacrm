@@ -215,7 +215,7 @@ require '../Include/Header.php';
 
           $hideAge = $flags == 1 || $birthYear == '' || $birthYear == '0';
           $birthDate = OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
-          $birthDateDate = BirthDate($birthYear, $birthMonth, $birthDay, $hideAge);
+          $birthDateDate = OutputUtils::BirthDate($birthYear, $birthMonth, $birthDay, $hideAge);
 
           echo '<tr>';
           echo "<td><a href='../PersonView.php?PersonID=".$kidId."'>";

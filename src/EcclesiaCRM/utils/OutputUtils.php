@@ -100,6 +100,23 @@ class OutputUtils {
 
       return $dBirthDate;
   }
+  
+  public static function BirthDate($year, $month, $day, $hideAge)
+  {
+      if (!is_null($day) && $day != '' &&
+      !is_null($month) && $month != ''
+    ) {
+          $birthYear = $year;
+          if ($hideAge) {
+              $birthYear = 1900;
+          }
+
+          return date_create($birthYear.'-'.$month.'-'.$day);
+      }
+
+      return date_create();
+  }
+
 }
 
 ?>

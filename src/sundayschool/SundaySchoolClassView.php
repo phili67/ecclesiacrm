@@ -219,7 +219,7 @@ require '../Include/Header.php';
       foreach ($thisClassChildren as $child) {
           $hideAge = $child['flags'] == 1 || $child['birthYear'] == '' || $child['birthYear'] == '0';
           $birthDate = OutputUtils::FormatBirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], '-', $child['flags']);
-          $birthDateDate = BirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], $hideAge); ?>
+          $birthDateDate = OutputUtils::BirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], $hideAge); ?>
 
           <tr>
           <td>
