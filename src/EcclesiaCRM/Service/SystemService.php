@@ -5,6 +5,7 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FileSystemUtils;
+use EcclesiaCRM\VersionQuery;
 use EcclesiaCRM\SQLUtils;
 use Exception;
 use Github\Client;
@@ -67,7 +68,7 @@ class SystemService
 
         return $version;
     }
-
+    
     public function restoreDatabaseFromBackup($file)
     {
         requireUserGroupMembership('bAdmin');
@@ -297,16 +298,19 @@ class SystemService
         requireUserGroupMembership('bAdmin');
     }
 
-   static public function getDBVersion()
+    static public function getDBVersion()// get the DB version
     {
-        $connection = Propel::getConnection();
-        $query = 'Select * from version_ver';
-        $statement = $connection->prepare($query);
-        $statement->execute();
-        $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
-        rsort($results);
-        return $results[0]['ver_version'];
+        $version = VersionQuery::Create()
+            ->orderById('DESC')->findOne();
+      
+        return $version->getVersion();
     }
+    
+    static public function getDBMainVersion() // the main part of the version 2.3.10 will give : 2
+    {
+        return strstr(self::getDBVersion(),".",true);
+    }
+    
 
     public function getDBServerVersion()
     {

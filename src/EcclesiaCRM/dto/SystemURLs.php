@@ -56,7 +56,7 @@ class SystemURLs
         return self::$supportURL;
     }
 
-  public static function getURL($index = 0)
+    public static function getURL($index = 0)
     {
         return self::$urls[$index];
     }

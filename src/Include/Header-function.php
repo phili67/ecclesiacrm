@@ -44,7 +44,7 @@ function Header_head_metatag()
     if (strlen($sMetaRefresh) > 0) {
         echo $sMetaRefresh;
     } ?>
-    <title>EcclesiaCRM2: <?= $sPageTitle ?></title>
+    <title>EcclesiaCRM: <?= $sPageTitle ?></title>
     <?php
 }
 
@@ -85,7 +85,7 @@ function Header_modals()
                             </div>
                         </div>
                         <ul>
-                            <li><?= gettext("When you click \"submit,\" an error report will be posted to the EcclesiaCRM2 GitHub Issue tracker.") ?></li>
+                            <li><?= gettext("When you click \"submit,\" an error report will be posted to the EcclesiaCRM GitHub Issue tracker.") ?></li>
                             <li><?= gettext('Please do not include any confidential information.') ?></li>
                             <li><?= gettext('Some general information about your system will be submitted along with the request such as Server version and browser headers.') ?></li>
                             <li><?= gettext('No personally identifiable information will be submitted unless you purposefully include it.') ?></li>

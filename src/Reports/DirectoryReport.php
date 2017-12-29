@@ -174,7 +174,7 @@ if ($mysqlversion >= 4) {
     $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
     $sSQL = 'SELECT DISTINCT * FROM tmp ORDER BY SortMe';
 } else {
-    die(gettext('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM2.'));
+    die(gettext('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM.'));
 }
 
 $rsRecords = RunQuery($sSQL);

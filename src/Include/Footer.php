@@ -11,6 +11,8 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
+
 
 $isAdmin = $_SESSION['user']->isAdmin();
 
@@ -21,9 +23,9 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <!-- /.content-wrapper -->
 <footer class="main-footer">
     <div class="pull-right">
-        <b><?= gettext('Version') ?></b> <?= $_SESSION['sSoftwareInstalledVersion'] ?>
+        <b><?= gettext('Version') ?></b> <?= SystemService::getDBVersion() ?>
     </div>
-    <strong><?= gettext('Copyright') ?> &copy; 2015-2018 <a href="https://www.imathgeo.com" target="_blank"><b>Ecclesia</b>CRM2</a>.</strong> <?= gettext('All rights reserved') ?>
+    <strong><?= gettext('Copyright') ?> &copy; 2015-2018 <a href="https://www.imathgeo.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?></a>.</strong> <?= gettext('All rights reserved') ?>
     .
 </footer>
 

@@ -183,7 +183,7 @@ require 'Include/HeaderNotLoggedIn.php';
 ?>
 <div class="login-box" id="Login">
     <div class="login-logo">
-        Ecclesia<b>CRM</b>2
+        Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
 
     <!-- /.login-logo -->
@@ -247,7 +247,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <!-- /.login-box -->
 <div class="lockscreen-wrapper" id="Lock">
     <div class="login-logo">
-        Ecclesia<b>CRM</b>2
+        Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
 
     <p class="login-box-msg">
