@@ -15,6 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $personService = new PersonService();
 $systemService = new SystemService();
@@ -459,58 +460,6 @@ function change_date_for_place_holder($string)
     return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));
 }
 
-function FormatDateOutput($bWithTime)
-{
-    $fmt = SystemConfig::getValue("sDateFormatLong");
-    $fmt_time = SystemConfig::getValue("sTimeFormat");
-
-    $fmt = str_replace("/", " ", $fmt);
-    
-    $fmt = str_replace("-", " ", $fmt);
-    
-    $fmt = str_replace("d", "%d", $fmt);
-    $fmt = str_replace("m", "%B", $fmt);
-    $fmt = str_replace("Y", "%Y", $fmt);
-    
-    if ($bWithTime) {
-        $fmt .= " ".$fmt_time;
-    }
-    
-    return $fmt;
-}
-
-// Reinstated by Todd Pillars for Event Listing
-// Takes MYSQL DateTime
-// bWithtime 1 to be displayed
-function FormatDate($dDate, $bWithTime = false)
-{
-    if ($dDate == '' || $dDate == '0000-00-00 00:00:00' || $dDate == '0000-00-00') {
-        return '';
-    }
-
-    if (strlen($dDate) == 10) { // If only a date was passed append time
-        $dDate = $dDate.' 12:00:00';
-    }  // Use noon to avoid a shift in daylight time causing
-    // a date change.
-
-    if (strlen($dDate) != 19) {
-        return '';
-    }
-
-    // Verify it is a valid date
-    $sScanString = mb_substr($dDate, 0, 10);
-    list($iYear, $iMonth, $iDay) = sscanf($sScanString, '%04d-%02d-%02d');
-
-    if (!checkdate($iMonth, $iDay, $iYear)) {
-        return 'Unknown';
-    }
-
-    $fmt = FormatDateOutput($bWithTime);
-        
-    setlocale(LC_ALL, SystemConfig::getValue("sLanguage"));
-    return utf8_encode(strftime("$fmt", strtotime($dDate)));
-}
-
 function AlternateRowStyle($sCurrentStyle)
 {
     if ($sCurrentStyle == 'RowColorA') {
@@ -841,7 +790,7 @@ function displayCustomField($type, $data, $special)
 
     // Handler for date fields
     case 2:
-      return FormatDate($data);
+      return OutputUtils::FormatDate($data);
       break;
     // Handler for text fields, years, seasons, numbers, money
     case 3:
@@ -1485,7 +1434,7 @@ function FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, $sSepar
         if (is_numeric($birthYear)) {
             $dBirthDate = $birthYear.$sSeparator.$dBirthDate;
             if (checkdate($dBirthMonth, $dBirthDay, $birthYear)) {
-                $dBirthDate = FormatDate($dBirthDate);
+                $dBirthDate = OutputUtils::FormatDate($dBirthDate);
                 if (mb_substr($dBirthDate, -6, 6) == ', 1000') {
                     $dBirthDate = str_replace(', 1000', '', $dBirthDate);
                 }
