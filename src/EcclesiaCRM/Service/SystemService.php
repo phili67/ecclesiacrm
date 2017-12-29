@@ -90,7 +90,7 @@ class SystemService
             if ($restoreResult->type2 == 'tar') {
                 $phar = new PharData($restoreResult->uploadedFileDestination);
                 $phar->extractTo($restoreResult->backupDir);
-                $restoreResult->SQLfile = "$restoreResult->backupDir/EcclesiaCRM2-Database.sql";
+                $restoreResult->SQLfile = "$restoreResult->backupDir/EcclesiaCRM-Database.sql";
                 if (file_exists($restoreResult->SQLfile))
                 {
                   SQLUtils::sqlImport($restoreResult->SQLfile, $connection);
@@ -137,8 +137,8 @@ class SystemService
         mkdir($backup->backupDir,0750,true);
         $backup->headers = [];
         $backup->params = $params;
-        $backup->saveTo = "$backup->backupDir/EcclesiaCRM2-" . date(SystemConfig::getValue("sDateFilenameFormat"));
-        $backup->SQLFile = "$backup->backupDir/EcclesiaCRM2-Database.sql";
+        $backup->saveTo = "$backup->backupDir/EcclesiaCRM-" . date(SystemConfig::getValue("sDateFilenameFormat"));
+        $backup->SQLFile = "$backup->backupDir/EcclesiaCRM-Database.sql";
 
         try {
             $dump = new Mysqldump('mysql:host=' . $sSERVERNAME . ';dbname=' . $sDATABASE, $sUSER, $sPASSWORD, ['add-drop-table' => true]);
@@ -162,7 +162,7 @@ class SystemService
                 $backup->saveTo .= '.tar';
                 $phar = new \PharData($backup->saveTo);
                 $phar->startBuffering();
-                $phar->addFile($backup->SQLFile, 'EcclesiaCRM2-Database.sql');
+                $phar->addFile($backup->SQLFile, 'EcclesiaCRM-Database.sql');
                 $imageFiles = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator(SystemURLs::getImagesRoot()));
                 foreach ($imageFiles as $imageFile) {
                     if (!$imageFile->isDir()) {
@@ -410,7 +410,7 @@ class SystemService
         $release = $this->getLatestRelese();
         $UpgradeDir = SystemURLs::getDocumentRoot() . '/Upgrade';
         foreach ($release['assets'] as $asset) {        
-            if ($asset['name'] == "EcclesiaCRM2-" . $release['name'] . ".zip") {
+            if ($asset['name'] == "EcclesiaCRM-" . $release['name'] . ".zip") {
                 $url = $asset['browser_download_url'];
             }
         }
