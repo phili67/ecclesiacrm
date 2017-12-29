@@ -557,7 +557,7 @@
                 {
                   data: 'DateEntered',
                   render: function (data, type, row, meta) {
-                    return moment(data).format('MM-DD-YYYY hh:mm');
+                    return moment(data).lang(window.CRM.shortLocale).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
                   }
                 }
               ]
@@ -585,7 +585,7 @@
                 {
                   data: 'DateLastEdited',
                   render: function (data, type, row, meta) {
-                    return moment(data).format('MM-DD-YYYY hh:mm');
+                    return moment(data).lang(window.CRM.shortLocale).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
                   }
                 }
               ]

@@ -430,7 +430,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <li class="time-label">
                     <span class="bg-red">
                       <?php $now = new DateTime('');
-    echo $now->format('Y-m-d') ?>
+                      echo $now->format('Y-m-d') ?>
                     </span>
             </li>
             <!-- /.timeline-label -->
