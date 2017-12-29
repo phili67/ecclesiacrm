@@ -379,7 +379,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                     <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
                                 </td>
                                 <td>
-                                    <?= FormatBirthDate($person->getBirthYear(),
+                                    <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
                                         $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
                                 </td>
                                 <td>
