@@ -21,6 +21,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
 $eType = 'All';
@@ -231,7 +232,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                       <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
-                      <input type="hidden" name="EDate" value="<?= FormatDate($aEventStartDateTime[$row], 1) ?>">
+                      <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
                       <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm btn-block" >
                     </form>
                   </td>
@@ -290,7 +291,7 @@ foreach ($allMonths as $mKey => $mVal) {
               </table>
             </td>
             <td>
-              <?= FormatDate($aEventStartDateTime[$row], 1) ?>
+              <?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>
             </td>
             <td>
               <?= ($aEventStatus[$row] != 0 ? _('No') : _('Yes')) ?>

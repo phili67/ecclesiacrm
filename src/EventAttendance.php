@@ -13,6 +13,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\Utils\OutputUtils;
+
 if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !empty($_POST['Event'])) {
     if ($_POST['Choice'] == 'Attendees') {
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t4.fam_HomePhone, t4.fam_Country
@@ -113,7 +115,7 @@ if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows >
         //Display the row?>
          <tr class="<?= $sRowClass ?>">
            <td class="TextColumn"><?= $aEventTitle[$row] ?></td>
-           <td class="TextColumn"><?= FormatDate($aEventStartDateTime[$row], 1) ?></td>
+           <td class="TextColumn"><?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?></td>
            <td class="TextColumn" align="center">
              <form name="Attend" action="EventAttendance.php" method="POST">
                <input type="hidden" name="Event" value="<?= $aEventID[$row] ?>">

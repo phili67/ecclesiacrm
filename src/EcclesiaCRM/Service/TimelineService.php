@@ -7,6 +7,7 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Utils\OutputUtils;
 
 require_once 'Include/Functions.php';
 
@@ -173,7 +174,7 @@ class TimelineService
         $item['headerLink'] = $headerLink;
         $item['text'] = $text;
 
-        $item['datetime'] = FormatDate($datetime,true);
+        $item['datetime'] = OutputUtils::FormatDate($datetime,true);
         $item['year'] = $year;
         $item['key'] = $datetime.'-'.$id;
 
