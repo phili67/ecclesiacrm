@@ -59,7 +59,6 @@ class OutputUtils {
       setlocale(LC_ALL, SystemConfig::getValue("sLanguage"));
       return utf8_encode(strftime("$fmt", strtotime($dDate)));
   }
-}
 
 // Format a BirthDate
 // Optionally, the separator may be specified.  Default is YEAR-MN-DY
@@ -101,5 +100,6 @@ class OutputUtils {
 
       return $dBirthDate;
   }
+}
 
 ?>
