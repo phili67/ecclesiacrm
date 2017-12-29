@@ -472,7 +472,29 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                 <i class="fa <?= $item['style'] ?>"></i>
 
                                 <div class="timeline-item">
-                                    <span class="time"><i class="fa fa-clock-o"></i> <?= $item['datetime'] ?></span>
+                                    <span class="time"><i class="fa fa-clock-o"></i><?= $item['datetime'] ?> 
+                                     <?php if (($_SESSION['bNotes']) && (isset($item["editLink"]) || isset($item["deleteLink"])) && $item['slim']) {
+                                     ?>
+                                     &nbsp;
+                                     <?php if (isset($item["editLink"])) {
+                            ?>
+                                                <a href="<?= $item["editLink"] ?>">
+                                                    <button type="button" class="btn-xs btn-primary"><i
+                                                                class="fa fa-edit"></i></button>
+                                                </a>
+                                                <?php
+                        }
+                        if (isset($item["deleteLink"])) {
+                            ?>
+                                                <a href="<?= $item["deleteLink"] ?>">
+                                                    <button type="button" class="btn-xs btn-danger"><i
+                                                                class="fa fa-trash"></i></button>
+                                                </a>
+                                                <?php
+                        } ?>
+                        <?php } ?>
+
+                                    </span>
 
                                     <h3 class="timeline-header">
                                         <?php if (in_array('headerlink', $item)) {
@@ -490,7 +512,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                         <pre><?= $item['text'] ?></pre>
                                     </div>
 
-                                    <?php if (($_SESSION['bNotes']) && (isset($item["editLink"]) || isset($item["deleteLink"]))) {
+                                    <?php if (($_SESSION['bNotes']) && (isset($item["editLink"]) || isset($item["deleteLink"])) && !$item['slim']) {
                         ?>
                                         <div class="timeline-footer">
                                             <?php if (isset($item["editLink"])) {
