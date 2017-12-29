@@ -131,7 +131,7 @@ while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
     $aSecurityType[$lst_OptionID] = $lst_OptionName;
 }
 
-$dBirthDate = FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
+$dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
 
 $sFamilyInfoBegin = '<span style="color: red;">';
 $sFamilyInfoEnd = '</span>';
@@ -543,7 +543,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   <?= $familyMember->getFamilyRoleName() ?>
                 </td>
                 <td>
-                  <?= FormatBirthDate($familyMember->getBirthYear(), $familyMember->getBirthMonth(), $familyMember->getBirthDay(), '-', $familyMember->getFlags()); ?>
+                  <?= OutputUtils::FormatBirthDate($familyMember->getBirthYear(), $familyMember->getBirthMonth(), $familyMember->getBirthDay(), '-', $familyMember->getFlags()); ?>
                 </td>
                 <td>
                   <?php $tmpEmail = $familyMember->getEmail();

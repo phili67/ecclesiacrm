@@ -1,5 +1,7 @@
 <?php
 
+/* Philippe Logel */
+
 namespace EcclesiaCRM\Utils;
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -58,5 +60,46 @@ class OutputUtils {
       return utf8_encode(strftime("$fmt", strtotime($dDate)));
   }
 }
+
+// Format a BirthDate
+// Optionally, the separator may be specified.  Default is YEAR-MN-DY
+  public static function FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, $sSeparator, $bFlags)
+  {
+      if ($bFlags == 1 || $per_BirthYear == '') {  //Person Would Like their Age Hidden or BirthYear is not known.
+          $birthYear = '1000';
+      } else {
+          $birthYear = $per_BirthYear;
+      }
+
+      if ($per_BirthMonth > 0 && $per_BirthDay > 0 && $birthYear != 1000) {
+          if ($per_BirthMonth < 10) {
+              $dBirthMonth = '0'.$per_BirthMonth;
+          } else {
+              $dBirthMonth = $per_BirthMonth;
+          }
+          if ($per_BirthDay < 10) {
+              $dBirthDay = '0'.$per_BirthDay;
+          } else {
+              $dBirthDay = $per_BirthDay;
+          }
+
+          $dBirthDate = $dBirthMonth.$sSeparator.$dBirthDay;
+          if (is_numeric($birthYear)) {
+              $dBirthDate = $birthYear.$sSeparator.$dBirthDate;
+              if (checkdate($dBirthMonth, $dBirthDay, $birthYear)) {
+                  $dBirthDate = self::FormatDate($dBirthDate);
+                  if (mb_substr($dBirthDate, -6, 6) == ', 1000') {
+                      $dBirthDate = str_replace(', 1000', '', $dBirthDate);
+                  }
+              }
+          }
+      } elseif (is_numeric($birthYear) && $birthYear != 1000) {  //Person Would Like Their Age Hidden
+          $dBirthDate = $birthYear;
+      } else {
+          $dBirthDate = '';
+      }
+
+      return $dBirthDate;
+  }
 
 ?>

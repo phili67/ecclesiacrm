@@ -5,6 +5,7 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $dashboardService = new DashboardService();
 $sundaySchoolService = new SundaySchoolService();
@@ -213,7 +214,7 @@ require '../Include/Header.php';
           extract($child);
 
           $hideAge = $flags == 1 || $birthYear == '' || $birthYear == '0';
-          $birthDate = FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
+          $birthDate = OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
           $birthDateDate = BirthDate($birthYear, $birthMonth, $birthDay, $hideAge);
 
           echo '<tr>';
