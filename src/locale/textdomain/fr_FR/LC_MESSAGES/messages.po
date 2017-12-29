@@ -3232,7 +3232,7 @@ msgstr "Mettre à jour des Propriétés."
 
 #: PersonView.php:649
 msgid "Assign New Group"
-msgstr "Assigner un Nouveau Groupe"
+msgstr "Assigner à un Nouveau Groupe"
 
 #: PersonView.php:765
 msgid "No volunteer opportunity assignments."
@@ -9309,3 +9309,10 @@ msgstr "Espace personnel pour les documents"
 
 msgid "Allow to see ballon Help"
 msgstr "Permission pour faire apparaître les bulles d'aide"
+
+msgid "Added to group"
+msgstr "Ajouté au groupe"
+
+msgid "Deleted from group"
+msgstr "Supprimé du groupe"
+

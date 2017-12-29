@@ -443,7 +443,28 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                 <i class="fa <?= $item['style'] ?>"></i>
 
                 <div class="timeline-item">
-                  <span class="time"><i class="fa fa-clock-o"></i> <?= $item['datetime'] ?></span>
+                  <span class="time">
+                  <?php if ($item['slim']) {
+                  ?>
+                  <?php if ($item['editLink'] != '') {
+                ?>
+                        <a href="<?= $item['editLink'] ?>">
+                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                      <?php
+            }
+            if ($item['deleteLink'] != '') {
+                ?>
+                        <a href="<?= $item['deleteLink'] ?>">
+                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                        </a>
+                      <?php
+            } ?>
+            
+            &nbsp;
+            <?php } ?>
+                  <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                  </span>
                   
                   <h3 class="timeline-header">
                     <?php if (in_array('headerlink', $item)) {
@@ -460,7 +481,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   <div class="timeline-body">
                       <pre style="line-height: 1.2;"><?= $item['text'] ?></pre>
                   </div>
-
+                  <?php if (!$item['slim']) {
+                  ?>
                   <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
             ?>
                     <div class="timeline-footer">
@@ -480,6 +502,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             } ?>
                     </div>
                   <?php
+        } ?>
+        
+        <?php 
         } ?>
                 </div>
               </li>
@@ -857,7 +882,29 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                 <i class="fa <?= $item['style'] ?>"></i>
 
                 <div class="timeline-item">
-                  <span class="time"><i class="fa fa-clock-o"></i> <?= $item['datetime'] ?></span>
+                  <span class="time">
+                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                                          &nbsp;
+
+                     <?php 
+                     
+                     if ($item['slim']) {
+                       if ($item['editLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['editLink'] ?>">
+                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                      <?php
+                                            }
+                                            if ($item['deleteLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['deleteLink'] ?>">
+                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                        </a>
+                      <?php
+                          }
+                      } ?>                     
+                     </span>
                   
                   <h3 class="timeline-header">
                     <?php if (in_array('headerlink', $item)) {
@@ -878,6 +925,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                                             ?>
                     <div class="timeline-footer">
+                    <?php if (!$item['slim']) {
+                    ?>
                       <?php if ($item['editLink'] != '') {
                                                 ?>
                         <a href="<?= $item['editLink'] ?>">
@@ -895,6 +944,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                     </div>
                   <?php
                                         } ?>
+                  <?php
+                                  } ?>
                 </div>
               </li>
             <?php
