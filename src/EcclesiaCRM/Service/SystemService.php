@@ -311,6 +311,11 @@ class SystemService
         return strstr(self::getDBVersion(),".",true);
     }
     
+    
+    static public function getPackageMainVersion() // the main part of the version 2.3.10 will give : 2
+    {
+        return strstr(self::getInstalledVersion(),".",true);
+    }
 
     public function getDBServerVersion()
     {

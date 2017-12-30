@@ -17,7 +17,7 @@ require_once 'Header-Security.php';
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/bootstrap/css/bootstrap.min.css">
     <!-- Custom EcclesiaCRM styles -->
-    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/churchcrm.min.css">
+    <link rel="stylesheet" href="<?= SystemURLs::getRootPath() ?>/skin/ecclesiacrm.min.css">
 
     <!-- jQuery JS -->
     <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>

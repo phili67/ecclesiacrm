@@ -186,7 +186,7 @@ module.exports = function (grunt) {
                  cacheLocation: process.env['HOME'] + "/node_cache"
               },
               files: {
-                  'src/skin/churchcrm.min.css': 'src/skin/churchcrm.scss'
+                  'src/skin/ecclesiacrm.min.css': 'src/skin/ecclesiacrm.scss'
               }  
             },
         },
