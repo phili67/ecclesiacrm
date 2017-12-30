@@ -14,8 +14,10 @@
     }
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
-      if (endpoint.indexOf("/api/dashboard/page?") !== -1 || endpoint.indexOf("/api/dashboard") !== -1) {
+      if (endpoint.indexOf("/api/dashboard/page?") !== -1) {
         location.reload();
+        return;
+      } else if (endpoint.indexOf("/api/cart") !== -1) {
         return;
       }
 
