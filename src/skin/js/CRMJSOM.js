@@ -14,6 +14,10 @@
     }
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
+      if (endpoint.indexOf("/api/dashboard/page?") !== -1 || endpoint.indexOf("/api/dashboard") !== -1) {
+        location.reload();
+        return;
+      }
 
       message = "<p>" + i18next.t("Error making API Call to") + ": " + endpoint +
         "</p><p>" + i18next.t("Error text") + ": " + error.message;
@@ -557,7 +561,7 @@
                 {
                   data: 'DateEntered',
                   render: function (data, type, row, meta) {
-                    return moment(data).lang(window.CRM.shortLocale).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
+                    return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
                   }
                 }
               ]
@@ -585,7 +589,7 @@
                 {
                   data: 'DateLastEdited',
                   render: function (data, type, row, meta) {
-                    return moment(data).lang(window.CRM.shortLocale).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
+                    return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
                   }
                 }
               ]
