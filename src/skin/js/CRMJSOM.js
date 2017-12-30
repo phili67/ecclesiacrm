@@ -14,10 +14,8 @@
     }
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
-      if (endpoint.indexOf("/api/dashboard/page?") !== -1) {
+      if (endpoint.indexOf("/api/dashboard") !== -1) {// we are in the case, we're logout
         location.reload();
-        return;
-      } else if (endpoint.indexOf("/api/cart") !== -1) {
         return;
       }
 
@@ -169,6 +167,10 @@
         });
       },
       'refresh' : function () {
+        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1) {// the first time it's unusefull
+          return;
+        }
+
         window.CRM.APIRequest({
           method: 'GET',
           path:"cart/"
@@ -619,6 +621,9 @@
         }
       },
       refresh: function () {
+        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1) {
+          return;
+        }
         window.CRM.APIRequest({
           method: 'GET',
           path: 'dashboard/page?currentpagename=' + window.CRM.PageName.replace(window.CRM.root,''),
