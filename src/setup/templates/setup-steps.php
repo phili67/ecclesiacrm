@@ -1,6 +1,7 @@
 <?php
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
 
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
@@ -23,7 +24,8 @@ require '../Include/HeaderNotLoggedIn.php';
     }
 
 </style>
-<h1 class="text-center">Welcome to EcclesiaCRM setup wizard</h1>
+
+<h1 class="text-center">Welcome to Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?> setup wizard</h1>
 <p/><br/>
 <form id="setup-form">
     <div id="wizard">
@@ -32,7 +34,7 @@ require '../Include/HeaderNotLoggedIn.php';
             <table class="table table-condensed" id="prerequisites"></table>
             <p/>
             <div class="callout callout-warning" id="prerequisites-war">
-                This server isn't quite ready for EcclesiaCRM. If you know what you are doing.
+                This server isn't quite ready for Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
                 <a href="#" onclick="skipCheck()"><b>Click here</b></a>.
             </div>
         </section>
@@ -63,7 +65,7 @@ require '../Include/HeaderNotLoggedIn.php';
                        value="<?= \EcclesiaCRM\dto\SystemURLs::getRootPath() ?>" class="form-control"
                        aria-describedby="ROOT_PATH_HELP">
                 <small id="ROOT_PATH_HELP" class="form-text text-muted">
-                    Root path of your EcclesiaCRM installation ( THIS MUST BE SET CORRECTLY! )
+                    Root path of your Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?> installation ( THIS MUST BE SET CORRECTLY! )
                     <p/>
                     <i><b>Examples:</b></i>
                     <p/>
