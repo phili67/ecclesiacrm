@@ -12,13 +12,13 @@
     "authors": [
         {
             "name": "Logel Philippe",
-            "homepage": "https://www.imathgeo.com",
+            "homepage": "https://www.ecclesiacrm.com",
             "role": "Lead Developer"
         }
     ],
     "support": {
-        "email": "dev-support@imathgeo.com",
-        "issues": "http://www.eclisiacrm.com/issues",
+        "email": "dev-support@ecclesiacrm.com",
+        "issues": "http://www.eclisiacrm.com/issues/",
         "irc": "https://gitter.im/EcclesiaCRM/CRM",
         "source": "https://github.com/phili67/ecclesiacrm",
         "docs": "https://github.com/phili67/ecclesiacrm/wiki"
