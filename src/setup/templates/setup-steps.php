@@ -67,8 +67,8 @@ require '../Include/HeaderNotLoggedIn.php';
                     <p/>
                     <i><b>Examples:</b></i>
                     <p/>
-                    If you will be accessing from <b>http://www.yourdomain.com/churchcrm</b> then you would
-                    enter <b>'/churchcrm'</b> here.
+                    If you will be accessing from <b>http://www.yourdomain.com/ecclesiacrm</b> then you would
+                    enter <b>'/ecclesiacrm'</b> here.
                     <br/>
                     If you will be accessing from <b>http://www.yourdomain.com</b> then you would enter
                     <b>''</b> ... an empty string for a top level installation.
@@ -101,13 +101,13 @@ require '../Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group">
                 <label for="DB_NAME">Database Name</label>
-                <input type="text" name="DB_NAME" id="DB_NAME" placeholder="churchcrm" class="form-control"
+                <input type="text" name="DB_NAME" id="DB_NAME" placeholder="ecclesiacrm" class="form-control"
                        aria-describedby="DB_NAME_HELP" required>
                 <small id="DB_NAME_HELP" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="DB_USER">Database User</label>
-                <input type="text" name="DB_USER" id="DB_USER" placeholder="churchcrm" class="form-control"
+                <input type="text" name="DB_USER" id="DB_USER" placeholder="ecclesiacrm" class="form-control"
                        aria-describedby="DB_USER_HELP" required>
                 <small id="DB_USER_HELP" class="form-text text-muted">Must have permissions to create tables</small>
             </div>

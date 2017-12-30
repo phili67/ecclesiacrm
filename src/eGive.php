@@ -395,7 +395,7 @@ require 'Include/Footer.php';
 
 function yearFirstDate($date)
 {
-    $dateArray = explode('/', $date); // this date is in mm/dd/yy format.  churchCRM needs it in yyyy-mm-dd format
+    $dateArray = explode('/', $date); // this date is in mm/dd/yy format.  ecclesiacrm needs it in yyyy-mm-dd format
     if (strlen($dateArray[2]) == 2) {
         $dateArray[2] += 2000;
     }

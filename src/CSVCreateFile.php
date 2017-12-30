@@ -340,7 +340,7 @@ if ($sFormat == 'addtocart') {
     $headerString .= "\n";
 
     header('Content-type: text/x-csv;charset='.SystemConfig::getValue("sCSVExportCharset"));
-    header('Content-Disposition: attachment; filename=churchcrm-export-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+    header('Content-Disposition: attachment; filename=ecclesiacrm-export-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
     if (SystemConfig::getValue("sCSVExportCharset") == "UTF-8") {
