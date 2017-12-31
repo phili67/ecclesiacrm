@@ -1,14 +1,15 @@
 {
     "name": "EcclesiaCR",
-    "version": "2.10.4",
-    "description": "Free EcclesiaCRM Software",
+    "version": "2.10.5",
+    "description": "Free EcclesiaCRM2 Software",
     "repository": {
         "type": "git",
         "url": "https://github.com/phili67/ecclesiacrm.git"
     },
     "keywords": [
-	"Church",
+	  "Church",
         "Ecclesia",
+        "ERP",
         "CRM",
         "LAMP",
         "Free"
@@ -17,7 +18,7 @@
     "bugs": {
         "url": "https://github.com/phili67/ecclesiacrm/issues"
     },
-    "homepage": "http://www.churchcrm.io",
+    "homepage": "http://www.ecclesiacrm.com",
     "devDependencies": {
         "grunt": "1.0.1",
         "grunt-confirm": "^1.0.7",
