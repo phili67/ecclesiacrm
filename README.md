@@ -24,7 +24,7 @@ Welcome to Church Web CRM
 
 * [Download the lastest release](https://github.com/phili67/ecclesiacrm/releases/latest)
 
-* [Checkout our online Docs](https://docs.ecclesiacrm.com)
+* [Checkout our online Docs](https://www.docs.ecclesiacrm.com)
 
 ## Project Metrics 
 
