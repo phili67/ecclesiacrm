@@ -13,12 +13,9 @@ Welcome to Church Web CRM
 [![POEditor](https://img.shields.io/badge/Languages-22-green.svg)](https://poeditor.com/join/project/RABdnDSqAt)
 
 
-### Docker
-![](https://img.shields.io/docker/pulls/churchcrm/crm.svg?maxAge=2592000)
-[![](https://images.microbadger.com/badges/image/churchcrm/crm.svg)](https://microbadger.com/images/churchcrm/crm "Get your own image badge on microbadger.com")
 ## Website
 
-[http://churchcrm.io](http://churchcrm.io)
+[https://www.ecclesiacrm.com](https://www.ecclesiacrm.com)
 
 ## Installation, Upgrades and Documentation
 
