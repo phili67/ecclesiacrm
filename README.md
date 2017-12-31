@@ -45,3 +45,4 @@ To test out the demo, you may login to the http://demo.ecclesiacrm.com  with the
 ![Menu](http://www.ecclesiacrm.com/screenshots/menu.PNG)
 ![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)
+
