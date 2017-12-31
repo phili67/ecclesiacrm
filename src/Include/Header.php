@@ -144,7 +144,7 @@ $MenuFirst = 1;
                 </a>
               </li>
               <li class="hidden-xxs">
-                <a href="https://gitter.im/phili67CRM" target="_blank" title="<?= gettext('Developer Chat') ?>">
+                <a href="https://gitter.im/ecclesiacrm" target="_blank" title="<?= gettext('Developer Chat') ?>">
                   <i class="fa fa-commenting-o"></i> <?= gettext('Developer Chat') ?>
                 </a>
               </li>              

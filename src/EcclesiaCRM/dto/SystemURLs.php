@@ -14,7 +14,7 @@ class SystemURLs
     private static $urls;
     private static $documentRoot;
     private static $CSPNonce;
-    private static $supportURL = "https://github.com/phili67/ecclesiacrm/wiki";
+    private static $supportURL = "https://www.docs.ecclesiacrm.com";//"https://github.com/phili67/ecclesiacrm/wiki";
 
     public static function init($rootPath, $urls, $documentRoot)
     {
