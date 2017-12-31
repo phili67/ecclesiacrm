@@ -71,7 +71,7 @@ function Header_modals()
                                         : </label>
                                 </div>
                                 <div class="col-xl-3">
-                                    <input type="text" name="issueTitle">
+                                    <input type="text" name="issueTitle"  style="min-width: 100%;max-width: 100%;">
                                 </div>
                             </div>
                             <div class="row">
@@ -80,7 +80,7 @@ function Header_modals()
                                             for="issueDescription"><?= gettext('What were you doing when you noticed the bug / feature opportunity?') ?></label>
                                 </div>
                                 <div class="col-xl-3">
-                                    <textarea rows="10" cols="50" name="issueDescription"></textarea>
+                                    <textarea rows="10" name="issueDescription" style="min-width: 100%;max-width: 100%;"></textarea>
                                 </div>
                             </div>
                         </div>
