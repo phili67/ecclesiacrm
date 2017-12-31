@@ -168,11 +168,13 @@
             "2.10.0",
             "2.10.1",
             "2.10.2",
-            "2.10.3"
+            "2.10.3",
+            "2.10.4"
         ],
         "scripts": [
-          "/mysql/upgrade/2.10.4-delete-ChurchCRM-folder.php"
+          "/mysql/upgrade/2.10.4-delete-ChurchCRM-folder.php",
+          "/mysql/upgrade/2.10.5-delete-all-old-css-names.php"
         ],
-        "dbVersion": "2.10.4"
+        "dbVersion": "2.10.5"
     }
 }
