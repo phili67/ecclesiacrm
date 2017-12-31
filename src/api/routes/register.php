@@ -6,6 +6,9 @@ use EcclesiaCRM\Service\SystemService;
 $app->group('/register', function () {
     $this->post('', function ($request, $response, $args) {
         $input = (object) $request->getParsedBody();
+        
+        $headers = [];
+        $headers[] = 'Content-type: application/json';
 
         $registrationData = new \stdClass();
         $registrationData->sName = SystemConfig::getValue('sChurchName');
@@ -19,8 +22,9 @@ $app->group('/register', function () {
         $registrationData->Version = SystemService::getInstalledVersion();
 
         $registrationData->sComments = $input->emailmessage;
-        $curlService = curl_init('http://demo.ecclesiacrm.com/register.php');
+        $curlService = curl_init('http://www.ecclesiacrm.com/register.php');
 
+        curl_setopt($curlService, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curlService, CURLOPT_POST, true);
         curl_setopt($curlService, CURLOPT_POSTFIELDS, json_encode($registrationData));
         curl_setopt($curlService, CURLOPT_RETURNTRANSFER, true);
@@ -31,8 +35,8 @@ $app->group('/register', function () {
             throw new \Exception('Unable to reach the registration server', 500);
         }
 
-    // =Turn off the registration flag so the menu option is less obtrusive
-    SystemConfig::setValue('bRegistered', '1');
+        // =Turn off the registration flag so the menu option is less obtrusive
+        SystemConfig::setValue('bRegistered', '1');
 
         return $response->withJson(['status'=>'success']);
     });

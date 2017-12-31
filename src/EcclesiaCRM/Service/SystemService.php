@@ -336,7 +336,7 @@ class SystemService
 
     public function reportIssue($data)
     {
-        $serviceURL = 'http://demo.ecclesiacrm.com/issues/';
+        $serviceURL = 'http://www.ecclesiacrm.com/issues/';
         $headers = [];
         $headers[] = 'Content-type: application/json';
 
