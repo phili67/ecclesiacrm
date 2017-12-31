@@ -15,7 +15,7 @@
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
       if (endpoint.indexOf("/api/dashboard") !== -1) {// we are in the case, we're logout
-        location.reload();
+        //location.reload();
         return;
       }
 
