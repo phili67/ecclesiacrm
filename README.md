@@ -22,11 +22,9 @@ Welcome to Church Web CRM
 
 ## Installation, Upgrades and Documentation
 
-* [Server Check](https://github.com/ChurchCRM/Check)
+* [Download the lastest release](https://github.com/phili67/ecclesiacrm/releases/latest)
 
-* [Download the lastest release](https://github.com/phili67/CRM/releases/latest)
-
-* [Checkout our online Docs](http://docs.churchcrm.io)
+* [Checkout our online Docs](https://docs.ecclesiacrm.com)
 
 ## Project Metrics 
 
@@ -40,7 +38,7 @@ see [Checkout our Change Log](CHANGELOG.md)
 
 ### Demo Account
 
-To test out the demo, you may login to the http://demo.churchcrm.io  with the following:
+To test out the demo, you may login to the http://demo.ecclesiacrm.com  with the following:
 
 - **Username:** admin
 - **Password:** changeme
