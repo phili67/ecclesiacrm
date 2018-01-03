@@ -9316,3 +9316,5 @@ msgstr "Ajouté au groupe"
 msgid "Deleted from group"
 msgstr "Supprimé du groupe"
 
+msgid "Issue Report done!"
+msgstr "Signalement terminé !"
