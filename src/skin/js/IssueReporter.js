@@ -1,4 +1,4 @@
-/* Copright Philippe Logel */
+/* Copright Philippe Logel 2017 */
 
 $(document).ready(function(){
   $("#submitDiaglogStart" ).show();
