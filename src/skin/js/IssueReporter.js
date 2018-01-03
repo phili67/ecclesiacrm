@@ -1,3 +1,5 @@
+/* Copright Philippe Logel */
+
 $(document).ready(function(){
   $("#submitDiaglogStart" ).show();
   $("#submitDiaglogFinish" ).hide();
