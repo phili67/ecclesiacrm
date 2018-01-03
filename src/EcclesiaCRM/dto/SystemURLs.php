@@ -1,12 +1,13 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: dawoudio
+ * User: dawoudio & phili67
  * Date: 11/27/2016
  * Time: 9:33 AM.
  */
 
 namespace EcclesiaCRM\dto;
+
+use EcclesiaCRM\dto\LocaleInfo;
 
 class SystemURLs
 {
@@ -53,7 +54,10 @@ class SystemURLs
 
     public static function getSupportURL()
     {
-        return self::$supportURL;
+        $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
+        $lang = $localeInfo->getShortLocale();
+        
+        return self::$supportURL."/".$lang."/";
     }
 
     public static function getURL($index = 0)
