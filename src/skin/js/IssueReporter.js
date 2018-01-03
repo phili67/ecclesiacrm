@@ -23,16 +23,27 @@ $("#submitIssue").click(function () {
     contentType: "application/json; charset=utf-8",
     dataType: "json"
   }).done(function (data) {
-    console.log(data);
-    $("#IssueReportModal .modal-body").empty();
-    $("<h2/>").text( i18next.t("Successfully submitted Issue")+" #" + data.number).appendTo("#IssueReportModal .modal-body");
-    $("<a/>", {
-      href: data.url,
-      target: "_blank",
-      text:  i18next.t("View Issue on GitHub") + ": #" + data.number
-    }).appendTo("#IssueReportModal .modal-body");
-    $("#submitIssue").remove();
-    $("<button/>").text("Close").attr("data-dismiss", "modal").addClass("btn btn-primary").appendTo("#IssueReportModal .modal-footer");
+    $("#submitDiaglogStart" ).hide();
+    $("#submitDiaglogFinish" ).show();
+    
+    //console.log(data);
+    
+    $("#issueSubmitSucces" ).text(data.number);
+    $("#issueSubmitSuccesLink").prop("href", data.url);
+    $("#issueSubmitSuccesLinkText" ).text(data.number);
   });
+});
 
+$("#submitIssueDone").click(function () {
+    $("#IssueReportModal").modal('toggle');;
+    $("#submitDiaglogStart" ).show();
+    $("#submitDiaglogFinish" ).hide();   
+    $("input:text[name=issueTitle]").val(""); 
+    $("textarea[name=issueDescription]").val(""); 
+});
+
+
+$(document).ready(function(){
+  $("#submitDiaglogStart" ).show();
+  $("#submitDiaglogFinish" ).hide();
 });

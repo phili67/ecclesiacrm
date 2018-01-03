@@ -56,6 +56,7 @@ function Header_modals()
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
+            <div id="submitDiaglogStart">
                 <form name="issueReport">
                     <input type="hidden" name="pageName" value="<?= $_SERVER['SCRIPT_NAME'] ?>"/>
                     <div class="modal-header">
@@ -96,6 +97,16 @@ function Header_modals()
                     </div>
                 </form>
             </div>
+            <div id="submitDiaglogFinish">
+              <div class="modal-body"><h2><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
+              <a href="" target="_blank" id="issueSubmitSuccesLink"><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
+              <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="submitIssueDone"><?= gettext('OK') ?></button>
+              </div>
+              </div>              
+            </div>
+            </div>
+
         </div>
     </div>
     <!-- End Issue Report Modal -->
