@@ -149,7 +149,7 @@ $MenuFirst = 1;
                 </a>
               </li>              
               <li class="hidden-xxs">
-                <a href="https://github.com/phili67/CRM/issues/" target="_blank" title="<?= gettext('Contributing') ?>">
+                <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank" title="<?= gettext('Contributing') ?>">
                   <i class="fa fa-github"></i> <?= gettext('Contributing') ?>
                 </a>
               </li>              
