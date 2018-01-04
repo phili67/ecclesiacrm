@@ -7,6 +7,7 @@ require 'Include/Functions.php';
 require_once 'Include/Header-function.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SystemService;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Upgrade EcclesiaCRM');
@@ -25,7 +26,7 @@ Header_body_scripts();
   <ul class="timeline">
     <li class="time-label">
         <span class="bg-red">
-            <?= gettext('Upgrade EcclesiaCRM') ?>
+            <?= gettext('Upgrade EcclesiaCRM').SystemService::getDBMainVersion() ?>
         </span>
     </li>
     <li>
