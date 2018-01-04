@@ -156,9 +156,7 @@
             "/mysql/upgrade/2.9.0.sql",
             "/mysql/upgrade/2.9.0-InnoDB.php",
             "/mysql/upgrade/2.9.0_church_division.sql",
-            "/mysql/upgrade/2.9.10_show_tooltip.sql",
-            "/mysql/upgrade/2.10.4-delete-ChurchCRM-folder.php",
-            "/mysql/upgrade/2.10.5-delete-all-old-css-names.php"
+            "/mysql/upgrade/2.9.10_show_tooltip.sql"
         ],
         "dbVersion": "2.9.0"
     },
@@ -175,7 +173,8 @@
             "2.10.5"
         ],
         "scripts": [
-          "/mysql/upgrade/2.11.0-menu-refactor.sql"
+          "/mysql/upgrade/2.10.4-delete-ChurchCRM-folder.php",
+          "/mysql/upgrade/2.10.5-delete-all-old-css-names.php"
         ],
         "dbVersion": "2.11.0"
     }
