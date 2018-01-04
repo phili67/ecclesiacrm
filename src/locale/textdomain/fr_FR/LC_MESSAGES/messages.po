@@ -9318,3 +9318,7 @@ msgstr "Supprimé du groupe"
 
 msgid "Issue Report done!"
 msgstr "Signalement terminé !"
+
+msgid "Sunday School Sub Menu"
+msgstr "Sous menu Ecole du dimanche"
+
