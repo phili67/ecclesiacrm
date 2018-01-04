@@ -272,25 +272,47 @@ function addMenuItem($ormMenu, $mIdx)
 
         $numItems = count($ormItemCnt);
     }
-    if (!($ormMenu->getMenu()) || ($numItems > 0)) {
+    
+    if ($ormMenu->getName() == 'calendar') {
+    ?>
+       <li class="treeview">
+            <a href="<?= SystemURLs::getRootPath() . '/' . $ormMenu->getURI() ?>">
+            <i class='fa <?= $ormMenu->getIcon() ?> fa-calendar pull-left"'></i>
+            <span>
+              <?= gettext($ormMenu->getContent()) ?>
+            </span>
+          </a>
+        </li>
+    <?php
+    
+    } else 
+    if ($ormMenu->getName() == 'events') {
+    ?>
+       <li class="treeview">
+            <a href="<?= SystemURLs::getRootPath() . '/' . $ormMenu->getURI() ?>">
+            <i class='fa <?= $ormMenu->getIcon() ?> fa-calendar pull-left fa-angle-left"'>            </i>
+
+              <?= gettext($ormMenu->getContent()) ?>
+              <span class='pull-right-container' style="margin-right: -5px;">
+                 <i class="fa fa-angle-left pull-right"></i>
+                 <small class='label pull-right bg-blue' id='AnniversaryNumber'>0</small>
+                 <small class='label pull-right bg-red' id='BirthdateNumber'>0</small>
+                 <small class='label pull-right bg-yellow' id='EventsNumber'>0</small>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <?php
+                echo "\n";
+                addMenu($ormMenu->getName());
+              ?>
+            </ul>
+        </li>
+        
+    <?php
+    
+    } else if (!($ormMenu->getMenu()) || ($numItems > 0)) {
         if ($link) {
-            if ($ormMenu->getName() == 'calendar') {
-                ?>
-                <li>
-                  <a href="<?= SystemURLs::getRootPath() . '/' . $ormMenu->getURI() ?>">
-                  <i class='fa fa-calendar'></i>
-                  <span>
-                    <?= gettext($ormMenu->getContent()) ?>
-                    <span class='pull-right-container'>
-                       <small class='label pull-right bg-blue' id='AnniversaryNumber'>0</small>
-                      <small class='label pull-right bg-red' id='BirthdateNumber'>0</small>
-                      <small class='label pull-right bg-yellow' id='EventsNumber'>0</small>
-                    </span>
-                  </span>
-                </a>
-              </li>
-            <?php
-            } elseif ($ormMenu->getName() != 'sundayschool-dash' && $ormMenu->getName() != 'listgroups') { // HACK to remove the sunday school 2nd dashboard and groups
+            if ($ormMenu->getName() != 'sundayschool-dash' && $ormMenu->getName() != 'listgroups') { // HACK to remove the sunday school 2nd dashboard and groups
                 echo "<li><a href='$link'>";
                 if ($ormMenu->getIcon() != '') {
                     echo '<i class="fa ' . $ormMenu->getIcon() . '"></i>';
