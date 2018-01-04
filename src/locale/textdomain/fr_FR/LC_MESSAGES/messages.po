@@ -5876,11 +5876,11 @@ msgstr "Modifier les types de groupes"
 
 #: menuconfig_mcf.php:17
 msgid "List Church Events"
-msgstr "Lister les événements de l'église"
+msgstr "Lister les événements"
 
 #: menuconfig_mcf.php:18
 msgid "Add Church Event"
-msgstr "Ajouter un nouvel événement d'église"
+msgstr "Ajouter un nouvel événement"
 
 #: menuconfig_mcf.php:19
 msgid "List Event Types"
