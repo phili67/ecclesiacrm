@@ -106,6 +106,11 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </a>
                 </li>
                 <li>
+                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
+                        <i class="fa fa-cog"></i> <?= _('Sunday School Menu Properties') ?>
+                    </a>
+                </li>
+                <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
                         <i class="fa fa-cog"></i> <?= _('Edit Group Types') ?>
                     </a>

@@ -393,7 +393,7 @@ function addMenuItem($ormMenu, $mIdx)
               LEFT JOIN record2property_r2p ON r2p_pro_ID = pro_ID
               LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
               LEFT JOIN group_grp ON group_grp.grp_ID = record2property_r2p.r2p_record_ID
-              WHERE pro_Class = 'g' AND grp_Type = '4' AND prt_Name = 'MENU' ORDER BY pro_Name, grp_Name ASC";
+              WHERE pro_Class = 'm' AND grp_Type = '4' AND prt_Name = 'MENU' ORDER BY pro_Name, grp_Name ASC";
             $rsAssignedProperties = RunQuery($sSQL);
 
             //Get the sunday groups not assigned by properties

@@ -31,6 +31,10 @@ switch ($sType) {
         $sTypeName = gettext('Group');
         break;
 
+    case 'm':
+        $sTypeName = gettext('Menu');
+        break;
+
     default:
         Redirect('Menu.php');
         exit;

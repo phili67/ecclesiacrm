@@ -776,23 +776,15 @@
         </vendor>
     </table>
 
-    <table name="record2property_r2p" idMethod="native" phpName="PersonProperty" isCrossRef="true" description="This table indicates which persons, families, or groups are assigned specific properties and what the values of those properties are.">
-        <column name="r2p_pro_ID" phpName="PropertyId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true"  primaryKey="true"/>
-        <column name="r2p_record_ID" phpName="PersonId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true"  primaryKey="true"/>
-        <column name="r2p_Value" phpName="PropertyValue" type="LONGVARCHAR" required="true"  defaultValue=""/>
-
-        <foreign-key foreignTable="property_pro" description="This contains the definition of all person, family, and group properties">
-            <reference local="r2p_pro_ID" foreign="pro_ID"/>
-        </foreign-key>
-
-        <foreign-key foreignTable="person_per">
-            <reference local="r2p_record_ID" foreign="per_ID"/>
-        </foreign-key>
-
-        <vendor type="mysql">
-            <parameter name="Engine" value="InnoDB"/>
-        </vendor>
+    <table name="record2property_r2p" idMethod="native" phpName="Record2propertyR2p">
+      <column name="r2p_pro_ID" phpName="R2pProId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true"/>
+      <column name="r2p_record_ID" phpName="R2pRecordId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0"  primaryKey="true"/>
+      <column name="r2p_Value" phpName="R2pValue" type="LONGVARCHAR" required="true"/>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
     </table>
+
 
     <table name="property_pro" idMethod="native" phpName="Property" >
         <column name="pro_ID" phpName="ProId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true"
