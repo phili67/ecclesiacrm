@@ -1024,12 +1024,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
   $(document).ready(function() {
       $("#input-volunteer-opportunities").select2({ 
-        language: window.CRM.shortLocale,
-        minimumInputLength: 2 
+        language: window.CRM.shortLocale
       });
       $("#input-person-properties").select2({ 
-        language: window.CRM.shortLocale,
-        minimumInputLength: 2 
+        language: window.CRM.shortLocale
       });
 
       $("#assigned-volunteer-opps-table").DataTable(window.CRM.plugin.dataTable);
