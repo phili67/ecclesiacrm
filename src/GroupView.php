@@ -350,7 +350,7 @@ require 'Include/Header.php';
                 if ($_SESSION['bManageGroups']) {
                     echo '<form method="post" action="PropertyAssign.php?GroupID='.$iGroupID.'">';
                     echo '<p>';
-                    echo '<span>'.gettext('Assign a New Property:').'</span>';
+                    echo '<span>'.gettext('Type of Group:').'</span>';
                     echo '<select name="PropertyID">';
 
                     while ($aRow = mysqli_fetch_array($rsProperties)) {
