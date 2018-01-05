@@ -99,11 +99,11 @@ $app->group('/properties', function() {
             return $response->withStatus(404, gettext('The record could not be found.'));
         }
         
-        $groupProperty = Record2propertyR2pQuery::create()
+        $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
             ->filterByR2pRecordId($groupID)
-            ->filterByR2pValue('Menu')
+            ->filterByR2pProId($propertyID)
             ->findOne();
-
+            
         if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
             $groupProperty->delete();
         }
