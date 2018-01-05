@@ -2442,8 +2442,8 @@ msgid "Group Settings"
 msgstr "Réglages de groupe"
 
 #: GroupEditor.php:84 GroupView.php:195
-msgid "Type of Group"
-msgstr "Type de groupe"
+msgid "Type of Group and Menu Category"
+msgstr "Type de groupe et Catégorie de menu"
 
 #: GroupEditor.php:127 OptionManager.php:94
 msgid "Group Member Roles"
@@ -9322,3 +9322,17 @@ msgstr "Signalement terminé !"
 msgid "Sunday School Sub Menu"
 msgstr "Sous menu Ecole du dimanche"
 
+msgid "The menu could not be assigned"
+msgstr "Le menu n'a pu être affecté"
+
+msgid "The menu is successfully assigned."
+msgstr "Le menu a été affecté avec succès"
+
+msgid "Sunday School Menu assignement"
+msgstr "Affectation menu école du dimanche"
+
+msgid "Assign a New Menu Sunday School Category"
+msgstr "Affecter une catégorie nouveau menu école du dimanche"
+
+msgid "Sunday School Menu Properties"
+msgstr "Propriétés des menus école du dimanche"

@@ -16,6 +16,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
@@ -73,7 +74,8 @@ if (empty($person)) {
     exit;
 }
 
-$assignedProperties = $person->getProperties();
+$assignedProperties = Record2propertyR2pQuery::Create()
+  ->findByR2pRecordId($iPersonID);
 
 // Get the lists of custom person fields
 $sSQL = 'SELECT person_custom_master.* FROM person_custom_master
@@ -719,7 +721,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                             echo '<td>'.$pro_Name.'</td>';
                             echo '<td>'.$r2p_Value.'</td>';
                             if ($bOkToEdit) {
-                                $attributes = "data-property_id=\"{$pro_ID}\" data-person_id=\"{$iPersonID}\" class=\"remove-property-btn\" ";
+                                $attributes = "data-property_id=\"{$pro_ID}\" data-person_id=\"{$iPersonID}\" class=\"remove-property-btn btn btn-danger\" ";
                                 echo '<td><a '.$attributes.'>'.gettext('Remove').'</a></td>';
                             }
                             echo '</tr>';
@@ -740,10 +742,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                         <div class="row">
                             <div class="form-group col-xs-12 col-md-7">
                                 <select name="PropertyId" id="input-person-properties" class="form-control select2"
-                                    style="width:100%" data-placeholder="Select ...">
+                                    style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
                                 <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
                                 <?php
-                                $assignedPropertiesArray = $assignedProperties->getArrayCopy('ProId');
+                                //$assignedPropertiesArray = $assignedProperties->getArrayCopy('R2pProId');
     while ($aRow = mysqli_fetch_array($rsProperties)) {
         extract($aRow);
         $attributes = "value=\"{$pro_ID}\" ";
@@ -822,7 +824,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             echo '<td>'.$vol_Description.'</a></td>';
 
             if ($_SESSION['bEditRecords']) {
-                echo '<td><a class="SmallText" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID='.$per_ID.'&RemoveVO='.$vol_ID.'">'.gettext('Remove').'</a></td>';
+                echo '<td><a class="SmallText btn btn-danger" href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per_ID.'&RemoveVO='.$vol_ID.'">'.gettext('Remove').'</a></td>';
             }
 
             echo '</tr>';
@@ -843,7 +845,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                         <div class="row">
                             <div class="form-group col-xs-12 col-md-7">
                                 <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple
-                                    class="form-control select2" style="width:100%" data-placeholder="Select ...">
+                                    class="form-control select2" style="width:100%" data-placeholder="<?= gettext("Select") ?>...">
                                     <?php
                                     while ($aRow = mysqli_fetch_array($rsVolunteerOpps)) {
                                         extract($aRow);
@@ -1021,8 +1023,14 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
 
   $(document).ready(function() {
-      $("#input-volunteer-opportunities").select2();
-      $("#input-person-properties").select2();
+      $("#input-volunteer-opportunities").select2({ 
+        language: window.CRM.shortLocale,
+        minimumInputLength: 2 
+      });
+      $("#input-person-properties").select2({ 
+        language: window.CRM.shortLocale,
+        minimumInputLength: 2 
+      });
 
       $("#assigned-volunteer-opps-table").DataTable(window.CRM.plugin.dataTable);
       $("#assigned-properties-table").DataTable(window.CRM.plugin.dataTable);

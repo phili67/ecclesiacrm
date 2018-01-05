@@ -13,6 +13,11 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PropertyTypeQuery;
+use EcclesiaCRM\PropertyType;
+use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\Property;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 // Security: User must have property and classification editing permission
 if (!$_SESSION['bMenuOptions']) {
@@ -37,15 +42,15 @@ switch ($sType) {
     case 'p':
         $sTypeName = gettext('Person');
         break;
-
     case 'f':
         $sTypeName = gettext('Family');
         break;
-
     case 'g':
         $sTypeName = gettext('Group');
         break;
-
+    case 'm':
+        $sTypeName = gettext('Menu');
+        break;
     default:
         Redirect('Menu.php');
         exit;
@@ -79,16 +84,36 @@ if (isset($_POST['Submit'])) {
 
     //If no errors, let's update
     if (!$bError) {
+        $propertyType = PropertyTypeQuery::Create()
+                        ->findOneByPrtId($iClass);
+                        
+        $prt_class = $propertyType->getPrtClass();            
 
         //Vary the SQL depending on if we're adding or editing
         if ($iPropertyID == 0) {
-            $sSQL = "INSERT INTO property_pro (pro_Class,pro_prt_ID,pro_Name,pro_Description,pro_Prompt) VALUES ('".$sType."',".$iClass.",'".$sName."','".$sDescription."','".$sPrompt."')";
+            $property = new Property();
+            
+            $property->setProPrtId ($iClass);
+            $property->setProName ($sName);
+            $property->setProClass ($prt_class);
+            $property->setProDescription ($sDescription);
+            $property->setProPrompt ($sPrompt);
+            $property->setProPrompt ($sPrompt);
+            
+            $property->save();
         } else {
-            $sSQL = 'UPDATE property_pro SET pro_prt_ID = '.$iClass.", pro_Name = '".$sName."', pro_Description = '".$sDescription."', pro_Prompt = '".$sPrompt."' WHERE pro_ID = ".$iPropertyID;
+            $property = PropertyQuery::Create()
+                      ->findOneByProId ($iPropertyID);
+                      
+            $property->setProPrtId ($iClass);
+            $property->setProName ($sName);
+            $property->setProClass ($prt_class);
+            $property->setProDescription ($sDescription);
+            $property->setProPrompt ($sPrompt);
+            $property->setProPrompt ($sPrompt);
+            
+            $property->save();
         }
-
-        //Execute the SQL
-        RunQuery($sSQL);
 
         //Route back to the list
         Redirect('PropertyList.php?Type='.$sType);
@@ -96,15 +121,14 @@ if (isset($_POST['Submit'])) {
 } else {
     if ($iPropertyID != 0) {
         //Get the data on this property
-        $sSQL = 'SELECT * FROM property_pro WHERE pro_ID = '.$iPropertyID;
-        $rsProperty = mysqli_fetch_array(RunQuery($sSQL));
-        extract($rsProperty);
-
+        $property = PropertyQuery::Create()
+                    ->findOneByProId ($iPropertyID);
+        
         //Assign values locally
-        $sName = $pro_Name;
-        $sDescription = $pro_Description;
-        $iType = $pro_prt_ID;
-        $sPrompt = $pro_Prompt;
+        $sName = $property->getProName();
+        $sDescription = $property->getProDescription();
+        $iType = $property->getProPrtId();
+        $sPrompt = $property->getProPrompt();
     } else {
         $sName = '';
         $sDescription = '';
@@ -114,8 +138,9 @@ if (isset($_POST['Submit'])) {
 }
 
 //Get the Property Types
-$sSQL = "SELECT * FROM propertytype_prt WHERE prt_Class = '".$sType."' ORDER BY prt_Name";
-$rsPropertyTypes = RunQuery($sSQL);
+$ormPropertyTypes = PropertyTypeQuery::Create()
+                      ->filterByPrtClass($sType)
+                      ->find();
 
 require 'Include/Header.php';
 
@@ -128,16 +153,16 @@ require 'Include/Header.php';
                 <label for="Class"><?= gettext('Type') ?>:</label>
                 <select  class="form-control input-small" name="Class">
                     <option value=""><?= gettext('Select Property Type') ?></option>
-                    <?php
-                    while ($aRow = mysqli_fetch_array($rsPropertyTypes)) {
-                        extract($aRow);
-
-                        echo '<option value="'.$prt_ID.'"';
-                        if ($iType == $prt_ID) {
+                    <?php                    
+                    echo $iType;
+                    
+                    foreach ($ormPropertyTypes as $ormPropertyType) {
+                      echo '<option value="'.$ormPropertyType->getPrtId().'"';
+                      if ($iType == $ormPropertyType->getPrtId()) {
                             echo 'selected';
-                        }
-                        echo '>'.$prt_Name.'</option>';
-                    }
+                      }
+                      echo '>'.$ormPropertyType->getPrtName().'</option>';
+                    }                    
                     ?>
                 </select>
                 <?= $sClassError ?>
