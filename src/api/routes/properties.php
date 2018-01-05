@@ -101,9 +101,9 @@ $app->group('/properties', function() {
         
         $groupProperty = Record2propertyR2pQuery::create()
             ->filterByR2pRecordId($groupID)
-            ->filterByR2pValue($propertyID)
+            ->filterByR2pProId($propertyID)
             ->findOne();
-
+            
         if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
             $groupProperty->delete();
         }
