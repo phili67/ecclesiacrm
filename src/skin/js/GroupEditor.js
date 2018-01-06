@@ -10,13 +10,12 @@ $("document").ready(function()
     	url = 'properties/sundayschoolmenu/assign';
     } else {
       url = 'properties/sundayschoolmenu/unassign';
-      propertyID = oldDropertyID;
     }
     
     window.CRM.APIRequest({
         method: 'POST',
         path: url,
-        data: JSON.stringify({"groupID":groupID,"propertyID":propertyID})
+        data: JSON.stringify({"groupID":groupID,"oldDropertyID":oldDropertyID,"propertyID":propertyID})
     }).done(function(data) {
       var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Sunday School Menu assignement")+"</span>",message : data.msg});
         

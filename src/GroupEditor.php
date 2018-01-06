@@ -138,7 +138,9 @@ require 'Include/Header.php';
                         
                         // we call the properties
                         $properties = PropertyQuery::Create()
-                                      ->findByProClass('m');
+                                      ->filterByProClass('m')
+                                      ->orderByProName()
+                                      ->find();
                                       
                         // we search the menu property to get the R2pProId
                         $groupProperty = Record2propertyR2pQuery::create()
