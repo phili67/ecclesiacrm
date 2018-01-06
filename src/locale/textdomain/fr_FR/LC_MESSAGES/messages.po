@@ -9360,3 +9360,6 @@ msgstr "aucune opération effectuée"
 
 msgid "Type of Group:"
 msgstr "Type de groupe : "
+
+msgid "Are you sure you want to change this property?"
+msgstr "Êtes-vous sûr de vouloir changer cette propriété ?"

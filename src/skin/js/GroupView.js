@@ -92,8 +92,7 @@ $(document).ready(function () {
               className: 'cancel-button-class'
             }
           },
-          title: i18next.t('Are you sure you want to unassign this property?'),
-          message:i18next.t('This action can never be undone !!!!'),
+          title: i18next.t('Are you sure you want to change this property?'),          
           value: property_name,
           callback: function (result) {
             if (result) {
