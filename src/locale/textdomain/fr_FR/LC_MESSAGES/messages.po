@@ -9340,3 +9340,20 @@ msgstr "Propriétés des menus école du dimanche"
 msgid "The menu is successfully unassigned."
 msgstr "Le menu a été supprimé avec succès."
 
+msgid "Delete Persons From Cart and CRM"
+msgstr "Supprimer les Personnes du Panier et du CRM"
+
+msgid "Your cart and CRM has been successfully deleted"
+msgstr "Votre panier et CRM ont été vidés avec succès"
+
+msgid "Do you really want to delete the persons in the cart and from the CRM?"
+msgstr "Êtes-vous sûr de vouloir supprimer les personnes du Panier et du CRM ?"
+
+msgid "This action can never be undone !!!!"
+msgstr "Cette action ne peut être annulée !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Oui : si vous êtes certain"
+
+msgid "nothing was done"
+msgstr "aucune opération effectuée"
