@@ -128,6 +128,42 @@ $(document).ready(function () {
         });
     });
     
+    $('.edit-property-btn').click(function (event) {
+        event.preventDefault();
+        var thisLink = $(this);
+        var person_id = thisLink.data('person_id');
+        var property_id = thisLink.data('property_id');
+        var property_name = thisLink.data('property_name');
+
+        bootbox.prompt({
+          buttons: {
+            confirm: {
+              label: i18next.t('OK'),
+              className: 'confirm-button-class'
+            },
+            cancel: {
+              label: i18next.t('Cancel'),
+              className: 'cancel-button-class'
+            }
+          },
+          title: i18next.t('Are you sure you want to change this property?'),          
+          value: property_name,
+          callback: function (result) {
+            if (result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'properties/persons/assign',
+                  data: JSON.stringify({"PersonId": person_id,"PropertyId" : property_id, "PropertyValue":result})
+                  }).done(function(data) {
+                    if (data && data.success) {
+                            location.reload();
+                    }
+                });
+            }
+          }
+        });
+    });
+    
     $('#edit-role-btn').click(function (event) {
         event.preventDefault();
         var thisLink = $(this);
