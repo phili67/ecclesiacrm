@@ -9336,3 +9336,7 @@ msgstr "Affecter une catégorie nouveau menu école du dimanche"
 
 msgid "Sunday School Menu Properties"
 msgstr "Propriétés des menus école du dimanche"
+
+msgid "The menu is successfully unassigned."
+msgstr "Le menu a été supprimé avec succès."
+
