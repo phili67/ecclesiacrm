@@ -83,6 +83,79 @@ $app->group('/properties', function() {
         return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
     });
     
+    $this->post('/groups/assign', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+ 
+        $data = $request->getParsedBody();
+        $groupId = empty($data['GroupId']) ? null : $data['GroupId'];
+        $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
+        $propertyValue = empty($data['PropertyValue']) ? '' : $data['PropertyValue'];
+
+        $person = PersonQuery::create()->findPk($personId);
+        $property = PropertyQuery::create()->findPk($propertyId);
+        if (!$person || !$property) {
+            return $response->withStatus(404, gettext('The record could not be found.'));
+        }
+        
+        $personProperty = Record2propertyR2pQuery::create()
+            ->filterByR2pRecordId($personId)
+            ->filterByR2pProId($propertyId)
+            ->findOne();
+
+        if ($personProperty) {
+            if (empty($property->getProPrompt()) || $personProperty->getR2pValue() == $propertyValue) {
+                return $response->withJson(['success' => true, 'msg' => gettext('The property is already assigned.')]);
+            }
+
+            $personProperty->setR2pValue($propertyValue);
+            if ($personProperty->save()) {
+                return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
+            } else {
+                return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
+            }
+        }
+
+        $personProperty = new Record2propertyR2p();
+        
+        $personProperty->setR2pValue($propertyValue);
+        $personProperty->setR2pRecordId($personId);
+        $personProperty->setR2pProId($propertyId);
+        
+        $personProperty->setR2pValue($propertyValue);
+        
+        if (!$personProperty->save()) {
+            return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
+        }
+
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
+    });
+    
+    
+    $this->delete('/groups/unassign', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
+        $data = $request->getParsedBody();
+        $GroupId = empty($data['GroupId']) ? null : $data['GroupId'];
+        $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
+
+        $groupProperty = Record2propertyR2pQuery::create()
+            ->filterByR2pRecordId($GroupId)
+            ->_and()->filterByR2pProId($propertyId)
+            ->findOne();        
+        
+        if ($groupProperty == null) {
+            return $response->withStatus(404, gettext('The record could not be found.'));
+        }
+        
+        $groupProperty->delete();
+        
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
+    });
+    
     $this->post('/sundayschoolmenu/assign', function($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {
             return $response->withStatus(401);

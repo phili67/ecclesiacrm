@@ -9357,3 +9357,6 @@ msgstr "Oui : si vous êtes certain"
 
 msgid "nothing was done"
 msgstr "aucune opération effectuée"
+
+msgid "Type of Group:"
+msgstr "Type de groupe : "
