@@ -92,6 +92,7 @@ $app->group('/properties', function() {
         
         $groupID = $data->groupID;
         $propertyID = $data->propertyID;
+        $oldDropertyID = $data->oldDropertyID;
 
         $group = GroupQuery::create()->findPk($groupID);
         $property = PropertyQuery::create()->findPk($propertyID);
@@ -101,7 +102,7 @@ $app->group('/properties', function() {
         
         $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
             ->filterByR2pRecordId($groupID)
-            ->filterByR2pProId($propertyID)
+            ->filterByR2pProId($oldDropertyID)
             ->findOne();
             
         if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
@@ -130,16 +131,17 @@ $app->group('/properties', function() {
         
         $groupID = $data->groupID;
         $propertyID = $data->propertyID;
+        $oldDropertyID = $data->oldDropertyID;
 
         $group = GroupQuery::create()->findPk($groupID);
-        $property = PropertyQuery::create()->findPk($propertyID);
+        $property = PropertyQuery::create()->findPk($oldDropertyID);
         if (!$group || !$property) {
             return $response->withStatus(404, gettext('The record could not be found.'));
         }
         
         $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
             ->filterByR2pRecordId($groupID)
-            ->filterByR2pProId($propertyID)
+            ->filterByR2pProId($oldDropertyID)
             ->findOne();
             
         if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
