@@ -16,6 +16,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\MailChimpService;
@@ -120,9 +121,12 @@ WHERE pro_Class = 'p' AND r2p_record_ID = ".$iPersonID.
 ' ORDER BY prt_Name, pro_Name';
 $rsAssignedProperties = RunQuery($sSQL);
 
-// Get all the properties
-$sSQL = "SELECT * FROM property_pro WHERE pro_Class = 'p' ORDER BY pro_Name";
-$rsProperties = RunQuery($sSQL);
+//Get all the properties
+$ormProperties = PropertyQuery::Create()
+                  ->filterByProClass('p')
+                  ->orderByProName()
+                  ->find();
+
 
 // Get Field Security List Matrix
 $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
@@ -704,6 +708,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                             <th><?= gettext('Name') ?></th>
                             <th><?= gettext('Value') ?></th>
                             <?php if ($bOkToEdit): ?>
+                            <th><?= gettext('Edit Value') ?></th>
                                 <th><?= gettext('Remove') ?></th>
                             <?php endif; ?>
                         </tr>
@@ -721,8 +726,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                             echo '<td>'.$pro_Name.'</td>';
                             echo '<td>'.$r2p_Value.'</td>';
                             if ($bOkToEdit) {
-                                $attributes = "data-property_id=\"{$pro_ID}\" data-person_id=\"{$iPersonID}\" class=\"remove-property-btn btn btn-danger\" ";
-                                echo '<td><a '.$attributes.'>'.gettext('Remove').'</a></td>';
+                                if (strlen($pro_Prompt) > 0) {
+                                   echo '<td valign="top"><a data-person_id='.$iPersonID.' data-property_id="'.$pro_ID.'" data-property_Name="'.$r2p_Value.'" class="edit-property-btn btn btn-success">'.gettext('Edit Value').'</a></td>';
+                                } else {
+                                   echo '<td></td>';
+                                }
+                                echo '<td valign="top"><a data-person_id='.$iPersonID.' data-property_id="'.$pro_ID.'" class="remove-property-btn btn btn-danger">'.gettext('Remove').'</a></td>';
                             }
                             echo '</tr>';
 
@@ -732,7 +741,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                 </table>
             <?php endif; ?>
 
-              <?php if ($bOkToEdit && mysqli_num_rows($rsProperties) != 0): ?>
+              <?php if ($bOkToEdit && count($ormProperties) != 0): ?>
                 <div class="alert alert-info">
                   <div>
                     <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
@@ -745,26 +754,14 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                                     style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
                                 <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
                                 <?php
-                                //$assignedPropertiesArray = $assignedProperties->getArrayCopy('R2pProId');
-    while ($aRow = mysqli_fetch_array($rsProperties)) {
-        extract($aRow);
-        $attributes = "value=\"{$pro_ID}\" ";
-        if (!empty($pro_Prompt)) {
-            if (!empty($assignedPropertiesArray[$pro_ID])) {
-                $pro_Value = $assignedPropertiesArray[$pro_ID]->getPersonProperties()[0]->getPropertyValue();
-            } else {
-                $pro_Value = '';
-            }
-            $attributes .= "data-pro_Prompt=\"{$pro_Prompt}\" data-pro_Value=\"{$pro_Value}\" ";
-        }
-
-        if (!empty($assignedPropertiesArray[$pro_ID])) {
-            $optionText = $pro_Name . ' (' . gettext('assigned') . ')';
-        } else {
-            $optionText = $pro_Name;
-        }
-        echo "<option {$attributes}>{$optionText}</option>";
-    } ?>
+                                  foreach ($ormProperties as $ormProperty) {
+                                      $attributes = "value=\"{$ormProperty->getProId()}\" ";
+                                          if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
+                                          ?>
+                                              <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>    
+                                        <?php }      
+          
+                                } ?>
                                 </select>
                             </div>
                             <div id="prompt-box" class="col-xs-12 col-md-7">
