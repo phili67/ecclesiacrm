@@ -46,10 +46,8 @@ $app->group('/properties', function() {
 
         $personProperty = new Record2propertyR2p();
         
-        $personProperty->setR2pValue($propertyValue);
         $personProperty->setR2pRecordId($personId);
         $personProperty->setR2pProId($propertyId);
-        
         $personProperty->setR2pValue($propertyValue);
         
         if (!$personProperty->save()) {
@@ -93,39 +91,37 @@ $app->group('/properties', function() {
         $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
         $propertyValue = empty($data['PropertyValue']) ? '' : $data['PropertyValue'];
 
-        $person = PersonQuery::create()->findPk($personId);
+        $group = GroupQuery::create()->findPk($groupId);
         $property = PropertyQuery::create()->findPk($propertyId);
-        if (!$person || !$property) {
+        if (!$group || !$property) {
             return $response->withStatus(404, gettext('The record could not be found.'));
         }
         
-        $personProperty = Record2propertyR2pQuery::create()
-            ->filterByR2pRecordId($personId)
+        $groupProperty = Record2propertyR2pQuery::create()
+            ->filterByR2pRecordId($groupId)
             ->filterByR2pProId($propertyId)
             ->findOne();
 
-        if ($personProperty) {
-            if (empty($property->getProPrompt()) || $personProperty->getR2pValue() == $propertyValue) {
+        if ($groupProperty) {
+            if (empty($property->getProPrompt()) || $groupProperty->getR2pValue() == $propertyValue) {
                 return $response->withJson(['success' => true, 'msg' => gettext('The property is already assigned.')]);
             }
 
-            $personProperty->setR2pValue($propertyValue);
-            if ($personProperty->save()) {
+            $groupProperty->setR2pValue($propertyValue);
+            if ($groupProperty->save()) {
                 return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
             } else {
                 return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
             }
         }
 
-        $personProperty = new Record2propertyR2p();
+        $groupProperty = new Record2propertyR2p();
         
-        $personProperty->setR2pValue($propertyValue);
-        $personProperty->setR2pRecordId($personId);
-        $personProperty->setR2pProId($propertyId);
+        $groupProperty->setR2pProId($propertyId);
+        $groupProperty->setR2pRecordId($groupId);
+        $groupProperty->setR2pValue($propertyValue);
         
-        $personProperty->setR2pValue($propertyValue);
-        
-        if (!$personProperty->save()) {
+        if (!$groupProperty->save()) {
             return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
         }
 

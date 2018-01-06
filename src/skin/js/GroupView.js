@@ -42,11 +42,8 @@ $(document).ready(function () {
   $('.remove-property-btn').click(function (event) {
         event.preventDefault();
         var thisLink = $(this);
-        var dataToSend = {
-            GroupId: thisLink.data('group_id'),
-            PropertyId: thisLink.data('property_id')
-        };
-        var url = window.CRM.root + '/api/properties/groups/unassign';
+        var group_id = thisLink.data('group_id');
+        var property_id = thisLink.data('property_id');
 
         bootbox.confirm({
           buttons: {
@@ -63,20 +60,74 @@ $(document).ready(function () {
           message:i18next.t('This action can never be undone !!!!'),
           callback: function (result) {
             if (result) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: url,
-                    data: dataToSend,
-                    dataType: 'json',
-                    success: function (data, status, xmlHttpReq) {
-                        if (data && data.success) {
+                window.CRM.APIRequest({
+                  method: 'DELETE',
+                  path: 'properties/groups/unassign',
+                  data: JSON.stringify({"GroupId": group_id,"PropertyId" : property_id})
+                  }).done(function(data) {
+                    if (data && data.success) {
                             location.reload();
-                        }
                     }
                 });
             }
           }
         });
+    });
+    
+    $('.edit-property-btn').click(function (event) {
+        event.preventDefault();
+        var thisLink = $(this);
+        var group_id = thisLink.data('group_id');
+        var property_id = thisLink.data('property_id');
+        var property_name = thisLink.data('property_name');
+
+        bootbox.prompt({
+          buttons: {
+            confirm: {
+              label: i18next.t('OK'),
+              className: 'confirm-button-class'
+            },
+            cancel: {
+              label: i18next.t('Cancel'),
+              className: 'cancel-button-class'
+            }
+          },
+          title: i18next.t('Are you sure you want to unassign this property?'),
+          message:i18next.t('This action can never be undone !!!!'),
+          value: property_name,
+          callback: function (result) {
+            if (result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'properties/groups/assign',
+                  data: JSON.stringify({"GroupId": group_id,"PropertyId" : property_id, "PropertyValue":result})
+                  }).done(function(data) {
+                    if (data && data.success) {
+                            location.reload();
+                    }
+                });
+            }
+          }
+        });
+    });
+    
+    $(".input-group-properties").on("select2:select", function (event) {
+        promptBox = $("#prompt-box");
+        promptBox.removeClass('form-group').html('');
+        selected = $(".input-group-properties :selected");
+        pro_prompt = selected.data('pro_prompt');
+        pro_value = selected.data('pro_value');
+        if (pro_prompt) {
+            promptBox
+                .addClass('form-group')
+                .append(
+                    $('<label></label>').html(pro_prompt)
+                )
+                .append(
+                    $('<textarea rows="3" class="form-control" name="PropertyValue"></textarea>').val(pro_value)
+                );
+        }
+
     });
 
 
@@ -321,5 +372,4 @@ function initDataTable() {
     $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
     $("#moveSelectedToGroup").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Members to another group"));
   });
-
 }
