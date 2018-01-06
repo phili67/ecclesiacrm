@@ -17,6 +17,8 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2r;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -126,10 +128,13 @@ foreach ($groups as $group) {
             }
         }
         
-        $assignedProperties = $member->getProperties();
+        $assignedProperties = Record2propertyR2pQuery::Create()
+                            ->findByR2pRecordId($member->getId());
+                            
         $props = " ";
         if ($lst_OptionName == "Student" && !empty($assignedProperties)) {
-            foreach ($assignedProperties as $property) {
+            foreach ($assignedProperties as $assproperty) {
+                $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
                 $props.= $property->getProName().", ";
             }
                 
