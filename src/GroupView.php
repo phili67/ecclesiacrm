@@ -7,7 +7,7 @@
  *
  *  Additional Contributors:
  *  2006-2007 Ed Davis
- *	2017 Philippe Logel
+ *  2017 Philippe Logel
  *
  *
  *  Copyright Contributors
@@ -22,6 +22,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\dto\SystemURLs;
 
 //Get the GroupID out of the querystring
@@ -50,8 +51,11 @@ $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
 $rsAssignedProperties = RunQuery($sSQL);
 
 //Get all the properties
-$sSQL = "SELECT * FROM property_pro WHERE pro_Class = 'g' ORDER BY pro_Name";
-$rsProperties = RunQuery($sSQL);
+$ormProperties = PropertyQuery::Create()
+                  ->filterByProClass('g')
+                  ->orderByProName()
+                  ->find();
+                  
 
 // Get data for the form as it now exists..
 $sSQL = 'SELECT * FROM groupprop_master WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
@@ -214,8 +218,8 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
       <form>
-          <div class="col-sm-3"> <b><?= gettext('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Active') ?>" data-off="<?= gettext('Disabled') ?>"> </div>
-          <div class="col-sm-3"> <b><?= gettext('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Include') ?>" data-off="<?= gettext('Exclude') ?>"></div>
+          <div class="col-sm-4"> <b><?= gettext('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Active') ?>" data-off="<?= gettext('Disabled') ?>"> </div>
+          <div class="col-sm-6"> <b><?= gettext('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Include') ?>" data-off="<?= gettext('Exclude') ?>"></div>
       </form>
   </div>
 </div>
@@ -249,11 +253,11 @@ require 'Include/Header.php';
                   echo '<p><?= gettext("No member properties have been created")?></p>';
               } else {
                   ?>
-              <table width="100%" cellpadding="2" cellspacing="0">
+              <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                 <tr class="TableHeader">
-                  <td><?= gettext('Type') ?></td>
-                  <td><?= gettext('Name') ?></td>
-                  <td><?= gettext('Description') ?></td>
+                  <td><b><?= gettext('Type') ?></b></td>
+                  <td><b><?= gettext('Name') ?></b></td>
+                  <td><b><?= gettext('Description') ?></b></td>
                 </tr>
                 <?php
                 $sRowClass = 'RowColorA';
@@ -325,7 +329,7 @@ require 'Include/Header.php';
                     echo '<td valign="top">'.$r2p_Value.'&nbsp;</td>';
 
                     if (strlen($pro_Prompt) > 0 && $_SESSION['bManageGroups']) {
-                        echo '<td valign="top"><a href="PropertyAssign.php?GroupID='.$iGroupID.'&amp;PropertyID='.$pro_ID.'">'.gettext('Edit Value').'</a></td>';
+                        echo '<td valign="top"><a data-group_id='.$iGroupID.' data-property_id="'.$pro_ID.'" data-property_Name="'.$r2p_Value.'" class="edit-property-btn btn btn-success">'.gettext('Edit Value').'</a></td>';
                     } else {
                         echo '<td>&nbsp;</td>';
                     }
@@ -349,35 +353,41 @@ require 'Include/Header.php';
 
                 if ($_SESSION['bManageGroups']) {
                 ?>
-                    <form method="post" action="PropertyAssign.php?GroupID=<?= $iGroupID ?>">
-                    <p>
-                    <div class="row">
-                    <div class="col-sm-2">
-                    <label><?= gettext('Type of Group:') ?></label>
-                    </div>
-                    <div class="col-sm-5">
-                    <select name="PropertyID" class="form-control">
-                    
-                    <?php
-                    while ($aRow = mysqli_fetch_array($rsProperties)) {
-                        extract($aRow);
+                    <div class="alert alert-info">
+                      <div>
+                          <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
 
-                        //If the property doesn't already exist for this Person, write the <OPTION> tag
-                        if (strlen(strstr($sAssignedProperties, ','.$pro_ID.',')) == 0) {
-                        ?>
-                            <option value="<?= $pro_ID ?>"><?= $pro_Name ?></option>
-                        <?php
-                        }
-                    }
-                    ?>
+                          <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/groups/assign' ?>" id="assign-property-form">
+                            <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
+                            <div class="row">
+                              <div class="form-group col-xs-12 col-md-7">
+                              <select name="PropertyId" class="input-group-properties" class="form-control select2"
+                                              style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
+                              <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
+                                <?php
+                                foreach ($ormProperties as $ormProperty) {
+                                    //If the property doesn't already exist for this Person, write the <OPTION> tag
+                                    if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
+                                    ?>
+                                        <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>
+                              
+                                    <?php
+                                    }
+                                }
+                                ?>
 
-                    </select>
+                              </select>
+                              </div>
+                              <div id="prompt-box" class="col-xs-12 col-md-7">
+                              </div>
+                              <div class="form-group col-xs-12 col-md-7">
+                                 <input type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
+                              </div>
+                              </div>
+                            </div>
+                        </form>
+                      </div>
                     </div>
-                    <div class="col-sm-5">
-                    <input type="submit" class="btn btn-success" value="<?= gettext('Assign') ?>" name="Submit">
-                    </div>
-                    </div>
-                    </p></form>
                 <?php
                 } else {
                 ?>
@@ -440,7 +450,7 @@ require 'Include/Header.php';
                 $("#deleteGroupButton").click(function() {
                   console.log("click");
                   bootbox.setDefaults({
-									locale: window.CRM.shortLocale}),
+                  locale: window.CRM.shortLocale}),
                   bootbox.confirm({
                     title: "<?= gettext("Confirm Delete Group") ?>",
                     message: '<p style="color: red">'+
@@ -465,6 +475,10 @@ require 'Include/Header.php';
                       }
                     }
                   });
+                });
+                
+                $(".input-group-properties").select2({ 
+                  language: window.CRM.shortLocale
                 });
               });
             </script>
