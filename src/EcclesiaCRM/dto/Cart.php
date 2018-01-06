@@ -3,6 +3,7 @@ namespace EcclesiaCRM\dto;
 
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
 
 class Cart
@@ -87,6 +88,17 @@ class Cart
     }
   }
   
+  public static function DeletePersonArray($personsID)
+  {
+    foreach ($personsID as $personID) {
+      $person = PersonQuery::create()
+            ->findOneById($personID);
+            
+      $person->delete();
+    }
+  }
+
+  
   public static function RemovePersonArray($aIDs)
   {
     // make sure the cart array exists
@@ -153,7 +165,7 @@ class Cart
   {
     self::EmptyToGroup($GroupID);
   }
-  	
+    
   public static function EmptyToGroup($GroupID,$RoleID=0)
   {
     $iCount = 0;
@@ -171,12 +183,12 @@ class Cart
         ->filterByPersonId($_SESSION['aPeopleCart'][$element['key']])
         ->findOneOrCreate()
         ->setRoleId($RoleID)
-        ->save();	
+        ->save();  
         
       /*
       This part of code should be done 
-    	*/	
-    	// Check if this group has special properties
+      */  
+      // Check if this group has special properties
       /*      $sSQL = 'SELECT grp_hasSpecialProps FROM group_grp WHERE grp_ID = '.$iGroupID;
             $rsTemp = RunQuery($sSQL);
             $rowTemp = mysqli_fetch_row($rsTemp);
@@ -185,8 +197,8 @@ class Cart
             if ($bHasProp == 'true') {
                 $sSQL = 'INSERT INTO groupprop_'.$iGroupID." (per_ID) VALUES ('".$iPersonID."')";
                 RunQuery($sSQL);
-            }	*/
-			
+            }  */
+      
       $iCount += 1;
     }
     

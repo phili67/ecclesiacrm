@@ -62,6 +62,27 @@ $app->group('/cart', function () {
         ]);
     });
     
+    $this->post('/delete', function($request, $response, $args) {
+        $cartPayload = (object)$request->getParsedBody();
+        if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+        {
+          Cart::DeletePersonArray($cartPayload->Persons);
+        }
+        else
+        {
+          $sMessage = gettext('Your cart is empty');
+          if(sizeof($_SESSION['aPeopleCart'])>0) {
+              Cart::DeletePersonArray ($_SESSION['aPeopleCart']);
+              $_SESSION['aPeopleCart'] = [];
+              $sMessage = gettext('Your cart and CRM has been successfully deleted');
+          }
+        }
+        
+        return $response->withJson([
+            'status' => "success",
+            'message' => $sMessage
+        ]);
+    });
 
     /**
      * delete. This will empty the cart
