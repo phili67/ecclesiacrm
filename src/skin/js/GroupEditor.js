@@ -2,11 +2,20 @@ $("document").ready(function()
 {
   $("#menuAssignement").click(function(){
     var propertyID = $("#PropertyIDAssignement").val();
+    var oldDropertyID = $("#oldPropertyIDAssignement").val();
     var groupID = $("#grouID").val();
+  	var url = '';
+    
+    if (propertyID != 0) {
+    	url = 'properties/sundayschoolmenu/assign';
+    } else {
+      url = 'properties/sundayschoolmenu/unassign';
+      propertyID = oldDropertyID;
+    }
     
     window.CRM.APIRequest({
         method: 'POST',
-        path: 'properties/sundayschoolmenu/assign',
+        path: url,
         data: JSON.stringify({"groupID":groupID,"propertyID":propertyID})
     }).done(function(data) {
       var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Sunday School Menu assignement")+"</span>",message : data.msg});

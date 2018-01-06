@@ -145,8 +145,11 @@ require 'Include/Header.php';
                           ->filterByR2pRecordId($iGroupID)
                           ->filterByR2pValue('Menu')
                           ->findOne();
+
+                        $oldPropertyIDAssignement = (!empty($groupProperty))?$groupProperty->getR2pProId():0;
                  ?>
                     <input type="hidden" id="grouID" value="<?= $iGroupID ?>" />
+                    <input type="hidden" id="oldPropertyIDAssignement" value="<?= $oldPropertyIDAssignement ?>" />
                     <p>
                     <label for="GroupType"><?= gettext('Assign a New Menu Sunday School Category')?> :</label>
                       <div class="row">
@@ -157,7 +160,7 @@ require 'Include/Header.php';
                             <?php
                             foreach ($properties as $property) {
                                 //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                $selected = ($groupProperty && ($property->getProId() == $groupProperty->getR2pProId()))?"selected":"";
+                                $selected = (!empty($groupProperty) && ($property->getProId() == $oldPropertyIDAssignement))?"selected":"";
                             ?>
                                     <option value="<?= $property->getProId() ?>" <?= $selected ?>> <?= $property->getProName() ?></option>
                             <?php
