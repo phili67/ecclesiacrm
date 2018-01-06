@@ -39,9 +39,9 @@ $("document").ready(function(){
     $(".maxUploadSize").text(window.CRM.maxUploadSize);
   
   
-  	/* IMPORTANT : be careful
-  	   You have to be careful with this part of code !!!!!
-  	   this part of code will work in two different js code : PersonView.js and GroupList.js */
+    /* IMPORTANT : be careful
+       You have to be careful with this part of code !!!!!
+       this part of code will work in two different js code : PersonView.js and GroupList.js */
     $(document).on("click", ".emptyCart", function (e) {
       window.CRM.cart.empty(function(data){
         window.CRM.cart.refresh();
@@ -63,7 +63,7 @@ $("document").ready(function(){
     });
     
     /* IMPORTANT : be careful
-  	   This will work in cartToGroup code */
+       This will work in cartToGroup code */
     function BootboxContentCartTogroup(){    
       var frm_str = '<form id="some-form">'
         +'<table border=0 cellpadding=2 width="100%">'
@@ -311,6 +311,19 @@ $("document").ready(function(){
     DashboardRefreshTimer=setInterval(window.CRM.dashboard.refresh, window.CRM.iDasbhoardServiceIntervalTime * 1000);
 
 });
+
+$(document).on("click", "#deleteCart", function (e) {
+  window.CRM.cart.delete(function(data) {
+    var path = location.href;
+    path = path.substring(path.lastIndexOf("/") + 1);
+    path = path.split("?")[0].split("#")[0];
+    
+    if (path == "PersonView.php") {
+      location.reload();
+    }
+  });
+});
+
 
 function showGlobalMessage(message, callOutClass) {
     $("#globalMessageText").text(message);

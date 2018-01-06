@@ -69,6 +69,44 @@
           }
         });
       },
+      'delete' : function (callback)
+      {
+        bootbox.confirm({
+            title: i18next.t("Do you really want to delete the persons in the cart and from the CRM?"),
+            message: i18next.t("This action can never be undone !!!!"),
+            buttons: {
+                confirm: {
+                    label:  i18next.t("Yes : if you're sure"),
+                    className: 'btn-success'
+                },
+                cancel: {
+                    label:  i18next.t('No'),
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+              if (result) {
+                window.CRM.APIRequest({
+                  method: "POST",
+                  path: "cart/delete"
+                }).done(function (data) {
+                  if (callback)
+                  {
+                    callback(data);
+                    window.CRM.cart.refresh();
+                  }
+                  else
+                  {
+                    window.CRM.cart.refresh();
+                  }
+                });
+              } else {
+                callback('nothing was done');
+              }
+            }
+        });
+        
+      },
       'emptyToGroup' : function (callback)
       {
         window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group|window.CRM.groups.selectTypes.Role},function(selectedRole){
@@ -190,7 +228,7 @@
                       </li>\
                       <li>\
                           <a class="emptyCart" >\
-                              <i class="fa fa-trash text-danger"></i>' + i18next.t("Empty Cart") + ' \
+                              <i class="fa fa-eraser"></i>' + i18next.t("Empty Cart") + ' \
                           </a>\
                       </li>\
                       <li>\
@@ -211,6 +249,11 @@
                       <li>\
                           <a href="' + window.CRM.root+ '/MapUsingGoogle.php?GroupID=0">\
                               <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
+                          </a>\
+                      </li>\
+                      <li>\
+                          <a id="deleteCart">\
+                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From Cart and CRM")+ '\
                           </a>\
                       </li>\
                   </ul>\
