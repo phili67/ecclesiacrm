@@ -97,7 +97,20 @@ $(document).ready(function () {
         };
         var url = window.CRM.root + '/api/properties/persons/unassign';
 
-        bootbox.confirm(i18next.t('Are you sure you want to unassign this property?'), function (result) {
+        bootbox.confirm({
+          buttons: {
+            confirm: {
+              label: i18next.t('OK'),
+              className: 'confirm-button-class'
+            },
+            cancel: {
+              label: i18next.t('Cancel'),
+              className: 'cancel-button-class'
+            }
+          },
+          title: i18next.t('Are you sure you want to unassign this property?'),
+          message:i18next.t('This action can never be undone !!!!'),
+          callback: function (result) {
             if (result) {
                 $.ajax({
                     type: 'DELETE',
@@ -111,8 +124,8 @@ $(document).ready(function () {
                     }
                 });
             }
+          }
         });
-
     });
     
     $('#edit-role-btn').click(function (event) {

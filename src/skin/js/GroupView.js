@@ -17,6 +17,68 @@ $(document).ready(function () {
     initDataTable();
     //echo '<option value="' . $role['lst_OptionID'] . '">' . $role['lst_OptionName'] . '</option>';
   });
+  
+  
+   $('#assign-property-form').submit(function (event) {
+        event.preventDefault();
+        var thisForm = $(this);
+        var url = thisForm.attr('action');
+        var dataToSend = thisForm.serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: dataToSend,
+            dataType: 'json',
+            success: function (data, status, xmlHttpReq) {
+                if (data && data.success) {
+                    location.reload();
+                }
+            }
+        });
+    });
+
+  
+  $('.remove-property-btn').click(function (event) {
+        event.preventDefault();
+        var thisLink = $(this);
+        var dataToSend = {
+            GroupId: thisLink.data('group_id'),
+            PropertyId: thisLink.data('property_id')
+        };
+        var url = window.CRM.root + '/api/properties/groups/unassign';
+
+        bootbox.confirm({
+          buttons: {
+            confirm: {
+              label: i18next.t('OK'),
+              className: 'confirm-button-class'
+            },
+            cancel: {
+              label: i18next.t('Cancel'),
+              className: 'cancel-button-class'
+            }
+          },
+          title: i18next.t('Are you sure you want to unassign this property?'),
+          message:i18next.t('This action can never be undone !!!!'),
+          callback: function (result) {
+            if (result) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: url,
+                    data: dataToSend,
+                    dataType: 'json',
+                    success: function (data, status, xmlHttpReq) {
+                        if (data && data.success) {
+                            location.reload();
+                        }
+                    }
+                });
+            }
+          }
+        });
+    });
+
 
   $(".personSearch").select2({
     minimumInputLength: 2,
@@ -257,7 +319,7 @@ function initDataTable() {
     $("#addSelectedToCart").prop('disabled', !(selectedRows));
     $("#addSelectedToCart").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Members to cart"));
     $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
-	  $("#moveSelectedToGroup").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Members to another group"));
+    $("#moveSelectedToGroup").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Members to another group"));
   });
 
 }

@@ -282,7 +282,7 @@ require 'Include/Header.php';
                 echo '<p>'.gettext('No property assignments').'.</p>';
             } else {
                 // Display table of properties?>
-              <table width="100%" cellpadding="2" cellspacing="0">
+              <table width="100%" cellpadding="2" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                 <tr class="TableHeader">
                   <td width="15%" valign="top"><b><?= gettext('Type') ?></b>
                   <td valign="top"><b><?= gettext('Name') ?></b>
@@ -311,7 +311,7 @@ require 'Include/Header.php';
                         } else {
                             echo 'RowColorC';
                         }
-                        echo '"><td><b>'.$prt_Name.'</b></td>';
+                        echo '"><td><b>'.gettext($prt_Name).'</b></td>';
 
                         $bIsFirst = false;
                         $last_pro_prt_ID = $pro_prt_ID;
@@ -331,7 +331,7 @@ require 'Include/Header.php';
                     }
 
                     if ($_SESSION['bManageGroups']) {
-                        echo '<td valign="top"><a href="PropertyUnassign.php?GroupID='.$iGroupID.'&amp;PropertyID='.$pro_ID.'">'.gettext('Remove').'</a>';
+                        echo '<td valign="top"><a data-group_id='.$iGroupID.' data-property_id="'.$pro_ID.'" class="remove-property-btn btn btn-danger">'.gettext('Remove').'</a>';
                     } else {
                         echo '<td>&nbsp;</td>';
                     }
@@ -348,25 +348,41 @@ require 'Include/Header.php';
             }
 
                 if ($_SESSION['bManageGroups']) {
-                    echo '<form method="post" action="PropertyAssign.php?GroupID='.$iGroupID.'">';
-                    echo '<p>';
-                    echo '<span>'.gettext('Type of Group:').'</span>';
-                    echo '<select name="PropertyID">';
-
+                ?>
+                    <form method="post" action="PropertyAssign.php?GroupID=<?= $iGroupID ?>">
+                    <p>
+                    <div class="row">
+                    <div class="col-sm-2">
+                    <label><?= gettext('Type of Group:') ?></label>
+                    </div>
+                    <div class="col-sm-5">
+                    <select name="PropertyID" class="form-control">
+                    
+                    <?php
                     while ($aRow = mysqli_fetch_array($rsProperties)) {
                         extract($aRow);
 
                         //If the property doesn't already exist for this Person, write the <OPTION> tag
                         if (strlen(strstr($sAssignedProperties, ','.$pro_ID.',')) == 0) {
-                            echo '<option value="'.$pro_ID.'">'.$pro_Name.'</option>';
+                        ?>
+                            <option value="<?= $pro_ID ?>"><?= $pro_Name ?></option>
+                        <?php
                         }
                     }
+                    ?>
 
-                    echo '</select>';
-                    echo ' <input type="submit" class="btn btn-success" value="'.gettext('Assign').'" name="Submit" style="font-size: 8pt;">';
-                    echo '</p></form>';
+                    </select>
+                    </div>
+                    <div class="col-sm-5">
+                    <input type="submit" class="btn btn-success" value="<?= gettext('Assign') ?>" name="Submit">
+                    </div>
+                    </div>
+                    </p></form>
+                <?php
                 } else {
-                    echo '<br><br><br>';
+                ?>
+                    <br><br><br>
+                <?php
                 }
                 ?>
 
