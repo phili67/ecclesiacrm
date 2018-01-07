@@ -263,29 +263,39 @@ require 'Include/Header.php';
                 $sRowClass = 'RowColorA';
                   for ($row = 1; $row <= $numRows; $row++) {
                       $sRowClass = AlternateRowStyle($sRowClass);
-                      echo '<tr class="'.$sRowClass.'">';
-                      echo '<td>'.$aPropTypes[$aTypeFields[$row]].'</td>';
-                      echo '<td>'.$aNameFields[$row].'</td>';
-                      echo '<td>'.$aDescFields[$row].'&nbsp;</td>';
-                      echo '</tr>';
+                ?>
+                      <tr class="<?= $sRowClass ?>">
+                      <td><?= $aPropTypes[$aTypeFields[$row]] ?></td>
+                      <td><?= $aNameFields[$row] ?></td>
+                      <td><?= $aDescFields[$row] ?>&nbsp;</td>
+                      </tr>
+                <?php
                   }
-                  echo '</table>';
+                ?>
+                  </table>
+            <?php
               }
           } else {
-              echo '<p>'.gettext('Disabled for this group.').'</p>';
-          }
-
+          ?>
+              <p><?= gettext('Disabled for this group.') ?></p>
+          <?php
+          }          
             //Print Assigned Properties
-            echo '<br><hr/>';
-            echo '<b>'.gettext('Assigned Properties').':</b>';
+          ?>
+            <br><hr/>
+            <b><?= gettext('Assigned Properties') ?>:</b>
+          	<?php
             $sAssignedProperties = ',';
 
             //Was anything returned?
             if (mysqli_num_rows($rsAssignedProperties) == 0) {
                 // No, indicate nothing returned
-                echo '<p>'.gettext('No property assignments').'.</p>';
+              ?>
+                <p><?= gettext('No property assignments') ?></p>
+            <?php
             } else {
-                // Display table of properties?>
+                // Display table of properties
+            ?>              
               <table width="100%" cellpadding="2" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                 <tr class="TableHeader">
                   <td width="15%" valign="top"><b><?= gettext('Type') ?></b>
@@ -309,46 +319,63 @@ require 'Include/Header.php';
                     extract($aRow);
 
                     if ($pro_prt_ID != $last_pro_prt_ID) {
-                        echo '<tr class="';
                         if ($bIsFirst) {
-                            echo 'RowColorB';
+                            $rowColor = 'RowColorB';
                         } else {
-                            echo 'RowColorC';
+                            $rowColor =  'RowColorC';
                         }
-                        echo '"><td><b>'.gettext($prt_Name).'</b></td>';
-
+                      ?>  
+                        
+                        <tr class="<?= $rowColor?>"><td>
+                        <b><?= gettext($prt_Name)?></b></td>
+                   <?php
                         $bIsFirst = false;
                         $last_pro_prt_ID = $pro_prt_ID;
                         $sRowClass = 'RowColorB';
                     } else {
-                        echo '<tr class="'.$sRowClass.'">';
-                        echo '<td valign="top">&nbsp;</td>';
+                    ?>
+                        <tr class="<?= $sRowClass ?>">
+                        <td valign="top">&nbsp;</td>
+                    <?php
                     }
+                    ?>
 
-                    echo '<td valign="top">'.$pro_Name.'&nbsp;</td>';
-                    echo '<td valign="top">'.$r2p_Value.'&nbsp;</td>';
-
+                    <td valign="top"><?= $pro_Name ?>&nbsp;</td>
+                    <td valign="top"><?= $r2p_Value ?>&nbsp;</td>
+                    <?php
                     if (strlen($pro_Prompt) > 0 && $_SESSION['bManageGroups']) {
-                        echo '<td valign="top"><a data-group_id='.$iGroupID.' data-property_id="'.$pro_ID.'" data-property_Name="'.$r2p_Value.'" class="edit-property-btn btn btn-success">'.gettext('Edit Value').'</a></td>';
+                    ?>
+                        <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
+                    <?php
                     } else {
-                        echo '<td>&nbsp;</td>';
+                    ?>
+                        <td>&nbsp;</td>
+                    <?php
                     }
 
                     if ($_SESSION['bManageGroups']) {
-                        echo '<td valign="top"><a data-group_id='.$iGroupID.' data-property_id="'.$pro_ID.'" class="remove-property-btn btn btn-danger">'.gettext('Remove').'</a>';
+                    ?>
+                        <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
+                    <?php
                     } else {
-                        echo '<td>&nbsp;</td>';
+                    ?>
+                        <td>&nbsp;</td>
+                    <?php
                     }
+                    ?>
 
-                    echo '</tr>';
+                    </tr>
+                    <?php
 
                     //Alternate the row style
                     $sRowClass = AlternateRowStyle($sRowClass);
 
                     $sAssignedProperties .= $pro_ID.',';
                 }
+                ?>
 
-                echo '</table>';
+                </table>
+            <?php
             }
 
                 if ($_SESSION['bManageGroups']) {
@@ -361,7 +388,7 @@ require 'Include/Header.php';
                             <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
                             <div class="row">
                               <div class="form-group col-xs-12 col-md-7">
-                              <select name="PropertyId" class="input-group-properties" class="form-control select2"
+                              <select name="PropertyId" class="input-group-properties form-control select2"
                                               style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
                               <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
                                 <?php
@@ -395,9 +422,6 @@ require 'Include/Header.php';
                 <?php
                 }
                 ?>
-
-
-
                 </td>
               </tr>
             </table>
