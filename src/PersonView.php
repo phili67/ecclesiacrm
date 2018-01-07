@@ -720,22 +720,32 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                             $pro_Prompt = '';
                             $r2p_Value = '';
                             extract($aRow);
+                            ?>
 
-                            echo '<tr>';
-                            echo '<td>'.$prt_Name.'</td>';
-                            echo '<td>'.$pro_Name.'</td>';
-                            echo '<td>'.$r2p_Value.'</td>';
+                            <tr>
+                            <td><?= $prt_Name ?></td>
+                            <td><?= $pro_Name ?></td>
+                            <td><?= $r2p_Value ?></td>
+                          <?php
                             if ($bOkToEdit) {
                                 if (strlen($pro_Prompt) > 0) {
-                                   echo '<td valign="top"><a data-person_id='.$iPersonID.' data-property_id="'.$pro_ID.'" data-property_Name="'.$r2p_Value.'" class="edit-property-btn btn btn-success">'.gettext('Edit Value').'</a></td>';
+                                ?>
+                                   <td valign="top"><a data-person_id="<?= $iPersonID?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
+                                <?php
                                 } else {
-                                   echo '<td></td>';
+                                ?>
+                                   <td></td>
+                                <?php
                                 }
-                                echo '<td valign="top"><a data-person_id='.$iPersonID.' data-property_id="'.$pro_ID.'" class="remove-property-btn btn btn-danger">'.gettext('Remove').'</a></td>';
+                                ?>
+                                <td valign="top"><a data-person_id="<?= $iPersonID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a></td>
+                                <?php
                             }
-                            echo '</tr>';
-
-                            $sAssignedProperties .= $pro_ID.',';
+                            ?>
+                            </tr>
+                            
+                            <?php
+                            $sAssignedProperties .= $pro_ID.',';                        
                         } ?>
                     </tbody>
                 </table>
