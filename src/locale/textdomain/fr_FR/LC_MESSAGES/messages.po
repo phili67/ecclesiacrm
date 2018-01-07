@@ -9363,3 +9363,18 @@ msgstr "Type de groupe : "
 
 msgid "Are you sure you want to change this property?"
 msgstr "Êtes-vous sûr de vouloir changer cette propriété ?"
+
+msgid "Person not assigned to a group"
+msgstr "Personne non affectée à un groupe" 
+
+msgid "Returns all the persons not assigned to a group."
+msgstr "Retourne toutes les personnes qui ne sont pas affectés à un groupe."
+
+msgid "Person assigned to a group"
+msgstr "Personne affecté à un groupe"
+
+msgid "Returns all persons assigned to a group."
+msgstr "Retourne toutes les personnes qui sont affectés à un groupe."
+
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr "Retourne toutes les personnes nés avant l'année mentionnée."
