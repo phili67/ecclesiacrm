@@ -75,12 +75,12 @@
             title: i18next.t("Do you really want to delete the persons in the cart and from the CRM?"),
             message: i18next.t("This action can never be undone !!!!"),
             buttons: {
-                confirm: {
-                    label:  i18next.t("Yes : if you're sure"),
-                    className: 'btn-success'
-                },
                 cancel: {
                     label:  i18next.t('No'),
+                    className: 'btn-success'
+                },
+                confirm: {
+                    label:  i18next.t("Yes : if you're sure"),
                     className: 'btn-danger'
                 }
             },

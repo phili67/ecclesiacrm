@@ -318,7 +318,7 @@ $(document).on("click", "#deleteCart", function (e) {
     path = path.substring(path.lastIndexOf("/") + 1);
     path = path.split("?")[0].split("#")[0];
     
-    if (path == "PersonView.php") {
+    if (path == "PersonView.php" && data != 'nothing was done') {
       location.reload();
     }
   });
