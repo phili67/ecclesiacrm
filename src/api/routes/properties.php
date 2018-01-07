@@ -3,6 +3,7 @@
 
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Record2propertyR2p;
@@ -77,6 +78,77 @@ $app->group('/properties', function() {
         }
         
         $personProperty->delete();
+        
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
+    });
+    
+    $this->post('/families/assign', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+ 
+        $data = $request->getParsedBody();
+        $familyId = empty($data['FamilyId']) ? null : $data['FamilyId'];
+        $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
+        $propertyValue = empty($data['PropertyValue']) ? '' : $data['PropertyValue'];
+
+        $family = FamilyQuery::create()->findPk($familyId);
+        $property = PropertyQuery::create()->findPk($propertyId);
+        if (!$family || !$property) {
+            return $response->withStatus(404, gettext('The record could not be found.'));
+        }
+        
+        $familyProperty = Record2propertyR2pQuery::create()
+            ->filterByR2pRecordId($familyId)
+            ->filterByR2pProId($propertyId)
+            ->findOne();
+
+        if ($familyProperty) {
+            if (empty($property->getProPrompt()) || $familyProperty->getR2pValue() == $propertyValue) {
+                return $response->withJson(['success' => true, 'msg' => gettext('The property is already assigned.')]);
+            }
+
+            $familyProperty->setR2pValue($propertyValue);
+            if ($familyProperty->save()) {
+                return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
+            } else {
+                return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
+            }
+        }
+
+        $familyProperty = new Record2propertyR2p();
+        
+        $familyProperty->setR2pRecordId($familyId);
+        $familyProperty->setR2pProId($propertyId);
+        $familyProperty->setR2pValue($propertyValue);
+        
+        if (!$familyProperty->save()) {
+            return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
+        }
+
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
+    });
+    
+    
+    $this->delete('/families/unassign', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
+        $data = $request->getParsedBody();
+        $familyId = empty($data['FamilyId']) ? null : $data['FamilyId'];
+        $propertyId = empty($data['PropertyId']) ? null : $data['PropertyId'];
+
+        $familyProperty = Record2propertyR2pQuery::create()
+            ->filterByR2pRecordId($familyId)
+            ->_and()->filterByR2pProId($propertyId)
+            ->findOne();        
+        
+        if ($familyProperty == null) {
+            return $response->withStatus(404, gettext('The record could not be found.'));
+        }
+        
+        $familyProperty->delete();
         
         return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
     });

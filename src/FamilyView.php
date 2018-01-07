@@ -15,6 +15,7 @@ require "Include/Functions.php";
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\GeoUtils;
@@ -77,11 +78,11 @@ while ($myrow = mysqli_fetch_row($dResults)) {
 
 //Get the information for this family
 $sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, a.per_ID AS EnteredId,
-			b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName, b.per_ID AS EditedId
-		FROM family_fam
-		LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
-		LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
-		WHERE fam_ID = " . $iFamilyID;
+      b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName, b.per_ID AS EditedId
+    FROM family_fam
+    LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
+    LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
+    WHERE fam_ID = " . $iFamilyID;
 $rsFamily = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsFamily));
 
@@ -132,8 +133,10 @@ $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
 $rsAssignedProperties = RunQuery($sSQL);
 
 //Get all the properties
-$sSQL = "SELECT * FROM property_pro WHERE pro_Class = 'f' ORDER BY pro_Name";
-$rsProperties = RunQuery($sSQL);
+$ormProperties = PropertyQuery::Create()
+                  ->filterByProClass('f')
+                  ->orderByProName()
+                  ->find();
 
 //Get classifications
 $sSQL = "SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence";
@@ -207,7 +210,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 <hr/>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:<span>
-					<a
+          <a
                             href="http://maps.google.com/?q=<?= $family->getAddress() ?>"
                             target="_blank"><?= $family->getAddress() ?></a></span><br>
 
@@ -557,20 +560,23 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                 </div>
                                 <?php
     } else {
+    ?>
         //Yes, start the table
-        echo "<table width=\"100%\" cellpadding=\"4\" cellspacing=\"0\">";
-        echo "<tr class=\"TableHeader\">";
-        echo "<td width=\"10%\" valign=\"top\"><b>" . gettext("Type") . "</b></td>";
-        echo "<td width=\"15%\" valign=\"top\"><b>" . gettext("Name") . "</b></td>";
-        echo "<td valign=\"top\"><b>" . gettext("Value") . "</b></td>";
-
+        <table width="100%" cellpadding="4" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
+        <tr class="TableHeader">
+        <td width="10%" valign="top"><b><?= gettext("Type") ?></b></td>
+        <td width="15%" valign="top"><b><?= gettext("Name") ?></b></td>
+        <td valign="top"><b><?= gettext("Value") ?></b></td>
+        <?php
         if ($bOkToEdit) {
-            echo "<td width=\"10%\" valign=\"top\"><b>" . gettext("Edit Value") . "</td>";
-            echo "<td valign=\"top\"><b>" . gettext("Remove") . "</td>";
+            ?>
+            <td width="10%" valign="top"><b><?= gettext("Edit Value") ?> </td>
+            <td valign="top"><b><?= gettext("Remove") ?></td>
+      <?php
         }
-
-        echo "</tr>";
-
+      ?>
+        </tr>
+      <?php
         $last_pro_prt_ID = "";
         $bIsFirst = true;
 
@@ -582,45 +588,68 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
             extract($aRow);
 
             if ($pro_prt_ID != $last_pro_prt_ID) {
-                echo "<tr class=\"";
+                if ($bIsFirst) {
+                    $rowColor = "RowColorB";
+                } else {
+                    $rowColor = "RowColorC";
+                }                
+              ?>
+                <tr class="<?= $rowColor ?>">
+              <?php
                 if ($bIsFirst) {
                     echo "RowColorB";
                 } else {
                     echo "RowColorC";
                 }
-                echo "\"><td><b>" . $prt_Name . "</b></td>";
-
+                
+              ?>
+                <td><b><?= $prt_Name ?></b></td>
+              <?php
                 $bIsFirst = false;
                 $last_pro_prt_ID = $pro_prt_ID;
                 $sRowClass = "RowColorB";
             } else {
-                echo "<tr class=\"" . $sRowClass . "\">";
-                echo "<td valign=\"top\">&nbsp;</td>";
+            ?>
+                <tr class="<?= $sRowClass ?>">
+                <td valign="top">&nbsp;</td>
+            <?php
             }
-
-            echo "<td valign=\"center\">" . $pro_Name . "</td>";
-            echo "<td valign=\"center\">" . $r2p_Value . "&nbsp;</td>";
+            ?>
+            <td valign="center"><?=  $pro_Name ?></td>
+            <td valign="center"><?=  $r2p_Value ?>&nbsp</td>
+            <?php
 
             if ($bOkToEdit) {
                 if (strlen($pro_Prompt) > 0) {
-                    echo "<td valign=\"center\"><a href=\"PropertyAssign.php?FamilyID=" . $iFamilyID . "&amp;PropertyID=" . $pro_ID . "\">" . gettext("Edit Value") . "</a></td>";
+                ?>
+                    <td valign="top"><a data-family_id="<?= $iFamilyID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
+                <?php
                 } else {
-                    echo "<td>&nbsp;</td>";
+                ?>
+                    <td>&nbsp;</td>
+                <?php
                 }
+                ?>
 
-                echo "<td valign=\"center\"><a href=\"PropertyUnassign.php?FamilyID=" . $iFamilyID . "&amp;PropertyID=" . $pro_ID . "\">" . gettext("Remove") . "</a></td>";
+                <td valign="top"><a data-family_id="<?= $iFamilyID ?>" data-property_id=" <?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
+            
+            <?php
             }
+            ?>            
 
-            echo "</tr>";
-
+            </tr>
+            
+            <?php
             //Alternate the row style
             $sRowClass = AlternateRowStyle($sRowClass);
 
             $sAssignedProperties .= $pro_ID . ",";
         }
-
+        
         //Close the table
-        echo "</table>";
+        ?>
+        </table>
+    <?php
     }
     if ($bOkToEdit) {
         ?>
@@ -628,24 +657,29 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                     <div>
                                         <h4><strong><?= gettext("Assign a New Property") ?>:</strong></h4>
 
-                                        <form method="post" action="PropertyAssign.php?FamilyID=<?= $iFamilyID ?>">
+                                        <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/families/assign' ?>" id="assign-property-form">
+                                            <input type="hidden" name="FamilyId" value="<?= $iFamilyID ?>" >
                                             <div class="row">
-                                                <div class="form-group col-md-7 col-lg-7 col-sm-12 col-xs-12">
-                                                    <select name="PropertyID" class="form-control">
+                                                <div class="form-group col-xs-12 col-md-7">
+                                                    <select name="PropertyId" class="input-family-properties form-control select2"
+                                                             style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
                                                         <option selected disabled> -- <?= gettext('select an option') ?>
                                                             --
                                                         </option>
                                                         <?php
-                                                        while ($aRow = mysqli_fetch_array($rsProperties)) {
-                                                            extract($aRow);
+                                                        foreach ($ormProperties as $ormProperty) {
                                                             //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                                            if (strlen(strstr($sAssignedProperties, "," . $pro_ID . ",")) == 0) {
-                                                                echo "<option value=\"" . $pro_ID . "\">" . $pro_Name . "</option>";
+                                                            if (strlen(strstr($sAssignedProperties, "," . $ormProperty->getProId() . ",")) == 0) {
+                                                            ?>
+                                                                <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>*/
+                                                            <?php
                                                             }
                                                         } ?>
                                                     </select>
                                                 </div>
-                                                <div class="form-group col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                                <div id="prompt-box" class="col-xs-12 col-md-7">
+                                                </div>
+                                                <div class="form-group col-xs-12 col-md-7">
                                                     <input type="submit" class="btn btn-primary"
                                                            value="<?= gettext("Assign") ?>" name="Submit2">
                                                 </div>
@@ -1047,7 +1081,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     });
                 }
             });
-
+            
+            $(".input-family-properties").select2({ 
+                  language: window.CRM.shortLocale
+            });
         });
     </script>
 
