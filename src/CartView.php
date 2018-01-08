@@ -81,7 +81,7 @@ if (!Cart::HasPeople()) {
         ?>
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Cart Functions</h3>
+            <h3 class="box-title"><?= gettext("Cart Functions") ?></h3>
         </div>
         <div class="box-body">
             <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= gettext('Empty Cart') ?></a>
@@ -335,7 +335,7 @@ if (!Cart::HasPeople()) {
                             </td>
                             <td><?= $sValidAddy ?></td>
                             <td><?= $sValidEmail ?></td>
-                            <td><a class="RemoveFromPeopleCart" data-personid="<?= $per_ID ?>"><?= gettext('Remove') ?></a>
+                            <td><a class="RemoveFromPeopleCart btn btn-danger" data-personid="<?= $per_ID ?>"><?= gettext('Remove') ?></a>
                             </td>
                             <td><?= $aClassificationName[$per_cls_ID] ?></td>
                             <td><?= $aFamilyRoleName[$per_fmr_ID] ?></td>
