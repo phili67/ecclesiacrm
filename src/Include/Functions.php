@@ -1736,7 +1736,8 @@ function requireUserGroupMembership($allowedRoles = null)
     if (!$allowedRoles) {
         throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
     }
-    if ($_SESSION[$allowedRoles] || $_SESSION['bAdmin']) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
+    if ($_SESSION[$allowedRoles] || $_SESSION['bAdmin'] || $_SESSION['bAddRecords']) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
+        // new $_SESSION['bAddRecords'] : Philippe Logel
         return true;
     } elseif (is_array($allowedRoles)) {  //sometimes we might have an array of allowed roles.
         foreach ($allowedRoles as $role) {
