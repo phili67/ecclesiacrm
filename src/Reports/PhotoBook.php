@@ -38,6 +38,7 @@ class PDF_PhotoBook extends ChurchInfoReport
     private $personMarginR;
     private $personImageHeight;
     private $personImageWidth;
+    private $fontSize;
   
     // Constructor
     public function __construct($iFYID)
@@ -52,6 +53,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->personImageHeight = 30;
         $this->personImageWidth = 30;
         $this->FYIDString = MakeFYString($iFYID);
+        $this->fontSize = 8;
     }
     
     public function drawGroup($iGroupID)
@@ -64,6 +66,11 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->drawGroupMebersByRole("Teacher", gettext("Teachers"));
         $this->AddPage();
         $this->drawGroupMebersByRole("Student", gettext("Students"));
+    }
+    
+    public function setFontSize($ifontSize)
+    {
+      $this->fontSize = $ifontSize;
     }
     
     private function drawPageHeader($title)
@@ -79,14 +86,18 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->Line($this->pageMarginL, 25.25, $this->GetPageWidth() - $this->pageMarginR, 25.25);
     }
     
-    private function drawPersonBlock($name, $thumbnailURI)
+    private function drawPersonBlock($lastname,$firstname, $thumbnailURI)
     {
    
     # Draw a bounding box around the image placeholder centered around the name text.
         $this->currentX += $this->personMarginL;
-        $this->SetFont('Times', '', 10);
-        $NameWidth = $this->GetStringWidth($name);
-        $offset = ($NameWidth/2) - ($this->personImageWidth /2)+2;
+        $this->SetFont('Times', '', $this->fontSize);
+        $lastNameWidth = $this->GetStringWidth($lastname);
+        $lastNameOffset = ($lastNameWidth/2) - ($this->personImageWidth /2)+2;
+        
+        $firstNameWidth = $this->GetStringWidth($firstname);
+        $firstNameOffset = ($firstNameWidth/2) - ($this->personImageWidth /2)+2;
+
     
         $this->SetLineWidth(0.25);
         $this->Rect($this->currentX, $this->currentY, $this->personImageWidth, $this->personImageHeight);
@@ -101,12 +112,21 @@ class PDF_PhotoBook extends ChurchInfoReport
         }
      
         # move the cursor, and draw the teacher name
-        $this->currentX -= $offset;
+        $this->currentX -= $lastNameOffset;
         $this->currentY += $this->personImageHeight + 2;
-        $this->WriteAt($this->currentX, $this->currentY, $name);
-    
-        $this->currentX += $offset;
+        $this->WriteAt($this->currentX, $this->currentY, $lastname);
+        
+        $this->currentX += $lastNameOffset;
         $this->currentY -= $this->personImageHeight + 2;
+        
+        # Now we draw the firstName middleName
+        $this->currentX -= $firstNameOffset;
+        $this->currentY += $this->personImageHeight + 6;
+        $this->WriteAt($this->currentX, $this->currentY, $firstname);
+        
+        $this->currentX += $firstNameOffset;
+        $this->currentY -= $this->personImageHeight + 6;
+
     
         $this->currentX += $this->personImageWidth;
         $this->currentX += $this->personMarginR;
@@ -128,7 +148,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->currentY += 10;
         foreach ($groupRoleMemberships as $roleMembership) {
             $person = $roleMembership->getPerson();
-            $this->drawPersonBlock($person->getFullName(), $person->getPhoto()->getPhotoURI());
+            $this->drawPersonBlock($person->getLastName(),$person->getFirstName()." ".$person->getMiddleName(), $person->getPhoto()->getPhotoURI());
             if ($this->currentX + $this->personMarginL + $this->personImageWidth + $this->personMarginR  >= $this->GetPageWidth() - $this->pageMarginR) { //can we fit another on the page?
                 $this->currentY += 50;
                 $this->currentX = $this->pageMarginL;
@@ -144,6 +164,9 @@ class PDF_PhotoBook extends ChurchInfoReport
 }
 // Instantiate the directory class and build the report.
 $pdf = new PDF_PhotoBook($iFYID);
+
+$pdf->setFontSize(8);// we can fix the font size of the output
+
 foreach ($aGrp as $groupID) {
     $pdf->drawGroup($groupID);
 }

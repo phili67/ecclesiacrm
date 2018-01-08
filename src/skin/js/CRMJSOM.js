@@ -20,7 +20,7 @@
       }
 
       message = "<p>" + i18next.t("Error making API Call to") + ": " + endpoint +
-        "</p><p>" + i18next.t("Error text") + ": " + error.message;
+        "</p><p>" + i18next.t("Error text") + ": " + i18next.t(error.message);
       if (error.trace)
       {
         message += "</p>" + i18next.t("Stack Trace") + ": <pre>"+JSON.stringify(error.trace, undefined, 2)+"</pre>";
