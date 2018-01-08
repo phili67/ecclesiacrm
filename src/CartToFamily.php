@@ -32,7 +32,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
     // Get the FamilyID
     $iFamilyID = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
-
+    
     // Are we creating a new family
     if ($iFamilyID == 0) {
         $sFamilyName = InputUtils::LegacyFilterInput($_POST['FamilyName']);
@@ -108,10 +108,17 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
 
             // Make sure they are not already in a family
             if ($per_fam_ID == 0) {
-                $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role'.$iPersonID], 'int');
+                $iFamilyRoleID = 0;
 
+                if (isset($_POST['role'.$iPersonID])) {
+                    $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role'.$iPersonID], 'int');
+                }
+                
                 $sSQL = 'UPDATE person_per SET per_fam_ID = '.$iFamilyID.', per_fmr_ID = '.$iFamilyRoleID.' WHERE per_ID = '.$iPersonID;
                 RunQuery($sSQL);
+                
+
+
                 $iCount++;
             }
         }
@@ -129,6 +136,7 @@ require 'Include/Header.php';
 echo $sError;
 ?>
 <div class="box">
+<form method="post">
 
 <?php
 if (count($_SESSION['aPeopleCart']) > 0) {
@@ -181,7 +189,6 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     echo '</table>'; ?>
     </div>
     <div class="box">
-<form method="post">
 <div class="table-responsive">
 <table align="center" class="table table-hover">
     <tr>

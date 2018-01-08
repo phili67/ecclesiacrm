@@ -11,6 +11,10 @@ $app->group('/cart', function () {
     });
 
     $this->post('/', function ($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
           $cartPayload = (object)$request->getParsedBody();
           if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
           {
@@ -32,6 +36,10 @@ $app->group('/cart', function () {
       });
       
     $this->post('/emptyToGroup', function($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
         $cartPayload = (object)$request->getParsedBody();
         Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
         return $response->withJson([
@@ -41,6 +49,10 @@ $app->group('/cart', function () {
     });
     
     $this->post('/emptyToNewGroup', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin() && !$_SESSION['user']->isManageGroupsEnabled()) {
+            return $response->withStatus(401);
+        }
+        
         $cartPayload = (object)$request->getParsedBody();
         $group = new Group();
         $group->setName($cartPayload->groupName);
@@ -54,6 +66,10 @@ $app->group('/cart', function () {
    
     
     $this->post('/removeGroup', function($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
+
         $cartPayload = (object)$request->getParsedBody();
         Cart::RemoveGroup($cartPayload->Group);
         return $response->withJson([
@@ -63,6 +79,10 @@ $app->group('/cart', function () {
     });
     
     $this->post('/delete', function($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
         $cartPayload = (object)$request->getParsedBody();
         if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
         {
