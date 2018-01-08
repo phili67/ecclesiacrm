@@ -50,7 +50,7 @@ require '../Include/Header.php';
       <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
           class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
     <?php
-} ?>
+      } ?>
     <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
         class="fa fa-file-pdf-o"></i><?= gettext('Reports'); ?></a>
@@ -159,16 +159,16 @@ require '../Include/Header.php';
         ?>
         <tr>
           <td style="width:80px">
-          	<a href='SundaySchoolClassView.php?groupId=<?= $class['id'] ?>'>
+            <a href='SundaySchoolClassView.php?groupId=<?= $class['id'] ?>'>
             <span class="fa-stack">
-							<i class="fa fa-square fa-stack-2x"></i>
-							<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
             </span>
             </a>
-          	<a href='/GroupEditor.php?GroupID=<?= $class['id'] ?>'>
+            <a href='/GroupEditor.php?GroupID=<?= $class['id'] ?>'>
             <span class="fa-stack">
-							<i class="fa fa-square fa-stack-2x"></i>
-							<i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
             </span>
             </a>
           </td>
@@ -219,10 +219,10 @@ require '../Include/Header.php';
 
           echo '<tr>';
           echo "<td><a href='../PersonView.php?PersonID=".$kidId."'>";
-          echo '	<span class="fa-stack">';
-          echo '	<i class="fa fa-square fa-stack-2x"></i>';
-          echo '	<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>';
-          echo '	</span></a></td>';
+          echo '  <span class="fa-stack">';
+          echo '  <i class="fa fa-square fa-stack-2x"></i>';
+          echo '  <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>';
+          echo '  </span></a></td>';
           echo '<td>'.$firstName.'</td>';
           echo '<td>'.$LastName.'</td>';
           echo '<td>'.$birthDate.'</td>';

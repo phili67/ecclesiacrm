@@ -9378,3 +9378,21 @@ msgstr "Retourne toutes les personnes qui sont affectés à un groupe."
 
 msgid "Get all persons who were born before the Year you mentioned."
 msgstr "Retourne toutes les personnes nés avant l'année mentionnée."
+
+
+#: members/404.php:10
+msgid "Not Found"
+msgstr "Page non trouvée "
+
+msgid "Oops!"
+msgstr "Oh !"
+
+msgid "We could not find the member(s) you were looking for."
+msgstr "Nous ne pouvons trouver le(s) membre(s) que vous cherchez."
+
+msgid "Meanwhile, you may"
+msgstr "Vous devriez"
+
+msgid "return to member dashboard"
+msgstr "retourner au Tableau de bord des membres"
+

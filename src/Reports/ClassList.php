@@ -159,7 +159,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     $pdf->WriteAt($nameX, $y, $liaisonString);
     $y += $yOffsetStartStudents;
 
-    $pdf->SetFont('Times', '', 12);
+    $pdf->SetFont('Times', '', 10);
     $prevStudentName = '';
 
     $numMembers = count($students);
@@ -177,7 +177,9 @@ for ($i = 0; $i < $nGrps; $i++) {
         $studentName = ($person->getFullName());
         
         if ($studentName != $prevStudentName) {
-            $pdf->WriteAt($nameX, $y, $studentName);
+            $pdf->WriteAt($nameX, $y-2, $person->getLastName());
+            $pdf->WriteAt($nameX, $y+2.5, $person->getFirstName()." ".$person->getMiddleName());
+
                 
             $imgName = $person->getPhoto()->getThumbnailURI();
             
@@ -218,7 +220,7 @@ for ($i = 0; $i < $nGrps; $i++) {
             $props = "";
             if (!empty($assignedProperties)) {
                 foreach ($assignedProperties as $assproperty) {
-                		$property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
+                    $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
                     $props.= $property->getProName().", ";
                 }
                     

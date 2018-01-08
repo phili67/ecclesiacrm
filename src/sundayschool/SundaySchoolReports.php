@@ -269,7 +269,7 @@ $dNoSchool8 = change_date_for_place_holder($dNoSchool6);
           <td><br/></td>
         </tr>
         <tr>
-          <td width="65%">
+          <td width="75%">
           	  <div class="col-md-4">
 		          <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Create Class List') ?>">
 		      </div>
@@ -280,7 +280,7 @@ $dNoSchool8 = change_date_for_place_holder($dNoSchool6);
     			  <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('Create PhotoBook') ?>">
     		  </div>
     	  </td>
-    	  <td width="35%">
+    	  <td width="25%">
     	  	<div class="col-rd-12">
 	    		<input type="button" style="align=right" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
 	    	</div>
