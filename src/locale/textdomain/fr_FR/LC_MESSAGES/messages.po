@@ -9396,3 +9396,7 @@ msgstr "Vous devriez"
 msgid "return to member dashboard"
 msgstr "retourner au Tableau de bord des membres"
 
+#: Cartview.php
+msgid "Cart Functions"
+msgstr "Fonctions panier"
+

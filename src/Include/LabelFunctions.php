@@ -41,7 +41,7 @@ function FontSelect($fieldname)
     echo '<tr>';
     echo '<td class="LabelColumn">'.gettext('Font').':</td>';
     echo '<td class="TextColumn">';
-    echo "<select name=\"$fieldname\">";
+    echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($fontnames as $n) {
         $sel = '';
         if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $n) {
@@ -60,7 +60,7 @@ function FontSizeSelect($fieldname)
     echo '<tr>';
     echo '<td class="LabelColumn"> '.gettext('Font Size').':</td>';
     echo '<td class="TextColumn">';
-    echo "<select name=\"$fieldname\">";
+    echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($sizes as $s) {
         $sel = '';
         if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $s) {
@@ -79,7 +79,7 @@ function LabelSelect($fieldname)
     echo '<tr>';
     echo '<td class="LabelColumn">'.gettext('Label Type').':</td>';
     echo '<td class="TextColumn">';
-    echo "<select name=\"$fieldname\">";
+    echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($labels as $l) {
         $sel = '';
         if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $l) {
@@ -164,7 +164,7 @@ function LabelFileType()
 		<td class="LabelColumn">'.gettext('File Type').':
 		</td>
 		<td class="TextColumn">
-			<select name="filetype">
+			<select name="filetype" class="form-control input-sm">
 				<option value="PDF">PDF</option>
 				<option value="CSV">CSV</option>
 			</select>
