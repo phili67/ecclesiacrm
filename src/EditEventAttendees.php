@@ -1,8 +1,26 @@
 <?php
-//*******************************************************************************
+/*******************************************************************************
+ *
+ *  filename    : CartToEvent.php
+ *  last change : 2018-01-08
+ *  description : Edit Event Attendees
+ *
+ *  http://www.ecclesiacrm.com/
+ *            2018 Philippe Logel
+ *
+ ******************************************************************************/
 
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
+use EcclesiaCRM\EventAttendQuery;
+use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Family;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 $sPageTitle = gettext('Church Event Editor');
 require 'Include/Header.php';
@@ -15,11 +33,13 @@ $EvtDate = $_POST['EDate'];
 //
 // process the action inputs
 //
-if ($sAction == 'Delete') {
+if ($sAction == gettext('Delete')) {
     $dpeEventID = $_POST['DelPerEventID'];
     $dpePerID = $_POST['DelPerID'];
-    $dpeSQL = "DELETE FROM event_attend WHERE event_id=$dpeEventID AND person_id=$dpePerID LIMIT 1";
-    RunQuery($dpeSQL);
+    
+    $eventAttend = EventAttendQuery::Create()->filterByEventId($dpeEventID)->filterByPersonId($dpePerID)->limit(1)->findOne();
+    $eventAttend->delete();
+    
     $ShowAttendees = 1;
 }
 // Construct the form
@@ -44,30 +64,28 @@ if ($sAction == 'Delete') {
 	  <td width="15%" nowrap><strong><?= gettext('Action') ?></strong></td>
   </tr>
 <?php
-$sSQL = 'SELECT person_id, per_LastName FROM event_attend JOIN person_per ON person_per.per_id = event_attend.person_id WHERE event_id = '.$EventID.' ORDER by per_LastName, per_FirstName';
-$rsOpps = RunQuery($sSQL);
-$numAttRows = mysqli_num_rows($rsOpps);
-if ($numAttRows != 0) {
-    $sRowClass = 'RowColorA';
-    for ($na = 0; $na < $numAttRows; $na++) {
-        $attRow = mysqli_fetch_array($rsOpps, MYSQLI_BOTH);
-        extract($attRow);
-        $sSQL = 'SELECT per_Title, per_ID, per_FirstName, per_MiddleName, per_LastName, per_Suffix, per_Email, per_HomePhone, per_Country, fam_HomePhone, fam_Email, fam_Country FROM person_per LEFT JOIN family_fam ON per_fam_id=fam_id WHERE per_ID = '.$person_id;
-        $perOpps = RunQuery($sSQL);
-        $perRow = mysqli_fetch_array($perOpps, MYSQLI_BOTH);
-        extract($perRow);
-        $sRowClass = AlternateRowStyle($sRowClass);
 
-        $sPhoneCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-        $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
-        $sEmail = SelectWhichInfo($per_Email, $fam_Email, false); ?>
+$ormOpps = EventAttendQuery::Create()->filterByEventId($EventID)->leftJoinPerson()->usePersonQuery()->orderByLastName()->orderByFirstName()->endUse()->find();
+
+$numAttRows = count($ormOpps);
+
+if ($numAttRows != 0) {
+  $sRowClass = 'RowColorA';
+  foreach ($ormOpps as $ormOpp) {
+   $person = $ormOpp->getPerson();
+
+   $fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne()->getFamily();
+   
+   $sPhoneCountry = SelectWhichInfo($person->getCountry(), $fam->getCountry(), false);
+   $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), ExpandPhoneNumber($fam->getHomePhone(), $fam->getCountry(), $dummy), true);
+   $sEmail = SelectWhichInfo($person->getEmail(), $fam->getEmail(), false);?>
     <tr class="<?= $sRowClass ?>">
-        <td class="TextColumn"><?= FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?></td>
+        <td class="TextColumn"><?= FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) ?></td>
         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:'.$sEmail.'" title="Send Email">'.$sEmail.'</a>' : 'Not Available' ?></td>
         <td class="TextColumn"><?= $sHomePhone ? $sHomePhone : 'Not Available' ?></td>
     <td  class="TextColumn" colspan="1" align="center">
       <form method="POST" action="EditEventAttendees.php" name="DeletePersonFromEvent">
-          <input type="hidden" name="DelPerID" value="<?= $per_ID ?>">
+          <input type="hidden" name="DelPerID" value="<?= $person->getId()?>">
           <input type="hidden" name="DelPerEventID" value="<?= $EventID ?>">
           <input type="hidden" name="EID" value="<?= $EventID ?>">
           <input type="hidden" name="EName" value="<?= $EvtName ?>">
@@ -78,7 +96,7 @@ if ($numAttRows != 0) {
      </td>
     </tr>
     <?php
-    }
+  }
 } else {
     ?>
 <tr><td colspan="4" align="center"><?= gettext('No Attendees Assigned to Event') ?></td></tr>
