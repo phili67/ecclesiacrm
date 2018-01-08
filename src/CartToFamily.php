@@ -7,7 +7,7 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
- *            2017 Philippe Logel
+ *            2018 Philippe Logel
  *
  ******************************************************************************/
 
@@ -20,6 +20,9 @@ require 'Include/StateDropDown.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
 
 // Security: User must have add records permission
 if (!$_SESSION['bAddRecords']) {
@@ -102,22 +105,20 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $iCount = 0;
         while ($element = each($_SESSION['aPeopleCart'])) {
             $iPersonID = $_SESSION['aPeopleCart'][$element[key]];
-            $sSQL = 'SELECT per_fam_ID FROM person_per WHERE per_ID = '.$iPersonID;
-            $rsPerson = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsPerson));
+            $ormPerson = PersonQuery::Create()
+                         ->findOneById($iPersonID);
 
             // Make sure they are not already in a family
-            if ($per_fam_ID == 0) {
+            if ($ormPerson->getFamId() == 0) {
                 $iFamilyRoleID = 0;
 
                 if (isset($_POST['role'.$iPersonID])) {
                     $iFamilyRoleID = InputUtils::LegacyFilterInput($_POST['role'.$iPersonID], 'int');
                 }
                 
-                $sSQL = 'UPDATE person_per SET per_fam_ID = '.$iFamilyID.', per_fmr_ID = '.$iFamilyRoleID.' WHERE per_ID = '.$iPersonID;
-                RunQuery($sSQL);
-                
-
+                $ormPerson->setFamId($iFamilyID);
+                $ormPerson->setFmrId($iFamilyRoleID);
+                $ormPerson->save();
 
                 $iCount++;
             }
@@ -142,51 +143,60 @@ echo $sError;
 if (count($_SESSION['aPeopleCart']) > 0) {
 
     // Get all the families
-    $sSQL = 'SELECT fam_Name, fam_ID FROM family_fam ORDER BY fam_Name';
-    $rsFamilies = RunQuery($sSQL);
-
+    $ormFamilies = FamilyQuery::Create()
+                    ->orderByName()
+                    ->find();
+                    
     // Get the family roles
-    $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 2 ORDER BY lst_OptionSequence';
-    $rsFamilyRoles = RunQuery($sSQL);
+    $ormFamilyRoles = ListOptionQuery::Create()
+          ->filterById(2)
+          ->orderByOptionSequence()
+          ->find();
+
 
     $sRoleOptionsHTML = '';
-    while ($aRow = mysqli_fetch_array($rsFamilyRoles)) {
-        extract($aRow);
-        $sRoleOptionsHTML .= '<option value="'.$lst_OptionID.'">'.$lst_OptionName.'</option>';
+    foreach ($ormFamilyRoles as $ormFamilyRole) {
+        $sRoleOptionsHTML .= '<option value="'.$ormFamilyRole->getOptionId().'">'.$ormFamilyRole->getOptionName().'</option>';
     }
 
-    $sSQL = 'SELECT per_Title, per_FirstName, per_MiddleName, per_LastName, per_Suffix, per_fam_ID, per_ID
-      FROM person_per WHERE per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')
-      ORDER BY per_LastName';
-    $rsCartItems = RunQuery($sSQL);
+    $ormCartItems = PersonQuery::Create()
+                ->Where('per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')')
+                ->orderByLastName()
+                ->find();
+    ?>
+    <table class='table'>
+    <tr>
+    <td>&nbsp;</td>
+    <td><b><?= gettext('Name') ?></b></td>
+    <td align="center"><b><?= gettext('Assign Role') ?></b></td>
 
-    echo "<table class='table'>";
-    echo '<tr>';
-    echo '<td>&nbsp;</td>';
-    echo '<td><b>'.gettext('Name').'</b></td>';
-    echo '<td align="center"><b>'.gettext('Assign Role').'</b></td>';
-
-    $count = 1;
-    while ($aRow = mysqli_fetch_array($rsCartItems)) {
+    <?php
+    $count = 1;    
+    foreach ($ormCartItems as $ormCartItem) {
         $sRowClass = AlternateRowStyle($sRowClass);
-
-        extract($aRow);
-
-        echo '<tr class="'.$sRowClass.'">';
-        echo '<td align="center">'.$count++.'</td>';
-        echo "<td><img src='".SystemURLs::getRootPath().'/api/persons/'.$per_ID."/thumbnail' class='direct-chat-img'> &nbsp <a href=\"PersonView.php?PersonID=".$per_ID.'">'.FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 1).'</a></td>';
-
-        echo '<td align="center">';
-        if ($per_fam_ID == 0) {
-            echo '<select name="role'.$per_ID.'">'.$sRoleOptionsHTML.'</select>';
-        } else {
-            echo gettext('Already in a family');
-        }
-        echo '</td>';
-        echo '</tr>';
+        ?>
+        <tr class="<?= $sRowClass ?>">
+          <td align="center"><?= $count++ ?></td>
+          <td><img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail" class="direct-chat-img"> &nbsp <a href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a></td>
+          <td align="center">
+          <?php
+            if ($ormCartItem->getFamId() == 0) {
+              ?>
+                  <select name="role<?= $ormCartItem->getId() ?>" class="form-control"><?= $sRoleOptionsHTML ?></select>
+              <?php
+            } else {
+              ?>
+                  <?= gettext('Already in a family') ?>
+              <?php
+            }
+          ?>
+          </td>
+        </tr>
+    <?php
     }
+    ?>
 
-    echo '</table>'; ?>
+       </table>
     </div>
     <div class="box">
 <div class="table-responsive">
@@ -194,15 +204,17 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <tr>
     <td class="LabelColumn"><?= gettext('Add to Family') ?>:</td>
     <td class="TextColumn">
-      <?php
-            // Create the family select drop-down
-            echo '<select name="FamilyID">';
-    echo '<option value="0">'.gettext('Create new family').'</option>';
-    while ($aRow = mysqli_fetch_array($rsFamilies)) {
-        extract($aRow);
-        echo '<option value="'.$fam_ID.'">'.$fam_Name.'</option>';
-    }
-    echo '</select>'; ?>
+        <select name="FamilyID"  class="form-control">
+              <option value="0"><?= gettext('Create new family') ?></option>
+      <?php            
+        // Create the family select drop-down
+        foreach ($ormFamilies as $ormFamily) {
+        ?>
+          <option value="<?= $ormFamily->getId()?>"><?= $ormFamily->getName() ?></option>
+        <?php
+        }
+        ?>
+       </select>
     </td>
   </tr>
 
@@ -225,19 +237,19 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   <tr>
     <td class="LabelColumn"><?= gettext('Use address/contact data from') ?>:</td>
     <td class="TextColumn">
-      <?php
-            echo '<select name="PersonAddress">';
-    echo '<option value="0">'.gettext('Only the new data below').'</option>';
+      <select name="PersonAddress"  class="form-control">
+         <option value="0"><?= gettext('Only the new data below') ?></option>
 
-    mysqli_data_seek($rsCartItems, 0);
-    while ($aRow = mysqli_fetch_array($rsCartItems)) {
-        extract($aRow);
-        if ($per_fam_ID == 0) {
-            echo '<option value="'.$per_ID.'">'.$per_FirstName.' '.$per_LastName.'</option>';
+      <?php 
+      foreach ($ormCartItems as $ormCartItem) {
+        if ($ormCartItem->getFamId() == 0) {
+        ?>
+           <option value="<?= $ormCartItem->getId() ?>"><?= $ormCartItem->getFirstName()?> <?= $ormCartItem->getLastName() ?></option>
+        <?php      
         }
-    }
-
-    echo '</select>'; ?>
+      }
+      ?>
+      </select>
     </td>
   </tr>
 
