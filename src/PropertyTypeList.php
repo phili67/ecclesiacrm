@@ -5,7 +5,8 @@
  *  last change : 2003-03-27
  *  website     : http://www.churchcrm.io
  *  copyright   : Copyright 2001, 2002 Deane Barker
-  *
+ *                Copyright 2018
+ *
  ******************************************************************************/
 
 //Include the function library
