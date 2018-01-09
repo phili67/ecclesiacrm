@@ -1,4 +1,4 @@
-  // Philippe Logel
+  // Copyright 2018 Philippe Logel
   var anniversary = true;
   var birthday    = true;
   var withlimit   = false;
