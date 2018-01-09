@@ -16,10 +16,20 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\EventTypesQuery;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Church Calendar');
 require 'Include/Header.php';
+
+$groups = GroupQuery::Create()
+      ->orderByName()
+      ->find();
+      
+$eventTypes = EventTypesQuery::Create()
+      ->orderByName()
+      ->find();
 
 ?>
 
@@ -68,7 +78,7 @@ require 'Include/Header.php';
   <div class="box-body">
       <form>
           <div class="col-sm-3"> <b><?= gettext("Event Type Filter") ?> : </b>
-            <select type="text" id="EventTypeFilter" value="0">
+            <select type="text" id="EventTypeFilter" value="0" class="form-control input-sm">
               <option value='0' ><?= gettext("None") ?></option>
             <?php
                   foreach ($eventTypes as $eventType) {
@@ -78,7 +88,7 @@ require 'Include/Header.php';
             </select>
           </div>
           <div class="col-sm-6"> <b><?= gettext("Event Group Filter") ?>:</b>
-            <select type="text" id="EventGroupFilter" value="0">
+            <select type="text" id="EventGroupFilter" value="0"  class="form-control input-sm">
               <option value='0' ><?= gettext("None") ?></option>
                 <?php
                   foreach ($groups as $group) {
