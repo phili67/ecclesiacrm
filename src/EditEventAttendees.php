@@ -6,7 +6,7 @@
  *  description : Edit Event Attendees
  *
  *  http://www.ecclesiacrm.com/
- *            2018 Philippe Logel
+ *        copyright 2018 Philippe Logel
  *
  ******************************************************************************/
 
