@@ -2,6 +2,7 @@
   var anniversary = true;
   var birthday    = true;
   var withlimit   = false;
+  var eventCreated= false;
   
  
   var birthD = localStorage.getItem("birthday");
@@ -334,7 +335,7 @@
          }
       },
       selectHelper: true,        
-      select: function(start, end) {        
+      select: function(start, end) {
        var modal = bootbox.dialog({
          message: BootboxContent,
          title: i18next.t("Event Creation"),
@@ -374,25 +375,16 @@
                     $('#calendar').fullCalendar('unselect');              
                     add = true;              
                     modal.modal("hide");   
-                
-                    var box = bootbox.dialog({message : i18next.t("Event was added successfully.")});
-                
-                    setTimeout(function() {
-                        // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                        box.modal('hide');
-                    }, 3000);
+                    
+                    eventCreated = true;                    
+                    
                     return true;
                   });
 
                   return add;  
               } else {
-                  var box = bootbox.dialog({title: "<span style='color: red;'>"+i18next.t("Error")+"</span>",message : i18next.t("You have to set a Title for your event")});
+                  window.CRM.DisplayAlert("Error","You have to set a Title for your event");
                 
-                    setTimeout(function() {
-                        // be careful not to call box.hide() here, which will invoke jQuery's hide method
-                        box.modal('hide');
-                    }, 3000);
-                    
                   return false;
               }    
             }
@@ -427,7 +419,7 @@
         width : '100%'
      });
       
-       $("#ATTENDENCES").parents("tr").hide();
+        $("#ATTENDENCES").parents("tr").hide();
       },
       eventLimit: withlimit, // allow "more" link when too many events
       locale: window.CRM.lang,
@@ -459,4 +451,17 @@
          }
       }
     });
-  });
+    
+    $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
+      if (eventCreated) {                    
+          var box = window.CRM.DisplayAlert("Event added","Event was added successfully.");
+
+          setTimeout(function() {
+            // be careful not to call box.hide() here, which will invoke jQuery's hide method
+            box.modal('hide');
+          }, 3000);
+          
+          eventCreated = false;           
+      }
+    });
+  });  

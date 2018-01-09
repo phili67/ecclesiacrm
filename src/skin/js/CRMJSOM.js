@@ -30,6 +30,13 @@
         message: message
       });
     };
+    
+    window.CRM.DisplayAlert = function(title,message,callback) {
+      return bootbox.alert({
+        title:  i18next.t(title),
+        message:i18next.t(message)
+      });
+    }
 
     window.CRM.VerifyThenLoadAPIContent = function(url) {
       var error = i18next.t("There was a problem retrieving the requested object");

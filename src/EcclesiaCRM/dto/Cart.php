@@ -97,15 +97,13 @@ class Cart
               ->findOneByPersonId($personID);
 
         $person = PersonQuery::create()
-                ->findOneById($personID);
-              
+                ->findOneById($personID);              
               
         if (empty($user)) {// it's only a person, we cand delete.
           $person->delete();
           
           unset($personsID[$key]);          
         } else if (!empty($user) && !$user->isAdmin()) {// it's a user but not an admin, we can delete.
-            $user->delete();            
             $person->delete();      
                 
             unset($personsID[$key]);
