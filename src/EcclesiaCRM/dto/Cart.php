@@ -3,6 +3,7 @@ namespace EcclesiaCRM\dto;
 
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
 
@@ -88,13 +89,32 @@ class Cart
     }
   }
   
-  public static function DeletePersonArray($personsID)
+  public static function DeletePersonArray(&$personsID)
   {
-    foreach ($personsID as $personID) {
-      $person = PersonQuery::create()
-            ->findOneById($personID);
+    foreach ($personsID as $key => $personID) {
+      if ($_SESSION['user']->getId() != $personID && $personID != 1) {
+        $user = UserQuery::create()
+              ->findOneByPersonId($personID);
+              
+        if (!(!empty($user) && $user->isAdmin())) {
+          // an admin could not be delete by a cart
+          $person = PersonQuery::create()
+                ->findOneById($personID);
             
-      $person->delete();
+          $person->delete();
+          
+          unset($personsID[$key]);
+        } else {
+          if (!empty($user)) {
+            $user->delete();
+          }
+          $person = PersonQuery::create()
+                ->findOneById($personID);
+            
+          $person->delete();          
+          unset($personsID[$key]);
+        }
+      }
     }
   }
 
