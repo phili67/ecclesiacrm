@@ -227,12 +227,12 @@
                           </a>\
                       </li>\
                       <li>\
-                          <a class="emptyCart" >\
+                          <a href="#" class="emptyCart" >\
                               <i class="fa fa-eraser"></i>' + i18next.t("Empty Cart") + ' \
                           </a>\
                       </li>\
                       <li>\
-                          <a id="emptyCartToGroup">\
+                          <a href="#" id="emptyCartToGroup">\
                               <i class="fa fa-object-ungroup text-info"></i>' + i18next.t("Empty Cart to Group") + '\
                           </a>\
                       </li>\
@@ -252,7 +252,7 @@
                           </a>\
                       </li>\
                       <li>\
-                          <a id="deleteCart">\
+                          <a href="#" id="deleteCart">\
                              <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From Cart and CRM")+ '\
                           </a>\
                       </li>\
