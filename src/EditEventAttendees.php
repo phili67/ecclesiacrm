@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : CartToEvent.php
+ *  filename    : EditEventAttendees.php
  *  last change : 2018-01-08
  *  description : Edit Event Attendees
  *
