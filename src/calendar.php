@@ -31,7 +31,6 @@ $eventTypes = EventTypesQuery::Create()
       ->orderByName()
       ->find();
 
-
 ?>
 
 <style>
