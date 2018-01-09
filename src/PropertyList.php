@@ -5,7 +5,8 @@
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
-  *
+ *                          2018 Philippe Logel
+ *
  ******************************************************************************/
 
 //Include the function library
