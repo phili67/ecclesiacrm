@@ -9400,3 +9400,6 @@ msgstr "retourner au Tableau de bord des membres"
 msgid "Cart Functions"
 msgstr "Fonctions panier"
 
+#: api/routes/cart.php
+msgid "You can't delete admin through the cart"
+msgstr "Vous ne pouvez supprimer un administrateur via le panier"

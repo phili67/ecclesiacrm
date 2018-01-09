@@ -94,16 +94,19 @@ $app->group('/cart', function () {
           if(sizeof($_SESSION['aPeopleCart'])>0) {
               Cart::DeletePersonArray ($_SESSION['aPeopleCart']);
               //$_SESSION['aPeopleCart'] = [];
-              if (!empty($_SESSION['aPeopleCart']) {
-                $sMessage = gettext("You can't delete admin through the cart");
-              } else {
-                $sMessage = gettext('Your cart and CRM has been successfully deleted');
-              }
           }
         }
         
+        if (!empty($_SESSION['aPeopleCart'])) {
+          $sMessage = gettext("You can't delete admin through the cart");
+          $status = "failure";
+        } else {
+          $sMessage = gettext('Your cart and CRM has been successfully deleted');
+          $status = "success";
+        }
+        
         return $response->withJson([
-            'status' => "success",
+            'status' => $status,
             'message' => $sMessage
         ]);
     });

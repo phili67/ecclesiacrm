@@ -95,24 +95,20 @@ class Cart
       if ($_SESSION['user']->getId() != $personID && $personID != 1) {
         $user = UserQuery::create()
               ->findOneByPersonId($personID);
-              
-        if (!(!empty($user) && $user->isAdmin())) {
-          // an admin could not be delete by a cart
-          $person = PersonQuery::create()
+
+        $person = PersonQuery::create()
                 ->findOneById($personID);
-            
+              
+              
+        if (empty($user)) {// it's only a person, we cand delete.
           $person->delete();
           
-          unset($personsID[$key]);
-        } else {
-          if (!empty($user)) {
-            $user->delete();
-          }
-          $person = PersonQuery::create()
-                ->findOneById($personID);
-            
-          $person->delete();          
-          unset($personsID[$key]);
+          unset($personsID[$key]);          
+        } else if (!empty($user) && !$user->isAdmin()) {// it's a user but not an admin, we can delete.
+            $user->delete();            
+            $person->delete();      
+                
+            unset($personsID[$key]);
         }
       }
     }

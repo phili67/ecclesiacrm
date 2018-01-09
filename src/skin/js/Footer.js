@@ -314,12 +314,17 @@ $("document").ready(function(){
 
 $(document).on("click", "#deleteCart", function (e) {
   window.CRM.cart.delete(function(data) {
-    var path = location.href;
-    path = path.substring(path.lastIndexOf("/") + 1);
-    path = path.split("?")[0].split("#")[0];
+    if (data.status == "success")
+    {
+      var path = location.href;
+      path = path.substring(path.lastIndexOf("/") + 1);
+      path = path.split("?")[0].split("#")[0];
     
-    if (path == "PersonView.php" && data != 'nothing was done') {
-      location.reload();
+      if (path == "PersonView.php" && data != 'nothing was done') {
+        location.reload();
+      }
+    } else {
+      window.CRM.DisplayErrorMessage("api/cart/delete",{"message":data.message});
     }
   });
 });
