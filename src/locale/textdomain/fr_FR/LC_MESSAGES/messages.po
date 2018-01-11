@@ -6398,7 +6398,7 @@ msgstr "Rapport sur les Pas intéressé par le démarchage"
 
 #: EditEventTypes.php:89 EventNames.php:108
 msgid "Weekly on"
-msgstr "Toutes les semaines sur"
+msgstr "Toutes les semaines les"
 
 #: EditEventTypes.php:89 EventNames.php:108
 msgid "s"
@@ -6406,11 +6406,11 @@ msgstr "s"
 
 #: EditEventTypes.php:92 EventNames.php:111
 msgid "Monthly on"
-msgstr "Tous les mois sur"
+msgstr "Tous les mois les"
 
 #: EditEventTypes.php:95 EventNames.php:114
 msgid "Yearly on"
-msgstr "Toutes les années sur"
+msgstr "Toutes les années les"
 
 #: EventAttendance.php:54
 msgid "All Events of Type"
@@ -9403,3 +9403,7 @@ msgstr "Fonctions panier"
 #: api/routes/cart.php
 msgid "You can't delete admin through the cart"
 msgstr "Vous ne pouvez supprimer un administrateur via le panier"
+
+#: EditEventTypes.php
+msgid "New Attendance Count"
+msgstr "Nouveau compte de présence"

@@ -7,9 +7,9 @@
  *  copyright   : Copyright 2005 Todd Pillars
  *
  *  function    : List all Church Events
-  *
  *
  *  Modified by Stephen Shaffer, Oct 2006
+ *  Modified by Philippe Logel, Oct 2018-01-08 and copyright
  *  feature changes - added recurring defaults and customizable attendance count
  *  fields
  *
@@ -18,8 +18,14 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\EventTypes;
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\EventCountName;
+use EcclesiaCRM\EventCountNameQuery;
 
 if (!$_SESSION['bAdmin'] && !$_SESSION['bAddEvent']) {
     header('Location: Menu.php');
@@ -34,46 +40,71 @@ require 'Include/Header.php';
 //
 
 if (isset($_POST['Action'])) {
-    switch (InputUtils::LegacyFilterInput($_POST['Action'])) {
+  switch (InputUtils::LegacyFilterInput($_POST['Action'])) {
     case 'CREATE':
     // Insert into the event_name table
       $eName = $_POST['newEvtName'];
       $eTime = $_POST['newEvtStartTime'];
-      $eDOM = $_POST['newEvtRecurDOM'];
-      $eDOW = $_POST['newEvtRecurDOW'];
-      $eDOY = $_POST['newEvtRecurDOY'];
+      $eDOM = (empty($_POST['newEvtRecurDOM']))?"0":$_POST['newEvtRecurDOM'];
+      $eDOW = (empty($_POST['newEvtRecurDOW']))?"Sunday":$_POST['newEvtRecurDOW'];
+      $eDOY = (empty($_POST['newEvtRecurDOY']))?date('Y-m-d'):InputUtils::FilterDate($_POST['newEvtRecurDOY']);
       $eRecur = $_POST['newEvtTypeRecur'];
       $eCntLst = $_POST['newEvtTypeCntLst'];
       $eCntArray = array_filter(array_map('trim', explode(',', $eCntLst)));
       $eCntArray[] = 'Total';
       $eCntNum = count($eCntArray);
       $theID = $_POST['theID'];
+      
+      $eventType = new EventTypes();
+      
+      $eventType->setName(InputUtils::LegacyFilterInput($eName));
+      $eventType->setDefStartTime(InputUtils::LegacyFilterInput($eTime));
+      $eventType->setDefRecurType(InputUtils::LegacyFilterInput($eRecur));
+      $eventType->setDefRecurDOW(InputUtils::LegacyFilterInput($eDOW));
+      $eventType->setDefRecurDOM(InputUtils::LegacyFilterInput($eDOM));
+      $eventType->setDefRecurDOY(InputUtils::LegacyFilterInput($eDOY));
+      
+      $eventType->save();
 
-      $sSQL = "INSERT INTO event_types (type_name, type_defstarttime, type_defrecurtype, type_defrecurDOW, type_defrecurDOM, type_defrecurDOY)
-             VALUES ('".InputUtils::LegacyFilterInput($eName)."',
-                     '".InputUtils::LegacyFilterInput($eTime)."',
-                     '".InputUtils::LegacyFilterInput($eRecur)."',
-                     '".InputUtils::LegacyFilterInput($eDOW)."',
-                     '".InputUtils::LegacyFilterInput($eDOM)."',
-                     '".InputUtils::LegacyFilterInput($eDOY)."')";
-
-      RunQuery($sSQL);
-    $theID = mysqli_insert_id($cnInfoCentral);
+      $theID = $eventType->getId();
 
       for ($j = 0; $j < $eCntNum; $j++) {
           $cCnt = ltrim(rtrim($eCntArray[$j]));
-          $sSQL = "INSERT eventcountnames_evctnm (evctnm_eventtypeid, evctnm_countname) VALUES ('".InputUtils::LegacyFilterInput($theID)."','".InputUtils::LegacyFilterInput($cCnt)."') ON DUPLICATE KEY UPDATE evctnm_countname='$cCnt'";
-          RunQuery($sSQL);
+          
+          try {
+            $eventCountName = new EventCountName();
+          
+            $eventCountName->setTypeId(InputUtils::LegacyFilterInput($theID));
+            $eventCountName->setName(InputUtils::LegacyFilterInput($cCnt));
+          
+            $eventCountName->save();
+          } catch (Exception $e) {
+          }
       }
-    Redirect('EventNames.php'); // clear POST
-    break;
+            
+      $_POST = array();
+      Redirect('EventNames.php'); // clear POST
+      break;
 
     case 'DELETE':
       $theID = $_POST['theID'];
-      $sSQL = "DELETE FROM event_types WHERE type_id='".InputUtils::LegacyFilterInput($theID)."' LIMIT 1";
-      RunQuery($sSQL);
-      $sSQL = "DELETE FROM eventcountnames_evctnm WHERE evctnm_eventtypeid='".InputUtils::LegacyFilterInput($theID)."'";
-      RunQuery($sSQL);
+      
+      $eventType = EventTypesQuery::Create()
+                      ->filterById(InputUtils::LegacyFilterInput($theID))
+                      ->limit(1)
+                      ->findOne();
+      
+      if (!empty($eventType)) {
+        $eventType->delete();
+      }
+      
+      $eventCountNames = EventCountNameQuery::Create()
+                      ->findByTypeId(InputUtils::LegacyFilterInput($theID));
+      
+      if (!empty($eventCountNames)) {
+        $eventCountNames->delete();
+      }
+            
       $theID = '';
       $_POST['Action'] = '';
       break;
@@ -81,62 +112,79 @@ if (isset($_POST['Action'])) {
 }
 
 // Get data for the form as it now exists.
+$eventTypes = EventTypesQuery::Create()
+                ->orderById()
+                ->find();
+                
+$numRows = count($eventTypes);
 
-$sSQL = 'SELECT * FROM event_types ORDER BY type_id';
-$rsOpps = RunQuery($sSQL);
-$numRows = mysqli_num_rows($rsOpps);
+$aTypeID = array();
+$aTypeName = array();
+$aDefStartTime = array();
+$aDefRecurDOW = array();
+$aDefRecurDOM = array();
+$aDefRecurDOY = array();
+$aDefRecurType = array(); 
 
-        // Create arrays of the event types
-        for ($row = 1; $row <= $numRows; $row++) {
-            $aRow = mysqli_fetch_array($rsOpps, MYSQLI_BOTH);
-            extract($aRow);
 
-            $aTypeID[$row] = $type_id;
-            $aTypeName[$row] = $type_name;
-            $aDefStartTime[$row] = $type_defstarttime;
-            $aDefRecurDOW[$row] = $type_defrecurDOW;
-            $aDefRecurDOM[$row] = $type_defrecurDOM;
-            $aDefRecurDOY[$row] = $type_defrecurDOY;
-            $aDefRecurType[$row] = $type_defrecurtype;
-            //                echo "$row:::DOW = $aDefRecurDOW[$row], DOM=$aDefRecurDOM[$row], DOY=$adefRecurDOY[$row] type=$aDefRecurType[$row]\n\r\n<br>";
+  foreach ($eventTypes as $eventType) {
+      $aTypeID[] = $eventType->getId();
+      $aTypeName[] = $eventType->getName();
+      $aDefStartTime[] = $eventType->getDefStartTime()->format('h:i:s');
+      $aDefRecurDOW[] = $eventType->getDefRecurDOW();
+      $aDefRecurDOM[] = $eventType->getDefRecurDOM();
+      $aDefRecurDOY[] = $eventType->getDefRecurDOY();
+      $aDefRecurType[] = $eventType->getDefRecurType();
 
-            switch ($aDefRecurType[$row]) {
-                  case 'none':
-                    $recur[$row] = gettext('None');
-                    break;
-                  case 'weekly':
-                    $recur[$row] = gettext('Weekly on').' '.gettext($aDefRecurDOW[$row].'s');
-                    break;
-                  case 'monthly':
-                    $recur[$row] = gettext('Monthly on').' '.date('dS', mktime(0, 0, 0, 1, $aDefRecurDOM[$row], 2000));
-                    break;
-                  case 'yearly':
-                    $recur[$row] = gettext('Yearly on').' '.mb_substr($aDefRecurDOY[$row], 5);
-                    break;
-                  default:
-                    $recur[$row] = gettext('None');
-                }
-            // recur types = 1-DOW for weekly, 2-DOM for monthly, 3-DOY for yearly.
-            // repeats on DOW, DOM or DOY
-            //
-            // new - check the count definintions table for a list of count fields
-            $cSQL = "SELECT evctnm_countid, evctnm_countname FROM eventcountnames_evctnm WHERE evctnm_eventtypeid='$aTypeID[$row]' ORDER BY evctnm_countid";
-            $cOpps = RunQuery($cSQL);
-            $numCounts = mysqli_num_rows($cOpps);
-            $cCountName = '';
-            if ($numCounts) {
-                $cCountName = '';
-                for ($c = 1; $c <= $numCounts; $c++) {
-                    $cRow = mysqli_fetch_array($cOpps, MYSQLI_BOTH);
-                    extract($cRow);
-                    $cCountID[$c] = $evctnm_countid;
-                    $cCountName[$c] = $evctnm_countname;
-                }
-                $cCountList[$row] = implode(', ', $cCountName);
-            } else {
-                $cCountList[$row] = '';
-            }
-        }
+      
+      //echo "$row:::ID = $aTypeID[$row] DOW = $aDefRecurDOW[$row], DOM=$aDefRecurDOM[$row], DOY=$adefRecurDOY[$row] type=$aDefRecurType[$row]\n\r\n<br>";
+
+      switch ($eventType->getDefRecurType()) {
+            case 'none':
+              $recur[] = gettext('None');
+              break;
+            case 'weekly':
+              $recur[] = gettext('Weekly on').' '.gettext($eventType->getDefRecurDOW().'s');
+              break;
+            case 'monthly':
+              $recur[] = gettext('Monthly on').' '.date(SystemConfig::getValue("sTimeEnglish")?'dS':'d', mktime(0, 0, 0, 1, $eventType->getDefRecurDOM(), 2000));
+              break;
+            case 'yearly':
+              $recur[] = gettext('Yearly on').' '.$eventType->getDefRecurDOY()->format(SystemConfig::getValue("sDateFormatNoYear"));
+              break;
+            default:
+              $recur[] = gettext('None');
+          }
+      // recur types = 1-DOW for weekly, 2-DOM for monthly, 3-DOY for yearly.
+      // repeats on DOW, DOM or DOY
+      //
+      // new - check the count definintions table for a list of count fields
+      $eventCountNames = EventCountNameQuery::Create()
+                         ->filterByTypeId($eventType->getId())
+                         ->orderById()
+                         ->find();
+                         
+      $numCounts = count($eventCountNames);
+      
+      $cCountName = array();
+      if ($numCounts) {
+          foreach ($eventCountNames as $eventCountName) {
+              $cCountID[] = $eventCountName->getId();
+              $cCountName[] = $eventCountName->getName();
+          }
+          $cCountList[] = implode(', ', $cCountName);
+      } else {
+          $cCountList[] = '';
+      }
+  }
+        
+    /*print_r($aTypeID);
+    print_r($recur);
+    print_r($aDefStartTime);
+    print_r($cCountList);
+    print_r($cCountID);
+    print_r($cCountName);*/
+    
 
 if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
     ?>
@@ -186,7 +234,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                 <select name="newEvtRecurDOM" size="1" class='form-control pull-left' disabled>
                   <?php
                     for ($kk = 1; $kk <= 31; $kk++) {
-                        $DOM = date('dS', mktime(0, 0, 0, 1, $kk, 2000)); ?>
+                        $DOM = date((SystemConfig::getValue("sTimeEnglish"))?'dS':'d', mktime(0, 0, 0, 1, $kk, 2000)); ?>
                       <option class="SmallText" value=<?= $kk ?>><?= $DOM ?></option>
                       <?php
                     } ?>
@@ -198,7 +246,10 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                 <input type="radio" name="newEvtTypeRecur" value="yearly"/> <?= gettext('Yearly')?>
               </div>
               <div class='col-xs-7'>
-                <input type="text" disabled class="form-control" name="newEvtRecurDOY" maxlength="10" id="nSD" size="11" placeholder='YYYY-MM-DD' data-provide="datepicker" data-format='mm/dd/yyyy' />
+                <input type="text" disabled class="form-control date-picker" name="newEvtRecurDOY"
+                               value="<?= change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
+                               placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+
               </div>
             </div>
           </div>
@@ -209,7 +260,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
           </div>
           <div class='col-sm-6'>
             <select class="form-control" name="newEvtStartTime">
-              <?php createTimeDropdown(7, 22, 15, '', ''); ?>
+              <?php OutputUtils::createTimeDropdown(7, 22, 15, '', ''); ?>
             </select>
           </div>
         </div>
@@ -268,7 +319,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
         </thead>
         <tbody>
           <?php
-          for ($row = 1; $row <= $numRows; $row++) {
+          for ($row = 0; $row < $numRows; $row++) {
               ?>
             <tr>
               <td><?= $aTypeID[$row] ?></td>
@@ -333,7 +384,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
   $(document).ready(function () {
-//Added by @saulowulhynek to translation of datatable nav terms
+  //Added by @saulowulhynek to translation of datatable nav terms
     $('#eventNames').DataTable(window.CRM.plugin.dataTable);
   });
 </script>
