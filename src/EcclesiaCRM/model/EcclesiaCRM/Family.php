@@ -52,6 +52,38 @@ class Family extends BaseFamily implements iPhoto
 
         return implode(' ', $address);
     }
+    
+    public function getTinyAddress()
+    {
+        $adressStyleNotUS = SystemConfig::getValue('iPersonAddressStyle');
+        
+        $address = [];
+        if (!empty($this->getAddress1())) {
+            $tmp = $this->getAddress1();
+            if (!empty($this->getAddress2())) {
+                $tmp = $tmp.' '.$this->getAddress2();
+            }
+            array_push($address, $tmp);
+        }
+        
+        if (!empty($this->getZip()) && $adressStyleNotUS == 1) {
+            array_push($address, $this->getZip());
+        }
+
+        if (!empty($this->getCity())) {
+            array_push($address, $this->getCity().',');
+        }
+
+        if (!empty($this->getState())) {
+            array_push($address, $this->getState());
+        }
+
+        if (!empty($this->getZip()) && $adressStyleNotUS == 0) {
+            array_push($address, $this->getZip());
+        }
+
+        return implode(' ', $address);
+    }
 
     public function getViewURI()
     {
