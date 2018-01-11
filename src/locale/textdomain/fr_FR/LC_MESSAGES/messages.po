@@ -9414,3 +9414,8 @@ msgstr "Tout ajouter au panier"
 
 msgid "Remove All from Cart"
 msgstr "Tout supprimer du Panier"
+
+#: Roles
+msgid "Kids"
+msgstr "Enfants"
+

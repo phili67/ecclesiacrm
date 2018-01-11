@@ -8,6 +8,7 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\GroupQuery;
 
 $sundaySchoolService = new SundaySchoolService();
 
@@ -17,11 +18,10 @@ if (isset($_GET['groupId'])) {
     $iGroupId = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 }
 
-$sSQL = 'select * from group_grp where grp_ID ='.$iGroupId;
-$rsSundaySchoolClass = RunQuery($sSQL);
-while ($aRow = mysqli_fetch_array($rsSundaySchoolClass)) {
-    $iGroupName = $aRow['grp_Name'];
-}
+$ormSundaySchoolClass = GroupQuery::Create()
+                        ->findOneById ($iGroupId);
+
+$iGroupName = $ormSundaySchoolClass->getName();
 
 $birthDayMonthChartArray = [];
 foreach ($sundaySchoolService->getKidsBirthdayMonth($iGroupId) as $birthDayMonth => $kidsCount) {
@@ -114,7 +114,7 @@ require '../Include/Header.php';
     <a class="btn btn-app" href="../GroupView.php?GroupID=<?= $iGroupId ?>"><i
         class="fa fa-user-plus"></i><?= gettext('Add Students') ?> </a>
 
-	<a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
+  <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
   </div>
 </div>
 
