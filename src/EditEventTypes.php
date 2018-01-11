@@ -7,9 +7,10 @@
  *  copyright   : Copyright 2005 Todd Pillars
  *
  *  function    : List all Church Events
-  *
+ *
  *
  *  Modified by Stephen Shaffer, Oct 2006
+ *  Modified by Philippe Logel, Oct 2018-01-08 and copyright
  *  feature changes - added recurring defaults and customizable attendance count
  *  fields
  *
@@ -17,7 +18,15 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\EventTypes;
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\EventCountName;
+use EcclesiaCRM\EventCountNameQuery;
+
 
 if (!$_SESSION['bAdmin']) {
     header('Location: Menu.php');
@@ -33,54 +42,75 @@ $tyid = $_POST['EN_tyid'];
 
 if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
     $ctid = mb_substr($_POST['Action'], 7);
-    $sSQL = "DELETE FROM eventcountnames_evctnm WHERE evctnm_countid='$ctid' LIMIT 1";
-    RunQuery($sSQL);
+    $eventCountName = EventCountNameQuery::Create()
+                       ->findOneById($ctid);
+                                              
+    if (!empty($eventCountName)) {
+       $eventCountName->delete();
+    }
 } else {
-    switch ($_POST['Action']) {
-  case 'ADD':
-    $newCTName = $_POST['newCountName'];
-    $theID = $_POST['EN_tyid'];
-    $sSQL = "INSERT eventcountnames_evctnm (evctnm_eventtypeid, evctnm_countname) VALUES ('$theID','$newCTName')";
-    RunQuery($sSQL);
-    break;
+  switch ($_POST['Action']) {
+    case 'ADD':
+      $eventCountName = new EventCountName();
+      
+      $eventCountName->setName($_POST['newCountName']);
+      $eventCountName->setTypeId($_POST['EN_tyid']);
+      
+      $eventCountName->save();
 
-  case 'NAME':
-    $editing = 'FALSE';
-    $eName = $_POST['newEvtName'];
-    $theID = $_POST['EN_tyid'];
-    $sSQL = "UPDATE event_types SET type_name='".InputUtils::LegacyFilterInput($eName)."' WHERE type_id='".InputUtils::LegacyFilterInput($theID)."'";
-    RunQuery($sSQL);
-    $theID = '';
-    $_POST['Action'] = '';
-    break;
+      break;
+      
+    case 'NAME':
+      $editing = 'FALSE';
+      
+      $eventType = EventTypesQuery::Create()
+                       ->findOneById($_POST['EN_tyid']);
+                       
+      $eventType->setName(InputUtils::LegacyFilterInput($_POST['newEvtName']));
+      
+      $eventType->save();
+                       
+      $theID = '';
+      $_POST['Action'] = '';
+      break;
 
-  case 'TIME':
-    $editing = 'FALSE';
-    $eTime = $_POST['newEvtStartTime'];
-    $theID = $_POST['EN_tyid'];
-    $sSQL = "UPDATE event_types SET type_defstarttime='".InputUtils::LegacyFilterInput($eTime)."' WHERE type_id='".InputUtils::LegacyFilterInput($theID)."'";
-    RunQuery($sSQL);
-    $theID = '';
-    $_POST['Action'] = '';
-    break;
+    case 'TIME':
+      $editing = 'FALSE';
+      
+      $eventType = EventTypesQuery::Create()
+                       ->findOneById($_POST['EN_tyid']);
+                       
+      $eventType->setDefStartTime($_POST['newEvtStartTime']);
+      
+      $eventType->save();
+                  
+      $theID = '';
+      $_POST['Action'] = '';
+      break;
   }
 }
 
 // Get data for the form as it now exists.
-$sSQL = "SELECT * FROM event_types WHERE type_id='$tyid'";
-$rsOpps = RunQuery($sSQL);
-$aRow = mysqli_fetch_array($rsOpps, MYSQLI_BOTH);
-extract($aRow);
-$aTypeID = $type_id;
-$aTypeName = $type_name;
-$aDefStartTime = $type_defstarttime;
+// Get data for the form as it now exists.
+$eventType = EventTypesQuery::Create()
+                ->findOneById($tyid);
+                
+if (empty($eventType)) {
+  Redirect('EventNames.php'); // clear POST
+}
+
+$aTypeID = $eventType->getId();
+$aTypeName = $eventType->getName();
+$aDefStartTime = $eventType->getDefStartTime()->format('h:i:s');
     $aStartTimeTokens = explode(':', $aDefStartTime);
     $aEventStartHour = $aStartTimeTokens[0];
     $aEventStartMins = $aStartTimeTokens[1];
-$aDefRecurDOW = $type_defrecurDOW;
-$aDefRecurDOM = $type_defrecurDOM;
-$aDefRecurDOY = $type_defrecurDOY;
-$aDefRecurType = $type_defrecurtype;
+$aDefRecurDOW = $eventType->getDefRecurDOW();
+$aDefRecurDOM = $eventType->getDefRecurDOM();
+$aDefRecurDOY = (empty($eventType->getDefRecurDOY()))?"":$eventType->getDefRecurDOY()->format(SystemConfig::getValue("sDateFormatNoYear"));
+$aDefRecurType = $eventType->getDefRecurType();
+
+
 switch ($aDefRecurType) {
     case 'none':
        $recur = gettext('None');
@@ -92,28 +122,36 @@ switch ($aDefRecurType) {
        $recur = gettext('Monthly on').' '.date('dS', mktime(0, 0, 0, 1, $aDefRecurDOM, 2000));
        break;
     case 'yearly':
-       $recur = gettext('Yearly on').' '.mb_substr($aDefRecurDOY, 5);
+       $recur = gettext('Yearly on').' '.$aDefRecurDOY;
        break;
     default:
        $recur = gettext('None');
 }
 
-// Get a list of the attendance counts currently associated with thisevent type
-$cSQL = "SELECT evctnm_countid, evctnm_countname FROM eventcountnames_evctnm WHERE evctnm_eventtypeid='$aTypeID' ORDER BY evctnm_countid";
-$cOpps = RunQuery($cSQL);
-$numCounts = mysqli_num_rows($cOpps);
-$nr = $numCounts + 2;
-$cCountName = '';
-if ($numCounts) {
-    $cCountName = '';
-    for ($c = 1; $c <= $numCounts; $c++) {
-        $cRow = mysqli_fetch_array($cOpps, MYSQLI_BOTH);
-        extract($cRow);
-        $cCountID[$c] = $evctnm_countid;
-        $cCountName[$c] = $evctnm_countname;
-    }
-}
 
+// Get a list of the attendance counts currently associated with thisevent type
+$eventCountNames = EventCountNameQuery::Create()
+                       ->filterByTypeId($aTypeID)
+                       ->orderById()
+                       ->find();
+                       
+$numCounts = count($eventCountNames);
+
+$nr = $numCounts + 2;
+      
+$cCountName = array();
+$cCountID = array();
+
+if ($numCounts) {
+    foreach ($eventCountNames as $eventCountName) {
+        $cCountID[] = $eventCountName->getId();
+        $cCountName[] = $eventCountName->getName();
+    }
+}      
+
+/*print_r($cCountName);
+print_r($cCountID);*/
+          
 // Construct the form
 ?>
 <div class='box'>
@@ -146,7 +184,7 @@ if ($numCounts) {
     </td>
     <td class="TextColumn" width="50%">
       <select class='form-control' name="newEvtStartTime" size="1" onchange="javascript:$('#newEvtStartTimeSubmit').click()">
-        <?php createTimeDropdown(7, 18, 15, $aEventStartHour, $aEventStartMins); ?>
+        <?php OutputUtils::createTimeDropdown(7, 18, 15, $aEventStartHour, $aEventStartMins); ?>
       </select>
       <button class='hidden' type="submit" name="Action" value="TIME" id="newEvtStartTimeSubmit"></button>
     </td>
@@ -158,7 +196,7 @@ if ($numCounts) {
       </td>
     </tr>
     <?php
-    for ($c = 1; $c <= $numCounts; $c++) {
+    for ($c = 0; $c < $numCounts; $c++) {
         ?>
       <tr>
         <td class="TextColumn" width="35%"><?= $cCountName[$c] ?></td>
@@ -171,7 +209,7 @@ if ($numCounts) {
      ?>
       <tr>
         <td class="TextColumn" width="35%">
-           <input class='form-control' type="text" name="newCountName" length="20" placeholder="New Attendance Count" />
+           <input class='form-control' type="text" name="newCountName" length="20" placeholder="<?= gettext("New Attendance Count") ?>" />
         </td>
         <td class="TextColumn" width="50%">
            <button type="submit" name="Action" value="ADD" class="btn btn-default"><?= gettext('Add counter') ?></button>
