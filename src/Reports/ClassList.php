@@ -120,19 +120,19 @@ for ($i = 0; $i < $nGrps; $i++) {
         
         if ($lst_OptionName == 'Teacher') {
             $phone = $pdf->StripPhone($homePhone);
-            if ($teacherCount >= $teachersThatFit) {
+            /*if ($teacherCount >= $teachersThatFit) {
                 if (!$bFirstTeacher2) {
                     $teacherString2 .= ', ';
                 }
                 $teacherString2 .= $person->getFullName().' '.$phone;
                 $bFirstTeacher2 = false;
-            } else {
+            } else {*/
                 if (!$bFirstTeacher1) {
                     $teacherString1 .= ', ';
                 }
                 $teacherString1 .= $person->getFullName().' '.$phone;
                 $bFirstTeacher1 = false;
-            }
+            //}
             ++$teacherCount;
         } elseif ($lst_OptionName == gettext('Liaison')) {
             $liaisonString .= gettext('Liaison').':'.$person->getFullName().' '.$phone.' ';
@@ -144,7 +144,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     }
 
 
-    $pdf->SetFont('Times', 'B', 10);
+    $pdf->SetFont('Times', 'B', 9);
 
     $y = $yTeachers;
 
@@ -177,9 +177,12 @@ for ($i = 0; $i < $nGrps; $i++) {
         $studentName = ($person->getFullName());
         
         if ($studentName != $prevStudentName) {
-            $pdf->WriteAt($nameX, $y-2, $person->getLastName());
-            $pdf->WriteAt($nameX, $y+2.5, $person->getFirstName()." ".$person->getMiddleName());
+            $pdf->SetFont('Times', 'B', 10);
+            $pdf->WriteAt($nameX, $y-2, $person->getFirstName()." ".$person->getMiddleName());
+            $pdf->SetFont('Times', '', 8);
+            $pdf->WriteAt($nameX, $y+1.6, $person->getLastName());
 
+            $pdf->SetFont('Times', '', 10);
                 
             $imgName = $person->getPhoto()->getThumbnailURI();
             
@@ -229,9 +232,9 @@ for ($i = 0; $i < $nGrps; $i++) {
                 if (strlen($props)>0) {
                     $props = " !!! ".$props;
                     
-                    $pdf->SetFont('Times', 'B', 10);
-                    $pdf->WriteAt($nameX, $y+3.5, $props);
-                    $pdf->SetFont('Times', '', 12);
+                    $pdf->SetFont('Times', '', 6);
+                    $pdf->WriteAt($nameX, $y+3.9, $props);
+                    $pdf->SetFont('Times', '', 10);
                 }
             }
         }
@@ -258,11 +261,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 
         $addrStr = "";
         if (!empty($family)) {
-            $addrStr = $family->getAddress1();
-            if ($fam_Address2 != '') {
-                $addrStr .= ' '.$family->getAddress2();
-            }
-            $addrStr .= ', '.$family->getCity().', '.$family->getState().'  '.$family->getZip();
+            $addrStr = $family->getTinyAddress();
         }
         $pdf->WriteAt($parentsX, $y, $addrStr);
 

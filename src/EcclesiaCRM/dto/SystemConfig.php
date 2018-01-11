@@ -56,7 +56,16 @@ class SystemConfig
             ]
         ];
     }
-
+    
+    public static function getAddressChoices()
+    {
+        return [
+            "Choices" => [
+                gettext("Address city state zip").":0",
+                gettext("Address zip city state").":1"
+            ]
+        ];
+    }    
 
     private static function buildConfigs()
   {
@@ -182,6 +191,7 @@ class SystemConfig
         "sDepositSlipType" => new ConfigItem(2001, "sDepositSlipType", "choice", "QBDT", gettext("Deposit ticket type.  QBDT - Quickbooks"), "",'{"Choices":["QBDT"]}'),
         "bAllowEmptyLastName" => new ConfigItem(2010, "bAllowEmptyLastName", "boolean", "0", gettext("Set true to allow empty lastname in Person Editor.  Set false to validate last name and inherit from family when left empty.")),
         "iPersonNameStyle" => new ConfigItem(2020, "iPersonNameStyle", "choice", "4", "","", json_encode(SystemConfig::getNameChoices())),
+        "iPersonAddressStyle" => new ConfigItem(2048, "iPersonAddressStyle", "choice", "", gettext("Set the export address)"), "",json_encode(SystemConfig::getAddressChoices())),
         "bDisplayBillCounts" => new ConfigItem(2002, "bDisplayBillCounts", "boolean", "1", gettext("Display bill counts on deposit slip")),
         "sCloudURL" => new ConfigItem(2003, "sCloudURL", "text", "http://demo.ecclesiacrm.com/", gettext("EcclesiaCRM Cloud Access URL")),
         "sNexmoAPIKey" => new ConfigItem(2012, "sNexmoAPIKey", "text", "", gettext("Nexmo SMS API Key")),
@@ -211,7 +221,7 @@ class SystemConfig
         "bSearchIncludeGroupsMax" => new ConfigItem(2030, "bSearchIncludeGroupsMax", "text", "15", gettext("Maximum number of Groups")),
         "bSearchIncludeDepositsMax" => new ConfigItem(2031, "bSearchIncludeDepositsMax", "text", "5", gettext("Maximum number of Deposits")),
         "bSearchIncludePaymentsMax" => new ConfigItem(2032, "bSearchIncludePaymentsMax", "text", "5", gettext("Maximum number of Payments")),
-        "bSearchIncludeAddressesMax" => new ConfigItem(20233, "bSearchIncludeAddressesMax", "text", "15", gettext("Maximum number of Addresses")),
+        "bSearchIncludeAddressesMax" => new ConfigItem(2033, "bSearchIncludeAddressesMax", "text", "15", gettext("Maximum number of Addresses")),
         "iPhotoHeight" => new ConfigItem(2034, "iPhotoHeight", "number", "400", gettext("Height to use for images")),
         "iPhotoWidth" => new ConfigItem(2035, "iPhotoWidth", "number", "400", gettext("Width to use for images")),
         "iThumbnailWidth" => new ConfigItem(2036, "iPhotoWidth", "number", "100", gettext("Width to use for thumbnails")),
@@ -235,7 +245,7 @@ class SystemConfig
       gettext('Church Information') =>["sChurchName","sChurchAddress","sChurchCity","sChurchState","sChurchZip","sChurchCountry","sChurchPhone","sChurchEmail","sHomeAreaCode","sTimeZone","iChurchLatitude","iChurchLongitude", "sChurchWebSite","sChurchFB", "sChurchTwitter"],
       gettext('User setup') => ["iMinPasswordLength","iMinPasswordChange","iMaxFailedLogins","iSessionTimeout","aDisallowedPasswords","bEnableLostPassword"],
       gettext('Email Setup')  => ["sSMTPHost","bSMTPAuth","sSMTPUser","sSMTPPass", "iSMTPTimeout","sToEmailAddress", "bPHPMailerAutoTLS","sPHPMailerSMTPSecure"],
-      gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","sDefaultState","sDefaultCountry","bShowFamilyData","bHidePersonAddress","bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle","sNewPersonNotificationRecipientIDs"],
+      gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","sDefaultState","sDefaultCountry","bShowFamilyData","bHidePersonAddress","bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle","iPersonAddressStyle","sNewPersonNotificationRecipientIDs"],
       gettext('Map Settings')  => ["sGeoCoderProvider","sGoogleMapKey","sBingMapKey","sGMapIcons", "iMapZoom","sISTusername","sISTpassword"],
       gettext('Report Settings')  => ["sQBDTSettings","leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sTaxSigner","sReminder1","sReminderSigner","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       gettext('Financial Settings') => ["sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
