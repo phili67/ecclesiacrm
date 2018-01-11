@@ -268,7 +268,9 @@ for ($i = 0; $i < $nGrps; $i++) {
         if (!empty($family)) {
             $addrStr = $family->getTinyAddress();
         }
+        $pdf->SetFont('Times', '', 8);
         $pdf->WriteAt($parentsX, $y, $addrStr);
+        $pdf->SetFont('Times', '', 10);
 
         $prevStudentName = $studentName;
         $y += 1.5 * $yIncrement;
