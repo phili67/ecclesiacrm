@@ -9407,3 +9407,10 @@ msgstr "Vous ne pouvez supprimer un administrateur via le panier"
 #: EditEventTypes.php
 msgid "New Attendance Count"
 msgstr "Nouveau compte de présence"
+
+#: SelectList.php
+msgid "Add All to Cart"
+msgstr "Tout ajouter au panier"
+
+msgid "Remove All from Cart"
+msgstr "Tout supprimer du Panier"
