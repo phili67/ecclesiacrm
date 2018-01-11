@@ -423,7 +423,7 @@
           {
             options.title = i18next.t("Select Group");
             options.message +='<span style="color: red">'+i18next.t('Please select target group for members')+':</span>\
-                  <select name="targetGroupSelection" id="targetGroupSelection" class="form-control"></select>';
+                  <select name="targetGroupSelection" id="targetGroupSelection" class="form-control" style="width: 100%"></select>';
             options.buttons.confirm.callback = function(){
                selectionCallback({"GroupID": $("#targetGroupSelection option:selected").val()});
             };
