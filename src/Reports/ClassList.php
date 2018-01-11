@@ -73,6 +73,8 @@ for ($i = 0; $i < $nGrps; $i++) {
     $yIncrement = 4;
 
     $pdf->SetFont('Times', 'B', 16);
+    
+    
 
     $pdf->WriteAt($nameX, $yTitle, ($group->getName().' - '));
 
@@ -163,6 +165,9 @@ for ($i = 0; $i < $nGrps; $i++) {
     $prevStudentName = '';
 
     $numMembers = count($students);
+    
+    
+    $pdf->WriteAt($nameX, $yTitle-7, gettext("Students")." - (".$numMembers.")                  ".gettext("Teachers")." - (".$teacherCount.")");
 
     for ($row = 0; $row < $numMembers; $row++) {
         $student = $students[$row];

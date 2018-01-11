@@ -71,7 +71,7 @@ class Family extends BaseFamily implements iPhoto
         }
 
         if (!empty($this->getCity())) {
-            array_push($address, $this->getCity().',');
+            array_push($address, $this->getCity());
         }
 
         if (!empty($this->getState())) {
@@ -79,7 +79,7 @@ class Family extends BaseFamily implements iPhoto
         }
 
         if (!empty($this->getZip()) && $adressStyleNotUS == 0) {
-            array_push($address, $this->getZip());
+            array_push($address, ",   ".$this->getZip());
         }
 
         return implode(' ', $address);

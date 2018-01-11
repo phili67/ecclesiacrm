@@ -38,7 +38,8 @@ class PDF_PhotoBook extends ChurchInfoReport
     private $personMarginR;
     private $personImageHeight;
     private $personImageWidth;
-    private $fontSize;
+    private $fontSizeLastName;
+    private $fontSizeFirstName;
   
     // Constructor
     public function __construct($iFYID)
@@ -53,7 +54,8 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->personImageHeight = 30;
         $this->personImageWidth = 30;
         $this->FYIDString = MakeFYString($iFYID);
-        $this->fontSize = 8;
+        $this->fontSizeLastName = 8;
+        $this->fontSizeFirstName = 8;
     }
     
     public function drawGroup($iGroupID)
@@ -68,9 +70,14 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->drawGroupMebersByRole("Student", gettext("Students"));
     }
     
-    public function setFontSize($ifontSize)
+    public function setFontSizeLastName($ifontSize)
     {
-      $this->fontSize = $ifontSize;
+      $this->fontSizeLastName = $ifontSize;
+    }
+
+    public function setFontSizeFirstName($ifontSize)
+    {
+      $this->fontSizeFirstName = $ifontSize;
     }
     
     private function drawPageHeader($title)
@@ -91,10 +98,11 @@ class PDF_PhotoBook extends ChurchInfoReport
    
     # Draw a bounding box around the image placeholder centered around the name text.
         $this->currentX += $this->personMarginL;
-        $this->SetFont('Times', '', $this->fontSize);
+        $this->SetFont('Times', '', $this->fontSizeLastName);
         $lastNameWidth = $this->GetStringWidth($lastname);
         $lastNameOffset = ($lastNameWidth/2) - ($this->personImageWidth /2)+2;
         
+        $this->SetFont('Times', 'B', $this->fontSizeFirstName);
         $firstNameWidth = $this->GetStringWidth($firstname);
         $firstNameOffset = ($firstNameWidth/2) - ($this->personImageWidth /2)+2;
 
@@ -112,19 +120,21 @@ class PDF_PhotoBook extends ChurchInfoReport
         }
      
         # move the cursor, and draw the teacher name
-        $this->currentX -= $lastNameOffset;
-        $this->currentY += $this->personImageHeight + 2;
-        $this->WriteAt($this->currentX, $this->currentY, $lastname);
-        
-        $this->currentX += $lastNameOffset;
-        $this->currentY -= $this->personImageHeight + 2;
-        
-        # Now we draw the firstName middleName
         $this->currentX -= $firstNameOffset;
-        $this->currentY += $this->personImageHeight + 6;
+        $this->currentY += $this->personImageHeight + 2;
+        $this->SetFont('Times', 'B', $this->fontSizeFirstName);
         $this->WriteAt($this->currentX, $this->currentY, $firstname);
         
         $this->currentX += $firstNameOffset;
+        $this->currentY -= $this->personImageHeight + 2;
+        
+        # Now we draw the firstName middleName
+        $this->currentX -= $lastNameOffset;
+        $this->currentY += $this->personImageHeight + 6;
+        $this->SetFont('Times', '', $this->fontSizeLastName);
+        $this->WriteAt($this->currentX, $this->currentY, $lastname);
+        
+        $this->currentX += $lastNameOffset;
         $this->currentY -= $this->personImageHeight + 6;
 
     
@@ -165,7 +175,9 @@ class PDF_PhotoBook extends ChurchInfoReport
 // Instantiate the directory class and build the report.
 $pdf = new PDF_PhotoBook($iFYID);
 
-$pdf->setFontSize(8);// we can fix the font size of the output
+$pdf->setFontSizeLastName(7);// we can fix the font size of the output
+$pdf->setFontSizeFirstName(9);// we can fix the font size of the output
+
 
 foreach ($aGrp as $groupID) {
     $pdf->drawGroup($groupID);
