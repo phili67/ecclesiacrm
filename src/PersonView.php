@@ -437,7 +437,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <li class="time-label">
                     <span class="bg-red">
                       <?php $now = new DateTime('');
-                      echo $now->format('Y-m-d') ?>
+                      echo $now->format(SystemConfig::getValue('sDateFormatLong')) ?>
                     </span>
             </li>
             <!-- /.timeline-label -->
@@ -879,7 +879,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <!-- note time label -->
             <li class="time-label">
               <span class="bg-yellow">
-                <?php echo date_create()->format('Y-m-d') ?>
+                <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
               </span>
             </li>
             <!-- /.note-label -->
