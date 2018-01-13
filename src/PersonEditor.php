@@ -83,7 +83,6 @@ $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByOrder()
                      ->find();
                      
-                     
 
 $numCustomFields = count($ormCustomFields);
 
@@ -605,16 +604,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $bTwitter =  strlen($sTwitter);
         $bLinkedIn = strlen($sLinkedIn);
 
-        $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$iPersonID;
-        $rsCustomData = RunQuery($sSQL);
-        $aCustomData = [];
-        if (mysqli_num_rows($rsCustomData) >= 1) {
-            $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
-        }
-        
-         // This can't be done in ORM
-        //print_r($aCustomData);
-        
         $aCustomData = [];        
         
         $aCustomData[] = $iPersonID;
