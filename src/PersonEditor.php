@@ -27,6 +27,8 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\PersonCustom;
+use EcclesiaCRM\PersonCustomMasterQuery;
 
 //Set the page title
 $sPageTitle = gettext('Person Editor');
@@ -77,10 +79,12 @@ foreach ($listOptions as $listOption) {
     $aSecurityType[$listOption->getOptionId()] = $listOption->getOptionName();
 }
 
-// Get the list of custom person fields : I leave you this in exercice
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
+$ormCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByOrder()
+                     ->find();
+                     
+
+$numCustomFields = count($ormCustomFields);
 
 //Initialize the error flag
 $bErrorFlag = false;
@@ -296,17 +300,18 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
     // Validate all the custom fields
     $aCustomData = [];
-    while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-        extract($rowCustomField);
+    
+    foreach ($ormCustomFields as $rowCustomField) {
+        if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
+            $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getId()]);
+            
+            //echo $rowCustomField->getId()." ".$currentFieldData;
 
-        if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
-            $currentFieldData = InputUtils::LegacyFilterInput($_POST[$custom_Field]);
-
-            $bErrorFlag |= !validateCustomField($type_ID, $currentFieldData, $custom_Field, $aCustomErrors);
+            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getId(), $aCustomErrors);
 
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
-            $aCustomData[$custom_Field] = $currentFieldData;
-        }
+            $aCustomData[$rowCustomField->getId()] = $currentFieldData;
+        }      
     }
 
     //If no errors, then let's update...
@@ -412,6 +417,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setLinkedIn($sLinkedIn);
             
             $person->save();
+            
+            $iPersonID = $person->getId();
 
             $bGetKeyBack = true;
 
@@ -478,12 +485,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // the Part with note is no more useful :PL
         // If this is a new person, get the key back and insert a blank row into the person_custom table
         if ($bGetKeyBack) {
-            $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
-            $rsPersonID = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsPersonID));
-            $sSQL = "INSERT INTO person_custom (per_ID) VALUES ('".$iPersonID."')";
-            RunQuery($sSQL);
-              
+            $personCustom = new PersonCustom();
+            
+            $personCustom->setPerId($iPersonID);
+            
+            $personCustom->save();
+                          
             if (!empty(SystemConfig::getValue("sNewPersonNotificationRecipientIDs"))) {
                 $person = PersonQuery::create()->findOneByID($iPersonID);
                 $NotificationEmail = new NewPersonOrFamilyEmail($person);
@@ -498,16 +505,15 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
         // Update the custom person fields.
         if ($numCustomFields > 0) {
-            mysqli_data_seek($rsCustomFields, 0);
             $sSQL = '';
-            while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                extract($rowCustomField);
-                if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
-                    $currentFieldData = trim($aCustomData[$custom_Field]);
-                    sqlCustomField($sSQL, $type_ID, $currentFieldData, $custom_Field, $sPhoneCountry);
-                }
-            }
 
+            foreach ($ormCustomFields as $rowCustomField) {
+              if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
+                    $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
+                    sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getId(), $sPhoneCountry);
+                }              
+            }
+        
             // chop off the last 2 characters (comma and space) added in the last while loop iteration.
             if ($sSQL > '') {
                 $sSQL = 'REPLACE INTO person_custom SET '.$sSQL.' per_ID = '.$iPersonID;
@@ -598,25 +604,23 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $bTwitter =  strlen($sTwitter);
         $bLinkedIn = strlen($sLinkedIn);
 
-        $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$iPersonID;
-        $rsCustomData = RunQuery($sSQL);
-        $aCustomData = [];
-        if (mysqli_num_rows($rsCustomData) >= 1) {
-            $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
+        $aCustomData = [];        
+        
+        $aCustomData[] = $iPersonID;
+        $aCustomData['per_ID'] = $iPersonID;
+                
+        foreach ($ormCustomFields as $ormCustomField) {
+          //echo $ormCustomField->getId();
+          $personCustom = PersonCustomQuery::Create()
+                          ->withcolumn($ormCustomField->getId())
+                          ->findOneByPerId($iPersonID);
+                          
+          $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getId());
+          $aCustomData[$ormCustomField->getId()] = $personCustom->getVirtualColumn($ormCustomField->getId());
         }
         
-        /* // This can't be done in ORM
-        print_r($aCustomData);
-
-        $aCustomData = [];
-
-        $personCustom = PersonCustomQuery::Create()
-                          ->findByPerId($iPersonID)
-                          ->toArray();
-
-        print_r($personCustom[0]);
-
-        exit;*/
+         
+        //print_r($aCustomData);        
     } else {
         //Adding....
         //Set defaults
@@ -1368,23 +1372,21 @@ require 'Include/Header.php';
         </div><!-- /.box-header -->
         <div class="box-body">
             <?php if ($numCustomFields > 0) {
-                                mysqli_data_seek($rsCustomFields, 0);
 
                                 $cnt = 0;
-
-                                while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                                    extract($rowCustomField);
+                                
+                                foreach ($ormCustomFields as $rowCustomField) {
     
-                                    if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
+                                    if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
                                         if ($cnt == 0) {
                                             echo "<div class='row'>";
                                         }
         
 
-                                        echo "<div class=\"form-group col-md-4\"><label>".$custom_Name.'</label>';
+                                        echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label>';
 
-                                        if (array_key_exists($custom_Field, $aCustomData)) {
-                                            $currentFieldData = trim($aCustomData[$custom_Field]);
+                                        if (array_key_exists($rowCustomField->getId(), $aCustomData)) {
+                                            $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
                                         } else {
                                             $currentFieldData = '';
                                         }
@@ -1393,9 +1395,9 @@ require 'Include/Header.php';
                                             $custom_Special = $sPhoneCountry;
                                         }
 
-                                        formCustomField($type_ID, $custom_Field, $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
-                                        if (isset($aCustomErrors[$custom_Field])) {
-                                            echo '<span style="color: red; ">'.$aCustomErrors[$custom_Field].'</span>';
+                                        formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
+                                        if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
+                                            echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
                                         }
                                         echo '</div>';
         
@@ -1406,7 +1408,7 @@ require 'Include/Header.php';
                                             echo '</div>';
                                         }
                                     }
-                                }
+                                }                            
 
                                 if ($cnt) {
                                     echo '</div>';
