@@ -126,7 +126,7 @@ class SystemConfig
         "sPhoneFormatWithExt" => new ConfigItem(101, "sPhoneFormatWithExt", "text", "(999) 999-9999 x99999"),
         "sPhoneFormatCell" => new ConfigItem(111, "sPhoneFormatCell", "text", "(999) 999-9999"),
         "sDateFormatLong" => new ConfigItem(102, "sDateFormatLong", "text", "m/d/Y"),
-        "sTimeFormat" => new ConfigItem(112, "sTimeFormat", "text", "%l:%M %p",gettext("This part is important for the time Line date and time : in French %H:%M")),
+        "sTimeFormat" => new ConfigItem(112, "sTimeFormat", "text", "%l:%M %p",gettext("This part is important for the time Line date and time")),
         "sTimeEnglish" => new ConfigItem(1051, "sTimeEnglish", "boolean", "1",gettext("Set the time in English format or 24 hours.")),
         "sDateFormatNoYear" => new ConfigItem(103, "sDateFormatNoYear", "text", "m/d"),
         "sDateFormatShort" => new ConfigItem(104, "sDateFormatShort", "text", "j/m/y"),
