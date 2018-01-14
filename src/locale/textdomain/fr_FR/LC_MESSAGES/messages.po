@@ -9269,6 +9269,15 @@ msgstr "Activer automatiquement le cryptage SMTP que le serveur relai peut utili
 msgid "Set the encryption system to use - ssl (deprecated) or tls"
 msgstr "Activer le système de cryptage pour utiliser SSL (deprecated) ou TLS"
 
+msgid "Dashboard Service dynamic asynchronous refresh interval, default 60 second"
+msgstr "Service de gestion dynamique des événements sur la page accueil, par défaut 60 secondes"
+
+msgid "This part is important for the time Line date and time : in French %H:%M"
+msgstr "Cette partie est importante pour la gestion du time line : mettre %H:%M pour le temps français"
+
+msgid "Set the time in English format or 24 hours."
+msgstr "Permet de fixer les heures sur 24 heures."
+
 #: Include/Header.php:121
 msgid "Lock"
 msgstr "Verrouiller la session"
@@ -9419,3 +9428,9 @@ msgstr "Tout supprimer du Panier"
 msgid "Kids"
 msgstr "Enfants"
 
+#: SystemConfig.php
+msgid "Address city state zip"
+msgstr "Adresse ville région code postal"
+
+msgid "Address zip city state"
+msgstr "Adresse code postal ville région"
