@@ -5,6 +5,7 @@
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
+ *  Copyright   : 2018 Philippe Logel
   *
  ******************************************************************************/
 
@@ -15,7 +16,7 @@ require 'Include/Functions.php';
 //Set the page title
 $sPageTitle = gettext('Query Listing');
 
-$sSQL = 'SELECT * FROM query_qry ORDER BY qry_Type_ID, qry_Name';
+$sSQL = 'SELECT * FROM query_qry LEFT JOIN query_type ON query_qry.qry_Type_ID = query_type.qry_type_id ORDER BY query_qry.qry_Type_ID, query_qry.qry_Name';
 $rsQueries = RunQuery($sSQL);
 
 $aFinanceQueries = explode(',', $aFinanceQueries);
@@ -44,34 +45,31 @@ require 'Include/Header.php';
                     extract($aRow);
                     
                     if ($qry_Type_ID != $query_type) {
-                      // We search the name of the type
-                      $sSQL = 'SELECT qry_type_Category FROM query_type WHERE qry_type_id='.$qry_Type_ID;
-                      $rsQueryTypes = RunQuery($sSQL);
-                      
-                      $row = mysqli_fetch_row($rsQueryTypes);
-                      
-                      if ($first_time == false) {
-                        echo "</ul></li>";
+                      if ($first_time == false) { ?>
+                        </ul></li>
+                      <?php
                       }
-                      
-                      echo "<li><b>".mb_convert_case(gettext($row[0]), MB_CASE_UPPER, "UTF-8")."</b><br>";
-                      echo "<ul>";
-                      
+                      ?>
+                      <li><b><?= mb_convert_case(gettext($qry_type_Category), MB_CASE_UPPER, "UTF-8") ?></b><br>
+                      <ul>
+                      <?php
                       $query_type = $qry_Type_ID;
-                      
                       $first_time = false;
                     }
-                    
-                    echo "<li>";
+                    ?>
+                    <li>
+                    <?php
                     // Filter out finance-related queries if the user doesn't have finance permissions
                     if ($_SESSION['bFinance'] || !in_array($qry_ID, $aFinanceQueries)) {
                         // Display the query name and description
-                        echo '<a href="QueryView.php?QueryID='.$qry_ID.'">'.gettext($qry_Name).'</a>:';
-                        echo '<br>';
-                        echo gettext($qry_Description);
+                        ?>
+                        <a href="QueryView.php?QueryID=<?= $qry_ID ?>"><?= gettext($qry_Name) ?></a>:
+                        <br>
+                        <?= gettext($qry_Description) ?>
+                    <?php
                     }
-                    echo "</li>";
-                ?>
+                    ?>
+                    </li>
             <?php } ?>
         </ul>
     </div>
