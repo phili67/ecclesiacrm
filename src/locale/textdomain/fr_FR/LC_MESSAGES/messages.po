@@ -6229,7 +6229,7 @@ msgstr "Contribution familiale par année fiscale"
 
 #: query_qry.php:20 query_qry.php:59
 msgid "CustomSearch"
-msgstr "Recherche personnalisé"
+msgstr "Recherche personnalisée"
 
 #: query_qry.php:21 query_qry.php:60
 msgid "Returns each family and the total number of people assigned to them."
@@ -9434,3 +9434,14 @@ msgstr "Adresse ville région code postal"
 
 msgid "Address zip city state"
 msgstr "Adresse code postal ville région"
+
+#: QueryList.php
+msgid "Pledge"
+msgstr "Engagement financier"
+
+msgid "Persons not assigned to a group"
+msgstr "Personnes non affectées à un groupe"
+
+msgid "Users"
+msgstr "Utilisateurs"
+
