@@ -8657,12 +8657,12 @@ msgstr "Êtes vous sûr de vouloir retirer cette propriété ?"
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:40
 #: EcclesiaCRM/Service/DashboardService.php:76
 msgid "Head of Household"
-msgstr "Chef de famille"
+msgstr "Représentant Famille"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:43
 #: EcclesiaCRM/Service/DashboardService.php:79
 msgid "Spouse"
-msgstr "Épou(x)se"
+msgstr "Conjoint(e)"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:46
 #: EcclesiaCRM/Service/DashboardService.php:82
@@ -9444,4 +9444,5 @@ msgstr "Personnes non affectées à un groupe"
 
 msgid "Users"
 msgstr "Utilisateurs"
+
 

@@ -373,10 +373,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                     <?php
                                     $famRole = $person->getFamilyRoleName();
                     $labelColor = 'label-default';
-                    if ($famRole == 'Head of Household') {
-                    } elseif ($famRole == 'Spouse') {
+                    if ($famRole == gettext('Head of Household')) {
+                    } elseif ($famRole == gettext('Spouse')) {
                         $labelColor = 'label-info';
-                    } elseif ($famRole == 'Child') {
+                    } elseif ($famRole == gettext('Child')) {
                         $labelColor = 'label-warning';
                     } ?>
                                     <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
