@@ -331,7 +331,7 @@ function getQueryFormInput($queryParameters)
             $rsParameterOptions = RunQuery($qrp_OptionSQL);
 
             $input .= '<select name="'.$qrp_Alias.'" class="form-control">';
-            $input .= '<option disabled selected value> -- select an option -- </option>';
+            $input .= '<option disabled selected value> -- '.gettext('select an option').' -- </option>';
 
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
