@@ -5,6 +5,9 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Note;
+use EcclesiaCRM\ListOption;
+use EcclesiaCRM\ListOptionQuery;
+
 $app->group('/groups', function () {
     $this->get('/', function () {        
         echo GroupQuery::create()->find()->toJSON();
@@ -55,7 +58,13 @@ $app->group('/groups', function () {
         $group->setName($input->groupName);
         $group->setType($input->groupType);
         $group->setDescription($input->description);
+        
+        if ($input->groupType == 4) {
+            $group->makeSundaySchool();
+        }
+        
         $group->save();
+        
         echo $group->toJSON();
     });
     $this->get('/{groupID:[0-9]+}', function ($request, $response, $args) {

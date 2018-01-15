@@ -84,8 +84,8 @@ $("document").ready(function()
       "groupName": $("input[name='Name']").val(),
       "description": $("textarea[name='Description']").val(),
       "groupType": $("select[name='GroupType'] option:selected").val()
-
     };
+    
     $.ajax({
       method: "POST",
       url: window.CRM.root + "/api/groups/" + groupID,
