@@ -25,6 +25,26 @@ class Group extends BaseGroup
     public function makeSundaySchool()
     {
         $this->setType($this->typeSundaySchool);
+        
+        // we fix first the role
+        $defaultRole = 2;
+        $newListID = ListOptionQuery::create()->withColumn('MAX(ListOption.Id)', 'newListId')->find()->getColumnValues('newListId')[0] + 1;
+        $this->setRoleListId($newListID);
+        $this->setDefaultRole($defaultRole);
+
+        // then we add the role        
+        $optionList = ['Teacher', 'Student'];
+
+        $i = 1;
+        foreach ($optionList as $option) {
+            $listOption = new ListOption();
+            $listOption->setId($this->getRoleListId());
+            $listOption->setOptionId($i);
+            $listOption->setOptionSequence($i);
+            $listOption->setOptionName($option);
+            $listOption->save();
+            $i++;
+        }
     }
 
     public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
