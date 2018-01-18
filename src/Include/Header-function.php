@@ -131,6 +131,7 @@ function Header_body_scripts()
             maxUploadSize: "<?= $systemService->getMaxUploadFileSize(true) ?>",
             maxUploadSizeBytes: "<?= $systemService->getMaxUploadFileSize(false) ?>",
             datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",
+            timeEnglish:"<?= (SystemConfig::getValue("sTimeEnglish"))?"true":"false" ?>",
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:"<?= $_SESSION['bShowTooltip'] ?>",
             plugin: {

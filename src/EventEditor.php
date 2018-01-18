@@ -25,6 +25,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 $sPageTitle = gettext('Church Event Editor');
 
@@ -114,132 +115,132 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
     // definitions, recurrance type, etc.
     //
     switch ($sDefRecurType) {
-    case 'none':
-      $sEventStartDate = date('Y-m-d');
-      $sEventEndDate = $sEventStartDate;
-      $aStartTimeTokens = explode(':', $sDefStartTime);
-      $iEventStartHour = $aStartTimeTokens[0];
-      $iEventStartMins = $aStartTimeTokens[1];
-      $iEventEndHour = $aStartTimeTokens[0] + 1;
-      $iEventEndMins = $aStartTimeTokens[1];
-      break;
+      case 'none':
+        $sEventStartDate = date('Y-m-d');
+        $sEventEndDate = $sEventStartDate;
+        $aStartTimeTokens = explode(':', $sDefStartTime);
+        $iEventStartHour = $aStartTimeTokens[0];
+        $iEventStartMins = $aStartTimeTokens[1];
+        $iEventEndHour = $aStartTimeTokens[0] + 1;
+        $iEventEndMins = $aStartTimeTokens[1];
+        break;
 
-    case 'weekly':
-    // check for the last occurance of this type_id in the events table and
-    // create a new event based on this date reference
-    //
-      $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
-      $ecOpps = RunQuery($sSQL);
-      $numRows = mysqli_num_rows($ecOpps);
-      if ($numRows > 0) {
-          // use the most recent event if it exists
-          $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
-          extract($ecRow);
-          $aStartTokens = explode(' ', $event_start);
-          $ceEventStartDate = $aStartTokens[0];
-          $sEventStartDate = date('Y-m-d', strtotime("$ceEventStartDate +1 week"));
+      case 'weekly':
+      // check for the last occurance of this type_id in the events table and
+      // create a new event based on this date reference
+      //
+        $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
+        $ecOpps = RunQuery($sSQL);
+        $numRows = mysqli_num_rows($ecOpps);
+        if ($numRows > 0) {
+            // use the most recent event if it exists
+            $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
+            extract($ecRow);
+            $aStartTokens = explode(' ', $event_start);
+            $ceEventStartDate = $aStartTokens[0];
+            $sEventStartDate = date('Y-m-d', strtotime("$ceEventStartDate +1 week"));
 
-          $aEventStartTimeTokens = explode(':', $sDefStartTime);
-          $iEventStartHour = $aEventStartTimeTokens[0];
-          $iEventStartMins = $aEventStartTimeTokens[1];
+            $aEventStartTimeTokens = explode(':', $sDefStartTime);
+            $iEventStartHour = $aEventStartTimeTokens[0];
+            $iEventStartMins = $aEventStartTimeTokens[1];
 
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $iEventStartHour + 1;
-          $iEventEndMins = $iEventStartMins;
-      } else {
-          // use the event type definition
-          $sEventStartDate = date('Y-m-d', strtotime("last $iDefRecurDOW"));
-          $aStartTimeTokens = explode(':', $sDefStartTime);
-          $iEventStartHour = $aStartTimeTokens[0];
-          $iEventStartMins = $aStartTimeTokens[1];
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $aStartTimeTokens[0] + 1;
-          $iEventEndMins = $aStartTimeTokens[1];
-      }
-      break;
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $iEventStartHour + 1;
+            $iEventEndMins = $iEventStartMins;
+        } else {
+            // use the event type definition
+            $sEventStartDate = date('Y-m-d', strtotime("last $iDefRecurDOW"));
+            $aStartTimeTokens = explode(':', $sDefStartTime);
+            $iEventStartHour = $aStartTimeTokens[0];
+            $iEventStartMins = $aStartTimeTokens[1];
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $aStartTimeTokens[0] + 1;
+            $iEventEndMins = $aStartTimeTokens[1];
+        }
+        break;
 
-    case 'monthly':
-    // check for the last occurance of this type_id in the events table and
-    // create a new event based on this date reference
-    //
-      $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
-      $ecOpps = RunQuery($sSQL);
-      $numRows = mysqli_num_rows($ecOpps);
-      if ($numRows > 0) {
-          // use the most recent event if it exists
-          $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
-          extract($ecRow);
-          $aStartTokens = explode(' ', $event_start);
-          $ceEventStartDate = $aStartTokens[0];
-          $ceDMY = explode('-', $aStartTokens[0]);
-          $aEventStartTimeTokens = explode(':', $ceStartTokens[1]);
+      case 'monthly':
+      // check for the last occurance of this type_id in the events table and
+      // create a new event based on this date reference
+      //
+        $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
+        $ecOpps = RunQuery($sSQL);
+        $numRows = mysqli_num_rows($ecOpps);
+        if ($numRows > 0) {
+            // use the most recent event if it exists
+            $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
+            extract($ecRow);
+            $aStartTokens = explode(' ', $event_start);
+            $ceEventStartDate = $aStartTokens[0];
+            $ceDMY = explode('-', $aStartTokens[0]);
+            $aEventStartTimeTokens = explode(':', $ceStartTokens[1]);
 
-          $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $ceDMY[1] + 1, $ceDMY[2], $ceDMY[0]));
-          $iEventStartHour = $aEventStartTimeTokens[0];
-          $iEventStartMins = $aEventStartTimeTokens[1];
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $aEventStartTimeTokens[0] + 1;
-          $iEventEndMins = $aEventStartTimeTokens[1];
-      } else {
-          // use the event type definition
-          $currentDOM = date('d');
-          if ($currentDOM < $iDefRecurDOM) {
-              $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, date('m') - 1, $iDefRecurDOM, date('Y')));
-          } else {
-              $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, date('m'), $iDefRecurDOM, date('Y')));
-          }
+            $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $ceDMY[1] + 1, $ceDMY[2], $ceDMY[0]));
+            $iEventStartHour = $aEventStartTimeTokens[0];
+            $iEventStartMins = $aEventStartTimeTokens[1];
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $aEventStartTimeTokens[0] + 1;
+            $iEventEndMins = $aEventStartTimeTokens[1];
+        } else {
+            // use the event type definition
+            $currentDOM = date('d');
+            if ($currentDOM < $iDefRecurDOM) {
+                $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, date('m') - 1, $iDefRecurDOM, date('Y')));
+            } else {
+                $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, date('m'), $iDefRecurDOM, date('Y')));
+            }
 
-          $aStartTimeTokens = explode(':', $ceDefStartTime);
-          $iEventStartHour = $aStartTimeTokens[0];
-          $iEventStartMins = $aStartTimeTokens[1];
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $aStartTimeTokens[0] + 1;
-          $iEventEndMins = $aStartTimeTokens[1];
-      }
-      break;
+            $aStartTimeTokens = explode(':', $ceDefStartTime);
+            $iEventStartHour = $aStartTimeTokens[0];
+            $iEventStartMins = $aStartTimeTokens[1];
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $aStartTimeTokens[0] + 1;
+            $iEventEndMins = $aStartTimeTokens[1];
+        }
+        break;
 
-    case 'yearly':
-      $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
-      $ecOpps = RunQuery($sSQL);
-      $numRows = mysqli_num_rows($ecOpps);
-      if ($numRows > 0) {
-          // use the most recent event if it exists
-          $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
-          extract($ecRow);
-          $aStartTokens = explode(' ', $event_start);
-          $sEventStartDate = $aStartTokens[0];
-          $aDMY = explode('-', $aStartTokens[0]);
-          $aEventStartTimeTokens = explode(':', $aStartTokens[1]);
+      case 'yearly':
+        $sSQL = "SELECT * FROM events_event WHERE event_type = '$iTypeID' ORDER BY event_start DESC LIMIT 1";
+        $ecOpps = RunQuery($sSQL);
+        $numRows = mysqli_num_rows($ecOpps);
+        if ($numRows > 0) {
+            // use the most recent event if it exists
+            $ecRow = mysqli_fetch_array($ecOpps, MYSQLI_BOTH);
+            extract($ecRow);
+            $aStartTokens = explode(' ', $event_start);
+            $sEventStartDate = $aStartTokens[0];
+            $aDMY = explode('-', $aStartTokens[0]);
+            $aEventStartTimeTokens = explode(':', $aStartTokens[1]);
 
-          $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], $aDMY[0] + 1));
-          $iEventStartHour = $aEventStartTimeTokens[0];
-          $iEventStartMins = $aEventStartTimeTokens[1];
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $aEventStartTimeTokens[0] + 1;
-          $iEventEndMins = $aEventStartTimeTokens[1];
-      } else {
-          // use the event type definition
-          $currentDOY = time();
-          $defaultDOY = strtotime($sDefRecurDOY);
-          if ($currentDOY < $defaultDOY) {  // event is future
-              $sEventStartDate = $sDefRecurDOY;
-          } elseif ($currentDOY > $defaultDOY + (365 * 24 * 60 * 60)) {  // event is over 1 year past
-              $aDMY = explode('-', $sDefRecurDOY);
-              $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], date('Y') - 1));
-          } else { // event is past
-              $aDMY = explode('-', $sDefRecurDOY);
-              $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], date('Y')));
-          }
+            $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], $aDMY[0] + 1));
+            $iEventStartHour = $aEventStartTimeTokens[0];
+            $iEventStartMins = $aEventStartTimeTokens[1];
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $aEventStartTimeTokens[0] + 1;
+            $iEventEndMins = $aEventStartTimeTokens[1];
+        } else {
+            // use the event type definition
+            $currentDOY = time();
+            $defaultDOY = strtotime($sDefRecurDOY);
+            if ($currentDOY < $defaultDOY) {  // event is future
+                $sEventStartDate = $sDefRecurDOY;
+            } elseif ($currentDOY > $defaultDOY + (365 * 24 * 60 * 60)) {  // event is over 1 year past
+                $aDMY = explode('-', $sDefRecurDOY);
+                $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], date('Y') - 1));
+            } else { // event is past
+                $aDMY = explode('-', $sDefRecurDOY);
+                $sEventStartDate = date('Y-m-d', mktime(0, 0, 0, $aDMY[1], $aDMY[2], date('Y')));
+            }
 
-          $aStartTimeTokens = explode(':', $sDefStartTime);
-          $iEventStartHour = $aStartTimeTokens[0];
-          $iEventStartMins = $aStartTimeTokens[1];
-          $sEventEndDate = $sEventStartDate;
-          $iEventEndHour = $aStartTimeTokens[0] + 1;
-          $iEventEndMins = $aStartTimeTokens[1];
-      }
-      break;
-  }
+            $aStartTimeTokens = explode(':', $sDefStartTime);
+            $iEventStartHour = $aStartTimeTokens[0];
+            $iEventStartMins = $aStartTimeTokens[1];
+            $sEventEndDate = $sEventStartDate;
+            $iEventEndHour = $aStartTimeTokens[0] + 1;
+            $iEventEndMins = $aStartTimeTokens[1];
+        }
+        break;
+    }
     $sEventTitle = $sEventStartDate.'-'.$sTypeName;
     $sEventDesc = '';
     $sEventText = '';
@@ -311,9 +312,20 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
         $bStatusError = true;
         $iErrors++;
     }
+    
     $sEventRange = $_POST['EventDateRange'];
-    $sEventStartDateTime = DateTime::createFromFormat('Y-m-d H:i a', explode(' - ', $sEventRange)[0]);
-    $sEventEndDateTime = DateTime::createFromFormat('Y-m-d H:i a', explode(' - ', $sEventRange)[1]);
+    
+    // this part is in function of the format : ie the language
+    $datePickerPlaceHolder =  SystemConfig::getValue("sDatePickerPlaceHolder");
+    
+    $datePickerPlaceHolder = str_replace("dd","d",$datePickerPlaceHolder);
+    $datePickerPlaceHolder = str_replace("mm","m",$datePickerPlaceHolder);
+    $datePickerPlaceHolder = str_replace("yyyy","Y",$datePickerPlaceHolder);
+    
+    $frmt = $datePickerPlaceHolder." H:i".((SystemConfig::getValue("sTimeEnglish"))?" a":"");
+    
+    $sEventStartDateTime = DateTime::createFromFormat($frmt, explode(' - ', $sEventRange)[0]);
+    $sEventEndDateTime = DateTime::createFromFormat($frmt, explode(' - ', $sEventRange)[1]);
     $sEventStart = $sEventStartDateTime->format('Y-m-d H:i');
     $sEventStartDate = $sEventStartDateTime->format('Y-m-d');
     $iEventStartHour = $sEventStartDateTime->format('H');
@@ -425,17 +437,17 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
 <input type="hidden" name="EventID" value="<?= ($iEventID) ?>">
 <input type="hidden" name="EventExists" value="<?= $EventExists ?>">
 
-<table class='table'>
+<div class="box-body">
 <?php if (empty($iTypeID)) {
             ?>
 
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span><?= gettext('Event Type') ?>:</td>
-    <td colspan="3" class="TextColumn">
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span><?= gettext('Event Type') ?>:</div>
+    <div class="col-md-9">
       <select name='EN_tyid' class='form-control' id='event_type_id' width='100%' style='width: 100%'>
         <option><?= gettext('Select your event type'); ?></option>
         <?php
-                    $sSQL = 'SELECT * FROM event_types';
+            $sSQL = 'SELECT * FROM event_types';
             $rsEventTypes = RunQuery($sSQL);
             while ($aRow = mysqli_fetch_array($rsEventTypes)) {
                 extract($aRow);
@@ -451,50 +463,51 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
           document.forms.EventsEditor.submit();
         });
       </script>
-    </td>
-  </tr>
+    </div>
+  </div>
 
 <?php
         } else { // if (empty($iTypeID))?>
 
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span><?= gettext('Event Type') ?>:</td>
-    <td colspan="3" class="TextColumn">
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span><?= gettext('Event Type') ?>:</div>
+    <div class="col-md-9">
     <input type="hidden" name="EventTypeName" value="<?= ($sTypeName) ?>">
     <input type="hidden" name="EventTypeID" value="<?= ($iTypeID) ?>">
     <?= ($iTypeID.'-'.$sTypeName) ?>
-    </td>
-  </tr>
+    </div>
+  </div>
 
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span><?= gettext('Event Title') ?>:</td>
-    <td colspan="1" class="TextColumn">
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span><?= gettext('Event Title') ?>:</div>
+    <div class="col-md-9">
       <input type="text" name="EventTitle" value="<?= ($sEventTitle) ?>" size="30" maxlength="100" class='form-control' width="100%" style="width: 100%" required>
-    </td>
-  </tr>
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span><?= gettext('Event Desc') ?>:</td>
-    <td colspan="3" class="TextColumn">
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span><?= gettext('Event Desc') ?>:</div>
+    <div class="col-md-9">
       <textarea name="EventDesc" rows="4" maxlength="100" class='form-control' required width="100%" style="width: 100%"><?= ($sEventDesc) ?></textarea>
-    </td>
-  </tr>
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span>
-      <?= gettext('Date Range') ?>:
-    </td>
-    <td class="TextColumn">
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span>
+      <?= gettext('Date Range') ?>
+    </div>
+    <div class="col-md-9">
       <input type="text" name="EventDateRange" value=""
              maxlength="10" id="EventDateRange" size="50" class='form-control' width="100%" style="width: 100%" required>
-    </td>
-
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span>
       <?= gettext('Event Group') ?>:
-    </td>
-    <td class="TextColumn">
-      <select type="text" name="EventGroup" value="<?= $nEventGroupId ?>" width="100%" style="width: 100%">
+    </div>
+    <div class="col-md-9">
+      <select type="text" name="EventGroup" class='form-control input-sm' value="<?= $nEventGroupId ?>" width="100%" style="width: 100%">
          <option value="0" <?= ($nEventGroupId == 0 ? "Selected":"") ?>><?= gettext("None") ?></option>
         <?php
           $groups=  EcclesiaCRM\Base\GroupQuery::create()->find();
@@ -504,13 +517,12 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
             <?php
             } ?>
       </select>
-    </td>
-
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><?= gettext('Attendance Counts') ?></td>
-    <td class="TextColumn" colspan="3">
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3"><?= gettext('Attendance Counts') ?></div>
+    <div class="col-md-9">
       <input type="hidden" name="NumAttendCounts" value="<?= $nCnts ?>">
       <?php
       if ($nCnts == 0) {
@@ -540,37 +552,37 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
         <?php
       } //endif
         ?>
-    </td>
-  </tr>
-
-  <tr>
-    <td colspan="4" class="TextColumn"><?= gettext('Event Sermon') ?>:<br>
-    	<textarea id="#EventText" name="EventText" rows="5" cols="70" class='form-control'><?= ($sEventText) ?></textarea>
-    </td>
-  </tr>
-
-  <tr>
-    <td class="LabelColumn"><span style="color: red">*</span><?= gettext('Event Status') ?>:</td>
-    <td colspan="3" class="TextColumn">
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-12"><?= gettext('Event Sermon') ?>:<br>
+      <textarea id="#EventText" name="EventText" rows="5" cols="70" class='form-control'><?= ($sEventText) ?></textarea>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-3"><span style="color: red">*</span><?= gettext('Event Status') ?>:</div>
+    <div class="col-md-9">
       <input type="radio" name="EventStatus" value="0" <?php if ($iEventStatus == 0) {
             echo 'checked';
         } ?>/> <?= _('Active')?>
       <input type="radio" name="EventStatus" value="1" <?php if ($iEventStatus == 1) {
             echo 'checked';
         } ?>/> <?= _('Inactive')?>
-    </td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td><input type="submit" name="SaveChanges" value="<?= gettext('Save Changes') ?>" class="btn btn-primary"></td>
-  </tr>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-9">&nbsp;&nbsp;&nbsp;<input type="submit" name="SaveChanges" value="<?= gettext('Save Changes') ?>" class="btn btn-primary">
+    </div>
+    <div class="col-md-3"></div>
+    </div>
 <?php
         } // if (empty($iTypeID))?>
-</table>
+</div>
 </form>
 </div>
-
 <div>
   <a href="ListEvents.php" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
@@ -583,8 +595,8 @@ $eventEnd = $sEventEndDate.' '.$iEventEndHour.':'.$iEventEndMins;
 ?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $( document ).ready(function() {
-        var startDate = moment("<?= $eventStart?>", "YYYY-MM-DD h:mm").format("YYYY-MM-DD h:mm A");
-        var endDate = moment("<?= $eventEnd?>", "YYYY-MM-DD h:mm").format("YYYY-MM-DD h:mm A");
+        var startDate = moment("<?= $eventStart?>", "YYYY-MM-DD h:mm").format("<?= mb_strtoupper(SystemConfig::getValue("sDatePickerPlaceHolder")).((SystemConfig::getValue("sTimeEnglish"))?' h:mm A':' H:mm') ?>");
+        var endDate = moment("<?= $eventEnd?>", "YYYY-MM-DD h:mm").format("<?= mb_strtoupper(SystemConfig::getValue("sDatePickerPlaceHolder")).((SystemConfig::getValue("sTimeEnglish"))?' h:mm A':' H:mm') ?>");
         $('#EventDateRange').val(startDate + " - " + endDate);
         $('#EventDateRange').daterangepicker({
             timePicker: true,
@@ -592,8 +604,14 @@ $eventEnd = $sEventEndDate.' '.$iEventEndHour.':'.$iEventEndMins;
             linkedCalendars: true,
             showDropdowns: true,
             locale: {
-                format: 'YYYY-MM-DD h:mm A'
+                format: '<?= mb_strtoupper(SystemConfig::getValue("sDatePickerPlaceHolder")).((SystemConfig::getValue("sTimeEnglish"))?' h:mm A':' H:mm') ?>',
+                applyLabel: i18next.t('Validate'),
+                cancelLabel: i18next.t('Cancel'),
+                fromLabel: i18next.t('From'),
+                toLabel: i18next.t('to'),
+                customRangeLabel: i18next.t('Custom')
             },
+            timePicker24Hour:<?= ((SystemConfig::getValue("sTimeEnglish"))?'false':'true') ?>,
             minDate: 1 / 1 / 1900,
             startDate: startDate,
             endDate: endDate
