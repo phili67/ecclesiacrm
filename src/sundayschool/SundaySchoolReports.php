@@ -15,6 +15,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -80,7 +81,7 @@ if (isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isse
         Redirect('Reports/ClassList.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitClassAttendance']) && $aGrpID != 0) {
         $toStr = 'Reports/ClassAttendance.php?';
-        //	      $toStr .= "GroupID=" . $iGroupID;
+        //        $toStr .= "GroupID=" . $iGroupID;
         $toStr .= 'GroupID='.$aGrpID;
         $toStr .= '&FYID='.$iFYID;
         $toStr .= '&FirstSunday='.$dFirstSunday;
@@ -270,21 +271,21 @@ $dNoSchool8 = change_date_for_place_holder($dNoSchool6);
         </tr>
         <tr>
           <td width="75%">
-          	  <div class="col-md-4">
-		          <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Create Class List') ?>">
-		      </div>
-		      <div class="col-md-4">
-    		      <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= gettext('Create Attendance Sheet') ?>">
-    		  </div>
-    		  <div class="col-md-4">
-    			  <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('Create PhotoBook') ?>">
-    		  </div>
-    	  </td>
-    	  <td width="25%">
-    	  	<div class="col-rd-12">
-	    		<input type="button" style="align=right" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
-	    	</div>
-    	  </td>
+              <div class="col-md-4">
+              <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Create Class List') ?>">
+          </div>
+          <div class="col-md-4">
+              <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= gettext('Create Attendance Sheet') ?>">
+          </div>
+          <div class="col-md-4">
+            <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('Create PhotoBook') ?>">
+          </div>
+        </td>
+        <td width="25%">
+          <div class="col-rd-12">
+          <input type="button" style="align=right" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/Menu.php';">
+        </div>
+        </td>
         </tr>
       </table>
     </form>
