@@ -9,7 +9,7 @@
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
  *  Copyright 2005 Todd Pillars
  *  Copyright 2012 Michael Wilt
-  *
+ *
  ******************************************************************************/
 
 $sPageTitle = gettext('Event Checkin');
@@ -364,7 +364,7 @@ if (isset($_POST['EventID'])) {
                                     ?>
                                     <input class="btn btn-primary btn-sm" type="submit" name="CheckOutBtn"
                                            value="<?= gettext('CheckOut') ?>">
-                                    <input class="btn btn-danger btn-xs" type="submit" name="DeleteBtn"
+                                    <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn"
                                            value="<?= gettext('Delete') ?>">
 
                                     <?php
