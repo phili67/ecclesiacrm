@@ -102,7 +102,8 @@ if ($EventID > 0) {
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12 text-right">
-                            <a href="EventEditor.php"><?= gettext('Add New Event'); ?></a>
+                           <input type="Add" class="btn btn-primary" value="<?= gettext('Add New Event'); ?>"
+                                       name="Add" tabindex=4 onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/EventEditor.php';">
                         </div>
                     </div>
                 </div>
@@ -131,7 +132,6 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                         <h3 class="box-title"><?= gettext('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
                     </div>
                     <div class="box-body">
-
                         <div class="form-group">
                             <label for="child" class="col-sm-2 control-label"><?= gettext("Person's Name") ?></label>
                             <div class="col-sm-5 inputGroupContainer">
@@ -158,18 +158,19 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                             </div>
                             <div id="adultDetails" class="col-sm-5 text-center"></div>
                         </div>
-
+                        <hr>
                         <div class="form-group row">
-
-                            <div class="box-footer text-center col-md-4  col-xs-8">
+                            <div class="col-md-4">
                                 <input type="submit" class="btn btn-primary" value="<?= gettext('CheckIn'); ?>"
                                        name="CheckIn" tabindex=3>
+                            </div>
+                            <div class="text-center col-md-4">
                                 <input type="reset" class="btn btn-default" value="<?= gettext('Cancel'); ?>"
                                        name="Cancel" tabindex=4 onClick="SetPersonHtml($('#childDetails'),null);SetPersonHtml($('#adultDetails'),null);">
                             </div>
-
-                            <div class="text-right col-md-8 col-xs-4">
-                                <a href="PersonEditor.php"><?= gettext('Add Visitor'); ?></a>
+                            <div class="text-right col-md-4">
+                                <input type="Add" class="btn btn-success" value="<?= gettext('Add Visitor'); ?>"
+                                       name="Add" tabindex=4 onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/PersonEditor.php';">
                             </div>
                         </div>
                     </div>

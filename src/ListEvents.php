@@ -23,6 +23,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\EventAttendQuery;
 
 $eType = 'All';
 $ThisYear = date('Y');
@@ -53,6 +54,7 @@ if (isset($_POST['WhichYear'])) {
 
 ///////////////////////
 require 'Include/Header.php';
+
 
 if (isset($_POST['Action']) && isset($_POST['EID'])) {
     $eID = InputUtils::LegacyFilterInput($_POST['EID'], 'int');
@@ -183,11 +185,20 @@ foreach ($allMonths as $mKey => $mVal) {
         $aEventStartDateTime[$row] = $event_start;
         $aEventEndDateTime[$row] = $event_end;
         $aEventStatus[$row] = $inactive;
+        
         // get the list of attend-counts that exists in event_attend for this
-        $attendSQL = "SELECT * FROM event_attend WHERE event_id=$event_id";
-        $attOpps = RunQuery($attendSQL);
-        if ($attOpps) {
-            $attNumRows[$row] = mysqli_num_rows($attOpps);
+        $attendees = EventAttendQuery::create()->findByEventId($event_id);
+        
+        $attCheckOut[$row] = 0;
+        
+        foreach ($attendees as $attende) {
+          if ($attende->getCheckoutId()) {
+            $attCheckOut[$row]++;
+          }          
+        }
+        
+        if ($attendees) {
+            $attNumRows[$row] = count($attendees);
         } else {
             $attNumRows[$row] = 0;
         }
@@ -203,12 +214,13 @@ foreach ($allMonths as $mKey => $mVal) {
   <table class='listEvents table data-table table-striped table-bordered table-responsive'>
     <thead>
       <tr class="TableHeader">
-        <th><?= gettext('Action') ?></th>
-        <th><?= gettext('Description') ?></th>
-        <th><?= gettext('Event Type') ?></th>
-        <th><?= gettext('Attendance Counts') ?></th>
-        <th><?= gettext('Start Date/Time') ?></th>
-        <th><?= gettext('Active') ?></th>
+        <th><?= gettext("Action") ?></th>
+        <th><?= gettext("Description") ?></th>
+        <th><?= gettext("Event Type") ?></th>
+        <th><?= gettext("Attendance Counts") ?></th>
+        <th><?= gettext("Real Attendance Counts") ?></th>
+        <th><?= gettext("Start Date/Time") ?></th>
+        <th><?= gettext("Active") ?></th>
       </tr>
     </thead>
     <tbody>
@@ -237,9 +249,10 @@ foreach ($allMonths as $mKey => $mVal) {
                     </form>
                   </td>
                   <td>
-                    <form name="DeleteEvent" action="ListEvents.php" method="POST">
+                    <form name="DeleteEvent" class="DeleteEvent" action="ListEvents.php" method="POST">
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm" onClick="return confirm('Deleting an event will also delete all attendance counts for that event.  Are you sure you want to DELETE Event ID: <?=  $aEventID[$row] ?>')">
+                      <input type="hidden" name="Action" value="Delete">
+                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm">
                         <i class='fa fa-trash'></i>
                       </button>
                     </form>
@@ -263,32 +276,56 @@ foreach ($allMonths as $mKey => $mVal) {
                   <?php
                     // RETRIEVE THE list of counts associated with the current event
                     $cvSQL = "SELECT * FROM eventcounts_evtcnt WHERE evtcnt_eventid='$aEventID[$row]' ORDER BY evtcnt_countid ASC";
-            $cvOpps = RunQuery($cvSQL);
-            $aNumCounts = mysqli_num_rows($cvOpps);
+                    $cvOpps = RunQuery($cvSQL);
+                    $aNumCounts = mysqli_num_rows($cvOpps);
 
-            if ($aNumCounts) {
-                for ($c = 0; $c < $aNumCounts; $c++) {
-                    $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
-                    extract($cRow);
-                    $cCountID[$c] = $evtcnt_countid;
-                    $cCountName[$c] = $evtcnt_countname;
-                    $cCount[$c] = $evtcnt_countcount;
-                    $cCountNotes = $evtcnt_notes; ?>
-                        <td>
-                          <div class='text-bold'><?= $evtcnt_countname ?></div>
-                          <div><?= $evtcnt_countcount ?></div>
-                        </td>
-                        <?php
-                }
-            } else {
-                ?>
+                    if ($aNumCounts) {
+                        for ($c = 0; $c < $aNumCounts; $c++) {
+                            $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
+                            extract($cRow);
+                            $cCountID[$c] = $evtcnt_countid;
+                            $cCountName[$c] = $evtcnt_countname;
+                            $cCount[$c] = $evtcnt_countcount;
+                            $cCountNotes = $evtcnt_notes; ?>
+                                <td>
+                                  <div class='text-bold'><?= $evtcnt_countname ?></div>
+                                  <div><?= $evtcnt_countcount ?></div>
+                                </td>
+                                <?php
+                        }
+                    } else {
+                        ?>
                       <td>
                         <?= gettext('No Attendance Recorded') ?>
                       </td>
                       <?php
-            } ?>
+                    } ?>
                 </tr>
               </table>
+            </td>
+            <td>
+            <?php 
+              if ($attNumRows[$row]) { 
+            ?>
+               <table width='100%' class='table-simple-padding'>
+                <tr>
+                  <td><b><?= gettext("Check-in") ?></b></td>
+                  <td><b><?= gettext("Check-out") ?></b></td>
+                  <td><b><?= gettext("Rest") ?></b></td>
+                </tr>
+                <tr>
+                  <td><?= $attNumRows[$row] ?></td>
+                  <td><?= $attCheckOut[$row] ?></td>
+                  <td><?= $attNumRows[$row]-$attCheckOut[$row] ?></td>
+                </tr>
+               </table>
+            <?php 
+              } else {
+            ?>
+              <?= gettext('No Attendance Recorded') ?>
+            <?php 
+              }
+            ?>
             </td>
             <td>
               <?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>
@@ -352,6 +389,29 @@ foreach ($allMonths as $mKey => $mVal) {
     $('.listEvents').DataTable({"language": {
       "url": window.CRM.plugin.dataTable.language.url
     }});
+    
+    $('.DeleteEvent').submit(function(e) {
+        var currentForm = this;
+        e.preventDefault();
+        bootbox.confirm({
+        title:  i18next.t("Deleting an event will also delete all attendance counts for that event."),
+        message:i18next.t("Are you sure you want to DELETE the event ?"),
+        buttons: {
+          confirm: {
+              label: i18next.t('Yes'),
+              className: 'btn-danger'
+          },
+          cancel: {
+              label: i18next.t('No'),
+              className: 'btn-success'
+          }
+        },
+        callback: function(result) {
+            if (result) {
+                currentForm.submit();
+            }
+        }});
+    });
   });
 </script>
 
