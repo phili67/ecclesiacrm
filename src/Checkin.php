@@ -67,10 +67,9 @@ if ($EventID > 0) {
 <div id="errorcallout" class="callout callout-danger" hidden></div>
 
 <!--Select Event Form -->
-<form class="well form-horizontal" name="selectEvent" action="Checkin.php" method="POST">
+<div class="box box-primary">
     <div class="row">
         <div class="col-md-10 col-xs-12">
-            <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title"><?= gettext('Select the event to which you would like to check people in for') ?>
                         :</h3>
@@ -79,7 +78,7 @@ if ($EventID > 0) {
                     <?php if ($sGlobalMessage): ?>
                         <p><?= $sGlobalMessage ?></p>
                     <?php endif; ?>
-
+                   <form name="selectEvent" action="Checkin.php" method="POST">
                     <div class="form-group">
                         <label class="col-md-2 control-label"><?= gettext('Select Event'); ?></label>
                         <div class="col-md-10 inputGroupContainer">
@@ -100,6 +99,7 @@ if ($EventID > 0) {
                             </div>
                         </div>
                     </div>
+                    </form> <!-- end selectEvent form -->
                     <div class="form-group">
                         <div class="col-xs-12 text-right">
                            <input type="Add" class="btn btn-primary" value="<?= gettext('Add New Event'); ?>"
@@ -108,10 +108,8 @@ if ($EventID > 0) {
                     </div>
                 </div>
             </div>
-        </div>
     </div>
-</form> <!-- end selectEvent form -->
-
+</div>
 <!-- Add Attendees Form -->
 <?php
 // If event is known, then show 2 text boxes, person being checked in and the person checking them in.
@@ -119,7 +117,7 @@ if ($EventID > 0) {
 if (!$CheckoutOrDelete &&  $EventID > 0) {
     ?>
 
-    <form class="well form-horizontal" method="post" action="Checkin.php" id="AddAttendees" data-toggle="validator"
+    <form class="form-horizontal" method="post" action="Checkin.php" id="AddAttendees" data-toggle="validator"
           role="form">
         <input type="hidden" id="EventID" name="EventID" value="<?= $EventID; ?>">
         <input type="hidden" id="child-id" name="child-id">

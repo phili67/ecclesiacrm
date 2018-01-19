@@ -9452,6 +9452,9 @@ msgstr "Différence"
 msgid "Real Attendance Counts"
 msgstr "Réel compte de présence"
 
+msgid "Make Check-out"
+msgstr "Faire l'appel"
+
 #: QueryList.php
 msgid "Pledge"
 msgstr "Engagement financier"
