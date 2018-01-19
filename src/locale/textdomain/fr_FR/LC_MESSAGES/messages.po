@@ -971,27 +971,27 @@ msgstr "Ajouter un visiteur"
 
 #: Checkin.php:165
 msgid "CheckIn"
-msgstr "Inscription"
+msgstr "Enregistrer"
 
 #: Checkin.php:273 Checkin.php:366
 msgid "CheckOut"
-msgstr "Désinscription"
+msgstr "Confirmer"
 
 #: Checkin.php:312
 msgid "Checked In Time"
-msgstr "Heure Inscription"
+msgstr "Heure Enregistrement"
 
 #: Checkin.php:313
 msgid "Checked In By"
-msgstr "Inscrit par"
+msgstr "Enregistré par"
 
 #: Checkin.php:314
 msgid "Checked Out Time"
-msgstr "Heure de désinscription"
+msgstr "Heure de confirmation"
 
 #: Checkin.php:315
 msgid "Checked Out By"
-msgstr "Désinscrit par"
+msgstr "Confirmé par"
 
 #: Checkin.php:316 EditEventAttendees.php:44 EventNames.php:266
 #: ListEvents.php:205 PersonView.php:618
@@ -8068,7 +8068,7 @@ msgstr "Nom de l'adulte (Optionnel)"
 
 #: Checkin.php:156
 msgid "Checked in By(Optional)"
-msgstr "Inscris par (Optionnel)"
+msgstr "Inscrit(e) par (Optionnel)"
 
 #: Checkin.php:192
 msgid "Person has been already checked in for this event"
@@ -9434,6 +9434,23 @@ msgstr "Adresse ville région code postal"
 
 msgid "Address zip city state"
 msgstr "Adresse code postal ville région"
+
+#: Calendar.js
+msgid "Attendances"
+msgstr "Présence"
+
+#: ListEvents.php
+msgid "Check-in"
+msgstr "Prévision"
+
+msgid "Check-out"
+msgstr "Au final"
+
+msgid "Rest"
+msgstr "Différence"
+
+msgid "Real Attendance Counts"
+msgstr "Réel compte de présence"
 
 #: QueryList.php
 msgid "Pledge"
