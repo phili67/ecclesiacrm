@@ -127,12 +127,3 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Calendar.js" ></script>
 
 <?php require 'Include/Footer.php'; ?>
-
-<style>
-    body.modal-open .datepicker {
-        z-index: 1050 !important;
-    }
-    body.modal-open .bootstrap-timepicker-widget {
-        z-index: 1050 !important;
-    }
-</style>

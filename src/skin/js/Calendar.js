@@ -114,52 +114,67 @@
      localStorage.setItem("EventTypeFilterID",EventTypeFilterID); 
   });
   
-  $('body').on('click','.date-range', function(){ 
-      $( ".date-title").hide();
-      $('.date-start').fadeIn();
-      $('.date-end').fadeIn();
-      $( ".ATTENDENCES" ).hide();
-      $( ".eventPredication").hide();
+  $('body').on('click','.date-title .date-range', function(){ 
+      $( ".date-title").slideUp();
+      $('.ATTENDENCES-title').slideDown();
+      $('.date-start').slideDown();
+      $('.date-end').slideDown();
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventPredication").slideUp();
   });
   
-  $('body').on('click','.eventPredicationGlobal', function(){ 
-      $( ".date-title").fadeIn();
-      $('.date-start').hide();
-      $('.date-end').hide();
-      $( ".ATTENDENCES" ).hide();
-      $( ".eventPredication").fadeIn();
+  $('body').on('click','.eventPredicationTitle', function(){ 
+      $( ".date-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventPredication").slideDown();
   });
   
   $('body').on('click','#EventTitle', function(){ 
-      $( ".date-title").fadeIn();
-      $('.date-start').hide();
-      $('.date-end').hide();
-      $( ".ATTENDENCES" ).hide();
-      $( ".eventPredication").hide();
+      $( ".date-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventPredication").slideUp();
   });
   
   $('body').on('click','#EventDesc', function(){ 
-      $( ".date-title").fadeIn();
-      $('.date-start').hide();
-      $('.date-end').hide();
-      $( ".ATTENDENCES" ).hide();
-      $( ".eventPredication").hide();
+      $( ".date-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventPredication").slideUp();
+  });
+  
+  $('body').on('click','.ATTENDENCES-title', function(){ 
+    $( ".date-title").slideDown();
+    $('.ATTENDENCES-title').slideUp();
+    $('.date-start').slideUp();
+    $('.date-end').slideUp();
+    $( ".eventPredication").slideUp();
+    $( ".ATTENDENCES" ).slideDown( "slow");
   });
   
   // I have to do this because EventGroup isn't yet present when you load the page the first time
   $(document).on('change','#EventGroup',function () {
-    $( ".date-title").fadeIn();
-    $('.date-start').hide();
-    $('.date-end').hide();
-    $( ".eventPredication").hide();
+    $( ".date-title").slideDown();
+    $('.ATTENDENCES-title').slideDown();
+    $( ".ATTENDENCES" ).slideUp();
+    $('.date-start').slideUp();
+    $('.date-end').slideUp();
+    $( ".eventPredication").slideUp();
 
      var e = document.getElementById("EventGroup");
      var _val = e.options[e.selectedIndex].value;
    
-    if (_val == 0)
-      $( ".ATTENDENCES" ).hide();
+    /*if (_val == 0)
+      $( ".ATTENDENCES" ).slideUp();
     else
-      $( ".ATTENDENCES" ).fadeIn( "slow");
+      $( ".ATTENDENCES" ).slideDown( "slow");*/
      
      localStorage.setItem("groupFilterID",groupFilterID); 
   });
@@ -226,9 +241,9 @@
     var dateEnd = moment(end).format(fmt);
     var timeEnd = moment(end).format(time_format);
     
-    var frm_str = '<h3>'+i18next.t("Event Creation")+'</h3><form id="some-form">'
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Event Creation")+'</h3><form id="some-form">'
        + '<div>'
-            +'<div class="row">'
+            +'<div class="row   div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Select your event type') + "</div>"
               +'<div class="col-md-9">'
               +'<select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
@@ -236,61 +251,19 @@
                 +'</select>'
               +'</div>'
             +'</div>'
-            +'<div class="row">'
+            +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Title') + ":</div>"
               +'<div class="col-md-9">'
                 +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
-            +'<hr/>'
-            +'<div class="row">'
+            +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Desc') + ":</div>"
               +'<div class="col-md-9">'
                 +"<textarea id='EventDesc' rows='3' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Calendar description") + "'></textarea>"
               +'</div>'
             +'</div>'          
-            +'<hr/>'
-            +'<div class="row">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Group') + ":</div>"
-              +'<div class="col-md-9">'
-                +'<select type="text" id="EventGroup" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
-                +'</select>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row ATTENDENCES">'
-              +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
-                +'<div class="col-md-9">'
-                +'<table>'
-                  +'<tr>'
-                      +"<td><label>" + i18next.t("Total") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Total" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                    +'</td>'
-                    +'</tr>'
-                  +'<tr>'
-                      +"<td><label>" + i18next.t("Members") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Members" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                   +' </td>'
-                    +'</tr>'
-                 +' <tr>'
-                      +"<td><label>" + i18next.t("Visitors") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Visitors" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                    +'</td>'
-                    +'</tr>'
-                        +'<tr>'
-                  +"<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
-                    +'<td><input type="text" id="EventCountNotes" value="" class="form-control input-sm">'
-                    +'</td>'
-                    +'</tr>'
-                +'</table>'
-                +'</div>'
-                +'<hr/>'
-              +'</div>'
-            +'</div>'
-            +'<hr/>'
-            +'<div class="row date-title">'
+            +'<div class="row date-title div-title">'
                +'<div class="col-md-4 date-range">'
                + i18next.t('From')+' : '+dateStart+' '+timeStart
                +'</div>'
@@ -298,7 +271,7 @@
                + i18next.t('to')+' : '+dateEnd+' '+timeEnd
                +'</div>'
             +'</div>'
-            +'<div class="row date-start">'
+            +'<div class="row date-start div-block">'
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3"><span style="color: red">*</span>'
@@ -329,7 +302,7 @@
                   +'</div>'
                 +'</div>'
             +'</div>'
-            +'<div class="row date-end">'            
+            +'<div class="row date-end div-block">'            
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3"><span style="color: red">*</span>'
@@ -359,13 +332,59 @@
                      +'</div>'
                   +'</div>'
                 +'</div>'
+            +'</div>'            
+            +'<div class="row  div-title">'
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Group') + ":</div>"
+              +'<div class="col-md-9">'
+                +'<select type="text" id="EventGroup" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
+                +'</select>'
+              +'</div>'
             +'</div>'
-            +'<hr/>'
-            +'<div class="row eventPredicationGlobal">'
-              +'<div class="col-md-12">'+i18next.t('Event Sermon')
-                +'<div class="eventPredication" style="margin-top:-60px;">'
-                  +'<textarea name="EventText" rows="4" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="width: 100%"></textarea></div>'
+            +'<div class="row  ATTENDENCES-title div-title">'
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Attendances') + ":</div>"
+            +'</div>'
+            +'<div class="row ATTENDENCES  div-block">'
+              +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
+                +'<div class="col-md-9">'
+                +'<table>'
+                  +'<tr>'
+                      +"<td><label>" + i18next.t("Total") + ":&nbsp;</label></td>"
+                    +'<td>'
+                    +'<input type="text" id="Total" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
+                    +'</td>'
+                    +'</tr>'
+                  +'<tr>'
+                      +"<td><label>" + i18next.t("Members") + ":&nbsp;</label></td>"
+                    +'<td>'
+                    +'<input type="text" id="Members" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
+                   +' </td>'
+                    +'</tr>'
+                 +' <tr>'
+                      +"<td><label>" + i18next.t("Visitors") + ":&nbsp;</label></td>"
+                    +'<td>'
+                    +'<input type="text" id="Visitors" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
+                    +'</td>'
+                    +'</tr>'
+                        +'<tr>'
+                  +"<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
+                    +'<td><input type="text" id="EventCountNotes" value="" class="form-control input-sm">'
+                    +'</td>'
+                    +'</tr>'
+                +'</table>'
+                +'<br>'
                 +'</div>'
+                +'<hr/>'
+              +'</div>'
+            +'</div>'            
+            +'<div class="row eventPredicationTitle div-title">'
+              +'<div class="col-md-12">'
+                +i18next.t('Event Sermon')
+              +'</div>'
+            +'</div>'
+            +'<div class="row  eventPredication  div-block">'
+              +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
+                  +'<textarea name="EventText" rows="4" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-94px;width: 100%"></textarea></div>'
+              +'</div>'
             +'</div>'
             //+'<tr>'
               //+'<td class="LabelColumn"><span style="color: red">*</span>Statut de l&#39;événement:</td>'
