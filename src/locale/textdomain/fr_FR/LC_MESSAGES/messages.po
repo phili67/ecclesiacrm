@@ -9465,4 +9465,5 @@ msgstr "Personnes non affectées à un groupe"
 msgid "Users"
 msgstr "Utilisateurs"
 
-
+msgid "Not Available"
+msgstr "Non disponible"
