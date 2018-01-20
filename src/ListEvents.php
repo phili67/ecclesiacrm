@@ -211,7 +211,7 @@ foreach ($allMonths as $mKey => $mVal) {
       <h3 class='box-title'><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).' '.gettext('for').'  '.gettext(date('F', mktime(0, 0, 0, $mVal, 1, $currYear))) ?></h3>
     </div>
     <div class='box-body'>
-  <table class='listEvents table data-table table-striped table-bordered table-responsive'>
+  <table id="eventsTable" style="width:100%">
     <thead>
       <tr class="TableHeader">
         <th><?= gettext("Action") ?></th>
@@ -320,11 +320,14 @@ foreach ($allMonths as $mKey => $mVal) {
                 </tr>
                 <tr>
                    <td colspan="3">
+                     <center>
                      <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
                       <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
                       <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success">
                         <i class='fa fa-check-circle'></i><?=gettext('Make Check-out') ?>
                       </button>
+                     </form>
+                     </center>
                    </td>
                 </tr>
                </table>
@@ -395,6 +398,13 @@ foreach ($allMonths as $mKey => $mVal) {
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 //Added by @saulowulhynek to translation of datatable nav terms
   $(document).ready(function () {
+    $("#eventsTable").DataTable({
+       "language": {
+         "url": window.CRM.plugin.dataTable.language.url
+       },
+       responsive: true
+    });
+    
     $('.listEvents').DataTable({"language": {
       "url": window.CRM.plugin.dataTable.language.url
     }});
