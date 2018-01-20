@@ -74,11 +74,17 @@ if ($numAttRows != 0) {
   foreach ($ormOpps as $ormOpp) {
    $person = $ormOpp->getPerson();
 
-   $fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne()->getFamily();
+   $per_fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne();
    
-   $sPhoneCountry = SelectWhichInfo($person->getCountry(), $fam->getCountry(), false);
-   $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), ExpandPhoneNumber($fam->getHomePhone(), $fam->getCountry(), $dummy), true);
-   $sEmail = SelectWhichInfo($person->getEmail(), $fam->getEmail(), false);?>
+   $fam = null;
+   
+   if($per_fam) {
+     $fam = $per_fam->getFamily();
+   }
+   
+   $sPhoneCountry = SelectWhichInfo($person->getCountry(), (!empty($fam))?$fam->getCountry():"", false);
+   $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), ExpandPhoneNumber((!empty($fam))?$fam->getHomePhone():"", (!empty($fam))?$fam->getCountry():"", $dummy), true);
+   $sEmail = SelectWhichInfo($person->getEmail(), (!empty($fam))?$fam->getEmail():"", false);?>
     <tr class="<?= $sRowClass ?>">
         <td class="TextColumn"><?= FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) ?></td>
         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:'.$sEmail.'" title="Send Email">'.$sEmail.'</a>' : 'Not Available' ?></td>
