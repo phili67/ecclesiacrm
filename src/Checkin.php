@@ -12,11 +12,13 @@
  *
  ******************************************************************************/
 
-$sPageTitle = gettext('Event Checkin');
 
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
+
+$sPageTitle = gettext('Event Checkin');
 require 'Include/Header.php';
 
 use EcclesiaCRM\EventQuery;
