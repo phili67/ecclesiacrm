@@ -20,6 +20,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Security: User must have Manage Groups & Roles permission
 if (!$_SESSION['bManageGroups']) {
@@ -41,6 +42,9 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0 && isset($_PO
             $eventAttent = new EventAttend();
         
             $eventAttent->setEventId($iEventID);
+            $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
             $eventAttent->setPersonId($_SESSION['aPeopleCart'][$element['key']]);
             $eventAttent->save();
         } catch (\Exception $ex) {

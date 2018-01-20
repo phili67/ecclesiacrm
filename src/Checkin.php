@@ -9,6 +9,7 @@
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
  *  Copyright 2005 Todd Pillars
  *  Copyright 2012 Michael Wilt
+ *  Copyright 2018 Philippe Logel all right reserved
  *
  ******************************************************************************/
 
@@ -238,7 +239,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 
     $formTitle = (isset($_POST['CheckOutBtn']) ? gettext("CheckOut Person") : gettext("Delete Checkin in Entry")); ?>
 
-    <form class="well form-horizontal" method="post" action="Checkin.php" id="CheckOut" data-toggle="validator"
+    <form method="post" action="Checkin.php" id="CheckOut" data-toggle="validator"
           role="form">
         <input type="hidden" name="EventID" value="<?= $EventID ?>">
         <input type="hidden" name="child-id" value="<?= $iChildID ?>">
@@ -258,16 +259,17 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
                             </div>
                             <?php
                             if (isset($_POST['CheckOutBtn'])) {
+                                $person = PersonQuery::Create()->findOneById($_SESSION['user']->getPersonId());
                                 ?>
                                 <div class="col-sm-4 col-xs-6">
                                     <div class="form-group">
                                         <label><?= gettext('Adult Checking Out Person') ?>:</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <input type="text" id="adultout" name="adult" class="form-control"
+                                            <input type="text" id="adultout" name="adult" class="form-control" value="<?= $person->getFullName() ?>"
                                                placeholder="<?= gettext('Adult Name (Optional)') ?>">
                                             </div>
-                                        <input type="hidden" id="adultout-id" name="adult-id">
+                                        <input type="hidden" id="adultout-id" name="adult-id" value="<?= $person->getId() ?>">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-primary"
@@ -277,8 +279,13 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4 text-center">
-                                    <div id="adultoutDetails" class="box box-solid box-default hidden"></div>
+                                <div class="col-sm-4 text-center">                                    
+                                    <div id="adultoutDetails" class="box box-solid box-default">
+                                        <div class="text-center"><a target="_top" href="PersonView.php?PersonID=<?= $person->getId() ?>">
+                                          <h4><?= $person->getFullName() ?></h4></a>
+                                          <img src="/api/persons/<?= $person->getId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle"> 
+                                        </div>
+                                    </div>
                                 </div>
                                 <?php
                             } else { // DeleteBtn?>

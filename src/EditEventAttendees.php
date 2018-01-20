@@ -39,7 +39,9 @@ if ($sAction == gettext('Delete')) {
     $dpePerID = $_POST['DelPerID'];
     
     $eventAttend = EventAttendQuery::Create()->filterByEventId($dpeEventID)->filterByPersonId($dpePerID)->limit(1)->findOne();
-    $eventAttend->delete();
+    if ($eventAttend) {
+      $eventAttend->delete();
+    }
     
     $ShowAttendees = 1;
 }
@@ -67,7 +69,7 @@ if ($sAction == gettext('Delete')) {
     <th width="35%"><strong><?= gettext('Name') ?></strong></td>
     <th width="25%"><strong><?= gettext('Email') ?></strong></td>
     <th width="25%"><strong><?= gettext('Home Phone') ?></strong></td>
-	  <th width="15%" nowrap><strong><?= gettext('Action') ?></strong></td>
+    <th width="15%" nowrap><strong><?= gettext('Action') ?></strong></td>
   </tr>
   </thead>
   <tbody>
@@ -122,22 +124,28 @@ if ($numAttRows != 0) {
 </table>
 <center>
 <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
-                      <input type="hidden" name="EventID" value="<?= $EventID ?>">
-                      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success">
-                        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
-                      </button>
-                     </form>
+      <input type="hidden" name="EventID" value="<?= $EventID ?>">
+      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?= gettext('Make Check-out') ?>" class="btn btn-success <?= ($numAttRows == 0)?"disabled":"" ?>">
+        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+      </button>
+     </form>
 </center>                
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 //Added by @saulowulhynek to translation of datatable nav terms
   $(document).ready(function () {
+   <?php 
+     if ($numAttRows != 0) {
+     ?>
     $("#eventsTable").DataTable({
        "language": {
          "url": window.CRM.plugin.dataTable.language.url
        },
        responsive: true
     });
+  <?php
+    }
+    ?>
   });
 </script>
 <?php require 'Include/Footer.php' ?>
