@@ -44,7 +44,7 @@ $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 
 
 <div class="box box-body">
-<table class="table" id="groupsTable" style="width:100%">
+<table class="table data-table table-striped dataTable no-footer dtr-inline" id="groupsTable" style="width:100%">
 </table>
 <?php
 if ($_SESSION['bManageGroups']) {
