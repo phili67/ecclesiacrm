@@ -64,7 +64,7 @@ if ($sAction == gettext('Delete')) {
     <form method="post" action="EditEventAttendees.php" name="AttendeeEditor">
       <input type="hidden" name="EID" value="<?= $EventID  ?>">
       
-  <table class="table table-striped table-bordered data-table" id="eventsTable" style="width:100%">
+  <table class="table table-striped table-bordered data-table  dataTable no-footer dtr-inline" id="eventsTable" style="width:100%">
   <thead>
   <tr class="TableHeader">
     <th width="35%"><strong><?= gettext('Name') ?></strong></td>
