@@ -265,7 +265,7 @@ require '../Include/Header.php';
   </div>
   <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function () {
-      $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language});
+      $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
 
       $("#addNewClassBtn").click(function (e) {
         var groupName = $("#new-class-name").val(); // get the name of the from the textbox
