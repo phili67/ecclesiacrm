@@ -43,6 +43,9 @@ if (array_key_exists('EventID', $_POST)) {
 } // from ListEvents button=Attendees
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
+} 
+if (isset($_SESSION['CartToEventEventID'])) {
+   $EventID = InputUtils::LegacyFilterInput($_SESSION['CartToEventEventID'], 'int');
 }
 
 if (isset($_POST['child-id'])) {
@@ -114,6 +117,7 @@ if ($EventID > 0) {
     </div>
 </div>
 <!-- Add Attendees Form -->
+
 <?php
 // If event is known, then show 2 text boxes, person being checked in and the person checking them in.
 // Show a verify button and a button to add new visitor in dbase.
@@ -309,7 +313,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 //**********************************************************************************************************
 
 //Populate data table
-if (isset($_POST['EventID'])) {
+if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
     ?>
     <div class="box box-primary">
         <div class="box-body table-responsive">

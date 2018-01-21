@@ -31,6 +31,7 @@ $EventID = $_POST['EID']; // from ListEvents button=Attendees
 $EvtName = $_POST['EName'];
 $EvtDesc = $_POST['EDesc'];
 $EvtDate = $_POST['EDate'];
+
 //
 // process the action inputs
 //
@@ -63,7 +64,7 @@ if ($sAction == gettext('Delete')) {
     <form method="post" action="EditEventAttendees.php" name="AttendeeEditor">
       <input type="hidden" name="EID" value="<?= $EventID  ?>">
       
-  <table class="table data-table table-striped dataTable no-footer dtr-inline" id="eventsTable" style="width:100%">
+  <table class="table table-striped table-bordered data-table" id="eventsTable" style="width:100%">
   <thead>
   <tr class="TableHeader">
     <th width="35%"><strong><?= gettext('Name') ?></strong></td>
@@ -77,20 +78,27 @@ if ($sAction == gettext('Delete')) {
 
 $ormOpps = EventAttendQuery::Create()->filterByEventId($EventID)->leftJoinPerson()->usePersonQuery()->orderByLastName()->orderByFirstName()->endUse()->find();
 
+
 $numAttRows = count($ormOpps);
+
+$countCheckout = 0;
 
 if ($numAttRows != 0) {
   $sRowClass = 'RowColorA';
   foreach ($ormOpps as $ormOpp) {
-   $person = $ormOpp->getPerson();
+    $person = $ormOpp->getPerson();
 
-   $per_fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne();
+    $per_fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne();
+    
+    if ($ormOpp->getCheckoutId()) {
+      $countCheckout++;
+    }
    
-   $fam = null;
+    $fam = null;
    
-   if($per_fam) {
-     $fam = $per_fam->getFamily();
-   }
+    if($per_fam) {
+      $fam = $per_fam->getFamily();
+    }
    
    $sPhoneCountry = SelectWhichInfo($person->getCountry(), (!empty($fam))?$fam->getCountry():"", false);
    $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), ExpandPhoneNumber((!empty($fam))?$fam->getHomePhone():"", (!empty($fam))?$fam->getCountry():"", $dummy), true);
@@ -123,12 +131,18 @@ if ($numAttRows != 0) {
 <tbody>
 </table>
 <center>
-<form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
+<?php if ($numAttRows-$countCheckout>0) { ?>
+    <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
       <input type="hidden" name="EventID" value="<?= $EventID ?>">
       <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?= gettext('Make Check-out') ?>" class="btn btn-success <?= ($numAttRows == 0)?"disabled":"" ?>">
         <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
       </button>
-     </form>
+    </form>
+<?php } else { ?>
+      <button type="" data-tooltip value="<?= gettext('Make Check-out') ?>" class="btn btn-success disabled ?>">
+        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+      </button>
+<?php } ?>
 </center>                
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >

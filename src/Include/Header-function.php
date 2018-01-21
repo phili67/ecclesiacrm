@@ -291,15 +291,14 @@ function addMenuItem($ormMenu, $mIdx)
     ?>
        <li class="treeview">
             <a href="<?= SystemURLs::getRootPath() . '/' . $ormMenu->getURI() ?>">
-            <i class='fa <?= $ormMenu->getIcon() ?> fa-calendar pull-left fa-angle-left"'>            </i>
-
-              <?= gettext($ormMenu->getContent()) ?>
-              <span class='pull-right-container' style="margin-right: -5px;">
-                 <i class="fa fa-angle-left pull-right"></i>
-                 <small class='label pull-right bg-blue' id='AnniversaryNumber'>0</small>
-                 <small class='label pull-right bg-red' id='BirthdateNumber'>0</small>
-                 <small class='label pull-right bg-yellow' id='EventsNumber'>0</small>
+              <i class='fa <?= $ormMenu->getIcon() ?> fa-calendar pull-right"'>            </i>
+              <span>
+                 <?= gettext($ormMenu->getContent()) ?>
               </span>
+              <i class="fa fa-angle-left pull-right"></i>
+              <small class='label bg-blue pull-right' id='AnniversaryNumber'>0</small>
+              <small class='label bg-red pull-right' id='BirthdateNumber'>0</small>
+              <small class='label bg-yellow pull-right' id='EventsNumber'>0</small>
             </a>
             <ul class="treeview-menu">
               <?php

@@ -22,7 +22,7 @@ $app->group('/register', function () {
         $registrationData->Version = SystemService::getInstalledVersion();
 
         $registrationData->sComments = $input->emailmessage;
-        $curlService = curl_init('http://www.ecclesiacrm.com/register.php');
+        $curlService = curl_init('https://www.ecclesiacrm.com/register.php');
 
         curl_setopt($curlService, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curlService, CURLOPT_POST, true);

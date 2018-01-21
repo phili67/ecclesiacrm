@@ -211,7 +211,7 @@ foreach ($allMonths as $mKey => $mVal) {
       <h3 class='box-title'><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).' '.gettext('for').'  '.gettext(date('F', mktime(0, 0, 0, $mVal, 1, $currYear))) ?></h3>
     </div>
     <div class='box-body'>
-  <table class="table data-table table-striped dataTable no-footer dtr-inline"  id="eventsTable" style="width:100%">
+  <table class="table table-striped table-bordered data-table"  id="eventsTable" style="width:100%">
     <thead>
       <tr class="TableHeader">
         <th><?= gettext("Action") ?></th>
@@ -321,12 +321,20 @@ foreach ($allMonths as $mKey => $mVal) {
                 <tr>
                    <td colspan="3">
                      <center>
+                     <?php
+                       if ($attNumRows[$row]-$attCheckOut[$row] > 0) {
+                    ?>
                      <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
                       <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
                       <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success">
                         <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                       </button>
                      </form>
+                     <?php } else { ?>
+                      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success disabled">
+                        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+                      </button>                     
+                     <?php } ?>
                      </center>
                    </td>
                 </tr>
