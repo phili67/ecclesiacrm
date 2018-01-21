@@ -4,8 +4,7 @@
   var anniversary = true;
   var birthday    = true;
   var withlimit   = false;
-  var eventCreated= false;
-  
+  var eventCreated= false;  
  
   var birthD = localStorage.getItem("birthday");
   if (birthD != null)
