@@ -21,6 +21,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must have Manage Groups & Roles permission
 if (!$_SESSION['bManageGroups']) {
@@ -55,8 +56,14 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0 && isset($_PO
     }
     
     $sGlobalMessage = $iCount.' records(s) successfully added to selected Event.';
+    
+    // we empties the cart
+    $_SESSION['aPeopleCart'] = [];
+    
+    $_SESSION['CartToEventEventID'] = $iEventID;
 
-    Redirect('CartView.php?Action=EmptyCart&Message=aMessage&iCount='.$iCount.'&iEID='.$iEventID);
+    //Redirect('CartView.php?Action=EmptyCart&Message=aMessage&iCount='.$iCount.'&iEID='.$iEventID);
+    Redirect(SystemURLs::getRootPath().'Checkin.php');    
 }
 
 // Set the page title and include HTML header

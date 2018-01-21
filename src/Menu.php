@@ -187,7 +187,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-green">
+        <div class="small-box bg-olive">
             <div class="inner">
                 <h3 id="peopleStatsDashboard">
                     0
@@ -225,7 +225,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-red">
+        <div class="small-box bg-maroon">
             <div class="inner">
                 <h3 id="groupsCountDashboard">
                   0
@@ -244,7 +244,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-yellow">
+        <div class="small-box bg-light-blue">
             <div class="inner">
                 <h3>
                   <?=
@@ -262,7 +262,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
             <div class="icon">
                 <i class="fa fa-gg"></i>
             </div>
-            <a href="<?= SystemURLs::getRootPath() ?>/GroupList.php" class="small-box-footer">
+            <a href="<?= SystemURLs::getRootPath() ?>/ListEvents.php" class="small-box-footer">
                 <?= gettext('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
