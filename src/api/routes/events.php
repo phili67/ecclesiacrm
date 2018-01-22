@@ -20,7 +20,7 @@ use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Utils\InputUtils;
-
+use EcclesiaCRM\EventCountNameQuery;
 
 $app->group('/events', function () {
 
@@ -56,12 +56,42 @@ $app->group('/events', function () {
         
         return $response->withJson($return);    
     });
+    
+    $this->post('/attendees', function ($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+        
+        // Get a list of the attendance counts currently associated with thisevent type
+        $eventCountNames = EventCountNameQuery::Create()
+                               ->filterByTypeId($params->typeID)
+                               ->orderById()
+                               ->find();
+                       
+        $numCounts = count($eventCountNames);
+
+        $return = [];           
+        
+        if ($numCounts) {
+            foreach ($eventCountNames as $eventCountName) {
+                $values['countID'] = $eventCountName->getId();
+                $values['countName'] = $eventCountName->getName();
+                $values['typeID'] = $params->typeID;
+                
+                array_push($return, $values);
+            }
+        }      
+        
+        return $response->withJson($return);    
+    });
   
     $this->post('/', function ($request, $response, $args) {
+      if(!$_SESSION['bAddEvent'] && !$_SESSION['bAdmin']) {
+        return $response->withStatus(401);
+      }
+      
       $input = (object) $request->getParsedBody();
       
-    if (!strcmp($input->evntAction,'createEvent'))
-     {
+      if (!strcmp($input->evntAction,'createEvent'))
+      {
         $eventTypeName = "";
         
         $EventGroupType = $input->EventGroupType;// for futur dev : personal or group
@@ -86,31 +116,17 @@ $app->group('/events', function () {
          $event->setEnd(str_replace("T"," ",$input->end));
          $event->setText(InputUtils::FilterHTML($input->eventPredication));
          $event->save(); 
-     
-         if ($input->Total > 0 || $input->Visitors || $input->Members){
-           $eventCount = new EventCounts; 
-           $eventCount->setEvtcntEventid($event->getID());
-           $eventCount->setEvtcntCountid(1);
-           $eventCount->setEvtcntCountname('Total');
-           $eventCount->setEvtcntCountcount($input->Total);
-           $eventCount->setEvtcntNotes($input->EventCountNotes);
-           $eventCount->save();
-
-           $eventCount = new EventCounts; 
-           $eventCount->setEvtcntEventid($event->getID());
-           $eventCount->setEvtcntCountid(2);
-           $eventCount->setEvtcntCountname('Members');
-           $eventCount->setEvtcntCountcount($input->Members);
-           $eventCount->setEvtcntNotes($input->EventCountNotes);
-           $eventCount->save();
-
-           $eventCount = new EventCounts; 
-           $eventCount->setEvtcntEventid($event->getID());
-           $eventCount->setEvtcntCountid(3);
-           $eventCount->setEvtcntCountname('Visitors');
-           $eventCount->setEvtcntCountcount($input->Visitors);
-           $eventCount->setEvtcntNotes($input->EventCountNotes);
-           $eventCount->save();
+         
+         if (!empty($input->Fields > 0)){         
+           foreach ($input->Fields as $field) {
+             $eventCount = new EventCounts; 
+             $eventCount->setEvtcntEventid($event->getID());
+             $eventCount->setEvtcntCountid($field['countid']);
+             $eventCount->setEvtcntCountname($field['name']);
+             $eventCount->setEvtcntCountcount($field['value']);
+             $eventCount->setEvtcntNotes($input->EventCountNotes);
+             $eventCount->save();
+           }
          }
      
          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
