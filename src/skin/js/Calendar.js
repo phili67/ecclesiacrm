@@ -4,7 +4,7 @@
   var anniversary = true;
   var birthday    = true;
   var withlimit   = false;
-  var eventCreated= false;  
+  var eventCreated= false; 
  
   var birthD = localStorage.getItem("birthday");
   if (birthD != null)
@@ -178,6 +178,70 @@
      localStorage.setItem("groupFilterID",groupFilterID); 
   });
   
+  
+  $(document).on('change','#eventType',function (val) {
+    var e = document.getElementById("eventType");
+    var typeID = e.options[e.selectedIndex].value;
+    
+    addAttendees(typeID);
+  });
+  
+  function addAttendees(typeID,first_time=0)
+  {
+    if (first_time) {
+      $('.ATTENDENCES-title').slideDown();
+    }
+    
+    $('.date-start').slideUp();
+    $('.date-end').slideUp();
+    $('.eventPredication').slideUp();
+      
+    window.CRM.APIRequest({
+          method: 'POST',
+          path: 'events/attendees',
+          data: JSON.stringify({"typeID":typeID})
+    }).done(function(eventTypes) {      
+      var len = eventTypes.length;
+    
+      if (len == 0) {
+        $('.ATTENDENCES-title').slideDown();
+        $(".ATTENDENCES-fields" ).empty();  
+        $(".ATTENDENCES").slideUp();  
+        $(".ATTENDENCES-fields" ).html('<input id="countFieldsId" name="countFieldsId" type="hidden" value="0"><br>'+i18next.t('No attendees')+'<br>');
+        
+      } else {
+        $(".ATTENDENCES-fields" ).empty();
+        $('.ATTENDENCES-title').slideUp();
+
+        var innerHtml = '<input id="countFieldsId" name="countFieldsId" type="hidden" value="'+len+'">';
+        
+        innerHtml += '<table>';
+
+        for (i=0; i<len; ++i) {
+          innerHtml +='<tr>'
+                    +"<td><label>" + eventTypes[i].countName  + ":&nbsp;</label></td>"
+                    +'<td>'
+                    +'<input type="text" id="field'+i+'" data-name="'+eventTypes[i].countName+'" data-countid="'+eventTypes[i].countID+'" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
+                    +'</td>'
+                    +'</tr>'
+        }  //typeID
+        
+        innerHtml +='<tr>'
+          +"<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
+          +'<td><input type="text" id="EventCountNotes" value="" class="form-control input-sm">'
+          +'</td>'
+        +'</tr>';
+        
+        innerHtml += '</table><br>';
+        
+        $(".ATTENDENCES-fields" ).html(innerHtml);
+        if (!first_time) {
+          $(".ATTENDENCES").slideDown();  
+        }
+      }
+    }); 
+  }
+  
   function addEventTypes()
   {
     window.CRM.APIRequest({
@@ -186,14 +250,23 @@
     }).done(function(eventTypes) {    
       var elt = document.getElementById("eventType");          
       var len = eventTypes.length;
+      var passed = false;      
       
-      for (i=0; i<len; ++i) {
+      var global_typeID = 0;
+      
+      for (i=0; i<len; ++i) {      
         var option = document.createElement("option");
         option.text = eventTypes[i].name;
         option.value = eventTypes[i].eventTypeID;
         elt.appendChild(option);
-      }       
+        
+        if (!passed) {       
+          global_typeID = eventTypes[i].eventTypeID;
+          passed = true;
+        }
+      }     
       
+      addAttendees(global_typeID,0);  
     });  
   }
   
@@ -344,33 +417,7 @@
             +'</div>'
             +'<div class="row ATTENDENCES  div-block">'
               +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
-                +'<div class="col-md-9">'
-                +'<table>'
-                  +'<tr>'
-                      +"<td><label>" + i18next.t("Total") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Total" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                    +'</td>'
-                    +'</tr>'
-                  +'<tr>'
-                      +"<td><label>" + i18next.t("Members") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Members" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                   +' </td>'
-                    +'</tr>'
-                 +' <tr>'
-                      +"<td><label>" + i18next.t("Visitors") + ":&nbsp;</label></td>"
-                    +'<td>'
-                    +'<input type="text" id="Visitors" value="0" size="8" class="form-control input-sm"  width="100%" style="width: 100%">'
-                    +'</td>'
-                    +'</tr>'
-                        +'<tr>'
-                  +"<td><label>" + i18next.t('Attendance Notes: ') + " &nbsp;</label></td>"
-                    +'<td><input type="text" id="EventCountNotes" value="" class="form-control input-sm">'
-                    +'</td>'
-                    +'</tr>'
-                +'</table>'
-                +'<br>'
+                +'<div class="col-md-9 ATTENDENCES-fields">'                
                 +'</div>'
                 +'<hr/>'
               +'</div>'
@@ -522,10 +569,25 @@
                   var e = document.getElementById("EventGroup");
                   var EventGroupID = e.options[e.selectedIndex].value;
                   var EventGroupType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
-                             
-                  var Total =  $('form #Total').val();
-                  var Members = $('form #Members').val();
-                  var Visitors = $('form #Visitors').val();
+                  
+                  var countFieldsId = $('form #countFieldsId').val();
+                  
+                  var fields = new Array();
+                  
+                  for (i=0;i<countFieldsId;i++) {
+                    var myObj = new Object();  
+                                  
+                    var name = $('form #field'+i).data('name');
+                    var countid = $('form #field'+i).data('countid');
+                    var value = $('form #field'+i).val();
+
+                    myObj.name = name;
+                    myObj.countid = countid;
+                    myObj.value = value;
+                    
+                    fields[i] = myObj;
+                  }
+                  
                   var EventCountNotes = $('form #EventCountNotes').val();
                              
                   var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
@@ -535,7 +597,7 @@
                   window.CRM.APIRequest({
                         method: 'POST',
                         path: 'events/',
-                        data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Total":Total,"Members":Members,"Visitors":Visitors,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":real_start,"end":real_end})
+                        data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":real_start,"end":real_end})
                   }).done(function(data) {                   
                     $('#calendar').fullCalendar('renderEvent', data, true); // stick? = true             
                     $('#calendar').fullCalendar('unselect');              
@@ -573,7 +635,7 @@
        
        // we add the calendars
        addCalendars();
-       addEventTypes();      
+       addEventTypes();
        
        //Timepicker
        $('.timepicker').timepicker({
@@ -590,7 +652,7 @@
         
        $('.date-start').hide();
        $('.date-end').hide();
-       $( ".eventPredication").hide();
+       $(".eventPredication").hide();
        
        // this will ensure that image and table can be focused
        $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
