@@ -1,3 +1,5 @@
+/* Copyright Philippe Logel 2018 all right reserved */
+
 $(document).ready(function () {
   window.CRM.groupsInCart = 0;
   $.ajax({
