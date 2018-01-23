@@ -108,7 +108,7 @@ $MenuFirst = 1;
                 <table border=0 class="table-dropdown-menu">
                 <tr style="border-bottom: 1pt solid black;">
                 <td valign="middle" width=110>
-                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image img-circle no-border" alt="User Image" style="border: 5px solid #cfd8dc;">                
+                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle" alt="User Image" style="width:85px;height:85px">                
                 </td>
                 <td valign="middle" align="left" style="padding-top:10px">   
                   <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">

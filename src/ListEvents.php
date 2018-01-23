@@ -12,9 +12,6 @@
 *  2007 Ed Davis
 *  update 2017 Philippe Logel
 *
-*
-*
-*
 ******************************************************************************/
 
 require 'Include/Config.php';
@@ -172,6 +169,11 @@ foreach ($allMonths as $mKey => $mVal) {
     $rsOpps = RunQuery($sSQL);
     $numRows = mysqli_num_rows($rsOpps);
     $aAvgRows = $numRows;
+    
+    $numAVGAtt = 0;
+    $numAVG_CheckIn = 0;
+    $numAVG_CheckOut = 0;
+    
     // Create arrays of the fundss.
     for ($row = 1; $row <= $numRows; $row++) {
         $aRow = mysqli_fetch_array($rsOpps, MYSQLI_BOTH);
@@ -191,19 +193,23 @@ foreach ($allMonths as $mKey => $mVal) {
         
         $attCheckOut[$row] = 0;
         
-        foreach ($attendees as $attende) {
-          if ($attende->getCheckoutId()) {
-            $attCheckOut[$row]++;
-          }          
+        if (!empty($attendees)) {
+            foreach ($attendees as $attende) {
+              if ($attende->getCheckoutId()) {
+                $attCheckOut[$row]++;
+              }          
+            }
+        
+            $attNumRows[$row] = count($attendees);            
+            $numAVG_CheckIn += $attNumRows[$row];
+            $numAVG_CheckOut += $attCheckOut[$row];
         }
         
-        if ($attendees) {
-            $attNumRows[$row] = count($attendees);
-        } else {
-            $attNumRows[$row] = 0;
+        if ($attNumRows[$row]) {
+            $numAVGAtt++;            
         }
     }
-
+    
     if ($numRows > 0) {
         ?>
   <div class='box'>
@@ -304,6 +310,7 @@ foreach ($allMonths as $mKey => $mVal) {
               </table>
             </td>
             <td>
+            <center>
             <?php 
               if ($attNumRows[$row]) { 
             ?>
@@ -339,6 +346,7 @@ foreach ($allMonths as $mKey => $mVal) {
                    </td>
                 </tr>
                </table>
+              </center>
             <?php 
               } else {
             ?>
@@ -360,30 +368,158 @@ foreach ($allMonths as $mKey => $mVal) {
 
         // calculate averages if this is a single type list
         if ($eType != 'All' && $aNumCounts > 0) {
-            $avgSQL = "SELECT evtcnt_countid, evtcnt_countname, AVG(evtcnt_countcount) from eventcounts_evtcnt, events_event WHERE eventcounts_evtcnt.evtcnt_eventid=events_event.event_id AND events_event.event_type='$eType' AND MONTH(events_event.event_start)='$mVal' GROUP BY eventcounts_evtcnt.evtcnt_countid ASC ";
+            $avgSQL = "SELECT evtcnt_countid, evtcnt_countname, AVG(evtcnt_countcount) 
+                         from eventcounts_evtcnt, events_event 
+                         WHERE eventcounts_evtcnt.evtcnt_eventid=events_event.event_id 
+                               AND events_event.event_type='$eType' 
+                               AND MONTH(events_event.event_start)='$mVal' 
+                               GROUP BY eventcounts_evtcnt.evtcnt_countid ASC ";
+                               
             $avgOpps = RunQuery($avgSQL);
             $aAvgRows = mysqli_num_rows($avgOpps); ?>
           <tr>
-            <td class="LabelColumn" colspan="2"><?= gettext(' Monthly Averages') ?></td>
+            <td class="LabelColumn"><?= gettext(' Monthly Averages') ?></td>
+            <td></td>
+            <td></td>
             <td>
               <div class='row'>
+                <center>
+                <table width=100%>
+                  <tr>
                 <?php
+                   $count=0;
                 // calculate and report averages
                 for ($c = 0; $c < $aAvgRows; $c++) {
+                   $count++;
+                   if ($count == 0) {
+                  ?>
+                      </tr>
+                      <tr>                      
+                  <?php
+                      
+                   }
+                   
+                    $count%=3;
                     $avgRow = mysqli_fetch_array($avgOpps, MYSQLI_BOTH);
                     extract($avgRow);
                     $avgName = $avgRow['evtcnt_countname'];
                     $avgAvg = $avgRow[2]; ?>
                   <td align="center">
                     <span class="SmallText">
-                    <strong>AVG<br><?= $avgName ?></strong>
+                    <strong><?= gettext("AVG") ?><br><?= $avgName ?></strong>
                     <br><?= sprintf('%01.2f', $avgAvg) ?></span>
                   </td>
                   <?php
                 } ?>
+                </tr>
+                </table>
+                </center>
               </div>
             </td>
-            <td class="TextColumn" colspan="3"></td>
+            <td>
+              <center>
+               <table width='100%' class='table-simple-padding' align="center">
+                  <tr>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-in") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckIn/$numAVGAtt) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-out") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckOut/$numAVGAtt) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Rest") ?></strong>
+                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)/$numAVGAtt) ?></span>
+                     </td>
+                  </tr>
+               </table>
+              </center>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <?php
+        } 
+        
+        // calculate averages if this is a single type list
+        if ($eType != 'All' && $aNumCounts > 0) {
+            $avgSQL = "SELECT evtcnt_countid, evtcnt_countname, SUM(evtcnt_countcount) 
+                         from eventcounts_evtcnt, events_event 
+                         WHERE eventcounts_evtcnt.evtcnt_eventid=events_event.event_id 
+                               AND events_event.event_type='$eType' 
+                               AND MONTH(events_event.event_start)='$mVal' 
+                               GROUP BY eventcounts_evtcnt.evtcnt_countid ASC ";
+                               
+            $avgOpps = RunQuery($avgSQL);
+            $aAvgRows = mysqli_num_rows($avgOpps); ?>
+          <tr>
+            <td class="LabelColumn"> <?= gettext('Monthly Counts') ?></td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class='row'>
+                <center>
+                <table width=100%>
+                  <tr>
+                <?php
+                   $count=0;
+                // calculate and report averages
+                for ($c = 0; $c < $aAvgRows; $c++) {
+                   $count++;
+                   if ($count == 0) {
+                  ?>
+                      </tr>
+                      <tr>                      
+                  <?php
+                      
+                   }
+                   
+                    $count%=3;
+                    $avgRow = mysqli_fetch_array($avgOpps, MYSQLI_BOTH);
+                    extract($avgRow);
+                    $avgName = $avgRow['evtcnt_countname'];
+                    $avgAvg = $avgRow[2]; ?>
+                  <td align="center">
+                    <span class="SmallText">
+                    <strong><?= gettext("Total") ?><br><?= $avgName ?></strong>
+                    <br><?= sprintf('%01.2f', $avgAvg) ?></span>
+                  </td>
+                  <?php
+                } ?>
+                </tr>
+                </table>
+                </center>
+              </div>
+            </td>
+            <td>
+              <center>
+               <table width='100%' class='table-simple-padding' align="center">
+                  <tr>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Check-in") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckIn) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Check-out") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckOut) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Rest") ?></strong>
+                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)) ?></span>
+                     </td>
+                  </tr>
+               </table>
+              </center>
+            </td>
+            <td></td>
+            <td></td>
           </tr>
           <?php
         } ?>

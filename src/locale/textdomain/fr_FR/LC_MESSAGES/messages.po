@@ -2749,6 +2749,12 @@ msgstr "Les participants"
 msgid " Monthly Averages"
 msgstr " Moyennes mensuelles"
 
+msgid "Monthly Counts"
+msgstr "Totaux mensuels"
+
+msgid "AVG"
+msgstr "MOY"
+
 #: Login.php:40 Login.php:55
 msgid "Invalid login or password"
 msgstr "Identifiant ou Mot de passe invalide"
@@ -9467,3 +9473,4 @@ msgstr "Utilisateurs"
 
 msgid "Not Available"
 msgstr "Non disponible"
+
