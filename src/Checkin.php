@@ -169,11 +169,11 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                                 <input type="submit" class="btn btn-primary" value="<?= gettext('CheckIn'); ?>"
                                        name="CheckIn" tabindex=3>
                             </div>
-                            <div class="text-center col-md-4">
+                            <div class="col-md-4">
                                 <input type="reset" class="btn btn-default" value="<?= gettext('Cancel'); ?>"
                                        name="Cancel" tabindex=4 onClick="SetPersonHtml($('#childDetails'),null);SetPersonHtml($('#adultDetails'),null);">
                             </div>
-                            <div class="text-right col-md-4">
+                            <div class="col-md-4">
                                 <input type="Add" class="btn btn-success" value="<?= gettext('Add Visitor'); ?>"
                                        name="Add" tabindex=4 onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/PersonEditor.php';">
                             </div>
@@ -288,6 +288,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
                                         <div class="text-center"><a target="_top" href="PersonView.php?PersonID=<?= $person->getId() ?>">
                                           <h4><?= $person->getFullName() ?></h4></a>
                                           <img src="/api/persons/<?= $person->getId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle"> 
+                                          <br>
                                         </div>
                                     </div>
                                 </div>
@@ -317,7 +318,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
     ?>
     <div class="box box-primary">
         <div class="box-body table-responsive">
-            <table id="checkedinTable" class="table data-table table-striped ">
+            <table id="checkedinTable" class="table data-table table-striped " style="width:100%">
                 <thead>
                 <tr>
                     <th><?= gettext('Name') ?></th>
@@ -401,7 +402,13 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     var perArr;
     $(document).ready(function () {
-        $('#checkedinTable').DataTable(window.CRM.plugin.dataTable);
+        $('#checkedinTable').DataTable({
+       "language": {
+         "url": window.CRM.plugin.dataTable.language.url
+       },
+       pageLength: 100,
+       responsive: true
+     });
     });
 
     $(document).ready(function() {
@@ -473,10 +480,10 @@ function loadPerson($iPersonID)
 
 
     $html = '<div class="text-center">' .
+        '<img src="' . SystemURLs::getRootPath() . '/api/persons/' . $iPersonID . '/thumbnail" class="initials-image profile-user-img img-responsive img-circle"> </div>'.
         '<a target="_top" href="PersonView.php?PersonID=' . $iPersonID . '"><h4>' . $person->getTitle(). ' ' . $person->getFullName() . '</h4></a>' .
         '<div class="">' . $familyRole . '</div>' .
-        '<div class="text-center">' . $person->getAddress() . '</div>' .
-        '<img src="' . SystemURLs::getRootPath() . '/api/persons/' . $iPersonID . '/thumbnail" class="initials-image profile-user-img img-responsive img-circle"> </div>';
+        '<div class="text-center">' . $person->getAddress() . '</div><br>';
     echo $html;
 }
 ?>
