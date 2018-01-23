@@ -88,7 +88,7 @@ $MenuFirst = 1;
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
             <!-- Cart Functions: style can be found in dropdown.less -->
-            <li id="CartBlock" class="dropdown notifications-menu">
+            <li class="dropdown notifications-menu" id="CartBlock" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">
                     <i class="fa fa-shopping-cart"></i>
                     <span id="iconCount" class="label label-success"><?= Cart::CountPeople() ?></span>
@@ -134,7 +134,7 @@ $MenuFirst = 1;
             </a>
             <ul class="dropdown-menu">
               <li class="hidden-xxs">
-                <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= gettext('Help & Manual') ?>">
+                <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= gettext('Help & Manual') ?>" class="main-help-menu">
                   <i class="fa fa-question-circle"></i> <?= gettext('Help & Manual') ?>
                 </a>
               </li>
