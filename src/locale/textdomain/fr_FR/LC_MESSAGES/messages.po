@@ -8078,11 +8078,11 @@ msgstr "Inscrit(e) par (Optionnel)"
 
 #: Checkin.php:192
 msgid "Person has been already checked in for this event"
-msgstr "Cette personne a déjà été inscris pour cet événement"
+msgstr "Cette personne a déjà été inscrite pour cet événement"
 
 #: Checkin.php:238
 msgid "CheckOut Person"
-msgstr "Désinscrire une personne"
+msgstr "Confirmer inscription personne"
 
 #: Checkin.php:238
 msgid "Delete Checkin in Entry"
@@ -8090,7 +8090,7 @@ msgstr "Effacer l'inscription"
 
 #: Checkin.php:263
 msgid "Adult Checking Out Person"
-msgstr "Adulte autorisé à chercher"
+msgstr "Adulte Confirmant inscription de la personne"
 
 #: Checkin.php:267
 msgid "Adult Name (Optional)"
