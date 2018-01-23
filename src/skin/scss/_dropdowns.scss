@@ -10,19 +10,28 @@
 
 /* Philippe Logel : file in Header.php */
 .user-header a.item_link {
-  color: #FFF !important ; 
+  color: #555 !important ; 
   cursor:pointer;
     cursor:hand;
 }
 
 .user-header a.item_link:link {
-  color: #FFF !important; 
+  color: #555 !important; 
   cursor:pointer;
     cursor:hand;
 }
 
 .user-header a.item_link:hover {
-  color: #CCCCCC !important ; 
+  color: #777 !important ; 
   cursor:pointer;
     cursor:hand;
+}
+
+
+.table-dropdown-menu {
+   margin-top:-10px;
+   margin-left:-10px;
+   margin-right:-20px;
+   width:278px;
+   background:rgba(255, 255, 255, 0.91);
 }

@@ -103,14 +103,14 @@ $MenuFirst = 1;
               <span class="hidden-xs"><?= $_SESSION['user']->getName() ?> </span>
 
             </a>
-            <ul class="hidden-xxs dropdown-menu">
+            <ul class="hidden-xxs dropdown-menu" style="background-color:rgba(255, 255, 255, 0.5);">
               <li class="user-header" id="yourElement" style="height:205px">
-                <table border=0 width="100%">
-                <tr style="border-bottom: 1pt solid white;">
+                <table border=0 class="table-dropdown-menu">
+                <tr style="border-bottom: 1pt solid black;">
                 <td valign="middle" width=110>
-                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image img-circle no-border" alt="User Image">                
+                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image img-circle no-border" alt="User Image" style="border: 5px solid #cfd8dc;">                
                 </td>
-                <td valign="middle" align="left" >                
+                <td valign="middle" align="left" style="padding-top:10px">   
                   <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
                       <p ><i class="fa fa fa-user"></i> <?= gettext("Personal area") ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("You can change here your password")?>" data-placement="right">
