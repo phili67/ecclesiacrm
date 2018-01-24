@@ -9486,3 +9486,4 @@ msgstr "Type de groupe"
 
 msgid "Event added"
 msgstr "Evénement ajoutée"
+
