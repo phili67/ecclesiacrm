@@ -10,7 +10,7 @@
 *
 *  Additional Contributors:
 *  2007 Ed Davis
-*  update 2017 Philippe Logel
+*  update 2018 Philippe Logel all right reserved
 *
 ******************************************************************************/
 
@@ -78,6 +78,8 @@ $rsOpps = RunQuery($sSQL);
 $numRows = mysqli_num_rows($rsOpps);
 
 ?>
+
+
 <div class='text-center'>
   <a href="EventEditor.php" class='btn btn-primary'>
     <i class='fa fa-ticket'></i>
@@ -158,6 +160,8 @@ if ($eType == 'All') {
     $eTypeSQL = " AND t1.event_type=$eType";
 }
 
+$statisticaAvgRows = true;
+
 foreach ($allMonths as $mKey => $mVal) {
     unset($cCountSum);
     $sSQL = 'SELECT * FROM events_event as t1, event_types as t2 ';
@@ -201,10 +205,16 @@ foreach ($allMonths as $mKey => $mVal) {
         $attCheckOut[$row] = 0;
         
         if (!empty($attendees)) {
+            
             foreach ($attendees as $attende) {
               if ($attende->getCheckoutId()) {
                 $attCheckOut[$row]++;
               }          
+            }
+            
+            if ($attCheckOut[$row] > 0) {
+              // no statistic for the special counter
+              $statisticaAvgRows = false;
             }
         
             $attNumRows[$row] = count($attendees);            
@@ -277,7 +287,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <?= ($aEventDesc[$row] == '' ? '&nbsp;' : $aEventDesc[$row]) ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
-                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')"><?= gettext("Sermon Text") ?></a></div>
+                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= gettext("Sermon Text") ?></a></div>
               <?php
             } ?>
             </td>
@@ -290,8 +300,8 @@ foreach ($allMonths as $mKey => $mVal) {
                     $cvSQL = "SELECT * FROM eventcounts_evtcnt WHERE evtcnt_eventid='$aEventID[$row]' ORDER BY evtcnt_countid ASC";
                     $cvOpps = RunQuery($cvSQL);
                     $aNumCounts = mysqli_num_rows($cvOpps);
-                    
-                    if ($aNumCounts > 0 && $attNumRows[$row] == 0) {
+
+                    if ($aNumCounts && $attNumRows[$row] == 0) {
                         for ($c = 0; $c < $aNumCounts; $c++) {
                             $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
                             extract($cRow);
@@ -308,7 +318,9 @@ foreach ($allMonths as $mKey => $mVal) {
                     } else {
                         ?>
                       <td>
-                        <?= gettext('No Attendance Recorded') ?>
+                        <center>
+	                        <?= gettext('No Attendance Recorded') ?>
+	                      </center>
                       </td>
                       <?php
                     } ?>
@@ -339,7 +351,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       <td>
                       <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
                         <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                        <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
+                         <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                         <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                         <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
                         <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
@@ -405,7 +417,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0) {
+                  if ($aAvgRows > 0  && $statisticaAvgRows) {
                 ?>
                 <table width=100%>
                   <tr>
@@ -500,7 +512,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0) {
+                  if ($aAvgRows > 0  && $statisticaAvgRows) {
                 ?>                
                 <table width=100%>
                   <tr>
