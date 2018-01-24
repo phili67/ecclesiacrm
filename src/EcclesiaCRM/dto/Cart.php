@@ -6,6 +6,11 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\EventAttend;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+
 
 class Cart
 {
@@ -178,6 +183,30 @@ class Cart
   public static function EmptyToNewGroup($GroupID)
   {
     self::EmptyToGroup($GroupID);
+  }
+  
+  public static function EmptyToEvent($eventID)
+  {
+    // Loop through the session array
+    $iCount = 0;
+    while ($element = each($_SESSION['aPeopleCart'])) {
+        // Enter ID into event
+        try {
+            $eventAttent = new EventAttend();
+        
+            $eventAttent->setEventId($eventID);
+            $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckinDate(date("Y-m-d H:i:s"));
+            $eventAttent->setPersonId($_SESSION['aPeopleCart'][$element['key']]);
+            $eventAttent->save();
+        } catch (\Exception $ex) {
+           $errorMessage = $ex->getMessage();
+        }
+        
+        $iCount++;
+    }
+    
+    $_SESSION['aPeopleCart'] = [];
   }
     
   public static function EmptyToGroup($GroupID,$RoleID=0)

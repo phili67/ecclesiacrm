@@ -73,11 +73,13 @@ require 'Include/Header.php';
     <h3 class="box-title"><?= gettext('Group Functions') ?></h3>
   </div>
   <div class="box-body">
+    <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+    <a class="btn btn-app" id="AddGroupMembersToCart" data-groupid="<?= $thisGroup->getId() ?>"><i class="fa fa fa-cart-plus"></i><?= gettext('Add Group Members to Cart') ?></a>
 
     <?php
     if ($_SESSION['bManageGroups']) {
         echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
-        echo '<button class="btn btn-app"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; ?>
+        echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; ?>
 
       <?php
       if ($thisGroup->getHasSpecialProps()) {
@@ -85,8 +87,6 @@ require 'Include/Header.php';
       }
     }?>
 
-    <a class="btn btn-app" id="AddGroupMembersToCart" data-groupid="<?= $thisGroup->getId() ?>"><i class="fa fa-users"></i><?= gettext('Add Group Members to Cart') ?></a>
-    <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
 
     <?php
 

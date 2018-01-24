@@ -190,6 +190,13 @@ $("document").ready(function(){
            $("#GroupCreation").show();           
        }
     });
+    
+    
+    $(document).on("click", "#emptyCartToEvent", function (e) {
+    	window.CRM.cart.emptytoEvent(function(data){
+    	  alert('coucou');
+    	});
+    });
 
     
     $(document).on("click", "#emptyCartToGroup", function (e) {
