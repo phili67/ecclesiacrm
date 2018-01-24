@@ -62,6 +62,9 @@ if (isset($_POST['Action']) && isset($_POST['EID'])) {
 
         $sSQL = 'DELETE FROM eventcounts_evtcnt WHERE evtcnt_eventid = '.$eID;
         RunQuery($sSQL);
+        
+        $sSQL = 'DELETE FROM event_attend WHERE event_id = '.$eID;
+        RunQuery($sSQL);
     } elseif ($action == 'Activate' && $eID) {
         $sSQL = 'UPDATE events_event SET inactive = 0 WHERE event_id = '.$eID.' LIMIT 1';
         RunQuery($sSQL);
