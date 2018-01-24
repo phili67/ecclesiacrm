@@ -2719,7 +2719,7 @@ msgstr "Confirmer les données des étiquettes"
 
 #: ListEvents.php:40
 msgid "Listing Events of Type = "
-msgstr "Liste des événements de type =␣ "
+msgstr "Liste des événements de type = "
 
 #: ListEvents.php:42
 msgid "Listing All Church Events"
@@ -2739,7 +2739,7 @@ msgstr "Date/heure de début"
 
 #: ListEvents.php:285
 msgid "No Attendance Recorded"
-msgstr "Auncune participation enregistrée"
+msgstr "Aucune participation enregistrée"
 
 #: ListEvents.php:235
 msgid "Attendees"

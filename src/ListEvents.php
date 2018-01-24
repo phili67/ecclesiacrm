@@ -251,7 +251,6 @@ foreach ($allMonths as $mKey => $mVal) {
                       <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                       <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                       <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                      <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm btn-block" >
                     </form>
                   </td>
                   <td>
@@ -331,15 +330,37 @@ foreach ($allMonths as $mKey => $mVal) {
                      <?php
                        if ($attNumRows[$row]-$attCheckOut[$row] > 0) {
                     ?>
-                     <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
-                      <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success">
-                        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
-                      </button>
-                     </form>
+                      <table>
+                      <tr>
+                      <td>
+                      <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                        <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
+                         <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
+                        <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
+                        <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
+                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
+                      </form>
+                      </td>
+                      <td>
+                      <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
+                        <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success btn-sm">
+                          <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+                        </button>                      
+                       </form>
+                       </td>
+                       </tr>
+                       </table>
                      <?php } else { ?>
+                     <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                        <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
+                         <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
+                        <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
+                        <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
+                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
+                      </form>
                       <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success disabled">
-                        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+                         <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                       </button>                     
                      <?php } ?>
                      </center>
@@ -350,7 +371,14 @@ foreach ($allMonths as $mKey => $mVal) {
             <?php 
               } else {
             ?>
-              <?= gettext('No Attendance Recorded') ?>
+            <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+              <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
+              <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
+              <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
+              <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
+              <?= gettext('No Attendance Recorded') ?><br>
+              <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
+            </form>
             <?php 
               }
             ?>
@@ -384,6 +412,9 @@ foreach ($allMonths as $mKey => $mVal) {
             <td>
               <div class='row'>
                 <center>
+                <?php 
+                  if ($aAvgRows > 0) {
+                ?>
                 <table width=100%>
                   <tr>
                 <?php
@@ -413,11 +444,19 @@ foreach ($allMonths as $mKey => $mVal) {
                 } ?>
                 </tr>
                 </table>
+                <?php 
+                } else {
+                   echo  gettext('No Attendance Recorded');
+                }
+                ?>
                 </center>
               </div>
             </td>
             <td>
               <center>
+              <?php
+                if ($numAVGAtt > 0) {
+              ?>
                <table width='100%' class='table-simple-padding' align="center">
                   <tr>
                      <td align="center">
@@ -437,6 +476,11 @@ foreach ($allMonths as $mKey => $mVal) {
                      </td>
                   </tr>
                </table>
+              <?php 
+              } else {
+                 echo  gettext('No Attendance Recorded');
+              } 
+              ?>
               </center>
             </td>
             <td></td>
@@ -463,6 +507,9 @@ foreach ($allMonths as $mKey => $mVal) {
             <td>
               <div class='row'>
                 <center>
+                <?php 
+                  if ($aAvgRows > 0) {
+                ?>                
                 <table width=100%>
                   <tr>
                 <?php
@@ -492,11 +539,19 @@ foreach ($allMonths as $mKey => $mVal) {
                 } ?>
                 </tr>
                 </table>
+                <?php 
+                } else {
+                   echo  gettext('No Attendance Recorded');
+                }
+                ?>
                 </center>
               </div>
             </td>
             <td>
               <center>
+              <?php 
+                if ($numAVGAtt > 0) {
+              ?>
                <table width='100%' class='table-simple-padding' align="center">
                   <tr>
                      <td align="center">
@@ -516,7 +571,11 @@ foreach ($allMonths as $mKey => $mVal) {
                      </td>
                   </tr>
                </table>
-              </center>
+              <?php
+              } else {
+                echo  gettext('No Attendance Recorded');
+              } ?>
+             </center>
             </td>
             <td></td>
             <td></td>
