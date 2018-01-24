@@ -40,9 +40,9 @@ $app->group('/events', function () {
     
     $this->get('/numbers', function ($request, $response, $args) {        
         $response->withJson(MenuEventsCount::getNumberEventsOfToday());       
-    });
+    });    
     
-    $this->get('/calendars', function ($request, $response, $args) {
+    $this->get('/types', function ($request, $response, $args) {
         $eventTypes = EventTypesQuery::Create()
               ->orderByName()
               ->find();
@@ -57,6 +57,22 @@ $app->group('/events', function () {
         
         return $response->withJson($return);    
     });
+    
+    $this->get('/names', function ($request, $response, $args) {
+        $ormEvents = EventQuery::Create()->orderByTitle()->find();
+             
+        $return = [];           
+        foreach ($ormEvents as $ormEvent) {
+            $values['eventTypeID'] = $ormEvent->getID();
+            $values['name'] = $ormEvent->getTitle();
+            
+            array_push($return, $values);
+        }
+        
+        return $response->withJson($return);    
+    });
+    
+    
     
     $this->post('/person',function($request, $response, $args) {
         $params = (object)$request->getParsedBody();

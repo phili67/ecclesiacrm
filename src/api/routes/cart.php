@@ -48,6 +48,19 @@ $app->group('/cart', function () {
         ]);
     });
     
+    $this->post('/emptyToEvent', function($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::EmptyToEvent($cartPayload->eventID);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '.gettext('records(s) successfully added to selected Group.')
+        ]);
+    });
+    
     $this->post('/emptyToNewGroup', function($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin() && !$_SESSION['user']->isManageGroupsEnabled()) {
             return $response->withStatus(401);

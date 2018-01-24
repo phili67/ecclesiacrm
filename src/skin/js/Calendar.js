@@ -246,7 +246,7 @@
   {
     window.CRM.APIRequest({
           method: 'GET',
-          path: 'events/calendars',
+          path: 'events/types',
     }).done(function(eventTypes) {    
       var elt = document.getElementById("eventType");          
       var len = eventTypes.length;

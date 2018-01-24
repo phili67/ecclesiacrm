@@ -96,7 +96,7 @@ if (!Cart::HasPeople()) {
                         class="fa fa-users"></i><?= gettext('Empty Cart to Family') ?></a>
             <?php
         } ?>
-            <a href="CartToEvent.php" class="btn btn-app"><i
+            <a href="#" id="emptyCartToEvent" class="btn btn-app"><i
                 class="fa fa-ticket"></i><?= gettext('Empty Cart to Event') ?></a>
 
             <?php if ($bExportCSV) {

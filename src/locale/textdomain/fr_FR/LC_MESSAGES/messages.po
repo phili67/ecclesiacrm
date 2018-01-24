@@ -9480,3 +9480,9 @@ msgstr "Retour au Calendrier"
 msgid "Add Event Member"
 msgstr "Ajouter des personnes à l'événement"
 
+
+msgid "Type of Group"
+msgstr "Type de groupe"
+
+msgid "Event added"
+msgstr "Evénement ajoutée"

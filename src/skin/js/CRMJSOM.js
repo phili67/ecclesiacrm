@@ -135,9 +135,51 @@
       {
           
       },
-      'emptytoEvent' : function ()
+      'emptytoEvent' : function (callback)
       {
-          
+         window.CRM.APIRequest({
+          method: 'GET',
+          path: 'events/names',
+        }).done(function(eventNames) {
+           var lenType = eventNames.length;
+           var options = new Array();
+           
+           for (i=0;i<lenType;i++) {
+             var myObj = new Object(); 
+             
+             myObj.value = eventNames[i].eventTypeID;
+             myObj.text = eventNames[i].name;
+             options[i] = myObj;
+           }
+           
+           bootbox.prompt({
+            title: i18next.t('Select the event to which you would like to add your cart'),
+            inputType: 'select',
+            inputOptions: options,
+            buttons: {
+            confirm: {
+              label:  i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label:  i18next.t('No'),
+              className: 'btn-danger'
+            }
+            },
+            callback: function (result) {
+              if (result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'cart/emptyToEvent',
+                  data: JSON.stringify({"eventID":result})
+                }).done(function(data) {
+                   window.CRM.cart.refresh();
+                   location.href = window.CRM.root + 'ListEvents.php';
+                });
+              ø}
+            }
+          });
+        });
       },
       'addPerson' : function (Persons, callback)
       {
@@ -249,7 +291,7 @@
                           </a>\
                       </li>\
                       <li>\
-                          <a href="' + window.CRM.root+ '/CartToEvent.php">\
+                          <a href="#" id="emptyCartToEvent">\
                               <i class="fa fa fa-ticket text-info"></i>' + i18next.t("Empty Cart to Event") + '\
                           </a>\
                       </li>\
