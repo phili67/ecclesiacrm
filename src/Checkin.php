@@ -399,6 +399,13 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
 }
 ?>
 
+<div>
+  <a href="ListEvents.php" class='btn btn-default'>
+    <i class='fa fa-chevron-left'></i>
+    <?= gettext('Return to Events') ?>
+  </a>
+</div>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     var perArr;
     $(document).ready(function () {

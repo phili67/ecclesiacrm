@@ -21,6 +21,7 @@ use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\EventAttend;
 
 $app->group('/events', function () {
 
@@ -55,6 +56,26 @@ $app->group('/events', function () {
         }
         
         return $response->withJson($return);    
+    });
+    
+    $this->post('/person',function($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+        
+        try {
+            $eventAttent = new EventAttend();
+        
+            $eventAttent->setEventId($params->EventID);
+            $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+            $eventAttent->setPersonId($params->PersonId);
+            $eventAttent->save();
+        } catch (\Exception $ex) {
+            $errorMessage = $ex->getMessage();
+            return $response->withJson(['status' => $errorMessage]);    
+        }
+        
+       return $response->withJson(['status' => "success"]);
     });
     
     $this->post('/attendees', function ($request, $response, $args) {

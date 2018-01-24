@@ -26,11 +26,25 @@ use Propel\Runtime\ActiveQuery\Criteria;
 $sPageTitle = gettext('Church Event Editor');
 require 'Include/Header.php';
 
-$sAction = $_POST['Action'];
-$EventID = $_POST['EID']; // from ListEvents button=Attendees
-$EvtName = $_POST['EName'];
-$EvtDesc = $_POST['EDesc'];
-$EvtDate = $_POST['EDate'];
+if (isset($_POST['Action'])) {
+  $sAction = $_POST['Action'];
+  $EventID = $_POST['EID']; // from ListEvents button=Attendees
+  $EvtName = $_POST['EName'];
+  $EvtDesc = $_POST['EDesc'];
+  $EvtDate = $_POST['EDate'];
+
+  $_SESSION['Action'] = $sAction;
+  $_SESSION['EID'] = $EventID;
+  $_SESSION['EName'] = $EvtName;
+  $_SESSION['EDesc'] = $EvtDesc;
+  $_SESSION['EDate'] = $EvtDate;
+} else if(isset($_SESSION['Action'])) {
+  $sAction = $_SESSION['Action'];
+  $EventID = $_SESSION['EID'];
+  $EvtName = $_SESSION['EName'];
+  $EvtDesc = $_SESSION['EDesc'];
+  $EvtDate = $_SESSION['EDate'];
+}
 
 //
 // process the action inputs
@@ -130,6 +144,13 @@ if ($numAttRows != 0) {
 ?>
 <tbody>
 </table>
+
+<form action="#" method="get" class="sidebar-form">
+    <label for="addGroupMember"><?= gettext('Add Event Member') ?> :</label>
+    <select class="form-control personSearch" name="addGroupMember" style="width:100%">
+    </select>
+</form>
+<br>
 <center>
 <?php if ($numAttRows-$countCheckout>0) { ?>
     <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
@@ -145,21 +166,36 @@ if ($numAttRows != 0) {
 <?php } ?>
 </center>                
 </div>
+</div>
+
+<div>
+  <a href="ListEvents.php" class='btn btn-default'>
+    <i class='fa fa-chevron-left'></i>
+    <?= gettext('Return to Events') ?>
+  </a>
+</div>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 //Added by @saulowulhynek to translation of datatable nav terms
+  window.CRM.currentEvent = <?= $EventID ?>;
+
   $(document).ready(function () {
    <?php 
      if ($numAttRows != 0) {
      ?>
-    $("#eventsTable").DataTable({
-       "language": {
+    
+      window.CRM.DataTableEventView = $("#eventsTable").DataTable({
+         "language": {
          "url": window.CRM.plugin.dataTable.language.url
-       },
-       responsive: true
+      },
+      responsive: true
     });
   <?php
     }
     ?>
   });
 </script>
+
+<script src="skin/js/EditEventAttendees.js" ></script>
+
 <?php require 'Include/Footer.php' ?>

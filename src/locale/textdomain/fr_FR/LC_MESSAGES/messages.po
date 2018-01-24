@@ -9474,3 +9474,9 @@ msgstr "Utilisateurs"
 msgid "Not Available"
 msgstr "Non disponible"
 
+msgid "Return to Calendar"
+msgstr "Retour au Calendrier"
+
+msgid "Add Event Member"
+msgstr "Ajouter des personnes à l'événement"
+

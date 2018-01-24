@@ -10,7 +10,7 @@
 *
 *  Additional Contributors:
 *  2007 Ed Davis
-*  update 2017 Philippe Logel
+*  update 2018 Philippe Logel all right reserved
 *
 ******************************************************************************/
 
@@ -78,6 +78,15 @@ $rsOpps = RunQuery($sSQL);
 $numRows = mysqli_num_rows($rsOpps);
 
 ?>
+
+
+<div class='text-center'>
+  <a href="EventEditor.php" class='btn btn-primary'>
+    <i class='fa fa-ticket'></i>
+    <?= gettext('Add New Event') ?>
+  </a>
+</div>
+
 <table cellpadding="1" align="center" cellspacing="0" class='table'>
 <tr>
 <td align="center" width="50%"><p><strong><?= gettext('Select Event Types To Display') ?></strong></p>
@@ -151,6 +160,8 @@ if ($eType == 'All') {
     $eTypeSQL = " AND t1.event_type=$eType";
 }
 
+$statisticaAvgRows = true;
+
 foreach ($allMonths as $mKey => $mVal) {
     unset($cCountSum);
     $sSQL = 'SELECT * FROM events_event as t1, event_types as t2 ';
@@ -194,10 +205,16 @@ foreach ($allMonths as $mKey => $mVal) {
         $attCheckOut[$row] = 0;
         
         if (!empty($attendees)) {
+            
             foreach ($attendees as $attende) {
               if ($attende->getCheckoutId()) {
                 $attCheckOut[$row]++;
               }          
+            }
+            
+            if ($attCheckOut[$row] > 0) {
+              // no statistic for the special counter
+              $statisticaAvgRows = false;
             }
         
             $attNumRows[$row] = count($attendees);            
@@ -270,7 +287,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <?= ($aEventDesc[$row] == '' ? '&nbsp;' : $aEventDesc[$row]) ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
-                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')"><?= gettext("Sermon Text") ?></a></div>
+                <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= gettext("Sermon Text") ?></a></div>
               <?php
             } ?>
             </td>
@@ -284,7 +301,7 @@ foreach ($allMonths as $mKey => $mVal) {
                     $cvOpps = RunQuery($cvSQL);
                     $aNumCounts = mysqli_num_rows($cvOpps);
 
-                    if ($aNumCounts) {
+                    if ($aNumCounts && $attNumRows[$row] == 0) {
                         for ($c = 0; $c < $aNumCounts; $c++) {
                             $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
                             extract($cRow);
@@ -301,7 +318,9 @@ foreach ($allMonths as $mKey => $mVal) {
                     } else {
                         ?>
                       <td>
-                        <?= gettext('No Attendance Recorded') ?>
+                        <center>
+	                        <?= gettext('No Attendance Recorded') ?>
+	                      </center>
                       </td>
                       <?php
                     } ?>
@@ -327,9 +346,6 @@ foreach ($allMonths as $mKey => $mVal) {
                 <tr>
                    <td colspan="3">
                      <center>
-                     <?php
-                       if ($attNumRows[$row]-$attCheckOut[$row] > 0) {
-                    ?>
                       <table>
                       <tr>
                       <td>
@@ -344,25 +360,13 @@ foreach ($allMonths as $mKey => $mVal) {
                       <td>
                       <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success btn-sm">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default disabled" ?> btn-sm">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
                        </form>
                        </td>
                        </tr>
                        </table>
-                     <?php } else { ?>
-                     <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
-                        <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                         <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
-                        <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
-                        <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
-                      </form>
-                      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-success disabled">
-                         <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
-                      </button>                     
-                     <?php } ?>
                      </center>
                    </td>
                 </tr>
@@ -413,7 +417,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0) {
+                  if ($aAvgRows > 0  && $statisticaAvgRows) {
                 ?>
                 <table width=100%>
                   <tr>
@@ -508,7 +512,7 @@ foreach ($allMonths as $mKey => $mVal) {
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0) {
+                  if ($aAvgRows > 0  && $statisticaAvgRows) {
                 ?>                
                 <table width=100%>
                   <tr>
@@ -591,10 +595,10 @@ foreach ($allMonths as $mKey => $mVal) {
 } // end for-each month loop
 ?>
 
-<div class='text-center'>
-  <a href="EventEditor.php" class='btn btn-primary'>
-    <i class='fa fa-ticket'></i>
-    <?= gettext('Add New Event') ?>
+<div>
+  <a href="calendar.php" class='btn btn-default'>
+    <i class='fa fa-chevron-left'></i>
+    <?= gettext('Return to Calendar') ?>
   </a>
 </div>
 
