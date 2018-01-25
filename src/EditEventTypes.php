@@ -53,7 +53,7 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
     case 'ADD':
       $eventCountName = new EventCountName();
       
-      $eventCountName->setName($_POST['newCountName']);
+      $eventCountName->setName(InputUtils::FilterString($_POST['newCountName']));
       $eventCountName->setTypeId($_POST['EN_tyid']);
       
       $eventCountName->save();
@@ -66,9 +66,10 @@ if (strpos($_POST['Action'], 'DELETE_', 0) === 0) {
       $eventType = EventTypesQuery::Create()
                        ->findOneById($_POST['EN_tyid']);
                        
-      $eventType->setName(InputUtils::LegacyFilterInput($_POST['newEvtName']));
+      $eventType->setName(InputUtils::FilterString($_POST['newEvtName']));
       
       $eventType->save();
+      
                        
       $theID = '';
       $_POST['Action'] = '';

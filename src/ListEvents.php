@@ -243,8 +243,8 @@ foreach ($allMonths as $mKey => $mVal) {
         <th><?= gettext("Action") ?></th>
         <th><?= gettext("Description") ?></th>
         <th><?= gettext("Event Type") ?></th>
-        <th><?= gettext("Attendance Counts") ?></th>
-        <th><?= gettext("Real Attendance Counts") ?></th>
+        <th><?= gettext("Attendance Counts with real Attendees") ?></th>
+        <th><?= gettext("Free Attendance Counts without Attendees") ?></th>
         <th><?= gettext("Start Date/Time") ?></th>
         <th><?= gettext("Active") ?></th>
       </tr>
@@ -287,49 +287,14 @@ foreach ($allMonths as $mKey => $mVal) {
             </td>
             <td>
               <?= $aEventTitle[$row] ?>
-              <?= ($aEventDesc[$row] == '' ? '&nbsp;' : $aEventDesc[$row]) ?>
+              <?= ($aEventDesc[$row] == '' ? '&nbsp;' : "(".$aEventDesc[$row]).")" ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
                 <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= gettext("Sermon Text") ?></a></div>
               <?php
             } ?>
             </td>
-            <td><?= $aEventType[$row] ?></td>
-            <td>
-              <table width='100%' class='table-simple-padding'>
-                <tr>
-                  <?php
-                    // RETRIEVE THE list of counts associated with the current event
-                    $cvSQL = "SELECT * FROM eventcounts_evtcnt WHERE evtcnt_eventid='$aEventID[$row]' ORDER BY evtcnt_countid ASC";
-                    $cvOpps = RunQuery($cvSQL);
-                    $aNumCounts = mysqli_num_rows($cvOpps);
-
-                    if ($aNumCounts && $attNumRows[$row] == 0) {
-                        for ($c = 0; $c < $aNumCounts; $c++) {
-                            $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
-                            extract($cRow);
-                            $cCountID[$c] = $evtcnt_countid;
-                            $cCountName[$c] = $evtcnt_countname;
-                            $cCount[$c] = $evtcnt_countcount;
-                            $cCountNotes = $evtcnt_notes; ?>
-                                <td>
-                                  <div class='text-bold'><?= $evtcnt_countname ?></div>
-                                  <div><?= $evtcnt_countcount ?></div>
-                                </td>
-                                <?php
-                        }
-                    } else {
-                        ?>
-                      <td>
-                        <center>
-	                        <?= gettext('No Attendance Recorded') ?>
-	                      </center>
-                      </td>
-                      <?php
-                    } ?>
-                </tr>
-              </table>
-            </td>
+            <td><?= $aEventType[$row] ?></td>            
             <td>
             <center>
             <?php 
@@ -391,6 +356,41 @@ foreach ($allMonths as $mKey => $mVal) {
             ?>
             </td>
             <td>
+              <table width='100%' class='table-simple-padding'>
+                <tr>
+                  <?php
+                    // RETRIEVE THE list of counts associated with the current event
+                    $cvSQL = "SELECT * FROM eventcounts_evtcnt WHERE evtcnt_eventid='$aEventID[$row]' ORDER BY evtcnt_countid ASC";
+                    $cvOpps = RunQuery($cvSQL);
+                    $aNumCounts = mysqli_num_rows($cvOpps);
+
+                    if ($aNumCounts) {
+                        for ($c = 0; $c < $aNumCounts; $c++) {
+                            $cRow = mysqli_fetch_array($cvOpps, MYSQLI_BOTH);
+                            extract($cRow);
+                            $cCountID[$c] = $evtcnt_countid;
+                            $cCountName[$c] = $evtcnt_countname;
+                            $cCount[$c] = $evtcnt_countcount;
+                            $cCountNotes = $evtcnt_notes; ?>
+                                <td>
+                                  <div class='text-bold'><?= $evtcnt_countname ?></div>
+                                  <div><?= $evtcnt_countcount ?></div>
+                                </td>
+                                <?php
+                        }
+                    } else {
+                        ?>
+                      <td>
+                        <center>
+	                        <?= gettext('No Attendance Recorded') ?>
+	                      </center>
+                      </td>
+                      <?php
+                    } ?>
+                </tr>
+              </table>
+            </td>
+            <td>
               <?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>
             </td>
             <td>
@@ -402,7 +402,7 @@ foreach ($allMonths as $mKey => $mVal) {
         } // end of for loop for # rows for this month
 
         // calculate averages if this is a single type list
-        if ($eType != 'All' && $aNumCounts > 0) {
+        if ($eType != 'All') {
             $avgSQL = "SELECT evtcnt_countid, evtcnt_countname, AVG(evtcnt_countcount) 
                          from eventcounts_evtcnt, events_event 
                          WHERE eventcounts_evtcnt.evtcnt_eventid=events_event.event_id 
@@ -417,10 +417,41 @@ foreach ($allMonths as $mKey => $mVal) {
             <td></td>
             <td></td>
             <td>
+              <center>
+              <?php
+                if ($numAVGAtt > 0) {
+              ?>
+               <table width='100%' class='table-simple-padding' align="center">
+                  <tr>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-in") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckIn/$numAVGAtt) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-out") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckOut/$numAVGAtt) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("AVG") ?><br><?= gettext("Rest") ?></strong>
+                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)/$numAVGAtt) ?></span>
+                     </td>
+                  </tr>
+               </table>
+              <?php 
+              } else {
+                 echo  gettext('No Attendance Recorded');
+              } 
+              ?>
+              </center>
+            </td>
+            <td>
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0  && $statisticaAvgRows) {
+                  if ($aAvgRows > 0) {
                 ?>
                 <table width=100%>
                   <tr>
@@ -458,38 +489,7 @@ foreach ($allMonths as $mKey => $mVal) {
                 ?>
                 </center>
               </div>
-            </td>
-            <td>
-              <center>
-              <?php
-                if ($numAVGAtt > 0) {
-              ?>
-               <table width='100%' class='table-simple-padding' align="center">
-                  <tr>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-in") ?></strong>
-                        <br><?= sprintf('%01.2f', $numAVG_CheckIn/$numAVGAtt) ?></span>
-                     </td>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("AVG") ?><br><?= gettext("Check-out") ?></strong>
-                        <br><?= sprintf('%01.2f', $numAVG_CheckOut/$numAVGAtt) ?></span>
-                     </td>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("AVG") ?><br><?= gettext("Rest") ?></strong>
-                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)/$numAVGAtt) ?></span>
-                     </td>
-                  </tr>
-               </table>
-              <?php 
-              } else {
-                 echo  gettext('No Attendance Recorded');
-              } 
-              ?>
-              </center>
-            </td>
+            </td>            
             <td></td>
             <td></td>
           </tr>
@@ -510,12 +510,42 @@ foreach ($allMonths as $mKey => $mVal) {
           <tr>
             <td class="LabelColumn"> <?= gettext('Monthly Counts') ?></td>
             <td></td>
-            <td></td>
+            <td></td>            
+            <td>
+              <center>
+              <?php 
+                if ($numAVGAtt > 0) {
+              ?>
+               <table width='100%' class='table-simple-padding' align="center">
+                  <tr>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Check-in") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckIn) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Check-out") ?></strong>
+                        <br><?= sprintf('%01.2f', $numAVG_CheckOut) ?></span>
+                     </td>
+                     <td align="center">
+                        <span class="SmallText">
+                        <strong><?= gettext("Total") ?><br><?= gettext("Rest") ?></strong>
+                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)) ?></span>
+                     </td>
+                  </tr>
+               </table>
+              <?php
+              } else {
+                echo  gettext('No Attendance Recorded');
+              } ?>
+             </center>
+            </td>
             <td>
               <div class='row'>
                 <center>
                 <?php 
-                  if ($aAvgRows > 0  && $statisticaAvgRows) {
+                  if ($aAvgRows > 0) {
                 ?>                
                 <table width=100%>
                   <tr>
@@ -553,36 +583,6 @@ foreach ($allMonths as $mKey => $mVal) {
                 ?>
                 </center>
               </div>
-            </td>
-            <td>
-              <center>
-              <?php 
-                if ($numAVGAtt > 0) {
-              ?>
-               <table width='100%' class='table-simple-padding' align="center">
-                  <tr>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("Total") ?><br><?= gettext("Check-in") ?></strong>
-                        <br><?= sprintf('%01.2f', $numAVG_CheckIn) ?></span>
-                     </td>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("Total") ?><br><?= gettext("Check-out") ?></strong>
-                        <br><?= sprintf('%01.2f', $numAVG_CheckOut) ?></span>
-                     </td>
-                     <td align="center">
-                        <span class="SmallText">
-                        <strong><?= gettext("Total") ?><br><?= gettext("Rest") ?></strong>
-                        <br><?= sprintf('%01.2f', ($numAVG_CheckIn-$numAVG_CheckOut)) ?></span>
-                     </td>
-                  </tr>
-               </table>
-              <?php
-              } else {
-                echo  gettext('No Attendance Recorded');
-              } ?>
-             </center>
             </td>
             <td></td>
             <td></td>
