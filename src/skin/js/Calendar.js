@@ -702,11 +702,11 @@
       if (eventCreated) {                    
           var box = bootbox.confirm({
             title: i18next.t('Event added'),
-            message: i18next.t("Event was added successfully."),
+            message: i18next.t("Event was added successfully. Would you like to create the Attendees ?"),
             buttons: {
             confirm: {
               label:  i18next.t('Create Attendees'),
-              className: 'btn-success pull-right fa fa-trash-o'
+              className: 'btn-success pull-right'
             },
             cancel: {
               label:  i18next.t('No'),
@@ -716,7 +716,7 @@
             },
             callback: function (result) {
               if (result) {
-                 
+                 location.href = window.CRM.root + 'ListEvents.php';
               }
             }
           });
