@@ -341,8 +341,12 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
         //Get Person who is checked in
         $checkedInPerson = PersonQuery::create()
                         ->findOneById($per->getPersonId());
+                        
+        if (is_null($checkedInPerson)) {// we have to avoid pure user and not persons
+          continue;
+        }
 
-        $sPerson = $checkedInPerson->getFullName();
+        $sPerson = $checkedInPerson->getFullName();        
 
         //Get Person who checked person in
         $sCheckinby = "";

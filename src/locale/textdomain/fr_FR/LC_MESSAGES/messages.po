@@ -9455,8 +9455,11 @@ msgstr "Au final"
 msgid "Rest"
 msgstr "Différence"
 
-msgid "Real Attendance Counts"
-msgstr "Réel compte de présence"
+msgid "Attendance Counts with real Attendees"
+msgstr "Compte de présence avec participants"
+
+msgid "Free Attendance Counts without Attendees"
+msgstr "Compte libre de présence sans participants"
 
 msgid "Make Check-out"
 msgstr "Faire l'appel"

@@ -64,7 +64,7 @@ $app->group('/events', function () {
         $return = [];           
         foreach ($ormEvents as $ormEvent) {
             $values['eventTypeID'] = $ormEvent->getID();
-            $values['name'] = $ormEvent->getTitle();
+            $values['name'] = $ormEvent->getTitle()." (".$ormEvent->getDesc().")";
             
             array_push($return, $values);
         }
