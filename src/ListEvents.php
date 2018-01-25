@@ -287,7 +287,7 @@ foreach ($allMonths as $mKey => $mVal) {
             </td>
             <td>
               <?= $aEventTitle[$row] ?>
-              <?= ($aEventDesc[$row] == '' ? '&nbsp;' : $aEventDesc[$row]) ?>
+              <?= ($aEventDesc[$row] == '' ? '&nbsp;' : "(".$aEventDesc[$row]).")" ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
                 <div class='text-bold'><a href="javascript:popUp('GetText.php?EID=<?=$aEventID[$row]?>')" class="btn btn-info btn-sm"><?= gettext("Sermon Text") ?></a></div>
