@@ -144,41 +144,51 @@
            var lenType = eventNames.length;
            var options = new Array();
            
-           for (i=0;i<lenType;i++) {
-             var myObj = new Object(); 
-             
-             myObj.value = eventNames[i].eventTypeID;
-             myObj.text = eventNames[i].name;
-             options[i] = myObj;
+           var boxOptions ={
+             title: i18next.t('Select the event to which you would like to add your cart'),
+             message: '<div class="modal-body">',
+             buttons: {
+               addEvent: {  
+                   label: i18next.t('Create First A New Event'),
+                   className: 'btn-info',
+                   callback: function() {
+                      location.href = window.CRM.root + 'EventEditor.php';
+                   }
+               },
+               cancel: {
+                   label: i18next.t('Cancel'),
+                   className: 'btn-danger'
+               },
+               confirm: {
+                   label: i18next.t('Add to Event'),
+                   className: 'btn btn-primary',
+                   callback: function() {
+                        var e = document.getElementById("eventChosen");
+                        var EventID = e.options[e.selectedIndex].value;
+                        
+                        window.CRM.APIRequest({
+                          method: 'POST',
+                          path: 'cart/emptyToEvent',
+                          data: JSON.stringify({"eventID":EventID})
+                        }).done(function(data) {
+                           window.CRM.cart.refresh();
+                           location.href = window.CRM.root + 'ListEvents.php';
+                        });
+                   }
+               }
+             }
+          };
+          
+          boxOptions.message +='<center>'+i18next.t('You can add the content of the cart to the selected event below<br> - OR - <br>Create first an event and add them after.')+'</center><br>';
+          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="eventChosen">';
+          for (i=0;i<lenType;i++) {
+             boxOptions.message +='<option value="'+eventNames[i].eventTypeID+'">'+eventNames[i].name+'</option>';
            }
-           
-           bootbox.prompt({
-            title: i18next.t('Select the event to which you would like to add your cart'),
-            inputType: 'select',
-            inputOptions: options,
-            buttons: {
-            confirm: {
-              label:  i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-              label:  i18next.t('No'),
-              className: 'btn-danger'
-            }
-            },
-            callback: function (result) {
-              if (result) {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'cart/emptyToEvent',
-                  data: JSON.stringify({"eventID":result})
-                }).done(function(data) {
-                   window.CRM.cart.refresh();
-                   location.href = window.CRM.root + 'ListEvents.php';
-                });
-              ø}
-            }
-          });
+                      
+          boxOptions.message +='</select>\
+                             </div>';
+          
+          bootbox.dialog(boxOptions).show();
         });
       },
       'addPerson' : function (Persons, callback)
@@ -522,7 +532,7 @@
           options.message +='</div>';
           bootbox.dialog(options).init(initFunction).show();
           
-          // this will ensure that image and table can be focused
+          // this will ensure that image and table can be focused Philippe Logel
           $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
           window.CRM.groups.get()
