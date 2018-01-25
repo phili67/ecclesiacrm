@@ -615,8 +615,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                           ->withcolumn($ormCustomField->getId())
                           ->findOneByPerId($iPersonID);
                           
-          $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getId());
-          $aCustomData[$ormCustomField->getId()] = $personCustom->getVirtualColumn($ormCustomField->getId());
+        if (!is_null($personCustom)) {
+            $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getId());
+            $aCustomData[$ormCustomField->getId()] = $personCustom->getVirtualColumn($ormCustomField->getId());
+          }
         }
         
          
