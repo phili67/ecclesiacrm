@@ -9490,3 +9490,8 @@ msgstr "Type de groupe"
 msgid "Event added"
 msgstr "Evénement ajoutée"
 
+#: EditEventAttendees 
+
+msgid "Add All Group Members"
+msgstr "Ajouter tous les membres d'un groupe"
+

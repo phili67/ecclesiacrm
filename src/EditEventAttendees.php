@@ -145,11 +145,22 @@ if ($numAttRows != 0) {
 <tbody>
 </table>
 
+<div class="row">
+<div class="col-sm-6">
 <form action="#" method="get" class="sidebar-form">
-    <label for="addGroupMember"><?= gettext('Add Event Member') ?> :</label>
-    <select class="form-control personSearch" name="addGroupMember" style="width:100%">
+    <label for="addPersonMember"><?= gettext('Add Event Member') ?> :</label>
+    <select class="form-control personSearch" name="addPersonMember" style="width:100%">
     </select>
 </form>
+</div>
+<div class="col-sm-6">
+<form action="#" method="get" class="sidebar-form">
+    <label for="addGroupMember"><?= gettext('Add All Group Members') ?> :</label>
+    <select class="form-control groupSearch" name="addGroupMember" style="width:100%">
+    </select>
+</form>
+</div>
+</div>
 <br>
 <center>
 <?php if ($numAttRows-$countCheckout>0) { ?>
@@ -186,8 +197,9 @@ if ($numAttRows != 0) {
     
       window.CRM.DataTableEventView = $("#eventsTable").DataTable({
          "language": {
-         "url": window.CRM.plugin.dataTable.language.url
+         "url": window.CRM.plugin.dataTable.language.url,
       },
+      pageLength: 100,
       responsive: true
     });
   <?php

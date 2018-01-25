@@ -17,6 +17,9 @@ use EcclesiaCRM\Base\EventTypesQuery;
 use EcclesiaCRM\Event;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\EventCounts;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Utils\InputUtils;
@@ -93,6 +96,35 @@ $app->group('/events', function () {
         
        return $response->withJson(['status' => "success"]);
     });
+    
+    $this->post('/group',function($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+                
+        $persons = Person2group2roleP2g2rQuery::create()
+            ->filterByGroupId($params->GroupID)
+            ->find();
+
+        foreach ($persons as $person) {
+          try {
+            if ($person->getPersonId() > 0) {
+              $eventAttent = new EventAttend();
+        
+              $eventAttent->setEventId($params->EventID);
+              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+              $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+              $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+              $eventAttent->setPersonId($person->getPersonId());
+              $eventAttent->save();
+            }
+          } catch (\Exception $ex) {
+              $errorMessage = $ex->getMessage();
+              //return $response->withJson(['status' => $errorMessage]);    
+          }
+        }
+        
+       return $response->withJson(['status' => "success"]);
+    });
+
     
     $this->post('/attendees', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();

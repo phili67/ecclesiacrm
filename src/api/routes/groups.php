@@ -7,10 +7,45 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\ListOptionQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\dto\SystemURLs;
 
 $app->group('/groups', function () {
     $this->get('/', function () {        
         echo GroupQuery::create()->find()->toJSON();
+    });
+    
+    $this->get('/search/{query}', function ($request, $response, $args) {
+      $query = $args['query'];
+
+      $searchLikeString = '%'.$query.'%';
+
+        
+      $groups = GroupQuery::create()
+                ->filterByName($searchLikeString, Criteria::LIKE)
+                //->orderByName()
+                ->find();
+            
+            
+      $return = [];        
+
+      if (!empty($groups))
+      { 
+        $data = [];   
+        $id++;
+        
+        foreach ($groups as $group) {                  
+          $values['id'] = $id++;
+          $values['objid'] = $group->getId();
+          $values['text'] = $group->getName();
+          $values['uri'] = SystemURLs::getRootPath()."/GroupView.php?GroupID=".$group->getId();
+      
+          array_push($return, $values);
+    
+          array_push($data, $elt);
+        }
+      }
+      return $response->withJson($return);    
     });
     
     // get the group for the calendar, it's planned to only have the personan calendar and the calendar groups the user belongs to
@@ -88,19 +123,19 @@ $app->group('/groups', function () {
         // we loop to find the information in the family to add adresses etc ...
         foreach ($members as $member)
         {
-        	$p = $member->getPerson();
-					$fam = $p->getFamily();   
-			
-					// Philippe Logel : this is usefull when a person don't have a family : ie not an address
-					if (!empty($fam))
-					{
-						$p->setAddress1 ($fam->getAddress1());
-						$p->setAddress2 ($fam->getAddress2());
-			
-						$p->setCity($fam->getCity());
-						$p->setState($fam->getState());
-						$p->setZip($fam->getZip());    
-					}    	
+          $p = $member->getPerson();
+          $fam = $p->getFamily();   
+      
+          // Philippe Logel : this is usefull when a person don't have a family : ie not an address
+          if (!empty($fam))
+          {
+            $p->setAddress1 ($fam->getAddress1());
+            $p->setAddress2 ($fam->getAddress2());
+      
+            $p->setCity($fam->getCity());
+            $p->setState($fam->getState());
+            $p->setZip($fam->getZip());    
+          }      
         }
         
         echo $members->toJSON();
