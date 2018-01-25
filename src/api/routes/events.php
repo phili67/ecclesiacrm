@@ -7,8 +7,8 @@
  *  description : manage the full calendar with events
  *
  *  http://www.ecclesiacrm.com/
- *  Copyright 2017 Logel Philippe
-  *
+ *  Copyright 2018 Logel Philippe all rights reserved
+ *
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemConfig;
@@ -74,8 +74,6 @@ $app->group('/events', function () {
         
         return $response->withJson($return);    
     });
-    
-    
     
     $this->post('/person',function($request, $response, $args) {
         $params = (object)$request->getParsedBody();

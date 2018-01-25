@@ -1,5 +1,6 @@
   //
   // Copyright 2018 Philippe Logel
+  // All rights reserved
   //
   var anniversary = true;
   var birthday    = true;
@@ -537,8 +538,15 @@
          message: BootboxContent(start,end),
          buttons: [
           {
+           label: i18next.t("Close"),
+           className: "btn btn-default btn-sm",
+           callback: function() {
+              console.log("just do something on close");
+           }
+          },
+          {
            label: i18next.t("Save"),
-           className: "btn btn-primary pull-left",
+           className: "btn btn-primary btn-sm",
            callback: function() {
               var EventTitle =  $('form #EventTitle').val();
               
@@ -616,13 +624,6 @@
                   return false;
               }    
             }
-          },
-          {
-           label: i18next.t("Close"),
-           className: "btn btn-default pull-left",
-           callback: function() {
-              console.log("just do something on close");
-           }
           }
          ],
          show: false/*,
@@ -633,7 +634,7 @@
   
        modal.modal("show");
        
-       // we add the calendars
+       // we add the calendars and the types
        addCalendars();
        addEventTypes();
        
@@ -699,12 +700,26 @@
     
     $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
       if (eventCreated) {                    
-          var box = window.CRM.DisplayAlert("Event added","Event was added successfully.");
-
-          setTimeout(function() {
-            // be careful not to call box.hide() here, which will invoke jQuery's hide method
-            box.modal('hide');
-          }, 3000);
+          var box = bootbox.confirm({
+            title: i18next.t('Event added'),
+            message: i18next.t("Event was added successfully."),
+            buttons: {
+            confirm: {
+              label:  i18next.t('Create Attendees'),
+              className: 'btn-success pull-right fa fa-trash-o'
+            },
+            cancel: {
+              label:  i18next.t('No'),
+              className: 'btn-default pull-left'
+            },
+            
+            },
+            callback: function (result) {
+              if (result) {
+                 
+              }
+            }
+          });
           
           eventCreated = false;           
       }
