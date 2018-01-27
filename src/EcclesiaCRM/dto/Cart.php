@@ -10,10 +10,80 @@ use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Service\SundaySchoolService;
 
 
 class Cart
 {
+  public static function PersonInCart($PersonID)
+  {
+    if (in_array($PersonID,$_SESSION['aPeopleCart'])) {
+         return true;
+    }
+    
+    return false;
+  }
+  
+  public static function GroupInCart($GroupID)
+  {
+    $GroupMembers = Person2group2roleP2g2rQuery::create()
+            ->filterByGroupId($GroupID)
+            ->find();
+    foreach ($GroupMembers as $GroupMember) 
+    {
+      if (in_array($GroupMember->getPersonId(),$_SESSION['aPeopleCart'])) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  public static function FamilyInCart($GroupID)
+  {
+    $FamilyMembers = PersonQuery::create()
+            ->filterByFamId($FamilyID)
+            ->find();
+            
+    foreach ($FamilyMembers as $FamilyMember)
+    {
+      if (in_array($FamilyMember->getId(),$_SESSION['aPeopleCart'])) {
+        return true;
+      }
+    }  
+    
+    return false;
+  }
+ 
+  public static function TeacherInCart($GroupID)
+  {
+     $sundaySchoolService = new SundaySchoolService();
+
+     $thisClassTeachers = $sundaySchoolService->getTeacherFullDetails($GroupID);
+     
+     foreach ($thisClassTeachers as $teacher) {
+       if (in_array($teacher['teacherId'],$_SESSION['aPeopleCart'])) {
+         return true;
+       }
+    }
+    
+    return false;
+  }
+
+  public static function StudentInCart($GroupID)
+  {
+    $sundaySchoolService = new SundaySchoolService();
+
+    $thisClassChildren = $sundaySchoolService->getKidsFullDetails($GroupID);
+     
+    foreach ($thisClassChildren as $child) {
+       if (in_array($child['kidId'],$_SESSION['aPeopleCart'])) {
+         return true;
+       }
+    }
+    
+    return false;
+  }
   
   private static function CheckCart()
   {
@@ -93,6 +163,51 @@ class Cart
       $_SESSION['aPeopleCart'] = array_values(array_diff($_SESSION['aPeopleCart'], $aTempArray));
     }
   }
+  
+  public static function AddStudents($GroupID) 
+  {
+     $sundaySchoolService = new SundaySchoolService();
+     
+     $thisClassChildren = $sundaySchoolService->getKidsFullDetails($GroupID);
+     
+     foreach ($thisClassChildren as $child) {
+       Cart::AddPerson($child['kidId']);
+     }
+  }
+  
+  public static function RemoveStudents($GroupID) 
+  {
+     $sundaySchoolService = new SundaySchoolService();
+     
+     $thisClassChildren = $sundaySchoolService->getKidsFullDetails($GroupID);
+     
+     foreach ($thisClassChildren as $child) {
+       Cart::RemovePerson($child['kidId']);
+     }
+  }
+
+  public static function AddTeachers($GroupID) 
+  {
+     $sundaySchoolService = new SundaySchoolService();
+     
+     $thisClassTeachers = $sundaySchoolService->getTeacherFullDetails($GroupID);
+     
+     foreach ($thisClassTeachers as $teacher) {
+       Cart::AddPerson($teacher['teacherId']);
+     }
+  }
+  
+  public static function RemoveTeachers($GroupID) 
+  {
+     $sundaySchoolService = new SundaySchoolService();
+     
+     $thisClassTeachers = $sundaySchoolService->getTeacherFullDetails($GroupID);
+     
+     foreach ($thisClassTeachers as $teacher) {
+       Cart::RemovePerson($teacher['teacherId']);
+     }
+  }
+
   
   public static function RemoveFamily($FamilyID)
   {

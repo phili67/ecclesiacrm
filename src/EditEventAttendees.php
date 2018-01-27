@@ -191,6 +191,6 @@ if ($numAttRows != 0) {
   });
 </script>
 
-<script src="skin/js/EditEventAttendees.js" ></script>
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/EditEventAttendees.js" ></script>
 
 <?php require 'Include/Footer.php' ?>

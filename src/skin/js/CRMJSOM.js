@@ -277,6 +277,66 @@
             
         });
       },
+      'addStudentGroup' : function (GroupID, callback)
+      {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'cart/',
+          data: JSON.stringify({"studentGroup":GroupID})
+        }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
+              callback(data);
+            }
+            
+        });
+      },
+      'removeStudentGroup' : function (GroupID, callback)
+      {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'cart/removeStudentGroup',
+          data: JSON.stringify({"Group":GroupID})
+        }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
+              callback(data);
+            }
+            
+        });
+      },
+      'addTeacherGroup' : function (GroupID, callback)
+      {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'cart/',
+          data: JSON.stringify({"teacherGroup":GroupID})
+        }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
+              callback(data);
+            }
+            
+        });
+      },
+      'removeTeacherGroup' : function (GroupID, callback)
+      {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'cart/removeTeacherGroup',
+          data: JSON.stringify({"Group":GroupID})
+        }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
+              callback(data);
+            }
+            
+        });
+      },
       'refresh' : function () {
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1) {// the first time it's unusefull
           return;
@@ -384,7 +444,7 @@
             $(onePersonButton).removeClass("AddToPeopleCart");
             $('i',onePersonButton).addClass("fa-remove");
             $('i',onePersonButton).removeClass("fa-cart-plus");
-            text = $(familyButton).find("span.cartActionDescription")
+            text = $(onePersonButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Remove from Cart"));
             }
@@ -447,8 +507,7 @@
             }            
           }
         }
-      }
-      
+      }      
     };
     
     window.CRM.kiosks = {
