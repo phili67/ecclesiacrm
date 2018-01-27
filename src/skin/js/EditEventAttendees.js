@@ -5,7 +5,17 @@ $(document).ready(function () {
     
     bootbox.confirm({
      title: i18next.t("Attention"),
-     message:i18next.t('Are you sure you want to DELETE all persons from Event ID:')+eventID, 
+     message:i18next.t('Are you sure you want to DELETE all persons from Event ID:')+eventID,
+     buttons: {
+        'cancel': {
+            label: i18next.t('Cancel'),
+            className: 'btn-default'
+        },
+        'confirm': {
+            label: i18next.t('OK'),
+            className: 'btn-danger'
+        }
+    }, 
      callback:function(result) {
       if (result) {
           window.CRM.APIRequest({
@@ -27,7 +37,17 @@ $(document).ready(function () {
     bootbox.confirm({
      title: i18next.t("Attention"),
      message:i18next.t('Are you sure you want to DELETE this person from Event ID:')+eventID, 
-     callback:function(result) {
+     buttons: {
+        'cancel': {
+            label: i18next.t('Cancel'),
+            className: 'btn-default'
+        },
+        'confirm': {
+            label: i18next.t('OK'),
+            className: 'btn-danger'
+        }
+    }, 
+    callback:function(result) {
       if (result) {
           window.CRM.APIRequest({
             method: 'POST',
