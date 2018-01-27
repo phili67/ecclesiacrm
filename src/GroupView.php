@@ -74,7 +74,8 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
-    <a class="btn btn-app" id="AddGroupMembersToCart" data-groupid="<?= $thisGroup->getId() ?>"><i class="fa fa fa-cart-plus"></i><?= gettext('Add Group Members to Cart') ?></a>
+    <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+
 
     <?php
     if ($_SESSION['bManageGroups']) {

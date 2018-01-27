@@ -296,42 +296,32 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     <div class="col-lg-9 col-md-8 col-sm-8">
         <div class="row">
             <div class="box"><br/>
-                <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i
-                            class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
-                <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i
-                            class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
+                <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
+                <a class="btn btn-app AddToFamilyCart" id="AddFamilyToCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+                <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
                 <?php if (($previous_id > 0)) {
         ?>
-                    <a class="btn btn-app" href="FamilyView.php?FamilyID=<?= $previous_id ?>"><i
-                                class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
+                    <a class="btn btn-app" href="FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
                     <?php
     } ?>
-                <a class="btn btn-app btn-danger" role="button" href="FamilyList.php"><i
-                            class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
+                <a class="btn btn-app btn-danger" role="button" href="FamilyList.php"><i class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
                 <?php if (($next_id > 0)) {
         ?>
-                    <a class="btn btn-app" role="button" href="FamilyView.php?FamilyID=<?= $next_id ?>"><i
-                                class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
+                    <a class="btn btn-app" role="button" href="FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
                     <?php
     } ?>
                 <?php if ($_SESSION['bDeleteRecords']) {
         ?>
-                    <a class="btn btn-app bg-maroon" href="SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i
-                                class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
+                    <a class="btn btn-app bg-maroon" href="SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
                     <?php
     } ?>
-                <br/>
-
                 <?php
                 if ($_SESSION['bNotes']) {
                     ?>
-                    <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i
-                                class="fa fa-sticky-note"></i><?= gettext("Add a Note") ?></a>
+                    <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Note") ?></a>
                     <?php
                 } ?>
-                <a class="btn btn-app" id="AddFamilyToCart" data-familyid="<?= $iFamilyID ?>"> <i
-                        class="fa fa-cart-plus"></i> <?= gettext("Add All Family Members to Cart") ?></a>
-
+                        
 
                 <?php if ($bOkToEdit) {
                     ?>

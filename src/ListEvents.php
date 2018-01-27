@@ -84,7 +84,7 @@ $numRows = mysqli_num_rows($rsOpps);
 
 
 <div class='text-center'>
-  <a href="EventEditor.php" class='btn btn-primary'>
+  <a href="calendar.php" class='btn btn-primary'>
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>

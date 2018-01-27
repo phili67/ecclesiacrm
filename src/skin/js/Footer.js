@@ -291,25 +291,69 @@ $("document").ready(function(){
        addGroups();
     });
     
+   $(document).on("click",".AddToPeopleCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.addPerson([clickedButton.data("cartpersonid")],function()
+      {
+        $(clickedButton).addClass("RemoveFromPeopleCart");
+        $(clickedButton).removeClass("AddToPeopleCart");
+        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-cart-plus");
+      });
+    });
+    
     $(document).on("click",".RemoveFromPeopleCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removePerson([clickedButton.data("cartpersonid")],function()
       {
         $(clickedButton).addClass("AddToPeopleCart");
         $(clickedButton).removeClass("RemoveFromPeopleCart");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-remove");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-cart-plus");
+        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).addClass("fa-cart-plus");
       });
     });
     
-    $(document).on("click",".AddToPeopleCart", function(){
+     $(document).on("click",".AddToFamilyCart", function(){
       clickedButton = $(this);
-      window.CRM.cart.addPerson([clickedButton.data("cartpersonid")],function()
+      window.CRM.cart.addFamily(clickedButton.data("cartfamilyid"),function()
       {
-        $(clickedButton).addClass("RemoveFromPeopleCart");
-        $(clickedButton).removeClass("AddToPeopleCart");
-        $('span i:nth-child(2)',clickedButton).addClass("fa-remove");
-        $('span i:nth-child(2)',clickedButton).removeClass("fa-cart-plus");
+        $(clickedButton).addClass("RemoveFromFamilyCart");
+        $(clickedButton).removeClass("AddToFamilyCart");
+        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-cart-plus");
+      });
+    });
+    
+    $(document).on("click",".RemoveFromFamilyCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.removeFamily(clickedButton.data("cartfamilyid"),function()
+      {
+        $(clickedButton).addClass("AddToFamilyCart");
+        $(clickedButton).removeClass("RemoveFromFamilyCart");
+        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).addClass("fa-cart-plus");
+      });
+    });
+
+    $(document).on("click",".AddToGroupCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.addGroup(clickedButton.data("cartgroupid"),function()
+      {
+        $(clickedButton).addClass("RemoveFromGroupCart");
+        $(clickedButton).removeClass("AddToGroupCart");
+        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-cart-plus");
+      });
+    });
+    
+    $(document).on("click",".RemoveFromGroupCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"),function()
+      {
+        $(clickedButton).addClass("AddToGroupCart");
+        $(clickedButton).removeClass("RemoveFromGroupCart");
+        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).addClass("fa-cart-plus");
       });
     });
     
