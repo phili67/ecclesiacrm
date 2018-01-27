@@ -9500,3 +9500,17 @@ msgstr "Etes-vous sûr de vouloir supprimer toutes les personnes de cet événem
 
 msgid "Delele All Attendees"
 msgstr "Supprimer tous les participants"
+
+#: SundaySchoolView.php
+
+msgid "Add Teacher to Cart"  
+msgstr "Ajouter les Moniteurs au Panier"
+
+msgid "Add Student to Cart" 
+msgstr "Ajouter les Etudiants au Panier"
+
+msgid "Remove Teacher from Cart"
+msgstr "Supprimer les Moniteurs du Panier"
+
+msgid "Remove Student from Cart"
+msgstr "Supprimer les Etudiants du Panier"

@@ -33,6 +33,14 @@ $app->group('/cart', function () {
           {
             Cart::RemoveFamily($cartPayload->removeFamily);
           }
+          elseif ( isset ($cartPayload->studentGroup) )
+          {
+            Cart::AddStudents($cartPayload->studentGroup);
+          }
+          elseif ( isset ($cartPayload->teacherGroup) )
+          {
+            Cart::AddTeachers($cartPayload->teacherGroup);
+          }          
           else
           {
             throw new \Exception(gettext("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
@@ -81,7 +89,7 @@ $app->group('/cart', function () {
         echo $group->toJSON();
     });
     
-   
+    
     
     $this->post('/removeGroup', function($request, $response, $args) {
         if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
@@ -95,6 +103,35 @@ $app->group('/cart', function () {
             'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
         ]);
     });
+    
+    $this->post('/removeStudentGroup', function($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveStudents($cartPayload->Group);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
+        ]);
+    });
+    
+    $this->post('/removeTeacherGroup', function($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+        Cart::RemoveTeachers($cartPayload->Group);
+        return $response->withJson([
+            'status' => "success",
+            'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
+        ]);
+    });
+    
+    
+
     
     $this->post('/delete', function($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {

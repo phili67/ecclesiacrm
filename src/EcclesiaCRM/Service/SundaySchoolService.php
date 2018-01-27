@@ -195,6 +195,41 @@ class SundaySchoolService
 
         return $kids;
     }
+    
+    public function getTeacherFullDetails($groupId)
+    {
+        // Get all the groups
+    $sSQL = 'select grp.grp_Name sundayschoolClass, teacher.per_ID teacherId, teacher.per_Gender teacherGender, 
+                teacher.per_FirstName firstName, teacher.per_Email teacherEmail, teacher.per_LastName LastName, 
+                  teacher.per_BirthDay birthDay,  teacher.per_BirthMonth birthMonth, teacher.per_BirthYear birthYear, 
+                  teacher.per_CellPhone mobilePhone, teacher.per_Flags flags, 
+                
+                fam.fam_HomePhone homePhone,fam.fam_id,
+
+                dad.per_ID dadId, dad.per_FirstName dadFirstName, dad.per_LastName dadLastName, 
+                  dad.per_CellPhone dadCellPhone, dad.per_Email dadEmail,
+                mom.per_ID momId, mom.per_FirstName momFirstName, mom.per_LastName momLastName, mom.per_CellPhone momCellPhone, mom.per_Email momEmail,
+                fam.fam_Email famEmail, fam.fam_Address1 Address1, fam.fam_Address2 Address2, fam.fam_City city, fam.fam_State state, fam.fam_Zip zip
+
+              from list_lst lst, person_per teacher, family_fam fam
+                left Join person_per dad on fam.fam_id = dad.per_fam_id and dad.per_Gender = 1 and ( dad.per_fmr_ID = 1 or dad.per_fmr_ID = 2)
+                left join person_per mom on fam.fam_id = mom.per_fam_id and mom.per_Gender = 2 and (mom.per_fmr_ID = 1 or mom.per_fmr_ID = 2),`group_grp` grp, `person2group2role_p2g2r` person_grp
+
+            where teacher.per_fam_id = fam.fam_ID and grp.grp_ID = '.$groupId."
+              and fam.fam_DateDeactivated is null
+              and grp_Type = 4 and grp.grp_ID = person_grp.p2g2r_grp_ID  and person_grp.p2g2r_per_ID = teacher.per_ID
+              and lst.lst_OptionID = person_grp.p2g2r_rle_ID and lst.lst_ID = grp.grp_RoleListID and lst.lst_OptionName = 'Teacher'
+
+            order by grp.grp_Name, fam.fam_Name";
+
+        $rsteachers = RunQuery($sSQL);
+        $teachers = [];
+        while ($row = mysqli_fetch_assoc($rsteachers)) {
+            array_push($teachers, $row);
+        }
+
+        return $teachers;
+    }
 
     public function getKidsWithoutClasses()
     {
