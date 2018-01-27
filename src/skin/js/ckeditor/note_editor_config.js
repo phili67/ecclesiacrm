@@ -6,25 +6,35 @@
 CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
   
+    config.toolbarGroups = [
+    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+    { name: 'forms', groups: [ 'forms' ] },
+    '/',
+    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+    { name: 'links', groups: [ 'links' ] },
+    { name: 'insert', groups: [ 'insert' ] },
+    '/',
+    { name: 'styles', groups: [ 'styles' ] },
+    { name: 'colors', groups: [ 'colors' ] },
+    { name: 'tools', groups: [ 'tools' ] },
+    { name: 'others', groups: [ 'others' ] }
+  ];
+
   config.plugins =
     'about,' +
-    'a11yhelp,' +
-    'basicstyles,' +
-    'bidi,' +
     'blockquote,' +
     'clipboard,' +
     'colorbutton,' +
     'colordialog,' +
     'copyformatting,' +
-    'contextmenu,' +
     'dialogadvtab,' +
-    'div,' +
     'elementspath,' +
     'enterkey,' +
     'entities,' +
-    'filebrowser,' +
     'find,' +
-    'flash,' +
     'floatingspace,' +
     'font,' +
     'format,' +
@@ -33,26 +43,18 @@ CKEDITOR.editorConfig = function( config ) {
     'indentlist,' +
     'indentblock,' +
     'justify,' +
-    'language,' +
     'link,' +
     'list,' +
-    'liststyle,' +
     'magicline,' +
     'maximize,' +
-    'newpage,' +
-    'pagebreak,' +
     'pastefromword,' +
     'pastetext,' +
     'preview,' +
     'print,' +
     'removeformat,' +
     'resize,' +
-    'save,' +
     'selectall,' +
-    'showblocks,' +
-    'showborders,' +
     'smiley,' +
-    'sourcearea,' +
     'specialchar,' +
     'stylescombo,' +
     'tab,' +
@@ -60,7 +62,6 @@ CKEDITOR.editorConfig = function( config ) {
     'tableselection,' +
     'tabletools,' +
     'templates,' +
-    'toolbar,' +
     'undo,' +
     'wysiwygarea';
 };

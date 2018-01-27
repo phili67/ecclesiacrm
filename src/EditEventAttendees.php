@@ -6,7 +6,7 @@
  *  description : Edit Event Attendees
  *
  *  http://www.ecclesiacrm.com/
- *        copyright 2018 Philippe Logel
+ *        copyright 2018 Philippe Logel all right reserved
  *
  ******************************************************************************/
 
@@ -21,7 +21,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\dto\SystemURLs;
 use Propel\Runtime\ActiveQuery\Criteria;
-
+use EcclesiaCRM\Utils\OutputUtils;
 
 $sPageTitle = gettext('Church Event Editor');
 require 'Include/Header.php';
@@ -46,30 +46,6 @@ if (isset($_POST['Action'])) {
   $EvtDate = $_SESSION['EDate'];
 }
 
-//
-// process the action inputs
-//
-if ($sAction == gettext('Delete')) {
-    $dpeEventID = $_POST['DelPerEventID'];
-    $dpePerID = $_POST['DelPerID'];
-    
-    $eventAttend = EventAttendQuery::Create()->filterByEventId($dpeEventID)->filterByPersonId($dpePerID)->limit(1)->findOne();
-    if ($eventAttend) {
-      $eventAttend->delete();
-    }
-    
-    $ShowAttendees = 1;
-} else if ($sAction == gettext('Delele All Attendees')) {
-    $dpeEventID = $_POST['DeleteAllEID'];
-
-    $eventAttends = EventAttendQuery::Create()->filterByEventId($dpeEventID)->find();    
-    
-    if (!empty($eventAttends)) {
-      $eventAttends->delete();
-    }
-
-    $ShowAttendees = 1;
-}
 // Construct the form
 ?>
 
@@ -78,7 +54,7 @@ if ($sAction == gettext('Delete')) {
 </div>
 <p style="margin-left:10px">
     <strong><?= gettext('Name')?>:</strong> <?= $EvtName ?><br/>
-    <strong><?= gettext('Date')?>:</strong> <?= $EvtDate ?><br/>
+    <strong><?= gettext('Date')?>:</strong> <?= OutputUtils::FormatDate($EvtDate,1) ?><br/>
     <strong><?= gettext('Description')?>:</strong> <?= $EvtDesc ?><br/>
 </p>
 
@@ -131,15 +107,7 @@ if ($numAttRows != 0) {
         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:'.$sEmail.'" title="Send Email">'.$sEmail.'</a>' : gettext('Not Available') ?></td>
         <td class="TextColumn"><?= $sHomePhone ? '<a href="tel:'.$sHomePhone.'" title="Phone to">'.$sHomePhone.'</a>' : gettext('Not Available') ?></td>
     <td colspan="1" align="center">
-      <form method="POST" action="EditEventAttendees.php" name="DeletePersonFromEvent">
-          <input type="hidden" name="DelPerID" value="<?= $person->getId()?>">
-          <input type="hidden" name="DelPerEventID" value="<?= $EventID ?>">
-          <input type="hidden" name="EID" value="<?= $EventID ?>">
-          <input type="hidden" name="EName" value="<?= $EvtName ?>">
-          <input type="hidden" name="EDesc" value="<?= $EvtDesc ?>">
-          <input type="hidden" name="EDate" value="<?= $EvtDate ?>">
-          <input type="submit" name="Action" value="<?= gettext('Delete') ?>" class="btn btn-danger" onClick='return confirm("<?= gettext("Are you sure you want to DELETE this person from Event ID: ").$EventID ?>")'>
-      </form>
+       <a class="btn btn-danger DeleleAttendees" data-personid="<?=$person->getId()?>" data-eventid="<?= $EventID ?>"> <?= gettext("Delete") ?></a>
      </td>
     </tr>
     <?php
@@ -175,20 +143,7 @@ if ($numAttRows != 0) {
 
 <div class="row">
 <div class="col-sm-6">
-<?php if ($numAttRows-$countCheckout>0) { ?>
-    <form action="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php" method="POST">
-      <input type="hidden" name="EID" value="<?= $EventID ?>">
-      <input type="hidden" name="DeleteAllEID" value="<?= $EventID ?>">
-      <input type="hidden" name="EName" value="<?= $EvtName ?>">
-      <input type="hidden" name="EDesc" value="<?= $EvtDesc ?>">
-      <input type="hidden" name="EDate" value="<?= $EvtDate ?>">
-<?php } ?>
-      <button type="submit" name="Action" title="<?=gettext('Delele All Attendees') ?>" data-tooltip <?= ($numAttRows-$countCheckout>0)?'value="'.gettext('Delele All Attendees').'"':"" ?> onClick='return confirm("<?= gettext("Are you sure you want to DELETE all persons from Event ID: ").$EventID ?>")' class="btn btn-danger <?= ($numAttRows == 0)?"disabled":"" ?>" >
-        <i class='fa fa-check-circle'></i> <?= gettext('Delele All Attendees') ?>
-      </button>    
-<?php if ($numAttRows-$countCheckout>0) { ?>
-    </form>
-<?php } ?>
+    <a id="DeleleAllAttendees" class="btn btn-danger <?= ($numAttRows == 0)?"disabled":"" ?>" data-eventid="<?= $EventID ?>"><?= gettext("Delele All Attendees") ?></a>
 </div>
 <div class="col-sm-6">
 <?php if ($numAttRows-$countCheckout>0) { ?>
