@@ -94,6 +94,21 @@ class Cart
     }
   }
   
+  public static function RemoveFamily($FamilyID)
+  {
+    if (!is_numeric($FamilyID))
+    {
+      throw new \Exception (gettext("FamilyID for Cart must be numeric"),400);
+    }
+    $FamilyMembers = PersonQuery::create()
+            ->filterByFamId($FamilyID)
+            ->find();
+    foreach ($FamilyMembers as $FamilyMember)
+    {
+      Cart::RemovePerson($FamilyMember->getId());
+    }       
+  }
+  
   public static function DeletePersonArray(&$personsID)
   {
     foreach ($personsID as $key => $personID) {

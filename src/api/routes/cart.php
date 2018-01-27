@@ -16,6 +16,7 @@ $app->group('/cart', function () {
         }
 
           $cartPayload = (object)$request->getParsedBody();
+          
           if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
           {
             Cart::AddPersonArray($cartPayload->Persons);
@@ -27,6 +28,10 @@ $app->group('/cart', function () {
           elseif ( isset ($cartPayload->Group) )
           {
             Cart::AddGroup($cartPayload->Group);
+          }
+          elseif ( isset ($cartPayload->removeFamily) )
+          {
+            Cart::RemoveFamily($cartPayload->removeFamily);
           }
           else
           {

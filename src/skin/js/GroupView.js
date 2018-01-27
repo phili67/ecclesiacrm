@@ -238,10 +238,6 @@ $(document).ready(function () {
     });
   });
 
-  $("#AddGroupMembersToCart").click(function () {
-    window.CRM.cart.addGroup($(this).data("groupid"));
-  })
-
   $(document).on("click", ".changeMembership", function (e) {
     var PersonID = $(e.currentTarget).data("personid");
     window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:window.CRM.currentGroup},function(selection){

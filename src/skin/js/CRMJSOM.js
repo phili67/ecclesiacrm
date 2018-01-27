@@ -152,7 +152,7 @@
                    label: i18next.t('Create First A New Event'),
                    className: 'btn-info',
                    callback: function() {
-                      location.href = window.CRM.root + 'EventEditor.php';
+                      location.href = window.CRM.root + 'calendar.php';
                    }
                },
                cancel: {
@@ -225,6 +225,20 @@
           method: 'POST',
           path:'cart/',
           data: JSON.stringify({"Family":FamilyID})
+        }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
+              callback(data);
+            }
+        });
+      },
+      'removeFamily' : function (FamilyID, callback)
+      {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path:'cart/',
+          data: JSON.stringify({"removeFamily":FamilyID})
         }).done(function(data) {
             window.CRM.cart.refresh();
             if(callback)
@@ -332,10 +346,13 @@
         });
       },
       'updatePage' : function (cartPeople){
+        var personPresent = false;
+        
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function(index,personButton){
           personID = $(personButton).data("cartpersonid")
           if (cartPeople.includes(personID)) {
+            personPresent = true;
             $(personButton).addClass("RemoveFromPeopleCart");
             $(personButton).removeClass("AddToPeopleCart");
             fa = $(personButton).find("i.fa.fa-inverse")
@@ -345,8 +362,7 @@
             if(text){
               $(text).text(i18next.t("Remove from Cart"));
             }
-          }
-          else {
+          } else {
             $(personButton).addClass("AddToPeopleCart");
             $(personButton).removeClass("RemoveFromPeopleCart");
             fa = $(personButton).find("i.fa.fa-inverse")
@@ -358,6 +374,50 @@
             }
           }
         });
+        
+        familyButton = $("a[data-cartfamilyid]");
+          
+        if (familyButton) {
+          if (cartPeople.length) {
+            $(familyButton).addClass("RemoveFromFamilyCart");
+            $(familyButton).removeClass("AddToFamilyCart");
+            fa = $(familyButton).find("i.fa.fa-inverse")
+            text = $(familyButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Remove from Cart"));
+            }
+          } else {
+            $(familyButton).addClass("AddToFamilyCart");
+            $(familyButton).removeClass("RemoveFromFamilyCart");
+            fa = $(familyButton).find("i.fa.fa-inverse")
+            text = $(familyButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Add to Cart"));
+            }            
+          }
+        }
+        
+        groupButton = $("a[data-cartgroupid]");
+          
+        if (groupButton) {
+          if (cartPeople.length) {
+            $(groupButton).addClass("RemoveFromGroupCart");
+            $(groupButton).removeClass("AddToGroupCart");
+            fa = $(groupButton).find("i.fa.fa-inverse")
+            text = $(groupButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Remove from Cart"));
+            }
+          } else {
+            $(groupButton).addClass("AddToGroupCart");
+            $(groupButton).removeClass("RemoveFromGroupCart");
+            fa = $(groupButton).find("i.fa.fa-inverse")
+            text = $(groupButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Add to Cart"));
+            }            
+          }
+        }
       }
       
     };
