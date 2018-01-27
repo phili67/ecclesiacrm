@@ -349,6 +349,13 @@
           window.CRM.cart.updatePage(data.PeopleCart);
           window.scrollTo(0, 0);
           $("#iconCount").text(data.PeopleCart.length);
+          
+          // brodcaster
+          $.event.trigger({
+	          type: "emptyCartMessage",
+	          cartSize: data.PeopleCart.length
+          });
+        
           var cartDropdownMenu;
           if (data.PeopleCart.length > 0) {
             cartDropdownMenu = '\
@@ -435,79 +442,7 @@
             }
           }
         });
-                
-        onePersonButton = $("a[data-onecartpersonid]");
-          
-        if (onePersonButton) {
-          if (cartPeople.length) {
-            $(onePersonButton).addClass("RemoveFromPeopleCart");
-            $(onePersonButton).removeClass("AddToPeopleCart");
-            $('i',onePersonButton).addClass("fa-remove");
-            $('i',onePersonButton).removeClass("fa-cart-plus");
-            text = $(onePersonButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Remove from Cart"));
-            }
-          } else {
-            $(onePersonButton).addClass("AddToPeopleCart");
-            $(onePersonButton).removeClass("RemoveFromPeopleCart");
-            $('i',onePersonButton).removeClass("fa-remove");
-            $('i',onePersonButton).addClass("fa-cart-plus");                        
-            text = $(onePersonButton).find("span.cartActionDescription");
-            if(text){
-              $(text).text(i18next.t("Add to Cart"));
-            }            
-          }
-        }
-        
-        familyButton = $("a[data-cartfamilyid]");
-          
-        if (familyButton) {
-          if (cartPeople.length) {
-            $(familyButton).addClass("RemoveFromFamilyCart");
-            $(familyButton).removeClass("AddToFamilyCart");
-            $('i',familyButton).addClass("fa-remove");
-            $('i',familyButton).removeClass("fa-cart-plus");
-            text = $(familyButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Remove from Cart"));
-            }
-          } else {
-            $(familyButton).addClass("AddToFamilyCart");
-            $(familyButton).removeClass("RemoveFromFamilyCart");
-            $('i',familyButton).removeClass("fa-remove");
-            $('i',familyButton).addClass("fa-cart-plus");
-            text = $(familyButton).find("span.cartActionDescription");
-            if(text){
-              $(text).text(i18next.t("Add to Cart"));
-            }            
-          }
-        }
-        
-        groupButton = $("a[data-cartgroupid]");
-          
-        if (groupButton) {
-          if (cartPeople.length) {
-            $(groupButton).addClass("RemoveFromGroupCart");
-            $(groupButton).removeClass("AddToGroupCart");
-            $('i',groupButton).addClass("fa-remove");
-            $('i',groupButton).removeClass("fa-cart-plus");
-            text = $(groupButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Remove from Cart"));
-            }
-          } else {
-            $(groupButton).addClass("AddToGroupCart");
-            $(groupButton).removeClass("RemoveFromGroupCart");
-            $('i',groupButton).removeClass("fa-remove");
-            $('i',groupButton).addClass("fa-cart-plus");
-            text = $(groupButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Add to Cart"));
-            }            
-          }
-        }
-      }      
+      }
     };
     
     window.CRM.kiosks = {

@@ -179,36 +179,36 @@ $(document).ready(function () {
                 if (data.length) {
                     roles = [{text: familyRole, value: ''}];
                     for (var i=0; i < data.length; i++) {
-                        if (data[i].OptionId == familyRoleId) {
-                            continue;
-                        }
-                        
-                        roles[roles.length] = {
-                            text: data[i].OptionName,
-                            value: data[i].OptionId
-                        };
+                      if (data[i].OptionId == familyRoleId) {
+                          continue;
+                      }
+                      
+                      roles[roles.length] = {
+                          text: data[i].OptionName,
+                          value: data[i].OptionId
+                      };
                     }
                     
                     bootbox.prompt({
-                        title:i18next.t( 'Change role'),
-                        inputType: 'select',
-                        inputOptions: roles,
-                        callback: function (result) {
-                            if (result) {
-                                $.ajax({
-                                    type: 'POST',
-                                    data: { personId: personId, roleId: result },
-                                    dataType: 'json',
-                                    url: window.CRM.root + '/api/roles/persons/assign',
-                                    success: function (data, status, xmlHttpReq) {
-                                        if (data.success) {
-                                            location.reload();
-                                        }
-                                    }
-                                });
-                            }
-                            
+                      title:i18next.t( 'Change role'),
+                      inputType: 'select',
+                      inputOptions: roles,
+                      callback: function (result) {
+                        if (result) {
+                          $.ajax({
+                              type: 'POST',
+                              data: { personId: personId, roleId: result },
+                              dataType: 'json',
+                              url: window.CRM.root + '/api/roles/persons/assign',
+                              success: function (data, status, xmlHttpReq) {
+                                  if (data.success) {
+                                      location.reload();
+                                  }
+                              }
+                          });
                         }
+                          
+                      }
                     });
                     
                 }
@@ -217,6 +217,50 @@ $(document).ready(function () {
         
     });
     
+    $(document).on("click",".AddToPeopleCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.addPerson([clickedButton.data("onecartpersonid")],function()
+      {
+        $(clickedButton).addClass("RemoveFromPeopleCart");
+        $(clickedButton).removeClass("AddToPeopleCart");
+        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if(text){
+          $(text).text(i18next.t("Remove from Cart"));
+        }
+      });
+    });
     
+    $(document).on("click",".RemoveFromPeopleCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.removePerson([clickedButton.data("onecartpersonid")],function()
+      {
+        $(clickedButton).addClass("AddToPeopleCart");
+        $(clickedButton).removeClass("RemoveFromPeopleCart");
+        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).addClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if(text){
+          $(text).text(i18next.t("Add to Cart"));
+        }
+      });
+    });
+
+    // newMessage event subscribers : Listener CRJSOM.js
+    $(document).on("emptyCartMessage", updateButtons);
     
+    // newMessage event handler
+    function updateButtons(e) {
+      if (e.cartSize == 0) {
+        $("#AddPersonToCart").addClass("AddToPeopleCart");
+        $("#AddPersonToCart").removeClass("RemoveFromPeopleCart");
+        $('i',"#AddPersonToCart").removeClass("fa-remove");
+        $('i',"#AddPersonToCart").addClass("fa-cart-plus");
+        text = $("#AddPersonToCart").find("span.cartActionDescription")
+        if(text){
+          $(text).text(i18next.t("Add to Cart"));
+        }
+      }
+    }
 });

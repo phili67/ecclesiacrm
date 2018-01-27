@@ -23,6 +23,7 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\Cart;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -386,7 +387,17 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <?php
     } ?>
       <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
-      <a class="btn btn-app AddToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+      <?php
+        if (Cart::PersonInCart($iPersonID)) {
+      ?>
+        <a class="btn btn-app RemoveFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+      <?php 
+        } else {
+      ?>
+          <a class="btn btn-app AddToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+      <?php 
+       }
+      ?>
       <?php if ($_SESSION['bNotes']) {
         ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/WhyCameEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Edit \"Why Came\" Notes") ?></a>
