@@ -182,6 +182,7 @@ $app->group('/events', function () {
          $event->setStart(str_replace("T"," ",$input->start));
          $event->setEnd(str_replace("T"," ",$input->end));
          $event->setText(InputUtils::FilterHTML($input->eventPredication));
+         $event->setInActive($input->eventInActive);
          $event->save(); 
          
          if (!empty($input->Fields > 0)){         
@@ -195,6 +196,39 @@ $app->group('/events', function () {
              $eventCount->save();
            }
          }
+         
+         if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
+           $persons = Person2group2roleP2g2rQuery::create()
+              ->filterByGroupId($input->EventGroupID)
+              ->find();
+
+            foreach ($persons as $person) {
+              try {
+                if ($person->getPersonId() > 0) {
+                  $eventAttent = new EventAttend();
+        
+                  $eventAttent->setEventId($event->getID());
+                  $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                  $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                  $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                  $eventAttent->setPersonId($person->getPersonId());
+                  $eventAttent->save();
+                }
+              } catch (\Exception $ex) {
+                  $errorMessage = $ex->getMessage();
+                  //return $response->withJson(['status' => $errorMessage]);    
+              }
+            }
+            
+            // 
+            $_SESSION['Action'] = 'Add';
+            $_SESSION['EID'] = $event->getID();
+            $_SESSION['EName'] = $input->EventTitle;
+            $_SESSION['EDesc'] = $input->EventDesc;
+            $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+            
+            $_SESSION['EventID'] = $event->getID();
+          }
      
          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
             $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), $event->getEventURI(),$event->getId(),$event->getType(),$event->getGroupId());// only the event id sould be edited and moved and have custom color

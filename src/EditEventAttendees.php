@@ -59,6 +59,16 @@ if ($sAction == gettext('Delete')) {
     }
     
     $ShowAttendees = 1;
+} else if ($sAction == gettext('Delele All Attendees')) {
+    $dpeEventID = $_POST['DeleteAllEID'];
+
+    $eventAttends = EventAttendQuery::Create()->filterByEventId($dpeEventID)->find();    
+    
+    if (!empty($eventAttends)) {
+      $eventAttends->delete();
+    }
+
+    $ShowAttendees = 1;
 }
 // Construct the form
 ?>
@@ -92,7 +102,6 @@ if ($sAction == gettext('Delete')) {
 
 $ormOpps = EventAttendQuery::Create()->filterByEventId($EventID)->leftJoinPerson()->usePersonQuery()->orderByLastName()->orderByFirstName()->endUse()->find();
 
-
 $numAttRows = count($ormOpps);
 
 $countCheckout = 0;
@@ -102,7 +111,7 @@ if ($numAttRows != 0) {
   foreach ($ormOpps as $ormOpp) {
     $person = $ormOpp->getPerson();
 
-    $per_fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne();
+    $per_fam = PersonQuery::Create()->filterByPrimaryKey($person->getId())->joinWithFamily()->findOne();    
     
     if ($ormOpp->getCheckoutId()) {
       $countCheckout++;
@@ -129,7 +138,7 @@ if ($numAttRows != 0) {
           <input type="hidden" name="EName" value="<?= $EvtName ?>">
           <input type="hidden" name="EDesc" value="<?= $EvtDesc ?>">
           <input type="hidden" name="EDate" value="<?= $EvtDate ?>">
-          <input type="submit" name="Action" value="<?= gettext('Delete') ?>" class="btn btn-danger" onClick="return confirm("<?= gettext('Are you sure you want to DELETE this person from Event ID: ').$EventID ?>")">
+          <input type="submit" name="Action" value="<?= gettext('Delete') ?>" class="btn btn-danger" onClick='return confirm("<?= gettext("Are you sure you want to DELETE this person from Event ID: ").$EventID ?>")'>
       </form>
      </td>
     </tr>
@@ -163,19 +172,38 @@ if ($numAttRows != 0) {
 </div>
 <br>
 <center>
+
+<div class="row">
+<div class="col-sm-6">
+<?php if ($numAttRows-$countCheckout>0) { ?>
+    <form action="<?= SystemURLs::getRootPath() ?>/EditEventAttendees.php" method="POST">
+      <input type="hidden" name="EID" value="<?= $EventID ?>">
+      <input type="hidden" name="DeleteAllEID" value="<?= $EventID ?>">
+      <input type="hidden" name="EName" value="<?= $EvtName ?>">
+      <input type="hidden" name="EDesc" value="<?= $EvtDesc ?>">
+      <input type="hidden" name="EDate" value="<?= $EvtDate ?>">
+<?php } ?>
+      <button type="submit" name="Action" title="<?=gettext('Delele All Attendees') ?>" data-tooltip <?= ($numAttRows-$countCheckout>0)?'value="'.gettext('Delele All Attendees').'"':"" ?> onClick='return confirm("<?= gettext("Are you sure you want to DELETE all persons from Event ID: ").$EventID ?>")' class="btn btn-danger <?= ($numAttRows == 0)?"disabled":"" ?>" >
+        <i class='fa fa-check-circle'></i> <?= gettext('Delele All Attendees') ?>
+      </button>    
+<?php if ($numAttRows-$countCheckout>0) { ?>
+    </form>
+<?php } ?>
+</div>
+<div class="col-sm-6">
 <?php if ($numAttRows-$countCheckout>0) { ?>
     <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
       <input type="hidden" name="EventID" value="<?= $EventID ?>">
-      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?= gettext('Make Check-out') ?>" class="btn btn-success <?= ($numAttRows == 0)?"disabled":"" ?>">
-        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
-      </button>
-    </form>
-<?php } else { ?>
-      <button type="" data-tooltip value="<?= gettext('Make Check-out') ?>" class="btn btn-success disabled ?>">
-        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
-      </button>
 <?php } ?>
-</center>                
+      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip <?= ($numAttRows-$countCheckout>0)?'value="'.gettext('Make Check-out').'"':"" ?> class="btn btn-success <?= ($numAttRows == 0)?"disabled":"" ?>">
+        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+      </button>
+<?php if ($numAttRows-$countCheckout>0) { ?>
+    </form>
+<?php } ?>
+</div>
+</div>
+</center>
 </div>
 </div>
 

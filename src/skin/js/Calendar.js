@@ -6,6 +6,7 @@
   var birthday    = true;
   var withlimit   = false;
   var eventCreated= false; 
+  var eventAttendees = false; 
  
   var birthD = localStorage.getItem("birthday");
   if (birthD != null)
@@ -175,8 +176,11 @@
       $( ".ATTENDENCES" ).slideUp();
     else
       $( ".ATTENDENCES" ).slideDown( "slow");*/
+      
+    $("#addGroupAttendees").prop("disabled", (_val == 0)?true:false);
+    $("#addGroupAttendees").prop('checked', (_val == 0)?false:true);
      
-     localStorage.setItem("groupFilterID",groupFilterID); 
+    localStorage.setItem("groupFilterID",groupFilterID); 
   });
   
   
@@ -408,9 +412,16 @@
             +'</div>'            
             +'<div class="row  div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Group') + ":</div>"
-              +'<div class="col-md-9">'
+              +'<div class="col-md-4">'
                 +'<select type="text" id="EventGroup" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
                 +'</select>'
+              +'</div>'
+              +'<div class="col-md-5">'
+                 +'<div class="checkbox">'
+                   +'<label>'
+                    +'<input type="checkbox" id="addGroupAttendees" disabled> '+ i18next.t('Add as attendees to the event')
+                  +'</label>'
+                +'</div>'
               +'</div>'
             +'</div>'
             +'<div class="row  ATTENDENCES-title div-title">'
@@ -433,11 +444,17 @@
                   +'<textarea name="EventText" rows="4" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-94px;width: 100%"></textarea></div>'
               +'</div>'
             +'</div>'
-            //+'<tr>'
-              //+'<td class="LabelColumn"><span style="color: red">*</span>Statut de l&#39;événement:</td>'
-              //+'<td colspan="3" class="TextColumn">'
-                //+'<input type="radio" name="EventStatus" value="0" checked/> Actif      <input type="radio" name="EventStatus" value="1" /> Inactif    </td>'
-            //+'</tr>'
+            +'<div class="row  div-title">'
+              +'<div class="col-md-3">'
+                +'<span style="color: red">*</span>'+i18next.t('Event Status')
+              +'</div>'
+              +'<div class="col-md-4">'
+                +'<input type="radio" name="EventStatus" value="0" checked/> '+i18next.t('Active')
+              +'</div>'
+              +'<div class="col-md-4">'
+                +'<input type="radio" name="EventStatus" value="1" /> '+i18next.t('inactive')
+              +'</div>'
+            +'</div>'
           +'</div>'
        + '</form>';
 
@@ -539,14 +556,14 @@
          buttons: [
           {
            label: i18next.t("Close"),
-           className: "btn btn-default btn-sm",
+           className: "btn btn-default",
            callback: function() {
               console.log("just do something on close");
            }
           },
           {
            label: i18next.t("Save"),
-           className: "btn btn-primary btn-sm",
+           className: "btn btn-primary",
            callback: function() {
               var EventTitle =  $('form #EventTitle').val();
               
@@ -576,6 +593,14 @@
                              
                   var e = document.getElementById("EventGroup");
                   var EventGroupID = e.options[e.selectedIndex].value;
+                  var addGroupAttendees = document.getElementById("addGroupAttendees").checked;
+                  
+                  var eventInActive = $('input[name="EventStatus"]:checked').val();
+                  
+                  if (addGroupAttendees) {
+                    eventAttendees = true;
+                  }
+                              
                   var EventGroupType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
                   
                   var countFieldsId = $('form #countFieldsId').val();
@@ -605,7 +630,7 @@
                   window.CRM.APIRequest({
                         method: 'POST',
                         path: 'events/',
-                        data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":real_start,"end":real_end})
+                        data: JSON.stringify({"evntAction":'createEvent',"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive})
                   }).done(function(data) {                   
                     $('#calendar').fullCalendar('renderEvent', data, true); // stick? = true             
                     $('#calendar').fullCalendar('unselect');              
@@ -699,29 +724,45 @@
     });
     
     $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
-      if (eventCreated) {                    
-          var box = bootbox.confirm({
-            title: i18next.t('Event added'),
-            message: i18next.t("Event was added successfully. Would you like to create the Attendees ?"),
-            buttons: {
-            confirm: {
-              label:  i18next.t('Create Attendees'),
-              className: 'btn-success pull-right'
-            },
-            cancel: {
-              label:  i18next.t('No'),
-              className: 'btn-default pull-left'
-            },
-            
-            },
-            callback: function (result) {
-              if (result) {
-                 location.href = window.CRM.root + 'ListEvents.php';
+      if (eventCreated) {   
+        if (eventAttendees) {
+          var box = bootbox.dialog({
+             title: i18next.t('Event added'),
+             message: i18next.t("Event was added successfully. Would you like to make the Attendance or to add attendees ?"),
+             buttons: {
+                cancel: {
+                  label:  i18next.t('No'),
+                  className: 'btn btn-default'
+                },     
+                add: {
+                   label: i18next.t('Add More Attendees'),
+                   className: 'btn btn-info',
+                   callback: function () {
+                      location.href = window.CRM.root + 'EditEventAttendees.php';
+                   }
+                },
+                confirm: {
+                   label: i18next.t('Make Attendance'),
+                   className: 'btn btn-success',
+                   callback: function () {
+                      location.href = window.CRM.root + 'Checkin.php';
+                   }
+                }
               }
-            }
           });
+
+          box.show();
+        } else {
+          var box = window.CRM.DisplayAlert("Event added","Event was added successfully.");
+
+          setTimeout(function() {
+            // be careful not to call box.hide() here, which will invoke jQuery's hide method
+            box.modal('hide');
+          }, 3000);
+        }                
           
-          eventCreated = false;           
+        eventAttendees = false;
+        eventCreated = false;           
       }
     });
   });

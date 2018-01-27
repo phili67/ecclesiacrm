@@ -237,7 +237,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 // Style sheet (CSS) file selection options
 function StyleSheetOptions($currentStyle)
 {
-    foreach (['skin-blue-light','skin-blue', 'skin-yellow', 'skin-yellow-light', 'skin-green', 'skin-green-light', 'skin-purple', 'skin-purple-light', 'skin-red', 'skin-red-light', 'skin-black', 'skin-black-light'] as $stylename) {
+    foreach (['skin-blue', 'skin-blue-light','skin-yellow', 'skin-yellow-light', 'skin-green', 'skin-green-light', 'skin-purple', 'skin-purple-light', 'skin-red', 'skin-red-light', 'skin-black', 'skin-black-light'] as $stylename) {
         echo '<option value="' . $stylename . '"';
         if ($stylename == $currentStyle) {
             echo ' selected';

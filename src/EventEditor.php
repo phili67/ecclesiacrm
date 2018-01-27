@@ -6,6 +6,7 @@
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2005 Todd Pillars
  *                Copyright 2012 Michael Wilt
+ *                Copyright 2018 Philippe Logel all rights reserved
  *
  *  function    : Editor for Church Events
   *
@@ -521,7 +522,7 @@ if ($sAction == 'Create Event' && !empty($tyid)) {
   </div>
   <hr/>
   <div class="row">
-    <div class="col-md-3"><?= gettext('Attendance Counts') ?></div>
+    <div class="col-md-3"><?= gettext('Free Attendance Counts without Attendees') ?></div>
     <div class="col-md-9">
       <input type="hidden" name="NumAttendCounts" value="<?= $nCnts ?>">
       <?php

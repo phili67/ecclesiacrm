@@ -39,8 +39,13 @@ $iAdultID = 0;
 
 
 if (array_key_exists('EventID', $_POST)) {
-    $EventID = InputUtils::LegacyFilterInput($_POST['EventID'], 'int');
-} // from ListEvents button=Attendees
+   // from ListEvents button=Attendees
+   $EventID = InputUtils::LegacyFilterInput($_POST['EventID'], 'int');
+} else if (isset ($_SESSION['EventID'])) {
+   // from api/routes/events.php
+    $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
+}
+
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
 } 
@@ -314,7 +319,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 //**********************************************************************************************************
 
 //Populate data table
-if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID'])) {
+if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset($_SESSION['EventID'])) {
     ?>
     <div class="box box-primary">
         <div class="box-body table-responsive">
