@@ -367,4 +367,52 @@ function initDataTable() {
     $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
     $("#moveSelectedToGroup").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Members to another group"));
   });
+  
+    $(document).on("click",".AddToGroupCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.addGroup(clickedButton.data("cartgroupid"),function()
+      {
+        $(clickedButton).addClass("RemoveFromGroupCart");
+        $(clickedButton).removeClass("AddToGroupCart");
+        $('i',clickedButton).addClass("fa-remove");
+        $('i',clickedButton).removeClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if(text){
+          $(text).text(i18next.t("Remove from Cart"));
+        }
+      });
+    });
+    
+    $(document).on("click",".RemoveFromGroupCart", function(){
+      clickedButton = $(this);
+      window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"),function()
+      {
+        $(clickedButton).addClass("AddToGroupCart");
+        $(clickedButton).removeClass("RemoveFromGroupCart");
+        $('i',clickedButton).removeClass("fa-remove");
+        $('i',clickedButton).addClass("fa-cart-plus");
+        text = $(clickedButton).find("span.cartActionDescription");
+        if(text){
+          $(text).text(i18next.t("Add to Cart"));
+        }
+      });
+    });
+    
+    
+    // newMessage event subscribers : Listener CRJSOM.js
+    $(document).on("emptyCartMessage", updateButtons);
+    
+    // newMessage event handler
+    function updateButtons(e) {
+      if (e.cartSize == 0) {
+        $("#AddToGroupCart").addClass("AddToGroupCart");
+        $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
+        $('i',"#AddToGroupCart").removeClass("fa-remove");
+        $('i',"#AddToGroupCart").addClass("fa-cart-plus");
+        text = $("#AddToGroupCart").find("span.cartActionDescription")
+        if(text){
+          $(text).text(i18next.t("Add to Cart"));
+        }
+      }
+    }
 }

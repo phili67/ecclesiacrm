@@ -1,5 +1,5 @@
 <?php
-/* * *****************************************************************************
+/*******************************************************************************
  *
  *  filename    : GroupView.php
  *  website     : http://www.ecclesiacrm.com
@@ -8,6 +8,7 @@
  *  Additional Contributors:
  *  2006-2007 Ed Davis
  *  2017 Philippe Logel
+ *  2018 Philippe Logel all right reserved
  *
  *
  *  Copyright Contributors
@@ -24,6 +25,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\Cart;
 
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
@@ -74,9 +76,18 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
-    <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
-
-
+    
+    <?php
+      if (Cart::GroupInCart($iGroupID)) {
+    ?>
+       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+    <?php
+      } else {
+    ?>
+       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+    <?php
+     }
+    ?>
     <?php
     if ($_SESSION['bManageGroups']) {
         echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
@@ -285,7 +296,7 @@ require 'Include/Header.php';
           ?>
             <br><hr/>
             <b><?= gettext('Assigned Properties') ?>:</b>
-          	<?php
+            <?php
             $sAssignedProperties = ',';
 
             //Was anything returned?

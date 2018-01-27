@@ -21,6 +21,7 @@ use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\Cart;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -297,7 +298,19 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         <div class="row">
             <div class="box"><br/>
                 <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
-                <a class="btn btn-app AddToFamilyCart" id="AddFamilyToCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+                
+                <?php
+                  if (Cart::FamilyInCart($iFamilyID)) {
+                ?>
+                  <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+                <?php 
+                  } else {
+                ?>
+                  <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+                <?php 
+                 }
+                ?>
+                
                 <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
                 <?php if (($previous_id > 0)) {
         ?>

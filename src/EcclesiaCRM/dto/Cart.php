@@ -29,6 +29,7 @@ class Cart
     $GroupMembers = Person2group2roleP2g2rQuery::create()
             ->filterByGroupId($GroupID)
             ->find();
+            
     foreach ($GroupMembers as $GroupMember) 
     {
       if (in_array($GroupMember->getPersonId(),$_SESSION['aPeopleCart'])) {
@@ -39,7 +40,7 @@ class Cart
     return false;
   }
 
-  public static function FamilyInCart($GroupID)
+  public static function FamilyInCart($FamilyID)
   {
     $FamilyMembers = PersonQuery::create()
             ->filterByFamId($FamilyID)
