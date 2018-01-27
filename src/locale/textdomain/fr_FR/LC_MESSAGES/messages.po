@@ -4865,7 +4865,7 @@ msgstr "Supprimer les Données"
 
 #: EditEventAttendees.php:76
 msgid "Are you sure you want to DELETE this person from Event ID: "
-msgstr "Êtes vous sûr de vouloir SUPPRIMER cette personne de l'Événement ID: "
+msgstr "Êtes vous sûr de vouloir SUPPRIMER la personne de cet Événement ID: "
 
 #: ElectronicPaymentList.php:40
 msgid "Delete automatic payment for"
@@ -5510,7 +5510,7 @@ msgstr "'Option par Défaut'"
 
 #: GroupView.php:182
 msgid "Text Group"
-msgstr "Groupe de texte"
+msgstr "SMS au Groupe"
 
 #: GroupView.php:225 Include/Footer.php:103
 msgid "Group Properties"
@@ -9495,3 +9495,8 @@ msgstr "Evénement ajoutée"
 msgid "Add All Group Members"
 msgstr "Ajouter tous les membres d'un groupe"
 
+msgid "Are you sure you want to DELETE all persons from Event ID: "
+msgstr "Etes-vous sûr de vouloir supprimer toutes les personnes de cet événement ID : "
+
+msgid "Delele All Attendees"
+msgstr "Supprimer tous les participants"
