@@ -80,5 +80,7 @@ require __DIR__.'/routes/geocoder.php';
 
 require __DIR__.'/routes/public-data.php';
 
+require __DIR__.'/routes/attendees.php';
+
 // Run app
 $app->run();
