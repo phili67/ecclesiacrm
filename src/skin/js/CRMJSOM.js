@@ -355,7 +355,7 @@
             personPresent = true;
             $(personButton).addClass("RemoveFromPeopleCart");
             $(personButton).removeClass("AddToPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse")
+            fa = $(personButton).find("i.fa.fa-inverse");
             $(fa).addClass("fa-remove");
             $(fa).removeClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
@@ -365,7 +365,8 @@
           } else {
             $(personButton).addClass("AddToPeopleCart");
             $(personButton).removeClass("RemoveFromPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse")
+            fa = $(personButton).find("i.fa.fa-inverse");
+            
             $(fa).removeClass("fa-remove");
             $(fa).addClass("fa-cart-plus");
             text = $(personButton).find("span.cartActionDescription")
@@ -374,6 +375,30 @@
             }
           }
         });
+                
+        onePersonButton = $("a[data-onecartpersonid]");
+          
+        if (onePersonButton) {
+          if (cartPeople.length) {
+            $(onePersonButton).addClass("RemoveFromPeopleCart");
+            $(onePersonButton).removeClass("AddToPeopleCart");
+            $('i',onePersonButton).addClass("fa-remove");
+            $('i',onePersonButton).removeClass("fa-cart-plus");
+            text = $(familyButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Remove from Cart"));
+            }
+          } else {
+            $(onePersonButton).addClass("AddToPeopleCart");
+            $(onePersonButton).removeClass("RemoveFromPeopleCart");
+            $('i',onePersonButton).removeClass("fa-remove");
+            $('i',onePersonButton).addClass("fa-cart-plus");                        
+            text = $(onePersonButton).find("span.cartActionDescription");
+            if(text){
+              $(text).text(i18next.t("Add to Cart"));
+            }            
+          }
+        }
         
         familyButton = $("a[data-cartfamilyid]");
           
@@ -381,7 +406,8 @@
           if (cartPeople.length) {
             $(familyButton).addClass("RemoveFromFamilyCart");
             $(familyButton).removeClass("AddToFamilyCart");
-            fa = $(familyButton).find("i.fa.fa-inverse")
+            $('i',familyButton).addClass("fa-remove");
+            $('i',familyButton).removeClass("fa-cart-plus");
             text = $(familyButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Remove from Cart"));
@@ -389,8 +415,9 @@
           } else {
             $(familyButton).addClass("AddToFamilyCart");
             $(familyButton).removeClass("RemoveFromFamilyCart");
-            fa = $(familyButton).find("i.fa.fa-inverse")
-            text = $(familyButton).find("span.cartActionDescription")
+            $('i',familyButton).removeClass("fa-remove");
+            $('i',familyButton).addClass("fa-cart-plus");
+            text = $(familyButton).find("span.cartActionDescription");
             if(text){
               $(text).text(i18next.t("Add to Cart"));
             }            
@@ -403,7 +430,8 @@
           if (cartPeople.length) {
             $(groupButton).addClass("RemoveFromGroupCart");
             $(groupButton).removeClass("AddToGroupCart");
-            fa = $(groupButton).find("i.fa.fa-inverse")
+            $('i',groupButton).addClass("fa-remove");
+            $('i',groupButton).removeClass("fa-cart-plus");
             text = $(groupButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Remove from Cart"));
@@ -411,7 +439,8 @@
           } else {
             $(groupButton).addClass("AddToGroupCart");
             $(groupButton).removeClass("RemoveFromGroupCart");
-            fa = $(groupButton).find("i.fa.fa-inverse")
+            $('i',groupButton).removeClass("fa-remove");
+            $('i',groupButton).addClass("fa-cart-plus");
             text = $(groupButton).find("span.cartActionDescription")
             if(text){
               $(text).text(i18next.t("Add to Cart"));

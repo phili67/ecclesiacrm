@@ -293,7 +293,7 @@ $("document").ready(function(){
     
    $(document).on("click",".AddToPeopleCart", function(){
       clickedButton = $(this);
-      window.CRM.cart.addPerson([clickedButton.data("cartpersonid")],function()
+      window.CRM.cart.addPerson([clickedButton.data("onecartpersonid")],function()
       {
         $(clickedButton).addClass("RemoveFromPeopleCart");
         $(clickedButton).removeClass("AddToPeopleCart");
@@ -304,7 +304,7 @@ $("document").ready(function(){
     
     $(document).on("click",".RemoveFromPeopleCart", function(){
       clickedButton = $(this);
-      window.CRM.cart.removePerson([clickedButton.data("cartpersonid")],function()
+      window.CRM.cart.removePerson([clickedButton.data("onecartpersonid")],function()
       {
         $(clickedButton).addClass("AddToPeopleCart");
         $(clickedButton).removeClass("RemoveFromPeopleCart");
