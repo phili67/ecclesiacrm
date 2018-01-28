@@ -1,4 +1,5 @@
 <?php
+// Copyright 2018 Philippe Logel all right reserved
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventTypesQuery;
