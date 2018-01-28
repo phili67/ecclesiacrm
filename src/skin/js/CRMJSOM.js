@@ -137,7 +137,7 @@
       },
       'emptytoEvent' : function (callback)
       {
-         window.CRM.APIRequest({
+        window.CRM.APIRequest({
           method: 'GET',
           path: 'events/names',
         }).done(function(eventNames) {
@@ -152,7 +152,7 @@
                    label: i18next.t('Create First A New Event'),
                    className: 'btn-info',
                    callback: function() {
-                      location.href = window.CRM.root + 'calendar.php';
+                      location.href = window.CRM.root + '/calendar.php';
                    }
                },
                cancel: {
@@ -171,8 +171,10 @@
                           path: 'cart/emptyToEvent',
                           data: JSON.stringify({"eventID":EventID})
                         }).done(function(data) {
-                           window.CRM.cart.refresh();
-                           location.href = window.CRM.root + 'ListEvents.php';
+                           if(callback)
+                           {
+                             callback(data);
+                           }
                         });
                    }
                }
@@ -198,11 +200,11 @@
           path: 'cart/',
           data: JSON.stringify({"Persons":Persons})
         }).done(function(data) {
-        window.CRM.cart.refresh();
-        if(callback)
-        {
-          callback(data);
-        }
+          window.CRM.cart.refresh();
+          if(callback)
+          {
+            callback(data);
+          }
         });        
       },
       'removePerson' : function (Persons, callback)
@@ -352,8 +354,8 @@
           
           // brodcaster
           $.event.trigger({
-	          type: "emptyCartMessage",
-	          cartSize: data.PeopleCart.length
+            type: "emptyCartMessage",
+            cartSize: data.PeopleCart.length
           });
         
           var cartDropdownMenu;
