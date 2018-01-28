@@ -243,8 +243,7 @@ $app->group('/properties', function() {
         
         $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
             ->filterByR2pRecordId($groupID)
-            ->filterByR2pProId($oldDropertyID)
-            ->findOne();
+            ->find();
             
         if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
             $groupProperty->delete();
