@@ -150,8 +150,9 @@ if ($numAttRows != 0) {
     <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
       <input type="hidden" name="EventID" value="<?= $EventID ?>">
 <?php } ?>
-      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip <?= ($numAttRows-$countCheckout>0)?'value="'.gettext('Make Check-out').'"':"" ?> class="btn btn-success <?= ($numAttRows == 0)?"disabled":"" ?>">
-        <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+      <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip <?= ($numAttRows-$countCheckout>0)?'value="'.gettext('Make Check-out').'"':"" ?> class="btn btn-<?= ($numAttRows-$countCheckout == 0)?"default disabled":"success" ?>">        
+        <i class='fa fa-check-circle'></i> 
+        <?=gettext('Make Check-out') ?>
       </button>
 <?php if ($numAttRows-$countCheckout>0) { ?>
     </form>
