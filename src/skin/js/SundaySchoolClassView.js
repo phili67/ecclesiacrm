@@ -59,6 +59,64 @@ $("document").ready(function(){
       });
     });
     
+    $(document).on("click",".makeCheckOut", function(){
+       var groupID = $(this).data("makecheckoutgroupid");
+       
+       window.CRM.APIRequest({
+          method: 'GET',
+          path: 'events/types',
+        }).done(function(typeNames) {
+           var lenType = typeNames.length;
+           var options = new Array();
+           
+           var boxOptions ={
+             title: i18next.t('Select the event Type you would like to use to create the Attendance'),
+             message: '<div class="modal-body">',
+             buttons: {
+               addEvent: {  
+                   label: i18next.t('Create First A New Event'),
+                   className: 'btn-info',
+                   callback: function() {
+                      location.href = window.CRM.root + 'calendar.php';
+                   }
+               },
+               cancel: {
+                   label: i18next.t('Cancel'),
+                   className: 'btn-danger'
+               },
+               confirm: {
+                   label: i18next.t('Create Event With Students'),
+                   className: 'btn btn-primary',
+                   callback: function() {
+                        var e = document.getElementById("typeChosen");
+                        var eventTypeID = e.options[e.selectedIndex].value;
+                        
+                        window.CRM.APIRequest({
+                          method: 'POST',
+                          path: 'cart/student',
+                          data: JSON.stringify({"typeID":eventTypeID,"groupID":groupID})
+                        }).done(function(data) {
+                           window.CRM.cart.refresh();
+                           location.href = window.CRM.root + 'ListEvents.php';
+                        });
+                   }
+               }
+             }
+          };
+          
+          boxOptions.message +='<center>'+i18next.t('You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.')+'</center><br>';
+          boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="typeChosen">';
+          for (i=0;i<lenType;i++) {
+             boxOptions.message +='<option value="'+typeNames[i].eventTypeID+'">'+typeNames[i].name+'</option>';
+           }
+                      
+          boxOptions.message +='</select>\
+                             </div>';
+          
+          bootbox.dialog(boxOptions).show();
+      })
+    });
+    
     // newMessage event subscribers  : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
     
