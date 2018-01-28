@@ -70,14 +70,14 @@ $("document").ready(function(){
            var options = new Array();
            
            var boxOptions ={
-             title: i18next.t('Select the event Type you would like to use to create the Attendance'),
+             title: i18next.t("Select the event Type you would like to use to create the Attendance"),
              message: '<div class="modal-body">',
              buttons: {
                addEvent: {  
-                   label: i18next.t('Create First A New Event'),
+                   label: i18next.t("Create First A New Event"),
                    className: 'btn-info',
                    callback: function() {
-                      location.href = window.CRM.root + 'calendar.php';
+                      location.href = window.CRM.root + '/calendar.php';
                    }
                },
                cancel: {
@@ -93,18 +93,17 @@ $("document").ready(function(){
                         
                         window.CRM.APIRequest({
                           method: 'POST',
-                          path: 'cart/student',
-                          data: JSON.stringify({"typeID":eventTypeID,"groupID":groupID})
+                          path: 'attendees/student',
+                          data: JSON.stringify({"eventTypeID":eventTypeID,"groupID":groupID})
                         }).done(function(data) {
-                           window.CRM.cart.refresh();
-                           location.href = window.CRM.root + 'ListEvents.php';
+                           location.href = window.CRM.root+'/Checkin.php';
                         });
                    }
                }
              }
           };
           
-          boxOptions.message +='<center>'+i18next.t('You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.')+'</center><br>';
+          boxOptions.message +='<center>'+i18next.t("You can create the event automatically with the students<br> - OR - <br>Add the students to the cart and create an event to add them after.")+'</center><br>';
           boxOptions.message +='<select class="bootbox-input bootbox-input-select form-control" id="typeChosen">';
           for (i=0;i<lenType;i++) {
              boxOptions.message +='<option value="'+typeNames[i].eventTypeID+'">'+typeNames[i].name+'</option>';

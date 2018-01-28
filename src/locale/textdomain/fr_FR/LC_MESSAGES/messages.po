@@ -9514,3 +9514,11 @@ msgstr "Supprimer les Moniteurs du Panier"
 
 msgid "Remove Student from Cart"
 msgstr "Supprimer les Etudiants du Panier"
+
+#: api/routes/attendees.php
+
+msgid "Create From sunday school class view"
+msgstr "Créer à partir de la vue école du dimanche"
+
+msgid "Attendance"
+msgstr "Présence"

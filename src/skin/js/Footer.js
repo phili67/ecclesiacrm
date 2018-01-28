@@ -194,7 +194,8 @@ $("document").ready(function(){
     
     $(document).on("click", "#emptyCartToEvent", function (e) {
       window.CRM.cart.emptytoEvent(function(data){
-        alert('coucou');
+        window.CRM.cart.refresh();
+        location.href = window.CRM.root + '/ListEvents.php';
       });
     });
 
