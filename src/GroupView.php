@@ -36,11 +36,14 @@ $thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
 //Look up the default role name
 $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId())->filterByOptionId($thisGroup->getDefaultRole())->findOne();
 
+$sGroupType = gettext('Unassigned');
+
 //Get the group's type name
 if ($thisGroup->getType() > 0) {
-    $sGroupType = ListOptionQuery::create()->filterById(3)->filterByOptionId($thisGroup->getType())->findOne()->getOptionName();
-} else {
-    $sGroupType = gettext('Unassigned');
+    $groupeType = ListOptionQuery::create()->filterById(3)->filterByOptionId($thisGroup->getType())->findOne();
+    if (!empty($groupeType)) {
+      $sGroupType = $groupeType->getOptionName();
+    }
 }
 
 //Get the Properties assigned to this Group
@@ -211,7 +214,7 @@ require 'Include/Header.php';
             <?= gettext('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
         </button>
         <button class="btn btn-info" type="button">
-        <?php if (!is_null($defaultRole)) {
+        <?php if (!empty($defaultRole)) {
         ?>
             <?= gettext('Default Role') ?> <span class="badge"><?= $defaultRole->getOptionName() ?></span>
         <?php

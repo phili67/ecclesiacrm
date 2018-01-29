@@ -210,7 +210,7 @@ foreach ($allMonths as $mKey => $mVal) {
         if (!empty($attendees)) {
             
             foreach ($attendees as $attende) {
-              if ($attende->getCheckoutId()) {
+              if ($attende->getCheckoutDate()) {
                 $attCheckOut[$row]++;
               }          
             }
@@ -328,7 +328,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       <td>
                       <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default disabled" ?> btn-sm">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default" ?> btn-sm">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
                        </form>

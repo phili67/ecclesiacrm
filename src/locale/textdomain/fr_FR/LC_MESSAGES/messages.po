@@ -9522,3 +9522,26 @@ msgstr "Créer à partir de la vue école du dimanche"
 
 msgid "Attendance"
 msgstr "Présence"
+
+#: Checkin.php
+
+msgid "Set your attendees Event"
+msgstr "Saisir vos participants pour l'événement"
+
+msgid "Set your free attendees"
+msgstr "Fixer les comptes de présence libre sans participants"
+
+msgid "You can set here the attendees for some group of persons."
+msgstr "Vous pourrez confirmer les participants pour certains groupe de personnes."
+
+msgid "Your description"
+msgstr "Votre description"
+
+msgid "Add single child/parents Attendees"
+msgstr "Ajouter un participant enfant ou adulte"
+
+msgid "Present"
+msgstr "Présent"
+
+msgid "Absent"
+msgstr "Absent"

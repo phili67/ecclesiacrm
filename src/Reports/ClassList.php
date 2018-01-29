@@ -191,7 +191,7 @@ for ($i = 0; $i < $nGrps; $i++) {
                 
             $imgName = $person->getPhoto()->getThumbnailURI();
             
-            $birthdayStr = change_date_for_place_holder($person->getBirthYear().'-'.$person->getBirthMonth().'-'.$person->getBirthDay());
+            $birthdayStr = OutputUtils::change_date_for_place_holder($person->getBirthYear().'-'.$person->getBirthMonth().'-'.$person->getBirthDay());
             $pdf->WriteAt($birthdayX, $y, $birthdayStr);
 
             if ($withPictures) {

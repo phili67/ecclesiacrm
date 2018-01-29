@@ -30,6 +30,8 @@ use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\FamilyCustom;
 use EcclesiaCRM\FamilyCustomQuery;
+use EcclesiaCRM\Utils\OutputUtils;
+
 
 //Set the page title
 $sPageTitle = gettext('Family Editor');
@@ -829,7 +831,7 @@ require 'Include/Header.php';
         <div class="row">
           <div class="form-group col-md-4">
                         <label><?= gettext('Wedding Date') ?>:</label>
-            <input type="text" class="form-control date-picker" Name="WeddingDate" value="<?= change_date_for_place_holder($dWeddingDate) ?>" maxlength="12" id="WeddingDate" size="15" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+            <input type="text" class="form-control date-picker" Name="WeddingDate" value="<?= OutputUtils::change_date_for_place_holder($dWeddingDate) ?>" maxlength="12" id="WeddingDate" size="15" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
             <?php if ($sWeddingDateError) {
                       ?> <span style="color: red"><br/><?php $sWeddingDateError ?></span> <?php
                   } ?>

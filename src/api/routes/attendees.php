@@ -14,9 +14,56 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\Utils\OutputUtils;
 
 
 $app->group('/attendees', function () {
+
+  $this->post('/checkoutstudent', function ($request, $response, $args) {
+    if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        return $response->withStatus(401);
+    }
+
+      $cartPayload = (object)$request->getParsedBody();
+      
+      if ( isset ($cartPayload->personID) && isset ($cartPayload->eventID) && isset($cartPayload->checked) )
+      {
+        $eventAttent = EventAttendQuery::Create()
+            ->filterByEventId($cartPayload->eventID)
+            ->filterByPersonId($cartPayload->personID)
+            ->findOne();
+        
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+        
+        if ($eventAttent) {
+              $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+              if ($cartPayload->checked) {
+                $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+              } else {
+                $eventAttent->setCheckoutDate(NULL);
+              }
+              $eventAttent->save();
+        } else {
+          try {
+              $eventAttent = new EventAttend();        
+              $eventAttent->setEventId($event->getID());
+              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+              $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+              $eventAttent->setPersonId($child['kidId']);
+              $eventAttent->save();
+          } catch (\Exception $ex) {
+              $errorMessage = $ex->getMessage();
+          }
+        }
+      }
+      else
+      {
+        throw new \Exception(gettext("POST to cart requires a personID and an eventID"),500);
+      }
+      $person = PersonQuery::Create()->findOneById($_SESSION['user']->getPersonId());
+      
+      return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => OutputUtils::change_date_for_place_holder($date->format('Y-m-d H:i:s'))]);
+  });
 
   $this->post('/student', function ($request, $response, $args) {
     if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
@@ -63,6 +110,13 @@ $app->group('/attendees', function () {
               $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
               $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
               $eventAttent->setPersonId($child['kidId']);
+              
+              if (SystemConfig::getValue("bCheckedAttendees")) {
+                $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+              }
+              if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
+                $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+              }              
               $eventAttent->save();
             } catch (\Exception $ex) {
               $errorMessage = $ex->getMessage();

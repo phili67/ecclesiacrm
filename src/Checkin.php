@@ -30,13 +30,17 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\EventCountsQuery;
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\EventCounts;
+
 
 $EventID = 0;
 $CheckoutOrDelete = false;
 $event = null;
 $iChildID = 0 ;
 $iAdultID = 0;
-
 
 if (array_key_exists('EventID', $_POST)) {
    // from ListEvents button=Attendees
@@ -49,6 +53,7 @@ if (array_key_exists('EventID', $_POST)) {
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
 } 
+
 if (isset($_SESSION['CartToEventEventID'])) {
    $EventID = InputUtils::LegacyFilterInput($_SESSION['CartToEventEventID'], 'int');
 }
@@ -58,6 +63,10 @@ if (isset($_POST['child-id'])) {
 }
 if (isset($_POST['adult-id'])) {
     $iAdultID = InputUtils::LegacyFilterInput($_POST['adult-id'], 'int');
+}
+
+if (isset($_POST['FreeAttendees'])) {
+    $FreeAttendees = 1;
 }
 
 //
@@ -73,8 +82,44 @@ if ($EventID > 0) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
+        
+    $eventCountNames = EventCountNameQuery::Create()
+        ->leftJoinEventTypes()
+        ->Where('type_id='.$event->getType())
+        ->find();
 }
+
+if ($FreeAttendees) {
+  $eventCounts = EventCountsQuery::Create()
+              ->findByEvtcntEventid($EventID);
+              
+  if (!empty($eventCounts)) {
+    $eventCounts->delete();
+  }
+  
+  foreach ($eventCountNames as $eventCountName) {
+      $eventCount = new EventCounts; 
+      $eventCount->setEvtcntEventid($EventID);
+      $eventCount->setEvtcntCountid($eventCountName->getId());
+      $eventCount->setEvtcntCountname($eventCountName->getName());
+      $eventCount->setEvtcntCountcount($_POST[$eventCountName->getId()]);
+      $eventCount->setEvtcntNotes($_POST['desc']);
+      $eventCount->save();
+  }
+}
+
+
 ?>
+
+<div class='text-center'>
+  <a href="<?= SystemURLs::getRootPath() ?>/calendar.php" class='btn btn-primary'>
+    <i class='fa fa-ticket'></i>
+    <?= gettext('Add New Event') ?>
+  </a>
+</div>
+
+<br>
+
 <div id="errorcallout" class="callout callout-danger" hidden></div>
 
 <!--Select Event Form -->
@@ -82,8 +127,7 @@ if ($EventID > 0) {
     <div class="row">
         <div class="col-md-10 col-xs-12">
                 <div class="box-header">
-                    <h3 class="box-title"><?= gettext('Select the event to which you would like to check people in for') ?>
-                        :</h3>
+                    <h3 class="box-title"><?= gettext('Select the event to which you would like to check people in for') ?> :</h3>
                 </div>
                 <div class="box-body">
                     <?php if ($sGlobalMessage): ?>
@@ -102,7 +146,7 @@ if ($EventID > 0) {
     ?>
                                         <option
                                             value="<?= $event->getId(); ?>" <?= ($EventID == $event->getId()) ? " Selected='selected'" : "" ?> >
-                                            <?= $event->getTitle(); ?></option>
+                                            <?= $event->getTitle()." (".$event->getDesc().")"; ?></option>
                                         <?php
 }
                                     ?>
@@ -110,31 +154,103 @@ if ($EventID > 0) {
                             </div>
                         </div>
                     </div>
-                    </form> <!-- end selectEvent form -->
-                    <div class="form-group">
-                        <div class="col-xs-12 text-right">
-                           <input type="Add" class="btn btn-primary" value="<?= gettext('Add New Event'); ?>"
-                                       name="Add" tabindex=4 onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/EventEditor.php';">
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
     </div>
 </div>
-<!-- Add Attendees Form -->
 
+<?php 
+  if (!empty($eventCountNames)) {
+?>
+<!-- Add Free Attendees Form -->
+ <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?= gettext('Set your free attendees') ?></a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="box-header">
+                    <h3 class="box-title"><?= gettext('You can set here the attendees for some group of persons.') ?></h3>
+                </div>
+                <div class="box-body">
+                   <form name="addFreeAttendeesEvent" action="Checkin.php" method="POST">
+                      <input type="hidden" name="EventID" value="<?= $EventID ?>">
+                      <input type="hidden" name="FreeAttendees" value="1">
+                      <div class="form-group row">
+                        <label class="col-md-2 control-label"><?= gettext('Set your attendees Event'); ?></label>
+                        <?php 
+                           $desc = "";
+                           foreach ($eventCountNames as $eventCountName) {
+                        ?>                        
+                           <div class="col-md-2">
+                               <?= $eventCountName->getName();  ?>
+                               
+                               <?php
+                                  $eventCount = EventCountsQuery::Create()
+                                                ->filterByEvtcntEventid($EventID)
+                                                ->findOneByEvtcntCountid($eventCountName->getId());
+                                  
+                                  $count = 0;
+                                  if (!empty($eventCount)) {
+                                    $count = $eventCount->getEvtcntCountcount();
+                                    $desc =  $eventCount->getEvtcntNotes();
+                                  }
+                               ?>                               
+                               <input type="text" id="field<?= $eventCountName->getId() ?>" name="<?= $eventCountName->getId() ?>" data-countid="<?= $eventCountName->getId() ?>" value="<?= $count ?>" size="8" class="form-control input-sm" width="100%" style="width: 100%">
+                           </div>
+                        <?php
+                          }
+                        ?>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-2 control-label"><?= gettext('Your description'); ?></label>
+                          <div class="col-md-6">
+                               <input type="text" id="fieldText" name="desc" data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>" size="8" class="form-control input-sm" width="100%" style="width: 100%">
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12 text-right">
+                           <input type="submit" class="btn btn-primary" value="<?= gettext('Add Free Attendees Count'); ?>"
+                                       name="Add" tabindex=4>
+                        </div>
+                    </div>
+                    </form> <!-- end Add Free Attendees Form -->                    
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+</div>
+<!-- End Add Free Attendees Form -->
+
+<?php
+}
+?>
+
+<!-- Add Attendees Form -->
 <?php
 // If event is known, then show 2 text boxes, person being checked in and the person checking them in.
 // Show a verify button and a button to add new visitor in dbase.
 if (!$CheckoutOrDelete &&  $EventID > 0) {
     ?>
 
-    <form class="form-horizontal" method="post" action="Checkin.php" id="AddAttendees" data-toggle="validator"
-          role="form">
-        <input type="hidden" id="EventID" name="EventID" value="<?= $EventID; ?>">
-        <input type="hidden" id="child-id" name="child-id">
-        <input type="hidden" id="adult-id" name="adult-id">
+<form class="form-horizontal" method="post" action="Checkin.php" id="AddAttendees" data-toggle="validator" role="form">
+   <input type="hidden" id="EventID" name="EventID" value="<?= $EventID; ?>">
+   <input type="hidden" id="child-id" name="child-id">
+   <input type="hidden" id="adult-id" name="adult-id">
 
+   <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?= gettext('Add single child/parents Attendees') ?></a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box box-primary">
@@ -186,8 +302,10 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                     </div>
                 </div>
             </div>
-        </div>
-    </form> <!-- end AddAttendees form -->
+         </div>
+      </div>
+    </div>
+</form> <!-- end AddAttendees form -->
 
     <?php
 }
@@ -231,10 +349,12 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) && (isset($_POST['Chec
 
     //delete
     if (isset($_POST['Delete'])) {
-        EventAttendQuery::create()
+        $attendDel = EventAttendQuery::create()
             ->filterByEventId($EventID)
-            ->findOneByPersonId($iChildID)
-            ->delete();
+            ->findOneByPersonId($iChildID);
+        if (!empty($attendDel)) {        
+            $attendDel->delete();
+        }        
     }
 }
 
@@ -242,7 +362,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) && (isset($_POST['Chec
 
 //  Checkout / Delete section
 if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
-    (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn']))
+    (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn']) )
 ) {
     $iChildID = InputUtils::LegacyFilterInput($_POST['child-id'], 'int');
 
@@ -306,7 +426,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
                                            name="DeleteCancel">
                                 </div>
                                 <?php
-                            } ?>
+                            }?>
                         </div>
                     </div>
                 </div>
@@ -332,6 +452,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                     <th><?= gettext('Checked Out Time') ?></th>
                     <th><?= gettext('Checked Out By') ?></th>
                     <th nowrap><?= gettext('Action') ?></th>
+                    <th><?= gettext('Delete') ?></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -374,28 +495,25 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                             <a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $sPerson ?></a></td>
                         <td><?= date_format($per->getCheckinDate(), SystemConfig::getValue('sDateFormatLong')) ?></td>
                         <td><?= $sCheckinby ?></td>
-                        <td><?= date_format($per->getCheckoutDate(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                        <td><?= $sCheckoutby ?></td>
+                        <td><span id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= date_format($per->getCheckoutDate(), SystemConfig::getValue('sDateFormatLong')) ?></span></td>
+                        <td><span id="checkoutPersonID<?= $per->getPersonId() ?>"><?= $sCheckoutby ?></span></td>
 
                         <td align="center">
                             <form method="POST" action="Checkin.php" name="DeletePersonFromEvent">
                                 <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
-                                <?php
-                                if (!$per->getCheckoutDate()) {
-                                    ?>
-                                    <input class="btn btn-primary btn-sm" type="submit" name="CheckOutBtn"
-                                           value="<?= gettext('CheckOut') ?>">
-                                    <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn"
-                                           value="<?= gettext('Delete') ?>">
+                                <label>
+                                  <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?gettext("Present"):"Absent" ?></span>
 
-                                    <?php
-                                } else {
-                                    ?>
-                                    <i class="fa fa-check-circle"></i>
-                                    <?php
-                                } ?>
+                                </label>
                             </form>
+                        </td>
+                        <td align="center">
+                          <form method="POST" action="Checkin.php" name="DeletePersonFromEvent">
+                            <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
+                            <input type="hidden" name="EventID" value="<?= $EventID ?>">
+                            <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn" value="<?= gettext('Delete') ?>">
+                          </form>
                         </td>
                     </tr>
                     <?php
@@ -473,6 +591,9 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
         }
     }
 </script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
+
 <?php require 'Include/Footer.php';
 
 function loadPerson($iPersonID)
