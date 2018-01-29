@@ -217,6 +217,50 @@ $(document).ready(function () {
         if(text){
           $(text).text(i18next.t("Add to Cart"));
         }
+      } else {
+        $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
+        $("#AddToFamilyCart").removeClass("AddToFamilyCart");
+        $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
+        $('i',"#AddToFamilyCart").addClass("fa-remove");
+        text = $("#AddToFamilyCart").find("span.cartActionDescription")
+        if(text){
+          $(text).text(i18next.t("Remove from Cart"));
+        }
       }
     }  
+    
+    // newMessage event subscribers : Listener CRJSOM.js
+    $(document).on("updateCartMessage", updateLittleButtons);
+    
+    function updateLittleButtons(e) {
+        var cartPeople = e.people;
+        
+        personButtons = $("a[data-cartpersonid]");
+        $(personButtons).each(function(index,personButton){
+          personID = $(personButton).data("cartpersonid")
+          if (cartPeople.includes(personID)) {
+            personPresent = true;
+            $(personButton).addClass("RemoveFromPeopleCart");
+            $(personButton).removeClass("AddToPeopleCart");
+            fa = $(personButton).find("i.fa.fa-inverse");
+            $(fa).addClass("fa-remove");
+            $(fa).removeClass("fa-cart-plus");
+            text = $(personButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Remove from Cart"));
+            }
+          } else {
+            $(personButton).addClass("AddToPeopleCart");
+            $(personButton).removeClass("RemoveFromPeopleCart");
+            fa = $(personButton).find("i.fa.fa-inverse");
+            
+            $(fa).removeClass("fa-remove");
+            $(fa).addClass("fa-cart-plus");
+            text = $(personButton).find("span.cartActionDescription")
+            if(text){
+              $(text).text(i18next.t("Add to Cart"));
+            }
+          }
+        });
+    }
 });

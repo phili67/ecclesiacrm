@@ -415,34 +415,11 @@
         });
       },
       'updatePage' : function (cartPeople){
-        var personPresent = false;
-        
-        personButtons = $("a[data-cartpersonid]");
-        $(personButtons).each(function(index,personButton){
-          personID = $(personButton).data("cartpersonid")
-          if (cartPeople.includes(personID)) {
-            personPresent = true;
-            $(personButton).addClass("RemoveFromPeopleCart");
-            $(personButton).removeClass("AddToPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
-            $(fa).addClass("fa-remove");
-            $(fa).removeClass("fa-cart-plus");
-            text = $(personButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Remove from Cart"));
-            }
-          } else {
-            $(personButton).addClass("AddToPeopleCart");
-            $(personButton).removeClass("RemoveFromPeopleCart");
-            fa = $(personButton).find("i.fa.fa-inverse");
-            
-            $(fa).removeClass("fa-remove");
-            $(fa).addClass("fa-cart-plus");
-            text = $(personButton).find("span.cartActionDescription")
-            if(text){
-              $(text).text(i18next.t("Add to Cart"));
-            }
-          }
+      
+        // brodcaster
+        $.event.trigger({
+            type: "updateCartMessage",
+            people:cartPeople
         });
       }
     };
