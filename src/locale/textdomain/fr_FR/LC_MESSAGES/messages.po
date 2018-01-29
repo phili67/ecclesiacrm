@@ -9545,3 +9545,40 @@ msgstr "Présent"
 
 msgid "Absent"
 msgstr "Absent"
+
+#: EcclesiaCRM/dto/SystemConfig.php
+
+msgid "Sundayschool Attendance"
+msgstr "Compte de présence école du dimanche"
+
+msgid "When you make the attendance all the kids are checked by default"
+msgstr "Quand vous faîtes l'appel tous les enfants sont cochés présents par défaut"
+
+msgid "When you make the attendance the current user isn't choosed by default"
+msgstr "Quand vous faîtes l'appel l'utilisateur courant n'est pas tout de suite validé par défaut"
+
+#: sunday
+
+msgid "Jan"
+msgstr "Jan"
+
+msgid "Feb"
+msgstr "Fév"
+
+msgid "Mar"
+msgstr "Mar"
+
+msgid "Apr"
+msgstr "Avr"
+
+msgid "Aug"
+msgstr "Août"
+
+msgid "Sept"
+msgstr "Sept"
+
+msgid "Oct"
+msgstr "Oct"
+
+msgid "Nov"
+msgstr "Déc"
