@@ -235,8 +235,10 @@ class SystemConfig
         "iEventsOnDashboardPresenceTimeOut" => new ConfigItem(2043, "iEventsOnDashboardPresenceTimeOut", "number", "10", gettext("Number of seconds after page load until the banner disappears, default 10 seconds")),
         "bPHPMailerAutoTLS" => new ConfigItem(2045, "bPHPMailerAutoTLS", "boolean", "0", gettext("Automatically enable SMTP encryption if offered by the relaying server.")),
         "sPHPMailerSMTPSecure" => new ConfigItem(2046, "sPHPMailerSMTPSecure", "choice", " ", gettext("Set the encryption system to use - ssl (deprecated) or tls"),"",'{"Choices":["None: ","TLS:tls","SSL:ssl"]}'),
-        "iDasbhoardServiceIntervalTime" => new ConfigItem(2047, "iDasbhoardServiceIntervalTime", "number", "60", gettext("Dashboard Service dynamic asynchronous refresh interval, default 60 second"))
-        );
+        "iDasbhoardServiceIntervalTime" => new ConfigItem(2047, "iDasbhoardServiceIntervalTime", "number", "60", gettext("Dashboard Service dynamic asynchronous refresh interval, default 60 second")),
+        "bCheckedAttendees" => new ConfigItem(2048, "bCheckedAttendees", "boolean", "1", gettext("When you make the attendance all the kids are checked by default")),
+        "bCheckedAttendeesCurrentUser" => new ConfigItem(2049, "bCheckedAttendeesCurrentUser", "boolean", "0", gettext("When you make the attendance the current user isn't choosed by default"))
+      );
   }
 
   private static function buildCategories()
@@ -255,7 +257,8 @@ class SystemConfig
       gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sCSVExportDelemiter","sCSVExportCharset","sDatePickerFormat"],
       gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
       gettext('Church Services')  => ["iPersonConfessionFatherCustomField","iPersonConfessionDateCustomField"],
-      gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"]
+      gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
+      gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
     );
   }
 

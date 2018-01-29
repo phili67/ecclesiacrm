@@ -247,7 +247,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
               </div>
               <div class='col-xs-7'>
                 <input type="text" disabled class="form-control date-picker" name="newEvtRecurDOY"
-                               value="<?= change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
+                               value="<?= OutputUtils::change_date_for_place_holder($dMembershipDate) ?>" maxlength="10" id="sel1" size="11"
                                placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
 
               </div>

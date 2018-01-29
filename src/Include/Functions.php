@@ -456,11 +456,6 @@ function ChopLastCharacter($sText)
     return mb_substr($sText, 0, strlen($sText) - 1);
 }
 
-function change_date_for_place_holder($string)
-{
-    return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));
-}
-
 function AlternateRowStyle($sCurrentStyle)
 {
     if ($sCurrentStyle == 'RowColorA') {
@@ -863,7 +858,7 @@ function formCustomField($type, $fieldname, $data, $special, $bFirstPassFlag)
         '<div class="input-group-addon">'.
         '<i class="fa fa-calendar"></i>'.
         '</div>'.
-        '<input class="form-control date-picker" type="text" id="'.$fieldname.'" Name="'.$fieldname.'" value="'.change_date_for_place_holder($data).'" placeholder="'.SystemConfig::getValue("sDatePickerPlaceHolder").'"> '.
+        '<input class="form-control date-picker" type="text" id="'.$fieldname.'" Name="'.$fieldname.'" value="'.OutputUtils::change_date_for_place_holder($data).'" placeholder="'.SystemConfig::getValue("sDatePickerPlaceHolder").'"> '.
         '</div>';
       break;
 

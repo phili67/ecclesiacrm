@@ -19,6 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\utils\OutputUtils;
 
 // Get all the sunday school classes
 $groups = GroupQuery::create()
@@ -162,16 +163,16 @@ if (isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isse
     $iExtraTeachers = 0;
 }
 
-$dFirstSunday = change_date_for_place_holder($dFirstSunday);
-$dLastSunday = change_date_for_place_holder($dLastSunday);
-$dNoSchool1 = change_date_for_place_holder($dNoSchool1);
-$dNoSchool2 = change_date_for_place_holder($dNoSchool2);
-$dNoSchool3 = change_date_for_place_holder($dNoSchool3);
-$dNoSchool4 = change_date_for_place_holder($dNoSchool4);
-$dNoSchool5 = change_date_for_place_holder($dNoSchool5);
-$dNoSchool6 = change_date_for_place_holder($dNoSchool6);
-$dNoSchool7 = change_date_for_place_holder($dNoSchool7);
-$dNoSchool8 = change_date_for_place_holder($dNoSchool6);
+$dFirstSunday = OutputUtils::change_date_for_place_holder($dFirstSunday);
+$dLastSunday = OutputUtils::change_date_for_place_holder($dLastSunday);
+$dNoSchool1 = OutputUtils::change_date_for_place_holder($dNoSchool1);
+$dNoSchool2 = OutputUtils::change_date_for_place_holder($dNoSchool2);
+$dNoSchool3 = OutputUtils::change_date_for_place_holder($dNoSchool3);
+$dNoSchool4 = OutputUtils::change_date_for_place_holder($dNoSchool4);
+$dNoSchool5 = OutputUtils::change_date_for_place_holder($dNoSchool5);
+$dNoSchool6 = OutputUtils::change_date_for_place_holder($dNoSchool6);
+$dNoSchool7 = OutputUtils::change_date_for_place_holder($dNoSchool7);
+$dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
 
 ?>
 <div class="box">

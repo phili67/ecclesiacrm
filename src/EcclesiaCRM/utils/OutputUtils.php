@@ -8,6 +8,11 @@ use EcclesiaCRM\dto\SystemConfig;
 
 class OutputUtils {
 
+  public static function change_date_for_place_holder($string)
+  {
+    return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));
+  }
+
   public static function FormatDateOutput($bWithTime)
   {
       $fmt = SystemConfig::getValue("sDateFormatLong");
