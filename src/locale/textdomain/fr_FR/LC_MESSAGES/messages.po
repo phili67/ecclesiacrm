@@ -9278,7 +9278,7 @@ msgstr "Activer le système de cryptage pour utiliser SSL (deprecated) ou TLS"
 msgid "Dashboard Service dynamic asynchronous refresh interval, default 60 second"
 msgstr "Service de gestion dynamique des événements sur la page accueil, par défaut 60 secondes"
 
-msgid "This part is important for the time Line date and time : in French %H:%M"
+msgid "This part is important for the time Line date and time"
 msgstr "Cette partie est importante pour la gestion du time line : mettre %H:%M pour le temps français"
 
 msgid "Set the time in English format or 24 hours."
@@ -9546,6 +9546,9 @@ msgstr "Présent"
 msgid "Absent"
 msgstr "Absent"
 
+msgid "Add Free Attendees Count"
+msgstr "Ajouter des comptes de présence libre"
+
 #: EcclesiaCRM/dto/SystemConfig.php
 
 msgid "Sundayschool Attendance"
@@ -9581,4 +9584,7 @@ msgid "Oct"
 msgstr "Oct"
 
 msgid "Nov"
+msgstr "Nov"
+
+msgid "Dec"
 msgstr "Déc"
