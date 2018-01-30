@@ -119,12 +119,12 @@ require '../Include/Header.php';
   <?php
     if (Cart::StudentInCart($iGroupId)) {
   ?>
-    <a class="btn btn-app bg-aqua makeCheckOut" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-arrow-down"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
+    <a class="btn btn-app bg-aqua makeCheckOut" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-cart-arrow-down"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
     <a class="btn btn-app RemoveFromStudentGroupCart" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Student from Cart") ?></span></a>  
   <?php 
     } else {
   ?>
-    <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
+    <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
     <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Student to Cart") ?></span></a>
   <?php 
    }
