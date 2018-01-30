@@ -390,11 +390,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <?php
         if (Cart::PersonInCart($iPersonID)) {
       ?>
-        <a class="btn btn-app RemoveFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+        <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
       <?php 
         } else {
       ?>
-          <a class="btn btn-app AddToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+          <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
       <?php 
        }
       ?>
