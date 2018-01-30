@@ -9588,3 +9588,11 @@ msgstr "Nov"
 
 msgid "Dec"
 msgstr "Déc"
+
+#: /Include/LabelFunctions.php
+
+msgid "Tractor"
+msgstr "Classique"
+
+msgid "default"
+msgstr "défaut"

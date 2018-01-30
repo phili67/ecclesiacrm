@@ -56,7 +56,7 @@ function FontSelect($fieldname)
 
 function FontSizeSelect($fieldname)
 {
-    $sizes = ['default', 6, 7, 8, 9, 10, 11, 12, 14, 16, 18];
+    $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18];
     echo '<tr>';
     echo '<td class="LabelColumn"> '.gettext('Font Size').':</td>';
     echo '<td class="TextColumn">';
@@ -75,7 +75,7 @@ function FontSizeSelect($fieldname)
 
 function LabelSelect($fieldname)
 {
-    $labels = ['Tractor', '5160', '5161', '5162', '5163', '5164', '8600', 'L7163'];
+    $labels = [gettext('Tractor'), '5160', '5161', '5162', '5163', '5164', '8600', 'L7163'];
     echo '<tr>';
     echo '<td class="LabelColumn">'.gettext('Label Type').':</td>';
     echo '<td class="TextColumn">';

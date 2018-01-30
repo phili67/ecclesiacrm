@@ -779,7 +779,12 @@ if ($startrow < 1) {
     $startrow = 1;
 }
 
-$sLabelType = InputUtils::LegacyFilterInput($_GET['labeltype'], 'char', 8);
+$sLabelType = InputUtils::LegacyFilterInput($_GET['labeltype'], 'char', 10);
+
+if ($sLabelType == gettext('Tractor') ) {
+  $sLabelType = 'Tractor';
+}
+
 setcookie('labeltype', $sLabelType, time() + 60 * 60 * 24 * 90, '/');
 
 $pdf = new PDF_Label($sLabelType, $startcol, $startrow);
@@ -790,7 +795,7 @@ $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
 $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
 
-if ($sFontSize == 'default') {
+if ($sFontSize == gettext('default')) {
     $sFontSize = '10';
 }
 

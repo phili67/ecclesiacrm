@@ -133,17 +133,20 @@ if (!Cart::HasPeople()) {
                         }
                     }
                 }
+                
+                $sEmailLink = mb_substr($sEmailLink, 0, -1);
+                
                 if ($sEmailLink) {
                     // Add default email if default email has been set and is not already in string
                     if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
                         $sEmailLink .= $sMailtoDelimiter . SystemConfig::getValue('sToEmailAddress');
                     }
-                    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+                    //$sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
                     if ($bEmailMailto) { // Does user have permission to email groups
                         // Display link
-                        echo "<a href='mailto:" . mb_substr($sEmailLink, 0, -3) . "' class='btn btn-app'><i class='fa fa-send-o'></i>" . gettext('Email Cart') . '</a>';
-                        echo "<a href='mailto:?bcc=" . mb_substr($sEmailLink, 0, -3) . "' class='btn btn-app'><i class='fa fa-send'></i>" . gettext('Email (BCC)') . '</a>';
+                        echo "<a href='mailto:" . $sEmailLink . "' class='btn btn-app'><i class='fa fa-send-o'></i>" . gettext('Email Cart') . '</a>';
+                        echo "<a href='mailto:?bcc=" . $sEmailLink . "' class='btn btn-app'><i class='fa fa-send'></i>" . gettext('Email (BCC)') . '</a>';
                     }
                 }
 
