@@ -77,6 +77,8 @@ $app->group('/attendees', function () {
          $group = GroupQuery::Create()
             ->findOneById($cartPayload->groupID);
             
+         $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+
          if ($cartPayload->eventTypeID)
          {
            $type = EventTypesQuery::Create()
@@ -84,15 +86,15 @@ $app->group('/attendees', function () {
            $eventTypeName = $type->getName();
          }
      
+     
          $event = new Event; 
-         $event->setTitle($group->getName());
+         $event->setTitle($group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')));
          $event->setType($type->getId());
          $event->setTypeName($eventTypeName);
          $event->setDesc(gettext("Create From sunday school class view"));
          
          $event->setGroupId($cartPayload->groupID);  
            
-         $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
          
          $event->setStart($date->format('Y-m-d H:i:s'));
          $event->setEnd($date->format('Y-m-d H:i:s'));
