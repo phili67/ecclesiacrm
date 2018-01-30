@@ -60,6 +60,7 @@ $("document").ready(function(){
     });
     
     $(document).on("click",".makeCheckOut", function(){
+       var groupName = $(this).data("makecheckoutgroupname")
        var groupID = $(this).data("makecheckoutgroupid");
        
        window.CRM.APIRequest({
@@ -70,7 +71,7 @@ $("document").ready(function(){
            var options = new Array();
            
            var boxOptions ={
-             title: i18next.t("Select the event Type you would like to use to create the Attendance"),
+             title: i18next.t("Select the event Type you would like to use to create the Attendance")+" : "+groupName,
              message: '<div class="modal-body">',
              buttons: {
                addEvent: {  
