@@ -141,7 +141,8 @@ if (!Cart::HasPeople()) {
                     if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
                         $sEmailLink .= $sMailtoDelimiter . SystemConfig::getValue('sToEmailAddress');
                     }
-                    //$sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+                    
+                    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
                     if ($bEmailMailto) { // Does user have permission to email groups
                         // Display link
