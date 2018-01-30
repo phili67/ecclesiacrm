@@ -9596,3 +9596,6 @@ msgstr "Classique"
 
 msgid "default"
 msgstr "défaut"
+
+msgid "Hide dropdown states when they are unusefull"
+msgstr "Masquer les états quand ils sont inutiles dans certains pays"

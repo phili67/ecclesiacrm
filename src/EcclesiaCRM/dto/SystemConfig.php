@@ -238,7 +238,7 @@ class SystemConfig
         "iDasbhoardServiceIntervalTime" => new ConfigItem(2047, "iDasbhoardServiceIntervalTime", "number", "60", gettext("Dashboard Service dynamic asynchronous refresh interval, default 60 second")),
         "bCheckedAttendees" => new ConfigItem(2048, "bCheckedAttendees", "boolean", "1", gettext("When you make the attendance all the kids are checked by default")),
         "bCheckedAttendeesCurrentUser" => new ConfigItem(2049, "bCheckedAttendeesCurrentUser", "boolean", "0", gettext("When you make the attendance the current user isn't choosed by default")),
-        "sStateUnuseful" => new ConfigItem(2050, "sStateUnuseful", "boolean", "0", gettext("In some lands the states are unusefull"))
+        "sStateUnuseful" => new ConfigItem(2050, "sStateUnuseful", "boolean", "0", gettext("Hide dropdown states when they are unusefull"))
       );
   }
 
