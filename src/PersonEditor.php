@@ -947,14 +947,14 @@ require 'Include/Header.php';
                 </div>
                 <p/>
                 <div class="row">
-                  <div class="form-group col-md-3">
+                  <div <?= (SystemConfig::getValue('sStateUnuseful'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label for="StatleTextBox"><?= gettext('State')?>: </label><br>
                     <?php                          
                         $statesDDF = new StateDropDown();     
                         echo $statesDDF->getDropDown($sState,"FamState");
                      ?>
                   </div>
-                  <div class="form-group col-md-3">
+                  <div <?= (SystemConfig::getValue('sStateUnuseful'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label><?= gettext('None US/CND State') ?>:</label>
                     <input type="text"  class="form-control" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                         echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
