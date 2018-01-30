@@ -17,7 +17,7 @@ require 'Include/Functions.php';
 require 'Include/CountryDropDown.php';
 require 'Include/StateDropDown.php';
 
-
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\ListOptionQuery;
@@ -268,7 +268,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <td class="TextColumn"><input type="text" Name="City" value="<?= $sCity ?>" maxlength="50"></td>
   </tr>
 
-  <tr>
+  <tr <?= (SystemConfig::getValue('sStateUnuseful'))?"style=\"display: none;\"":""?>>
     <td class="LabelColumn"><?= gettext('State') ?>:</td>
     <td class="TextColumn">
       <?php                          
