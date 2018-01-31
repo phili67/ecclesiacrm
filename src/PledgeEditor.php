@@ -17,6 +17,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\MICRReader;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
 
 if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
     $micrObj = new MICRReader();
@@ -104,7 +105,7 @@ if (isset($_POST['PledgeSubmit']) or
     isset($_POST['SetFundTypeSelection'])) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
 
-    $dDate = InputUtils::LegacyFilterInput($_POST['Date']);
+    $dDate = InputUtils::FilterDate($_POST['Date']);
     if (!$dDate) {
         if (array_key_exists('idefaultDate', $_SESSION)) {
             $dDate = $_SESSION['idefaultDate'];
@@ -515,7 +516,7 @@ require 'Include/Header.php';
     $dDate = $dep_Date;
 } ?>
           <label for="Date"><?= gettext('Date') ?></label>
-          <input class="form-control" data-provide="datepicker" data-date-format='yyyy-mm-dd' type="text" name="Date" value="<?= $dDate ?>" ><font color="red"><?= $sDateError ?></font>
+          <input class="form-control" data-provide="datepicker" data-date-format='<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>' type="text" name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" ><font color="red"><?= $sDateError ?></font>
           <label for="FYID"><?= gettext('Fiscal Year') ?></label>
            <?php PrintFYIDSelect($iFYID, 'FYID') ?>
 
