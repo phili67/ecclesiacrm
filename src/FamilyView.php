@@ -750,7 +750,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                 <?= $payType ?>&nbsp;
                                             </td>
                                             <td>
-                                                <?= $aut_NextPayDate ?>&nbsp;
+                                                <?= OutputUtils::change_date_for_place_holder($aut_NextPayDate) ?>&nbsp;
                                             </td>
                                             <td>
                                                 <?= $aut_Amount ?>&nbsp;
@@ -770,7 +770,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                         href="AutoPaymentDelete.php?AutID=<?= $aut_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
                                             </td>
                                             <td>
-                                                <?= $aut_DateLastEdited ?>&nbsp;
+                                                <?= OutputUtils::FormatDate($aut_DateLastEdited,1) ?>&nbsp;
                                             </td>
                                             <td>
                                                 <?= $EnteredFirstName . " " . $EnteredLastName ?>&nbsp;
