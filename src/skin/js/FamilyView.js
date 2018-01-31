@@ -111,6 +111,9 @@ $(document).ready(function () {
 
 
   $("#pledge-payment-table").DataTable(window.CRM.plugin.dataTable);
+  
+  $("#automatic-payment-table").DataTable(window.CRM.plugin.dataTable);
+
 
 
   $("#onlineVerify").click(function () {
