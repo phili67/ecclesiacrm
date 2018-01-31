@@ -264,6 +264,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         ?>
                         <li><i class="fa-li fa fa-mobile"></i><?= gettext("Mobile Phone") ?>: <span><a
                                         href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
+                        <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a 
+                                        href="sms:<?= $sCellPhone ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
+
                         <?php
     }
     if ($fam_Email != "") {

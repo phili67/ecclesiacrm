@@ -304,6 +304,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
     if ($sCellPhone) {
         ?>
             <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
+            <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
           <?php
     }
     if ($sHomePhone) {

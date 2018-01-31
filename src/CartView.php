@@ -155,6 +155,7 @@ if (!Cart::HasPeople()) {
                 $sSQL = "SELECT per_CellPhone, fam_CellPhone FROM person_per LEFT JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') AND per_ID IN (" . ConvertCartToString($_SESSION['aPeopleCart']) . ')';
                 $rsPhoneList = RunQuery($sSQL);
                 $sPhoneLink = '';
+                $sPhoneLinkSMS = '';
                 $sCommaDelimiter = ', ';
 
                 while (list($per_CellPhone, $fam_CellPhone) = mysqli_fetch_row($rsPhoneList)) {
@@ -164,16 +165,28 @@ if (!Cart::HasPeople()) {
                             $sPhoneLink .= $sCommaDelimiter;  */
                         // Add phone only if phone is not already in string
                         if (!stristr($sPhoneLink, $sPhone)) {
-                            $sPhoneLink .= $sPhone .= $sCommaDelimiter;
+                            $sPhoneLink .= $sPhone.$sCommaDelimiter;
+                            $sPhoneLinkSMS .= $sPhone.$sCommaDelimiter;
                         }
                     }
                 }
                 if ($sPhoneLink) {
                     if ($bEmailMailto) { // Does user have permission to email groups
-
-                        // Display link
-                        echo '<a href="javascript:void(0)" onclick="allPhonesCommaD()" class="btn btn-app"><i class="fa fa-mobile-phone"></i>' . gettext("Text Cart");
-                        echo '<script nonce="'. SystemURLs::getCSPNonce() .'">function allPhonesCommaD() {prompt("Press CTRL + C to copy all group members\' phone numbers", "' . mb_substr($sPhoneLink, 0, -2) . '")};</script>';
+                    ?>
+                    &nbsp;
+                    <div class="btn-group">
+                      <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= gettext("Text Cart") ?></a>
+                      <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                             <li> <a href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= gettext("Copy Paste the Texts") ?></a></li>
+                             <script nonce="<?= SystemURLs::getCSPNonce() ?>">function allPhonesCommaD() {prompt("Press CTRL + C to copy all group members\' phone numbers", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
+                             <li> <a href="sms:<?= str_replace(' ', '',mb_substr($sPhoneLinkSMS, 0, -2)) ?>"><i class="fa fa-mobile-phone"></i><?= gettext("Text Cart") ?></li>
+                          </ul>
+                    </div>
+                    <?php
                     }
                 } ?>
                 <a href="DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
