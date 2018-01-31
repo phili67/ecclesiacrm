@@ -51,7 +51,7 @@ msgstr "Annuler"
 
 #: AutoPaymentEditor.php:128
 msgid "Automatic payment configuration for the "
-msgstr "Configuration de paiement automatique pour le␣"
+msgstr "Configuration de paiement automatique pour la "
 
 #: AutoPaymentEditor.php:785 CanvassEditor.php:237 DepositSlipEditor.php:93
 #: DonatedItemEditor.php:292 FamilyEditor.php:646 FamilyEditor.php:730
@@ -901,7 +901,7 @@ msgstr "Envoyer un Email au panier"
 #: CartView.php:146 GroupView.php:139
 #: sundayschool/SundaySchoolClassView.php:100
 msgid "Email (BCC)"
-msgstr "Email (BCC)"
+msgstr "Email (CCI)"
 
 #: CartView.php:176
 msgid "Create Directory From Cart"
@@ -2842,7 +2842,7 @@ msgstr "Envoyer un Email à tous"
 
 #: PeopleDashboard.php:102
 msgid "Email All (BCC)"
-msgstr "Envoyer un Email à tous (BCC)"
+msgstr "Envoyer un Email à tous (CCI)"
 
 #: Include/Footer.php:57 OptionManager.php:62 PeopleDashboard.php:283
 msgid "Family Roles"
@@ -9201,11 +9201,11 @@ msgstr "Rapports de la Personne"
 
 #: PeopleDashboard.php:15
 msgid "People Dashboard"
-msgstr "Tableau de bord de la Personne"
+msgstr "Tableau de bord des Personnes"
 
 #: PeopleDashboard.php:77
 msgid "People Functions"
-msgstr "Fonctions de la Personne"
+msgstr "Fonctions des Personnes"
 
 #: PeopleDashboard.php:231
 msgid "People Directory"
@@ -9599,3 +9599,12 @@ msgstr "défaut"
 
 msgid "Hide dropdown states when they are unusefull"
 msgstr "Masquer les états quand ils sont inutiles dans certains pays"
+
+msgid "Text Message"
+msgstr "Message SMS"
+
+msgid "EcclesiaCRM text message"
+msgstr "SMS d'EcclesiaCRM"
+
+msgid "Copy Paste the Texts"
+msgstr "Copier coller les Textos"
