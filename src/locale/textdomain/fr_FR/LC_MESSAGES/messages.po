@@ -9608,3 +9608,6 @@ msgstr "SMS d'EcclesiaCRM"
 
 msgid "Copy Paste the Texts"
 msgstr "Copier coller les Textos"
+
+msgid "php format for the date, in English : j/m/y g:i a"
+msgstr "format php pour les dates en français : j/m/y G:i"

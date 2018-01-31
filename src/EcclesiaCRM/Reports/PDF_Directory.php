@@ -3,6 +3,7 @@
 namespace EcclesiaCRM\Reports;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\InputUtils;
 
 class PDF_Directory extends ChurchInfoReport
 {
@@ -34,7 +35,7 @@ class PDF_Directory extends ChurchInfoReport
             //Move to the right
             $this->SetX($this->_Margin_Left);
             //Framed title
-            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sChurchName').' - '.gettext('Directory'), 1, 0, 'C');
+            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sChurchName').' - '.InputUtils::translate_special_charset(gettext('Directory')), 1, 0, 'C');
             $this->SetY(25);
         }
     }
@@ -70,12 +71,15 @@ class PDF_Directory extends ChurchInfoReport
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n".SystemConfig::getValue('sChurchName')."\n\n".gettext('Directory')."\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n".SystemConfig::getValue('sChurchName')."\n\n".InputUtils::translate_special_charset(gettext('Directory'))."\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
         $this->MultiCell(197, 10, $today."\n\n", 0, 'C');
 
-        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", SystemConfig::getValue('sChurchAddress'), SystemConfig::getValue('sChurchCity'), SystemConfig::getValue('sChurchState'), SystemConfig::getValue('sChurchZip'), SystemConfig::getValue('sChurchPhone'));
+        $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", InputUtils::translate_special_charset(SystemConfig::getValue('sChurchAddress')), 
+          InputUtils::translate_special_charset(SystemConfig::getValue('sChurchCity')),
+         InputUtils::translate_special_charset(SystemConfig::getValue('sChurchState')), InputUtils::translate_special_charset(SystemConfig::getValue('sChurchZip')), 
+         SystemConfig::getValue('sChurchPhone'));
         $this->MultiCell(197, 10, $sContact, 0, 'C');
         $this->Cell(10);
         $sDirectoryDisclaimer = iconv('UTF-8', 'ISO-8859-1', $sDirectoryDisclaimer);
@@ -219,7 +223,7 @@ class PDF_Directory extends ChurchInfoReport
         $this->SetTextColor(0);
         $this->SetFont($this->_Font, '', $this->_Char_Size);
 //        $this->SetY($this->GetY() + 5);
-    $this->SetY($this->GetY() + $this->_LS);
+        $this->SetY($this->GetY() + $this->_LS);
     }
 
     // This prints the family name in BOLD

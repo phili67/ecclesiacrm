@@ -65,7 +65,7 @@ FontSizeSelect('labelfontsize');
             <tr>
               <td class="LabelColumn"><?= gettext("Recipient Naming Method")?>:</td>
               <td class="TextColumn">
-                <select name="recipientnamingmethod">
+                <select class="form-control input-sm" name="recipientnamingmethod">
                   <option value="salutationutility"><?= gettext("Salutation Utility") ?></option>
                   <option value="familyname"><?= gettext("Family Name") ?></option>
                 </select>
@@ -75,15 +75,12 @@ FontSizeSelect('labelfontsize');
           </table>
             </div>
             <div>
-              <input type="submit" class="btn" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
-              <input type="submit" class="btn" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
-              <input type="submit" class="btn" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
-              <input type="submit" class="btn" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
-              <input type="button" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
+              <input type="submit" class="btn btn-default" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
+              <input type="submit" class="btn btn-default" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
+              <input type="submit" class="btn btn-default" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
+              <input type="submit" class="btn btn-default" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
+              <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
             </div>
-
-
-
         </form>
       </div>
     </div>
