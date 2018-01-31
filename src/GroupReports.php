@@ -41,7 +41,7 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <label for="GroupID"><?= gettext('Select Group') ?>:</label>
-                            <select id="GroupID" name="GroupID" onChange="UpdateRoles();">
+                            <select id="GroupID" class="form-control input-sm" name="GroupID" onChange="UpdateRoles();">
                                 <?php
                                 // Create the group select drop-down
                                 echo '<option value="0">'.gettext('None').'</option>';
@@ -55,7 +55,7 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <label for=""><?= gettext('Select Role') ?>:</label>
-                            <select name="GroupRole" id="GroupRole">
+                            <select name="GroupRole" class="form-control input-sm" id="GroupRole">
                                 <option><?= gettext('No Role Selected') ?></option>
                             </select>
                         </div>
@@ -78,8 +78,8 @@ require 'Include/Header.php';
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <input type="submit" class="btn" name="Submit" value="<?= gettext('Next') ?>">
-                            <input type="button" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'ReportList.php';">
+                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Next') ?>">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'ReportList.php';">
 
                         </div>
                     </div>
@@ -147,8 +147,8 @@ require 'Include/Header.php';
 
                         <p align="center">
                             <BR>
-                            <input type="submit" class="btn" name="Submit" value="<?= gettext('Create Report') ?>">
-                            <input type="button" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
+                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Create Report') ?>">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
                         </p>
                     </form>
 

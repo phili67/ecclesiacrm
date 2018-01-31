@@ -188,7 +188,7 @@ while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
              while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_ASSOC)) {
                  if (($aSecurityType[$rowCustomField['custom_FieldSec']] == 'bAll') || ($_SESSION[$aSecurityType[$rowCustomField['custom_FieldSec']]])) {
                      ?>
-		            <input type="checkbox" Name="bCustom<?= $rowCustomField['custom_Order'] ?>" value="1" checked><?= $rowCustomField['custom_Name'] ?><br>
+                <input type="checkbox" Name="bCustom<?= $rowCustomField['custom_Order'] ?>" value="1" checked><?= $rowCustomField['custom_Name'] ?><br>
          <?php
                  }
              }
@@ -197,38 +197,38 @@ while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
 
         </td>
     </tr>
-	<tr>
-	 <td class="LabelColumn"><?= gettext('Number of Columns') ?>:</td>
- 	 <td class="TextColumn">
-		    <input type="radio" Name="NumCols" value=1>1 col<br>
-		    <input type="radio" Name="NumCols" value=2 checked>2 cols<br>
-		    <input type="radio" Name="NumCols" value=3>3 cols<br>
-	</td>
-	</tr>
-	<tr>
-	 <td class="LabelColumn"><?= gettext('Paper Size') ?>:</td>
- 	 <td class="TextColumn">
-		    <input type="radio" name="PageSize" value="letter" checked>Letter (8.5x11)<br>
-		    <input type="radio" name="PageSize" value="legal">Legal (8.5x14)<br>
-		    <input type="radio" name="PageSize" value="a4">A4
-	</td>
-	</tr>
-	<tr>
-	 <td class="LabelColumn"><?= gettext('Font Size') ?>:</td>
- 	 <td class="TextColumn">
-		<table>
-		<tr>
-		    <td><input type="radio" Name="FSize" value=6>6<br>
-		    <input type="radio" Name="FSize" value=8>8<br>
-		    <input type="radio" Name="FSize" value=10 checked>10<br></td>
+  <tr>
+   <td class="LabelColumn"><?= gettext('Number of Columns') ?>:</td>
+    <td class="TextColumn">
+        <input type="radio" Name="NumCols" value=1>1 col<br>
+        <input type="radio" Name="NumCols" value=2 checked>2 cols<br>
+        <input type="radio" Name="NumCols" value=3>3 cols<br>
+  </td>
+  </tr>
+  <tr>
+   <td class="LabelColumn"><?= gettext('Paper Size') ?>:</td>
+    <td class="TextColumn">
+        <input type="radio" name="PageSize" value="letter" checked>Letter (8.5x11)<br>
+        <input type="radio" name="PageSize" value="legal">Legal (8.5x14)<br>
+        <input type="radio" name="PageSize" value="a4">A4
+  </td>
+  </tr>
+  <tr>
+   <td class="LabelColumn"><?= gettext('Font Size') ?>:</td>
+    <td class="TextColumn">
+    <table>
+    <tr>
+        <td><input type="radio" Name="FSize" value=6>6<br>
+        <input type="radio" Name="FSize" value=8>8<br>
+        <input type="radio" Name="FSize" value=10 checked>10<br></td>
 
-		    <td><input type="radio" Name="FSize" value=12>12<br>
-		    <input type="radio" Name="FSize" value=14>14<br>
-		    <input type="radio" Name="FSize" value=16>16<br></td>
-		</tr>
-		</table>
-	</td>
-	</tr>
+        <td><input type="radio" Name="FSize" value=12>12<br>
+        <input type="radio" Name="FSize" value=14>14<br>
+        <input type="radio" Name="FSize" value=16>16<br></td>
+    </tr>
+    </table>
+  </td>
+  </tr>
     <tr>
         <td class="LabelColumn"><?= gettext('Title page') ?>:</td>
         <td class="TextColumn">

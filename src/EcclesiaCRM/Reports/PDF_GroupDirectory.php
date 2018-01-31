@@ -2,6 +2,8 @@
 
 namespace EcclesiaCRM\Reports;
 
+use EcclesiaCRM\Utils\InputUtils;
+
 class PDF_GroupDirectory extends ChurchInfoReport
 {
     // Private properties
@@ -26,9 +28,9 @@ class PDF_GroupDirectory extends ChurchInfoReport
             //Move to the right
             $this->Cell(10);
             //Framed title
-            $sTitle = $sGroupName.' - '.gettext('Group Directory');
+            $sTitle = $sGroupName.' - '. InputUtils::translate_special_charset(gettext('Group Directory'));
             if (strlen($sRoleName)) {
-                $sTitle .= ' ('.$sRoleName.')';
+                $sTitle .= ' ('.InputUtils::translate_special_charset(gettext($sRoleName)).')';
             }
             $this->Cell(197, 10, $sTitle, 1, 0, 'C');
         }
@@ -116,7 +118,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->Write(5, $sName);
+        $this->Write(5, InputUtils::translate_special_charset($sName));
         $this->SetFont($this->_Font, '', $this->_Char_Size);
         $this->_CurLine++;
     }
@@ -131,7 +133,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(108, 5, $text);
+        $this->MultiCell(108, 5, InputUtils::translate_special_charset($text));
         $this->_CurLine += $numlines;
     }
 }

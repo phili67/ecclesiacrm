@@ -118,6 +118,10 @@ class PDF_Label extends ChurchInfoReport
     // Constructor
     public function __construct($format, $posX = 1, $posY = 1, $unit = 'mm')
     {
+        if ($format == gettext('Tractor')) {
+          $format = 'Tractor';
+        }
+        
         if (is_array($format)) {
             // Custom format
             $Tformat = $format;
