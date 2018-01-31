@@ -55,7 +55,7 @@ $rsFunds = RunQuery($sSQL);
 if (isset($_POST["UpdatePledgeTable"]) && $_SESSION['bFinance']) {
     $_SESSION['sshowPledges'] = isset($_POST["ShowPledges"]);
     $_SESSION['sshowPayments'] = isset($_POST["ShowPayments"]);
-    $_SESSION['sshowSince'] = DateTime::createFromFormat("Y-m-d", InputUtils::LegacyFilterInput($_POST["ShowSinceDate"]));
+    $_SESSION['sshowSince'] = DateTime::createFromFormat("Y-m-d", InputUtils::FilterDate($_POST["ShowSinceDate"]));
 }
 
 $dSQL = "SELECT fam_ID FROM family_fam order by fam_Name";
@@ -705,20 +705,21 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                         <div class="main-box-body clearfix">
                             <?php if (mysqli_num_rows($rsAutoPayments) > 0) {
             ?>
-                                <table cellpadding="5" cellspacing="0" width="100%">
-
-                                    <tr class="TableHeader">
-                                        <td><?= gettext("Type") ?></td>
-                                        <td><?= gettext("Next payment date") ?></td>
-                                        <td><?= gettext("Amount") ?></td>
-                                        <td><?= gettext("Interval (months)") ?></td>
-                                        <td><?= gettext("Fund") ?></td>
-                                        <td><?= gettext("Edit") ?></td>
-                                        <td><?= gettext("Delete") ?></td>
-                                        <td><?= gettext("Date Updated") ?></td>
-                                        <td><?= gettext("Updated By") ?></td>
+                                <table id="automatic-payment-table" cellpadding="5" cellspacing="0"  class="table table-condensed dt-responsive" width="100%">
+                                  <thead>        
+                                    <tr>
+                                        <th><?= gettext("Type") ?></td>
+                                        <th><?= gettext("Next payment date") ?></td>
+                                        <th><?= gettext("Amount") ?></td>
+                                        <th><?= gettext("Interval (months)") ?></td>
+                                        <th><?= gettext("Fund") ?></td>
+                                        <th><?= gettext("Edit") ?></td>
+                                        <th><?= gettext("Delete") ?></td>
+                                        <th><?= gettext("Date Updated") ?></td>
+                                        <th><?= gettext("Updated By") ?></td>
                                     </tr>
-
+                                  </thead>
+                                  <tbody>
                                     <?php
 
                                     $tog = 0;
@@ -744,7 +745,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     $sRowClass = "RowColorB";
                 } ?>
 
-                                        <tr class="<?= $sRowClass ?>">
+                                        <tr>
                                             <td>
                                                 <?= $payType ?>&nbsp;
                                             </td>
@@ -761,11 +762,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                 <?= gettext($fundName) ?>&nbsp;
                                             </td>
                                             <td>
-                                                <a
+                                                <a class="btn btn-success"
                                                         href="AutoPaymentEditor.php?AutID=<?= $aut_ID ?>&amp;FamilyID=<?= $iFamilyID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Edit") ?></a>
                                             </td>
                                             <td>
-                                                <a
+                                                <a class="btn btn-danger"
                                                         href="AutoPaymentDelete.php?AutID=<?= $aut_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
                                             </td>
                                             <td>
@@ -777,11 +778,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                         </tr>
                                         <?php
             } ?>
+                                  </tbody>
                                 </table>
                                 <?php
         } ?>
                             <p align="center">
-                                <a class="SmallText"
+                                <a class="btn btn-primary"
                                    href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
                             </p>
                         </div>
@@ -806,7 +808,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
             $showSince = $_SESSION['sshowSince']->format('Y-m-d');
         } ?>
                                 <input type="text" class="date-picker" Name="ShowSinceDate"
-                                       value="<?= $showSince ?>" maxlength="10" id="ShowSinceDate" size="15">
+                                       value="<?= OutputUtils::change_date_for_place_holder($showSince) ?>" maxlength="10" id="ShowSinceDate" size="15">
                                 <input type="submit" class="btn" <?= 'value="' . gettext("Update") . '"' ?>
                                        name="UpdatePledgeTable"
                                        style="font-size: 8pt;">
@@ -889,12 +891,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                     <?= $plg_comment ?>&nbsp;
                                                 </td>
                                                 <td>
-                                                    <a
-                                                            href="PledgeEditor.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>">Edit</a>
+                                                    <a class="btn btn-success"
+                                                            href="PledgeEditor.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Edit") ?></a>
                                                 </td>
                                                 <td>
-                                                    <a
-                                                            href="PledgeDelete.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>">Delete</a>
+                                                    <a class="btn btn-danger"
+                                                            href="PledgeDelete.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
                                                 </td>
                                                 <td>
                                                     <?= $plg_DateLastEdited ?>&nbsp;
@@ -914,9 +916,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                             </table>
 
                             <p align="center">
-                                <a class="SmallText"
+                                <a class="btn btn-primary"
                                    href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
-                                <a class="SmallText"
+                                <a class="btn btn-default"
                                    href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                             </p>
 
@@ -927,7 +929,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         ?>
 
                             <p align="center">
-                                <a class="SmallText"
+                                <a class="btn btn-default"
                                    href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                             </p>
                         </div>

@@ -14,6 +14,7 @@ require 'bin/vancowebservices.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
@@ -62,34 +63,34 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $nAmount = 0;
 
     $sSQL = 'INSERT INTO autopayment_aut (
-	           aut_FamID,
-				  aut_EnableBankDraft,
-				  aut_EnableCreditCard,
-				  aut_NextPayDate,
-				  aut_FYID,
-				  aut_Amount,
-				  aut_Interval,
-				  aut_Fund,
-				  aut_FirstName,
-				  aut_LastName,
-				  aut_Address1,
-				  aut_Address2,
-				  aut_City,
-				  aut_State,
-				  aut_Zip,
-				  aut_Country,
-				  aut_Phone,
-				  aut_Email,
-				  aut_CreditCard,
-				  aut_ExpMonth,
-				  aut_ExpYear,
-				  aut_BankName,
-				  aut_Route,
-				  aut_Account,
-				  aut_Serial,
-				  aut_DateLastEdited,
-				  aut_EditedBy)
-			   VALUES (' .
+             aut_FamID,
+          aut_EnableBankDraft,
+          aut_EnableCreditCard,
+          aut_NextPayDate,
+          aut_FYID,
+          aut_Amount,
+          aut_Interval,
+          aut_Fund,
+          aut_FirstName,
+          aut_LastName,
+          aut_Address1,
+          aut_Address2,
+          aut_City,
+          aut_State,
+          aut_Zip,
+          aut_Country,
+          aut_Phone,
+          aut_Email,
+          aut_CreditCard,
+          aut_ExpMonth,
+          aut_ExpYear,
+          aut_BankName,
+          aut_Route,
+          aut_Account,
+          aut_Serial,
+          aut_DateLastEdited,
+          aut_EditedBy)
+         VALUES (' .
         $iFamily . ',' .
         $bEnableBankDraft . ',' .
         $bEnableCreditCard . ',' .
@@ -141,7 +142,7 @@ if (isset($_POST['Submit'])) {
         $bEnableCreditCard = 0;
     }
 
-    $dNextPayDate = InputUtils::LegacyFilterInput($_POST['NextPayDate']);
+    $dNextPayDate = InputUtils::FilterDate($_POST['NextPayDate']);
     $nAmount = InputUtils::LegacyFilterInput($_POST['Amount']);
     if (!$nAmount) {
         $nAmount = 0;
@@ -173,32 +174,32 @@ if (isset($_POST['Submit'])) {
     $tAccount = InputUtils::LegacyFilterInput($_POST['Account']);
 
     $sSQL = 'UPDATE autopayment_aut SET ' .
-        'aut_FamID	=	' . $iFamily . ',' .
-        'aut_EnableBankDraft	=' . $bEnableBankDraft . ',' .
-        'aut_EnableCreditCard	=' . $bEnableCreditCard . ',' .
-        "aut_NextPayDate	='" . $dNextPayDate . "'," .
-        "aut_Amount	='" . $nAmount . "'," .
-        "aut_FYID	='" . $iFYID . "'," .
-        "aut_Interval	='" . $iInterval . "'," .
-        "aut_Fund	='" . $iFund . "'," .
-        "aut_FirstName	='" . $tFirstName . "'," .
-        "aut_LastName	='" . $tLastName . "'," .
-        "aut_Address1	='" . $tAddress1 . "'," .
-        "aut_Address2	='" . $tAddress2 . "'," .
-        "aut_City	='" . $tCity . "'," .
-        "aut_State	='" . $tState . "'," .
-        "aut_Zip	='" . $tZip . "'," .
-        "aut_Country	='" . $tCountry . "'," .
-        "aut_Phone	='" . $tPhone . "'," .
-        "aut_Email	='" . $tEmail . "'," .
-        "aut_CreditCard	='" . $tCreditCard . "'," .
-        "aut_ExpMonth	='" . $tExpMonth . "'," .
-        "aut_ExpYear	='" . $tExpYear . "'," .
-        "aut_BankName	='" . $tBankName . "'," .
-        "aut_Route	='" . $tRoute . "'," .
-        "aut_Account	='" . $tAccount . "'," .
-        "aut_DateLastEdited	='" . date('YmdHis') . "'," .
-        'aut_EditedBy	=' . $_SESSION['iUserID'] .
+        'aut_FamID  =  ' . $iFamily . ',' .
+        'aut_EnableBankDraft  =' . $bEnableBankDraft . ',' .
+        'aut_EnableCreditCard  =' . $bEnableCreditCard . ',' .
+        "aut_NextPayDate  ='" . $dNextPayDate . "'," .
+        "aut_Amount  ='" . $nAmount . "'," .
+        "aut_FYID  ='" . $iFYID . "'," .
+        "aut_Interval  ='" . $iInterval . "'," .
+        "aut_Fund  ='" . $iFund . "'," .
+        "aut_FirstName  ='" . $tFirstName . "'," .
+        "aut_LastName  ='" . $tLastName . "'," .
+        "aut_Address1  ='" . $tAddress1 . "'," .
+        "aut_Address2  ='" . $tAddress2 . "'," .
+        "aut_City  ='" . $tCity . "'," .
+        "aut_State  ='" . $tState . "'," .
+        "aut_Zip  ='" . $tZip . "'," .
+        "aut_Country  ='" . $tCountry . "'," .
+        "aut_Phone  ='" . $tPhone . "'," .
+        "aut_Email  ='" . $tEmail . "'," .
+        "aut_CreditCard  ='" . $tCreditCard . "'," .
+        "aut_ExpMonth  ='" . $tExpMonth . "'," .
+        "aut_ExpYear  ='" . $tExpYear . "'," .
+        "aut_BankName  ='" . $tBankName . "'," .
+        "aut_Route  ='" . $tRoute . "'," .
+        "aut_Account  ='" . $tAccount . "'," .
+        "aut_DateLastEdited  ='" . date('YmdHis') . "'," .
+        'aut_EditedBy  =' . $_SESSION['iUserID'] .
         ' WHERE aut_ID = ' . $iAutID;
     RunQuery($sSQL);
 
@@ -782,8 +783,8 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
             <tr>
                 <td align="center">
-                    <input type="submit" class="btn" value="<?= gettext('Save') ?>" name="Submit">
-                    <input type="button" class="btn" value="<?= gettext('Cancel') ?>" name="Cancel"
+                    <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="Submit">
+                    <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel"
                            onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
     echo $linkBack;
 } else {
@@ -794,6 +795,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
             <tr>
                 <td>
+                    <br>
                     <table cellpadding="1" align="center">
 
                         <tr>
@@ -837,7 +839,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
                         <tr>
                             <td class="LabelColumn"><?= gettext('Date') ?>:</td>
-                            <td class="TextColumn"><input type="text" name="NextPayDate" value="<?= $dNextPayDate ?>"
+                            <td class="TextColumn"><input type="text" name="NextPayDate" value="<?= OutputUtils::change_date_for_place_holder($dNextPayDate) ?>"
                                                           maxlength="10" id="NextPayDate" size="11"
                                                           class="form-control pull-right active date-picker"></td>
                         </tr>
