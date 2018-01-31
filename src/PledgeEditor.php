@@ -682,11 +682,12 @@ require 'Include/Header.php';
     </div>
 
     <div class="col-lg-12">
+      <br>
     <?php if (!$dep_Closed) {
         ?>
-        <input type="submit" class="btn " value="<?= gettext('Save') ?>" name="PledgeSubmit">
+        <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PledgeSubmit">
         <?php if ($_SESSION['bAddRecords']) {
-            echo '<input type="submit" class="btn btn-primary value="'.gettext('Save and Add').'" name="PledgeSubmitAndAdd">';
+            echo '<input type="submit" class="btn btn-info value="'.gettext('Save and Add').'" name="PledgeSubmitAndAdd">';
         } ?>
           <?php
     } ?>
@@ -763,6 +764,7 @@ require 'Include/Header.php';
 
     $("#FamilyName").select2({
       minimumInputLength: 2,
+      language: window.CRM.shortLocale,
       ajax: {
           url: function (params){
             var a = window.CRM.root + '/api/families/search/'+ params.term;

@@ -24,7 +24,10 @@ function initPaymentTable()
     {
       width: 'auto',
       title:i18next.t('Method'),
-      data:'Method'
+      data:'Method',
+      render: function (data, type, full, meta) {
+          return i18next.t(data);
+      }
     }
   ];
 
@@ -71,7 +74,7 @@ function initDepositSlipEditor()
     return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
             '<td>Date:</td>' +
-            '<td>' + moment(d.Date).format("MM-DD-YYYY") + '</td>' +
+            '<td>' + moment(d.Date).format(window.CRM.datePickerformat.toUpperCase()) + '</td>' +
             '</tr>' +
             '<tr>' +
             '<td>Fiscal Year:</td>' +
@@ -95,7 +98,7 @@ function initDepositSlipEditor()
   $("#DepositSlipEditor").submit(function(e) {
     e.preventDefault();
     var formData = {
-      'depositDate': $('#DepositDate').val(),
+      'depositDate': moment($('#DepositDate').val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),
       'depositComment': $("#Comment").val(),
       'depositClosed': $('#Closed').is(':checked'),
       'depositType': depositType
@@ -140,7 +143,7 @@ function initDepositSlipEditor()
       $(this).toggleClass('selected');
       var selectedRows = dataT.rows('.selected').data().length;
       $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-      $("#deleteSelectedRows").text("Delete (" + selectedRows + ") Selected Rows");
+      $("#deleteSelectedRows").text(i18next.t("Delete")+" (" + selectedRows + ") "+i18next.t("Selected Rows"));
     }
 
 

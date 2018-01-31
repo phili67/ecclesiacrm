@@ -864,16 +864,16 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
 
                                             <tr>
                                                 <td>
-                                                    <?= $plg_PledgeOrPayment ?>&nbsp;
+                                                    <?= gettext($plg_PledgeOrPayment) ?>&nbsp;
                                                 </td>
                                                 <td>
-                                                    <?= $fundName ?>&nbsp;
+                                                    <?= gettext($fundName) ?>&nbsp;
                                                 </td>
                                                 <td>
                                                     <?= MakeFYString($plg_FYID) ?>&nbsp;
                                                 </td>
                                                 <td>
-                                                    <?= $plg_date ?>&nbsp;
+                                                    <?= OutputUtils::change_date_for_place_holder($plg_date) ?>&nbsp;
                                                 </td>
                                                 <td align=center>
                                                     <?= $plg_amount ?>&nbsp;
@@ -882,10 +882,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                     <?= $plg_NonDeductible ?>&nbsp;
                                                 </td>
                                                 <td>
-                                                    <?= $plg_schedule ?>&nbsp;
+                                                    <?= gettext($plg_schedule) ?>&nbsp;
                                                 </td>
                                                 <td>
-                                                    <?= $plg_method ?>&nbsp;
+                                                    <?= gettext($plg_method) ?>&nbsp;
                                                 </td>
                                                 <td>
                                                     <?= $plg_comment ?>&nbsp;
@@ -899,7 +899,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                             href="PledgeDelete.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
                                                 </td>
                                                 <td>
-                                                    <?= $plg_DateLastEdited ?>&nbsp;
+                                                    <?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?>&nbsp;
                                                 </td>
                                                 <td>
                                                     <?= $EnteredFirstName . " " . $EnteredLastName ?>&nbsp;

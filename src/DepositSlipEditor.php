@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
 
 $iDepositSlipID = 0;
 $thisDeposit = 0;
@@ -44,6 +45,9 @@ if ($iDepositSlipID) {
 } else {
     Redirect('Menu.php');
 }
+
+
+$funds = $thisDeposit->getFundTotals();
 
 //Set the page title
 $sPageTitle = $thisDeposit->getType().' '.gettext('Deposit Slip Number: ').$iDepositSlipID;
@@ -75,7 +79,7 @@ require 'Include/Header.php';
           <div class="row">
             <div class="col-lg-4">
               <label for="Date"><?= gettext('Date'); ?>:</label>
-              <input type="text" class="form-control date-picker" name="Date" value="<?php echo $thisDeposit->getDate('Y-m-d'); ?>" id="DepositDate" >
+              <input type="text" class="form-control date-picker" name="Date" value="<?= $thisDeposit->getDate(SystemConfig::getValue('sDatePickerFormat')); ?>" id="DepositDate" >
             </div>
             <div class="col-lg-4">
               <label for="Comment"><?php echo gettext('Comment:'); ?></label>
@@ -90,10 +94,16 @@ require 'Include/Header.php';
           </div>
           <div class="row p-2">
             <div class="col-lg-5 m-2" style="text-align:center">
-              <input type="submit" class="btn" value="<?php echo gettext('Save'); ?>" name="DepositSlipSubmit">
+              <input type="submit" class="btn btn-primary" value="<?php echo gettext('Save'); ?>" name="DepositSlipSubmit">
             </div>
             <div class="col-lg-5 m-2" style="text-align:center">
-              <input type="button" class="btn" value="<?php echo gettext('Deposit Slip Report'); ?>" name="DepositSlipGeneratePDF" onclick="window.CRM.VerifyThenLoadAPIContent(window.CRM.root + '/api/deposits/<?php echo $thisDeposit->getId() ?>/pdf');">
+              <?php
+                 if (count($funds)) {
+              ?>
+              <input type="button" class="btn btn-default" value="<?php echo gettext('Deposit Slip Report'); ?>" name="DepositSlipGeneratePDF" onclick="window.CRM.VerifyThenLoadAPIContent(window.CRM.root + '/api/deposits/<?php echo $thisDeposit->getId() ?>/pdf');">
+              <?php
+                }
+              ?>
             </div>
           </div>
           <?php
@@ -115,12 +125,12 @@ require 'Include/Header.php';
           <ul style="margin:0px; border:0px; padding:0px;">
           <?php
           // Get deposit totals
-          echo '<li><b>TOTAL ('.$thisDeposit->getPledges()->count().'):</b> $'.$thisDeposit->getVirtualColumn('totalAmount').'</li>';
+          echo '<li><b>TOTAL ('.$thisDeposit->getPledges()->count().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getVirtualColumn('totalAmount').'</li>';
                         if ($thisDeposit->getCountCash()) {
-                            echo '<li><b>CASH ('.$thisDeposit->getCountCash().'):</b> $'.$thisDeposit->getTotalCash().'</li>';
+                            echo '<li><b>CASH ('.$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash().'</li>';
                         }
                         if ($thisDeposit->getCountChecks()) {
-                            echo '<li><b>CHECKS ('.$thisDeposit->getCountChecks().'):</b> $'.$thisDeposit->getTotalChecks().' </li>';
+                            echo '<li><b>CHECKS ('.$thisDeposit->getCountChecks().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalChecks().' </li>';
                         }
           ?>
             </ul>
@@ -130,7 +140,7 @@ require 'Include/Header.php';
           <ul style="margin:0px; border:0px; padding:0px;">
           <?php
           foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.$fund['Name'].'</b>: $'.$fund['Total'].'</li>';
+              echo '<li><b>'.$fund['Name'].'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
           }
           ?>
         </div>
@@ -145,7 +155,7 @@ require 'Include/Header.php';
       <?php
       if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
           if ($thisDeposit->getType() == 'eGive') {
-              echo '<input type=button class=btn value="'.gettext('Import eGive')."\" name=ImporteGive onclick=\"javascript:document.location='eGive.php?DepositSlipID=$iDepositSlipID&linkBack=DepositSlipEditor.php?DepositSlipID=$iDepositSlipID&PledgeOrPayment=Payment&CurrentDeposit=$iDepositSlipID';\">";
+              echo '<input type=button class="btn btn-default" value="'.gettext('Import eGive')."\" name=ImporteGive onclick=\"javascript:document.location='eGive.php?DepositSlipID=$iDepositSlipID&linkBack=DepositSlipEditor.php?DepositSlipID=$iDepositSlipID&PledgeOrPayment=Payment&CurrentDeposit=$iDepositSlipID';\">";
           } else {
               echo '<input type=button class="btn btn-success" value="'.gettext('Add Payment')."\" name=AddPayment onclick=\"javascript:document.location='PledgeEditor.php?CurrentDeposit=$iDepositSlipID&PledgeOrPayment=Payment&linkBack=DepositSlipEditor.php?DepositSlipID=$iDepositSlipID&PledgeOrPayment=Payment&CurrentDeposit=$iDepositSlipID';\">";
           }
@@ -165,7 +175,7 @@ require 'Include/Header.php';
     if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
         if ($thisDeposit->getType() == 'Bank') {
             ?>
-        <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled>Delete Selected Rows</button>
+        <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled><?= gettext("Delete Selected Rows") ?></button>
         <?php
         }
     }
@@ -177,7 +187,7 @@ require 'Include/Header.php';
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/js/DepositSlipEditor.js"></script>
 <?php
   $fundData = [];
-  foreach ($thisDeposit->getFundTotals() as $tmpfund) {
+  foreach ($funds as $tmpfund) {
       $fund = new StdClass();
       $fund->color = '#'.random_color();
       $fund->highlight = '#'.random_color();
@@ -216,9 +226,9 @@ require 'Include/Header.php';
       var deletedRows = dataT.rows('.selected').data();
       bootbox.confirm({
         title:'<?= gettext("Confirm Delete")?>',
-        message: '<p><?= gettext("Are you sure you want to delete the selected")?> ' + deletedRows.length + ' <?= gettext("payments(s)?") ?></p>' +
-        '<p><?= gettext("This action CANNOT be undone, and may have legal implications!") ?></p>'+
-        '<p><?= gettext("Please ensure this what you want to do.</p>") ?>',
+        message: "<p><?= gettext("Are you sure you want to delete the selected")?> " + deletedRows.length + " <?= gettext("payments(s)?") ?></p>" +
+        "<p><?= gettext("This action CANNOT be undone, and may have legal implications!") ?></p>"+
+        "<p><?= gettext("Please ensure this what you want to do.</p>") ?>",
         buttons: {
           cancel : {
             label: '<?= gettext("Close"); ?>'
