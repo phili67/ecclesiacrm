@@ -1,12 +1,12 @@
 var dataT = 0;
 
 $(document).ready(function () {
-  $("#depositDate").datepicker({format: 'yyyy-mm-dd', language: window.CRM.lang}).datepicker("setDate", new Date());
+  $("#depositDate").datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang}).datepicker("setDate", new Date());
   $("#addNewDeposit").click(function (e) {
     var newDeposit = {
       'depositType': $("#depositType option:selected").val(),
       'depositComment': $("#depositComment").val(),
-      'depositDate': $("#depositDate").val()
+      'depositDate': moment($("#depositDate").val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD')
     };
     $.ajax({
       method: "POST",
@@ -50,7 +50,7 @@ $(document).ready(function () {
         data: 'Date',
         render: function (data, type, full, meta) {
           if (type === 'display') {
-            return moment(data).format("MM-DD-YY");
+            return moment(data).format(window.CRM.datePickerformat.toUpperCase());
           }
           else {
             return data
@@ -59,27 +59,30 @@ $(document).ready(function () {
         searchable: true
       },
       {
-        title:i18next.t( 'Deposit Total'),
+        title:i18next.t('Deposit Total'),
         data: 'totalAmount',
         searchable: false,
       },
       {
-        title:i18next.t( 'Deposit Comment'),
+        title:i18next.t('Deposit Comment'),
         data: 'Comment',
         searchable: true
       },
       {
-        title:i18next.t( 'Closed'),
+        title:i18next.t('Closed'),
         data: 'Closed',
         searchable: true,
         render: function (data, type, full, meta) {
-          return data == 1 ? 'Yes' : 'No';
+          return data == 1 ? i18next.t('Yes') : i18next.t('No');
         }
       },
       {
         title:i18next.t( 'Deposit Type'),
         data: 'Type',
-        searchable: true
+        searchable: true,
+        render: function (data, type, full, meta) {
+          return i18next.t(data);
+        }
       }
     ],
     order: [0, 'desc']
@@ -89,13 +92,13 @@ $(document).ready(function () {
     $(this).toggleClass('selected');
     var selectedRows = dataT.rows('.selected').data().length;
     $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-    $("#deleteSelectedRows").text("Delete (" + selectedRows + ") Selected Rows");
+    $("#deleteSelectedRows").text(i18next.t("Delete")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
     $("#exportSelectedRows").prop('disabled', !(selectedRows));
-    $("#exportSelectedRows").html("<i class=\"fa fa-download\"></i> Export (" + selectedRows + ") Selected Rows (OFX)");
+    $("#exportSelectedRows").html("<i class=\"fa fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (OFX)");
     $("#exportSelectedRowsCSV").prop('disabled', !(selectedRows));
-    $("#exportSelectedRowsCSV").html("<i class=\"fa fa-download\"></i> Export (" + selectedRows + ") Selected Rows (CSV)");
+    $("#exportSelectedRowsCSV").html("<i class=\"fa fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (CSV)");
     $("#generateDepositSlip").prop('disabled', !(selectedRows));
-    $("#generateDepositSlip").html("<i class=\"fa fa-download\"></i> Generate Deposit Split for Selected (" + selectedRows + ") Rows (PDF)");
+    $("#generateDepositSlip").html("<i class=\"fa fa-download\"></i> "+i18next.t("Generate Deposit Split for Selected")+" (" + selectedRows + ") "+i18next.t("Rows")+" (PDF)");
   });
 
   $('.exportButton').click(function (sender) {

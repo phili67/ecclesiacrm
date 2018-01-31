@@ -453,7 +453,7 @@ if ($depositData) { // If the user has Finance permissions, then let's display t
 
   $( document ).ready(function() {
     $.each(lineDataRaw.Deposits, function(i, val) {
-        lineData.labels.push(moment(val.Date).format("MM-DD-YY"));
+        lineData.labels.push(moment(val.Date).format(window.CRM.datePickerformat.toUpperCase()));
         lineData.datasets[0].data.push(val.totalAmount);
     });
     options = {
