@@ -9662,3 +9662,12 @@ msgstr "Courant"
 
 msgid "Envelope Numbers for all Families"
 msgstr "Numéros d'enveloppe pour toutes les familles"
+
+msgid "BANKDRAFT"
+msgstr "Chèque de banque"
+
+msgid "Move Donations to Selected Family"
+msgstr "Transférer les dépots à la famille sélectionnée"
+
+msgid "Cancel and Return to Family View"
+msgstr "Annuelr et retourner à la vue famille"

@@ -177,7 +177,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     <?php
 } ?>
 <div class="row">
-    <div class="col-lg-3 col-md-4 col-sm-4">
+    <div class="col-lg-3 col-md-3 col-sm-3">
         <div class="box box-primary">
             <div class="box-body">
                 <div class="image-container">
@@ -297,8 +297,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
             </div>
         </div>
     </div>
-    <div class="col-lg-9 col-md-8 col-sm-8">
-        <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box"><br/>
                 <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
                 
@@ -347,14 +346,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     <?php
                 } ?>
             </div>
-        </div>
     </div>
 
-    <div class="col-lg-9 col-md-8 col-sm-8">
-        <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box box-solid">
                 <div class="box-body table-responsive clearfix">
-                    <table class="table user-list table-hover">
+                    <table class="table user-list table-hover data-person" width="100%">
                         <thead>
                         <tr>
                             <th><span><?= gettext("Family Members") ?></span></th>
@@ -431,7 +428,6 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     </table>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 <div class="row">
@@ -795,18 +791,18 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                             <form method="post" action="FamilyView.php?FamilyID=<?= $iFamilyID ?>">
                                 <input type="checkbox" name="ShowPledges"
                                        value="1" <?php if ($_SESSION['sshowPledges']) {
-            echo " checked";
-        } ?>><?= gettext("Show Pledges") ?>
-                                <input type="checkbox" name="ShowPayments"
-                                       value="1" <?php if ($_SESSION['sshowPayments']) {
-            echo " checked";
-        } ?>><?= gettext("Show Payments") ?>
-                                <label for="ShowSinceDate"><?= gettext("Since") ?>:</label>
-                                <?php
-                                $showSince = "";
-        if ($_SESSION['sshowSince'] != null) {
-            $showSince = $_SESSION['sshowSince']->format('Y-m-d');
-        } ?>
+                                      echo " checked";
+                                  } ?>><?= gettext("Show Pledges") ?>
+                                                          <input type="checkbox" name="ShowPayments"
+                                                                 value="1" <?php if ($_SESSION['sshowPayments']) {
+                                      echo " checked";
+                                  } ?>><?= gettext("Show Payments") ?>
+                                                          <label for="ShowSinceDate"><?= gettext("Since") ?>:</label>
+                                                          <?php
+                                                          $showSince = "";
+                                  if ($_SESSION['sshowSince'] != null) {
+                                      $showSince = $_SESSION['sshowSince']->format('Y-m-d');
+                                  } ?>
                                 <input type="text" class="date-picker" Name="ShowSinceDate"
                                        value="<?= OutputUtils::change_date_for_place_holder($showSince) ?>" maxlength="10" id="ShowSinceDate" size="15">
                                 <input type="submit" class="btn" <?= 'value="' . gettext("Update") . '"' ?>
