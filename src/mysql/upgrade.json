@@ -204,11 +204,12 @@
     "current": {
         "versions": [
             "3.1.0",
-            "3.2.0"
+            "3.2.0",
+            "3.2.1"
         ],
         "scripts": [
           "/mysql/upgrade/3.2.0-upgrade.php"
         ],
-        "dbVersion": "3.2.1"
+        "dbVersion": "3.2.2"
     }
 }

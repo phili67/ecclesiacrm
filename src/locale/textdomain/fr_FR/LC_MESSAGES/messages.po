@@ -1033,23 +1033,23 @@ msgstr "Numéro de Bordereau de dépôt : "
 
 #: DepositSlipEditor.php:71
 msgid "Deposit Details: "
-msgstr "Détails de l&#39;acompte : "
+msgstr "Détails de dépôt : "
 
 #: DepositSlipEditor.php:88
 msgid "Close deposit slip (remember to press Save)"
-msgstr "Clôturer le bordereau d&#39;acompte (ne pas oublier d&#39;enregistrer)"
+msgstr "Clôturer le bordereau de dépôt (ne pas oublier d&#39;enregistrer)"
 
 #: DepositSlipEditor.php:96
 msgid "Deposit Slip Report"
-msgstr "Rapport du Bordereau d&#39;acompte"
+msgstr "Rapport du Bordereau de dépôt"
 
 #: DepositSlipEditor.php:101
 msgid "Important note: failed transactions will be deleted permanantly when the deposit slip is closed."
-msgstr "Note importante: quand un bordereau d&#39;acompte est fermé, les transactions non réussies sont définitivement supprimées."
+msgstr "Note importante: quand un bordereau de dépôt clôturé, les transactions non réussies sont définitivement supprimées."
 
 #: DepositSlipEditor.php:110
 msgid "Deposit Summary: "
-msgstr "Synthèse des dépôt : "
+msgstr "Synthèse des dépôts : "
 
 #: DepositSlipEditor.php:143
 msgid "Payments on this deposit slip:"

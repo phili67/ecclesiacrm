@@ -128,7 +128,7 @@ require 'Include/Header.php';
           echo '<li><b>TOTAL ('.$thisDeposit->getPledges()->count().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getVirtualColumn('totalAmount').'</li>';
                         if ($thisDeposit->getCountCash()) {
                           ?>
-                            <li><b><?= gettext("CASH")." (".$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash() ?></b>/li>
+                            <li><b><?= gettext("CASH")." (".$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash() ?></b></li>
                           <?php
                         }
                         if ($thisDeposit->getCountChecks()) {
