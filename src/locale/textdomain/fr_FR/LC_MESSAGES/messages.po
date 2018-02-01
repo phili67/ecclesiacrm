@@ -1053,7 +1053,7 @@ msgstr "Synthèse des dépôt : "
 
 #: DepositSlipEditor.php:143
 msgid "Payments on this deposit slip:"
-msgstr "Les paiements sur ce bordereau d&#39;acompte:"
+msgstr "Les paiements sur ce bordereau de dépôt :"
 
 #: DepositSlipEditor.php:148 eGive.php:266
 msgid "Import eGive"
@@ -2144,7 +2144,7 @@ msgstr "Espèce"
 
 #: FinancialReports.php:264 FindDepositSlip.php:48 PledgeEditor.php:596
 msgid "Bank Draft"
-msgstr "Chèque"
+msgstr "Chèque de banque"
 
 #: FinancialReports.php:265 FindDepositSlip.php:49 PledgeEditor.php:603
 msgid "eGive"
@@ -8534,7 +8534,7 @@ msgstr "Participants inscrit"
 
 #: AutoPaymentEditor.php:827
 msgid "Bank Draft "
-msgstr "traite bancaire "
+msgstr "Chèque de banque "
 
 #: AutoPaymentEditor.php:831
 msgid "Credit Card "
