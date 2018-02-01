@@ -439,7 +439,7 @@ if ($iCurrentDeposit) {
 if ($PledgeOrPayment == 'Pledge') {
     $sPageTitle = gettext('Pledge Editor');
 } elseif ($iCurrentDeposit) {
-    $sPageTitle = gettext('Payment Editor: ').$dep_Type.gettext(' Deposit Slip #').$iCurrentDeposit." ($dep_Date)";
+    $sPageTitle = gettext('Payment Editor: ').gettext($dep_Type).gettext(' Deposit Slip #').$iCurrentDeposit." (".OutputUtils::change_date_for_place_holder($dep_Date).")";
 
     $checksFit = SystemConfig::getValue('iChecksPerDepositForm');
 
@@ -612,7 +612,7 @@ require 'Include/Header.php';
         <?php if ($PledgeOrPayment == 'Payment' && $dep_Type == 'Bank') {
         ?>
           <div id="checkNumberGroup">
-          <label for="CheckNo"><?= gettext('Check') ?> #</label>
+          <label for="CheckNo"><?= gettext('Check') ?><?= gettext(' #') ?></label>
           <input class="form-control" type="number" name="CheckNo" id="CheckNo" value="<?= $iCheckNo ?>"/><font color="red"><?= $sCheckNoError ?></font>
           </div>
         <?php
@@ -687,14 +687,14 @@ require 'Include/Header.php';
         ?>
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PledgeSubmit">
         <?php if ($_SESSION['bAddRecords']) {
-            echo '<input type="submit" class="btn btn-info value="'.gettext('Save and Add').'" name="PledgeSubmitAndAdd">';
+            echo '<input type="submit" class="btn btn-info" value="'.gettext('Save and Add').'" name="PledgeSubmitAndAdd">';
         } ?>
           <?php
     } ?>
     <?php if (!$dep_Closed) {
-        $cancelText = 'Cancel';
+        $cancelText = gettext('Cancel');
     } else {
-        $cancelText = 'Return';
+        $cancelText = gettext('Return');
     } ?>
     <input type="button" class="btn btn-danger" value="<?= gettext($cancelText) ?>" name="PledgeCancel" onclick="javascript:document.location='<?= $linkBack ? $linkBack : 'Menu.php' ?>';">
     </div>
@@ -728,7 +728,7 @@ require 'Include/Header.php';
               foreach ($fundId2Name as $fun_id => $fun_name) {
                   ?>
                 <tr>
-                  <td class="TextColumn"><?= $fun_name ?></td>
+                  <td class="TextColumn"><?= gettext($fun_name) ?></td>
                   <td class="TextColumn">
                     <input class="FundAmount" type="number" step="any" name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount" value="<?= $nAmount[$fun_id] ?>"><br>
                     <font color="red"><?= $sAmountError[$fun_id] ?></font>
