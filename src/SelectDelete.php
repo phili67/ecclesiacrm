@@ -20,6 +20,8 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Security: User must have Delete records permission
 // Otherwise, re-direct them to the main menu.
@@ -152,7 +154,7 @@ require 'Include/Header.php';
             echo '<p>' . gettext('Please select another family with whom to associate these donations:');
             echo '<br><b>' . gettext('WARNING: This action can not be undone and may have legal implications!') . '</b></p>';
             echo "<input name=FamilyID value=$iFamilyID type=hidden>";
-            echo '<select name=DonationFamilyID><option value=0 selected>' . gettext('Unassigned') . '</option>';
+            echo '<select name="DonationFamilyID" class="form-control input-sm"><option value=0 selected>' . gettext('Unassigned') . '</option>';
 
             //Get Families for the drop-down
             $sSQL = 'SELECT fam_ID, fam_Name, fam_Address1, fam_City, fam_State FROM family_fam ORDER BY fam_Name';
@@ -194,8 +196,8 @@ require 'Include/Header.php';
                 }
             }
             echo '</select><br><br>';
-            echo '<input type=submit name=CancelFamily value="Cancel and Return to Family View"> &nbsp; &nbsp; ';
-            echo '<input type=submit name=MoveDonations value="Move Donations to Selected Family">';
+            echo '<input type="submit" class="btn btn-primary" name="CancelFamily" value="'.gettext("Cancel and Return to Family View").'"> &nbsp; &nbsp; ';
+            echo '<input type="submit" class="btn btn-danger" name="MoveDonations" value="'.gettext("Move Donations to Selected Family").'">';
             echo '</div></form>';
 
             // Show payments connected with family
@@ -209,19 +211,22 @@ require 'Include/Header.php';
 				 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
 				 WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
             $rsPledges = RunQuery($sSQL); ?>
-        <table cellpadding="5" cellspacing="0" width="100%">
-            <tr class="TableHeader">
-                <td><?= gettext('Type') ?></td>
-                <td><?= gettext('Fund') ?></td>
-                <td><?= gettext('Fiscal Year') ?></td>
-                <td><?= gettext('Date') ?></td>
-                <td><?= gettext('Amount') ?></td>
-                <td><?= gettext('Schedule') ?></td>
-                <td><?= gettext('Method') ?></td>
-                <td><?= gettext('Comment') ?></td>
-                <td><?= gettext('Date Updated') ?></td>
-                <td><?= gettext('Updated By') ?></td>
+        <table cellspacing="0" width="100%" class="table table-striped table-bordered data-table">
+          <theader>
+            <tr>
+                <th><?= gettext('Type') ?></th>
+                <th><?= gettext('Fund') ?></th>
+                <th><?= gettext('Fiscal Year') ?></th>
+                <th><?= gettext('Date') ?></th>
+                <th><?= gettext('Amount') ?></th>
+                <th><?= gettext('Schedule') ?></th>
+                <th><?= gettext('Method') ?></th>
+                <th><?= gettext('Comment') ?></th>
+                <th><?= gettext('Date Updated') ?></th>
+                <th><?= gettext('Updated By') ?></th>
             </tr>
+          </theader>
+          <tbody>
             <?php
             $tog = 0;
             //Loop through all pledges
@@ -252,21 +257,24 @@ require 'Include/Header.php';
                         $sRowClass = 'PaymentRowColorB';
                     }
                 } ?>
-                <tr class="<?= $sRowClass ?>">
-                    <td><?= $plg_PledgeOrPayment ?>&nbsp;</td>
-                    <td><?= $fundName ?>&nbsp;</td>
+                <tr>
+                    <td><?= gettext($plg_PledgeOrPayment) ?>&nbsp;</td>
+                    <td><?= gettext($fundName) ?>&nbsp;</td>
                     <td><?= MakeFYString($plg_FYID) ?>&nbsp;</td>
-                    <td><?= $plg_date ?>&nbsp;</td>
+                    <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?>&nbsp;</td>
                     <td><?= $plg_amount ?>&nbsp;</td>
-                    <td><?= $plg_schedule ?>&nbsp;</td>
-                    <td><?= $plg_method ?>&nbsp;</td>
+                    <td><?= gettext($plg_schedule) ?>&nbsp;</td>
+                    <td><?= gettext($plg_method) ?>&nbsp;</td>
                     <td><?= $plg_comment ?>&nbsp;</td>
-                    <td><?= $plg_DateLastEdited ?>&nbsp;</td>
+                    <td><?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?>&nbsp;</td>
                     <td><?= $EnteredFirstName . ' ' . $EnteredLastName ?>&nbsp;</td>
                 </tr>
                 <?php
             }
-            echo '</table>';
+            ?>
+            </tbody>
+          </table>
+        <?php
         } else {
             // No Donations from family.  Normal delete confirmation
             echo $DonationMessage;
@@ -295,4 +303,16 @@ require 'Include/Header.php';
     </div>
 </div>
 
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+$(document).ready(function () {
+  $(".data-table").DataTable({
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    responsive: true});
+});
+</script>
+
 <?php require 'Include/Footer.php' ?>
+
+

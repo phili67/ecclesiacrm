@@ -110,12 +110,28 @@ $(document).ready(function () {
     });
 
 
-  $("#pledge-payment-table").DataTable(window.CRM.plugin.dataTable);
+  $(".data-table").DataTable({
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    responsive: true});
+    
   
-  $("#automatic-payment-table").DataTable(window.CRM.plugin.dataTable);
-
-
-
+   $(".data-person").DataTable({"language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    searching: false,
+    responsive: true,
+    paging: false});  
+  
+  
+  // this part allows to render the dataTable responsive in Tab  
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $($.fn.dataTable.tables(true)).DataTable()
+           .columns.adjust()
+           .responsive.recalc();
+  });
+  
   $("#onlineVerify").click(function () {
     $.ajax({
       type: 'POST',
