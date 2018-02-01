@@ -633,7 +633,7 @@ require 'Include/Header.php';
             <tr>
               <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= gettext('Choose online payment method') ?></td>
               <td class="TextColumnWithBottomBorder">
-                <select name="AutoPay">
+                <select name="AutoPay" class="form-control">
       <?php
                           echo '<option value=0';
         if ($iAutID == 0) {
