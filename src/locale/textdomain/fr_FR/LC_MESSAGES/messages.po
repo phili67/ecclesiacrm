@@ -1029,7 +1029,7 @@ msgstr "Tout convertir"
 
 #: DepositSlipEditor.php:49
 msgid "Deposit Slip Number: "
-msgstr "Numéro de Bordereau d&#39;acompte: "
+msgstr "Numéro de Bordereau de dépôt : "
 
 #: DepositSlipEditor.php:71
 msgid "Deposit Details: "
@@ -1037,7 +1037,7 @@ msgstr "Détails de l&#39;acompte : "
 
 #: DepositSlipEditor.php:88
 msgid "Close deposit slip (remember to press Save)"
-msgstr "Fermer le bordereau d&#39;acompte (ne pas oublier d&#39;enregistrer)"
+msgstr "Clôturer le bordereau d&#39;acompte (ne pas oublier d&#39;enregistrer)"
 
 #: DepositSlipEditor.php:96
 msgid "Deposit Slip Report"
@@ -1049,7 +1049,7 @@ msgstr "Note importante: quand un bordereau d&#39;acompte est fermé, les transa
 
 #: DepositSlipEditor.php:110
 msgid "Deposit Summary: "
-msgstr "Synthèse des acomptes: "
+msgstr "Synthèse des dépôt : "
 
 #: DepositSlipEditor.php:143
 msgid "Payments on this deposit slip:"
@@ -2000,7 +2000,7 @@ msgstr "Méthode"
 
 #: FamilyView.php:763 PledgeEditor.php:721 SelectDelete.php:221
 msgid "Comment"
-msgstr "Commenter"
+msgstr "Commentaire"
 
 #: FamilyView.php:855
 msgid "Add a new pledge"
@@ -2136,7 +2136,7 @@ msgstr "Toutes les méthodes"
 
 #: FinancialReports.php:261 PledgeEditor.php:576 PledgeEditor.php:614
 msgid "Check"
-msgstr "Vérifier"
+msgstr "Chèque"
 
 #: FinancialReports.php:262 PledgeEditor.php:580
 msgid "Cash"
@@ -2253,7 +2253,7 @@ msgstr "Créer le rapport"
 
 #: FindDepositSlip.php:20
 msgid "Deposit Listing"
-msgstr "Liste de dépôt"
+msgstr "Liste des dépôts"
 
 #: FindDepositSlip.php:61
 msgid "Add New Deposit"
@@ -3282,7 +3282,7 @@ msgstr " Bordereau de dépôt #"
 
 #: PledgeEditor.php:462
 msgid " more entries will fit."
-msgstr " plus d&#39;entrées possible."
+msgstr " entrées conviennent."
 
 #: PledgeEditor.php:468
 msgid "Payment Editor - Modify Existing Payment"
@@ -5297,7 +5297,7 @@ msgstr "Supprimer tous les fonds"
 
 #: FindDepositSlip.php:40
 msgid "Deposit Comment"
-msgstr "Commenter le dépôt"
+msgstr "Commentaire sur le dépôt"
 
 #: Login.php:198 Login.php:263
 msgid "Your previous session timed out.  Please login again."
@@ -8578,7 +8578,7 @@ msgstr "Tout afficher"
 
 #: 
 msgid "Check Number"
-msgstr "Vérifier le nombre"
+msgstr "Numéro du chèque"
 
 #: 
 msgid "Details"
@@ -9629,3 +9629,18 @@ msgstr "Engagements"
 
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr "Le symbole de devise que vous voulez utiliser, par défaut le $"
+
+msgid "CHECKS"
+msgstr "CHÈQUES"
+
+msgid "TOTAL"
+msgstr "TOTAL"
+
+msgid "Return"
+msgstr "Retour"
+
+msgid "Return to Deposit Listing"
+msgstr "Retour à la Liste des dépôts"
+
+msgid " #"
+msgstr "(numéro)"

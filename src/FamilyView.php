@@ -705,7 +705,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                         <div class="main-box-body clearfix">
                             <?php if (mysqli_num_rows($rsAutoPayments) > 0) {
             ?>
-                                <table id="automatic-payment-table" cellpadding="5" cellspacing="0"  class="table table-condensed dt-responsive" width="100%">
+                                <table id="automatic-payment-table" cellpadding="5" cellspacing="0"  class="table table-striped table-bordered data-table" width="100%">
                                   <thead>        
                                     <tr>
                                         <th><?= gettext("Type") ?></td>
@@ -747,7 +747,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
 
                                         <tr>
                                             <td>
-                                                <?= $payType ?>&nbsp;
+                                                <?= gettext($payType) ?>&nbsp;
                                             </td>
                                             <td>
                                                 <?= OutputUtils::change_date_for_place_holder($aut_NextPayDate) ?>&nbsp;
@@ -814,7 +814,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                        style="font-size: 8pt;">
                             </form>
 
-                            <table id="pledge-payment-table" class="table table-condensed dt-responsive" width="100%">
+                            <table id="pledge-payment-table" class="table table-striped table-bordered data-table"  cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
                                     <th><?= gettext("Pledge or Payment") ?></th>

@@ -48,10 +48,10 @@ if (array_key_exists('ReturnMessage', $_GET) && $_GET['ReturnMessage'] == 'NoRow
 
 if ($sReportType == '') {
     // First Pass - Choose report type
-    echo "<form method=post action='FinancialReports.php'>";
+    echo "<form method=post action='<?= SystemURLs::getRootPath() ?>/FinancialReports.php'>";
     echo '<table cellpadding=3 align=left>';
-    echo '<tr><td class=LabelColumn>'.gettext('Report Type:').'</td>';
-    echo '<td class=TextColumn><select name=ReportType>';
+    echo '<tr><td class=LabelColumn>'.gettext('Report Type:').'&nbsp;&nbsp;</td>';
+    echo '<td class=TextColumn><select name=ReportType class="form-control input-sm">';
     echo '<option value=0>'.gettext('Select Report Type').'</option>';
     echo "<option value='Pledge Summary'>".gettext('Pledge Summary').'</option>';
     echo "<option value='Pledge Family Summary'>".gettext('Pledge Family Summary').'</option>';
@@ -65,9 +65,9 @@ if ($sReportType == '') {
     echo '</td></tr>';
     // First Pass Cancel, Next Buttons
     echo "<tr><td>&nbsp;</td>
-        <td><input type=button class=btn name=Cancel value='".gettext('Cancel')."'
-        onclick=\"javascript:document.location='ReportList.php';\">
-        <input type=submit class=btn name=Submit1 value='".gettext('Next')."'>
+        <td><br><input type=button class='btn bt-default' name=Cancel value='".gettext('Cancel')."'
+        onclick=\"javascript:document.location='<?= SystemURLs::getRootPath() ?>/ReportList.php';\">
+        <input type=submit class='btn btn-primary' name=Submit1 value='".gettext('Next')."'>
         </td></tr>
         </table></form>";
 } else {

@@ -50,7 +50,7 @@ if ($iDepositSlipID) {
 $funds = $thisDeposit->getFundTotals();
 
 //Set the page title
-$sPageTitle = $thisDeposit->getType().' '.gettext('Deposit Slip Number: ').$iDepositSlipID;
+$sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Number: ').$iDepositSlipID;
 
 //Is this the second pass?
 if (isset($_POST['DepositSlipLoadAuthorized'])) {
@@ -127,10 +127,14 @@ require 'Include/Header.php';
           // Get deposit totals
           echo '<li><b>TOTAL ('.$thisDeposit->getPledges()->count().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getVirtualColumn('totalAmount').'</li>';
                         if ($thisDeposit->getCountCash()) {
-                            echo '<li><b>CASH ('.$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash().'</li>';
+                          ?>
+                            <li><b><?= gettext("CASH")." (".$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash() ?></b>/li>
+                          <?php
                         }
                         if ($thisDeposit->getCountChecks()) {
-                            echo '<li><b>CHECKS ('.$thisDeposit->getCountChecks().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalChecks().' </li>';
+                          ?>
+                            <li><b><?= gettext("CHECKS").' ('.$thisDeposit->getCountChecks().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalChecks() ?></b> </li>
+                          <?php
                         }
           ?>
             </ul>
@@ -140,7 +144,7 @@ require 'Include/Header.php';
           <ul style="margin:0px; border:0px; padding:0px;">
           <?php
           foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.$fund['Name'].'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
+              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
           }
           ?>
         </div>
@@ -183,6 +187,11 @@ require 'Include/Header.php';
   </div>
 </div>
 
+<div>
+  <a href="<?= SystemURLs::getRootPath() ?>/FindDepositSlip.php" class="btn btn-default">
+    <i class="fa fa-chevron-left"></i>
+    <?= gettext('Return to Deposit Listing') ?></a>
+</div>
 
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/js/DepositSlipEditor.js"></script>
 <?php
