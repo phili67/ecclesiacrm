@@ -9644,3 +9644,21 @@ msgstr "Retour à la Liste des dépôts"
 
 msgid " #"
 msgstr "(numéro)"
+
+msgid "Paid"
+msgstr "Payé"
+
+msgid "Owe"
+msgstr "Doit encore"
+
+msgid "Overpaid"
+msgstr "Sur-payé"
+
+msgid "Underpaid"
+msgstr "Impayé"
+
+msgid "Current"
+msgstr "Courant"
+
+msgid "Envelope Numbers for all Families"
+msgstr "Numéros d'enveloppe pour toutes les familles"

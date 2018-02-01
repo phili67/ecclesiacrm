@@ -48,7 +48,7 @@ if (array_key_exists('ReturnMessage', $_GET) && $_GET['ReturnMessage'] == 'NoRow
 
 if ($sReportType == '') {
     // First Pass - Choose report type
-    echo "<form method=post action='<?= SystemURLs::getRootPath() ?>/FinancialReports.php'>";
+    echo "<form method=post action='".SystemURLs::getRootPath()."/FinancialReports.php'>";
     echo '<table cellpadding=3 align=left>';
     echo '<tr><td class=LabelColumn>'.gettext('Report Type:').'&nbsp;&nbsp;</td>';
     echo '<td class=TextColumn><select name=ReportType class="form-control input-sm">';
@@ -77,28 +77,28 @@ if ($sReportType == '') {
     // Set report destination, based on report type
     switch ($sReportType) {
         case 'Giving Report':
-            $action = 'Reports/TaxReport.php';
+            $action = SystemURLs::getRootPath().'/Reports/TaxReport.php';
         break;
         case 'Zero Givers':
-            $action = 'Reports/ZeroGivers.php';
+            $action = SystemURLs::getRootPath().'/Reports/ZeroGivers.php';
         break;
         case 'Pledge Summary':
-            $action = 'Reports/PledgeSummary.php';
+            $action = SystemURLs::getRootPath().'/Reports/PledgeSummary.php';
         break;
         case 'Pledge Family Summary':
-            $action = 'Reports/FamilyPledgeSummary.php';
+            $action = SystemURLs::getRootPath().'/Reports/FamilyPledgeSummary.php';
         break;
         case 'Pledge Reminders':
-            $action = 'Reports/ReminderReport.php';
+            $action = SystemURLs::getRootPath().'/Reports/ReminderReport.php';
         break;
         case 'Voting Members':
-            $action = 'Reports/VotingMembers.php';
+            $action = SystemURLs::getRootPath().'/Reports/VotingMembers.php';
         break;
         case 'Individual Deposit Report':
-            $action = 'Reports/PrintDeposit.php';
+            $action = SystemURLs::getRootPath().'/Reports/PrintDeposit.php';
         break;
         case 'Advanced Deposit Report':
-            $action = 'Reports/AdvancedDeposit.php';
+            $action = SystemURLs::getRootPath().'/Reports/AdvancedDeposit.php';
         break;
     }
     echo "<form method=post action=\"$action\">";
@@ -234,7 +234,7 @@ if ($sReportType == '') {
         <?php
         while ($aRow = mysqli_fetch_array($rsFunds)) {
             extract($aRow);
-            echo "<option value=$fun_ID>$fun_Name";
+            echo "<option value=$fun_ID>".gettext($fun_Name);
             if ($fun_Active == 'false') {
                 echo ' &nbsp; INACTIVE';
             }
@@ -322,9 +322,9 @@ if ($sReportType == '') {
 
     // Back, Next Buttons
     echo "<tr><td>&nbsp;</td>
-        <td><input type=button class=btn name=Cancel value='".gettext('Back')."'
-        onclick=\"javascript:document.location='FinancialReports.php';\">
-        <input type=submit class=btn name=Submit2 value='".gettext('Create Report')."'>
+        <td><input type=button class='btn btn-default' name=Cancel value='".gettext('Back')."'
+        onclick=\"javascript:document.location='".SystemURLs::getRootPath()."/FinancialReports.php';\">
+        <input type=submit class='btn btn-primary' name=Submit2 value='".gettext('Create Report')."'>
         </td></tr></table></form>";
 }
 ?>

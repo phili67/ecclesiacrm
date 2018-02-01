@@ -210,15 +210,15 @@ $pageTop = 10;
 $y = $pageTop;
 $lineInc = 4;
 
-$pdf->WriteAt($leftX, $y, 'Pledge Summary By Family');
+$pdf->WriteAt($leftX, $y, gettext('Pledge Family Summary'));
 $y += $lineInc;
 
-$pdf->WriteAtCell($famNameX, $y, $famNameWid, 'Name');
-$pdf->WriteAtCell($famMethodX, $y, $famMethodWid, 'Method');
-$pdf->WriteAtCell($famFundX, $y, $famFundWid, 'Fund');
-$pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, 'Pledge');
-$pdf->WriteAtCell($famPayX, $y, $famPayWid, 'Paid');
-$pdf->WriteAtCell($famOweX, $y, $famOweWid, 'Owe');
+$pdf->WriteAtCell($famNameX, $y, $famNameWid, gettext('Name'));
+$pdf->WriteAtCell($famMethodX, $y, $famMethodWid, gettext('Method'));
+$pdf->WriteAtCell($famFundX, $y, $famFundWid, gettext('Fund'));
+$pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, gettext('Pledge'));
+$pdf->WriteAtCell($famPayX, $y, $famPayWid, gettext('Paid'));
+$pdf->WriteAtCell($famOweX, $y, $famOweWid, gettext('Owe'));
 $y += $lineInc;
 
 // Loop through families
@@ -330,8 +330,8 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
                 $pdf->WriteAtCell($famNameX, $y, $famNameWid, $pdf->MakeSalutation($fam_ID));
                 $pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, $fundPledgeTotal[$fun_name]);
-                $pdf->WriteAtCell($famMethodX, $y, $famMethodWid, $fundPledgeMethod[$fun_name]);
-                $pdf->WriteAtCell($famFundX, $y, $famFundWid, $fun_name);
+                $pdf->WriteAtCell($famMethodX, $y, $famMethodWid, gettext($fundPledgeMethod[$fun_name]));
+                $pdf->WriteAtCell($famFundX, $y, $famFundWid, gettext($fun_name));
                 $pdf->WriteAtCell($famPayX, $y, $famPayWid, $fundPaymentTotal[$fun_name]);
                 $pdf->WriteAtCell($famOweX, $y, $famOweWid, $amountDue);
                 $y += $lineInc;
