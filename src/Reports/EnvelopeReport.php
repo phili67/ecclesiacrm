@@ -11,6 +11,8 @@ require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
+use EcclesiaCRM\Utils\InputUtils;
+
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!$_SESSION['bAdmin'] && SystemConfig::getValue('bCSVAdminOnly')) {
@@ -61,7 +63,7 @@ class PDF_EnvelopeReport extends ChurchInfoReport
         $this->incrementY = 10;
 
         $this->Set_Char_Size(20);
-        $this->WriteAt(12, 12, 'Envelope Numbers for all Families');
+        $this->WriteAt(12, 12, gettext('Envelope Numbers for all Families'));
         $this->Set_Char_Size(12);
     }
 
@@ -103,7 +105,7 @@ class PDF_EnvelopeReport extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(0, 5, $text); // set width to 0 prints to right margin
+        $this->MultiCell(0, 5, gettext($text)); // set width to 0 prints to right margin
         $this->_CurLine += $numlines;
     }
 }
@@ -118,7 +120,7 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
     $OutStr = '';
     extract($aRow);
 
-    $OutStr = $pdf->sGetFamilyString($aRow);
+    $OutStr = InputUtils::translate_special_charset($pdf->sGetFamilyString($aRow));
 
     // Count the number of lines in the output string
     if (strlen($OutStr)) {

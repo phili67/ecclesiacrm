@@ -22,6 +22,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\MenuConfigQuery;
 use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\DepositQuery;
 
 function Header_system_notifications()
 {
@@ -383,7 +384,15 @@ function addMenuItem($ormMenu, $mIdx)
             echo "<i class=\"fa fa-angle-left pull-right\"></i>\n";
 
             if ($ormMenu->getName() == 'deposit') {
-                echo '<small class="badge pull-right bg-green">' . $_SESSION['iCurrentDeposit'] . "</small>\n";
+                $deposits = DepositQuery::Create()->find();
+                
+                $numberDeposit = 0;
+                
+                if (!empty($deposits)) {
+                  $numberDeposit = $deposits->count();
+                }
+                
+                echo '<small class="badge pull-right bg-green">'.$numberDeposit. "</small>".'<small class="badge pull-right bg-blue">'.gettext("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>\n";
             } ?>  </a>
       <ul class="treeview-menu">
       <?php

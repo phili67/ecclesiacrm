@@ -211,19 +211,19 @@ if ($output == 'pdf') {
 
     $blurb = SystemConfig::getValue('sPledgeSummary1').' ';
     $blurb .= MakeFYString($iFYID);
-    $blurb .= SystemConfig::getValue('sPledgeSummary2').' '.date('Y-m-d').'.';
+    $blurb .= " ".SystemConfig::getValue('sPledgeSummary2').' '.date(SystemConfig::getValue('sDatePickerFormat')).'.';
     $pdf->WriteAt($nameX, $curY, $blurb);
 
     $curY += 3 * SystemConfig::getValue('incrementY');
 
     $pdf->SetFont('Times', 'B', 10);
-    $pdf->WriteAt($nameX, $curY, 'Fund');
-    $pdf->PrintRightJustified($pledgeX, $curY, 'Pledges');
-    $pdf->PrintRightJustified($paymentX, $curY, 'Payments');
-    $pdf->PrintRightJustified($pledgeCountX, $curY, '# Pledges');
-    $pdf->PrintRightJustified($paymentCountX, $curY, '# Payments');
-    $pdf->PrintRightJustified($underpaidX, $curY, 'Overpaid');
-    $pdf->PrintRightJustified($overpaidX, $curY, 'Underpaid');
+    $pdf->WriteAt($nameX, $curY, gettext('Fund'));
+    $pdf->PrintRightJustified($pledgeX, $curY, gettext('Pledges'));
+    $pdf->PrintRightJustified($paymentX, $curY, gettext('Payments'));
+    $pdf->PrintRightJustified($pledgeCountX+6, $curY, "# ".gettext('Pledges'));
+    $pdf->PrintRightJustified($paymentCountX+8, $curY, "# ".gettext('Payments'));
+    $pdf->PrintRightJustified($underpaidX, $curY, gettext('Overpaid'));
+    $pdf->PrintRightJustified($overpaidX, $curY, gettext('Underpaid'));
     $pdf->SetFont('Times', '', 10);
     $curY += SystemConfig::getValue('incrementY');
 
@@ -236,7 +236,7 @@ if ($output == 'pdf') {
             } else {
                 $short_fun_name = $fun_name;
             }
-            $pdf->WriteAt($nameX, $curY, $short_fun_name);
+            $pdf->WriteAt($nameX, $curY, gettext($short_fun_name));
             $amountStr = sprintf('%.2f', $pledgeFundTotal[$fun_name]);
             $pdf->PrintRightJustified($pledgeX, $curY, $amountStr);
             $amountStr = sprintf('%.2f', $paymentFundTotal[$fun_name]);
@@ -275,7 +275,7 @@ if ($output == 'pdf') {
 } elseif ($output == 'csv') {
 
     // Settings
-    $delimiter = ',';
+    $delimiter = SystemConfig::getValue('sCSVExportDelemiter');
     $eol = "\r\n";
 
     // Build headings row
@@ -292,7 +292,7 @@ if ($output == 'pdf') {
     while ($row = mysqli_fetch_row($rsPledges)) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
-            $buffer .= $field.$delimiter;
+            $buffer .= gettext($field).$delimiter;
         }
         // Remove trailing delimiter and add eol
         $buffer = mb_substr($buffer, 0, -1).$eol;
