@@ -194,7 +194,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         if (SystemConfig::getBooleanValue("bSearchIncludeDeposits")) 
         {
           try {
-              $Deposits = DepositQuery::create();
+             /* $Deposits = DepositQuery::create();
               $Deposits->filterByComment("%$query%", Criteria::LIKE)
                     ->_or()
                     ->filterById($query)
@@ -227,7 +227,42 @@ $app->get('/search/{query}', function ($request, $response, $args) {
 
                   array_push($resultsArray, $dataDeposit);
                 }
-              }
+              }*/
+              $Deposits = DepositQuery::create()
+                         ->limit(SystemConfig::getValue("bSearchIncludeDepositsMax"))
+                         ->filterByComment("%$query%", Criteria::LIKE)
+                         ->_or()
+                         ->filterById($query)
+                         ->_or()
+                         ->usePledgeQuery()
+                         ->filterByCheckno("%$query%", Criteria::LIKE)
+                         ->endUse()
+                         ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
+                         ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
+                         ->find();
+                         
+              if (!empty($Deposits))
+              {      
+                $data = [];               
+                $id++;        
+              
+                foreach ($Deposits as $Deposit) {        
+                  $elt = ['id'=>$id++,
+                    'text'=>$Deposit->getComment(),
+                    'uri'=> SystemURLs::getRootPath() . "/DepositSlipEditor.php?DepositSlipID=".$Deposit->getId()];
+        
+                  array_push($data, $elt);
+                }
+        
+                if (!empty($data))
+                {
+                  $dataDeposit = ['children' => $data,
+                  'id' => 4,
+                  'text' => gettext('Deposits')];
+
+                  array_push($resultsArray, $dataDeposit);
+                }
+              }       
             } catch (Exception $e) {
                 $this->Logger->warn($e->getMessage());
             }

@@ -130,7 +130,7 @@ class SystemConfig
         "sTimeEnglish" => new ConfigItem(1051, "sTimeEnglish", "boolean", "1",gettext("Set the time in English format or 24 hours.")),
         "sDateFormatNoYear" => new ConfigItem(103, "sDateFormatNoYear", "text", "m/d"),
         "sDateFormatShort" => new ConfigItem(104, "sDateFormatShort", "text", "j/m/y"),
-        "sDateTimeFormat" => new ConfigItem(105, "sDateTimeFormat", "text", gettext("php format for the date, in English : j/m/y g:i a")),
+        "sDateTimeFormat" => new ConfigItem(105, "sDateTimeFormat", "text","j/m/y g:i a", gettext("php format for the date, in English : j/m/y g:i a")),
         "sDateFilenameFormat" => new ConfigItem(106, "sDateFilenameFormat", "text", "Ymd-Gis"),
         "sCSVExportDelemiter" => new ConfigItem(107, "sCSVExportDelemiter", "text", ",", gettext("To export to another For european CharSet use ;")),
         "sCSVExportCharset" => new ConfigItem(108, "sCSVExportCharset", "text", "UTF-8", gettext("Default is UTF-8, For european CharSet use Windows-1252 for example for French language.")),
