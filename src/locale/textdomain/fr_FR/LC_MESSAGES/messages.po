@@ -5906,7 +5906,7 @@ msgstr "Rapports des dépôts"
 
 #: menuconfig_mcf.php:25
 msgid "Edit Deposit Slip"
-msgstr "Modifier un bordereau de dépôt"
+msgstr "Modifier bordereau"
 
 #: menuconfig_mcf.php:27
 msgid "View All Fundraisers"
@@ -9615,6 +9615,8 @@ msgstr "format php pour les dates en français : j/m/y G:i"
 msgid "Generate Deposit Slip for Selected Rows (PDF)"
 msgstr "Générer un bordereau de dépôt pour les lignes sélectionnées (PDF)"
 
+#: Deposit part management
+
 msgid "CASH"
 msgstr "ESPÈCES"
 
@@ -9670,4 +9672,4 @@ msgid "Move Donations to Selected Family"
 msgstr "Transférer les dépots à la famille sélectionnée"
 
 msgid "Cancel and Return to Family View"
-msgstr "Annuelr et retourner à la vue famille"
+msgstr "Annuler et retourner à la vue famille"

@@ -118,8 +118,19 @@ require 'Include/Header.php';
             })
               .done(function (data) {
                 dataT.rows('.selected').remove().draw(false);
+                $(".count-deposit").html(dataT.column( 0 ).data().length);
+                if (dataT.column( 0 ).data().length == 0) {
+                  $(".current-deposit").html('');
+                  $(".deposit-current-deposit-item").hide();
+                }
+                
+                if (value.Id == $(".current-deposit").data("id")) {
+                  $(".current-deposit").html('');
+                  $(".current-deposit-item").html('');                  
+                  $(".deposit-current-deposit-item").hide();
+                }
               });
-          });
+          });          
         }
       }
     });

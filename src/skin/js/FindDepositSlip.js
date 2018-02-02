@@ -2,6 +2,7 @@ var dataT = 0;
 
 $(document).ready(function () {
   $("#depositDate").datepicker({format: window.CRM.datePickerformat, language: window.CRM.lang}).datepicker("setDate", new Date());
+  
   $("#addNewDeposit").click(function (e) {
     var newDeposit = {
       'depositType': $("#depositType option:selected").val(),
@@ -18,6 +19,10 @@ $(document).ready(function () {
       data.totalAmount = '';
       dataT.row.add(data);
       dataT.rows().invalidate().draw(true);
+      
+      $(".count-deposit").html(dataT.column( 0 ).data().length);
+      
+      $(".deposit-current-deposit-item").show();
     });
   });
 
@@ -25,11 +30,11 @@ $(document).ready(function () {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
+    responsive: true,
     ajax: {
       url: window.CRM.root + "/api/deposits",
       dataSrc: "Deposits"
     },
-    responsive: true,
     "deferRender": true,
     columns: [
       {

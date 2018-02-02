@@ -313,8 +313,21 @@ function addMenuItem($ormMenu, $mIdx)
     
     } else if (!($ormMenu->getMenu()) || ($numItems > 0)) {
         if ($link) {
-            if ($ormMenu->getName() != 'sundayschool-dash' && $ormMenu->getName() != 'listgroups') { // HACK to remove the sunday school 2nd dashboard and groups
-                echo "<li><a href='$link'>";
+            if ($ormMenu->getName() != 'sundayschool-dash' && $ormMenu->getName() != 'listgroups' && $ormMenu->getName() != 'listgroups') { // HACK to remove the sunday school 2nd dashboard and groups
+                if ($ormMenu->getContent() == 'Edit Deposit Slip') {           
+                   $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
+                }
+                
+                if ($ormMenu->getContent() == 'Edit Deposit Slip') {
+                  if (empty($deposit)) {
+                    echo "<li><a href='$link' style='display: none;' class='deposit-current-deposit-item'";
+                  } else {
+                    echo "<li><a href='$link' class='deposit-current-deposit-item'>";
+                  }
+                } else {
+                  echo "<li><a href='$link'>";
+                }
+                
                 if ($ormMenu->getIcon() != '') {
                     echo '<i class="fa ' . $ormMenu->getIcon() . '"></i>';
                 }
@@ -324,7 +337,13 @@ function addMenuItem($ormMenu, $mIdx)
                 if ($ormMenu->getParent() == 'root') {
                     echo '<span>' . gettext($ormMenu->getContent()) . '</span></a>';
                 } else {
-                    echo gettext($ormMenu->getContent()) . '</a>';
+                    echo gettext($ormMenu->getContent());
+                    
+                    if ($ormMenu->getContent() == 'Edit Deposit Slip') {
+                      echo ' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit']. "</small>\n";
+                    }
+                    
+                    echo '</a>';
                 }
             } elseif ($ormMenu->getName() == 'listgroups') {
                 echo "<li><a href='" . SystemURLs::getRootPath() . "/GroupList.php'><i class='fa fa-angle-double-right'></i>" . gettext('List Groups') . '</a></li>';
@@ -384,6 +403,7 @@ function addMenuItem($ormMenu, $mIdx)
             echo "<i class=\"fa fa-angle-left pull-right\"></i>\n";
 
             if ($ormMenu->getName() == 'deposit') {
+                $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
                 $deposits = DepositQuery::Create()->find();
                 
                 $numberDeposit = 0;
@@ -392,7 +412,7 @@ function addMenuItem($ormMenu, $mIdx)
                   $numberDeposit = $deposits->count();
                 }
                 
-                echo '<small class="badge pull-right bg-green">'.$numberDeposit. "</small>".'<small class="badge pull-right bg-blue">'.gettext("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>\n";
+                echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'.gettext("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
             } ?>  </a>
       <ul class="treeview-menu">
       <?php
