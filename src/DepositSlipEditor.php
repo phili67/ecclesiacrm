@@ -353,11 +353,12 @@ require 'Include/Header.php';
           message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
 
           if (data.EnableCreditCard) {
-            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Credit Card")+"</td></tr>";
+            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Credit Card")+" : "+data.CreditCard+"</td></tr>";
           } else if (data.EnableBankDraft){
             message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Bank Draft")+"</td></tr>";
           }
           
+          message += "<tr><td><label>"+i18next.t("Bank Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.BankName+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.FamilyName+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Address1")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Address1)+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Comment")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Comment)+"</td></tr>";
@@ -371,7 +372,7 @@ require 'Include/Header.php';
           message += "</table>";
           
           bootbox.alert({ 
-            size: "small",
+            //size: "small",
             title: i18next.t("Electronic Transaction Details"),
             message: message, 
             callback: function(){ /* your callback code */ }

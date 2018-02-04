@@ -56,12 +56,12 @@ $DonationMessage = '';
 if ($_SESSION['bFinance'] && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
     $sSQL = "UPDATE pledge_plg SET plg_FamID='$iDonationFamilyID',
-		plg_DateLastEdited ='$today', plg_EditedBy='" . $_SESSION['iUserID']
+    plg_DateLastEdited ='$today', plg_EditedBy='" . $_SESSION['iUserID']
         . "' WHERE plg_FamID='$iFamilyID'";
     RunQuery($sSQL);
 
     $sSQL = "UPDATE egive_egv SET egv_famID='$iDonationFamilyID',
-		egv_DateLastEdited ='$today', egv_EditedBy='" . $_SESSION['iUserID']
+    egv_DateLastEdited ='$today', egv_EditedBy='" . $_SESSION['iUserID']
         . "' WHERE egv_famID='$iFamilyID'";
     RunQuery($sSQL);
 
@@ -205,11 +205,11 @@ require 'Include/Header.php';
             echo '<br><br>';
             //Get the pledges for this family
             $sSQL = 'SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, 
-		         plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
-				 FROM pledge_plg 
-				 LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
-				 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-				 WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
+             plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName
+             FROM pledge_plg 
+             LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
+             LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
+             WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
             $rsPledges = RunQuery($sSQL); ?>
         <table cellspacing="0" width="100%" class="table table-striped table-bordered data-table">
           <theader>

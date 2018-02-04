@@ -208,7 +208,8 @@
             "3.2.1"
         ],
         "scripts": [
-          "/mysql/upgrade/3.2.0-upgrade.php"
+          "/mysql/upgrade/3.2.0-upgrade.php",
+          "/mysql/upgrade/3.2.2-upgrade.sql"
         ],
         "dbVersion": "3.2.2"
     }
