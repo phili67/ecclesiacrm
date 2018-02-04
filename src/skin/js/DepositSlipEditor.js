@@ -1,5 +1,13 @@
-function initPaymentTable()
+function initPaymentTable(type)
 {
+  if (type == 'BankDraft' || type == 'CreditCard') {
+    dataType = 'Pledgeorpayment';
+    rowTitle = i18next.t('Pledge or payment');
+  } else {
+    dataType = 'Checkno';
+    rowTitle = i18next.t('Check Number');
+  }
+  
   var colDef = [
     {
       width: 'auto',
@@ -13,9 +21,20 @@ function initPaymentTable()
     },
     {
       width: 'auto',
-      title:i18next.t('Check Number'),
-      data:'Checkno'
+      title:rowTitle,
+      data:dataType,
+      render: function (data, type, full, meta) {
+          return i18next.t(data);
+      }
     },
+    {
+      width: 'auto',
+      title:i18next.t('Statut'),
+      data:'Statut',
+      render: function (data, type, full, meta) {
+          return i18next.t(data);
+      }
+    },    
     {
       width: 'auto',
       title:i18next.t('Amount'),
@@ -40,7 +59,7 @@ function initPaymentTable()
         data:'Id',
         render: function(data, type, full, meta)
         {
-          return '<a href=\'PledgeDetails.php?PledgeID=' + data + '\'>Details</a>'
+          return '<button type="button" data-id="' + data + '" class="btn btn-info detailButton">'+i18next.t("Details")+'</button>'
         }
       }
     );
@@ -62,8 +81,8 @@ function initPaymentTable()
     }
   });
   dataT.on( 'xhr', function () {
-   // var json = dataT.ajax.json();
-   // console.log( json );
+   var json = dataT.ajax.json();
+   console.log( json );
 } );
 }
 
@@ -94,8 +113,8 @@ function initDepositSlipEditor()
             '</tr>' +
             '</table>';
   }
-
-  $("#DepositSlipEditor").submit(function(e) {
+  
+  $("#DepositSlipSubmit").click(function(e) {
     e.preventDefault();
     var formData = {
       'depositDate': moment($('#DepositDate').val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),

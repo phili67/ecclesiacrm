@@ -11,6 +11,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\FamilyQuery;
 
 //Set the page title
 $sPageTitle = gettext('Electronic Transaction Details');
@@ -31,6 +33,34 @@ if (isset($_POST['Back'])) {
     Redirect($linkBack);
 }
 
+$pledge = PledgeQuery::Create()->leftJoinWithFamily()->useFamilyQuery()
+            ->endUse()->leftJoinDeposit()->leftJoinAutoPayment()->findOneById($iPledgeID);
+            
+$pledge = PledgeQuery::Create()
+            ->leftJoinFamily()
+              ->useFamilyQuery()
+                ->withColumn('Family.Name', 'FamilyName')
+                ->withColumn('Family.Address1', 'Address1')
+              ->endUse()
+            ->leftJoinAutoPayment()
+              ->useAutoPaymentQuery()
+                ->withColumn('AutoPayment.CreditCard', 'CreditCard')
+                ->withColumn('AutoPayment.BankName', 'BankName')
+                ->withColumn('AutoPayment.EnableCreditCard', 'EnableCreditCard')
+                ->withColumn('AutoPayment.EnableBankDraft', 'EnableBankDraft')
+              ->endUse()
+            ->leftJoinDeposit()
+            ->findOneById($iPledgeID);
+            
+            
+$arrPledge = $pledge->toArray();
+            
+//print_r($pledge->toArray());
+            
+foreach ($pledge->toArray() as $key => $value) {
+   echo $key." = ".$value."<br>";
+}
+
 $sSQL = 'SELECT * FROM pledge_plg WHERE plg_plgID = '.$iPledgeID;
 $rsPledgeRec = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsPledgeRec));
@@ -48,7 +78,7 @@ if ($resArr) {
 
 ?>
 
-<form method="post" action="PledgeDetails.php?<?= 'PledgeID='.$iPledgeID.'&linkBack='.$linkBack ?>" name="PledgeDelete">
+<form method="post" action="DepositSlipEditor.php?DepositSlipID=<?= $arrPledge['Depid'] ?>" name="PledgeDelete">
 
 <table cellpadding="3" align="center">
 

@@ -82,5 +82,9 @@ require __DIR__.'/routes/public-data.php';
 
 require __DIR__.'/routes/attendees.php';
 
+require __DIR__.'/routes/autopayement.php';
+
+require __DIR__.'/routes/pledge.php';
+
 // Run app
 $app->run();
