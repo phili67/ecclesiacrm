@@ -4,11 +4,16 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Deposit as BaseDeposit;
 use EcclesiaCRM\Base\Pledge;
+use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Map\PledgeTableMap;
 use EcclesiaCRM\PledgeQuery as ChildPledgeQuery;
+use EcclesiaCRM\Pledge as ChildPledge;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\DonationFundQuery;
+use DateTime;
+use DateTimeZone;
 
 /**
  * Skeleton subclass for representing a row from the 'deposit_dep' table.
@@ -480,5 +485,58 @@ class Deposit extends BaseDeposit
         $query->joinWith('DonationFund', Criteria::RIGHT_JOIN);
 
         return $this->getPledges($query, $con);
+    }
+    
+    public function loadAuthorized($type)
+    {
+      if ($type == "CreditCard") {
+        $autoPayements = AutoPaymentQuery::Create()->filterByEnableCreditCard(true)->filterByInterval(1)->find();
+      } else if ($type == "BankDraft") {
+        $autoPayements = AutoPaymentQuery::Create()->filterByEnableBankDraft(true)->filterByInterval(1)->find();
+      }
+      
+      $fund = DonationFundQuery::Create()->findOne();// there is only one
+      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+      
+      foreach ($autoPayements as $autoPayement) {
+        if (!empty($autoPayement->getAmount())) {
+          
+          $search_pledges = ChildPledgeQuery::Create()
+                             ->filterByDepid($this->getId())
+                             ->_and()->filterByAutId($autoPayement->getId())
+                             ->_and()->filterByFamId($autoPayement->getFamilyid())
+                             ->find();
+                    
+          if ($search_pledges->count() == 0) {
+            $pledge = new ChildPledge();
+        
+            $pledge->setDepid ($this->getId());
+            $pledge->setFamId ($autoPayement->getFamilyid());
+            $pledge->setAutId ($autoPayement->getId());
+            $pledge->setAmount($autoPayement->getAmount());
+            $pledge->setMethod(($type == "CreditCard")?'CREDITCARD':'BANKDRAFT');
+            $pledge->setPledgeorpayment('Payment');
+            $pledge->setDate($date->format('Y-m-d'));
+            $pledge->setDatelastedited($date->format('Y-m-d'));
+            $pledge->setSchedule('Once');
+            $pledge->setFyid($autoPayement->getFyid());
+            $pledge->setComment("");
+            $pledge->setScanstring("");
+            $pledge->setEditedby($_SESSION['user']->getId());
+            $pledge->setFundid($fund->getId());
+            $pledge->getStatut('invalidate');
+
+            $sGroupKey = $autoPayement->getId()."|0|".$autoPayement->getFamilyid()."|".$fund->getId()."|".$date->format('Y-m-d');
+          
+            $pledge->setGroupkey ($sGroupKey);
+
+            $pledge->save();
+          }
+        }       
+      }
+    }
+    
+    public function runTransactions()
+    {
     }
 }

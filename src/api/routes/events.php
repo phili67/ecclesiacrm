@@ -185,7 +185,7 @@ $app->group('/events', function () {
          $event->setInActive($input->eventInActive);
          $event->save(); 
          
-         if (!empty($input->Fields > 0)){         
+         if (!empty($input->Fields)){         
            foreach ($input->Fields as $field) {
              $eventCount = new EventCounts; 
              $eventCount->setEvtcntEventid($event->getID());

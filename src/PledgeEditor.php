@@ -18,6 +18,10 @@ use EcclesiaCRM\MICRReader;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\AutoPayment;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
     $micrObj = new MICRReader();
@@ -102,7 +106,8 @@ if (isset($_POST['PledgeSubmit']) or
     isset($_POST['MatchFamily']) or
     isset($_POST['MatchEnvelope']) or
     isset($_POST['SetDefaultCheck']) or
-    isset($_POST['SetFundTypeSelection'])) {
+    isset($_POST['SetFundTypeSelection']) or
+    isset($_POST['Statut']) ) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
 
     $dDate = InputUtils::FilterDate($_POST['Date']);
@@ -129,6 +134,12 @@ if (isset($_POST['PledgeSubmit']) or
         $iCheckNo = InputUtils::LegacyFilterInput($_POST['CheckNo'], 'int');
     } else {
         $iCheckNo = 0;
+    }
+    
+    if (array_key_exists('Statut', $_POST)) {
+        $sStatut = InputUtils::LegacyFilterInput($_POST['Statut'], 'string');
+    } else {
+        $sStatut = "invalidate";
     }
 
     if (array_key_exists('Schedule', $_POST)) {
@@ -166,10 +177,9 @@ if (isset($_POST['PledgeSubmit']) or
     }
 } else { // Form was not up previously, take data from existing records or make default values
     if ($sGroupKey) {
-        $sSQL = "SELECT COUNT(plg_GroupKey), plg_PledgeOrPayment, plg_fundID, plg_Date, plg_FYID, plg_CheckNo, plg_Schedule, plg_method, plg_depID FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."' GROUP BY plg_GroupKey";
+        $sSQL = "SELECT COUNT(plg_GroupKey), plg_aut_ID,plg_PledgeOrPayment, plg_statut, plg_fundID, plg_Date, plg_FYID, plg_CheckNo, plg_Schedule, plg_method, plg_depID FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."' GROUP BY plg_GroupKey";
         $rsResults = RunQuery($sSQL);
-        list($numGroupKeys, $PledgeOrPayment, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
-
+        list($numGroupKeys, $iAutID, $PledgeOrPayment, $PledgeStatut, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
 
         $sSQL = "SELECT DISTINCT plg_famID, plg_CheckNo, plg_date, plg_method, plg_FYID from pledge_plg where plg_GroupKey='".$sGroupKey."'";
         //	don't know if we need plg_date or plg_method here...  leave it here for now
@@ -331,8 +341,10 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
             unset($sSQL);
             if ($fund2PlgIds && array_key_exists($fun_id, $fund2PlgIds)) {
                 if ($nAmount[$fun_id] > 0) {
-                    $sSQL = "UPDATE pledge_plg SET plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
+                    $sSQL = "UPDATE pledge_plg SET plg_statut = '".$sStatut."', plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
                     $sSQL .= ", plg_DateLastEdited = '".date('YmdHis')."', plg_EditedBy = ".$_SESSION['iUserID'].", plg_CheckNo = '".$iCheckNo."', plg_scanString = '".$tScanString."', plg_aut_ID='".$iAutID."', plg_NonDeductible='".$nNonDeductible[$fun_id]."' WHERE plg_plgID='".$fund2PlgIds[$fun_id]."'";
+                    
+                    echo  $sSQL;
                 } else { // delete that record
                     $sSQL = 'DELETE FROM pledge_plg WHERE plg_plgID ='.$fund2PlgIds[$fun_id];
                 }
@@ -506,7 +518,7 @@ require 'Include/Header.php';
 
         <div class="col-lg-12">
           <label for="FamilyName"><?= gettext('Family') ?></label>
-          <select class="form-control"   id="FamilyName" name="FamilyName" >
+          <select class="form-control"   id="FamilyName" name="FamilyName" width="100%">
             <option selected ><?= $sFamilyName ?></option>
           </select>
         </div>
@@ -533,7 +545,7 @@ require 'Include/Header.php';
         <?php
 } ?>
 
-            <?php if ($PledgeOrPayment == 'Pledge') {
+        <?php if ($PledgeOrPayment == 'Pledge') {
         ?>
 
         <label for="Schedule"><?= gettext('Payment Schedule') ?></label>
@@ -563,14 +575,18 @@ require 'Include/Header.php';
 
           <?php
     } ?>
+       <label for="statut"><?= gettext('Statut') ?></label>
+       <select name="Statut" class="form-control">
+          <option value="validate" <?= ($PledgeStatut == 'validate')?"selected":"" ?>><?= gettext('validate') ?></option>
+          <option value="invalidate" <?= ($PledgeStatut == 'invalidate')?"selected":"" ?>><?= gettext('invalidate') ?></option>
+       </select>
 
       </div>
-
 
       <div class="col-lg-6">
         <label for="Method"><?= gettext('Payment by') ?></label>
         <select class="form-control" name="Method" id="Method">
-          <?php if ($PledgeOrPayment == 'Pledge' || $dep_Type == 'Bank' || !$iCurrentDeposit) {
+          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'Bank' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'BankDraft') {
         ?>
             <option value="CHECK" <?php if ($iMethod == 'CHECK') {
             echo 'selected';
@@ -582,7 +598,7 @@ require 'Include/Header.php';
             </option>
               <?php
     } ?>
-          <?php if ($PledgeOrPayment == 'Pledge' || $dep_Type == 'CreditCard' || !$iCurrentDeposit) {
+          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'CreditCard' || !$iCurrentDeposit) && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
         ?>
             <option value="CREDITCARD" <?php if ($iMethod == 'CREDITCARD') {
             echo 'selected';
@@ -590,7 +606,7 @@ require 'Include/Header.php';
             </option>
           <?php
     } ?>
-          <?php if ($PledgeOrPayment == 'Pledge' || $dep_Type == 'BankDraft' || !$iCurrentDeposit) {
+          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'BankDraft' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'Bank') {
         ?>
             <option value="BANKDRAFT" <?php if ($iMethod == 'BANKDRAFT') {
             echo 'selected';
@@ -598,7 +614,7 @@ require 'Include/Header.php';
             </option>
           <?php
     } ?>
-          <?php if ($PledgeOrPayment == 'Pledge') {
+          <?php if (($PledgeOrPayment == 'Pledge') && $dep_Type != 'CreditCard' && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
         ?>
             <option value="EGIVE" <?= $iMethod == 'EGIVE' ? 'selected' : '' ?>>
              <?=gettext('eGive') ?>
@@ -606,8 +622,6 @@ require 'Include/Header.php';
           <?php
     } ?>
         </select>
-
-
 
         <?php if ($PledgeOrPayment == 'Payment' && $dep_Type == 'Bank') {
         ?>
@@ -619,7 +633,7 @@ require 'Include/Header.php';
     } ?>
 
 
-        <label for="TotalAmount"><?= gettext('Total $') ?></label>
+        <label for="TotalAmount"><?= gettext('Total')." ".SystemConfig::getValue('sCurrency') ?></label>
         <input class="form-control"  type="number" step="any" name="TotalAmount" id="TotalAmount" disabled />
 
     </div>
@@ -631,30 +645,38 @@ require 'Include/Header.php';
     <div class="col-lg-6">
 
             <tr>
-              <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= gettext('Choose online payment method') ?></td>
+              <td class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><label><?= gettext('Choose online payment method') ?></label></td>
               <td class="TextColumnWithBottomBorder">
                 <select name="AutoPay" class="form-control">
       <?php
                           echo '<option value=0';
-        if ($iAutID == 0) {
+        if ($iAutID == 'CreditCard') {
             echo ' selected';
         }
         echo '>'.gettext('Select online payment record')."</option>\n";
-        $sSQLTmp = 'SELECT aut_ID, aut_CreditCard, aut_BankName, aut_Route, aut_Account FROM autopayment_aut WHERE aut_FamID='.$iFamily;
-        $rsFindAut = RunQuery($sSQLTmp);
-        while ($aRow = mysqli_fetch_array($rsFindAut)) {
-            extract($aRow);
-            if ($aut_CreditCard != '') {
-                $showStr = gettext('Credit card ...').mb_substr($aut_CreditCard, strlen($aut_CreditCard) - 4, 4);
-            } else {
-                $showStr = gettext('Bank account ').$aut_BankName.' '.$aut_Route.' '.$aut_Account;
+        echo '<option value=0>----------------------</option>';
+        
+        if ($dep_Type == 'CreditCard') {
+          $autoPayements = AutoPaymentQuery::Create()->filterByFamilyid($iFamily)->filterByEnableCreditCard(true)->filterByInterval(1)->find();
+        } else {
+          $autoPayements = AutoPaymentQuery::Create()->filterByFamilyid($iFamily)->filterByEnableBankDraft(true)->filterByInterval(1)->find();
+        }
+        
+        foreach ($autoPayements as $autoPayement) {
+            echo "cocu";
+            if ($autoPayement->getCreditCard()) {
+              $showStr = gettext('Credit card')." : ".mb_substr($autoPayement->getCreditCard(), strlen($autoPayement->getCreditCard()) - 4, 4);
+            } else if ($autoPayement->getEnableBankDraft()) {
+              $showStr = gettext('Bank account')." : ".$autoPayement->getBankName().' '.$aut_Route.' '.$aut_Account;
             }
-            echo '<option value='.$aut_ID;
-            if ($iAutID == $aut_ID) {
+            
+            echo '<option value='.$autoPayement->getId();
+            if ($iAutID == $autoPayement->getId()) {
                 echo ' selected';
             }
-            echo '>'.$showStr."</option>\n";
-        } ?>
+            echo '>'.$showStr."</option>\n";        
+        }
+       ?>
                 </select>
               </td>
             </tr>
@@ -791,6 +813,34 @@ require 'Include/Header.php';
 
     $("#FamilyName").on("select2:select", function (e) {
       $('[name=FamilyID]').val(e.params.data.id);
+      
+      window.CRM.APIRequest({
+        method: "POST",
+        path: "autopayement/family",
+        data: JSON.stringify({"famId":e.params.data.id,"type":"<?= $dep_Type ?>"})
+      }).done(function (data) {
+        var my_list = $("[name=AutoPay]").empty();
+        var len = data.length;
+                
+        my_list.append($('<option>',{
+          value: 0,
+          text : i18next.t("Select online payment record")
+        }));
+        
+        my_list.append($('<option>',{
+          value: 0,
+          text : '----------------------'
+        }));
+          
+        for (i=0; i<len; ++i) {      
+          my_list.append($('<option>',{
+              value: data[i].authID,
+              text : data[i].showStr
+          }));
+        }  
+       
+        console.log("Add the Menu OK");
+      });
     });
 
     $("#FundTable").DataTable({

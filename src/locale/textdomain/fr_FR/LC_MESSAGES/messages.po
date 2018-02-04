@@ -1379,7 +1379,7 @@ msgstr "Fond"
 
 #: ElectronicPaymentList.php:201 FindDepositSlip.php:46
 msgid "Bank"
-msgstr "Banque"
+msgstr "Chèque ou espèce"
 
 #: ElectronicPaymentList.php:202
 msgid "Routing"
@@ -2144,7 +2144,7 @@ msgstr "Espèce"
 
 #: FinancialReports.php:264 FindDepositSlip.php:48 PledgeEditor.php:596
 msgid "Bank Draft"
-msgstr "Chèque de banque"
+msgstr "Traitement bancaire"
 
 #: FinancialReports.php:265 FindDepositSlip.php:49 PledgeEditor.php:603
 msgid "eGive"
@@ -3338,7 +3338,7 @@ msgstr "Paiement par"
 
 #: PledgeEditor.php:633
 msgid "Choose online payment method"
-msgstr "Choisir la méthode de paiement en ligne"
+msgstr "Mode de paiement en ligne"
 
 #: PledgeEditor.php:641
 msgid "Select online payment record"
@@ -5566,8 +5566,8 @@ msgid "Total $"
 msgstr "Total €"
 
 #: PledgeEditor.php:647
-msgid "Credit card ..."
-msgstr "Carte de crédit ..."
+msgid "Credit card"
+msgstr "Carte de crédit"
 
 #: PropertyEditor.php:155
 msgid "with this property.."
@@ -7966,6 +7966,9 @@ msgstr "Image de profile téléchargée"
 msgid "payments(s)?"
 msgstr "paiement(s)?"
 
+msgid "Selected Rows"
+msgstr "lignes sélectionnées"
+
 #: DepositSlipEditor.php:221
 msgid "Please ensure this what you want to do.</p>"
 msgstr "Vérifier que c'est ce que vous voulez faire.</p>"
@@ -8534,7 +8537,7 @@ msgstr "Participants inscrit"
 
 #: AutoPaymentEditor.php:827
 msgid "Bank Draft "
-msgstr "Chèque de banque "
+msgstr "Traitement bancaire "
 
 #: AutoPaymentEditor.php:831
 msgid "Credit Card "
@@ -9466,7 +9469,7 @@ msgstr "Faire l'appel"
 
 #: QueryList.php
 msgid "Pledge"
-msgstr "Engagement"
+msgstr "Engagé"
 
 msgid "Persons not assigned to a group"
 msgstr "Personnes non affectées à un groupe"
@@ -9627,7 +9630,7 @@ msgid "Payment"
 msgstr "Paiement"
 
 msgid "Pledges"
-msgstr "Engagements"
+msgstr "Contributions"
 
 msgid "The currency symbol you want to use in the deposit in $ per default"
 msgstr "Le symbole de devise que vous voulez utiliser, par défaut le $"
@@ -9666,10 +9669,37 @@ msgid "Envelope Numbers for all Families"
 msgstr "Numéros d'enveloppe pour toutes les familles"
 
 msgid "BANKDRAFT"
-msgstr "Chèque de banque"
+msgstr "Virement bancaire"
 
 msgid "Move Donations to Selected Family"
 msgstr "Transférer les dépots à la famille sélectionnée"
 
 msgid "Cancel and Return to Family View"
 msgstr "Annuler et retourner à la vue famille"
+
+msgid "CREDITCARD"
+msgstr "Carte de crédit"
+
+msgid "BankDraft"
+msgstr "Virement bancaire"
+
+msgid "Bank account"
+msgstr "Compte bancaire"
+
+msgid "CreditCard"
+msgstr "Carte de crédit"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "validate"
+msgstr "Pointé"
+
+msgid "invalidate"
+msgstr "Engagé"
+
+msgid "Validate"
+msgstr "Pointé"
+
+msgid "Invalidate"
+msgstr "Engagé"

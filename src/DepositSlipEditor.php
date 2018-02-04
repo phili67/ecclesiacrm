@@ -53,8 +53,9 @@ $funds = $thisDeposit->getFundTotals();
 $sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Number: ').$iDepositSlipID;
 
 //Is this the second pass?
+
 if (isset($_POST['DepositSlipLoadAuthorized'])) {
-    $thisDeposit->loadAuthorized();
+    $thisDeposit->loadAuthorized($thisDeposit->getType());
 } elseif (isset($_POST['DepositSlipRunTransactions'])) {
     $thisDeposit->runTransactions();
 }
@@ -94,7 +95,7 @@ require 'Include/Header.php';
           </div>
           <div class="row p-2">
             <div class="col-lg-5 m-2" style="text-align:center">
-              <input type="submit" class="btn btn-primary" value="<?php echo gettext('Save'); ?>" name="DepositSlipSubmit">
+              <input type="submit" class="btn btn-primary" id="DepositSlipSubmit" value="<?php echo gettext('Save'); ?>" name="DepositSlipSubmit">
             </div>
             <div class="col-lg-5 m-2" style="text-align:center">
               <?php
@@ -119,7 +120,16 @@ require 'Include/Header.php';
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo gettext('Deposit Summary: '); ?></h3>
       </div>
-      <div class="box-body">
+      <div class="box-body">        
+         <div class="col-lg-6">
+          <canvas id="fund-donut" style="height:250px"></canvas>
+          <ul style="margin:0px; border:0px; padding:0px;">
+          <?php
+          foreach ($thisDeposit->getFundTotals() as $fund) {
+              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
+          }
+          ?>
+        </div>
         <div class="col-lg-6">
           <canvas id="type-donut" style="height:250px"></canvas>
           <ul style="margin:0px; border:0px; padding:0px;">
@@ -139,15 +149,6 @@ require 'Include/Header.php';
           ?>
             </ul>
         </div>
-         <div class="col-lg-6">
-          <canvas id="fund-donut" style="height:250px"></canvas>
-          <ul style="margin:0px; border:0px; padding:0px;">
-          <?php
-          foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
-          }
-          ?>
-        </div>
       </div>
     </div>
   </div>
@@ -165,8 +166,8 @@ require 'Include/Header.php';
           }
           if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
               ?>
-          <input type="submit" class="btn btn-success" value="<?php echo gettext('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
-          <input type="submit" class="btn btn-warning" value="<?php echo gettext('Run Transactions'); ?>" name="DepositSlipRunTransactions">
+             <input type="submit" class="btn btn-success" value="<?php echo gettext('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
+             <input type="submit" class="btn btn-warning" value="<?php echo gettext('Run Transactions'); ?>" name="DepositSlipRunTransactions">
           <?php
           }
       }
@@ -175,16 +176,31 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <table class="table" id="paymentsTable" width="100%"></table>
-    <?php
-    if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
-        if ($thisDeposit->getType() == 'Bank') {
-            ?>
-        <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled><?= gettext("Delete Selected Rows") ?></button>
+    <div class="container-fluid">
+    <div id="depositsTable_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+     <div class="row">
+       <div class="col-lg-4">
         <?php
+        if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
+            //if ($thisDeposit->getType() == 'Bank') {
+                ?>
+            <label><?= gettext("Action") ?> : </label>
+            <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled><?= gettext("Delete Selected Rows") ?></button>
+            <?php
+            //}
         }
-    }
-    ?>
+        ?>
+      </div>
+  
+      <div class="col-lg-8">
+          <label><?= gettext("Statut") ?> : </label>
+          <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= gettext("Validate") ?> (0) <?= gettext("Selected Rows") ?></button>          
+          <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= gettext("Invalidate") ?> (0) <?= gettext("Selected Rows") ?></button>
+       </div>
+     </div>
+    </div>
   </div>
+</div>
 </div>
 
 <div>
@@ -227,7 +243,7 @@ require 'Include/Header.php';
   var pledgeData = <?= json_encode($pledgeTypeData) ?>;
 
   $(document).ready(function() {
-    initPaymentTable();
+    initPaymentTable('<?= $thisDeposit->getType() ?>');
     initCharts(pledgeData, fundData);
     initDepositSlipEditor();
 
@@ -250,6 +266,7 @@ require 'Include/Header.php';
           if ( result )
           {
             window.CRM.deletesRemaining = deletedRows.length;
+            
             $.each(deletedRows, function(index, value) {
               $.ajax({
                 type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
@@ -263,13 +280,103 @@ require 'Include/Header.php';
                 window.CRM.deletesRemaining --;
                 if ( window.CRM.deletesRemaining == 0 )
                 {
-                  location.reload();
+                  dataT.ajax.reload();
                 }
               });
               });
           }
         }
       })
+    });
+    
+    $("#paymentsTable tbody").on('click', 'tr', function () {
+      $(this).toggleClass('selected');
+      var selectedRows = dataT.rows('.selected').data().length;
+      $("#invalidateSelectedRows").prop('disabled', !(selectedRows));
+      $("#invalidateSelectedRows").text(i18next.t("Invalidate")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
+      $("#validateSelectedRows").prop('disabled', !(selectedRows));
+      $("#validateSelectedRows").text(i18next.t("Validate")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
+      $(this).toggleClass('selected')
+    });
+    
+    $("#invalidateSelectedRows").click(function(e) {
+        var rows = dataT.rows('.selected').data();
+        
+        var newData = new Array();
+        
+        for(i=0;i<rows.length;i++){
+            newData.push(rows[i]);
+        }
+        
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'payments/invalidate',
+          data: JSON.stringify({"data" : newData})
+        }).done(function(data) {
+          dataT.ajax.reload();
+        });
+    });
+    
+    $("#validateSelectedRows").click(function(e) {
+        var rows = dataT.rows('.selected').data();
+        
+        var newData = new Array();
+        
+        for(i=0;i<rows.length;i++){
+            newData.push(rows[i]);
+        }
+        
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'payments/validate',
+          data: JSON.stringify({"data" : newData})
+        }).done(function(data) {
+          dataT.ajax.reload();
+        });
+    });
+    
+    //$(".detailButton").click(function(e) {
+    $(document).on('click','.detailButton', function(){
+        var id = $(this).data("id");   
+        
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'pledge/detail',
+          data: JSON.stringify({"id" : id})
+        }).done(function(data) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();      
+          var date = moment(data.Date).format(fmt);
+    
+          var message = "<table>"; 
+
+          message += "<tr><td><label>"+i18next.t("Depid")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Depid+"</td></tr>";
+          message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
+
+          if (data.EnableCreditCard) {
+            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Credit Card")+"</td></tr>";
+          } else if (data.EnableBankDraft){
+            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Bank Draft")+"</td></tr>";
+          }
+          
+          message += "<tr><td><label>"+i18next.t("Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.FamilyName+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Address1")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Address1)+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Comment")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Comment)+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Schedule")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Schedule)+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Date")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+date+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Amount")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Amount+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Non deductible")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Nondeductible+"</td></tr>";
+          message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
+          message += "<tr><td><label>"+i18next.t("Statut")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Statut)+"</td></tr>";
+
+          message += "</table>";
+          
+          bootbox.alert({ 
+            size: "small",
+            title: i18next.t("Electronic Transaction Details"),
+            message: message, 
+            callback: function(){ /* your callback code */ }
+          })
+        });
     });
   });
 </script>
