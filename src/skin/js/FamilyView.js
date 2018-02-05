@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    
     $(".input-family-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
         promptBox.removeClass('form-group').html('');
@@ -282,4 +282,339 @@ $(document).ready(function () {
           }
         });
     }
+    
+  automaticPaymentsTable = $("#automaticPaymentsTable").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/payments/family",
+      type: 'POST',
+      contentType: "application/json",
+      data: function ( d ) {
+        return JSON.stringify({"famId" : window.CRM.currentFamily});
+      },
+      dataSrc: "AutoPayments"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('Type'),
+        data:'EnableBankDraft',
+        render: function(data, type, full, meta) {
+          if (full.EnableBankDraft) {
+            return i18next.t('Bank Draft');
+          } else if (full.EnableCreditCard) {
+            return i18next.t('Credit Card');
+          } else {
+            return i18next.t('Disabled');
+          }
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Next payment date'),
+        data:'NextPayDate',
+        render: function(data, type, full, meta) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();
+          
+          return moment(data).format(fmt);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Amount'),
+        data:'Amount',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Interval (months)'),
+        data:'Interval',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Fund'),
+        data:'fundName',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Edit'),
+        data:'Id',
+        render: function(data, type, full, meta) {        
+          return '<a class="btn btn-success" href="AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'">'+i18next.t('Edit')+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Delete'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<button class="btn btn-danger delete-payment" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Updated By'),
+        data:'DateLastEdited',
+        render: function(data, type, full, meta) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();
+    
+          if (window.CRM.timeEnglish == 'true') {
+            time_format = 'h:mm A';
+          } else {
+            time_format = 'H:mm';
+          }
+    
+          return moment(data).format(fmt+' '+time_format);;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Updated By'),
+        data:'EnteredFirstName',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      }
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("paymentRow");
+    }
+  });
+  
+  
+  $(document).on("click",".delete-payment", function(){
+     clickedButton = $(this);         
+     var autoPaymentId = clickedButton.data("id");
+    
+     bootbox.confirm(i18next.t("Confirm Delete Automatic payment"), function(confirmed) {
+        if (confirmed) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'payments/delete',
+            data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : autoPaymentId})
+          }).done(function(data) {
+            automaticPaymentsTable.ajax.reload();
+          });
+        }
+     });
+  });
+  
+  
+  pledgePaymentTable = $("#pledgePaymentTable").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/pledges/family",
+      type: 'POST',
+      contentType: "application/json",
+      data: function ( d ) {
+        return JSON.stringify({"famId" : window.CRM.currentFamily});
+      },
+      dataSrc: "Pledges"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('Pledge or Payment'),
+        data:'Pledgeorpayment',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Fund'),
+        data:'fundName',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Fiscal Year'),
+        data:'Fyid',
+        render: function(data, type, full, meta) {
+          return data+1996;//MakeFYString dans Include
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Date'),
+        data:'Date',
+        render: function(data, type, full, meta) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();
+          
+          return moment(data).format(fmt);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Amount'),
+        data:'Amount',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('NonDeductible'),
+        data:'Nondeductible',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Schedule'),
+        data:'Schedule',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Method'),
+        data:'Method',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Comment'),
+        data:'Comment',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Edit'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<a class="btn btn-success" href="PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'">'+i18next.t("Edit")+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Delete'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<button class="btn btn-danger delete-pledge" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Date Updated'),
+        data:'Datelastedited',
+        render: function(data, type, full, meta) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();          
+          return moment(data).format(fmt);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Updated By'),
+        data:'EnteredFirstName',
+        render: function(data, type, full, meta) {
+          return data+" "+full.EnteredLastName;
+        }
+      },
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("paymentRow");
+    }
+  });
+  
+  $(document).on("click",".delete-pledge", function(){
+     clickedButton = $(this);         
+     var paymentId = clickedButton.data("id");
+    
+     bootbox.confirm(i18next.t("Confirm Delete"), function(confirmed) {
+        if (confirmed) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'pledges/delete',
+            data: JSON.stringify({"famId": window.CRM.currentFamily,"paymentId" : paymentId})
+          }).done(function(data) {
+            pledgePaymentTable.ajax.reload();
+          });
+        }
+     });
+  });
+  
+   $('#ShowPledges').change(function() {
+      applyFilter();      
+    });
+    
+   $('#ShowPayments').change(function() {
+       applyFilter();
+    });
+    
+    $("#date-picker-period").change(function () {
+      alert($('#date-picker-period').val());
+    });
+/*
+      onSelect: function() {
+        pledgePaymentTable.search( $(this).val() ).draw();
+*/    
+
+/* Custom filtering function which will search data in column four between two values */
+$.fn.dataTable.ext.search.push(
+    function( settings, data, dataIndex ) {
+        if (settings.nTable.id == "automaticPaymentsTable") {
+          return true;
+        }
+        
+        var min = parseInt( $('#Min').val(), 10 );
+        var max = parseInt( $('#Max').val(), 10 );
+        var age = parseFloat( data[2] ) || 0; // use data for the fiscal year
+ 
+        if ( ( isNaN( min ) && isNaN( max ) ) ||
+             ( isNaN( min ) && age <= max ) ||
+             ( min <= age   && isNaN( max ) ) ||
+             ( min <= age   && age <= max ) )
+        {
+            return true;
+        }
+        return false;
+    }
+);
+
+    $('#Min, #Max').keyup( function() {
+        pledgePaymentTable.draw();
+    });
+
+
+    function applyFilter()
+    {
+      var showPledges = $('#ShowPledges').prop('checked');
+      var showPayments = $('#ShowPayments').prop('checked');
+      
+      if (showPledges && showPayments) {
+        pledgePaymentTable.column(0).search(i18next.t("Pledge")+"|"+i18next.t("Payment"), true, false).draw();
+      } else if (showPledges) {
+        pledgePaymentTable.column(0).search(i18next.t("Pledge")).draw();
+      } else if (showPayments) {
+        pledgePaymentTable.column(0).search(i18next.t("Payment")).draw();
+      } else {
+        pledgePaymentTable.column(0).search("toto").draw();
+      }
+    }
+    
+    applyFilter();
+  
 });

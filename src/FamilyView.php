@@ -23,6 +23,9 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\Cart;
 
+use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\PledgeQuery;
+
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
 $curYear = (new DateTime)->format("Y");
@@ -104,25 +107,25 @@ if (empty($family)) {
 }
 
 //Get the pledges for this family
-$sSQL = "SELECT plg_plgID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method,
-     plg_comment, plg_DateLastEdited, plg_PledgeOrPayment, a.per_FirstName AS EnteredFirstName,
-     a.Per_LastName AS EnteredLastName, b.fun_Name AS fundName, plg_NonDeductible,
-     plg_GroupKey
-     FROM pledge_plg
-     LEFT JOIN person_per a ON plg_EditedBy = a.per_ID
-     LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-     WHERE plg_famID = " . $iFamilyID . " ORDER BY pledge_plg.plg_date";
-$rsPledges = RunQuery($sSQL);
+$ormPledges = PledgeQuery::Create()
+            ->leftJoinPerson()
+            ->withColumn('Person.FirstName', 'EnteredFirstName')
+            ->withColumn('Person.LastName', 'EnteredLastName')
+            ->leftJoinDonationFund()
+            ->withColumn('DonationFund.Name', 'fundName')
+            ->findByFamId($iFamilyID);
 
 //Get the automatic payments for this family
-$sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName,
-               a.Per_LastName AS EnteredLastName,
-               b.fun_Name AS fundName
-     FROM autopayment_aut
-     LEFT JOIN person_per a ON aut_EditedBy = a.per_ID
-     LEFT JOIN donationfund_fun b ON aut_Fund = b.fun_ID
-     WHERE aut_famID = " . $iFamilyID . " ORDER BY autopayment_aut.aut_NextPayDate";
-$rsAutoPayments = RunQuery($sSQL);
+$ormAutoPayments = AutoPaymentQuery::create()
+           ->leftJoinPerson()
+             ->withColumn('Person.FirstName','EnteredFirstName')
+             ->withColumn('Person.LastName','EnteredLastName')
+             ->withColumn('Person.FirstName','EnteredFirstName')
+             ->withColumn('Person.LastName','EnteredLastName')
+           ->leftJoinDonationFund()
+             ->withColumn('DonationFund.Name','fundName')
+           ->orderByNextPayDate()
+           ->findByFamilyid($iFamilyID);
 
 //Get the Properties assigned to this Family
 $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
@@ -563,7 +566,6 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                 <?php
     } else {
     ?>
-        //Yes, start the table
         <table width="100%" cellpadding="4" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
         <tr class="TableHeader">
         <td width="10%" valign="top"><b><?= gettext("Type") ?></b></td>
@@ -597,14 +599,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 }                
               ?>
                 <tr class="<?= $rowColor ?>">
-              <?php
-                if ($bIsFirst) {
-                    echo "RowColorB";
-                } else {
-                    echo "RowColorC";
-                }
-                
-              ?>
+              
                 <td><b><?= $prt_Name ?></b></td>
               <?php
                 $bIsFirst = false;
@@ -699,83 +694,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 <div role="tab-pane fade" class="tab-pane" id="finance">
                     <div class="main-box clearfix">
                         <div class="main-box-body clearfix">
-                            <?php if (mysqli_num_rows($rsAutoPayments) > 0) {
+                            <?php if ($ormAutoPayments->count() > 0) {
             ?>
-                                <table id="automatic-payment-table" cellpadding="5" cellspacing="0"  class="table table-striped table-bordered data-table" width="100%">
-                                  <thead>        
-                                    <tr>
-                                        <th><?= gettext("Type") ?></td>
-                                        <th><?= gettext("Next payment date") ?></td>
-                                        <th><?= gettext("Amount") ?></td>
-                                        <th><?= gettext("Interval (months)") ?></td>
-                                        <th><?= gettext("Fund") ?></td>
-                                        <th><?= gettext("Edit") ?></td>
-                                        <th><?= gettext("Delete") ?></td>
-                                        <th><?= gettext("Date Updated") ?></td>
-                                        <th><?= gettext("Updated By") ?></td>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <?php
+            
+                                <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
-                                    $tog = 0;
-
-            //Loop through all automatic payments
-            while ($aRow = mysqli_fetch_array($rsAutoPayments)) {
-                $tog = (!$tog);
-
-                extract($aRow);
-
-                $payType = "Disabled";
-                if ($aut_EnableBankDraft) {
-                    $payType = "Bank Draft";
-                }
-                if ($aut_EnableCreditCard) {
-                    $payType = "Credit Card";
-                }
-
-                //Alternate the row style
-                if ($tog) {
-                    $sRowClass = "RowColorA";
-                } else {
-                    $sRowClass = "RowColorB";
-                } ?>
-
-                                        <tr>
-                                            <td>
-                                                <?= gettext($payType) ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <?= OutputUtils::change_date_for_place_holder($aut_NextPayDate) ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <?= $aut_Amount ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <?= $aut_Interval ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <?= gettext($fundName) ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-success"
-                                                        href="AutoPaymentEditor.php?AutID=<?= $aut_ID ?>&amp;FamilyID=<?= $iFamilyID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Edit") ?></a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-danger"
-                                                        href="AutoPaymentDelete.php?AutID=<?= $aut_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
-                                            </td>
-                                            <td>
-                                                <?= OutputUtils::FormatDate($aut_DateLastEdited,1) ?>&nbsp;
-                                            </td>
-                                            <td>
-                                                <?= $EnteredFirstName . " " . $EnteredLastName ?>&nbsp;
-                                            </td>
-                                        </tr>
-                                        <?php
-            } ?>
-                                  </tbody>
-                                </table>
                                 <?php
         } ?>
                             <p align="center">
@@ -788,129 +711,41 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 <div role="tab-pane fade" class="tab-pane" id="pledges">
                     <div class="main-box clearfix">
                         <div class="main-box-body clearfix">
-                            <form method="post" action="FamilyView.php?FamilyID=<?= $iFamilyID ?>">
-                                <input type="checkbox" name="ShowPledges"
+                                <input type="checkbox" name="ShowPledges" id="ShowPledges"
                                        value="1" <?php if ($_SESSION['sshowPledges']) {
                                       echo " checked";
                                   } ?>><?= gettext("Show Pledges") ?>
-                                                          <input type="checkbox" name="ShowPayments"
+                                                          <input type="checkbox" name="ShowPayments" id="ShowPayments"
                                                                  value="1" <?php if ($_SESSION['sshowPayments']) {
                                       echo " checked";
                                   } ?>><?= gettext("Show Payments") ?>
-                                                          <label for="ShowSinceDate"><?= gettext("Since") ?>:</label>
+                                  <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
                                                           <?php
                                                           $showSince = "";
                                   if ($_SESSION['sshowSince'] != null) {
                                       $showSince = $_SESSION['sshowSince']->format('Y-m-d');
                                   } ?>
-                                <input type="text" class="date-picker" Name="ShowSinceDate"
-                                       value="<?= OutputUtils::change_date_for_place_holder($showSince) ?>" maxlength="10" id="ShowSinceDate" size="15">
-                                <input type="submit" class="btn" <?= 'value="' . gettext("Update") . '"' ?>
-                                       name="UpdatePledgeTable"
-                                       style="font-size: 8pt;">
-                            </form>
-
-                            <table id="pledge-payment-table" class="table table-striped table-bordered data-table"  cellspacing="0" width="100%">
-                                <thead>
-                                <tr>
-                                    <th><?= gettext("Pledge or Payment") ?></th>
-                                    <th><?= gettext("Fund") ?></th>
-                                    <th><?= gettext("Fiscal Year") ?></th>
-                                    <th><?= gettext("Date") ?></th>
-                                    <th><?= gettext("Amount") ?></th>
-                                    <th><?= gettext("NonDeductible") ?></th>
-                                    <th><?= gettext("Schedule") ?></th>
-                                    <th><?= gettext("Method") ?></th>
-                                    <th><?= gettext("Comment") ?></th>
-                                    <th><?= gettext("Edit") ?></th>
-                                    <th><?= gettext("Delete") ?></th>
-                                    <th><?= gettext("Date Updated") ?></th>
-                                    <th><?= gettext("Updated By") ?></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
+                                <input type="text" Name="Min" id="Min"
+                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                                       
+                                <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
+                                
+                                <input type="text" Name="Max" id="Max"
+                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
                                 <?php
                                 $tog = 0;
 
         if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
-            //Loop through all pledges
-            while ($aRow = mysqli_fetch_array($rsPledges)) {
-                $tog = (!$tog);
+        
+        ?>
+        
+        <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
 
-                $plg_FYID = "";
-                $plg_date = "";
-                $plg_amount = "";
-                $plg_schedule = "";
-                $plg_method = "";
-                $plg_comment = "";
-                $plg_plgID = 0;
-                $plg_DateLastEdited = "";
-                $plg_EditedBy = "";
-
-                extract($aRow);
-
-                //Display the pledge or payment if appropriate
-                if ((($_SESSION['sshowPledges'] && $plg_PledgeOrPayment == 'Pledge') ||
-                                                ($_SESSION['sshowPayments'] && $plg_PledgeOrPayment == 'Payment')
-                                            ) &&
-                                            ($_SESSION['sshowSince'] == "" || DateTime::createFromFormat("Y-m-d", $plg_date) > $_SESSION['sshowSince'])
-                                        ) {
-                    ?>
-
-                                            <tr>
-                                                <td>
-                                                    <?= gettext($plg_PledgeOrPayment) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= gettext($fundName) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= MakeFYString($plg_FYID) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= OutputUtils::change_date_for_place_holder($plg_date) ?>&nbsp;
-                                                </td>
-                                                <td align=center>
-                                                    <?= $plg_amount ?>&nbsp;
-                                                </td>
-                                                <td align=center>
-                                                    <?= $plg_NonDeductible ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= gettext($plg_schedule) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= gettext($plg_method) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= $plg_comment ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-success"
-                                                            href="PledgeEditor.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Edit") ?></a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-danger"
-                                                            href="PledgeDelete.php?GroupKey=<?= $plg_GroupKey ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Delete") ?></a>
-                                                </td>
-                                                <td>
-                                                    <?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?>&nbsp;
-                                                </td>
-                                                <td>
-                                                    <?= $EnteredFirstName . " " . $EnteredLastName ?>&nbsp;
-                                                </td>
-                                            </tr>
-                                            <?php
-                }
-            }
+				<?php
         } // if bShowPledges
 
                                 ?>
-
-                                </tbody>
-                            </table>
-
+                            
                             <p align="center">
                                 <a class="btn btn-primary"
                                    href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
@@ -1014,9 +849,13 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyView.js" ></script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js" ></script>
+    
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM.currentActive = <?= (empty($fam_DateDeactivated) ? 'true' : 'false') ?>;
         var dataT = 0;
+        var dataPaymentTable = 0;
+        var pledgePaymentTable = 0;
+        
         $(document).ready(function () {
             $("#activateDeactivate").click(function () {
                 console.log("click activateDeactivate");

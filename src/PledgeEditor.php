@@ -816,7 +816,7 @@ require 'Include/Header.php';
       
       window.CRM.APIRequest({
         method: "POST",
-        path: "autopayement/family",
+        path: "payments/families",
         data: JSON.stringify({"famId":e.params.data.id,"type":"<?= $dep_Type ?>"})
       }).done(function (data) {
         var my_list = $("[name=AutoPay]").empty();

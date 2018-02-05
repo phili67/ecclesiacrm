@@ -341,7 +341,7 @@ require 'Include/Header.php';
         
         window.CRM.APIRequest({
           method: 'POST',
-          path: 'pledge/detail',
+          path: 'pledges/detail',
           data: JSON.stringify({"id" : id})
         }).done(function(data) {
           var fmt = window.CRM.datePickerformat.toUpperCase();      
@@ -352,13 +352,23 @@ require 'Include/Header.php';
           message += "<tr><td><label>"+i18next.t("Depid")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Depid+"</td></tr>";
           message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
 
+          var type = "Disabled";
+          
           if (data.EnableCreditCard) {
-            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Credit Card")+" : "+data.CreditCard+"</td></tr>";
+            type = "Credit Card";
           } else if (data.EnableBankDraft){
-            message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t("Bank Draft")+"</td></tr>";
+            type = "Bank Draft";
           }
           
-          message += "<tr><td><label>"+i18next.t("Bank Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.BankName+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(type)+"</td></tr>";
+          
+          var BankName = "";
+          
+          if (data.BankName) {
+            BankName = data.BankName;
+          }
+          
+          message += "<tr><td><label>"+i18next.t("Bank Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+BankName+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.FamilyName+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Address1")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Address1)+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Comment")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Comment)+"</td></tr>";
