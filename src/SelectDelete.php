@@ -211,7 +211,7 @@ require 'Include/Header.php';
              LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
              WHERE plg_famID = ' . $iFamilyID . ' ORDER BY pledge_plg.plg_date';
             $rsPledges = RunQuery($sSQL); ?>
-        <table cellspacing="0" width="100%" class="table table-striped table-bordered data-table">
+        <table cellspacing="0" width="100%" class="table table-striped table-bordered">
           <theader>
             <tr>
                 <th><?= gettext('Type') ?></th>
@@ -243,31 +243,18 @@ require 'Include/Header.php';
                 $plg_EditedBy = '';
                 extract($aRow);
 
-                //Alternate the row style
-                if ($tog) {
-                    $sRowClass = 'RowColorA';
-                } else {
-                    $sRowClass = 'RowColorB';
-                }
-
-                if ($plg_PledgeOrPayment == 'Payment') {
-                    if ($tog) {
-                        $sRowClass = 'PaymentRowColorA';
-                    } else {
-                        $sRowClass = 'PaymentRowColorB';
-                    }
-                } ?>
+               ?>
                 <tr>
-                    <td><?= gettext($plg_PledgeOrPayment) ?>&nbsp;</td>
-                    <td><?= gettext($fundName) ?>&nbsp;</td>
-                    <td><?= MakeFYString($plg_FYID) ?>&nbsp;</td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?>&nbsp;</td>
-                    <td><?= $plg_amount ?>&nbsp;</td>
-                    <td><?= gettext($plg_schedule) ?>&nbsp;</td>
-                    <td><?= gettext($plg_method) ?>&nbsp;</td>
-                    <td><?= $plg_comment ?>&nbsp;</td>
-                    <td><?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?>&nbsp;</td>
-                    <td><?= $EnteredFirstName . ' ' . $EnteredLastName ?>&nbsp;</td>
+                    <td><?= gettext($plg_PledgeOrPayment) ?></td>
+                    <td><?= gettext($fundName) ?></td>
+                    <td><?= MakeFYString($plg_FYID) ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?></td>
+                    <td><?= $plg_amount ?></td>
+                    <td><?= gettext($plg_schedule) ?></td>
+                    <td><?= gettext($plg_method) ?></td>
+                    <td><?= $plg_comment ?></td>
+                    <td><?= OutputUtils::change_date_for_place_holder($plg_DateLastEdited) ?></td>
+                    <td><?= $EnteredFirstName . ' ' . $EnteredLastName ?></td>
                 </tr>
                 <?php
             }
