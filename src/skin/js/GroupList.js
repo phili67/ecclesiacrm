@@ -92,8 +92,8 @@ $(document).ready(function () {
         defaultContent: "",
         searchable: true,
         render: function (data, type, full, meta) {
-      if (data)
-      {
+          if (data)
+          {
             return data;
           }
           else

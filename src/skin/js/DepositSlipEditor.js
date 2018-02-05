@@ -83,7 +83,7 @@ function initPaymentTable(type)
   dataT.on( 'xhr', function () {
    var json = dataT.ajax.json();
    console.log( json );
-} );
+  });
 }
 
 function initDepositSlipEditor()

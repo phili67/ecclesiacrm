@@ -121,14 +121,13 @@
             method: 'POST',
             path: 'cart/emptyToGroup',
             data: JSON.stringify({"groupID":selectedRole.GroupID,"groupRoleID":selectedRole.RoleID})
-            }).done(function(data) {
-              window.CRM.cart.refresh();
-              if(callback)
-              {
+          }).done(function(data) {
+            window.CRM.cart.refresh();
+            if(callback)
+            {
                 callback(data);
-              }
-
-            });
+            }
+          });
         });
       },
       'emptytoFamily' : function ()

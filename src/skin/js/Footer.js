@@ -295,7 +295,9 @@ $("document").ready(function(){
     window.CRM.cart.refresh();
     window.CRM.dashboard.refresh();
     DashboardRefreshTimer=setInterval(window.CRM.dashboard.refresh, window.CRM.iDasbhoardServiceIntervalTime * 1000);
-
+    
+    // all bootbox are now localized
+    bootbox.setDefaults({locale: window.CRM.lang});
 });
 
 $(document).on("click", "#deleteCart", function (e) {
@@ -346,5 +348,5 @@ function suspendSession(){
             window.CRM.DisplayErrorMessage(url, {message: error});
           }
         }
-      });
+      });     
 };
