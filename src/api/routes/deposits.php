@@ -12,12 +12,18 @@ $app->group('/deposits', function () {
         $deposit->setType($input->depositType);
         $deposit->setComment($input->depositComment);
         $deposit->setDate($input->depositDate);
+        $deposit->setFund($input->depositFund);
         $deposit->save();
         echo $deposit->toJSON();
     });
 
     $this->get('', function ($request, $response, $args) {
-        echo DepositQuery::create()->find()->toJSON();
+        $deposits = DepositQuery::create()
+           ->leftJoinDonationFund()
+           ->withColumn('DonationFund.Name','fundName')
+           ->find();
+           
+        echo $deposits->toJSON();
     });
 
     $this->get('/{id:[0-9]+}', function ($request, $response, $args) {

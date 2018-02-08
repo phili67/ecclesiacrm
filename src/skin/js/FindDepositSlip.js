@@ -7,7 +7,8 @@ $(document).ready(function () {
     var newDeposit = {
       'depositType': $("#depositType option:selected").val(),
       'depositComment': $("#depositComment").val(),
-      'depositDate': moment($("#depositDate").val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD')
+      'depositDate': moment($("#depositDate").val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),
+      'depositFund': $("#depositFund option:selected").val()
     };
     $.ajax({
       method: "POST",
@@ -23,6 +24,8 @@ $(document).ready(function () {
       $(".count-deposit").html(dataT.column( 0 ).data().length);
       
       $(".deposit-current-deposit-item").show();
+      
+      dataT.ajax.reload();
     });
   });
 
@@ -50,6 +53,17 @@ $(document).ready(function () {
         },
         type: 'num'
       },
+      {
+        title:i18next.t('Fund'),
+        data: 'fundName',
+        render: function (data, type, full, meta) {
+          if (data) {
+            return data;
+          } else {
+            return i18next.t('None');
+          }
+        }
+      },      
       {
         title:i18next.t( 'Deposit Date'),
         data: 'Date',

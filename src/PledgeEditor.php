@@ -107,7 +107,14 @@ if (isset($_POST['PledgeSubmit']) or
     isset($_POST['MatchEnvelope']) or
     isset($_POST['SetDefaultCheck']) or
     isset($_POST['SetFundTypeSelection']) or
-    isset($_POST['Statut']) ) {
+    isset($_POST['PledgeOrPayment']) ) {
+    
+    if (array_key_exists('PledgeOrPayment', $_POST)) {
+        $PledgeOrPayment = InputUtils::LegacyFilterInput($_POST['PledgeOrPayment'], 'string');
+    } else {
+        $PledgeOrPayment = "Pledge";
+    }
+    
     $iFamily = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
 
     $dDate = InputUtils::FilterDate($_POST['Date']);
@@ -136,12 +143,6 @@ if (isset($_POST['PledgeSubmit']) or
         $iCheckNo = 0;
     }
     
-    if (array_key_exists('Statut', $_POST)) {
-        $sStatut = InputUtils::LegacyFilterInput($_POST['Statut'], 'string');
-    } else {
-        $sStatut = "invalidate";
-    }
-
     if (array_key_exists('Schedule', $_POST)) {
         $iSchedule = InputUtils::LegacyFilterInput($_POST['Schedule']);
     } else {
@@ -177,9 +178,9 @@ if (isset($_POST['PledgeSubmit']) or
     }
 } else { // Form was not up previously, take data from existing records or make default values
     if ($sGroupKey) {
-        $sSQL = "SELECT COUNT(plg_GroupKey), plg_aut_ID,plg_PledgeOrPayment, plg_statut, plg_fundID, plg_Date, plg_FYID, plg_CheckNo, plg_Schedule, plg_method, plg_depID FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."' GROUP BY plg_GroupKey";
+        $sSQL = "SELECT COUNT(plg_GroupKey), plg_aut_ID,plg_PledgeOrPayment, plg_fundID, plg_Date, plg_FYID, plg_CheckNo, plg_Schedule, plg_method, plg_depID FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."' GROUP BY plg_GroupKey";
         $rsResults = RunQuery($sSQL);
-        list($numGroupKeys, $iAutID, $PledgeOrPayment, $PledgeStatut, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
+        list($numGroupKeys, $iAutID, $PledgeOrPayment, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
 
         $sSQL = "SELECT DISTINCT plg_famID, plg_CheckNo, plg_date, plg_method, plg_FYID from pledge_plg where plg_GroupKey='".$sGroupKey."'";
         //	don't know if we need plg_date or plg_method here...  leave it here for now
@@ -341,7 +342,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
             unset($sSQL);
             if ($fund2PlgIds && array_key_exists($fun_id, $fund2PlgIds)) {
                 if ($nAmount[$fun_id] > 0) {
-                    $sSQL = "UPDATE pledge_plg SET plg_statut = '".$sStatut."', plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
+                    $sSQL = "UPDATE pledge_plg SET plg_PledgeOrPayment = '".$PledgeOrPayment."' ,plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
                     $sSQL .= ", plg_DateLastEdited = '".date('YmdHis')."', plg_EditedBy = ".$_SESSION['iUserID'].", plg_CheckNo = '".$iCheckNo."', plg_scanString = '".$tScanString."', plg_aut_ID='".$iAutID."', plg_NonDeductible='".$nNonDeductible[$fun_id]."' WHERE plg_plgID='".$fund2PlgIds[$fun_id]."'";
                     
                     echo  $sSQL;
@@ -576,9 +577,9 @@ require 'Include/Header.php';
           <?php
     } ?>
        <label for="statut"><?= gettext('Statut') ?></label>
-       <select name="Statut" class="form-control">
-          <option value="validate" <?= ($PledgeStatut == 'validate')?"selected":"" ?>><?= gettext('validate') ?></option>
-          <option value="invalidate" <?= ($PledgeStatut == 'invalidate')?"selected":"" ?>><?= gettext('invalidate') ?></option>
+       <select name="PledgeOrPayment" class="form-control">
+          <option value="Pledge" <?= ($PledgeOrPayment == 'Pledge')?"selected":"" ?>><?= gettext('Pledge') ?></option>
+          <option value="Payment" <?= ($PledgeOrPayment == 'Payment')?"selected":"" ?>><?= gettext('Payment') ?></option>
        </select>
 
       </div>

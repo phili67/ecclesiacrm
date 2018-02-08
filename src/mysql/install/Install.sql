@@ -113,6 +113,7 @@ CREATE TABLE `deposit_dep` (
   `dep_EnteredBy` mediumint(9) unsigned default NULL,
   `dep_Closed` tinyint(1) NOT NULL default '0',
   `dep_Type` enum('Bank','CreditCard','BankDraft','eGive') NOT NULL default 'Bank',
+  `dep_Fund` mediumint(6) NOT NULL default '0'
   PRIMARY KEY  (`dep_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
 
@@ -783,8 +784,7 @@ CREATE TABLE `pledge_plg` (
   `plg_aut_Cleared` tinyint(1) NOT NULL default '0',
   `plg_aut_ResultID` mediumint(9) NOT NULL default '0',
   `plg_NonDeductible` decimal(8,2) NOT NULL,
-  `plg_GroupKey` VARCHAR( 64 ) NOT NULL,
-  `plg_statut`  enum('invalidate','validate') NOT NULL default 'invalidate',
+  `plg_GroupKey` VARCHAR( 64 ) NOT NULL
   PRIMARY KEY  (`plg_plgID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 

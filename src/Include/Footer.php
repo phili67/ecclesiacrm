@@ -139,6 +139,18 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     <?php
     } ?>
             </ul>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Fund') ?></h4>
+            <ul class="control-sidebar-menu">
+                <?php if ($isAdmin) {
+        ?>
+                    <li>
+                        <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
+                            <i class="fa fa-cog"></i> <?= _('Fund List') ?>
+                        </a>
+                    </li>
+                    <?php
+    } ?>
+            </ul>
             <!-- /.control-sidebar-menu -->
 
         </div>

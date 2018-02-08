@@ -194,8 +194,8 @@ require 'Include/Header.php';
   
       <div class="col-lg-8">
           <label><?= gettext("Statut") ?> : </label>
-          <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= gettext("Validate") ?> (0) <?= gettext("Selected Rows") ?></button>          
-          <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= gettext("Invalidate") ?> (0) <?= gettext("Selected Rows") ?></button>
+          <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= gettext("Payment") ?> (0) <?= gettext("Selected Rows") ?></button>          
+          <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= gettext("Pledge") ?> (0) <?= gettext("Selected Rows") ?></button>
        </div>
      </div>
     </div>
@@ -293,9 +293,9 @@ require 'Include/Header.php';
       $(this).toggleClass('selected');
       var selectedRows = dataT.rows('.selected').data().length;
       $("#invalidateSelectedRows").prop('disabled', !(selectedRows));
-      $("#invalidateSelectedRows").text(i18next.t("Invalidate")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
+      $("#invalidateSelectedRows").text(i18next.t("Pledge")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
       $("#validateSelectedRows").prop('disabled', !(selectedRows));
-      $("#validateSelectedRows").text(i18next.t("Validate")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
+      $("#validateSelectedRows").text(i18next.t("Payment")+" ("+ selectedRows + ") "+i18next.t("Selected Rows"));
       $(this).toggleClass('selected')
     });
     
@@ -377,7 +377,7 @@ require 'Include/Header.php';
           message += "<tr><td><label>"+i18next.t("Amount")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Amount+"</td></tr>";
           message += "<tr><td><label>"+i18next.t("Non deductible")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Nondeductible+"</td></tr>";
           message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
-          message += "<tr><td><label>"+i18next.t("Statut")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Statut)+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Statut")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledgeorpayment)+"</td></tr>";
 
           message += "</table>";
           
