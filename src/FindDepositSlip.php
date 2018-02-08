@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\DonationFundQuery;
 
 $iDepositSlipID = $_SESSION['iCurrentDeposit'];
 
@@ -26,6 +27,9 @@ if (!$_SESSION['bFinance']) {
 }
 
 require 'Include/Header.php';
+
+$donationFunds = DonationFundQuery::Create()->find();
+
 ?>
 
 <div class="box">
@@ -36,9 +40,21 @@ require 'Include/Header.php';
     <form action="#" method="get" class="form">
       <div class="row">
         <div class="container-fluid">
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <label for="depositComment"><?= gettext('Deposit Comment') ?></label>
             <input class="form-control newDeposit" name="depositComment" id="depositComment" style="width:100%">
+          </div>
+          <div class="col-lg-3">
+            <label for="depositType"><?= gettext('Fund') ?></label>
+            <select class="form-control" id="depositFund" name="depositFund">              
+            <?php
+              foreach ($donationFunds as $donationFund) {
+            ?>
+              <option value="<?= $donationFund->getId() ?>"><?= $donationFund->getName() ?></option>
+            <?php
+             }
+            ?>
+            </select>
           </div>
           <div class="col-lg-3">
             <label for="depositType"><?= gettext('Deposit Type') ?></label>

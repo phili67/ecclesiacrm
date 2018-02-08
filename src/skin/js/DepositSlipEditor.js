@@ -21,20 +21,20 @@ function initPaymentTable(type)
     },
     {
       width: 'auto',
+      title:i18next.t('Fund'),
+      data:'DonationFundName',
+      render: function (data, type, full, meta) {
+          return data;
+      }
+    }, 
+    {
+      width: 'auto',
       title:rowTitle,
       data:dataType,
       render: function (data, type, full, meta) {
           return i18next.t(data);
       }
-    },
-    {
-      width: 'auto',
-      title:i18next.t('Statut'),
-      data:'Statut',
-      render: function (data, type, full, meta) {
-          return i18next.t(data);
-      }
-    },    
+    },   
     {
       width: 'auto',
       title:i18next.t('Amount'),
@@ -133,9 +133,9 @@ function initDepositSlipEditor()
       contentType: "application/json; charset=utf-8",
       encode: true
     })
-            .done(function(data) {
-              location.reload();
-            }).fail(function() {
+      .done(function(data) {
+          location.reload();
+      }).fail(function() {
     });
   });
 

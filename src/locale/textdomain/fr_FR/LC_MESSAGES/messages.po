@@ -9703,3 +9703,10 @@ msgstr "Pointé"
 
 msgid "Invalidate"
 msgstr "Engagé"
+
+#: FundList
+msgid "Fund List"
+msgstr "Liste des fonds"
+
+msgid "Add a New Fund"
+msgstr "Ajouter un nouveau fond"

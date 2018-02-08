@@ -46,11 +46,11 @@ $(document).ready(function () {
               }).done(function(data) {
                 if (data && data.success) {
                   location.reload();
-              }
-            });
+                }
+              });
+            }
           }
-        }
-      });
+       });
     });
     
     $('.edit-property-btn').click(function (event) {
@@ -342,7 +342,7 @@ $(document).ready(function () {
         title:i18next.t('Fund'),
         data:'fundName',
         render: function(data, type, full, meta) {
-          return i18next.t(data);
+          return data;
         }
       },
       {
@@ -567,13 +567,10 @@ $(document).ready(function () {
     $("#date-picker-period").change(function () {
       alert($('#date-picker-period').val());
     });
-/*
-      onSelect: function() {
-        pledgePaymentTable.search( $(this).val() ).draw();
-*/    
 
-/* Custom filtering function which will search data in column four between two values */
-$.fn.dataTable.ext.search.push(
+
+  /* Custom filtering function which will search data in column four between two values */
+   $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
         if (settings.nTable.id == "automaticPaymentsTable") {
           return true;

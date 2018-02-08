@@ -50,6 +50,9 @@ require __DIR__.'/routes/groups.php';
 // finance routes
 require __DIR__.'/routes/deposits.php';
 require __DIR__.'/routes/payments.php';
+require __DIR__.'/routes/donationfunds.php';
+require __DIR__.'/routes/pledges.php';
+require __DIR__.'/routes/attendees.php';
 
 // other
 require __DIR__.'/routes/calendar.php';
@@ -79,10 +82,6 @@ require __DIR__.'/routes/dashboard.php';
 require __DIR__.'/routes/geocoder.php';
 
 require __DIR__.'/routes/public-data.php';
-
-require __DIR__.'/routes/attendees.php';
-
-require __DIR__.'/routes/pledges.php';
 
 // Run app
 $app->run();

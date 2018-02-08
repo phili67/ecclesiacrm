@@ -515,7 +515,6 @@ class Deposit extends BaseDeposit
             $pledge->setAutId ($autoPayement->getId());
             $pledge->setAmount($autoPayement->getAmount());
             $pledge->setMethod(($type == "CreditCard")?'CREDITCARD':'BANKDRAFT');
-            $pledge->setPledgeorpayment('Payment');
             $pledge->setDate($date->format('Y-m-d'));
             $pledge->setDatelastedited($date->format('Y-m-d'));
             $pledge->setSchedule('Once');
@@ -524,7 +523,6 @@ class Deposit extends BaseDeposit
             $pledge->setScanstring("");
             $pledge->setEditedby($_SESSION['user']->getId());
             $pledge->setFundid($fund->getId());
-            $pledge->getStatut('invalidate');
 
             $sGroupKey = $autoPayement->getId()."|0|".$autoPayement->getFamilyid()."|".$fund->getId()."|".$date->format('Y-m-d');
           

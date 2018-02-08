@@ -88,7 +88,7 @@ $app->group('/payments', function () {
         foreach($payments->data as $payment) {  
           $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
           if (!empty($pledge)) {
-            $pledge->setStatut('invalidate');
+            $pledge->setPledgeorpayment('Pledge');
             $pledge->save();
           }
         }
@@ -102,7 +102,7 @@ $app->group('/payments', function () {
         foreach($payments->data as $payment) {  
           $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
           if (!empty($pledge)) {
-            $pledge->setStatut('validate');
+            $pledge->setPledgeorpayment('Payment');
             $pledge->save();
           }
         }
