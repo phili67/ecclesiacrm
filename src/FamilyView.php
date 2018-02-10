@@ -23,8 +23,10 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\Cart;
 
+
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\ListOptionQuery;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -87,6 +89,7 @@ $sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS Entere
     LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
     LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
     WHERE fam_ID = " . $iFamilyID;
+    
 $rsFamily = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsFamily));
 
@@ -136,6 +139,7 @@ $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
 " ORDER BY prt_Name, pro_Name";
 $rsAssignedProperties = RunQuery($sSQL);
 
+
 //Get all the properties
 $ormProperties = PropertyQuery::Create()
                   ->filterByProClass('f')
@@ -143,17 +147,20 @@ $ormProperties = PropertyQuery::Create()
                   ->find();
 
 //Get classifications
-$sSQL = "SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence";
-$rsClassifications = RunQuery($sSQL);
+$ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+
 
 // Get Field Security List Matrix
-$sSQL = "SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence";
-$rsSecurityGrp = RunQuery($sSQL);
-
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
+$securityListOptions = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(5);
+              
+foreach ($securityListOptions as $securityListOption) {
+    $aSecurityType[$securityListOption->getOptionId()] = $securityListOption->getOptionName();
 }
+
 
 //Set the spacer cell width
 $iTableSpacerWidth = 10;
@@ -450,6 +457,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                                data-toggle="tab"><?= gettext("Pledges and Payments") ?></a></li>
                     <?php
                 } ?>
+                    <li role="presentation"><a href="#notes" aria-controls="notes" role="tab"
+                                               data-toggle="tab"><?= gettext("Notes") ?></a></li>
 
             </ul>
 
@@ -768,7 +777,95 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 </div>
             <?php
     } ?>
+                <div role="tab-pane fade" class="tab-pane" id="notes">
+          <ul class="timeline">
+            <!-- note time label -->
+            <li class="time-label">
+              <span class="bg-yellow">
+                <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+              </span>
+            </li>
+            <!-- /.note-label -->
 
+            <!-- note item -->
+            <?php foreach ($timelineService->getNotesForFamily($iFamilyID) as $item) {
+                                        ?>
+              <li>
+                <!-- timeline icon -->
+                <i class="fa <?= $item['style'] ?>"></i>
+
+                <div class="timeline-item">
+                  <span class="time">
+                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                                          &nbsp;
+
+                     <?php 
+                     
+                     if ($item['slim']) {
+                       if ($item['editLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['editLink'] ?>">
+                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                      <?php
+                                            }
+                                            if ($item['deleteLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['deleteLink'] ?>">
+                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                        </a>
+                      <?php
+                          }
+                      } ?>                     
+                     </span>
+                  
+                  <h3 class="timeline-header">
+                    <?php if (in_array('headerlink', $item)) {
+                                            ?>
+                      <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
+                    <?php
+                                        } else {
+                                            ?>
+                      <?= $item['header'] ?>
+                    <?php
+                                        } ?>
+                  </h3>
+
+                  <div class="timeline-body">
+                    <?= $item['text'] ?>
+                  </div>
+
+                  <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
+                                            ?>
+                    <div class="timeline-footer">
+                    <?php if (!$item['slim']) {
+                    ?>
+                      <?php if ($item['editLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['editLink'] ?>">
+                          <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                        </a>
+                      <?php
+                                            }
+                                            if ($item['deleteLink'] != '') {
+                                                ?>
+                        <a href="<?= $item['deleteLink'] ?>">
+                          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        </a>
+                      <?php
+                                            } ?>
+                    </div>
+                  <?php
+                                        } ?>
+                  <?php
+                                  } ?>
+                </div>
+              </li>
+            <?php
+                                    } ?>
+            <!-- END timeline item -->
+          </ul>
+        </div>
             </div>
         </div>
     </div>

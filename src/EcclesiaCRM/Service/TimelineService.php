@@ -41,6 +41,33 @@ class TimelineService
 
         return $sortedTimeline;
     }
+    
+    private function notesForFamily($familyID, $noteType)
+    {
+        $timeline = [];
+        $familyQuery = NoteQuery::create()
+            ->filterByFamId($familyID);
+        if ($noteType != null) {
+            $familyQuery->filterByType($noteType);
+        }
+        foreach ($familyQuery->find() as $dbNote) {
+            $item = $this->noteToTimelineItem($dbNote);
+            if (!is_null($item)) {
+                $timeline[$item['key']] = $item;
+            }
+        }
+
+        return $timeline;
+    }
+    
+    public function getNotesForFamily($familyID)
+    {
+        $timeline = $this->notesForFamily($familyID, 'note');
+
+        return $this->sortTimeline($timeline);
+    }
+
+
 
     private function eventsForPerson($personID)
     {
@@ -76,7 +103,7 @@ class TimelineService
 
         return $timeline;
     }
-
+    
     private function sortTimeline($timeline)
     {
         krsort($timeline);
@@ -88,6 +115,7 @@ class TimelineService
 
         return $sortedTimeline;
     }
+    
 
     public function getNotesForPerson($personID)
     {
