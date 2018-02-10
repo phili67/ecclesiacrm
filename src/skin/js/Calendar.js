@@ -441,7 +441,7 @@
             +'</div>'
             +'<div class="row  eventPredication  div-block">'
               +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-                  +'<textarea name="EventText" rows="4" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-94px;width: 100%"></textarea></div>'
+                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
               +'</div>'
             +'</div>'
             +'<div class="row  div-title">'
