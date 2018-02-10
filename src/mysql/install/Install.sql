@@ -221,7 +221,7 @@ CREATE TABLE `eventcounts_evtcnt` (
   `evtcnt_countid` int(5) NOT NULL default '0',
   `evtcnt_countname` varchar(20) default NULL,
   `evtcnt_countcount` int(6) default NULL,
-  `evtcnt_notes` varchar(20) default NULL,
+  `evtcnt_notes` varchar(255) default NULL,
   PRIMARY KEY  (`evtcnt_eventid`,`evtcnt_countid`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 

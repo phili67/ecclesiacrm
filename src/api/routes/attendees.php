@@ -192,19 +192,21 @@ $app->group('/attendees', function () {
           
         if ( isset ($cartPayload->eventID) )
         {
-            $eventAttents = EventAttendQuery::Create()
+          $eventAttents = EventAttendQuery::Create()
             ->filterByEventId($cartPayload->eventID)
             ->find();
+          
+          $_SESSION['EventID'] = $cartPayload->eventID;
             
-					$date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+          $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
-					foreach ($eventAttents as $eventAttent) {
-						$eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+          foreach ($eventAttents as $eventAttent) {
+            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
         
             $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
             $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
             $eventAttent->save();
-					}
+          }
         }
         else
         {
@@ -222,20 +224,22 @@ $app->group('/attendees', function () {
           
         if ( isset ($cartPayload->eventID) )
         {
-            $eventAttents = EventAttendQuery::Create()
+          $eventAttents = EventAttendQuery::Create()
             ->filterByEventId($cartPayload->eventID)
             ->find();
             
-					$date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+          $_SESSION['EventID'] = $cartPayload->eventID;
+            
+          $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
-					foreach ($eventAttents as $eventAttent) {
-						$eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+          foreach ($eventAttents as $eventAttent) {
+            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
         
             $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
             //$eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
             $eventAttent->setCheckoutDate(NULL);
             $eventAttent->save();
-					}
+          }
         }
         else
         {
