@@ -16,6 +16,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\EventCountsQuery;
 
 class CalendarService
 {
@@ -110,7 +111,7 @@ class CalendarService
         
         foreach ($activeEvents as $evnt) {
           $event = $this->createCalendarItem('event',
-          $evnt->getTitle(), $evnt->getStart('Y-m-d H:i:s'), $evnt->getEnd('Y-m-d H:i:s'), $evnt->getEventURI(),$evnt->getID(),$evnt->getType(),$evnt->getGroupId());// only the event id sould be edited and moved and have custom color
+          $evnt->getTitle(), $evnt->getStart('Y-m-d H:i:s'), $evnt->getEnd('Y-m-d H:i:s'), ''/*$evnt->getEventURI()*/,$evnt->getID(),$evnt->getType(),$evnt->getGroupId(),$evnt->getDesc(),$evnt->getText());// only the event id sould be edited and moved and have custom color
           array_push($events, $event);
         }
 
@@ -123,7 +124,7 @@ class CalendarService
       return ("#".substr("000000".dechex($n),-6));
     }
 
-    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0)
+    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="")
     {
         $event = [];
         switch ($type) {
@@ -155,9 +156,18 @@ class CalendarService
         }
         
         $event['type'] = $type;
-        $event['eventID'] = $eventID;
-        $event['eventTypeID'] = $eventTypeID;
-        $event['groupID'] = $groupID;
+        
+        if ($type == 'event') {
+          $event['eventID'] = $eventID;
+          $event['eventTypeID'] = $eventTypeID;
+          $event['groupID'] = $groupID;
+          $event['Desc'] = $desc;
+          $event['Text'] = $text;   
+          
+          $eventCounts = EventCountsQuery::Create()->findByEvtcntEventid($eventID);
+          
+          $event['EventCounts'] = $eventCounts->toArray();
+        }
         
         
         return $event;

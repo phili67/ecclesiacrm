@@ -143,6 +143,18 @@ $app->group('/events', function () {
                 $values['countName'] = $eventCountName->getName();
                 $values['typeID'] = $params->typeID;
                 
+                $values['count'] = 0;
+                $values['notes'] = "";
+                
+                if ($params->eventID > 0) {
+                  $eventCounts = EventCountsQuery::Create()->filterByEvtcntCountid($eventCountName->getId())->findOneByEvtcntEventid($params->eventID);
+                  
+                  if (!empty($eventCounts)) {            
+                    $values['count'] = $eventCounts->getEvtcntCountcount();
+                    $values['notes'] = $eventCounts->getEvtcntNotes();
+                  }
+                }
+                
                 array_push($return, $values);
             }
         }      
@@ -231,7 +243,7 @@ $app->group('/events', function () {
           }
      
          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), $event->getEventURI(),$event->getId(),$event->getType(),$event->getGroupId());// only the event id sould be edited and moved and have custom color
+            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
       
          return $response->withJson(array_filter($realCalEvnt));
      
@@ -263,7 +275,7 @@ $app->group('/events', function () {
        $event->save();
   
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), $event->getEventURI(),$event->getId(),$event->getType(),$event->getGroupId());// only the event id sould be edited and moved and have custom color
+          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
         return $response->withJson(array_filter($realCalEvnt));
      }
@@ -273,11 +285,11 @@ $app->group('/events', function () {
           ->findOneById($input->eventID);
     
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), $event->getEventURI(),$event->getId(),$event->getType(),$event->getGroupId());// only the event id sould be edited and moved and have custom color
+            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
         return $response->withJson(array_filter($realCalEvnt));
-    }
-    else if (!strcmp($input->evntAction,'resizeEvent'))
+     }
+     else if (!strcmp($input->evntAction,'resizeEvent'))
      {
         $event = EventQuery::Create()
           ->findOneById($input->eventID);
@@ -286,9 +298,94 @@ $app->group('/events', function () {
        $event->save();
   
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), $event->getEventURI(),$event->getId(),$event->getType(),$event->getGroupId());// only the event id sould be edited and moved and have custom color
+          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
         return $response->withJson(array_filter($realCalEvnt));
      }
+     else if (!strcmp($input->evntAction,'modifyEvent'))
+     {
+        $event = EventQuery::Create()
+          ->findOneById($input->eventID);
+        
+        $eventTypeName = "";
+        
+        $EventGroupType = $input->EventGroupType;// for futur dev : personal or group
+        
+        if ($input->eventTypeID)
+        {
+           $type = EventTypesQuery::Create()
+            ->findOneById($input->eventTypeID);
+           $eventTypeName = $type->getName();
+        }
+     
+         $event->setTitle($input->EventTitle);
+         $event->setType($input->eventTypeID);
+         $event->setTypeName($eventTypeName);
+         $event->setDesc($input->EventDesc);
+         
+         if ($input->EventGroupID>0)
+           $event->setGroupId($input->EventGroupID);  
+           
+         $event->setStart(str_replace("T"," ",$input->start));
+         $event->setEnd(str_replace("T"," ",$input->end));
+         $event->setText(InputUtils::FilterHTML($input->eventPredication));
+         $event->setInActive($input->eventInActive);
+         $event->save();
+         
+         if (!empty($input->Fields)){         
+           $eventCouts = EventCountsQuery::Create()->findByEvtcntEventid($event->getID());
+           
+           if ($eventCouts) {
+           	 $eventCouts->delete();
+           }
+           
+           foreach ($input->Fields as $field) {
+             $eventCount = new EventCounts; 
+             $eventCount->setEvtcntEventid($input->eventID);
+             $eventCount->setEvtcntCountid($field['countid']);
+             $eventCount->setEvtcntCountname($field['name']);
+             $eventCount->setEvtcntCountcount($field['value']);
+             $eventCount->setEvtcntNotes($input->EventCountNotes);
+             $eventCount->save();
+           }
+         }
+         
+         if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
+           $persons = Person2group2roleP2g2rQuery::create()
+              ->filterByGroupId($input->EventGroupID)
+              ->find();
+
+            foreach ($persons as $person) {
+              try {
+                if ($person->getPersonId() > 0) {
+                  $eventAttent = new EventAttend();
+        
+                  $eventAttent->setEventId($event->getID());
+                  $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                  $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                  $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                  $eventAttent->setPersonId($person->getPersonId());
+                  $eventAttent->save();
+                }
+              } catch (\Exception $ex) {
+                  $errorMessage = $ex->getMessage();
+                  //return $response->withJson(['status' => $errorMessage]);    
+              }
+            }
+            
+            // 
+            $_SESSION['Action'] = 'Add';
+            $_SESSION['EID'] = $event->getID();
+            $_SESSION['EName'] = $input->EventTitle;
+            $_SESSION['EDesc'] = $input->EventDesc;
+            $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+            
+            $_SESSION['EventID'] = $event->getID();
+          }
+     
+         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
+      
+         return $response->withJson(array_filter($realCalEvnt));     }
   });
 });
