@@ -7,14 +7,14 @@ CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
   
     config.toolbarGroups = [
-    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },//'source',
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
     { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
     { name: 'forms', groups: [ 'forms' ] },
     '/',
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
     { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-    { name: 'links', groups: [ 'links' ] },
+    { name: 'links', groups: [ 'links','iframe' ] },
     { name: 'insert', groups: [ 'insert' ] },
     '/',
     { name: 'styles', groups: [ 'styles' ] },
@@ -25,6 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
 
   config.plugins =
     'about,' +
+    'sourcedialog,' +
     'blockquote,' +
     'clipboard,' +
     'colorbutton,' +
@@ -34,6 +35,7 @@ CKEDITOR.editorConfig = function( config ) {
     'elementspath,' +
     'enterkey,' +
     'entities,' +
+    'iframe,'+
     'find,' +
     'floatingspace,' +
     'font,' +

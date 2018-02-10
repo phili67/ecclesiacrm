@@ -423,7 +423,7 @@ require 'Include/Header.php';
                     </tr>
 
                     <tr>
-                        <td><?= gettext('View, Add and Edit Notes') ?>:</td>
+                        <td><?= gettext('View, Add and Edit Documents') ?>:</td>
                         <td><input type="checkbox" name="Notes" value="1"<?php if ($usr_Notes) {
                         echo ' checked';
                     } ?>></td>

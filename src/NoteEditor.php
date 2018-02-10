@@ -25,7 +25,7 @@ if (!$_SESSION['bNotes']) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Note Editor');
+$sPageTitle = gettext('Document Editor');
 
 if (isset($_GET['PersonID'])) {
     $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -50,7 +50,7 @@ if ($iPersonID > 0) {
 if (isset($_POST['Submit'])) {
     //Initialize the ErrorFlag
     $bErrorFlag = false;
-
+    
     //Assign all variables locally
     $iNoteID = InputUtils::LegacyFilterInput($_POST['NoteID'], 'int');
     $sNoteText = InputUtils::FilterHTML($_POST['NoteText'], 'htmltext');
@@ -77,7 +77,7 @@ if (isset($_POST['Submit'])) {
             $note->setFamId($iFamilyID);
             $note->setPrivate($bPrivate);
             $note->setText($sNoteText);
-            $note->setType('note');
+            $note->setType($_POST['noteType']);
             $note->setEntered($_SESSION['iUserID']);
             $note->save();
         } else {
@@ -86,6 +86,7 @@ if (isset($_POST['Submit'])) {
             $note->setText($sNoteText);
             $note->setDateLastEdited(new DateTime());
             $note->setEditedBy($_SESSION['iUserID']);
+            $note->setType($_POST['noteType']);
             $note->save();
         }
 
@@ -104,6 +105,7 @@ if (isset($_POST['Submit'])) {
         $bPrivate = $dbNote->getPrivate();
         $iPersonID = $dbNote->getPerId();
         $iFamilyID = $dbNote->getFamId();
+        $sNoteType = $dbNote->getType();
     }
 }
 require 'Include/Header.php';
@@ -112,20 +114,37 @@ require 'Include/Header.php';
 <form method="post">
   <div class="box box-primary">
     <div class="box-body">
+      <div class="row">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-3">
+            <label><?= gettext("Choose your Document Type") ?> : </label>
+          </div>
+          <div class="col-lg-3">
+            <select name="noteType" class="form-control input-sm">
+              <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= gettext("Classic Document") ?></option>
+              <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= gettext("Classic Video") ?></option>
+            </select>           
+          </div>
+          <div class="col-lg-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <br/>
+          <p align="center">
+            <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
+            <input type="hidden" name="FamilyID" value="<?= $iFamilyID ?>">
+            <input type="hidden" name="NoteID" value="<?= $iNoteID ?>">
+            <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
+            <?= $sNoteTextError ?>
+          </p>
 
-      <p align="center">
-        <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
-        <input type="hidden" name="FamilyID" value="<?= $iFamilyID ?>">
-        <input type="hidden" name="NoteID" value="<?= $iNoteID ?>">
-        <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
-        <?= $sNoteTextError ?>
-      </p>
-
-      <p align="center">
-        <input type="checkbox" value="1" name="Private" <?php if ($bPrivate != 0) {
-    echo 'checked';
-} ?>>&nbsp;<?= gettext('Private') ?>
-      </p>
+          <p align="center">
+            <input type="checkbox" value="1" name="Private" <?php if ($bPrivate != 0) {
+        echo 'checked';
+    } ?>>&nbsp;<?= gettext('Private') ?>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
   <p align="center">
