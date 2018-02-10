@@ -9710,3 +9710,14 @@ msgstr "Liste des fonds"
 
 msgid "Add a New Fund"
 msgstr "Ajouter un nouveau fond"
+
+#: CheckIn.php
+
+msgid "Validate Note"
+msgstr "Valider la note"
+
+msgid "Uncheck all"
+msgstr "Décocher tout"
+
+msgid "Check all"
+msgstr "Tout cocher"
