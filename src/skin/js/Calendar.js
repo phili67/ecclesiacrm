@@ -655,7 +655,7 @@
         },
         eventClick: function(calEvent, jsEvent, view) {
           if (calEvent.type == "event") {
-             // We create the dialog, only with group event
+             // only with group event We create the dialog,
              modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
        
              $('form #EventTitle').val(calEvent.title);
