@@ -654,57 +654,54 @@
            }
         },
         eventClick: function(calEvent, jsEvent, view) {
-          /*alert('Event: ' + calEvent.title);
-          alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-          alert('View: ' + view.name);*/
-          
-          
-            // We create the dialog
-           modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
+          if (calEvent.type == "event") {
+             // only with group event We create the dialog,
+             modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
        
-           $('form #EventTitle').val(calEvent.title);
-           $('form #EventDesc').val(calEvent.Desc);
-           $('form #eventPredication').val(calEvent.Text);
+             $('form #EventTitle').val(calEvent.title);
+             $('form #EventDesc').val(calEvent.Desc);
+             $('form #eventPredication').val(calEvent.Text);
            
 
-           // we add the calendars and the types
-           addGroupCalendars(calEvent.groupID);
-           addGroupEventTypes(calEvent.eventTypeID,false);
-           addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
+             // we add the calendars and the types
+             addGroupCalendars(calEvent.groupID);
+             addGroupEventTypes(calEvent.eventTypeID,false);
+             addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
            
-           //Timepicker
-           $('.timepicker').timepicker({
-             showInputs: false,
-             showMeridian: (window.CRM.timeEnglish == "true")?true:false
-           });
+             //Timepicker
+             $('.timepicker').timepicker({
+               showInputs: false,
+               showMeridian: (window.CRM.timeEnglish == "true")?true:false
+             });
        
-           $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+             $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
        
-           $('.date-picker').click('focus', function (e) {
-             e.preventDefault();
-             $(this).datepicker('show');
-           });
+             $('.date-picker').click('focus', function (e) {
+               e.preventDefault();
+               $(this).datepicker('show');
+             });
         
-           $('.date-start').hide();
-           $('.date-end').hide();
-           $(".eventPredication").hide();
+             $('.date-start').hide();
+             $('.date-end').hide();
+             $(".eventPredication").hide();
        
-           // this will ensure that image and table can be focused
-           $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+             // this will ensure that image and table can be focused
+             $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
        
-           // this will create the toolbar for the textarea
-           CKEDITOR.replace('eventPredication',{
-            customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-            language : window.CRM.lang,
-            width : '100%'
-           });
+             // this will create the toolbar for the textarea
+             CKEDITOR.replace('eventPredication',{
+              customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+              language : window.CRM.lang,
+              width : '100%'
+             });
       
-           $(".ATTENDENCES").hide();
+             $(".ATTENDENCES").hide();
        
-           modal.modal("show");
+             modal.modal("show");
 
-           // change the border color just for fun
-           $(this).css('border-color', 'red');
+             // change the border color just for fun
+             $(this).css('border-color', 'red');
+          }
         },
         eventResize: function(event, delta, revertFunc) {
           if (event.type == 'event'){
