@@ -54,6 +54,24 @@ if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
 } 
 
+if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
+  $event = EventQuery::Create()
+        ->findOneById($EventID);
+        
+  $event->setText($_POST['NoteText']);
+  
+  $event->save();
+  
+  
+  $eventAttents = EventAttendQuery::Create()
+            ->filterByEventId($EventID)
+            ->find();
+            
+  foreach ($eventAttents as $eventAttent) {
+    $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());    
+  }
+}
+
 if (isset($_SESSION['CartToEventEventID'])) {
    $EventID = InputUtils::LegacyFilterInput($_SESSION['CartToEventEventID'], 'int');
 }
@@ -73,15 +91,19 @@ if (isset($_POST['FreeAttendees'])) {
 // process the action inputs
 //
 
+
 //Start off by first picking the event to check people in for
 $activeEvents = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
+    ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
     ->find();
 
 if ($EventID > 0) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
+        
+    $sNoteText = $event->getText();        
         
     $eventCountNames = EventCountNameQuery::Create()
         ->leftJoinEventTypes()
@@ -504,7 +526,6 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <label>
                                   <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?gettext("Present"):"Absent" ?></span>
-
                                 </label>
                             </form>
                         </td>
@@ -520,7 +541,33 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
     } ?>
                 </tbody>
             </table>
+        <div class="row" style="margin:5px"> 
+          <center>
+            <div class="col-sm-6" style="text-align:center">
+               <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= gettext('Uncheck all') ?>">
+            </div>
+            <div class="col-sm-6" style="text-align:center">
+               <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll" data-id="<?= $EventID ?>" value="<?= gettext('Check all') ?>">
+            </div>
+          </center>
         </div>
+
+        <hr/>
+        <div class="row" style="margin:5px"> 
+        <label><?= gettext("Add some notes") ?> : </label>     
+        <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
+        <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
+        <input type="hidden" name="EventID" value="<?= $EventID ?>">
+        <center>
+          <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
+          <br>
+          <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext('Validate Note') ?>">
+        </center>
+        </form>
+        <br>
+        </div>
+        </div>
+        
     </div>
     <?php
 }
@@ -533,6 +580,8 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
   </a>
 </div>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     var perArr;
     $(document).ready(function () {
@@ -543,6 +592,11 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
        pageLength: 100,
        responsive: true
      });
+     
+     CKEDITOR.replace('NoteText',{
+       customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
+       language : window.CRM.lang
+     });  
     });
 
     $(document).ready(function() {

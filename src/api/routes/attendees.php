@@ -182,4 +182,65 @@ $app->group('/attendees', function () {
           }
           return $response->withJson(['status' => "success"]);
     });
+    
+    $this->post('/checkAll', function ($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+          
+        if ( isset ($cartPayload->eventID) )
+        {
+            $eventAttents = EventAttendQuery::Create()
+            ->filterByEventId($cartPayload->eventID)
+            ->find();
+            
+					$date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+
+					foreach ($eventAttents as $eventAttent) {
+						$eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+        
+            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+            $eventAttent->save();
+					}
+        }
+        else
+        {
+          throw new \Exception(gettext("POST to cart requires a EventID"),500);
+        }
+        return $response->withJson(['status' => "success"]);
+    });
+    
+     $this->post('/uncheckAll', function ($request, $response, $args) {
+        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+            return $response->withStatus(401);
+        }
+
+        $cartPayload = (object)$request->getParsedBody();
+          
+        if ( isset ($cartPayload->eventID) )
+        {
+            $eventAttents = EventAttendQuery::Create()
+            ->filterByEventId($cartPayload->eventID)
+            ->find();
+            
+					$date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+
+					foreach ($eventAttents as $eventAttent) {
+						$eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+        
+            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            //$eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+            $eventAttent->setCheckoutDate(NULL);
+            $eventAttent->save();
+					}
+        }
+        else
+        {
+          throw new \Exception(gettext("POST to cart requires a EventID"),500);
+        }
+        return $response->withJson(['status' => "success"]);
+    });
 });
