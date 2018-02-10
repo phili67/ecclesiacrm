@@ -23,7 +23,7 @@ if (!$_SESSION['bNotes']) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Note Delete Confirmation');
+$sPageTitle = gettext('Document Delete Confirmation');
 
 //Get the NoteID from the querystring
 $iNoteID = InputUtils::LegacyFilterInput($_GET['NoteID'], 'int');
@@ -57,7 +57,7 @@ require 'Include/Header.php';
 ?>
 <div class="box box-warning">
   <div class="box-header with-border">
-	<?= gettext('Please confirm deletion of this note') ?>:
+	<?= gettext('Please confirm deletion of this document') ?>:
   </div>
   <div class="box-body">
     <?= $nte_Text ?>

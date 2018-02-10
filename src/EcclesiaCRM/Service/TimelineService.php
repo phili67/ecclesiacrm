@@ -42,13 +42,25 @@ class TimelineService
         return $sortedTimeline;
     }
     
-    private function notesForFamily($familyID, $noteType)
+    private function notesForFamily($familyID, $noteTypes=null)
     {
+        $firstTime = true;
+        
         $timeline = [];
         $familyQuery = NoteQuery::create()
             ->filterByFamId($familyID);
-        if ($noteType != null) {
-            $familyQuery->filterByType($noteType);
+            
+        if ($noteTypes != null) {
+          foreach ($noteTypes as $noteType) {
+            
+            if ($firstTime) {
+               $familyQuery->filterByType($noteType);
+            } else {               
+               $familyQuery->_or()->filterByType($noteType);
+            }
+            
+            $firstTime = false;
+          }
         }
         foreach ($familyQuery->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
@@ -62,7 +74,7 @@ class TimelineService
     
     public function getNotesForFamily($familyID)
     {
-        $timeline = $this->notesForFamily($familyID, 'note');
+        $timeline = $this->notesForFamily($familyID, ['note','video']);
 
         return $this->sortTimeline($timeline);
     }
@@ -86,13 +98,24 @@ class TimelineService
         return $timeline;
     }
 
-    private function notesForPerson($personID, $noteType)
+    private function notesForPerson($personID, $noteTypes=null)
     {
+        $firstTime = true;
+        
         $timeline = [];
         $personQuery = NoteQuery::create()
             ->filterByPerId($personID);
-        if ($noteType != null) {
-            $personQuery->filterByType($noteType);
+            
+        if ($noteTypes != null) {
+          foreach ($noteTypes as $noteType) {
+            if ($firstTime) {            
+               $personQuery->filterByType($noteType);
+            } else {
+               $personQuery->_or()->filterByType($noteType);
+            }
+            
+            $firstTime = false;
+          }
         }
         foreach ($personQuery->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
@@ -119,7 +142,7 @@ class TimelineService
 
     public function getNotesForPerson($personID)
     {
-        $timeline = $this->notesForPerson($personID, 'note');
+        $timeline = $this->notesForPerson($personID, ['note','video']);
 
         return $this->sortTimeline($timeline);
     }
@@ -177,6 +200,12 @@ class TimelineService
             case 'photo':
                 $item['style'] = 'fa-camera bg-green';
                 break;
+            case 'video':
+                $item['slim'] = true;
+                $item['style'] = 'fa-video-camera bg-maroon';
+                $item['editLink'] = $editLink;
+                $item['deleteLink'] = $deleteLink;
+                break;            
             case 'group':
                 $item['style'] = 'fa-users bg-gray';
                 break;

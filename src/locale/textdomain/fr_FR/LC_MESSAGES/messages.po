@@ -1897,8 +1897,8 @@ msgid "Delete Photo"
 msgstr "Supprimer une photo"
 
 #: FamilyView.php:325 PersonView.php:386
-msgid "Add a Note"
-msgstr "Ajouter une note"
+msgid "Add a Document"
+msgstr "Ajouter un document"
 
 #: FamilyView.php:329
 msgid "Add All Family Members to Cart"
@@ -2979,12 +2979,12 @@ msgid "Updated Members"
 msgstr "Membres mis à jour"
 
 #: NoteDelete.php:26
-msgid "Note Delete Confirmation"
-msgstr "Confirmation de la suppression de la note"
+msgid "Document Delete Confirmation"
+msgstr "Confirmation de la suppression du document"
 
 #: NoteDelete.php:60
-msgid "Please confirm deletion of this note"
-msgstr "Veuillez confirmer la suppression de cette note"
+msgid "Please confirm deletion of this document"
+msgstr "Veuillez confirmer la suppression de ce document"
 
 #: NoteDelete.php:67 PropertyDelete.php:62 PropertyTypeDelete.php:67
 msgid "Yes, delete this record"
@@ -3893,8 +3893,8 @@ msgid "Manage Donations and Finance"
 msgstr "Administrer des Cotisations et des Finances"
 
 #: UserEditor.php:426
-msgid "View, Add and Edit Notes"
-msgstr "Visualiser, Ajouter et Modifier les notes"
+msgid "View, Add and Edit Documents"
+msgstr "Visualiser, Ajouter et Modifier les documents"
 
 #: UserEditor.php:433
 msgid "Edit Self"
@@ -5403,8 +5403,8 @@ msgstr "Anniversaire de mariage"
 
 #: PersonView.php:417 SettingsIndividual.php:99 SettingsUser.php:86
 #: UserEditor.php:479
-msgid "Notes"
-msgstr "Notes"
+msgid "Your Documents"
+msgstr "Vos documents"
 
 #: PeopleDashboard.php:216 PeopleDashboard.php:253 PeopleDashboard.php:261
 #: sundayschool/SundaySchoolDashboard.php:55
@@ -9721,3 +9721,13 @@ msgstr "Décocher tout"
 
 msgid "Check all"
 msgstr "Tout cocher"
+
+#: NoteEditor.php
+msgid "Classic Document"
+msgstr "Document classique"
+
+msgid "Classic Video"
+msgstr "Vidéo classique"
+
+msgid "Choose your Document Type"
+msgstr "Choisissez votre type de document"

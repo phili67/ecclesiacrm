@@ -343,7 +343,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 <?php
                 if ($_SESSION['bNotes']) {
                     ?>
-                    <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Note") ?></a>
+                    <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
                     <?php
                 } ?>
                         
@@ -458,7 +458,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     <?php
                 } ?>
                     <li role="presentation"><a href="#notes" aria-controls="notes" role="tab"
-                                               data-toggle="tab"><?= gettext("Notes") ?></a></li>
+                                               data-toggle="tab"><?= gettext("Your Documents") ?></a></li>
 
             </ul>
 
