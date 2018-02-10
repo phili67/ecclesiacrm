@@ -225,7 +225,7 @@ require 'Include/HeaderNotLoggedIn.php';
             </div>
             <div class="row">
                 <!-- /.col -->
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat"><i
                                 class="fa fa-sign-in"></i> <?= gettext('Login') ?></button>
                 </div>
@@ -245,7 +245,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-<div class="lockscreen-wrapper" id="Lock">
+<div class="lockscreen-wrapper" id="Lock" style="display: none;">
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
