@@ -2995,8 +2995,8 @@ msgid "(this action cannot be undone)"
 msgstr "(cette action est irréversible)"
 
 #: NoteEditor.php:28
-msgid "Note Editor"
-msgstr "Éditeur de Note"
+msgid "Document Editor"
+msgstr "Éditeur de Document"
 
 #: NoteEditor.php:127
 msgid "Private"
