@@ -52,8 +52,9 @@ class SystemService
         $client = new Client();
         $release = null;
         try {
-            $json = file_get_contents('https://www.ecclesiacrm.com/download.php');
-            $release = json_decode($json,TRUE);
+            //$json = file_get_contents('https://www.ecclesiacrm.com/download.php');
+            //$release = json_decode($json,TRUE);
+            $release = $client->api('repo')->releases()->latest('phili67', 'ecclesiacrm');
         } catch (\Exception $e) {
         }
         
@@ -336,7 +337,7 @@ class SystemService
 
     public function reportIssue($data)
     {
-        $serviceURL = 'http://www.ecclesiacrm.com/issues/';
+        $serviceURL = 'https://www.ecclesiacrm.com/issues/';
         $headers = [];
         $headers[] = 'Content-type: application/json';
 
@@ -413,6 +414,21 @@ class SystemService
             }
         }
     }
+    
+    private function download_remote_file_with_curl($file_url, $save_to)
+    {
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_POST, 0); 
+      curl_setopt($ch,CURLOPT_URL,$file_url); 
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+      $file_content = curl_exec($ch);
+      curl_close($ch);
+ 
+      $downloaded_file = fopen($save_to, 'w');
+      fwrite($downloaded_file, $file_content);
+      fclose($downloaded_file);
+ 
+    }
 
     public function downloadLatestRelease()
     {
@@ -425,6 +441,7 @@ class SystemService
         }
         mkdir($UpgradeDir);
         file_put_contents($UpgradeDir . '/' . basename($url), file_get_contents($url));
+        //$this->download_remote_file_with_curl($url,$UpgradeDir . '/' . basename($url));
         $returnFile = [];
         $returnFile['fileName'] = basename($url);
         $returnFile['releaseNotes'] = $release['body'];
@@ -459,6 +476,7 @@ class SystemService
                 $zip->close();
                 $this->moveDir(SystemURLs::getDocumentRoot() . '/Upgrade/ecclesiacrm', SystemURLs::getDocumentRoot());
             }
+            
             unlink($zipFilename);
             SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
 
