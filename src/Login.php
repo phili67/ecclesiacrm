@@ -245,7 +245,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-<div class="lockscreen-wrapper" id="Lock" style="display: none;">
+<div class="lockscreen-wrapper" id="Lock">
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
