@@ -5,6 +5,10 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\Base\User as BaseUser;
 use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\Connection\ConnectionInterface;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\ListOptionQuery;
+
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
  *
@@ -37,6 +41,31 @@ class User extends BaseUser
         return $this->getPerson()->getFullName();
     }
 
+    public function isSundayShoolTeachForGroup($iGroupID)
+    {
+        if ($this->isAdmin() || $this->isAddRecords()) {
+          return true;
+        }
+
+        $group = GroupQuery::Create()->findOneById($iGroupID);
+        
+        $groupRoleMembership = Person2group2roleP2g2rQuery::create()
+                            ->filterByPersonId ($this->getPersonId())
+                            ->filterByGroupId($iGroupID)
+                            ->findOne();
+
+        if (!empty($groupRoleMembership)) {
+          $groupRole = ListOptionQuery::create()->filterById($group->getRoleListId())->filterByOptionId($groupRoleMembership->getRoleId())->findOne();
+          $lst_OptionName = $groupRole->getOptionName();
+    
+          if ($lst_OptionName == 'Teacher') {
+            return true;
+          }
+        }
+        
+        return false;
+    }
+    
     public function isAddRecordsEnabled()
     {
         return $this->isAdmin() || $this->isAddRecords();

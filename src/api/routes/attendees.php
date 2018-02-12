@@ -20,9 +20,9 @@ use EcclesiaCRM\Utils\OutputUtils;
 $app->group('/attendees', function () {
 
   $this->post('/checkoutstudent', function ($request, $response, $args) {
-    if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+    /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
         return $response->withStatus(401);
-    }
+    }*/
 
       $cartPayload = (object)$request->getParsedBody();
       
@@ -66,9 +66,9 @@ $app->group('/attendees', function () {
   });
 
   $this->post('/student', function ($request, $response, $args) {
-    if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+    /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
         return $response->withStatus(401);
-    }
+    }*/
 
       $cartPayload = (object)$request->getParsedBody();
       
@@ -86,52 +86,66 @@ $app->group('/attendees', function () {
            $eventTypeName = $type->getName();
          }
      
-     
-         $event = new Event; 
-         $event->setTitle($group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')));
-         $event->setType($type->getId());
-         $event->setTypeName($eventTypeName);
-         $event->setDesc(gettext("Create From sunday school class view"));
+         $event = EventQuery::Create()
+            ->filterByGroupId($cartPayload->groupID)
+            ->filterByInActive(1, Criteria::NOT_EQUAL)
+            ->Where('YEAR(event_start)='.$date->format('Y').' AND MONTH(event_start)='.$date->format('m').' AND Day(event_start)='.$date->format('d'))// We filter only the events from the current month : date('Y')
+            ->findOne();
+
+         if (!empty($event)) {
+           $_SESSION['Action'] = 'Add';
+           $_SESSION['EID'] = $event->getID();
+           $_SESSION['EName'] = $event->getTitle();
+           $_SESSION['EDesc'] = $event->getDesc();
+           $_SESSION['EDate'] = $event->getStart();
+           $_SESSION['EventID'] = $event->getID();         
+         } else {            
+           $event = new Event; 
+           $event->setTitle($group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')));
+           $event->setType($type->getId());
+           $event->setTypeName($eventTypeName);
+           $event->setDesc(gettext("Create From sunday school class view"));
          
-         $event->setGroupId($cartPayload->groupID);  
+           $event->setGroupId($cartPayload->groupID);  
            
          
-         $event->setStart($date->format('Y-m-d H:i:s'));
-         $event->setEnd($date->format('Y-m-d H:i:s'));
-         $event->setText(gettext("Attendance"));
-         $event->setInActive(false);
-         $event->save(); 
+           $event->setStart($date->format('Y-m-d H:i:s'));
+           $event->setEnd($date->format('Y-m-d H:i:s'));
+           $event->setText(gettext("Attendance"));
+           $event->setInActive(false);
+           $event->save(); 
          
-         $sundaySchoolService = new SundaySchoolService();
-         $thisClassChildren = $sundaySchoolService->getKidsFullDetails($cartPayload->groupID);
+           $sundaySchoolService = new SundaySchoolService();
+           $thisClassChildren = $sundaySchoolService->getKidsFullDetails($cartPayload->groupID);
      
-         foreach ($thisClassChildren as $child) {
-            try {
-              $eventAttent = new EventAttend();        
-              $eventAttent->setEventId($event->getID());
-              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
-              $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-              $eventAttent->setPersonId($child['kidId']);
+           foreach ($thisClassChildren as $child) {
+              try {
+                $eventAttent = new EventAttend();        
+                $eventAttent->setEventId($event->getID());
+                $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                $eventAttent->setPersonId($child['kidId']);
               
-              if (SystemConfig::getValue("bCheckedAttendees")) {
-                $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+                if (SystemConfig::getValue("bCheckedAttendees")) {
+                  $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
+                }
+                if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
+                  $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+                }              
+                $eventAttent->save();
+              } catch (\Exception $ex) {
+                $errorMessage = $ex->getMessage();
               }
-              if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
-                $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
-              }              
-              $eventAttent->save();
-            } catch (\Exception $ex) {
-              $errorMessage = $ex->getMessage();
-            }
-         }
+           }
 
-         $_SESSION['Action'] = 'Add';
-         $_SESSION['EID'] = $event->getID();
-         $_SESSION['EName'] = $event->getTitle();
-         $_SESSION['EDesc'] = $event->getDesc();
-         $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+           $_SESSION['Action'] = 'Add';
+           $_SESSION['EID'] = $event->getID();
+           $_SESSION['EName'] = $event->getTitle();
+           $_SESSION['EDesc'] = $event->getDesc();
+           $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
             
-         $_SESSION['EventID'] = $event->getID();
+           $_SESSION['EventID'] = $event->getID();
+        }
       }
       else
       {
@@ -184,9 +198,9 @@ $app->group('/attendees', function () {
     });
     
     $this->post('/checkAll', function ($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
             return $response->withStatus(401);
-        }
+        }*/
 
         $cartPayload = (object)$request->getParsedBody();
           
@@ -216,9 +230,9 @@ $app->group('/attendees', function () {
     });
     
      $this->post('/uncheckAll', function ($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
             return $response->withStatus(401);
-        }
+        }*/
 
         $cartPayload = (object)$request->getParsedBody();
           
