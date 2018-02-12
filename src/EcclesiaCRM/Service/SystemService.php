@@ -52,8 +52,11 @@ class SystemService
         $client = new Client();
         $release = null;
         try {
-            $json = file_get_contents('https://www.ecclesiacrm.com/download.php');
+            $options = array('https' => array('user_agent' => 'ecclesiacrm'));
+            $context = stream_context_create($options);
+            $json = file_get_contents('https://www.ecclesiacrm.com/download.php', false, $context);            
             $release = json_decode($json,TRUE);
+            
             //$release = $client->api('repo')->releases()->latest('phili67', 'ecclesiacrm');
         } catch (\Exception $e) {
         }
@@ -429,6 +432,23 @@ class SystemService
       fclose($downloaded_file);
  
     }
+    
+    
+    public function file_get_contents_retry($url, $attemptsRemaining=7) {
+        echo "\"$url\"";
+        
+        exit;
+        $content = file_get_contents($url);
+        $attemptsRemaining--;
+        
+        if( empty($content) && $attemptsRemaining > 0 ) {
+           echo "echoue";
+            return $this->file_get_contents_retry($url, $attemptsRemaining);
+        }
+
+        return $content;
+    }
+
 
     public function downloadLatestRelease()
     {
@@ -440,7 +460,12 @@ class SystemService
             }
         }
         mkdir($UpgradeDir);
-        file_put_contents($UpgradeDir . '/' . basename($url), file_get_contents($url));
+        
+        $options = array('https' => array('user_agent' => 'ecclesiacrm'));
+        $context = stream_context_create($options);            
+        $content = file_get_contents($url, false, $context); 
+        
+        file_put_contents($UpgradeDir . '/' . basename($url), $content);
         //$this->download_remote_file_with_curl($url,$UpgradeDir . '/' . basename($url));
         $returnFile = [];
         $returnFile['fileName'] = basename($url);
