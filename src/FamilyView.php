@@ -14,19 +14,17 @@ require "Include/Functions.php";
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
-
-
-use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\PledgeQuery;
-use EcclesiaCRM\ListOptionQuery;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -57,10 +55,9 @@ if ($_SESSION['bDeleteRecords'] && !empty($_POST['FID']) && !empty($_POST['Actio
 $sSQL = "SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun WHERE fun_Active = 'true'";
 $rsFunds = RunQuery($sSQL);
 
-if (isset($_POST["UpdatePledgeTable"]) && $_SESSION['bFinance']) {
-    $_SESSION['sshowPledges'] = isset($_POST["ShowPledges"]);
-    $_SESSION['sshowPayments'] = isset($_POST["ShowPayments"]);
-    $_SESSION['sshowSince'] = DateTime::createFromFormat("Y-m-d", InputUtils::FilterDate($_POST["ShowSinceDate"]));
+if ($_SESSION['bFinance']) {
+    $_SESSION['sshowPledges'] = 1;
+    $_SESSION['sshowPayments'] = 1;
 }
 
 $dSQL = "SELECT fam_ID FROM family_fam order by fam_Name";
@@ -175,6 +172,7 @@ $sFamilyEmails = array();
 $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyID == $_SESSION['iFamID'])));
 
 ?>
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     window.CRM.currentFamily = <?= $iFamilyID ?>;
 </script>
@@ -729,12 +727,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                       echo " checked";
                                   } ?>><?= gettext("Show Payments") ?>
                                   <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
-                                                          <?php
-                                                          $showSince = "";
-                                  if ($_SESSION['sshowSince'] != null) {
-                                      $showSince = $_SESSION['sshowSince']->format('Y-m-d');
-                                  } ?>
-                                <input type="text" Name="Min" id="Min"
+                                  <input type="text" Name="Min" id="Min"
                                        value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
                                        
                                 <label for="ShowSinceDate"><?= gettext("To") ?>:</label>

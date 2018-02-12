@@ -52,9 +52,9 @@ class SystemService
         $client = new Client();
         $release = null;
         try {
-            //$json = file_get_contents('https://www.ecclesiacrm.com/download.php');
-            //$release = json_decode($json,TRUE);
-            $release = $client->api('repo')->releases()->latest('phili67', 'ecclesiacrm');
+            $json = file_get_contents('https://www.ecclesiacrm.com/download.php');
+            $release = json_decode($json,TRUE);
+            //$release = $client->api('repo')->releases()->latest('phili67', 'ecclesiacrm');
         } catch (\Exception $e) {
         }
         
