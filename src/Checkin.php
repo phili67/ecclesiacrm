@@ -34,6 +34,8 @@ use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCounts;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Group;
 
 
 $EventID = 0;
@@ -70,6 +72,13 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
   foreach ($eventAttents as $eventAttent) {
     $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());    
   }
+  
+  if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
+    Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
+  } else {
+    Redirect('GroupView.php?GroupID='.$event->getGroupId());
+  }
+  exit;
 }
 
 if (isset($_SESSION['CartToEventEventID'])) {

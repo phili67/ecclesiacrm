@@ -117,6 +117,40 @@ $("document").ready(function(){
       })
     });
     
+    $(document).on("click",".exportCheckOut", function(){
+       var groupID = $(this).data("makecheckoutgroupid");
+       
+       bootbox.prompt({
+        size: "small",
+        title: i18next.t("Set the Year you want."),
+        value: moment().year()-1+'-'+moment().year(),
+        buttons: {
+          cancel: {
+            label: i18next.t('Cancel'),
+            className: 'btn-default',
+            callback: function () {
+            }
+          },
+          confirm: {
+            label: i18next.t('OK'),
+            className: 'btn-primary',
+            callback: function () {
+            }
+          }
+        },
+        callback: function(result){ 
+          if (result) {
+            window.location = window.CRM.root + "/sundayschool/SundaySchoolAttendeesExport.php?groupID="+groupID+"&year="+result;
+          }
+       }
+      });
+       
+       
+    });
+    
+    
+    
+    
     // newMessage event subscribers  : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
     
