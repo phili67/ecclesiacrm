@@ -9731,3 +9731,8 @@ msgstr "Vidéo classique"
 
 msgid "Choose your Document Type"
 msgstr "Choisissez votre type de document"
+
+#: SundaySchoolView.php
+
+msgid "Export Attendance"
+msgstr "Fichiers des présents"

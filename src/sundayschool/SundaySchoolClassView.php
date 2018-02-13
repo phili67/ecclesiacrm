@@ -135,7 +135,7 @@ require '../Include/Header.php';
   <?php 
   if ($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled()) {
   ?>
-    <a class="btn btn-app bg-purple exportCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext('Export') ?></span></a>
+    <a class="btn btn-app bg-purple exportCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php 
     }
   ?>

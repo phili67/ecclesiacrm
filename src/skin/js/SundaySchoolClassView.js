@@ -122,7 +122,7 @@ $("document").ready(function(){
        
        bootbox.prompt({
         size: "small",
-        title: i18next.t("Set the Year you want."),
+        title: i18next.t("Set the year range to export"),
         value: moment().year()-1+'-'+moment().year(),
         buttons: {
           cancel: {
