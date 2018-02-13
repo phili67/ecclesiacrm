@@ -153,7 +153,7 @@
   
   $('body').on('click','.ATTENDENCES-title', function(){ 
     $( ".date-title").slideDown();
-    $('.ATTENDENCES-title').slideUp();
+    //$('.ATTENDENCES-title').slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $( ".eventPredication").slideUp();
@@ -334,14 +334,6 @@
     
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Event Creation")+'</h3><form id="some-form">'
        + '<div>'
-            +'<div class="row   div-title">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Select your event type') + "</div>"
-              +'<div class="col-md-9">'
-              +'<select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
-                   //+"<option value='0' >" + i18next.t("Personal") + "</option>"
-                +'</select>'
-              +'</div>'
-            +'</div>'
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Title') + ":</div>"
               +'<div class="col-md-9">'
@@ -440,6 +432,11 @@
             +'</div>'
             +'<div class="row  ATTENDENCES-title div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Attendances') + ":</div>"
+              +'<div class="col-md-9">'
+              +'<select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
+                   //+"<option value='0' >" + i18next.t("Personal") + "</option>"
+                +'</select>'
+              +'</div>'
             +'</div>'
             +'<div class="row ATTENDENCES  div-block">'
               +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
@@ -613,7 +610,7 @@
           header: {
               left: 'prev,next today',
               center: 'title',
-              right: 'month,agendaWeek,agendaDay,listMonth'
+              right: 'month,agendaWeek,agendaDay,listMonth'//listYear
           },
           height: 500,
           selectable: isModifiable,
@@ -656,51 +653,110 @@
         eventClick: function(calEvent, jsEvent, view) {
           if (calEvent.type == "event") {
              // only with group event We create the dialog,
-             modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
+             var box = bootbox.dialog({
+               title: i18next.t('Modify Event'),
+               message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
+               buttons: {
+                  cancel: {
+                    label:  i18next.t('Delete Event'),
+                    className: 'btn btn-danger',
+                     callback: function () {
+                       bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
+                        window.CRM.APIRequest({
+                           method: 'POST',
+                           path: 'events/',
+                           data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                        }).done(function(data) {
+                           $('#calendar').fullCalendar( 'refetchEvents' );
+                           $('#calendar').fullCalendar('unselect'); 
+                        });
+                      });
+                    }
+                  },     
+                  add: {
+                     label: i18next.t('Add More Attendees'),
+                     className: 'btn btn-info',
+                     callback: function () {
+                        window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'events/',
+                         data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                        }).done(function(data) {
+                           location.href = window.CRM.root + 'EditEventAttendees.php';
+                        });
+                     }
+                  },
+                  attendance: {
+                     label: i18next.t('Make Attendance'),
+                     className: 'btn btn-primary',
+                     callback: function () {
+                        window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'events/',
+                         data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                        }).done(function(data) {
+                           location.href = window.CRM.root + 'Checkin.php';
+                        });
+                        
+                     }
+                  },
+                  Edit: {
+                     label: i18next.t('Edit'),
+                     className: 'btn btn-success',
+                     callback: function () {
+                       modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
        
-             $('form #EventTitle').val(calEvent.title);
-             $('form #EventDesc').val(calEvent.Desc);
-             $('form #eventPredication').val(calEvent.Text);
+                       $('form #EventTitle').val(calEvent.title);
+                       $('form #EventDesc').val(calEvent.Desc);
+                       $('form #eventPredication').val(calEvent.Text);
            
 
-             // we add the calendars and the types
-             addGroupCalendars(calEvent.groupID);
-             addGroupEventTypes(calEvent.eventTypeID,false);
-             addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
+                       // we add the calendars and the types
+                       addGroupCalendars(calEvent.groupID);
+                       addGroupEventTypes(calEvent.eventTypeID,false);
+                       addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
            
-             //Timepicker
-             $('.timepicker').timepicker({
-               showInputs: false,
-               showMeridian: (window.CRM.timeEnglish == "true")?true:false
-             });
+                       //Timepicker
+                       $('.timepicker').timepicker({
+                         showInputs: false,
+                         showMeridian: (window.CRM.timeEnglish == "true")?true:false
+                       });
        
-             $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+                       $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
        
-             $('.date-picker').click('focus', function (e) {
-               e.preventDefault();
-               $(this).datepicker('show');
-             });
+                       $('.date-picker').click('focus', function (e) {
+                         e.preventDefault();
+                         $(this).datepicker('show');
+                       });
         
-             $('.date-start').hide();
-             $('.date-end').hide();
-             $(".eventPredication").hide();
+                       $('.date-start').hide();
+                       $('.date-end').hide();
+                       $(".eventPredication").hide();
        
-             // this will ensure that image and table can be focused
-             $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+                       // this will ensure that image and table can be focused
+                       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
        
-             // this will create the toolbar for the textarea
-             CKEDITOR.replace('eventPredication',{
-              customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-              language : window.CRM.lang,
-              width : '100%'
-             });
+                       // this will create the toolbar for the textarea
+                       CKEDITOR.replace('eventPredication',{
+                        customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+                        language : window.CRM.lang,
+                        width : '100%'
+                       });
       
-             $(".ATTENDENCES").hide();
+                       $(".ATTENDENCES").hide();
        
-             modal.modal("show");
+                       modal.modal("show");
 
-             // change the border color just for fun
-             $(this).css('border-color', 'red');
+                    }
+                  }
+                }
+            });
+
+            box.show();
+              
+            // change the border color just for fun
+            $(this).css('border-color', 'red');
+
           }
         },
         eventResize: function(event, delta, revertFunc) {

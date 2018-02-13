@@ -30,6 +30,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\EventTypesQuery;
@@ -49,7 +50,7 @@ if (array_key_exists('EventID', $_POST)) {
    $EventID = InputUtils::LegacyFilterInput($_POST['EventID'], 'int');
 } else if (isset ($_SESSION['EventID'])) {
    // from api/routes/events.php
-    $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
+   $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
 }
 
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
@@ -106,12 +107,18 @@ $activeEvents = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
     ->find();
+    
+$searchEventInActivEvent = EventQuery::Create()
+    ->filterByInActive(1, Criteria::NOT_EQUAL)
+    ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
+    ->findOneById($EventID);
 
 if ($EventID > 0) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
-        
+    
+    $sTitle = $event->getTitle();
     $sNoteText = $event->getText();        
         
     $eventCountNames = EventCountNameQuery::Create()
@@ -153,6 +160,10 @@ if ($FreeAttendees) {
 
 <div id="errorcallout" class="callout callout-danger" hidden></div>
 
+<?php 
+  if (!empty($searchEventInActivEvent)) {
+?>
+
 <!--Select Event Form -->
 <div class="box box-primary">
     <div class="row">
@@ -190,6 +201,30 @@ if ($FreeAttendees) {
             </div>
     </div>
 </div>
+
+<?php
+} else {
+?>
+
+<!-- short presentation -->
+<div class="box box-primary">
+    <div class="row">
+        <div class="col-md-10 col-xs-12">
+                <div class="box-header">
+                    <h3 class="box-title"><?= $event->getTitle()." (".$event->getDesc().")"." ".gettext("From")." : ".OutputUtils::FormatDate($event->getStart(),1)." ".gettext("To")." : ".OutputUtils::FormatDate($event->getEnd(),1) ?> :</h3>
+                </div>
+                <div class="box-body">
+                    <?php if ($sGlobalMessage): ?>
+                        <p><?= $sGlobalMessage ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+    </div>
+</div>
+
+<?php 
+} 
+?>
 
 <?php 
   if (!empty($eventCountNames)) {

@@ -951,7 +951,7 @@ msgstr "Chat pour développeurs"
 
 #: Checkin.php:15
 msgid "Event Checkin"
-msgstr "Enregistrement Événements"
+msgstr "Faire l'Appel pour l' Événement"
 
 #: Checkin.php:75
 msgid "Select the event to which you would like to check people in for"

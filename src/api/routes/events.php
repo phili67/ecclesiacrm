@@ -302,6 +302,33 @@ $app->group('/events', function () {
   
         return $response->withJson(array_filter($realCalEvnt));
      }
+     else if (!strcmp($input->evntAction,'attendeesCheckinEvent'))
+     {
+        $event = EventQuery::Create()
+          ->findOneById($input->eventID);
+        
+        // for the CheckIn and to add attendees
+        $_SESSION['Action'] = 'Add';
+        $_SESSION['EID'] = $event->getID();
+        $_SESSION['EName'] = $event->getTitle();
+        $_SESSION['EDesc'] = $event->getDesc();
+        $_SESSION['EDate'] = $event->getStart()->format('Y-m-d H:i:s');
+        
+        $_SESSION['EventID'] = $event->getID();
+  
+        return $response->withJson(['status' => "success"]);
+     }
+     else if (!strcmp($input->evntAction,'suppress'))
+     {
+        $event = EventQuery::Create()
+          ->findOneById($input->eventID);
+        
+        if (!empty($event)) {
+          $event->delete();
+        }
+  
+        return $response->withJson(['status' => "success"]);
+     }     
      else if (!strcmp($input->evntAction,'modifyEvent'))
      {
         $event = EventQuery::Create()
@@ -336,7 +363,7 @@ $app->group('/events', function () {
            $eventCouts = EventCountsQuery::Create()->findByEvtcntEventid($event->getID());
            
            if ($eventCouts) {
-           	 $eventCouts->delete();
+              $eventCouts->delete();
            }
            
            foreach ($input->Fields as $field) {
@@ -373,7 +400,7 @@ $app->group('/events', function () {
               }
             }
             
-            // 
+            // for the CheckIn and to add attendees
             $_SESSION['Action'] = 'Add';
             $_SESSION['EID'] = $event->getID();
             $_SESSION['EName'] = $input->EventTitle;
@@ -384,8 +411,9 @@ $app->group('/events', function () {
           }
      
          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
+              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
       
-         return $response->withJson(array_filter($realCalEvnt));     }
+         return $response->withJson(array_filter($realCalEvnt));     
+      }
   });
 });
