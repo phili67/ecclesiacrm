@@ -15,11 +15,23 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
+
+
+$iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
+
+if (isset($_GET['PersonID'])) {
+   $iFamily = PersonQuery::Create()->findOneById($_GET['PersonID'])->getFamId();
+} else if (isset($_GET['FamilyID'])) {
+   $iFamily = $_GET['FamilyID'];
+} else {
+  $iFamily = 0;
+}
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['bNotes']) {
+if (!($_SESSION['bNotes'] || $_GET['PersonID'] == $_SESSION['user']->getPersonId() || $iCurrentFamID == $iFamily)) {
     Redirect('Menu.php');
     exit;
 }

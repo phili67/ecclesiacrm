@@ -290,7 +290,8 @@ CREATE TABLE `eventcounts_evtcnt` (
   `evtcnt_countcount` int(6) default NULL,
   `evtcnt_notes` varchar(255) default NULL,
   PRIMARY KEY  (`evtcnt_eventid`,`evtcnt_countid`),
-  CONSTRAINT fk_evtcnt_event_ID FOREIGN KEY (evtcnt_eventid) REFERENCES events_event(event_id) ON DELETE CASCADE
+  CONSTRAINT fk_evtcnt_event_ID FOREIGN KEY (evtcnt_eventid) REFERENCES events_event(event_id) ON DELETE CASCADE,
+  CONSTRAINT fk_evtcnt_countid FOREIGN KEY (evtcnt_countid) REFERENCES eventcountnames_evctnm(evctnm_countid) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 

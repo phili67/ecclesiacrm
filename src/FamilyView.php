@@ -25,10 +25,13 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\user;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
 $curYear = (new DateTime)->format("Y");
+
+
 
 //Set the page title
 $sPageTitle = gettext("Family View");
@@ -78,6 +81,9 @@ while ($myrow = mysqli_fetch_row($dResults)) {
     }
     $last_id = $fid;
 }
+
+
+$iCurrentUserFamID = $_SESSION['user']->getPerson()->getFamId();
 
 //Get the information for this family
 $sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, a.per_ID AS EnteredId,
@@ -217,6 +223,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     <?php
     } ?>
                 <hr/>
+            <?php 
+                if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) {
+            ?>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:<span>
           <a
@@ -302,6 +311,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         }
     } ?>
                 </ul>
+            <?php
+            }
+            ?>
             </div>
         </div>
     </div>
@@ -338,8 +350,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     <a class="btn btn-app bg-maroon" href="SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
                     <?php
     } ?>
-                <?php
-                if ($_SESSION['bNotes']) {
+                <?php                 
+                 
+                if ($_SESSION['bNotes'] || $iCurrentUserFamID == $iFamilyID) {
                     ?>
                     <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
                     <?php
@@ -356,6 +369,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
             </div>
     </div>
 
+<?php 
+  if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) {
+?>
     <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box box-solid">
                 <div class="box-body table-responsive clearfix">
@@ -437,7 +453,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 </div>
             </div>
     </div>
+<?php
+  }
+?>
 </div>
+
+<?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) { ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="nav-tabs-custom">
@@ -863,6 +884,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         </div>
     </div>
 </div>
+
+<?php } ?>
 
 <!-- Modal -->
 <div id="photoUploader"></div>
