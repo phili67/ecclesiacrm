@@ -178,6 +178,40 @@ CREATE TABLE `email_recipient_pending_erp` (
   `erp_email_address` varchar(50) NOT NULL default ''
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+
+--
+-- Dumping data for table `event_attend`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_types`
+--
+
+CREATE TABLE `event_types` (
+  `type_id` int(11) NOT NULL auto_increment,
+  `type_name` varchar(255) NOT NULL default '',
+  `type_defstarttime` time NOT NULL default '00:00:00',
+  `type_defrecurtype` enum('none','weekly','monthly','yearly') NOT NULL default 'none',
+  `type_defrecurDOW` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL default 'Sunday',
+  `type_defrecurDOM` char(2) NOT NULL default '0',
+  `type_defrecurDOY` date NOT NULL default '2000-01-01',
+  `type_active` int(1) NOT NULL default '1',
+  `type_grpid` mediumint(9),
+
+  PRIMARY KEY  (`type_id`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `event_types`
+--
+
+INSERT INTO `event_types` (`type_id`, `type_name`, `type_defstarttime`, `type_defrecurtype`, `type_defrecurDOW`, `type_defrecurDOM`, `type_defrecurDOY`, `type_active`) VALUES
+  (1, 'Church Service', '10:30:00', 'weekly', 'Sunday', '', '2016-01-01', 1),
+  (2, 'Sunday School', '09:30:00', 'weekly', 'Sunday', '', '2016-01-01', 1);
+
 --
 -- Dumping data for table `email_recipient_pending_erp`
 --
@@ -191,11 +225,12 @@ CREATE TABLE `email_recipient_pending_erp` (
 
 CREATE TABLE `eventcountnames_evctnm` (
   `evctnm_countid` int(5) NOT NULL auto_increment,
-  `evctnm_eventtypeid` smallint(5) NOT NULL default '0',
+  `evctnm_eventtypeid` `evctnm_eventtypeid` int(11),
   `evctnm_countname` varchar(20) NOT NULL default '',
   `evctnm_notes` varchar(20) NOT NULL default '',
   UNIQUE KEY `evctnm_countid` (`evctnm_countid`),
   UNIQUE KEY `evctnm_eventtypeid` (`evctnm_eventtypeid`,`evctnm_countname`)
+  CONSTRAINT fk_evctnm_eventtypeid FOREIGN KEY (evctnm_eventtypeid) REFERENCES event_types(type_id) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=7 ;
 
 --
@@ -210,20 +245,6 @@ INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `e
   (5, 2, 'Members', ''),
   (6, 2, 'Visitors', '');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `eventcounts_evtcnt`
---
-
-CREATE TABLE `eventcounts_evtcnt` (
-  `evtcnt_eventid` int(5) NOT NULL default '0',
-  `evtcnt_countid` int(5) NOT NULL default '0',
-  `evtcnt_countname` varchar(20) default NULL,
-  `evtcnt_countcount` int(6) default NULL,
-  `evtcnt_notes` varchar(255) default NULL,
-  PRIMARY KEY  (`evtcnt_eventid`,`evtcnt_countid`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 --
 -- Dumping data for table `eventcounts_evtcnt`
@@ -247,13 +268,30 @@ CREATE TABLE `events_event` (
   `inactive` int(1) NOT NULL default '0',
   `event_typename` varchar(40) NOT NULL default '',
   `event_grpid` mediumint(9),
-
-  PRIMARY KEY  (`event_id`)
+  `event_parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY  (`event_id`),
+  CONSTRAINT fk_event_parent_id FOREIGN KEY (event_parent_id) REFERENCES events_event(event_id) ON DELETE SET NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `events_event`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventcounts_evtcnt`
+--
+
+CREATE TABLE `eventcounts_evtcnt` (
+  `evtcnt_eventid` int(11) NOT NULL default '0',
+  `evtcnt_countid` int(5) NOT NULL default '0',
+  `evtcnt_countname` varchar(20) default NULL,
+  `evtcnt_countcount` int(6) default NULL,
+  `evtcnt_notes` varchar(255) default NULL,
+  PRIMARY KEY  (`evtcnt_eventid`,`evtcnt_countid`),
+  CONSTRAINT fk_evtcnt_event_ID FOREIGN KEY (evtcnt_eventid) REFERENCES events_event(event_id) ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 
 -- --------------------------------------------------------
@@ -271,7 +309,8 @@ CREATE TABLE `event_attend` (
   `checkout_date` datetime default NULL,
   `checkout_id` int(11) default NULL,
   PRIMARY KEY  (`attend_id`),
-  UNIQUE KEY `event_id` (`event_id`,`person_id`)
+  UNIQUE KEY `event_id` (`event_id`,`person_id`),
+  CONSTRAINT fk_attend_event_ID FOREIGN KEY (event_id) REFERENCES events_event(event_id) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 --

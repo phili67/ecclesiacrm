@@ -327,10 +327,6 @@ $app->group('/events', function () {
         if (!empty($event)) {
           $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
           
-          if ($EventAttends) {
-            $EventAttends->delete();
-          }
-          
           $event->delete();
         }
   
