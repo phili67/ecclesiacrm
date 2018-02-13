@@ -25,7 +25,6 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\dto\user;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
