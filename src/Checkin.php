@@ -72,8 +72,10 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
             
   foreach ($eventAttents as $eventAttent) {
     $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());    
+    
+    $eventAttent->save();
   }
-  
+
   if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else {
@@ -211,7 +213,7 @@ if ($FreeAttendees) {
     <div class="row">
         <div class="col-md-10 col-xs-12">
                 <div class="box-header">
-                    <h3 class="box-title"><?= $event->getTitle()." (".$event->getDesc().")"." ".gettext("From")." : ".OutputUtils::FormatDate($event->getStart(),1)." ".gettext("To")." : ".OutputUtils::FormatDate($event->getEnd(),1) ?> :</h3>
+                    <h3 class="box-title"><?= "<b>".$event->getTitle()."</b> (".$event->getDesc().")"." ".gettext("From")." : <b>".OutputUtils::FormatDate($event->getStart()->format("Y-m-d H:i:s"),1)."</b> ".gettext("To")." : <b>".OutputUtils::FormatDate($event->getEnd()->format("Y-m-d H:i:s"),1)."</b>" ?> :</h3>
                 </div>
                 <div class="box-body">
                     <?php if ($sGlobalMessage): ?>
@@ -559,9 +561,9 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                         <td><img src="<?= SystemURLs::getRootPath() . '/api/persons/' . $per->getPersonId() . '/thumbnail' ?>"
                                  class="direct-chat-img initials-image">&nbsp
                             <a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $sPerson ?></a></td>
-                        <td><?= date_format($per->getCheckinDate(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                        <td><?= (!empty($per->getCheckinDate()))?OutputUtils::FormatDate($per->getCheckinDate()->format("Y-m-d H:i:s"),1):"" ?></td>
                         <td><?= $sCheckinby ?></td>
-                        <td><span id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= date_format($per->getCheckoutDate(), SystemConfig::getValue('sDateFormatLong')) ?></span></td>
+                        <td><span id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= (!empty($per->getCheckoutDate()))?OutputUtils::FormatDate($per->getCheckoutDate()->format("Y-m-d H:i:s"),1):"" ?></span></td>
                         <td><span id="checkoutPersonID<?= $per->getPersonId() ?>"><?= $sCheckoutby ?></span></td>
 
                         <td align="center">
@@ -605,7 +607,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
         <center>
           <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
           <br>
-          <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext('Validate Note') ?>">
+          <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext("Validate Attendance") ?>">
         </center>
         </form>
         <br>

@@ -25,6 +25,7 @@ use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
+use EcclesiaCRM\EventAttendQuery;
 
 $app->group('/events', function () {
 
@@ -324,6 +325,12 @@ $app->group('/events', function () {
           ->findOneById($input->eventID);
         
         if (!empty($event)) {
+          $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
+          
+          if ($EventAttends) {
+            $EventAttends->delete();
+          }
+          
           $event->delete();
         }
   

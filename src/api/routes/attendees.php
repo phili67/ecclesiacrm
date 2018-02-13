@@ -62,7 +62,7 @@ $app->group('/attendees', function () {
       }
       $person = PersonQuery::Create()->findOneById($_SESSION['user']->getPersonId());
       
-      return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => OutputUtils::change_date_for_place_holder($date->format('Y-m-d H:i:s'))]);
+      return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1)]);
   });
 
   $this->post('/student', function ($request, $response, $args) {

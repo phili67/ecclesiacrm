@@ -9713,8 +9713,8 @@ msgstr "Ajouter un nouveau fond"
 
 #: CheckIn.php
 
-msgid "Validate Note"
-msgstr "Valider la note"
+msgid "Validate Attendance"
+msgstr "Valider l'appel"
 
 msgid "Uncheck all"
 msgstr "Décocher tout"
@@ -9731,3 +9731,9 @@ msgstr "Vidéo classique"
 
 msgid "Choose your Document Type"
 msgstr "Choisissez votre type de document"
+
+msgid "From"
+msgstr "De"
+
+msgid "To"
+msgstr "À"

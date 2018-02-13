@@ -245,8 +245,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     </div><!-- ./col -->
     <?php
       $countAttend = EcclesiaCRM\Base\EventAttendQuery::create()
-                    ->filterByCheckinDate(null, \Propel\Runtime\ActiveQuery\Criteria::NOT_EQUAL)
-                    ->filterByCheckoutDate(null, \Propel\Runtime\ActiveQuery\Criteria::EQUAL)
+                    ->filterByCheckoutId(null, \Propel\Runtime\ActiveQuery\Criteria::EQUAL)
                     ->find()
                     ->count();
                     
