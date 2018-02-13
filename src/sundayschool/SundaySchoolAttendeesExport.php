@@ -58,17 +58,25 @@ $labelArr[] = InputUtils::translate_special_charset("Birth Date");
 $labelArr[] = InputUtils::translate_special_charset("Age");
 $labelArr[] = InputUtils::translate_special_charset("Phone");
 $labelArr[] = InputUtils::translate_special_charset("Group");
-$labelArr[] = InputUtils::translate_special_charset("Problem");
+$labelArr[] = InputUtils::translate_special_charset("Notes");
 /*$labelArr[] = InputUtils::translate_special_charset("Photo");*/
 /*$labelArr[] = InputUtils::translate_special_charset("Follow");
 $labelArr[] = InputUtils::translate_special_charset("Re-inscription");*/
 $labelArr[] = InputUtils::translate_special_charset("Stats");
 
-$activeEvents = EventQuery::Create()
-  ->filterByGroupId($iGroupID)
-  ->filterByInActive(1, Criteria::NOT_EQUAL)
-  ->Where('YEAR(event_start)='.$iYear2.' OR YEAR(event_start)='.$iYear1)// We filter only the events from the current month : date('Y')
-  ->find();
+if (!empty($iYear2)) {
+  $activeEvents = EventQuery::Create()
+    ->filterByGroupId($iGroupID)
+    ->filterByInActive(1, Criteria::NOT_EQUAL)
+    ->Where('YEAR(event_start)='.$iYear2.' OR YEAR(event_start)='.$iYear1)// We filter only the events from the current month : date('Y')
+    ->find();
+} else {
+  $activeEvents = EventQuery::Create()
+    ->filterByGroupId($iGroupID)
+    ->filterByInActive(1, Criteria::NOT_EQUAL)
+    ->Where('YEAR(event_start)='.$iYear1)// We filter only the events from the current month : date('Y')
+    ->find();
+}
 
 
 $group = GroupQuery::Create()->findOneById($iGroupID);  
@@ -83,8 +91,7 @@ fputcsv($out, $labelArr, $delimiter);
 
 $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
                             ->joinWithPerson()
-                            ->orderBy(PersonTableMap::COL_PER_LASTNAME)
-                            ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce ORDER BY per_LastName, per_FirstName
+                            ->orderBy(PersonTableMap::COL_PER_FIRSTNAME) // I've try to reproduce ORDER BY per_LastName, per_FirstName
                             ->findByGroupId($iGroupID);
                             
 

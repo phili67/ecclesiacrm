@@ -9737,3 +9737,8 @@ msgstr "De"
 
 msgid "To"
 msgstr "À"
+
+#: SundaySchoolView.php
+
+msgid "Export Attendance"
+msgstr "Fichiers des présents"
