@@ -252,6 +252,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
     <!-- /.box -->
 
     <!-- About Me Box -->
+    <?php 
+      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID']  || $_SESSION['bSeePrivacyData']) { 
+    ?>
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title text-center"><?php echo gettext('About Me'); ?></h3>
@@ -378,16 +381,20 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <div class="alert alert-info alert-dismissable">
           <i class="fa fa-fw fa-tree"></i> <?php echo gettext('indicates items inherited from the associated family record.'); ?>
       </div>
+    <?php
+     }
+    ?>
+    
   </div>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-primary box-body">
-      <?php if ($per_ID == $_SESSION['user']->getPersonId()) {
+      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData']) {
         ?>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
+              <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
             <?php
     } ?>
-      <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
       <?php
         if (Cart::PersonInCart($iPersonID)) {
       ?>
@@ -402,7 +409,13 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <?php if ($_SESSION['bNotes']) {
         ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/WhyCameEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Edit \"Why Came\" Notes") ?></a>
+        <?php
+         }
+        ?>
+      <?php if ($_SESSION['bNotes'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'])) {
+      ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-sticky-note"></i> <?= gettext("Add a Document") ?></a>
+      
       <?php
     }
     if ($_SESSION['bDeleteRecords']) {
@@ -429,6 +442,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>
     </div>
   </div>
+  
+  <?php 
+    if ($_SESSION['bManageGroups'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'])) {
+  ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
       <!-- Nav tabs -->
@@ -979,6 +996,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
     </div>
   </div>
 </div>
+
+<?php
+  }
+?>
+
 <!-- Modal -->
 <div id="photoUploader">
 

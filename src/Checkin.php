@@ -127,6 +127,9 @@ if ($EventID > 0) {
         ->leftJoinEventTypes()
         ->Where('type_id='.$event->getType())
         ->find();
+} else {
+  Redirect('Menu.php');
+  exit;
 }
 
 if ($FreeAttendees) {

@@ -23,6 +23,12 @@ $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iPerson = InputUtils::LegacyFilterInput($_GET['PersonID']);
 $iWhyCameID = InputUtils::LegacyFilterInput($_GET['WhyCameID']);
 
+if (!($_SESSION['bSeePrivacyData'])) {
+    Redirect('Menu.php');
+    exit;
+}
+
+
 //Get name
 $sSQL = 'SELECT per_FirstName, per_LastName FROM person_per where per_ID = '.$iPerson;
 $rsPerson = RunQuery($sSQL);

@@ -15,12 +15,6 @@ require 'Include/Functions.php';
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\InputUtils;
 
-// Security: User must have Notes permission
-// Otherwise, re-direct them to the main menu.
-if (!$_SESSION['bNotes']) {
-    Redirect('Menu.php');
-    exit;
-}
 
 //Set the page title
 $sPageTitle = gettext('Document Delete Confirmation');
@@ -42,6 +36,16 @@ if ($nte_per_ID > 0) {
 elseif ($nte_fam_ID > 0) {
     $sReroute = 'FamilyView.php?FamilyID='.$nte_fam_ID;
 }
+
+$iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
+
+// Security: User must have Notes permission
+// Otherwise, re-direct them to the main menu.
+if (!($_SESSION['bNotes']  || $nte_per_ID == $_SESSION['user']->getPersonId() || $nte_fam_ID == $iCurrentFamID)) {
+    Redirect('Menu.php');
+    exit;
+}
+
 
 //Do we have confirmation?
 if (isset($_GET['Confirmed'])) {
