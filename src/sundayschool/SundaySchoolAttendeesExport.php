@@ -31,7 +31,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 $iGroupID = $_GET['groupID'];
 
-list($iYear1,$iYear2) = explode('-', $_GET['year']);
+$startDate = $_GET['start'];
+$endDate = $_GET['end'];
 
 // we start to build the CSV file
 header('Pragma: no-cache');
@@ -64,20 +65,12 @@ $labelArr[] = InputUtils::translate_special_charset("Notes");
 $labelArr[] = InputUtils::translate_special_charset("Re-inscription");*/
 $labelArr[] = InputUtils::translate_special_charset("Stats");
 
-if (!empty($iYear2)) {
-  $activeEvents = EventQuery::Create()
+$activeEvents = EventQuery::Create()
     ->filterByGroupId($iGroupID)
     ->filterByInActive(1, Criteria::NOT_EQUAL)
-    ->Where('YEAR(event_start)='.$iYear2.' OR YEAR(event_start)='.$iYear1)// We filter only the events from the current month : date('Y')
+    ->Where('event_start BETWEEN "'.$startDate.'" AND "'.$endDate.'"')// We filter only the events from the current month : date('Y')
     ->find();
-} else {
-  $activeEvents = EventQuery::Create()
-    ->filterByGroupId($iGroupID)
-    ->filterByInActive(1, Criteria::NOT_EQUAL)
-    ->Where('YEAR(event_start)='.$iYear1)// We filter only the events from the current month : date('Y')
-    ->find();
-}
-
+    
 
 $group = GroupQuery::Create()->findOneById($iGroupID);  
 

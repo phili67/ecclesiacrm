@@ -117,35 +117,99 @@ $("document").ready(function(){
       })
     });
     
+    function BootboxContent(start,end) 
+    {  
+      var time_format;
+      var fmt = window.CRM.datePickerformat.toUpperCase();
+        
+      var dateStart = moment(start).format(fmt);
+      var dateEnd = moment(end).format(fmt);
+    
+      var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
+          +'<div class="row">'
+              +'<div class="col-md-12">'
+                  +'<div class="row">'
+                    +'<div class="col-md-3"><span style="color: red">*</span>'
+                      + i18next.t('Start Date')+' :'
+                    +'</div>'
+                     +'<div class="col-md-3">'  
+                       +'<div class="input-group">'
+                          +'<div class="input-group-addon">'
+                              +'<i class="fa fa-calendar"></i>'
+                          +'</div>'
+                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventStart" name="dateEventStart"  value="'+dateStart+'" '
+                                +'maxlength="10" id="sel1" size="11"'
+                                +'placeholder="'+window.CRM.datePickerformat+'">'
+                        +'</div>'
+                    +'</div>'
+                    +'<div class="col-md-3"><span style="color: red">*</span>'
+                      + i18next.t('End Date')+' :'
+                    +'</div>'
+                     +'<div class="col-md-3">'  
+                       +'<div class="input-group">'
+                          +'<div class="input-group-addon">'
+                              +'<i class="fa fa-calendar"></i>'
+                          +'</div>'
+                          +'<input class="form-control date-picker input-sm" type="text" id="dateEventEnd" name="dateEventEnd"  value="'+dateEnd+'" '
+                                +'maxlength="10" id="sel1" size="11"'
+                                +'placeholder="'+window.CRM.datePickerformat+'">'
+                        +'</div>'
+                    +'</div>'
+                  +'</div>'
+                +'</div>'
+            +'</div>'
+         + '</form>';
+        
+      var object = $('<div/>').html(frm_str).contents();
+
+      return object
+    }
+
+    
     $(document).on("click",".exportCheckOut", function(){
        var groupID = $(this).data("makecheckoutgroupid");
        
-       bootbox.prompt({
-        size: "small",
-        title: i18next.t("Set the year range to export"),
-        value: moment().year()-1+'-'+moment().year(),
-        buttons: {
-          cancel: {
-            label: i18next.t('Cancel'),
-            className: 'btn-default',
-            callback: function () {
-            }
+       var start=moment().subtract(1, 'years').format('YYYY-MM-DD');
+       var end=moment().format('YYYY-MM-DD');
+       
+       var modal = bootbox.dialog({
+         title: i18next.t("Set the year range to export"),
+         message: BootboxContent(start,end),
+         buttons: [
+          {
+           label: i18next.t("Cancel"),
+           className: "btn btn-default",
+           callback: function() {
+              console.log("just do something on close");
+           }
           },
-          confirm: {
+          {
             label: i18next.t('OK'),
-            className: 'btn-primary',
-            callback: function () {
+            className: "btn btn-primary",
+            callback: function() {
+                  var dateStart = $('form #dateEventStart').val();
+                  var dateEnd = $('form #dateEventEnd').val();
+                  
+                  var fmt = window.CRM.datePickerformat.toUpperCase();
+    
+                  var real_start = moment(dateStart,fmt).format('YYYY-MM-DD');
+                  var real_end = moment(dateEnd,fmt).format('YYYY-MM-DD');
+                  
+                  window.location = window.CRM.root + "/sundayschool/SundaySchoolAttendeesExport.php?groupID="+groupID+"&start="+real_start+"&end="+real_end;
             }
           }
-        },
-        callback: function(result){ 
-          if (result) {
-            window.location = window.CRM.root + "/sundayschool/SundaySchoolAttendeesExport.php?groupID="+groupID+"&year="+result;
-          }
-       }
-      });
+         ],
+         show: false/*,
+         onEscape: function() {
+            modal.modal("hide");
+         }*/
+       });
        
        
+       
+       modal.modal("show");
+
+       $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
     });
     
     
