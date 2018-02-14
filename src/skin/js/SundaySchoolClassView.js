@@ -124,6 +124,7 @@ $("document").ready(function(){
         
       var dateStart = moment(start).format(fmt);
       var dateEnd = moment(end).format(fmt);
+      
     
       var frm_str = '<b><p>'+i18next.t("First, set your time range correctly to make the extraction.")+'</p></b><hr/><form id="some-form">'
           +'<div class="row">'
