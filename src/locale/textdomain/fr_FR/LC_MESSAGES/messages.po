@@ -8533,7 +8533,7 @@ msgstr "Mot de passe oublié"
 
 #: Menu.php:259
 msgid "Attendees Checked In"
-msgstr "Participants inscrit"
+msgstr "Participants à un Appel non validés"
 
 #: AutoPaymentEditor.php:827
 msgid "Bank Draft "
@@ -9742,3 +9742,6 @@ msgstr "À"
 
 msgid "Export Attendance"
 msgstr "Fichiers des présents"
+
+msgid "Add some notes"
+msgstr "Ajouter quelques notes"
