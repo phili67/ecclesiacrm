@@ -23,6 +23,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -32,7 +33,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 $iGroupID = $_GET['groupID'];
 
 $startDate = $_GET['start'];
-$endDate = $_GET['end'];
+$endDate   = $_GET['end'];
 
 // we start to build the CSV file
 header('Pragma: no-cache');
@@ -143,7 +144,7 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
     
       $lineArr[] = InputUtils::translate_special_charset($person->getFirstName());
       $lineArr[] = InputUtils::translate_special_charset($person->getLastName());
-      $lineArr[] = $person->getBirthDate()->format("Y-m-d");
+      $lineArr[] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
       $lineArr[] = $person->getAge();
       $lineArr[] = $homePhone;
       $lineArr[] = $group->getName();
