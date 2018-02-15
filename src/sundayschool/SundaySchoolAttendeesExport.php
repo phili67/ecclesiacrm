@@ -28,6 +28,12 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+
+
+if (!($_SESSION['bExportCSV'] || $_SESSION['bAdmin'])) {
+    Redirect('Menu.php');
+    exit;
+}
   
 
 $iGroupID = $_GET['groupID'];
