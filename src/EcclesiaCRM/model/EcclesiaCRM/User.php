@@ -66,6 +66,26 @@ class User extends BaseUser
         return false;
     }
     
+    public function belongsToGroup($iGroupID)
+    {
+        if ($this->isAdmin() || $this->isAddRecords()) {
+          return true;
+        }
+
+        $group = GroupQuery::Create()->findOneById($iGroupID);
+        
+        $groupRoleMembership = Person2group2roleP2g2rQuery::create()
+                            ->filterByPersonId ($this->getPersonId())
+                            ->filterByGroupId($iGroupID)
+                            ->findOne();
+
+        if (!empty($groupRoleMembership)) {
+            return true;
+        }
+        
+        return false;
+    }
+    
     public function isShowCartEnabled()
     {
         return $this->isAdmin() || $this->isShowCart();
