@@ -492,7 +492,7 @@ require 'Include/Header.php';
               
                 var isShowable  = <?php
                  // it should be better to write this part in the api/groups/members
-                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'] || $_SESSION['user']->belongsToGroup($iGroupID) ) {
                      echo "true";
                   } else {
                      echo "false";
