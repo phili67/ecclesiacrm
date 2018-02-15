@@ -223,7 +223,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     } ?>
                 <hr/>
             <?php 
-                if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) {
+                if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
             ?>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:<span>
@@ -318,37 +318,58 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box"><br/>
+                <?php
+                  if ($_SESSION['bAdmin']) {
+                ?>
                 <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
+                <?php
+                  }
+                ?>
                 
                 <?php
-                  if (Cart::FamilyInCart($iFamilyID)) {
+                  if (Cart::FamilyInCart($iFamilyID) && $_SESSION['bShowCart']) {
                 ?>
                   <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
                 <?php 
-                  } else {
+                  } else if ($_SESSION['bShowCart']) {
                 ?>
                   <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
                 <?php 
                  }
                 ?>
                 
-                <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
-                <?php if (($previous_id > 0)) {
-        ?>
+                <?php
+                  if ($_SESSION['bAddRecords'] || $iCurrentUserFamID == $iFamilyID) {
+                ?>
+                   <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
+                <?php
+                  }
+                ?>
+                
+                <?php 
+                  if (($previous_id > 0)) {
+                ?>
                     <a class="btn btn-app" href="FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
-                    <?php
-    } ?>
+                <?php
+                  } 
+                ?>
+                
                 <a class="btn btn-app btn-danger" role="button" href="FamilyList.php"><i class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
-                <?php if (($next_id > 0)) {
-        ?>
+                <?php 
+                   if (($next_id > 0)) {
+                ?>
                     <a class="btn btn-app" role="button" href="FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
-                    <?php
-    } ?>
-                <?php if ($_SESSION['bDeleteRecords']) {
-        ?>
+                <?php
+                  } 
+                ?>
+                
+                <?php 
+                   if ($_SESSION['bDeleteRecords']) {
+                ?>
                     <a class="btn btn-app bg-maroon" href="SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
-                    <?php
-    } ?>
+                <?php
+                  } 
+                ?>
                 <?php                 
                  
                 if ($_SESSION['bNotes'] || $iCurrentUserFamID == $iFamilyID) {
@@ -358,7 +379,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 } ?>
                         
 
-                <?php if ($bOkToEdit) {
+                <?php if ($bOkToEdit && $_SESSION['bAdmin']) {
                     ?>
                     <button class="btn btn-app bg-orange" id="activateDeactivate">
                         <i class="fa <?= (empty($fam_DateDeactivated) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($fam_DateDeactivated) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
@@ -369,7 +390,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
     </div>
 
 <?php 
-  if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) {
+  if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box box-solid">
@@ -457,7 +478,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
 ?>
 </div>
 
-<?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']) { ?>
+<?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']  || $_SESSION['bAdmin']) { ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="nav-tabs-custom">

@@ -66,6 +66,16 @@ class User extends BaseUser
         return false;
     }
     
+    public function isShowCartEnabled()
+    {
+        return $this->isAdmin() || $this->isShowCart();
+    }
+
+    public function isShowMapEnabled()
+    {
+        return $this->isAdmin() || $this->isShowMap();
+    }
+
     public function isAddRecordsEnabled()
     {
         return $this->isAdmin() || $this->isAddRecords();

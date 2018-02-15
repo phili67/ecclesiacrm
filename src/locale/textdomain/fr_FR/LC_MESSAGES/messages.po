@@ -9745,3 +9745,20 @@ msgstr "Fichiers des présents"
 
 msgid "Add some notes"
 msgstr "Ajouter quelques notes"
+
+#: UserEditor.php
+
+msgid "Show Cart"
+msgstr "Visualiser le panier"
+
+msgid "Show Map"
+msgstr "Visualiser les cartes"
+
+#: SelectList.php
+
+msgid "Private Data"
+msgstr "Donnée privée"
+
+msgid "records returned"
+msgstr "Enregistrements retournés"
+

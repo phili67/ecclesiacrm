@@ -253,7 +253,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
     <!-- About Me Box -->
     <?php 
-      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID']  || $_SESSION['bSeePrivacyData']) { 
+      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID']  || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) { 
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -388,7 +388,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
   </div>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-primary box-body">
-      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData']) {
+      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
         ?>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
@@ -396,11 +396,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <?php
     } ?>
       <?php
-        if (Cart::PersonInCart($iPersonID)) {
+        if (Cart::PersonInCart($iPersonID) && $_SESSION['bShowCart']) {
       ?>
         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
       <?php 
-        } else {
+        } else if ($_SESSION['bShowCart']) {
       ?>
           <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
       <?php 
@@ -444,7 +444,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
   </div>
   
   <?php 
-    if ($_SESSION['bManageGroups'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'])) {
+    if ($_SESSION['bManageGroups'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'])) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
