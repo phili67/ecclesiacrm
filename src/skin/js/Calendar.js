@@ -662,14 +662,16 @@
                     className: 'btn btn-danger',
                      callback: function () {
                        bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
-                        window.CRM.APIRequest({
-                           method: 'POST',
-                           path: 'events/',
-                           data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
-                        }).done(function(data) {
-                           $('#calendar').fullCalendar( 'refetchEvents' );
-                           $('#calendar').fullCalendar('unselect'); 
-                        });
+                        if (confirmed) {
+                          window.CRM.APIRequest({
+                             method: 'POST',
+                             path: 'events/',
+                             data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                          }).done(function(data) {
+                             $('#calendar').fullCalendar( 'refetchEvents' );
+                             $('#calendar').fullCalendar('unselect'); 
+                          });
+                        }
                       });
                     }
                   },     
