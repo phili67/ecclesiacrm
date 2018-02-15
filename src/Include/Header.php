@@ -94,7 +94,7 @@ $MenuFirst = 1;
             <li class="dropdown notifications-menu" id="CartBlock" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">
                     <i class="fa fa-shopping-cart"></i>
-                    <span id="iconCount" class="label label-success"><?= Cart::CountPeople()."coucou".$_SESSION['bShowCart'] ?></span>
+                    <span id="iconCount" class="label label-success"><?= Cart::CountPeople() ?></span>
                 </a>
                 <ul class="dropdown-menu" id="cart-dropdown-menu"></ul>
             </li>
