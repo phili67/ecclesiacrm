@@ -55,7 +55,7 @@ $(document).ready(function () {
         title:i18next.t( 'Group Name'),
         data: 'Name',
         render: function (data, type, full, meta) {
-          return '<a href=\'GroupView.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href=\'GroupEditor.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>' + data;
+            return '<a href=\'GroupView.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href=\'GroupEditor.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>' + data;
         }
       },
       {
@@ -79,9 +79,10 @@ $(document).ready(function () {
       
           if ($.inArray(full.Id, window.CRM.groupsInCart) > -1) {
             return "<span>"+i18next.t("All members of this group are in the cart")+"</span>&nbsp;<a onclick=\"saveScrollCoordinates()\" class=\"btn btn-xs btn-danger \" id=\"removeGroupFromCart\" data-groupid=\"" + full.Id + "\">" + i18next.t("Remove all") + "</a>";
-          }
-          else {
+          } else if (window.CRM.showCart){
             return "<span>"+i18next.t("Not all members of this group are in the cart")+"</span>&nbsp;<a onclick=\"saveScrollCoordinates()\" id=\"AddGroupToCart\" class=\"btn btn-xs btn-primary"+activLink+"\" data-groupid=\"" + full.Id + "\">" + i18next.t("Add all") + "</a>";
+          } else {
+            return i18next.t("Cart isn't showable");
           }
         }
       },
