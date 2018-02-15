@@ -307,13 +307,16 @@ require '../Include/Header.php';
   </script>
 
 <?php
-      }
+      } else {
 ?>
   <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function () {
       $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
   });
   </script>
+<?php
+      }
+?>
 <?php
 require '../Include/Footer.php' 
 ?>
