@@ -88,14 +88,19 @@ $MenuFirst = 1;
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
             <!-- Cart Functions: style can be found in dropdown.less -->
+            <?php 
+               if ($_SESSION['bShowCart']) { 
+            ?>
             <li class="dropdown notifications-menu" id="CartBlock" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">
                     <i class="fa fa-shopping-cart"></i>
-                    <span id="iconCount" class="label label-success"><?= Cart::CountPeople() ?></span>
+                    <span id="iconCount" class="label label-success"><?= Cart::CountPeople()."coucou".$_SESSION['bShowCart'] ?></span>
                 </a>
                 <ul class="dropdown-menu" id="cart-dropdown-menu"></ul>
             </li>
-
+            <?php 
+               }
+            ?>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your settings and more') ?>">

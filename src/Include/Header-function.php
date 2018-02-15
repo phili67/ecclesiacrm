@@ -135,6 +135,7 @@ function Header_body_scripts()
             timeEnglish:"<?= (SystemConfig::getValue("sTimeEnglish"))?"true":"false" ?>",
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:"<?= $_SESSION['bShowTooltip'] ?>",
+            showCart:"<?= $_SESSION['bShowCart'] ?>",
             plugin: {
                 dataTable : {
                    "language": {
