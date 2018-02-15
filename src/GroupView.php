@@ -489,6 +489,16 @@ require 'Include/Header.php';
             <script nonce="<?= SystemURLs::getCSPNonce() ?>">
               window.CRM.currentGroup = <?= $iGroupID ?>;
               var dataT = 0;
+              
+                var isShowable  = <?php
+                 // it should be better to write this part in the api/groups/members
+                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+                     echo "true";
+                  } else {
+                     echo "false";
+                  }
+               ?>;
+
               $(document).ready(function () {
                 $('#isGroupActive').prop('checked', <?= $thisGroup->isActive()? 'true': 'false' ?>).change();
                 $('#isGroupEmailExport').prop('checked', <?= $thisGroup->isIncludeInEmailExport()? 'true': 'false' ?>).change();

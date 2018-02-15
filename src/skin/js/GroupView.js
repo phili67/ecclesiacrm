@@ -290,40 +290,84 @@ function initDataTable() {
           thisRole = $(window.CRM.groupRoles).filter(function (index, item) {
             return item.OptionId == data
           })[0];
-          return i18next.t(thisRole.OptionName) + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
+          
+          if (isShowable) {
+            return i18next.t(thisRole.OptionName) + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
+          } else {
+            return i18next.t("Private Data");
+          }
         }
       },
       {
         width: 'auto',
         title: i18next.t('Address'),
-        render: function (data, type, full, meta) {
-          return full.Person.Address1 + " " + full.Person.Address2;
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return full.Person.Address1 + " " + full.Person.Address2;
+          } else {
+            return i18next.t("Private Data");
+          }
         }
       },
       {
         width: 'auto',
         title: i18next.t('City'),
-        data: 'Person.City'
+        data: 'Person.City',
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return data;
+          } else {
+            return i18next.t("Private Data");
+          }
+        }
       },
       {
         width: 'auto',
         title: i18next.t('State'),
-        data: 'Person.State'
+        data: 'Person.State',
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return data;
+          } else {
+            return i18next.t("Private Data");
+          }
+        }
       },
       {
         width: 'auto',
         title: i18next.t('Zip Code'),
-        data: 'Person.Zip'
+        data: 'Person.Zip',
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return data;
+          } else {
+            return i18next.t("Private Data");
+          }
+        }
       },
       {
         width: 'auto',
         title: i18next.t('Cell Phone'),
-        data: 'Person.CellPhone'
+        data: 'Person.CellPhone',
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return data;
+          } else {
+            return i18next.t("Private Data");
+          }
+        }
       },
       {
         width: 'auto',
         title: i18next.t('Email'),
-        data: 'Person.Email'
+        data: 'Person.Email',
+        render: function (data, type, full, meta) {          
+          if (isShowable) {
+            return data;
+          } else {
+            return i18next.t("Private Data");
+          }
+        }
       }
     ],
     "fnDrawCallback": function (oSettings) {
