@@ -114,11 +114,15 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
      ?>
     <br/>
     <a href="FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= gettext('All Families') ?></a>
-    <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= gettext('Family Geographic') ?></a>
-    <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?>
-    </a>
-    <a href="UpdateAllLatLon.php" class="btn btn-app"><i
-        class="fa fa-map-pin"></i><?= gettext('Update All Family Coordinates') ?></a>
+    <?php
+      if ($_SESSION['bShowMap']) {
+    ?>
+      <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= gettext('Family Geographic') ?></a>
+      <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+      <a href="UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= gettext('Update All Family Coordinates') ?></a>
+    <?php
+      }
+    ?>
   </div>
 </div>
 <!-- Small boxes (Stat box) -->
