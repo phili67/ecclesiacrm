@@ -78,14 +78,20 @@ require 'Include/Header.php';
     <h3 class="box-title"><?= gettext('Group Functions') ?></h3>
   </div>
   <div class="box-body">
-    <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+    <?php 
+      if ($_SESSION['bShowMap']) {
+    ?>
+      <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+    <?php
+      }
+    ?>
     
     <?php
-      if (Cart::GroupInCart($iGroupID)) {
+      if (Cart::GroupInCart($iGroupID) && $_SESSION['bShowCart']) {
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
     <?php
-      } else {
+      } else if ($_SESSION['bShowCart']){
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
     <?php
