@@ -632,16 +632,16 @@ INSERT INTO `menuconfig_mcf` (`mid`, `name`, `parent`, `ismenu`, `content_englis
   (64, 'depositreport', 'deposit', 0, 'Deposit Reports', 'Deposit Reports', 'FinancialReports.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 4, NULL),
   (65, 'depositslip', 'deposit', 0, 'Edit Deposit Slip', 'Edit Deposit Slip', 'DepositSlipEditor.php', '', 'bFinance', 'iCurrentDeposit', 1, 1, 'DepositSlipID', 1, 5, NULL),
 
-  (70, 'fundraiser', 'root', 1, 'Fundraiser', 'Fundraiser', '', '', 'bAll', NULL, 0, 0, NULL, 1, 8, 'fa-money'),
-  (71, 'viewfundraiser', 'fundraiser', 0, 'View All Fundraisers', 'View All Fundraisers', 'FindFundRaiser.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1, NULL),
-  (72, 'newfundraiser', 'fundraiser', 0, 'Create New Fundraiser', 'Create New Fundraiser', 'FundRaiserEditor.php?FundRaiserID=-1', '', 'bAll', NULL, 0, 0, NULL, 1, 2, NULL),
-  (73, 'editfundraiser', 'fundraiser', 0, 'Edit Fundraiser', 'Edit Fundraiser', 'FundRaiserEditor.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 3, NULL),
-  (74, 'viewbuyers', 'fundraiser', 0, 'View Buyers', 'View Buyers', 'PaddleNumList.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 4, NULL),
-  (75, 'adddonors', 'fundraiser', 0, 'Add Donors to Buyer List', 'Add Donors to Buyer List', 'AddDonors.php', '', 'bAll', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5, NULL),
+  (70, 'fundraiser', 'root', 1, 'Fundraiser', 'Fundraiser', '', '', 'bFinance', NULL, 0, 0, NULL, 1, 8, 'fa-money'),
+  (71, 'viewfundraiser', 'fundraiser', 0, 'View All Fundraisers', 'View All Fundraisers', 'FindFundRaiser.php', '', 'bFinance', NULL, 0, 0, NULL, 1, 1, NULL),
+  (72, 'newfundraiser', 'fundraiser', 0, 'Create New Fundraiser', 'Create New Fundraiser', 'FundRaiserEditor.php?FundRaiserID=-1', '', 'bFinance', NULL, 0, 0, NULL, 1, 2, NULL),
+  (73, 'editfundraiser', 'fundraiser', 0, 'Edit Fundraiser', 'Edit Fundraiser', 'FundRaiserEditor.php', '', 'bFinance', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 3, NULL),
+  (74, 'viewbuyers', 'fundraiser', 0, 'View Buyers', 'View Buyers', 'PaddleNumList.php', '', 'bFinance', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 4, NULL),
+  (75, 'adddonors', 'fundraiser', 0, 'Add Donors to Buyer List', 'Add Donors to Buyer List', 'AddDonors.php', '', 'bFinance', 'iCurrentFundraiser', 1, 1, 'FundRaiserID', 1, 5, NULL),
 
-  (80, 'report', 'root', 1, 'Data/Reports', 'Data/Reports', '', '', 'bAll', NULL, 0, 0, NULL, 1, 9, 'fa-file-pdf-o'),
-  (81, 'reportmenu', 'report', 0, 'Reports Menu', 'Reports Menu', 'ReportList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1, NULL),
-  (82, 'querymenu', 'report', 0, 'Query Menu', 'Query Menu', 'QueryList.php', '', 'bAll', NULL, 0, 0, NULL, 1, 2, NULL);
+  (80, 'report', 'root', 1, 'Data/Reports', 'Data/Reports', '', '', 'bAdmin', NULL, 0, 0, NULL, 1, 9, 'fa-file-pdf-o'),
+  (81, 'reportmenu', 'report', 0, 'Reports Menu', 'Reports Menu', 'ReportList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 1, NULL),
+  (82, 'querymenu', 'report', 0, 'Query Menu', 'Query Menu', 'QueryList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2, NULL);
   
 -- --------------------------------------------------------
 
@@ -1207,6 +1207,8 @@ CREATE TABLE `user_usr` (
   `usr_CalNoSchool8` date default NULL,
   `usr_SearchFamily` tinyint(3) default NULL,
   `usr_Canvasser` tinyint(1) NOT NULL default '0',
+  `usr_ShowCart` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `usr_ShowMap` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY  (`usr_per_ID`),
   UNIQUE KEY `usr_UserName` (`usr_UserName`),
   KEY `usr_per_ID` (`usr_per_ID`)
