@@ -487,9 +487,15 @@ require 'Include/Header.php';
 </script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/SelectList.js"></script>
 
+
+<?php 
+  if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+?>
 <div class="box box-primary">
     <div class="box-header">
+       <h3>
         <?= gettext('Filter and Cart') ?>
+       </h3>
     </div>
     <div class="box-body">
 <form method="get" action="SelectList.php" name="PersonList">
@@ -517,19 +523,19 @@ if ($iMode == 1) {
 <table align="center"><tr><td align="center">
 <?= gettext('Sort order') ?>:
 <select name="Sort" onchange="this.form.submit()">
-		<option value="name" <?php if ($sSort == 'name' || empty($sSort)) {
+    <option value="name" <?php if ($sSort == 'name' || empty($sSort)) {
     echo 'selected';
 } ?>><?= gettext('By Name') ?></option>
-		<option value="family" <?php if ($sSort == 'family') {
+    <option value="family" <?php if ($sSort == 'family') {
     echo 'selected';
 } ?>><?= gettext('By Family') ?></option>
-		<option value="zip" <?php if ($sSort == 'zip') {
+    <option value="zip" <?php if ($sSort == 'zip') {
     echo 'selected';
 } ?>><?= gettext('By Zip Code') ?></option>
-		<option value="entered" <?php if ($sSort == 'entered') {
+    <option value="entered" <?php if ($sSort == 'entered') {
     echo 'selected';
 } ?>><?= gettext('By Newest Entries') ?></option>
-		<option value="edited" <?php if ($sSort == 'edited') {
+    <option value="edited" <?php if ($sSort == 'edited') {
     echo 'selected';
 } ?>><?= gettext('By Recently Edited') ?></option>
 
@@ -542,9 +548,9 @@ if ($iMode == 1) {
 </td></tr>
 <?php
 
-echo '	<tr><td align="center">
-		<select name="Gender" onchange="this.form.submit()">
-		<option value="" ';
+echo '  <tr><td align="center">
+    <select name="Gender" onchange="this.form.submit()">
+    <option value="" ';
 if (!isset($iGender)) {
     echo ' selected ';
 }
@@ -564,8 +570,8 @@ echo '> '.gettext('Female').'</option></select>';
 
 // **********
 // Classification drop down list
-echo '	<select name="Classification" onchange="this.form.submit()">
-		<option value="" ';
+echo '  <select name="Classification" onchange="this.form.submit()">
+    <option value="" ';
 if ($iClassification >= 0) {
     echo ' selected ';
 }
@@ -688,8 +694,8 @@ if ($iMode == 1) {
             $aGroupNames[intval($grp_ID)] = $grp_Name;
         }
 
-        echo '	<select name="groupid" onchange="this.form.submit()">
-				<option value="" ';
+        echo '  <select name="groupid" onchange="this.form.submit()">
+        <option value="" ';
         if (!isset($iGroupType)) {
             echo ' selected ';
         }
@@ -737,8 +743,8 @@ if ($iMode == 1) {
             $aGroupRoles[intval($lst_OptionID)] = $lst_OptionName;
         }
 
-        echo '	<select name="grouproleid" onchange="this.form.submit()" >
-				<option value="" ';
+        echo '  <select name="grouproleid" onchange="this.form.submit()" >
+        <option value="" ';
         if ($iRoleID < 0) {
             echo ' selected ';
         }
@@ -763,19 +769,26 @@ if ($iMode == 1) {
 <a id="RemoveAllFromCart" class="btn btn-danger" ><?= gettext('Remove All from Cart') ?></a>
 </td></tr>
 </table></form>
-	</div>
+  </div>
 </div>
+
+<?php
+}
+?>
+
 <div class="box box-warning">
-	<div class="box-header">
+  <div class="box-header">
+     <h3>
         <?= gettext('Listing')?>
+     </h3>
     </div>
-	<div class="box-body">
+  <div class="box-body">
 <?php
 // Display record count
 if ($Total == 1) {
-    echo '<p align = "center">' . $Total . gettext(" record returned") . '</p>';
+    echo '<p align = "center">' . $Total . " ".gettext("record returned") . '</p>';
 } else {
-    echo '<p align = "center">' . $Total . gettext(" records returned") . '</p>';
+    echo '<p align = "center">' . $Total . " ".gettext("records returned") . '</p>';
 }
 // Create Sort Links
 echo '<div align="center">';
@@ -921,19 +934,19 @@ if ($Total > 0) {
     }
 
     echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.gettext('Display:').'&nbsp;
-	<select class="SmallText" name="Number" onchange="this.form.submit()">
-					<option value="5" '.$sLimit5.'>5</option>
-					<option value="10" '.$sLimit10.'>10</option>
-					<option value="20" '.$sLimit20.'>20</option>
-					<option value="25" '.$sLimit25.'>25</option>
-					<option value="50" '.$sLimit50.'>50</option>
-					<option value="100" '.$sLimit100.'>100</option>
-					<option value="200" '.$sLimit200.'>200</option>
-					<option value="500" '.$sLimit500.'>500</option>
-			</select>&nbsp;
-			</form>
-			</div>
-			<BR>';
+  <select class="SmallText" name="Number" onchange="this.form.submit()">
+          <option value="5" '.$sLimit5.'>5</option>
+          <option value="10" '.$sLimit10.'>10</option>
+          <option value="20" '.$sLimit20.'>20</option>
+          <option value="25" '.$sLimit25.'>25</option>
+          <option value="50" '.$sLimit50.'>50</option>
+          <option value="100" '.$sLimit100.'>100</option>
+          <option value="200" '.$sLimit200.'>200</option>
+          <option value="500" '.$sLimit500.'>500</option>
+      </select>&nbsp;
+      </form>
+      </div>
+      <BR>';
 } ?>
 
 <?php
@@ -1124,12 +1137,12 @@ while ($aRow = mysqli_fetch_array($rsPersons)) {
 
     //Display the row
     echo '<tr class="'.$sRowClass.'">'; ?>
-	</td>
+  </td>
     <td><img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $per_ID ?>/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px" /> </td>
-	<td>
-	    <a href="PersonView.php?PersonID=<?= $per_ID ?>" >
-	    <?= FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?>
-	    </a>
+  <td>
+      <a href="PersonView.php?PersonID=<?= $per_ID ?>" >
+      <?= FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?>
+      </a>
     </td>
     <td>
     <?php
@@ -1147,80 +1160,127 @@ while ($aRow = mysqli_fetch_array($rsPersons)) {
     echo '&nbsp;</td>';
 
     echo '<td>';
-    if ($fam_Name != '') {
-        echo '<a href="FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
-        echo FormatAddressLine($fam_Address1, $fam_City, $fam_State).'</a>';
-    }
-    echo '&nbsp;</td>';
-
-    echo '<td>';
-    // Phone number or zip code
-    if ($sPersonColumn5 == 'Home Phone') {
-        echo SelectWhichInfo(ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy),
-                ExpandPhoneNumber($per_HomePhone, $fam_Country, $dummy), true);
-    } elseif ($sPersonColumn5 == 'Work Phone') {
-        echo SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $fam_Country, $dummy),
-                ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), true);
-    } elseif ($sPersonColumn5 == 'Mobile Phone') {
-        echo SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $fam_Country, $dummy),
-                ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), true);
+    
+    if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+    
+      if ($fam_Name != '') {
+          echo '<a href="FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
+          echo FormatAddressLine($fam_Address1, $fam_City, $fam_State).'</a>';
+      }
+      echo '&nbsp;</td>';
     } else {
-        if (isset($zip)) {
-            echo $zip;
-        } else {
-            echo gettext('Unassigned');
-        }
-    } ?>
-	</td>
+      echo gettext('Private Data');
+    }
+    
+    echo '<td>';
+    if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+      // Phone number or zip code
+      if ($sPersonColumn5 == 'Home Phone') {
+          echo SelectWhichInfo(ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy),
+                  ExpandPhoneNumber($per_HomePhone, $fam_Country, $dummy), true);
+      } elseif ($sPersonColumn5 == 'Work Phone') {
+          echo SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $fam_Country, $dummy),
+                  ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), true);
+      } elseif ($sPersonColumn5 == 'Mobile Phone') {
+          echo SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $fam_Country, $dummy),
+                  ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), true);
+      } else {
+          if (isset($zip)) {
+              echo $zip;
+          } else {
+              echo gettext('Unassigned');
+          }
+      } 
+    } else {
+      echo gettext('Private Data');
+    }
+    ?>
+  </td>
     <td>
-	<?php if ($_SESSION['bEditRecords']) {
+  <?php if ($_SESSION['bEditRecords']) {
         ?>
-		<a href="PersonEditor.php?PersonID=<?= $per_ID ?>">
-		    <span class="fa-stack">
+    <a href="PersonEditor.php?PersonID=<?= $per_ID ?>">
+        <span class="fa-stack">
                 <i class="fa fa-square fa-stack-2x"></i>
                 <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
             </span>
         </a>
-	<?php
+  <?php
     } ?>
     </td>
-	<td>
-	<?php if (!isset($_SESSION['aPeopleCart']) || !in_array($per_ID, $_SESSION['aPeopleCart'], false)) {
-        ?>
+  <td>
+  <?php 
+    if (!isset($_SESSION['aPeopleCart']) || !in_array($per_ID, $_SESSION['aPeopleCart'], false)) {
+      if ($_SESSION['bShowCart']) {
+  ?>
       <a class="AddToPeopleCart" data-cartpersonid="<?= $per_ID ?>">
-		<span class="fa-stack">
+    <?php
+      }
+    ?>
+      
+    <span class="fa-stack">
                 <i class="fa fa-square fa-stack-2x"></i>
                 <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
             </span>
+    <?php
+      if ($_SESSION['bShowCart']) {
+    ?>
         </a>
+    <?php
+      }
+    ?>      
     </td>
-	<?php
+  <?php
     } else {
         ?>
+    <?php
+      if ($_SESSION['bShowCart']) {
+    ?>
     <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $per_ID ?>">
-		<span class="fa-stack">
+    <?php
+      }
+    ?>          
+    <span class="fa-stack">
                 <i class="fa fa-square fa-stack-2x"></i>
                 <i class="fa fa-remove fa-stack-1x fa-inverse"></i>
             </span>
+    <?php
+      if ($_SESSION['bShowCart']) {
+    ?>
         </a>
-	<?php
+    <?php
+      }
+    ?>          
+    
+  <?php
     }
-
+  ?>
+  <td>
+<?php
+ if($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
     if ($iMode == 1) {
-        echo '<td><a href="PrintView.php?PersonID='.$per_ID.'">'; ?>
-		<span class="fa-stack">
+  ?>
+          <a href="PrintView.php?PersonID=<?= $per_ID ?>">
+            <span class="fa-stack">
                 <i class="fa fa-square fa-stack-2x"></i>
                 <i class="fa fa-print fa-stack-1x fa-inverse"></i>
             </span>
-        </a>
-	<?php
+          </a>
+  <?php
     } else {
-        echo '<td><a href="PersonToGroup.php?PersonID='.$per_ID;
+        echo '<a href="PersonToGroup.php?PersonID='.$per_ID;
         echo '&amp;prevquery='.rawurlencode($_SERVER['QUERY_STRING']).'">';
-        echo gettext('Add to Group').'</a></td>';
+        echo gettext('Add to Group').'</a>';
     }
-
+    
+  } else {
+   ?>
+    <?= gettext('Private Data') ?> 
+  
+<?php
+  }
     echo '</td></tr>';
+    
 
     //Store the family to enable the control break
     $iPrevFamily = $fam_ID;
@@ -1235,10 +1295,10 @@ while ($aRow = mysqli_fetch_array($rsPersons)) {
 } // end of while loop
 ?>
 
-		</table>
+    </table>
         </div>
-		</form>
-	</div>
+    </form>
+  </div>
 </div>
 
 <?php require 'Include/Footer.php' ?>
