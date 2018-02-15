@@ -252,29 +252,67 @@ foreach ($allMonths as $mKey => $mVal) {
               <table class='table-responsive'>
                 <tr>
                   <td>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                     <form name="EditEvent" action="EventEditor.php" method="POST">
+                    <?php 
+                      }
+                    ?>
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <button type="submit" name="Action" title="<?= gettext('Edit') ?>" value="Edit" data-tooltip class="btn btn-default btn-sm">
                         <i class='fa fa-pencil'></i>
                       </button>
-                    </form>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
+                      </form>
+                    <?php 
+                      }
+                    ?>
                   </td>
                   <td>
-                    <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
+                      <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                    <?php 
+                      }
+                    ?>
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                       <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                       <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                    </form>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
+                      </form>
+                     <?php 
+                      }
+                    ?> 
+                    
+                    
                   </td>
                   <td>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                     <form name="DeleteEvent" class="DeleteEvent" action="ListEvents.php" method="POST">
+                    <?php 
+                      }
+                    ?>                  
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="Action" value="Delete">
                       <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm">
                         <i class='fa fa-trash'></i>
                       </button>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                     </form>
+                    <?php 
+                      }
+                    ?>                  
                   </td>
                 </tr>
               </table>
@@ -311,21 +349,45 @@ foreach ($allMonths as $mKey => $mVal) {
                       <table>
                       <tr>
                       <td>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                       <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
+                    <?php 
+                      }
+                    ?>   
                         <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                          <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                         <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                         <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
                         <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                       </form>
+                    <?php 
+                      }
+                    ?>                       
                       </td>
                       <td>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
                       <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
+                    <?php 
+                      }
+                    ?>                       
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
                         <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default" ?> btn-sm">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
-                       </form>
+                    <?php 
+                      if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+                    ?>
+                      </form>
+                    <?php 
+                      }
+                    ?>                       
                        </td>
                        </tr>
                        </table>
@@ -613,6 +675,9 @@ foreach ($allMonths as $mKey => $mVal) {
       "url": window.CRM.plugin.dataTable.language.url
     }});
     
+<?php 
+  if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+?>
     $('.DeleteEvent').submit(function(e) {
         var currentForm = this;
         e.preventDefault();
@@ -635,6 +700,10 @@ foreach ($allMonths as $mKey => $mVal) {
             }
         }});
     });
+<?php 
+  }
+?>
+
   });
 </script>
 
