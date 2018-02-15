@@ -84,6 +84,12 @@ if (isset($_POST['User'])) {
         $_SESSION['bNotes'] = $currentUser->isNotesEnabled();
         $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
         $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();
+        
+        // This ensure the CRM can show Cart
+        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();
+        
+        // This ensure the CRM can show Map
+        $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
 
         // Set the FailedLogins
         $_SESSION['iFailedLogins'] = $currentUser->getFailedLogins();
