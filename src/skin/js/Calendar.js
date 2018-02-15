@@ -651,7 +651,7 @@
            }
         },
         eventClick: function(calEvent, jsEvent, view) {
-          if (calEvent.type == "event") {
+          if (calEvent.type == "event" && isModifiable) {
              // only with group event We create the dialog,
              var box = bootbox.dialog({
                title: i18next.t('Modify Event'),
