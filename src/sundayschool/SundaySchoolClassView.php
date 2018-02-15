@@ -268,19 +268,42 @@ require '../Include/Header.php';
                 alt="User Image" class="user-image initials-image" width="30" height="30" />
             <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['firstName'].', '.$child['LastName'] ?></a>
           </td>
-          <td><?= $birthDate ?> </td>
-          <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
-          <td><?= $child['kidEmail'] ?></td>
-          <td><?= $child['mobilePhone'] ?></td>
-          <td><?= $child['homePhone'] ?></td>
-          <td><?= $child['Address1'].' '.$child['Address2'].' '.$child['city'].' '.$child['state'].' '.$child['zip'] ?></td>
-          <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['dadId'] ?>'><?= $child['dadFirstName'].' '.$child['dadLastName'] ?></a></td>
-          <td><?= $child['dadCellPhone'] ?></td>
-          <td><?= $child['dadEmail'] ?></td>
-          <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['momId'] ?>'><?= $child['momFirstName'].' '.$child['momLastName'] ?></td>
-          <td><?= $child['momCellPhone'] ?></td>
-          <td><?= $child['momEmail'] ?></td>
+          <?php 
+            if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'] || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {
+          ?>
+            <td><?= $birthDate ?> </td>          
+            <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
+            <td><?= $child['kidEmail'] ?></td>
+            <td><?= $child['mobilePhone'] ?></td>
+            <td><?= $child['homePhone'] ?></td>
+            <td><?= $child['Address1'].' '.$child['Address2'].' '.$child['city'].' '.$child['state'].' '.$child['zip'] ?></td>
+            <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['dadId'] ?>'><?= $child['dadFirstName'].' '.$child['dadLastName'] ?></a></td>
+            <td><?= $child['dadCellPhone'] ?></td>
+            <td><?= $child['dadEmail'] ?></td>
+            <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['momId'] ?>'><?= $child['momFirstName'].' '.$child['momLastName'] ?></td>
+            <td><?= $child['momCellPhone'] ?></td>
+            <td><?= $child['momEmail'] ?></td>
+          <?php
+            } else {
+          ?>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+          <?php            
+            }
+          ?>
+          
           </tr>
+          
 
       <?php
       }
