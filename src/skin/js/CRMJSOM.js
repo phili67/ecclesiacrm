@@ -339,7 +339,7 @@
         });
       },
       'refresh' : function () {
-        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1) {// the first time it's unusefull
+        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
           return;
         }
 
