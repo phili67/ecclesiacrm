@@ -269,7 +269,7 @@ require '../Include/Header.php';
             <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['firstName'].', '.$child['LastName'] ?></a>
           </td>
           <?php 
-            if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'] || $_SESSION['user']->belongsToGroup($iGroupId) ) {
+            if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'] || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {
           ?>
             <td><?= $birthDate ?> </td>          
             <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
