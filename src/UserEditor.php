@@ -90,6 +90,16 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $EditRecords = 0;
         }
+        if (isset($_POST['ShowCart'])) {
+            $ShowCart = 1;
+        } else {
+            $ShowCart = 0;
+        }
+        if (isset($_POST['ShowMap'])) {
+            $ShowMap = 1;
+        } else {
+            $ShowMap = 0;
+        }
         if (isset($_POST['DeleteRecords'])) {
             $DeleteRecords = 1;
         } else {
@@ -145,7 +155,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 if ($undupCount == 0) {
                     $rawPassword = User::randomPassword();
                     $sPasswordHashSha256 = hash('sha256', $rawPassword . $iPersonID);
-                    $sSQL = 'INSERT INTO user_usr (usr_per_ID, usr_Password, usr_NeedPasswordChange, usr_LastLogin, usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_MenuOptions, usr_ManageGroups, usr_Finance, usr_Notes, usr_Admin, usr_Style, usr_SearchLimit, usr_defaultFY, usr_UserName, usr_EditSelf, usr_Canvasser) VALUES (' . $iPersonID . ",'" . $sPasswordHashSha256 . "',1,'" . date('Y-m-d H:i:s') . "', " . $AddRecords . ', ' . $EditRecords . ', ' . $DeleteRecords . ', ' . $MenuOptions . ', ' . $ManageGroups . ', ' . $Finance . ', ' . $Notes . ', ' . $Admin . ", '" . $Style . "', 10," . $defaultFY . ',"' . $sUserName . '",' . $EditSelf . ',' . $Canvasser . ')';
+                    $sSQL = 'INSERT INTO user_usr (usr_per_ID, usr_Password, usr_NeedPasswordChange, usr_LastLogin, usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_MenuOptions, usr_ManageGroups, usr_Finance, usr_Notes, usr_Admin, usr_Style, usr_SearchLimit, usr_defaultFY, usr_UserName, usr_EditSelf, usr_Canvasser) 
+                       VALUES (' . $iPersonID . ",'" . $sPasswordHashSha256 . "',1,'" . date('Y-m-d H:i:s') . "', " . $AddRecords . ', ' . $EditRecords . ', ' . $DeleteRecords .' ,'.$ShowCart . ', '.$ShowMap . ', ' . $MenuOptions . ', ' . $ManageGroups . ', ' . $Finance . ', ' . $Notes . ', ' . $Admin . ", '" . $Style . "', 10," . $defaultFY . ',"' . $sUserName . '",' . $EditSelf . ',' . $Canvasser . ')';
                     // Execute the SQL
                     RunQuery($sSQL);
                     $newUser = UserQuery::create()->findPk($iPersonID);
@@ -158,7 +169,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 }
             } else {
                 if ($undupCount == 0) {
-                    $sSQL = 'UPDATE user_usr SET usr_AddRecords = ' . $AddRecords . ', usr_EditRecords = ' . $EditRecords . ', usr_DeleteRecords = ' . $DeleteRecords . ', usr_MenuOptions = ' . $MenuOptions . ', usr_ManageGroups = ' . $ManageGroups . ', usr_Finance = ' . $Finance . ', usr_Notes = ' . $Notes . ', usr_Admin = ' . $Admin . ', usr_Style = "' . $Style . '", usr_UserName = "' . $sUserName . '", usr_EditSelf = "' . $EditSelf . '", usr_Canvasser = ' . $Canvasser . ' WHERE usr_per_ID = ' . $iPersonID;
+                    $sSQL = 'UPDATE user_usr SET usr_AddRecords = ' . $AddRecords . ', usr_EditRecords = ' . $EditRecords . ', usr_DeleteRecords = ' . $DeleteRecords . ', usr_ShowCart = ' . $ShowCart . ', usr_ShowMap = ' . $ShowMap . ', usr_MenuOptions = ' . $MenuOptions . ', usr_ManageGroups = ' . $ManageGroups . ', usr_Finance = ' . $Finance . ', usr_Notes = ' . $Notes . ', usr_Admin = ' . $Admin . ', usr_Style = "' . $Style . '", usr_UserName = "' . $sUserName . '", usr_EditSelf = "' . $EditSelf . '", usr_Canvasser = ' . $Canvasser . ' WHERE usr_per_ID = ' . $iPersonID;
                     // Execute the SQL
                     RunQuery($sSQL);
                     $user = UserQuery::create()->findPk($iPersonID);
@@ -199,6 +210,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_AddRecords = 0;
             $usr_EditRecords = 0;
             $usr_DeleteRecords = 0;
+            $usr_ShowCart = 0;
+            $usr_ShowMap = 0;
             $usr_MenuOptions = 0;
             $usr_ManageGroups = 0;
             $usr_Finance = 0;
@@ -217,6 +230,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_AddRecords = 0;
         $usr_EditRecords = 0;
         $usr_DeleteRecords = 0;
+        $usr_ShowCart = 0;
+        $usr_ShowMap = 0;
         $usr_MenuOptions = 0;
         $usr_ManageGroups = 0;
         $usr_Finance = 0;
@@ -397,6 +412,20 @@ require 'Include/Header.php';
                     <tr>
                         <td><?= gettext('Delete Records') ?>:</td>
                         <td><input type="checkbox" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
+                        echo ' checked';
+                    } ?>></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><?= gettext('Show Cart') ?>:</td>
+                        <td><input type="checkbox" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
+                        echo ' checked';
+                    } ?>></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><?= gettext('Show Map') ?>:</td>
+                        <td><input type="checkbox" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
