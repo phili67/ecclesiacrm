@@ -764,9 +764,16 @@ if ($iMode == 1) {
 } ?>
 
 <input type="button" class="btn" value="<?= gettext('Clear Filters') ?>" onclick="javascript:document.location='SelectList.php?mode=<?= $sMode ?>&amp;Sort=<?= $sSort ?>&amp;type=<?= $iGroupTypeMissing ?>'"><BR><BR>
+<?php
+if ( $_SESSION['bShowCart'] ) {
+?>
 <a id="AddAllToCart" class="btn btn-primary" ><?= gettext('Add All to Cart') ?></a>
 <input name="IntersectCart" type="submit" class="btn btn-warning" value="<?= gettext('Intersect with Cart') ?>">&nbsp;
 <a id="RemoveAllFromCart" class="btn btn-danger" ><?= gettext('Remove All from Cart') ?></a>
+
+<?php
+}
+?>
 </td></tr>
 </table></form>
   </div>

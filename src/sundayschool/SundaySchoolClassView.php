@@ -139,17 +139,21 @@ require '../Include/Header.php';
   <?php 
     }
   ?>
-    <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Student to Cart") ?></span></a>
-  <?php 
+   <?php
+    if ($_SESSION['bShowCart']) {
+   ?>
+    <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Student to Cart") ?></span></a>    
+  <?php
+     }
    }
   ?>
   <?php
-    if (Cart::TeacherInCart($iGroupId)) {
+    if (Cart::TeacherInCart($iGroupId) && $_SESSION['bShowCart']) {
   ?>
     <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teacher from Cart") ?></span></a>
     
   <?php 
-    } else {
+    } else if ($_SESSION['bShowCart']) {
   ?>
     <a class="btn btn-app AddToTeacherGroupCart <?= (count($rsTeachers) == 0)?"disabled":"" ?>" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Teacher to Cart") ?></span></a>
   <?php 

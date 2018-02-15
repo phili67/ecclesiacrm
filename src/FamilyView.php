@@ -441,14 +441,21 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     } ?>
                                 </td>
                                 <td style="width: 20%;">
+                                  <?php
+                                    if ($_SESSION['bShowCart']) {
+                                  ?>
                                     <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
                                         <span class="fa-stack">
                                             <i class="fa fa-square fa-stack-2x"></i>
                                             <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
                                         </span>
                                     </a>
-                                    <?php if ($bOkToEdit) {
-                        ?>
+                                  <?php
+                                    }
+                                  ?>
+                                  <?php 
+                                    if ($bOkToEdit) {
+                                  ?>
                                         <a href="PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
                                     <span class="fa-stack">
                                         <i class="fa fa-square fa-stack-2x"></i>
@@ -462,8 +469,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                     </span>
                                         </a>
-                                        <?php
-                    } ?>
+                                  <?php
+                                    } 
+                                  ?>
                                 </td>
                             </tr>
                             <?php
