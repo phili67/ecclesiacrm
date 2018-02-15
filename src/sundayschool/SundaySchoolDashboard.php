@@ -51,12 +51,19 @@ require '../Include/Header.php';
           class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
     <?php
       } ?>
-    <a href="SundaySchoolReports.php" class="btn btn-app"
+      
+    <?php 
+      if ($_SESSION['bExportCSV'] || $_SESSION['bAdmin']) { 
+    ?>
+     <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
         class="fa fa-file-pdf-o"></i><?= gettext('Reports'); ?></a>
-    <a href="SundaySchoolClassListExport.php" class="btn btn-app"
+     <a href="SundaySchoolClassListExport.php" class="btn btn-app"
        title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
         class="fa fa-file-excel-o"></i><?= gettext('Export to CSV') ?></a><br/>
+    <?php 
+      } 
+    ?>
   </div>
 </div>
 <!-- Small boxes (Stat box) -->
@@ -212,7 +219,7 @@ require '../Include/Header.php';
 
       foreach ($kidsWithoutClasses as $child) {
           extract($child);
-
+          
           $hideAge = $flags == 1 || $birthYear == '' || $birthYear == '0';
           $birthDate = OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
           $birthDateDate = OutputUtils::BirthDate($birthYear, $birthMonth, $birthDay, $hideAge);
@@ -225,10 +232,17 @@ require '../Include/Header.php';
           echo '  </span></a></td>';
           echo '<td>'.$firstName.'</td>';
           echo '<td>'.$LastName.'</td>';
-          echo '<td>'.$birthDate.'</td>';
-          echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
-          echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';
-          echo '</tr>';
+          if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {          
+            echo '<td>'.$birthDate.'</td>';
+            echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
+            echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';
+            echo '</tr>';
+          } else {
+            echo '<td>'.gettext("Private Data").'</td>';
+            echo "<td>".gettext("Private Data")."</td>";
+            echo '<td>'.gettext("Private Data").'</td>';
+            echo '</tr>';
+          }
       }
 
       ?>
@@ -294,4 +308,12 @@ require '../Include/Header.php';
 
 <?php
       }
-require '../Include/Footer.php' ?>
+?>
+  <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    $(document).ready(function () {
+      $('.data-table').DataTable({"language": window.CRM.plugin.dataTable.language,responsive: true});
+  });
+  </script>
+<?php
+require '../Include/Footer.php' 
+?>
