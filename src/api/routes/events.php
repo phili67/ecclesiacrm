@@ -182,71 +182,102 @@ $app->group('/events', function () {
             ->findOneById($input->eventTypeID);
            $eventTypeName = $type->getName();
         }
-     
-         $event = new Event; 
-         $event->setTitle($input->EventTitle);
-         $event->setType($input->eventTypeID);
-         $event->setTypeName($eventTypeName);
-         $event->setDesc($input->EventDesc);
-         
-         if ($input->EventGroupID>0)
-           $event->setGroupId($input->EventGroupID);  
-           
-         $event->setStart(str_replace("T"," ",$input->start));
-         $event->setEnd(str_replace("T"," ",$input->end));
-         $event->setText(InputUtils::FilterHTML($input->eventPredication));
-         $event->setInActive($input->eventInActive);
-         $event->save(); 
-         
-         if (!empty($input->Fields)){         
-           foreach ($input->Fields as $field) {
-             $eventCount = new EventCounts; 
-             $eventCount->setEvtcntEventid($event->getID());
-             $eventCount->setEvtcntCountid($field['countid']);
-             $eventCount->setEvtcntCountname($field['name']);
-             $eventCount->setEvtcntCountcount($field['value']);
-             $eventCount->setEvtcntNotes($input->EventCountNotes);
-             $eventCount->save();
-           }
-         }
-         
-         if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
-           $persons = Person2group2roleP2g2rQuery::create()
-              ->filterByGroupId($input->EventGroupID)
-              ->find();
-
-            foreach ($persons as $person) {
-              try {
-                if ($person->getPersonId() > 0) {
-                  $eventAttent = new EventAttend();
         
-                  $eventAttent->setEventId($event->getID());
-                  $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
-                  $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                  $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-                  $eventAttent->setPersonId($person->getPersonId());
-                  $eventAttent->save();
+        $begin = new DateTime( str_replace("T"," ",$input->start) );
+        $endReccurence = new DateTime( str_replace("T"," ",$input->endReccurence) );
+        
+        $endFirsEvent = new DateTime( str_replace("T"," ",$input->end) );
+        $intervalEndStart = $begin->diff($endFirsEvent);
+
+        if ($begin == $endReccurence) {// we are in the case of a one time event, this is to have only one event
+          $endReccurence = $endReccurence->modify( '+1 week' );
+        }
+
+        $interval = DateInterval::createFromDateString($input->recurrenceType);// recurrence type is : 1 week, 1 Month, 3 months, 6 months, 1 Year
+        $period = new DatePeriod($begin, $interval, $endReccurence);// so we create the period
+        
+        $parent_id = 0;
+
+        foreach($period as $dt) {        
+           $event = new Event; 
+           $event->setTitle($input->EventTitle);
+           $event->setType($input->eventTypeID);
+           $event->setTypeName($eventTypeName);
+           $event->setDesc($input->EventDesc);                      
+         
+           if ($input->EventGroupID>0) {
+              $event->setGroupId($input->EventGroupID);
+           }
+           
+           $event->setStart( $dt->format( "Y-m-d H:i:s" ) );
+           
+           $newEndDate = new DateTime($dt->format( "Y-m-d H:i:s" ));
+           $newEndDate->add($intervalEndStart);
+           
+           $event->setEnd( $newEndDate->format( "Y-m-d H:i:s" ) );
+           $event->setText(InputUtils::FilterHTML($input->eventPredication));
+           $event->setInActive($input->eventInActive);
+           $event->save(); 
+           
+           if ($parent_id == 0) {
+              $parent_id = $event->getID();
+           }
+           
+           if ($input->recurrenceValid) {// we can store the parent id for all the event the first one too
+             $event->setEventParentId ($parent_id);
+             $event->save(); 
+           }
+         
+           if (!empty($input->Fields)){         
+             foreach ($input->Fields as $field) {
+               $eventCount = new EventCounts; 
+               $eventCount->setEvtcntEventid($event->getID());
+               $eventCount->setEvtcntCountid($field['countid']);
+               $eventCount->setEvtcntCountname($field['name']);
+               $eventCount->setEvtcntCountcount($field['value']);
+               $eventCount->setEvtcntNotes($input->EventCountNotes);
+               $eventCount->save();
+             }
+           }
+         
+           if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
+             $persons = Person2group2roleP2g2rQuery::create()
+                ->filterByGroupId($input->EventGroupID)
+                ->find();
+
+              foreach ($persons as $person) {
+                try {
+                  if ($person->getPersonId() > 0) {
+                    $eventAttent = new EventAttend();
+        
+                    $eventAttent->setEventId($event->getID());
+                    $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                    $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                    $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                    $eventAttent->setPersonId($person->getPersonId());
+                    $eventAttent->save();
+                  }
+                } catch (\Exception $ex) {
+                    $errorMessage = $ex->getMessage();
+                    //return $response->withJson(['status' => $errorMessage]);    
                 }
-              } catch (\Exception $ex) {
-                  $errorMessage = $ex->getMessage();
-                  //return $response->withJson(['status' => $errorMessage]);    
               }
+            
+              // 
+              $_SESSION['Action'] = 'Add';
+              $_SESSION['EID'] = $event->getID();
+              $_SESSION['EName'] = $input->EventTitle;
+              $_SESSION['EDesc'] = $input->EventDesc;
+              $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+            
+              $_SESSION['EventID'] = $event->getID();
             }
-            
-            // 
-            $_SESSION['Action'] = 'Add';
-            $_SESSION['EID'] = $event->getID();
-            $_SESSION['EName'] = $input->EventTitle;
-            $_SESSION['EDesc'] = $input->EventDesc;
-            $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
-            
-            $_SESSION['EventID'] = $event->getID();
-          }
+        }
      
-         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
             $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
       
-         return $response->withJson(array_filter($realCalEvnt));
+         return $response->withJson(['status' => $input->endReccurence]);
      
      } 
      else if ($input->evntAction == 'moveEvent')

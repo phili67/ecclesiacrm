@@ -120,6 +120,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
+      $('.date-recurrence').slideDown();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -129,6 +130,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideDown();
   });
@@ -138,6 +140,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -147,6 +150,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -156,6 +160,7 @@
     //$('.ATTENDENCES-title').slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
+    $('.date-recurrence').slideUp();      
     $( ".eventPredication").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
   });
@@ -167,6 +172,7 @@
     $( ".ATTENDENCES" ).slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
+    $('.date-recurrence').slideUp();      
     $( ".eventPredication").slideUp();
 
      var e = document.getElementById("EventGroup");
@@ -182,6 +188,15 @@
      
     localStorage.setItem("groupFilterID",groupFilterID); 
   });
+  
+  // I have to do this because EventGroup isn't yet present when you load the page the first time
+  $(document).on('change','#checkboxEventRecurrence',function (value) {
+    var _val = $('#checkboxEventRecurrence').is(":checked");
+    
+    $("#typeEventRecurrence").prop("disabled", (_val == 0)?true:false);
+    $("#endDateEventRecurrence").prop("disabled", (_val == 0)?true:false);
+  });
+  
   
   
   $(document).on('change','#eventType',function (val) {
@@ -199,6 +214,7 @@
     
     $('.date-start').slideUp();
     $('.date-end').slideUp();
+    $('.date-recurrence').slideUp();
     $('.eventPredication').slideUp();
       
     window.CRM.APIRequest({
@@ -256,7 +272,7 @@
           method: 'GET',
           path: 'events/types',
     }).done(function(eventTypes) {    
-      var elt = document.getElementById("eventType");          
+      var elt = document.getElementById("eventType");
       var len = eventTypes.length;
       var passed = false;      
       
@@ -290,7 +306,7 @@
           method: 'GET',
           path: 'groups/calendars',
     }).done(function(groups) {    
-      var elt = document.getElementById("EventGroup");          
+      var elt = document.getElementById("EventGroup");
       var len = groups.length;
 
       // We add the none option
@@ -354,13 +370,13 @@
                + i18next.t('to')+' : '+dateEnd+' '+timeEnd
                +'</div>'
             +'</div>'
-            +'<div class="row date-start div-block">'
+            +'<div class="row date-start div-block" style="padding-top:7px;padding-bottom:-5px">'
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
-                     +'<div class="col-md-4">'  
+                     +'<div class="col-md-3">'  
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -370,7 +386,7 @@
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-3">'
                          +'<div class="bootstrap-timepicker">'
                            +'<div class="form-group">'
                               +'<div class="input-group">'
@@ -385,13 +401,13 @@
                   +'</div>'
                 +'</div>'
             +'</div>'
-            +'<div class="row date-end div-block">'            
+            +'<div class="row date-end div-block" style="padding-top:0px;padding-bottom:0px">'            
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3"><span style="color: red">*</span>'
                       +i18next.t('End Date')+' :'
                     +'</div>'
-                    +'<div class="col-md-4"> '   
+                    +'<div class="col-md-3"> '   
                        +'<div class="input-group">'
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
@@ -401,7 +417,7 @@
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
                     +'</div>'
-                    +'<div class="col-md-4">'
+                    +'<div class="col-md-3">'
                          +'<div class="bootstrap-timepicker">'
                            +'<div class="form-group">'
                               +'<div class="input-group">'
@@ -416,6 +432,37 @@
                   +'</div>'
                 +'</div>'
             +'</div>'            
+            +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'            
+                +'<div class="col-md-12">'
+                  +'<div class="row">'
+                    +'<div class="col-md-3">'
+                      +'<input type="checkbox" id="checkboxEventRecurrence" name="checkboxEventRecurrence"> '+i18next.t('Repeat')+' :'
+                    +'</div>'
+                    +'<div class="col-md-3">'
+                    + '<select class="form-control input-sm" id="typeEventRecurrence" name="typeEventRecurrence">'
+                    +   '<option value="1 week">'+i18next.t("Weekly")+'</option>'
+                    +   '<option value="1 month">'+i18next.t("Monthly")+'</option>'
+                    +   '<option value="3 month">'+i18next.t("Quarterly")+'</option>'
+                    +   '<option value="6 month">'+i18next.t("Semesterly")+'</option>'
+                    +   '<option value="1 year">'+i18next.t("Yearly")+'</option>'
+                    + '</select>'
+                    +'</div>'                    
+                    +'<div class="col-md-2">'
+                      +i18next.t('End')+' :'
+                    +'</div>'
+                    +'<div class="col-md-3"  style=""> '   
+                       +'<div class="input-group">'
+                          +'<div class="input-group-addon">'
+                              +'<i class="fa fa-calendar"></i>'
+                          +'</div>'
+                          +'<input class="form-control date-picker input-sm" type="text" id="endDateEventRecurrence" name="endDateEventRecurrence"  value="'+dateStart+'" '
+                                +'maxlength="10" id="sel1" size="11"'
+                                +'placeholder="'+window.CRM.datePickerformat+'">'
+                        +'</div>'
+                      +'</div>'
+                  +'</div>'
+               +'</div>'
+            +'</div>'  
             +'<div class="row  div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Group') + ":</div>"
               +'<div class="col-md-4">'
@@ -516,6 +563,10 @@
                   var dateEnd = $('form #dateEventEnd').val();
                   var timeEnd = $('form #timeEventEnd').val();
                   
+                  var recurrenceValid = $('#checkboxEventRecurrence').is(":checked");
+                  var recurrenceType = $("#typeEventRecurrence").val();
+                  var endReccurence = $("#endDateEventRecurrence").val();
+                  
                   var fmt = window.CRM.datePickerformat.toUpperCase();
     
                   if (window.CRM.timeEnglish == 'true') {
@@ -528,6 +579,7 @@
                                     
                   var real_start = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                   var real_end = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
+                  var real_endReccurence = moment(endReccurence+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                              
                   var e = document.getElementById("EventGroup");
                   var EventGroupID = e.options[e.selectedIndex].value;
@@ -568,12 +620,16 @@
                   window.CRM.APIRequest({
                         method: 'POST',
                         path: 'events/',
-                        data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,"Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,"start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive})
+                        data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,
+                               "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
+                               "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
+                               "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endReccurence":real_endReccurence})
                   }).done(function(data) {                   
                     $('#calendar').fullCalendar('unselect');              
                     add = true;              
                     modal.modal("hide");   
                     
+                    // we reload all the events
                     $('#calendar').fullCalendar( 'refetchEvents' );
                     
                     if (dialogType == 'createEvent') {
@@ -733,6 +789,7 @@
         
                        $('.date-start').hide();
                        $('.date-end').hide();
+                       $('.date-recurrence').hide();
                        $(".eventPredication").hide();
        
                        // this will ensure that image and table can be focused
@@ -820,7 +877,11 @@
         
          $('.date-start').hide();
          $('.date-end').hide();
+         $('.date-recurrence').hide();
          $(".eventPredication").hide();
+         
+         $("#typeEventRecurrence").prop("disabled", true);
+         $("#endDateEventRecurrence").prop("disabled", true);
        
          // this will ensure that image and table can be focused
          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
