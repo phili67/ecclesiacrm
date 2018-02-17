@@ -68,14 +68,27 @@ require 'Include/Header.php'; ?>
                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                         </span>
                     </a><?= $family->getName() ?></td>
-                <td> <?= $family->getAddress() ?></td>
-                <td><?= $family->getHomePhone() ?></td>
-                <td><?= $family->getCellPhone() ?></td>
-                <td><?= $family->getEmail() ?></td>
-                <td><?= date_format($family->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                <td><?= date_format($family->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                <?php    
+                if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+                ?>
+                  <td> <?= $family->getAddress() ?></td>
+                  <td><?= $family->getHomePhone() ?></td>
+                  <td><?= $family->getCellPhone() ?></td>
+                  <td><?= $family->getEmail() ?></td>
+                  <td><?= date_format($family->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td><?= date_format($family->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
                 <?php
-}
+                } else {
+                ?>
+                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= gettext('Private Data') ?></td>
+                <?php
+                }
+           }
                 ?>
             </tr>
             </tbody>
