@@ -317,15 +317,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
-            <div class="box"><br/>
-                <?php
-                  if ($_SESSION['bAdmin']) {
-                ?>
-                <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
-                <?php
-                  }
-                ?>
-                
+            <div class="box box-primary box-body">
                 <?php
                   if (Cart::FamilyInCart($iFamilyID) && $_SESSION['bShowCart']) {
                 ?>
@@ -337,6 +329,14 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                 <?php 
                  }
                 ?>
+
+                <?php
+                  if ($_SESSION['bAdmin']) {
+                ?>
+                <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
+                <?php
+                  }
+                ?>                
                 
                 <?php
                   if ($_SESSION['bAddRecords'] || $iCurrentUserFamID == $iFamilyID) {
@@ -393,7 +393,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
   if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
-            <div class="box box-solid">
+            <div class="box box-primary box-body">
                 <div class="box-body table-responsive clearfix">
                     <table class="table user-list table-hover data-person" width="100%">
                         <thead>
