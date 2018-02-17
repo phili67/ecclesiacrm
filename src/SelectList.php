@@ -494,8 +494,8 @@ require 'Include/Header.php';
   if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
 ?>
 <div class="box box-primary">
-    <div class="box-header">
-       <h3>
+    <div class="box-header  with-border">
+       <h3 class="box-title">
         <?= gettext('Filter and Cart') ?>
        </h3>
     </div>
@@ -510,7 +510,7 @@ if ($iMode == 1) {
     $sSQLtemp = 'SELECT * FROM list_lst WHERE lst_ID = 3';
     $rsGroupTypes = RunQuery($sSQLtemp);
 ?>
-      <p align="center" class="MediumText"><?= gettext('Show people <b>not</b> in this group type:') ?>
+       <p align="center" class="MediumText"><?= gettext('Show people <b>not</b> in this group type:') ?>
         <select name="type" onchange="this.form.submit()">
    <?php     
     while ($aRow = mysqli_fetch_array($rsGroupTypes)) {
@@ -526,221 +526,221 @@ if ($iMode == 1) {
 }
 ?>
 
-<center>
-<table align="center">
-  <tr>
-  <td>
-  </td>
-  <td>
-      <label><?= gettext('Sort order') ?>:</label>&nbsp;
-      <select class="form-control-min_width input-sm" name="Sort" onchange="this.form.submit()">
-          <option value="name" <?php if ($sSort == 'name' || empty($sSort)) {
-          echo 'selected';
-      } ?>><?= gettext('By Name') ?></option>
-          <option value="family" <?php if ($sSort == 'family') {
-          echo 'selected';
-      } ?>><?= gettext('By Family') ?></option>
-          <option value="zip" <?php if ($sSort == 'zip') {
-          echo 'selected';
-      } ?>><?= gettext('By Zip Code') ?></option>
-          <option value="entered" <?php if ($sSort == 'entered') {
-          echo 'selected';
-      } ?>><?= gettext('By Newest Entries') ?></option>
-          <option value="edited" <?php if ($sSort == 'edited') {
-          echo 'selected';
-      } ?>><?= gettext('By Recently Edited') ?></option>
-      </select>&nbsp;&nbsp;
-      <input type="text" name="Filter" class="form-control-min_width" value="<?= $sFilter ?>">
-      <input type="hidden" name="mode" value="<?= $sMode ?>">
-      <input type="hidden" name="Letter" value="<?= $sLetter ?>">&nbsp;&nbsp;
-      <input type="submit" class="btn btn-info btn-sm" value="<?= gettext('Apply Filter') ?>">
-   </td>
-   <td>
-   </td>
-  </tr>
-</table>
-</center>
+      <table align="center">
+        <tr>
+        <td>
+        </td>
+        <td align="center">
+            <label><?= gettext('Sort order') ?>:</label>&nbsp;
+            <select class="form-control-min_width input-sm" name="Sort" onchange="this.form.submit()">
+                <option value="name" <?php if ($sSort == 'name' || empty($sSort)) {
+                echo 'selected';
+            } ?>><?= gettext('By Name') ?></option>
+                <option value="family" <?php if ($sSort == 'family') {
+                echo 'selected';
+            } ?>><?= gettext('By Family') ?></option>
+                <option value="zip" <?php if ($sSort == 'zip') {
+                echo 'selected';
+            } ?>><?= gettext('By Zip Code') ?></option>
+                <option value="entered" <?php if ($sSort == 'entered') {
+                echo 'selected';
+            } ?>><?= gettext('By Newest Entries') ?></option>
+                <option value="edited" <?php if ($sSort == 'edited') {
+                echo 'selected';
+            } ?>><?= gettext('By Recently Edited') ?></option>
+            </select>&nbsp;&nbsp;
+            <input type="text" name="Filter" class="form-control-min_width" value="<?= $sFilter ?>">
+            <input type="hidden" name="mode" value="<?= $sMode ?>">
+            <input type="hidden" name="Letter" value="<?= $sLetter ?>">&nbsp;&nbsp;
+            <input type="submit" class="btn btn-info btn-sm" value="<?= gettext('Apply Filter') ?>">
+         </td>
+         <td>
+         </td>
+        </tr>
+      </table>
 
-<br>
+      <br>
 
 
-<table align="center">
-  <tr>
-    <td align="center">
-    <!-- Gender classification -->
-    <select class="form-control-min_width input-sm" name="Gender" onchange="this.form.submit()">
-      <option value="" <?= (!isset($iGender))?" selected ":"" ?>> <?= gettext("Male & Female") ?></option>
-      <option value="1" <?= (isset($iGender) && $iGender == 1)?" selected ":"" ?>><?= gettext("Male") ?></option>
-      <option value="2" <?= (isset($iGender) && $iGender == 2)?" selected ":"" ?>> <?= gettext("Female") ?></option>
-    </select>&nbsp;
+      <table align="center">
+          <tr>
+            <td align="center">
+            <!-- Gender classification -->
+            <select class="form-control-min_width input-sm" name="Gender" onchange="this.form.submit()">
+              <option value="" <?= (!isset($iGender))?" selected ":"" ?>> <?= gettext("Male & Female") ?></option>
+              <option value="1" <?= (isset($iGender) && $iGender == 1)?" selected ":"" ?>><?= gettext("Male") ?></option>
+              <option value="2" <?= (isset($iGender) && $iGender == 2)?" selected ":"" ?>> <?= gettext("Female") ?></option>
+            </select>&nbsp;
     
-    <!--  ********** -->
-    <!--  Classification drop down list -->
-    <select class="form-control-min_width input-sm" name="Classification" onchange="this.form.submit()">
-      <option value="" <?= ($iClassification >= 0)?' selected ':'' ?>><?= gettext('All Classifications') ?></option>
+            <!--  ********** -->
+            <!--  Classification drop down list -->
+            <select class="form-control-min_width input-sm" name="Classification" onchange="this.form.submit()">
+              <option value="" <?= ($iClassification >= 0)?' selected ':'' ?>><?= gettext('All Classifications') ?></option>
 
-    <?php
-    foreach ($aClassificationName as $key => $value) {
-    ?>
-      <option value="<?= $key ?>" <?=($iClassification >= 0 && $iClassification == $key)?' selected ':'' ?>><?= $value ?></option>
-    <?php
-    }
+            <?php
+            foreach ($aClassificationName as $key => $value) {
+            ?>
+              <option value="<?= $key ?>" <?=($iClassification >= 0 && $iClassification == $key)?' selected ':'' ?>><?= $value ?></option>
+            <?php
+            }
 
-    foreach ($aClassificationName as $key => $value) {
-    ?>
-      <option value="<?= ($key - $iTenThousand) ?>" <?= ($iClassification < 0 && $iClassification == ($key - $iTenThousand))?' selected ':''?>>! <?= $value ?></option>
-    <?php
-    }
-    ?>
-     </select>&nbsp;
+            foreach ($aClassificationName as $key => $value) {
+            ?>
+              <option value="<?= ($key - $iTenThousand) ?>" <?= ($iClassification < 0 && $iClassification == ($key - $iTenThousand))?' selected ':''?>>! <?= $value ?></option>
+            <?php
+            }
+            ?>
+             </select>&nbsp;
 
-    <!--  ********** -->
-    <!-- Family Role Drop Down Box -->
+            <!--  ********** -->
+            <!-- Family Role Drop Down Box -->
 
-     <select class="form-control-min_width input-sm" name="FamilyRole" onchange="this.form.submit()">
-       <option value="" <?= ($iFamilyRole < 0)?' selected ':''?>><?= gettext('All Family Roles') ?></option>
-    <?php
+             <select class="form-control-min_width input-sm" name="FamilyRole" onchange="this.form.submit()">
+               <option value="" <?= ($iFamilyRole < 0)?' selected ':''?>><?= gettext('All Family Roles') ?></option>
+            <?php
 
-    foreach ($aFamilyRoleName as $key => $value) {
-    ?>
-       <option value="<?= $key ?>" <?= ($iFamilyRole >= 0 && $iFamilyRole == $key)?' selected ':''?>><?= $value ?></option>
-    <?php
-    }
+            foreach ($aFamilyRoleName as $key => $value) {
+            ?>
+               <option value="<?= $key ?>" <?= ($iFamilyRole >= 0 && $iFamilyRole == $key)?' selected ':''?>><?= $value ?></option>
+            <?php
+            }
 
-    foreach ($aFamilyRoleName as $key => $value) {
-    ?>
-       <option value="<?= ($key - $iTenThousand) ?>" <?= ($iFamilyRole < 0 && $iFamilyRole == ($key - $iTenThousand))?' selected ':'' ?>>! <?= $value ?></option>
-    <?php
-    }
-    ?>
-      </select>&nbsp;
+            foreach ($aFamilyRoleName as $key => $value) {
+            ?>
+               <option value="<?= ($key - $iTenThousand) ?>" <?= ($iFamilyRole < 0 && $iFamilyRole == ($key - $iTenThousand))?' selected ':'' ?>>! <?= $value ?></option>
+            <?php
+            }
+            ?>
+              </select>&nbsp;
 
-      <!-- Person Property Drop Down Box -->
-      <select class="form-control-min_width input-sm" name="PersonProperties" onchange="this.form.submit()">
-        <option value="" <?= (!isset($iPersonProperty))?' selected ':'' ?>><?= gettext("All Contact Properties") ?></option>
+              <!-- Person Property Drop Down Box -->
+              <select class="form-control-min_width input-sm" name="PersonProperties" onchange="this.form.submit()">
+                <option value="" <?= (!isset($iPersonProperty))?' selected ':'' ?>><?= gettext("All Contact Properties") ?></option>
        
-    <?php
-    foreach ($aPersonPropertyName as $key => $value) {
-    ?>
-        <option value="<?= $key ?>" <?= (isset($iPersonProperty) && ($iPersonProperty == $key))?' selected ':'' ?>><?= $value ?></option>
-    <?php
-    }
+            <?php
+            foreach ($aPersonPropertyName as $key => $value) {
+            ?>
+                <option value="<?= $key ?>" <?= (isset($iPersonProperty) && ($iPersonProperty == $key))?' selected ':'' ?>><?= $value ?></option>
+            <?php
+            }
 
-    foreach ($aPersonPropertyName as $key => $value) {
-    ?>
-        <option value="<?= ($key - $iTenThousand) ?>" <?=(isset($iPersonProperty) && ($iPersonProperty == ($key - $iTenThousand)))?' selected ':''?>>! <?= $value ?></option>
-    <?php
-    }
-    ?>
-      </select>&nbsp;
+            foreach ($aPersonPropertyName as $key => $value) {
+            ?>
+                <option value="<?= ($key - $iTenThousand) ?>" <?=(isset($iPersonProperty) && ($iPersonProperty == ($key - $iTenThousand)))?' selected ':''?>>! <?= $value ?></option>
+            <?php
+            }
+            ?>
+              </select>&nbsp;
 
 
-  <!-- grouptype drop down box -->
+          <!-- grouptype drop down box -->
 
-  <?php
-  if ($iMode == 1) {
-  ?>
-    <select class="form-control-min_width input-sm" name="grouptype" onchange="this.form.submit()">
+          <?php
+          if ($iMode == 1) {
+          ?>
+            <select class="form-control-min_width input-sm" name="grouptype" onchange="this.form.submit()">
 
-      <option value="" <?= (!isset($iGroupType))?' selected ':'' ?>><?= gettext('All Group Types') ?></option>
-  <?php
-    foreach ($aGroupTypes as $key => $value) {
-  ?>
-        <option value="<?= $key ?>" <?= (isset($iGroupType) && ($iGroupType == $key))?' selected ':''?>><?= $value ?></option>
-  <?php
-    }
+              <option value="" <?= (!isset($iGroupType))?' selected ':'' ?>><?= gettext('All Group Types') ?></option>
+          <?php
+            foreach ($aGroupTypes as $key => $value) {
+          ?>
+                <option value="<?= $key ?>" <?= (isset($iGroupType) && ($iGroupType == $key))?' selected ':''?>><?= $value ?></option>
+          <?php
+            }
 
-    foreach ($aGroupTypes as $key => $value) {
-    ?>
-        <option value="<?= ($key - $iTenThousand) ?>" <?= (isset($iGroupType) && ($iGroupType == ($key - $iTenThousand)))?' selected ':'' ?>>! <?= $value ?></option>
-   <?php    
-    }
-   ?>
-    </select>&nbsp;
+            foreach ($aGroupTypes as $key => $value) {
+            ?>
+                <option value="<?= ($key - $iTenThousand) ?>" <?= (isset($iGroupType) && ($iGroupType == ($key - $iTenThousand)))?' selected ':'' ?>>! <?= $value ?></option>
+           <?php    
+            }
+           ?>
+            </select>&nbsp;
     
-   <?php
-    if (isset($iGroupType) && ($iGroupType > -1)) {
-        // Create array with Group Information
-        $sGroupsSQL = "SELECT * FROM group_grp WHERE grp_Type = $iGroupType ".
-                        'ORDER BY grp_Name ';
+           <?php
+            if (isset($iGroupType) && ($iGroupType > -1)) {
+                // Create array with Group Information
+                $sGroupsSQL = "SELECT * FROM group_grp WHERE grp_Type = $iGroupType ".
+                                'ORDER BY grp_Name ';
 
-        $rsGroups = RunQuery($sGroupsSQL);
-        $aGroupNames = [];
-        while ($aRow = mysqli_fetch_array($rsGroups)) {
-            extract($aRow);
-            $aGroupNames[intval($grp_ID)] = $grp_Name;
+                $rsGroups = RunQuery($sGroupsSQL);
+                $aGroupNames = [];
+                while ($aRow = mysqli_fetch_array($rsGroups)) {
+                    extract($aRow);
+                    $aGroupNames[intval($grp_ID)] = $grp_Name;
+                }
+           ?>
+            <select class="form-control-min_width input-sm" name="groupid" onchange="this.form.submit()">
+                <option value="" <?= (!isset($iGroupType))?' selected ':'' ?>><?= gettext('All Groups') ?></option>
+
+          <?php
+            foreach ($aGroupNames as $key => $value) {
+          ?>
+                <option value="<?= $key ?>" <?= (isset($iGroupType) && ($iGroupID == $key))?' selected ':'' ?>><?= $value ?></option>
+          <?php      
+            }
+
+            foreach ($aGroupNames as $key => $value) {
+              ?>    
+                <option value="<?= ($key - $iTenThousand) ?>" <?= (isset($iGroupType) && ($iGroupID == ($key - $iTenThousand)))?' selected ':'' ?>>! <?= $value ?></option>
+              <?php
+                }
+          ?>
+              </select>&nbsp;
+          <?php
+            }
+          ?>
+            <!-- ********* -->
+            <!-- Create Group Role drop down box -->
+          <?php
+            if (isset($iGroupID) && ($iGroupID > -1)) {
+
+                // Get the group's role list ID
+                $sSQL = 'SELECT grp_RoleListID '.
+                        'FROM group_grp WHERE grp_ID ='.$iGroupID;
+                $aTemp = mysqli_fetch_array(RunQuery($sSQL));
+                $iRoleListID = $aTemp[0];
+
+                // Get the roles
+                $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = '.$iRoleListID.
+                        ' ORDER BY lst_OptionSequence';
+                $rsRoles = RunQuery($sSQL);
+                unset($aGroupRoles);
+                while ($aRow = mysqli_fetch_array($rsRoles)) {
+                    extract($aRow);
+                    $aGroupRoles[intval($lst_OptionID)] = $lst_OptionName;
+                }
+             ?>
+              <select class="form-control-min_width input-sm" name="grouproleid" onchange="this.form.submit()" >
+                  <option value="" <?= ($iRoleID < 0)?' selected ':'' ?>><?= gettext("All Roles") ?></option>
+              <?php
+                foreach ($aGroupRoles as $key => $value) {
+              ?>
+                  <option value="<?= $key ?>" <?= ($iRoleID >= 0 && ($iRoleID == $key))?' selected ':'' ?>><?= gettext($value) ?></option>
+              <?php
+                }
+              ?>
+              </select>&nbsp;
+          <?php      
+            }
+          } 
+        ?>
+
+        <input type="button" class="btn btn-info btn-sm" value="<?= gettext('Clear Filters') ?>" onclick="javascript:document.location='SelectList.php?mode=<?= $sMode ?>&amp;Sort=<?= $sSort ?>&amp;type=<?= $iGroupTypeMissing ?>'"><BR><BR>
+
+        <?php
+        if ( $_SESSION['bShowCart'] ) {
+        ?>
+        <a id="AddAllToCart" class="btn btn-primary btn-sm" ><?= gettext('Add All to Cart') ?></a>
+        <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm" value="<?= gettext('Intersect with Cart') ?>">&nbsp;
+        <a id="RemoveAllFromCart" class="btn btn-danger btn-sm" ><?= gettext('Remove All from Cart') ?></a>
+
+        <?php
         }
-   ?>
-    <select class="form-control-min_width input-sm" name="groupid" onchange="this.form.submit()">
-        <option value="" <?= (!isset($iGroupType))?' selected ':'' ?>><?= gettext('All Groups') ?></option>
-
-  <?php
-    foreach ($aGroupNames as $key => $value) {
-  ?>
-        <option value="<?= $key ?>" <?= (isset($iGroupType) && ($iGroupID == $key))?' selected ':'' ?>><?= $value ?></option>
-  <?php      
-    }
-
-    foreach ($aGroupNames as $key => $value) {
-      ?>    
-        <option value="<?= ($key - $iTenThousand) ?>" <?= (isset($iGroupType) && ($iGroupID == ($key - $iTenThousand)))?' selected ':'' ?>>! <?= $value ?></option>
-      <?php
-        }
-  ?>
-      </select>&nbsp;
-  <?php
-    }
-  ?>
-    <!-- ********* -->
-    <!-- Create Group Role drop down box -->
-  <?php
-    if (isset($iGroupID) && ($iGroupID > -1)) {
-
-        // Get the group's role list ID
-        $sSQL = 'SELECT grp_RoleListID '.
-                'FROM group_grp WHERE grp_ID ='.$iGroupID;
-        $aTemp = mysqli_fetch_array(RunQuery($sSQL));
-        $iRoleListID = $aTemp[0];
-
-        // Get the roles
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = '.$iRoleListID.
-                ' ORDER BY lst_OptionSequence';
-        $rsRoles = RunQuery($sSQL);
-        unset($aGroupRoles);
-        while ($aRow = mysqli_fetch_array($rsRoles)) {
-            extract($aRow);
-            $aGroupRoles[intval($lst_OptionID)] = $lst_OptionName;
-        }
-     ?>
-      <select class="form-control-min_width input-sm" name="grouproleid" onchange="this.form.submit()" >
-          <option value="" <?= ($iRoleID < 0)?' selected ':'' ?>><?= gettext("All Roles") ?></option>
-      <?php
-        foreach ($aGroupRoles as $key => $value) {
-      ?>
-          <option value="<?= $key ?>" <?= ($iRoleID >= 0 && ($iRoleID == $key))?' selected ':'' ?>><?= gettext($value) ?></option>
-      <?php
-        }
-      ?>
-      </select>&nbsp;
-  <?php      
-    }
-  } 
-?>
-
-<input type="button" class="btn btn-info btn-sm" value="<?= gettext('Clear Filters') ?>" onclick="javascript:document.location='SelectList.php?mode=<?= $sMode ?>&amp;Sort=<?= $sSort ?>&amp;type=<?= $iGroupTypeMissing ?>'"><BR><BR>
-
-<?php
-if ( $_SESSION['bShowCart'] ) {
-?>
-<a id="AddAllToCart" class="btn btn-primary btn-sm" ><?= gettext('Add All to Cart') ?></a>
-<input name="IntersectCart" type="submit" class="btn btn-warning btn-sm" value="<?= gettext('Intersect with Cart') ?>">&nbsp;
-<a id="RemoveAllFromCart" class="btn btn-danger btn-sm" ><?= gettext('Remove All from Cart') ?></a>
-
-<?php
-}
-?>
-</td></tr>
-</table></form>
+        ?>
+        </td>
+      </tr>
+    </table>
+    </form>
   </div>
 </div>
 
@@ -748,9 +748,10 @@ if ( $_SESSION['bShowCart'] ) {
 }
 ?>
 
-<div class="box box-warning">
-  <div class="box-header">
-     <h3>
+
+<div class="box box-info">
+  <div class="box-header with-border">
+     <h3 class="box-title">
         <?= gettext('Listing')?>
      </h3>
     </div>
@@ -765,223 +766,224 @@ if ($Total == 1) {
 // Create Sort Links
 ?>
 <div align="center" style="margin-top: -25px;">
-<ul class="pagination pagination-sm">
-<li class="<?= empty($sLetter)?"active":"" ?>">
-<a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr ?>&amp;PersonProperties=<?= $iPersonPropertyStr.(($sSort)?"&amp;Sort=$sSort":"") ?>"><?= gettext('View All') ?></a>
-</li>
-
-<?php
-while ($aLetter = mysqli_fetch_row($rsLetters)) {
-    $aLetter[0] = mb_strtoupper($aLetter[0]);
-    if ($aLetter[0] == $sLetter) {
-    ?>
-        <li class='active'>
-           <a href='#'><?= $aLetter[0] ?></a>
-        </li>
-    <?php
-    } else {
-    ?>
-        <li>
-          <a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr.(($sSort)?"&amp;Sort=$sSort":"")."&amp;Letter=".$aLetter[0] ?>"><?= $aLetter[0] ?></a>
-        </li>
-    <?php
-    }
-}
-?>
-</ul>
-</div>
-
-
-<div align="center" style="margin-top: -30px;">
-<form method="get" action="SelectList.php" name="ListNumber">
-<div class="row">
-<div class="col-md-8">
   <ul class="pagination pagination-sm">
-<?php
-// Create Next / Prev Links and $Result_Set Value
-if ($Total > 0) {
-?>
+    <li class="<?= empty($sLetter)?"active":"" ?>">
+    <a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr ?>&amp;PersonProperties=<?= $iPersonPropertyStr.(($sSort)?"&amp;Sort=$sSort":"") ?>"><?= gettext('View All') ?></a>
+    </li>
 
-<?php
-    // Show previous-page link unless we're at the first page
-    if ($Result_Set < $Total && $Result_Set > 0) {
-        $thisLinkResult = $Result_Set - $iPerPage;
-?>
-   <li>
-        <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>"><?= gettext('Previous Page') ?></a>
-   </li> 
-<?php
-    }
-
-    // Calculate starting and ending Page-Number Links
-    $Pages = ceil($Total / $iPerPage);
-    $startpage = (ceil($Result_Set / $iPerPage)) - 5;
-    if ($startpage <= 2) {
-        $startpage = 1;
-    }
-    $endpage = (ceil($Result_Set / $iPerPage)) + 5;
-    if ($endpage >= ($Pages - 1)) {
-        $endpage = $Pages;
-    }
-
-    // Show Link "1 ..." if startpage does not start at 1
-    if ($startpage != 1) {
-    ?>
-       <li>
-          <a href="SelectList.php?Result_Set=0&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">1 ...</a>
-       </li>
     <?php
-    }
-
-    // Display page links
-    if ($Pages > 1) {
-        for ($c = $startpage; $c <= $endpage; $c++) {
-            $b = $c - 1;
-            $thisLinkResult = $iPerPage * $b;
-            if ($thisLinkResult != $Result_Set) {
-            ?>
-              <li>
-                <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode?> &amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr?>"><?= $c ?></a>
-              </li>
-            <?php
-            } else {
-            ?>
-               <li class="active">
-                <a href="#"><?= $c ?></a>
-               </li>
-            <?php
-            }
-        }
-    }
-
-    // Show Link "... xx" if endpage is not the maximum number of pages
-    if ($endpage != $Pages) {
-        $thisLinkResult = ($Pages - 1) * $iPerPage;
+    while ($aLetter = mysqli_fetch_row($rsLetters)) {
+        $aLetter[0] = mb_strtoupper($aLetter[0]);
+        if ($aLetter[0] == $sLetter) {
         ?>
-        <li>
-          <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">... <?= $Pages ?></a>
-        </li>
-    <?php      
-    }
-    // Show next-page link unless we're at the last page
-    if ($Result_Set >= 0 && $Result_Set < $Total) {
-        $thisLinkResult = $Result_Set + $iPerPage;
-        if ($thisLinkResult < $Total) {
+            <li class='active'>
+               <a href='#'><?= $aLetter[0] ?></a>
+            </li>
+        <?php
+        } else {
         ?>
-          <li>
-            <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr ?>"><?= gettext('Next Page') ?></a>          
-          </li>
+            <li>
+              <a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr.(($sSort)?"&amp;Sort=$sSort":"")."&amp;Letter=".$aLetter[0] ?>"><?= $aLetter[0] ?></a>
+            </li>
         <?php
         }
     }
-    
-?>
-</ul>
+    ?>
+  </ul>
 </div>
-<div class="col-md-3">
 
-<input type="hidden" name="mode" value="<?= $sMode ?>">
-    <?php
-    if ($iGroupTypeMissing > 0) {
-    ?>
-        <input type="hidden" name="type" value="<?= $iGroupTypeMissing ?>">
-    <?php
-    }
-    if (isset($sFilter)) {
-    ?>
-        <input type="hidden" name="Filter" value="<?= $sFilter ?>">
-    <?php
-    }
-    if (isset($sSort)) {
-    ?>
-        <input type="hidden" name="Sort" value="<?= $sSort ?>">
-    <?php
-    }
-    if (isset($sLetter)) {
-    ?>
-        <input type="hidden" name="Letter" value="<?= $sLetter ?>">
-    <?php
-    }
-    if ($iClassification >= 0) {
-    ?>
-        <input type="hidden" name="Classification" value="<?= $iClassification ?>">
-    <?php
-    }
-    if ($iFamilyRole >= 0) {
-    ?>
-        <input type="hidden" name="FamilyRole" value="<?= $iFamilyRole ?>">
-    <?php
-    }
-    if ($iGender >= 0) {
-    ?>
-        <input type="hidden" name="Gender" value="<?= $iGender ?>">
-    <?php
-    }
-    if ($iGroupType >= 0) {
-    ?>
-        <input type="hidden" name="grouptype" value="<?= $iGroupType ?>">
-    <?php
-    }
-    if (isset($iPersonProperty)) {
-    ?>
-        <input type="hidden" name="PersonProperties" value="<?= $iPersonProperty ?>">
-    <?php
-    }
-    if (isset($iGroupID)) {
-    ?>
-        <input type="hidden" name="groupid" value="<?= $iGroupID ?>">
-    <?php
-    }
+<div align="center">
+  <form method="get" action="SelectList.php" name="ListNumber">
+    <table align="center">
+      <tr>
+        <td align="center">
+          <ul class="pagination pagination-sm">
+        <?php
+        // Create Next / Prev Links and $Result_Set Value
+        if ($Total > 0) {
+        ?>
 
-    // Display record limit per page
-    if ($_SESSION['SearchLimit'] == '5') {
-        $sLimit5 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '10') {
-        $sLimit10 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '20') {
-        $sLimit20 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '25') {
-        $sLimit25 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '50') {
-        $sLimit50 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '100') {
-        $sLimit100 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '200') {
-        $sLimit200 = 'selected';
-    }
-    if ($_SESSION['SearchLimit'] == '500') {
-        $sLimit500 = 'selected';
-    }
+        <?php
+            // Show previous-page link unless we're at the first page
+            if ($Result_Set < $Total && $Result_Set > 0) {
+                $thisLinkResult = $Result_Set - $iPerPage;
+        ?>
+           <li>
+                <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>"><?= gettext('Previous Page') ?></a>
+           </li> 
+        <?php
+            }
 
-?>
-<br>
-</div>
-<div class="col-md-2">
-  <label><?= gettext('Display:') ?></label>
-</div>
-<div class="col-md-1">
-  <select class="form-control input-sm" name="Number" onchange="this.form.submit()">
-          <option value="5" <?= $sLimit5 ?>>5</option>
-          <option value="10" <?= $sLimit10 ?>>10</option>
-          <option value="20" <?= $sLimit20 ?>>20</option>
-          <option value="25" <?= $sLimit25 ?>>25</option>
-          <option value="50" <?= $sLimit50 ?>>50</option>
-          <option value="100" <?= $sLimit100 ?>>100</option>
-          <option value="200" <?= $sLimit200 ?>>200</option>
-          <option value="500" <?= $sLimit500 ?>>500</option>
-      </select>&nbsp;
-</div>
-</div>
+            // Calculate starting and ending Page-Number Links
+            $Pages = ceil($Total / $iPerPage);
+            $startpage = (ceil($Result_Set / $iPerPage)) - 6;
+            if ($startpage <= 2) {
+                $startpage = 1;
+            }
+            $endpage = (ceil($Result_Set / $iPerPage)) + 9;
+            if ($endpage >= ($Pages - 1)) {
+                $endpage = $Pages;
+            }
+
+            // Show Link "1 ..." if startpage does not start at 1
+            if ($startpage != 1) {
+            ?>
+               <li>
+                  <a href="SelectList.php?Result_Set=0&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">1 ...</a>
+               </li>
+            <?php
+            }
+
+            // Display page links
+            if ($Pages > 1) {
+                for ($c = $startpage; $c <= $endpage; $c++) {
+                    $b = $c - 1;
+                    $thisLinkResult = $iPerPage * $b;
+                    if ($thisLinkResult != $Result_Set) {
+                    ?>
+                      <li>
+                        <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode?> &amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr?>"><?= $c ?></a>
+                      </li>
+                    <?php
+                    } else {
+                    ?>
+                       <li class="active">
+                        <a href="#"><?= $c ?></a>
+                       </li>
+                    <?php
+                    }
+                }
+            }
+
+            // Show Link "... xx" if endpage is not the maximum number of pages
+            if ($endpage != $Pages) {
+                $thisLinkResult = ($Pages - 1) * $iPerPage;
+                ?>
+                <li>
+                  <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">... <?= $Pages ?></a>
+                </li>
+            <?php      
+            }
+            // Show next-page link unless we're at the last page
+            if ($Result_Set >= 0 && $Result_Set < $Total) {
+                $thisLinkResult = $Result_Set + $iPerPage;
+                if ($thisLinkResult < $Total) {
+                ?>
+                  <li>
+                    <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr ?>"><?= gettext('Next Page') ?></a>          
+                  </li>
+                <?php
+                }
+            }
+          }          
+        ?>
+        </ul>
+        </td>
+        <td>
+          &nbsp;&nbsp;&nbsp;
+        </td>
+        <td align="center">
+        &nbsp;
+        <input type="hidden" name="mode" value="<?= $sMode ?>">
+            <?php
+            if ($iGroupTypeMissing > 0) {
+            ?>
+                <input type="hidden" name="type" value="<?= $iGroupTypeMissing ?>">
+            <?php
+            }
+            if (isset($sFilter)) {
+            ?>
+                <input type="hidden" name="Filter" value="<?= $sFilter ?>">
+            <?php
+            }
+            if (isset($sSort)) {
+            ?>
+                <input type="hidden" name="Sort" value="<?= $sSort ?>">
+            <?php
+            }
+            if (isset($sLetter)) {
+            ?>
+                <input type="hidden" name="Letter" value="<?= $sLetter ?>">
+            <?php
+            }
+            if ($iClassification >= 0) {
+            ?>
+                <input type="hidden" name="Classification" value="<?= $iClassification ?>">
+            <?php
+            }
+            if ($iFamilyRole >= 0) {
+            ?>
+                <input type="hidden" name="FamilyRole" value="<?= $iFamilyRole ?>">
+            <?php
+            }
+            if ($iGender >= 0) {
+            ?>
+                <input type="hidden" name="Gender" value="<?= $iGender ?>">
+            <?php
+            }
+            if ($iGroupType >= 0) {
+            ?>
+                <input type="hidden" name="grouptype" value="<?= $iGroupType ?>">
+            <?php
+            }
+            if (isset($iPersonProperty)) {
+            ?>
+                <input type="hidden" name="PersonProperties" value="<?= $iPersonProperty ?>">
+            <?php
+            }
+            if (isset($iGroupID)) {
+            ?>
+                <input type="hidden" name="groupid" value="<?= $iGroupID ?>">
+            <?php
+            }
+
+            // Display record limit per page
+            if ($_SESSION['SearchLimit'] == '5') {
+                $sLimit5 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '10') {
+                $sLimit10 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '20') {
+                $sLimit20 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '25') {
+                $sLimit25 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '50') {
+                $sLimit50 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '100') {
+                $sLimit100 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '200') {
+                $sLimit200 = 'selected';
+            }
+            if ($_SESSION['SearchLimit'] == '500') {
+                $sLimit500 = 'selected';
+            }
+
+        ?>
+
+        &nbsp;
+          <b><?= gettext('Display:') ?></b>
+        &nbsp;
+          <select class="form-control-min_width input-sm" name="Number" onchange="this.form.submit()">
+              <option value="5" <?= $sLimit5 ?>>5</option>
+              <option value="10" <?= $sLimit10 ?>>10</option>
+              <option value="20" <?= $sLimit20 ?>>20</option>
+              <option value="25" <?= $sLimit25 ?>>25</option>
+              <option value="50" <?= $sLimit50 ?>>50</option>
+              <option value="100" <?= $sLimit100 ?>>100</option>
+              <option value="200" <?= $sLimit200 ?>>200</option>
+              <option value="500" <?= $sLimit500 ?>>500</option>
+          </select>&nbsp;
+      </td>
+    </tr>
+  </table>
 </form>
 
 <?php
-} 
 
 // At this point we have finished the forms at the top of SelectList.
 // Now begin the table displaying results.
@@ -1031,7 +1033,7 @@ if (!isset($sPersonColumn5)) {
 
   <form method="get" action="SelectList.php" name="ColumnOptions">
     <div class="table-responsive">
-       <table class="table table-striped table-bordered" cellpadding="4" align="center" cellspacing="0" width="100%">
+       <table class="table table-striped table-bordered dataTable no-footer dtr-inline" cellpadding="4" align="center" cellspacing="0" width="100%">
 
   <tr>
   <th><?= gettext('Photo') ?></th>
@@ -1106,11 +1108,9 @@ if (!isset($sPersonColumn5)) {
       }
       ?>
       </select>
-
   </th>
-
   <th>
-        <a class="btn btn-<?= ($sSort == "family")?"info active":"default" ?> btn-sm " href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?=$iGroupTypeMissing ?>&amp;Sort=family&amp;Filter=<?= $sFilter ?>"><?= gettext('Family') ?></a>
+     <a class="btn btn-<?= ($sSort == "family")?"info active":"default" ?> btn-sm " href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?=$iGroupTypeMissing ?>&amp;Sort=family&amp;Filter=<?= $sFilter ?>"><?= gettext('Family') ?></a>
   </th>
   <th>
    <select class="form-control input-sm" name="PersonColumn5" onchange="this.form.submit()">
@@ -1151,6 +1151,16 @@ if (!isset($sPersonColumn5)) {
   $sRowClass = 'RowColorA';
 
   $iPrevFamily = -1;
+  
+  if ($Total == 0) {
+  ?>
+    <tr>
+      <td class="ControlBreak" colspan=8>
+        <?= gettext("Not Available") ?>
+      </td>
+    </tr>
+  <?php
+  }
 
   //Loop through the person recordset
   while ($aRow = mysqli_fetch_array($rsPersons)) {
@@ -1175,7 +1185,7 @@ if (!isset($sPersonColumn5)) {
       case 'family':
           if ($fam_ID != $iPrevFamily || $iPrevFamily == -1) {
               echo $sBlankLine;
-              echo '<tr><td></td><td class="ControlBreak" colspan=3>';
+              echo '<tr><td></td><td class="ControlBreak" colspan=7><b>';
 
               if (isset($fam_Name)) {
                   echo $fam_Name;
@@ -1183,7 +1193,7 @@ if (!isset($sPersonColumn5)) {
                   echo gettext('Unassigned');
               }
 
-              echo '</td><td></td></tr>';
+              echo '</b></td></tr>';
               $sRowClass = 'RowColorA';
           }
           break;
@@ -1211,7 +1221,7 @@ if (!isset($sPersonColumn5)) {
       <td><img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $per_ID ?>/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px" /> </td>
     <td>
         <a href="PersonView.php?PersonID=<?= $per_ID ?>" >
-        <?= FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?>
+          <?= FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?>
         </a>
       </td>
       <td>
@@ -1222,9 +1232,11 @@ if (!isset($sPersonColumn5)) {
           echo $aFamilyRoleName[$per_fmr_ID];
       } else {    // Display Gender
           switch ($per_Gender) {
-              case 1: echo gettext('Male'); break;
-              case 2: echo gettext('Female'); break;
-              default: echo '';
+            case 1: echo gettext('Male'); 
+              break;
+            case 2: echo gettext('Female'); 
+              break;
+            default: echo '';
           }
       }
       echo '&nbsp;</td>';
@@ -1368,7 +1380,6 @@ if (!isset($sPersonColumn5)) {
       </table>
     </div>
   </form>
-  </div>
 </div>
 
 <?php require 'Include/Footer.php' ?>
