@@ -260,7 +260,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       }
                     ?>
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                      <button type="submit" name="Action" title="<?= gettext('Edit') ?>" value="Edit" data-tooltip class="btn btn-default btn-sm">
+                      <button type="submit" name="Action" title="<?= gettext('Edit') ?>" value="Edit" data-tooltip class="btn btn-default btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>">
                         <i class='fa fa-pencil'></i>
                       </button>
                     <?php 
@@ -303,7 +303,7 @@ foreach ($allMonths as $mKey => $mVal) {
                     ?>                  
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="Action" value="Delete">
-                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm">
+                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>">
                         <i class='fa fa-trash'></i>
                       </button>
                     <?php 
@@ -360,7 +360,7 @@ foreach ($allMonths as $mKey => $mVal) {
                          <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                         <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                         <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm" >
+                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>" >
                     <?php 
                       if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
                     ?>
@@ -378,7 +378,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       }
                     ?>                       
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default" ?> btn-sm">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
                     <?php 
