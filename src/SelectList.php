@@ -8,6 +8,7 @@
 *  Additional Contributors:
 *  2006 Ed Davis
 *  2011 Michael Wilt
+*  2018 : Copyright Philippe Logel All rights reserved
 
 *  Design notes: this file would benefit from some thoughtful cleanup.  The filter
 *  settings are using badly overloaded values, with positive, negative, and not-set
@@ -21,6 +22,7 @@
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
@@ -525,14 +527,13 @@ if ($iMode == 1) {
 ?>
 
 <center>
-<div class="row">
-  <div class="col-md-2">
-  </div>
-  <div class="col-md-2">
-      <label><?= gettext('Sort order') ?>:</label>
-  </div>
-  <div class="col-md-2">
-      <select class="form-control input-sm" name="Sort" onchange="this.form.submit()">
+<table align="center">
+  <tr>
+  <td>
+  </td>
+  <td>
+      <label><?= gettext('Sort order') ?>:</label>&nbsp;
+      <select class="form-control-min_width input-sm" name="Sort" onchange="this.form.submit()">
           <option value="name" <?php if ($sSort == 'name' || empty($sSort)) {
           echo 'selected';
       } ?>><?= gettext('By Name') ?></option>
@@ -548,22 +549,21 @@ if ($iMode == 1) {
           <option value="edited" <?php if ($sSort == 'edited') {
           echo 'selected';
       } ?>><?= gettext('By Recently Edited') ?></option>
-
-      </select>
-   </div>
-   <div class="col-md-2">
-      <input type="text" name="Filter" class="form-control input-sm" value="<?= $sFilter ?>">
-   </div>
-   <div class="col-md-2">   
+      </select>&nbsp;&nbsp;
+      <input type="text" name="Filter" class="form-control-min_width" value="<?= $sFilter ?>">
       <input type="hidden" name="mode" value="<?= $sMode ?>">
-      <input type="hidden" name="Letter" value="<?= $sLetter ?>">
+      <input type="hidden" name="Letter" value="<?= $sLetter ?>">&nbsp;&nbsp;
       <input type="submit" class="btn btn-info btn-sm" value="<?= gettext('Apply Filter') ?>">
-   </div>
-   <div class="col-md-1">
-   </div>
-  </div>
+   </td>
+   <td>
+   </td>
+  </tr>
+</table>
 </center>
+
 <br>
+
+
 <table align="center">
   <tr>
     <td align="center">
@@ -572,7 +572,7 @@ if ($iMode == 1) {
       <option value="" <?= (!isset($iGender))?" selected ":"" ?>> <?= gettext("Male & Female") ?></option>
       <option value="1" <?= (isset($iGender) && $iGender == 1)?" selected ":"" ?>><?= gettext("Male") ?></option>
       <option value="2" <?= (isset($iGender) && $iGender == 2)?" selected ":"" ?>> <?= gettext("Female") ?></option>
-    </select>
+    </select>&nbsp;
     
     <!--  ********** -->
     <!--  Classification drop down list -->
@@ -592,7 +592,7 @@ if ($iMode == 1) {
     <?php
     }
     ?>
-     </select>
+     </select>&nbsp;
 
     <!--  ********** -->
     <!-- Family Role Drop Down Box -->
@@ -613,7 +613,7 @@ if ($iMode == 1) {
     <?php
     }
     ?>
-      </select>
+      </select>&nbsp;
 
       <!-- Person Property Drop Down Box -->
       <select class="form-control-min_width input-sm" name="PersonProperties" onchange="this.form.submit()">
@@ -632,7 +632,7 @@ if ($iMode == 1) {
     <?php
     }
     ?>
-      </select>
+      </select>&nbsp;
 
 
   <!-- grouptype drop down box -->
@@ -656,7 +656,7 @@ if ($iMode == 1) {
    <?php    
     }
    ?>
-    </select>
+    </select>&nbsp;
     
    <?php
     if (isset($iGroupType) && ($iGroupType > -1)) {
@@ -687,7 +687,7 @@ if ($iMode == 1) {
       <?php
         }
   ?>
-      </select>
+      </select>&nbsp;
   <?php
     }
   ?>
@@ -721,7 +721,7 @@ if ($iMode == 1) {
       <?php
         }
       ?>
-      </select>
+      </select>&nbsp;
   <?php      
     }
   } 
