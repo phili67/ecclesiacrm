@@ -120,7 +120,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
-      $('.date-recurrence').slideDown();      
+      $('.date-recurrance').slideDown();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -130,7 +130,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrance').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideDown();
   });
@@ -140,7 +140,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrance').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -150,7 +150,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
+      $('.date-recurrance').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -160,7 +160,7 @@
     //$('.ATTENDENCES-title').slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();      
+    $('.date-recurrance').slideUp();      
     $( ".eventPredication").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
   });
@@ -172,7 +172,7 @@
     $( ".ATTENDENCES" ).slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();      
+    $('.date-recurrance').slideUp();      
     $( ".eventPredication").slideUp();
 
      var e = document.getElementById("EventGroup");
@@ -190,11 +190,11 @@
   });
   
   // I have to do this because EventGroup isn't yet present when you load the page the first time
-  $(document).on('change','#checkboxEventRecurrence',function (value) {
-    var _val = $('#checkboxEventRecurrence').is(":checked");
+  $(document).on('change','#checkboxEventrecurrance',function (value) {
+    var _val = $('#checkboxEventrecurrance').is(":checked");
     
-    $("#typeEventRecurrence").prop("disabled", (_val == 0)?true:false);
-    $("#endDateEventRecurrence").prop("disabled", (_val == 0)?true:false);
+    $("#typeEventrecurrance").prop("disabled", (_val == 0)?true:false);
+    $("#endDateEventrecurrance").prop("disabled", (_val == 0)?true:false);
   });
   
   
@@ -214,7 +214,7 @@
     
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrence').slideUp();
+    $('.date-recurrance').slideUp();
     $('.eventPredication').slideUp();
       
     window.CRM.APIRequest({
@@ -432,14 +432,14 @@
                   +'</div>'
                 +'</div>'
             +'</div>'            
-            +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'            
+            +'<div class="row date-recurrance div-block" style="padding-top:0px;padding-bottom:5px">'            
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3">'
-                      +'<input type="checkbox" id="checkboxEventRecurrence" name="checkboxEventRecurrence"> '+i18next.t('Repeat')+' :'
+                      +'<input type="checkbox" id="checkboxEventrecurrance" name="checkboxEventrecurrance"> '+i18next.t('Repeat')+' :'
                     +'</div>'
                     +'<div class="col-md-3">'
-                    + '<select class="form-control input-sm" id="typeEventRecurrence" name="typeEventRecurrence">'
+                    + '<select class="form-control input-sm" id="typeEventrecurrance" name="typeEventrecurrance">'
                     +   '<option value="1 week">'+i18next.t("Weekly")+'</option>'
                     +   '<option value="1 month">'+i18next.t("Monthly")+'</option>'
                     +   '<option value="3 month">'+i18next.t("Quarterly")+'</option>'
@@ -455,7 +455,7 @@
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
                           +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="endDateEventRecurrence" name="endDateEventRecurrence"  value="'+dateStart+'" '
+                          +'<input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrance" name="endDateEventrecurrance"  value="'+dateStart+'" '
                                 +'maxlength="10" id="sel1" size="11"'
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
@@ -563,9 +563,9 @@
                   var dateEnd = $('form #dateEventEnd').val();
                   var timeEnd = $('form #timeEventEnd').val();
                   
-                  var recurrenceValid = $('#checkboxEventRecurrence').is(":checked");
-                  var recurrenceType = $("#typeEventRecurrence").val();
-                  var endReccurence = $("#endDateEventRecurrence").val();
+                  var recurranceValid = $('#checkboxEventrecurrance').is(":checked");
+                  var recurranceType = $("#typeEventrecurrance").val();
+                  var endRecurrance = $("#endDateEventrecurrance").val();
                   
                   var fmt = window.CRM.datePickerformat.toUpperCase();
     
@@ -579,7 +579,7 @@
                                     
                   var real_start = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                   var real_end = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
-                  var real_endReccurence = moment(endReccurence+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
+                  var real_endRecurrance = moment(endRecurrance+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                              
                   var e = document.getElementById("EventGroup");
                   var EventGroupID = e.options[e.selectedIndex].value;
@@ -623,7 +623,7 @@
                         data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,
                                "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
                                "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                               "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endReccurence":real_endReccurence})
+                               "recurranceValid":recurranceValid,"recurranceType":recurranceType,"endRecurrance":real_endRecurrance})
                   }).done(function(data) {                   
                     $('#calendar').fullCalendar('unselect');              
                     add = true;              
@@ -672,10 +672,10 @@
           selectable: isModifiable,
           editable:isModifiable,
           eventDrop: function(event, delta, revertFunc) {
-            if (event.type == 'event'){
+            if (event.type == 'event') {
               bootbox.confirm({
                title:  i18next.t("Move Event") + "?",
-                message: i18next.t("Are you sure about this change?") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
+                message: i18next.t("Are you sure about this change?") + ((event.parentID != null)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
                 buttons: {
                   cancel: {
                     label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
@@ -685,21 +685,22 @@
                   }
                 },
                 callback: function (result) {
-                 if (result == true)// only event can be drag and drop, not anniversary or birthday
-                 {
-                  window.CRM.APIRequest({
-                   method: 'POST',
-                   path: 'events/',
-                   data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format()})
-                  }).done(function(data) {
-                     // now we can create the event
-                     $('#calendar').fullCalendar( 'refetchEvents' );
-                     $('#calendar').fullCalendar('unselect'); 
-                  });
-                 } else {
-                  revertFunc();
-                 }
-                 console.log('This was logged in the callback: ' + result);
+                  if (result == true)// only event can be drag and drop, not anniversary or birthday
+                  {
+                    window.CRM.APIRequest({
+                       method: 'POST',
+                       path: 'events/',
+                       data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format(),"parentID":event.parentID})
+                    }).done(function(data) {
+                      // now we can refresh the calendar
+                      $('#calendar').fullCalendar('refetchEvents');
+                      $('#calendar').fullCalendar('unselect'); 
+                    });
+                  } else {
+                    revertFunc();
+                  }
+                  
+                  console.log('This was logged in the callback: ' + result);
                 }        
             });
            } else {
@@ -709,109 +710,157 @@
         eventClick: function(calEvent, jsEvent, view) {
           if (calEvent.type == "event" && isModifiable) {
              // only with group event We create the dialog,
-             var box = bootbox.dialog({
-               title: i18next.t('Modify Event'),
-               message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
-               buttons: {
-                  cancel: {
-                    label:  i18next.t('Delete Event'),
-                    className: 'btn btn-danger',
-                     callback: function () {
-                       bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
-                        if (confirmed) {
-                          window.CRM.APIRequest({
-                             method: 'POST',
-                             path: 'events/',
-                             data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
-                          }).done(function(data) {
-                             $('#calendar').fullCalendar( 'refetchEvents' );
-                             $('#calendar').fullCalendar('unselect'); 
+             if (calEvent.type == "event") {
+               var box = bootbox.dialog({
+                 title: i18next.t("Modify Event"),
+                 message: i18next.t("What would you like to do ? Be careful with the deletion, it's impossible to revert !!!"),
+                 buttons: {
+                    cancel: {
+                      label:  i18next.t("Delete Event"),
+                      className: 'btn btn-danger',
+                       callback: function () {
+                         if (calEvent.type == "event" && calEvent.parentID == null) {
+                           bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
+                            if (confirmed) {
+                              window.CRM.APIRequest({
+                                 method: 'POST',
+                                 path: 'events/',
+                                 data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                              }).done(function(data) {
+                                 $('#calendar').fullCalendar( 'refetchEvents' );
+                                 $('#calendar').fullCalendar('unselect'); 
+                              });
+                            }
                           });
+                        } else if (calEvent.type == "event" && calEvent.parentID > 0) {
+                          var box = bootbox.dialog({
+                             title: i18next.t("Delete all repeated Events"),
+                             message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
+                             buttons: {
+                                cancel: {
+                                  label:  i18next.t('No'),
+                                  className: 'btn btn-success'
+                                },     
+                                add: {
+                                   label: i18next.t('Only this event'),
+                                   className: 'btn btn-info',
+                                   callback: function () {
+                                     window.CRM.APIRequest({
+                                       method: 'POST',
+                                       path: 'events/',
+                                       data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                                    }).done(function(data) {
+                                       $('#calendar').fullCalendar( 'refetchEvents' );
+                                       $('#calendar').fullCalendar('unselect'); 
+                                    });
+                                   }
+                                },
+                                confirm: {
+                                   label: i18next.t('Every Events linked to this Event'),
+                                   className: 'btn btn-danger',
+                                   callback: function () {
+                                      window.CRM.APIRequest({
+                                         method: 'POST',
+                                         path: 'events/',
+                                         data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID,"parentID":calEvent.parentID})
+                                      }).done(function(data) {
+                                         $('#calendar').fullCalendar( 'refetchEvents' );
+                                         $('#calendar').fullCalendar('unselect'); 
+                                      });
+                                   }
+                                }
+                              }
+                          });
+
+                          box.show();
+                        } else {
+                          // the other event type
                         }
-                      });
-                    }
-                  },     
-                  add: {
-                     label: i18next.t('Add More Attendees'),
-                     className: 'btn btn-info',
-                     callback: function () {
-                        window.CRM.APIRequest({
-                         method: 'POST',
-                         path: 'events/',
-                         data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
-                        }).done(function(data) {
-                           location.href = window.CRM.root + 'EditEventAttendees.php';
-                        });
-                     }
-                  },
-                  attendance: {
-                     label: i18next.t('Make Attendance'),
-                     className: 'btn btn-primary',
-                     callback: function () {
-                        window.CRM.APIRequest({
-                         method: 'POST',
-                         path: 'events/',
-                         data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
-                        }).done(function(data) {
-                           location.href = window.CRM.root + 'Checkin.php';
-                        });
+                      }
+                    },     
+                    add: {
+                       label: i18next.t('Add More Attendees'),
+                       className: 'btn btn-info',
+                       callback: function () {
+                          window.CRM.APIRequest({
+                           method: 'POST',
+                           path: 'events/',
+                           data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                          }).done(function(data) {
+                             location.href = window.CRM.root + 'EditEventAttendees.php';
+                          });
+                       }
+                    },
+                    attendance: {
+                       label: i18next.t('Make Attendance'),
+                       className: 'btn btn-primary',
+                       callback: function () {
+                          window.CRM.APIRequest({
+                           method: 'POST',
+                           path: 'events/',
+                           data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
+                          }).done(function(data) {
+                             location.href = window.CRM.root + 'Checkin.php';
+                          });
                         
-                     }
-                  },
-                  Edit: {
-                     label: i18next.t('Edit'),
-                     className: 'btn btn-success',
-                     callback: function () {
-                       modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
+                       }
+                    },
+                    Edit: {
+                       label: i18next.t('Edit'),
+                       className: 'btn btn-success',
+                       callback: function () {
+                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
        
-                       $('form #EventTitle').val(calEvent.title);
-                       $('form #EventDesc').val(calEvent.Desc);
-                       $('form #eventPredication').val(calEvent.Text);
+                         $('form #EventTitle').val(calEvent.title);
+                         $('form #EventDesc').val(calEvent.Desc);
+                         $('form #eventPredication').val(calEvent.Text);
            
 
-                       // we add the calendars and the types
-                       addGroupCalendars(calEvent.groupID);
-                       addGroupEventTypes(calEvent.eventTypeID,false);
-                       addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
+                         // we add the calendars and the types
+                         addGroupCalendars(calEvent.groupID);
+                         addGroupEventTypes(calEvent.eventTypeID,false);
+                         addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
            
-                       //Timepicker
-                       $('.timepicker').timepicker({
-                         showInputs: false,
-                         showMeridian: (window.CRM.timeEnglish == "true")?true:false
-                       });
+                         //Timepicker
+                         $('.timepicker').timepicker({
+                           showInputs: false,
+                           showMeridian: (window.CRM.timeEnglish == "true")?true:false
+                         });
        
-                       $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+                         $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
        
-                       $('.date-picker').click('focus', function (e) {
-                         e.preventDefault();
-                         $(this).datepicker('show');
-                       });
+                         $('.date-picker').click('focus', function (e) {
+                           e.preventDefault();
+                           $(this).datepicker('show');
+                         });
         
-                       $('.date-start').hide();
-                       $('.date-end').hide();
-                       $('.date-recurrence').hide();
-                       $(".eventPredication").hide();
+                         $('.date-start').hide();
+                         $('.date-end').hide();
+                         $('.date-recurrance').hide();
+                         $(".eventPredication").hide();
        
-                       // this will ensure that image and table can be focused
-                       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+                         // this will ensure that image and table can be focused
+                         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
        
-                       // this will create the toolbar for the textarea
-                       CKEDITOR.replace('eventPredication',{
-                        customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-                        language : window.CRM.lang,
-                        width : '100%'
-                       });
+                         // this will create the toolbar for the textarea
+                         CKEDITOR.replace('eventPredication',{
+                          customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+                          language : window.CRM.lang,
+                          width : '100%'
+                         });
       
-                       $(".ATTENDENCES").hide();
+                         $(".ATTENDENCES").hide();
        
-                       modal.modal("show");
-
+                         modal.modal("show");
+                      }
                     }
                   }
-                }
-            });
+              });
 
-            box.show();
+              box.show();
+            } else {
+              // we are with other event type
+            }
               
             // change the border color just for fun
             $(this).css('border-color', 'red');
@@ -839,7 +888,7 @@
                  path: 'events/',
                  data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
                 }).done(function(data) {
-                   // now we can create the event
+                   // now we can refresh the calendar
                    $('#calendar').fullCalendar( 'refetchEvents' );
                    $('#calendar').fullCalendar('unselect'); 
                 });
@@ -877,11 +926,11 @@
         
          $('.date-start').hide();
          $('.date-end').hide();
-         $('.date-recurrence').hide();
+         $('.date-recurrance').hide();
          $(".eventPredication").hide();
          
-         $("#typeEventRecurrence").prop("disabled", true);
-         $("#endDateEventRecurrence").prop("disabled", true);
+         $("#typeEventrecurrance").prop("disabled", true);
+         $("#endDateEventrecurrance").prop("disabled", true);
        
          // this will ensure that image and table can be focused
          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});

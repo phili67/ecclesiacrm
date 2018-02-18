@@ -184,19 +184,20 @@ $app->group('/events', function () {
         }
         
         $begin = new DateTime( str_replace("T"," ",$input->start) );
-        $endReccurence = new DateTime( str_replace("T"," ",$input->endReccurence) );
+        $endRecurrance = new DateTime( str_replace("T"," ",$input->endRecurrance) );
         
         $endFirsEvent = new DateTime( str_replace("T"," ",$input->end) );
         $intervalEndStart = $begin->diff($endFirsEvent);
 
-        if ($begin == $endReccurence) {// we are in the case of a one time event, this is to have only one event
-          $endReccurence = $endReccurence->modify( '+1 week' );
+        if ($begin == $endRecurrance) {// we are in the case of a one time event, this is to have only one event
+          $endRecurrance = $endRecurrance->modify( '+1 week' );
         }
 
-        $interval = DateInterval::createFromDateString($input->recurrenceType);// recurrence type is : 1 week, 1 Month, 3 months, 6 months, 1 Year
-        $period = new DatePeriod($begin, $interval, $endReccurence);// so we create the period
+        $interval = DateInterval::createFromDateString($input->recurranceType);// recurrance type is : 1 week, 1 Month, 3 months, 6 months, 1 Year
+        $period = new DatePeriod($begin, $interval, $endRecurrance);// so we create the period
         
         $parent_id = 0;
+        $first_event = nil;
 
         foreach($period as $dt) {        
            $event = new Event; 
@@ -221,9 +222,10 @@ $app->group('/events', function () {
            
            if ($parent_id == 0) {
               $parent_id = $event->getID();
+              $first_event = $event;
            }
            
-           if ($input->recurrenceValid) {// we can store the parent id for all the event the first one too
+           if ($input->recurranceValid) {// we can store the parent id for all the event the first one too
              $event->setEventParentId ($parent_id);
              $event->save(); 
            }
@@ -245,6 +247,7 @@ $app->group('/events', function () {
                 ->filterByGroupId($input->EventGroupID)
                 ->find();
 
+             if ($persons->count() > 0) {
               foreach ($persons as $person) {
                 try {
                   if ($person->getPersonId() > 0) {
@@ -272,44 +275,76 @@ $app->group('/events', function () {
             
               $_SESSION['EventID'] = $event->getID();
             }
+          }
         }
      
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
+            $first_event->getTitle(), $first_event->getStart('Y-m-d H:i:s'), $first_event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,
+            $first_event->getId(),$first_event->getType(),$first_event->getGroupId(),$input->EventDesc,$input->eventPredication,
+            $first_event->getEventParentId());// only the event id sould be edited and moved and have custom color
       
-         return $response->withJson(['status' => $input->endReccurence]);
-     
+        return $response->withJson(array_filter($realCalEvnt));
      } 
      else if ($input->evntAction == 'moveEvent')
      {
-        $event = EventQuery::Create()
-          ->findOneById($input->eventID);
-   
-   
-       $oldStart = new DateTime($event->getStart('Y-m-d H:i:s'));     
-       $oldEnd = new DateTime($event->getEnd('Y-m-d H:i:s'));
+       $first_event = EventQuery::Create()
+            ->findOneById($input->eventID);
 
-       $newStart = new DateTime(str_replace("T"," ",$input->start));     
-   
+       $oldStart = new DateTime($first_event->getStart('Y-m-d H:i:s'));
+       $oldEnd = new DateTime($first_event->getEnd('Y-m-d H:i:s'));
+
+       $newStart = new DateTime(str_replace("T"," ",$input->start));
+ 
        if ($newStart < $oldStart)
        {
-        $interval = $oldStart->diff($newStart);
-        $newEnd = $oldEnd->add($interval);          
-       }
-       else 
-       {
-        $interval = $newStart->diff($oldStart);
-        $newEnd = $oldEnd->sub($interval);          
+         $interval = $oldStart->diff($newStart);
+         $action = +1;
+       } else {
+         $interval = $newStart->diff($oldStart);         
+         $action = -1;
        }
 
-       $event->setStart($newStart->format('Y-m-d H:i:s'));
-       $event->setEnd($newEnd->format('Y-m-d H:i:s'));
-       $event->save();
+       if (isset ($input->parentID)) {
+          $events = EventQuery::Create()
+            ->findByEventParentId($input->parentID);
+          
+          foreach ($events as $event) {
+            $oldStart = new DateTime($event->getStart('Y-m-d H:i:s'));
+            $oldEnd = new DateTime($event->getEnd('Y-m-d H:i:s'));
+            
+            if ($action == +1) {
+              $newStart = $oldStart->add($interval);
+              $newEnd = $oldEnd->add($interval);
+            } else {
+              $newStart = $oldStart->sub($interval);
+              $newEnd = $oldEnd->sub($interval);
+            }
+            
+            $event->setStart($newStart->format('Y-m-d H:i:s'));
+            $event->setEnd($newEnd->format('Y-m-d H:i:s'));
+            
+            $event->save();
+          }
+          
+          return $response->withJson(['status' => "success"]);
+       } else {
+         if ($action == +1) {
+           $newStart = $oldStart->add($interval);
+           $newEnd = $oldEnd->add($interval);
+         } else {
+           $newStart = $oldStart->sub($interval);
+           $newEnd = $oldEnd->sub($interval);
+         }
+         
+         $first_event->setStart($newStart->format('Y-m-d H:i:s'));
+         $first_event->setEnd($newEnd->format('Y-m-d H:i:s'));
+         $first_event->save();
+         
+         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+            $first_event->getTitle(), $first_event->getStart('Y-m-d H:i:s'), $first_event->getEnd('Y-m-d H:i:s'), ''/*$first_event->getEventURI()*/,$first_event->getId(),$first_event->getType(),$first_event->getGroupId(),$first_event->getDesc(),$first_event->getText(),$first_event->getEventParentId());// only the event id sould be edited and moved and have custom color
   
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-        return $response->withJson(array_filter($realCalEvnt));
+          return $response->withJson(array_filter($realCalEvnt));
+       }
      }
      else if (!strcmp($input->evntAction,'retriveEvent'))
      { 
@@ -351,14 +386,23 @@ $app->group('/events', function () {
         return $response->withJson(['status' => "success"]);
      }
      else if (!strcmp($input->evntAction,'suppress'))
-     {
-        $event = EventQuery::Create()
-          ->findOneById($input->eventID);
+     {     
+        if (isset ($input->parentID)) {
+          $events = EventQuery::Create()
+            ->findByEventParentId($input->parentID);
+            
+          if ($events->count() > 0) {
+            $events->delete();
+          }
+        } else {
+          $event = EventQuery::Create()
+            ->findOneById($input->eventID);
         
-        if (!empty($event)) {
-          $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
+          if (!empty($event)) {
+            $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
           
-          $event->delete();
+            $event->delete();
+          }
         }
   
         return $response->withJson(['status' => "success"]);
@@ -415,7 +459,7 @@ $app->group('/events', function () {
            $persons = Person2group2roleP2g2rQuery::create()
               ->filterByGroupId($input->EventGroupID)
               ->find();
-
+           if ($persons->count() > 0) {
             foreach ($persons as $person) {
               try {
                 if ($person->getPersonId() > 0) {
@@ -443,11 +487,14 @@ $app->group('/events', function () {
             
             $_SESSION['EventID'] = $event->getID();
           }
+        }
      
-         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$input->EventDesc,$input->eventPredication);// only the event id sould be edited and moved and have custom color
+        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),
+              $event->getGroupId(),$input->EventDesc,$input->eventPredication,
+              $event->getEventParentId());// only the event id sould be edited and moved and have custom color
       
-         return $response->withJson(array_filter($realCalEvnt));     
+        return $response->withJson(array_filter($realCalEvnt));
       }
   });
 });
