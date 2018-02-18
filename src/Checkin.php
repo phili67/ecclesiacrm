@@ -76,13 +76,13 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
     $eventAttent->save();
   }
 
-  if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
+  /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
     //Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else {
     Redirect('GroupView.php?GroupID='.$event->getGroupId());
     exit;
-  }
+  }*/
 }
 
 if (isset($_SESSION['CartToEventEventID'])) {
