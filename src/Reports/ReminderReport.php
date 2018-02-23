@@ -178,7 +178,7 @@ $rsFunds = RunQuery($sSQL);
 class PDF_ReminderReport extends ChurchInfoReport
 {
     // Constructor
-    public function PDF_ReminderReport()
+    public function __construct()
     {
         parent::__construct('P', 'mm', $this->paperFormat);
 
