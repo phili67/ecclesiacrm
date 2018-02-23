@@ -113,7 +113,7 @@ CREATE TABLE `deposit_dep` (
   `dep_EnteredBy` mediumint(9) unsigned default NULL,
   `dep_Closed` tinyint(1) NOT NULL default '0',
   `dep_Type` enum('Bank','CreditCard','BankDraft','eGive') NOT NULL default 'Bank',
-  `dep_Fund` mediumint(6) NOT NULL default '0'
+  `dep_Fund` mediumint(6) NOT NULL default '0',
   PRIMARY KEY  (`dep_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci PACK_KEYS=0 AUTO_INCREMENT=1 ;
 
@@ -200,7 +200,6 @@ CREATE TABLE `event_types` (
   `type_defrecurDOY` date NOT NULL default '2000-01-01',
   `type_active` int(1) NOT NULL default '1',
   `type_grpid` mediumint(9),
-
   PRIMARY KEY  (`type_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=3 ;
 
@@ -225,11 +224,11 @@ INSERT INTO `event_types` (`type_id`, `type_name`, `type_defstarttime`, `type_de
 
 CREATE TABLE `eventcountnames_evctnm` (
   `evctnm_countid` int(5) NOT NULL auto_increment,
-  `evctnm_eventtypeid` `evctnm_eventtypeid` int(11),
+  `evctnm_eventtypeid` int(11) NOT NULL default '0',
   `evctnm_countname` varchar(20) NOT NULL default '',
   `evctnm_notes` varchar(20) NOT NULL default '',
   UNIQUE KEY `evctnm_countid` (`evctnm_countid`),
-  UNIQUE KEY `evctnm_eventtypeid` (`evctnm_eventtypeid`,`evctnm_countname`)
+  UNIQUE KEY `evctnm_eventtypeid` (`evctnm_eventtypeid`,`evctnm_countname`),
   CONSTRAINT fk_evctnm_eventtypeid FOREIGN KEY (evctnm_eventtypeid) REFERENCES event_types(type_id) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=7 ;
 
@@ -313,41 +312,6 @@ CREATE TABLE `event_attend` (
   UNIQUE KEY `event_id` (`event_id`,`person_id`),
   CONSTRAINT fk_attend_event_ID FOREIGN KEY (event_id) REFERENCES events_event(event_id) ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
---
--- Dumping data for table `event_attend`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `event_types`
---
-
-CREATE TABLE `event_types` (
-  `type_id` int(11) NOT NULL auto_increment,
-  `type_name` varchar(255) NOT NULL default '',
-  `type_defstarttime` time NOT NULL default '00:00:00',
-  `type_defrecurtype` enum('none','weekly','monthly','yearly') NOT NULL default 'none',
-  `type_defrecurDOW` enum('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday') NOT NULL default 'Sunday',
-  `type_defrecurDOM` char(2) NOT NULL default '0',
-  `type_defrecurDOY` date NOT NULL default '2000-01-01',
-  `type_active` int(1) NOT NULL default '1',
-  `type_grpid` mediumint(9),
-
-  PRIMARY KEY  (`type_id`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `event_types`
---
-
-INSERT INTO `event_types` (`type_id`, `type_name`, `type_defstarttime`, `type_defrecurtype`, `type_defrecurDOW`, `type_defrecurDOM`, `type_defrecurDOY`, `type_active`) VALUES
-  (1, 'Church Service', '10:30:00', 'weekly', 'Sunday', '', '2016-01-01', 1),
-  (2, 'Sunday School', '09:30:00', 'weekly', 'Sunday', '', '2016-01-01', 1);
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `family_custom`
@@ -824,7 +788,7 @@ CREATE TABLE `pledge_plg` (
   `plg_aut_Cleared` tinyint(1) NOT NULL default '0',
   `plg_aut_ResultID` mediumint(9) NOT NULL default '0',
   `plg_NonDeductible` decimal(8,2) NOT NULL,
-  `plg_GroupKey` VARCHAR( 64 ) NOT NULL
+  `plg_GroupKey` VARCHAR( 64 ) NOT NULL,
   PRIMARY KEY  (`plg_plgID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 

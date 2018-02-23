@@ -9762,3 +9762,16 @@ msgstr "Donnée privée"
 msgid "records returned"
 msgstr "Enregistrements retournés"
 
+#: checkin.php
+
+msgid "Boy"
+msgstr "Garçon"
+
+msgid "Girl"
+msgstr "Fille"
+
+msgid "Man"
+msgstr "Homme"
+
+msgid "Woman"
+msgstr "Femmme"

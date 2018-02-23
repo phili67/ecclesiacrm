@@ -53,6 +53,15 @@ if (array_key_exists('EventID', $_POST)) {
    $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
 }
 
+$bSundaySchool = false;
+
+$event = EventQuery::Create()
+        ->findOneById($EventID);
+
+if ($event->getGroupId() > 0) {
+   $bSundaySchool = GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool();
+}
+
 if (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn'])) {
     $CheckoutOrDelete =  true;
 } 
@@ -79,10 +88,12 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
   /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
     //Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
-  } else {
-    Redirect('GroupView.php?GroupID='.$event->getGroupId());
+  } else */
+  if ($bSundaySchool == false && $event->getGroupId()) {
+    //Redirect('GroupView.php?GroupID='.$event->getGroupId());
+    Redirect('calendar.php');
     exit;
-  }*/
+  }
 }
 
 if (isset($_SESSION['CartToEventEventID'])) {
@@ -172,11 +183,12 @@ if ($FreeAttendees) {
 
 <!--Select Event Form -->
 <div class="box box-primary">
+   <div class="box-header  with-border">
+       <h3 class="box-title">
+        <?= gettext('Select the event to which you would like to check people in for') ?> :</h3>
+    </div>
     <div class="row">
         <div class="col-md-10 col-xs-12">
-                <div class="box-header">
-                    <h3 class="box-title"><?= gettext('Select the event to which you would like to check people in for') ?> :</h3>
-                </div>
                 <div class="box-body">
                     <?php if ($sGlobalMessage): ?>
                         <p><?= $sGlobalMessage ?></p>
@@ -239,7 +251,7 @@ if ($FreeAttendees) {
  <div class="panel panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?= gettext('Set your free attendees') ?></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?= gettext('Set your free attendees') ?> <i class="fa fa-chevron-down pull-right"></i></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse">
@@ -319,13 +331,12 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
    <div class="panel panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?= gettext('Add single child/parents Attendees') ?></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?= gettext('Add single child/parents Attendees') ?><i class="fa fa-chevron-down pull-right"></i></a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title"><?= gettext('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
                     </div>
@@ -373,10 +384,9 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                         </div>
                     </div>
                 </div>
-            </div>
-         </div>
+        </div>
       </div>
-    </div>
+   </div>
 </form> <!-- end AddAttendees form -->
 
     <?php
@@ -440,8 +450,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 
     $formTitle = (isset($_POST['CheckOutBtn']) ? gettext("CheckOut Person") : gettext("Delete Checkin in Entry")); ?>
 
-    <form method="post" action="Checkin.php" id="CheckOut" data-toggle="validator"
-          role="form">
+    <form method="post" action="Checkin.php" id="CheckOut" data-toggle="validator" role="form">
         <input type="hidden" name="EventID" value="<?= $EventID ?>">
         <input type="hidden" name="child-id" value="<?= $iChildID ?>">
 
@@ -514,57 +523,104 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset($_SESSION['EventID'])) {
     ?>
     <div class="box box-primary">
+       <div class="box-header  with-border">
+         <h3 class="box-title">
+           <?= gettext('Listing') ?> :</h3>
+        </div>
         <div class="box-body table-responsive">
             <table id="checkedinTable" class="table data-table table-striped " style="width:100%">
                 <thead>
                 <tr>
-                    <th><?= gettext('Name') ?></th>
+                    <th></th>
+                    <th><?= ($bSundaySchool)?gettext('First Name'):gettext('Name') ?></th>
+                    <th><?= ($bSundaySchool)?gettext('Name'):gettext('First Name') ?></th>
+                    <th><?= gettext("Gender") ?></th>
                     <th><?= gettext('Checked In Time') ?></th>
                     <th><?= gettext('Checked In By') ?></th>
                     <th><?= gettext('Checked Out Time') ?></th>
                     <th><?= gettext('Checked Out By') ?></th>
                     <th nowrap><?= gettext('Action') ?></th>
-                    <th><?= gettext('Delete') ?></th>
+                    <?php
+                      if ($bSundaySchool == false) {
+                    ?>
+                      <th><?= gettext('Delete') ?></th>
+                    <?php
+                      }
+                    ?>
                 </tr>
                 </thead>
                 <tbody>
 
-                <?php
-                //Get Event Attendees details
-                $eventAttendees = EventAttendQuery::create()
-                    ->filterByEventId($EventID)
-                    ->find();
+            <?php
+            //Get Event Attendees details
+            $eventAttendees = EventAttendQuery::create()
+                ->joinWithPerson()
+                ->usePersonQuery()
+                ->orderByFirstName()
+                ->endUse()
+                ->findByEventId($EventID);
+                
+                
+            if ($bSundaySchool) { 
+              $genderMale = "Boy";
+              $genderFem = "Girl";
+            } else {
+              $genderMale = "Man";
+              $genderFem = "Woman";
+            }
 
-    foreach ($eventAttendees as $per) {
-        //Get Person who is checked in
-        $checkedInPerson = PersonQuery::create()
-                        ->findOneById($per->getPersonId());
+            foreach ($eventAttendees as $per) {
+                //Get Person who is checked in
+                $checkedInPerson = PersonQuery::create()
+                                ->findOneById($per->getPersonId());
                         
-        if (is_null($checkedInPerson)) {// we have to avoid pure user and not persons
-          continue;
-        }
+                if (is_null($checkedInPerson)) {// we have to avoid pure user and not persons
+                  continue;
+                }
 
-        $sPerson = $checkedInPerson->getFullName();        
+                $sPerson = $checkedInPerson->getFullName();        
 
-        //Get Person who checked person in
-        $sCheckinby = "";
-        if ($per->getCheckinId()) {
-            $checkedInBy = PersonQuery::create()
-                            ->findOneById($per->getCheckinId());
-            $sCheckinby = $checkedInBy->getFullName();
-        }
+                //Get Person who checked person in
+                $sCheckinby = "";
+                if ($per->getCheckinId()) {
+                    $checkedInBy = PersonQuery::create()
+                                    ->findOneById($per->getCheckinId());
+                    $sCheckinby = $checkedInBy->getFullName();
+                }
 
-        //Get Person who checked person out
-        $sCheckoutby = "";
-        if ($per->getCheckoutId()) {
-            $checkedOutBy = PersonQuery::create()
-                            ->findOneById($per->getCheckoutId());
-            $sCheckoutby = $checkedOutBy->getFullName();
-        } ?>
+                //Get Person who checked person out
+                $sCheckoutby = "";
+                if ($per->getCheckoutId()) {
+                    $checkedOutBy = PersonQuery::create()
+                                    ->findOneById($per->getCheckoutId());
+                    $sCheckoutby = $checkedOutBy->getFullName();
+                } ?>
                     <tr>
                         <td><img src="<?= SystemURLs::getRootPath() . '/api/persons/' . $per->getPersonId() . '/thumbnail' ?>"
-                                 class="direct-chat-img initials-image">&nbsp
-                            <a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $sPerson ?></a></td>
+                                 class="direct-chat-img initials-image"></a></td>
+                    <?php
+                      if ($bSundaySchool) {
+                      ?>
+                        <td><a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $checkedInPerson->getFirstName() ?></a></td>
+                    <?php
+                      } else {
+                    ?>
+                        <td><a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $checkedInPerson->getLastName() ?></a></td>
+                    <?php
+                      }
+                    ?>
+                    <?php
+                      if ($bSundaySchool) {
+                    ?>
+                        <td><a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $checkedInPerson->getLastName() ?></a></td>
+                    <?php
+                      } else {
+                    ?>
+                        <td><a href="PersonView.php?PersonID=<?= $per->getPersonId() ?>"><?= $checkedInPerson->getFirstName() ?></a></td>
+                    <?php
+                      }
+                    ?>
+                        <td><?= ($checkedInPerson->getGender() == 1)?gettext($genderMale):gettext($genderFem) ?></td>
                         <td><?= (!empty($per->getCheckinDate()))?OutputUtils::FormatDate($per->getCheckinDate()->format("Y-m-d H:i:s"),1):"" ?></td>
                         <td><?= $sCheckinby ?></td>
                         <td><span id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= (!empty($per->getCheckoutDate()))?OutputUtils::FormatDate($per->getCheckoutDate()->format("Y-m-d H:i:s"),1):"" ?></span></td>
@@ -579,6 +635,9 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                                 </label>
                             </form>
                         </td>
+                        <?php
+                          if ($bSundaySchool == false) {
+                        ?>
                         <td align="center">
                           <form method="POST" action="Checkin.php" name="DeletePersonFromEvent">
                             <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
@@ -586,40 +645,42 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
                             <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn" value="<?= gettext('Delete') ?>">
                           </form>
                         </td>
+                        <?php
+                          }
+                        ?>
                     </tr>
                     <?php
     } ?>
                 </tbody>
             </table>
-        <div class="row" style="margin:5px"> 
-          <center>
-            <div class="col-sm-6" style="text-align:center">
-               <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= gettext('Uncheck all') ?>">
+            <div class="row" style="margin:5px"> 
+              <center>
+                <div class="col-sm-6" style="text-align:center">
+                   <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= gettext('Uncheck all') ?>">
+                </div>
+                <div class="col-sm-6" style="text-align:center">
+                   <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll" data-id="<?= $EventID ?>" value="<?= gettext('Check all') ?>">
+                </div>
+              </center>
             </div>
-            <div class="col-sm-6" style="text-align:center">
-               <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll" data-id="<?= $EventID ?>" value="<?= gettext('Check all') ?>">
-            </div>
-          </center>
-        </div>
 
-        <hr/>
-        <div class="row" style="margin:5px"> 
-        <label><?= gettext("Add some notes") ?> : </label>     
-        <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
-        <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
-        <input type="hidden" name="EventID" value="<?= $EventID ?>">
-        <center>
-          <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
-          <br>
-          <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext("Validate Attendance") ?>">
-        </center>
-        </form>
-        <br>
-        </div>
-        </div>
-        
+            <hr/>
+            <div class="row" style="margin:5px"> 
+            <label><?= gettext("Add some notes") ?> : </label>     
+            <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
+            <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
+            <input type="hidden" name="EventID" value="<?= $EventID ?>">
+            <center>
+              <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
+              <br>
+              <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext("Validate Attendance") ?>">
+            </center>
+            </form>
+            <br>
+            </div>
+        </div>        
     </div>
-    <?php
+  <?php
 }
 ?>
 
@@ -636,17 +697,25 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
     var perArr;
     $(document).ready(function () {
         $('#checkedinTable').DataTable({
-       "language": {
-         "url": window.CRM.plugin.dataTable.language.url
-       },
-       pageLength: 100,
-       responsive: true
-     });
+         "language": {
+           "url": window.CRM.plugin.dataTable.language.url
+         },
+         pageLength: 100,
+         responsive: true,
+         order: [[ 1, "asc" ]]
+       });
      
      CKEDITOR.replace('NoteText',{
        customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
        language : window.CRM.lang
      });  
+     
+     $('.collapse').on('shown.bs.collapse', function(){
+        $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");
+     }).on('hidden.bs.collapse', function(){
+        $(this).parent().find(".fa-chevron-up").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+     });
+
     });
 
     $(document).ready(function() {

@@ -63,6 +63,7 @@ $labelArr = [];
 $labelArr[] = InputUtils::translate_special_charset("First Name");
 $labelArr[] = InputUtils::translate_special_charset("Last Name");
 $labelArr[] = InputUtils::translate_special_charset("Birth Date");
+$labelArr[] = InputUtils::translate_special_charset("Gender");
 $labelArr[] = InputUtils::translate_special_charset("Age");
 $labelArr[] = InputUtils::translate_special_charset("Phone");
 $labelArr[] = InputUtils::translate_special_charset("Group");
@@ -78,7 +79,7 @@ $activeEvents = EventQuery::Create()
     ->Where('event_start BETWEEN "'.$startDate.'" AND "'.$endDate.'"')// We filter only the events from the current month : date('Y')
     ->find();
 
-$group = GroupQuery::Create()->findOneById($iGroupID);  
+$group = GroupQuery::Create()->findOneById($iGroupID);
 
 foreach ($activeEvents as $activeEvent) {// we loop in the events of the year
   $labelArr[] = $activeEvent->getStart()->format("Y-m-d");
@@ -150,7 +151,8 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
     
       $lineArr[] = InputUtils::translate_special_charset($person->getFirstName());
       $lineArr[] = InputUtils::translate_special_charset($person->getLastName());
-      $lineArr[] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
+      $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")));
+      $lineArr[] = InputUtils::translate_special_charset(($person->getGender() == 1)?gettext("Boy"):gettext("Girl"));
       $lineArr[] = $person->getAge();
       $lineArr[] = $homePhone;
       $lineArr[] = $group->getName();
