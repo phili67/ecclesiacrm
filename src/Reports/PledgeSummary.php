@@ -92,7 +92,7 @@ if ($output == 'pdf') {
     class PDF_PledgeSummaryReport extends ChurchInfoReport
     {
         // Constructor
-        public function PDF_PledgeSummaryReport()
+        public function __construct()
         {
             parent::__construct('P', 'mm', $this->paperFormat);
 

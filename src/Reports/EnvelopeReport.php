@@ -43,7 +43,7 @@ class PDF_EnvelopeReport extends ChurchInfoReport
     }
 
     // Constructor
-    public function PDF_EnvelopeReport()
+    public function __construct()
     {
         global $paperFormat;
         parent::__construct('P', 'mm', $this->paperFormat);
