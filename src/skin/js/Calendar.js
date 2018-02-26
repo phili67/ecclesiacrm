@@ -809,7 +809,7 @@
                        label: i18next.t('Edit'),
                        className: 'btn btn-success',
                        callback: function () {
-                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);       
+                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);
        
                          $('form #EventTitle').val(calEvent.title);
                          $('form #EventDesc').val(calEvent.Desc);
@@ -905,7 +905,7 @@
       selectHelper: true,        
       select: function(start, end) {
          // We create the dialog
-         modal = createEventEditorWindow (start,end);       
+         modal = createEventEditorWindow (start,end);
        
          // we add the calendars and the types
          addGroupCalendars();
@@ -948,7 +948,6 @@
       },
       eventLimit: withlimit, // allow "more" link when too many events
       locale: window.CRM.lang,
-      events: window.CRM.root + '/api/calendar/events',
       eventRender: function (event, element, view) {
         groupFilterID = window.groupFilterID;
         EventTypeFilterID = window.EventTypeFilterID;
@@ -974,6 +973,18 @@
            }
           }
          }
+      },
+      events: function(start, end, timezone, callback) {
+        var real_start = moment.unix(start.unix()).format('YYYY-MM-DD H:mm');
+        var real_end = moment.unix(end.unix()).format('YYYY-MM-DD H:mm');
+        
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'calendar/getallevents',
+          data: JSON.stringify({"start":real_start,"end":real_end})
+        }).done(function(events) {
+          callback(events);
+        });
       }
     });
     
@@ -1016,7 +1027,7 @@
         }                
           
         eventAttendees = false;
-        eventCreated = false;           
+        eventCreated = false;
       }
     });
   });
