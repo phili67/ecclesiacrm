@@ -214,14 +214,22 @@
           "/mysql/upgrade/3.2.2-upgrade.php"
         ],
         "dbVersion": "3.3.0"
-    },    
-    "current": {
-        "versions": [
+    },   
+    "pre-3.4.0": {
+        "versions": [           
             "3.3.0"
         ],
         "scripts": [
           "/mysql/upgrade/3.4.0-upgrade.sql"
         ],
         "dbVersion": "3.4.0"
+    },    
+    "current": {
+        "versions": [
+            "3.4.0"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "3.4.1"
     }
 }
