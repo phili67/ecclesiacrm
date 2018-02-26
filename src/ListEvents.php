@@ -200,14 +200,18 @@ foreach ($allMonths as $mKey => $mVal) {
         $attendees = EventAttendQuery::create()->findByEventId($event_id);
         
         $attCheckOut[$row] = 0;
+        $realAttCheckOut[$row] = 0;
         
-        if (!empty($attendees)) {
-            
+        if (!empty($attendees)) {            
             foreach ($attendees as $attende) {
               if ($attende->getCheckoutDate()) {
                 $attCheckOut[$row]++;
-              }          
-            }
+              }       
+              
+              if ($attende->getCheckoutId()) {
+                $realAttCheckOut[$row]++;
+              }     
+            }            
             
             if ($attCheckOut[$row] > 0) {
               // no statistic for the special counter
@@ -378,7 +382,7 @@ foreach ($allMonths as $mKey => $mVal) {
                       }
                     ?>                       
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$attCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['bAdmin'])?"disabled":"" ?>">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
                     <?php 
