@@ -394,18 +394,42 @@ $app->group('/events', function () {
           if ($events->count() > 0) {
             $events->delete();
           }
-        } else {
+        } else {// we delete only one event
           $event = EventQuery::Create()
             ->findOneById($input->eventID);
-        
-          if (!empty($event)) {
+            
+          $new_parent_id = $event->getEventParentId();
+          
+          if ($event->getEventParentId() == $input->eventID) {
+            $new_parent_id = 0;
+          }
+          
+          // we search all 
+          $events = EventQuery::Create()
+            ->findByEventParentId($input->eventID);
+          
+          if ($events->count() > 1) {
+            foreach ($events as $individual_event) {
+              if ($new_parent_id == 0 && $individual_event->getId() != $input->eventID) {
+                 $new_parent_id = $individual_event->getId();                 
+              }
+              
+              if ($new_parent_id != 0) {
+                $individual_event->setEventParentId ($new_parent_id);              
+              }
+            }
+            
+            $events->save();
+            
+            $event->delete();            
+          } else if (!empty($event)) {
             $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
           
             $event->delete();
           }
         }
   
-        return $response->withJson(['status' => "success"]);
+        return $response->withJson(['status' => "success".$new_parent_id]);
      }     
      else if (!strcmp($input->evntAction,'modifyEvent'))
      {
