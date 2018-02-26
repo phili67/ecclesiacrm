@@ -672,7 +672,7 @@
           selectable: isModifiable,
           editable:isModifiable,
           eventDrop: function(event, delta, revertFunc) {
-            if (event.type == 'event') {
+            if (event.type == 'event' && event.parentID == null) {
               bootbox.confirm({
                title:  i18next.t("Move Event") + "?",
                 message: i18next.t("Are you sure about this change?") + ((event.parentID != null)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
@@ -690,7 +690,7 @@
                     window.CRM.APIRequest({
                        method: 'POST',
                        path: 'events/',
-                       data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format(),"parentID":event.parentID})
+                       data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format()})
                     }).done(function(data) {
                       // now we can refresh the calendar
                       $('#calendar').fullCalendar('refetchEvents');
@@ -704,7 +704,49 @@
                 }        
             });
            } else {
-            revertFunc();
+            var box = bootbox.dialog({
+               title: i18next.t("Move Event") + "?",
+               message: i18next.t("You're about to move all the events. Would you like to :"),
+               buttons: {
+                cancel: {
+                  label:  i18next.t("Cancel"),
+                  className: 'btn btn-default',
+                    callback: function () {
+                      revertFunc();
+                    }
+                  },
+                oneEvent: {
+                  label:  i18next.t("Only this Event"),
+                  className: 'btn btn-info',
+                    callback: function () {
+                      window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'events/',
+                         data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format()})
+                      }).done(function(data) {
+                        // now we can refresh the calendar
+                        $('#calendar').fullCalendar('refetchEvents');
+                        $('#calendar').fullCalendar('unselect'); 
+                      }); 
+                    }
+                  },
+                allEvents: {
+                  label:  i18next.t("All Events"),
+                  className: 'btn btn-primary',
+                    callback: function () {
+                      window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'events/',
+                         data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format(),"parentID":event.parentID})
+                      }).done(function(data) {
+                        // now we can refresh the calendar
+                        $('#calendar').fullCalendar('refetchEvents');
+                        $('#calendar').fullCalendar('unselect'); 
+                      }); 
+                    }                    
+                  }
+                }
+            });
            }
         },
         eventClick: function(calEvent, jsEvent, view) {
@@ -868,7 +910,7 @@
           }
         },
         eventResize: function(event, delta, revertFunc) {
-          if (event.type == 'event'){
+          if (event.type == "event" && event.parentID == null) {
             bootbox.confirm({
              title: i18next.t("Resize Event") + "?",
               message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be dropped."),
@@ -881,26 +923,68 @@
                 }
               },
               callback: function (result) {
-               if (result == true)// only event can be drag and drop, not anniversary or birthday
-               {
-                window.CRM.APIRequest({
-                 method: 'POST',
-                 path: 'events/',
-                 data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
-                }).done(function(data) {
-                   // now we can refresh the calendar
-                   $('#calendar').fullCalendar( 'refetchEvents' );
-                   $('#calendar').fullCalendar('unselect'); 
-                });
+                if (result == true)// only event can be drag and drop, not anniversary or birthday
+                {
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'events/',
+                     data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
+                  }).done(function(data) {
+                     // now we can refresh the calendar
+                     $('#calendar').fullCalendar( 'refetchEvents' );
+                     $('#calendar').fullCalendar('unselect'); 
+                  });                  
                } else {
                 revertFunc();
                }
                console.log('This was logged in the callback: ' + result);
               }        
-          });
-         } else {
-          revertFunc();
-         }
+            });
+          } else {
+            var box = bootbox.dialog({
+               title: i18next.t("Resize Event") + "?",
+               message: i18next.t("You're about to resize all the events. Would you like to :"),
+               buttons: {
+                cancel: {
+                  label:  i18next.t("Cancel"),
+                  className: 'btn btn-default',
+                    callback: function () {
+                      revertFunc();
+                    }
+                  },
+                oneEvent: {
+                  label:  i18next.t("Only this Event"),
+                  className: 'btn btn-info',
+                    callback: function () {
+                      window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'events/',
+                         data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
+                      }).done(function(data) {
+                         // now we can refresh the calendar
+                         $('#calendar').fullCalendar( 'refetchEvents' );
+                         $('#calendar').fullCalendar('unselect'); 
+                      });  
+                    }
+                  },
+                allEvents: {
+                  label:  i18next.t("All Events"),
+                  className: 'btn btn-primary',
+                    callback: function () {
+                      window.CRM.APIRequest({
+                       method: 'POST',
+                       path: 'events/',
+                       data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format(),"parentID":event.parentID})
+                      }).done(function(data) {
+                         // now we can refresh the calendar
+                         $('#calendar').fullCalendar( 'refetchEvents' );
+                         $('#calendar').fullCalendar('unselect'); 
+                      });
+                    }                    
+                  }
+                }
+            });
+         }         
       },
       selectHelper: true,        
       select: function(start, end) {
