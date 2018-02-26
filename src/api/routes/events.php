@@ -354,20 +354,36 @@ $app->group('/events', function () {
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
             $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
-        return $response->withJson(array_filter($realCalEvnt));
+        return $response->withJson(['status' => "success"]);
      }
      else if (!strcmp($input->evntAction,'resizeEvent'))
      {
-        $event = EventQuery::Create()
+       $first_event = EventQuery::Create()
           ->findOneById($input->eventID);
-        
-       $event->setEnd(str_replace("T"," ",$input->end));
-       $event->save();
-  
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-          $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-        return $response->withJson(array_filter($realCalEvnt));
+          
+       $start = new DateTime($first_event->getStart('Y-m-d H:i:s'));
+       $end = new DateTime($input->end);
+       
+       $interval = $start->diff($end);
+          
+       if (isset ($input->parentID)) {
+         $events = EventQuery::Create()
+            ->findByEventParentId($input->parentID);
+          
+         foreach ($events as $event) {
+           $start = new DateTime($event->getStart('Y-m-d H:i:s'));
+           $newEnd = $start->add($interval);
+           
+           $event->setEnd($newEnd->format('Y-m-d H:i:s'));
+           
+           $event->save();
+         }
+       } else {        
+         $first_event->setEnd(str_replace("T"," ",$input->end));
+         $first_event->save();
+       }
+    
+       return $response->withJson(['status' => "success"]);
      }
      else if (!strcmp($input->evntAction,'attendeesCheckinEvent'))
      {
