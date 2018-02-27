@@ -422,7 +422,7 @@ class Person extends BasePerson implements iPhoto
     
     
     /* Philippe Logel 2017 */
-    public function getAge()
+    public function getAge($with_suffix=true)
     {
        $birthD = $this->getBirthDate();
    
@@ -449,8 +449,12 @@ class Person extends BasePerson implements iPhoto
            $ageSuffix = gettext('yr old');
          }
        }
-
-       return $age->y." ".$ageSuffix;
+       
+       if ($with_suffix == true) {
+         return $age->y." ".$ageSuffix;
+       } else {
+         return $age->y;
+       }
     }
     
     /* Philippe Logel 2017 */
