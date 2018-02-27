@@ -6,7 +6,7 @@
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002, 2003 Deane Barker, Chris Gebhardt
  *                Copyright 2004-2012Michael Wilt
-  *
+ *                Copyright 2018 Philippe Logel
  ******************************************************************************/
 
 //Include the function library
@@ -624,7 +624,7 @@ require 'Include/Header.php';
     } ?>
         </select>
 
-        <?php if ($PledgeOrPayment == 'Payment' && $dep_Type == 'Bank') {
+        <?php if ($PledgeOrPayment == 'Payment' && $dep_Type == 'Bank' || $iMethod == 'CHECK') {// in the cas it's a chèque we can switch from one method of payment to another
         ?>
           <div id="checkNumberGroup">
           <label for="CheckNo"><?= gettext('Check') ?><?= gettext(' #') ?></label>
@@ -650,7 +650,7 @@ require 'Include/Header.php';
               <td class="TextColumnWithBottomBorder">
                 <select name="AutoPay" class="form-control">
       <?php
-                          echo '<option value=0';
+                  echo '<option value=0';
         if ($iAutID == 'CreditCard') {
             echo ' selected';
         }
