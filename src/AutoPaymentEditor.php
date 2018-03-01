@@ -3,7 +3,8 @@
  *
  *  filename    : AutoPaymentEditor.php
  *  copyright   : Copyright 2001, 2002, 2003, 2004 - 2014 Deane Barker, Chris Gebhardt, Michael Wilt
-  *
+ *                Copyright 2018 Philippe Logel
+ *
  ******************************************************************************/
 
 //Include the function library
@@ -15,16 +16,20 @@ require 'bin/vancowebservices.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Family;
+use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\AutoPayment;
+use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\DonationFund;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
 $iAutID = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
 
 //Get Family name
-if ($iFamily) {
-    $sSQL = 'SELECT * FROM family_fam where fam_ID = ' . $iFamily;
-    $rsFamily = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsFamily));
+if ($iFamily) {    
+    $ormFamily = FamilyQuery::Create()->findOneById($iFamily);    
 } else {
     $fam_Name = 'TBD';
 }
@@ -33,14 +38,14 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $dNextPayDate = date('Y-m-d');
     $tFirstName = '';
     $tLastName = '';
-    $tAddress1 = $fam_Address1;
-    $tAddress2 = $fam_Address2;
-    $tCity = $fam_City;
-    $tState = $fam_State;
-    $tZip = $fam_Zip;
-    $tCountry = $fam_Country;
-    $tPhone = $fam_HomePhone;
-    $tEmail = $fam_Email;
+    $tAddress1 = $ormFamily->getAddress1();
+    $tAddress2 = $ormFamily->getAddress2();
+    $tCity = $ormFamily->getCity();
+    $tState = $ormFamily->getState();
+    $tZip = $ormFamily->getZip();
+    $tCountry = $ormFamily->getCountry();
+    $tPhone = $ormFamily->getHomePhone();
+    $tEmail = $ormFamily->getEmail();
     $iInterval = 1;
     $iFund = 1;
 
@@ -61,72 +66,43 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $tAccountVanco = '';
 
     $nAmount = 0;
-
-    $sSQL = 'INSERT INTO autopayment_aut (
-             aut_FamID,
-          aut_EnableBankDraft,
-          aut_EnableCreditCard,
-          aut_NextPayDate,
-          aut_FYID,
-          aut_Amount,
-          aut_Interval,
-          aut_Fund,
-          aut_FirstName,
-          aut_LastName,
-          aut_Address1,
-          aut_Address2,
-          aut_City,
-          aut_State,
-          aut_Zip,
-          aut_Country,
-          aut_Phone,
-          aut_Email,
-          aut_CreditCard,
-          aut_ExpMonth,
-          aut_ExpYear,
-          aut_BankName,
-          aut_Route,
-          aut_Account,
-          aut_Serial,
-          aut_DateLastEdited,
-          aut_EditedBy)
-         VALUES (' .
-        $iFamily . ',' .
-        $bEnableBankDraft . ',' .
-        $bEnableCreditCard . ',' .
-        "'" . $dNextPayDate . "'," .
-        "'" . $iFYID . "'," .
-        "'" . $nAmount . "'," .
-        "'" . $iInterval . "'," .
-        "'" . $iFund . "'," .
-        "\"" . $tFirstName . "\"," .
-        "\"" . $tLastName . "\"," .
-        "\"" . $tAddress1 . "\"," .
-        "\"" . $tAddress2 . "\"," .
-        "\"" . $tCity . "\"," .
-        "\"" . $tState . "\"," .
-        "'" . $tZip . "'," .
-        "\"" . $tCountry . "\"," .
-        "'" . $tPhone . "'," .
-        "'" . $tEmail . "'," .
-        "'" . $tCreditCard . "'," .
-        "'" . $tExpMonth . "'," .
-        "'" . $tExpYear . "'," .
-        "'" . $tBankName . "'," .
-        "'" . $tRoute . "'," .
-        "'" . $tAccount . "'," .
-        "'" . 1 . "'," .
-        "'" . date('YmdHis') . "'," .
-        $_SESSION['iUserID'] .
-        ')';
-    RunQuery($sSQL);
-
-    $sSQL = 'SELECT MAX(aut_ID) AS iAutID FROM autopayment_aut';
-    $rsAutID = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsAutID));
+    
+    $autoPayment = new AutoPayment();
+    
+    $autoPayment->setFamilyid($iFamily);
+    $autoPayment->setEnableBankDraft($bEnableBankDraft);
+    $autoPayment->setEnableCreditCard($bEnableCreditCard);
+    $autoPayment->setNextPayDate($dNextPayDate);
+    $autoPayment->setFyid($iFYID);
+    $autoPayment->setAmount($nAmount);
+    $autoPayment->setInterval($iInterval);
+    $autoPayment->setFund($iFund);
+    $autoPayment->setFirstName($tFirstName);
+    $autoPayment->setLastName($tLastName);
+    $autoPayment->setAddress1($tAddress1);
+    $autoPayment->setAddress2($tAddress2);
+    $autoPayment->setCity($tCity);
+    $autoPayment->setState($tState);
+    $autoPayment->setZip($tZip);
+    $autoPayment->setCountry($tCountry);
+    $autoPayment->setPhone($tPhone);
+    $autoPayment->setEmail($tEmail);
+    $autoPayment->setCreditCard($tCreditCard);
+    $autoPayment->setExpMonth($tExpMonth);
+    $autoPayment->setExpYear($tExpYear);
+    $autoPayment->setBankName($tBankName);
+    $autoPayment->setRoute($tRoute);
+    $autoPayment->setAccount($tAccount);
+    $autoPayment->setSerial(1);
+    $autoPayment->setDateLastEdited(date('YmdHis'));
+    $autoPayment->getEditedby($_SESSION['iUserID']);
+    
+    $autoPayment->save();
+    
+    $iAutID = $autoPayment->getId();
 }
 
-$sPageTitle = gettext('Automatic payment configuration for the ') . $fam_Name . " " . gettext('family');
+$sPageTitle = gettext('Automatic payment configuration');
 
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
@@ -172,36 +148,37 @@ if (isset($_POST['Submit'])) {
     $tBankName = InputUtils::LegacyFilterInput($_POST['BankName']);
     $tRoute = InputUtils::LegacyFilterInput($_POST['Route']);
     $tAccount = InputUtils::LegacyFilterInput($_POST['Account']);
-
-    $sSQL = 'UPDATE autopayment_aut SET ' .
-        'aut_FamID  =  ' . $iFamily . ',' .
-        'aut_EnableBankDraft  =' . $bEnableBankDraft . ',' .
-        'aut_EnableCreditCard  =' . $bEnableCreditCard . ',' .
-        "aut_NextPayDate  ='" . $dNextPayDate . "'," .
-        "aut_Amount  ='" . $nAmount . "'," .
-        "aut_FYID  ='" . $iFYID . "'," .
-        "aut_Interval  ='" . $iInterval . "'," .
-        "aut_Fund  ='" . $iFund . "'," .
-        "aut_FirstName  ='" . $tFirstName . "'," .
-        "aut_LastName  ='" . $tLastName . "'," .
-        "aut_Address1  ='" . $tAddress1 . "'," .
-        "aut_Address2  ='" . $tAddress2 . "'," .
-        "aut_City  ='" . $tCity . "'," .
-        "aut_State  ='" . $tState . "'," .
-        "aut_Zip  ='" . $tZip . "'," .
-        "aut_Country  ='" . $tCountry . "'," .
-        "aut_Phone  ='" . $tPhone . "'," .
-        "aut_Email  ='" . $tEmail . "'," .
-        "aut_CreditCard  ='" . $tCreditCard . "'," .
-        "aut_ExpMonth  ='" . $tExpMonth . "'," .
-        "aut_ExpYear  ='" . $tExpYear . "'," .
-        "aut_BankName  ='" . $tBankName . "'," .
-        "aut_Route  ='" . $tRoute . "'," .
-        "aut_Account  ='" . $tAccount . "'," .
-        "aut_DateLastEdited  ='" . date('YmdHis') . "'," .
-        'aut_EditedBy  =' . $_SESSION['iUserID'] .
-        ' WHERE aut_ID = ' . $iAutID;
-    RunQuery($sSQL);
+    
+    $autoPayment = AutoPaymentQuery::Create()->findOneById($iAutID);
+    
+    $autoPayment->setFamilyid($iFamily);
+    $autoPayment->setEnableBankDraft($bEnableBankDraft);
+    $autoPayment->setEnableCreditCard($bEnableCreditCard);
+    $autoPayment->setNextPayDate($dNextPayDate);
+    $autoPayment->setFyid($iFYID);
+    $autoPayment->setAmount($nAmount);
+    $autoPayment->setInterval($iInterval);
+    $autoPayment->setFund($iFund);
+    $autoPayment->setFirstName($tFirstName);
+    $autoPayment->setLastName($tLastName);
+    $autoPayment->setAddress1($tAddress1);
+    $autoPayment->setAddress2($tAddress2);
+    $autoPayment->setCity($tCity);
+    $autoPayment->setState($tState);
+    $autoPayment->setZip($tZip);
+    $autoPayment->setCountry($tCountry);
+    $autoPayment->setPhone($tPhone);
+    $autoPayment->setEmail($tEmail);
+    $autoPayment->setCreditCard($tCreditCard);
+    $autoPayment->setExpMonth($tExpMonth);
+    $autoPayment->setExpYear($tExpYear);
+    $autoPayment->setBankName($tBankName);
+    $autoPayment->setRoute($tRoute);
+    $autoPayment->setAccount($tAccount);
+    $autoPayment->setDateLastEdited(date('YmdHis'));
+    $autoPayment->getEditedby($_SESSION['iUserID']);
+    
+    $autoPayment->save();
 
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
@@ -213,47 +190,43 @@ if (isset($_POST['Submit'])) {
         }
     }
 } else { // not submitting, just get ready to build the page
-    $sSQL = 'SELECT * FROM autopayment_aut WHERE aut_ID = ' . $iAutID;
-    $rsAutopayment = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsAutopayment));
-
-    $iFamily = $aut_FamID;
-    $bEnableBankDraft = $aut_EnableBankDraft;
-    $bEnableCreditCard = $aut_EnableCreditCard;
-    $dNextPayDate = $aut_NextPayDate;
-    $iFYID = $aut_FYID;
-    $nAmount = $aut_Amount;
-    $iInterval = $aut_Interval;
-    $iFund = $aut_Fund;
-    $tFirstName = $aut_FirstName;
-    $tLastName = $aut_LastName;
-    $tAddress1 = $aut_Address1;
-    $tAddress2 = $aut_Address2;
-    $tCity = $aut_City;
-    $tState = $aut_State;
-    $tZip = $aut_Zip;
-    $tCountry = $aut_Country;
-    $tPhone = $aut_Phone;
-    $tEmail = $aut_Email;
-    $tCreditCard = $aut_CreditCard;
-    $tCreditCardVanco = $aut_CreditCardVanco;
-    $tExpMonth = $aut_ExpMonth;
-    $tExpYear = $aut_ExpYear;
-    $tBankName = $aut_BankName;
-    $tRoute = $aut_Route;
-    $tAccount = $aut_Account;
-    $tAccountVanco = $aut_AccountVanco;
+    $autoPayment = AutoPaymentQuery::Create()->findOneById($iAutID);
+    
+    $iFamily = $autoPayment->getFamilyid();
+    $bEnableBankDraft = $autoPayment->getEnableBankDraft();
+    $bEnableCreditCard = $autoPayment->getEnableCreditCard();
+    $dNextPayDate = $autoPayment->getNextPayDate()->format('Y-m-d');
+    $iFYID = $autoPayment->getFyid();
+    $nAmount = $autoPayment->getAmount();
+    $iInterval = $autoPayment->getInterval();
+    $iFund = $autoPayment->getFund();
+    $tFirstName = $autoPayment->getFirstName();
+    $tLastName = $autoPayment->getLastName();
+    $tAddress1 = $autoPayment->getAddress1();
+    $tAddress2 = $autoPayment->getAddress2();
+    $tCity = $autoPayment->getCity();
+    $tState = $autoPayment->getState();
+    $tZip = $autoPayment->getZip();
+    $tCountry = $autoPayment->getCountry();
+    $tPhone = $autoPayment->getPhone();
+    $tEmail = $autoPayment->getEmail();
+    $tCreditCard = $autoPayment->getCreditCard();
+    $tCreditCardVanco = $autoPayment->getCreditcardvanco();
+    $tExpMonth = $autoPayment->getExpMonth();
+    $tExpYear = $autoPayment->getExpYear();
+    $tBankName = $autoPayment->getBankName();
+    $tRoute = $autoPayment->getRoute();
+    $tAccount = $autoPayment->getAccount();
+    $tAccountVanco = $autoPayment->getAccountVanco();
 }
 
 require 'Include/Header.php';
 
 //Get Families for the drop-down
-$sSQL = 'SELECT * FROM family_fam ORDER BY fam_Name';
-$rsFamilies = RunQuery($sSQL);
+$ormFamilies = FamilyQuery::Create()->orderByName()->find();
 
 // Get the list of funds
-$sSQL = "SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun WHERE fun_Active = 'true'";
-$rsFunds = RunQuery($sSQL);
+$ormFunds = DonationFundQuery::Create()->findByActive('true');
 
 if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     include 'Include/VancoConfig.php';
@@ -775,230 +748,259 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 }
 ?>
 
-    <form method="post"
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . gettext('family') ?></h3>
+  </div>
+  <div class="body-text">
+    <form method="post"  style="padding:10px"
           action="AutoPaymentEditor.php?<?= 'AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=' . $linkBack ?>"
           name="AutoPaymentEditor">
 
-        <table cellpadding="1" align="center">
+          <div class="row">
+            <div class="col-md-3">
+                <label><?= gettext('Family') ?>:</label>
+            </div>
+            <div class="col-md-4">
+                <select name="Family" id="optionFamily" style="width:100%">
+                   <option value="0" selected><?= gettext('Unassigned') ?></option>
+                   <option value="0">-----------------------</option>
 
-            <tr>
-                <td align="center">
-                    <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="Submit">
-                    <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel"
-                           onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-    echo $linkBack;
-} else {
-    echo 'Menu.php';
-} ?>';">
-                </td>
-            </tr>
+                <?php
+                  foreach ($ormFamilies as $family) {
+                ?>
+                    <option value="<?= $family->getId() ?>" <?= ($iFamily == $family->getId())?' selected':'' ?>> <?= $family->getName() . '&nbsp;' . FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState()) ?>
+                <?php
+                   }
+                ?>
 
-            <tr>
-                <td>
-                    <br>
-                    <table cellpadding="1" align="center">
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Family') ?>:</td>
-                            <td class="TextColumn">
-                                <select name="Family" size="8">
-                                    <option value="0" selected><?= gettext('Unassigned') ?></option>
-                                    <option value="0">-----------------------</option>
-
-                                    <?php
-                                    while ($aRow = mysqli_fetch_array($rsFamilies)) {
-                                        extract($aRow);
-
-                                        echo '<option value="' . $fam_ID . '"';
-                                        if ($iFamily == $fam_ID) {
-                                            echo ' selected';
-                                        }
-                                        echo '>' . $fam_Name . '&nbsp;' . FormatAddressLine($fam_Address1, $fam_City, $fam_State);
-                                    }
-                                    ?>
-
-                                </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Automatic payment type') ?></td>
-                            <td class="TextColumn"><input type="radio" Name="EnableButton" value="1"
-                                                          id="EnableBankDraft"<?php if ($bEnableBankDraft) {
+                </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+                <label><?= gettext('Automatic payment type') ?></label>
+            </div>
+            <div class="col-md-9">
+               <input type="radio" Name="EnableButton" value="1" id="EnableBankDraft"<?php if ($bEnableBankDraft) {
                                         echo ' checked';
-                                    } ?>><?= _("Bank Draft ") ?>
-                                <input type="radio" Name="EnableButton" value="2"
+                                    } ?>> <?= _("Bank Draft ") ?>
+               <input type="radio" Name="EnableButton" value="2"
                                        id="EnableCreditCard" <?php if ($bEnableCreditCard) {
                                         echo ' checked';
-                                    } ?>><?= _("Credit Card ") ?>
-                                <input type="radio" Name="EnableButton" value="3"
+                                    } ?>> <?= _("Credit Card ") ?>
+               <input type="radio" Name="EnableButton" value="3"
                                        id="Disable" <?php if ((!$bEnableBankDraft) && (!$bEnableCreditCard)) {
                                         echo ' checked';
-                                    } ?>><?= _("Disable ") ?></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Date') ?>:</td>
-                            <td class="TextColumn"><input type="text" name="NextPayDate" value="<?= OutputUtils::change_date_for_place_holder($dNextPayDate) ?>"
+                                    } ?>> <?= _("Disable ") ?>
+              </div>  
+           </div>                   
+           <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Date') ?>:</label>
+             </div>
+             <div class="col-md-4">             
+                 <input type="text" name="NextPayDate" value="<?= OutputUtils::change_date_for_place_holder($dNextPayDate) ?>"
                                                           maxlength="10" id="NextPayDate" size="11"
-                                                          class="form-control pull-right active date-picker"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Fiscal Year') ?>:</td>
-                            <td class="TextColumnWithBottomBorder">
-                                <?php PrintFYIDSelect($iFYID, 'FYID') ?>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Payment amount') ?></td>
-                            <td class="TextColumn"><input type="text" name="Amount" value="<?= $nAmount ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Payment interval (months)') ?></td>
-                            <td class="TextColumn"><input type="text" name="Interval" value="<?= $iInterval ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Fund') ?>:</td>
-                            <td class="TextColumn">
-                                <select name="Fund">
+                                                          class="form-control pull-right active date-picker">
+             </div>
+          </div>
+           <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Fiscal Year') ?>:</label>
+             </div>
+             <div class="col-md-4">             
+                <?php PrintFYIDSelect($iFYID, 'FYID') ?>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                  <label><?= gettext('Payment amount') ?></label>
+             </div>
+             <div class="col-md-4">                            
+                  <input type="text" name="Amount" value="<?= $nAmount ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Payment interval (months)') ?></label>
+             </div>
+             <div class="col-md-4">                            
+               <input type="text" name="Interval" value="<?= $iInterval ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Fund') ?>:</label>
+             </div>
+             <div class="col-md-4">                            
+                  <select name="Fund">
                                     <option value="0"><?= gettext('None') ?></option>
                                     <?php
-                                    mysqli_data_seek($rsFunds, 0);
-                                    while ($row = mysqli_fetch_array($rsFunds)) {
-                                        $fun_id = $row['fun_ID'];
-                                        $fun_name = $row['fun_Name'];
-                                        $fun_active = $row['fun_Active'];
-                                        echo "<option value=\"$fun_id\" ";
-                                        if ($iFund == $fun_id) {
-                                            echo 'selected';
-                                        }
-                                        echo ">$fun_name";
-                                        if ($fun_active != 'true') {
-                                            echo ' (' . gettext('inactive') . ')';
-                                        }
-                                        echo '</option>';
+                                    foreach ($ormFunds as $fund) {
+                                        ?>
+                                        <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . gettext('inactive') . ')':'') ?> 
+                                        </option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('First Name') ?></td>
-                            <td class="TextColumn"><input type="text" id="FirstName" name="FirstName"
-                                                          value="<?= $tFirstName ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Last Name') ?></td>
-                            <td class="TextColumn"><input type="text" id="LastName" name="LastName"
-                                                          value="<?= $tLastName ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Address') ?> 1</td>
-                            <td class="TextColumn"><input type="text" id="Address1" name="Address1"
-                                                          value="<?= $tAddress1 ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Address') ?> 2</td>
-                            <td class="TextColumn"><input type="text" id="Address2" name="Address2"
-                                                          value="<?= $tAddress2 ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('City') ?></td>
-                            <td class="TextColumn"><input type="text" id="City" name="City" value="<?= $tCity ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('State') ?></td>
-                            <td class="TextColumn"><input type="text" id="State" name="State" value="<?= $tState ?>">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Zip') ?></td>
-                            <td class="TextColumn"><input type="text" id="Zip" name="Zip" value="<?= $tZip ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Country') ?></td>
-                            <td class="TextColumn"><input type="text" id="Country" name="Country"
-                                                          value="<?= $tCountry ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Phone') ?></td>
-                            <td class="TextColumn"><input type="text" id="Phone" name="Phone" value="<?= $tPhone ?>">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Email') ?></td>
-                            <td class="TextColumn"><input type="text" id="Email" name="Email" value="<?= $tEmail ?>">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Credit Card') ?></td>
-                            <td class="TextColumn"><input type="text" id="CreditCard" name="CreditCard"
-                                                          value="<?= $tCreditCard ?>"></td>
-                        </tr>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('First Name') ?></label>
+             </div>
+             <div class="col-md-4">                                             
+                 <input type="text" id="FirstName" name="FirstName" value="<?= $tFirstName ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Last Name') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="LastName" name="LastName" value="<?= $tLastName ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Address') ?> 1</label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="Address1" name="Address1" value="<?= $tAddress1 ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Address') ?> 2</label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="Address2" name="Address2" value="<?= $tAddress2 ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('City') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="City" name="City" value="<?= $tCity ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('State') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="State" name="State" value="<?= $tState ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Zip') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="Zip" name="Zip" value="<?= $tZip ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Country') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="Country" name="Country" value="<?= $tCountry ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Phone') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="Phone" name="Phone" value="<?= $tPhone ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Email') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="Email" name="Email" value="<?= $tEmail ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Credit Card') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                <input type="text" id="CreditCard" name="CreditCard" value="<?= $tCreditCard ?>" class="form-control">
+             </div>
+          </div>
                         <?php
                         if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                             ?>
-                            <tr>
-                                <td class="LabelColumn"><?= gettext('Vanco Credit Card Method') ?></td>
-                                <td class="TextColumn"><input type="text" id="CreditCardVanco" name="CreditCardVanco"
-                                                              value="<?= $tCreditCardVanco ?>" readonly></td>
-                            </tr>
+          <div class="row">
+             <div class="col-md-3">
+                  <label><?= gettext('Vanco Credit Card Method') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                    <input type="text" id="CreditCardVanco" name="CreditCardVanco" value="<?= $tCreditCardVanco ?>" readonly class="form-control">
+             </div>
+          </div>
                             <?php
                         }
                         ?>
 
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Expiration Month') ?></td>
-                            <td class="TextColumn"><input type="text" id="ExpMonth" name="ExpMonth"
-                                                          value="<?= $tExpMonth ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Expiration Year') ?></td>
-                            <td class="TextColumn"><input type="text" id="ExpYear" name="ExpYear"
-                                                          value="<?= $tExpYear ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Bank Name') ?></td>
-                            <td class="TextColumn"><input type="text" id="BankName" name="BankName"
-                                                          value="<?= $tBankName ?>"></td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Bank Route Number') ?></td>
-                            <td class="TextColumn"><input type="text" id="Route" name="Route" value="<?= $tRoute ?>">
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="LabelColumn"><?= gettext('Bank Account Number') ?></td>
-                            <td class="TextColumn"><input type="text" id="Account" name="Account"
-                                                          value="<?= $tAccount ?>"></td>
-                        </tr>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Expiration Month') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="ExpMonth" name="ExpMonth" value="<?= $tExpMonth ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Expiration Year') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="ExpYear" name="ExpYear" value="<?= $tExpYear ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Bank Name') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="BankName" name="BankName" value="<?= $tBankName ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                <label><?= gettext('Bank Route Number') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="Route" name="Route" value="<?= $tRoute ?>" class="form-control">
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-3">
+                 <label><?= gettext('Bank Account Number') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                 <input type="text" id="Account" name="Account" value="<?= $tAccount ?>" class="form-control">
+             </div>
+          </div>
                         <?php
                         if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                             ?>
-                            <tr>
-                                <td class="LabelColumn"><?= gettext('Vanco Bank Account Method') ?></td>
-                                <td class="TextColumn"><input type="text" id="AccountVanco" name="AccountVanco"
-                                                              value="<?= $tAccountVanco ?>" readonly></td>
-                            </tr>
+          <div class="row">
+             <div class="col-md-3">
+                  <label><?= gettext('Vanco Bank Account Method') ?></label>
+             </div>
+             <div class="col-md-4"> 
+                  <input type="text" id="AccountVanco" name="AccountVanco" value="<?= $tAccountVanco ?>" readonly class="form-control">
+             </div>
+          </div>
                             <?php
                         }
                         ?>
@@ -1006,8 +1008,8 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                         <?php
                         if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                             ?>
-                            <tr>
-                                <td>
+          <div class="row">
+             <div class="col-md-12">
                                     <?php
                                     if ($iAutID > 0) {
                                         ?>
@@ -1020,14 +1022,57 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                                         <b>Save this record to enable storing private data at Vanco</b>
                                         <?php
                                     } ?>
-                                </td>
-                            </tr>
+             </div>
+          </div>
                             <?php
                         }
                         ?>
-                    </table>
-                </td>
-            </tr>
-        </table>
+          <div class="row">
+             <div class="col-md-12">
+               &nbsp;
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-md-1">
+             </div>
+             <div class="col-md-4"> 
+                    <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="Submit">
+             </div>
+             <div class="col-md-4"> 
+                    <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel"
+                           onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+    echo $linkBack;
+} else {
+    echo 'Menu.php';
+} ?>';">
+             </div>
+             <div class="col-md-4"> 
+             </div>
+          </div>
+    
     </form>
+  </div>
+</div>
+    
+<script>
+    $(document).ready(function() {
+      var selectedItem = $("#optionFamily option:selected").val();
+      
+      $('#optionFamily').val(1).change();
+      $('#optionFamily').val(selectedItem).change();
+  
+  
+      $('#optionFamily').change(function(data) {
+        if (this.value == -1) {
+          $('#optionFamily').attr('size', '2');    
+          $("#familyAdress").fadeIn(1000);
+        }  else {
+          $('#optionFamily').attr('size', '8');
+          $("#familyAdress").fadeOut(100);
+        }
+      });
+      $("#optionFamily").select2();
+    });
+</script>
+
 <?php require 'Include/Footer.php' ?>
