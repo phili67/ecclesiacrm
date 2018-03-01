@@ -750,7 +750,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("For the ") ?> : <?=  $ormFamily->getName() . " " . gettext('family') ?></h3>
+    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . gettext('family') ?></h3>
   </div>
   <div class="body-text">
     <form method="post"  style="padding:10px"

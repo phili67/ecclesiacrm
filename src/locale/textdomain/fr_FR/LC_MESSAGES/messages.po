@@ -50,8 +50,11 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: AutoPaymentEditor.php:128
-msgid "Automatic payment configuration for the "
-msgstr "Configuration de paiement automatique pour la "
+msgid "Automatic payment configuration"
+msgstr "Configuration de paiement automatique"
+
+msgid "For the"
+msgstr "Pour la"
 
 #: AutoPaymentEditor.php:785 CanvassEditor.php:237 DepositSlipEditor.php:93
 #: DonatedItemEditor.php:292 FamilyEditor.php:646 FamilyEditor.php:730
@@ -9775,3 +9778,4 @@ msgstr "Homme"
 
 msgid "Woman"
 msgstr "Femmme"
+
