@@ -350,7 +350,6 @@ require 'Include/Header.php';
   <div class="box-body">
       <a href="#" id="addProfile" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Profile") ?></a>
       <a href="#" id="manageProfile" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Profiles")?></a>
-      &nbsp;
       <div class="btn-group">
         <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
@@ -370,12 +369,14 @@ require 'Include/Header.php';
   </div>
 <!-- /.box-body -->
 </div><!-- Default box -->
+
+<form method="post" action="UserEditor.php">
+
 <div class="box">
     <div class="box-body">
         <div class="callout callout-info">
             <?= gettext('Note: Changes will not take effect until next logon.') ?>
         </div>
-        <form method="post" action="UserEditor.php">
             <input type="hidden" name="Action" value="<?= $sAction ?>">
             <input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
             <div class="table-responsive">
@@ -631,11 +632,12 @@ require 'Include/Header.php';
                 </div>
             </div>
         </div>
-        </form>
     </div>
     <!-- /.box-body -->
 </div>
 <!-- /.box -->
+
+</form>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     function addProfilesToMainDropdown()
@@ -695,7 +697,7 @@ require 'Include/Header.php';
         
         
         function BootboxContent(){
-          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3><form id="some-form">'
+          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3>'
              + '<div>'
                   +'<div class="row div-title">'
                     +'<div class="col-md-4">'
