@@ -834,7 +834,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                  <label><?= gettext('Fund') ?>:</label>
              </div>
              <div class="col-md-4">                            
-                  <select name="Fund">
+                  <select name="Fund" class="form-control">
                                     <option value="0"><?= gettext('None') ?></option>
                                     <?php
                                     foreach ($ormFunds as $fund) {
