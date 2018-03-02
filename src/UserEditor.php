@@ -27,6 +27,8 @@ use EcclesiaCRM\Emails\NewAccountEmail;
 use EcclesiaCRM\User;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\UserProfileQuery;
+use EcclesiaCRM\UserProfile;
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
@@ -38,6 +40,10 @@ if (!$_SESSION['bAdmin']) {
 $iPersonID = -1;
 $vNewUser = false;
 $bShowPersonSelect = false;
+
+
+// we search all the available profiles
+$userProfiles = UserProfileQuery::Create()->find();
 
 // Get the PersonID out of either querystring or the form, depending and what we're doing
 if (isset($_GET['PersonID'])) {
@@ -335,9 +341,34 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
 // Set the page title and include HTML header
 $sPageTitle = gettext('User Editor');
 require 'Include/Header.php';
-
 ?>
-<!-- Default box -->
+
+<div class="box">
+  <div class="box-header with-border">
+      <h3 class="box-title"><?= gettext("Profile management") ?></h3>
+  </div>
+  <div class="box-body">
+      <a href="#" id="addProfile" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Profile") ?></a>
+      <a href="#" id="manageProfile" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Profiles")?></a>
+      <div class="btn-group">
+        <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
+        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu" id="AllProfiles">
+            <?php 
+               foreach ($userProfiles as $userProfile) {
+            ?>               
+               <li> <a href="#" class="changeProfile" data-id="<?= $userProfile->getUserProfileId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userProfile->getUserProfileName() ?></a></li>
+            <?php
+               }
+            ?>
+        </ul>
+      </div>                                        
+  </div>
+<!-- /.box-body -->
+</div><!-- Default box -->
 <div class="box">
     <div class="box-body">
         <div class="callout callout-info">
@@ -347,16 +378,17 @@ require 'Include/Header.php';
             <input type="hidden" name="Action" value="<?= $sAction ?>">
             <input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
             <div class="table-responsive">
-                <table class="table table-hover">
+                <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
+                <table class="table table-hover data-person data-table no-footer dtr-inline" style="width:100%" id="table1">
+                  <thead>
                     <?php
 
                     // Are we adding?
                     if ($bShowPersonSelect) {
                         //Yes, so display the people drop-down
                         ?>
-                        <tr>
-                            <td><?= gettext('Person to Make User') ?>:</td>
-                            <td>
+                            <th><?= gettext('Person to Make User') ?>:</th>
+                            <th>
                                 <select name="PersonID" size="30" id="personSelect" class="form-control">
                                     <?php
                                     // Loop through all the people
@@ -368,24 +400,22 @@ require 'Include/Header.php';
                                         <?php
                                     } ?>
                                 </select>
-                            </td>
-                        </tr>
-
+                            </th>
                         <?php
                     } else { // No, just display the user name?>
-                        <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
-                        <tr>
-                            <td><?= gettext('User') ?>:</td>
-                            <td><?= $sUser ?></td>
-                        </tr>
+                            <th><?= gettext('User') ?>:</th>
+                            <th><?= $sUser ?></th>
                         <?php
                     } ?>
-
-                    <?php if (isset($sErrorText) != '') {
+                    </thead>
+                    <tbody>
+                    <?php if ($sErrorText != '') {
                         ?>
                         <tr>
-                            <td align="center" colspan="2">
+                            <td>
                                 <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
+                            </td>
+                            <td>
                             </td>
                         </tr>
                         <?php
@@ -397,82 +427,82 @@ require 'Include/Header.php';
 
                     <tr>
                         <td><?= gettext('Add Records') ?>:</td>
-                        <td><input type="checkbox" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
+                        <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Edit Records') ?>:</td>
-                        <td><input type="checkbox" name="EditRecords" value="1"<?php if ($usr_EditRecords) {
+                        <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?php if ($usr_EditRecords) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Delete Records') ?>:</td>
-                        <td><input type="checkbox" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
+                        <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
                     
                     <tr>
                         <td><?= gettext('Show Cart') ?>:</td>
-                        <td><input type="checkbox" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
+                        <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
                     
                     <tr>
                         <td><?= gettext('Show Map') ?>:</td>
-                        <td><input type="checkbox" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
+                        <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Manage Properties and Classifications') ?>:</td>
-                        <td><input type="checkbox" name="MenuOptions" value="1"<?php if ($usr_MenuOptions) {
+                        <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?php if ($usr_MenuOptions) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Manage Groups and Roles') ?>:</td>
-                        <td><input type="checkbox" name="ManageGroups" value="1"<?php if ($usr_ManageGroups) {
+                        <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?php if ($usr_ManageGroups) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Manage Donations and Finance') ?>:</td>
-                        <td><input type="checkbox" name="Finance" value="1"<?php if ($usr_Finance) {
+                        <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?php if ($usr_Finance) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('View, Add and Edit Documents') ?>:</td>
-                        <td><input type="checkbox" name="Notes" value="1"<?php if ($usr_Notes) {
+                        <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?php if ($usr_Notes) {
                         echo ' checked';
                     } ?>></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('Edit Self') ?>:</td>
-                        <td><input type="checkbox" name="EditSelf" value="1"<?php if ($usr_EditSelf) {
+                        <td><input type="checkbox" class="global_settings" name="EditSelf" value="1"<?php if ($usr_EditSelf) {
                         echo ' checked';
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Edit own family only.)') ?></span></td>
                     </tr>
                     <tr>
                         <td><?= gettext('Canvasser') ?>:</td>
-                        <td><input type="checkbox" name="Canvasser" value="1"<?php if ($usr_Canvasser) {
+                        <td><input type="checkbox" class="global_settings" name="Canvasser" value="1"<?php if ($usr_Canvasser) {
                         echo ' checked';
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Canvass volunteer.)') ?></span></td>
                     </tr>
                     <tr>
                         <td><?= gettext('Admin') ?>:</td>
-                        <td><input type="checkbox" name="Admin" value="1"<?php if ($usr_Admin) {
+                        <td><input type="checkbox" class="global_settings" name="Admin" value="1"<?php if ($usr_Admin) {
                         echo ' checked';
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
                     </tr>
@@ -481,14 +511,17 @@ require 'Include/Header.php';
                         <td class="TextColumnWithBottomBorder"><select
                                 name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
                     </tr>
-                    <tr>
-                        <td colspan="2" align="center">
-                            <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="save">&nbsp;<input
-                                type="button" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>"
-                                onclick="javascript:document.location='UserList.php';">
-                        </td>
-                    </tr>
+                  </tbody>
                 </table>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-6">
+                       <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="save">&nbsp;
+                       <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location='UserList.php';">
+                    </div>
+                </div>
             </div>
     </div>
     <!-- /.box-body -->
@@ -500,16 +533,18 @@ require 'Include/Header.php';
         <div
             class="callout callout-info"><?= gettext('Set Permission True to give this user the ability to change their current value.') ?></div>
         <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover data-person data-table no-footer dtr-inline" style="width:100%" >
+              <thead>
                 <tr>
                     <th><?= gettext('Permission') ?></h3></th>
                     <th><?= gettext('Variable name') ?></th>
                     <th><?= gettext('Current Value') ?></h3></th>
                     <th><?= gettext('Notes') ?></th>
                 </tr>
+              </thead>
+              <tbody>              
+
                 <?php
-
-
                 //First get default settings, then overwrite with settings from this user
 
                 // Get default settings
@@ -538,7 +573,7 @@ require 'Include/Header.php';
                         $sel1 = 'SELECTED';
                         $sel2 = '';
                     }
-                    echo "\n<tr>";
+                    echo "\n<tr class='user_settings' data-name='".$ucfg_name."'>";
                     echo "<td><select name=\"new_permission[$ucfg_id]\">";
                     echo "<option value=\"FALSE\" $sel1>" . gettext('False');
                     echo "<option value=\"TRUE\" $sel2>" . gettext('True');
@@ -583,14 +618,17 @@ require 'Include/Header.php';
                 // Cancel, Save Buttons
                 ?>
 
-                <tr>
-                    <td colspan="3" class="text-center">
-                        <input type="submit" class="btn btn-primary" name="save"
-                               value="<?= gettext('Save Settings') ?>">
-                        <input type="submit" class="btn" name="cancel" value="<?= gettext('Cancel') ?>">
-                    </td>
-                </tr>
+              </tbody>
             </table>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-primary" name="save"
+                           value="<?= gettext('Save Settings') ?>">
+                    <input type="submit" class="btn btn-default" name="cancel" value="<?= gettext('Cancel') ?>">
+                </div>
+            </div>
         </div>
         </form>
     </div>
@@ -599,8 +637,257 @@ require 'Include/Header.php';
 <!-- /.box -->
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    function addProfilesToMainDropdown()
+    {
+      $("#AllProfiles").empty();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'userprofile/getall',
+      }).done(function(data) {    
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          $("#AllProfiles").append('<li> <a class="changeProfile" data-id="'+data[i].UserProfileId+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].UserProfileName+'</a></li>');
+        }           
+      });  
+    }
+
+    function addProfiles()
+    {
+      $('#select-userprofile').find('option').remove();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'userprofile/getall',
+      }).done(function(data) {    
+        var elt = document.getElementById("select-userprofile");
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          var option = document.createElement("option");
+          // there is a groups.type in function of the new plan of schema
+          option.text = data[i].UserProfileName;
+          //option.title = data[i].type;        
+          option.value = data[i].UserProfileId;
+        
+          elt.appendChild(option);
+        }           
+      });  
+      
+      addProfilesToMainDropdown();
+    }
+    
     $(document).ready(function () {
         $("#personSelect").select2();
+        
+        $(".data-table").DataTable({
+          "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+          },
+          pageLength: 100,
+          info: false,
+          bSort : false,
+          searching: false, paging: false,
+          responsive: true
+        });
+        
+        
+        function BootboxContent(){
+          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3><form id="some-form">'
+             + '<div>'
+                  +'<div class="row div-title">'
+                    +'<div class="col-md-4">'
+                    + '<span style="color: red">*</span>' + i18next.t("Select your Profile") + ":"                    
+                    +'</div>'
+                    +'<div class="col-md-8">'
+                    +'<select size="6" style="width:100%" id="select-userprofile">'
+                    +'</select>'
+                   +'</div>'
+                  +'</div>'
+                  +'<div class="row div-title">'
+                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Profile Name") + ":</div>"
+                    +'<div class="col-md-8">'
+                      +"<input type='text' id='ProfileName' placeholder='" + i18next.t("Profile Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                    +'</div>'
+                  +'</div>'
+                +'</div>';
+                
+                var object = $('<div/>').html(frm_str).contents();
+
+              return object
+        }
+        
+        $(document).on('change','#select-userprofile',function() {
+          var profileID = $('#select-userprofile').val();
+          
+          window.CRM.APIRequest({
+             method: 'POST',
+             path: 'userprofile/get',
+             data: JSON.stringify({"profileID": profileID})
+          }).done(function(data) {
+             $('#ProfileName').val(data.name);
+          });
+        });
+                
+        $("#manageProfile").click(function() {
+          var modal = bootbox.dialog({
+             message: BootboxContent(),
+             buttons: [
+              {
+               label: i18next.t("Close"),
+               className: "btn btn-success",
+               callback: function() {               
+               }
+              },
+              {
+               label: i18next.t("Delete"),
+               className: "btn btn-danger",
+               callback: function() {
+                  var profileID = $('#select-userprofile').val();
+                  
+                  bootbox.confirm(i18next.t("Are you sure, you want to delete this Profile ?"), function(result){ 
+                    if (result) {
+                      window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'userprofile/delete',
+                         data: JSON.stringify({"profileID": profileID})
+                      }).done(function(data) {
+                        addProfiles();
+                      });
+                    }
+                  });
+                  return false;
+               }
+              },
+              {
+               label: i18next.t("Rename"),
+               className: "btn btn-primary",
+               callback: function() {
+                  var profileID = $('#select-userprofile').val();
+                  var name = $('#ProfileName').val();
+                  
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'userprofile/rename',
+                     data: JSON.stringify({"profileID": profileID,"name":name})
+                  }).done(function(data) {
+                    addProfiles();
+                  });
+                  return false;
+               }
+              }
+             ],
+             show: false,
+             onEscape: function() {
+                modal.modal("hide");
+             }
+         });
+         
+         modal.modal("show");
+         
+         addProfiles();
+        });
+
+ 
+        $('body').on('click','.changeProfile', function(){ 
+          var profileID = $(this).data("id");
+          
+          window.CRM.APIRequest({
+             method: 'POST',
+             path: 'userprofile/get',
+             data: JSON.stringify({"profileID": profileID})
+          }).done(function(data) {
+             var array = data.global.split(";");
+             
+             array.forEach(function(element) {
+               var flag = element.split(":");
+               jQuery("input[name='"+flag[0]+"']").prop('checked', Number(flag[1]));
+             });
+             
+             array = data.usrPerms.split(";");
+             
+             array.forEach(function(element) {
+               var flag = element.split(":");
+               jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(0)').children('select').prop('selectedIndex',((flag[1] == 'TRUE')?1:0));
+             });
+
+             array = data.userValues.split(";");
+             
+             array.forEach(function(element) {
+               var flag = element.split(":");
+               
+               var td2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)');
+               var select2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select');
+               
+               if (select2.length === 0) {
+                select2 = td2.children('input');
+                
+                select2.val(flag[1]);
+               } else {               
+                 jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select').prop('selectedIndex',Number(flag[1]));
+                }
+             });
+          });
+        });
+        
+        $("#addProfile").click(function() {
+           var global_res = '';
+           $(".global_settings").each(function() {
+              var _val = $(this).is(':checked') ? '1' : '0';
+              var _name = $(this).attr("name");
+              
+              global_res += _name+':'+_val+';'
+           });
+           
+           var user_perm = '';
+           var user_value = '';
+           
+           $(".user_settings").each(function() {
+              var _name = $(this).data("name");
+
+              var td0 = $(this).children('td:eq(0)');
+              var select0 = td0.children('select');
+              
+              var _val0 = select0.val();
+
+              var td2 = $(this).children('td:eq(2)');
+              var select2 = td2.children('select');
+              
+              if (select2.length === 0) {
+                select2 = td2.children('input');
+              }
+              
+              var _val2 = select2.val();
+              
+              user_perm += _name+':'+_val0+';'
+              user_value += _name+':'+_val2+';'
+           });
+           
+           global_res = global_res.slice(0, -1);
+           user_perm = user_perm.slice(0, -1);
+           user_value = user_value.slice(0, -1);
+           
+           bootbox.prompt(i18next.t("Choose your Profile Name"), function(result){ 
+             if (result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'userprofile/add',
+                  data: JSON.stringify({"name": result,"global" : global_res, "userPerms":user_perm,"userValues":user_value})
+                }).done(function(data) {
+                    if (data && data.status=="success") {
+                      addProfilesToMainDropdown();
+                    } else if (data && data.status=="error") {
+                      bootbox.alert({
+                          title:i18next.t("Error"),
+                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings yet exist !!!</center>"),
+                          size: "small"
+                      });
+                    }
+                });              
+             }
+           });
+        });
     });
 </script>
 

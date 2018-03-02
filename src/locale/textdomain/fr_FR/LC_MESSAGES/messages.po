@@ -9779,3 +9779,16 @@ msgstr "Homme"
 msgid "Woman"
 msgstr "Femmme"
 
+#: UserEditor.php
+msgid "Are you sure, you want to delete this Profile ?"
+msgstr "Êtes vous sûr de vouloir supprimer ce Profile ?"
+
+msgid "Add Profile"
+msgstr "Ajouter Profile"
+
+msgid "Manage Profiles"
+msgstr "Gestion des Profiles"
+
+msgid "Add Profile to Current User"
+msgstr "Ajouter le profile à l'utilisateur courant"
+
