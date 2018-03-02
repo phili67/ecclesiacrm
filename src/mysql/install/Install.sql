@@ -1359,4 +1359,14 @@ CREATE TABLE `church_location_role` (
   PRIMARY KEY (`location_id`, `role_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+
+CREATE TABLE userprofile_usrprf (
+    `usrprf_id` mediumint(11) unsigned  NOT NULL AUTO_INCREMENT,
+    `usrprf_name` VARCHAR(256) NOT NULL,
+    `usrprf_global` TEXT COLLATE utf8_unicode_ci,
+    `usrprf_permissions` TEXT COLLATE utf8_unicode_ci,
+    `usrprf_value` TEXT COLLATE utf8_unicode_ci,
+    PRIMARY KEY(usrprf_id)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 update version_ver set ver_update_end = now();

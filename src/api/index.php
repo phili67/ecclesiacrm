@@ -46,6 +46,8 @@ require __DIR__.'/routes/properties.php';
 require __DIR__.'/routes/users.php';
 require __DIR__.'/routes/families.php';
 require __DIR__.'/routes/groups.php';
+require __DIR__.'/routes/userprofile.php';
+
 
 // finance routes
 require __DIR__.'/routes/deposits.php';
@@ -82,6 +84,7 @@ require __DIR__.'/routes/dashboard.php';
 require __DIR__.'/routes/geocoder.php';
 
 require __DIR__.'/routes/public-data.php';
+
 
 // Run app
 $app->run();
