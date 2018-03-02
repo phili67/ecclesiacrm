@@ -9792,3 +9792,5 @@ msgstr "Gestion des Profiles"
 msgid "Add Profile to Current User"
 msgstr "Ajouter le profile à l'utilisateur courant"
 
+msgid "Profile management"
+msgstr "Gestion des Profiles"
