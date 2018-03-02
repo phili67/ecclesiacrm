@@ -1,4 +1,7 @@
 <?php
+
+/* Copyright all rights reserved Philippe Logel 2018 */
+
 use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\UserProfileQuery;
 use EcclesiaCRM\UserProfile;
