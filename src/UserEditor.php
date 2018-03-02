@@ -350,6 +350,7 @@ require 'Include/Header.php';
   <div class="box-body">
       <a href="#" id="addProfile" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Profile") ?></a>
       <a href="#" id="manageProfile" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Profiles")?></a>
+      &nbsp;
       <div class="btn-group">
         <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
