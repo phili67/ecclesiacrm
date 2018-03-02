@@ -19,7 +19,6 @@ use EcclesiaCRM\dto\SystemConfig;
 // Set the page title and include HTML header
 $sPageTitle = gettext('View Your Cart');
 require 'Include/Header.php'; ?>
-<div class="box box-body">
 <?php
 // Confirmation message that people where added to Event from Cart
 if (!Cart::HasPeople()) {
