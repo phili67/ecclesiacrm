@@ -356,7 +356,7 @@ require 'Include/Header.php';
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
         </button>
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" role="menu" id="AllProfiles">
             <?php 
                foreach ($userProfiles as $userProfile) {
             ?>               
@@ -637,6 +637,47 @@ require 'Include/Header.php';
 <!-- /.box -->
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    function addProfilesToMainDropdown()
+    {
+      $("#AllProfiles").empty();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'userprofile/getall',
+      }).done(function(data) {    
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          $("#AllProfiles").append('<li> <a class="changeProfile" data-id="'+data[i].UserProfileId+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].UserProfileName+'</a></li>');
+        }           
+      });  
+    }
+
+    function addProfiles()
+    {
+      $('#select-userprofile').find('option').remove();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'userprofile/getall',
+      }).done(function(data) {    
+        var elt = document.getElementById("select-userprofile");
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          var option = document.createElement("option");
+          // there is a groups.type in function of the new plan of schema
+          option.text = data[i].UserProfileName;
+          //option.title = data[i].type;        
+          option.value = data[i].UserProfileId;
+        
+          elt.appendChild(option);
+        }           
+      });  
+      
+      addProfilesToMainDropdown();
+    }
+    
     $(document).ready(function () {
         $("#personSelect").select2();
         
@@ -651,10 +692,108 @@ require 'Include/Header.php';
           responsive: true
         });
         
-        $(".changeProfile").click(function() {
+        
+        function BootboxContent(){
+          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3><form id="some-form">'
+             + '<div>'
+                  +'<div class="row div-title">'
+                    +'<div class="col-md-4">'
+                    + '<span style="color: red">*</span>' + i18next.t("Select your Profile") + ":"                    
+                    +'</div>'
+                    +'<div class="col-md-8">'
+                    +'<select size="6" style="width:100%" id="select-userprofile">'
+                    +'</select>'
+                   +'</div>'
+                  +'</div>'
+                  +'<div class="row div-title">'
+                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Profile Name") + ":</div>"
+                    +'<div class="col-md-8">'
+                      +"<input type='text' id='ProfileName' placeholder='" + i18next.t("Profile Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                    +'</div>'
+                  +'</div>'
+                +'</div>';
+                
+                var object = $('<div/>').html(frm_str).contents();
+
+              return object
+        }
+        
+        $(document).on('change','#select-userprofile',function() {
+          var profileID = $('#select-userprofile').val();
+          
+          window.CRM.APIRequest({
+             method: 'POST',
+             path: 'userprofile/get',
+             data: JSON.stringify({"profileID": profileID})
+          }).done(function(data) {
+             $('#ProfileName').val(data.name);
+          });
+        });
+                
+        $("#manageProfile").click(function() {
+          var modal = bootbox.dialog({
+             message: BootboxContent(),
+             buttons: [
+              {
+               label: i18next.t("Close"),
+               className: "btn btn-success",
+               callback: function() {               
+               }
+              },
+              {
+               label: i18next.t("Delete"),
+               className: "btn btn-danger",
+               callback: function() {
+                  var profileID = $('#select-userprofile').val();
+                  
+                  bootbox.confirm(i18next.t("Are you sure, you want to delete this Profile ?"), function(result){ 
+                    if (result) {
+                      window.CRM.APIRequest({
+                         method: 'POST',
+                         path: 'userprofile/delete',
+                         data: JSON.stringify({"profileID": profileID})
+                      }).done(function(data) {
+                        addProfiles();
+                      });
+                    }
+                  });
+                  return false;
+               }
+              },
+              {
+               label: i18next.t("Rename"),
+               className: "btn btn-primary",
+               callback: function() {
+                  var profileID = $('#select-userprofile').val();
+                  var name = $('#ProfileName').val();
+                  
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'userprofile/rename',
+                     data: JSON.stringify({"profileID": profileID,"name":name})
+                  }).done(function(data) {
+                    addProfiles();
+                  });
+                  return false;
+               }
+              }
+             ],
+             show: false,
+             onEscape: function() {
+                modal.modal("hide");
+             }
+         });
+         
+         modal.modal("show");
+         
+         addProfiles();
+        });
+
+ 
+        $('body').on('click','.changeProfile', function(){ 
           var profileID = $(this).data("id");
           
-           window.CRM.APIRequest({
+          window.CRM.APIRequest({
              method: 'POST',
              path: 'userprofile/get',
              data: JSON.stringify({"profileID": profileID})
@@ -729,15 +868,21 @@ require 'Include/Header.php';
            user_perm = user_perm.slice(0, -1);
            user_value = user_value.slice(0, -1);
            
-           bootbox.prompt(i18next.t('Choose your Profile Name'), function(result){ 
+           bootbox.prompt(i18next.t("Choose your Profile Name"), function(result){ 
              if (result) {
                 window.CRM.APIRequest({
                   method: 'POST',
                   path: 'userprofile/add',
                   data: JSON.stringify({"name": result,"global" : global_res, "userPerms":user_perm,"userValues":user_value})
                 }).done(function(data) {
-                    if (data && data.success) {
-                      location.reload();
+                    if (data && data.status=="success") {
+                      addProfilesToMainDropdown();
+                    } else if (data && data.status=="error") {
+                      bootbox.alert({
+                          title:i18next.t("Error"),
+                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings yet exist !!!</center>"),
+                          size: "small"
+                      });
                     }
                 });              
              }
