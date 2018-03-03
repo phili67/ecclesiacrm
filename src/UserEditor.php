@@ -341,6 +341,13 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
 // Set the page title and include HTML header
 $sPageTitle = gettext('User Editor');
 require 'Include/Header.php';
+
+$first_profileID = 0;
+foreach ($userProfiles as $userProfile) {
+  $first_profileID = $userProfile->getUserProfileId();
+  break;
+}
+
 ?>
 
 <div class="box">
@@ -351,7 +358,7 @@ require 'Include/Header.php';
       <a href="#" id="addProfile" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Profile") ?></a>
       <a href="#" id="manageProfile" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Profiles")?></a>
       <div class="btn-group">
-        <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
+        <a class="btn btn-app changeProfile" id="mainbuttonProfile" data-id="<?= $first_profileID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
@@ -510,8 +517,7 @@ require 'Include/Header.php';
                     </tr>
                     <tr>
                         <td><?= gettext('Style') ?>:</td>
-                        <td class="TextColumnWithBottomBorder"><select
-                                name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
+                        <td class="TextColumnWithBottomBorder"><select name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
                     </tr>
                   </tbody>
                 </table>
@@ -644,6 +650,7 @@ require 'Include/Header.php';
     {
       $("#AllProfiles").empty();
       
+      
       window.CRM.APIRequest({
             method: 'POST',
             path: 'userprofile/getall',
@@ -652,6 +659,9 @@ require 'Include/Header.php';
       
         for (i=0; i<len; ++i) {
           $("#AllProfiles").append('<li> <a class="changeProfile" data-id="'+data[i].UserProfileId+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].UserProfileName+'</a></li>');
+          if (i == 0) {
+            $("#mainbuttonProfile").data("id",data[i].UserProfileId);
+          }          
         }           
       });  
     }
@@ -805,7 +815,11 @@ require 'Include/Header.php';
              
              array.forEach(function(element) {
                var flag = element.split(":");
-               jQuery("input[name='"+flag[0]+"']").prop('checked', Number(flag[1]));
+               if (flag[0] != 'Style') {
+                 jQuery("input[name='"+flag[0]+"']").prop('checked', Number(flag[1]));
+               } else {
+                 jQuery("select[name='"+flag[0]+"']").val(flag[1]).change();
+               }
              });
              
              array = data.usrPerms.split(";");
@@ -837,7 +851,14 @@ require 'Include/Header.php';
         $("#addProfile").click(function() {
            var global_res = '';
            $(".global_settings").each(function() {
-              var _val = $(this).is(':checked') ? '1' : '0';
+              var _val;
+              
+              if ($(this).is('select')) {
+                _val = $(this).val();
+              } else {
+                _val = $(this).is(':checked') ? '1' : '0';
+              }
+              
               var _name = $(this).attr("name");
               
               global_res += _name+':'+_val+';'
