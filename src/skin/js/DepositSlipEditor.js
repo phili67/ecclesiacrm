@@ -15,14 +15,17 @@ function initPaymentTable(type)
       data:'FamilyString',
       render: function(data, type, full, meta) {
         var familyName = data ? data : i18next.t('Anonymous');
-        return '<a href=\'PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=' + depositSlipID +
-            '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa '+  (isDepositClosed ? "fa-search-plus": "fa-pencil" ) +' fa-stack-1x fa-inverse"></i></span></a>' + familyName;
+        var res = ((is_closed == 0)?'<a href=\'PledgeEditor.php?linkBack=DepositSlipEditor.php?DepositSlipID=' + depositSlipID +
+            '&GroupKey=' + full.Groupkey + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa '+  (isDepositClosed ? "fa-search-plus": "fa-pencil" ) +' fa-stack-1x fa-inverse"></i></span></a>':'');
+        res+=familyName;
+        
+        return res;
       }
     },
     {
       width: 'auto',
       title:i18next.t('Fund'),
-      data:'DonationFundName',
+      data:'DonationFundNames',
       render: function (data, type, full, meta) {
           return data;
       }
@@ -32,7 +35,11 @@ function initPaymentTable(type)
       title:rowTitle,
       data:dataType,
       render: function (data, type, full, meta) {
+        if (data == null) {
+          return i18next.t("None");
+        } else {
           return i18next.t(data);
+        }
       }
     },   
     {
@@ -59,7 +66,7 @@ function initPaymentTable(type)
         data:'Id',
         render: function(data, type, full, meta)
         {
-          return '<button type="button" data-id="' + data + '" class="btn btn-info detailButton">'+i18next.t("Details")+'</button>'
+          return '<button type="button" data-GK="' + full.Groupkey + '" class="btn btn-info detailButton">'+i18next.t("Details")+'</button>'
         }
       }
     );

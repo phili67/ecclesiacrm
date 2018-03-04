@@ -17,7 +17,7 @@ $app->group('/pledges', function () {
       
       $plg = (object)$request->getParsedBody();
             
-      $pledge = PledgeQuery::Create()
+      $pledges = PledgeQuery::Create()
             ->leftJoinFamily()
             ->withColumn('Family.Name', 'FamilyName')
             ->withColumn('Family.Address1', 'Address1')
@@ -27,11 +27,10 @@ $app->group('/pledges', function () {
             ->withColumn('AutoPayment.EnableCreditCard', 'EnableCreditCard')
             ->withColumn('AutoPayment.EnableBankDraft', 'EnableBankDraft')
             ->leftJoinDeposit()
-            ->findOneById($plg->id);
+            ->findByGroupkey($plg->groupKey);
             
-      $result = $pledge->toArray();
           
-      return $response->withJSON($result);
+      return $pledges->toJson();
     });
     
     

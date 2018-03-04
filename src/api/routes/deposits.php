@@ -4,6 +4,10 @@
 use EcclesiaCRM\Deposit;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\AutoPaymentQuery;
+use Propel\Runtime\ActiveQuery\ModelCriteria;
+
 
 $app->group('/deposits', function () {
     $this->post('', function ($request, $response, $args) {
@@ -12,7 +16,7 @@ $app->group('/deposits', function () {
         $deposit->setType($input->depositType);
         $deposit->setComment($input->depositComment);
         $deposit->setDate($input->depositDate);
-        $deposit->setFund($input->depositFund);
+        //$deposit->setFund($input->depositFund);// unusefull actually
         $deposit->save();
         echo $deposit->toJSON();
     });
@@ -78,14 +82,26 @@ $app->group('/deposits', function () {
 
     $this->get('/{id:[0-9]+}/pledges', function ($request, $response, $args) {
         $id = $args['id'];
-        $Pledges = \EcclesiaCRM\PledgeQuery::create()
+        /*$Pledges = \EcclesiaCRM\PledgeQuery::create()
             ->filterByDepid($id)
             ->groupByGroupkey()
             ->withColumn('SUM(Pledge.Amount)', 'sumAmount')
             ->joinDonationFund()
             ->withColumn('DonationFund.Name')
             ->find()
+            ->toArray();*/
+            
+        $Pledges = \EcclesiaCRM\PledgeQuery::create()
+            ->filterByDepid($id)
+            ->groupByGroupkey()
+            ->withColumn('SUM(Pledge.Amount)', 'sumAmount')
+            ->useDonationFundQuery()
+            ->withColumn("GROUP_CONCAT(DonationFund.Name SEPARATOR ', ')", 'DonationFundNames')
+            ->endUse()
+            ->find()
             ->toArray();
+
+    
         return $response->withJSON($Pledges);
         
     });

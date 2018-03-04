@@ -129,6 +129,7 @@ function Header_body_scripts()
             lang: "<?= $localeInfo->getLanguageCode() ?>",
             locale: "<?= $localeInfo->getLocale() ?>",
             shortLocale: "<?= $localeInfo->getShortLocale() ?>",
+            currency: "<?= SystemConfig::getValue('sCurrency') ?>",
             maxUploadSize: "<?= $systemService->getMaxUploadFileSize(true) ?>",
             maxUploadSizeBytes: "<?= $systemService->getMaxUploadFileSize(false) ?>",
             datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",

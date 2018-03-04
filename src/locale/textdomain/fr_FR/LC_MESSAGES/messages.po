@@ -2141,6 +2141,9 @@ msgstr "Toutes les méthodes"
 msgid "Check"
 msgstr "Chèque"
 
+msgid "Checks"
+msgstr "Chèques"
+
 #: FinancialReports.php:262 PledgeEditor.php:580
 msgid "Cash"
 msgstr "Espèce"
