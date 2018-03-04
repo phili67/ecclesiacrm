@@ -8,7 +8,7 @@ $(document).ready(function () {
       'depositType': $("#depositType option:selected").val(),
       'depositComment': $("#depositComment").val(),
       'depositDate': moment($("#depositDate").val(),window.CRM.datePickerformat.toUpperCase()).format('YYYY-MM-DD'),
-      'depositFund': $("#depositFund option:selected").val()
+      //'depositFund': $("#depositFund option:selected").val()
     };
     $.ajax({
       method: "POST",
@@ -53,7 +53,7 @@ $(document).ready(function () {
         },
         type: 'num'
       },
-      {
+      /*{
         title:i18next.t('Fund'),
         data: 'fundName',
         render: function (data, type, full, meta) {
@@ -63,7 +63,7 @@ $(document).ready(function () {
             return i18next.t('None');
           }
         }
-      },      
+      },*/      
       {
         title:i18next.t( 'Deposit Date'),
         data: 'Date',

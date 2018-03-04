@@ -16,6 +16,7 @@ use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\MiscUtils;
 
 $iDepositSlipID = 0;
 $thisDeposit = 0;
@@ -55,7 +56,7 @@ $sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Numbe
 //Is this the second pass?
 
 if (isset($_POST['DepositSlipLoadAuthorized'])) {
-    $thisDeposit->loadAuthorized($thisDeposit->getType());
+    $thisDeposit->loadAuthorized($thisDeposit->getType());    
 } elseif (isset($_POST['DepositSlipRunTransactions'])) {
     $thisDeposit->runTransactions();
 }
@@ -123,7 +124,7 @@ require 'Include/Header.php';
       <div class="box-body">        
          <div class="col-lg-6">
           <canvas id="fund-donut" style="height:250px"></canvas>
-          <ul style="margin:0px; border:0px; padding:0px;">
+          <ul style="margin:0px; border:0px; padding:0px;" id="mainFundTotals">
           <?php
           foreach ($thisDeposit->getFundTotals() as $fund) {
               echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
@@ -132,22 +133,8 @@ require 'Include/Header.php';
         </div>
         <div class="col-lg-6">
           <canvas id="type-donut" style="height:250px"></canvas>
-          <ul style="margin:0px; border:0px; padding:0px;">
-          <?php
-          // Get deposit totals
-          echo '<li><b>TOTAL ('.$thisDeposit->getPledges()->count().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getVirtualColumn('totalAmount').'</li>';
-                        if ($thisDeposit->getCountCash()) {
-                          ?>
-                            <li><b><?= gettext("CASH")." (".$thisDeposit->getCountCash().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalCash() ?></b></li>
-                          <?php
-                        }
-                        if ($thisDeposit->getCountChecks()) {
-                          ?>
-                            <li><b><?= gettext("CHECKS").' ('.$thisDeposit->getCountChecks().'):</b> '.SystemConfig::getValue('sCurrency').$thisDeposit->getTotalChecks() ?></b> </li>
-                          <?php
-                        }
-          ?>
-            </ul>
+          <ul style="margin:0px; border:0px; padding:0px;" id="GlobalTotal">
+          </ul>
         </div>
       </div>
     </div>
@@ -193,9 +180,15 @@ require 'Include/Header.php';
       </div>
   
       <div class="col-lg-8">
+        <?php
+          if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
+        ?>
           <label><?= gettext("Statut") ?> : </label>
           <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= gettext("Payment") ?> (0) <?= gettext("Selected Rows") ?></button>          
           <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= gettext("Pledge") ?> (0) <?= gettext("Selected Rows") ?></button>
+        <?php
+          }
+        ?>      
        </div>
      </div>
     </div>
@@ -210,42 +203,51 @@ require 'Include/Header.php';
 </div>
 
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/js/DepositSlipEditor.js"></script>
-<?php
-  $fundData = [];
-  foreach ($funds as $tmpfund) {
-      $fund = new StdClass();
-      $fund->color = '#'.random_color();
-      $fund->highlight = '#'.random_color();
-      $fund->label = $tmpfund['Name'];
-      $fund->value = $tmpfund['Total'];
-      array_push($fundData, $fund);
-  }
-  $pledgeTypeData = [];
-  $t1 = new stdClass();
-  $t1->value = $thisDeposit->getTotalamount() ? $thisDeposit->getTotalCash() : '0';
-  $t1->color = '#197A05';
-  $t1->highlight = '#4AFF23';
-  $t1->label = 'Cash';
-  array_push($pledgeTypeData, $t1);
-  $t1 = new stdClass();
-  $t1->value = $thisDeposit->getTotalamount() ? $thisDeposit->getTotalChecks() : '0';
-  $t1->color = '#003399';
-  $t1->highlight = '#3366ff';
-  $t1->label = 'Checks';
-  array_push($pledgeTypeData, $t1);
-?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   var depositType = '<?php echo $thisDeposit->getType(); ?>';
   var depositSlipID = <?php echo $iDepositSlipID; ?>;
   var isDepositClosed = Boolean(<?=  $thisDeposit->getClosed(); ?>);
-  var fundData = <?= json_encode($fundData) ?>;
-  var pledgeData = <?= json_encode($pledgeTypeData) ?>;
+  var fundData;
+  var pledgeData;
+  var is_closed = <?= ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed())?0:1 ?>;
 
   $(document).ready(function() {
     initPaymentTable('<?= $thisDeposit->getType() ?>');
-    initCharts(pledgeData, fundData);
     initDepositSlipEditor();
+    load_charts();
+    
+    function load_charts()
+    {
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'payments/getchartsarrays',
+          data: JSON.stringify({"depositSlipID" : depositSlipID})
+        }).done(function(data) {
+          fundData = data.fundData;
+          pledgeData = data.pledgeTypeData;
+          initCharts(pledgeData, fundData);
+          
+          var len = fundData.length;
+      
+          $("#mainFundTotals").empty();
+          var globalTotal = 0;
+          for (i=0; i<len; ++i) {
+            $("#mainFundTotals").append('<li><b>'+fundData[i].label+'</b>: '+window.CRM.currency+fundData[i].value+'</li>');
+            globalTotal += Number(fundData[i].value);
+          }
+          
+          $("#GlobalTotal").empty();          
+          $("#GlobalTotal").append('<li><b>'+i18next.t("TOTAL")+"("+len+"):</b> "+window.CRM.currency+globalTotal+'</li>');
+          
+          if (pledgeData[0].value != null) {
+            $("#GlobalTotal").append('<li><b>'+pledgeData[0].label+" ("+pledgeData[0].countCash+"):</b> "+window.CRM.currency+pledgeData[0].value+"</b></li>");
+          }
+          if (pledgeData[1].value != null) {
+            $("#GlobalTotal").append('<li><b>'+pledgeData[1].label+" ("+pledgeData[1].countChecks+"):</b> "+window.CRM.currency+pledgeData[1].value+"</b></li>");
+          }
+        });
+    }
 
     $('#deleteSelectedRows').click(function() {
       var deletedRows = dataT.rows('.selected').data();
@@ -281,9 +283,10 @@ require 'Include/Header.php';
                 if ( window.CRM.deletesRemaining == 0 )
                 {
                   dataT.ajax.reload();
+                  load_charts();
                 }
               });
-              });
+            });
           }
         }
       })
@@ -337,47 +340,51 @@ require 'Include/Header.php';
     
     //$(".detailButton").click(function(e) {
     $(document).on('click','.detailButton', function(){
-        var id = $(this).data("id");   
+        var gk = $(this).data("gk");   
         
         window.CRM.APIRequest({
           method: 'POST',
           path: 'pledges/detail',
-          data: JSON.stringify({"id" : id})
+          data: JSON.stringify({"groupKey" : gk})
         }).done(function(data) {
+          var len = data.Pledges.length;
           var fmt = window.CRM.datePickerformat.toUpperCase();      
           var date = moment(data.Date).format(fmt);
     
           var message = "<table>"; 
 
-          message += "<tr><td><label>"+i18next.t("Depid")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Depid+"</td></tr>";
-          message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
-
+          message += "<tr><td><label>"+i18next.t("Depid")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Pledges[0].Depid+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Pledges[0].FamilyName+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Address1")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledges[0].Address1)+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Date")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+date+"</td></tr>";
+            
           var type = "Disabled";
-          
-          if (data.EnableCreditCard) {
+          if (data.Pledges[0].EnableCreditCard) {
             type = "Credit Card";
-          } else if (data.EnableBankDraft){
+          } else if (data.Pledges[0].EnableBankDraft){
             type = "Bank Draft";
           }
-          
-          message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(type)+"</td></tr>";
-          
+          message += "<tr><td><label>"+i18next.t("Type")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(type)+"</td></tr>";          
           var BankName = "";
-          
-          if (data.BankName) {
-            BankName = data.BankName;
+          if (data.Pledges[0].BankName) {
+            BankName = data.Pledges[0].BankName;
           }
-          
           message += "<tr><td><label>"+i18next.t("Bank Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+BankName+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Name")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.FamilyName+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Address1")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Address1)+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Comment")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Comment)+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Schedule")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Schedule)+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Date")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+date+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Amount")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Amount+"</td></tr>";
-          message += "<tr><td><label>"+i18next.t("Non deductible")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Nondeductible+"</td></tr>";
+          
+          message += "<tr><td><label>"+i18next.t("Non deductible")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Pledges[0].Nondeductible+"</td></tr>";
+          message += "<tr><td><label>"+i18next.t("Statut")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledges[0].Pledgeorpayment)+"</td></tr>";
           message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
-          message += "<tr><td><label>"+i18next.t("Statut")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledgeorpayment)+"</td></tr>";
+
+
+          for (i=0;i<len;i++) {
+            message += "<tr><td><u><b>"+i18next.t("Deposit")+" "+(i+1)+"</b></u></td><td></td><td></td></tr>";
+            message += "<tr><td><label>"+i18next.t("Schedule")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledges[i].Schedule)+"</td></tr>";
+
+          
+            message += "<tr><td><label>"+i18next.t("Amount")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+data.Pledges[i].Amount+"</td></tr>";
+            message += "<tr><td><label>"+i18next.t("Comment")+" </label> </td><td>&nbsp;:&nbsp;</td><td>"+i18next.t(data.Pledges[i].Comment)+"</td></tr>";
+            message += "<tr><td>&nbsp;</td><td></td><td></td></tr>";
+          }
 
           message += "</table>";
           

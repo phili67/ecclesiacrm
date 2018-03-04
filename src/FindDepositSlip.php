@@ -44,7 +44,7 @@ $donationFunds = DonationFundQuery::Create()->find();
             <label for="depositComment"><?= gettext('Deposit Comment') ?></label>
             <input class="form-control newDeposit" name="depositComment" id="depositComment" style="width:100%">
           </div>
-          <div class="col-lg-3">
+          <!--<div class="col-lg-3">
             <label for="depositType"><?= gettext('Fund') ?></label>
             <select class="form-control" id="depositFund" name="depositFund">              
             <?php
@@ -55,7 +55,7 @@ $donationFunds = DonationFundQuery::Create()->find();
              }
             ?>
             </select>
-          </div>
+          </div>-->
           <div class="col-lg-3">
             <label for="depositType"><?= gettext('Deposit Type') ?></label>
             <select class="form-control" id="depositType" name="depositType">

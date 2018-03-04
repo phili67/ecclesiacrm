@@ -4,6 +4,8 @@
 
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\utils\MiscUtils;
+use EcclesiaCRM\DepositQuery;
 
 $app->group('/payments', function () {
     $this->get('/', function ($request, $response, $args) {
@@ -109,6 +111,44 @@ $app->group('/payments', function () {
            
         return json_encode(['status' => "OK"]);
     });
+    
+    $this->post('/getchartsarrays', function ($request, $response, $args) {
+        $params = (object) $request->getParsedBody();
+        
+        $thisDeposit = DepositQuery::create()->findOneById($params->depositSlipID);
+        
+        $funds = $thisDeposit->getFundTotals();
+        
+        $fundData = [];
+        foreach ($funds as $tmpfund) {
+            $fund = new StdClass();
+            $fund->color = '#'.MiscUtils::random_color();
+            $fund->highlight = '#'.MiscUtils::random_color();
+            $fund->label = $tmpfund['Name'];
+            $fund->value = $tmpfund['Total'];
+            array_push($fundData, $fund);
+        }
+        $pledgeTypeData = [];
+        $t1 = new stdClass();
+        $t1->value = $thisDeposit->getTotalamount() ? $thisDeposit->getTotalCash() : '0';
+        $t1->countCash = $thisDeposit->getCountCash();
+        $t1->color = '#197A05';
+        $t1->highlight = '#4AFF23';
+        $t1->label = gettext("Cash");
+        array_push($pledgeTypeData, $t1);
+        
+        $t1 = new stdClass();
+        $t1->value = $thisDeposit->getTotalamount() ? $thisDeposit->getTotalChecks() : '0';
+        $t1->countChecks = $thisDeposit->getCountChecks();
+        $t1->color = '#003399';
+        $t1->highlight = '#3366ff';
+        $t1->label = gettext("Checks");
+        array_push($pledgeTypeData, $t1);
+        
+        
+        return json_encode(['status' => "OK",'pledgeTypeData' => $pledgeTypeData, 'fundData' => $fundData]);
+    });
+    
 
     $this->delete('/{groupKey}', function ($request, $response, $args) {
         $groupKey = $args['groupKey'];

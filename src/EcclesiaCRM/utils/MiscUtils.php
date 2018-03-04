@@ -2,8 +2,18 @@
 
 namespace EcclesiaCRM\Utils;
 use EcclesiaCRM\dto\SystemConfig;
+
 class MiscUtils {
  
+  public static function random_color_part()
+  {
+    return str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT);
+  }
+
+  public static function random_color()
+  {
+    return MiscUtils::random_color_part().MiscUtils::random_color_part().MiscUtils::random_color_part();
+  }
 
   public static function random_word( $length = 6 ) {
       $cons = array( 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'v', 'w', 'x', 'z', 'pt', 'gl', 'gr', 'ch', 'ph', 'ps', 'sh', 'st', 'th', 'wh' );

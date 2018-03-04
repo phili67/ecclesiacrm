@@ -228,11 +228,12 @@
         "versions": [
             "3.4.0",
             "3.4.1",
-            "3.4.2"
+            "3.4.2",
+            "3.4.3"
         ],
         "scripts": [
             "/mysql/upgrade/3.4.3-upgrade.sql"
         ],
-        "dbVersion": "3.4.3"
+        "dbVersion": "3.4.4"
     }
 }
