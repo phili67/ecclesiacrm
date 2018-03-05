@@ -9840,3 +9840,12 @@ msgstr "Total liquide"
 
 msgid "Witness"
 msgstr "Réviseur"
+
+
+#: SettingsIndividual.php:144 SettingsUser.php:114 SettingsUser.php:144
+#: SystemSettings.php:199 UserEditor.php:515 UserEditor.php:543
+msgid "FALSE"
+msgstr "Faux"
+
+msgid "TRUE"
+msgstr "Vrai"

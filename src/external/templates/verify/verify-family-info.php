@@ -35,7 +35,7 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
           }
         ?>
 
-        <i class="fa fa-fw fa-newspaper-o" title="<?= gettext("Send Newsletter")?>"></i><?= $family->getSendNewsletter() ?><br/>
+        <i class="fa fa-fw fa-newspaper-o" title="<?= gettext("Send Newsletter")?>"></i><?= gettext($family->getSendNewsletter()) ?><br/>
       </div>
     </div>
     <div class="border-right border-left">
@@ -97,12 +97,12 @@ $doShowMap = !(empty($family->getLatitude()) && empty($family->getLongitude()));
                   </li>
                   <?php if (count($person->getPerson2group2roleP2g2rs()) > 0) {?>
                   <li class="list-group-item">
-                    <h4>Groups</h4>
+                    <h4><?= gettext("Groups") ?></h4>
                     <?php foreach ($person->getPerson2group2roleP2g2rs() as $groupMembership) {
                         if ($groupMembership->getGroup() != null) {
                             $listOption = ListOptionQuery::create()->filterById($groupMembership->getGroup()->getRoleListId())->filterByOptionId($groupMembership->getRoleId())->findOne()->getOptionName();
                     ?>
-                        <b><?= $groupMembership->getGroup()->getName() ?></b>: <span class="pull-right"><?= $listOption ?></span><br/>
+                        <b><?= $groupMembership->getGroup()->getName() ?></b>: <span class="pull-right"><?= gettext($listOption) ?></span><br/>
                     <?php
                         }
                     }
