@@ -217,7 +217,8 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, $sFamRole);
         $pdf->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, $per_Email);
         if ($per_BirthYear) {
-            $birthdayStr = $per_BirthYear.'-'.$per_BirthMonth.'-'.$per_BirthDay;
+            $theDate = new DateTime($per_BirthYear.'-'.$per_BirthMonth.'-'.$per_BirthDay, new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+            $birthdayStr = $theDate->format(SystemConfig::getValue("sDatePickerFormat"));
         } elseif ($per_BirthMonth) {
             $birthdayStr = $per_BirthMonth.'-'.$per_BirthDay;
         } else {
@@ -309,11 +310,11 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 				ORDER BY grp_Name';
         $rsAssignedGroups = RunQuery($sSQL);
         if (mysqli_num_rows($rsAssignedGroups) > 0) {
-            $groupStr = 'Assigned groups for '.$per_FirstName.' '.$per_LastName.': ';
+            $groupStr = gettext("Assigned groups for")." ".$per_FirstName.' '.$per_LastName.': ';
 
             while ($aGroup = mysqli_fetch_array($rsAssignedGroups)) {
                 extract($aGroup);
-                $groupStr .= $grp_Name.' ('.$roleName.') ';
+                $groupStr .= $grp_Name.' ('.gettext($roleName).') ';
             }
 
             $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $groupStr);
