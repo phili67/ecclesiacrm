@@ -12,6 +12,7 @@ use EcclesiaCRM\PledgeQuery as ChildPledgeQuery;
 use EcclesiaCRM\Pledge as ChildPledge;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\Utils\OutputUtils;
 use DateTime;
 use DateTimeZone;
 
@@ -90,9 +91,9 @@ class Deposit extends BaseDeposit
     {
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
         $cashDenominations = ['0.01', '0.05', '0.10', '0.25', '0.50', '1.00'];
-        $thisReport->pdf->Cell(10, 10, 'Coin', 1, 0, 'L');
-        $thisReport->pdf->Cell(20, 10, 'Counts', 1, 0, 'L');
-        $thisReport->pdf->Cell(20, 10, 'Totals', 1, 2, 'L');
+        $thisReport->pdf->Cell(10, 10, OutputUtils::translate_text_fpdf(gettext("Coin")), 1, 0, 'L');
+        $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf(gettext("Counts")), 1, 0, 'L');
+        $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf(gettext("Totals")), 1, 2, 'L');
         $thisReport->pdf->SetX($thisReport->curX);
         foreach ($cashDenominations as $denomination) {
             $thisReport->pdf->Cell(10, 10, $denomination, 1, 0, 'L');
@@ -100,15 +101,15 @@ class Deposit extends BaseDeposit
             $thisReport->pdf->Cell(20, 10, '', 1, 2, 'L');
             $thisReport->pdf->SetX($thisReport->curX);
         }
-        $thisReport->pdf->Cell(50, 10, 'Total Coin', 1, 2, 'L');
+        $thisReport->pdf->Cell(50, 10, OutputUtils::translate_text_fpdf(gettext("Total Coin")), 1, 2, 'L');
 
         $thisReport->curX += 70;
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
 
         $cashDenominations = ['$1', '$2', '$5', '$10', '$20', '$50', '$100'];
-        $thisReport->pdf->Cell(10, 10, 'Bill', 1, 0, 'L');
-        $thisReport->pdf->Cell(20, 10, 'Counts', 1, 0, 'L');
-        $thisReport->pdf->Cell(20, 10, 'Totals', 1, 2, 'L');
+        $thisReport->pdf->Cell(10, 10, OutputUtils::translate_text_fpdf(gettext("Bill")), 1, 0, 'L');
+        $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf(gettext("Counts")), 1, 0, 'L');
+        $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf(gettext("Totals")), 1, 2, 'L');
         $thisReport->pdf->SetX($thisReport->curX);
         foreach ($cashDenominations as $denomination) {
             $thisReport->pdf->Cell(10, 10, $denomination, 1, 0, 'L');
@@ -116,23 +117,23 @@ class Deposit extends BaseDeposit
             $thisReport->pdf->Cell(20, 10, '', 1, 2, 'L');
             $thisReport->pdf->SetX($thisReport->curX);
         }
-        $thisReport->pdf->Cell(50, 10, 'Total Cash', 1, 2, 'L');
+        $thisReport->pdf->Cell(50, 10, OutputUtils::translate_text_fpdf(gettext("Total Cash")), 1, 2, 'L');
     }
 
     private function generateTotalsByCurrencyType($thisReport)
     {
         $thisReport->pdf->SetFont('Times', 'B', 10);
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Deposit totals by Currency Type');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext('Deposit totals by Currency Type')));
         $thisReport->pdf->SetFont('Courier', '', 8);
         $thisReport->curY += 4;
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Checks: ');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Checks")).": ");
         $thisReport->pdf->write(8, '('.$this->getCountChecks().')');
         $thisReport->pdf->PrintRightJustified($thisReport->curX + 55, $thisReport->curY, sprintf('%.2f', $this->getTotalChecks()));
         $thisReport->curY += 4;
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Cash: ');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Cash")).": ");
         $thisReport->pdf->PrintRightJustified($thisReport->curX + 55, $thisReport->curY, sprintf('%.2f', $this->getTotalCash()));
     }
 
@@ -140,7 +141,7 @@ class Deposit extends BaseDeposit
     {
         $thisReport->pdf->SetFont('Times', 'B', 10);
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Deposit totals by fund');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit totals by fund")));
         $thisReport->pdf->SetFont('Courier', '', 8);
 
         $thisReport->curY += 4;
@@ -161,13 +162,13 @@ class Deposit extends BaseDeposit
 
         $thisReport->QBDepositTicketParameters = json_decode(SystemConfig::getValue('sQBDTSettings'));
         $thisReport->pdf->SetXY($thisReport->QBDepositTicketParameters->date1->x, $thisReport->QBDepositTicketParameters->date1->y);
-        $thisReport->pdf->Write(8, $this->getDate()->format('Y-m-d'));
+        //$thisReport->pdf->Write(8, $this->getDate()->format('Y-m-d'));
 
         //print_r($thisReport->QBDepositTicketParameters);
         //logically, we print the cash in the first possible key=value pair column
         if ($this->getTotalCash() > 0) {
             $totalCashStr = sprintf('%.2f', $this->getTotalCash());
-            $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->leftX + $thisReport->QBDepositTicketParameters->amountOffsetX, $thisReport->QBDepositTicketParameters->topY, $totalCashStr);
+            //$thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->leftX + $thisReport->QBDepositTicketParameters->amountOffsetX, $thisReport->QBDepositTicketParameters->topY, $totalCashStr);
         }
         $thisReport->curX = $thisReport->QBDepositTicketParameters->leftX + $thisReport->QBDepositTicketParameters->lineItemInterval->x;
         $thisReport->curY = $thisReport->QBDepositTicketParameters->topY;
@@ -179,7 +180,8 @@ class Deposit extends BaseDeposit
             ->joinFamily(null, Criteria::LEFT_JOIN)
             ->withColumn('Family.Name')
             ->find();
-        foreach ($pledges as $pledge) {
+            
+        /*foreach ($pledges as $pledge) {
             // then all of the checks in key-value pairs, in 3 separate columns.  Left to right, then top to bottom.
             if ($pledge->getMethod() == 'CHECK') {
                 $thisReport->pdf->PrintRightJustified($thisReport->curX, $thisReport->curY, $pledge->getCheckno());
@@ -191,21 +193,21 @@ class Deposit extends BaseDeposit
                     $thisReport->curY += $thisReport->QBDepositTicketParameters->lineItemInterval->y;
                 }
             }
-        }
+        }*/
 
-        $grandTotalStr = sprintf('%.2f', $this->getTotalAmount());
+        /*$grandTotalStr = sprintf('%.2f', $this->getTotalAmount());
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->subTotal->x, $thisReport->QBDepositTicketParameters->subTotal->y, $grandTotalStr);
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->topTotal->x, $thisReport->QBDepositTicketParameters->topTotal->y, $grandTotalStr);
         $numItemsString = sprintf('%d', ($this->getCountCash() > 0 ? 1 : 0) + $this->getCountChecks());
-        $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->numberOfItems->x, $thisReport->QBDepositTicketParameters->numberOfItems->y, $numItemsString);
+        $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->numberOfItems->x, $thisReport->QBDepositTicketParameters->numberOfItems->y, $numItemsString);*/
 
         $thisReport->curY = $thisReport->QBDepositTicketParameters->perforationY;
         $thisReport->pdf->SetXY($thisReport->QBDepositTicketParameters->titleX, $thisReport->curY);
         $thisReport->pdf->SetFont('Courier', 'B', 20);
-        $thisReport->pdf->Write(8, 'Deposit Summary '.$this->getId());
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit Summary")).' '.$this->getId());
         $thisReport->pdf->SetFont('Times', '', 10);
         $thisReport->pdf->SetXY($thisReport->QBDepositTicketParameters->date2X, $thisReport->curY);
-        $thisReport->pdf->Write(8, $this->getDate()->format('Y-m-d'));
+        $thisReport->pdf->Write(8, $this->getDate()->format(SystemConfig::getValue("sDatePickerFormat")));
 
         $thisReport->curX = $thisReport->QBDepositTicketParameters->date1->x;
         $thisReport->curY += 2 * $thisReport->QBDepositTicketParameters->lineItemInterval->y;
@@ -224,7 +226,7 @@ class Deposit extends BaseDeposit
         $thisReport->curY += $thisReport->QBDepositTicketParameters->lineItemInterval->y;
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
         $thisReport->pdf->SetFont('Times', 'B', 10);
-        $thisReport->pdf->Write(8, 'Deposit total');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit total")));
         $grandTotalStr = sprintf('%.2f', $this->getTotalAmount());
         $thisReport->pdf->PrintRightJustified($thisReport->curX + 55, $thisReport->curY, $grandTotalStr);
         $thisReport->pdf->SetFont('Courier', '', 8);
@@ -252,7 +254,7 @@ class Deposit extends BaseDeposit
 
         $thisReport->pdf->SetXY($thisReport->depositSummaryParameters->title->x, $thisReport->depositSummaryParameters->title->y);
         $thisReport->pdf->SetFont('Courier', 'B', 20);
-        $thisReport->pdf->Write(8, 'Deposit Summary '.$this->getId());
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit Summary"))." ".$this->getId());
         $thisReport->pdf->SetFont('Times', 'B', 10);
 
         $thisReport->curX = $thisReport->depositSummaryParameters->summary->x;
@@ -260,22 +262,22 @@ class Deposit extends BaseDeposit
 
         $thisReport->pdf->SetFont('Times', 'B', 10);
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Chk No.');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Chk No.")));
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->FundX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Fund');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Fund")));
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->MethodX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'PmtMethod');
+        $thisReport->pdf->Write(8,OutputUtils::translate_text_fpdf(gettext("PmtMethod")));
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->FromX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Rcd From');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Rcd From")));
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->MemoX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Memo');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Memo")));
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->AmountX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Amount');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Amount")));
         $thisReport->curY += 2 * $thisReport->depositSummaryParameters->summary->intervalY;
 
         $totalAmount = 0;
@@ -293,7 +295,7 @@ class Deposit extends BaseDeposit
             if (!is_null($family)) {
                 $familyName = $payment->getFamily()->getName();
             } else {
-                $familyName = gettext('Anonymous');
+                $familyName = OutputUtils::translate_text_fpdf(gettext('Anonymous'));
             }
             if (strlen($checkNo) > 8) {
                 $checkNo = '...'.mb_substr($checkNo, -8, 8);
@@ -314,7 +316,7 @@ class Deposit extends BaseDeposit
             $thisReport->pdf->Write(8, $fundName);
 
             $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->MethodX, $thisReport->curY);
-            $thisReport->pdf->Write(8, $payment->getMethod());
+            $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext($payment->getMethod())));
 
             $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->FromX, $thisReport->curY);
             $thisReport->pdf->Write(8, $familyName);
@@ -337,7 +339,7 @@ class Deposit extends BaseDeposit
         $thisReport->curY += $thisReport->depositSummaryParameters->summary->intervalY;
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->MemoX, $thisReport->curY);
-        $thisReport->pdf->Write(8, 'Deposit total');
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit total")));
 
         $grandTotalStr = sprintf('%.2f', $this->getTotalAmount());
         $thisReport->pdf->PrintRightJustified($thisReport->curX + $thisReport->depositSummaryParameters->summary->AmountX, $thisReport->curY, $grandTotalStr);
@@ -366,17 +368,17 @@ class Deposit extends BaseDeposit
     private function generateWitnessSignature($thisReport)
     {
         $thisReport->pdf->setXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->write(8, 'Witness 1');
+        $thisReport->pdf->write(8, OutputUtils::translate_text_fpdf(gettext("Witness"))." 1");
         $thisReport->pdf->line($thisReport->curX + 17, $thisReport->curY + 8, $thisReport->curX + 80, $thisReport->curY + 8);
 
         $thisReport->curY += 10;
         $thisReport->pdf->setXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->write(8, 'Witness 2');
+        $thisReport->pdf->write(8, OutputUtils::translate_text_fpdf(gettext("Witness"))." 2");
         $thisReport->pdf->line($thisReport->curX + 17, $thisReport->curY + 8, $thisReport->curX + 80, $thisReport->curY + 8);
 
         $thisReport->curY += 10;
         $thisReport->pdf->setXY($thisReport->curX, $thisReport->curY);
-        $thisReport->pdf->write(8, 'Witness 3');
+        $thisReport->pdf->write(8, OutputUtils::translate_text_fpdf(gettext("Witness"))." 3");
         $thisReport->pdf->line($thisReport->curX + 17, $thisReport->curY + 8, $thisReport->curX + 80, $thisReport->curY + 8);
     }
 
@@ -408,6 +410,7 @@ class Deposit extends BaseDeposit
 
         // Export file
         $Report->pdf->Output('EcclesiaCRM-DepositReport-'.$this->getId().'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf', 'D');
+        exit;// bug resolution for safari
     }
 
     public function getTotalAmount()

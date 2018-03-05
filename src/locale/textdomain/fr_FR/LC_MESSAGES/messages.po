@@ -9797,3 +9797,43 @@ msgstr "Ajouter le profile à l'utilisateur courant"
 
 msgid "Profile management"
 msgstr "Gestion des Profiles"
+
+#: Deposit.php
+msgid "Deposit Summary"
+msgstr "Résumé du dépôt"
+
+msgid "PmtMethod"
+msgstr "Méthode Pay"
+
+msgid "Rcd From"
+msgstr "Enr. de"
+
+msgid "Memo"
+msgstr "Mémo"
+
+msgid "Counts"
+msgstr "Comptes"
+
+msgid "Deposit total"
+msgstr "Total du dépôt"
+
+msgid "Deposit totals by Currency Type"
+msgstr "Totaux du dépôt par type Paiement"
+
+msgid "Deposit totals by fund"
+msgstr "Totaux du dépôt par fond"
+
+msgid "Total Coin"
+msgstr "Nombre de pièces"
+
+msgid "Bill"
+msgstr "Fact."
+
+msgid "Coin"
+msgstr "Pièce"
+
+msgid "Total Cash"
+msgstr "Total liquide"
+
+msgid "Witness"
+msgstr "Réviseur"

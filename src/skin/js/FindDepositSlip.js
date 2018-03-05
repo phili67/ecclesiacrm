@@ -92,7 +92,7 @@ $(document).ready(function () {
         data: 'Closed',
         searchable: true,
         render: function (data, type, full, meta) {
-          return data == 1 ? i18next.t('Yes') : i18next.t('No');
+          return data == 1 ? '<div style="color:red;text-align:center">'+i18next.t('Yes')+'</div>' : '<div style="color:green;text-align:center">'+i18next.t('No')+'</div>';
         }
       },
       {

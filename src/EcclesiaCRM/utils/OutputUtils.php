@@ -8,6 +8,11 @@ use EcclesiaCRM\dto\SystemConfig;
 
 class OutputUtils {
 
+  public static function translate_text_fpdf($string)
+  {
+    return iconv('UTF-8', 'windows-1252', $string);
+  }
+  
   public static function change_date_for_place_holder($string)
   {
     return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));

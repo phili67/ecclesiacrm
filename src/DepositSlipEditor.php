@@ -102,7 +102,7 @@ require 'Include/Header.php';
               <?php
                  if (count($funds)) {
               ?>
-              <input type="button" class="btn btn-default" value="<?php echo gettext('Deposit Slip Report'); ?>" name="DepositSlipGeneratePDF" onclick="window.CRM.VerifyThenLoadAPIContent(window.CRM.root + '/api/deposits/<?php echo $thisDeposit->getId() ?>/pdf');">
+              <a href="<?= SystemURLs::getRootPath() ?>/api/deposits/<?php echo $thisDeposit->getId() ?>/pdf" class="btn btn-default" name="DepositSlipGeneratePDF"><?php echo gettext('Deposit Slip Report'); ?></a>
               <?php
                 }
               ?>
