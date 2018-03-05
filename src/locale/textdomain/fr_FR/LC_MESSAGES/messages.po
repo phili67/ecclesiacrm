@@ -412,7 +412,7 @@ msgstr "Date de naissance"
 
 #: Reports/ConfirmReport.php:150 Reports/ConfirmReportEmail.php:154
 msgid "Anniversary Date"
-msgstr "Date d'anniversaire de mariage"
+msgstr "Date mariage"
 
 #: CSVExport.php:432 FinancialReports.php:322
 msgid "Output Method:"
@@ -485,7 +485,7 @@ msgstr "Dons"
 #: external/templates/verify/verify-family-info.php:69
 #: sundayschool/SundaySchoolClassView.php:205 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
-msgstr "Téléphone Fixe"
+msgstr "Tél. Fixe"
 
 #: CSVExport.php:130 CSVImport.php:223 CartToFamily.php:290
 #: FamilyEditor.php:748 FamilyView.php:254 GroupReports.php:125
@@ -494,7 +494,7 @@ msgstr "Téléphone Fixe"
 #: Reports/ConfirmReportEmail.php:237 SelectList.php:984 SelectList.php:985
 #: SelectList.php:1057 external/templates/verify/verify-family-info.php:71
 msgid "Work Phone"
-msgstr "Téléphone Professionnel"
+msgstr "Tél. Professionnel"
 
 #: CSVExport.php:135 CSVImport.php:224 CartToFamily.php:300
 #: FamilyEditor.php:758 FamilyView.php:260 PersonEditor.php:1008
@@ -1117,7 +1117,10 @@ msgstr "Adresse"
 #: Reports/ConfirmReportEmail.php:209
 #: external/templates/verify/verify-family-info.php:79
 msgid "Birthday"
-msgstr "Anniversaire"
+msgstr "Naissance"
+
+msgid "Assigned groups for"
+msgstr "Groupes assignés pour"
 
 #: DirectoryReports.php:175
 msgid "Family Home Phone"
@@ -3172,7 +3175,7 @@ msgstr "Année de Naissance"
 #: Reports/ConfirmReport.php:204
 #: external/templates/registration/family-register-members.php:120
 msgid "Hide Age"
-msgstr "Cacher l&#39;âge"
+msgstr "Cacher âge"
 
 #: PersonEditor.php:798
 msgid "Create a new family (using last name)"
@@ -4472,13 +4475,13 @@ msgstr "Liaison"
 
 #: Reports/ConfirmReport.php:130 Reports/ConfirmReportEmail.php:134
 msgid "City, State, Zip"
-msgstr "Ville, État, Code postal"
+msgstr "Ville,Code postal"
 
 #: FamilyEditor.php:780 FamilyView.php:228 Reports/ConfirmReport.php:140
 #: Reports/ConfirmReportEmail.php:144
 #: external/templates/verify/verify-family-info.php:38
 msgid "Send Newsletter"
-msgstr "Envoyer une Lettre de Nouvelles"
+msgstr "Envoyer Newsletter"
 
 #: Reports/ConfirmReport.php:180 Reports/ConfirmReport.php:199
 #: Reports/ConfirmReportEmail.php:187 Reports/ConfirmReportEmail.php:205
