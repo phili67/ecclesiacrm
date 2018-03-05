@@ -12,6 +12,7 @@
 namespace EcclesiaCRM\Reports;
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 
 class PDF_Attendance extends ChurchInfoReport
@@ -481,14 +482,14 @@ class PDF_Attendance extends ChurchInfoReport
           switch ($key) {
             case 'firstName':
               $this->SetFont('Times', 'B', $fontTitleNormal-2);
-              if ($value != InputUtils::translate_special_charset("First Name")) {
+              if ($value != OutputUtils::translate_text_fpdf("First Name")) {
                 $this->WriteAt($nameX, $y + 1, $value);
               }
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'lastName':
               $this->SetFont('Times', '', $fontTitleNormal-5);
-              if ($value != InputUtils::translate_special_charset("Last Name")) {
+              if ($value != OutputUtils::translate_text_fpdf("Last Name")) {
                 $this->WriteAt($nameX, $y + 5, $value);
               }
               $this->SetFont('Times', '', $fontTitleNormal);
@@ -520,14 +521,14 @@ class PDF_Attendance extends ChurchInfoReport
               break;
             case 'gender':
               $this->SetFont('Times', 'B', $fontTitleNormal-3);
-              if ($value != InputUtils::translate_special_charset("Gender")) {
+              if ($value != OutputUtils::translate_text_fpdf("Gender")) {
                 $this->WriteAt($nameX+24, $y+0.75, "(".substr($value,0,1).")");
               }
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'birthDate':
               $this->SetFont('Times', '', $fontTitleNormal-4);
-              if ($value != InputUtils::translate_special_charset("Birth Date"))
+              if ($value != OutputUtils::translate_text_fpdf("Birth Date"))
                 $this->WriteAt($nameX+24, $y + 3.5, "(".$value.")");
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
@@ -538,7 +539,7 @@ class PDF_Attendance extends ChurchInfoReport
               break;
             case 'props':
               $this->SetFont('Times', '', $fontTitleNormal-4);
-              if ($value != InputUtils::translate_special_charset("Notes")) {
+              if ($value != OutputUtils::translate_text_fpdf("Notes")) {
                 $this->WriteAt($nameX+24, $y + 6, $value);
               }
               $this->SetFont('Times', '', $fontTitleNormal);

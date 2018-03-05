@@ -42,18 +42,18 @@ $FYString = MakeFYString($iFYID);
 
 // we will construct the labels
 $labelArr = [];
-$labelArr['firstName'] = InputUtils::translate_special_charset("First Name");
-$labelArr['lastName'] = InputUtils::translate_special_charset("Last Name");
-$labelArr['birthDate'] = InputUtils::translate_special_charset("Birth Date");
-$labelArr['gender'] = InputUtils::translate_special_charset("Gender");
-$labelArr['age'] = InputUtils::translate_special_charset("Age");
-$labelArr['homePhone'] = InputUtils::translate_special_charset("Phone");
-$labelArr['groupName'] = InputUtils::translate_special_charset("Group");
-$labelArr['props'] = InputUtils::translate_special_charset("Notes");
-/*$labelArr[] = InputUtils::translate_special_charset("Photo");*/
-/*$labelArr[] = InputUtils::translate_special_charset("Follow");
-$labelArr[] = InputUtils::translate_special_charset("Re-inscription");*/
-$labelArr['stats'] = InputUtils::translate_special_charset("Stats");
+$labelArr['firstName'] = OutputUtils::translate_text_fpdf("First Name");
+$labelArr['lastName'] = OutputUtils::translate_text_fpdf("Last Name");
+$labelArr['birthDate'] = OutputUtils::translate_text_fpdf("Birth Date");
+$labelArr['gender'] = OutputUtils::translate_text_fpdf("Gender");
+$labelArr['age'] = OutputUtils::translate_text_fpdf("Age");
+$labelArr['homePhone'] = OutputUtils::translate_text_fpdf("Phone");
+$labelArr['groupName'] = OutputUtils::translate_text_fpdf("Group");
+$labelArr['props'] = OutputUtils::translate_text_fpdf("Notes");
+/*$labelArr[] = OutputUtils::translate_text_fpdf("Photo");*/
+/*$labelArr[] = OutputUtils::translate_text_fpdf("Follow");
+$labelArr[] = OutputUtils::translate_text_fpdf("Re-inscription");*/
+$labelArr['stats'] = OutputUtils::translate_text_fpdf("Stats");
 
 // we filter all the events which belongs to a group
 $activeEvents = EventQuery::Create()
