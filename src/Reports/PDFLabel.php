@@ -25,6 +25,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutpuUtils;
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {
@@ -861,7 +862,7 @@ if ($sFileType == 'PDF') {
     }
     
 
-    $sCSVOutput .= '"'.InputUtils::translate_special_charset("Greeting").'"'.$delimiter.'"'.InputUtils::translate_special_charset("Name").'"'.$delimiter.'"'.InputUtils::translate_special_charset("Address").'"'.$delimiter.'"'.InputUtils::translate_special_charset("City").'"'.$delimiter.'"'.InputUtils::translate_special_charset("State").'"'.$delimiter.'"'.InputUtils::translate_special_charset("Zip").'"'."\n";
+    $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf("Greeting").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Name").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Address").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("City").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("State").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Zip").'"'."\n";
 
     while (list($i, $sLT) = each($aLabelList)) {
         if ($iBulkCode) {
@@ -870,22 +871,22 @@ if ($sFileType == 'PDF') {
 
         $iNewline = (strpos($sLT['Name'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '""'.$delimiter.'"'.InputUtils::translate_special_charset($sLT['Name']).'"'.$delimiter;
+            $sCSVOutput .= '""'.$delimiter.'"'.OutputUtils::translate_text_fpdf($sLT['Name']).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], 0, $iNewline)).'"'.$delimiter.
-                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], $iNewline + 1)).'"'.$delimiter;
+            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Name'], 0, $iNewline)).'"'.$delimiter.
+                            '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Name'], $iNewline + 1)).'"'.$delimiter;
         }
 
         $iNewline = (strpos($sLT['Address'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['Address']).'"'.$delimiter;
+            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf($sLT['Address']).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], 0, $iNewline)).'"'.$delimiter.
-                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], $iNewline + 1)).'"'.$delimiter;
+            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Address'], 0, $iNewline)).'"'.$delimiter.
+                            '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Address'], $iNewline + 1)).'"'.$delimiter;
         }
 
-        $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['City']).'"'.$delimiter.
-                        '"'.InputUtils::translate_special_charset($sLT['State']).'"'.$delimiter.
+        $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf($sLT['City']).'"'.$delimiter.
+                        '"'.OutputUtils::translate_text_fpdf($sLT['State']).'"'.$delimiter.
                         '"'.$sLT['Zip'].'"'."\n";
     }
 

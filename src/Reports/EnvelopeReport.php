@@ -12,6 +12,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
@@ -120,7 +121,7 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
     $OutStr = '';
     extract($aRow);
 
-    $OutStr = InputUtils::translate_special_charset($pdf->sGetFamilyString($aRow));
+    $OutStr = OutputUtils::translate_text_fpdf($pdf->sGetFamilyString($aRow));
 
     // Count the number of lines in the output string
     if (strlen($OutStr)) {
