@@ -28,24 +28,12 @@ function Header_system_notifications()
 {
     if (NotificationService::hasActiveNotifications()) {
         ?>
-        <script>
-            <?php foreach (NotificationService::getNotifications() as $notification) {
-            ?>
-            $.notify({
-                icon: 'fa fa-bell',
-                message: '<?= $notification->title?>',
-                url: '<?= $notification->link ?>'
-            },{
-                delay: 4000,
-                type: 'danger',
-                placement: {
-                    from: 'bottom',
-                    align: 'left'
-                }
-            });
+        <div class="systemNotificationBar">
             <?php
-        } ?>
-        </script>
+            foreach (NotificationService::getNotifications() as $notification) {
+                echo "<a href=\"" . $notification->link . "\">" . $notification->title . "</a>";
+            } ?>
+        </div>
         <?php
     }
 }
