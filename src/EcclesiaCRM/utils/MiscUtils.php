@@ -5,6 +5,14 @@ use EcclesiaCRM\dto\SystemConfig;
 
 class MiscUtils {
  
+  public static function urlExist( $url=0) {
+    $file_headers = @get_headers($url);
+    if($file_headers[0] == 'HTTP/1.1 404 Not Found')
+       return false;
+
+    return true;
+  }
+
   public static function random_color_part()
   {
     return str_pad(dechex(mt_rand(0, 255)), 2, '0', STR_PAD_LEFT);
