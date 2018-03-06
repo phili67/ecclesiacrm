@@ -6,13 +6,16 @@ use EcclesiaCRM\Base\Deposit as BaseDeposit;
 use EcclesiaCRM\Base\Pledge;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Map\PledgeTableMap;
 use EcclesiaCRM\PledgeQuery as ChildPledgeQuery;
 use EcclesiaCRM\Pledge as ChildPledge;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DonationFundQuery;
-use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\OutputUtils;
+use EcclesiaCRM\utils\MiscUtils;
+
 use DateTime;
 use DateTimeZone;
 
@@ -106,7 +109,7 @@ class Deposit extends BaseDeposit
         $thisReport->curX += 70;
         $thisReport->pdf->SetXY($thisReport->curX, $thisReport->curY);
 
-        $cashDenominations = ['$1', '$2', '$5', '$10', '$20', '$50', '$100'];
+        $cashDenominations = [OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'1', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'2', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'5', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'10', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'20', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'50', OutputUtils::translate_text_fpdf(SystemConfig::getValue("sCurrency")).'100'];
         $thisReport->pdf->Cell(10, 10, OutputUtils::translate_text_fpdf("Bill"), 1, 0, 'L');
         $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf("Counts"), 1, 0, 'L');
         $thisReport->pdf->Cell(20, 10, OutputUtils::translate_text_fpdf("Totals"), 1, 2, 'L');
@@ -200,6 +203,13 @@ class Deposit extends BaseDeposit
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->topTotal->x, $thisReport->QBDepositTicketParameters->topTotal->y, $grandTotalStr);
         $numItemsString = sprintf('%d', ($this->getCountCash() > 0 ? 1 : 0) + $this->getCountChecks());
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->numberOfItems->x, $thisReport->QBDepositTicketParameters->numberOfItems->y, $numItemsString);*/
+        
+        $filename = "http://".$_SERVER['SERVER_NAME'].SystemURLs::getRootPath()."/Images/church_letterhead.jpg";//SystemURLs::getRootPath().str_replace("..","",SystemConfig::getValue('bDirLetterHead'));
+        
+        if (MiscUtils::urlExist($filename)) {
+            $thisReport->pdf->Image($filename, 10, 5, 190);
+        }
+
 
         $thisReport->curY = $thisReport->QBDepositTicketParameters->perforationY;
         $thisReport->pdf->SetXY($thisReport->QBDepositTicketParameters->titleX, $thisReport->curY);

@@ -14,7 +14,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\MiscUtils;
 
