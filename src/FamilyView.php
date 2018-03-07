@@ -489,10 +489,10 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
 <?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']  || $_SESSION['bAdmin']) { ?>
 <div class="row">
     <div class="col-lg-12">
-        <div class="nav-tabs-custom">
+        <div class="nav-tabs-custom tab-success">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active" style="border-top-color: #76bc55;"><a href="#timeline" aria-controls="timeline" role="tab"
+                <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab"
                                                           data-toggle="tab"><?= gettext("Timeline") ?></a></li>
                 <li role="presentation"><a href="#properties" aria-controls="properties" role="tab"
                                            data-toggle="tab"><?= gettext("Assigned Properties") ?></a></li>
