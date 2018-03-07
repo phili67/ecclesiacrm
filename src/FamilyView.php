@@ -5,6 +5,7 @@
  *  last change : 2013-02-02
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker, 2003 Chris Gebhardt, 2004-2005 Michael Wilt
+ *                Copyright 2018 Philippe Logel
  *
  ******************************************************************************/
 
