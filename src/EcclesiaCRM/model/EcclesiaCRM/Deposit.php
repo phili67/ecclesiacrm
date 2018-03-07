@@ -204,7 +204,8 @@ class Deposit extends BaseDeposit
         $numItemsString = sprintf('%d', ($this->getCountCash() > 0 ? 1 : 0) + $this->getCountChecks());
         $thisReport->pdf->PrintRightJustified($thisReport->QBDepositTicketParameters->numberOfItems->x, $thisReport->QBDepositTicketParameters->numberOfItems->y, $numItemsString);*/
         
-        $filename = "https://".$_SERVER['SERVER_NAME'].SystemURLs::getRootPath()."/Images/church_letterhead.jpg";//SystemURLs::getRootPath().str_replace("..","",SystemConfig::getValue('bDirLetterHead'));
+        $siteURL='http'.(empty($_SERVER['HTTPS'])?'':'s').'://'.$_SERVER['SERVER_NAME'];
+        $filename = $siteURL.SystemURLs::getRootPath()."/Images/church_letterhead.jpg";//SystemURLs::getRootPath().str_replace("..","",SystemConfig::getValue('bDirLetterHead'));
         
         
         if (MiscUtils::urlExist($filename)) {
