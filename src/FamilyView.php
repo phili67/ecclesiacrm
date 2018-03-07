@@ -191,7 +191,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
 } ?>
 <div class="row">
     <div class="col-lg-3 col-md-3 col-sm-3">
-        <div class="box box-primary">
+        <div class="box box-success">
             <div class="box-body">
                 <div class="image-container">
                     <img src="<?= SystemURLs::getRootPath() ?>/api/families/<?= $family->getId() ?>/photo" class="initials-image img-rounded img-responsive profile-user-img profile-family-img"/>
@@ -317,7 +317,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
-            <div class="box box-primary box-body">
+            <div class="box box-success box-body">
                 <?php
                   if (Cart::FamilyInCart($iFamilyID) && $_SESSION['bShowCart']) {
                 ?>
@@ -393,7 +393,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
   if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
-            <div class="box box-primary box-body">
+            <div class="box box-success box-body">
                 <div class="box-body table-responsive clearfix">
                     <table class="table user-list table-hover data-person" width="100%">
                         <thead>
@@ -492,7 +492,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
         <div class="nav-tabs-custom">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab"
+                <li role="presentation" class="active" style="border-top-color: #76bc55;"><a href="#timeline" aria-controls="timeline" role="tab"
                                                           data-toggle="tab"><?= gettext("Timeline") ?></a></li>
                 <li role="presentation"><a href="#properties" aria-controls="properties" role="tab"
                                            data-toggle="tab"><?= gettext("Assigned Properties") ?></a></li>
