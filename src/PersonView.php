@@ -24,6 +24,9 @@ use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\AutoPaymentQuery;
+use EcclesiaCRM\PledgeQuery;
+
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -70,6 +73,30 @@ extract(mysqli_fetch_array($rsPerson));
 
 
 $person = PersonQuery::create()->findPk($iPersonID);
+
+$iFamilyID = $person->getFamId();
+
+//Get the pledges for this family
+$ormPledges = PledgeQuery::Create()
+            ->leftJoinPerson()
+            ->withColumn('Person.FirstName', 'EnteredFirstName')
+            ->withColumn('Person.LastName', 'EnteredLastName')
+            ->leftJoinDonationFund()
+            ->withColumn('DonationFund.Name', 'fundName')
+            ->findByFamId($iFamilyID);
+
+//Get the automatic payments for this family
+$ormAutoPayments = AutoPaymentQuery::create()
+           ->leftJoinPerson()
+             ->withColumn('Person.FirstName','EnteredFirstName')
+             ->withColumn('Person.LastName','EnteredLastName')
+             ->withColumn('Person.FirstName','EnteredFirstName')
+             ->withColumn('Person.LastName','EnteredLastName')
+           ->leftJoinDonationFund()
+             ->withColumn('DonationFund.Name','fundName')
+           ->orderByNextPayDate()
+           ->findByFamilyid($iFamilyID);
+
 
 if (empty($person)) {
     Redirect('members/404.php?type=Person');
@@ -262,6 +289,9 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <!-- /.box-header -->
       <div class="box-body">
         <ul class="fa-ul">
+        <?php
+          if (count($person->getOtherFamilyMembers()) > 0) {
+        ?>
           <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
               <?php
               if ($fam_ID != '') {
@@ -277,7 +307,11 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
               } else {
                   echo gettext('(No assigned family)');
               } ?>
-            </span></li>
+            </span>
+        </li>
+        <?php
+        }
+        ?>
             <?php if (!empty($formattedMailingAddress)) {
                   ?>
           <li><i class="fa-li fa fa-home"></i><?php echo gettext('Address'); ?>: <span>
@@ -452,10 +486,26 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
+        <?php
+          if (count($person->getOtherFamilyMembers()) > 0) {
+        ?>
         <li role="presentation"><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= gettext('Family') ?></a></li>
+        <?php
+        }
+        ?>
         <li role="presentation"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><?= gettext('Assigned Groups') ?></a></li>
         <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
         <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= gettext('Volunteer Opportunities') ?></a></li>
+        <?php
+         if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['bFinance']) {
+                    ?>
+                    <li role="presentation"><a href="#finance" aria-controls="finance" role="tab"
+                                               data-toggle="tab"><?= gettext("Automatic Payments") ?></a></li>
+                    <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab"
+                                               data-toggle="tab"><?= gettext("Pledges and Payments") ?></a></li>
+        <?php
+        } 
+        ?>
         <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext('Your Documents') ?></a></li>
       </ul>
 
@@ -910,6 +960,80 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             </div>
           </div>
         </div>
+                        <?php if ($_SESSION['bFinance']) {
+        ?>
+                <div role="tab-pane fade" class="tab-pane" id="finance">
+                    <div class="main-box clearfix">
+                        <div class="main-box-body clearfix">
+                            <?php if ($ormAutoPayments->count() > 0) {
+            ?>
+            
+                                <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+
+                                <?php
+        } ?>
+                            <p align="center">
+                                <a class="btn btn-primary"
+                                   href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div role="tab-pane fade" class="tab-pane" id="pledges">
+                    <div class="main-box clearfix">
+                        <div class="main-box-body clearfix">
+                                <input type="checkbox" name="ShowPledges" id="ShowPledges"
+                                       value="1" <?php if ($_SESSION['sshowPledges']) {
+                                      echo " checked";
+                                  } ?>><?= gettext("Show Pledges") ?>
+                                                          <input type="checkbox" name="ShowPayments" id="ShowPayments"
+                                                                 value="1" <?php if ($_SESSION['sshowPayments']) {
+                                      echo " checked";
+                                  } ?>><?= gettext("Show Payments") ?>
+                                  <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                                  <input type="text" Name="Min" id="Min"
+                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                                       
+                                <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
+                                
+                                <input type="text" Name="Max" id="Max"
+                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                                <?php
+                                $tog = 0;
+
+        if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
+        
+        ?>
+        
+        <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
+
+				<?php
+        } // if bShowPledges
+
+                                ?>
+                            
+                            <p align="center">
+                                <a class="btn btn-primary"
+                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                                <a class="btn btn-default"
+                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                            </p>
+
+                            <?php
+    } ?>
+
+                            <?php if ($_SESSION['bCanvasser']) {
+        ?>
+
+                            <p align="center">
+                                <a class="btn btn-default"
+                                   href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <?php
+    } ?>
         <div role="tab-pane fade" class="tab-pane" id="notes">
           <ul class="timeline">
             <!-- note time label -->
@@ -1039,6 +1163,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = <?= $iPersonID ?>;
+  window.CRM.currentFamily = <?= $iFamilyID ?>;
 
 
   $("#deletePhoto").click (function () {

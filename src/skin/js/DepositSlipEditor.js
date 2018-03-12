@@ -1,13 +1,5 @@
 function initPaymentTable(type)
 {
-  if (type == 'BankDraft' || type == 'CreditCard') {
-    dataType = 'Pledgeorpayment';
-    rowTitle = i18next.t('Pledge or payment');
-  } else {
-    dataType = 'Checkno';
-    rowTitle = i18next.t('Check Number');
-  }
-  
   var colDef = [
     {
       width: 'auto',
@@ -37,8 +29,8 @@ function initPaymentTable(type)
     }, 
     {
       width: 'auto',
-      title:rowTitle,
-      data:dataType,
+      title:i18next.t('Pledge or payment'),
+      data:'Pledgeorpayment',
       render: function (data, type, full, meta) {
         if (data == null) {
           return i18next.t("None");
@@ -62,6 +54,24 @@ function initPaymentTable(type)
     }
   ];
 
+  if (!(type == 'BankDraft' || type == 'CreditCard')) {
+    colDef.push(
+      {
+        width: 'auto',
+        title:i18next.t('Check Number'),
+        data:'Checkno',
+        render: function(data, type, full, meta)
+        {
+          if (data == null || data == "0") {
+          return i18next.t("None");
+        } else {
+          return i18next.t(data);
+        }
+        }
+      }
+    );  
+  }
+  
   if ( depositType == "CreditCard" )
   {
     colDef.push(
@@ -76,7 +86,6 @@ function initPaymentTable(type)
       }
     );
   }
-
 
   dataT = $("#paymentsTable").DataTable({
     ajax:{

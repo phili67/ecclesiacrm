@@ -20,9 +20,17 @@ use EcclesiaCRM\utils\MiscUtils;
 
 $iDepositSlipID = 0;
 $thisDeposit = 0;
+$dep_Closed = false;
 
 if (array_key_exists('DepositSlipID', $_GET)) {
     $iDepositSlipID = InputUtils::LegacyFilterInput($_GET['DepositSlipID'], 'int');
+}
+
+// Get the current deposit slip data
+if ($iDepositSlipID) {
+    $sSQL = 'SELECT dep_Closed, dep_Date, dep_Type from deposit_dep WHERE dep_ID = '.$iDepositSlipID;
+    $rsDeposit = RunQuery($sSQL);
+    extract(mysqli_fetch_array($rsDeposit));
 }
 
 if ($iDepositSlipID) {
@@ -51,7 +59,11 @@ if ($iDepositSlipID) {
 $funds = $thisDeposit->getFundTotals();
 
 //Set the page title
-$sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Number: ').$iDepositSlipID;
+$sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Number: ')."#".$iDepositSlipID;
+
+if ($dep_Closed) {
+    $sPageTitle .= ' &nbsp; <font color=red>'.gettext('Deposit closed').'</font>';
+}
 
 //Is this the second pass?
 

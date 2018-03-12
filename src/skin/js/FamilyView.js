@@ -435,6 +435,14 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
+        title:i18next.t('Dep ID')+" "+i18next.t('Closed'),
+        data:'Depid',
+        render: function(data, type, full, meta) {
+          return data+"&nbsp;&nbsp;&nbsp;"+(full.Closed == 1 ? '<div style="color:red;display: inline-block;">'+i18next.t('Yes')+'</div>' : '<div style="color:green;display: inline-block;">'+i18next.t('No')+'</div>');
+        }
+      },
+      {
+        width: 'auto',
         title:i18next.t('Fund'),
         data:'fundName',
         render: function(data, type, full, meta) {
@@ -493,6 +501,17 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
+        title:i18next.t('CHECK')+" #",
+        data:'Checkno',
+        render: function(data, type, full, meta) {
+          if (full.Method == "CHECK")
+            return i18next.t(data);
+          else 
+            return i18next.t('None');
+        }
+      },  
+      {
+        width: 'auto',
         title:i18next.t('Comment'),
         data:'Comment',
         render: function(data, type, full, meta) {
@@ -512,7 +531,11 @@ $(document).ready(function () {
         title:i18next.t('Delete'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<button class="btn btn-danger delete-pledge" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+          if (full.Closed == "1") {
+            return '<button class="btn btn-danger" data-id="'+data+'" disabled>'+i18next.t('Delete')+'</button>';
+          } else {
+            return '<button class="btn btn-danger delete-pledge" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+          }
         }
       },
       {
@@ -578,7 +601,7 @@ $(document).ready(function () {
         
         var min = parseInt( $('#Min').val(), 10 );
         var max = parseInt( $('#Max').val(), 10 );
-        var age = parseFloat( data[2] ) || 0; // use data for the fiscal year
+        var age = parseFloat( data[3] ) || 0; // use data for the fiscal year
  
         if ( ( isNaN( min ) && isNaN( max ) ) ||
              ( isNaN( min ) && age <= max ) ||

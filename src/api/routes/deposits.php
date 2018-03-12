@@ -98,6 +98,8 @@ $app->group('/deposits', function () {
             ->useDonationFundQuery()
             ->withColumn("GROUP_CONCAT(DonationFund.Name SEPARATOR ', ')", 'DonationFundNames')
             ->endUse()
+            ->leftJoinDeposit()            
+            ->withColumn('Deposit.Closed', 'Closed')
             ->find()
             ->toArray();
 

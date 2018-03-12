@@ -1703,6 +1703,18 @@ msgstr "L&#39;adresse email n'est pas valide"
 msgid "Family Info"
 msgstr "Info sur la famille"
 
+msgid "Person or Family Info"
+msgstr "Information sur la personne ou la famille"
+
+msgid "Person or Family address"
+msgstr "Adresse de la personne ou de la famille"
+
+msgid "Person or Family Role"
+msgstr "Rôle de la personne ou dans la famille"
+
+msgid "Create a new Address or A new family (using last name)"
+msgstr "Créer une nouvelle adresse ou une nouvelle famille (en utilisant le nom de famille)"
+
 #: FamilyEditor.php:682
 msgid "None US/CND State"
 msgstr "Pas d&#39;État US/CND"
@@ -3282,8 +3294,8 @@ msgid "Pledge Editor"
 msgstr "Gestionnaire engagement"
 
 #: PledgeEditor.php:441
-msgid "Payment Editor: "
-msgstr "Gestionnaire de Paiements: "
+msgid "Payment Editor"
+msgstr "Gestionnaire de Paiements"
 
 #: PledgeEditor.php:441
 msgid " Deposit Slip #"
@@ -9321,6 +9333,9 @@ msgstr "pour"
 
 msgid "Family Address"
 msgstr "Adresse familiale"
+
+msgid "Person or Family Address"
+msgstr "Adresse de La personne ou de la famille"
 
 msgid "Teacher"
 msgstr "Moniteur"
