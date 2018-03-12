@@ -37,6 +37,40 @@
         message:i18next.t(message)
       });
     }
+    
+    window.CRM.notify = function(icon,title,message,link,type,place,delay=6000) {
+      $.notify({
+        // options
+        icon: icon,
+        title: title,
+        message: message,
+        url: link,
+        target: '_blank'
+      },{
+        // settings
+        element: 'body',
+        position: null,
+        type: "info",
+        allow_dismiss: true,
+        newest_on_top: false,
+        showProgressbar: false,
+        placement: {
+          from: place,
+          align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+        delay: delay,
+        timer: 1000,
+        url_target: '_blank',
+        mouse_over: null,
+        animate: {
+          enter: 'animated fadeInDown',
+          exit: 'animated fadeOutUp'
+        }
+      });
+    }
 
     window.CRM.VerifyThenLoadAPIContent = function(url) {
       var error = i18next.t("There was a problem retrieving the requested object");
@@ -339,6 +373,14 @@
         });
       },
       'refresh' : function () {
+           window.CRM.APIRequest({
+             method: 'POST',
+             path:"systemupgrade/isUpdateRequired"
+            }).done(function(data) {
+              if (data.Upgrade) {
+                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name, window.CRM.root+'/UpgradeCRM.php',"info","top");
+              }
+            });
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
           return;
         }

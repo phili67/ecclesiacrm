@@ -130,6 +130,8 @@ if (isset($_POST['User'])) {
         $systemService = new SystemService();
         $_SESSION['latestVersion'] = $systemService->getLatestRelese();
         NotificationService::updateNotifications();
+        
+        $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
         Redirect('Menu.php');
         exit;
     }
