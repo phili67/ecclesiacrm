@@ -878,16 +878,16 @@ require 'Include/Header.php';
     </div>
     <div class="box box-info clearfix">
         <div class="box-header">
-            <h3 class="box-title"><?= gettext('Family Info') ?></h3>
+            <h3 class="box-title"><?= gettext("Person or Family Info") ?></h3>
             <div class="pull-right"><br/>
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
             <div class="form-group col-md-3">
-                <label><?= gettext('Family Role') ?>:</label>
+                <label><?= gettext("Person or Family Role") ?>:</label>
                 <select name="FamilyRole" class="form-control">
-                    <option value="0"><?= gettext('Unassigned') ?></option>
+                    <option value="0"><?= gettext("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php 
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
@@ -903,10 +903,10 @@ require 'Include/Header.php';
             </div>
 
             <div class="form-group col-md-9">
-                <label><?= gettext('Family'); ?>:</label>
+                <label><?= gettext('Person or Family address'); ?>:</label>
                 <select name="Family" size="8" class="form-control" id="optionFamily">
                     <option value="0" selected><?= gettext('Unassigned') ?></option>
-                    <option value="-1" ><?= gettext('Create a new family (using last name)') ?></option>
+                    <option value="-1" ><?= gettext("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php 
                         foreach ($ormFamilies as $ormFamily) {
@@ -926,7 +926,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-md-12">
                       <div class="box-header">
-                        <h3 class="box-title"><?= gettext('Family Address') ?></h3>
+                        <h3 class="box-title"><?= gettext('Person or Family Address') ?></h3>
                       </div>
                     </div><!-- /.box-header -->
                 </div>

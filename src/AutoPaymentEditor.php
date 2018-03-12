@@ -29,7 +29,7 @@ $iAutID = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
 
 //Get Family name
 if ($iFamily) {    
-    $ormFamily = FamilyQuery::Create()->findOneById($iFamily);    
+    $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
 } else {
     $fam_Name = 'TBD';
 }
@@ -183,7 +183,21 @@ if (isset($_POST['Submit'])) {
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($linkBack != '') {
-            Redirect($linkBack);
+          $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
+          if (!empty($ormFamily->getPeople()) && $ormFamily->getPeople()->count() == 1) {
+             $people = $ormFamily->getPeople();
+             
+             $personId = -1;
+             
+             foreach ($people as $person) {
+               $personId = $person->getId();
+             }
+             
+             if ($personId > 0) {
+                Redirect("PersonView.php?PersonID=".$personId);
+             }
+          }
+          Redirect($linkBack);
         } else {
             //Send to the view of this pledge
             Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
@@ -750,7 +764,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . gettext('family') ?></h3>
+    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . gettext("Person"). " or " . gettext('family') ?></h3>
   </div>
   <div class="body-text">
     <form method="post"  style="padding:10px"

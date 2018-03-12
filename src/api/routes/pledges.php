@@ -26,7 +26,7 @@ $app->group('/pledges', function () {
             ->withColumn('AutoPayment.BankName', 'BankName')
             ->withColumn('AutoPayment.EnableCreditCard', 'EnableCreditCard')
             ->withColumn('AutoPayment.EnableBankDraft', 'EnableBankDraft')
-            ->leftJoinDeposit()
+            ->leftJoinDeposit()            
             ->findByGroupkey($plg->groupKey);
             
           
@@ -43,6 +43,8 @@ $app->group('/pledges', function () {
             ->withColumn('Person.LastName', 'EnteredLastName')
             ->leftJoinDonationFund()
             ->withColumn('DonationFund.Name', 'fundName')
+            ->leftJoinDeposit()            
+            ->withColumn('Deposit.Closed', 'Closed')
             ->findByFamId($plg->famId);
             
           

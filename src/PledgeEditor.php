@@ -21,6 +21,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\FamilyQuery;
 
 
 if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
@@ -75,20 +76,27 @@ if (array_key_exists('GroupKey', $_GET)) {
 if (array_key_exists('CurrentDeposit', $_GET)) {
     $iCurrentDeposit = InputUtils::LegacyFilterInput($_GET['CurrentDeposit'], 'integer');
 }
+
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack'], 'string');
 $iFamily = 0;
 if (array_key_exists('FamilyID', $_GET)) {
     $iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
 }
 
+if (isset($_SESSION['iCurrentDeposit'])) {
+  $iCurrentDeposit = $_SESSION['iCurrentDeposit'];
+}
+
+
 $fund2PlgIds = []; // this will be the array cross-referencing funds to existing plg_plgid's
 
 if ($sGroupKey) {
-    $sSQL = 'SELECT plg_plgID, plg_fundID, plg_EditedBy from pledge_plg where plg_GroupKey="'.$sGroupKey.'"';
+    $sSQL = 'SELECT plg_plgID, plg_fundID, plg_EditedBy, plg_depID from pledge_plg where plg_GroupKey="'.$sGroupKey.'"';
     $rsKeys = RunQuery($sSQL);
     while ($aRow = mysqli_fetch_array($rsKeys)) {
         $onePlgID = $aRow['plg_plgID'];
         $oneFundID = $aRow['plg_fundID'];
+        $oneDepID = $aRow['plg_depID'];
         $iOriginalSelectedFund = $oneFundID; // remember the original fund in case we switch to splitting
         $fund2PlgIds[$oneFundID] = $onePlgID;
 
@@ -99,6 +107,12 @@ if ($sGroupKey) {
         }
     }
 }
+
+
+if ($iCurrentDeposit == 0) {
+  $iCurrentDeposit = $oneDepID;
+}
+
 
 // Handle _POST input if the form was up and a button press came in
 if (isset($_POST['PledgeSubmit']) or
@@ -183,7 +197,7 @@ if (isset($_POST['PledgeSubmit']) or
         list($numGroupKeys, $iAutID, $PledgeOrPayment, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
 
         $sSQL = "SELECT DISTINCT plg_famID, plg_CheckNo, plg_date, plg_method, plg_FYID from pledge_plg where plg_GroupKey='".$sGroupKey."'";
-        //	don't know if we need plg_date or plg_method here...  leave it here for now
+        //  don't know if we need plg_date or plg_method here...  leave it here for now
         $rsFam = RunQuery($sSQL);
         extract(mysqli_fetch_array($rsFam));
 
@@ -234,21 +248,22 @@ if (isset($_POST['PledgeSubmit']) or
 }
 
 if ($PledgeOrPayment == 'Pledge') { // Don't assign the deposit slip if this is a pledge
-    $iCurrentDeposit = 0;
+    //$iCurrentDeposit = 0;
 } else { // its a deposit
     if ($iCurrentDeposit > 0) {
         $_SESSION['iCurrentDeposit'] = $iCurrentDeposit;
     } else {
         $iCurrentDeposit = $_SESSION['iCurrentDeposit'];
     }
-
-    // Get the current deposit slip data
-    if ($iCurrentDeposit) {
-        $sSQL = 'SELECT dep_Closed, dep_Date, dep_Type from deposit_dep WHERE dep_ID = '.$iCurrentDeposit;
-        $rsDeposit = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsDeposit));
-    }
 }
+
+// Get the current deposit slip data
+if ($iCurrentDeposit) {
+    $sSQL = 'SELECT dep_Closed, dep_Date, dep_Type from deposit_dep WHERE dep_ID = '.$iCurrentDeposit;
+    $rsDeposit = RunQuery($sSQL);
+    extract(mysqli_fetch_array($rsDeposit));
+}
+
 
 if ($iMethod == 'CASH' || $iMethod == 'CHECK') {
     $dep_Type = 'Bank';
@@ -374,7 +389,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
                 }
                 
                 $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_scanString, plg_aut_ID, plg_NonDeductible, plg_GroupKey)
-			VALUES ('".$iFamily."','".$iFYID."','".$dDate."','".$nAmount[$fun_id]."','".$iSchedule."','".$iMethod."','".$sComment[$fun_id]."'";
+      VALUES ('".$iFamily."','".$iFYID."','".$dDate."','".$nAmount[$fun_id]."','".$iSchedule."','".$iMethod."','".$sComment[$fun_id]."'";
                 $sSQL .= ",'".date('YmdHis')."',".$_SESSION['iUserID'].",'".$PledgeOrPayment."',".$fun_id.','.$iCurrentDeposit.','.$iCheckNo.",'".$tScanString."','".$iAutID."','".$nNonDeductible[$fun_id]."','".$sGroupKey."')";
             }
             if (isset($sSQL)) {
@@ -453,9 +468,9 @@ if ($iCurrentDeposit) {
 
 //Set the page title
 if ($PledgeOrPayment == 'Pledge') {
-    $sPageTitle = gettext('Pledge Editor');
+    $sPageTitle = gettext('Pledge Editor').': '.gettext($dep_Type).gettext(' Deposit Slip #').$iCurrentDeposit." (".OutputUtils::change_date_for_place_holder($dep_Date).")";
 } elseif ($iCurrentDeposit) {
-    $sPageTitle = gettext('Payment Editor: ').gettext($dep_Type).gettext(' Deposit Slip #').$iCurrentDeposit." (".OutputUtils::change_date_for_place_holder($dep_Date).")";
+    $sPageTitle = gettext('Payment Editor').': '.gettext($dep_Type).gettext(' Deposit Slip #').$iCurrentDeposit." (".OutputUtils::change_date_for_place_holder($dep_Date).")";
 
     $checksFit = SystemConfig::getValue('iChecksPerDepositForm');
 
@@ -488,7 +503,7 @@ if ($PledgeOrPayment == 'Pledge') {
     }
 } // end if $PledgeOrPayment
 
-if ($dep_Closed && $sGroupKey && $PledgeOrPayment == 'Payment') {
+if ($dep_Closed) {
     $sPageTitle .= ' &nbsp; <font color=red>'.gettext('Deposit closed').'</font>';
 }
 
@@ -508,8 +523,6 @@ require 'Include/Header.php';
 ?>
 
 <form method="post" action="PledgeEditor.php?CurrentDeposit=<?= $iCurrentDeposit ?>&GroupKey=<?= $sGroupKey ?>&PledgeOrPayment=<?= $PledgeOrPayment ?>&linkBack=<?= $linkBack ?>" name="PledgeEditor">
-
-
 <div class="row">
   <div class="col-lg-6">
     <div class="box">
@@ -528,7 +541,7 @@ require 'Include/Header.php';
         </div>
 
         <div class="col-lg-6">
-          <?php	if (!$dDate) {
+          <?php  if (!$dDate) {
     $dDate = $dep_Date;
 } ?>
           <label for="Date"><?= gettext('Date') ?></label>
@@ -580,7 +593,7 @@ require 'Include/Header.php';
           <?php
     } ?>
        <label for="statut"><?= gettext('Statut') ?></label>
-       <select name="PledgeOrPayment" class="form-control">
+       <select name="PledgeOrPayment" id="PledgeOrPaymentSelect" class="form-control" >
           <option value="Pledge" <?= ($PledgeOrPayment == 'Pledge')?"selected":"" ?>><?= gettext('Pledge') ?></option>
           <option value="Payment" <?= ($PledgeOrPayment == 'Payment')?"selected":"" ?>><?= gettext('Payment') ?></option>
        </select>
@@ -590,7 +603,7 @@ require 'Include/Header.php';
       <div class="col-lg-6">
         <label for="Method"><?= gettext('Payment by') ?></label>
         <select class="form-control" name="Method" id="Method">
-          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'Bank' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'BankDraft') {
+          <?php if ($dep_Type == 'Bank' || !$iCurrentDeposit) {
         ?>
             <option value="CHECK" <?php if ($iMethod == 'CHECK') {
             echo 'selected';
@@ -602,7 +615,7 @@ require 'Include/Header.php';
             </option>
               <?php
     } ?>
-          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'CreditCard' || !$iCurrentDeposit) && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
+          <?php if (($dep_Type == 'CreditCard' || !$iCurrentDeposit) && $dep_Type != 'BankDraft' && $dep_Type != 'Bank') {
         ?>
             <option value="CREDITCARD" <?php if ($iMethod == 'CREDITCARD') {
             echo 'selected';
@@ -610,7 +623,7 @@ require 'Include/Header.php';
             </option>
           <?php
     } ?>
-          <?php if (($PledgeOrPayment == 'Pledge' || $dep_Type == 'BankDraft' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'Bank') {
+          <?php if (($dep_Type == 'BankDraft' || !$iCurrentDeposit) && $dep_Type != 'CreditCard' && $dep_Type != 'Bank') {
         ?>
             <option value="BANKDRAFT" <?php if ($iMethod == 'BANKDRAFT') {
             echo 'selected';
@@ -627,15 +640,10 @@ require 'Include/Header.php';
     } ?>
         </select>
 
-        <?php if ($PledgeOrPayment == 'Payment' && $dep_Type == 'Bank' || $iMethod == 'CHECK') {// in the cas it's a chèque we can switch from one method of payment to another
-        ?>
           <div id="checkNumberGroup">
           <label for="CheckNo"><?= gettext('Check') ?><?= gettext(' #') ?></label>
           <input class="form-control" type="number" name="CheckNo" id="CheckNo" value="<?= $iCheckNo ?>"/><font color="red"><?= $sCheckNoError ?></font>
           </div>
-        <?php
-    } ?>
-
 
         <label for="TotalAmount"><?= gettext('Total')." ".SystemConfig::getValue('sCurrency') ?></label>
         <input class="form-control"  type="number" step="any" name="TotalAmount" id="TotalAmount" disabled />
@@ -786,8 +794,13 @@ require 'Include/Header.php';
 </form>
 
  <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+  var dep_Date = "<?= OutputUtils::change_date_for_place_holder($dep_Date) ?>";
+  var dep_Type = "<?= $dep_Type ?>";
+  var dep_Closed = <?= $dep_Closed ?>;
+  var CurrentDeposit = <?= $iCurrentDeposit ?>;
+  var Closed = "<?= ($dep_Closed && $sGroupKey && $PledgeOrPayment == 'Payment')?' &nbsp; <font color=red>'.gettext('Deposit closed').'</font>':"" ?>";
+ 
   $(document).ready(function() {
-
     $("#FamilyName").select2({
       minimumInputLength: 2,
       language: window.CRM.shortLocale,
@@ -872,18 +885,45 @@ require 'Include/Header.php';
     EvalCheckNumberGroup();
     CalculateTotal();
   });
+  
+  $("#PledgeOrPaymentSelect").change(function(){
+    if (dep_Closed) {
+      window.CRM.DisplayAlert ("Warning !!!","Deposit closed");
+      var sel = $("#PledgeOrPaymentSelect");
+      sel.data("prev",sel.val());
+      return false;
+    }
+    
+    EvalCheckNumberGroup();
+    
+    if ($("#Method option:selected").val()==="CASH" && $("#PledgeOrPaymentSelect option:selected").val() === 'Payment') {
+      $("#Method").val("CHECK");
+      $("#checkNumberGroup").show();
+    }
+    
+    if ($("#PledgeOrPaymentSelect option:selected").val() === 'Payment') {
+      $(".content-header").html("<h1>"+i18next.t("Payment Editor")+": "+i18next.t(dep_Type)+i18next.t(" Deposit Slip #")+CurrentDeposit+" ("+dep_Date+")"+Closed+"</h1>");
+    } else {
+      $(".content-header").html("<h1>"+i18next.t("Pledge Editor")+": "+i18next.t(dep_Type)+i18next.t(" Deposit Slip #")+CurrentDeposit+" ("+dep_Date+")"+Closed+"</h1>");
+    }
+  });
 
   function EvalCheckNumberGroup()
   {
-    if ($("#Method option:selected").val()==="CHECK") {
+    if ($("#Method option:selected").val()==="CHECK" && $("#PledgeOrPaymentSelect option:selected").val() === 'Payment') {
       $("#checkNumberGroup").show();
     }
     else
     {
       $("#checkNumberGroup").hide();
+      
+      if ($("#Method option:selected").val()==="CHECK") {
+        $("#Method").val("CASH");
+      }
       $("#CheckNo").val('');
     }
   }
+  
   function CalculateTotal() {
     var Total = 0;
       $(".FundAmount").each(function(object){
