@@ -15,8 +15,12 @@ $app->group('/systemupgrade', function () {
     });
     
     $this->post('/isUpdateRequired', function ($request, $response, $args) {
-        $isUpdateRequired = $_SESSION['isUpdateRequired'];
-        $_SESSION['isUpdateRequired'] = 0;        
+        if ($_SESSION['user']->isAdmin()) {
+          $isUpdateRequired = $_SESSION['isUpdateRequired'];
+          $_SESSION['isUpdateRequired'] = 0;        
+        } else {
+          $isUpdateRequired = 0;
+        }
         
         echo json_encode(["Upgrade" => $isUpdateRequired,"latestVersion" => $_SESSION['latestVersion'], "installedVersion" => $_SESSION['sSoftwareInstalledVersion']]);
     });

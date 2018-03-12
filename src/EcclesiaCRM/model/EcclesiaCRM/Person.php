@@ -141,12 +141,15 @@ class Person extends BasePerson implements iPhoto
 
     public function getOtherFamilyMembers()
     {
-        $familyMembers = $this->getFamily()->getPeople();
         $otherFamilyMembers = [];
-        foreach ($familyMembers as $member) {
-            if ($member->getId() != $this->getId()) {
-                array_push($otherFamilyMembers, $member);
-            }
+
+        if ($this->getFamily() != null) {
+          $familyMembers = $this->getFamily()->getPeople();
+          foreach ($familyMembers as $member) {
+              if ($member->getId() != $this->getId()) {
+                  array_push($otherFamilyMembers, $member);
+              }
+          }
         }
 
         return $otherFamilyMembers;
