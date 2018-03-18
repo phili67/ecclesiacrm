@@ -222,9 +222,16 @@ if (!Cart::HasPeople()) {
                 <div class="box-header with-border">
                     <h3 class="box-title"><?= gettext('Generate Labels') ?></h3>
                 </div>
+                <form method="get" action="Reports/PDFLabel.php" name="labelform">
                 <div class="box-body">
-                    <form method="get" action="Reports/PDFLabel.php" name="labelform">
-                        <table class="table table-responsive">
+                        <table class="table table-hover dt-responsive" id="cart-label-table">
+                           <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
                             <?php
                             LabelGroupSelect('groupbymode');
 
@@ -259,16 +266,17 @@ if (!Cart::HasPeople()) {
         IgnoreIncompleteAddresses();
         LabelFileType(); ?>
 
-                            <tr>
-                                <td></td>
-                                <td><input type="submit" class="btn btn-primary"
-                                           value="<?= gettext('Generate Labels') ?>" name="Submit"></td>
-                            </tr>
+                        </tbody>
                         </table>
-                    </form>
-                    </td></tr></table>
+                <div class="row">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-4">
+                  <input type="submit" class="btn btn-primary" value="<?= gettext('Generate Labels') ?>" name="Submit">
+                  </div>
                 </div>
-                <!-- /.box-body -->
+              </div>
+            </form>
+            <!-- /.box-body -->
             </div>
 
 
@@ -369,6 +377,17 @@ if (!Cart::HasPeople()) {
     <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
         $(document).ready(function () {
           $("#cart-listing-table").DataTable(window.CRM.plugin.dataTable);
+          $("#cart-label-table").DataTable({
+            responsive:true,
+            paging: false,
+            searching: false,
+            ordering: false,
+            info:     false,
+            //dom: window.CRM.plugin.dataTable.dom,
+            fnDrawCallback: function( settings ) {
+              $("#selector thead").remove(); 
+            }
+          });
 
           $(document).on("click", ".emptyCart", function (e) {
             window.CRM.cart.empty(function(){
