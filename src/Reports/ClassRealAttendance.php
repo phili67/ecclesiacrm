@@ -60,6 +60,7 @@ $activeEvents = EventQuery::Create()
     ->filterByGroupId($iGroupID)
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('event_start BETWEEN "'.$startDate.'" AND "'.$endDate.'"')// We filter only the events from the current month : date('Y')
+    ->orderByStart()
     ->find();
 
 $date_count = 0; 
