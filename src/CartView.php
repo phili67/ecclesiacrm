@@ -224,7 +224,7 @@ if (!Cart::HasPeople()) {
                 </div>
                 <form method="get" action="Reports/PDFLabel.php" name="labelform">
                 <div class="box-body">
-                        <table class="table table-hover dt-responsive" id="cart-label-table">
+                    <table class="table table-hover dt-responsive" id="cart-label-table" width="100%">
                            <thead>
                     <tr>
                         <th></th>

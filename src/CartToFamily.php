@@ -136,9 +136,8 @@ require 'Include/Header.php';
 
 echo $sError;
 ?>
-<div class="box">
 <form method="post">
-
+<div class="box">
 <?php
 if (count($_SESSION['aPeopleCart']) > 0) {
 
@@ -164,7 +163,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
                 ->orderByLastName()
                 ->find();
     ?>
-    <table class='table'>
+  <table class='table table-hover dt-responsive'>
     <tr>
     <td>&nbsp;</td>
     <td><b><?= gettext('Name') ?></b></td>
@@ -197,10 +196,17 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     ?>
 
        </table>
-    </div>
-    <div class="box">
+</div>
+<div class="box">
 <div class="table-responsive">
-<table align="center" class="table table-hover">
+<table align="center" class="table table-hover" id="cart-family-table" width="100%">
+  <thead>
+		<tr>
+				<th></th>
+				<th></th>
+		</tr>
+	</thead>
+	<tbody>
     <tr>
     <td class="LabelColumn"><?= gettext('Add to Family') ?>:</td>
     <td class="TextColumn">
@@ -231,7 +237,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 
   <tr>
         <td class="LabelColumn"><?= gettext('Wedding Date') ?>:</td>
-    <td class="TextColumnWithBottomBorder"><input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1" size="15"  class="form-control pull-right active date-picker"><font color="red"><?php echo '<BR>'.$sWeddingDateError ?></font></td>
+    <td class="TextColumnWithBottomBorder"><input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1" size="15"  class="form-control active date-picker"><font color="red"><?php echo '<BR>'.$sWeddingDateError ?></font></td>
   </tr>
 
   <tr>
@@ -299,7 +305,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   </tr>
 
   <tr>
-    <td>&nbsp;</td>
+    <td>&nbsp;</td><td></td>
   </tr>
 
   <tr>
@@ -336,26 +342,39 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <td class="LabelColumn"><?= gettext('Email') ?>:</td>
     <td class="TextColumnWithBottomBorder"><input type="text" Name="Email" value="<?= $sEmail ?>" size="30" maxlength="50"></td>
   </tr>
-
+</tbody>
 </table>
 </div>
 <p align="center">
 <BR>
-<input type="submit" class="btn" name="Submit" value="<?= gettext('Add to Family') ?>">
+<input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Add to Family') ?>">
 <BR><BR>
 </p>
-</form>
 <?php
 } else {
             echo "<p align=\"center\" class='callout callout-warning'>".gettext('Your cart is empty!').'</p>';
         }
 ?>
 </div>
+</form>
 
-<script>
+
+<script  nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function() {
         $("#country-input").select2();
         $("#state-input").select2();
+        
+        $("#cart-family-table").DataTable({
+            responsive:true,
+            paging: false,
+            searching: false,
+            ordering: false,
+            info:     false,
+            //dom: window.CRM.plugin.dataTable.dom,
+            fnDrawCallback: function( settings ) {
+              $("#selector thead").remove(); 
+            }
+        });
     });
 </script>
 <?php require 'Include/Footer.php'; ?>
