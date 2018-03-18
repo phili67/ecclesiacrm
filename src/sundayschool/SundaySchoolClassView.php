@@ -447,7 +447,7 @@ function implodeUnique($array, $withQuotes)
       var month = bar_data.data[item.dataIndex][0];
 
       birthDateColumn
-        .search(month.substr(0, 3))
+        .search(month.substr(0, 7))
         .draw();
 
       birthDayMonth.text(month);
