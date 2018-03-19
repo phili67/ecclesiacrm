@@ -378,7 +378,7 @@
              path:"systemupgrade/isUpdateRequired"
             }).done(function(data) {
               if (data.Upgrade) {
-                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name, window.CRM.root+'/UpgradeCRM.php',"info","top");
+                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name, window.CRM.root+'/UpgradeCRM.php',"info","bottom");
               }
             });
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
