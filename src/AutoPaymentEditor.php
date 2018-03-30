@@ -34,6 +34,12 @@ if ($iFamily) {
     $fam_Name = 'TBD';
 }
 
+if ($ormFamily == null) {
+  Redirect($linkBack);
+}
+
+$onePersonFamily = (count($ormFamily->getPeople()) == 1)?true:false;
+
 if ($iAutID <= 0) {  // Need to create the record so there is a place to store the Vanco payment handle
     $dNextPayDate = date('Y-m-d');
     $tFirstName = '';
@@ -764,7 +770,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . gettext("Person"). " or " . gettext('family') ?></h3>
+    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . (($onePersonFamily == true)?gettext('Person'):gettext('Family')) ?></h3>
   </div>
   <div class="body-text">
     <form method="post"  style="padding:10px"
@@ -773,7 +779,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
           <div class="row">
             <div class="col-md-3">
-                <label><?= gettext('Family') ?>:</label>
+                <label><?= ($onePersonFamily == true)?gettext('Person'):gettext('Family') ?>:</label>
             </div>
             <div class="col-md-4">
                 <select name="Family" id="optionFamily" style="width:100%">
