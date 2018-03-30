@@ -189,7 +189,7 @@ $sPageTitle = gettext('Login');
 require 'Include/HeaderNotLoggedIn.php';
 
 ?>
-<div class="login-box" id="Login">
+<div class="login-box" id="Login" <?= ($_SESSION['iLoginType'] != "Lock")?"":'style="display: none;"' ?>>
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
@@ -253,7 +253,7 @@ require 'Include/HeaderNotLoggedIn.php';
 <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-<div class="lockscreen-wrapper" id="Lock">
+<div class="lockscreen-wrapper" id="Lock" <?= ($_SESSION['iLoginType'] == "Lock")?"":'style="display: none;"' ?>>
     <div class="login-logo">
         Ecclesia<b>CRM</b><?= SystemService::getDBMainVersion() ?>
     </div>
@@ -320,7 +320,7 @@ require 'Include/HeaderNotLoggedIn.php';
 </div>
 <!-- /.lockscreen-wrapper -->
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
-<script>
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
   <?php if ($_SESSION['iLoginType'] == "Lock") {
             ?>
     $(document).ready(function () {
@@ -346,7 +346,7 @@ require 'Include/HeaderNotLoggedIn.php';
   <?php
         } ?>
 </script>
-<script>
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
     var $buoop = {vs: {i: 13, f: -2, o: -2, s: 9, c: -2}, unsecure: true, api: 4};
     function $buo_f() {
         var e = document.createElement("script");
