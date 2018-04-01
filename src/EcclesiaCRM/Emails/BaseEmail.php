@@ -91,7 +91,9 @@ abstract class BaseEmail
             "churchCRMURL" => SystemURLs::getURL(),
             "dear" => SystemConfig::getValue('sDear'),
             "confirmSincerely" => SystemConfig::getValue('sConfirmSincerely'),
-            "confirmSigner" => SystemConfig::getValue('sConfirmSigner')
+            "confirmSigner" => SystemConfig::getValue('sConfirmSigner'),
+            "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
+            "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
         ];
     }
 
