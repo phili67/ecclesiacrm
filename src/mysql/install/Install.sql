@@ -1139,6 +1139,7 @@ CREATE TABLE `user_usr` (
   `usr_per_ID` mediumint(9) unsigned NOT NULL default '0',
   `usr_Password` varchar(500) NOT NULL default '',
   `usr_NeedPasswordChange` tinyint(1) unsigned NOT NULL default '1',
+  `usr_HomeDir` varchar(500) default NULL,
   `usr_LastLogin` datetime NOT NULL default '2000-01-01 00:00:00',
   `usr_LoginCount` smallint(5) unsigned NOT NULL default '0',
   `usr_FailedLogins` tinyint(3) unsigned NOT NULL default '0',
