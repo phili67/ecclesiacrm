@@ -1,0 +1,1 @@
+ALTER TABLE `user_usr` ADD `usr_HomeDir` varchar(500) default NULL;
