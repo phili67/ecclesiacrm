@@ -4,6 +4,67 @@ namespace EcclesiaCRM\Utils;
 use EcclesiaCRM\dto\SystemConfig;
 
 class MiscUtils {
+  
+  
+/**
+ * Remove the directory and its content (all files and subdirectories).
+ * @param string $dir the directory name
+ */
+  public static function delTree($dir) { 
+   $files = array_diff(scandir($dir), array('.','..')); 
+    foreach ($files as $file) { 
+      (is_dir("$dir/$file")) ? self::delTree("$dir/$file") : unlink("$dir/$file"); 
+    } 
+    return rmdir($dir); 
+  } 
+  
+  public static function embedFiles ($path) {
+    $filename = basename($path);
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    
+    $res = "<a href=\"".$path."\"><i class=\"fa fa-file-o\"></i> \"".$filename."\"</a><br>";    
+    
+    switch (strtolower($extension)) {
+      case "jpg":
+      case "jpeg":
+      case "png":
+        $res .= "<img src=\"".$path."\" style=\"width: 500px\"/>";
+        break;
+      case "pdf":
+        $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 500px;height:500px\">";
+        $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
+        $res .= "</object>";
+        break;
+      case "mp3":
+      case "m4a":
+      case "oga":
+      case "wav":
+        $res .= " type : $extension<br><audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";        
+        break;
+      case  "mp4":
+        $res .= "type : $extension<br><video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "<source src=\"".$path."\" type=\"video/mp4\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;
+      case  "ogg":
+        $res .= "type : $extension<br><video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;
+      case "mov":
+        $res .= "type : $extension<br><video src=\"".$path."\"\n";
+        $res .= "     controls\n";
+        $res .= "     autoplay\n";
+        $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;        
+    }
+    
+    return $res;
+  }
  
   public static function urlExist( $url=0) {
     $file_headers = @get_headers($url);

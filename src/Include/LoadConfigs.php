@@ -10,6 +10,16 @@
  *                      Michael Wilt, Timothy Dearborn
  *
  *******************************************************************************/
+ 
+ 
+ /*******************************************************************************
+ *
+ *  IMPORTANT : For webdav support the constant : webdav is the most important point
+ *  Copyright 2018 : Philippe Logel all right reserved
+ *
+ *******************************************************************************/
+
+
 
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
@@ -25,6 +35,7 @@ use Monolog\Logger;
 use Propel\Runtime\Connection\ConnectionManagerSingle;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\LoggerUtils;
+
 
 function system_failure($message, $header = 'Setup failure')
 {
@@ -64,7 +75,9 @@ try {
     system_failure($e->getMessage());
 }
 
-SystemURLs::checkAllowedURL($bLockURL, $URL);
+if (!defined("webdav")) {
+    SystemURLs::checkAllowedURL($bLockURL, $URL);
+}
 
 $cnInfoCentral = mysqli_connect($sSERVERNAME, $sUSER, $sPASSWORD)
 or system_failure('Could not connect to MySQL on <strong>'.$sSERVERNAME.'</strong> as <strong>'.$sUSER.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
@@ -74,10 +87,13 @@ mysqli_set_charset($cnInfoCentral, 'utf8mb4');
 mysqli_select_db($cnInfoCentral, $sDATABASE)
 or system_failure('Could not connect to the MySQL database <strong>'.$sDATABASE.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
 
+
 // Initialize the session
-session_cache_limiter('private_no_expire:');
-session_name('CRM@'.SystemURLs::getRootPath());
-session_start();
+if (!defined("webdav")) {
+  session_cache_limiter('private_no_expire:');
+  session_name('CRM@'.SystemURLs::getRootPath());
+  session_start();
+}
 
 
 // ==== ORM
@@ -99,14 +115,18 @@ $statement = $connection->prepare($query);
 $resultset = $statement->execute();
 $results = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
-if (count($results) == 0) {
-    $systemService = new SystemService();
-    $version = new Version();
-    $version->setVersion(SystemService::getInstalledVersion());
-    $version->setUpdateStart(new DateTime());
-    SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
-    $version->setUpdateEnd(new DateTime());
-    $version->save();
+
+if (!defined("webdav")) {
+    // with webdav connexion we don't need to have more things
+    if (count($results) == 0) {// in the case of installation
+        $systemService = new SystemService();
+        $version = new Version();
+        $version->setVersion(SystemService::getInstalledVersion());
+        $version->setUpdateStart(new DateTime());
+        SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
+        $version->setUpdateEnd(new DateTime());
+        $version->save();
+    }
 }
 
 // Read values from config table into local variables

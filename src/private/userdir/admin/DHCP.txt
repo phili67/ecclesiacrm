@@ -1,0 +1,71 @@
+#Mise en place de l'étendue
+
+$scopeID = "192.168.0.0"
+
+$scope_name = "Réseau 1"
+
+$domain_name   = "episserveur.local"
+$srv_name      = "srv-epis-1"
+$computer_name = "$srv_name.$domain_name"
+
+$ip_serveur    = "192.168.0.1"
+$ip_passerelle = "192.168.0.254"
+
+$start_range   = "192.168.0.50"
+$end_range     = "192.168.0.200"
+$mask          = "255.255.255.0"
+
+$winsNBS       = $ip_serveur         # Serveurs wins/NBNS
+$node_type     = "0x8"               # type de noeud wins/NBNS
+$name_server_start = $ip_serveur     # Nom d'hôte du serveur de démarage
+$name_of_start_file = "pxelinux.0"   #  Nom du fichier de démarage
+
+Add-DhcpServerv4Scope -ComputerName $computer_name -Name $scope_name -StartRange $start_range -EndRange $end_range -SubnetMask $mask
+
+# ces paramètres sont dans les options d'étendues
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -DnsServer          $ip_serveur                   # le serveur DNS
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -WinsServer         $ip_serveur                   # le serveur Win anciennement dhcp et dns
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -DnsDomain          $domain_name                  # le domaine DNS
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -Router             $ip_passerelle                # la passerelle
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -OptionId 44 -Value $ip_serveur                   # on met en place : Serveurs wins/NBNS
+Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -OptionId 46 -Value $node_type                    # on met en place : type de noeud wins/NBNS
+#Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -OptionId 66 -Value $name_server_start            # on met en place : Nom d'hôte du serveur de démarage
+#Set-DhcpServerv4OptionValue -ComputerName $computer_name -ScopeId $scopeID -OptionId 67 -Value $name_of_start_file           # on met en place : Nom du fichier de démarage
+
+#mise en place du proxy
+#Set-DhcpServerv4OptionValue -ComputerName srv-epis-1.episserveur.local -ScopeId 192.168.0.0 -Wpad http://proxy.contoso.com/wpad.dat
+
+#Set-DhcpServerv4DnsSetting -Name "Réseau 1" -DisableDnsPtrRRUpdates $False -PolicyName WorkgroupDevices
+
+#On met en place les répéteurs
+
+#Les réservations DHCP
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.10 -IPAddress 192.168.0.10 -ClientId 04A1513673A4 -Description "Relais_Wifi_1"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.11 -IPAddress 192.168.0.11 -ClientId 04A1513673B8 -Description "Relais_Wifi_2"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.12 -IPAddress 192.168.0.12 -ClientId 04A1513673CC -Description "Relais_Wifi_3"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.13 -IPAddress 192.168.0.13 -ClientId 04A1513673D4 -Description "Relais_Wifi_4"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.14 -IPAddress 192.168.0.14 -ClientId 04A1513673DC -Description "Relais_Wifi_5"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.15 -IPAddress 192.168.0.15 -ClientId 04A1513673D2 -Description "Relais_Wifi_6"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.16 -IPAddress 192.168.0.16 -ClientId 04A1513673BE -Description "Relais_Wifi_7"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.17 -IPAddress 192.168.0.17 -ClientId 04A1513673C0 -Description "Relais_Wifi_8"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.18 -IPAddress 192.168.0.18 -ClientId 04A1513673B0 -Description "Relais_Wifi_9"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.19 -IPAddress 192.168.0.19 -ClientId 04A1513673D6 -Description "Relais_Wifi_10"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.20 -IPAddress 192.168.0.20 -ClientId 04A1513673AA -Description "Relais_Wifi_11"
+Add-DhcpServerv4Reservation -Name "N300RE.$domain_name" -ScopeId 192.168.0.21 -IPAddress 192.168.0.21 -ClientId 04A1513673CA -Description "Relais_Wifi_12"
+
+# Imprimante secrétariat
+Add-DhcpServerv4Reservation -Name "NPICC1E2A" -ScopeId 192.168.0.30 -IPAddress 192.168.0.30 -ClientId 001438cc1e2a -Description "Imprimante Secrétariat"
+
+# Borne wifi supplémentaires
+Add-DhcpServerv4Reservation -Name "Borne WIFI EPISS" -ScopeId 192.168.0.45 -IPAddress 192.168.0.45 -ClientId F0-DE-F1-7A-00-5E -Description "Borne Netgear"
+Add-DhcpServerv4Reservation -Name "Borne Wifi TP link" -ScopeId 192.168.0.49 -IPAddress 192.168.0.49 -ClientId 74ea3aa60026 -Description "Borne Wifi TP link"
+
+# ici nous avons l'impaimante Konica : 192.168.0.47
+
+# le QNAP
+Add-DhcpServerv4Reservation -Name "EPISQNAP.$domain_name" -ScopeId 192.168.0.22 -IPAddress 192.168.0.22 -ClientId 00089becb55c -Description "QNAP"
+
+
+write-host "Ne pas oublier de décocher la case dans le paneau DNS de l'étendue : Activer les mises à jour dynamiques DNS avec les paramètres ci=dessous :"
+
+pause

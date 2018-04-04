@@ -74,7 +74,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     <?php
 } ?>
             </ul>
-            <br/>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Person') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
@@ -97,7 +96,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     <?php
     } ?>
             </ul>
-            <br/>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Group') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
@@ -116,7 +114,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </a>
                 </li>
             </ul>
-            <br/>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Other') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
