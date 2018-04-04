@@ -133,7 +133,11 @@ class TimelineService
 
         $sortedTimeline = [];
         foreach ($timeline as $date => $item) {
+           if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
+                 || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
+                 || $item['type'] != 'file') {
             array_push($sortedTimeline, $item);
+           }
         }
 
         return $sortedTimeline;
@@ -142,7 +146,7 @@ class TimelineService
 
     public function getNotesForPerson($personID)
     {
-        $timeline = $this->notesForPerson($personID, ['note','video']);
+        $timeline = $this->notesForPerson($personID, ['note','video','file']);
 
         return $this->sortTimeline($timeline);
     }
@@ -179,13 +183,13 @@ class TimelineService
             }
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
                 $dbNote->getDisplayEditedDate("Y"),gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
-                $dbNote->getEditLink(), $dbNote->getDeleteLink());
+                $dbNote->getEditLink(), $dbNote->getDeleteLink(),$dbNote->getInfo());
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '')
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '')
     {
         $item['slim'] = false;
         $item['type'] = $type;
@@ -205,7 +209,13 @@ class TimelineService
                 $item['style'] = 'fa-video-camera bg-maroon';
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
-                break;            
+                break;
+            case 'file':
+                $item['slim'] = true;
+                $item['style'] = ' fa-file-o bg-aqua';
+                $item['editLink'] = $editLink;
+                $item['deleteLink'] = $deleteLink;
+                break;
             case 'group':
                 $item['style'] = 'fa-users bg-gray';
                 break;
@@ -229,6 +239,11 @@ class TimelineService
         }
         $item['header'] = $header;
         $item['headerLink'] = $headerLink;
+        
+        if ($info) {
+          $item['info'] = $info;
+        }
+        
         $item['text'] = $text;
 
         $item['datetime'] = OutputUtils::FormatDate($datetime,true);

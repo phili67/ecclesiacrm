@@ -9864,3 +9864,42 @@ msgstr "Faux"
 
 msgid "TRUE"
 msgstr "Vrai"
+
+msgid "The same as before"
+msgstr "La même que précédemment"
+
+msgid "If you do not want to receive these emails from"
+msgstr "Si vous ne voulez recevoir ces messages de"
+
+msgid "in the future, please contact the church admins"
+msgstr "dans le futur, contactez SVP les admins de cette église"
+
+msgid "Dav create file"
+msgstr "Création fichier DAV"
+
+msgid "Dav create directory"
+msgstr "Création dossier DAV"
+
+msgid "Dav move copy file"
+msgstr "Déplacement copie fichier DAV"
+
+msgid "Dav delete file"
+msgstr "Suppression fichier DAV"
+
+msgid "Dav update file"
+msgstr "Mise à jour fichier DAV"
+
+msgid "Classic File"
+msgstr "Fichier classique"
+
+msgid "Upload your file"
+msgstr "Télécharger fichier"
+
+msgid "File input"
+msgstr "Fichier d'entrée"
+
+msgid "Update file"
+msgstr "Mise à jour fichier"
+
+msgid "Create file"
+msgstr "Création fichier"

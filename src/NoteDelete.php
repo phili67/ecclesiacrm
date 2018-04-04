@@ -4,7 +4,7 @@
  *  filename    : NoteDelete.php
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002 Deane Barker
+ *  copyright   : Copyright 2001, 2002 Deane Barker, 2018 Philippe Logel
   *
  ******************************************************************************/
 
@@ -14,6 +14,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 //Set the page title
@@ -23,25 +25,23 @@ $sPageTitle = gettext('Document Delete Confirmation');
 $iNoteID = InputUtils::LegacyFilterInput($_GET['NoteID'], 'int');
 
 //Get the data on this note
-$sSQL = 'SELECT * FROM note_nte WHERE nte_ID = '.$iNoteID;
-$rsNote = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsNote));
+$note = NoteQuery::create()->findPk($iNoteID);
 
 //If deleting a note for a person, set the PersonView page as the redirect
-if ($nte_per_ID > 0) {
-    $sReroute = 'PersonView.php?PersonID='.$nte_per_ID;
+if ($note->getPerId() > 0) {
+    $sReroute = 'PersonView.php?PersonID='.$note->getPerId();
 }
 
 //If deleting a note for a family, set the FamilyView page as the redirect
-elseif ($nte_fam_ID > 0) {
-    $sReroute = 'FamilyView.php?FamilyID='.$nte_fam_ID;
+elseif ($note->getFamId() > 0) {
+    $sReroute = 'FamilyView.php?FamilyID='.$note->getFamId();
 }
 
 $iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!($_SESSION['bNotes']  || $nte_per_ID == $_SESSION['user']->getPersonId() || $nte_fam_ID == $iCurrentFamID)) {
+if (!($_SESSION['bNotes'] || $note->getPerId() == $_SESSION['user']->getPersonId() || $note->getFamId() == $iCurrentFamID)) {
     Redirect('Menu.php');
     exit;
 }
@@ -50,6 +50,13 @@ if (!($_SESSION['bNotes']  || $nte_per_ID == $_SESSION['user']->getPersonId() ||
 //Do we have confirmation?
 if (isset($_GET['Confirmed'])) {
     $note = NoteQuery::create()->findPk($iNoteID);
+    if ($note->getType () == 'file') {
+    
+      $target_delete_file = "private/userdir/".$note->getText();
+
+      unlink($target_delete_file);
+    }
+    
     $note->delete();
 
     //Send back to the page they came from
@@ -64,10 +71,21 @@ require 'Include/Header.php';
 	<?= gettext('Please confirm deletion of this document') ?>:
   </div>
   <div class="box-body">
-    <?= $nte_Text ?>
+    <?= $sReroute ?>
+    <?php 
+      if ($note->getType() == 'file') {
+    ?>
+      <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/private/userdir/".$note->getText()) ?>
+    <?php 
+      } else {
+    ?>
+      <?= $note->getText() ?>
+    <?php
+     }
+    ?>
   </div>
   <div class="box-footer">
-    <a class="btn btn-default" href="<?php echo $sReroute ?>"><?= gettext('Cancel') ?></a>
+    <a class="btn btn-default" href="<?= $sReroute ?>"><?= gettext('Cancel') ?></a>
   	<a class="btn btn-danger" href="NoteDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= gettext('Yes, delete this record') ?></a> <?= gettext('(this action cannot be undone)') ?>
   </div>
 

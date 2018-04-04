@@ -62,6 +62,8 @@ if (isset($_POST['User'])) {
         $currentUser->save();
 
         $_SESSION['user'] = $currentUser;
+        
+        $currentUser->createHomeDir();
 
         // Set the User's family id in case EditSelf is enabled
         $_SESSION['iFamID'] = $currentUser->getPerson()->getFamId();
@@ -84,11 +86,7 @@ if (isset($_POST['User'])) {
         $_SESSION['bNotes'] = $currentUser->isNotesEnabled();
         $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
         $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();
-        
-        // This ensure the CRM can show Cart
         $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();
-        
-        // This ensure the CRM can show Map
         $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
 
         // Set the FailedLogins

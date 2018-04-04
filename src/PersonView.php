@@ -7,7 +7,8 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
-  *
+ *  Copyright : 2018 Philippe Logel
+ *
  ******************************************************************************/
 
 // Include the function library
@@ -26,6 +27,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 $timelineService = new TimelineService();
@@ -506,7 +508,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         <?php
         } 
         ?>
-        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext('Your Documents') ?></a></li>
+        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext('Documents') ?></a></li>
       </ul>
 
       <!-- Tab panes -->
@@ -565,8 +567,18 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         } ?>
                   </h3>
 
-                  <div class="timeline-body">
-                      <pre style="line-height: 1.2;"><?= $item['text'] ?></pre>
+                  <div class="timeline-body">                     
+                     <?php 
+                       if ($item['type'] != 'file') { 
+                     ?>
+                      <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?></pre>
+                     <?php 
+                       } else {
+                      ?>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/private/userdir/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                      <?php 
+                        } 
+                      ?>
                   </div>
                   <?php if (!$item['slim']) {
                   ?>
@@ -1007,7 +1019,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         
         <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
 
-				<?php
+        <?php
         } // if bShowPledges
 
                                 ?>
@@ -1045,8 +1057,12 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <!-- /.note-label -->
 
             <!-- note item -->
-            <?php foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
-                                        ?>
+            <?php 
+              foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
+                if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
+                 || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
+                 || $item['type'] != 'file') {
+            ?>
               <li>
                 <!-- timeline icon -->
                 <i class="fa <?= $item['style'] ?>"></i>
@@ -1089,7 +1105,18 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   </h3>
 
                   <div class="timeline-body">
-                    <?= $item['text'] ?>
+                     <?php 
+                       if ($item['type'] != 'file') { 
+                     ?>
+                      <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
+                     <?php 
+                       } else {                        
+                      ?>
+                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/private/userdir/".$item['text']) ?>
+                      <?php 
+                        } 
+                      ?>
+
                   </div>
 
                   <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
@@ -1119,7 +1146,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                 </div>
               </li>
             <?php
-                                    } ?>
+                }
+              } ?>
             <!-- END timeline item -->
           </ul>
         </div>

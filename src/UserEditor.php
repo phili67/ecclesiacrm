@@ -12,9 +12,8 @@
  *
  *  Additional Contributors:
  *  2006 Ed Davis
+ *  2018 Philippe Logel All right reserved
  *
-
-
  ******************************************************************************/
 // Include the function library
 require 'Include/Config.php';
@@ -32,7 +31,7 @@ use EcclesiaCRM\UserProfile;
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }
@@ -167,6 +166,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     RunQuery($sSQL);
                     $newUser = UserQuery::create()->findPk($iPersonID);
                     $newUser->createTimeLineNote("created");
+                    $newUser->createHomeDir();
                     $email = new NewAccountEmail($newUser, $rawPassword);
                     $email->send();
                 } else {
@@ -175,11 +175,22 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 }
             } else {
                 if ($undupCount == 0) {
+                    //$user->createHomeDir();
+                    $user = UserQuery::create()->findPk($iPersonID);
+                    $oldUserName = $user->getUserName();
+                    $user->renameHomeDir($oldUserName,$sUserName);
+                    
                     $sSQL = 'UPDATE user_usr SET usr_AddRecords = ' . $AddRecords . ', usr_EditRecords = ' . $EditRecords . ', usr_DeleteRecords = ' . $DeleteRecords . ', usr_ShowCart = ' . $ShowCart . ', usr_ShowMap = ' . $ShowMap . ', usr_MenuOptions = ' . $MenuOptions . ', usr_ManageGroups = ' . $ManageGroups . ', usr_Finance = ' . $Finance . ', usr_Notes = ' . $Notes . ', usr_Admin = ' . $Admin . ', usr_Style = "' . $Style . '", usr_UserName = "' . $sUserName . '", usr_EditSelf = "' . $EditSelf . '", usr_Canvasser = ' . $Canvasser . ' WHERE usr_per_ID = ' . $iPersonID;
                     // Execute the SQL
                     RunQuery($sSQL);
-                    $user = UserQuery::create()->findPk($iPersonID);
-                    $user->createTimeLineNote("updated");
+                    
+                    $user->setUserName($sUserName);
+                    $user->save();
+                    
+                    $user->createTimeLineNote("updated"); 
+                     
+                    $email = new NewAccountEmail($user, gettext("The same as before"));
+                    $email->send();                  
                 } else {
                     // Set the error text for duplicate when currently existing
                     Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=Login already in use, please select a different login!');

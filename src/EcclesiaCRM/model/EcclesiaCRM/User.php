@@ -8,6 +8,8 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\MiscUtils;
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -20,10 +22,47 @@ use EcclesiaCRM\ListOptionQuery;
  */
 class User extends BaseUser
 {
-
     public function getId()
     {
         return $this->getPersonId();
+    }
+    
+    public function preDelete()
+    {
+                
+        $this->deleteHomeDir();
+
+        return true;
+    }
+    
+    public function renameHomeDir($oldUserName,$newUserName)
+    {
+       try {
+            rename(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($oldUserName),dirname(__FILE__)."/../../../"."private/userdir/".strtolower($newUserName));
+            $this->setHomedir("private/userdir/".strtolower($newUserName));
+            $this->save();
+       } catch (Exception $e) {
+            throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
+       }       
+    }
+    
+    public function createHomeDir()
+    {
+       try {
+            mkdir(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()), 0755, true);
+            $this->setHomedir("private/userdir/".strtolower($this->getUserName()));
+            $this->save();
+       } catch (Exception $e) {
+            throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
+       }       
+    }
+
+    public function deleteHomeDir()
+    {
+      MiscUtils::delTree(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()));
+      
+      $this->setHomedir(null);
+      $this->save();
     }
 
     public function getName()
@@ -193,11 +232,11 @@ class User extends BaseUser
         $this->createTimeLineNote("deleted");
     }
 
-    public function createTimeLineNote($type)
+    public function createTimeLineNote($type,$info = null)
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered($_SESSION['iUserID']);
+        $note->setEntered((is_null($info))?$_SESSION['iUserID']:$this->getPersonId());
         $note->setType('user');
 
         switch ($type) {
@@ -221,6 +260,31 @@ class User extends BaseUser
                 break;
             case "login-reset":
                 $note->setText(gettext('system user login reset'));
+                break;
+            case "dav-create-file":
+                $note->setText(str_replace("home/","",$info));
+                $note->setType('file');
+                $note->setInfo(gettext('Dav create file'));
+                break;    
+            case "dav-create-directory":
+                $note->setText(str_replace("home/","",$info));
+                $note->setType('file');
+                $note->setInfo(gettext('Dav create directory'));
+                break;                           
+            case "dav-update-file":
+                $note->setText(str_replace("home/","",$info));
+                $note->setType('file');
+                $note->setInfo(gettext('Dav update file'));
+                break;
+            case "dav-move-copy-file":
+                $note->setText(str_replace("home/","",$info));
+                $note->setType('file');
+                $note->setInfo(gettext('Dav move copy file'));
+                break;            
+            case "dav-delete-file":
+                $note->setText(str_replace("home/","",$info));
+                $note->setType('file');
+                $note->setInfo(gettext('Dav delete file'));
                 break;
         }
 
