@@ -121,7 +121,9 @@ require 'Include/Header.php';
         bootbox.confirm({
             title: "<?= gettext("User Delete Confirmation") ?>",
             message: '<p style="color: red">' +
-            '<?= gettext("Please confirm removal of user status from:") ?> <b>' + userName + '</b></p>',
+            '<?= gettext("Please confirm removal of user status from:") ?> <b>' + userName + '</b><br><br>'+
+            '<?= gettext("Be carefull !!! You will lose the home folder and the files for:") ?><b>' + userName + '</b><br><br>'+
+            '<?= gettext("This can be undone") ?>.</p>',
             callback: function (result) {
                 if (result) {
                     $.ajax({
