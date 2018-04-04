@@ -668,7 +668,7 @@
               center: 'title',
               right: 'month,agendaWeek,agendaDay,listMonth'//listYear
           },
-          height: 500,
+          height: parent,
           selectable: isModifiable,
           editable:isModifiable,
           eventDrop: function(event, delta, revertFunc) {
