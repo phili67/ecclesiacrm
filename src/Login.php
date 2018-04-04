@@ -130,6 +130,8 @@ if (isset($_POST['User'])) {
         NotificationService::updateNotifications();
         
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
+        
+        $_SESSION['isSoftwareUpdateTestPassed'] = false;
         Redirect('Menu.php');
         exit;
     }

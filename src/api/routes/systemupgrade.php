@@ -15,9 +15,9 @@ $app->group('/systemupgrade', function () {
     });
     
     $this->post('/isUpdateRequired', function ($request, $response, $args) {
-        if ($_SESSION['user']->isAdmin()) {
-          $isUpdateRequired = $_SESSION['isUpdateRequired'];
-          $_SESSION['isUpdateRequired'] = 0;        
+        if ($_SESSION['user']->isAdmin() && $_SESSION['isSoftwareUpdateTestPassed'] == false) {
+          $isUpdateRequired = $_SESSION['latestVersion'] != null && $_SESSION['latestVersion']['name'] != $_SESSION['sSoftwareInstalledVersion'];
+          $_SESSION['isSoftwareUpdateTestPassed'] = true;        
         } else {
           $isUpdateRequired = 0;
         }
