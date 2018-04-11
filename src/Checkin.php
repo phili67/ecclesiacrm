@@ -58,7 +58,7 @@ $bSundaySchool = false;
 $event = EventQuery::Create()
         ->findOneById($EventID);
 
-if ($event->getGroupId() > 0) {
+if (!is_null($event) && $event->getGroupId() > 0) {
    $bSundaySchool = GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool();
 }
 
@@ -89,7 +89,7 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
     //Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else */
-  if ($bSundaySchool == false && $event->getGroupId()) {
+  if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
     //Redirect('GroupView.php?GroupID='.$event->getGroupId());
     Redirect('calendar.php');
     exit;
@@ -125,9 +125,9 @@ $activeEvents = EventQuery::Create()
 $searchEventInActivEvent = EventQuery::Create()
     ->filterByInActive(1, Criteria::NOT_EQUAL)
     ->Where('MONTH(event_start) = '.date('m').' AND YEAR(event_start)='.date('Y'))// We filter only the events from the current month
-    ->findOneById($EventID);
+    ->findOneById($EventID);        
 
-if ($EventID > 0) {
+if ($searchEventInActivEvent != null) {
     //get Event Details
     $event = EventQuery::Create()
         ->findOneById($EventID);
@@ -139,7 +139,7 @@ if ($EventID > 0) {
         ->leftJoinEventTypes()
         ->Where('type_id='.$event->getType())
         ->find();
-} else {
+} else if ($activeEvents->count() == 0 && is_null($event) ) {
   Redirect('Menu.php');
   exit;
 }
@@ -162,7 +162,6 @@ if ($FreeAttendees) {
       $eventCount->save();
   }
 }
-
 
 ?>
 
@@ -221,7 +220,7 @@ if ($FreeAttendees) {
 </div>
 
 <?php
-} else {
+} else if (!is_null($event)) {
 ?>
 
 <!-- short presentation -->
