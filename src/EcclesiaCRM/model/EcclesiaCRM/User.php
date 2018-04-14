@@ -10,6 +10,7 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\NoteQuery;
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -289,5 +290,14 @@ class User extends BaseUser
         }
 
         $note->save();
+    }
+    
+    public function deleteTimeLineNote($type,$info = null)
+    {
+      $notes = NoteQuery::Create ()->filterByPerId ($this->getPersonId())->findByText (str_replace("home/","",$info));
+      
+      if (!empty($notes)) {
+        $notes->delete();
+      }
     }
 }

@@ -83,17 +83,17 @@ class EcclesiaCRMServer extends DAV\Server
     function updateProperties($path, array $properties) {
       $res = parent::updateProperties($path, $properties);
       
-    	return $res;
+      return $res;
     }
     
     function beforeUnbind($uri) {       
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
-           $currentUser->createTimeLineNote("dav-delete-file",$uri);
+           $currentUser->deleteTimeLineNote("dav-delete-file",$uri);
       }
      
-    	return true;
- 		}
+      return true;
+     }
 
     
 }
