@@ -65,6 +65,24 @@ class MiscUtils {
     
     return $res;
   }
+  
+  public static function noteType($notetype) {
+    $type = '';
+    
+    switch ($notetype) {
+      case 'note':
+        $type = gettext("Classic Document");
+        break;
+      case 'video':
+        $type = gettext("Classic Video");
+        break;
+      case 'file':
+        $type = gettext("Classic File");
+        break;
+    }
+    
+    return $type;
+  }
  
   public static function urlExist( $url=0) {
     $file_headers = @get_headers($url);

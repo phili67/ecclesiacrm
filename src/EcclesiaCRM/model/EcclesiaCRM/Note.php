@@ -3,6 +3,7 @@
 namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Note as BaseNote;
+use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\dto\SystemURLs;
 
 /**
@@ -20,6 +21,11 @@ class Note extends BaseNote
     {
         $this->setDateEntered(new \DateTime());
         $this->setEnteredBy($enteredBy);
+    }
+    
+    public function isShared ()
+    {
+      return !is_null(NoteShareQuery::Create()->findOneByNoteId($this->getId()))?1:0;
     }
 
     public function getEditLink()

@@ -38,8 +38,296 @@ $(document).ready(function () {
         }
       }
     });
-  })
+  });
+  
+// notes management
+  function addPersonsFromNotes(noteId)
+  {
+      $('#select-share-persons').find('option').remove();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'sharedocument/getallperson',
+            data: JSON.stringify({"noteId": noteId})
+      }).done(function(data) {    
+        var elt = document.getElementById("select-share-persons");
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          var option = document.createElement("option");
+          // there is a groups.type in function of the new plan of schema
+          option.text = data[i].name;
+          //option.title = data[i].type;        
+          option.value = data[i].id;
+        
+          elt.appendChild(option);
+        }
+      });  
+      
+      //addProfilesToMainDropdown();
+  }
+  
+  
+  function BootboxContentShare(){
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your Document")+'</h3>'
+       + '<div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4">'
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
+              +'</div>'
+              +'<div class="col-md-8">'
+              +'<select size="6" style="width:100%" id="select-share-persons" multiple>'
+              +'</select>'
+             +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
+                    +'style="width:100%" data-placeholder="text to place">'
+                    +'<option value="0">'+i18next.t("Select your rights [R ] or [RW]")+' -- </option>'
+                    +'<option value="1">'+i18next.t("[R ]")+' -- </option>'
+                    +'<option value="2">'+i18next.t("[RW]")+' -- </option>'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<input id="sendEmail" type="checkbox">'
+              +'</div>'
+            +'</div>'            
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
+                    +'style="width:100%" data-placeholder="text to place">'
+                    +'<option disabled selected> -- '+i18next.t("Person or Family or Group")+' -- </option>'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+          
+          var object = $('<div/>').html(frm_str).contents();
 
+        return object
+  }
+  
+  $(".shareNote").click(function(event){
+    var noteId = event.currentTarget.dataset.id;
+    var isShared = event.currentTarget.dataset.shared;
+    
+    var button = $(this); //Assuming first tab is selected by default
+        
+    var modal = bootbox.dialog({
+       message: BootboxContentShare(),
+       buttons: [
+        {
+         label: i18next.t("Delete"),
+         className: "btn btn-warning",
+         callback: function() {                        
+            bootbox.confirm(i18next.t("Are you sure, you want to delete this Person ?"), function(result){ 
+              if (result) {
+                $('#select-share-persons :selected').each(function(i, sel){ 
+                  var personID = $(sel).val();
+                  
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'sharedocument/deleteperson',
+                     data: JSON.stringify({"noteId":noteId,"personID": personID})
+                  }).done(function(data) {
+                    $("#select-share-persons option[value='"+personID+"']").remove(); 
+                    
+                    if (data.count == 0) {
+                      $(button).addClass("btn-default");
+                      $(button).removeClass("btn-success");
+                    }
+                  });
+                });
+              }
+            });
+            return false;
+         }
+        },
+        {
+         label: i18next.t("Stop sharing"),
+         className: "btn btn-danger",
+         callback: function() {
+          bootbox.confirm(i18next.t("Are you sure, you want to stop sharing your document ?"), function(result){ 
+            if (result) {
+              window.CRM.APIRequest({
+                 method: 'POST',
+                 path: 'sharedocument/cleardocument',
+                 data: JSON.stringify({"noteId":noteId})
+              }).done(function(data) {
+                addPersonsFromNotes(noteId);
+                $(button).addClass("btn-default");
+                $(button).removeClass("btn-success");
+                modal.modal("hide");
+              });
+            }
+          });
+          return false;
+         }
+        },
+        {
+         label: i18next.t("Ok"),
+         className: "btn btn-primary",
+         callback: function() {               
+           modal.modal("hide");
+           return true;
+         }
+        },
+       ],
+       show: false,
+       onEscape: function() {
+          modal.modal("hide");
+       }
+     });
+     
+     $("#person-group-Id").select2({ 
+        language: window.CRM.shortLocale,
+        minimumInputLength: 2,
+        ajax: {
+            url: function (params){
+              return window.CRM.root + "/api/sharedocument/" + params.term;
+            },
+            dataType: 'json',
+            delay: 250,
+            data: "",
+            processResults: function (data, params) {
+              return {results: data};
+            },
+            cache: true
+        }
+      });
+      
+     $("#person-group-rights").change(function() {
+       var rightAccess = $(this).val();
+       var deferreds = [];
+       var i = 0;
+       
+       $('#select-share-persons :selected').each(function(i, sel){ 
+          var personID = $(sel).val();
+          var str = $(sel).text();
+          
+          deferreds.push(          
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'sharedocument/setrights',
+               data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
+            }).done(function(data) {
+              if (rightAccess == 1) {
+                res = str.replace('[RW]', '[R ]');
+              } else {
+                res = str.replace('[R]', '[RW]');
+              }
+            
+              var elt = [personID,res];
+              deferreds[i++] = elt;
+            })
+          );
+          
+        });
+        
+        $.when.apply($, deferreds).done(function(data) {
+         // all images are now prefetched
+         addPersonsFromNotes(noteId);
+         
+         deferreds.forEach(function(element) {
+           $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
+         }); 
+        });
+     });
+     
+     $("#select-share-persons").change(function() {
+       $("#person-group-rights").val(0);
+     });
+          
+      
+     $("#person-group-Id").on("select2:select",function (e) { 
+       var notification = ($("#sendEmail").is(':checked'))?1:0;
+       
+       if (e.params.data.personID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addperson',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        } else if (e.params.data.groupID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addgroup',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        } else if (e.params.data.familyID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addfamily',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        }
+     });
+     
+     addPersonsFromNotes(noteId);
+     modal.modal('show');
+     
+    // this will ensure that image and table can be focused
+    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+  });
+  
+  $("#filter-timeline").change(function() {
+       switch ($(this).val()) {
+         case 'file':
+           $(".type-file").show();
+           $(".icon-file").show();       
+           $(".type-note").hide();
+           $(".icon-note").hide();       
+           $(".type-video").hide();
+           $(".icon-video").hide();       
+           break;
+         case 'note':
+           $(".type-file").hide();
+           $(".icon-file").hide();       
+           $(".type-note").show();
+           $(".icon-note").show();       
+           $(".type-video").hide();
+           $(".icon-video").hide();       
+           break;
+         case 'video':
+           $(".type-file").hide();
+           $(".icon-file").hide();       
+           $(".type-note").hide();
+           $(".icon-note").hide();       
+           $(".type-video").show();
+           $(".icon-video").show();       
+           break;
+         case 'all':
+           $(".type-file").show();
+           $(".icon-file").show();       
+           $(".type-note").show();
+           $(".icon-note").show();       
+           $(".type-video").show();
+           $(".icon-video").show();       
+           break;
+       }
+       
+  });
+  
+// end of note management
+  
   $("#addGroup").click(function() {
     var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function(data){
       window.CRM.groups.addPerson(data.GroupID,window.CRM.currentPersonID,data.RoleID).done(function(){
@@ -48,6 +336,7 @@ $(document).ready(function () {
       );
     });
   });
+  
   
     $("#input-person-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");

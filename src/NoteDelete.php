@@ -49,7 +49,9 @@ if (!($_SESSION['bNotes'] || $note->getPerId() == $_SESSION['user']->getPersonId
 
 //Do we have confirmation?
 if (isset($_GET['Confirmed'])) {
-    $note = NoteQuery::create()->findPk($iNoteID);
+    $note = NoteQuery::create()->findPk($iNoteID);    
+    $notes = NoteQuery::Create ()->filterByText ($note->getText())->findByPerId($note->getPerId());
+    
     if ($note->getType () == 'file') {
     
       $target_delete_file = "private/userdir/".$note->getText();
@@ -57,7 +59,9 @@ if (isset($_GET['Confirmed'])) {
       unlink($target_delete_file);
     }
     
-    $note->delete();
+    if (!empty($notes) ) {
+      $notes->delete();
+    }
 
     //Send back to the page they came from
     Redirect($sReroute);
@@ -67,11 +71,12 @@ require 'Include/Header.php';
 
 ?>
 <div class="box box-warning">
-  <div class="box-header with-border">
-	<?= gettext('Please confirm deletion of this document') ?>:
-  </div>
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        <label><?= gettext('Please confirm deletion of this document') ?> : <?= ($note->getType() == 'file')?$note->getText():$note->getTitle() ?></label> 
+      </h3>
+    </div>
   <div class="box-body">
-    <?= $sReroute ?>
     <?php 
       if ($note->getType() == 'file') {
     ?>

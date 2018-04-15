@@ -606,29 +606,8 @@ INSERT INTO `menuconfig_mcf` (`mid`, `name`, `parent`, `ismenu`, `content_englis
   (80, 'report', 'root', 1, 'Data/Reports', 'Data/Reports', '', '', 'bAdmin', NULL, 0, 0, NULL, 1, 9, 'fa-file-pdf-o'),
   (81, 'reportmenu', 'report', 0, 'Reports Menu', 'Reports Menu', 'ReportList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 1, NULL),
   (82, 'querymenu', 'report', 0, 'Query Menu', 'Query Menu', 'QueryList.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 2, NULL);
-  
--- --------------------------------------------------------
 
---
--- Table structure for table `note_nte`
---
 
-CREATE TABLE `note_nte` (
-  `nte_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `nte_per_ID` mediumint(8) unsigned NOT NULL default '0',
-  `nte_fam_ID` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Private` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Text` text,
-  `nte_DateEntered` datetime NOT NULL,
-  `nte_DateLastEdited` datetime default NULL,
-  `nte_EnteredBy` mediumint(8) NOT NULL default '0',
-  `nte_EditedBy` mediumint(8) unsigned NOT NULL default '0',
-  `nte_Type` varchar(50) DEFAULT NULL,
-  `nte_Info` varchar(500) DEFAULT NULL,
-  PRIMARY KEY  (`nte_ID`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
 -- Dumping data for table `note_nte`
 --
 
@@ -1376,3 +1355,57 @@ INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`, `usrprf_global`, `
 (2, 'Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;bAddEvent:TRUE;bSeePrivacyData:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;bAddEvent:1;bSeePrivacyData:1');
 
 update version_ver set ver_update_end = now();
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note_nte`
+--
+
+CREATE TABLE `note_nte` (
+  `nte_ID` mediumint(8) unsigned NOT NULL auto_increment,
+  `nte_per_ID` mediumint(8) unsigned NOT NULL default '0',
+  `nte_fam_ID` mediumint(8) unsigned NOT NULL default '0',
+  `nte_Private` mediumint(8) unsigned NOT NULL default '0',
+  `nte_Title` varchar(100) DEFAULT '',
+  `nte_Text` text,
+  `nte_DateEntered` datetime NOT NULL,
+  `nte_DateLastEdited` datetime default NULL,
+  `nte_EnteredBy` mediumint(8) NOT NULL default '0',
+  `nte_EditedBy` mediumint(8) unsigned NOT NULL default '0',
+  `nte_isEditedBy` mediumint(8) unsigned NOT NULL default '0',
+  `nte_isEditedByDate` datetime default NULL,
+  `nte_Type` varchar(50) DEFAULT NULL,
+  `nte_Info` varchar(500) DEFAULT NULL,
+  PRIMARY KEY  (`nte_ID`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note_nte_share`
+--
+
+
+CREATE TABLE note_nte_share (
+    `nte_sh_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
+    `nte_sh_note_ID` mediumint(9) unsigned NULL,
+    `nte_sh_share_to_person_ID` mediumint(9) unsigned NULL,
+    `nte_sh_share_to_family_ID` mediumint(9) unsigned NULL,
+    `nte_sh_share_rights` smallint(2) NOT NULL default '1',
+    PRIMARY KEY(nte_sh_id),
+    CONSTRAINT fk_nte_note_ID 
+      FOREIGN KEY (nte_sh_note_ID) 
+      REFERENCES note_nte(nte_ID)
+      ON DELETE CASCADE,
+    CONSTRAINT fk_nte_share_from_person_ID 
+      FOREIGN KEY (nte_sh_share_to_person_ID) 
+      REFERENCES person_per(per_ID)
+      ON DELETE CASCADE,
+    CONSTRAINT fk_nte_share_from_family_ID 
+      FOREIGN KEY (nte_sh_share_to_family_ID) 
+      REFERENCES family_fam(fam_ID)
+      ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
