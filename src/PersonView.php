@@ -508,22 +508,44 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         <?php
         } 
         ?>
-        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext('Documents') ?></a></li>
+        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext("Documents") ?></a></li>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tab-pane fade" class="tab-pane active" id="timeline">
-          <ul class="timeline">
+          <div class="row filter-note-type">
+              <div class="col-md-1" style="line-height:27px">
+              <table width=400px>
+                <tr>
+                  <td>
+                  <span class="time-line-head-red">
+                    <?php 
+                    $now = new DateTime('');
+                      echo $now->format(SystemConfig::getValue('sDateFormatLong'))
+                       ?>
+                  </span>
+                  </td>
+                  <td style="vertical-align: middle;">
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </div>
+          <ul class="timeline time-line-main">
             <!-- timeline time label -->
-            <li class="time-label">
+            <!--<li class="time-label">
                     <span class="bg-red">
                       <?php $now = new DateTime('');
                       echo $now->format(SystemConfig::getValue('sDateFormatLong')) ?>
                     </span>
+            </li>-->
+            <li class="time-label">
             </li>
-            <!-- /.timeline-label -->
-
+            <!-- /.timeline-label -->        
+                
             <!-- timeline item -->
             <?php foreach ($timelineService->getForPerson($iPersonID) as $item) {
         ?>
@@ -537,16 +559,16 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   ?>
                   <?php if ($item['editLink'] != '') {
                 ?>
-                        <a href="<?= $item['editLink'] ?>">
+                        <!--<a href="<?= $item['editLink'] ?>">
                           <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>
+                        </a>-->
                       <?php
             }
             if ($item['deleteLink'] != '') {
                 ?>
-                        <a href="<?= $item['deleteLink'] ?>">
+                        <!--<a href="<?= $item['deleteLink'] ?>">
                           <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                        </a>
+                        </a>-->
                       <?php
             } ?>
             
@@ -587,16 +609,16 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                     <div class="timeline-footer">
                       <?php if ($item['editLink'] != '') {
                 ?>
-                        <a href="<?= $item['editLink'] ?>">
+                        <!--<a href="<?= $item['editLink'] ?>">
                           <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>
+                        </a>-->
                       <?php
             }
             if ($item['deleteLink'] != '') {
                 ?>
-                        <a href="<?= $item['deleteLink'] ?>">
+                        <!--<a href="<?= $item['deleteLink'] ?>">
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                        </a>
+                        </a>-->
                       <?php
             } ?>
                     </div>
@@ -972,7 +994,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             </div>
           </div>
         </div>
-                        <?php if ($_SESSION['bFinance']) {
+        <?php if ($_SESSION['bFinance']) {
         ?>
                 <div role="tab-pane fade" class="tab-pane" id="finance">
                     <div class="main-box clearfix">
@@ -1047,12 +1069,33 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <?php
     } ?>
         <div role="tab-pane fade" class="tab-pane" id="notes">
-          <ul class="timeline">
+          <div class="row filter-note-type">
+              <div class="col-md-1" style="line-height:27px">
+              <table width=400px>
+                <tr>
+                  <td>
+                  <span class="time-line-head-yellow">
+                    <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+                  </span>
+                  </td>
+                  <td style="vertical-align: middle;">
+                      <labe><?= gettext("Show") ?> : </label>
+                  </td>
+                  <td>
+                      <select name="PropertyId" id="filter-timeline" class="form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
+                          <option value="all"><?= gettext("All type") ?></option>
+                          <option value="note"><?= MiscUtils::noteType("note") ?></option>
+                          <option value="video"><?= MiscUtils::noteType("video") ?></option>
+                          <option value="file"><?= MiscUtils::noteType("file") ?></option>
+                      </select>
+                  </td>
+                </tr>
+              </table>
+              </div>
+          </div>
+          <ul class="timeline time-line-note">
             <!-- note time label -->
             <li class="time-label">
-              <span class="bg-yellow">
-                <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
-              </span>
             </li>
             <!-- /.note-label -->
 
@@ -1061,52 +1104,74 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
               foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
                 if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
-                 || $item['type'] != 'file') {
+                 || $item['type'] != 'file') {      
             ?>
               <li>
                 <!-- timeline icon -->
-                <i class="fa <?= $item['style'] ?>"></i>
-
-                <div class="timeline-item">
+                <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?>" ></i>
+ 
+                <div class="timeline-item type-<?= $item['type'] ?>">
                   <span class="time">
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
-                                          &nbsp;
-
+                      &nbsp;
                      <?php 
                      
-                     if ($item['slim']) {
-                       if ($item['editLink'] != '') {
+                     if ($item['slim'] && !isset($item['currentUserName']) ) {
+                       if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2) ) {
                                                 ?>
                         <a href="<?= $item['editLink'] ?>">
                           <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
                       <?php
-                                            }
-                                            if ($item['deleteLink'] != '') {
-                                                ?>
+                        }
+                        
+                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
+                      ?>
                         <a href="<?= $item['deleteLink'] ?>">
                           <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                       <?php
-                          }
-                      } ?>                     
-                     </span>
+                        }
+                        if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
+                      ?>
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn-xs btn-<?= $item['isShared']?"success":"default" 
+                        ?> shareNote"><i class="fa fa-share-square-o"></i></button>
+                      <?php
+                        }
+                      } ?>                                   
+                     </span>                  
+
                   
+                 <?php
+                  if (isset($item['style2']) ) {
+                 ?>
+                   <i class="fa <?= $item['style2'] ?> share-type-2"></i>
+                <?php
+                  }
+                 ?>
                   <h3 class="timeline-header">
-                    <?php if (in_array('headerlink', $item)) {
+
+                    <?php 
+                      if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
                                             ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                     <?php
-                                        } else {
-                                            ?>
+                      } else {
+                    ?>
                       <?= $item['header'] ?>
                     <?php
-                                        } ?>
+                      } 
+                    ?>
                   </h3>
 
                   <div class="timeline-body">
-                     <?php 
-                       if ($item['type'] != 'file') { 
+                    <?php
+                     if (isset($item['currentUserName'])) {
+                      ?>
+                          <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
+                      <?php
+                        }
+                      if ($item['type'] != 'file') { 
                      ?>
                       <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
                      <?php 
@@ -1130,19 +1195,28 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                           <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
                       <?php
-                                            }
-                                            if ($item['deleteLink'] != '') {
-                                                ?>
+                        }
+                            
+                        if ($item['deleteLink'] != '') {
+                      ?>
                         <a href="<?= $item['deleteLink'] ?>">
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                       <?php
-                                            } ?>
+                        }
+                         
+                        if (!isset($item['sharePersonID']) ) {
+                      ?>
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
+                        ?> shareNote"><i class="fa fa-share-square-o"></i></button>
+                      <?php
+                        }
+                      ?>
                     </div>
                   <?php
-                                        } ?>
+                    } ?>
                   <?php
-                                  } ?>
+                  } ?>
                 </div>
               </li>
             <?php

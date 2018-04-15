@@ -5,9 +5,12 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemConfig;
+use \Datetime;
 
 require_once 'Include/Functions.php';
 
@@ -117,12 +120,27 @@ class TimelineService
             $firstTime = false;
           }
         }
+        
         foreach ($personQuery->find() as $dbNote) {
             $item = $this->noteToTimelineItem($dbNote);
             if (!is_null($item)) {
                 $timeline[$item['key']] = $item;
             }
         }
+        
+        $personShareQuery = NoteShareQuery::create()
+            ->joinWithNote()
+            ->findBySharePerId($personID);
+            
+        foreach ($personShareQuery as $dbNoteShare) {
+          if (in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
+             $item = $this->noteToTimelineItem($dbNoteShare->getNote(),$dbNoteShare->getNote()->getPerson(),$dbNoteShare->getRights(),$dbNoteShare->getEditLink());
+             if (!is_null($item)) {
+                 $timeline[$item['key']] = $item;
+             }
+          }
+        }
+        
 
         return $timeline;
     }
@@ -133,9 +151,7 @@ class TimelineService
 
         $sortedTimeline = [];
         foreach ($timeline as $date => $item) {
-           if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
-                 || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
-                 || $item['type'] != 'file') {
+            {
             array_push($sortedTimeline, $item);
            }
         }
@@ -166,7 +182,7 @@ class TimelineService
      *
      * @return mixed|null
      */
-    public function noteToTimelineItem($dbNote)
+    public function noteToTimelineItem($dbNote,$sharePerson=null,$shareRights = 0,$shareEditLink = null)
     {
         $item = null;
         if ($this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId())) {
@@ -181,18 +197,41 @@ class TimelineService
                     $displayEditedBy = $editor->getFullName();
                 }
             }
+            
+            if ($dbNote->getType() == 'file' && empty($dbNote->getText()) ) {
+              $title = $dbNote->getText();
+            } else {
+              $title = $dbNote->getTitle();
+            }
+            
+            if ($dbNote->getCurrentEditedBy() > 0) {
+              $currentDate = new DateTime();
+            
+              $min = $currentDate->diff($dbNote->getCurrentEditedDate())->format('%i');
+              
+              if ( $min < SystemConfig::getValue('iDocumentTimeLeft') ) {
+                $editor = PersonQuery::create()->findPk($dbNote->getCurrentEditedBy());
+                if ($editor != null) {
+                    $currentUserName = gettext("This document is opened by")." : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." ".gettext("Minutes left").")";
+                }
+              }
+            }
+            
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
-                $dbNote->getDisplayEditedDate("Y"),gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
-                $dbNote->getEditLink(), $dbNote->getDeleteLink(),$dbNote->getInfo());
+                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
+                (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
+                $sharePerson,$shareRights,$currentUserName);
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '')
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null)
     {
+        $item['id'] = $id;
         $item['slim'] = false;
         $item['type'] = $type;
+        $item['isShared'] = $isShared;
         
         switch ($type) {
             case 'create':
@@ -209,12 +248,15 @@ class TimelineService
                 $item['style'] = 'fa-video-camera bg-maroon';
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
+                $item['currentUserName'] = $currentUserName;
                 break;
             case 'file':
                 $item['slim'] = true;
                 $item['style'] = ' fa-file-o bg-aqua';
+                $item['id'] = $id;
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
+                $item['currentUserName'] = $currentUserName;                
                 break;
             case 'group':
                 $item['style'] = 'fa-users bg-gray';
@@ -236,9 +278,27 @@ class TimelineService
                 $item['style'] = 'fa-sticky-note bg-green';
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
+                $item['currentUserName'] = $currentUserName;
         }
         $item['header'] = $header;
         $item['headerLink'] = $headerLink;
+        
+        if (!is_null($sharePerson)) {
+          $item['sharePersonName'] = $sharePerson->getFullName();
+          $item['sharePersonID'] = $sharePerson->getId();
+          $item['shareRights'] = $shareRights;
+          $item['headerLink'] = '';
+          $item['header'] = gettext('Share by') . ' : ' . $sharePerson->getFullName();
+          
+          $item['deleteLink'] = '';
+          
+          if ($shareRights != 2) {
+            $item['editLink'] = '';
+          }
+          
+          $item['style2'] = $item['style'];
+          $item['style'] = 'fa-share-square-o bg-purple';
+        }
         
         if ($info) {
           $item['info'] = $info;
@@ -249,7 +309,7 @@ class TimelineService
         $item['datetime'] = OutputUtils::FormatDate($datetime,true);
         $item['year'] = $year;
         $item['key'] = $datetime.'-'.$id;
-
+        
         return $item;
     }
 }

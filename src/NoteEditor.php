@@ -18,6 +18,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 $iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
@@ -86,19 +87,19 @@ if (isset($_POST['Submit'])) {
 
     //Were there any errors?
     if (!$bErrorFlag) {
-      if (!empty($_FILES["noteInputFile"]["name"])) {
+      if (!empty($_FILES["noteInputFile"]["name"]) || isset($_POST['noteType']) && $_POST['noteType'] == 'file') {
         $user = UserQuery::create()->findOneByPersonId($iPersonID);    
         
         $target_dir = $user->getHomedir();
         $target_file = $target_dir . "/".basename($_FILES["noteInputFile"]["name"]);
       
         if (move_uploaded_file($_FILES['noteInputFile']['tmp_name'], $target_file)) {
-          echo "OK";
           //Are we adding or editing?
           if ($iNoteID <= 0) {
             $note = new Note();
             $note->setPerId($iPersonID);
             $note->setFamId($iFamilyID);
+            $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
             $note->setText(str_replace("private/userdir/","",$target_file));
             $note->setType('file');
@@ -107,22 +108,36 @@ if (isset($_POST['Submit'])) {
             
             $note->save();
           } else {
+            
             $note = NoteQuery::create()->findPk($iNoteID);
+            $notes = NoteQuery::Create ()->filterByText ($note->getText())->findByPerId($note->getPerId());
+            
             $target_delete_file = "private/userdir/".$note->getText();
-
+   
             unlink($target_delete_file);
             
+            $notes->delete();
+                        
+            $note = new Note();
+            $note->setPerId($iPersonID);
+            $note->setFamId($iFamilyID);
+            $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
             $note->setText(str_replace("private/userdir/","",$target_file));
-            $note->setDateLastEdited(new DateTime());
-            $note->setEditedBy($_SESSION['iUserID']);
-            $note->setType('file');            
-            $note->setInfo(gettext('Update file'));
+            $note->setType('file');
+            $note->setEntered($_SESSION['iUserID']);
+            $note->setInfo(gettext('Create file'));
             
-            $note->save();
-          }
-        } else {
-          echo "Pas OK";
+            $note->save();          }
+        } else {// now we simply store the document
+          $note = NoteQuery::create()->findPk($iNoteID);
+          
+          $note->setTitle($_POST['noteTitle']);           
+          $note->setDateLastEdited(new DateTime());
+          $note->setCurrentEditedBy(0);
+          $note->setCurrentEditedDate(NULL);          
+          
+          $note->save();
         }    
         
         Redirect($sBackPage);
@@ -135,9 +150,13 @@ if (isset($_POST['Submit'])) {
           $note->setPerId($iPersonID);
           $note->setFamId($iFamilyID);
           $note->setPrivate($bPrivate);
+          $note->setTitle($_POST['noteTitle']);
           $note->setText($sNoteText);
           $note->setType($_POST['noteType']);
           $note->setEntered($_SESSION['iUserID']);
+
+          $note->setCurrentEditedBy(0);
+          $note->setCurrentEditedDate(NULL);          
           $note->save();
       } else {
           $note = NoteQuery::create()->findPk($iNoteID);
@@ -146,12 +165,29 @@ if (isset($_POST['Submit'])) {
           $note->setDateLastEdited(new DateTime());
           $note->setEditedBy($_SESSION['iUserID']);
           $note->setType($_POST['noteType']);
+          $note->setTitle($_POST['noteTitle']);
+          
+          $note->setCurrentEditedBy(0);
+          $note->setCurrentEditedDate(NULL);          
+          
           $note->save();
       }
 
       //Send them back to whereever they came from
       Redirect($sBackPage);
     }
+} else if ( isset($_POST['Cancel']) ) {
+  if (isset($_POST['NoteID'])) {
+     $iNoteID = InputUtils::LegacyFilterInput($_POST['NoteID'], 'int');
+     $note = NoteQuery::create()->findPk($iNoteID);
+          
+     $note->setCurrentEditedBy(0);
+     $note->setCurrentEditedDate(NULL);          
+          
+     $note->save();
+  }
+  
+  Redirect($sBackPage);
 } else {
     //Are we adding or editing?
     if (isset($_GET['NoteID'])) {
@@ -160,29 +196,62 @@ if (isset($_POST['Submit'])) {
         $dbNote = NoteQuery::create()->findPk($iNoteID);
 
         //Assign everything locally
-        $sNoteText = $dbNote->getText();
-        $bPrivate = $dbNote->getPrivate();
-        $iPersonID = $dbNote->getPerId();
-        $iFamilyID = $dbNote->getFamId();
-        $sNoteType = $dbNote->getType();
+        $sTitleText = $dbNote->getTitle();
+        $sNoteText  = $dbNote->getText();
+        $bPrivate   = $dbNote->getPrivate();
+        $iPersonID  = $dbNote->getPerId();
+        $iFamilyID  = $dbNote->getFamId();
+        $sNoteType  = $dbNote->getType();
+        
+        // now we now that the share document is used by someone
+        if ($iPersonID > 0) {
+          $dbNote->setCurrentEditedBy($iPersonID);
+          $dbNote->setCurrentEditedDate(new DateTime());
+          
+          $dbNote->save();
+        }
+        
+        if (empty($sTitleText) && $sNoteType == 'file') {
+          $sTitleText = $sNoteText;
+        }  
     }
 }
 require 'Include/Header.php';
 
 ?>
 <form method="post"<?= SystemURLs::getRootPath() ?>/NoteEditor.php" enctype="multipart/form-data">
+  
   <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        <label><?= gettext("Document Title") ?></label> 
+      </h3>
+      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= gettext("Set your document title") ?>" required="">
+    </div>
     <div class="box-body">
-      <div class="row">
+      <div class="row" <?= (!empty($sNoteType))?"":'style="display: none;"' ?>>
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <center><label><?= gettext("Your document type is") ?> : "<?= MiscUtils::noteType($sNoteType) ?>"</label></center>
+          </div>
+          <div class="col-lg-3"></div>
+      </div>
+      <div class="row" <?= (empty($sNoteType))?"":'style="display: none;"' ?>>
           <div class="col-lg-3"></div>
           <div class="col-lg-3">
             <label><?= gettext("Choose your Document Type") ?> : </label>
           </div>
           <div class="col-lg-3">
             <select name="noteType" class="form-control input-sm" id="selectType">
-              <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= gettext("Classic Document") ?></option>
-              <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= gettext("Classic Video") ?></option>
-              <option value="file" <?= ($sNoteType == "file")?'selected="selected"':"" ?>><?= gettext("Classic File") ?></option>
+              <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= MiscUtils::noteType("note") ?></option>
+              <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= MiscUtils::noteType("video") ?></option>
+              <?php 
+                if ($iFamilyID == 0) { 
+              ?>
+                <option value="file" <?= ($sNoteType == "file")?'selected="selected"':"" ?>><?= MiscUtils::noteType("file") ?></option>
+              <?php 
+                } 
+              ?>
             </select>           
           </div>
           <div class="col-lg-3"></div>
@@ -197,12 +266,14 @@ require 'Include/Header.php';
             <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
             <?= $sNoteTextError ?>
           </p>            
-          <p align="center" id="blockFile"  <?= ($sNoteType == "file")?'':'style="display: none;' ?>>
-            <label for="noteInputFile"><?= gettext("File input")." : ".$sNoteText ?></label>
-            <input type="file" id="noteInputFile" name="noteInputFile">
+          <div id="blockFile"  <?= ($sNoteType == "file")?'':'style="display: none;' ?>
+            <p align="center" >
+              <label for="noteInputFile"><?= gettext("File input")." : ".$sNoteText ?></label>
+              <input type="file" id="noteInputFile" name="noteInputFile">
 
-            <?= gettext("Upload your file")?>.
-          </p>
+              <?= gettext("Upload your file")?>.
+            </p>
+          </div>
           <p align="center">
             <input type="checkbox" value="1" name="Private" <?php if ($bPrivate != 0) {
         echo 'checked';
@@ -215,8 +286,7 @@ require 'Include/Header.php';
   <p align="center">
     <input type="submit" class="btn btn-success" name="Submit" value="<?= gettext('Save') ?>">
     &nbsp;
-    <input type="button" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location='<?= $sBackPage ?>';">
-
+    <input type="submit" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>">
   </p>
 </form>
 

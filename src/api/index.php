@@ -48,6 +48,9 @@ require __DIR__.'/routes/families.php';
 require __DIR__.'/routes/groups.php';
 require __DIR__.'/routes/userprofile.php';
 
+// share documents toutes
+
+require __DIR__.'/routes/sharedocument.php';
 
 // finance routes
 require __DIR__.'/routes/deposits.php';

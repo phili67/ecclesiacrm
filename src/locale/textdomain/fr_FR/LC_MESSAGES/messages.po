@@ -9909,3 +9909,46 @@ msgstr "Mise à jour fichier"
 
 msgid "Create file"
 msgstr "Création fichier"
+
+#: NoteEditor.php
+msgid "Share by"
+msgstr "Partagé par"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "Your document type is"
+msgstr "Le type de document est"
+
+msgid "Show"
+msgstr "Montrer"
+
+msgid "All type"
+msgstr "Tous les types"
+
+msgid "Document Title"
+msgstr "Titre du document"
+
+msgid "Set your document title"
+msgstr "Saisir le titre de votre document"
+
+msgid "Time in minutes when a share document can't be opened."
+msgstr "Temps en minutes pour lequel le document partagé ne peut être ouvert"
+
+msgid "This document is opened by"
+msgstr "Ce document est consulté par"
+
+msgid "Minutes left"
+msgstr "Minutes restantes"
+
+msgid "A user has share a document with you in"
+msgstr "Un utilisateur a partagé un document avec vous dans"
+
+msgid "A document is shared with you"
+msgstr "Un document a été partagé avec vous"
+
+msgid "You can visualize it in your account."
+msgstr "Vous pourrez le consulter dans votre compte"

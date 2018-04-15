@@ -506,7 +506,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] || ($_SESSION['bEditSelf'] && ($iFamilyI
                     <?php
                 } ?>
                     <li role="presentation"><a href="#notes" aria-controls="notes" role="tab"
-                                               data-toggle="tab"><?= gettext("Your Documents") ?></a></li>
+                                               data-toggle="tab"><?= gettext("Documents") ?></a></li>
 
             </ul>
 
