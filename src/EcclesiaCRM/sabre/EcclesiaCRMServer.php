@@ -64,6 +64,10 @@ class EcclesiaCRMServer extends DAV\Server
     }
     
     function getCopyAndMoveInfo(RequestInterface $request) {
+      // this is the old path
+      $oldPath = $request->getPath();
+     
+      // we search the new path, it will in the destination part
       $res = parent::getCopyAndMoveInfo($request);
       
       /*return [
@@ -71,10 +75,11 @@ class EcclesiaCRMServer extends DAV\Server
             'destinationExists' => !!$destinationNode,
             'destinationNode'   => $destinationNode,
       ];*/
-        
+      
       if (strpos($res['destination'],"._") == false && strpos($res['destination'],".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
            $currentUser->createTimeLineNote("dav-move-copy-file",$res['destination']);
+           $currentUser->updateFolder($oldPath,$res['destination']);
       }
       
       return $res;
