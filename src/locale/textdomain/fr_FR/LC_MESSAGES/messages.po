@@ -9952,3 +9952,6 @@ msgstr "Un document a été partagé avec vous"
 
 msgid "You can visualize it in your account."
 msgstr "Vous pourrez le consulter dans votre compte"
+
+msgid "Shared documents"
+msgstr "Documents partagés"

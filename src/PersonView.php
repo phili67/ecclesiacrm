@@ -1087,6 +1087,8 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                           <option value="note"><?= MiscUtils::noteType("note") ?></option>
                           <option value="video"><?= MiscUtils::noteType("video") ?></option>
                           <option value="file"><?= MiscUtils::noteType("file") ?></option>
+                          <option disabled="disabled">_____________________________</option>
+                          <option value="shared"><?= gettext("Shared documents") ?></option>
                       </select>
                   </td>
                 </tr>
@@ -1103,14 +1105,15 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             <?php 
               foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
                 if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
+                 || $item['type'] == 'file' && ( $item['info'] == gettext("Dav move copy file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
                  || $item['type'] != 'file') {      
             ?>
-              <li>
+              <li class="type-<?= $item['type'] ?><?= (isset($item['style2'])?" type-shared":"") ?>">
                 <!-- timeline icon -->
-                <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?>" ></i>
+                <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2'])?" icon-shared":"") ?>" ></i>
  
-                <div class="timeline-item type-<?= $item['type'] ?>">
+                <div class="timeline-item">
                   <span class="time">
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;

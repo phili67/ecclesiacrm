@@ -101,8 +101,7 @@ $(document).ready(function () {
               +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
               +'<div class="col-md-8">'
                 +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
-                    +'style="width:100%" data-placeholder="text to place">'
-                    +'<option disabled selected> -- '+i18next.t("Person or Family or Group")+' -- </option>'
+                    +'style="width:100%">'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -142,6 +141,8 @@ $(document).ready(function () {
                       $(button).addClass("btn-default");
                       $(button).removeClass("btn-success");
                     }
+                    
+                    $("#person-group-Id").val("").trigger("change");
                   });
                 });
               }
@@ -188,6 +189,8 @@ $(document).ready(function () {
      $("#person-group-Id").select2({ 
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
+        placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
+        allowClear: true, // This is for clear get the clear button if wanted 
         ajax: {
             url: function (params){
               return window.CRM.root + "/api/sharedocument/" + params.term;
@@ -290,7 +293,19 @@ $(document).ready(function () {
   
   $("#filter-timeline").change(function() {
        switch ($(this).val()) {
+         case 'shared':
+           $(".type-file").hide();
+           $(".icon-file").hide();       
+           $(".type-note").hide();
+           $(".icon-note").hide();       
+           $(".type-video").hide();
+           $(".icon-video").hide();       
+           $(".type-shared").show();
+           $(".icon-shared").show();      
+           break;
          case 'file':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-file").show();
            $(".icon-file").show();       
            $(".type-note").hide();
@@ -299,6 +314,8 @@ $(document).ready(function () {
            $(".icon-video").hide();       
            break;
          case 'note':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-file").hide();
            $(".icon-file").hide();       
            $(".type-note").show();
@@ -307,6 +324,8 @@ $(document).ready(function () {
            $(".icon-video").hide();       
            break;
          case 'video':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-file").hide();
            $(".icon-file").hide();       
            $(".type-note").hide();
@@ -315,6 +334,8 @@ $(document).ready(function () {
            $(".icon-video").show();       
            break;
          case 'all':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-file").show();
            $(".icon-file").show();       
            $(".type-note").show();

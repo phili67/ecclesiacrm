@@ -11,6 +11,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\NoteQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -300,4 +301,25 @@ class User extends BaseUser
         $notes->delete();
       }
     }
+    
+    // this part is called in EcclesiaCRMServer from
+    public function updateFolder($oldPath,$newPath)
+    {
+      $realOldPath = str_replace("home/","",$oldPath);
+      $realNewPath = str_replace("home/","",$newPath);
+      
+      $notes = NoteQuery::create()
+              ->filterByText("%$realOldPath%", Criteria::LIKE)
+              ->find();
+              
+      foreach ($notes as $note) {
+        $oldName = $note->getText();
+        $newName = str_replace($oldPath,$newPath,$note->getText());
+        
+        $newNote = NoteQuery::Create()->findOneById($note->getId());
+        $newNote->setText(str_replace($realOldPath,$realNewPath,$note->getText()));
+        $newNote->setCurrentEditedBy(0);
+        $newNote->save();
+      }      
+    }    
 }

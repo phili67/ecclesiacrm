@@ -178,13 +178,16 @@ if (isset($_POST['Submit'])) {
     }
 } else if ( isset($_POST['Cancel']) ) {
   if (isset($_POST['NoteID'])) {
-     $iNoteID = InputUtils::LegacyFilterInput($_POST['NoteID'], 'int');
+     $iNoteID = InputUtils::LegacyFilterInput($_POST['NoteID'], 'int');     
+          
      $note = NoteQuery::create()->findPk($iNoteID);
+     
+     if (!empty($note)) {
+       $note->setCurrentEditedBy(0);
+       $note->setCurrentEditedDate(NULL);          
           
-     $note->setCurrentEditedBy(0);
-     $note->setCurrentEditedDate(NULL);          
-          
-     $note->save();
+       $note->save();
+     }
   }
   
   Redirect($sBackPage);
@@ -226,7 +229,7 @@ require 'Include/Header.php';
       <h3 class="box-title">
         <label><?= gettext("Document Title") ?></label> 
       </h3>
-      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= gettext("Set your document title") ?>" required="">
+      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= gettext("Set your document title") ?>"  required="">
     </div>
     <div class="box-body">
       <div class="row" <?= (!empty($sNoteType))?"":'style="display: none;"' ?>>
@@ -286,7 +289,7 @@ require 'Include/Header.php';
   <p align="center">
     <input type="submit" class="btn btn-success" name="Submit" value="<?= gettext('Save') ?>">
     &nbsp;
-    <input type="submit" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>">
+    <input type="submit" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>" formnovalidate>
   </p>
 </form>
 
