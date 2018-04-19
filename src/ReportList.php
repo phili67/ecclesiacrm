@@ -30,7 +30,7 @@ $year = $today['year'];
 require 'Include/Header.php';
 ?>
   <!-- ./col -->
-  <?php if ($_SESSION['bFinance']) {
+  <?php if ($_SESSION['user']->isFinanceEnabled()) {
     ?>
 <div class="row">
     <div class="col-lg-12">
@@ -43,7 +43,7 @@ require 'Include/Header.php';
             <a class="MediumText" href="FinancialReports.php">
           </p>
           <?php
-          if ($_SESSION['bAdmin']) {
+          if ($_SESSION['user']->isAdmin()) {
               echo '<p>';
               echo '<a class="MediumText" href="CanvassAutomation.php">';
               echo gettext('Canvass Automation').'</a><br>';

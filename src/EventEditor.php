@@ -34,7 +34,7 @@ use EcclesiaCRM\EventCounts;
 
 $sPageTitle = gettext('Church Event Editor');
 
-if (!$_SESSION['bAdmin'] && !$_SESSION['bAddEvent']) {
+if (!$_SESSION['user']->isAdmin() && !$_SESSION['bAddEvent']) {
     header('Location: Menu.php');
 }
 

@@ -46,7 +46,7 @@ if (array_key_exists('RemoveVO', $_GET)) {
     $iRemoveVO = InputUtils::LegacyFilterInput($_GET['RemoveVO'], 'int');
 }
 
-if (isset($_POST['VolunteerOpportunityAssign']) && $_SESSION['bEditRecords']) {
+if (isset($_POST['VolunteerOpportunityAssign']) && $_SESSION['user']->isEditRecordsEnabled()) {
     $volIDs = $_POST['VolunteerOpportunityIDs'];
     if ($volIDs) {
         foreach ($volIDs as $volID) {
@@ -56,7 +56,7 @@ if (isset($_POST['VolunteerOpportunityAssign']) && $_SESSION['bEditRecords']) {
 }
 
 // Service remove-volunteer-opportunity (these links set RemoveVO)
-if ($iRemoveVO > 0 && $_SESSION['bEditRecords']) {
+if ($iRemoveVO > 0 && $_SESSION['user']->isEditRecordsEnabled()) {
     RemoveVolunteerOpportunity($iPersonID, $iRemoveVO);
 }
 
@@ -214,9 +214,9 @@ if ($per_Envelope > 0) {
 
 $iTableSpacerWidth = 10;
 
-$bOkToEdit = ($_SESSION['bEditRecords'] ||
-    ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['iUserID']) ||
-    ($_SESSION['bEditSelf'] && $per_fam_ID == $_SESSION['iFamID'])
+$bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
+    ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId()) ||
+    ($_SESSION['user']->isEditSelfEnabled() && $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())
     );
 
 ?>
@@ -282,7 +282,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
     <!-- About Me Box -->
     <?php 
-      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID']  || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) { 
+      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) { 
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -425,47 +425,47 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-primary box-body">
       <?php
-        if (Cart::PersonInCart($iPersonID) && $_SESSION['bShowCart']) {
+        if (Cart::PersonInCart($iPersonID) && $_SESSION['user']->isShowCartEnabled()) {
       ?>
         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
       <?php 
-        } else if ($_SESSION['bShowCart']) {
+        } else if ($_SESSION['user']->isShowCartEnabled()) {
       ?>
           <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
       <?php 
        }
       ?>
 
-      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
         ?>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
             <?php
        } ?>
-      <?php if ($_SESSION['bNotes']) {
+      <?php if ($_SESSION['user']->isNotesEnabled()) {
         ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/WhyCameEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Edit \"Why Came\" Notes") ?></a>
         <?php
          }
         ?>
-      <?php if ($_SESSION['bNotes'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'])) {
+      <?php if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
       ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-sticky-note"></i> <?= gettext("Add a Document") ?></a>
       
       <?php
     }
-    if ($_SESSION['bDeleteRecords']) {
+    if ($_SESSION['user']->isDeleteRecordsEnabled()) {
         ?>
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
       <?php
     }
-    if ($_SESSION['bManageGroups']) {
+    if ($_SESSION['user']->isManageGroupsEnabled()) {
         ?>
         <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= gettext("Assign New Group") ?></a>
       <?php
     }
-    if ($_SESSION['bAdmin']) {
+    if ($_SESSION['user']->isAdmin()) {
         if (!$person->isUser()) {
             ?>
           <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= gettext('Make User') ?></a>
@@ -481,7 +481,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
   </div>
   
   <?php 
-    if ($_SESSION['bManageGroups'] || ($_SESSION['bEditSelf'] && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['iFamID'] || $_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'])) {
+    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
@@ -499,7 +499,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
         <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= gettext('Volunteer Opportunities') ?></a></li>
         <?php
-         if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['bFinance']) {
+         if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['user']->isFinanceEnabled()) {
                     ?>
                     <li role="presentation"><a href="#finance" aria-controls="finance" role="tab"
                                                data-toggle="tab"><?= gettext("Automatic Payments") ?></a></li>
@@ -604,7 +604,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                   </div>
                   <?php if (!$item['slim']) {
                   ?>
-                  <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
+                  <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
             ?>
                     <div class="timeline-footer">
                       <?php if ($item['editLink'] != '') {
@@ -675,7 +675,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                 </td>
                 <td style="width: 20%;">
                   <?php
-                    if ($_SESSION['bShowCart']) {
+                    if ($_SESSION['user']->isShowCartEnabled()) {
                   ?>
                   <a class="AddToPeopleCart" data-cartpersonid="<?= $tmpPersonId ?>">
                     <span class="fa-stack">
@@ -768,7 +768,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                       } ?>
                       <div class="box-footer" style="width:275px">
                         <code>
-                          <?php if ($_SESSION['bManageGroups']) {
+                          <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
                           ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
                             <div class="btn-group">
@@ -932,7 +932,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         echo '<tr class="TableHeader">';
         echo '<th>'.gettext('Name').'</th>';
         echo '<th>'.gettext('Description').'</th>';
-        if ($_SESSION['bEditRecords']) {
+        if ($_SESSION['user']->isEditRecordsEnabled()) {
             echo '<th>'.gettext('Remove').'</th>';
         }
         echo '</tr>';
@@ -950,7 +950,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             echo '<td>'.$vol_Name.'</a></td>';
             echo '<td>'.$vol_Description.'</a></td>';
 
-            if ($_SESSION['bEditRecords']) {
+            if ($_SESSION['user']->isEditRecordsEnabled()) {
                 echo '<td><a class="SmallText btn btn-danger" href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per_ID.'&RemoveVO='.$vol_ID.'">'.gettext('Remove').'</a></td>';
             }
 
@@ -963,7 +963,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
         echo '</table>';
     } ?>
 
-                <?php if ($_SESSION['bEditRecords'] && $rsVolunteerOpps->num_rows): ?>
+                <?php if ($_SESSION['user']->isEditRecordsEnabled() && $rsVolunteerOpps->num_rows): ?>
                 <div class="alert alert-info">
                     <div>
                         <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
@@ -994,7 +994,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
             </div>
           </div>
         </div>
-        <?php if ($_SESSION['bFinance']) {
+        <?php if ($_SESSION['user']->isFinanceEnabled()) {
         ?>
                 <div role="tab-pane fade" class="tab-pane" id="finance">
                     <div class="main-box clearfix">
@@ -1056,7 +1056,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
                             <?php
     } ?>
 
-                            <?php if ($_SESSION['bCanvasser']) {
+                            <?php if ($_SESSION['user']->isCanvasserEnabled()) {
         ?>
 
                             <p align="center">
@@ -1187,7 +1187,7 @@ $bOkToEdit = ($_SESSION['bEditRecords'] ||
 
                   </div>
 
-                  <?php if (($_SESSION['bNotes']) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
+                  <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                                             ?>
                     <div class="timeline-footer">
                     <?php if (!$item['slim']) {

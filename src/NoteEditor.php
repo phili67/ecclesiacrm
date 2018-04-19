@@ -103,7 +103,7 @@ if (isset($_POST['Submit'])) {
             $note->setPrivate($bPrivate);
             $note->setText(str_replace("private/userdir/","",$target_file));
             $note->setType('file');
-            $note->setEntered($_SESSION['iUserID']);
+            $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));
             
             $note->save();
@@ -125,7 +125,7 @@ if (isset($_POST['Submit'])) {
             $note->setPrivate($bPrivate);
             $note->setText(str_replace("private/userdir/","",$target_file));
             $note->setType('file');
-            $note->setEntered($_SESSION['iUserID']);
+            $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));
             
             $note->save();          }
@@ -153,7 +153,7 @@ if (isset($_POST['Submit'])) {
           $note->setTitle($_POST['noteTitle']);
           $note->setText($sNoteText);
           $note->setType($_POST['noteType']);
-          $note->setEntered($_SESSION['iUserID']);
+          $note->setEntered($_SESSION['user']->getPersonId());
 
           $note->setCurrentEditedBy(0);
           $note->setCurrentEditedDate(NULL);          
@@ -163,7 +163,7 @@ if (isset($_POST['Submit'])) {
           $note->setPrivate($bPrivate);
           $note->setText($sNoteText);
           $note->setDateLastEdited(new DateTime());
-          $note->setEditedBy($_SESSION['iUserID']);
+          $note->setEditedBy($_SESSION['user']->getPersonId());
           $note->setType($_POST['noteType']);
           $note->setTitle($_POST['noteTitle']);
           
