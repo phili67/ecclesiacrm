@@ -101,7 +101,7 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $autoPayment->setAccount($tAccount);
     $autoPayment->setSerial(1);
     $autoPayment->setDateLastEdited(date('YmdHis'));
-    $autoPayment->getEditedby($_SESSION['iUserID']);
+    $autoPayment->getEditedby($_SESSION['user']->getPersonId());
     
     $autoPayment->save();
     
@@ -182,7 +182,7 @@ if (isset($_POST['Submit'])) {
     $autoPayment->setRoute($tRoute);
     $autoPayment->setAccount($tAccount);
     $autoPayment->setDateLastEdited(date('YmdHis'));
-    $autoPayment->getEditedby($_SESSION['iUserID']);
+    $autoPayment->getEditedby($_SESSION['user']->getPersonId());
     
     $autoPayment->save();
 

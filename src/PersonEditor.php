@@ -51,6 +51,8 @@ if (array_key_exists('previousPage', $_GET)) {
 if ($iPersonID > 0) {
     $person = PersonQuery::Create()
         ->findOneById($iPersonID);
+        
+    $per_fam_ID = $person->getFamId();
 
     if (empty($person)) {
         Redirect('Menu.php');
@@ -58,15 +60,15 @@ if ($iPersonID > 0) {
     }
 
     if (!(
-        $_SESSION['bEditRecords'] ||
-        ($_SESSION['bEditSelf'] && $iPersonID == $_SESSION['iUserID']) ||
-        ($_SESSION['bEditSelf'] && $per_fam_ID > 0 && $per_fam_ID == $_SESSION['iFamID'])
+        $_SESSION['user']->isEditRecordsEnabled() ||
+        ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ||
+        ($_SESSION['user']->isEditSelfEnabled() && $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())
     )
     ) {
         Redirect('Menu.php');
         exit;
     }
-} elseif (!$_SESSION['bAddRecords']) {
+} elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
     Redirect('Menu.php');
     exit;
 }
@@ -173,9 +175,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
     // Get their family's country in case person's country was not entered
     if ($iFamily > 0) {
-        $sSQL = 'SELECT fam_Country FROM family_fam WHERE fam_ID = '.$iFamily;
-        $rsFamCountry = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsFamCountry));
+        $fam = FamilyQuery::Create()->findOneById($iFamily);
+        
+        $fam_Country = $fam->getCountry();
     }
 
     $sCountryTest = SelectWhichInfo($sCountry, $fam_Country, false);
@@ -231,10 +233,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sLastNameError = gettext('You must enter a Last Name if no Family is selected.');
             $bErrorFlag = true;
         } else {
-            $sSQL = 'SELECT fam_Name FROM family_fam WHERE fam_ID = '.$iFamily;
-            $rsFamName = RunQuery($sSQL);
-            $aTemp = mysqli_fetch_array($rsFamName);
-            $sLastName = $aTemp[0];
+            $fam = FamilyQuery::Create()->findOneById($iFamily);        
+            $sLastName = $fam->getName();            
         }
     }
 
@@ -352,13 +352,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setCellPhone($sCellPhone);
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
-            $family->setEnteredBy($_SESSION['iUserID']);
+            $family->setEnteredBy($_SESSION['user']->getPersonId());
             $family->save();
             
             //Get the key back You use the same code in CartView.php
-            $sSQL = 'SELECT MAX(fam_ID) AS iFamily FROM family_fam';
-            $rsLastEntry = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsLastEntry));
+            $fam_ID = $family->getId();
         }
 
         if ($bHideAge) {
@@ -393,7 +391,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ($_SESSION['bFinance']) {
+            if ($_SESSION['user']->isFinanceEnabled()) {
                 $person->setEnvelope($iEnvelope);
             }
             
@@ -406,7 +404,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
-            $person->setEnteredBy($_SESSION['iUserID']);
+            $person->setEnteredBy($_SESSION['user']->getPersonId());
             
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
@@ -449,7 +447,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ($_SESSION['bFinance']) {
+            if ($_SESSION['user']->isFinanceEnabled()) {
                 $person->setEnvelope($iEnvelope);
             }
             
@@ -462,10 +460,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
-            $person->setEnteredBy($_SESSION['iUserID']);
+            $person->setEnteredBy($_SESSION['user']->getPersonId());
             
             $person->setDateLastEdited(new DateTime());
-            $person->setEditedBy($_SESSION['iUserID']);
+            $person->setEditedBy($_SESSION['user']->getPersonId());
             
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
@@ -1422,7 +1420,7 @@ require 'Include/Header.php';
   <?php
                         } ?>
     <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
-    <?php if ($_SESSION['bAddRecords']) {
+    <?php if ($_SESSION['user']->isAddRecordsEnabled()) {
                             echo '<input type="submit" class="btn btn-primary" value="'.gettext('Save and Add').'" name="PersonSubmitAndAdd">';
                         } ?>
     <input type="button" class="btn btn-primary" value="<?= gettext('Cancel') ?>" name="PersonCancel"
