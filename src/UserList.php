@@ -24,7 +24,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }
@@ -51,6 +51,7 @@ require 'Include/Header.php';
             <tr>
                 <th><?= gettext('Actions') ?></th>
                 <th><?= gettext('Name') ?></th>
+                <th><?= gettext('First Name') ?></th>
                 <th align="center"><?= gettext('Last Login') ?></th>
                 <th align="center"><?= gettext('Total Logins') ?></th>
                 <th align="center"><?= gettext('Failed Logins') ?></th>
@@ -72,7 +73,10 @@ require 'Include/Header.php';
 } ?>
                     </td>
                     <td>
-                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFullName() ?></a>
+                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
+                    </td>
+                    <td>
+                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
                     <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatShort')) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
