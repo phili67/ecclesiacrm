@@ -257,10 +257,11 @@
     },
     "current": {
         "versions": [
-            "3.6.0"
+            "3.6.0",
+            "3.6.1"
         ],
         "scripts": [
         ],
-        "dbVersion": "3.6.1"
+        "dbVersion": "3.6.2"
     }
 }

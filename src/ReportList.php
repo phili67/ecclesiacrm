@@ -11,6 +11,16 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+
+use EcclesiaCRM\EventTypesQuery;
+use EcclesiaCRM\EventTypes;
+use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\Map\EventTableMap;
+use EcclesiaCRM\Map\EventTypesTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+
+
+
 //Set the page title
 $sPageTitle = gettext('Report Menu');
 
@@ -46,11 +56,14 @@ require 'Include/Header.php';
 }
 
 //Conditionally Display the Event Reports, only if there are actually events in the database.  Otherwise, Don't render the Event reports section.
-//$sSQL = "SELECT * FROM event_types";
-  $sSQL = 'SELECT DISTINCT event_types.* FROM event_types RIGHT JOIN events_event ON event_types.type_id=events_event.event_type ORDER BY type_id ';
-  $rsOpps = RunQuery($sSQL);
-  $numRows = mysqli_num_rows($rsOpps);
-  if ($numRows > 0) {
+
+$ormOpps = EventTypesQuery::Create()
+                  ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
+                  ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
+                  ->orderById()
+                  ->find();
+                  
+  if (!empty($ormOpps) && $ormOpps->count() > 0) {
       ?>
     <div class="col-lg-12">
       <div class="box">
@@ -60,12 +73,10 @@ require 'Include/Header.php';
         <div class="box-body">
           <?php
           // List all events
-          for ($row = 1; $row <= $numRows; $row++) {
-              $aRow = mysqli_fetch_array($rsOpps);
-              extract($aRow);
+          foreach ($ormOpps as $ormOpp) {
               echo '&nbsp;&nbsp;&nbsp;<a href="EventAttendance.php?Action=List&Event='.
-            $type_id.'&Type='.gettext($type_name).'" title="List All '.
-            gettext($type_name).' Events"><strong>'.gettext($type_name).
+            $ormOpp->getId().'&Type='.$ormOpp->getName().'" title="List All '.
+            $ormOpp->getName().' Events"><strong>'.$ormOpp->getName().
             '</strong></a>'."<br>\n";
           } ?>
         </div>

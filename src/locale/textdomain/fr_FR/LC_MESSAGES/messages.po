@@ -2752,7 +2752,10 @@ msgstr "Sélectionner les types d&#39;événements à afficher"
 
 #: ListEvents.php:125
 msgid "Display Events in Year"
-msgstr "Afficher les Evénements de l&#39;année"
+msgstr "Afficher les Evénements de l'année"
+
+msgid "Display Events in Month"
+msgstr "Afficher les événements du mois"
 
 #: ListEvents.php:209
 msgid "Start Date/Time"
