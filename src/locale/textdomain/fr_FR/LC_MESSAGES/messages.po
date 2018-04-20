@@ -9947,14 +9947,14 @@ msgstr "Ce document est consulté par"
 msgid "Minutes left"
 msgstr "Minutes restantes"
 
-msgid "A user has share a document with you in"
-msgstr "Un utilisateur a partagé un document avec vous dans"
+msgid "I've shared a document with you in"
+msgstr "J'ai partagé un document avec vous dans"
+
+msgid "You can visualize it in your account, in the document tab."
+msgstr "Vous pourrez le visualiser dans votre compte, dans la partie documents"
 
 msgid "A document is shared with you"
 msgstr "Un document a été partagé avec vous"
-
-msgid "You can visualize it in your account."
-msgstr "Vous pourrez le consulter dans votre compte"
 
 msgid "Shared documents"
 msgstr "Documents partagés"
