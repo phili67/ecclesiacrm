@@ -25,7 +25,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 
 // Security: User must have add records permission
-if (!$_SESSION['bAddRecords']) {
+if (!$_SESSION['user']->isAddRecordsEnabled()) {
     Redirect('Menu.php');
     exit;
 }
@@ -50,6 +50,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $iPersonAddress = InputUtils::LegacyFilterInput($_POST['PersonAddress']);
 
         if ($iPersonAddress != 0) {
+            //$person=PersonQuery::Create()->findOneById($iPersonAddress);
             $sSQL = 'SELECT * FROM person_per WHERE per_ID = '.$iPersonAddress;
             $rsPerson = RunQuery($sSQL);
             extract(mysqli_fetch_array($rsPerson));
@@ -90,7 +91,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             $sError = '<p class="callout callout-warning" align="center" style="color:red;">'.gettext('No family name entered!').'</p>';
             $bError = true;
         } else {
-            $sSQL = "INSERT INTO family_fam (fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country, fam_HomePhone, fam_WorkPhone, fam_CellPhone, fam_Email, fam_WeddingDate, fam_DateEntered, fam_EnteredBy) VALUES ('".$sFamilyName."','".$sAddress1."','".$sAddress2."','".$sCity."','".$sState."','".$sZip."','".$sCountry."','".$sHomePhone."','".$sWorkPhone."','".$sCellPhone."','".$sEmail."',".$dWeddingDate.",'".date('YmdHis')."',".$_SESSION['iUserID'].')';
+            $sSQL = "INSERT INTO family_fam (fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country, fam_HomePhone, fam_WorkPhone, fam_CellPhone, fam_Email, fam_WeddingDate, fam_DateEntered, fam_EnteredBy) VALUES ('".$sFamilyName."','".$sAddress1."','".$sAddress2."','".$sCity."','".$sState."','".$sZip."','".$sCountry."','".$sHomePhone."','".$sWorkPhone."','".$sCellPhone."','".$sEmail."',".$dWeddingDate.",'".date('YmdHis')."',".$_SESSION['user']->getPersonId().')';
             RunQuery($sSQL);
 
             //Get the key back

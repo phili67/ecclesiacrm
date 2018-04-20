@@ -187,7 +187,7 @@ $app->group('/sharedocument', function () {
             $user = UserQuery::Create()->findOneByPersonId($params->personID);
           
             if ( !empty($user) ){
-              $email = new DocumentEmail($user, gettext("You can visualize it in your account."));
+              $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the document tab."));
               $email->send();
             }
           }
@@ -219,7 +219,7 @@ $app->group('/sharedocument', function () {
                 $user = UserQuery::Create()->findOneByPersonId($member->getId());
           
                 if ( !empty($user) ){
-                  $email = new DocumentEmail($user, gettext("You can visualize it in your account."));
+                  $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the document tab."));
                   $email->send();
                 }
               }
@@ -253,7 +253,7 @@ $app->group('/sharedocument', function () {
                 $user = UserQuery::Create()->findOneByPersonId($member->getPersonId());
           
                 if ( !empty($user) ){
-                  $email = new DocumentEmail($user, gettext("You can visualize it in your account."));
+                  $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the document tab."));
                   $email->send();
                 }
               }
