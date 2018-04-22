@@ -20,7 +20,7 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t4.fam_HomePhone, t4.fam_Country
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3, family_fam AS t4
                 WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND t1.per_fam_ID = t4.fam_ID AND per_cls_ID IN ('1','2','5')
-		ORDER BY t1.per_LastName, t1.per_ID";
+                ORDER BY t1.per_LastName, t1.per_ID";
         $sPageTitle = gettext('Event Attendees');
     } elseif ($_POST['Choice'] == 'Nonattendees') {
         $aSQL = 'SELECT DISTINCT(person_id) FROM event_attend WHERE event_id = '.$_POST['Event'];
@@ -32,21 +32,21 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
         if (count($aArr) > 0) {
             $aArrJoin = implode(',', $aArr);
             $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t2.fam_HomePhone, t2.fam_Country
-        	        FROM person_per AS t1, family_fam AS t2
-                	WHERE t1.per_fam_ID = t2.fam_ID AND t1.per_ID NOT IN ('.$aArrJoin.") AND per_cls_ID IN ('1','2','5')
-			ORDER BY t1.per_LastName, t1.per_ID";
+                        FROM person_per AS t1, family_fam AS t2
+                        WHERE t1.per_fam_ID = t2.fam_ID AND t1.per_ID NOT IN ('.$aArrJoin.") AND per_cls_ID IN ('1','2','5')
+                        ORDER BY t1.per_LastName, t1.per_ID";
         } else {
             $sSQL = "SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_Email, t1.per_HomePhone, t1.per_Country, t1.per_MembershipDate, t2.fam_HomePhone, t2.fam_Country
                         FROM person_per AS t1, family_fam AS t2
                         WHERE t1.per_fam_ID = t2.fam_ID AND per_cls_ID IN ('1','2','5')
-			ORDER BY t1.per_LastName, t1.per_ID";
+                        ORDER BY t1.per_LastName, t1.per_ID";
         }
         $sPageTitle = gettext('Event Nonattendees');
     } elseif ($_POST['Choice'] == 'Guests') {
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_HomePhone, t1.per_Country
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3
                 WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND per_cls_ID IN ('0','3')
-		ORDER BY t1.per_LastName, t1.per_ID";
+                ORDER BY t1.per_LastName, t1.per_ID";
         $sPageTitle = gettext('Event Guests');
     }
 } elseif (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && !empty($_GET['Event'])) {
@@ -96,7 +96,7 @@ for ($row = 1; $row <= $numRows; $row++) {
 if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows > 0) {
     ?>
        <caption>
-	       <h3><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).gettext(' in this category.') ?></h3>
+               <h3><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).gettext(' in this category.') ?></h3>
        </caption>
          <tr class="TableHeader">
            <td width="33%"><strong><?= gettext('Event Title') ?></strong></td>
@@ -176,7 +176,7 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
            <td width="35%"><strong><?= gettext('Name') ?></strong></td>
            <td width="25%"><strong><?= gettext('Email') ?></strong></td>
            <td width="25%"><strong><?= gettext('Home Phone') ?></strong></td>
-	   <td width="15%" nowrap><strong><?php /* echo gettext("Cart"); */ ?>&nbsp;</strong></td>
+           <td width="15%" nowrap><strong><?php /* echo gettext("Cart"); */ ?>&nbsp;</strong></td>
         </tr>
 <?php
          //Set the initial row color

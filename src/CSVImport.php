@@ -21,7 +21,7 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }
@@ -549,7 +549,7 @@ if (isset($_POST['DoImport'])) {
 
             // Finish up the person_per SQL..
             $sSQLpersonData .= $iClassID.",'".addslashes($sCountry)."',";
-            $sSQLpersonData .= "'".date('YmdHis')."',".$_SESSION['iUserID'];
+            $sSQLpersonData .= "'".date('YmdHis')."',".$_SESSION['user']->getPersonId();
             $sSQLpersonData .= ')';
 
             $sSQLpersonFields .= 'per_cls_ID, per_Country, per_DateEntered, per_EnteredBy';
@@ -627,7 +627,7 @@ if (isset($_POST['DoImport'])) {
                                      '"'.$per_CellPhone.'", '.
                                      '"'.$per_Email.'",'.
                                      '"'.date('YmdHis').'",'.
-                                     '"'.$_SESSION['iUserID'].'");';
+                                     '"'.$_SESSION['user']->getPersonId().'");';
                     RunQuery($sSQL);
 
                     $sSQL = 'SELECT LAST_INSERT_ID()';
@@ -638,7 +638,7 @@ if (isset($_POST['DoImport'])) {
                     $note->setFamId($famid);
                     $note->setText(gettext('Imported'));
                     $note->setType('create');
-                    $note->setEntered($_SESSION['iUserID']);
+                    $note->setEntered($_SESSION['user']->getPersonId());
                     $note->save();
                     $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
                     RunQuery($sSQL);
@@ -711,7 +711,7 @@ if (isset($_POST['DoImport'])) {
             $note->setPerId($iPersonID);
             $note->setText(gettext('Imported'));
             $note->setType('create');
-            $note->setEntered($_SESSION['iUserID']);
+            $note->setEntered($_SESSION['user']->getPersonId());
             $note->save();
             if ($bHasCustom) {
                 $sSQL = "INSERT INTO `person_custom` (`per_ID`) VALUES ('".$iPersonID."')";

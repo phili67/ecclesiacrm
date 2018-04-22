@@ -19,7 +19,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }

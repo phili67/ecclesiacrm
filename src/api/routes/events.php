@@ -164,7 +164,7 @@ $app->group('/events', function () {
     });
   
     $this->post('/', function ($request, $response, $args) {
-      if(!$_SESSION['bAddEvent'] && !$_SESSION['bAdmin']) {
+      if(!$_SESSION['bAddEvent'] && !$_SESSION['user']->isAdmin()) {
         return $response->withStatus(401);
       }
       

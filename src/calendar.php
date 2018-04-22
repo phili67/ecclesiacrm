@@ -116,7 +116,7 @@ $eventTypes = EventTypesQuery::Create()
 <!-- fullCalendar 2.2.5 -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   var isModifiable  = <?php
-    if ($_SESSION['bAddEvent'] || $_SESSION['bAdmin']) {
+    if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
         echo "true";
     } else {
         echo "false";

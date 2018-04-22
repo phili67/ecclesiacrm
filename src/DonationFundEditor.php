@@ -19,7 +19,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Security: user must be administrator to use this page
-if (!$_SESSION['bAdmin']) {
+if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isFinanceEnabled()) ) {
     Redirect('Menu.php');
     exit;
 }

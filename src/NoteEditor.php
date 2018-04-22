@@ -33,7 +33,7 @@ if (isset($_GET['PersonID'])) {
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!($_SESSION['bNotes'] || $_GET['PersonID'] == $_SESSION['user']->getPersonId() || $iCurrentFamID == $iFamily)) {
+if (!($_SESSION['user']->isNotesEnabled() || $_GET['PersonID'] == $_SESSION['user']->getPersonId() || $iCurrentFamID == $iFamily)) {
     Redirect('Menu.php');
     exit;
 }

@@ -15,7 +15,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security: User must have Manage Groups & Roles permission
-if (!$_SESSION['bManageGroups']) {
+if (!$_SESSION['user']->isManageGroupsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

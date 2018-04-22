@@ -45,7 +45,7 @@ require '../Include/Header.php';
     <h3 class="box-title"><?= gettext('Functions') ?></h3>
   </div>
   <div class="box-body">
-    <?php if ($_SESSION['bManageGroups']) {
+    <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
     ?>
       <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
           class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
@@ -53,7 +53,7 @@ require '../Include/Header.php';
       } ?>
       
     <?php 
-      if ($_SESSION['bExportCSV'] || $_SESSION['bAdmin']) { 
+      if ($_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin()) { 
     ?>
      <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
@@ -232,7 +232,7 @@ require '../Include/Header.php';
           echo '  </span></a></td>';
           echo '<td>'.$firstName.'</td>';
           echo '<td>'.$LastName.'</td>';
-          if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {          
+          if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {          
             echo '<td>'.$birthDate.'</td>';
             echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
             echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';
@@ -250,7 +250,7 @@ require '../Include/Header.php';
     </table>
   </div>
 </div>
-<?php if ($_SESSION['bManageGroups']) {
+<?php if ($_SESSION['user']->isManageGroupsEnabled()) {
           ?>
   <div class="modal fade" id="add-class" tabindex="-1" role="dialog" aria-labelledby="add-class-label"
        aria-hidden="true">

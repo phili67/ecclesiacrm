@@ -15,7 +15,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security: user must be administrator to use this page.
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }

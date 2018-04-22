@@ -23,7 +23,7 @@ $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iPerson = InputUtils::LegacyFilterInput($_GET['PersonID']);
 $iWhyCameID = InputUtils::LegacyFilterInput($_GET['WhyCameID']);
 
-if (!($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'])) {
+if (!($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())) {
     Redirect('Menu.php');
     exit;
 }

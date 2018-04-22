@@ -24,7 +24,7 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['bMenuOptions']) {
+<?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
     <p align="center"><button class="btn btn-primary delete-payment" id="add-new-fund"><?= gettext('Add a New Fund') ?></button></p>
 <?php 

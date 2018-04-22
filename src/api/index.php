@@ -4,7 +4,7 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 
 //Security
-if (!isset($_SESSION['iUserID'])) {
+if (!isset($_SESSION['user'])) {
     Redirect('Login.php');
     exit;
 }

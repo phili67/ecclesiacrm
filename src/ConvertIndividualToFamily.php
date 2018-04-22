@@ -24,7 +24,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 // Security
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }
@@ -38,7 +38,7 @@ $sPageTitle = gettext('Convert Individuals to Families');
 
 require 'Include/Header.php';
 
-$iUserID = $_SESSION['iUserID'];
+$iUserID = $_SESSION['user']->getPersonId();
 
 // find the family ID so we can associate to person record
 $sSQL = 'SELECT MAX(fam_ID) AS iFamilyID FROM family_fam';

@@ -41,7 +41,7 @@ $iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!($_SESSION['bNotes'] || $note->getPerId() == $_SESSION['user']->getPersonId() || $note->getFamId() == $iCurrentFamID)) {
+if (!($_SESSION['user']->isNotesEnabled() || $note->getPerId() == $_SESSION['user']->getPersonId() || $note->getFamId() == $iCurrentFamID)) {
     Redirect('Menu.php');
     exit;
 }

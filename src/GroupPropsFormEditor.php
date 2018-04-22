@@ -22,7 +22,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['bManageGroups']) {
+if (!$_SESSION['user']->isManageGroupsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

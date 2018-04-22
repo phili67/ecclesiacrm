@@ -28,7 +28,7 @@ class SystemService
     public function isSessionStillValid ()
     {
       // Basic security: If the UserID isn't set (no session), redirect to the login page
-      if (!isset($_SESSION['iUserID'])) {
+      if (!isset($_SESSION['user'])) {
         return false; // we have to return to the login page
       }
 

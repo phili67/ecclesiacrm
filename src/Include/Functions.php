@@ -28,7 +28,7 @@ $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 
 if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     // Basic security: If the UserID isn't set (no session), redirect to the login page
-    if (!isset($_SESSION['iUserID'])) {
+    if (!isset($_SESSION['user'])) {
         Redirect('Login.php');
         exit;
     }
@@ -48,7 +48,7 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
 
     // If this user needs to change password, send to that page
     if ($_SESSION['bNeedPasswordChange'] && !isset($bNoPasswordRedirect)) {
-        Redirect('UserPasswordChange.php?PersonID='.$_SESSION['iUserID']);
+        Redirect('UserPasswordChange.php?PersonID='.$_SESSION['user']->getPersonId());
         exit;
     }
 
@@ -1676,8 +1676,8 @@ function requireUserGroupMembership($allowedRoles = null)
     if (!$allowedRoles) {
         throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
     }
-    if ($_SESSION[$allowedRoles] || $_SESSION['bAdmin'] || $_SESSION['bAddRecords']) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
-        // new $_SESSION['bAddRecords'] : Philippe Logel
+    if ($_SESSION[$allowedRoles] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isAddRecordsEnabled()) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
+        // new $_SESSION['user']->isAddRecordsEnabled() : Philippe Logel
         return true;
     } elseif (is_array($allowedRoles)) {  //sometimes we might have an array of allowed roles.
         foreach ($allowedRoles as $role) {

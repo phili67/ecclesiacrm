@@ -30,7 +30,7 @@ use EcclesiaCRM\PropertyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
-if (!($_SESSION['bExportCSV'] || $_SESSION['bAdmin'])) {
+if (!($_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin())) {
     Redirect('Menu.php');
     exit;
 }

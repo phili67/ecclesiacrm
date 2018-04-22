@@ -9,7 +9,7 @@ use EcclesiaCRM\Service\AppIntegrityService;
 
 //Set the page title
 $sPageTitle = gettext('Integrity Check Results');
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('index.php');
     exit;
 }

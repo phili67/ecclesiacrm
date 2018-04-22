@@ -56,7 +56,7 @@ $MenuFirst = 1;
   Header_modals();
   Header_body_scripts();
 
-  $loggedInUserPhoto = SystemURLs::getRootPath().'/api/persons/'.$_SESSION['iUserID'].'/thumbnail';
+  $loggedInUserPhoto = SystemURLs::getRootPath().'/api/persons/'.$_SESSION['user']->getPersonId().'/thumbnail';
   $MenuFirst = 1;
   ?>
 
@@ -89,7 +89,7 @@ $MenuFirst = 1;
         <ul class="nav navbar-nav">
             <!-- Cart Functions: style can be found in dropdown.less -->
             <?php 
-               if ($_SESSION['bShowCart']) { 
+               if ($_SESSION['user']->isShowCartEnabled()) { 
             ?>
             <li class="dropdown notifications-menu" id="CartBlock" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">

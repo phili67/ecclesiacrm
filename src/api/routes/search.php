@@ -188,7 +188,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     }
     
     
-    if ($_SESSION['bFinance']) 
+    if ($_SESSION['user']->isFinanceEnabled()) 
     {
         //Deposits Search
         if (SystemConfig::getBooleanValue("bSearchIncludeDeposits")) 

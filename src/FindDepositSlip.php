@@ -21,7 +21,7 @@ $iDepositSlipID = $_SESSION['iCurrentDeposit'];
 $sPageTitle = gettext('Deposit Listing');
 
 // Security: User must have finance permission to use this form
-if (!$_SESSION['bFinance']) {
+if (!$_SESSION['user']->isFinanceEnabled()) {
     Redirect('index.php');
     exit;
 }

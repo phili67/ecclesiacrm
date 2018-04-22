@@ -14,7 +14,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 
-if (!$_SESSION['bMenuOptions']) {
+if (!$_SESSION['user']->isMenuOptionsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

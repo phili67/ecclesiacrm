@@ -12,7 +12,7 @@ use EcclesiaCRM\Service\SystemService;
 // Set the page title and include HTML header
 $sPageTitle = gettext('Upgrade EcclesiaCRM');
 
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('index.php');
     exit;
 }

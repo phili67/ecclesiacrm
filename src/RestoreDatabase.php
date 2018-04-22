@@ -18,7 +18,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must have Manage Groups permission
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }
