@@ -11,7 +11,7 @@ use Sabre\DAV\Auth;
 define("webdav", "1");
 require dirname(__FILE__).'/Include/Config.php';
 
-use Ecclesia\Auth\BasicAuth;
+use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
 
 use EcclesiaCRM\dto\SystemURLs;
@@ -20,7 +20,7 @@ use EcclesiaCRM\dto\SystemURLs;
 //require 'vendor/autoload.php';
 
 // authentication
-$authBackend = new EcclesiaCRM\Auth\BasicAuth();
+$authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $authPlugin = new Auth\Plugin($authBackend);
