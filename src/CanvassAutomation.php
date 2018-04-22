@@ -20,7 +20,7 @@ use EcclesiaCRM\Utils\InputUtils;
 $sPageTitle = gettext('Canvass Automation');
 
 // Security: User must have canvasser permission to use this form
-if (!$_SESSION['bCanvasser']) {
+if (!$_SESSION['user']->isCanvasserEnabled()) {
     Redirect('Menu.php');
     exit;
 }

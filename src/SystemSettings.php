@@ -19,7 +19,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Security
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }

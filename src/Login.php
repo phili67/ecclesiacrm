@@ -74,21 +74,6 @@ if (isset($_POST['User'])) {
         // Set the pagination Search Limit
         $_SESSION['SearchLimit'] = $currentUser->getSearchLimit();
 
-        // If user has administrator privilege, override other settings and enable all permissions.
-        $_SESSION['bAdmin'] = $currentUser->isAdmin();
-
-        $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();
-        $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();
-        $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();
-        $_SESSION['bMenuOptions'] = $currentUser->isMenuOptionsEnabled();
-        $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();
-        $_SESSION['bFinance'] = $currentUser->isFinanceEnabled();
-        $_SESSION['bNotes'] = $currentUser->isNotesEnabled();
-        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
-        $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();
-        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();
-        $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
-
         // Set the FailedLogins
         $_SESSION['iFailedLogins'] = $currentUser->getFailedLogins();
 

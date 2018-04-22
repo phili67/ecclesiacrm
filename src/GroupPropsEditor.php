@@ -17,7 +17,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['bEditRecords']) {
+if (!$_SESSION['user']->isEditRecordsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

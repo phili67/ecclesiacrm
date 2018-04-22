@@ -47,7 +47,7 @@ class CalendarService
         $firstYear = $startDate->format('Y');
         
         
-        if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+        if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
           $peopleWithBirthDays = PersonQuery::create()
             ->JoinWithFamily();
           

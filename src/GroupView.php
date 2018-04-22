@@ -79,7 +79,7 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <?php 
-      if ($_SESSION['bShowMap']) {
+      if ($_SESSION['user']->isShowMapEnabled()) {
     ?>
       <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
     <?php
@@ -87,18 +87,18 @@ require 'Include/Header.php';
     ?>
     
     <?php
-      if (Cart::GroupInCart($iGroupID) && $_SESSION['bShowCart']) {
+      if (Cart::GroupInCart($iGroupID) && $_SESSION['user']->isShowCartEnabled()) {
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
     <?php
-      } else if ($_SESSION['bShowCart']){
+      } else if ($_SESSION['user']->isShowCartEnabled()){
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
     <?php
      }
     ?>
     <?php
-    if ($_SESSION['bManageGroups']) {
+    if ($_SESSION['user']->isManageGroupsEnabled()) {
         echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
         echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; ?>
 
@@ -323,7 +323,7 @@ require 'Include/Header.php';
                   <td valign="top"><b><?= gettext('Name') ?></b>
                   <td valign="top"><b><?= gettext('Value') ?></td>
                   <?php
-                  if ($_SESSION['bManageGroups']) {
+                  if ($_SESSION['user']->isManageGroupsEnabled()) {
                       echo '<td valign="top"><b>'.gettext('Edit Value').'</td>';
                       echo '<td valign="top"><b>'.gettext('Remove').'</td>';
                   }
@@ -364,7 +364,7 @@ require 'Include/Header.php';
                     <td valign="top"><?= $pro_Name ?>&nbsp;</td>
                     <td valign="top"><?= $r2p_Value ?>&nbsp;</td>
                     <?php
-                    if (strlen($pro_Prompt) > 0 && $_SESSION['bManageGroups']) {
+                    if (strlen($pro_Prompt) > 0 && $_SESSION['user']->isManageGroupsEnabled()) {
                     ?>
                         <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
                     <?php
@@ -374,7 +374,7 @@ require 'Include/Header.php';
                     <?php
                     }
 
-                    if ($_SESSION['bManageGroups']) {
+                    if ($_SESSION['user']->isManageGroupsEnabled()) {
                     ?>
                         <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
                     <?php
@@ -399,7 +399,7 @@ require 'Include/Header.php';
             <?php
             }
 
-                if ($_SESSION['bManageGroups']) {
+                if ($_SESSION['user']->isManageGroupsEnabled()) {
                 ?>
                     <div class="alert alert-info">
                       <div>
@@ -492,7 +492,7 @@ require 'Include/Header.php';
               
                 var isShowable  = <?php
                  // it should be better to write this part in the api/groups/members
-                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin'] 
+                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() 
                     || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
                     || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeachForGroup($iGroupID))) {
                      echo "true";

@@ -32,7 +32,7 @@ require 'Include/Header.php';
 <div class="box box-body">
     <div class="table-responsive">
 <?php //Display the new property link
-if ($_SESSION['bMenuOptions']) {
+if ($_SESSION['user']->isMenuOptionsEnabled()) {
     echo "<p align=\"center\"><a class='btn btn-primary' href=\"PropertyTypeEditor.php\">".gettext('Add a New Property Type').'</a></p>';
 }
 
@@ -42,7 +42,7 @@ echo '<tr>';
 echo '<th>'.gettext('Name').'</th>';
 echo '<th>'.gettext('Class').'</th>';
 echo '<th align="center">'.gettext('Properties').'</th>';
-if ($_SESSION['bMenuOptions']) {
+if ($_SESSION['user']->isMenuOptionsEnabled()) {
     echo '<th>'.gettext('Edit').'</th>';
     echo '<th>'.gettext('Delete').'</th>';
 }
@@ -72,7 +72,7 @@ foreach ($ormPropertyTypes as $ormPropertyType)
     if ($ormPropertyType->getPrtName() == 'Menu')
 	    $activLink = " disabled";		    
     
-    if ($_SESSION['bMenuOptions']) {
+    if ($_SESSION['user']->isMenuOptionsEnabled()) {
         echo "<td><a class='btn btn-info".$activLink."' href=\"PropertyTypeEditor.php?PropertyTypeID=".$ormPropertyType->getPrtId().'">'.gettext('Edit').'</a></td>';
         if ($Properties == 0) {
             echo "<td><a class='btn btn-danger".$activLink."' href=\"PropertyTypeDelete.php?PropertyTypeID=".$ormPropertyType->getPrtId().'">'.gettext('Delete').'</a></td>';

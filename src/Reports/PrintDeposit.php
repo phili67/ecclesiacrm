@@ -22,7 +22,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
 //Security
-if (!$_SESSION['bFinance'] && !$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isFinanceEnabled() && !$_SESSION['user']->isAdmin()) {
     Redirect("Menu.php");
     exit;
 }
@@ -52,7 +52,7 @@ if (!$iDepositSlipID && array_key_exists('iCurrentDeposit', $_SESSION)) {
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 // If no DepositSlipId, redirect to the menu
-if ((!$_SESSION['bAdmin'] && $bCSVAdminOnly && $output != "pdf") || !$iDepositSlipID) {
+if ((!$_SESSION['user']->isAdmin() && $bCSVAdminOnly && $output != "pdf") || !$iDepositSlipID) {
     Redirect("Menu.php");
     exit;
 }

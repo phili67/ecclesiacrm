@@ -25,13 +25,13 @@ $sOldPasswordError = false;
 $sNewPasswordError = false;
 
 // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
-if ($_SESSION['bAdmin'] && isset($_GET['PersonID'])) {
+if ($_SESSION['user']->isAdmin() && isset($_GET['PersonID'])) {
     $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-    if ($iPersonID != $_SESSION['iUserID']) {
+    if ($iPersonID != $_SESSION['user']->getPersonId()) {
         $bAdminOtherUser = true;
     }
 } else {
-    $iPersonID = $_SESSION['iUserID'];
+    $iPersonID = $_SESSION['user']->getPersonId();
 }
 
 // Was the form submitted?

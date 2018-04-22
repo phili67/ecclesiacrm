@@ -238,7 +238,7 @@ class User extends BaseUser
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered((is_null($info))?$_SESSION['iUserID']:$this->getPersonId());
+        $note->setEntered((is_null($info))?$_SESSION['user']->getPersonId():$this->getPersonId());
         $note->setType('user');
 
         switch ($type) {

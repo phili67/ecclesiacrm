@@ -28,7 +28,7 @@ use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
 
 
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     header('Location: Menu.php');
 }
 $sPageTitle = gettext('Edit Event Types');

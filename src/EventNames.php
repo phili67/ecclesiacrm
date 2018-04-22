@@ -27,7 +27,7 @@ use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
 
-if (!$_SESSION['bAdmin'] && !$_SESSION['bAddEvent']) {
+if (!$_SESSION['user']->isAdmin() && !$_SESSION['bAddEvent']) {
     header('Location: Menu.php');
 }
 

@@ -136,7 +136,7 @@ function Header_body_scripts()
             timeEnglish:"<?= (SystemConfig::getValue("sTimeEnglish"))?"true":"false" ?>",
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:"<?= $_SESSION['bShowTooltip'] ?>",
-            showCart:"<?= $_SESSION['bShowCart'] ?>",
+            showCart:"<?= $_SESSION['user']->isShowCartEnabled() ?>",
             plugin: {
                 dataTable : {
                    "language": {
@@ -191,7 +191,7 @@ function GetSecuritySettings()
     for ($i = 0; $i < count($aSecurityListPrimal); $i++) {
         if (array_key_exists($aSecurityListPrimal[$i], $_SESSION) && $_SESSION[$aSecurityListPrimal[$i]]) {
             $aSecurityListFinal[] = $aSecurityListPrimal[$i];
-        } elseif ($aSecurityListPrimal[$i] == 'bAddEvent' && $_SESSION['bAdmin']) {
+        } elseif ($aSecurityListPrimal[$i] == 'bAddEvent' && $_SESSION['user']->isAdmin()) {
             $aSecurityListFinal[] = 'bAddEvent';
         }
     }

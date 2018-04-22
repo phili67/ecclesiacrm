@@ -19,7 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['bAdmin']) {
+if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
     exit;
 }

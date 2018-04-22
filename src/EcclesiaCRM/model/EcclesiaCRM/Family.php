@@ -214,11 +214,11 @@ class Family extends BaseFamily implements iPhoto
                 break;
             case "verify":
                 $note->setText(gettext('Family Data Verified'));
-                $note->setEnteredBy($_SESSION['iUserID']);
+                $note->setEnteredBy($_SESSION['user']->getPersonId());
                 break;
             case "verify-link":
               $note->setText(gettext('Verification email sent'));
-              $note->setEnteredBy($_SESSION['iUserID']);
+              $note->setEnteredBy($_SESSION['user']->getPersonId());
               break;
         }
 
@@ -275,13 +275,13 @@ class Family extends BaseFamily implements iPhoto
 
     public function deletePhoto()
     {
-      if ($_SESSION['bAddRecords'] || $bOkToEdit ) {
+      if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit ) {
         if ( $this->getPhoto()->delete() )
         {
           $note = new Note();
           $note->setText(gettext("Profile Image Deleted"));
           $note->setType("photo");
-          $note->setEntered($_SESSION['iUserID']);
+          $note->setEntered($_SESSION['user']->getPersonId());
           $note->setPerId($this->getId());
           $note->save();
           return true;
@@ -290,11 +290,11 @@ class Family extends BaseFamily implements iPhoto
       return false;
     }
     public function setImageFromBase64($base64) {
-      if ($_SESSION['bAddRecords'] || $bOkToEdit ) {
+      if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit ) {
         $note = new Note();
         $note->setText(gettext("Profile Image uploaded"));
         $note->setType("photo");
-        $note->setEntered($_SESSION['iUserID']);
+        $note->setEntered($_SESSION['user']->getPersonId());
         $this->getPhoto()->setImageFromBase64($base64);
         $note->setFamId($this->getId());
         $note->save();

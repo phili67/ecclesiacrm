@@ -84,12 +84,12 @@ if (!Cart::HasPeople()) {
         </div>
         <div class="box-body">
             <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= gettext('Empty Cart') ?></a>
-            <?php if ($_SESSION['bManageGroups']) {
+            <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
             ?>
                 <a id="emptyCartToGroup" class="btn btn-app"><i class="fa fa-object-ungroup"></i><?= gettext('Empty Cart to Group') ?></a>
             <?php
         }
-        if ($_SESSION['bAddRecords']) {
+        if ($_SESSION['user']->isAddRecordsEnabled()) {
             ?>
             <a href="CartToFamily.php" class="btn btn-app"><i
                         class="fa fa-users"></i><?= gettext('Empty Cart to Family') ?></a>
@@ -191,7 +191,7 @@ if (!Cart::HasPeople()) {
                 <a href="DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
                             class="fa fa-book"></i><?= gettext('Create Directory From Cart') ?></a>
                             
-             <?php   if ($_SESSION['bAddRecords']) {
+             <?php   if ($_SESSION['user']->isAddRecordsEnabled()) {
             ?>
                 <a href="#" id="deleteCart" class="btn btn-app"><i
                             class="fa fa-trash text-danger"></i><?= gettext('Delete Persons From Cart and CRM') ?></a>

@@ -340,7 +340,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 ?>                
                 
                 <?php
-                  if ($_SESSION['bAddRecords'] || $iCurrentUserFamID == $iFamilyID) {
+                  if ($_SESSION['user']->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
                 ?>
                    <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
                 <?php

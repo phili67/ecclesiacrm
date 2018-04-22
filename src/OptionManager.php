@@ -23,7 +23,7 @@ $mode = trim($_GET['mode']);
 switch ($mode) {
     case 'famroles':
     case 'classes':
-        if (!$_SESSION['bMenuOptions']) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             Redirect('Menu.php');
             exit;
         }
@@ -32,7 +32,7 @@ switch ($mode) {
     case 'grptypes':
     case 'grproles':
     case 'groupcustom':
-        if (!$_SESSION['bManageGroups']) {
+        if (!$_SESSION['user']->isManageGroupsEnabled()) {
             Redirect('Menu.php');
             exit;
         }
@@ -41,7 +41,7 @@ switch ($mode) {
     case 'custom':
     case 'famcustom':
     case 'securitygrp':
-        if (!$_SESSION['bAdmin']) {
+        if (!$_SESSION['user']->isAdmin()) {
             Redirect('Menu.php');
             exit;
         }

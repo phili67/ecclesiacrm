@@ -20,7 +20,7 @@ use EcclesiaCRM\Property;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 // Security: User must have property and classification editing permission
-if (!$_SESSION['bMenuOptions']) {
+if (!$_SESSION['user']->isMenuOptionsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

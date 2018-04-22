@@ -5,7 +5,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\UserQuery;
 
-if (!empty($_SESSION['iUserID'])) {
+if (!isset($_SESSION['user'])) {
     if (!isset($_SESSION['sshowPledges']) || ($_SESSION['sshowPledges'] == '')) {
         $_SESSION['sshowPledges'] = 0;
     }
@@ -16,7 +16,7 @@ if (!empty($_SESSION['iUserID'])) {
         $_SESSION['bSearchFamily'] = 0;
     }
 
-    $currentUser = UserQuery::create()->findPk($_SESSION['iUserID']);
+    $currentUser = UserQuery::create()->findPk($_SESSION['user']->getPersonId());
     $currentUser->setShowPledges($_SESSION['sshowPledges']);
     $currentUser->setShowPayments($_SESSION['sshowPayments']);
     $currentUser->setShowSince($_SESSION['sshowSince']);

@@ -17,7 +17,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 
-$iPersonID = $_SESSION['iUserID'];
+$iPersonID = $_SESSION['user']->getPersonId();
 
 // Save Settings
 if (isset($_POST['save'])) {
@@ -102,7 +102,7 @@ $rsConfigs = RunQuery($sSQL);
 $r = 1;
 // List Individual Settings
 while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_tooltip, $ucfg_permission) = mysqli_fetch_row($rsConfigs)) {
-    if (!(($ucfg_permission == 'TRUE') || $_SESSION['bAdmin'])) {
+    if (!(($ucfg_permission == 'TRUE') || $_SESSION['user']->isAdmin())) {
         continue;
     } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
 

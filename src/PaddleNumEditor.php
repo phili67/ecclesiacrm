@@ -145,7 +145,7 @@ require 'Include/Header.php';
 		<td align="center">
 			<input type="submit" class="btn" value="<?= gettext('Save') ?>" name="PaddleNumSubmit">
 			<input type="submit" class="btn" value="<?= gettext('Generate Statement') ?>" name="GenerateStatement">
-			<?php if ($_SESSION['bAddRecords']) {
+			<?php if ($_SESSION['user']->isAddRecordsEnabled()) {
     echo '<input type="submit" class="btn" value="'.gettext('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
 } ?>
 			<input type="button" class="btn" value="<?= gettext('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {

@@ -6,11 +6,6 @@
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2014
  *
-
-
-
-
- *
  ******************************************************************************/
 
 require '../Include/Config.php';
@@ -27,7 +22,7 @@ $sPageTitle = gettext('eMail Dashboard');
 require '../Include/Header.php';
 ?>
 <div class="row">
-  <div class="col-lg-4 col-md-2 col-sm-2">
+  <div class="col-lg-12 col-md-2 col-sm-2">
     <div class="box">
       <div class="box-header">
         <h3 class="box-title"><?= gettext('Email Export') ?></h3>
@@ -53,7 +48,7 @@ require '../Include/Header.php';
   <div class="row">
     <?php foreach ($mcLists as $list) {
         ?>
-      <div class="col-lg-4 col-md-2 col-sm-2">
+      <div class="col-lg-12 col-md-2 col-sm-2">
         <div class="box">
           <div class="box-header">
             <h3 class="box-title"><?= gettext('List') ?>: <?= $list['name'] ?></h3>
@@ -75,7 +70,7 @@ require '../Include/Header.php';
     } ?>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-2 col-sm-2">
+    <div class="col-lg-12 col-md-2 col-sm-2">
       <div class="box">
         <div class="box-header">
           <h3 class="box-title">MailChimp</h3>
@@ -90,7 +85,7 @@ require '../Include/Header.php';
   </div>
 <?php
 } else {
-        ?>
+?>
   <div class="row">
     <div class="col-lg-12 col-md-7 col-sm-3">
       <div class="box box-body">

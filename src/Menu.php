@@ -36,13 +36,13 @@ $updatedMembers = $dashboardService->getUpdatedMembers(12);
 //Newly added members from Active families
 $latestMembers = $dashboardService->getLatestMembers(12);
 
-if (!($_SESSION['bFinance'] || $_SESSION['bAdmin'])) {
+if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isAdmin())) {
    Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
    exit;
 }
 
 $depositData = false;  //Determine whether or not we should display the deposit line graph
-if ($_SESSION['bFinance']) {
+if ($_SESSION['user']->isFinanceEnabled()) {
     $deposits = DepositQuery::create()->filterByDate(['min' =>date('Y-m-d', strtotime('-90 days'))])->find();
     if (count($deposits) > 0) {
         $depositData = $deposits->toJSON();

@@ -69,7 +69,7 @@ require 'Include/Header.php'; ?>
                         </span>
                     </a><?= $family->getName() ?></td>
                 <?php    
-                if ($_SESSION['bSeePrivacyData'] || $_SESSION['bAdmin']) {
+                if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
                 ?>
                   <td> <?= $family->getAddress() ?></td>
                   <td><?= $family->getHomePhone() ?></td>
