@@ -16,22 +16,36 @@ use EcclesiaCRM\EventQuery;
 
 $event = EventQuery::Create()->findOneById($_GET['EID']);
 
+require_once 'Include/Header-function.php';
+require_once 'Include/Header-Security.php';
+
+// Turn ON output buffering
+ob_start();
+
 ?>
 <html>
-<head><title><?= gettext("Text from") ?> <?= "coucou".$event->getId() ?></title></head>
+<head>
+   <title><?= gettext("Text from") ?> <?= $event->getId() ?></title>
+   
+   
+  <?php
+  require 'Include/Header-HTML-Scripts.php';
+  Header_head_metatag();
+  ?>
+
+</head>
 </html>
-<table cellpadding="4" align="center" cellspacing="0" width="100%">
-  <caption>
-    <h3><?= gettext('Text for Event ID: ').$event->getTitle()."   (".$event->getId().")" ?></h3>
-  </caption>
-  <tr>
-    <td><?= $event->getText() ?></td>
-  </tr>
-  <tr>
-    <td align="center" valign="bottom">
-      <input type="button" name="Action" value="<?= gettext("Close Window") ?>" class="btn btn-success" onclick="javascript:window.close()">
-    </td>
-  </tr>
+
+  <div class="box-header with-border">
+      <h3><?= gettext('Text for Event ID')."   (".$event->getId().") : ".htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8') ?></h3></caption>
+  </div>
+  <div class="box-body">
+    <?= $event->getText() ?>
+    <center><input type="button" name="Action" value="<?= gettext("Close Window") ?>" class="btn btn-success" onclick="javascript:window.close()"></center>
+  </div>
 </html>
+<?php
+require 'Include/Footer-Short.php';
+?>
 
 

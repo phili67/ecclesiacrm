@@ -2451,8 +2451,8 @@ msgid "Remove from Cart"
 msgstr "Retirer du panier"
 
 #: GetText.php:28
-msgid "Text for Event ID: "
-msgstr "Texte pour l'ID de l&#39;événement: "
+msgid "Text for Event ID"
+msgstr "Texte pour de l'événement n°"
 
 #: GroupEditor.php:29
 msgid "Group Editor"
@@ -9958,3 +9958,6 @@ msgstr "Un document a été partagé avec vous"
 
 msgid "Shared documents"
 msgstr "Documents partagés"
+
+msgid "Close Window"
+msgstr "Fermer la fenêtre"
