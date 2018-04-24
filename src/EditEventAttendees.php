@@ -126,14 +126,7 @@ if ($numAttRows != 0) {
 <div class="col-sm-6">
 <form action="#" method="get" class="sidebar-form">
     <label for="addPersonMember"><?= gettext('Add Event Member') ?> :</label>
-    <select class="form-control personSearch" name="addPersonMember" style="width:100%">
-    </select>
-</form>
-</div>
-<div class="col-sm-6">
-<form action="#" method="get" class="sidebar-form">
-    <label for="addGroupMember"><?= gettext('Add All Group Members') ?> :</label>
-    <select class="form-control groupSearch" name="addGroupMember" style="width:100%">
+    <select class="form-control personGroupSearch" name="addPersonGroupSearch" style="width:100%">
     </select>
 </form>
 </div>

@@ -61,12 +61,14 @@ $(document).ready(function () {
     });
   });
 
-  $(".personSearch").select2({
+  $(".personGroupSearch").select2({
     minimumInputLength: 2,
     language: window.CRM.shortLocale,
+    placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
+    allowClear: true, // This is for clear get the clear button if wanted 
     ajax: {
       url: function (params) {
-        return window.CRM.root + "/api/persons/search/" + params.term;
+        return window.CRM.root + "/api/people/search/" + params.term;
       },
       dataType: 'json',
       delay: 250,
@@ -83,52 +85,39 @@ $(document).ready(function () {
     }
   });
 
-  $(".personSearch").on("select2:select", function (e) {
+  $(".personGroupSearch").on("select2:select", function (e) {
       
+      if (e.params.data.personID !== undefined) {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'events/person',
-            data: JSON.stringify({"EventID":window.CRM.currentEvent,"PersonId":e.params.data.objid})            
+            data: JSON.stringify({"EventID":window.CRM.currentEvent,"PersonId":e.params.data.personID})            
           }).done(function(data) {          
             $(".personSearch").val(null).trigger('change');
             //window.CRM.DataTableEventView.ajax.reload();
             window.location = window.location.href;
           });
-  });
-  
-  
-  $(".groupSearch").select2({
-    minimumInputLength: 2,
-    language: window.CRM.shortLocale,
-    ajax: {
-      url: function (params) {
-        return window.CRM.root + "/api/groups/search/" + params.term;
-      },
-      dataType: 'json',
-      delay: 250,
-      data: function (params) {
-        return {
-          q: params.term, // search term
-          page: params.page
-        };
-      },
-      processResults: function (rdata, page) {
-        return {results: rdata};
-      },
-      cache: true
-    }
-  });
-
-  $(".groupSearch").on("select2:select", function (e) {      
-      window.CRM.APIRequest({
-        method: 'POST',
-        path: 'events/group',
-        data: JSON.stringify({"EventID":window.CRM.currentEvent,"GroupID":e.params.data.objid})            
-      }).done(function(data) {          
-        $(".personSearch").val(null).trigger('change');
-        //window.CRM.DataTableEventView.ajax.reload();
-        window.location = window.location.href;
-      });
+      } else if (e.params.data.groupID !== undefined) {  
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'events/group',
+            data: JSON.stringify({"EventID":window.CRM.currentEvent,"GroupID":e.params.data.groupID})            
+          }).done(function(data) {          
+            $(".personSearch").val(null).trigger('change');
+            //window.CRM.DataTableEventView.ajax.reload();
+            window.location = window.location.href;
+          });
+      } else if (e.params.data.familyID !== undefined) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'events/family',
+            data: JSON.stringify({"EventID":window.CRM.currentEvent,"FamilyID":e.params.data.familyID})            
+          }).done(function(data) {          
+            $(".personSearch").val(null).trigger('change');
+            //window.CRM.DataTableEventView.ajax.reload();
+            window.location = window.location.href;
+          });
+      }
   });
   
 });
