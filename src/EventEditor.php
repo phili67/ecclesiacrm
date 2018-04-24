@@ -76,9 +76,9 @@ if ($sAction = 'Edit' && !empty($sOpp)) {
     $iEventID = $event->getId();
     $iTypeID = $event->getType();
     $sTypeName = $eventType->getName();
-    $sEventTitle = $event->getTitle();
-    $sEventDesc = $event->getDesc();
-    $sEventText = $event->getText();
+    $sEventTitle = stripslashes($event->getTitle());
+    $sEventDesc = stripslashes($event->getDesc());
+    $sEventText = stripslashes($event->getText());
     $aStartTokens = explode(' ', $event->getStart()->format('Y-m-d H:i:s'));
     $sEventStartDate = $aStartTokens[0];
     $aStartTimeTokens = explode(':', $aStartTokens[1]);
@@ -111,8 +111,8 @@ if ($sAction = 'Edit' && !empty($sOpp)) {
     $iEventID = $_POST['EventID'];
     $iTypeID = $_POST['EventTypeID'];
     $EventExists = $_POST['EventExists'];
-    $sEventTitle = $_POST['EventTitle'];
-    $sEventDesc = $_POST['EventDesc'];
+    $sEventTitle = stripslashes($_POST['EventTitle']);
+    $sEventDesc = stripslashes($_POST['EventDesc']);
     if (empty($_POST['EventTypeID'])) {
         $bEventTypeError = true;
         $iErrors++;
@@ -120,7 +120,7 @@ if ($sAction = 'Edit' && !empty($sOpp)) {
         $eventType = EventTypesQuery::Create()->findOneById(InputUtils::LegacyFilterInput($iTypeID));
         $sTypeName = $eventType->getName();
     }
-    $sEventText = $_POST['EventText'];
+    $sEventText =  stripslashes($_POST['EventText']);
     if ($_POST['EventStatus'] === null) {
         $bStatusError = true;
         $iErrors++;
