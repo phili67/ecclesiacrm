@@ -38,7 +38,10 @@
       });
     }
     
-    window.CRM.notify = function(icon,title,message,link,type,place,delay=6000) {
+    window.CRM.notify = function(icon,title,message,link,type,place,delay) {
+      if (delay === undefined) {
+        delay = 6000;
+      }
       $.notify({
         // options
         icon: icon,

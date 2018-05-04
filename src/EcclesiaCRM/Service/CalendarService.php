@@ -2,10 +2,11 @@
 /*******************************************************************************
  *
  *  filename    : CalendarService.php
- *  last change : 2017-11-16
- *  Copyright 2018 Logel Philippe All rights reserved
+ *  last change : 2018-05-04
+ *  Copyright 2018 Logel Philippe All rights reserved not MIT Licence
  *
  ******************************************************************************/
+ 
 namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\EventQuery;

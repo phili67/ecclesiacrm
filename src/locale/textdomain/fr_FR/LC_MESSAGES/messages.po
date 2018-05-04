@@ -2759,7 +2759,10 @@ msgstr "Afficher les événements du mois"
 
 #: ListEvents.php:209
 msgid "Start Date/Time"
-msgstr "Date/heure de début"
+msgstr "Date/heure de Début"
+
+msgid "End Date/Time"
+msgstr "Date/heure de Fin"
 
 #: ListEvents.php:285
 msgid "No Attendance Recorded"
@@ -5491,7 +5494,7 @@ msgid "Closed:"
 msgstr "Fermé:"
 
 #: eGive.php:262
-msgid "Start Date: "
+msgid "Start Date "
 msgstr "À partir de :"
 
 #: eGive.php:264
@@ -9961,3 +9964,78 @@ msgstr "Documents partagés"
 
 msgid "Close Window"
 msgstr "Fermer la fenêtre"
+
+msgid "Event Calendar"
+msgstr "Evénements Calendrier"
+
+msgid "Set Calendar Name"
+msgstr "Choisir un nom de calendrier"
+
+msgid "Personal Calendar"
+msgstr "Calendrier personnel"
+
+
+msgid "Shared"
+msgstr "Partagés"
+
+msgid "Calendar Owner"
+msgstr "Calendrier Perso"
+
+msgid "Modify Share Name"
+msgstr "Modifier Nom du partage"
+
+msgid "Modify Group Name"
+msgstr "Modifier Nom du Groupe"
+
+
+msgid "Modify Calendar Name"
+msgstr "Modifier Nom du calendrier"
+
+msgid "Exclude/include Calendars"
+msgstr "Exclure/Inclure calendriers"
+
+msgid "Add New Calendar" 
+msgstr "Ajouter Nouveau Calendrier"
+
+msgid "Exclude/include Groups"
+msgstr "Exclure/Inclure Groupes"
+
+msgid "To add a Group Calendar"
+msgstr "Pour ajouter un nouveau Calendrier"
+
+msgid "Add a new group"
+msgstr "Ajouter Nouveau Groupe"
+
+msgid "Calendars"
+msgstr "Calendriers"
+ 
+msgid "You'll lose the calendar"
+msgstr "Vous allez perdre votre calendrier"
+
+
+msgid "the events and all the share calendars too. This cannot be undone."
+msgstr "les événements et tous les calendriers partagés aussi. Cette action ne peut être annulée."
+
+msgid "Are you sure?"
+msgstr "Êtes-vous sûr ?"
+
+msgid "Manage"
+msgstr "Gestion"
+
+msgid "Calendar Management for"
+msgstr "Gention de calendrier pour"
+
+msgid "For thunderbird the URL is"
+msgstr "Pour Thundernird l'URL est"
+
+msgid "Limit"
+msgstr "Limiter"
+
+msgid "No Limit"
+msgstr "Non Limiter"
+
+msgid "By Types"
+msgstr "Par Types"
+
+msgid "Personals"
+msgstr "Personnels"

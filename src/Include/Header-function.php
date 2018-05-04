@@ -329,12 +329,12 @@ function addMenuItem($ormMenu, $mIdx)
                 
                 if ($ormMenu->getContent() == 'Edit Deposit Slip') {
                   if (empty($deposit)) {
-                    echo "<li><a href='$link' style='display: none;' class='deposit-current-deposit-item'";
+                    echo "\n<li><a href='$link' style='display: none;' class='deposit-current-deposit-item'";
                   } else {
-                    echo "<li><a href='$link' class='deposit-current-deposit-item'>";
+                    echo "\n<li><a href='$link' class='deposit-current-deposit-item'>";
                   }
                 } else {
-                  echo "<li><a href='$link'>";
+                  echo "\n<li><a href='$link'>";
                 }
                 
                 if ($ormMenu->getIcon() != '') {
@@ -355,7 +355,7 @@ function addMenuItem($ormMenu, $mIdx)
                     echo '</a>';
                 }
             } elseif ($ormMenu->getName() == 'listgroups') {
-                echo "<li><a href='" . SystemURLs::getRootPath() . "/GroupList.php'><i class='fa fa-angle-double-right'></i>" . gettext('List Groups') . '</a></li>';
+                echo "\n<li><a href='" . SystemURLs::getRootPath() . "/GroupList.php'><i class='fa fa-angle-double-right'></i>" . gettext('List Groups') . '</a></li>';
 
                 $listOptions = ListOptionQuery::Create()
                     ->filterById(3)
@@ -370,7 +370,7 @@ function addMenuItem($ormMenu, $mIdx)
                             ->find();
 
                         if (count($groups)>0) {// only if the groups exist : !empty doesn't work !
-                            echo "<li><a href='#'><i class='fa fa-user-o'></i>" . $listOption->getOptionName(). '</a>';
+                            echo "\n<li><a href='#'><i class='fa fa-user-o'></i>" . $listOption->getOptionName(). '</a>';
                             echo '<ul class="treeview-menu">';
 
                             foreach ($groups as $group) {
@@ -379,7 +379,7 @@ function addMenuItem($ormMenu, $mIdx)
                                     $str = substr($str, 0, $maxStr-3)." ...";
                                 }
 
-                                echo "<li><a href='" . SystemURLs::getRootPath() . '/GroupView.php?GroupID=' . $group->getID() . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
+                                echo "\n<li><a href='" . SystemURLs::getRootPath() . '/GroupView.php?GroupID=' . $group->getID() . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
                             }
                             echo '</ul></li>';
                         }
@@ -393,13 +393,13 @@ function addMenuItem($ormMenu, $mIdx)
                             ->find();
 
                 if (count($groups)>0) {// only if the groups exist : !empty doesn't work !
-                    echo "<li><a href='#'><i class='fa fa-user-o'></i>" . gettext("Unassigned"). '</a>';
-                    echo '<ul class="treeview-menu">';
+                    echo "\n<li><a href='#'><i class='fa fa-user-o'></i>" . gettext("Unassigned"). '</a>';
+                    echo '\n<ul class="treeview-menu">';
 
                     foreach ($groups as $group) {
-                        echo "<li><a href='" . SystemURLs::getRootPath() . '/GroupView.php?GroupID=' . $group->getID() . "'><i class='fa fa-angle-double-right'></i> " . $group->getName() . '</a></li>';
+                        echo "\n<li><a href='" . SystemURLs::getRootPath() . '/GroupView.php?GroupID=' . $group->getID() . "'><i class='fa fa-angle-double-right'></i> " . $group->getName() . '</a></li>';
                     }
-                    echo '</ul></li>';
+                    echo '\n</ul>';
                 }
             }
         } else {
@@ -470,7 +470,7 @@ function addMenuItem($ormMenu, $mIdx)
 
 
             if ($ormMenu->getName() == 'sundayschool') {
-                echo "<li><a href='" . SystemURLs::getRootPath() . "/sundayschool/SundaySchoolDashboard.php'><i class='fa fa-angle-double-right'></i>" . gettext('Dashboard') . '</a></li>';
+                echo "\n<li><a href='" . SystemURLs::getRootPath() . "/sundayschool/SundaySchoolDashboard.php'><i class='fa fa-angle-double-right'></i>" . gettext('Dashboard') . '</a></li>';
 
                 $property = '';
                 while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
@@ -479,7 +479,7 @@ function addMenuItem($ormMenu, $mIdx)
                             echo '</ul></li>';
                         }
 
-                        echo '<li><a href="#"><i class="fa fa-user-o"></i><pan>'.$aRow[pro_Name].'</span></a>';
+                        echo '<li><a href="#"><i class="fa fa-user-o"></i><span>'.$aRow[pro_Name].'</span></a>';
                         echo '<ul class="treeview-menu">';
 
 
@@ -491,7 +491,7 @@ function addMenuItem($ormMenu, $mIdx)
                         $str = substr($str, 0, $maxStr-3)." ...";
                     }
 
-                    echo "<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
+                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
                 }
                 
                 /*foreach ($ormAssignedProperties as $ormAssignedProperty) {
@@ -500,7 +500,7 @@ function addMenuItem($ormMenu, $mIdx)
                             echo '</ul></li>';
                         }
 
-                        echo '<li><a href="#"><i class="fa fa-user-o"></i><pan>'.$ormAssignedProperty->getProName().'</span></a>';
+                        echo '<li><a href="#"><i class="fa fa-user-o"></i><span>'.$ormAssignedProperty->getProName().'</span></a>';
                         echo '<ul class="treeview-menu">';
 
 
@@ -512,7 +512,7 @@ function addMenuItem($ormMenu, $mIdx)
                         $str = substr($str, 0, $maxStr-3)." ...";
                     }
 
-                    echo "<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $ormAssignedProperty->getGroupId() . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
+                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $ormAssignedProperty->getGroupId() . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
                 }*/
 
                 if (!empty($property)) {
@@ -526,7 +526,7 @@ function addMenuItem($ormMenu, $mIdx)
                         $str = substr($str, 0, $maxStr-3)." ...";
                     }
 
-                    echo "<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " . $str . '</a></li>';
+                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " . $str . '</a></li>';
                 }
             }
         }

@@ -208,8 +208,17 @@
     addAttendees(typeID);
   });
   
-  function addAttendees(typeID,first_time=true,eventID=0)
+  function addAttendees(typeID,first_time,eventID)
   {
+    if (first_time === undefined) {
+      first_time = true;
+    } 
+    
+    if (eventID === undefined) {
+      eventID = 0;
+    } 
+    
+
     if (first_time) {
       $('.ATTENDENCES-title').slideDown();
     }
@@ -268,8 +277,16 @@
     }); 
   }
   
-  function addCalendarEventTypes(typeId=0,bAddAttendees=false)
+  function addCalendarEventTypes(typeId,bAddAttendees)
   {
+    if (typeId === undefined) {
+      typeId = 0;
+    }
+    
+    if (bAddAttendees === undefined) {
+      bAddAttendees = false;
+    } 
+      
     window.CRM.APIRequest({
           method: 'GET',
           path: 'events/types',

@@ -71,10 +71,6 @@ $app->group('/events', function () {
              
         $return = [];       
         
-        $values['eventTypeID'] = 0;
-        $values['name'] = gettext("Personal Calendar");
-        array_push($return, $values);
-            
         foreach ($eventTypes as $eventType) {
             $values['eventTypeID'] = $eventType->getID();
             $values['name'] = $eventType->getName();

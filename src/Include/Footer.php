@@ -265,8 +265,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <!-- This div must placed right after the sidebar for it to work-->
 <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-</div><!-- ./wrapper -->
 
 <!-- Bootstrap 3.3.5 -->
 
