@@ -11,7 +11,13 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\PrincipalsQuery;
+use EcclesiaCRM\Principals;
 use Propel\Runtime\ActiveQuery\Criteria;
+
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use Propel\Runtime\Propel;
 
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
@@ -29,20 +35,36 @@ class User extends BaseUser
         return $this->getPersonId();
     }
     
-    public function preDelete()
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
     {
-                
-        $this->deleteHomeDir();
+        if (parent::preDelete($con)) {                
+          $this->deleteHomeDir();
 
-        return true;
-    }
-    
+          return true;
+        }
+        
+        return false;
+    }  
+      
     public function renameHomeDir($oldUserName,$newUserName)
     {
        try {
             rename(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($oldUserName),dirname(__FILE__)."/../../../"."private/userdir/".strtolower($newUserName));
             $this->setHomedir("private/userdir/".strtolower($newUserName));
             $this->save();
+            
+            // transfert the calendars to a user
+            // now we code now in Sabre        
+            $pdo = Propel::getConnection();                 
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+            $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+            
+
+            $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
+            $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
+            
+            // puis on delete le user
+            $principalBackend->deletePrincipal('principals/'.$oldUserName);
        } catch (Exception $e) {
             throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
        }       
@@ -54,6 +76,16 @@ class User extends BaseUser
             mkdir(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()), 0755, true);
             $this->setHomedir("private/userdir/".strtolower($this->getUserName()));
             $this->save();
+            
+            // now we code in Sabre        
+            $pdo = Propel::getConnection();                 
+            $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+            
+            $res = $principalBackend->getPrincipalByPath ("principals/".strtolower( $this->getUserName() ));
+            
+            if (empty($res)) {            
+              $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
+            }
        } catch (Exception $e) {
             throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
        }       
@@ -61,6 +93,13 @@ class User extends BaseUser
 
     public function deleteHomeDir()
     {
+      // we code first in Sabre
+      $pdo = Propel::getConnection();
+      $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+            
+      $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
+
+      // we code now in propel      
       MiscUtils::delTree(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()));
       
       $this->setHomedir(null);

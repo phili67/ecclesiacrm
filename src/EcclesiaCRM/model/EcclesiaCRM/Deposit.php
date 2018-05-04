@@ -30,13 +30,18 @@ use DateTimeZone;
  */
 class Deposit extends BaseDeposit
 {
-    public function preDelete()
+
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
     {
-        $this->getPledges()->delete();
+        if (parent::preDelete($con)) {                
+          $this->getPledges()->delete();
 
-        return true;
+          return true;
+        }
+        
+        return false;
     }
-
+    
     public function getOFX()
     {
         $OFXReturn = new \stdClass();
