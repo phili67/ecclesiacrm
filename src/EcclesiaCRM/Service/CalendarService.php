@@ -4,7 +4,7 @@
  *
  *  filename    : CalendarService.php
  *  last change : 2017-11-16
- *  Copyright 2017 Logel Philippe
+ *  Copyright 2018 Logel Philippe All rights reserved
  *
  ******************************************************************************/
 
@@ -17,6 +17,22 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\EventCountsQuery;
+
+use EcclesiaCRM\Utils\MiscUtils;
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
+
 
 class CalendarService
 {
@@ -32,6 +48,9 @@ class CalendarService
 
     public function getEvents($start, $end)
     {
+        $origStart = $start;
+        $origEnd   = $end;
+        
         $events = [];
 
         $startDate = date_create($start);
@@ -107,35 +126,102 @@ class CalendarService
           }
         }
         
-        $activeEvents = EventQuery::create()
-          ->filterByInActive('false')
-          ->orderByStart()
-          ->find();
         
-        foreach ($activeEvents as $evnt) {
-          $event = $this->createCalendarItem('event',
-          $evnt->getTitle(), $evnt->getStart('Y-m-d H:i:s'), $evnt->getEnd('Y-m-d H:i:s'), ''/*$evnt->getEventURI()*/,$evnt->getID(),$evnt->getType(),$evnt->getGroupId(),$evnt->getDesc(),$evnt->getText(),$evnt->getEventParentId());// only the event id sould be edited and moved and have custom color
-          array_push($events, $event);
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+
+        // get all the calendars for the current user
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()));
+
+        foreach ($calendars as $calendar) {
+          $calendarName        = $calendar['{DAV:}displayname'];
+          $calendarColor       = $calendar['{http://apple.com/ns/ical/}calendar-color'];
+          $writeable           = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?true:false;
+          $calendarUri         = $calendar['uri'];
+          $calendarID          = $calendar['id'];
+          $groupID             = $calendar['grpid'];
+          
+          if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the calendars are present or not
+            continue;
+          }
+          
+          // we get all the events for the Cal
+          $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
+          
+          foreach ($eventsForCal as $eventForCal) {
+            $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
+            
+            if ($evnt != null) {
+            
+              $calObj = $calendarBackend->getCalendarObject($calendar['id'],$eventForCal['uri']);
+      
+              $freqEvents = $calendarBackend->extractCalendarData($calObj['calendardata'],$origStart,$origEnd);
+              
+              if ($freqEvents == null) {
+                continue;
+              }
+            
+              $title = $evnt->getTitle();
+              $desc  = $evnt->getDesc();
+              $start = $evnt->getStart('Y-m-d H:i:s');
+              $end   = $evnt->getEnd('Y-m-d H:i:s');
+              $id    = $evnt->getID();
+              $subid = 1;
+              $type  = $evnt->getType();
+              $desc  = $evnt->getDesc();
+              $grpID = $evnt->getGroupId();
+              $loc   = "";
+              $text  = $evnt->getText();
+              $parID = 0;//$evnt->getEventParentId();
+              $calID = $calendar['id'];
+              $fEvnt = false;
+    
+              foreach ($freqEvents as $key => $value) {      
+                if ($key == 'freq' && $value != 'none') {        
+                  $fEvnt = true;              
+                } elseif ($key == 'freqEvents' && $fEvnt == true) { // we are in front of a recurrence event !!!
+                  foreach ($value as $freqValue) {
+                    $title = $freqValue['SUMMARY'];
+                    $start = $freqValue['DTSTART'];
+                    $end = $freqValue['DTEND'];
+                  
+                    $event = $this->createCalendarItem('event',
+                      $title, $start, $end, 
+                     '',$id,$type,$grpID,
+                      $desc,$text,$parID,$calID,$calendarColor,$subid++,1,$start,$writeable);// only the event id sould be edited and moved and have custom color
+            
+                    array_push($events, $event);
+                  }
+                }
+              }
+            
+              if ($fEvnt == false) {
+                $event = $this->createCalendarItem('event',
+                  $title, $start, $end, 
+                 '',$id,$type,$grpID,
+                  $desc,$text,$parID,$calID,$calendarColor);// only the event id sould be edited and moved and have custom color
+            
+                array_push($events, $event);
+              }
+              
+            }            
+          }
         }
 
         return $events;
     }
     
-    private function toColor($n) {// so the color is now in function of the group
-      $n = crc32($n);
-      $n &= 0xffffffff;
-      return ("#".substr("000000".dechex($n),-6));
-    }
-
-    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$parentID=0)
+    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$parentID=0,$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=true)
     {
         $event = [];
         switch ($type) {
           case 'birthday':
             $event['backgroundColor'] = '#f56954';
-            break;
-          case 'event':
-            $event['backgroundColor'] = $this->toColor($groupID);
             break;
           case 'anniversary':
             $event['backgroundColor'] = '#0000ff';
@@ -149,10 +235,8 @@ class CalendarService
         if ($end != '') {
             $event['end'] = $end;
             $event['allDay'] = false;
-        }
-        else 
-        {
-         $event['allDay'] = true;
+        } else {
+            $event['allDay'] = true;
         }
         if ($uri != '') {
             $event['url'] = $uri;
@@ -166,7 +250,25 @@ class CalendarService
           $event['groupID'] = $groupID;
           $event['Desc'] = $desc;
           $event['Text'] = $text;   
-          $event['parentID'] = $parentID;   
+          $event['parentID'] = $parentID;
+          $event['recurrent'] = $recurrent;
+          $event['writeable'] = $writeable;
+          
+          if ($calendarid != null) {
+            $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;   
+          }
+          
+          if ($backgroundColor != null) {
+            $event['backgroundColor'] = $backgroundColor;
+          }
+          
+          $event['subID'] = $subid; 
+          
+          $event['subOldDate'] = '';
+          if (!empty($subOldDate) ) {  
+            $event['subOldDate'] = $subOldDate; 
+          }
+          
           
           $eventCounts = EventCountsQuery::Create()->findByEvtcntEventid($eventID);
           
