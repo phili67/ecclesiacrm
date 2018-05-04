@@ -269,6 +269,7 @@
             "3.6.2"
         ],
         "scripts": [
+            "/mysql/upgrade/4.0.0-upgrade.sql",
             "/mysql/upgrade/4.0.0-upgrade.php"
         ],
         "dbVersion": "4.0.0"
