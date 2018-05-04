@@ -39,6 +39,14 @@ class User extends BaseUser
     {
         if (parent::preDelete($con)) {                
           $this->deleteHomeDir();
+          
+          // transfert the calendars to a user
+          // now we code now in Sabre        
+          $pdo = Propel::getConnection();                 
+          $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+          
+          // puis on delete le user
+          $principalBackend->deletePrincipal('principals/'.$this->getUserName());
 
           return true;
         }
@@ -48,26 +56,28 @@ class User extends BaseUser
       
     public function renameHomeDir($oldUserName,$newUserName)
     {
-       try {
-            rename(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($oldUserName),dirname(__FILE__)."/../../../"."private/userdir/".strtolower($newUserName));
-            $this->setHomedir("private/userdir/".strtolower($newUserName));
-            $this->save();
+      if ($oldUserName != $newUserName) {
+         try {
+              rename(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($oldUserName),dirname(__FILE__)."/../../../"."private/userdir/".strtolower($newUserName));
+              $this->setHomedir("private/userdir/".strtolower($newUserName));
+              $this->save();
             
-            // transfert the calendars to a user
-            // now we code now in Sabre        
-            $pdo = Propel::getConnection();                 
-            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-            $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+              // transfert the calendars to a user
+              // now we code now in Sabre        
+              $pdo = Propel::getConnection();                 
+              $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+              $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
             
 
-            $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
-            $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
+              $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
+              $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
             
-            // puis on delete le user
-            $principalBackend->deletePrincipal('principals/'.$oldUserName);
-       } catch (Exception $e) {
-            throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
-       }       
+              // We delete the principal user => it will delete the calendars and events too.
+              $principalBackend->deletePrincipal('principals/'.$oldUserName);
+         } catch (Exception $e) {
+              throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
+         }
+      }
     }
     
     public function createHomeDir()

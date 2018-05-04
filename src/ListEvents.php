@@ -812,6 +812,7 @@ foreach ($allMonths as $mVal) {
          addCalendars(calEvent.calendarID);
          addCalendarEventTypes(calEvent.eventTypeID,false);
          addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
+         setActiveState(calEvent.inActive);
 
          //Timepicker
          $('.timepicker').timepicker({

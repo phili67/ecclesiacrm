@@ -110,6 +110,7 @@ $app->group('/events', function () {
           $arr['end'] = $event->getEnd('Y-m-d H:i:s');
           $arr['calendarID'] = [$event->getEventCalendarid(),0];
           $arr['eventTypeID'] = $event->getType();
+          $arr['inActive'] = $event->getInActive();
           
           return $response->withJson($arr); 
           

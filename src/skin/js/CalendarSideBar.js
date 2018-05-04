@@ -276,7 +276,7 @@
                 path: 'calendar/shareperson',
                 data: JSON.stringify({"calIDs":calIDs,"personID": e.params.data.personID,"notification":notification})
            }).done(function(data) { 
-             addPersonsFromCalendar();
+             addPersonsFromCalendar(calIDs);
            });
         } else if (e.params.data.groupID !== undefined) {
            window.CRM.APIRequest({

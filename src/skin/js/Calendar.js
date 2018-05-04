@@ -354,6 +354,12 @@
     });  
   }
   
+  function setActiveState(value)
+  {
+    $("input[name='EventStatus'][value='"+value+"']").prop('checked', true);
+  }
+  
+  
   function BootboxContent(start,end){  
     var time_format;
     var fmt = window.CRM.datePickerformat.toUpperCase();
