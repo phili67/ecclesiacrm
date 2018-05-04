@@ -28,7 +28,6 @@ use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\EventCountNameQuery;
@@ -48,6 +47,7 @@ $iAdultID = 0;
 if (array_key_exists('EventID', $_POST)) {
    // from ListEvents button=Attendees
    $EventID = InputUtils::LegacyFilterInput($_POST['EventID'], 'int');
+   $_SESSION['EventID'] = $EventID;
 } else if (isset ($_SESSION['EventID'])) {
    // from api/routes/events.php
    $EventID = InputUtils::LegacyFilterInput($_SESSION['EventID'], 'int');
@@ -244,7 +244,7 @@ if ($FreeAttendees) {
 ?>
 
 <?php 
-  if (!empty($eventCountNames)) {
+  if (!empty($eventCountNames) != null && $eventCountNames->count() > 0) {
 ?>
 <!-- Add Free Attendees Form -->
  <div class="panel panel-primary">
@@ -681,6 +681,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
     </div>
   <?php
 }
+
 ?>
 
 <div>
@@ -693,6 +694,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+<?php if (isset($_POST['EventID']) || isset ($_SESSION['EventID'])) { ?>
     var perArr;
     $(document).ready(function () {
         $('#checkedinTable').DataTable({
@@ -762,6 +764,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
             element.addClass('hidden');
         }
     }
+<?php } ?>
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>

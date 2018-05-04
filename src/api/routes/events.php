@@ -3,11 +3,11 @@
 /*******************************************************************************
  *
  *  filename    : events.php
- *  last change : 2017-11-16
+ *  last change : 2018-05-1
  *  description : manage the full calendar with events
  *
  *  http://www.ecclesiacrm.com/
- *  Copyright 2018 Logel Philippe all rights reserved
+ *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
@@ -28,6 +28,22 @@ use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Person;
+
+use EcclesiaCRM\CalendarinstancesQuery;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
 
 $app->group('/events', function () {
 
@@ -53,7 +69,12 @@ $app->group('/events', function () {
               ->orderByName()
               ->find();
              
-        $return = [];           
+        $return = [];       
+        
+        $values['eventTypeID'] = 0;
+        $values['name'] = gettext("Personal Calendar");
+        array_push($return, $values);
+            
         foreach ($eventTypes as $eventType) {
             $values['eventTypeID'] = $eventType->getID();
             $values['name'] = $eventType->getName();
@@ -76,6 +97,30 @@ $app->group('/events', function () {
         }
         
         return $response->withJson($return);    
+    });
+    
+    $this->post('/info', function ($request, $response, $args) {
+        $input = (object)$request->getParsedBody();
+        
+        if (isset ($input->eventID) ){
+          $event = EventQuery::Create()->findOneById($input->eventID);
+          
+          
+          $arr['eventID'] = $event->getId();                   
+          $arr['Title'] = $event->getTitle();
+          $arr['Desc'] = $event->getDesc();
+          $arr['Text'] = $event->getText();
+          $arr['start'] = $event->getStart('Y-m-d H:i:s');
+          $arr['end'] = $event->getEnd('Y-m-d H:i:s');
+          $arr['calendarID'] = [$event->getEventCalendarid(),0];
+          $arr['eventTypeID'] = $event->getType();
+          
+          return $response->withJson($arr); 
+          
+        }   
+        
+        return $response->withJson(['status' => "failed"]);
+
     });
     
     $this->post('/person',function($request, $response, $args) {
@@ -192,17 +237,75 @@ $app->group('/events', function () {
     });
   
     $this->post('/', function ($request, $response, $args) {
-      if(!$_SESSION['bAddEvent'] && !$_SESSION['user']->isAdmin()) {
+      /*if(!$_SESSION['bAddEvent'] && !$_SESSION['user']->isAdmin()) {
         return $response->withStatus(401);
-      }
+      }*/
       
       $input = (object) $request->getParsedBody();
       
       if (!strcmp($input->evntAction,'createEvent'))
       {
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+      
+        $vcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+        
+        $calIDs = explode(",",$input->calendarID);
+        
+        if (!empty($input->recurrenceValid)) {        
+        
+          $vcalendar->add(
+          'VEVENT', [
+              'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+              'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+              'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+              'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+              'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+              'DESCRIPTION' => $input->EventDesc,
+              'SUMMARY' => $input->EventTitle,
+              'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
+              'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
+              'SEQUENCE' => '0',
+              'TRANSP' => 'OPAQUE'
+          ]);
+        
+        } else {
+        
+          $vcalendar->add(
+           'VEVENT', [
+            'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+            'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+            'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DESCRIPTION' => $input->EventDesc,              
+            'SUMMARY' => $input->EventTitle,
+            'UID' => $uuid,
+            'SEQUENCE' => '0',
+            'TRANSP' => 'OPAQUE'
+          ]);
+          
+        }
+
+        // Now we move to propel, to finish the put extra infos
+        $calendarId = $calIDs[0];
+
+        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());        
+          
+        $Id = $calIDs[1];          
+        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+        
+        $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
         
-        $EventGroupType = $input->EventGroupType;// for futur dev : personal or group
+        $EventCalendarType = $input->EventCalendarType;
+        
         
         if ($input->eventTypeID)
         {
@@ -211,55 +314,17 @@ $app->group('/events', function () {
            $eventTypeName = $type->getName();
         }
         
-        $begin = new DateTime( str_replace("T"," ",$input->start) );
-        $endRecurrance = new DateTime( str_replace("T"," ",$input->endRecurrance) );
+        $event->setType($input->eventTypeID);
+        $event->setTypeName($eventTypeName);
+        $event->setInActive($input->eventInActive);
         
-        $endFirsEvent = new DateTime( str_replace("T"," ",$input->end) );
-        $intervalEndStart = $begin->diff($endFirsEvent);
-
-        if ($begin == $endRecurrance) {// we are in the case of a one time event, this is to have only one event
-          $endRecurrance = $endRecurrance->modify( '+1 week' );
-        }
-
-        $interval = DateInterval::createFromDateString($input->recurranceType);// recurrance type is : 1 week, 1 Month, 3 months, 6 months, 1 Year
-        $period = new DatePeriod($begin, $interval, $endRecurrance);// so we create the period
+        // we set the groupID to manage correctly the attendees : Historical
+        $event->setGroupId ($calendar->getGroupId());
         
-        $parent_id = 0;
-        $first_event = nil;
-
-        foreach($period as $dt) {        
-           $event = new Event; 
-           $event->setTitle($input->EventTitle);
-           $event->setType($input->eventTypeID);
-           $event->setTypeName($eventTypeName);
-           $event->setDesc($input->EventDesc);                      
-         
-           if ($input->EventGroupID>0) {
-              $event->setGroupId($input->EventGroupID);
-           }
-           
-           $event->setStart( $dt->format( "Y-m-d H:i:s" ) );
-           
-           $newEndDate = new DateTime($dt->format( "Y-m-d H:i:s" ));
-           $newEndDate->add($intervalEndStart);
-           
-           $event->setEnd( $newEndDate->format( "Y-m-d H:i:s" ) );
-           $event->setText(InputUtils::FilterHTML($input->eventPredication));
-           $event->setInActive($input->eventInActive);
-           $event->save(); 
-           
-           if ($parent_id == 0) {
-              $parent_id = $event->getID();
-              $first_event = $event;
-           }
-           
-           if ($input->recurranceValid) {// we can store the parent id for all the event the first one too
-             $event->setEventParentId ($parent_id);
-             $event->save(); 
-           }
-         
-           if (!empty($input->Fields)){         
-             foreach ($input->Fields as $field) {
+        $event->save();        
+        
+        if (!empty($input->Fields)){         
+          foreach ($input->Fields as $field) {
                $eventCount = new EventCounts; 
                $eventCount->setEvtcntEventid($event->getID());
                $eventCount->setEvtcntCountid($field['countid']);
@@ -267,12 +332,14 @@ $app->group('/events', function () {
                $eventCount->setEvtcntCountcount($field['value']);
                $eventCount->setEvtcntNotes($input->EventCountNotes);
                $eventCount->save();
-             }
-           }
-         
-           if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
+          }
+        }
+        
+        $event->save();
+        
+        if ($event->getGroupId() && $input->addGroupAttendees) {// add Attendees
              $persons = Person2group2roleP2g2rQuery::create()
-                ->filterByGroupId($input->EventGroupID)
+                ->filterByGroupId($event->getGroupId())
                 ->find();
 
              if ($persons->count() > 0) {
@@ -303,76 +370,181 @@ $app->group('/events', function () {
             
               $_SESSION['EventID'] = $event->getID();
             }
-          }
         }
-     
+          
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $first_event->getTitle(), $first_event->getStart('Y-m-d H:i:s'), $first_event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,
-            $first_event->getId(),$first_event->getType(),$first_event->getGroupId(),$input->EventDesc,$input->eventPredication,
-            $first_event->getEventParentId());// only the event id sould be edited and moved and have custom color
+            $input->EventTitle, $input->start, $input->end, '',
+            $event->getId(),$type,0,$input->EventDesc,$input->eventPredication,
+            0);// only the event id sould be edited and moved and have custom color
       
         return $response->withJson(array_filter($realCalEvnt));
+
      } 
      else if ($input->evntAction == 'moveEvent')
      {
-       $first_event = EventQuery::Create()
-            ->findOneById($input->eventID);
-
-       $oldStart = new DateTime($first_event->getStart('Y-m-d H:i:s'));
-       $oldEnd = new DateTime($first_event->getEnd('Y-m-d H:i:s'));
-
-       $newStart = new DateTime(str_replace("T"," ",$input->start));
- 
-       if ($newStart < $oldStart)
-       {
-         $interval = $oldStart->diff($newStart);
-         $action = +1;
-       } else {
-         $interval = $newStart->diff($oldStart);         
-         $action = -1;
-       }
-
-       if (isset ($input->parentID)) {
-          $events = EventQuery::Create()
-            ->findByEventParentId($input->parentID);
+     
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);
           
-          foreach ($events as $event) {
-            $oldStart = new DateTime($event->getStart('Y-m-d H:i:s'));
-            $oldEnd = new DateTime($event->getEnd('Y-m-d H:i:s'));
+        $vcalendar = VObject\Reader::read($event['calendardata']);
+        
+        if ( isset($input->allEvents) && isset($input->eventStart) ) {
+        
+          if ( $input->allEvents == true) { // we'll move all the events
+        
+            $exdates = [];
+                
+            $oldStart = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
+            $oldEnd   = new \DateTime ($vcalendar->VEVENT->DTEND->getDateTime()->format('Y-m-d H:i:s'));
             
-            if ($action == +1) {
-              $newStart = $oldStart->add($interval);
-              $newEnd = $oldEnd->add($interval);
+            $oldSubStart = new \DateTime($input->eventStart);
+            $newSubStart = new \DateTime($input->start);
+
+            if ($newSubStart < $oldSubStart) {
+               $interval    = $oldSubStart->diff($newSubStart);
+               
+               $newStart    = $oldStart->add($interval);
+               $newEnd      = $oldEnd->add($interval);
+               
+               $action = +1;
             } else {
-              $newStart = $oldStart->sub($interval);
-              $newEnd = $oldEnd->sub($interval);
+               $interval = $newSubStart->diff($oldSubStart);    
+               
+               $newStart    = $oldStart->sub($interval);     
+               $newEnd      = $oldEnd->sub($interval);
+               
+               $action = -1;
+            } 
+            
+        
+            $oldrule      = $vcalendar->VEVENT->RRULE;
+            $oldruleSplit = explode ("UNTIL=",$oldrule);
+        
+            $oldRuleFreq       = $oldruleSplit[0];
+            $oldRuleFinishDate = new \DateTime($oldruleSplit[1]);
+        
+            if ($action == +1) {
+              $newrule = $oldRuleFreq."UNTIL=".$oldRuleFinishDate->add($interval)->format('Ymd\THis');
+            } else {
+              $newrule = $oldRuleFreq."UNTIL=".$oldRuleFinishDate->sub($interval)->format('Ymd\THis');
             }
+        
+            foreach($vcalendar->VEVENT->EXDATE as $exdate) {
+             
+                $ex_date = new \DateTime ($exdate);
+
+                if ($action == +1) {
+                  $new_ex_date = $ex_date->add($interval);
+                } else {
+                  $new_ex_date = $ex_date->sub($interval);
+                }
             
-            $event->setStart($newStart->format('Y-m-d H:i:s'));
-            $event->setEnd($newEnd->format('Y-m-d H:i:s'));
-            
-            $event->save();
-          }
+                array_push($exdates, $new_ex_date->format('Y-m-d H:i:s'));
+            }
           
-          return $response->withJson(['status' => "success"]);
-       } else {
-         if ($action == +1) {
-           $newStart = $oldStart->add($interval);
-           $newEnd = $oldEnd->add($interval);
-         } else {
-           $newStart = $oldStart->sub($interval);
-           $newEnd = $oldEnd->sub($interval);
-         }
+          
+            $vcalendar->VEVENT->remove('EXDATE');
+          
+            foreach ($exdates as $exdate) {
+              //error_log("old exdate\n\n".$exdate, 3, "/var/log/mes-erreurs.log");
+
+              $vcalendar->VEVENT->add('EXDATE', (new \DateTime($exdate))->format('Ymd\THis'));
+            }
+        
+            $vcalendar->VEVENT->remove('RRULE');
+        
+            $vcalendar->VEVENT->add('RRULE', $newrule);
+           
+            
+            $vcalendar->VEVENT->DTSTART = $newStart->format('Ymd\THis');
+            $vcalendar->VEVENT->DTEND = $newEnd->format('Ymd\THis');
+            $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+        
+            $event = EventQuery::Create()->findOneById($input->eventID);
+        
+            // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
-         $first_event->setStart($newStart->format('Y-m-d H:i:s'));
-         $first_event->setEnd($newEnd->format('Y-m-d H:i:s'));
-         $first_event->save();
+            $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+                $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
+  
+            return $response->withJson(array_filter($realCalEvnt));
+ 
+          } else {
+            error_log("old exdate\n\n".$input->eventStart, 3, "/var/log/mes-erreurs.log");
+            
+            // we will exclude one event and add a new one
+            $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->eventStart))->format('Ymd\THis'));
+            $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+            
+            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+            
+            // We get info from the previous one
+            $oldEvent = EventQuery::Create()->findOneById($input->eventID);
+            
+            // we create a new event
+            $newVcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+        
+            $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+      
+            $newVcalendar->add(
+               'VEVENT', [
+                'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $oldEvent->getDesc(),
+                'SUMMARY' => $oldEvent->getTitle(),
+                'UID' => $uuid,
+                'SEQUENCE' => '0',
+                'TRANSP' => 'OPAQUE'
+              ]);
+          
+
+            // Now we move to propel, to finish the put extra infos
+            $etag = $calendarBackend->createCalendarObject($input->calendarID, $uuid, $newVcalendar->serialize());        
+          
+            $new_event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
+        
+            $new_event->setType($oldEvent->getType());
+            $new_event->setTypeName($oldEvent->getTypeName());
+            $new_event->setInActive($oldEvent->getInActive());        
+            $new_event->setGroupId ($oldEvent->getGroupId());
+        
+            $new_event->save(); 
+
+            $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+                $new_event->getTitle(), $new_event->getStart('Y-m-d H:i:s'), $new_event->getEnd('Y-m-d H:i:s'), '',$new_event->getId(),$new_event->getType(),$new_event->getGroupId(),$new_event->getDesc(),$new_event->getText(),$new_event->getEventParentId());// only the event id sould be edited and moved and have custom color
+  
+            return $response->withJson(array_filter($realCalEvnt));
+            
+          } 
+
+        } else {
+
+          $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
+          $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
+          $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+          $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+        
+          $event = EventQuery::Create()->findOneById($input->eventID);
+        
+          // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
-         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $first_event->getTitle(), $first_event->getStart('Y-m-d H:i:s'), $first_event->getEnd('Y-m-d H:i:s'), ''/*$first_event->getEventURI()*/,$first_event->getId(),$first_event->getType(),$first_event->getGroupId(),$first_event->getDesc(),$first_event->getText(),$first_event->getEventParentId());// only the event id sould be edited and moved and have custom color
+          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
   
           return $response->withJson(array_filter($realCalEvnt));
-       }
+        }
+  
+        return  $response->withJson(["status" => "failed"]);
      }
      else if (!strcmp($input->evntAction,'retriveEvent'))
      { 
@@ -386,30 +558,27 @@ $app->group('/events', function () {
      }
      else if (!strcmp($input->evntAction,'resizeEvent'))
      {
-       $first_event = EventQuery::Create()
-          ->findOneById($input->eventID);
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);
           
-       $start = new DateTime($first_event->getStart('Y-m-d H:i:s'));
-       $end = new DateTime($input->end);
-       
-       $interval = $start->diff($end);
-          
-       if (isset ($input->parentID)) {
-         $events = EventQuery::Create()
-            ->findByEventParentId($input->parentID);
-          
-         foreach ($events as $event) {
-           $start = new DateTime($event->getStart('Y-m-d H:i:s'));
-           $newEnd = $start->add($interval);
-           
-           $event->setEnd($newEnd->format('Y-m-d H:i:s'));
-           
-           $event->save();
-         }
-       } else {        
-         $first_event->setEnd(str_replace("T"," ",$input->end));
-         $first_event->save();
-       }
+        $vcalendar = VObject\Reader::read($event['calendardata']);
+
+        $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
+        $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
+        $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+        $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+        
+        $event = EventQuery::Create()->findOneById($input->eventID);
+                 
+        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
+            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
+  
+        return $response->withJson(array_filter($realCalEvnt));
     
        return $response->withJson(['status' => "success"]);
      }
@@ -431,58 +600,124 @@ $app->group('/events', function () {
      }
      else if (!strcmp($input->evntAction,'suppress'))
      {     
-        if (isset ($input->parentID)) {
-          $events = EventQuery::Create()
-            ->findByEventParentId($input->parentID);
-            
-          if ($events->count() > 0) {
-            $events->delete();
-          }
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);        
+
+        if (isset ($input->dateStart)) {        
+          
+          $vcalendar = VObject\Reader::read($event['calendardata']);
+          $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->dateStart))->format('Ymd\THis'));
+
+          $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+          
         } else {// we delete only one event
-          $event = EventQuery::Create()
-            ->findOneById($input->eventID);
-            
-          $new_parent_id = $event->getEventParentId();
           
-          if ($event->getEventParentId() == $input->eventID) {
-            $new_parent_id = 0;
-          }
-          
-          // we search all 
-          $events = EventQuery::Create()
-            ->findByEventParentId($input->eventID);
-          
-          if ($events->count() > 1) {
-            foreach ($events as $individual_event) {
-              if ($new_parent_id == 0 && $individual_event->getId() != $input->eventID) {
-                 $new_parent_id = $individual_event->getId();                 
-              }
-              
-              if ($new_parent_id != 0) {
-                $individual_event->setEventParentId ($new_parent_id);              
-              }
-            }
-            
-            $events->save();
-            
-            $event->delete();            
-          } else if (!empty($event)) {
-            $EventAttends = EventAttendQuery::Create()->findByEventId($input->eventID);
-          
-            $event->delete();
-          }
+          // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
+          $calendarBackend->deleteCalendarObject($input->calendarID, $event['uri']);
+                    
         }
   
-        return $response->withJson(['status' => "success".$new_parent_id]);
+        return $response->withJson(['status' => "success"]);
      }     
      else if (!strcmp($input->evntAction,'modifyEvent'))
      {
-        $event = EventQuery::Create()
-          ->findOneById($input->eventID);
+        $old_event = EventQuery::Create()->findOneById($input->eventID);
+        $oldCalendarID = [$old_event->getEventCalendarid(),0];
+
+        $pdo = Propel::getConnection();
         
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $event = $calendarBackend->getCalendarObjectById($oldCalendarID,$input->eventID);
+                  
+        $vcalendar = VObject\Reader::read($event['calendardata']);        
+        
+        if (isset($input->subOldDate) 
+          && $input->subOldDate != '' ) {// we're in a recursive event
+          
+          $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
+                    
+          if ( $input->subOldDate != '') {
+            $date =  $input->subOldDate;
+          }
+          
+          // we have to delete the old event from the reccurence event
+          $vcalendar = VObject\Reader::read($event['calendardata']);
+          $vcalendar->VEVENT->add('EXDATE', (new \DateTime($date))->format('Ymd\THis'));
+          
+          $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
+          
+        } else {
+          // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
+          
+          $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
+        }    
+        
+
+    
+        // Now we start to work with the new calendar
+        $calIDs = explode(",",$input->calendarID);        
+
+        $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+      
+        $vcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+        
+        $calIDs = explode(",",$input->calendarID);
+        
+        if (!empty($input->recurrenceValid)) {        
+        
+          $vcalendar->add(
+          'VEVENT', [
+              'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+              'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+              'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+              'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+              'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+              'DESCRIPTION' => $input->EventDesc,
+              'SUMMARY' => $input->EventTitle,
+              'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
+              'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
+              'SEQUENCE' => '0',
+              'TRANSP' => 'OPAQUE'
+          ]);
+        
+        } else {
+        
+          $vcalendar->add(
+           'VEVENT', [
+            'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+            'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+            'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DESCRIPTION' => $input->EventDesc,              
+            'SUMMARY' => $input->EventTitle,
+            'UID' => $uuid,
+            'SEQUENCE' => '0',
+            'TRANSP' => 'OPAQUE'
+          ]);
+          
+        }
+
+        // Now we move to propel, to finish the put extra infos
+        $calendarId = $calIDs[0];
+
+        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());        
+          
+        $Id = $calIDs[1];          
+        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+        
+        $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
         
-        $EventGroupType = $input->EventGroupType;// for futur dev : personal or group
+        $EventCalendarType = $input->EventCalendarType;
+        
         
         if ($input->eventTypeID)
         {
@@ -490,77 +725,72 @@ $app->group('/events', function () {
             ->findOneById($input->eventTypeID);
            $eventTypeName = $type->getName();
         }
-     
-         $event->setTitle($input->EventTitle);
-         $event->setType($input->eventTypeID);
-         $event->setTypeName($eventTypeName);
-         $event->setDesc($input->EventDesc);
-         
-         if ($input->EventGroupID>0)
-           $event->setGroupId($input->EventGroupID);  
-           
-         $event->setStart(str_replace("T"," ",$input->start));
-         $event->setEnd(str_replace("T"," ",$input->end));
-         $event->setText(InputUtils::FilterHTML($input->eventPredication));
-         $event->setInActive($input->eventInActive);
-         $event->save();
-         
-         if (!empty($input->Fields)){         
-           $eventCouts = EventCountsQuery::Create()->findByEvtcntEventid($event->getID());
-           
-           if ($eventCouts) {
-              $eventCouts->delete();
-           }
-           
-           foreach ($input->Fields as $field) {
-             $eventCount = new EventCounts; 
-             $eventCount->setEvtcntEventid($input->eventID);
-             $eventCount->setEvtcntCountid($field['countid']);
-             $eventCount->setEvtcntCountname($field['name']);
-             $eventCount->setEvtcntCountcount($field['value']);
-             $eventCount->setEvtcntNotes($input->EventCountNotes);
-             $eventCount->save();
-           }
-         }
-         
-         if ($input->EventGroupID && $input->addGroupAttendees) {// add Attendees
-           $persons = Person2group2roleP2g2rQuery::create()
-              ->filterByGroupId($input->EventGroupID)
-              ->find();
-           if ($persons->count() > 0) {
-            foreach ($persons as $person) {
-              try {
-                if ($person->getPersonId() > 0) {
-                  $eventAttent = new EventAttend();
         
-                  $eventAttent->setEventId($event->getID());
-                  $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
-                  $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-                  $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-                  $eventAttent->setPersonId($person->getPersonId());
-                  $eventAttent->save();
-                }
-              } catch (\Exception $ex) {
-                  $errorMessage = $ex->getMessage();
-                  //return $response->withJson(['status' => $errorMessage]);    
-              }
-            }
-            
-            // for the CheckIn and to add attendees
-            $_SESSION['Action'] = 'Add';
-            $_SESSION['EID'] = $event->getID();
-            $_SESSION['EName'] = $input->EventTitle;
-            $_SESSION['EDesc'] = $input->EventDesc;
-            $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
-            
-            $_SESSION['EventID'] = $event->getID();
+        $event->setType($input->eventTypeID);
+        $event->setText($input->eventPredication);
+        $event->setTypeName($eventTypeName);
+        $event->setInActive($input->eventInActive);
+        
+        // we set the groupID to manage correctly the attendees : Historical
+        $event->setGroupId ($calendar->getGroupId());
+        
+        $event->save();        
+        
+        if (!empty($input->Fields)){         
+          foreach ($input->Fields as $field) {
+               $eventCount = new EventCounts; 
+               $eventCount->setEvtcntEventid($event->getID());
+               $eventCount->setEvtcntCountid($field['countid']);
+               $eventCount->setEvtcntCountname($field['name']);
+               $eventCount->setEvtcntCountcount($field['value']);
+               $eventCount->setEvtcntNotes($input->EventCountNotes);
+               $eventCount->save();
           }
         }
-     
+        
+        $event->save();
+        
+        if ($event->getGroupId() && $input->addGroupAttendees) {// add Attendees
+             $persons = Person2group2roleP2g2rQuery::create()
+                ->filterByGroupId($event->getGroupId())
+                ->find();
+
+             if ($persons->count() > 0) {
+              foreach ($persons as $person) {
+                try {
+                  if ($person->getPersonId() > 0) {
+                    $eventAttent = new EventAttend();
+        
+                    $eventAttent->setEventId($event->getID());
+                    $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                    $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+                    $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+                    $eventAttent->setPersonId($person->getPersonId());
+                    $eventAttent->save();
+                  }
+                } catch (\Exception $ex) {
+                    $errorMessage = $ex->getMessage();
+                    //return $response->withJson(['status' => $errorMessage]);    
+                }
+              }
+            
+              // 
+              $_SESSION['Action'] = 'Add';
+              $_SESSION['EID'] = $event->getID();
+              $_SESSION['EName'] = $input->EventTitle;
+              $_SESSION['EDesc'] = $input->EventDesc;
+              $_SESSION['EDate'] = $date->format('Y-m-d H:i:s');
+            
+              $_SESSION['EventID'] = $event->getID();
+            }
+        }
+          
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),
-              $event->getGroupId(),$input->EventDesc,$input->eventPredication,
-              $event->getEventParentId());// only the event id sould be edited and moved and have custom color
+            $input->EventTitle, $input->start, $input->end, '',
+            $event->getId(),$type,0,$input->EventDesc,$input->eventPredication,
+            0);// only the event id sould be edited and moved and have custom color
+      
+        return $response->withJson(array_filter($realCalEvnt));
       
         return $response->withJson(array_filter($realCalEvnt));
       }

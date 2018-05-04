@@ -1,11 +1,12 @@
-  //
-  // Copyright 2018 Philippe Logel
-  // All rights reserved
-  //
-  var anniversary = true;
-  var birthday    = true;
-  var withlimit   = false;
-  var eventCreated= false; 
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//
+  
+  var anniversary    = true;
+  var birthday       = true;
+  var withlimit      = false;
+  var eventCreated   = false; 
   var eventAttendees = false; 
  
   var birthD = localStorage.getItem("birthday");
@@ -87,22 +88,22 @@
      localStorage.setItem("withlimit",_val); 
   });
   
-  window.groupFilterID     = 0;
+  window.calendarFilterID     = 0;
   window.EventTypeFilterID = 0;
   
-  localStorage.setItem("groupFilterID",groupFilterID);
+  localStorage.setItem("calendarFilterID",calendarFilterID);
   localStorage.setItem("EventTypeFilterID",EventTypeFilterID);  
   
-  $("#EventGroupFilter").on('change',function () {
-     var e = document.getElementById("EventGroupFilter");
-     window.groupFilterID = e.options[e.selectedIndex].value;
+  $("#EventCalendarFilter").on('change',function () {
+     var e = document.getElementById("EventCalendarFilter");
+     window.calendarFilterID = e.options[e.selectedIndex].value;
    
     $('#calendar').fullCalendar( 'refetchEvents' );
     
-    if (window.groupFilterID == 0)
+    if (window.calendarFilterID == 0)
       $("#ATTENDENCES").parents("tr").hide();
      
-     localStorage.setItem("groupFilterID",groupFilterID); 
+     localStorage.setItem("calendarFilterID",calendarFilterID); 
   });
   
   
@@ -120,7 +121,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
-      $('.date-recurrance').slideDown();      
+      $('.date-recurrence').slideDown();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -130,7 +131,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrance').slideUp();      
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideDown();
   });
@@ -140,7 +141,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrance').slideUp();      
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -150,7 +151,7 @@
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
-      $('.date-recurrance').slideUp();      
+      $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
       $( ".eventPredication").slideUp();
   });
@@ -160,41 +161,42 @@
     //$('.ATTENDENCES-title').slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrance').slideUp();      
+    $('.date-recurrence').slideUp();      
     $( ".eventPredication").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
   });
   
-  // I have to do this because EventGroup isn't yet present when you load the page the first time
-  $(document).on('change','#EventGroup',function () {
+  // I have to do this because EventCalendar isn't yet present when you load the page the first time
+  $(document).on('change','#EventCalendar',function () {
     $( ".date-title").slideDown();
     $('.ATTENDENCES-title').slideDown();
     $( ".ATTENDENCES" ).slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrance').slideUp();      
+    $('.date-recurrence').slideUp();      
     $( ".eventPredication").slideUp();
 
-     var e = document.getElementById("EventGroup");
-     var _val = e.options[e.selectedIndex].value;
+    var e = document.getElementById("EventCalendar");
+    var _val = e.options[e.selectedIndex].value;
+    var _grpID = e.options[e.selectedIndex].getAttribute("data-calendar-id");
    
     /*if (_val == 0)
       $( ".ATTENDENCES" ).slideUp();
     else
       $( ".ATTENDENCES" ).slideDown( "slow");*/
       
-    $("#addGroupAttendees").prop("disabled", (_val == 0)?true:false);
-    $("#addGroupAttendees").prop('checked', (_val == 0)?false:true);
+    $("#addGroupAttendees").prop("disabled", (_grpID == "0")?true:false);
+    $("#addGroupAttendees").prop('checked', (_grpID == "0")?false:true);
      
-    localStorage.setItem("groupFilterID",groupFilterID); 
+    localStorage.setItem("calendarFilterID",calendarFilterID); 
   });
   
-  // I have to do this because EventGroup isn't yet present when you load the page the first time
-  $(document).on('change','#checkboxEventrecurrance',function (value) {
-    var _val = $('#checkboxEventrecurrance').is(":checked");
+  // I have to do this because EventCalendar isn't yet present when you load the page the first time
+  $(document).on('change','#checkboxEventrecurrence',function (value) {
+    var _val = $('#checkboxEventrecurrence').is(":checked");
     
-    $("#typeEventrecurrance").prop("disabled", (_val == 0)?true:false);
-    $("#endDateEventrecurrance").prop("disabled", (_val == 0)?true:false);
+    $("#typeEventrecurrence").prop("disabled", (_val == 0)?true:false);
+    $("#endDateEventrecurrence").prop("disabled", (_val == 0)?true:false);
   });
   
   
@@ -214,7 +216,7 @@
     
     $('.date-start').slideUp();
     $('.date-end').slideUp();
-    $('.date-recurrance').slideUp();
+    $('.date-recurrence').slideUp();
     $('.eventPredication').slideUp();
       
     window.CRM.APIRequest({
@@ -266,7 +268,7 @@
     }); 
   }
   
-  function addGroupEventTypes(typeId=0,bAddAttendees=false)
+  function addCalendarEventTypes(typeId=0,bAddAttendees=false)
   {
     window.CRM.APIRequest({
           method: 'GET',
@@ -299,37 +301,39 @@
         addAttendees(global_typeID);
       }
     });  
-  }  
-  function addGroupCalendars(groupID)
+  } 
+  
+  function addCalendars(calendarId)
   {
+    var calId = '';
+    if (typeof calendarId !== 'undefined') {
+      calId = calendarId[0]+','+calendarId[1];
+    }
+    
     window.CRM.APIRequest({
-          method: 'GET',
-          path: 'groups/calendars',
-    }).done(function(groups) {    
-      var elt = document.getElementById("EventGroup");
-      var len = groups.length;
+      method: 'POST',
+      path: 'calendar/getallforuser',
+      data: JSON.stringify({"type":"all","onlyvisible":true})
+    }).done(function(calendars) {    
+      var elt = document.getElementById("EventCalendar");
+      var len = calendars.length;
 
-      // We add the none option
-      var option = document.createElement("option");
-      option.text = i18next.t("None");
-      option.value = 0;
-      option.title = ""; 
-      elt.appendChild(option);
-      
       for (i=0; i<len; ++i) {
-        var option = document.createElement("option");
-        // there is a groups.type in function of the new plan of schema
-        option.text = groups[i].name;
-        option.title = groups[i].type;        
-        option.value = groups[i].groupID;
+        if (calendars[i].calendarShareAccess != 2) {
+          var option = document.createElement("option");
+          // there is a calendars.type in function of the new plan of schema
+          option.text  = calendars[i].calendarName;
+          option.title = calendars[i].type;        
+          option.value = calendars[i].calendarID;
+          option.setAttribute("data-calendar-id",calendars[i].grpid);
         
-        if (groupID && groupID === groups[i].groupID) {
-          option.setAttribute('selected','selected');
+          if (calId && calId === calendars[i].calendarID) {
+            option.setAttribute('selected','selected');
+          }
+        
+          elt.appendChild(option);
         }
-        
-        elt.appendChild(option);
       }       
-      
     });  
   }
   
@@ -432,19 +436,20 @@
                   +'</div>'
                 +'</div>'
             +'</div>'            
-            +'<div class="row date-recurrance div-block" style="padding-top:0px;padding-bottom:5px">'            
+            +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'            
                 +'<div class="col-md-12">'
                   +'<div class="row">'
                     +'<div class="col-md-3">'
-                      +'<input type="checkbox" id="checkboxEventrecurrance" name="checkboxEventrecurrance"> '+i18next.t('Repeat')+' :'
+                      +'<input type="checkbox" id="checkboxEventrecurrence" name="checkboxEventrecurrence"> '+i18next.t('Repeat')+' :'
                     +'</div>'
                     +'<div class="col-md-3">'
-                    + '<select class="form-control input-sm" id="typeEventrecurrance" name="typeEventrecurrance">'
-                    +   '<option value="1 week">'+i18next.t("Weekly")+'</option>'
-                    +   '<option value="1 month">'+i18next.t("Monthly")+'</option>'
-                    +   '<option value="3 month">'+i18next.t("Quarterly")+'</option>'
-                    +   '<option value="6 month">'+i18next.t("Semesterly")+'</option>'
-                    +   '<option value="1 year">'+i18next.t("Yearly")+'</option>'
+                    + '<select class="form-control input-sm" id="typeEventrecurrence" name="typeEventrecurrence">'
+                    +   '<option value="FREQ=DAILY">'+i18next.t("Daily")+'</option>'
+                    +   '<option value="FREQ=WEEKLY">'+i18next.t("Weekly")+'</option>'
+                    +   '<option value="FREQ=MONTHLY">'+i18next.t("Monthly")+'</option>'
+                    +   '<option value="FREQ=MONTHLY;INTERVAL=3">'+i18next.t("Quarterly")+'</option>'
+                    +   '<option value="FREQ=MONTHLY;INTERVAL=6">'+i18next.t("Semesterly")+'</option>'
+                    +   '<option value="FREQ=YEARLY">'+i18next.t("Yearly")+'</option>'
                     + '</select>'
                     +'</div>'                    
                     +'<div class="col-md-2">'
@@ -455,7 +460,7 @@
                           +'<div class="input-group-addon">'
                               +'<i class="fa fa-calendar"></i>'
                           +'</div>'
-                          +'<input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrance" name="endDateEventrecurrance"  value="'+dateStart+'" '
+                          +'<input class="form-control date-picker input-sm" type="text" id="endDateEventrecurrence" name="endDateEventrecurrence"  value="'+dateStart+'" '
                                 +'maxlength="10" id="sel1" size="11"'
                                 +'placeholder="'+window.CRM.datePickerformat+'">'
                         +'</div>'
@@ -464,9 +469,9 @@
                +'</div>'
             +'</div>'  
             +'<div class="row  div-title">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Group') + ":</div>"
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Event Calendar') + ":</div>"
               +'<div class="col-md-4">'
-                +'<select type="text" id="EventGroup" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
+                +'<select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
                 +'</select>'
               +'</div>'
               +'<div class="col-md-5">'
@@ -521,12 +526,20 @@
         return object
     }
     
-    function createEventEditorWindow (start,end,dialogType,eventID) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+    function createEventEditorWindow (start,end,dialogType,eventID,subOldDate,page) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
       if (dialogType === undefined) {
         dialogType = 'createEvent';
       }
       
+      if (subOldDate === undefined) {
+        subOldDate = '';
+      }
+      
+      if (page === undefined) {
+        page = 'calendar.php';
+      }
+
       if (eventID === undefined) {
         eventID = -1;
       }
@@ -560,12 +573,12 @@
                   
                   var dateStart = $('form #dateEventStart').val();
                   var timeStart = $('form #timeEventStart').val();
-                  var dateEnd = $('form #dateEventEnd').val();
-                  var timeEnd = $('form #timeEventEnd').val();
+                  var dateEnd   = $('form #dateEventEnd').val();
+                  var timeEnd   = $('form #timeEventEnd').val();
                   
-                  var recurranceValid = $('#checkboxEventrecurrance').is(":checked");
-                  var recurranceType = $("#typeEventrecurrance").val();
-                  var endRecurrance = $("#endDateEventrecurrance").val();
+                  var recurrenceValid = $('#checkboxEventrecurrence').is(":checked");
+                  var recurrenceType  = $("#typeEventrecurrence").val();
+                  var endrecurrence   = $("#endDateEventrecurrence").val();
                   
                   var fmt = window.CRM.datePickerformat.toUpperCase();
     
@@ -577,66 +590,70 @@
                   
                   fmt = fmt+' '+time_format;
                                     
-                  var real_start = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
-                  var real_end = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
-                  var real_endRecurrance = moment(endRecurrance+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
+                  var real_start         = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
+                  var real_end           = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
+                  var real_endrecurrence = moment(endrecurrence+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                              
-                  var e = document.getElementById("EventGroup");
-                  var EventGroupID = e.options[e.selectedIndex].value;
+                  var e                 = document.getElementById("EventCalendar");
+                  var EventCalendarID   = e.options[e.selectedIndex].value;
                   var addGroupAttendees = document.getElementById("addGroupAttendees").checked;
                   
-                  var eventInActive = $('input[name="EventStatus"]:checked').val();
+                  var eventInActive     = $('input[name="EventStatus"]:checked').val();
                   
                   if (addGroupAttendees) {
                     eventAttendees = true;
                   }
                               
-                  var EventGroupType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
+                  var EventCalendarType = e.options[e.selectedIndex].title;// we get the type of the group : personal or group for future dev
                   
-                  var countFieldsId = $('form #countFieldsId').val();
+                  var countFieldsId     = $('form #countFieldsId').val();
                   
                   var fields = new Array();
                   
                   for (i=0;i<countFieldsId;i++) {
                     var myObj = new Object();  
                                   
-                    var name = $('form #field'+i).data('name');
-                    var countid = $('form #field'+i).data('countid');
-                    var value = $('form #field'+i).val();
+                    var name      = $('form #field'+i).data('name');
+                    var countid   = $('form #field'+i).data('countid');
+                    var value     = $('form #field'+i).val();
 
-                    myObj.name = name;
+                    myObj.name    = name;
                     myObj.countid = countid;
-                    myObj.value = value;
+                    myObj.value   = value;
                     
-                    fields[i] = myObj;
+                    fields[i]     = myObj;
                   }
                   
-                  var EventCountNotes = $('form #EventCountNotes').val();
+                  var EventCountNotes  = $('form #EventCountNotes').val();
                              
                   var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
               
                   var add = false;
                                                             
                   window.CRM.APIRequest({
-                        method: 'POST',
-                        path: 'events/',
-                        data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventGroupType":EventGroupType,"EventTitle":EventTitle,"EventDesc":EventDesc,"EventGroupID":EventGroupID,
-                               "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
-                               "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                               "recurranceValid":recurranceValid,"recurranceType":recurranceType,"endRecurrance":real_endRecurrance})
+                      method: 'POST',
+                      path: 'events/',
+                      data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
+                          "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
+                          "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"subOldDate":subOldDate})
                   }).done(function(data) {                   
-                    $('#calendar').fullCalendar('unselect');              
-                    add = true;              
-                    modal.modal("hide");   
+                     $('#calendar').fullCalendar('unselect');              
+                     add = true;              
+                     modal.modal("hide");   
                     
-                    // we reload all the events
-                    $('#calendar').fullCalendar( 'refetchEvents' );
+                     // we reload all the events
+                     $('#calendar').fullCalendar( 'refetchEvents' );
                     
-                    if (dialogType == 'createEvent') {
-                      eventCreated = true;
-                    }
+                     if (dialogType == 'createEvent') {
+                       eventCreated = true;
+                     }
+                     
+                     if (page == 'ListEvent.php') {
+                       location.reload();
+                     }
                     
-                    return true;
+                     return true;
                   });
 
                   return add;  
@@ -672,10 +689,20 @@
           selectable: isModifiable,
           editable:isModifiable,
           eventDrop: function(event, delta, revertFunc) {
-            if (event.type == 'event' && event.parentID == null) {
+            var fmt = 'YYYY-MM-DD H:mm:ss';
+
+            var dateStart = moment(event.start).format(fmt);
+            var dateEnd = moment(event.end).format(fmt);
+            
+            if (event.end == null) {
+               dateEnd = dateStart;
+            }
+            
+
+            if (event.type == 'event' && event.recurrent == 0) {
               bootbox.confirm({
                title:  i18next.t("Move Event") + "?",
-                message: i18next.t("Are you sure about this change?") + ((event.parentID != null)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
+                message: i18next.t("Are you sure about this change?") + ((event.recurrent != 0)?" and the Linked Events ?":"") + "<br><br>   <b>\""  + event.title + "\"</b> " + i18next.t("will be dropped."),
                 buttons: {
                   cancel: {
                     label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
@@ -690,7 +717,7 @@
                     window.CRM.APIRequest({
                        method: 'POST',
                        path: 'events/',
-                       data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format()})
+                       data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd})
                     }).done(function(data) {
                       // now we can refresh the calendar
                       $('#calendar').fullCalendar('refetchEvents');
@@ -704,7 +731,7 @@
                 }        
             });
            } else {
-            var box = bootbox.dialog({
+             var box = bootbox.dialog({
                title: i18next.t("Move Event") + "?",
                message: i18next.t("You're about to move all the events. Would you like to :"),
                buttons: {
@@ -719,10 +746,12 @@
                   label:  i18next.t("Only this Event"),
                   className: 'btn btn-info',
                     callback: function () {
+                      var oldDateStart = moment(event.subOldDate).format(fmt);
+
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format()})
+                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"eventStart":oldDateStart})
                       }).done(function(data) {
                         // now we can refresh the calendar
                         $('#calendar').fullCalendar('refetchEvents');
@@ -734,10 +763,12 @@
                   label:  i18next.t("All Events"),
                   className: 'btn btn-primary',
                     callback: function () {
+                      var oldDateStart = moment(event.subOldDate).format(fmt);
+
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'moveEvent',"eventID":event.eventID,"start":event.start.format(),"parentID":event.parentID})
+                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"eventStart":oldDateStart})
                       }).done(function(data) {
                         // now we can refresh the calendar
                         $('#calendar').fullCalendar('refetchEvents');
@@ -750,6 +781,11 @@
            }
         },
         eventClick: function(calEvent, jsEvent, view) {
+          var fmt = 'YYYY-MM-DD H:mm:ss';
+  
+          var dateStart = moment(calEvent.start).format(fmt);
+          var dateEnd = moment(calEvent.end).format(fmt);
+          
           if (calEvent.type == "event" && isModifiable) {
              // only with group event We create the dialog,
              if (calEvent.type == "event") {
@@ -761,21 +797,21 @@
                       label:  i18next.t("Delete Event"),
                       className: 'btn btn-danger',
                        callback: function () {
-                         if (calEvent.type == "event" && calEvent.parentID == null) {
+                         if (calEvent.type == "event" && calEvent.recurrent == 0) {
                            bootbox.confirm(i18next.t("Are you sure to delete this event?"), function(confirmed) {
                             if (confirmed) {
                               window.CRM.APIRequest({
                                  method: 'POST',
                                  path: 'events/',
-                                 data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                                 data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
                               }).done(function(data) {
                                  $('#calendar').fullCalendar( 'refetchEvents' );
                                  $('#calendar').fullCalendar('unselect'); 
                               });
-                            }
-                          });
-                        } else if (calEvent.type == "event" && calEvent.parentID > 0) {
-                          var box = bootbox.dialog({
+                             }
+                            });
+                         } else if (calEvent.type == "event" && calEvent.recurrent == 1) {
+                           var box = bootbox.dialog({
                              title: i18next.t("Delete all repeated Events"),
                              message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
                              buttons: {
@@ -790,7 +826,7 @@
                                      window.CRM.APIRequest({
                                        method: 'POST',
                                        path: 'events/',
-                                       data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID})
+                                       data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart})
                                     }).done(function(data) {
                                        $('#calendar').fullCalendar( 'refetchEvents' );
                                        $('#calendar').fullCalendar('unselect'); 
@@ -804,7 +840,7 @@
                                       window.CRM.APIRequest({
                                          method: 'POST',
                                          path: 'events/',
-                                         data: JSON.stringify({"evntAction":'suppress',"eventID":calEvent.eventID,"parentID":calEvent.parentID})
+                                         data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
                                       }).done(function(data) {
                                          $('#calendar').fullCalendar( 'refetchEvents' );
                                          $('#calendar').fullCalendar('unselect'); 
@@ -851,16 +887,15 @@
                        label: i18next.t('Edit'),
                        className: 'btn btn-success',
                        callback: function () {
-                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID);
+                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.subOldDate);
        
                          $('form #EventTitle').val(calEvent.title);
                          $('form #EventDesc').val(calEvent.Desc);
                          $('form #eventPredication').val(calEvent.Text);
            
-
                          // we add the calendars and the types
-                         addGroupCalendars(calEvent.groupID);
-                         addGroupEventTypes(calEvent.eventTypeID,false);
+                         addCalendars(calEvent.calendarID);
+                         addCalendarEventTypes(calEvent.eventTypeID,false);
                          addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
            
                          //Timepicker
@@ -878,7 +913,7 @@
         
                          $('.date-start').hide();
                          $('.date-end').hide();
-                         $('.date-recurrance').hide();
+                         $('.date-recurrence').hide();
                          $(".eventPredication").hide();
        
                          // this will ensure that image and table can be focused
@@ -886,9 +921,9 @@
        
                          // this will create the toolbar for the textarea
                          CKEDITOR.replace('eventPredication',{
-                          customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-                          language : window.CRM.lang,
-                          width : '100%'
+                           customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+                           language : window.CRM.lang,
+                           width : '100%'
                          });
       
                          $(".ATTENDENCES").hide();
@@ -910,7 +945,12 @@
           }
         },
         eventResize: function(event, delta, revertFunc) {
-          if (event.type == "event" && event.parentID == null) {
+          var fmt = 'YYYY-MM-DD H:mm:ss';
+
+          var dateStart = moment(event.start).format(fmt);
+          var dateEnd = moment(event.end).format(fmt);
+
+          if (event.type == "event" && event.recurrent == 0) {
             bootbox.confirm({
              title: i18next.t("Resize Event") + "?",
               message: i18next.t("Are you sure about this change?") + "\n"+event.title + " " + i18next.t("will be dropped."),
@@ -928,7 +968,7 @@
                   window.CRM.APIRequest({
                      method: 'POST',
                      path: 'events/',
-                     data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
+                     data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
                   }).done(function(data) {
                      // now we can refresh the calendar
                      $('#calendar').fullCalendar( 'refetchEvents' );
@@ -959,7 +999,7 @@
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format()})
+                         data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
                       }).done(function(data) {
                          // now we can refresh the calendar
                          $('#calendar').fullCalendar( 'refetchEvents' );
@@ -974,7 +1014,7 @@
                       window.CRM.APIRequest({
                        method: 'POST',
                        path: 'events/',
-                       data: JSON.stringify({"evntAction":'resizeEvent',"eventID":event.eventID,"end":event.end.format(),"parentID":event.parentID})
+                       data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true})
                       }).done(function(data) {
                          // now we can refresh the calendar
                          $('#calendar').fullCalendar( 'refetchEvents' );
@@ -992,8 +1032,8 @@
          modal = createEventEditorWindow (start,end);
        
          // we add the calendars and the types
-         addGroupCalendars();
-         addGroupEventTypes(-1,true);
+         addCalendars();
+         addCalendarEventTypes(-1,true);
        
          //Timepicker
          $('.timepicker').timepicker({
@@ -1010,11 +1050,11 @@
         
          $('.date-start').hide();
          $('.date-end').hide();
-         $('.date-recurrance').hide();
+         $('.date-recurrence').hide();
          $(".eventPredication").hide();
          
-         $("#typeEventrecurrance").prop("disabled", true);
-         $("#endDateEventrecurrance").prop("disabled", true);
+         $("#typeEventrecurrence").prop("disabled", true);
+         $("#endDateEventrecurrence").prop("disabled", true);
        
          // this will ensure that image and table can be focused
          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
@@ -1033,17 +1073,15 @@
       eventLimit: withlimit, // allow "more" link when too many events
       locale: window.CRM.lang,
       eventRender: function (event, element, view) {
-        groupFilterID = window.groupFilterID;
+        calendarFilterID = window.calendarFilterID;
         EventTypeFilterID = window.EventTypeFilterID;
         
         if (event.hasOwnProperty('type')){
-          if (event.type == 'event' 
-            && (groupFilterID == 0 || (groupFilterID>0 && groupFilterID == event.groupID)) 
-            && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == event.eventTypeID))){
+          if (event.type == 'event'  
+            && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == event.eventTypeID) ) ) {
             return true;
           } else if(event.type == 'event' 
-            && ((groupFilterID>0 && groupFilterID != event.groupID)
-                || (EventTypeFilterID>0 && EventTypeFilterID != event.eventTypeID))){
+            && (EventTypeFilterID>0 && EventTypeFilterID != event.eventTypeID) ) {
             return false;
           } else if ((event.allDay || event.type != 'event')){// we are in a allDay event          
            if (event.type == 'anniversary' && anniversary == true || event.type == 'birthday' && birthday == true){
@@ -1059,8 +1097,8 @@
          }
       },
       events: function(start, end, timezone, callback) {
-        var real_start = moment.unix(start.unix()).format('YYYY-MM-DD H:mm');
-        var real_end = moment.unix(end.unix()).format('YYYY-MM-DD H:mm');
+        var real_start = moment.unix(start.unix()).format('YYYY-MM-DD H:mm:ss');
+        var real_end = moment.unix(end.unix()).format('YYYY-MM-DD H:mm:ss');
         
         window.CRM.APIRequest({
           method: 'POST',

@@ -2,7 +2,22 @@
 
 namespace EcclesiaCRM;
 
+use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
 
 /**
  * Skeleton subclass for representing a row from the 'group_grp' table.
@@ -66,6 +81,18 @@ class Group extends BaseGroup
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
         requireUserGroupMembership('bManageGroups');
+        
+        // we first delete the calendar
+        $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
+        
+        // we'll connect to sabre to create the group
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()]);
+        
         parent::preDelete($con);
 
         return true;
@@ -105,8 +132,56 @@ class Group extends BaseGroup
         }
 
         parent::postInsert($con);
+        
+        // a group is binded to a calendar
+        // we'll connect to sabre to create the group
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+        // we create the uuid name          
+        $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+          
+          // get all the calendars for the current user
+
+        $calendarID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+            '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
+            '{DAV:}displayname'                                               => $this->getName(),
+            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),            
+          ]);
+          
+        
+        $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid($calendarID[0]);
+        $calendarInstance->setGroupId($this->getId());
+        $calendarInstance->save();
 
         return true;
+    }
+    
+    public function postSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
+    {
+        if (is_callable('parent::postSave')) {
+            parent::postSave($con);
+
+            // Now a group is binded to a calendar !!!
+            $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
+        
+            // we'll connect to sabre to create the group
+            $pdo = Propel::getConnection();         
+        
+            // We set the BackEnd for sabre Backends
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+            // Updating the calendar
+            $propPatch = new PropPatch([
+                '{DAV:}displayname'                                       => $this->getName()
+              ]);
+          
+            $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
+         
+            $result = $propPatch->commit();
+        }
     }
 
     public function checkAgainstCart()

@@ -16,6 +16,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 $iPersonID = $_SESSION['user']->getPersonId();
 
@@ -92,12 +93,17 @@ $rsConfigs = RunQuery($sSQL);
 ?>
 <div class="box box-body">
 <form method=post action=SettingsIndividual.php>
-<div class="table-responsive">
-<table class="table">
-<tr><th><?= gettext('Variable name') ?></th>
-	<th><?= gettext('Current Value')?></th>
-	<th><?= gettext('Notes')?></h3></th>
+<div class="row">
+  <div class="col-md-12">
+<table class="table table-hover data-person data-table no-footer dtr-inline dataTable" id="user-listing-table" style="width:100%;">
+<thead>
+<tr>
+  <th><?= gettext('Variable name') ?></th>
+  <th><?= gettext('Current Value')?></th>
+  <th><?= gettext('Notes')?></h3></th>
 </tr>
+</thead>
+<tbody>
 <?php
 $r = 1;
 // List Individual Settings
@@ -109,9 +115,9 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     // Cancel, Save Buttons every 13 rows
     if ($r == 13) {
         echo "<tr><td>&nbsp;</td>
-			<td><input type=submit class=btn name=save value='".gettext('Save Settings')."'>
-			<input type=submit class=btn name=cancel value='".gettext('Cancel')."'>
-			</td></tr>";
+      <td><input type=submit class=btn name=save value='".gettext('Save Settings')."'>
+      <input type=submit class=btn name=cancel value='".gettext('Cancel')."'>
+      </td></tr>";
         $r = 1;
     }
 
@@ -122,11 +128,11 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     // Current Value
     if ($ucfg_type == 'text') {
         echo "<td class=TextColumnWithBottomBorder>
-			<input type=text size=30 maxlength=255 name='new_value[$ucfg_id]'
-			value='".htmlspecialchars($ucfg_value, ENT_QUOTES)."'></td>";
+      <input type=text size=30 maxlength=255 name='new_value[$ucfg_id]'
+      value='".htmlspecialchars($ucfg_value, ENT_QUOTES)."'></td>";
     } elseif ($ucfg_type == 'textarea') {
         echo "<td class=TextColumnWithBottomBorder>
-			<textarea rows=4 cols=30 name='new_value[$ucfg_id]'>"
+      <textarea rows=4 cols=30 name='new_value[$ucfg_id]'>"
             .htmlspecialchars($ucfg_value, ENT_QUOTES).'</textarea></td>';
     } elseif ($ucfg_type == 'number' || $ucfg_type == 'date') {
         echo '<td class=TextColumnWithBottomBorder><input type=text size=15 maxlength=15 name='
@@ -146,23 +152,41 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     }
 
     // Notes
-    echo '<td>'.gettext($ucfg_tooltip).'</td>	</tr>';
+    echo '<td>'.gettext($ucfg_tooltip).'</td>  </tr>';
     $r++;
 }
 ?>
-
-
-<tr>
-    <td>&nbsp;</td>
-	<td>
-        <input type=submit class='btn btn-primary'  name=save value="<?= gettext('Save Settings') ?>">
-	    <input type=submit class=btn name=cancel value="<?= gettext('Cancel') ?>">
-	</td>
-</tr>
+</tbody>
 </table>
 </div>
-</form>
 </div>
+<div class="row">
+  <div class="col-md-2">
+  </div>
+  <div class="col-md-6">
+      <input type=submit class='btn btn-primary'  name=save value="<?= gettext('Save Settings') ?>">
+      <input type=submit class=btn name=cancel value="<?= gettext('Cancel') ?>">
+  </div>
+</div>
+</form>
+
+
+</div>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    $(document).ready(function () {
+        $(".data-table").DataTable({
+          "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+          },
+          pageLength: 100,
+          info: false,
+          bSort : false,
+          searching: false, paging: false,
+          responsive: true
+        });
+    });
+</script>
 <?php
 require 'Include/Footer.php';
 ?>

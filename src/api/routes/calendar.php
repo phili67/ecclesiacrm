@@ -1,8 +1,33 @@
 <?php
 
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//
+
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 use EcclesiaCRM\Service\CalendarService;
+use EcclesiaCRM\CalendarinstancesQuery;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
 
 
 $app->group('/calendar', function () {
@@ -13,4 +38,473 @@ $app->group('/calendar', function () {
         $calendarService = new CalendarService();
         return $response->withJson($calendarService->getEvents($params->start, $params->end));
     });
+    
+    $this->post('/getallforuser', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+        
+        $return = [];
+
+        if ( isset ($params->type) && isset($params->onlyvisible) ) {    
+          // new way to manage events
+          // we get the PDO for the Sabre connection from the Propel connection
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+
+          // get all the calendars for the current user
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname");
+
+
+          foreach ($calendars as $calendar) {
+            $values['calendarName']       = $calendar['{DAV:}displayname'];
+            $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
+            $values['calendarShareAccess']= $calendar['share-access'];
+            $values['calendarUri']        = $calendar['uri'];
+          
+            $id                           = $calendar['id'];            
+            $values['calendarID']         = $id[0].",".$id[1];;
+            $values['visible']            = ($calendar['visible'] == "1")?true:false;
+            //$values['present']            = $calendar['present'];
+            $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
+            if ($values['calendarShareAccess'] >= 2) {
+              $values['type']               = 'share';
+            }
+            
+            $values['grpid']               = $calendar['grpid'];
+            
+            if ( ($params->onlyvisible == true && $calendar['present'] && $calendar['visible'] ) 
+              || $params->onlyvisible == false && $calendar['present']) {
+              if ($params->type == $values['type'] || $params->type == 'all') {
+                array_push($return, $values);
+              } else if ($params->type == $values['type'] || $params->type == 'all') {
+                array_push($return, $values);
+              }
+            }
+          }
+        }
+        
+        return $response->withJson($return);
+    });
+    
+    $this->post('/info', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) ) {
+
+          $calIDs = explode(",",$params->calIDs);
+               
+          $calendarId = $calIDs[0];
+          $Id = $calIDs[1];          
+          
+          $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+          
+          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>http://".$_SERVER[HTTP_HOST]."/calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $title = $calendar->getDisplayname();
+        
+          return $response->withJson(["status" => "success","title"=> $title, "message" => $message]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/setcolor', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if (isset ($params->calIDs) && isset ($params->color)) {
+
+          $calIDs = explode(",",$params->calIDs);
+          $color = $params->color;
+               
+          // new way to manage events
+          // we get the PDO for the Sabre connection from the Propel connection
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+
+          // get all the calendars for the current user
+
+          $return = [];
+
+          $propPatch = new PropPatch([
+              '{http://apple.com/ns/ical/}calendar-color' => $color
+          ]);
+
+          // Updating the calendar
+          $calendarBackend->updateCalendar($calIDs, $propPatch);
+        
+          $result = $propPatch->commit();
+        
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/setckecked', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if (isset ($params->calIDs) && isset ($params->isChecked)) {
+
+          $calIDs = explode(",",$params->calIDs);
+          
+          $calendarId = $calIDs[0];
+          $Id = $calIDs[1];          
+          
+          $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+          
+          $calendar->setVisible ($params->isChecked);
+          
+          $calendar->save();
+        
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/new', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->title) ) {
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          // we create the uuid name          
+          $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+          
+          // get all the calendars for the current user
+
+          $returnID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+            '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
+            '{DAV:}displayname'                                               => $params->title,
+            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
+          ]);  
+                
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/modifyname', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->title) && isset ($params->calIDs) ) {
+          
+          $calIDs = explode(",",$params->calIDs);
+
+          // we check if it isn't a calendar
+          $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid( $calIDs[0] );
+          
+          if ( $calendarInstance != null && $calendarInstance->getGroupId() != 0 ) {// we are in a group calendar
+             $group = GroupQuery::Create()->findOneById($calendarInstance->getGroupId());
+             $group->setName($params->title);
+             $group->save();
+          } else {
+
+            // we'll connect to sabre
+            $pdo = Propel::getConnection();         
+          
+        
+            // We set the BackEnd for sabre Backends
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+            // Updating the calendar
+            $propPatch = new PropPatch([
+              '{DAV:}displayname'                                       => $params->title
+            ]);
+          
+            $calendarBackend->updateCalendar($calIDs, $propPatch);
+         
+            $result = $propPatch->commit();
+            
+          }
+      
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/getinvites', function ($request, $response, $args) {  
+       $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) ) {
+
+          $calendarId = explode(",",$params->calIDs);
+          
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          $result = $calendarBackend->getInvites($calendarId); 
+                
+          return $response->withJson($result);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    }); 
+    
+    
+    $this->post('/sharedelete', function ($request, $response, $args) {  
+       $params = (object)$request->getParsedBody();
+         
+       if ( isset ($params->calIDs) && isset ($params->principal) ) {
+
+          $calendarId = explode(",",$params->calIDs);
+          
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          $shares = $calendarBackend->getInvites($calendarId); 
+              
+          foreach ($shares as $share) {
+            if ($share->principal == $params->principal) {
+              $share->access = DAV\Sharing\Plugin::ACCESS_NOACCESS;
+            }
+          }
+          
+          $calendarBackend->updateInvites($calendarId,$shares);
+        
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+
+    });
+           
+    $this->post('/shareperson', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) && isset ($params->personID) && isset ($params->notification) ) {
+          $user = UserQuery::Create()->findOneByPersonId ($params->personID);
+          
+          if (!empty($user)) {
+
+            $calendarId = explode(",",$params->calIDs);
+          
+            // we'll connect to sabre
+            $pdo = Propel::getConnection();         
+        
+            // We set the BackEnd for sabre Backends
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+            // Add a new invite
+            $calendarBackend->updateInvites(
+              $calendarId,
+              [
+                  new Sharee([
+                      'href'         => 'mailto:'.$user->getEmail(),
+                      'principal'    => 'principals/'.strtolower( $user->getUserName() ),
+                      'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READ,//ACCESS_READWRITE,
+                      'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                      'properties'   => ['{DAV:}displayname' => strtolower( $user->getFullName() )],
+                  ])
+              ]
+            );
+        
+        
+            $result = $calendarBackend->getInvites($calendarId); 
+                
+            return $response->withJson($result);
+          }
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/sharefamily', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) && isset ($params->familyID) && isset ($params->notification) ) {
+        
+          $fam = FamilyQuery::Create()->findOneById ($params->familyID);
+          
+          $persons = $fam->getPeople();
+          
+          $calendarId = explode(",",$params->calIDs);
+          
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+
+          
+          foreach ($persons as $person) {
+            $user = UserQuery::Create()->findOneByPersonId ($person->getId());
+          
+            if (!empty($user)) {
+          
+              // Add a new invite
+              $calendarBackend->updateInvites(
+                $calendarId,
+                [
+                    new Sharee([
+                        'href'         => 'mailto:'.$user->getEmail(),
+                        'principal'    => 'principals/'.strtolower( $user->getUserName() ),
+                        'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READ,//ACCESS_READWRITE,
+                        'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                        'properties'   => ['{DAV:}displayname' => strtolower( $user->getFullName() )],
+                    ])
+                ]
+              );
+              
+            }        
+        
+            $result = $calendarBackend->getInvites($calendarId); 
+                
+            return $response->withJson($result);
+          }
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/sharegroup', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) && isset ($params->groupID) && isset ($params->notification) ) {
+        
+          $group = GroupQuery::Create()->findOneById ($params->groupID);
+          
+          $members = Person2group2roleP2g2rQuery::create()
+                          ->findByGroupId($params->groupID);
+          
+          $calendarId = explode(",",$params->calIDs);
+          
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          foreach ($members as $member) {
+            $user = UserQuery::Create()->findOneByPersonId ($member->getPersonId());
+          
+            if (!empty($user)) {
+          
+              // Add a new invite
+              $calendarBackend->updateInvites(
+                $calendarId,
+                [
+                    new Sharee([
+                        'href'         => 'mailto:'.$user->getEmail(),
+                        'principal'    => 'principals/'.strtolower( $user->getUserName() ),
+                        'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READ,//ACCESS_READWRITE,
+                        'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                        'properties'   => ['{DAV:}displayname' => strtolower( $user->getFullName() )],
+                    ])
+                ]
+              );
+              
+            }        
+        
+          }
+          
+          $result = $calendarBackend->getInvites($calendarId); 
+                
+          return $response->withJson($result);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    
+    $this->post('/sharestop', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) ) {
+          
+          $calendarId = explode(",",$params->calIDs);
+          
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();         
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          $shares = $calendarBackend->getInvites($calendarId); 
+              
+          foreach ($shares as $share) {
+            if ($share->access != 1) {
+              $share->access = DAV\Sharing\Plugin::ACCESS_NOACCESS;
+            }
+          }
+          
+          $calendarBackend->updateInvites($calendarId,$shares);
+          
+          $result = $calendarBackend->getInvites($calendarId); 
+                
+          return $response->withJson($result);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    
+    $this->post('/setrights', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) && isset ($params->principal) && isset ($params->rightAccess) ) {
+            $calendarId = explode(",",$params->calIDs);
+          
+            // we'll connect to sabre
+            $pdo = Propel::getConnection();         
+        
+            // We set the BackEnd for sabre Backends
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+            
+            $shares = $calendarBackend->getInvites($calendarId); 
+              
+            foreach ($shares as $share) {
+              if ($share->principal == $params->principal) {
+                if ($params->rightAccess == 1)
+                  $share->access = DAV\Sharing\Plugin::ACCESS_READ;
+                elseif ($params->rightAccess == 2)
+                  $share->access = DAV\Sharing\Plugin::ACCESS_READWRITE;
+              }
+            }
+
+            $calendarBackend->updateInvites($calendarId,$shares);
+        
+            $result = $calendarBackend->getInvites($calendarId); 
+                
+            return $response->withJson($result);          
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/delete', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) ) {
+            $calendarId = explode(",",$params->calIDs);
+          
+            // we'll connect to sabre
+            $pdo = Propel::getConnection();         
+        
+            // We set the BackEnd for sabre Backends
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+            
+            $calendarBackend->deleteCalendar($calendarId);; 
+                
+            return $response->withJson(['status' => "success"]);          
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
 });

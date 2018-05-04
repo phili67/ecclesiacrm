@@ -16,6 +16,14 @@ use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
 
 use EcclesiaCRM\dto\SystemURLs;
 
+//Mapping PHP errors to exceptions
+// problem with the webdav constant
+
+/*function exception_error_handler($errno, $errstr, $errfile, $errline) {
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+set_error_handler("exception_error_handler");*/
+
 // The autoloader is unusefull : because it's done in the Config.php
 //require 'vendor/autoload.php';
 

@@ -1,7 +1,7 @@
 {
-  "name": "EcclesiaCR",
-  "version": "3.6.2",
-  "description": "Free EcclesiaCRM2 Software",
+  "name": "EcclesiaCRM",
+  "version": "4.0.0",
+  "description": "EcclesiaCRM4 Software",
   "repository": {
     "type": "git",
     "url": "https://github.com/phili67/ecclesiacrm.git"
