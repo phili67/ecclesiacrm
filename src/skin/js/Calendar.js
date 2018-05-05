@@ -713,6 +713,12 @@
           selectable: isModifiable,
           editable:isModifiable,
           eventDrop: function(event, delta, revertFunc) {
+            if (event.writeable == false) {
+              window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+              $('#calendar').fullCalendar( 'refetchEvents' );
+              return;
+            }
+            
             var fmt = 'YYYY-MM-DD H:mm:ss';
 
             var dateStart = moment(event.start).format(fmt);
@@ -975,6 +981,12 @@
           }
         },
         eventResize: function(event, delta, revertFunc) {
+          if (event.writeable == false) {
+            window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+            $('#calendar').fullCalendar( 'refetchEvents' );
+            return;
+          }
+            
           var fmt = 'YYYY-MM-DD H:mm:ss';
 
           var dateStart = moment(event.start).format(fmt);
