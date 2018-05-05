@@ -805,6 +805,12 @@
            }
         },
         eventClick: function(calEvent, jsEvent, view) {
+          if (calEvent.writeable == false) {
+              window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+              
+              return;
+          }
+        
           var fmt = 'YYYY-MM-DD H:mm:ss';
   
           var dateStart = moment(calEvent.start).format(fmt);

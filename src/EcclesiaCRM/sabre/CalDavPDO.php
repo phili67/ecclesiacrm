@@ -662,24 +662,10 @@ SQL;
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        //error_log("La date est = coucou\n\n", 3, "/var/log/mes-erreurs.log");
-
         $extraData = $this->extractCalendarData($calendarData);
-
-        /*foreach ($extraData as $key => $val) {
-           error_log("Key = ".$key." val = ".$val."\n\n", 3, "/var/log/mes-erreurs.log");
-        }*/
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
-        
-        // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
-        //error_log("La date est = ".$extraData['firstOccurence']."\n\n", 3, "/var/log/mes-erreurs.log");
-        //error_log("Le blob = ".$calendarData."\n\n", 3, "/var/log/mes-erreurs.log");
-        
-        /*foreach ($extraData as $key => $val) {
-           error_log("Key = ".$key." val = ".$val."\n\n", 3, "/var/log/mes-erreurs.log");
-        }*/
         
 
         $this->addChange($calendarId, $objectUri, 2);

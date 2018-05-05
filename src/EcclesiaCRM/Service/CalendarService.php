@@ -120,7 +120,9 @@ class CalendarService
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
+        
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()));
+        
         foreach ($calendars as $calendar) {
           $calendarName        = $calendar['{DAV:}displayname'];
           $calendarColor       = $calendar['{http://apple.com/ns/ical/}calendar-color'];
@@ -186,7 +188,7 @@ class CalendarService
                 $event = $this->createCalendarItem('event',
                   $title, $start, $end, 
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor);// only the event id sould be edited and moved and have custom color
+                  $desc,$text,$calID,$calendarColor,0,0,'',$writeable);// only the event id sould be edited and moved and have custom color
             
                 array_push($events, $event);
               }
@@ -197,7 +199,7 @@ class CalendarService
         return $events;
     }
     
-    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=true)
+    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=false)
     {
         $event = [];
         switch ($type) {

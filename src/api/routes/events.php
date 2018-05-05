@@ -447,8 +447,6 @@ $app->group('/events', function () {
             $vcalendar->VEVENT->remove('EXDATE');
           
             foreach ($exdates as $exdate) {
-              //error_log("old exdate\n\n".$exdate, 3, "/var/log/mes-erreurs.log");
-
               $vcalendar->VEVENT->add('EXDATE', (new \DateTime($exdate))->format('Ymd\THis'));
             }
         
