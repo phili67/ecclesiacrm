@@ -160,7 +160,6 @@ class CalendarService
               $grpID = $evnt->getGroupId();
               $loc   = "";
               $text  = $evnt->getText();
-              $parID = 0;//$evnt->getEventParentId();
               $calID = $calendar['id'];
               $fEvnt = false;
     
@@ -176,7 +175,7 @@ class CalendarService
                     $event = $this->createCalendarItem('event',
                       $title, $start, $end, 
                      '',$id,$type,$grpID,
-                      $desc,$text,$parID,$calID,$calendarColor,$subid++,1,$start,$writeable);// only the event id sould be edited and moved and have custom color
+                      $desc,$text,$calID,$calendarColor,$subid++,1,$start,$writeable);// only the event id sould be edited and moved and have custom color
             
                     array_push($events, $event);
                   }
@@ -187,7 +186,7 @@ class CalendarService
                 $event = $this->createCalendarItem('event',
                   $title, $start, $end, 
                  '',$id,$type,$grpID,
-                  $desc,$text,$parID,$calID,$calendarColor);// only the event id sould be edited and moved and have custom color
+                  $desc,$text,$calID,$calendarColor);// only the event id sould be edited and moved and have custom color
             
                 array_push($events, $event);
               }
@@ -198,7 +197,7 @@ class CalendarService
         return $events;
     }
     
-    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$parentID=0,$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=true)
+    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=true)
     {
         $event = [];
         switch ($type) {
@@ -231,7 +230,6 @@ class CalendarService
           $event['groupID'] = $groupID;
           $event['Desc'] = $desc;
           $event['Text'] = $text;   
-          $event['parentID'] = $parentID;
           $event['recurrent'] = $recurrent;
           $event['writeable'] = $writeable;
           

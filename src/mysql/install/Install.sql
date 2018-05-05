@@ -418,7 +418,6 @@ CREATE TABLE `events_event` (
   `event_typename` varchar(40) NOT NULL default '',
   `event_grpid` mediumint(9),
   `event_location` text,
-  `event_parent_id` int(11) DEFAULT NULL,
   `event_calendardata` mediumblob,
   `event_uri` varbinary(200) DEFAULT NULL,
   `event_calendarid` INTEGER UNSIGNED NOT NULL  DEFAULT '0',
@@ -429,8 +428,7 @@ CREATE TABLE `events_event` (
   `event_uid` varbinary(200) DEFAULT NULL,
     PRIMARY KEY  (`event_id`),
     UNIQUE(event_calendarid, event_uri),
-    INDEX calendarid_time (event_calendarid),
-    CONSTRAINT fk_event_parent_id FOREIGN KEY (event_parent_id) REFERENCES events_event(event_id) ON DELETE SET NULL
+    INDEX calendarid_time (event_calendarid)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1;
 
 

@@ -52,7 +52,7 @@ $eventTypes = EventTypesQuery::Create()
                </div>
                <div class="row" style="padding:5px">
                  <div class="col-sm-4">  
-                    <label><?= gettext("By Types")." : " ?></label>
+                    <label><?= gettext("By Types") ?></label>
                  </div>
                  <div class="col-sm-8">  
                    <select type="text" id="EventTypeFilter" value="0" class="form-control input-sm" size=1>

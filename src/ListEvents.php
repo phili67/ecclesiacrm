@@ -148,14 +148,7 @@ $eventTypes = EventTypesQuery::Create()
 <?php
 // year selector
 
-if ($eType == '0') {
-    $years = EventQuery::Create()
-                ->addAsColumn('year','YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->select('year')
-                ->setDistinct()
-                ->where('YEAR('.EventTableMap::COL_EVENT_START.')')
-                ->find();
-} elseif ($eType == 'All') {
+if ($eType == 'All') {
     $years = EventQuery::Create()
                 ->addAsColumn('year','YEAR('.EventTableMap::COL_EVENT_START.')')
                 ->select('year')
@@ -229,25 +222,23 @@ $statisticaAvgRows = true;
 foreach ($allMonths as $mVal) {
     unset($cCountSum);
     
-    if ($eType == '0') {
-      $events = EventQuery::Create()
-         ->filterByType("'0'")
-         ->orderByStart()
-         ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
-         ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
-         ->addAsColumn('login',PrincipalsTableMap::COL_URI)
-         ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
-         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'")
-         ->find();
-    } elseif ($eType == 'All') {
+    $onlyUser = "";
+    
+    if (!($_SESSION['user']->isAdmin())) {
+      $onlyUser = " AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'";
+    }
+      
+    if ($eType == 'All') {
       $events = EventQuery::Create()
          ->orderByStart()
          ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
-         ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
-         ->addAsColumn('login',PrincipalsTableMap::COL_URI)
-         ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
-         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'")
-         ->find();
+           ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
+           ->addAsColumn('login',PrincipalsTableMap::COL_URI)
+           ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+           ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
+           ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
+            ->find();
+         
     } else {
       $events = EventQuery::Create()
          ->filterByType($eType)
@@ -256,12 +247,18 @@ foreach ($allMonths as $mVal) {
          ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
          ->addAsColumn('login',PrincipalsTableMap::COL_URI)
          ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
-         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'")
+           ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
+         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
          ->find();
     }
     
-    $numRows = $events->count();
+    
+    $numRows = 0;
+    if ( !empty($events) ) {
+      $numRows = $events->count();
+    }
     $aAvgRows = $numRows;
+    
     
     $numAVGAtt = 0;
     $numAVG_CheckIn = 0;
@@ -270,10 +267,15 @@ foreach ($allMonths as $mVal) {
     $row=1;
     
     foreach ($events as $event) {  
-        // get the list of attend-counts that exists in event_attend for this
-        
+        // get the list of attend-counts that exists in event_attend for this        
         $aEventID[$row] = $event->getId();
-        $aLogin[$row] = $event->getLogin();
+        
+        if ( $_SESSION['user']->isAdmin() ) {
+          $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b><br>".gettext("login").":<b>".str_replace("principals/","",$event->getLogin())."</b>";
+        } else {
+          $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b>";
+        }
+        
         $aEventType[$row] = $event->getTypeName();
         $aEventTitle[$row] = htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8');
         $aEventDesc[$row] = htmlentities(stripslashes($event->getDesc()), ENT_NOQUOTES, 'UTF-8');
@@ -281,7 +283,11 @@ foreach ($allMonths as $mVal) {
         $aEventStartDateTime[$row] = $event->getStart()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
         $aEventEndDateTime[$row] = $event->getEnd()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
         $aEventStatus[$row] = $event->getInactive();
-        $aEventRights[$row] = ($event->getRights() == 1 || $event->getRights() == 3)?true:false;
+        if (!($_SESSION['user']->isAdmin())) {
+          $aEventRights[$row] = ($event->getRights() == 1 || $event->getRights() == 3)?true:false;
+        } else {
+          $aEventRights[$row] = true;
+        }
                 
         $attendees = EventAttendQuery::create()->findByEventId($event->getId());
         
@@ -327,7 +333,7 @@ foreach ($allMonths as $mVal) {
         <th><?= gettext("Action") ?></th>
         <th><?= gettext("Description") ?></th>
         <th><?= gettext("Event Type") ?></th>
-        <th><?= gettext("Calendar Owner") ?></th>
+        <th><?= gettext("Calendar") ?></th>
         <th><?= gettext("Attendance Counts with real Attendees") ?></th>
         <th><?= gettext("Free Attendance Counts without Attendees") ?></th>
         <th><?= gettext("Start Date/Time") ?></th>

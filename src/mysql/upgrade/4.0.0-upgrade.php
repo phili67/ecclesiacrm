@@ -9,8 +9,10 @@ use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\LoggerUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Group;
 use EcclesiaCRM\CalendarinstancesQuery;
 use EcclesiaCRM\EventQuery;
+use EcclesiaCRM\Event;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
@@ -37,6 +39,26 @@ $pdo = Propel::getConnection();
 $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
 
 $logger->info("Start to translate the event from the old system to the new");
+
+$groupOne = GroupQuery::Create()->findOne();
+
+$new_groupId = 0;
+
+if ( empty($group) ) {// we find all the events where not belongs to a group
+  $newGroup = new Group();
+  
+  $newGroup->setName("From EcclesiaCRM3 without Group");
+  $newGroup->save();
+  
+  $new_groupId = $newGroup->getId();
+  
+  $events = EventQuery::Create()->filterByGroupId(NULL)->find();
+  
+  foreach ($events as $event) {
+    $event->setGroupId($new_groupId);
+    $event->save();
+  }
+}
   
 // we peek all the groups
 $groups = GroupQuery::Create()->find();
@@ -83,8 +105,6 @@ $groups = GroupQuery::Create()->find();
           $calIDs = [$calendar->getCalendarid(),0];
           
           $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
-          
-          //echo $etag."<br>";
           
           $newEvent = EventQuery::Create()->findOneByEtag(str_replace('"','',$etag));
           

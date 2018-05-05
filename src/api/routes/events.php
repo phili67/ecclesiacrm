@@ -468,7 +468,7 @@ $app->group('/events', function () {
             // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
             $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-                $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
+                $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
             return $response->withJson(array_filter($realCalEvnt));
  
@@ -517,7 +517,7 @@ $app->group('/events', function () {
             $new_event->save(); 
 
             $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-                $new_event->getTitle(), $new_event->getStart('Y-m-d H:i:s'), $new_event->getEnd('Y-m-d H:i:s'), '',$new_event->getId(),$new_event->getType(),$new_event->getGroupId(),$new_event->getDesc(),$new_event->getText(),$new_event->getEventParentId());// only the event id sould be edited and moved and have custom color
+                $new_event->getTitle(), $new_event->getStart('Y-m-d H:i:s'), $new_event->getEnd('Y-m-d H:i:s'), '',$new_event->getId(),$new_event->getType(),$new_event->getGroupId(),$new_event->getDesc(),$new_event->getText());// only the event id sould be edited and moved and have custom color
   
             return $response->withJson(array_filter($realCalEvnt));
             
@@ -536,7 +536,7 @@ $app->group('/events', function () {
           // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
           $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
+              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
           return $response->withJson(array_filter($realCalEvnt));
         }
@@ -573,7 +573,7 @@ $app->group('/events', function () {
         $event = EventQuery::Create()->findOneById($input->eventID);
                  
         $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText(),$event->getEventParentId());// only the event id sould be edited and moved and have custom color
+            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
   
         return $response->withJson(array_filter($realCalEvnt));
     

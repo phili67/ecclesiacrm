@@ -322,9 +322,8 @@
   
   function addCalendars(calendarId)
   {
-    var calId = '';
-    if (typeof calendarId !== 'undefined') {
-      calId = calendarId[0]+','+calendarId[1];
+    if (typeof calendarId === 'undefined') {
+      calendarId = [0,0];
     }
     
     window.CRM.APIRequest({
@@ -343,8 +342,10 @@
           option.title = calendars[i].type;        
           option.value = calendars[i].calendarID;
           option.setAttribute("data-calendar-id",calendars[i].grpid);
+          
+          var aCalendarId = calendars[i].calendarID.split(",");
         
-          if (calId && calId === calendars[i].calendarID) {
+          if (calendarId[0] == Number(aCalendarId[0])) {
             option.setAttribute('selected','selected');
           }
         
@@ -1051,47 +1052,56 @@
       },
       selectHelper: true,        
       select: function(start, end) {
-         // We create the dialog
-         modal = createEventEditorWindow (start,end);
+        window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/numberofcalendar',
+        }).done(function(data) {         
+          if (data.CalendarNumber > 0){
+             // We create the dialog
+             modal = createEventEditorWindow (start,end);
        
-         // we add the calendars and the types
-         addCalendars();
-         addCalendarEventTypes(-1,true);
+             // we add the calendars and the types
+             addCalendars();
+             addCalendarEventTypes(-1,true);
        
-         //Timepicker
-         $('.timepicker').timepicker({
-           showInputs: false,
-           showMeridian: (window.CRM.timeEnglish == "true")?true:false
-         });
+             //Timepicker
+             $('.timepicker').timepicker({
+               showInputs: false,
+               showMeridian: (window.CRM.timeEnglish == "true")?true:false
+             });
        
-         $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+             $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
        
-         $('.date-picker').click('focus', function (e) {
-           e.preventDefault();
-           $(this).datepicker('show');
-         });
+             $('.date-picker').click('focus', function (e) {
+               e.preventDefault();
+               $(this).datepicker('show');
+             });
         
-         $('.date-start').hide();
-         $('.date-end').hide();
-         $('.date-recurrence').hide();
-         $(".eventPredication").hide();
+             $('.date-start').hide();
+             $('.date-end').hide();
+             $('.date-recurrence').hide();
+             $(".eventPredication").hide();
          
-         $("#typeEventrecurrence").prop("disabled", true);
-         $("#endDateEventrecurrence").prop("disabled", true);
+             $("#typeEventrecurrence").prop("disabled", true);
+             $("#endDateEventrecurrence").prop("disabled", true);
        
-         // this will ensure that image and table can be focused
-         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+             // this will ensure that image and table can be focused
+             $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
        
-         // this will create the toolbar for the textarea
-         CKEDITOR.replace('eventPredication',{
-          customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-          language : window.CRM.lang,
-          width : '100%'
-         });
+             // this will create the toolbar for the textarea
+             CKEDITOR.replace('eventPredication',{
+              customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+              language : window.CRM.lang,
+              width : '100%'
+             });
       
-         $(".ATTENDENCES").hide();
+             $(".ATTENDENCES").hide();
        
-         modal.modal("show");
+             modal.modal("show");
+          } else {
+             window.CRM.DisplayAlert("Error","To add an event, You have to create a calendar or activate one first.");
+          }
+        });
       },
       eventLimit: withlimit, // allow "more" link when too many events
       locale: window.CRM.lang,

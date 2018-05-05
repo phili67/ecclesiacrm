@@ -1,3 +1,6 @@
+--
+-- We add the new columns in events_event
+--
 ALTER TABLE `events_event` ADD  `event_last_occurence` datetime NOT NULL;
 ALTER TABLE `events_event` ADD  `event_location` text;
 ALTER TABLE `events_event` ADD  `event_calendardata` mediumblob;
@@ -9,11 +12,17 @@ ALTER TABLE `events_event` ADD  `event_size` int(11) UNSIGNED NOT NULL;
 ALTER TABLE `events_event` ADD  `event_componenttype` varbinary(8) DEFAULT NULL;
 ALTER TABLE `events_event` ADD  `event_uid` varbinary(200) DEFAULT NULL;
 
-
 ALTER TABLE `events_event`
   ADD UNIQUE KEY `event_calendarid` (`event_calendarid`,`event_uri`),
   ADD KEY `calendarid_time` (`event_calendarid`);
 
+--
+-- we drop the event_parent_id, it's no more usefull with sabre
+--
+ALTER TABLE `events_event` DROP FOREIGN KEY `fk_event_parent_id`;
+ALTER TABLE events_event DROP COLUMN event_parent_id;
+
+-- last we add the new tables
 
 CREATE TABLE calendars (
     id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

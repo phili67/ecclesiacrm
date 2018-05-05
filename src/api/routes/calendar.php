@@ -39,6 +39,47 @@ $app->group('/calendar', function () {
         return $response->withJson($calendarService->getEvents($params->start, $params->end));
     });
     
+    $this->post('/numberofcalendar', function ($request, $response, $args) {
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+      
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+
+        // get all the calendars for the current user
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname");
+
+        $return = [];
+
+        foreach ($calendars as $calendar) {
+          $values['calendarName']       = $calendar['{DAV:}displayname'];
+          $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
+          $values['calendarShareAccess']= $calendar['share-access'];
+          $values['calendarUri']        = $calendar['uri'];
+        
+          $id                           = $calendar['id'];            
+          $values['calendarID']         = $id[0].",".$id[1];;
+          $values['visible']            = ($calendar['visible'] == "1")?true:false;
+          //$values['present']            = $calendar['present'];
+          $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
+          if ($values['calendarShareAccess'] >= 2) {
+            $values['type']               = 'share';
+          }
+          
+          $values['grpid']               = $calendar['grpid'];
+          
+          if ( $calendar['present'] && $calendar['visible'] ) {
+              array_push($return, $values);
+          }
+        }
+        
+        
+        return $response->withJson(["CalendarNumber" => count($return)]);
+    });
+    
+    
+    
     $this->post('/getallforuser', function ($request, $response, $args) {  
         $params = (object)$request->getParsedBody();
         
