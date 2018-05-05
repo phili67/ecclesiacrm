@@ -65,15 +65,18 @@ $groups = GroupQuery::Create()->find();
   
   foreach ($groups as $group) {
     if ($group->getId()) {
-      // first we create all the calendars
-      $returnedId = $calendarBackend->createCalendar('principals/admin', \Sabre\DAV\UUIDUtil::getUUID() , [
-              '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
-              '{DAV:}displayname'                                               => $group->getName(),
-              '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
-      ]);
+      if ($group->getName() != "From EcclesiaCRM3 without Group") {
+        // first we create all the calendars
+        $returnedId = $calendarBackend->createCalendar('principals/admin', \Sabre\DAV\UUIDUtil::getUUID() , [
+                '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
+                '{DAV:}displayname'                                               => $group->getName(),
+                '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
+        ]);
+      } else {
+        $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $group->getId() );        
+        $returnedId = [$calendarInstance->getCalendarid(),$calendarInstance->getId()];
+      }
       
-      print_r($returnedId);
-       
       $calendar = CalendarinstancesQuery::Create()->findOneByCalendarid($returnedId[0]);
       if ($calendar != null) {
         $calendar->setGroupId ($group->getId());
