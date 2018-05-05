@@ -7,11 +7,8 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
+ *  Cpoyright 2018 Philippe Logel
  *
-
-
-
-
  *
  ******************************************************************************/
 

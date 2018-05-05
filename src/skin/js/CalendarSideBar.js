@@ -29,22 +29,10 @@
       data: JSON.stringify({"calIDs":calIDs,"isChecked":isChecked})
     }).done(function(data) {    
       // we reload all the events
-      $('#calendar').fullCalendar( 'refetchEvents' );   
+      $('#calendar').fullCalendar( 'refetchEvents' );
     });
   });
-  
-  $("#manage-all-calendars").click('focus', function (e) {
-    alert("manage all calendars");
-  });
 
-  $("#manage-all-groups").click('focus', function (e) {
-    alert("manage all groups");
-  });
-  
-  $("#manage-all-shared").click('focus', function (e) {
-    alert("manage all shared");
-  });
-  
   
   $("#add-calendar").click('focus', function (e) {
     bootbox.prompt({
@@ -64,16 +52,176 @@
     });
   });
   
-// the add people to calendar
+// to add PresenceShare
 
+  function addShareCalendarPresence(type)
+  {
+      $('#select-calendar-presence').find('option').remove();
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'calendar/getallforuser',
+        data: JSON.stringify({"type":type,"onlyvisible":false,"presence":true})
+      }).done(function(data) {    
+        var elt = document.getElementById("select-calendar-presence");
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          if (data[i].present == true) {
+            var option = document.createElement("option");
+
+            option.text = i18next.t("[VISIBLE]")+" "+data[i].calendarName;
+            option.value = data[i].calendarID;
+        
+            elt.appendChild(option);
+          } else {
+            var option = document.createElement("option");
+
+            option.text = i18next.t("[HIDDEN]")+" "+data[i].calendarName;
+            option.value = data[i].calendarID;
+        
+            elt.appendChild(option);
+          }
+
+        }
+      });  
+  }
+
+  function BootboxContentCalendarPresence(){
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Show/Hide your Calendars in the SideBar")+'</h3>'
+       + '<div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4">'
+              + '<span style="color: red">*</span>' + i18next.t("Calendars") + ":"                    
+              +'</div>'
+              +'<div class="col-md-8">'
+              +'<select size="6" style="width:100%" id="select-calendar-presence" multiple>'
+              +'</select>'
+             +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Status") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="calendar-show-hide" id="calendar-show-hide" class="form-control input-sm"'
+                    +'style="width:100%" data-placeholder="text to place">'
+                    +'<option value="0">'+i18next.t("Select [Hide] or [Show]")+' -- </option>'
+                    +'<option value="2">'+i18next.t("[Show]")+' -- </option>'
+                    +'<option value="1">'+i18next.t("[Hide]")+' -- </option>'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+          
+          var object = $('<div/>').html(frm_str).contents();
+
+        return object
+  }
+
+  function CreateCalendarPresenceWindow(type)
+  {
+     var modal = bootbox.dialog({
+       message: BootboxContentCalendarPresence(),
+       buttons: [
+        {
+         label: i18next.t("Ok"),
+         className: "btn btn-primary",
+         callback: function() {               
+           modal.modal("hide");
+           return true;
+         }
+        },
+       ],
+       show: false,
+       onEscape: function() {
+          modal.modal("hide");
+       }
+     });
+     
+     addShareCalendarPresence(type);
+ 
+     return modal;
+  }
+  
+  function createPresenceManager (type) {
+    var modal = CreateCalendarPresenceWindow(type);
+    
+    $("#calendar-show-hide").change(function() {
+       var isPresent = $(this).val();
+       var deferredsSH = [];
+       var i = 0;
+       
+       $('#select-calendar-presence :selected').each(function(i, sel){ 
+          var calIDs = $(sel).val();
+          var str = $(sel).text();
+          
+          deferredsSH.push(          
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'calendar/showhidecalendars',
+               data: JSON.stringify({"calIDs":calIDs,"isPresent": (isPresent==1)?false:true})
+            }).done(function(data) {
+              if (isPresent == 1) {
+                res = str.replace( i18next.t('[VISIBLE]'), i18next.t('[HIDDEN]') );
+              } else {
+                res = str.replace( i18next.t('[HIDDEN]'), i18next.t('[VISIBLE]') );
+              }
+            
+              var elt = [calIDs,res];
+              deferredsSH[i++] = elt;
+            })
+          );
+          
+        });
+        
+        $.when.apply($, deferredsSH).done(function(data) {
+         //addShareCalendarPresence(type);
+         
+         deferredsSH.forEach(function(element) {
+           $('#select-calendar-presence option[value="'+element[0]+'"]').text(element[1]);
+         }); 
+         
+         // we update the sidebar and the calendar too
+         switch (type) {
+           case 'personal':
+             addPersonalCalendars();
+             break;
+           case 'group':
+             addGroupCalendars();
+             break;
+           case 'share':
+             addShareCalendars();
+             break;
+         }
+         $('#calendar').fullCalendar( 'refetchEvents' );
+         $("#calendar-show-hide option:first").attr('selected','selected');
+        });
+     });
+    
+    modal.modal("show");
+  }
+    
+  $("#manage-all-calendars").click('focus', function (e) {
+    createPresenceManager ('personal');    
+  });
+  
+  $("#manage-all-groups").click('focus', function (e) {
+    createPresenceManager ('group');
+  });
+  
+  $("#manage-all-shared").click('focus', function (e) {
+    createPresenceManager ('share');
+  });
+  
+  // the add people to calendar
+  
   function addPersonsFromCalendar(calendarId)
   {
       $('#select-share-persons').find('option').remove();
       
       window.CRM.APIRequest({
-            method: 'POST',
-            path: 'calendar/getinvites',
-            data: JSON.stringify({"calIDs": calendarId})
+        method: 'POST',
+        path: 'calendar/getinvites',
+        data: JSON.stringify({"calIDs": calendarId})
       }).done(function(data) {    
         var elt = document.getElementById("select-share-persons");
         var len = data.length;
@@ -114,7 +262,7 @@
             +'<div class="row div-title">'
               +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
               +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
+                +'<select name="person-group-Id-Share" id="person-group-rights" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
                     +'<option value="0">'+i18next.t("Select your rights [R ] or [RW]")+' -- </option>'
                     +'<option value="1">'+i18next.t("[R ]")+' -- </option>'
@@ -131,7 +279,7 @@
             +'<div class="row div-title">'
               +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
               +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
+                +'<select name="person-group-Id-Share" id="person-group-Id-Share" class="form-control select2"'
                     +'style="width:100%">'
                 +'</select>'
               +'</div>'
@@ -205,7 +353,7 @@
        }
      });
      
-     $("#person-group-Id").select2({ 
+     $("#person-group-Id-Share").select2({ 
         language: window.CRM.shortLocale,
         minimumInputLength: 2,
         placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
@@ -226,39 +374,41 @@
       
      $("#person-group-rights").change(function() {
        var rightAccess = $(this).val();
-       var deferreds = [];
+       var deferredsPR = [];
        var i = 0;
        
        $('#select-share-persons :selected').each(function(i, sel){ 
           var principal = $(sel).val();
           var str = $(sel).text();
           
-          deferreds.push(          
+          deferredsPR.push(          
             window.CRM.APIRequest({
                method: 'POST',
                path: 'calendar/setrights',
                data: JSON.stringify({"calIDs":calIDs,"principal": principal,"rightAccess":rightAccess})
             }).done(function(data) {
               if (rightAccess == 1) {
-                res = str.replace('[RW]', '[R ]');
+                res = str.replace(i18next.t('[RW]'), i18next.t('[R ]'));
               } else {
-                res = str.replace('[R]', '[RW]');
+                res = str.replace(i18next.t('[R ]'), i18next.t('[RW]'));
               }
             
               var elt = [principal,res];
-              deferreds[i++] = elt;
+              deferredsPR[i++] = elt;
             })
           );
           
         });
         
-        $.when.apply($, deferreds).done(function(data) {
+        $.when.apply($, deferredsPR).done(function(data) {
          // all images are now prefetched
-         addPersonsFromCalendar(calIDs);
+         //addPersonsFromCalendar(calIDs);
          
-         deferreds.forEach(function(element) {
+         deferredsPR.forEach(function(element) {
            $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
          }); 
+         
+         $("#person-group-rights option:first").attr('selected','selected');
         });
      });
      
@@ -267,7 +417,7 @@
      });
           
       
-     $("#person-group-Id").on("select2:select",function (e) { 
+     $("#person-group-Id-Share").on("select2:select",function (e) { 
        var notification = ($("#sendEmail").is(':checked'))?1:0;
        
        if (e.params.data.personID !== undefined) {

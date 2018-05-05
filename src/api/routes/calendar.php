@@ -39,6 +39,7 @@ $app->group('/calendar', function () {
         return $response->withJson($calendarService->getEvents($params->start, $params->end));
     });
     
+    
     $this->post('/numberofcalendar', function ($request, $response, $args) {
         // we get the PDO for the Sabre connection from the Propel connection
         $pdo = Propel::getConnection();         
@@ -78,6 +79,27 @@ $app->group('/calendar', function () {
         return $response->withJson(["CalendarNumber" => count($return)]);
     });
     
+    $this->post('/showhidecalendars', function ($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->calIDs) && isset($params->isPresent) ) {
+
+          $calIDs = explode(",",$params->calIDs);
+          
+          $calendarId = $calIDs[0];
+          $Id = $calIDs[1];          
+          
+          $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+          
+          $calendar->setPresent ($params->isPresent);
+          
+          $calendar->save();
+        
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
     
     
     $this->post('/getallforuser', function ($request, $response, $args) {  
@@ -105,7 +127,8 @@ $app->group('/calendar', function () {
             $values['calendarUri']        = $calendar['uri'];
           
             $id                           = $calendar['id'];            
-            $values['calendarID']         = $id[0].",".$id[1];;
+            $values['calendarID']         = $id[0].",".$id[1];
+            $values['present']            = $calendar['present'];
             $values['visible']            = ($calendar['visible'] == "1")?true:false;
             //$values['present']            = $calendar['present'];
             $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
@@ -117,7 +140,8 @@ $app->group('/calendar', function () {
             
             
             if ( ($params->onlyvisible == true && $calendar['present'] && $calendar['visible'] ) 
-              || $params->onlyvisible == false && $calendar['present']) {
+              || $params->onlyvisible == false && $calendar['present']
+              || isset($params->presence) && $params->presence ) {
               if ($params->type == $values['type'] || $params->type == 'all') {
                 array_push($return, $values);
               } else if ($params->type == $values['type'] || $params->type == 'all') {

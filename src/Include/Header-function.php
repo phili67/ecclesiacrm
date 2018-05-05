@@ -6,7 +6,7 @@
  *  description : page header used for most pages
  *
  *  Copyright 2001-2004 Phillip Hullquist, Deane Barker, Chris Gebhardt, Michael Wilt
- *  Update 2017 Philippe Logel
+ *  Update 2018 Philippe Logel
  *
  *
  ******************************************************************************/
