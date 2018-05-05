@@ -394,12 +394,12 @@ function addMenuItem($ormMenu, $mIdx)
 
                 if (count($groups)>0) {// only if the groups exist : !empty doesn't work !
                     echo "\n<li><a href='#'><i class='fa fa-user-o'></i>" . gettext("Unassigned"). '</a>';
-                    echo '\n<ul class="treeview-menu">';
+                    echo "\n<ul class='treeview-menu'>";
 
                     foreach ($groups as $group) {
                         echo "\n<li><a href='" . SystemURLs::getRootPath() . '/GroupView.php?GroupID=' . $group->getID() . "'><i class='fa fa-angle-double-right'></i> " . $group->getName() . '</a></li>';
                     }
-                    echo '\n</ul>';
+                    echo "\n</ul>";
                 }
             }
         } else {

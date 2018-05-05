@@ -129,15 +129,11 @@ $eventTypes = EventTypesQuery::Create()
                      </div>
                  </div>
                  </div>
-               <?php
-                 if ($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled()) {
-                 // only an administrator can manage the groups
-               ?>
                  <div class="row panel panel-primary personal-collapse">
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
-                          <?= gettext("Groups")?> 
+                          <?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
                           <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -158,14 +154,11 @@ $eventTypes = EventTypesQuery::Create()
                      </div>
                  </div>
                  </div>
-               <?php
-                 }
-               ?>
                  <div class="row panel panel-primary personal-collapse">
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
-                          <?= gettext("Shared")?> 
+                          <?= gettext("Shared")."  (".gettext("Users").")"?> 
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
                           <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>

@@ -109,11 +109,12 @@ $app->group('/calendar', function () {
             $values['visible']            = ($calendar['visible'] == "1")?true:false;
             //$values['present']            = $calendar['present'];
             $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
-            if ($values['calendarShareAccess'] >= 2) {
+            $values['grpid']               = $calendar['grpid'];
+
+            if ($values['calendarShareAccess'] >= 2 && $values['grpid'] == 0) {
               $values['type']               = 'share';
             }
             
-            $values['grpid']               = $calendar['grpid'];
             
             if ( ($params->onlyvisible == true && $calendar['present'] && $calendar['visible'] ) 
               || $params->onlyvisible == false && $calendar['present']) {
@@ -143,8 +144,10 @@ $app->group('/calendar', function () {
           
           $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>http://".$_SERVER[HTTP_HOST]."/calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
           $title = $calendar->getDisplayname();
+          
+          $isAdmin = ($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?true:false;
         
-          return $response->withJson(["status" => "success","title"=> $title, "message" => $message]);
+          return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin]);
         }
         
         return $response->withJson(['status' => "failed"]);

@@ -364,8 +364,10 @@
     
         if (type == "personal") {
           allButtons = $.extend(allButtons,buttonDelete,buttonManage,buttonOk);
-        } else if (type == "group") {
+        } else if (type == "group" && data.isAdmin == true) {
           allButtons = $.extend(allButtons,buttonManage,buttonOk);
+        } else if (type == "group" && data.isAdmin == false) {
+          allButtons = $.extend(allButtons,buttonOk);
         } else if (type == "shared") {
           allButtons = $.extend(allButtons,buttonOk);
         }
