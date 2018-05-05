@@ -14,7 +14,7 @@
 
   $('.collapse').on('shown.bs.collapse', function(){
       $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");
-  }).on('hidden.bs.collapse', function(){
+  }).on('EXCLUDE.bs.collapse', function(){
       $(this).parent().find(".fa-chevron-up").removeClass("fa-chevron-up").addClass("fa-chevron-down");
   });
   
@@ -70,14 +70,14 @@
           if (data[i].present == true) {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[VISIBLE]")+" "+data[i].calendarName;
+            option.text = i18next.t("[INCLUDE]")+" "+data[i].calendarName;
             option.value = data[i].calendarID;
         
             elt.appendChild(option);
           } else {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[HIDDEN]")+" "+data[i].calendarName;
+            option.text = i18next.t("[EXCLUDE]")+" "+data[i].calendarName;
             option.value = data[i].calendarID;
         
             elt.appendChild(option);
@@ -104,9 +104,9 @@
               +'<div class="col-md-8">'
                 +'<select name="calendar-show-hide" id="calendar-show-hide" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select [Hide] or [Show]")+' -- </option>'
-                    +'<option value="2">'+i18next.t("[Show]")+' -- </option>'
-                    +'<option value="1">'+i18next.t("[Hide]")+' -- </option>'
+                    +'<option value="0">'+i18next.t("Select [Exclude] or [Include]")+' -- </option>'
+                    +'<option value="2">'+i18next.t("[Include]")+' -- </option>'
+                    +'<option value="1">'+i18next.t("[Exclude]")+' -- </option>'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -161,9 +161,9 @@
                data: JSON.stringify({"calIDs":calIDs,"isPresent": (isPresent==1)?false:true})
             }).done(function(data) {
               if (isPresent == 1) {
-                res = str.replace( i18next.t('[VISIBLE]'), i18next.t('[HIDDEN]') );
+                res = str.replace( i18next.t('[INCLUDE]'), i18next.t('[EXCLUDE]') );
               } else {
-                res = str.replace( i18next.t('[HIDDEN]'), i18next.t('[VISIBLE]') );
+                res = str.replace( i18next.t('[EXCLUDE]'), i18next.t('[INCLUDE]') );
               }
             
               var elt = [calIDs,res];
