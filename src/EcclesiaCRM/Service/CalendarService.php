@@ -121,7 +121,7 @@ class CalendarService
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
         
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()));
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
         
         foreach ($calendars as $calendar) {
           $calendarName        = $calendar['{DAV:}displayname'];

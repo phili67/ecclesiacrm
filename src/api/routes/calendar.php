@@ -49,7 +49,7 @@ $app->group('/calendar', function () {
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
         // get all the calendars for the current user
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname");
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
 
         $return = [];
 
@@ -117,7 +117,7 @@ $app->group('/calendar', function () {
           $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
           // get all the calendars for the current user
-          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname");
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
 
 
           foreach ($calendars as $calendar) {

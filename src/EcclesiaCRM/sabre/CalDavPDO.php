@@ -300,7 +300,7 @@ class CalDavPDO extends SabreCalDavBase\PDO {
      * @param string $principalUri
      * @return array
      */
-     function getCalendarsForUser($principalUri,$order="calendarorder") {
+     function getCalendarsForUser($principalUri,$order="calendarorder",$allCalendars=false) {
 
         $fields = array_values($this->propertyMap);
         $fields[] = 'calendarid';
@@ -328,7 +328,9 @@ SQL
 
         $calendars = [];
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-
+        
+          if ( $row['present'] || $allCalendars == true) {
+          
             $components = [];
             if ($row['components']) {
                 $components = explode(',', $row['components']);
@@ -365,6 +367,7 @@ SQL
             }
 
             $calendars[] = $calendar;
+          }
 
         }
 
