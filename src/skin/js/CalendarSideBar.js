@@ -61,7 +61,7 @@
       window.CRM.APIRequest({
         method: 'POST',
         path: 'calendar/getallforuser',
-        data: JSON.stringify({"type":type,"onlyvisible":false,"presence":true})
+        data: JSON.stringify({"type":type,"onlyvisible":false,"allCalendars":true})
       }).done(function(data) {    
         var elt = document.getElementById("select-calendar-presence");
         var len = data.length;
@@ -612,12 +612,12 @@
     window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/getallforuser',
-      data: JSON.stringify({"type":"personal","onlyvisible":false})
+      data: JSON.stringify({"type":"personal","onlyvisible":false,"allCalendars":false})
     }).done(function(data) {    
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'><i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i> <span class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i> <span class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
           inline:false,
@@ -636,12 +636,12 @@
     window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/getallforuser',
-      data: JSON.stringify({"type":"group","onlyvisible":false})
+      data: JSON.stringify({"type":"group","onlyvisible":false,"allCalendars":false})
     }).done(function(data) {    
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'><i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,          
@@ -660,12 +660,12 @@
     window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/getallforuser',
-      data: JSON.stringify({"type":"share","onlyvisible":false})
+      data: JSON.stringify({"type":"share","onlyvisible":false,"allCalendars":false})
     }).done(function(data) {    
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'><i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,

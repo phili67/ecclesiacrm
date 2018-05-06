@@ -87,7 +87,7 @@ class CalendarService
                   $year = $firstYear + 1;
               }
               $start = date_create($year.'-'.$person->getBirthMonth().'-'.$person->getBirthDay());
-              $event = $this->createCalendarItem('birthday',
+              $event = $this->createCalendarItem('birthday','<i class="fa fa-birthday-cake"></i>',
               $person->getFullName()." ".$person->getAge(), $start->format(DATE_ATOM), '', $person->getViewURI());
               array_push($events, $event);
           }
@@ -106,7 +106,7 @@ class CalendarService
                   $year = $year + 1;
               }
               $start = $year.'-'.$anniversary->getWeddingMonth().'-'.$anniversary->getWeddingDay();
-              $event = $this->createCalendarItem('anniversary', $anniversary->getName(), $start, '', $anniversary->getViewURI());
+              $event = $this->createCalendarItem('anniversary', '<i class="fa fa-birthday-cake"></i>', $anniversary->getName(), $start, '', $anniversary->getViewURI());
               array_push($events, $event);
           }
         }
@@ -121,7 +121,7 @@ class CalendarService
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
         
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",false);
         
         foreach ($calendars as $calendar) {
           $calendarName        = $calendar['{DAV:}displayname'];
@@ -130,6 +130,22 @@ class CalendarService
           $calendarUri         = $calendar['uri'];
           $calendarID          = $calendar['id'];
           $groupID             = $calendar['grpid'];
+          
+          $icon = "";
+
+          if ($writeable) {
+            $icon = '<i class="fa fa-pencil"></i>';
+          }
+
+          if ($groupID > 0) {
+            $icon .= '<i class="fa fa-users"></i>';
+          } 
+          
+          if ($calendar['share-access'] == 2 || $calendar['share-access'] == 3) {
+            $icon .= '<i class="fa  fa-share"></i>';
+          } else if ($calendar['share-access'] == 1 && $groupID == 0) {
+            $icon .= '<i class="fa fa-user"></i>';
+          }          
           
           if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the calendars are present or not
             continue;
@@ -174,7 +190,7 @@ class CalendarService
                     $start = $freqValue['DTSTART'];
                     $end = $freqValue['DTEND'];
                   
-                    $event = $this->createCalendarItem('event',
+                    $event = $this->createCalendarItem('event',$icon,
                       $title, $start, $end, 
                      '',$id,$type,$grpID,
                       $desc,$text,$calID,$calendarColor,$subid++,1,$start,$writeable);// only the event id sould be edited and moved and have custom color
@@ -185,7 +201,7 @@ class CalendarService
               }
             
               if ($fEvnt == false) {
-                $event = $this->createCalendarItem('event',
+                $event = $this->createCalendarItem('event',$icon,
                   $title, $start, $end, 
                  '',$id,$type,$grpID,
                   $desc,$text,$calID,$calendarColor,0,0,'',$writeable);// only the event id sould be edited and moved and have custom color
@@ -199,7 +215,7 @@ class CalendarService
         return $events;
     }
     
-    public function createCalendarItem($type, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=false)
+    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=false)
     {
         $event = [];
         switch ($type) {
@@ -212,8 +228,12 @@ class CalendarService
           default:
             $event['backgroundColor'] = '#eeeeee';
         }
+        
         $event['title'] = $title;
         $event['start'] = $start;
+        $event['icon'] = $icon;        
+        $event['type'] = $type;
+        
         if ($end != '') {
             $event['end'] = $end;
             $event['allDay'] = false;
@@ -223,9 +243,7 @@ class CalendarService
         if ($uri != '') {
             $event['url'] = $uri;
         }
-        
-        $event['type'] = $type;
-        
+
         if ($type == 'event') {
           $event['eventID'] = $eventID;
           $event['eventTypeID'] = $eventTypeID;

@@ -48,7 +48,7 @@ $app->group('/calendar', function () {
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
-        // get all the calendars for the current user
+        // get all the calendars for the current user present or not
         $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
 
         $return = [];
@@ -107,7 +107,7 @@ $app->group('/calendar', function () {
         
         $return = [];
 
-        if ( isset ($params->type) && isset($params->onlyvisible) ) {    
+        if ( isset ($params->type) && isset($params->onlyvisible) && isset($params->allCalendars) ) {    
           // new way to manage events
           // we get the PDO for the Sabre connection from the Propel connection
           $pdo = Propel::getConnection();         
@@ -117,14 +117,14 @@ $app->group('/calendar', function () {
           $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
           // get all the calendars for the current user
-          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
-
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",$params->allCalendars);
 
           foreach ($calendars as $calendar) {
             $values['calendarName']       = $calendar['{DAV:}displayname'];
             $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
             $values['calendarShareAccess']= $calendar['share-access'];
             $values['calendarUri']        = $calendar['uri'];
+            $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fa fa-pencil"></i>&nbsp;':'';
           
             $id                           = $calendar['id'];            
             $values['calendarID']         = $id[0].",".$id[1];
@@ -132,16 +132,14 @@ $app->group('/calendar', function () {
             $values['visible']            = ($calendar['visible'] == "1")?true:false;
             //$values['present']            = $calendar['present'];
             $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
-            $values['grpid']               = $calendar['grpid'];
+            $values['grpid']              = $calendar['grpid'];
 
             if ($values['calendarShareAccess'] >= 2 && $values['grpid'] == 0) {
               $values['type']               = 'share';
-            }
+            } 
             
-            
-            if ( ($params->onlyvisible == true && $calendar['present'] && $calendar['visible'] ) 
-              || $params->onlyvisible == false && $calendar['present']
-              || isset($params->presence) && $params->presence ) {
+            if ( ($params->onlyvisible == true && $calendar['visible'] ) // when a calendar is only visible
+              || $params->onlyvisible == false) {
               if ($params->type == $values['type'] || $params->type == 'all') {
                 array_push($return, $values);
               } else if ($params->type == $values['type'] || $params->type == 'all') {

@@ -266,7 +266,7 @@ $app->group('/events', function () {
               'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
               'DESCRIPTION' => $input->EventDesc,
               'SUMMARY' => $input->EventTitle,
-              'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
+              'UID' => $uuid,
               'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
               'SEQUENCE' => '0',
               'TRANSP' => 'OPAQUE'
@@ -369,12 +369,7 @@ $app->group('/events', function () {
             }
         }
           
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $input->EventTitle, $input->start, $input->end, '',
-            $event->getId(),$type,0,$input->EventDesc,$input->eventPredication,
-            0);// only the event id sould be edited and moved and have custom color
-      
-        return $response->withJson(array_filter($realCalEvnt));
+        return $response->withJson(["status" => "success"]);
 
      } 
      else if ($input->evntAction == 'moveEvent')
@@ -465,10 +460,7 @@ $app->group('/events', function () {
         
             // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
-            $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-                $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-            return $response->withJson(array_filter($realCalEvnt));
+            return $response->withJson(["status" => "success"]);
  
           } else {
             error_log("old exdate\n\n".$input->eventStart, 3, "/var/log/mes-erreurs.log");
@@ -514,10 +506,7 @@ $app->group('/events', function () {
         
             $new_event->save(); 
 
-            $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-                $new_event->getTitle(), $new_event->getStart('Y-m-d H:i:s'), $new_event->getEnd('Y-m-d H:i:s'), '',$new_event->getId(),$new_event->getType(),$new_event->getGroupId(),$new_event->getDesc(),$new_event->getText());// only the event id sould be edited and moved and have custom color
-  
-            return $response->withJson(array_filter($realCalEvnt));
+            return $response->withJson(["status" => "failed"]);
             
           } 
 
@@ -533,23 +522,10 @@ $app->group('/events', function () {
         
           // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
-          $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-              $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-          return $response->withJson(array_filter($realCalEvnt));
+          return $response->withJson(["status" => "failed"]);
         }
   
         return  $response->withJson(["status" => "failed"]);
-     }
-     else if (!strcmp($input->evntAction,'retriveEvent'))
-     { 
-        $event = EventQuery::Create()
-          ->findOneById($input->eventID);
-    
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), ''/*$event->getEventURI()*/,$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-        return $response->withJson(['status' => "success"]);
      }
      else if (!strcmp($input->evntAction,'resizeEvent'))
      {
@@ -568,14 +544,7 @@ $app->group('/events', function () {
 
         $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
         
-        $event = EventQuery::Create()->findOneById($input->eventID);
-                 
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $event->getTitle(), $event->getStart('Y-m-d H:i:s'), $event->getEnd('Y-m-d H:i:s'), '',$event->getId(),$event->getType(),$event->getGroupId(),$event->getDesc(),$event->getText());// only the event id sould be edited and moved and have custom color
-  
-        return $response->withJson(array_filter($realCalEvnt));
-    
-       return $response->withJson(['status' => "success"]);
+        return $response->withJson(['status' => "success"]);
      }
      else if (!strcmp($input->evntAction,'attendeesCheckinEvent'))
      {
@@ -703,9 +672,9 @@ $app->group('/events', function () {
         // Now we move to propel, to finish the put extra infos
         $calendarId = $calIDs[0];
 
-        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());        
+        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
           
-        $Id = $calIDs[1];          
+        $Id = $calIDs[1];
         $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
         
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
@@ -733,13 +702,13 @@ $app->group('/events', function () {
         
         if (!empty($input->Fields)){         
           foreach ($input->Fields as $field) {
-               $eventCount = new EventCounts; 
-               $eventCount->setEvtcntEventid($event->getID());
-               $eventCount->setEvtcntCountid($field['countid']);
-               $eventCount->setEvtcntCountname($field['name']);
-               $eventCount->setEvtcntCountcount($field['value']);
-               $eventCount->setEvtcntNotes($input->EventCountNotes);
-               $eventCount->save();
+             $eventCount = new EventCounts; 
+             $eventCount->setEvtcntEventid($event->getID());
+             $eventCount->setEvtcntCountid($field['countid']);
+             $eventCount->setEvtcntCountname($field['name']);
+             $eventCount->setEvtcntCountcount($field['value']);
+             $eventCount->setEvtcntNotes($input->EventCountNotes);
+             $eventCount->save();
           }
         }
         
@@ -780,14 +749,7 @@ $app->group('/events', function () {
             }
         }
           
-        $realCalEvnt = $this->CalendarService->createCalendarItem('event',
-            $input->EventTitle, $input->start, $input->end, '',
-            $event->getId(),$type,0,$input->EventDesc,$input->eventPredication,
-            0);// only the event id sould be edited and moved and have custom color
-      
-        return $response->withJson(array_filter($realCalEvnt));
-      
-        return $response->withJson(array_filter($realCalEvnt));
+        return $response->withJson(["status" => "success"]);
       }
   });
 });

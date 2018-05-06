@@ -316,6 +316,7 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 
         // Making fields a comma-delimited list
         $fields = implode(', ', $fields);
+        
         $stmt = $this->pdo->prepare(<<<SQL
 SELECT {$this->calendarInstancesTableName}.id as id, $fields FROM {$this->calendarInstancesTableName}
     LEFT JOIN {$this->calendarTableName} ON

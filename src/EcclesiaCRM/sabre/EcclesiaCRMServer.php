@@ -31,11 +31,6 @@ class EcclesiaCRMServer extends DAV\Server
      
      parent::__construct($treeOrNode);
 
-     /*$this->on('beforeUnbind',function($path) {
-         error_log("beforeUnbind = ".$path." " .$this->authBackend->getHomeFolderName()."\n\n", 3, "/var/log/mes-erreurs.log");
-     
-         return true;
-     });*/
      $this->on('beforeUnbind',array($this, 'beforeUnbind'));     
    }
    

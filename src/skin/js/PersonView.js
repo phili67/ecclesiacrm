@@ -221,9 +221,9 @@ $(document).ready(function () {
                data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
             }).done(function(data) {
               if (rightAccess == 1) {
-                res = str.replace('[RW]', '[R ]');
+                res = str.replace(i18next.t("[RW]"), i18next.t("[R ]"));
               } else {
-                res = str.replace('[R]', '[RW]');
+                res = str.replace(i18next.t("[R ]"), i18next.t("[RW]"));
               }
             
               var elt = [personID,res];
@@ -235,11 +235,13 @@ $(document).ready(function () {
         
         $.when.apply($, deferreds).done(function(data) {
          // all images are now prefetched
-         addPersonsFromNotes(noteId);
+         //addPersonsFromNotes(noteId);
          
          deferreds.forEach(function(element) {
            $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
          }); 
+         
+         $("#person-group-rights option:first").attr('selected','selected');
         });
      });
      

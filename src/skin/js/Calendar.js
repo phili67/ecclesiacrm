@@ -329,7 +329,7 @@
     window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/getallforuser',
-      data: JSON.stringify({"type":"all","onlyvisible":true})
+      data: JSON.stringify({"type":"all","onlyvisible":true,"allCalendars":false})
     }).done(function(calendars) {    
       var elt = document.getElementById("EventCalendar");
       var len = calendars.length;
@@ -1127,6 +1127,8 @@
         calendarFilterID = window.calendarFilterID;
         EventTypeFilterID = window.EventTypeFilterID;
         
+        element.find('.fc-title').html(event.icon+event.title);
+
         if (event.hasOwnProperty('type')){
           if (event.type == 'event'  
             && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == event.eventTypeID) ) ) {
