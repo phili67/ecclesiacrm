@@ -167,13 +167,13 @@ $app->group('/calendar', function () {
           
           $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
           
-          $root = '';
+          $root = '/';
           
           if ( !empty(SystemURLs::getRootPath()) ) {
-            $root = "/".SystemURLs::getRootPath();
+            $root = SystemURLs::getRootPath()."/";
           }
           
-          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."/calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
           $message .= "<p><label>".gettext("This address can be used only with a CalDav server.");
           
           $title = $calendar->getDisplayname();

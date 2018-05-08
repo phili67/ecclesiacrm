@@ -136,7 +136,11 @@ $groups = GroupQuery::Create()->find();
       
     }
   }
-
+  
+  // we delete the old files
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Calendar.js");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/calendar.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/events.php");
   
   $logger->info("End of translate");
 ?>

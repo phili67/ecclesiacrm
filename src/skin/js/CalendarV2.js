@@ -343,7 +343,7 @@
         if (calendars[i].calendarShareAccess != 2) {
           var option = document.createElement("option");
           // there is a calendars.type in function of the new plan of schema
-          option.text  = calendars[i].calendarName+" ("+i18next.t(calendars[i].type.charAt(0).toUpperCase()+ calendars[i].type.slice(1))+") : ";
+          option.text  = calendars[i].calendarName+" ("+i18next.t(calendars[i].type.charAt(0).toUpperCase()+ calendars[i].type.slice(1))+")";
           option.title = calendars[i].type;        
           option.value = calendars[i].calendarID;
           option.setAttribute("data-calendar-id",calendars[i].grpid);

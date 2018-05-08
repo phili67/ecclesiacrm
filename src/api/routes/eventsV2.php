@@ -28,6 +28,7 @@ use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Person;
+use EcclesiaCRM\UserQuery;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
@@ -251,27 +252,31 @@ $app->group('/events', function () {
         
         $calIDs = explode(",",$input->calendarID);
         
+        // We move to propel, to find the calendar
+        $calendarId = $calIDs[0];
+        $Id         = $calIDs[1];          
+        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+
+        // we remove to Sabre 
         if (!empty($input->recurrenceValid)) {        
         
-          $vcalendar->add(
-          'VEVENT', [
-              'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
-              'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-              'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
-              'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
-              'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-              'DESCRIPTION' => $input->EventDesc,
-              'SUMMARY' => $input->EventTitle,
-              'UID' => $uuid,
-              'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
-              'SEQUENCE' => '0',
-              'TRANSP' => 'OPAQUE'
-          ]);
+          $vevent = [
+            'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+            'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+            'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+            'DESCRIPTION' => $input->EventDesc,
+            'SUMMARY' => $input->EventTitle,
+            'UID' => $uuid,
+            'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
+            'SEQUENCE' => '0',
+            'TRANSP' => 'OPAQUE'
+          ];
         
         } else {
-        
-          $vcalendar->add(
-           'VEVENT', [
+                  
+          $vevent = [
             'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
             'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
             'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
@@ -282,17 +287,33 @@ $app->group('/events', function () {
             'UID' => $uuid,
             'SEQUENCE' => '0',
             'TRANSP' => 'OPAQUE'
-          ]);
+          ];
           
         }
+        
+        if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees
+             $persons = Person2group2roleP2g2rQuery::create()
+                ->filterByGroupId($calendar->getGroupId())
+                ->find();
 
-        // Now we move to propel, to finish the put extra infos
-        $calendarId = $calIDs[0];
+             if ($persons->count() > 0) {
 
-        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());        
-          
-        $Id = $calIDs[1];          
-        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+               $vevent = array_merge($vevent,['ATTENDEE;CN='.$_SESSION['user']->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.$_SESSION['user']->getEmail().';PARTSTAT=ACCEPTED;ROLE=CHAIR:MAILTO' => $_SESSION['user']->getEmail()]);                          
+              
+               foreach ($persons as $person) {
+                  $user = UserQuery::Create()->findOneByPersonId($person->getPersonId());
+                  if ( !empty($user) ) {
+                    $vevent = array_merge($vevent,['ATTENDEE;CN='.$user->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.$user->getEmail().';PARTSTAT=ACCEPTED;SCHEDULE-STATUS=3.7:mailto' => $user->getEmail()]);
+                  }
+               }
+            }
+        }
+        
+        $vcalendar->add('VEVENT',$vevent);        
+
+
+        // Now we move to propel, to finish the put extra infos        
+        $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
         
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
@@ -613,12 +634,9 @@ $app->group('/events', function () {
           $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
           
         } else {
-          // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
-          
+          // We have to use the sabre way to ensure the event is reflected in external connection : CalDav          
           $calendarBackend->deleteCalendarObject($oldCalendarID, $event['uri']);
         }    
-        
-
     
         // Now we start to work with the new calendar
         $calIDs = explode(",",$input->calendarID);        
