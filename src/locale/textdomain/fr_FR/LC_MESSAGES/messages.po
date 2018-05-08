@@ -10012,7 +10012,6 @@ msgstr "Calendriers"
 msgid "You'll lose the calendar"
 msgstr "Vous allez perdre votre calendrier"
 
-
 msgid "the events and all the share calendars too. This cannot be undone."
 msgstr "les événements et tous les calendriers partagés aussi. Cette action est irréversible."
 
@@ -10027,6 +10026,9 @@ msgstr "Gention de calendrier pour"
 
 msgid "For thunderbird the URL is"
 msgstr "Pour Thundernird l'URL est"
+
+msgid "This address can be used only with a CalDav server."
+msgstr "Cette adresse ne peut être utilisée que si le serveur est compatible CalDav."
 
 msgid "Limit"
 msgstr "Limiter"

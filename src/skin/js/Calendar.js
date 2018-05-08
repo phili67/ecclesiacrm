@@ -43,8 +43,13 @@
     }
     
     $('#isWithLimit').prop('checked', withlimit);
-  }  
+  }
   
+  var wAgendaName = localStorage.getItem("wAgendaName");
+  if (wAgendaName == null) {
+    localStorage.setItem("wAgendaName","month");
+    wAgendaName = "month";
+  }
   
   $("#isBirthdateActive").on('change',function () {
      var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
@@ -56,7 +61,7 @@
      }
      $('#calendar').fullCalendar( 'refetchEvents' );
      
-     localStorage.setItem("birthday",_val);     
+     localStorage.setItem("birthday",_val);
   });
   
   $("#isAnniversaryActive").on('change',function () {
@@ -85,7 +90,7 @@
      $('#calendar').fullCalendar('destroy');
      $('#calendar').fullCalendar(options);
      
-     localStorage.setItem("withlimit",_val); 
+     localStorage.setItem("withlimit",_val);
   });
   
   window.calendarFilterID     = 0;
@@ -338,7 +343,7 @@
         if (calendars[i].calendarShareAccess != 2) {
           var option = document.createElement("option");
           // there is a calendars.type in function of the new plan of schema
-          option.text  = calendars[i].calendarName;
+          option.text  = "["+i18next.t(calendars[i].type.charAt(0).toUpperCase())+"] "+calendars[i].calendarName;
           option.title = calendars[i].type;        
           option.value = calendars[i].calendarID;
           option.setAttribute("data-calendar-id",calendars[i].grpid);
@@ -561,7 +566,7 @@
       }
       
       if (page === undefined) {
-        page = 'calendar.php';
+        page = window.CRM.root + '/Calendar.php';
       }
 
       if (eventID === undefined) {
@@ -712,6 +717,10 @@
           height: parent,
           selectable: isModifiable,
           editable:isModifiable,
+          defaultView: wAgendaName,
+          viewRender: function(view, element){
+            localStorage.setItem("wAgendaName",view.name);
+          },
           eventDrop: function(event, delta, revertFunc) {
             if (event.writeable == false) {
               window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");

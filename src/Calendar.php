@@ -2,9 +2,9 @@
 
 /*******************************************************************************
  *
- *  filename    : calendar.php
+ *  filename    : Calendar.php
  *  last change : 2017-04-27
- *  description : manage the full calendar
+ *  description : manage the full Calendar
  *
  *  http://www.ecclesiacrm.com/
  *
@@ -41,6 +41,15 @@ $eventTypes = EventTypesQuery::Create()
     .fc-other-month .fc-day-number {
       display:none;
     }
+    
+    .input-group-addon {
+  border: 2;
+  padding:1px 1px;
+}
+
+.input-group-addon:last-child {
+  border-left: 1;
+}
 </style>
 
 <div class="col">
@@ -107,7 +116,7 @@ $eventTypes = EventTypesQuery::Create()
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" class="" style="width:100%">
-                         <?= gettext("Personals")?>
+                         <i class="fa fa-user"></i>&nbsp;<?= gettext("Personals")?>
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true" class="" style="width:100%">
                           <i class="fa pull-right fa-chevron-up" style="font-size: 0.6em"></i>
@@ -133,7 +142,7 @@ $eventTypes = EventTypesQuery::Create()
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
-                          <?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
+                          <i class="fa fa-users"></i><?= !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
                           <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -158,7 +167,7 @@ $eventTypes = EventTypesQuery::Create()
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
-                          <?= gettext("Shared")."  (".gettext("Users").")"?> 
+                          <i class="fa  fa-share"></i>&nbsp;<?= gettext("Shared")."  (".gettext("Users").")"?> 
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
                           <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
@@ -194,10 +203,11 @@ $eventTypes = EventTypesQuery::Create()
 </div>
 <!-- /.col -->
 
+<?php require 'Include/Footer.php'; ?>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
 <link href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
 
-<!-- fullCalendar 2.2.5 -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   var isModifiable  = true;
 </script>
@@ -205,5 +215,3 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarSideBar.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Calendar.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-
-<?php require 'Include/Footer.php'; ?>

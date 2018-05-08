@@ -14,6 +14,7 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\dto\SystemURLs;
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -164,7 +165,17 @@ $app->group('/calendar', function () {
           
           $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
           
-          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>http://".$_SERVER[HTTP_HOST]."/calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+          
+          $root = '';
+          
+          if ( !empty(SystemURLs::getRootPath()) ) {
+            $root = "/".SystemURLs::getRootPath();
+          }
+          
+          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."/calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $message .= "<p><label>".gettext("This address can be used only with a CalDav server.");
+          
           $title = $calendar->getDisplayname();
           
           $isAdmin = ($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?true:false;

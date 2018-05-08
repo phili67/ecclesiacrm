@@ -69,15 +69,17 @@
         for (i=0; i<len; ++i) {
           if (data[i].present == true) {
             var option = document.createElement("option");
+            
+            var hello = "✐👁✖❌  ✔✕✖✅";
 
-            option.text = i18next.t("[INCLUDE]")+" "+data[i].calendarName;
+            option.text = '✅'+" "+data[i].calendarName;
             option.value = data[i].calendarID;
         
             elt.appendChild(option);
           } else {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[EXCLUDE]")+" "+data[i].calendarName;
+            option.text = '❌'+" "+data[i].calendarName;
             option.value = data[i].calendarID;
         
             elt.appendChild(option);
@@ -88,7 +90,7 @@
   }
 
   function BootboxContentCalendarPresence(){
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Show/Hide your Calendars in the SideBar")+'</h3>'
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Include/Exclude your Calendars in the SideBar")+'</h3>'
        + '<div>'
             +'<div class="row div-title">'
               +'<div class="col-md-4">'
@@ -105,8 +107,8 @@
                 +'<select name="calendar-show-hide" id="calendar-show-hide" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
                     +'<option value="0">'+i18next.t("Select [Exclude] or [Include]")+' -- </option>'
-                    +'<option value="2">'+i18next.t("[Include]")+' -- </option>'
-                    +'<option value="1">'+i18next.t("[Exclude]")+' -- </option>'
+                    +'<option value="2">'+'✅'+' -- '+i18next.t('[INCLUDE]')+'</option>'
+                    +'<option value="1">'+'❌'+' -- '+i18next.t('[EXCLUDE]')+'</option>'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -161,9 +163,9 @@
                data: JSON.stringify({"calIDs":calIDs,"isPresent": (isPresent==1)?false:true})
             }).done(function(data) {
               if (isPresent == 1) {
-                res = str.replace( i18next.t('[INCLUDE]'), i18next.t('[EXCLUDE]') );
+                res = str.replace( '✅', '❌' );
               } else {
-                res = str.replace( i18next.t('[EXCLUDE]'), i18next.t('[INCLUDE]') );
+                res = str.replace( '❌', '✅' );
               }
             
               var elt = [calIDs,res];
@@ -230,14 +232,14 @@
           if (data[i].access == 2) {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[R ]")+" "+data[i].principal.replace("principals/", "");
+            option.text = i18next.t("[👁  ]")+" "+data[i].principal.replace("principals/", "");
             option.value = data[i].principal;
         
             elt.appendChild(option);
           } else if (data[i].access == 3) {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[RW]")+" "+data[i].principal.replace("principals/", "");
+            option.text = i18next.t("[👁 ✐]")+" "+data[i].principal.replace("principals/", "");
             option.value = data[i].principal;
         
             elt.appendChild(option);
@@ -264,9 +266,9 @@
               +'<div class="col-md-8">'
                 +'<select name="person-group-Id-Share" id="person-group-rights" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select your rights [R ] or [RW]")+' -- </option>'
-                    +'<option value="1">'+i18next.t("[R ]")+' -- </option>'
-                    +'<option value="2">'+i18next.t("[RW]")+' -- </option>'
+                    +'<option value="0">'+i18next.t("Select your rights")+" [👁  ]"+i18next.t("or")+" [👁 ✐]"+' -- </option>'
+                    +'<option value="1">'+i18next.t("[👁  ]")+' -- '+i18next.t("[R ]")+'</option>'
+                    +'<option value="2">'+i18next.t("[👁 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -388,9 +390,9 @@
                data: JSON.stringify({"calIDs":calIDs,"principal": principal,"rightAccess":rightAccess})
             }).done(function(data) {
               if (rightAccess == 1) {
-                res = str.replace(i18next.t('[RW]'), i18next.t('[R ]'));
+                res = str.replace(i18next.t('[👁 ✐]'), i18next.t('[👁  ]'));
               } else {
-                res = str.replace(i18next.t('[R ]'), i18next.t('[RW]'));
+                res = str.replace(i18next.t('[👁  ]'), i18next.t('[👁 ✐]'));
               }
             
               var elt = [principal,res];
@@ -617,7 +619,7 @@
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i> <span class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#cal-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="personal" data-id="'+data[i].calendarID+'"></i> <span class="editCalendarName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
           inline:false,
@@ -641,7 +643,7 @@
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,          
@@ -665,7 +667,7 @@
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border: 2;padding:1px 1px;"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,

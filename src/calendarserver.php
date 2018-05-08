@@ -94,9 +94,9 @@ $server->addPlugin(
     new Sabre\CalDAV\Schedule\Plugin()
 );
 
-$server->addPlugin(
-    new Sabre\CalDAV\Schedule\IMipPlugin('server@example.org')
-);
+/*$server->addPlugin(
+    new Sabre\CalDAV\Schedule\IMipPlugin('philippe.logel@gmail.com')
+);*/
 
 // WebDAV-Sync plugin 
 $server->addPlugin(new Sabre\DAV\Sync\Plugin());

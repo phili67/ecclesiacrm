@@ -30,7 +30,7 @@ class MenuEventsCount
         $end_date = date('Y-m-d H:i:s', strtotime($start_date . ' +1 day'));
 
         $activeEvents = EventQuery::create()
-            ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN) // we have to filter only the user calendar 
+            ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN) // we have to filter only the user calendars
             ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)       // so we have to retrieve the principal user
             ->where("event_start <= '".$start_date ."' AND event_end >= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") /* the large events */
             ->_or()->where("event_start>='".$start_date."' AND event_end <= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") /* the events of the day */

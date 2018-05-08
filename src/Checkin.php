@@ -10,6 +10,7 @@
  *  Copyright 2005 Todd Pillars
  *  Copyright 2012 Michael Wilt
  *  Copyright 2018 Philippe Logel all right reserved
+ *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
  *
  ******************************************************************************/
 
@@ -91,7 +92,7 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
     //Redirect('GroupView.php?GroupID='.$event->getGroupId());
-    Redirect('calendar.php');
+    Redirect(SystemURLs::getRootPath().'/Calendar.php');
     exit;
   }
 }
@@ -166,7 +167,7 @@ if ($FreeAttendees) {
 ?>
 
 <div class='text-center'>
-  <a href="<?= SystemURLs::getRootPath() ?>/calendar.php" class='btn btn-primary'>
+  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-primary'>
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>

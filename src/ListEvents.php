@@ -119,7 +119,7 @@ $eventTypes = EventTypesQuery::Create()
 
 
 <div class='text-center'>
-  <a href="calendar.php" class='btn btn-primary'>
+  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-primary'>
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>
@@ -743,7 +743,7 @@ foreach ($allMonths as $mVal) {
 ?>
 
 <div>
-  <a href="calendar.php" class='btn btn-default'>
+  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
     <?= gettext('Return to Calendar') ?>
   </a>

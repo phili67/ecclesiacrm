@@ -188,7 +188,7 @@
                    label: i18next.t('Create First A New Event'),
                    className: 'btn-info',
                    callback: function() {
-                      location.href = window.CRM.root + '/calendar.php';
+                      location.href = window.CRM.root + '/Calendar.php';
                    }
                },
                cancel: {
