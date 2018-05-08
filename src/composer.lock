@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "feed79282efe0511b95e1e7b9b21e1b1",
-    "content-hash": "e20ca194df45a717bde246d6f4b09c38",
+    "hash": "3b2ec168eb9922fad4e501259d26cf61",
+    "content-hash": "866cc77a35198a3a27148de7117a7b57",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -3450,7 +3450,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verot/class.upload.php/zipball/711f317e0bc5ceb94de4a12fd3a5765e47d443d5",
+                "url": "https://api.github.com/repos/verot/class.upload.php/zipball/d3e130186f65bd84242c601b52cc585dd3bfb978",
                 "reference": "d57ceb274a0372075cee96e5ff6507a02b4aa972",
                 "shasum": ""
             },
