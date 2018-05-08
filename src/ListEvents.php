@@ -119,7 +119,7 @@ $eventTypes = EventTypesQuery::Create()
 
 
 <div class='text-center'>
-  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-primary'>
+  <a class='btn btn-primary' id="add-event">
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>
@@ -230,27 +230,31 @@ foreach ($allMonths as $mVal) {
       
     if ($eType == 'All') {
       $events = EventQuery::Create()
-         ->orderByStart()
-         ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
+         ->orderByStart('DESC')
+           ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
            ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
            ->addAsColumn('login',PrincipalsTableMap::COL_URI)
            ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
            ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
            ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
+         ->groupBy(EventTableMap::COL_EVENT_ID)
             ->find();
          
     } else {
       $events = EventQuery::Create()
          ->filterByType($eType)
-         ->orderByStart()
-         ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
-         ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
-         ->addAsColumn('login',PrincipalsTableMap::COL_URI)
-         ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+         ->orderByStart('DESC')
+           ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
+           ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
+           ->addAsColumn('login',PrincipalsTableMap::COL_URI)
+           ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
            ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
          ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
+         ->groupBy(EventTableMap::COL_EVENT_ID)
          ->find();
     }
+    
+    
     
     
     $numRows = 0;
@@ -265,6 +269,7 @@ foreach ($allMonths as $mVal) {
     $numAVG_CheckOut = 0;
     
     $row=1;
+    
     
     foreach ($events as $event) {  
         // get the list of attend-counts that exists in event_attend for this        
@@ -401,7 +406,7 @@ foreach ($allMonths as $mVal) {
               </table>
             </td>
             <td>
-              <?= $aEventTitle[$row] ?>
+              <?= $aEventTitle[$row]/*." ID=[".$aEventID[$row]."]"*/ ?>
               <?= ($aEventDesc[$row] == '' ? '&nbsp;' : ("(".$aEventDesc[$row].")")) ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
@@ -751,110 +756,10 @@ foreach ($allMonths as $mVal) {
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarV2.js" ></script>
-
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ListEvent.js" ></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  var isModifiable  = <?php
-    //if ($_SESSION['bAddEvent'] ||  $_SESSION['user']->isAdmin()) {
-        echo "true";
-    /*} else {
-        echo "false";
-    }*/
-  ?>;
-
-
-//Added by @saulowulhynek to translation of datatable nav terms
-  $(document).ready(function () {
-    $("#eventsTable").DataTable({
-       "language": {
-         "url": window.CRM.plugin.dataTable.language.url
-       },
-       responsive: true
-    });
-    
-    $('.listEvents').DataTable({"language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    }});
-    
-    $('.DeleteEvent').submit(function(e) {
-        var currentForm = this;
-        e.preventDefault();
-        bootbox.confirm({
-        title:  i18next.t("Deleting an event will also delete all attendance counts for that event."),
-        message:i18next.t("Are you sure you want to DELETE the event ?"),
-        buttons: {
-          confirm: {
-              label: i18next.t('Yes'),
-              className: 'btn-danger'
-          },
-          cancel: {
-              label: i18next.t('No'),
-              className: 'btn-success'
-          }
-        },
-        callback: function(result) {
-            if (result) {
-                currentForm.submit();
-            }
-        }});
-    });
-    
-    $(".EditEvent").click('focus', function (e) {
-       var eventID    = $(this).data("id");
-       
-       window.CRM.APIRequest({
-          method: 'POST',
-          path: 'events/info',
-          data: JSON.stringify({"eventID":eventID})
-      }).done(function(calEvent) {
-      
-         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
-       
-         $('form #EventTitle').val(calEvent.Title);
-         $('form #EventDesc').val(calEvent.Desc);
-         $('form #eventPredication').val(calEvent.Text);
-
-         // we add the calendars and the types
-         addCalendars(calEvent.calendarID);
-         addCalendarEventTypes(calEvent.eventTypeID,false);
-         addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
-         setActiveState(calEvent.inActive);
-
-         //Timepicker
-         $('.timepicker').timepicker({
-           showInputs: false,
-           showMeridian: (window.CRM.timeEnglish == "true")?true:false
-         });
-
-         $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
-
-         $('.date-picker').click('focus', function (e) {
-           e.preventDefault();
-           $(this).datepicker('show');
-         });
-
-         $('.date-start').hide();
-         $('.date-end').hide();
-         $('.date-recurrence').hide();
-         $(".eventPredication").hide();
-
-         // this will ensure that image and table can be focused
-         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-
-         // this will create the toolbar for the textarea
-         CKEDITOR.replace('eventPredication',{
-           customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-           language : window.CRM.lang,
-           width : '100%'
-         });
-
-         $(".ATTENDENCES").hide();
-
-         modal.modal("show");
-      });
-    });
-    
-  });
+  var isModifiable  = "true";
 </script>
 
 <?php

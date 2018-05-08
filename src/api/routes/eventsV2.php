@@ -234,10 +234,6 @@ $app->group('/events', function () {
     });
   
     $this->post('/', function ($request, $response, $args) {
-      /*if(!$_SESSION['bAddEvent'] && !$_SESSION['user']->isAdmin()) {
-        return $response->withStatus(401);
-      }*/
-      
       $input = (object) $request->getParsedBody();
       
       if (!strcmp($input->evntAction,'createEvent'))
@@ -463,7 +459,6 @@ $app->group('/events', function () {
             return $response->withJson(["status" => "success"]);
  
           } else {
-            error_log("old exdate\n\n".$input->eventStart, 3, "/var/log/mes-erreurs.log");
             
             // we will exclude one event and add a new one
             $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->eventStart))->format('Ymd\THis'));

@@ -1,4 +1,10 @@
 --
+-- The bAddEvent is no more usefull
+--
+
+DELETE FROM `userconfig_ucfg` WHERE ucfg_name = 'bAddEvent';
+
+--
 -- We add the new columns in events_event
 --
 ALTER TABLE `events_event` ADD  `event_last_occurence` datetime NOT NULL;
