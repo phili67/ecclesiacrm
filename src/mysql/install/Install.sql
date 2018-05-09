@@ -1,4 +1,153 @@
 --
+-- Table structure for table `calendars`
+--
+
+
+CREATE TABLE calendars (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    synctoken INTEGER UNSIGNED NOT NULL DEFAULT '1',
+    components VARBINARY(21)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `calendarinstances`
+--
+
+CREATE TABLE calendarinstances (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    calendarid INTEGER UNSIGNED NOT NULL  DEFAULT '0',
+    principaluri VARBINARY(100),
+    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
+    displayname VARCHAR(100),
+    uri VARBINARY(200),
+    description TEXT,
+    calendarorder INT(11) UNSIGNED NOT NULL DEFAULT '0',
+    calendarcolor VARBINARY(10),
+    visible BOOLEAN NOT NULL default 0,
+    present BOOLEAN NOT NULL default 1,
+    timezone TEXT,
+    transparent TINYINT(1) NOT NULL DEFAULT '0',
+    share_href VARBINARY(100),
+    share_displayname VARCHAR(100),
+    share_invitestatus TINYINT(1) NOT NULL DEFAULT '2' COMMENT '1 = noresponse, 2 = accepted, 3 = declined, 4 = invalid',
+    grpid mediumint(9) NOT NULL DEFAULT '0',
+    UNIQUE(principaluri, uri),
+    UNIQUE(calendarid, principaluri),
+    UNIQUE(calendarid, share_href)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `calendarchanges`
+--
+
+CREATE TABLE calendarchanges (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uri VARBINARY(200) NOT NULL,
+    synctoken INT(11) UNSIGNED NOT NULL,
+    calendarid INT(11) UNSIGNED NOT NULL,
+    operation TINYINT(1) NOT NULL,
+    INDEX calendarid_synctoken (calendarid, synctoken)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `calendarsubscriptions`
+--
+
+CREATE TABLE calendarsubscriptions (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uri VARBINARY(200) NOT NULL,
+    principaluri VARBINARY(100) NOT NULL,
+    source TEXT,
+    displayname VARCHAR(100),
+    refreshrate VARCHAR(10),
+    calendarorder INT(11) UNSIGNED NOT NULL DEFAULT '0',
+    calendarcolor VARBINARY(10),
+    striptodos TINYINT(1) NULL,
+    stripalarms TINYINT(1) NULL,
+    stripattachments TINYINT(1) NULL,
+    lastmodified INT(11) UNSIGNED,
+    UNIQUE(principaluri, uri)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `schedulingobjects`
+--
+
+
+CREATE TABLE schedulingobjects (
+    id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    principaluri VARBINARY(255),
+    calendardata MEDIUMBLOB,
+    uri VARBINARY(200),
+    lastmodified INT(11) UNSIGNED,
+    etag VARBINARY(32),
+    size INT(11) UNSIGNED NOT NULL
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `locks`
+--
+
+CREATE TABLE locks (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    owner VARCHAR(100),
+    timeout INTEGER UNSIGNED,
+    created INTEGER,
+    token VARBINARY(100),
+    scope TINYINT,
+    depth TINYINT,
+    uri VARBINARY(1000),
+    INDEX(token),
+    INDEX(uri(100))
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `principals`
+--
+
+CREATE TABLE principals (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uri VARBINARY(200) NOT NULL,
+    email VARBINARY(80),
+    displayname VARCHAR(80),
+    UNIQUE(uri)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO principals (uri,email,displayname) VALUES
+('principals/admin', 'admin@example.org','Administrator'),
+('principals/admin/calendar-proxy-read', null, null),
+('principals/admin/calendar-proxy-write', null, null);
+
+--
+-- Table structure for table `groupmembers`
+--
+
+
+CREATE TABLE groupmembers (
+    id INTEGER UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    principal_id INTEGER UNSIGNED NOT NULL,
+    member_id INTEGER UNSIGNED NOT NULL,
+    UNIQUE(principal_id, member_id)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+
+--
+-- Table structure for table `propertystorage`
+--
+
+CREATE TABLE propertystorage (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    path VARBINARY(1024) NOT NULL,
+    name VARBINARY(100) NOT NULL,
+    valuetype INT UNSIGNED,
+    value MEDIUMBLOB
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+CREATE UNIQUE INDEX path_property ON propertystorage (path(600), name(100));
+
+
+--
 -- Table structure for table `version_ver`
 --
 
@@ -264,13 +413,24 @@ CREATE TABLE `events_event` (
   `event_text` text,
   `event_start` datetime NOT NULL,
   `event_end` datetime NOT NULL,
+  `event_last_occurence` datetime NOT NULL,
   `inactive` int(1) NOT NULL default '0',
   `event_typename` varchar(40) NOT NULL default '',
   `event_grpid` mediumint(9),
-  `event_parent_id` int(11) DEFAULT NULL,
-  PRIMARY KEY  (`event_id`),
-  CONSTRAINT fk_event_parent_id FOREIGN KEY (event_parent_id) REFERENCES events_event(event_id) ON DELETE SET NULL
+  `event_location` text,
+  `event_calendardata` mediumblob,
+  `event_uri` varbinary(200) DEFAULT NULL,
+  `event_calendarid` INTEGER UNSIGNED NOT NULL  DEFAULT '0',
+  `event_lastmodified` int(11) UNSIGNED DEFAULT NULL,
+  `event_etag` varbinary(32) DEFAULT NULL,
+  `event_size` int(11) UNSIGNED NOT NULL,
+  `event_componenttype` varbinary(8) DEFAULT NULL,
+  `event_uid` varbinary(200) DEFAULT NULL,
+    PRIMARY KEY  (`event_id`),
+    UNIQUE(event_calendarid, event_uri),
+    INDEX calendarid_time (event_calendarid)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1;
+
 
 --
 -- Dumping data for table `events_event`
@@ -585,7 +745,7 @@ INSERT INTO `menuconfig_mcf` (`mid`, `name`, `parent`, `ismenu`, `content_englis
 
   (50, 'events', 'root', 1, 'Events', 'Events', '', 'Events', 'bAll', NULL, 0, 0, NULL, 1, 1, 'fa-ticket'),
 
-  (51, 'calendar', 'events', 0, 'Calendar', 'Calendar', 'calendar.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1, 'fa-calendar'),
+  (51, 'calendar', 'events', 0, 'Calendar', 'Calendar', 'Calendar.php', '', 'bAll', NULL, 0, 0, NULL, 1, 1, 'fa-calendar'),
   (52, 'listevent', 'events', 0, 'List Church Events', 'List Church Events', 'ListEvents.php', 'List Church Events', 'bAll', NULL, 0, 0, NULL, 1, 1, NULL),
   (54, 'eventype', 'events', 0, 'List Event Types', 'List Event Types', 'EventNames.php', '', 'bAdmin', NULL, 0, 0, NULL, 1, 3, NULL),
   (55, 'eventcheckin', 'events', 0, 'Check-in and Check-out', 'Check-in and Check-out', 'Checkin.php', '', 'bAll', NULL, 0, 0, NULL, 1, 4, NULL),
@@ -1098,7 +1258,6 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (0, 5, 'bCreateDirectory', '0', 'boolean', 'User permission to create directories', 'FALSE', 'SECURITY'),
   (0, 6, 'bExportCSV', '0', 'boolean', 'User permission to export CSV files', 'FALSE', 'SECURITY'),
   (0, 7, 'bUSAddressVerification', '0', 'boolean', 'User permission to use IST Address Verification', 'FALSE', ''),
-  (0, 10, 'bAddEvent', '0', 'boolean', 'Allow user to add new event', 'FALSE', 'SECURITY'),
   (0, 11, 'bSeePrivacyData', '0', 'boolean', 'Allow user to see member privacy data, e.g. Birth Year, Age.', 'FALSE', 'SECURITY'),
   (1, 0, 'bEmailMailto', '1', 'boolean', 'User permission to send email via mailto: links', 'TRUE', ''),
   (1, 1, 'sMailtoDelimiter', ',', 'text', 'user permission to send email via mailto: links', 'TRUE', ''),
@@ -1351,8 +1510,8 @@ CREATE TABLE userprofile_usrprf (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`, `usrprf_global`, `usrprf_permissions`, `usrprf_value`) VALUES
-(1, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;Style:skin-blue-light', 'bEmailMailto:FALSE;sMailtoDelimiter:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;bAddEvent:FALSE;bSeePrivacyData:FALSE', 'bEmailMailto:;sMailtoDelimiter:,;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;bAddEvent:;bSeePrivacyData:'),
-(2, 'Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;bAddEvent:TRUE;bSeePrivacyData:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;bAddEvent:1;bSeePrivacyData:1');
+(1, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;Style:skin-blue-light', 'bEmailMailto:FALSE;sMailtoDelimiter:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;bSeePrivacyData:FALSE', 'bEmailMailto:;sMailtoDelimiter:,;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;;bSeePrivacyData:'),
+(2, 'Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;bSeePrivacyData:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;bSeePrivacyData:1');
 
 update version_ver set ver_update_end = now();
 

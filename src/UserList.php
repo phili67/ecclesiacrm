@@ -7,11 +7,8 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
+ *  Cpoyright 2018 Philippe Logel
  *
-
-
-
-
  *
  ******************************************************************************/
 
@@ -126,7 +123,7 @@ require 'Include/Header.php';
             title: "<?= gettext("User Delete Confirmation") ?>",
             message: '<p style="color: red">' +
             '<?= gettext("Please confirm removal of user status from:") ?> <b>' + userName + '</b><br><br>'+
-            '<?= gettext("Be carefull !!! You will lose the home folder and the files for:") ?><b>' + userName + '</b><br><br>'+
+            '<?= gettext("Be carefull !!! You will lose the home folder and the files, the Calendars, the Share calendars and all the events too, for:") ?><b> ' + userName + '</b><br><br>'+
             '<?= gettext("This can be undone") ?>.</p>',
             callback: function (result) {
                 if (result) {

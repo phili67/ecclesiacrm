@@ -1,6 +1,9 @@
 <?php
 
-/* copyright 2018 Philippe Logel all rights reserved */
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//
 
 namespace EcclesiaCRM\PersonalServer;
 
@@ -28,11 +31,6 @@ class EcclesiaCRMServer extends DAV\Server
      
      parent::__construct($treeOrNode);
 
-     /*$this->on('beforeUnbind',function($path) {
-         error_log("beforeUnbind = ".$path." " .$this->authBackend->getHomeFolderName()."\n\n", 3, "/var/log/mes-erreurs.log");
-     
-         return true;
-     });*/
      $this->on('beforeUnbind',array($this, 'beforeUnbind'));     
    }
    

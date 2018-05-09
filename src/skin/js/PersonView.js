@@ -85,9 +85,9 @@ $(document).ready(function () {
               +'<div class="col-md-8">'
                 +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select your rights [R ] or [RW]")+' -- </option>'
-                    +'<option value="1">'+i18next.t("[R ]")+' -- </option>'
-                    +'<option value="2">'+i18next.t("[RW]")+' -- </option>'
+                    +'<option value="0">'+i18next.t("Select your rights")+" [👁  ]"+i18next.t("or")+"[👁 ✐]"+' -- </option>'
+                    +'<option value="1">'+i18next.t("[👁  ]")+' -- '+i18next.t("[R ]")+'</option>'
+                    +'<option value="2">'+i18next.t("[👁 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -221,9 +221,9 @@ $(document).ready(function () {
                data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
             }).done(function(data) {
               if (rightAccess == 1) {
-                res = str.replace('[RW]', '[R ]');
+                res = str.replace(i18next.t("[👁 ✐]"), i18next.t("[👁  ]"));
               } else {
-                res = str.replace('[R]', '[RW]');
+                res = str.replace(i18next.t("[👁  ]"), i18next.t("[👁 ✐]"));
               }
             
               var elt = [personID,res];
@@ -235,11 +235,13 @@ $(document).ready(function () {
         
         $.when.apply($, deferreds).done(function(data) {
          // all images are now prefetched
-         addPersonsFromNotes(noteId);
+         //addPersonsFromNotes(noteId);
          
          deferreds.forEach(function(element) {
            $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
          }); 
+         
+         $("#person-group-rights option:first").attr('selected','selected');
         });
      });
      

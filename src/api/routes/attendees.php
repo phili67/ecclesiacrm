@@ -17,6 +17,22 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Utils\OutputUtils;
 
 
+use EcclesiaCRM\CalendarinstancesQuery;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
+
 $app->group('/attendees', function () {
 
   $this->post('/checkoutstudent', function ($request, $response, $args) {
@@ -78,7 +94,9 @@ $app->group('/attendees', function () {
             ->findOneById($cartPayload->groupID);
             
          $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-
+         
+         $type = null;
+         
          if ($cartPayload->eventTypeID)
          {
            $type = EventTypesQuery::Create()
@@ -99,16 +117,47 @@ $app->group('/attendees', function () {
            $_SESSION['EDesc'] = $event->getDesc();
            $_SESSION['EDate'] = $event->getStart();
            $_SESSION['EventID'] = $event->getID();         
-         } else {            
-           $event = new Event; 
-           $event->setTitle($group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')));
-           $event->setType($type->getId());
-           $event->setTypeName($eventTypeName);
-           $event->setDesc(gettext("Create From sunday school class view"));
-         
-           $event->setGroupId($cartPayload->groupID);  
+         } else {         
+           // new way to manage events : sabre
+           // we get the PDO for the Sabre connection from the Propel connection
+           $pdo = Propel::getConnection();         
+      
+           // We set the BackEnd for sabre Backends
+           $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+      
+           $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+    
+           $vcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
+          
+           $vcalendar->add(
+            'VEVENT', [
+             'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+             'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+             'DTSTART' => ($date)->format('Ymd\THis'),
+             'DTEND' => ($date)->format('Ymd\THis'),
+             'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+             'DESCRIPTION' => gettext("Create From sunday school class view"),              
+             'SUMMARY' => $group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')),
+             'UID' => $uuid,
+             'SEQUENCE' => '0',
+             'TRANSP' => 'OPAQUE'
+           ]);
            
-         
+           
+           $calendar = CalendarinstancesQuery::Create()->findOneByGroupId($group->getId());
+           
+           $etag = $calendarBackend->createCalendarObject([$calendar->getCalendarid(),$calendar->getId()], $uuid, $vcalendar->serialize());
+       
+           $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
+           
+           $event->setTitle($group->getName()." ".$date->format(SystemConfig::getValue('sDatePickerFormat')));
+           
+           if ( !is_null($type) ){
+             $event->setType($type->getId());
+             $event->setTypeName($type->getName());
+           }
+
+           $event->setDesc(gettext("Create From sunday school class view"));         
            $event->setStart($date->format('Y-m-d H:i:s'));
            $event->setEnd($date->format('Y-m-d H:i:s'));
            $event->setText(gettext("Attendance"));

@@ -3,8 +3,8 @@
  * File : MenuEventsCount.php
  *
  * Created by : Philippe by Hand.
- * User: Philippe Logel
- * Date: 11/26/2017
+ * User: copyright Philippe Logel all right reserved not MIT licence
+ * Date: 2018/05/02
  * Time: 3:00 AM.
  */
 
@@ -16,6 +16,9 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Family;
+use EcclesiaCRM\Map\EventTableMap;
+use EcclesiaCRM\Map\CalendarinstancesTableMap;
+use EcclesiaCRM\Map\PrincipalsTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
@@ -27,8 +30,10 @@ class MenuEventsCount
         $end_date = date('Y-m-d H:i:s', strtotime($start_date . ' +1 day'));
 
         $activeEvents = EventQuery::create()
-            ->where("event_start <= '".$start_date ."' AND event_end >= '".$end_date."'") /* the large events */
-            ->_or()->where("event_start>='".$start_date."' AND event_end <= '".$end_date."'") /* the events of the day */
+            ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN) // we have to filter only the user calendars
+            ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)       // so we have to retrieve the principal user
+            ->where("event_start <= '".$start_date ."' AND event_end >= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") /* the large events */
+            ->_or()->where("event_start>='".$start_date."' AND event_end <= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") /* the events of the day */
             ->find();
 
         return  $activeEvents;

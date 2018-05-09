@@ -1,6 +1,9 @@
 <?php
 
-/* copyright 2018 Philippe Logel all rights reserved */
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//
 
 namespace PersonalServer;
 

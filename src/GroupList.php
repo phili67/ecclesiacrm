@@ -67,14 +67,14 @@ if ($_SESSION['user']->isManageGroupsEnabled()) {
 <script src="skin/js/GroupList.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
 $( document).ready(function() {
-    var gS = localStorage.getItem("groupSelect");
-	if (gS != null)
-	{
-		tf = document.getElementById("table-filter");
-		tf.selectedIndex = gS;
+  var gS = localStorage.getItem("groupSelect");
+  if (gS != null)
+  {
+    tf = document.getElementById("table-filter");
+    tf.selectedIndex = gS;
 
-		window.groupSelect = tf.value;
-	}
+    window.groupSelect = tf.value;
+  }
 });
 
 </script>

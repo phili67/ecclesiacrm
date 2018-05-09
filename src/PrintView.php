@@ -24,6 +24,12 @@ use EcclesiaCRM\Utils\OutputUtils;
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
+if ( !($_SESSION['user']->isEditRecordsEnabled() ||
+    ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ) ) {
+  Redirect('Menu.php');
+  exit;
+}
+
 // Get this person
 $sSQL = 'SELECT a.*, family_fam.*, cls.lst_OptionName AS sClassName, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName,
 				b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName

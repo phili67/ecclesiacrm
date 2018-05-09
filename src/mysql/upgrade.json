@@ -253,9 +253,9 @@
         "scripts": [
              "/mysql/upgrade/3.6.0-upgrade.sql"
         ],
-        "dbVersion": "3.5.0"
+        "dbVersion": "3.6.0"
     },
-    "current": {
+    "pre-3.6.2": {
         "versions": [
             "3.6.0",
             "3.6.1"
@@ -263,5 +263,16 @@
         "scripts": [
         ],
         "dbVersion": "3.6.2"
+    },
+    "current": {
+        "versions": [
+            "3.6.2"
+        ],
+        "scripts": [
+            "/mysql/upgrade/4.0.0-upgrade.sql",
+            "/mysql/upgrade/4.0.0-upgrade.php"
+        ],
+        "dbVersion": "4.0.0"
     }
+
 }

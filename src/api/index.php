@@ -61,7 +61,7 @@ require __DIR__.'/routes/pledges.php';
 require __DIR__.'/routes/attendees.php';
 
 // other
-require __DIR__.'/routes/calendar.php';
+require __DIR__.'/routes/calendarV2.php';
 
 //timer jobs
 require __DIR__.'/routes/timerjobs.php';
@@ -77,7 +77,7 @@ require __DIR__.'/routes/cart.php';
 
 require __DIR__.'/routes/kiosks.php';
 
-require __DIR__.'/routes/events.php';
+require __DIR__.'/routes/eventsV2.php';
 
 require __DIR__.'/routes/custom-fields.php';
 

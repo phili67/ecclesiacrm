@@ -13,15 +13,12 @@ $(document).ready(function () {
   $("#addNewGroup").click(function (e) {
     var groupName = $("#groupName").val(); // get the name of the group from the textbox
     if (groupName) // ensure that the user entered a group name
-    {
-      var newGroup = {'groupName': groupName};    //create a newgroup JSON object, and prepare it for transport
-      $.ajax({
-        method: "POST",
-        url: window.CRM.root + "/api/groups/",               //call the groups api handler located at window.CRM.root
-        data: JSON.stringify(newGroup),                      // stringify the object we created earlier, and add it to the data payload
-        contentType: "application/json; charset=utf-8",
-        dataType: "json"
-      }).done(function (data) {                               //yippie, we got something good back from the server
+    {      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'groups/',
+        data: JSON.stringify({'groupName': groupName})
+      }).done(function(data) {    
         window.CRM.dataTableList.row.add(data);                                //add the group data to the existing window.CRM.dataTableListable
         window.CRM.dataTableList.rows().invalidate().draw(true);               //redraw the window.CRM.dataTableListable
         $("#groupName").val(null);

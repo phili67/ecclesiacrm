@@ -5,12 +5,7 @@
 *  website     : http://www.ecclesiacrm.com
 *  function    : List all Church Events
 *
-*  copyright   : Copyright 2005 Todd Pillars
-*
-*
-*  Additional Contributors:
-*  2007 Ed Davis
-*  update 2018 Philippe Logel all right reserved
+*  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 *
 ******************************************************************************/
 
@@ -27,7 +22,25 @@ use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\EventTypesTableMap;
 use EcclesiaCRM\Map\EventCountsTableMap;
+use EcclesiaCRM\Map\CalendarinstancesTableMap;
+use EcclesiaCRM\Map\PrincipalsTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\dto\SystemConfig;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
+
 
 $eType = 'All';
 $ThisYear = date('Y');
@@ -39,7 +52,9 @@ if (isset($_POST['WhichType'])) {
     $eType = 'All';
 }
 
-if ($eType != 'All') {
+if ($eType == '0') {        
+    $sPageTitle = gettext('Listing Events of Type = ').gettext("Personal Calendar");
+} elseif ($eType != 'All') {
     $eventType = EventTypesQuery::Create()->findOneById($eType);
         
     $sPageTitle = gettext('Listing Events of Type = ').$eventType->GetName();
@@ -50,9 +65,9 @@ if ($eType != 'All') {
 // retrieve the year selector
 
 if (isset($_POST['WhichYear'])) {
-    $EventYear = InputUtils::LegacyFilterInput($_POST['WhichYear'], 'int');
+    $yVal = InputUtils::LegacyFilterInput($_POST['WhichYear'], 'int');
 } else {
-    $EventYear = date('Y');
+    $yVal = date('Y');
 }
 
 
@@ -71,10 +86,20 @@ if (isset($_POST['Action']) && isset($_POST['EID'])) {
     $eID = InputUtils::LegacyFilterInput($_POST['EID'], 'int');
     $action = InputUtils::LegacyFilterInput($_POST['Action']);
     if ($action == 'Delete' && $eID) {
-        $event = EventQuery::Create()->findOneById($eID);
-        if (!empty($event)) {
-          $event->delete();
-        }
+        $propel_event = EventQuery::Create()->findOneById($eID);
+        
+        $calendarId = [$propel_event->getEventCalendarid(),0];
+
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $event = $calendarBackend->getCalendarObjectById($calendarId,$eID);        
+          
+        // We have to use the sabre way to ensure the event is reflected in external connection : CalDav
+        $calendarBackend->deleteCalendarObject($calendarId, $event['uri']);
     } elseif ($action == 'Activate' && $eID) {
         $event = EventQuery::Create()->findOneById($eID);
         $event->setInActive (0);
@@ -94,7 +119,7 @@ $eventTypes = EventTypesQuery::Create()
 
 
 <div class='text-center'>
-  <a href="calendar.php" class='btn btn-primary'>
+  <a class='btn btn-primary' id="add-event">
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>
@@ -105,12 +130,16 @@ $eventTypes = EventTypesQuery::Create()
 <div class="col-sm-4">
 <label><?= gettext('Select Event Types To Display') ?></label>
       <select name="WhichType" onchange="javascript:this.form.submit()" class='form-control'>
-        <option value="All"><?= gettext('All') ?></option>
+        <option value="All" <?= ($eType == 'All')?'selected':'' ?>><?= gettext('All') ?></option>
         <?php
         foreach ($eventTypes as $eventType) {
+          if ($eventType->getId() == null) {
          ?>
+          <option value="0" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= gettext("Personal Calendar") ?></option>
+         <?php } else { ?>
           <option value="<?php echo $eventType->getId() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
         <?php
+          }
         }        
         ?>
       </select>
@@ -118,6 +147,7 @@ $eventTypes = EventTypesQuery::Create()
 
 <?php
 // year selector
+
 if ($eType == 'All') {
     $years = EventQuery::Create()
                 ->addAsColumn('year','YEAR('.EventTableMap::COL_EVENT_START.')')
@@ -163,7 +193,7 @@ if ($eType == 'All') {
         <?php
           foreach ($years as $year) {
         ?>
-          <option value="<?php echo $year ?>" <?= ($year == $EventYear)?'selected':'' ?>><?= $year ?></option>
+          <option value="<?php echo $year ?>" <?= ($year == $yVal)?'selected':'' ?>><?= $year ?></option>
         <?php
           }
         ?>        
@@ -192,20 +222,47 @@ $statisticaAvgRows = true;
 foreach ($allMonths as $mVal) {
     unset($cCountSum);
     
+    $onlyUser = "";
+    
+    if (!($_SESSION['user']->isAdmin())) {
+      $onlyUser = " AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'";
+    }
+      
     if ($eType == 'All') {
       $events = EventQuery::Create()
-         ->addJoin(EventTableMap::COL_EVENT_TYPE,EventTypesTableMap::COL_TYPE_ID)
-         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$EventYear)
-         ->find();
+         ->orderByStart('DESC')
+           ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
+           ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
+           ->addAsColumn('login',PrincipalsTableMap::COL_URI)
+           ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+           ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
+           ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
+         ->groupBy(EventTableMap::COL_EVENT_ID)
+            ->find();
+         
     } else {
       $events = EventQuery::Create()
-         ->addJoin(EventTableMap::COL_EVENT_TYPE,EventTypesTableMap::COL_TYPE_ID)
-         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND '.EventTableMap::COL_EVENT_TYPE.'='.$eType.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$EventYear)
+         ->filterByType($eType)
+         ->orderByStart('DESC')
+           ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN)
+           ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)
+           ->addAsColumn('login',PrincipalsTableMap::COL_URI)
+           ->addAsColumn('rights',CalendarinstancesTableMap::COL_ACCESS)
+           ->addAsColumn('calendarName',CalendarinstancesTableMap::COL_DISPLAYNAME)
+         ->where('MONTH('.EventTableMap::COL_EVENT_START.') = '.$mVal.' AND YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.$onlyUser)
+         ->groupBy(EventTableMap::COL_EVENT_ID)
          ->find();
     }
     
-    $numRows = $events->count();
+    
+    
+    
+    $numRows = 0;
+    if ( !empty($events) ) {
+      $numRows = $events->count();
+    }
     $aAvgRows = $numRows;
+    
     
     $numAVGAtt = 0;
     $numAVG_CheckIn = 0;
@@ -213,18 +270,30 @@ foreach ($allMonths as $mVal) {
     
     $row=1;
     
-    foreach ($events as $event) {        
-        // get the list of attend-counts that exists in event_attend for this
-        
+    
+    foreach ($events as $event) {  
+        // get the list of attend-counts that exists in event_attend for this        
         $aEventID[$row] = $event->getId();
+        
+        if ( $_SESSION['user']->isAdmin() ) {
+          $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b><br>".gettext("login").":<b>".str_replace("principals/","",$event->getLogin())."</b>";
+        } else {
+          $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b>";
+        }
+        
         $aEventType[$row] = $event->getTypeName();
         $aEventTitle[$row] = htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8');
         $aEventDesc[$row] = htmlentities(stripslashes($event->getDesc()), ENT_NOQUOTES, 'UTF-8');
         $aEventText[$row] = htmlentities(stripslashes($event->getText()), ENT_NOQUOTES, 'UTF-8');
-        $aEventStartDateTime[$row] = $event->getStart()->format('Y-m-d');
-        $aEventEndDateTime[$row] = $event->getEnd()->format('Y-m-d');
+        $aEventStartDateTime[$row] = $event->getStart()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
+        $aEventEndDateTime[$row] = $event->getEnd()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
         $aEventStatus[$row] = $event->getInactive();
-        
+        if (!($_SESSION['user']->isAdmin())) {
+          $aEventRights[$row] = ($event->getRights() == 1 || $event->getRights() == 3)?true:false;
+        } else {
+          $aEventRights[$row] = true;
+        }
+                
         $attendees = EventAttendQuery::create()->findByEventId($event->getId());
         
         $attCheckOut[$row] = 0;
@@ -269,9 +338,11 @@ foreach ($allMonths as $mVal) {
         <th><?= gettext("Action") ?></th>
         <th><?= gettext("Description") ?></th>
         <th><?= gettext("Event Type") ?></th>
+        <th><?= gettext("Calendar") ?></th>
         <th><?= gettext("Attendance Counts with real Attendees") ?></th>
         <th><?= gettext("Free Attendance Counts without Attendees") ?></th>
         <th><?= gettext("Start Date/Time") ?></th>
+        <th><?= gettext("End Date/Time") ?></th>
         <th><?= gettext("Active") ?></th>
       </tr>
     </thead>
@@ -281,31 +352,16 @@ foreach ($allMonths as $mVal) {
             ?>
           <tr>
             <td>
-              <table class='table-responsive'>
+               <table class='table-responsive'>
                 <tr>
                   <td>
-                    <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
-                    ?>
-                    <form name="EditEvent" action="EventEditor.php" method="POST">
-                    <?php 
-                      }
-                    ?>
-                      <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
-                      <button type="submit" name="Action" title="<?= gettext('Edit') ?>" value="Edit" data-tooltip class="btn btn-default btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin())?"disabled":"" ?>">
+                    <button title="<?= gettext('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="btn btn-default btn-sm <?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
                         <i class='fa fa-pencil'></i>
-                      </button>
-                    <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
-                    ?>
-                      </form>
-                    <?php 
-                      }
-                    ?>
+                    </button>
                   </td>
                   <td>
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
                     <?php 
@@ -316,7 +372,7 @@ foreach ($allMonths as $mVal) {
                       <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                       <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       </form>
                      <?php 
@@ -327,7 +383,7 @@ foreach ($allMonths as $mVal) {
                   </td>
                   <td>
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                     <form name="DeleteEvent" class="DeleteEvent" action="ListEvents.php" method="POST">
                     <?php 
@@ -335,11 +391,11 @@ foreach ($allMonths as $mVal) {
                     ?>                  
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="Action" value="Delete">
-                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin())?"disabled":"" ?>">
+                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
                         <i class='fa fa-trash'></i>
                       </button>
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                     </form>
                     <?php 
@@ -350,7 +406,7 @@ foreach ($allMonths as $mVal) {
               </table>
             </td>
             <td>
-              <?= $aEventTitle[$row] ?>
+              <?= $aEventTitle[$row]/*." ID=[".$aEventID[$row]."]"*/ ?>
               <?= ($aEventDesc[$row] == '' ? '&nbsp;' : ("(".$aEventDesc[$row].")")) ?>
               <?php if ($aEventText[$row] != '') {
                 ?>
@@ -358,7 +414,10 @@ foreach ($allMonths as $mVal) {
               <?php
             } ?>
             </td>
-            <td><?= $aEventType[$row] ?></td>            
+            <td><?= empty($aEventType[$row])?gettext("Personal Calendar"):$aEventType[$row] ?></td>   
+            <td>
+               <?= $aLogin[$row] ?>
+            </td>
             <td>
             <center>
             <?php 
@@ -382,7 +441,7 @@ foreach ($allMonths as $mVal) {
                       <tr>
                       <td>
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       <form name="EditAttendees" action="EditEventAttendees.php" method="POST">
                     <?php 
@@ -392,9 +451,9 @@ foreach ($allMonths as $mVal) {
                          <input type="hidden" name="EName" value="<?= $aEventTitle[$row] ?>">
                         <input type="hidden" name="EDesc" value="<?= $aEventDesc[$row] ?>">
                         <input type="hidden" name="EDate" value="<?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>">
-                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin())?"disabled":"" ?>" >
+                        <input type="submit" name="Action" value="<?= gettext('Attendees').'('.$attNumRows[$row].')' ?>" class="btn btn-info btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>" >
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       </form>
                     <?php 
@@ -403,18 +462,18 @@ foreach ($allMonths as $mVal) {
                       </td>
                       <td>
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       <form action="<?= SystemURLs::getRootPath() ?>/Checkin.php" method="POST">
                     <?php 
                       }
                     ?>                       
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
-                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin())?"disabled":"" ?>">
+                        <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
                           <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
                         </button>                      
                     <?php 
-                      if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
+                      if ($aEventRights[$row]) {
                     ?>
                       </form>
                     <?php 
@@ -480,7 +539,10 @@ foreach ($allMonths as $mVal) {
               </table>
             </td>
             <td>
-              <?= OutputUtils::FormatDate($aEventStartDateTime[$row], 1) ?>
+              <?= $aEventStartDateTime[$row] ?>
+            </td>
+            <td>
+              <?= $aEventEndDateTime[$row] ?>
             </td>
             <td style="color:<?= $aEventStatus[$row]?"red":"green" ?>;text-align:center">
               <?= ($aEventStatus[$row] != 0 ? _('No') : _('Yes')) ?>
@@ -499,7 +561,7 @@ foreach ($allMonths as $mVal) {
                   ->addAsColumn('monthStart','MONTH('.EventTableMap::COL_EVENT_START.')')
                   ->addAsColumn('yearStart','YEAR('.EventTableMap::COL_EVENT_START.')')
                 ->endUse()
-                ->where('YEAR('.EventTableMap::COL_EVENT_START.')='.$EventYear.' AND MONTH('.EventTableMap::COL_EVENT_START.')='.$mVal)
+                ->where('YEAR('.EventTableMap::COL_EVENT_START.')='.$yVal.' AND MONTH('.EventTableMap::COL_EVENT_START.')='.$mVal)
                 ->addAsColumn('avg','AVG('.EventCountsTableMap::COL_EVTCNT_COUNTCOUNT.')')
                 ->addAsColumn('sum','SUM('.EventCountsTableMap::COL_EVTCNT_COUNTCOUNT.')')
                 ->groupByEvtcntCountid()
@@ -510,6 +572,7 @@ foreach ($allMonths as $mVal) {
             
           <tr>
             <td class="LabelColumn"><?= gettext(' Monthly Averages') ?></td>
+            <td></td>
             <td></td>
             <td></td>
             <td>
@@ -586,6 +649,7 @@ foreach ($allMonths as $mVal) {
             </td>            
             <td></td>
             <td></td>
+            <td></td>
           </tr>
           <?php
         } 
@@ -597,6 +661,7 @@ foreach ($allMonths as $mVal) {
             <td class="LabelColumn"> <?= gettext('Monthly Counts') ?></td>
             <td></td>
             <td></td>            
+            <td></td>
             <td>
               <center>
               <?php 
@@ -669,6 +734,7 @@ foreach ($allMonths as $mVal) {
             </td>
             <td></td>
             <td></td>
+            <td></td>
           </tr>
           <?php
         } ?>
@@ -682,58 +748,19 @@ foreach ($allMonths as $mVal) {
 ?>
 
 <div>
-  <a href="calendar.php" class='btn btn-default'>
+  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
     <?= gettext('Return to Calendar') ?>
   </a>
 </div>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-//Added by @saulowulhynek to translation of datatable nav terms
-  $(document).ready(function () {
-    $("#eventsTable").DataTable({
-       "language": {
-         "url": window.CRM.plugin.dataTable.language.url
-       },
-       responsive: true
-    });
-    
-    $('.listEvents').DataTable({"language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    }});
-    
-<?php 
-  if ($_SESSION['bAddEvent'] || $_SESSION['user']->isAdmin()) {
-?>
-    $('.DeleteEvent').submit(function(e) {
-        var currentForm = this;
-        e.preventDefault();
-        bootbox.confirm({
-        title:  i18next.t("Deleting an event will also delete all attendance counts for that event."),
-        message:i18next.t("Are you sure you want to DELETE the event ?"),
-        buttons: {
-          confirm: {
-              label: i18next.t('Yes'),
-              className: 'btn-danger'
-          },
-          cancel: {
-              label: i18next.t('No'),
-              className: 'btn-success'
-          }
-        },
-        callback: function(result) {
-            if (result) {
-                currentForm.submit();
-            }
-        }});
-    });
-<?php 
-  }
-?>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ListEvent.js" ></script>
 
-  });
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  var isModifiable  = "true";
 </script>
-
 
 <?php
 require 'Include/Footer.php';

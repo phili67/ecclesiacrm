@@ -25,7 +25,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
     <div class="pull-right">
         <b><?= gettext('Version') ?></b> <?= SystemService::getDBVersion() ?>
     </div>
-    <strong><?= gettext('Copyright') ?> &copy; 2015-2018 <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?></a>.</strong> <?= gettext('All rights reserved') ?>
+    <strong><?= gettext('Copyright') ?> &copy; 2015-<?= date('Y') ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?></a>.</strong> <?= gettext('All rights reserved') ?>
     .
 </footer>
 
@@ -265,8 +265,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <!-- This div must placed right after the sidebar for it to work-->
 <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
-</div><!-- ./wrapper -->
 
 <!-- Bootstrap 3.3.5 -->
 
@@ -286,6 +284,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/timepicker/bootstrap-timepicker.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-notify/bootstrap-notify.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
 
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
@@ -312,6 +311,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Tooltips.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Events.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Footer.js"></script>
+
 
 <?php if (isset($sGlobalMessage)) {
         ?>
