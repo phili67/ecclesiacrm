@@ -57,3 +57,31 @@ margin-bottom: 0px;
 .input-group-addon:last-child {
   border-left: 1
 }
+
+.date-range {
+  position: relative;
+  min-height: 1px;
+  float:left;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 50%;
+  text-align: center;
+}
+
+.status-event-title {
+  position: relative;
+  min-height: 1px;
+  float:left;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 25%;
+}
+
+.status-event {
+  position: relative;
+  min-height: 1px;
+  float:left;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 33.33333333%;
+}

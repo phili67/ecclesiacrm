@@ -1445,10 +1445,6 @@ msgstr "Retour au menu rapport"
 msgid "There "
 msgstr "Là"
 
-#: EventAttendance.php:100 EventEditor.php:470
-msgid "Event Title"
-msgstr "Titre de l&#39;événement"
-
 #: EventAttendance.php:101
 msgid "Event Date"
 msgstr "Date de l&#39;événement"
@@ -1510,8 +1506,8 @@ msgid "You must pick an event type."
 msgstr "Vous devez choisir un type d&#39;événement."
 
 #: EventEditor.php:476
-msgid "Event Desc"
-msgstr "Description événement"
+msgid "Desc"
+msgstr "Description"
 
 #: EventEditor.php:517
 msgid "No Attendance counts recorded"

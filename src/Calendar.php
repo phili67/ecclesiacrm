@@ -213,5 +213,6 @@ $eventTypes = EventTypesQuery::Create()
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarSideBar.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarV2.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>

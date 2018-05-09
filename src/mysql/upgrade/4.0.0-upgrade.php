@@ -141,6 +141,9 @@ $groups = GroupQuery::Create()->find();
   unlink(SystemURLs::getDocumentRoot()."/skin/js/Calendar.js");
   unlink(SystemURLs::getDocumentRoot()."/api/routes/calendar.php");
   unlink(SystemURLs::getDocumentRoot()."/api/routes/events.php");
+  unlink(SystemURLs::getDocumentRoot()."/calendar.php");
+  unlink(SystemURLs::getDocumentRoot()."/EventEditor.php");
+  unlink(SystemURLs::getDocumentRoot()."/CartToGroup.php");
   
   $logger->info("End of translate");
 ?>
