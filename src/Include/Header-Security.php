@@ -16,7 +16,7 @@ $csp = array(
     "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
     "img-src 'self' data:",
     "media-src 'self'",
-    "frame-src 'self'",
+    "frame-src 'self' www.youtube.com",
     "font-src 'self' fonts.gstatic.com",
     "connect-src 'self'",
     "report-uri ".SystemURLs::getRootPath()."/api/system/csp-report"
