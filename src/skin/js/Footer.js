@@ -122,25 +122,26 @@ $("document").ready(function(){
             method:"GET"
         }).done(function(data) {
             var Groups = data.Groups;                 
-            var elt = document.getElementById("GroupID");          
-            var len = Groups.length;
+            var elt = document.getElementById("GroupID");
+            if (elt != null) {
+              var len = Groups.length;
 
-            // We add the none option
-            var option = document.createElement("option");
-            option.text = i18next.t("None");
-            option.value = 0;
-            option.title = ""; 
-            elt.appendChild(option);
-      
-            for (i=0; i<len; ++i) {
+              // We add the none option
               var option = document.createElement("option");
-              // there is a groups.type in function of the new plan of schema
-              option.text = Groups[i].Name;
-              option.title = Groups[i].RoleListId;        
-              option.value = Groups[i].Id;
+              option.text = i18next.t("None");
+              option.value = 0;
+              option.title = ""; 
               elt.appendChild(option);
-        }       
       
+              for (i=0; i<len; ++i) {
+                var option = document.createElement("option");
+                // there is a groups.type in function of the new plan of schema
+                option.text = Groups[i].Name;
+                option.title = Groups[i].RoleListId;        
+                option.value = Groups[i].Id;
+                elt.appendChild(option);
+              }
+            }       
       });  
     }
     
@@ -158,23 +159,25 @@ $("document").ready(function(){
           }).done(function(data) {
               var ListOptions = data.ListOptions;                 
               $("#GroupRole").empty();        
-              var elt = document.getElementById("GroupRole");  
-              var len = ListOptions.length;
+              var elt = document.getElementById("GroupRole");
+              if (elt != null) {
+                var len = ListOptions.length;
 
-              // We add the none option
-              var option = document.createElement("option");
-              option.text = i18next.t("None");
-              option.value = 0;
-              option.title = ""; 
-              elt.appendChild(option);
-    
-              for (i=0; i<len; ++i) {
+                // We add the none option
                 var option = document.createElement("option");
-                // there is a groups.type in function of the new plan of schema
-                option.text = i18next.t(ListOptions[i].OptionName);
-                option.value = ListOptions[i].OptionId;
+                option.text = i18next.t("None");
+                option.value = 0;
+                option.title = ""; 
                 elt.appendChild(option);
-              }       
+    
+                for (i=0; i<len; ++i) {
+                  var option = document.createElement("option");
+                  // there is a groups.type in function of the new plan of schema
+                  option.text = i18next.t(ListOptions[i].OptionName);
+                  option.value = ListOptions[i].OptionId;
+                  elt.appendChild(option);
+                }
+              }
           });
       } 
     });
