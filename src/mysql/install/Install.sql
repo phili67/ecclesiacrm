@@ -1255,6 +1255,10 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
 
   (0, 0, 'bEmailMailto', '1', 'boolean', 'User permission to send email via mailto: links', 'TRUE', ''),
   (0, 1, 'sMailtoDelimiter', ',', 'text', 'Delimiter to separate emails in mailto: links', 'TRUE', ''),
+  (0, 3, 'bExportSundaySchoolCSV', '1', 'boolean', 'User permission to export CSV files for the sunday school', 'TRUE', ''),
+  (1, 3, 'bExportSundaySchoolCSV', '1', 'boolean', 'User permission to export CSV files for the sunday school', 'TRUE', ''),
+  (0, 4, 'bExportSundaySchoolPDF', '1', 'boolean', 'User permission to export PDF files for the sunday school', 'TRUE', ''),
+  (1, 4, 'bExportSundaySchoolPDF', '1', 'boolean', 'User permission to export PDF files for the sunday school', 'TRUE', ''),
   (0, 5, 'bCreateDirectory', '0', 'boolean', 'User permission to create directories', 'FALSE', 'SECURITY'),
   (0, 6, 'bExportCSV', '0', 'boolean', 'User permission to export CSV files', 'FALSE', 'SECURITY'),
   (0, 7, 'bUSAddressVerification', '0', 'boolean', 'User permission to use IST Address Verification', 'FALSE', ''),
@@ -1265,7 +1269,12 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (1, 6, 'bExportCSV', '1', 'boolean', 'User permission to export CSV files', 'TRUE', ''),
   (1, 7, 'bUSAddressVerification', '1', 'boolean', 'User permission to use IST Address Verification', 'TRUE', ''),
   (1, 8, 'bShowTooltip',1,'boolean','Allow to see ballon Help','TRUE',''),
-  (0, 8, 'bShowTooltip',1,'boolean','Allow to see ballon Help','TRUE','');
+  (0, 8, 'bShowTooltip',1,'boolean','Allow to see ballon Help','TRUE',''),
+  (0, 9, 'sCSVExportDelemiter', ',', 'text', 'To export to another For european CharSet use ;', 'TRUE', ''),
+  (1, 9, 'sCSVExportDelemiter', ',', 'text', 'To export to another For european CharSet use ;', 'TRUE', ''),
+  (0, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', ''),
+  (1, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', '');
+;
   
 
 -- --------------------------------------------------------
@@ -1510,8 +1519,8 @@ CREATE TABLE userprofile_usrprf (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`, `usrprf_global`, `usrprf_permissions`, `usrprf_value`) VALUES
-(1, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;Style:skin-blue-light', 'bEmailMailto:FALSE;sMailtoDelimiter:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;bSeePrivacyData:FALSE', 'bEmailMailto:;sMailtoDelimiter:,;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;;bSeePrivacyData:'),
-(2, 'Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;bSeePrivacyData:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;bSeePrivacyData:1');
+(1, 'User Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:TRUE;bExportSundaySchoolPDF:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;sCSVExportDelemiter:,;sCSVExportCharset:TRUE;bSeePrivacyData:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bExportSundaySchoolCSV:1;bExportSundaySchoolPDF:1;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:Windows-1252;bSeePrivacyData:1'),
+(2, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;Style:skin-red-light', 'bEmailMailto:FALSE;sMailtoDelimiter:FALSE;bExportSundaySchoolCSV:FALSE;bExportSundaySchoolPDF:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;sCSVExportDelemiter:FALSE;sCSVExportCharset:FALSE;bSeePrivacyData:FALSE', 'bEmailMailto:;sMailtoDelimiter:,;bExportSundaySchoolCSV:;bExportSundaySchoolPDF:;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:Windows-1252;bSeePrivacyData:0');
 
 update version_ver set ver_update_end = now();
 

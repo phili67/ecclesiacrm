@@ -30,7 +30,7 @@ use EcclesiaCRM\PropertyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
-if (!($_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin())) {
+if ( !( $_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin() || $bExportSundaySchoolCSV ) ) {
     Redirect('Menu.php');
     exit;
 }
@@ -46,32 +46,32 @@ header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
-header('Content-Type: text/csv;charset='.SystemConfig::getValue("sCSVExportCharset"));
+header('Content-Type: text/csv;charset='.$sCSVExportCharset);
 header('Content-Disposition: attachment; filename=SundaySchool-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
-$delimiter = SystemConfig::getValue("sCSVExportDelemiter");
+$delimiter = $sCSVExportDelemiter;
 
 $out = fopen('php://output', 'w');
 
 //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-if (SystemConfig::getValue("sCSVExportCharset") == "UTF-8") {
+if ($sCSVExportCharset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
   
 $labelArr = [];
-$labelArr[] = InputUtils::translate_special_charset("First Name");
-$labelArr[] = InputUtils::translate_special_charset("Last Name");
-$labelArr[] = InputUtils::translate_special_charset("Birth Date");
-$labelArr[] = InputUtils::translate_special_charset("Gender");
-$labelArr[] = InputUtils::translate_special_charset("Age");
-$labelArr[] = InputUtils::translate_special_charset("Phone");
-$labelArr[] = InputUtils::translate_special_charset("Group");
-$labelArr[] = InputUtils::translate_special_charset("Notes");
+$labelArr[] = InputUtils::translate_special_charset("First Name",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Last Name",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Birth Date",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Gender",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Age",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Phone",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Group",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Notes",$sCSVExportCharset);
 /*$labelArr[] = InputUtils::translate_special_charset("Photo");*/
 /*$labelArr[] = InputUtils::translate_special_charset("Follow");
-$labelArr[] = InputUtils::translate_special_charset("Re-inscription");*/
-$labelArr[] = InputUtils::translate_special_charset("Stats");
+$labelArr[] = InputUtils::translate_special_charset("Re-inscription",$sCSVExportCharset);*/
+$labelArr[] = InputUtils::translate_special_charset("Stats",$sCSVExportCharset);
 
 $activeEvents = EventQuery::Create()
     ->filterByGroupId($iGroupID)
@@ -165,10 +165,10 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
         $maxNbrEvents = $lineNbrEvents;
       }
       
-      $lineArr[] = InputUtils::translate_special_charset($person->getFirstName());
-      $lineArr[] = InputUtils::translate_special_charset($person->getLastName());
-      $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")));
-      $lineArr[] = InputUtils::translate_special_charset(($person->getGender() == 1)?gettext("Boy"):gettext("Girl"));
+      $lineArr[] = InputUtils::translate_special_charset($person->getFirstName(),$sCSVExportCharset);
+      $lineArr[] = InputUtils::translate_special_charset($person->getLastName(),$sCSVExportCharset);
+      $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")),$sCSVExportCharset);
+      $lineArr[] = InputUtils::translate_special_charset(($person->getGender() == 1)?gettext("Boy"):gettext("Girl"),$sCSVExportCharset);
       $lineArr[] = $person->getAge();
       $lineArr[] = $homePhone;
       $lineArr[] = $group->getName();
