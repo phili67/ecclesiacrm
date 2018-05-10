@@ -854,7 +854,7 @@ if ($sFileType == 'PDF') {
     }
 } else { // File Type must be CSV
 
-    $delimiter = SystemConfig::getValue("sCSVExportDelemiter");
+    $delimiter = $sCSVExportDelemiter;
 
     $sCSVOutput = '';
     if ($iBulkCode) {
@@ -890,7 +890,7 @@ if ($sFileType == 'PDF') {
                         '"'.$sLT['Zip'].'"'."\n";
     }
 
-    header('Content-type: application/csv;charset='.SystemConfig::getValue("sCSVExportCharset"));
+    header('Content-type: application/csv;charset='.$sCSVExportCharset);
     header('Content-Disposition: attachment; filename=Labels-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
@@ -898,7 +898,7 @@ if ($sFileType == 'PDF') {
     header('Pragma: public');
     
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-    if (SystemConfig::getValue("sCSVExportCharset") == "UTF-8") {
+    if ($sCSVExportCharset == "UTF-8") {
         echo "\xEF\xBB\xBF";
     }
     

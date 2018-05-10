@@ -845,6 +845,10 @@ foreach ($userProfiles as $userProfile) {
              array.forEach(function(element) {
                var flag = element.split(":");
                
+               if (flag[1] == 'semi_colon') {
+                 flag[1] = ';';
+               }
+               
                var td2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)');
                var select2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select');
                
@@ -895,6 +899,10 @@ foreach ($userProfiles as $userProfile) {
               
               var _val2 = select2.val();
               
+              if (_val2 == ';') {
+                _val2 = 'semi_colon';
+              }
+
               user_perm += _name+':'+_val0+';'
               user_value += _name+':'+_val2+';'
            });

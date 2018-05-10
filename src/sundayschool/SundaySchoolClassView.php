@@ -133,9 +133,13 @@ require '../Include/Header.php';
     }
   ?>
   <?php 
-  if ($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled()) {
+  if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolCSV || $_SESSION['bExportCSV'] ) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
+  <?php
+   }
+   if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
+  ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php 
     }
