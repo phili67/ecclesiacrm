@@ -32,7 +32,7 @@ $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
 // Is this the second pass?
-if (isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isset($_POST['SubmitClassAttendance'])) {
+if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isset($_POST['SubmitClassAttendance']) || isset($_POST['SubmitRealClassAttendance']) ) {
     $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');
     
     $dFirstSunday = InputUtils::LegacyFilterInput($_POST['FirstSunday'], 'date');
@@ -120,6 +120,17 @@ if (isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isse
             $toStr .= '&ExtraTeachers='.$iExtraTeachers;
         }
         Redirect($toStr);
+    } elseif ($bAtLeastOneGroup && isset($_POST['SubmitRealClassAttendance']) && $aGrpID != 0) {
+        $toStr = 'Reports/ClassRealAttendance.php?';
+        //        $toStr .= "GroupID=" . $iGroupID;
+        $toStr .= 'groupID='.$aGrpID;
+        $toStr .= '&idefaultFY='.$iFYID;
+        $toStr .= '&start='.$year."-01-01";
+        $toStr .= '&end='.$year."-12-31";
+        $toStr .= '&withPictures='.$withPictures;
+        $toStr .= '&ExtraStudents='.($iExtraStudents+$iExtraTeachers);
+
+        Redirect($toStr);
     } elseif (!$bAtLeastOneGroup || $aGrpID == 0) {
         echo "<p class=\"alert alert-danger\"><span class=\"fa fa-exclamation-triangle\"> ".gettext('At least one group must be selected to make class lists or attendance sheets.')."</span></p>";
     }
@@ -188,7 +199,7 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
           <td>
             <?php
             // Create the group select drop-down
-            echo '<select id="GroupID" name="GroupID[]" multiple size="8" onChange="UpdateRoles();"><option value="0">'.gettext('None').'</option>';
+            echo '<select id="GroupID" name="GroupID[]" multiple size="8"><option value="0">'.gettext('None').'</option>';
             foreach ($groups as $group) {
                 echo '<option value="'.$group->getID().'">'.$group->getName().'</option>';
             }
@@ -272,15 +283,18 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
         </tr>
         <tr>
           <td width="75%">
-              <div class="col-md-4">
-              <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Create Class List') ?>">
-          </div>
-          <div class="col-md-4">
-              <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= gettext('Create Attendance Sheet') ?>">
-          </div>
-          <div class="col-md-4">
-            <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('Create PhotoBook') ?>">
-          </div>
+              <div class="col-md-3">
+                  <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Class List') ?>">
+              </div>
+              <div class="col-md-3">
+                  <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= gettext('Attendance Sheet') ?>">
+              </div>
+              <div class="col-md-3">
+                  <button type="button" class="btn btn-info exportCheckOutPDF" id="exportCheckOutPDF" data-makecheckoutgroupid="0"><?= gettext('Real Attendance Sheet') ?></button>
+              </div>
+              <div class="col-md-3">
+                <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('PhotoBook') ?>">
+              </div>
         </td>
         <td width="25%">
           <div class="col-rd-12">
@@ -296,3 +310,6 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
 <?php
 require '../Include/Footer.php';
 ?>
+
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolReports.js" ></script>
