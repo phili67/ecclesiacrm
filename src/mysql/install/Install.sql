@@ -1275,6 +1275,7 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (0, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', ''),
   (1, 10, 'sCSVExportCharset', 'UTF-8', 'text', 'Default is UTF-8, For european CharSet use Windows-1252 for example for French language.', 'TRUE', '');
   
+  
 
 -- --------------------------------------------------------
 
