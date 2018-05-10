@@ -17,7 +17,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 
 class PDF_Attendance extends ChurchInfoReport
 {
-    /////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 //
 // function modified by S. Shaffer 3/2006 to change the following
 // (1) handle the case where teh list of names covers more than one page
@@ -336,7 +336,7 @@ class PDF_Attendance extends ChurchInfoReport
   
     public function DrawRealAttendanceCalendar($nameX, $yTop, $labels, $aNames, $tTitle, $extraLines,
                                     $tFirstSunday, $tLastSunday,
-                                    $rptHeader, $with_img)
+                                    $rptHeader, $with_img,$maxNbrEvents)
     {      
         $startMonthX = 60;
         $dayWid = 7;
@@ -427,42 +427,43 @@ class PDF_Attendance extends ChurchInfoReport
   //
   
   $datePlace = 0;
-      foreach ($labels as $key => $value) {
-        switch ($key) {
-          case 'firstName':
-            break;
-          case 'lastName':
-            break;
-          case 'photos':
-            break;
-          case 'gender':
-            break;
-          case 'birthDate':
-            break;
-          case 'homePhone':
-            break;
-          case 'props':
-            break;    
-          case 'age':
-            $this->SetFont('Times', 'B', $fontTitleNormal);
-            $this->TextWithDirection($nameX+50, $y - 5.5, $value,'U');
-            $this->SetFont('Times', '', $fontTitleNormal);
-            break;
-          case 'stats':
-            $this->SetFont('Times', 'B', $fontTitleNormal);
-            $this->TextWithDirection($nameX+57, $y -5.5, $value,'U');
-            $this->SetFont('Times', '', $fontTitleNormal);
-            break;
-          case 'groupName':
-            break;              
-          default:
-            // we are in case of dates
-            $this->SetFont('Arial', 'B', $fontTitleNormal-2);
-            $this->TextWithDirection($nameX+64+$datePlace, $y - 2, $value,'U');
-            $this->SetFont('Times', '', $fontTitleNormal);
-            $datePlace+=7;
-        }
-      }
+  
+  foreach ($labels as $key => $value) {
+    switch ($key) {
+      case 'firstName':
+        break;
+      case 'lastName':
+        break;
+      case 'photos':
+        break;
+      case 'gender':
+        break;
+      case 'birthDate':
+        break;
+      case 'homePhone':
+        break;
+      case 'props':
+        break;    
+      case 'age':
+        $this->SetFont('Times', 'B', $fontTitleNormal);
+        $this->TextWithDirection($nameX+50, $y - 5.5, $value,'U');
+        $this->SetFont('Times', '', $fontTitleNormal);
+        break;
+      case 'stats':
+        $this->SetFont('Times', 'B', $fontTitleNormal);
+        $this->TextWithDirection($nameX+57, $y -5.5, $value,'U');
+        $this->SetFont('Times', '', $fontTitleNormal);
+        break;
+      case 'groupName':
+        break;              
+      default:
+        // we are in case of dates
+        $this->SetFont('Arial', 'B', $fontTitleNormal-2);
+        $this->TextWithDirection($nameX+64+$datePlace, $y - 2, $value,'U');
+        $this->SetFont('Times', '', $fontTitleNormal);
+        $datePlace+=7;
+    }
+  }
 
       
   //
@@ -476,8 +477,18 @@ class PDF_Attendance extends ChurchInfoReport
   //
 
       $this->SetLineWidth(0.25);
+      $sizeArray = [];   
+            
+      for ($i=0;$i < $maxNbrEvents;$i++) {
+        $sizeArray[$i] = 0;
+      }
+      
+      $real_count = 0;
+      
       for ($row = $pRowStart; $row < $pRowEnd; $row++) {
+        $real_count++;
         $datePlace = 0;
+        $positionSize  = 0;
         foreach ($realList[$row] as $key => $value) {
           switch ($key) {
             case 'firstName':
@@ -552,7 +563,7 @@ class PDF_Attendance extends ChurchInfoReport
             case 'stats':
               $this->SetFont('Times', '', $fontTitleNormal-2);
               if ($value != 'Stats') {
-                $this->WriteAt($nameX+52.5, $y + 2.5, $value);
+                $this->WriteAt($nameX+52.5, $y + 2.5, $value."/".$maxNbrEvents);
               }
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
@@ -563,10 +574,13 @@ class PDF_Attendance extends ChurchInfoReport
               $this->SetFont('Arial', '', $fontTitleNormal-2);
               if ($value == 1) {
                 $this->WriteAt($nameX+60+$datePlace+1, $y + 2.5, "x");
+                $sizeArray[$positionSize]++;
               }
+              $positionSize++;
               //$this->TextWithDirection($nameX+56, $y + 2, $value,'D');
               $this->SetFont('Times', '', $fontTitleNormal);
               $datePlace+=7;
+              
           }
         }
         
@@ -579,6 +593,15 @@ class PDF_Attendance extends ChurchInfoReport
   //
       $this->SetFont('Times', 'B', $fontTitleNormal);
       $this->WriteAt($nameX, $y + 1, gettext('Totals'));
+      $this->SetFont('Times', '', $fontTitleNormal);
+      
+      $datePlace = 0;
+      
+      $this->SetFont('Times', '', $fontTitleNormal-2);
+      foreach ($sizeArray as $c) {        
+        $this->TextWithDirection($nameX + 64 + $datePlace, $y + 9, $c."/".$real_count,'U');        
+        $datePlace+=7;
+      }
       $this->SetFont('Times', '', $fontTitleNormal);
 
       $bottomY = $y + $yIncrement;

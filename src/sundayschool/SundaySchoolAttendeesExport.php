@@ -96,6 +96,14 @@ $groupRoleMemberships = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
                             ->findByGroupId($iGroupID);
                             
 
+$maxNbrEvents = 0;
+
+$sizeArray = [];
+
+/*for ($i=0;$i < 150;$i++) {
+  $sizeArray[$i] = 0;
+}*/
+
 foreach ($groupRoleMemberships as $groupRoleMembership) {
     $lineArr = [];
     $lineRealPresence = 0;
@@ -132,6 +140,7 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
         $props.= $property->getProName().", ";
       }
       
+      $positionSize = 0;
       foreach ($activeEvents as $activeEvent) {// we loop in the events of the year
         $eventAttendees = EventAttendQuery::create()
               ->filterByPersonId($person->getId())
@@ -141,15 +150,21 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
         foreach ($eventAttendees as $eventAttendee) {
           if (!empty($eventAttendee->getCheckoutDate())) {
             $lineDates[] = 1;
+            $sizeArray[$positionSize]++;
             $lineRealPresence++;
           } else {
             $lineDates[] = 0;
           }
 
           $lineNbrEvents++;
+          $positionSize++;
         }
       }
-    
+      
+      if ($maxNbrEvents < $lineNbrEvents) {
+        $maxNbrEvents = $lineNbrEvents;
+      }
+      
       $lineArr[] = InputUtils::translate_special_charset($person->getFirstName());
       $lineArr[] = InputUtils::translate_special_charset($person->getLastName());
       $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")));
@@ -160,14 +175,19 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
       $lineArr[] = $props;
       $lineArr[] = "\"".$lineRealPresence."/".$lineNbrEvents."\"";
       
-      $lineArr = array_merge($lineArr,$lineDates);
-      
+      $lineArr = array_merge($lineArr,$lineDates);      
       
       fputcsv($out, $lineArr, $delimiter);
-      
-      
     }
 }
+
+$base = ['','','','','','','','',gettext('Totals')];
+
+for ($i=0;$i < $maxNbrEvents;$i++) {
+  $base[$i+9] = $sizeArray[$i];
+}
+
+fputcsv($out, $base, $delimiter);
 
 fclose($out);
 

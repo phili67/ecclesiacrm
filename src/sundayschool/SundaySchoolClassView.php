@@ -135,8 +135,8 @@ require '../Include/Header.php';
   <?php 
   if ($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled()) {
   ?>
-    <a class="btn btn-app bg-purple exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
-    <a class="btn btn-app bg-green exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
+    <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
+    <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php 
     }
   ?>

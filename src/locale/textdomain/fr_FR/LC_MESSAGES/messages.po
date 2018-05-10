@@ -4833,12 +4833,15 @@ msgid "Extra Teachers"
 msgstr "Les moniteurs supplémentaires"
 
 #: sundayschool/SundaySchoolReports.php:274
-msgid "Create Class List"
-msgstr "Créer une liste des classes"
+msgid "Class List"
+msgstr "Liste des classes"
 
 #: sundayschool/SundaySchoolReports.php:277
-msgid "Create Attendance Sheet"
-msgstr "Créer une feuille de présence"
+msgid "Attendance Sheet"
+msgstr "Feuille de présence"
+
+msgid "Real Attendance Sheet"
+msgstr "Feuille de présence réelle"
 
 #: Include/Footer.php:155
 msgid "System Users"
@@ -9012,10 +9015,6 @@ msgstr "Trombinoscope"
 #: sundayschool/SundaySchoolReports.php:198
 msgid "With Photos"
 msgstr "Avec les photos"
-
-#: sundayschool/SundaySchoolReports.php:280
-msgid "Create PhotoBook"
-msgstr "Créer un trombinoscope"
 
 #: EcclesiaCRM/utils/GeoUtils.php:183
 msgid "SSE"
