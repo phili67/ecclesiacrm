@@ -283,6 +283,9 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
         </tr>
         <tr>
           <td width="75%">
+      <?php 
+        if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
+      ?>           
               <div class="col-md-3">
                   <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Class List') ?>">
               </div>
@@ -295,10 +298,13 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
               <div class="col-md-3">
                 <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('PhotoBook') ?>">
               </div>
+      <?php
+        }
+      ?>
         </td>
         <td width="25%">
           <div class="col-rd-12">
-          <input type="button" style="align=right" class="btn" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/Menu.php';">
+          <input type="button" style="align=right" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/Menu.php';">
         </div>
         </td>
         </tr>
@@ -312,4 +318,10 @@ require '../Include/Footer.php';
 ?>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
+<?php 
+  if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
+?> 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolReports.js" ></script>
+<?php
+  }
+?>

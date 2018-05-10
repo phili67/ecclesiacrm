@@ -50,14 +50,20 @@ require '../Include/Header.php';
       <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
           class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
     <?php
-      } ?>
-      
-    <?php 
-      if ($_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin()) { 
+      } 
     ?>
+    <?php 
+      if ($bExportSundaySchoolPDF || $_SESSION['user']->isAdmin()) { 
+    ?>  
      <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
         class="fa fa-file-pdf-o"></i><?= gettext('Reports'); ?></a>
+    <?php
+      }
+    ?>
+    <?php 
+      if ($_SESSION['bExportCSV'] || $bExportSundaySchoolCSV || $_SESSION['user']->isAdmin()) { 
+    ?>
      <a href="SundaySchoolClassListExport.php" class="btn btn-app"
        title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
         class="fa fa-file-excel-o"></i><?= gettext('Export to CSV') ?></a><br/>

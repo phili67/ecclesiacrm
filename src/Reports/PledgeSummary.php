@@ -275,7 +275,7 @@ if ($output == 'pdf') {
 } elseif ($output == 'csv') {
 
     // Settings
-    $delimiter = SystemConfig::getValue('sCSVExportDelemiter');
+    $delimiter = $sCSVExportDelemiter;
     $eol = "\r\n";
 
     // Build headings row
@@ -299,7 +299,15 @@ if ($output == 'pdf') {
     }
 
     // Export file
-    header('Content-type: text/x-csv');
-    header('Content-Disposition: attachment; filename=ChurchInfo-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
-    echo $buffer;
+    header('Content-type: application/csv;charset='.$sCSVExportCharset);
+    header('Content-Disposition: attachment; filename=Pledges-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+    header('Pragma: public');
+    
+    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
+    if ($sCSVExportCharset == "UTF-8") {
+        echo "\xEF\xBB\xBF";
+    }    echo $buffer;
 }

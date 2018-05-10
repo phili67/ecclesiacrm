@@ -6377,6 +6377,12 @@ msgstr "Permission de l&#39;utilisateur pour créer des annuaires."
 msgid "User permission to export CSV files"
 msgstr "Permission de l&#39;utilisateur pour exporter des fichiers CSV"
 
+msgid "User permission to export CSV files for the sunday school"
+msgstr "Permission de l&#39;utilisateur pour exporter des fichiers CSV uniquement pour l'école du dimanche"
+
+msgid "User permission to export PDF files for the sunday school"
+msgstr "Permission de l&#39;utilisateur pour exporter des fichiers CSV uniquement pour l'école du dimanche"
+
 #: userconfig_ucfg.php:6
 msgid "User permission to use IST Address Verification"
 msgstr "Permission de l&#39;utilisateur d'utiliser la Vérification d'Adresse IST"

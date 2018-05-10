@@ -18,7 +18,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\ListOptionQuery;
 
-$delimiter = SystemConfig::getValue("sCSVExportDelemiter");
+$delimiter = $sCSVExportDelemiter;
 
 // Turn ON output buffering
 ob_start();
@@ -339,11 +339,11 @@ if ($sFormat == 'addtocart') {
     $headerString = mb_substr($headerString, 0, -1);
     $headerString .= "\n";
 
-    header('Content-type: text/x-csv;charset='.SystemConfig::getValue("sCSVExportCharset"));
+    header('Content-type: text/x-csv;charset='.$sCSVExportCharset);
     header('Content-Disposition: attachment; filename=ecclesiacrm-export-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-    if (SystemConfig::getValue("sCSVExportCharset") == "UTF-8") {
+    if ($sCSVExportCharset == "UTF-8") {
         echo "\xEF\xBB\xBF";
     }
 
@@ -426,16 +426,16 @@ if ($sFormat == 'addtocart') {
                 if ($sFormat == 'default') {
                     $sString = '"'.$per_LastName;
                     if (isset($_POST['Title'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_Title);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_Title,$sCSVExportCharset);
                     }
                     if (isset($_POST['FirstName'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_FirstName);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_FirstName,$sCSVExportCharset);
                     }
                     if (isset($_POST['Suffix'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_Suffix);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_Suffix,$sCSVExportCharset);
                     }
                     if (isset($_POST['MiddleName'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_MiddleName);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($per_MiddleName,$sCSVExportCharset);
                     }
                 } elseif ($sFormat == 'rollup') {
                     if ($memberCount > 1) {
@@ -446,22 +446,22 @@ if ($sFormat == 'addtocart') {
                 }
 
                 if (isset($_POST['Address1'])) {
-                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sAddress1);
+                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sAddress1,$sCSVExportCharset);
                 }
                 if (isset($_POST['Address2'])) {
-                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sAddress2);
+                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sAddress2,$sCSVExportCharset);
                 }
                 if (isset($_POST['City'])) {
-                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sCity);
+                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sCity,$sCSVExportCharset);
                 }
                 if (isset($_POST['State'])) {
-                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sState);
+                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sState,$sCSVExportCharset);
                 }
                 if (isset($_POST['Zip'])) {
                     $sString .= '"'.$delimiter.'"'.$sZip;
                 }
                 if (isset($_POST['Country'])) {
-                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sCountry);
+                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($sCountry,$sCSVExportCharset);
                 }
                 if (isset($_POST['HomePhone'])) {
                     $sString .= '"'.$delimiter.'"'.$sHomePhone;
@@ -508,10 +508,10 @@ if ($sFormat == 'addtocart') {
                     }
 
                     if (isset($_POST['PrintMembershipStatus'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($memberClass[$per_cls_ID]);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($memberClass[$per_cls_ID],$sCSVExportCharset);
                     }
                     if (isset($_POST['PrintFamilyRole'])) {
-                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($familyRoles[$per_fmr_ID]);
+                        $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset($familyRoles[$per_fmr_ID],$sCSVExportCharset);
                     }
                 } else {
                     if (isset($_POST['BirthdayDate'])) {
@@ -549,7 +549,7 @@ if ($sFormat == 'addtocart') {
                                     if ($type_ID == 11) {
                                         $custom_Special = $sCountry;
                                     }
-                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special));
+                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special),$sCSVExportCharset);
                                 }
                             }
                         }
@@ -572,7 +572,7 @@ if ($sFormat == 'addtocart') {
                                 if ($type_ID == 11) {
                                     $fam_custom_Special = $sCountry;
                                 }
-                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special));
+                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special),$sCSVExportCharset);
                             }
                         }
                     }
@@ -596,7 +596,7 @@ if ($sFormat == 'addtocart') {
                                 if ($type_ID == 11) {
                                     $fam_custom_Special = $sCountry;
                                 }
-                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special));
+                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special),$sCSVExportCharset);
                             }
                         }
                     }
