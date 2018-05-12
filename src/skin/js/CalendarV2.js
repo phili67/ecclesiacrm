@@ -9,10 +9,18 @@
         // initialize the calendar
         // -----------------------------------------------------------------
         $('#calendar').fullCalendar({
+          customButtons: {
+            actualizeButton: {
+              text: i18next.t('Actualize'),
+              click: function() {
+                $('#calendar').fullCalendar( 'refetchEvents' );
+              }
+            }
+          },
           header: {
               left: 'prev,next today',
               center: 'title',
-              right: 'month,agendaWeek,agendaDay,listMonth'//listYear
+              right: 'month,agendaWeek,agendaDay,listMonth,actualizeButton',//listYear
           },
           height: parent,
           selectable: isModifiable,
@@ -28,7 +36,7 @@
               return;
             }
             
-            var fmt = 'YYYY-MM-DD H:mm:ss';
+            var fmt = 'YYYY-MM-DD HH:mm:ss';
 
             var dateStart = moment(event.start).format(fmt);
             var dateEnd = moment(event.end).format(fmt);
@@ -70,6 +78,8 @@
                 }        
             });
            } else {
+            var reccurenceID = moment(event.reccurenceID).format(fmt);
+
              var box = bootbox.dialog({
                title: i18next.t("Move Event") + "?",
                message: i18next.t("You're about to move all the events. Would you like to :"),
@@ -85,12 +95,11 @@
                   label:  i18next.t("Only this Event"),
                   className: 'btn btn-info',
                     callback: function () {
-                      var oldDateStart = moment(event.subOldDate).format(fmt);
 
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"eventStart":oldDateStart})
+                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                       }).done(function(data) {
                         // now we can refresh the calendar
                         $('#calendar').fullCalendar('refetchEvents');
@@ -102,12 +111,11 @@
                   label:  i18next.t("All Events"),
                   className: 'btn btn-primary',
                     callback: function () {
-                      var oldDateStart = moment(event.subOldDate).format(fmt);
 
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"eventStart":oldDateStart})
+                         data: JSON.stringify({"evntAction":'moveEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
                       }).done(function(data) {
                         // now we can refresh the calendar
                         $('#calendar').fullCalendar('refetchEvents');
@@ -126,7 +134,7 @@
               return;
           }
         
-          var fmt = 'YYYY-MM-DD H:mm:ss';
+          var fmt = 'YYYY-MM-DD HH:mm:ss';
   
           var dateStart = moment(calEvent.start).format(fmt);
           var dateEnd = moment(calEvent.end).format(fmt);
@@ -156,6 +164,8 @@
                              }
                             });
                          } else if (calEvent.type == "event" && calEvent.recurrent == 1) {
+                           var reccurenceID = moment(calEvent.reccurenceID).format(fmt);
+                           
                            var box = bootbox.dialog({
                              title: i18next.t("Delete all repeated Events"),
                              message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
@@ -171,7 +181,7 @@
                                      window.CRM.APIRequest({
                                        method: 'POST',
                                        path: 'events/',
-                                       data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart})
+                                       data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart,"reccurenceID":reccurenceID})
                                     }).done(function(data) {
                                        $('#calendar').fullCalendar( 'refetchEvents' );
                                        $('#calendar').fullCalendar('unselect'); 
@@ -232,7 +242,7 @@
                        label: i18next.t('Edit'),
                        className: 'btn btn-success',
                        callback: function () {
-                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.subOldDate);
+                         modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.reccurenceID);
        
                          $('form #EventTitle').val(calEvent.title);
                          $('form #EventDesc').val(calEvent.Desc);
@@ -296,10 +306,11 @@
             return;
           }
             
-          var fmt = 'YYYY-MM-DD H:mm:ss';
+          var fmt = 'YYYY-MM-DD HH:mm:ss';
 
           var dateStart = moment(event.start).format(fmt);
           var dateEnd = moment(event.end).format(fmt);
+          var reccurenceID = moment(event.reccurenceID).format(fmt);
 
           if (event.type == "event" && event.recurrent == 0) {
             bootbox.confirm({
@@ -350,7 +361,7 @@
                       window.CRM.APIRequest({
                          method: 'POST',
                          path: 'events/',
-                         data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false})
+                         data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":false,"reccurenceID":reccurenceID})
                       }).done(function(data) {
                          // now we can refresh the calendar
                          $('#calendar').fullCalendar( 'refetchEvents' );
@@ -365,7 +376,7 @@
                       window.CRM.APIRequest({
                        method: 'POST',
                        path: 'events/',
-                       data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true})
+                       data: JSON.stringify({"evntAction":'resizeEvent',"calendarID":event.calendarID,"eventID":event.eventID,"start":dateStart,"end":dateEnd,"allEvents":true,"reccurenceID":reccurenceID})
                       }).done(function(data) {
                          // now we can refresh the calendar
                          $('#calendar').fullCalendar( 'refetchEvents' );
@@ -459,8 +470,8 @@
          }
       },
       events: function(start, end, timezone, callback) {
-        var real_start = moment.unix(start.unix()).format('YYYY-MM-DD H:mm:ss');
-        var real_end = moment.unix(end.unix()).format('YYYY-MM-DD H:mm:ss');
+        var real_start = moment.unix(start.unix()).format('YYYY-MM-DD HH:mm:ss');
+        var real_end = moment.unix(end.unix()).format('YYYY-MM-DD HH:mm:ss');
         
         window.CRM.APIRequest({
           method: 'POST',

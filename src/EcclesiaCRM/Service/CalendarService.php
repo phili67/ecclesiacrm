@@ -186,14 +186,15 @@ class CalendarService
                   $fEvnt = true;              
                 } elseif ($key == 'freqEvents' && $fEvnt == true) { // we are in front of a recurrence event !!!
                   foreach ($value as $freqValue) {
-                    $title = $freqValue['SUMMARY'];
-                    $start = $freqValue['DTSTART'];
-                    $end = $freqValue['DTEND'];
+                    $title        = $freqValue['SUMMARY'];
+                    $start        = $freqValue['DTSTART'];
+                    $end          = $freqValue['DTEND'];
+                    $reccurenceID   = $freqValue['RECURRENCE-ID'];
                   
                     $event = $this->createCalendarItem('event',$icon,
                       $title, $start, $end, 
                      '',$id,$type,$grpID,
-                      $desc,$text,$calID,$calendarColor,$subid++,1,$start,$writeable);// only the event id sould be edited and moved and have custom color
+                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable);// only the event id sould be edited and moved and have custom color
             
                     array_push($events, $event);
                   }
@@ -204,7 +205,7 @@ class CalendarService
                 $event = $this->createCalendarItem('event',$icon,
                   $title, $start, $end, 
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor,0,0,'',$writeable);// only the event id sould be edited and moved and have custom color
+                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable);// only the event id sould be edited and moved and have custom color
             
                 array_push($events, $event);
               }
@@ -215,7 +216,7 @@ class CalendarService
         return $events;
     }
     
-    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$subOldDate = '',$writeable=false)
+    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$reccurenceID = '',$writeable=false)
     {
         $event = [];
         switch ($type) {
@@ -263,9 +264,9 @@ class CalendarService
           
           $event['subID'] = $subid; 
           
-          $event['subOldDate'] = '';
-          if (!empty($subOldDate) ) {  
-            $event['subOldDate'] = $subOldDate; 
+          $event['reccurenceID'] = '';
+          if (!empty($reccurenceID) ) {  
+            $event['reccurenceID'] = $reccurenceID; 
           }
           
           
