@@ -401,16 +401,16 @@ $app->group('/events', function () {
           
         $vcalendar = VObject\Reader::read($event['calendardata']);
         
-        if ( isset($input->allEvents) && isset($input->eventStart) ) {
+        if ( isset($input->allEvents) && isset($input->reccurenceID) ) {
         
-          if ( $input->allEvents == true) { // we'll move all the events
+          if ( $input->allEvents == true ) { // we'll move all the events
         
             $exdates = [];
                 
             $oldStart = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
             $oldEnd   = new \DateTime ($vcalendar->VEVENT->DTEND->getDateTime()->format('Y-m-d H:i:s'));
             
-            $oldSubStart = new \DateTime($input->eventStart);
+            $oldSubStart = new \DateTime($input->reccurenceID);
             $newSubStart = new \DateTime($input->start);
 
             if ($newSubStart < $oldSubStart) {
@@ -454,75 +454,50 @@ $app->group('/events', function () {
             
                 array_push($exdates, $new_ex_date->format('Y-m-d H:i:s'));
             }
-          
-          
+            
             $vcalendar->VEVENT->remove('EXDATE');
           
             foreach ($exdates as $exdate) {
               $vcalendar->VEVENT->add('EXDATE', (new \DateTime($exdate))->format('Ymd\THis'));
             }
         
+            //$i = 0;
+            foreach($vcalendar->VEVENT as $sevent) {               
+               $old_recID = new \DateTime ($sevent->{'RECURRENCE-ID'});
+               
+               if ($action == +1) {
+                  $new_recID = $old_recID->add($interval);
+                } else {
+                  $new_recID = $old_recID->sub($interval);
+                }
+                
+                //if ($i++ > 0) {// the first event is the main event and must not have the RECURRENCE-ID !!!!
+                  $sevent->{'RECURRENCE-ID'} = $new_recID->format('Ymd\THis');
+                //}
+            }
+            
+            // we remove only the first one in the main event.
+            $vcalendar->VEVENT->remove('RECURRENCE-ID');
+
             $vcalendar->VEVENT->remove('RRULE');
         
             $vcalendar->VEVENT->add('RRULE', $newrule);
-           
-            
+                       
             $vcalendar->VEVENT->DTSTART = $newStart->format('Ymd\THis');
             $vcalendar->VEVENT->DTEND = $newEnd->format('Ymd\THis');
             $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
             $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
-        
-            $event = EventQuery::Create()->findOneById($input->eventID);
-        
-            // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
          
             return $response->withJson(["status" => "success"]);
  
           } else {
-            
-            // we will exclude one event and add a new one
-            $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->eventStart))->format('Ymd\THis'));
-            $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
-            
-            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
-            
-            // We get info from the previous one
-            $oldEvent = EventQuery::Create()->findOneById($input->eventID);
-            
-            // we create a new event
-            $newVcalendar = new EcclesiaCRM\MyVCalendar\VCalendarExtension();
-        
-            $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
-      
-            $newVcalendar->add(
-               'VEVENT', [
-                'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
-                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-                'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
-                'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
-                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
-                'DESCRIPTION' => $oldEvent->getDesc(),
-                'SUMMARY' => $oldEvent->getTitle(),
-                'UID' => $uuid,
-                'SEQUENCE' => '0',
-                'TRANSP' => 'OPAQUE'
-              ]);
           
-
-            // Now we move to propel, to finish the put extra infos
-            $etag = $calendarBackend->createCalendarObject($input->calendarID, $uuid, $newVcalendar->serialize());        
-          
-            $new_event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
-        
-            $new_event->setType($oldEvent->getType());
-            $new_event->setTypeName($oldEvent->getTypeName());
-            $new_event->setInActive($oldEvent->getInActive());        
-            $new_event->setGroupId ($oldEvent->getGroupId());
-        
-            $new_event->save(); 
-
-            return $response->withJson(["status" => "failed"]);
+            $newVcal = $calendarBackend->modifyVCalendar ($vcalendar,$input->reccurenceID,$input->start,$input->end);
+            
+            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $newVcal->serialize());
+            
+            return $response->withJson(["status" => "success"]);
             
           } 
 
@@ -533,12 +508,8 @@ $app->group('/events', function () {
           $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
 
           $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
-        
-          $event = EventQuery::Create()->findOneById($input->eventID);
-        
-          // il faut terminer tous les EXDATEs et surtout créer un autre événement dans le cas ou l'événement est unique
-         
-          return $response->withJson(["status" => "failed"]);
+                 
+          return $response->withJson(["status" => "success"]);
         }
   
         return  $response->withJson(["status" => "failed"]);
@@ -553,14 +524,39 @@ $app->group('/events', function () {
         $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);
           
         $vcalendar = VObject\Reader::read($event['calendardata']);
-
-        $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
-        $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
-        $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
-
-        $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
         
-        return $response->withJson(['status' => "success"]);
+        if ( isset($input->allEvents) && isset($input->reccurenceID) ) {
+           if ( $input->allEvents == true ) { // we'll move all the events
+           
+              $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
+              $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
+              $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+  
+              $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+         
+             return $response->withJson(["status" => "success"]);
+           } else {
+             $newVcal = $calendarBackend->modifyVCalendar ($vcalendar,$input->reccurenceID,$input->start,$input->end);
+             
+             $newVcal->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+            
+             $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $newVcal->serialize());
+            
+            return $response->withJson(["status" => "success"]);
+           }
+
+        } else {
+
+          $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
+          $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
+          $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+          $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+        
+          return $response->withJson(['status' => "success1"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
      }
      else if (!strcmp($input->evntAction,'attendeesCheckinEvent'))
      {
@@ -588,12 +584,30 @@ $app->group('/events', function () {
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);        
 
-        if (isset ($input->dateStart)) {        
+        if (isset ($input->reccurenceID)) {        
           
-          $vcalendar = VObject\Reader::read($event['calendardata']);
-          $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->dateStart))->format('Ymd\THis'));
+          try {
 
-          $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+            $vcalendar = VObject\Reader::read($event['calendardata']);
+          
+            $i=0;
+          
+            foreach ($vcalendar->VEVENT as $sevent) {
+              if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
+                $vcalendar->remove($vcalendar->VEVENT[$i]);
+                break;
+              }
+              $i++;
+            }
+          
+            $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
+            $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+
+            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+        
+          } catch (\Exception $ex) {
+              $calendarBackend->deleteCalendarObject($input->calendarID, $event['uri']);
+          }
           
         } else {// we delete only one event
           
@@ -618,18 +632,17 @@ $app->group('/events', function () {
                   
         $vcalendar = VObject\Reader::read($event['calendardata']);        
         
-        if (isset($input->subOldDate) 
-          && $input->subOldDate != '' ) {// we're in a recursive event
+        if (isset($input->reccurenceID) && $input->reccurenceID != '' ) {// we're in a recursive event
           
           $date = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
                     
-          if ( $input->subOldDate != '') {
-            $date =  $input->subOldDate;
+          if ( $input->reccurenceID != '') {
+            $date =  $input->reccurenceID;
           }
           
           // we have to delete the old event from the reccurence event
           $vcalendar = VObject\Reader::read($event['calendardata']);
-          $vcalendar->VEVENT->add('EXDATE', (new \DateTime($date))->format('Ymd\THis'));
+          $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
           
           $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
           

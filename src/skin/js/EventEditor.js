@@ -561,14 +561,14 @@
         return object
     }
     
-    function createEventEditorWindow (start,end,dialogType,eventID,subOldDate,page) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+    function createEventEditorWindow (start,end,dialogType,eventID,reccurenceID,page) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {
       if (dialogType === undefined) {
         dialogType = 'createEvent';
       }
       
-      if (subOldDate === undefined) {
-        subOldDate = '';
+      if (reccurenceID === undefined) {
+        reccurenceID = '';
       }
       
       if (page === undefined) {
@@ -671,7 +671,7 @@
                       data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"subOldDate":subOldDate})
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID})
                   }).done(function(data) {                   
                      $('#calendar').fullCalendar('unselect');              
                      add = true;              

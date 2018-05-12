@@ -10042,3 +10042,8 @@ msgstr "Par Types"
 
 msgid "Personals"
 msgstr "Personnels"
+
+# SystemConfig
+
+msgid "CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"
+msgstr "Le protocal CalDAV fonctionne avec la fonction php date_default_timezone_set qui nécessite ce réglage : Europe/Paris"

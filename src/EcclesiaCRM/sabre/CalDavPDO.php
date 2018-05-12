@@ -25,6 +25,225 @@ class CalDavPDO extends SabreCalDavBase\PDO {
         $this->calendarObjectTableName = 'events_event';
     }
     
+    public function modifyVCalendar ($vObject,$OLD_REC_ID,$new_start,$new_end,$summary=null,$desc=null)
+    {
+        $title = '';
+        $componentType = null;
+        $component = null;
+        $firstOccurence = '0000-00-00 00:00:00';
+        $lastOccurence = '0000-00-00 00:00:00';
+        $freqlastOccurence = '0000-00-00 00:00:00';
+        $uid = null;
+        $freqEvents = [];
+        $freq = 'none';
+        $location = null;
+        $description = null;
+        $attentees = null;
+        
+
+        foreach ($vObject->getComponents() as $component) {
+            if ($component->name !== 'VTIMEZONE') {
+                $componentType = $component->name;
+                $uid = (string)$component->UID;
+                break;
+            }
+        }
+        
+        if (!$componentType) {
+            throw new \Sabre\DAV\Exception\BadRequest('Calendar objects must have a VJOURNAL, VEVENT or VTODO component');
+        }
+        
+        
+        if ($componentType === 'VEVENT') {
+
+            $firstOccurence = $component->DTSTART->getDateTime()->format('Y-m-d H:i:s');
+            
+            if ( isset($component->SUMMARY) ) {
+               $title = $component->SUMMARY->getValue();
+            }
+            
+            if (isset($component->LOCATION)) {
+               $location = $component->LOCATION->getValue();       
+            }
+            
+            if (isset($component->DESCRIPTION)) {
+               $description = $component->DESCRIPTION->getValue();       
+            }
+                        
+            // Finding the last occurence is a bit harder
+            if (!isset($component->RRULE)) {
+                if (isset($component->DTEND)) {
+                    $lastOccurence = $component->DTEND->getDateTime()->format('Y-m-d H:i:s');
+                } elseif (isset($component->DURATION)) {
+                    $endDate = clone $component->DTSTART->getDateTime();
+                    $endDate = $endDate->add(VObject\DateTimeParser::parse($component->DURATION->getValue()));
+                    $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
+                } elseif (!$component->DTSTART->hasTime()) {
+                    $endDate = clone $component->DTSTART->getDateTime();
+                    
+                    $endDate = $endDate->modify('+1 day');
+                    $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
+                } else {
+                    $lastOccurence = $firstOccurence;
+                }
+            } else {
+                if (isset($component->RRULE)) {
+                  $freq = $component->RRULE->getValue();       
+                }
+                
+                if (isset($component->DTEND)) {
+                    $lastOccurence = $component->DTEND->getDateTime()->format('Y-m-d H:i:s');
+                }
+
+                $it = new VObject\Recur\EventIterator($vObject, (string)$component->UID);
+                $maxDate = new \DateTime('2038-01-01');
+                if ($it->isInfinite()) {
+                    $freqlastOccurence = $maxDate->format('Y-m-d H:i:s');//->getTimeStamp();
+                } else {
+                    $end = $it->getDtEnd();
+                    $i=0;
+                    while ($it->valid() && $end < $maxDate) {
+                        $componentSubObject = $it->getEventObject();
+                        
+                        //print_r($componentSubObject->name);
+                        if ($componentSubObject->name == 'VEVENT') { 
+                           //echo "le nom : ".$componentSubObject->SUMMARY->getValue()."<br>";
+                           //echo "le date : ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')."<br>";
+                           //echo "le date : ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
+                           $extras = [];
+                                       
+                           if (isset($componentSubObject->LOCATION)) {
+                             $extras['LOCATION'] = $componentSubObject->LOCATION->getValue(); 
+                           }
+                           
+                           if (isset($componentSubObject->ATTENDEE)) {
+                             foreach($vcalendar->VEVENT->ATTENDEE as $attendee) {
+                                //echo 'Attendee ', (string)$attendee;
+                                array_push($attendees,(string)$attendee);
+                             }
+                           }
+
+                           if (isset($componentSubObject->DESCRIPTION)) {
+                             $extras['DESCRIPTION'] = $componentSubObject->DESCRIPTION->getValue(); 
+                           }
+                           
+                           if (isset($componentSubObject->{'RECURRENCE-ID'})) {
+                             $extras['RECURRENCE-ID'] = $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s');
+                           }
+                           
+                           if (isset($componentSubObject->{'UID'})) {
+                             $extras['UID'] = $componentSubObject->{'UID'}->getValue();
+                           }
+                          
+                           
+                           if (!empty($extras)) {
+
+                             if ( $OLD_REC_ID != $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
+                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
+                               // An event have be created before, now we have to update the event
+                             error_log("La date est = coucou1 ".$OLD_REC_ID." titi ".$new_start." ".$new_end." ".$summary." ".$desc."\n\n", 3, "/var/log/mes-erreurs.log");
+                               $componentSubObject->DTSTART = (new \DateTime($new_start))->format('Ymd\THis');
+                               $componentSubObject->DTEND = (new \DateTime($new_end))->format('Ymd\THis');
+                               
+                               // we don't have to change the summary and title only if it's set : editEvent, not in moveEvent
+                               if (!is_null($summary)) {
+                                 $componentSubObject->SUMMARY = $summary;   
+                               }
+                               
+                               if (!is_null($desc)) {
+                                 $componentSubObject->DESCRIPTION = $desc;   
+                               }
+                               
+                             } else if ( $OLD_REC_ID == $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
+                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
+                               // We have to create a new event in this case
+                             error_log("La date est = coucou2 ".$OLD_REC_ID." titi ".$new_start." ".$new_end." ".$summary." ".$desc."\n\n", 3, "/var/log/mes-erreurs.log");
+                               
+                                $vObject->add(
+                                 'VEVENT', [
+                                  'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+                                  'UID' => $component->UID,
+                                  'DTEND' => (new \DateTime($new_end))->format('Ymd\THis'),
+                                  'SUMMARY' => (is_null($summary))?$component->SUMMARY->getValue():$summary,
+                                  'TRANSP' => 'OPAQUE',
+                                  'DTSTART' => (new \DateTime($new_start))->format('Ymd\THis'),
+                                  'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                                  'DESCRIPTION' => (is_null($desc))?$component->DESCRIPTION->getValue():$desc,
+                                  'SEQUENCE' => '0',
+                                  'RECURRENCE-ID' => (new \DateTime($OLD_REC_ID))->format('Ymd\THis')
+                                  ]);
+                                                                 
+                             }
+
+                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
+                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
+                                          
+                             $subEvent = array_merge($subEvent,$extras);
+
+                           } else {
+                           
+                             if ( $OLD_REC_ID != $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
+                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
+                                // An event have be created before, now we have to update the event
+                               $componentSubObject->DTSTART = (new \DateTime($new_start))->format('Ymd\THis');
+                               $componentSubObject->DTEND = (new \DateTime($new_end))->format('Ymd\THis');
+                               
+                               // we don't have to change the summary and title only if it's set : editEvent, not in moveEvent
+                               if (!is_null($summary)) {
+                                 $componentSubObject->SUMMARY = $summary;   
+                               }
+                               
+                               if (!is_null($desc)) {
+                                 $componentSubObject->DESCRIPTION = $desc;   
+                               }
+                               
+                             } else if ( $OLD_REC_ID == $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
+                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
+                                // We have to create a new event in this case
+                               
+                                $vObject->add(
+                                 'VEVENT', [
+                                  'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
+                                  'UID' => $component->UID,
+                                  'DTEND' => (new \DateTime($new_end))->format('Ymd\THis'),
+                                  'SUMMARY' => (is_null($summary))?$component->SUMMARY->getValue():$summary,
+                                  'TRANSP' => 'OPAQUE',
+                                  'DTSTART' => (new \DateTime($new_start))->format('Ymd\THis'),
+                                  'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                                  'DESCRIPTION' => (is_null($desc))?$component->DESCRIPTION->getValue():$desc,
+                                  'SEQUENCE' => '0',
+                                  'RECURRENCE-ID' => (new \DateTime($OLD_REC_ID))->format('Ymd\THis')
+                                  ]);
+                             }
+
+                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
+                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
+                           }
+                           
+                           array_push($freqEvents,$subEvent);
+                        }
+
+                        $end = $it->getDtEnd();
+                        $it->next();
+
+                    }
+                    $freqlastOccurence = $end->format('Y-m-d H:i:s');//->getTimeStamp();
+                }
+
+            }
+
+            // Ensure Occurence values are positive
+            if ($firstOccurence < 0) $firstOccurence = 0;
+            if ($lastOccurence < 0) $lastOccurence = 0;
+        }
+        
+        return $vObject;
+    }
+    
+    
+    
     public function extractCalendarData ($calendarData,$start='2010-01-01 00:00:00',$end='2070-12-31 23:59:59')
     {
         
@@ -147,6 +366,14 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                              $extras['DESCRIPTION'] = $componentSubObject->DESCRIPTION->getValue(); 
                            }
                            
+                           if (isset($componentSubObject->{'RECURRENCE-ID'})) {
+                             $extras['RECURRENCE-ID'] = $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s');
+                           }
+                           
+                           if (isset($componentSubObject->{'UID'})) {
+                             $extras['UID'] = $componentSubObject->{'UID'}->getValue();
+                           }
+                           
                            if (!empty($extras)) {
 
                              if ( !( $realStartDate <= (new \DateTime($componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')))
@@ -160,8 +387,10 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 
                              $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
                                           'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
-                                          'Extras' => $extras];                            
+                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];     
+                                          
+                                          
+                             $subEvent = array_merge($subEvent,$extras);
 
                            } else {
                                //echo $realStartDate->format('Y-m-d H:i:s')." ".$realEndDate->format('Y-m-d H:i:s')."<br>";
