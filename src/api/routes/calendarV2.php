@@ -3,6 +3,8 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//                This code can't be incoprorated in another software without any authorizaion
+//  updated : 2018/05/13
 //
 
 

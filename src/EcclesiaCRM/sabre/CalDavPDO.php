@@ -3,8 +3,10 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//                This code can't be incoprorated in another software without any authorizaion
 //
-
+//  Updated : 2018/05/13
+//
 
 namespace EcclesiaCRM\MyPDO;
 
@@ -141,7 +143,6 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                              if ( $OLD_REC_ID != $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
                                && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
                                // An event have be created before, now we have to update the event
-                             error_log("La date est = coucou1 ".$OLD_REC_ID." titi ".$new_start." ".$new_end." ".$summary." ".$desc."\n\n", 3, "/var/log/mes-erreurs.log");
                                $componentSubObject->DTSTART = (new \DateTime($new_start))->format('Ymd\THis');
                                $componentSubObject->DTEND = (new \DateTime($new_end))->format('Ymd\THis');
                                
@@ -157,7 +158,6 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                              } else if ( $OLD_REC_ID == $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
                                && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
                                // We have to create a new event in this case
-                             error_log("La date est = coucou2 ".$OLD_REC_ID." titi ".$new_start." ".$new_end." ".$summary." ".$desc."\n\n", 3, "/var/log/mes-erreurs.log");
                                
                                 $vObject->add(
                                  'VEVENT', [

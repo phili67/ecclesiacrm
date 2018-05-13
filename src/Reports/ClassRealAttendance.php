@@ -3,8 +3,8 @@
 *
 *  filename    : Reports/ClassRealAttendance.php
 *  description : Creates a PDF for a Sunday School Class Attendance List
-*  Udpdated    : 2018-05-09
-*                Philippe Logel all rights reserved not MIT Licence
+*  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+*                This code can't be incoprorated in another software without any authorizaion
 ******************************************************************************/
 
 require '../Include/Config.php';

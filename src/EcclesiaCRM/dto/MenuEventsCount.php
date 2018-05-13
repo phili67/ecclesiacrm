@@ -2,10 +2,11 @@
 /*
  * File : MenuEventsCount.php
  *
- * Created by : Philippe by Hand.
- * User: copyright Philippe Logel all right reserved not MIT licence
- * Date: 2018/05/02
- * Time: 3:00 AM.
+ * Created by   : Philippe by Hand.
+ *  This code is under copyright not under MIT Licence
+ *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without any authorizaion
+ * Time         : 2018/05/13 3:00 AM.
  */
 
 namespace EcclesiaCRM\dto;
