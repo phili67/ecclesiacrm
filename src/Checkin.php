@@ -58,8 +58,17 @@ if (array_key_exists('EventID', $_POST)) {
 
 $bSundaySchool = false;
 
-$event = EventQuery::Create()
+if ($EventID > 0) {
+  $event = EventQuery::Create()
         ->findOneById($EventID);
+        
+  if ($event == null) {
+    $_SESSION['EventID'] = 0;
+    $EventID = 0;
+  }
+}
+
+
 
 if (!is_null($event) && $event->getGroupId() > 0) {
    $bSundaySchool = GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool();
@@ -169,7 +178,7 @@ if ($FreeAttendees) {
 ?>
 
 <div class='text-center'>
-  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-primary'>
+  <a class='btn btn-primary' id="add-event">
     <i class='fa fa-ticket'></i>
     <?= gettext('Add New Event') ?>
   </a>
@@ -395,7 +404,7 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
 }
 
 // Checkin/Checkout Section update db
-if (isset($_POST['EventID']) && isset($_POST['child-id']) && (isset($_POST['CheckIn']) || isset($_POST['CheckOut']) || isset($_POST['Delete']))) {
+if ($EventID && isset($_POST['child-id']) && (isset($_POST['CheckIn']) || isset($_POST['CheckOut']) || isset($_POST['Delete']))) {
     //Fields -> event_id, person_id, checkin_date, checkin_id, checkout_date, checkout_id
     if (isset($_POST['CheckIn']) && !empty($iChildID)) {
         $attendee = EventAttendQuery::create()->filterByEventId($EventID)->findOneByPersonId($iChildID);
@@ -445,7 +454,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) && (isset($_POST['Chec
 //-- End checkin
 
 //  Checkout / Delete section
-if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
+if ($EventID > 0 && isset($_POST['child-id']) &&
     (isset($_POST['CheckOutBtn']) || isset($_POST['DeleteBtn']) )
 ) {
     $iChildID = InputUtils::LegacyFilterInput($_POST['child-id'], 'int');
@@ -522,7 +531,7 @@ if (isset($_POST['EventID']) && isset($_POST['child-id']) &&
 //**********************************************************************************************************
 
 //Populate data table
-if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset($_SESSION['EventID'])) {
+if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
     ?>
     <div class="box box-primary">
        <div class="box-header  with-border">
@@ -697,7 +706,7 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-<?php if (isset($_POST['EventID']) || isset ($_SESSION['EventID'])) { ?>
+<?php if ($EventID > 0 ) { ?>
     var perArr;
     $(document).ready(function () {
         $('#checkedinTable').DataTable({
@@ -770,8 +779,6 @@ if (isset($_POST['EventID']) || isset($_SESSION['CartToEventEventID']) || isset(
 <?php } ?>
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
-
 <?php require 'Include/Footer.php';
 
 function loadPerson($iPersonID)
@@ -802,3 +809,7 @@ function loadPerson($iPersonID)
     echo $html;
 }
 ?>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
+
