@@ -8,9 +8,11 @@
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
  *  Copyright 2005 Todd Pillars
- *  Copyright 2012 Michael Wilt
- *  Copyright 2018 Philippe Logel all right reserved
+ *  Copyright 2012 Michael Wilt 
+ *
+ *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without any authorizaion
  *
  ******************************************************************************/
 

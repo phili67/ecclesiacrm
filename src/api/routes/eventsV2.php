@@ -7,7 +7,10 @@
  *  description : manage the full calendar with events
  *
  *  http://www.ecclesiacrm.com/
+ *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+ *                This code can't be incoprorated in another software without any authorizaion
+ *  Updated : 2018/05/13
  *
  ******************************************************************************/
 
@@ -291,7 +294,7 @@ $app->group('/events', function () {
           
         }
         
-        if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees
+        /*if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
              $persons = Person2group2roleP2g2rQuery::create()
                 ->filterByGroupId($calendar->getGroupId())
                 ->find();
@@ -307,7 +310,7 @@ $app->group('/events', function () {
                   }
                }
             }
-        }
+        }*/
         
         $vcalendar->add('VEVENT',$vevent);        
 
@@ -643,6 +646,18 @@ $app->group('/events', function () {
           // we have to delete the old event from the reccurence event
           $vcalendar = VObject\Reader::read($event['calendardata']);
           $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
+          
+          $i=0;
+          
+          foreach ($vcalendar->VEVENT as $sevent) {
+            if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
+              $vcalendar->remove($vcalendar->VEVENT[$i]);
+              break;
+            }
+            $i++;
+          }
+          
+          $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
           
           $calendarBackend->updateCalendarObject($oldCalendarID, $event['uri'], $vcalendar->serialize());
           

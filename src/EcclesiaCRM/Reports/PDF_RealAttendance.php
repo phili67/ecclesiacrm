@@ -4,7 +4,9 @@
 *  filename    : Reports/PDF_RealAttendance.php
 *  description : Creates a PDF for a Sunday School Class Attendance List
 *  Udpdated    : 2018-05-09
-*                Philippe Logel All rights reserved not MIT Licence
+*  This code is under copyright not under MIT Licence
+*  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+*                This code can't be incoprorated in another software without any authorizaion
 ******************************************************************************/
 
 namespace EcclesiaCRM\Reports;
