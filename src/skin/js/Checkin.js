@@ -2,6 +2,63 @@
 
 $(document).ready(function () {
 
+function addEvent(dateStart,dateEnd)
+{
+   modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','Checkin.php');
+       
+   // we add the calendars and the types
+   addCalendars();
+   addCalendarEventTypes(-1,true);
+
+   //Timepicker
+   $('.timepicker').timepicker({
+     showInputs: false,
+     showMeridian: (window.CRM.timeEnglish == "true")?true:false
+   });
+
+   $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
+
+   $('.date-picker').click('focus', function (e) {
+     e.preventDefault();
+     $(this).datepicker('show');
+   });
+
+   $('.date-start').hide();
+   $('.date-end').hide();
+   $('.date-recurrence').hide();
+   $(".eventPredication").hide();
+
+   $("#typeEventrecurrence").prop("disabled", true);
+   $("#endDateEventrecurrence").prop("disabled", true);
+
+   // this will ensure that image and table can be focused
+   $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+
+   // this will create the toolbar for the textarea
+   CKEDITOR.replace('eventPredication',{
+    customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+    language : window.CRM.lang,
+    width : '100%'
+   });
+
+   $(".ATTENDENCES").hide();
+   
+   $('#EventCalendar option:first-child').attr("selected", "selected");
+
+   modal.modal("show");
+}
+
+
+$('#add-event').click('focus', function (e) {
+  var fmt = 'YYYY-MM-DD HH:mm:ss';
+  
+  var dateStart = moment().format(fmt);
+  var dateEnd = moment().format(fmt);
+          
+  addEvent(dateStart,dateEnd);
+});
+
+
   $(document).on("click",".PersonChangeState", function(){  
     var checked  = $(this).is(':checked');
     var personID = $(this).data("personid");

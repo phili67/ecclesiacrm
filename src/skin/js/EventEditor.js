@@ -345,6 +345,12 @@
     }).done(function(calendars) {    
       var elt = document.getElementById("EventCalendar");
       var len = calendars.length;
+      
+      var option = document.createElement("option");
+      option.text  = i18next.t("None");
+      option.title = 'none';        
+      option.value = -1;        
+      elt.appendChild(option);
 
       for (i=0; i<len; ++i) {
         if (calendars[i].calendarShareAccess != 2) {
@@ -602,6 +608,15 @@
               var EventTitle =  $('form #EventTitle').val();
               
               if (EventTitle) {
+                  var e                 = document.getElementById("EventCalendar");
+                  var EventCalendarID   = e.options[e.selectedIndex].value;
+                  
+                  if (EventCalendarID == -1) {
+                    window.CRM.DisplayAlert("Error","You've to chose a calendar.");
+                    
+                    return false;                    
+                  }
+
                   var e = document.getElementById("eventType");
                   var eventTypeID = e.options[e.selectedIndex].value;
                                                        
@@ -630,8 +645,6 @@
                   var real_end           = moment(dateEnd+' '+timeEnd,fmt).format('YYYY-MM-DD H:mm');
                   var real_endrecurrence = moment(endrecurrence+' '+timeStart,fmt).format('YYYY-MM-DD H:mm');
                              
-                  var e                 = document.getElementById("EventCalendar");
-                  var EventCalendarID   = e.options[e.selectedIndex].value;
                   var addGroupAttendees = document.getElementById("addGroupAttendees").checked;
                   
                   var eventInActive     = $('input[name="EventStatus"]:checked').val();
@@ -687,6 +700,8 @@
                      
                      if (page == 'ListEvent.php') {
                        location.reload();
+                     } else if (page == 'Checkin.php') {
+                       window.location.href = window.CRM.root + '/Checkin.php';
                      }
                     
                      return true;

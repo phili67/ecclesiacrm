@@ -5631,7 +5631,7 @@ msgstr "Voici les numéros des rôles familiaux attribués aux enfants"
 
 #: EcclesiaCRM/dto/SystemConfig.php:69
 msgid "Session timeout length in seconds\rSet to zero to disable session timeouts."
-msgstr "Durée d'une punition en secondes\rMettre à zéro pour désactiver les punitions."
+msgstr "Durée du dépassement de délai d'une session en secondes\rMettre à zéro pour désactiver le dépassement de délai."
 
 #: EcclesiaCRM/dto/SystemConfig.php:70
 msgid "Queries for which user must have finance permissions to use:"
