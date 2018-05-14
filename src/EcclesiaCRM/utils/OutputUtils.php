@@ -10,7 +10,10 @@ class OutputUtils {
 
   public static function translate_text_fpdf($string)
   {
-    return iconv('UTF-8', 'windows-1252', gettext($string));
+    if (!empty($string))
+      return iconv('UTF-8', 'windows-1252', gettext($string));
+    
+    return "";
   }
   
   public static function change_date_for_place_holder($string)
