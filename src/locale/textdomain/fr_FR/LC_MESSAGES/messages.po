@@ -10058,3 +10058,9 @@ msgstr "Le protocal CalDAV fonctionne avec la fonction php date_default_timezone
 
 msgid "Not modifiable"
 msgstr "Non modifialble"
+
+msgid "The sidebar is collapse by default"
+msgstr "La barre latérale est refermée par défaut"
+
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr "La barre latérale se déploie par défaut au survol de la souri"
