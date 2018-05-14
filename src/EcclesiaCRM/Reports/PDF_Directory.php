@@ -79,7 +79,7 @@ class PDF_Directory extends ChurchInfoReport
 
         $sContact = sprintf("%s\n%s, %s  %s\n\n%s\n\n", OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchAddress')), 
           OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchCity')),
-         OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchState')), OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchZip')), 
+          OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchState')), SystemConfig::getValue('sChurchZip'), 
          SystemConfig::getValue('sChurchPhone'));
         $this->MultiCell(197, 10, $sContact, 0, 'C');
         $this->Cell(10);
