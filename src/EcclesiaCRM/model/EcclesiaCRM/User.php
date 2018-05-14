@@ -15,6 +15,8 @@ use EcclesiaCRM\PrincipalsQuery;
 use EcclesiaCRM\Principals;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use Propel\Runtime\Propel;
@@ -52,7 +54,80 @@ class User extends BaseUser
         }
         
         return false;
-    }  
+    }
+    
+    public function postSave(ConnectionInterface $con = null)
+    {
+        if (is_callable('parent::postSave')) {
+            parent::postSave($con);
+            
+            if (!$this->isManageGroupsEnabled()) {
+              $this->deleteGroupAdminCalendars ();              
+            } else {
+              $this->createGroupAdminCalendars ();
+            }
+        }
+    }
+    
+    private function deleteGroupAdminCalendars ()
+    {
+        $userAdmin = UserQuery::Create()->findOneByPersonId (1);
+                
+        // transfert the calendars to a user
+        // now we code now in Sabre        
+        $pdo = Propel::getConnection();                 
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
+                
+        foreach ($calendars as $calendar) {
+          $shares = $calendarBackend->getInvites($calendar['id']); 
+              
+          foreach ($shares as $share) {
+              if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
+                $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
+              }
+          }
+          
+          $calendarBackend->updateInvites($calendar['id'],$shares);
+        }
+    }
+    
+    private function createGroupAdminCalendars ()
+    {
+        $userAdmin = UserQuery::Create()->findOneByPersonId (1);
+                
+        // transfert the calendars to a user
+        // now we code now in Sabre        
+        $pdo = Propel::getConnection();                 
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        
+        if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
+          // we have to add the groupCalendars
+          $userAdmin = UserQuery::Create()->findOneByPersonId (1);
+          
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
+          
+          foreach ($calendars as $calendar) {
+            // we'll connect to sabre
+            // Add a new invite
+            if ($calendar['grpid'] > 0) {
+              $calendarBackend->updateInvites(
+                $calendar['id'],
+                [
+                    new Sharee([
+                        'href'         => 'mailto:'.$this->getEmail(),
+                        'principal'    => 'principals/'.strtolower( $this->getUserName() ),
+                        'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
+                        'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                        'properties'   => ['{DAV:}displayname' => strtolower( $this->getFullName() )],
+                    ])
+                ]
+              );
+            }
+          }
+        }
+    }
       
     public function renameHomeDir($oldUserName,$newUserName)
     {
@@ -67,13 +142,18 @@ class User extends BaseUser
               $pdo = Propel::getConnection();                 
               $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
               $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-            
-
+              
               $principalBackend->createNewPrincipal('principals/'.$newUserName, $this->getEmail() ,$newUserName);
               $calendarBackend->moveCalendarToNewPrincipal('principals/'.$oldUserName,'principals/'.$newUserName);
             
               // We delete the principal user => it will delete the calendars and events too.
               $principalBackend->deletePrincipal('principals/'.$oldUserName);
+              
+              if (!$this->isManageGroupsEnabled()) {
+                $this->deleteGroupAdminCalendars ();              
+              } else {
+                $this->createGroupAdminCalendars ();
+              }
          } catch (Exception $e) {
               throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
          }
@@ -83,6 +163,7 @@ class User extends BaseUser
     public function createHomeDir()
     {
        try {
+       
             mkdir(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()), 0755, true);
             $this->setHomedir("private/userdir/".strtolower($this->getUserName()));
             $this->save();
@@ -92,10 +173,18 @@ class User extends BaseUser
             $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
             
             $res = $principalBackend->getPrincipalByPath ("principals/".strtolower( $this->getUserName() ));
+            $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
             
             if (empty($res)) {            
               $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
             }
+
+            if (!$this->isManageGroupsEnabled()) {
+              $this->deleteGroupAdminCalendars ();              
+            } else {
+              $this->createGroupAdminCalendars ();
+            }
+            
        } catch (Exception $e) {
             throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
        }       

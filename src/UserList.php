@@ -60,14 +60,26 @@ require 'Include/Header.php';
             <?php foreach ($rsUsers as $user) { //Loop through the person?>
                 <tr>
                     <td>
-                        <a href="UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
+                        <?php 
+                           if ( $user->getPersonId() != 1 || $user->getId() == $_SESSION['user']->getId() && $user->getPersonId() == 1) {
+                        ?>
+                            <a href="UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
-                        <?php if ($user->getId() != $_SESSION['user']->getId()) {
-    ?>
+                        <?php
+                            } else {
+                        ?>
+                           <span style="color:red"><?= gettext("Not modifiable") ?></span>
+                        <?php
+                            }
+                        ?>
+                            <?php 
+                           if ( $user->getId() != $_SESSION['user']->getId() && $user->getPersonId() != 1 ) {
+                        ?>
                             <a onclick="deleteUser(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            <?php
-} ?>
+                        <?php
+                            } 
+                        ?>
                     </td>
                     <td>
                         <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>

@@ -4,6 +4,9 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
+use EcclesiaCRM\UserQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -143,18 +146,44 @@ class Group extends BaseGroup
         // we create the uuid name          
         $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
           
-          // get all the calendars for the current user
+        // get all the calendars for the current user
+        // we have to add the groupCalendars
+        $userAdmin = UserQuery::Create()->findOneByPersonId (1);
 
-        $calendarID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+        // all the group calendars are binded to the principal admin
+        $calendar = $calendarBackend->createCalendar('principals/'.strtolower($userAdmin->getUserName()), $uuid, [
             '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
             '{DAV:}displayname'                                               => $this->getName(),
             '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),            
           ]);
           
         
-        $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid($calendarID[0]);
+        $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid($calendar[0]);
         $calendarInstance->setGroupId($this->getId());
         $calendarInstance->save();
+        
+        // we filter all the user who are admin or group manager and not the principal admin
+        $users = UserQuery::Create()
+            ->filterByManageGroups(true)
+            ->_or()->filterByAdmin(true)
+            ->filterByPersonId(1, CRITERIA::NOT_EQUAL)
+            ->find();
+        
+        // now we can share the new calendar to the users
+        foreach ($users as $user) {
+          $calendarBackend->updateInvites(
+            $calendar,
+            [
+              new Sharee([
+                    'href'         => 'mailto:'.$user->getEmail(),
+                    'principal'    => 'principals/'.strtolower( $user->getUserName() ),
+                    'access'       => \Sabre\DAV\Sharing\Plugin::ACCESS_READWRITE,
+                    'inviteStatus' => \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED,
+                    'properties'   => ['{DAV:}displayname' => strtolower( $user->getFullName() )],
+                  ])
+            ]
+          );
+        }
 
         return true;
     }

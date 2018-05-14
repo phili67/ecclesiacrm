@@ -10001,6 +10001,12 @@ msgstr "Ajouter Nouveau Calendrier"
 msgid "Exclude/include Groups"
 msgstr "Exclure/Inclure Groupes"
 
+msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
+msgstr "Exlure/inclure des Groupes. Pour ajouter un nouveau Calendrier, Ajouter un nouveau groupe"
+
+msgid "Exclude/include the Shared"
+msgstr "Exclure/inclure les calendriers partagés"
+
 msgid "To add a Group Calendar"
 msgstr "Pour ajouter un nouveau Calendrier"
 
@@ -10047,3 +10053,8 @@ msgstr "Personnels"
 
 msgid "CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"
 msgstr "Le protocal CalDAV fonctionne avec la fonction php date_default_timezone_set qui nécessite ce réglage : Europe/Paris"
+
+#UserList
+
+msgid "Not modifiable"
+msgstr "Non modifialble"

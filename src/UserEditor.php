@@ -160,14 +160,39 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 if ($undupCount == 0) {
                     $rawPassword = User::randomPassword();
                     $sPasswordHashSha256 = hash('sha256', $rawPassword . $iPersonID);
-                    $sSQL = 'INSERT INTO user_usr (usr_per_ID, usr_Password, usr_NeedPasswordChange, usr_LastLogin, usr_AddRecords, usr_EditRecords, usr_DeleteRecords, usr_ShowCart, usr_ShowMap, usr_MenuOptions, usr_ManageGroups, usr_Finance, usr_Notes, usr_Admin, usr_Style, usr_SearchLimit, usr_defaultFY, usr_UserName, usr_EditSelf, usr_Canvasser) 
-                       VALUES (' . $iPersonID . ",'" . $sPasswordHashSha256 . "',1,'" . date('Y-m-d H:i:s') . "', " . $AddRecords . ', ' . $EditRecords . ', ' . $DeleteRecords .' ,'.$ShowCart . ', '.$ShowMap . ', ' . $MenuOptions . ', ' . $ManageGroups . ', ' . $Finance . ', ' . $Notes . ', ' . $Admin . ", '" . $Style . "', 10," . $defaultFY . ',"' . $sUserName . '",' . $EditSelf . ',' . $Canvasser . ')';
-                    // Execute the SQL
-                    RunQuery($sSQL);
-                    $newUser = UserQuery::create()->findPk($iPersonID);
-                    $newUser->createTimeLineNote("created");
-                    $newUser->createHomeDir();
-                    $email = new NewAccountEmail($newUser, $rawPassword);
+                    
+                    $user = new User();
+                    
+                    $user->setPersonId($iPersonID);
+                    $user->setPassword($sPasswordHashSha256);
+                    $user->setLastLogin(date('Y-m-d H:i:s'));
+                    
+                    $user->setAddRecords($AddRecords);
+                    $user->setEditRecords($EditRecords);
+                    $user->setDeleteRecords($DeleteRecords);
+                    
+                    $user->setShowCart($ShowCart);
+                    $user->setShowMap($ShowMap);
+                    $user->setMenuOptions($MenuOptions);
+                    
+                    $user->setManageGroups($ManageGroups);
+                    $user->setFinance($Finance);
+                    $user->setNotes($Notes);
+                    
+                    $user->setAdmin($Admin);
+                    $user->setStyle($Style);
+                    //$user->setDefaultFY($usr_defaultFY);
+                    $user->setUserName($sUserName);
+                    
+                    $user->setEditSelf($EditSelf);
+                    $user->setCanvasser($Canvasser);
+                    
+                    $user->save();
+                    
+                    $user->createTimeLineNote("created");
+                    $user->createHomeDir();
+                    
+                    $email = new NewAccountEmail($user, $rawPassword);
                     $email->send();
                 } else {
                     // Set the error text for duplicate when new user
@@ -178,15 +203,24 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     //$user->createHomeDir();
                     $user = UserQuery::create()->findPk($iPersonID);
                     $oldUserName = $user->getUserName();
-                    $user->renameHomeDir($oldUserName,$sUserName);
                     
-                    $sSQL = 'UPDATE user_usr SET usr_AddRecords = ' . $AddRecords . ', usr_EditRecords = ' . $EditRecords . ', usr_DeleteRecords = ' . $DeleteRecords . ', usr_ShowCart = ' . $ShowCart . ', usr_ShowMap = ' . $ShowMap . ', usr_MenuOptions = ' . $MenuOptions . ', usr_ManageGroups = ' . $ManageGroups . ', usr_Finance = ' . $Finance . ', usr_Notes = ' . $Notes . ', usr_Admin = ' . $Admin . ', usr_Style = "' . $Style . '", usr_UserName = "' . $sUserName . '", usr_EditSelf = "' . $EditSelf . '", usr_Canvasser = ' . $Canvasser . ' WHERE usr_per_ID = ' . $iPersonID;
-                    // Execute the SQL
-                    RunQuery($sSQL);
-                    
-                    $user->setUserName($sUserName);
+                    $user->setAddRecords($AddRecords);
+                    $user->setEditRecords($EditRecords);
+                    $user->setDeleteRecords($DeleteRecords);                    
+                    $user->setShowCart($ShowCart);
+                    $user->setShowMap($ShowMap);
+                    $user->setMenuOptions($MenuOptions);                    
+                    $user->setManageGroups($ManageGroups);
+                    $user->setFinance($Finance);
+                    $user->setNotes($Notes);                    
+                    $user->setAdmin($Admin);
+                    $user->setStyle($Style);
+                    $user->setUserName($sUserName);                    
+                    $user->setEditSelf($EditSelf);
+                    $user->setCanvasser($Canvasser);
                     $user->save();
                     
+                    $user->renameHomeDir($oldUserName,$sUserName);
                     $user->createTimeLineNote("updated"); 
                      
                     $email = new NewAccountEmail($user, gettext("The same as before"));
@@ -656,282 +690,6 @@ foreach ($userProfiles as $userProfile) {
 
 </form>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    function addProfilesToMainDropdown()
-    {
-      $("#AllProfiles").empty();
-      
-      
-      window.CRM.APIRequest({
-            method: 'POST',
-            path: 'userprofile/getall',
-      }).done(function(data) {    
-        var len = data.length;
-      
-        for (i=0; i<len; ++i) {
-          $("#AllProfiles").append('<li> <a class="changeProfile" data-id="'+data[i].UserProfileId+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].UserProfileName+'</a></li>');
-          if (i == 0) {
-            $("#mainbuttonProfile").data("id",data[i].UserProfileId);
-          }          
-        }           
-      });  
-    }
-
-    function addProfiles()
-    {
-      $('#select-userprofile').find('option').remove();
-      
-      window.CRM.APIRequest({
-            method: 'POST',
-            path: 'userprofile/getall',
-      }).done(function(data) {    
-        var elt = document.getElementById("select-userprofile");
-        var len = data.length;
-      
-        for (i=0; i<len; ++i) {
-          var option = document.createElement("option");
-          // there is a groups.type in function of the new plan of schema
-          option.text = data[i].UserProfileName;
-          //option.title = data[i].type;        
-          option.value = data[i].UserProfileId;
-        
-          elt.appendChild(option);
-        }           
-      });  
-      
-      addProfilesToMainDropdown();
-    }
-    
-    $(document).ready(function () {
-        $("#personSelect").select2();
-        
-        $(".data-table").DataTable({
-          "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-          },
-          pageLength: 100,
-          info: false,
-          bSort : false,
-          searching: false, paging: false,
-          responsive: true
-        });
-        
-        
-        function BootboxContent(){
-          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3>'
-             + '<div>'
-                  +'<div class="row div-title">'
-                    +'<div class="col-md-4">'
-                    + '<span style="color: red">*</span>' + i18next.t("Select your Profile") + ":"                    
-                    +'</div>'
-                    +'<div class="col-md-8">'
-                    +'<select size="6" style="width:100%" id="select-userprofile">'
-                    +'</select>'
-                   +'</div>'
-                  +'</div>'
-                  +'<div class="row div-title">'
-                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Profile Name") + ":</div>"
-                    +'<div class="col-md-8">'
-                      +"<input type='text' id='ProfileName' placeholder='" + i18next.t("Profile Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
-                    +'</div>'
-                  +'</div>'
-                +'</div>';
-                
-                var object = $('<div/>').html(frm_str).contents();
-
-              return object
-        }
-        
-        $(document).on('change','#select-userprofile',function() {
-          var profileID = $('#select-userprofile').val();
-          
-          window.CRM.APIRequest({
-             method: 'POST',
-             path: 'userprofile/get',
-             data: JSON.stringify({"profileID": profileID})
-          }).done(function(data) {
-             $('#ProfileName').val(data.name);
-          });
-        });
-                
-        $("#manageProfile").click(function() {
-          var modal = bootbox.dialog({
-             message: BootboxContent(),
-             buttons: [
-              {
-               label: i18next.t("Close"),
-               className: "btn btn-success",
-               callback: function() {               
-               }
-              },
-              {
-               label: i18next.t("Delete"),
-               className: "btn btn-danger",
-               callback: function() {
-                  var profileID = $('#select-userprofile').val();
-                  
-                  bootbox.confirm(i18next.t("Are you sure, you want to delete this Profile ?"), function(result){ 
-                    if (result) {
-                      window.CRM.APIRequest({
-                         method: 'POST',
-                         path: 'userprofile/delete',
-                         data: JSON.stringify({"profileID": profileID})
-                      }).done(function(data) {
-                        addProfiles();
-                      });
-                    }
-                  });
-                  return false;
-               }
-              },
-              {
-               label: i18next.t("Rename"),
-               className: "btn btn-primary",
-               callback: function() {
-                  var profileID = $('#select-userprofile').val();
-                  var name = $('#ProfileName').val();
-                  
-                  window.CRM.APIRequest({
-                     method: 'POST',
-                     path: 'userprofile/rename',
-                     data: JSON.stringify({"profileID": profileID,"name":name})
-                  }).done(function(data) {
-                    addProfiles();
-                  });
-                  return false;
-               }
-              }
-             ],
-             show: false,
-             onEscape: function() {
-                modal.modal("hide");
-             }
-         });
-         
-         modal.modal("show");
-         
-         addProfiles();
-        });
-
- 
-        $('body').on('click','.changeProfile', function(){ 
-          var profileID = $(this).data("id");
-          
-          window.CRM.APIRequest({
-             method: 'POST',
-             path: 'userprofile/get',
-             data: JSON.stringify({"profileID": profileID})
-          }).done(function(data) {
-             var array = data.global.split(";");
-             
-             array.forEach(function(element) {
-               var flag = element.split(":");
-               if (flag[0] != 'Style') {
-                 jQuery("input[name='"+flag[0]+"']").prop('checked', Number(flag[1]));
-               } else {
-                 jQuery("select[name='"+flag[0]+"']").val(flag[1]).change();
-               }
-             });
-             
-             array = data.usrPerms.split(";");
-             
-             array.forEach(function(element) {
-               var flag = element.split(":");
-               jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(0)').children('select').prop('selectedIndex',((flag[1] == 'TRUE')?1:0));
-             });
-
-             array = data.userValues.split(";");
-             
-             array.forEach(function(element) {
-               var flag = element.split(":");
-               
-               if (flag[1] == 'semi_colon') {
-                 flag[1] = ';';
-               }
-               
-               var td2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)');
-               var select2 = jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select');
-               
-               if (select2.length === 0) {
-                select2 = td2.children('input');
-                
-                select2.val(flag[1]);
-               } else {               
-                 jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select').prop('selectedIndex',Number(flag[1]));
-                }
-             });
-          });
-        });
-        
-        $("#addProfile").click(function() {
-           var global_res = '';
-           $(".global_settings").each(function() {
-              var _val;
-              
-              if ($(this).is('select')) {
-                _val = $(this).val();
-              } else {
-                _val = $(this).is(':checked') ? '1' : '0';
-              }
-              
-              var _name = $(this).attr("name");
-              
-              global_res += _name+':'+_val+';'
-           });
-           
-           var user_perm = '';
-           var user_value = '';
-           
-           $(".user_settings").each(function() {
-              var _name = $(this).data("name");
-
-              var td0 = $(this).children('td:eq(0)');
-              var select0 = td0.children('select');
-              
-              var _val0 = select0.val();
-
-              var td2 = $(this).children('td:eq(2)');
-              var select2 = td2.children('select');
-              
-              if (select2.length === 0) {
-                select2 = td2.children('input');
-              }
-              
-              var _val2 = select2.val();
-              
-              if (_val2 == ';') {
-                _val2 = 'semi_colon';
-              }
-
-              user_perm += _name+':'+_val0+';'
-              user_value += _name+':'+_val2+';'
-           });
-           
-           global_res = global_res.slice(0, -1);
-           user_perm = user_perm.slice(0, -1);
-           user_value = user_value.slice(0, -1);
-           
-           bootbox.prompt(i18next.t("Choose your Profile Name"), function(result){ 
-             if (result) {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'userprofile/add',
-                  data: JSON.stringify({"name": result,"global" : global_res, "userPerms":user_perm,"userValues":user_value})
-                }).done(function(data) {
-                    if (data && data.status=="success") {
-                      addProfilesToMainDropdown();
-                    } else if (data && data.status=="error") {
-                      bootbox.alert({
-                          title:i18next.t("Error"),
-                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings yet exist !!!</center>"),
-                          size: "small"
-                      });
-                    }
-                });              
-             }
-           });
-        });
-    });
-</script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/UserEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>
