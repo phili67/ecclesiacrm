@@ -46,7 +46,7 @@ $MenuFirst = 1;
   ?>
 </head>
 
-<body class="hold-transition <?= $_SESSION['sStyle'] ?> sidebar-mini">
+<body class="hold-transition <?= $_SESSION['sStyle'] ?> sidebar-mini <?= ($_SESSION['bSidebarCollapse'])?"sidebar-collapse":"" ?>" id="sidebar-mini">
 <?php
   Header_system_notifications();
  ?>
@@ -183,7 +183,7 @@ $MenuFirst = 1;
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
 
-        <select class="form-control multiSearch">
+        <select class="form-control multiSearch"  style="width:100%">
         </select>
 
       </form>

@@ -269,6 +269,19 @@ $isAdmin = $_SESSION['user']->isAdmin();
 <!-- Bootstrap 3.3.5 -->
 
 
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  var AdminLTEOptions = {
+    //Enable sidebar expand on hover effect for sidebar mini
+    //This option is forced to true if both the fixed layout and sidebar mini
+    //are used together
+    sidebarExpandOnHover: <?= $_SESSION['bSidebarExpandOnHover'] ?>,
+    //BoxRefresh Plugin
+    enableBoxRefresh: true,
+    //Bootstrap.js tooltip
+    enableBSToppltip: true
+  };
+</script>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/bootstrap/js/bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
