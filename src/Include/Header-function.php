@@ -144,6 +144,8 @@ function Header_body_scripts()
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:"<?= $_SESSION['bShowTooltip'] ?>",
             showCart:"<?= $_SESSION['user']->isShowCartEnabled() ?>",
+            bSidebarExpandOnHover:"<?= $_SESSION['bSidebarExpandOnHover'] ?>",
+            bSidebarCollapse:"<?= $_SESSION['bSidebarCollapse'] ?>",
             plugin: {
                 dataTable : {
                    "language": {

@@ -112,8 +112,8 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
         continue;
     } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
 
-    // Cancel, Save Buttons every 13 rows
-    if ($r == 13) {
+    // Cancel, Save Buttons every 20 rows
+    if ($r == 20) {
         echo "<tr><td>&nbsp;</td>
       <td><input type=submit class=btn name=save value='".gettext('Save Settings')."'>
       <input type=submit class=btn name=cancel value='".gettext('Cancel')."'>
