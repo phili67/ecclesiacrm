@@ -10063,4 +10063,7 @@ msgid "The sidebar is collapse by default"
 msgstr "La barre latérale est refermée par défaut"
 
 msgid "Enable sidebar expand on hover effect for sidebar mini"
-msgstr "La barre latérale se déploie par défaut au survol de la souri"
+msgstr "La barre latérale se déploie par défaut au survol de la souris"
+
+msgid "or"
+msgstr "ou"

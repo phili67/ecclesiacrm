@@ -534,7 +534,7 @@ require 'Include/Header.php';
         <input type="hidden" name="PledgeOrPayment" id="PledgeOrPayment" value="<?= $PledgeOrPayment ?>">
 
         <div class="col-lg-12">
-          <label for="FamilyName"><?= gettext('Family') ?></label>
+          <label for="FamilyName"><?= gettext('Family')." ".gettext("or")." ".gettext("Person") ?></label>
           <select class="form-control"   id="FamilyName" name="FamilyName" width="100%">
             <option selected ><?= $sFamilyName ?></option>
           </select>
