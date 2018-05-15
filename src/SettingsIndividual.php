@@ -115,8 +115,8 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     // Cancel, Save Buttons every 20 rows
     if ($r == 20) {
         echo "<tr><td>&nbsp;</td>
-      <td><input type=submit class=btn name=save value='".gettext('Save Settings')."'>
-      <input type=submit class=btn name=cancel value='".gettext('Cancel')."'>
+      <input type=submit class='btn btn-default' name=cancel value='".gettext('Cancel')."'>
+      <td><input type=submit class='btn btn-primary' name=save value='".gettext('Save Settings')."'>
       </td></tr>";
         $r = 1;
     }
@@ -164,8 +164,8 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
   <div class="col-md-2">
   </div>
   <div class="col-md-6">
+      <input type=submit class='btn btn-default' name=cancel value="<?= gettext('Cancel') ?>">
       <input type=submit class='btn btn-primary'  name=save value="<?= gettext('Save Settings') ?>">
-      <input type=submit class=btn name=cancel value="<?= gettext('Cancel') ?>">
   </div>
 </div>
 </form>
