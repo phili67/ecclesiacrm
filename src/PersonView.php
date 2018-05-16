@@ -255,6 +255,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     } ?>
           <?= $person->getFullName() ?></h3>
 
+<?php
+   if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isEditRecordsEnabled() ) {
+?>
         <p class="text-muted text-center">
             <?= empty($sFamRole) ? gettext('Undefined') : gettext($sFamRole); ?>
             &nbsp;
@@ -263,6 +266,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 <i class="fa fa-pencil"></i>
             </a>
         </p>
+<?php
+  }
+?>
 
         <p class="text-muted text-center">
           <?= gettext($sClassName);
@@ -282,7 +288,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     <!-- About Me Box -->
     <?php 
-      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) { 
+      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isEditRecordsEnabled() ) { 
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -487,33 +493,72 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     <div class="nav-tabs-custom">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
-        <?php
-          if (count($person->getOtherFamilyMembers()) > 0) {
+        <?php 
+          $activeTab = "";
+          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() ) {
+            $activeTab = "timeline";
         ?>
-        <li role="presentation"><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= gettext('Family') ?></a></li>
+          <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
         <?php
+          }
+        ?>
+        <?php
+          if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  count($person->getOtherFamilyMembers()) > 0 && $_SESSION['user']->isEditRecordsEnabled() ) {
+        ?>
+        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= gettext('Family') ?></a></li>
+        <?php
+          if (empty($activeTab)) {
+            $activeTab = 'family';
+          }
         }
         ?>
-        <li role="presentation"><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><?= gettext('Assigned Groups') ?></a></li>
-        <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
+        <?php
+          if ( $_SESSION['user']->isManageGroupsEnabled() ) {
+        ?>
+        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><?= gettext('Assigned Groups') ?></a></li>
+        <?php
+          if (empty($activeTab)) {
+            $activeTab = 'group';
+          }
+        }
+        ?>
+        <?php
+          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isEditRecordsEnabled() ) {
+        ?>
+        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
         <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= gettext('Volunteer Opportunities') ?></a></li>
         <?php
-         if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['user']->isFinanceEnabled()) {
-                    ?>
-                    <li role="presentation"><a href="#finance" aria-controls="finance" role="tab"
-                                               data-toggle="tab"><?= gettext("Automatic Payments") ?></a></li>
-                    <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab"
-                                               data-toggle="tab"><?= gettext("Pledges and Payments") ?></a></li>
+            if (empty($activeTab)) {
+              $activeTab = 'properties';
+            }
+          }
+        ?>
         <?php
-        } 
+          if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['user']->isFinanceEnabled()) {
+        ?>
+            <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><?= gettext("Automatic Payments") ?></a></li>
+            <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><?= gettext("Pledges and Payments") ?></a></li>
+        <?php
+            if (empty($activeTab)) {
+              $activeTab = 'finance';
+            }
+          } 
+        ?>
+        <?php
+          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
         ?>
         <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext("Documents") ?></a></li>
+        <?php
+          }
+        ?>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tab-pane fade" class="tab-pane active" id="timeline">
+        <?php 
+          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() ) {
+        ?>
+        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline')?"active":"" ?>" id="timeline">
           <div class="row filter-note-type">
               <div class="col-md-1" style="line-height:27px">
               <table width=400px>
@@ -547,8 +592,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <!-- /.timeline-label -->        
                 
             <!-- timeline item -->
-            <?php foreach ($timelineService->getForPerson($iPersonID) as $item) {
-        ?>
+            <?php 
+              foreach ($timelineService->getForPerson($iPersonID) as $item) {
+            ?>
               <li>
                 <!-- timeline icon -->
                 <i class="fa <?= $item['style'] ?>"></i>
@@ -634,7 +680,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <!-- END timeline item -->
           </ul>
         </div>
-        <div role="tab-pane fade" class="tab-pane" id="family">
+        <?php
+          }
+        ?>
+        <div role="tab-pane fade <?= ($activeTab == 'family')?"active":"" ?>" class="tab-pane" id="family">
 
           <?php if ($person->getFamId() != '') {
         ?>
@@ -711,7 +760,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           <?php
     } ?>
         </div>
-        <div role="tab-pane fade" class="tab-pane" id="groups">
+        <div role="tab-pane fade <?= ($activeTab == 'group')?"active":"" ?>" class="tab-pane<?=  !( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() )?" active":"" ?>" id="groups">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
               <?php
@@ -810,7 +859,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             </div>
           </div>
         </div>
-        <div role="tab-pane fade" class="tab-pane" id="properties">
+        <div role="tab-pane fade <?= ($activeTab == 'properties')?"active":"" ?>" class="tab-pane" id="properties">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
             <?php
@@ -908,7 +957,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             </div>
           </div>
         </div>
-        <div role="tab-pane fade" class="tab-pane" id="volunteer">
+        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'finance')?"active":"" ?>" id="volunteer">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
               <?php
@@ -1301,6 +1350,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
 
   $(document).ready(function() {
+      
       $("#input-volunteer-opportunities").select2({ 
         language: window.CRM.shortLocale
       });

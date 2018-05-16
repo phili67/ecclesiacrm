@@ -15,13 +15,16 @@ $app->group('/roles', function () {
     
     
     $this->post('/persons/assign', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isEditRecordsEnabled()) {
+        $data = (object)$request->getParsedBody();
+        
+        $personId = empty($data->personId) ? null : $data->personId;
+        $roleId = empty($data->roleId) ? null : $data->roleId;
+        
+        $per_fam_ID = PersonQuery::Create()->findOneById($personId)->getFamId();
+        
+        if ( !($_SESSION['user']->isEditRecordsEnabled() || $personId == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ) ) {
             return $response->withStatus(401);
         }
-
-        $data = $request->getParsedBody();
-        $personId = empty($data['personId']) ? null : $data['personId'];
-        $roleId = empty($data['roleId']) ? null : $data['roleId'];
         
         $person = PersonQuery::create()->findPk($personId);
         $role = ListOptionQuery::create()
