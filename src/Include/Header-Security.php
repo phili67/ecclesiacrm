@@ -11,10 +11,10 @@ use EcclesiaCRM\dto\SystemConfig;
 
 $csp = array(
     "default-src 'self'",
-    "script-src 'unsafe-eval' 'self' 'nonce-".SystemURLs::getCSPNonce()."' sidecar.gitter.im browser-update.org",
+    "script-src 'unsafe-eval' 'self' 'nonce-".SystemURLs::getCSPNonce()."' sidecar.gitter.im browser-update.org maps.googleapis.com",
     "object-src 'none'",
     "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
-    "img-src 'self' data:",
+    "img-src 'self' www.google.com d maps.gstatic.com maps.googleapis.com data:",
     "media-src 'self'",
     "frame-src 'self' www.youtube.com",
     "font-src 'self' fonts.gstatic.com",
