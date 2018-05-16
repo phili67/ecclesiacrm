@@ -184,7 +184,7 @@ function GetSecuritySettings()
     $aSecurityListPrimal[] = 'bShowTooltip';
 
     $ormSecGrpLists = UserConfigQuery::Create()
-                        ->filterByPeronId(0)
+                        ->filterByPersonId(0)
                         ->filterByCat('SECURITY')
                         ->orderById()
                         ->find();
