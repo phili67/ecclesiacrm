@@ -164,7 +164,7 @@ class User extends BaseUser
             }
             
             if ($this->isManageGroupsEnabled()) {
-              $this->deleteGroupAdminCalendars ();              
+              $this->createGroupAdminCalendars ();              
             }
             
        } catch (Exception $e) {
