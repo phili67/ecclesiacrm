@@ -24,38 +24,48 @@ class UpgradeService
         if ($db_version == $_SESSION['sSoftwareInstalledVersion']) {
             return true;
         }
-
-        //the database isn't at the current version.  Start the upgrade
-        $dbUpdatesFile = file_get_contents(SystemURLs::getDocumentRoot() . '/mysql/upgrade.json');
-        $dbUpdates = json_decode($dbUpdatesFile, true);
         
-        $errorFlag = false;
-        $connection = Propel::getConnection();
-        foreach ($dbUpdates as $dbUpdate) {
-            if (in_array(SystemService::getDBVersion(), $dbUpdate['versions'])) {
-                $version = new Version();
-                $version->setVersion($dbUpdate['dbVersion']);
-                $version->setUpdateStart(new \DateTime());
-                $logger->info("New Version: " .$version->getVersion());
-                foreach ($dbUpdate['scripts'] as $dbScript) {
-                    $scriptName = SystemURLs::getDocumentRoot() . $dbScript;
-                    $logger->info("Upgrade DB - " . $scriptName);
-                    if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
-                        SQLUtils::sqlImport($scriptName, $connection);
-                    } else {
-                        require_once ($scriptName);
-                    }
-                }
-                if (!$errorFlag) {
-                    $version->setUpdateEnd(new \DateTime());
-                    $version->save();
-                }
-            }
-        }
-        // always rebuild the menu
-        SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/mysql/upgrade/rebuild_nav_menus.sql', $connection);
+        try {
+          $_SESSION['updateDataBase'] = true;
+                
+          //the database isn't at the current version.  Start the upgrade
+          $dbUpdatesFile = file_get_contents(SystemURLs::getDocumentRoot() . '/mysql/upgrade.json');
+          $dbUpdates = json_decode($dbUpdatesFile, true);
+        
+          $errorFlag = false;
+          $connection = Propel::getConnection();
+          foreach ($dbUpdates as $dbUpdate) {
+              if (in_array(SystemService::getDBVersion(), $dbUpdate['versions'])) {
+                  $version = new Version();
+                  $version->setVersion($dbUpdate['dbVersion']);
+                  $version->setUpdateStart(new \DateTime());
+                  $logger->info("New Version: " .$version->getVersion());
+                  foreach ($dbUpdate['scripts'] as $dbScript) {
+                      $scriptName = SystemURLs::getDocumentRoot() . $dbScript;
+                      $logger->info("Upgrade DB - " . $scriptName);
+                      if (pathinfo($scriptName, PATHINFO_EXTENSION) == "sql") {
+                          SQLUtils::sqlImport($scriptName, $connection);
+                      } else {
+                          require_once ($scriptName);
+                      }
+                  }
+                  if (!$errorFlag) {
+                      $version->setUpdateEnd(new \DateTime());
+                      $version->save();
+                  }
+              }
+          }
+          // always rebuild the menu
+          SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/mysql/upgrade/rebuild_nav_menus.sql', $connection);
+          
+          unset($_SESSION['updateDataBase']);
 
-        return true;
+          return true;
+        
+        } catch (\Exception $exc){
+           $logger->error(gettext("Databse upgrade failed").": " . $exc->getMessage());
+           throw $exc; //allow the method requesting the upgrade to handle this failure also.
+        }
     }
 
 }
