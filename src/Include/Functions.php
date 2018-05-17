@@ -1673,6 +1673,10 @@ function genGroupKey($methodSpecificID, $famID, $fundIDs, $date)
 
 function requireUserGroupMembership($allowedRoles = null)
 {
+    if ( isset($_SESSION['updateDataBase']) && $_SESSION['updateDataBase'] == true ) {// we don't have to interfer with this test
+      return true;
+    }
+    
     if (!$allowedRoles) {
         throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
     }
