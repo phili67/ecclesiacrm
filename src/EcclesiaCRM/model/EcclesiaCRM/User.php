@@ -82,11 +82,13 @@ class User extends BaseUser
                 
         foreach ($calendars as $calendar) {
           $shares = $calendarBackend->getInvites($calendar['id']); 
-              
-          foreach ($shares as $share) {
-              if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
-                $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
-              }
+          
+          if ($calendar['grpid'] > 0) {// only Group Calendar are purged
+            foreach ($shares as $share) {
+                if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
+                  $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
+                }
+            }
           }
           
           $calendarBackend->updateInvites($calendar['id'],$shares);
