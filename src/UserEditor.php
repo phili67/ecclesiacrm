@@ -192,6 +192,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->createTimeLineNote("created");
                     $user->createHomeDir();
                     
+                    if ($ManageGroups) {// in the case the user is a group manager, we add all the group calendars
+                      $user->createGroupAdminCalendars();
+                    }
+                    
                     $email = new NewAccountEmail($user, $rawPassword);
                     $email->send();
                 } else {
@@ -202,6 +206,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                 if ($undupCount == 0) {
                     //$user->createHomeDir();
                     $user = UserQuery::create()->findPk($iPersonID);
+                    
                     $oldUserName = $user->getUserName();
                     
                     $user->setAddRecords($AddRecords);
@@ -220,9 +225,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setCanvasser($Canvasser);
                     $user->save();
                     
-                    $user->renameHomeDir($oldUserName,$sUserName);
-                    $user->createTimeLineNote("updated"); 
-                     
+                    $user->renameHomeDir($oldUserName,$sUserName);// the calendars are moved from one username to another in the function : renameHomeDir
+                    $user->createTimeLineNote("updated");
+                                         
                     $email = new NewAccountEmail($user, gettext("The same as before"));
                     $email->send();                  
                 } else {

@@ -56,20 +56,7 @@ class User extends BaseUser
         return false;
     }
     
-    public function postSave(ConnectionInterface $con = null)
-    {
-        if (is_callable('parent::postSave')) {
-            parent::postSave($con);
-            
-            if (!$this->isManageGroupsEnabled()) {
-              $this->deleteGroupAdminCalendars ();              
-            } else {
-              $this->createGroupAdminCalendars ();
-            }
-        }
-    }
-    
-    private function deleteGroupAdminCalendars ()
+    public function deleteGroupAdminCalendars ()
     {
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
                 
@@ -95,7 +82,7 @@ class User extends BaseUser
         }
     }
     
-    private function createGroupAdminCalendars ()
+    public function createGroupAdminCalendars ()
     {
         $userAdmin = UserQuery::Create()->findOneByPersonId (1);
                 
@@ -151,11 +138,6 @@ class User extends BaseUser
               // We delete the principal user => it will delete the calendars and events too.
               $principalBackend->deletePrincipal('principals/'.$oldUserName);
               
-              if (!$this->isManageGroupsEnabled()) {
-                $this->deleteGroupAdminCalendars ();              
-              } else {
-                $this->createGroupAdminCalendars ();
-              }
          } catch (Exception $e) {
               throw new PropelException('Unable to rename home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
          }
@@ -180,11 +162,9 @@ class User extends BaseUser
             if (empty($res)) {            
               $principalBackend->createNewPrincipal("principals/".strtolower( $this->getUserName() ), $this->getEmail(),strtolower($this->getUserName()));
             }
-
-            if (!$this->isManageGroupsEnabled()) {
+            
+            if ($this->isManageGroupsEnabled()) {
               $this->deleteGroupAdminCalendars ();              
-            } else {
-              $this->createGroupAdminCalendars ();
             }
             
        } catch (Exception $e) {
