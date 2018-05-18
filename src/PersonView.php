@@ -441,7 +441,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php 
        }
       ?>
-
+      
+      <?php       
+       if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
+      ?>
+        <a class="btn btn-app" href="mailto:<?= urlencode($sEmail) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
+        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($sEmail) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+      <?php
+       }
+      ?>
       <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
         ?>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
@@ -760,7 +768,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           <?php
     } ?>
         </div>
-        <div role="tab-pane fade <?= ($activeTab == 'group')?"active":"" ?>" class="tab-pane<?=  !( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() )?" active":"" ?>" id="groups">
+        <div role="tab-pane fade <?= ($activeTab == 'group')?"active":"" ?>" class="tab-pane" id="groups">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
               <?php
