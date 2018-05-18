@@ -44,7 +44,7 @@ class DocumentEmail extends BaseUserEmail
             "churchCRMURL" => SystemURLs::getURL(),
             "dear" => SystemConfig::getValue('sDear'),
             "confirmSincerely" => SystemConfig::getValue('sConfirmSincerely'),
-            "confirmSigner" => $this->user->getPerson()->getFullName(),
+            "confirmSigner" => $_SESSION['user']->getPerson()->getFullName(),
             "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
             "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
         ];
