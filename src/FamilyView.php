@@ -338,7 +338,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <?php
                   }
                 ?>                
-                
+                <?php       
+                 if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
+                    $emails = "";
+                    foreach ($family->getPeople() as $person) {
+                      $emails .= $person->getEmail().$sMailtoDelimiter;
+                    }
+                    
+                     $emails = mb_substr($emails, 0, -1)
+                ?>
+                    <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
+                    <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+                <?php
+                 }
+                ?>
                 <?php
                   if ($_SESSION['user']->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
                 ?>
@@ -793,7 +806,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
         
         <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
 
-				<?php
+        <?php
         } // if bShowPledges
 
                                 ?>
