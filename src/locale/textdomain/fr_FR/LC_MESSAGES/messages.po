@@ -3871,12 +3871,6 @@ msgstr "Utilisateur supprimé"
 msgid "Please confirm removal of user status from:"
 msgstr "Veuillez confirmer la suppression du statut utilisateur de :"
 
-msgid "Be carefull !!! You will lose the home folder and the files, the Calendars, the Share calendars and all the events too, for:"
-msgstr "Attention !!! Vous êtes sur le point de perdre le dossier utilisateur, les fichiers, les calendriers, ses partages et tous ses événements pour :"
-
-msgid "This can be undone"
-msgstr "Cette action est irréversible"
-
 #: UserEditor.php:321
 msgid "User Editor"
 msgstr "Gestionnaire d'utilisateur"

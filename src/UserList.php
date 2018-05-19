@@ -87,7 +87,7 @@ require 'Include/Header.php';
                     <td>
                         <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
-                    <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatShort')) ?></td>
+                    <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatLong')) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td align="center">
                         <?php if ($user->isLocked()) {
@@ -125,76 +125,6 @@ require 'Include/Header.php';
 </div>
 <!-- /.box -->
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    $(document).ready(function () {
-        $("#user-listing-table").DataTable(window.CRM.plugin.dataTable);
-    });
-
-    function deleteUser(userId, userName) {
-        bootbox.confirm({
-            title: "<?= gettext("User Delete Confirmation") ?>",
-            message: '<p style="color: red">' +
-            '<?= gettext("Please confirm removal of user status from:") ?> <b>' + userName + '</b><br><br>'+
-            '<?= gettext("Be carefull !!! You will lose the home folder and the files, the Calendars, the Share calendars and all the events too, for:") ?><b> ' + userName + '</b><br><br>'+
-            '<?= gettext("This can be undone") ?>.</p>',
-            callback: function (result) {
-                if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId,
-                        dataType: "json",
-                        encode: true,
-                        data: {"_METHOD": "DELETE"}
-                    }).done(function (data) {
-                        if (data.status == "success")
-                            window.location.href = window.CRM.root + "/UserList.php";
-                    });
-                }
-            }
-        });
-    }
-
-    function restUserLoginCount(userId, userName) {
-        bootbox.confirm({
-            title: "<?= gettext("Action Confirmation") ?>",
-            message: '<p style="color: red">' +
-            "<?= gettext("Please confirm reset failed login count") ?>: <b>" + userName + "</b></p>",
-            callback: function (result) {
-                if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId + "/login/reset",
-                        dataType: "json",
-                        encode: true,
-                    }).done(function (data) {
-                        if (data.status == "success")
-                            window.location.href = window.CRM.root + "/UserList.php";
-                    });
-                }
-            }
-        });
-    }
-
-    function resetUserPassword(userId, userName) {
-        bootbox.confirm({
-            title: "<?= gettext("Action Confirmation") ?>",
-            message: '<p style="color: red">' +
-            "<?= gettext("Please confirm the password reset of this user") ?>: <b>" + userName + "</b></p>",
-            callback: function (result) {
-                if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId + "/password/reset",
-                        dataType: "json",
-                        encode: true,
-                    }).done(function (data) {
-                        if (data.status == "success")
-                            showGlobalMessage('<?= gettext("Password reset for") ?> ' + userName, "success");
-                    });
-                }
-            }
-        });
-    }
-</script>
-
 <?php require 'Include/Footer.php' ?>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/UserList.js" ></script>
