@@ -769,11 +769,20 @@
                     return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
                   }
                 },
-                {data: 'Address1'},
+                {
+                  data: 'Address1',
+                  render: function (data, type, row, meta) {
+                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                  }                  
+                },
                 {
                   data: 'DateEntered',
                   render: function (data, type, row, meta) {
-                    return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
+                    if (window.CRM.timeEnglish == true) {
+                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm a');
+                    } else {
+                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' HH:mm');
+                    }
                   }
                 }
               ]
@@ -797,11 +806,20 @@
                     return '<a href=' + window.CRM.root + '/FamilyView.php?FamilyID=' + row.Id + '>' + data + '</a>';
                   }
                 },
-                {data: 'Address1'},
+                {
+                  data: 'Address1',
+                  render: function (data, type, row, meta) {
+                    return data.replace(/\\(.)/mg, "$1");// we strip the slashes
+                  }
+                },
                 {
                   data: 'DateLastEdited',
                   render: function (data, type, row, meta) {
-                    return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm');
+                    if (window.CRM.timeEnglish == true) {
+                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' hh:mm a');
+                    } else {
+                      return moment(data).format(window.CRM.datePickerformat.toUpperCase()+' HH:mm');
+                    }
                   }
                 }
               ]
