@@ -1,0 +1,9 @@
+/* Boostrap fix for the shift right under FF and so on */
+body.modal-open {
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+.modal-scrollbar-measure {
+  overflow: hidden;
+}
