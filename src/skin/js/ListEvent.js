@@ -55,21 +55,26 @@ $('#add-event').click('focus', function (e) {
 //Added by @saulowulhynek to translation of datatable nav terms
   $(document).ready(function () {
     $.fn.dataTable.moment = function ( format, locale ) {
-			var types = $.fn.dataTable.ext.type;
-			// Add type detection
-			types.detect.unshift( function ( d ) {
-			return moment ( d, format, locale, true ) .isValid() ?
-			'moment–'+format :
-			null;
-			});
-      // Add sorting method – use an integer for the sorting
-      
-      types.order[ 'moment–'+format+'–pre' ] = function ( d ) {      
-        return moment ( d, format, locale, true ).unix();
+      var types = $.fn.dataTable.ext.type;
+
+      // Add type detection
+      types.detect.unshift( function ( d ) {
+          // Removed true as the last parameter of the following moment
+          return moment( d, format, locale ).isValid() ?
+              'moment-'+format :
+          null;
+      } );
+
+      // Add sorting method - use an integer for the sorting
+      types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+         console.log("d");
+          return moment ( d, format, locale, true ).unix();
       };
     };
-  
-    $.fn.dataTable.moment(window.CRM.datePickerformat);
+    
+
+    $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
+
     
     $("#eventsTable").DataTable({
        "language": {

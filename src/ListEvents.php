@@ -288,8 +288,8 @@ foreach ($allMonths as $mVal) {
         $aEventTitle[$row] = htmlentities(stripslashes($event->getTitle()), ENT_NOQUOTES, 'UTF-8');
         $aEventDesc[$row] = htmlentities(stripslashes($event->getDesc()), ENT_NOQUOTES, 'UTF-8');
         $aEventText[$row] = htmlentities(stripslashes($event->getText()), ENT_NOQUOTES, 'UTF-8');
-        $aEventStartDateTime[$row] = $event->getStart()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
-        $aEventEndDateTime[$row] = $event->getEnd()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s');
+        $aEventStartDateTime[$row] = $event->getStart()->format(SystemConfig::getValue('sDateFormatLong'));//.' H:i:s');
+        $aEventEndDateTime[$row] = $event->getEnd()->format(SystemConfig::getValue('sDateFormatLong'));//.' H:i:s');
         $aEventStatus[$row] = $event->getInactive();
         if (!($_SESSION['user']->isAdmin())) {
           $aEventRights[$row] = ($event->getRights() == 1 || $event->getRights() == 3)?true:false;
