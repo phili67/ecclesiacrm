@@ -1396,7 +1396,7 @@ require 'Include/Header.php';
                                             $custom_Special = $sPhoneCountry;
                                         }
 
-                                        formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
+                                        OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
                                         if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
                                             echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
                                         }

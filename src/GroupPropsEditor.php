@@ -15,6 +15,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Security: user must be allowed to edit records to use this page.
 if (!$_SESSION['user']->isEditRecordsEnabled()) {
@@ -149,7 +150,7 @@ if (mysqli_num_rows($rsPropList) == 0) {
                 $prop_Special = $sPhoneCountry;
             }  // ugh.. an argument with special cases!
 
-            formCustomField($type_ID, $prop_Field, $currentFieldData, $prop_Special, !isset($_POST['GroupPropSubmit']));
+            OutputUtils::formCustomField($type_ID, $prop_Field, $currentFieldData, $prop_Special, !isset($_POST['GroupPropSubmit']));
 
             if (array_key_exists($prop_Field, $aPropErrors)) {
                 echo '<span style="color: red; ">'.$aPropErrors[$prop_Field].'</span>';

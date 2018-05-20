@@ -1380,8 +1380,8 @@ msgstr "Intervalle"
 
 #: AutoPaymentEditor.php:863 ElectronicPaymentList.php:200 FamilyView.php:652
 #: FamilyView.php:756 FinancialReports.php:301 SelectDelete.php:215
-msgid "Fund"
-msgstr "Fond"
+msgid "Funds"
+msgstr "Fonds"
 
 #: ElectronicPaymentList.php:201 FindDepositSlip.php:46
 msgid "Bank"
@@ -2488,7 +2488,7 @@ msgstr "Activer"
 
 #: GroupEditor.php:155 GroupView.php:80
 msgid "Edit Group-Specific Properties Form"
-msgstr "Modifier le formulaire des Propriétés spécifiques du groupe"
+msgstr "Modifier formulaire Propriétés spécifiques de groupe"
 
 #: GroupEditor.php:157 GroupView.php:217
 msgid "Disabled"
@@ -2560,11 +2560,11 @@ msgstr "Attention: Les modifications seront perdus si vous ne cliquez pas sur &q
 
 #: GroupPropsFormEditor.php:288
 msgid "Show in"
-msgstr "Montrer"
+msgstr "Visualiser dans"
 
 #: GroupPropsFormEditor.php:288
 msgid "Person View"
-msgstr "Visualiser une Personne"
+msgstr "La Vue Personne"
 
 #: GroupReports.php:25
 msgid "Group reports"
@@ -3484,7 +3484,7 @@ msgstr "Propriété"
 
 #: PropertyEditor.php:161 PropertyList.php:61
 msgid "Prompt"
-msgstr "rapidement"
+msgstr "Message"
 
 #: PropertyTypeDelete.php:24
 msgid "Property Type Delete Confirmation"
@@ -8209,7 +8209,7 @@ msgstr "Exclure"
 
 #: GroupView.php:282
 msgid "No property assignments"
-msgstr "Aucune assignations de propriété"
+msgstr "Aucunes propriétés assignées"
 
 #: 
 msgid "View Cart"
@@ -10061,3 +10061,13 @@ msgstr "La barre latérale se déploie par défaut au survol de la souris"
 
 msgid "or"
 msgstr "ou"
+
+#
+msgid "Add Group-Specific Properties"
+msgstr "Ajouter Des propriétés spécifiques de groupes"
+
+msgid "Return to Group"
+msgstr "Retourner au Groupe"
+
+msgid "No member properties have been created"
+msgstr "Aucunes propriétés n'a été créées"

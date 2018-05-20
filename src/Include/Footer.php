@@ -128,15 +128,10 @@ $isAdmin = $_SESSION['user']->isAdmin();
                             <i class="fa fa-cog"></i> <?= _('Volunteer Opportunities') ?>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/DonationFundEditor.php">
-                            <i class="fa fa-cog"></i> <?= _('Edit Donation Funds') ?>
-                        </a>
-                    </li>
                     <?php
     } ?>
             </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Fund') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Funds') ?></h4>
             <ul class="control-sidebar-menu">
                 <?php if ($isAdmin) {
         ?>
