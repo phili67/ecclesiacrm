@@ -47,13 +47,13 @@ $(document).ready(function () {
 
         bootbox.confirm({
           buttons: {
-            confirm: {
-              label: i18next.t('OK'),
-              className: 'confirm-button-class'
-            },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'cancel-button-class'
+              className: 'btn btn-primary cancel-button-class'
+            },
+            confirm: {
+              label: i18next.t('OK'),
+              className: 'btn btn-danger confirm-button-class'
             }
           },
           title: i18next.t('Are you sure you want to unassign this property?'),
@@ -85,11 +85,11 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: i18next.t('OK'),
-              className: 'confirm-button-class'
+              className: 'btn btn-primary confirm-button-class'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'cancel-button-class'
+              className: 'btn btn-default cancel-button-class'
             }
           },
           title: i18next.t('Are you sure you want to change this property?'),          

@@ -21,11 +21,13 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupPropMasterQuery;
 
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
@@ -100,12 +102,7 @@ require 'Include/Header.php';
     <?php
     if ($_SESSION['user']->isManageGroupsEnabled()) {
         echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
-        echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; ?>
-
-      <?php
-      if ($thisGroup->getHasSpecialProps()) {
-          echo '<a class="btn btn-app" href="GroupPropsFormEditor.php?GroupID='.$thisGroup->getId().'"><i class="fa fa-list-alt"></i>'.gettext('Edit Group-Specific Properties Form').'</a>';
-      }
+        echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; 
     }?>
 
 
@@ -214,8 +211,7 @@ require 'Include/Header.php';
 
 <div class="box">
     <div class="box-body">
-        <?= $thisGroup->getDescription() ?>
-        <p/><p/><p/>
+      
         <button class="btn btn-success" type="button">
             <?= gettext('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
         </button>
@@ -245,16 +241,15 @@ require 'Include/Header.php';
   </div>
 </div>
 
-      <div class="box">
+<div class="box collapsed-box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group Properties') ?></h3>
+    <h3 class="box-title"><?= gettext('Group-Specific Properties') ?></h3>
+    <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+    </div>
   </div>
   <div class="box-body">
-      <table width="100%">
-      <tr>
-        <td>
-          <b><?= gettext('Group-Specific Properties') ?>:</b>
-
+      <b><?= gettext('Assigned Properties') ?>:</b>
           <?php
           if ($thisGroup->getHasSpecialProps()) {
               // Create arrays of the properties.
@@ -266,14 +261,17 @@ require 'Include/Header.php';
                   $aDescFields[$row] = $prop_Description;
                   $aFieldFields[$row] = $prop_Field;
                   $aTypeFields[$row] = $type_ID;
+                  $aDisplayFields[$row] = $prop_PersonDisplay;
               }
 
               // Construct the table
-
-              if (!$numRows) {
-                  echo '<p><?= gettext("No member properties have been created")?></p>';
+              if ($numRows == 0) {
+              ?>
+                  <p><?= gettext("No member properties have been created")?></p>
+              <?php
               } else {
-                  ?>
+              ?>
+              
               <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                 <tr class="TableHeader">
                   <td><b><?= gettext('Type') ?></b></td>
@@ -284,13 +282,41 @@ require 'Include/Header.php';
                 $sRowClass = 'RowColorA';
                   for ($row = 1; $row <= $numRows; $row++) {
                       $sRowClass = AlternateRowStyle($sRowClass);
-                ?>
+                      if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled() || $aDisplayFields[$row] == "true") {
+                      ?>
                       <tr class="<?= $sRowClass ?>">
                       <td><?= $aPropTypes[$aTypeFields[$row]] ?></td>
                       <td><?= $aNameFields[$row] ?></td>
-                      <td><?= $aDescFields[$row] ?>&nbsp;</td>
+                      <td>
+                      <?php 
+                        if ($aDescFields[$row] == "true" || $aDescFields[$row] == "false") {
+                      ?>
+                        <?= ($aDescFields[$row] == "true")?gettext("Yes"):gettext("No") ?>
+                      <?php
+                        } else if ( $aDescFields[$row] == "" ) {
+                      ?>
+                        <?= gettext("Unknown") ?>
+                      <?php
+                        } else if ($aTypeFields[$row] == 9) {
+                          $onePerson = PersonQuery::Create()->findOneById($aDescFields[$row]);
+                      ?>
+                          <?= $onePerson->getFullName() ?>
+                      <?php
+                        } else if ($aTypeFields[$row] == 12) {
+                          $oneGroupPropMaster = GroupPropMasterQuery::Create()->filterById($iGroupID)->filterByPropId($aDescFields[$row])->findOne();
+                      ?>
+                          <?= ($oneGroupPropMaster == null)?gettext("Unassigned"):$oneGroupPropMaster->getName() ?>
+                      <?php
+                        } else {
+                      ?>
+                        <?= $aDescFields[$row] ?>
+                      <?php
+                        }
+                      ?>
+                        &nbsp;</td>
                       </tr>
                 <?php
+                    }
                   }
                 ?>
                   </table>
@@ -298,12 +324,30 @@ require 'Include/Header.php';
               }
           } else {
           ?>
-              <p><?= gettext('Disabled for this group.') ?></p>
+            coucou
+              <p><?= gettext("Disabled for this group.") ?></p>
           <?php
           }          
             //Print Assigned Properties
           ?>
-            <br><hr/>
+          
+          <?php
+             if ($thisGroup->getHasSpecialProps()) {
+          ?>
+              <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
+          <?php
+             }
+          ?>
+  </div>
+</div>
+<div class="box collapsed-box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?= gettext('Group Properties') ?></h3>
+    <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+    </div>
+  </div>
+  <div class="box-body">
             <b><?= gettext('Assigned Properties') ?>:</b>
             <?php
             $sAssignedProperties = ',';
@@ -366,7 +410,10 @@ require 'Include/Header.php';
                     <?php
                     if (strlen($pro_Prompt) > 0 && $_SESSION['user']->isManageGroupsEnabled()) {
                     ?>
-                        <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
+                        <td valign="top">
+                          <a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?>
+                          </a>
+                        </td>
                     <?php
                     } else {
                     ?>
@@ -399,146 +446,147 @@ require 'Include/Header.php';
             <?php
             }
 
-                if ($_SESSION['user']->isManageGroupsEnabled()) {
-                ?>
-                    <div class="alert alert-info">
-                      <div>
-                          <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
+            if ($_SESSION['user']->isManageGroupsEnabled()) {
+            ?>
+                <div class="alert alert-info">
+                  <div>
+                      <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
 
-                          <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/groups/assign' ?>" id="assign-property-form">
-                            <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
-                            <div class="row">
-                              <div class="form-group col-xs-12 col-md-7">
-                              <select name="PropertyId" class="input-group-properties form-control select2"
-                                              style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
-                              <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
-                                <?php
-                                foreach ($ormProperties as $ormProperty) {
-                                    //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                    if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
-                                    ?>
-                                        <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>
-                              
-                                    <?php
-                                    }
-                                }
+                      <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/groups/assign' ?>" id="assign-property-form">
+                        <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
+                        <div class="row">
+                          <div class="form-group col-xs-12 col-md-7">
+                          <select name="PropertyId" class="input-group-properties form-control select2"
+                                          style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
+                          <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
+                            <?php
+                            foreach ($ormProperties as $ormProperty) {
+                                //If the property doesn't already exist for this Person, write the <OPTION> tag
+                                if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
                                 ?>
+                                    <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>                              
+                                <?php
+                                }
+                            }
+                            ?>
 
-                              </select>
-                              </div>
-                              <div id="prompt-box" class="col-xs-12 col-md-7">
-                              </div>
-                              <div class="form-group col-xs-12 col-md-7">
-                                 <input type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
-                              </div>
-                              </div>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                <?php
-                } else {
-                ?>
-                    <br><br><br>
-                <?php
-                }
-                ?>
-                </td>
-              </tr>
-            </table>
-            </div>
-            </div>
-
-            <div class="box">
-              <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Group Members:') ?></h3>
-              </div>
-              <div class="box-body">
-                <!-- START GROUP MEMBERS LISTING  -->
-                <table class="table" id="membersTable">
-                </table>
-                <div class="box">
-                  <div class="box-header with-border">
-                    <h3 class="box-title"><?php echo gettext('Group members: '); ?></h3>
-                  </div>
-                  <div class="box-body">
-                    <table class="table" id="depositsTable"></table>
-                    <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
-                    <div class="btn-group">
-                      <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= gettext('Add Selected Members to Cart') ?></button>
-                      <button type="button" id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a id="addSelectedToGroup"   disabled> <?= gettext('Add Selected Members to Group') ?></a></li>
-                        <li><a id="moveSelectedToGroup"  disabled> <?= gettext('Move Selected Members to Group') ?></a></li>
-                      </ul>
-                    </div>
+                          </select>
+                          </div>
+                          <div id="prompt-box" class="col-xs-12 col-md-7"></div>
+                          <div class="form-group col-xs-12 col-md-7">
+                             <input type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
+                          </div>
+                        </div>
+                    </form>
                   </div>
                 </div>
-                </form>
-                <!-- END GROUP MEMBERS LISTING -->
-                <form action="#" method="get" class="sidebar-form">
-                  <label for="addGroupMember"><?= gettext('Add Group Member: ') ?></label>
-                  <select class="form-control personSearch" name="addGroupMember" style="width:100%">
-                  </select>
-                </form>
-              </div>
+          <?php
+            } else {
+          ?>
+              <br><br><br>
+          <?php
+            }
+          ?>
+    </div>
+</div>
+
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?= gettext('Group Members:') ?></h3>
+  </div>
+  <div class="box-body">
+    <!-- START GROUP MEMBERS LISTING  -->
+    <table class="table" id="membersTable"></table>
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?php echo gettext('Group members: '); ?></h3>
+      </div>
+      <div class="box-body">
+        <table class="table" id="depositsTable" width=100%></table>
+        <div class="row">
+          <div class="col-md-3">
+             <label for="addGroupMember"><?= gettext("Add Group Member: ") ?></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
+          </div>
+          <div class="col-md-3">
+            <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
+          </div>
+          <div class="col-md-5">
+            <div class="btn-group">
+              <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= gettext('Add Selected Members to Cart') ?></button>
+              <button type="button" id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a id="addSelectedToGroup"   disabled> <?= gettext('Add Selected Members to Group') ?></a></li>
+                <li><a id="moveSelectedToGroup"  disabled> <?= gettext('Move Selected Members to Group') ?></a></li>
+              </ul>
             </div>
-            <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-              window.CRM.currentGroup = <?= $iGroupID ?>;
-              var dataT = 0;
-              
-                var isShowable  = <?php
-                 // it should be better to write this part in the api/groups/members
-                  if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() 
-                    || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
-                    || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeachForGroup($iGroupID))) {
-                     echo "true";
-                  } else {
-                     echo "false";
-                  }
-               ?>;
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END GROUP MEMBERS LISTING -->
+  </div>
+</div>
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  window.CRM.currentGroup = <?= $iGroupID ?>;
+  var dataT = 0;
+  
+    var isShowable  = <?php
+     // it should be better to write this part in the api/groups/members
+      if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() 
+        || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
+        || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeachForGroup($iGroupID))) {
+         echo "true";
+      } else {
+         echo "false";
+      }
+   ?>;
 
-              $(document).ready(function () {
-                $('#isGroupActive').prop('checked', <?= $thisGroup->isActive()? 'true': 'false' ?>).change();
-                $('#isGroupEmailExport').prop('checked', <?= $thisGroup->isIncludeInEmailExport()? 'true': 'false' ?>).change();
-                $("#deleteGroupButton").click(function() {
-                  console.log("click");
-                  bootbox.setDefaults({
-                  locale: window.CRM.shortLocale}),
-                  bootbox.confirm({
-                    title: "<?= gettext("Confirm Delete Group") ?>",
-                    message: '<p style="color: red">'+
-                      "<?= gettext("Please confirm deletion of this group record") ?>: <?= $thisGroup->getName() ?></p>"+
-                      "<p>"+
-                      "<?= gettext("This will also delete all Roles and Group-Specific Property data associated with this Group record.") ?>"+
-                      "</p><p>"+
-                      "<?= gettext("All group membership and properties will be destroyed.  The group members themselves will not be altered.") ?></p>",
-                    callback: function (result) {
-                      if (result)
-                      {
-                         $.ajax({
-                            method: "POST",
-                            url: window.CRM.root + "/api/groups/" + window.CRM.currentGroup,
-                            dataType: "json",
-                            encode: true,
-                            data: {"_METHOD": "DELETE"}
-                          }).done(function (data) {
-                            if (data.status == "success")
-                              window.location.href = window.CRM.root + "/GroupList.php";
-                          });
-                      }
-                    }
-                  });
-                });
-                
-                $(".input-group-properties").select2({ 
-                  language: window.CRM.shortLocale
-                });
+  $(document).ready(function () {
+    $('#isGroupActive').prop('checked', <?= $thisGroup->isActive()? 'true': 'false' ?>).change();
+    $('#isGroupEmailExport').prop('checked', <?= $thisGroup->isIncludeInEmailExport()? 'true': 'false' ?>).change();
+    $("#deleteGroupButton").click(function() {
+      console.log("click");
+      bootbox.setDefaults({
+      locale: window.CRM.shortLocale}),
+      bootbox.confirm({
+        title: "<?= gettext("Confirm Delete Group") ?>",
+        message: '<p style="color: red">'+
+          "<?= gettext("Please confirm deletion of this group record") ?>: <?= $thisGroup->getName() ?></p>"+
+          "<p>"+
+          "<?= gettext("This will also delete all Roles and Group-Specific Property data associated with this Group record.") ?>"+
+          "</p><p>"+
+          "<?= gettext("All group membership and properties will be destroyed.  The group members themselves will not be altered.") ?></p>",
+        callback: function (result) {
+          if (result)
+          {
+             $.ajax({
+                method: "POST",
+                url: window.CRM.root + "/api/groups/" + window.CRM.currentGroup,
+                dataType: "json",
+                encode: true,
+                data: {"_METHOD": "DELETE"}
+              }).done(function (data) {
+                if (data.status == "success")
+                  window.location.href = window.CRM.root + "/GroupList.php";
               });
-            </script>
-            <script src="skin/js/GroupView.js" ></script>
+          }
+        }
+      });
+    });
+    
+    $(".input-group-properties").select2({ 
+      language: window.CRM.shortLocale
+    });
+  });
+</script>
+<script src="skin/js/GroupView.js" ></script>
 
-            <?php require 'Include/Footer.php' ?>
+<?php require 'Include/Footer.php' ?>

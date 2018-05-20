@@ -30,6 +30,11 @@ $sPageTitle = gettext('Custom Family Fields Editor');
 
 require 'Include/Header.php'; ?>
 
+<div class="alert alert-warning">
+		<i class="fa fa-ban"></i>
+		<?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
+</div>
+
 <div class="box box-body">
 
 
@@ -261,7 +266,7 @@ if (isset($_POST['SaveChanges'])) {
 
 function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 {
-    $sOptList = '<select name="'.$fld_name.'">';
+    $sOptList = '<select name="'.$fld_name.'" class="form-control">';
     $grp_Count = count($aSecGrp);
 
     for ($i = 0; $i < $grp_Count; $i++) {
@@ -292,10 +297,6 @@ function confirmDeleteField( Field ) {
 	return false;
 }
 </script>
-<div class="alert alert-warning">
-		<i class="fa fa-ban"></i>
-		<?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
-</div>
 <form method="post" action="FamilyCustomFieldsEditor.php" name="FamilyCustomFieldsEditor">
     <div class="table-responsive">
 <table class="table" class="table">
@@ -331,7 +332,7 @@ if ($numRows == 0) {
                 <?= $aPropTypes[$aTypeFields[$row]] ?>
             </td>
             <td class="TextColumn" align="center">
-                <input type="text" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
+                <input type="text" class="form-control" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
                 <?php
                 if ($aNameErrors[$row]) {
                     echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
@@ -341,7 +342,7 @@ if ($numRows == 0) {
 
             <?php
             if ($aTypeFields[$row] == 9) {
-                echo '<select name="'.$row.'special">';
+                echo '<select name="'.$row.'special" class="form-control">';
                 echo '<option value="0" selected>Select a group</option>';
 
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
@@ -419,7 +420,7 @@ if ($numRows == 0) {
                     <td valign="top">
                     <div><?= gettext('Type') ?>:</div>
                     <?php
-                        echo '<select name="newFieldType">';
+                        echo '<select name="newFieldType" class="form-control">';
 
                         for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
                             echo '<option value="'.$iOptionID.'"';
@@ -431,7 +432,7 @@ if ($numRows == 0) {
                     </td>
                     <td valign="top">
                         <div><?= gettext('Name') ?>:</div>
-                        <input type="text" name="newFieldName" size="30" maxlength="40">
+                        <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                         <?php
                             if ($bNewNameError) {
                                 echo '<div><span style="color: red;"><BR>'.gettext('You must enter a name').'</span></div>';

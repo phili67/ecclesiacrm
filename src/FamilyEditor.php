@@ -934,7 +934,7 @@ require 'Include/Header.php';
                     $fam_custom_Special = $sCountry;
                 }
 
-                formCustomField($type_ID, $fam_custom_Field, $currentFieldData, $fam_custom_Special, !isset($_POST['FamilySubmit']));
+                OutputUtils::formCustomField($type_ID, $fam_custom_Field, $currentFieldData, $fam_custom_Special, !isset($_POST['FamilySubmit']));
                 echo '<span style="color: red; ">'.$aCustomErrors[$fam_custom_Field].'</span>';
                 echo '</div></div>';
             }
