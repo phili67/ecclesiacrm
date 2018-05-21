@@ -2,7 +2,7 @@
 
 /******************************************************************************
 *
-*  filename    : api/routes/sharedocument.php
+*  filename    : api/routes/people.php
 *  last change : Copyright all right reserved 2018/04/14 Philippe Logel
 *  description : Search terms like : Firstname, Lastname, phone, address, 
 *                 groups, families, etc...
@@ -24,9 +24,55 @@ use EcclesiaCRM\UserQuery;
 
 
 
-// Routes sharedocument
+// Routes people
+
 
 $app->group('/people', function () {
+
+    $this->get('/searchonlyperson/{query}',function($request,$response,$args) {
+      $query = $args['query'];
+      $resultsArray = [];
+    
+      $id = 1;
+    
+    //Person Search
+      try {
+        $searchLikeString = '%'.$query.'%';
+        $people = PersonQuery::create()->
+          filterByFirstName($searchLikeString, Criteria::LIKE)->
+            _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+          limit(SystemConfig::getValue("bSearchIncludePersonsMax"))->find();
+  
+
+        if (!empty($people))
+        {
+          $data = [];
+          $id++;
+        
+          foreach ($people as $person) {
+            $elt = ['id'=>$id++,
+                'text'=>$person->getFullName(),
+                'personID'=>$person->getId()];
+      
+            array_push($data, $elt);
+          }          
+  
+          if (!empty($data))
+          {
+            $dataPerson = ['children' => $data,
+            'id' => 0,
+            'text' => gettext('Persons')];
+      
+            $resultsArray = array ($dataPerson);
+          }
+        }
+      } catch (Exception $e) {
+          $this->Logger->warn($e->getMessage());
+      }
+   
+    
+      return $response->withJson(array_filter($resultsArray));
+  });
   
     $this->get('/search/{query}',function($request,$response,$args) {
       $query = $args['query'];
