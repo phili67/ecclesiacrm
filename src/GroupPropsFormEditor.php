@@ -17,6 +17,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 // Security: user must be allowed to edit records to use this page.
 if (!$_SESSION['user']->isManageGroupsEnabled()) {
@@ -69,6 +70,7 @@ if (isset($_POST['SaveChanges'])) {
         $aFieldFields[$row] = $prop_Field;
         $aTypeFields[$row] = $type_ID;
         $aSpecialFields[$row] = $prop_Special;
+
         if (isset($prop_Special)) {
           if ($type_ID == 9) {
             $aSpecialFields[$row] = $grp_ID;
@@ -94,7 +96,7 @@ if (isset($_POST['SaveChanges'])) {
 
         if (isset($_POST[$iPropID.'special'])) {
             $aSpecialFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'special'], 'int');
-
+            
             if ($aSpecialFields[$iPropID] == 0) {
                 $aSpecialErrors[$iPropID] = true;
                 $bErrorFlag = true;
@@ -248,11 +250,16 @@ if (isset($_POST['SaveChanges'])) {
         extract($aRow);
 
         // This is probably more clear than using a multi-dimensional array
+        $aTypeFields[$row] = $type_ID;
         $aNameFields[$row] = $prop_Name;
         $aDescFields[$row] = $prop_Description;
         $aSpecialFields[$row] = $prop_Special;
         $aFieldFields[$row] = $prop_Field;
-        $aTypeFields[$row] = $type_ID;
+        
+        if ($type_ID == 9) {
+          $aSpecialFields[$row] = $iGroupID;
+        }
+        
         $aPersonDisplayFields[$row] = ($prop_PersonDisplay == 'true');
     }
 }
@@ -333,7 +340,7 @@ if ($numRows == 0) {
 
       <td class="TextColumn">
          <?php 
-            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag) 
+            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
          ?>
       </td>
 
@@ -342,7 +349,7 @@ if ($numRows == 0) {
 
             if ($aTypeFields[$row] == 9) {
       ?>
-                <select name="<?= $row ?>special"  class="form-control">
+              <select name="<?= $row ?>special"  class="form-control">
                 <option value="0" selected><?= gettext("Select a group") ?></option>
       <?php
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';

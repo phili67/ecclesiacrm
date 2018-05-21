@@ -167,17 +167,17 @@ $(document).ready(function () {
       message: i18next.t("Are you sure you want to remove the selected group members?") + " (" + deletedRows.length + ") ",
       buttons: {
         confirm: {
-          label:  i18next.t('Yes'),
-            className: 'btn-success'
+          label:  i18next.t('No'),
+          className: 'btn-primary'
         },
         cancel: {
-          label:  i18next.t('No'),
+          label:  i18next.t('Yes'),
           className: 'btn-danger'
         }
       },
       callback: function (result)
       {
-        if (result)
+        if (result==false)
         {
           $.each(deletedRows, function (index, value) {
             window.CRM.groups.removePerson(window.CRM.currentGroup,value.PersonId).done(

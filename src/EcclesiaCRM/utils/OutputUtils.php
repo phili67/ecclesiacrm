@@ -130,7 +130,7 @@ class OutputUtils {
 
     // Handler for money amounts
     case 10:
-      echo '<input class="form-control"  type="text" Name="'.$fieldname.'" maxlength="13" size="16" value="'.$data.'">';
+      echo '<table width=100%><tr><td><input class="form-control"  type="text" Name="'.$fieldname.'" maxlength="13" size="16" value="'.$data.'"></td><td>&nbsp;'.SystemConfig::getValue("sCurrency")."</td></tr></table>";
       break;
 
     // Handler for phone numbers
