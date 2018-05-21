@@ -8,7 +8,7 @@ CREATE TABLE group_manager_person (
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE,
     CONSTRAINT fk_grp_mgr_per_group_ID
-      FOREIGN KEY (grp_mgr_per_person_ID) 
+      FOREIGN KEY (grp_mgr_per_group_ID) 
       REFERENCES group_grp(grp_ID)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
