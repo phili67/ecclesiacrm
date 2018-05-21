@@ -16,17 +16,29 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 
+
+
+// Get the Group from the querystring
+$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+  
+$is_group_manager = false;
+
+if (!empty($manager)) {
+  $is_group_manager = true;
+}
+
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
+if ( !($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
     Redirect('Menu.php');
     exit;
 }
 
-// Get the Group from the querystring
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 // Get the group information
 $sSQL = 'SELECT * FROM group_grp WHERE grp_ID = '.$iGroupID;

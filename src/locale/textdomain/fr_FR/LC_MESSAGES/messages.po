@@ -2664,7 +2664,7 @@ msgstr "Localiser le groupe"
 
 #: GroupView.php:128
 msgid "Email Group"
-msgstr "Envoyer un email au groupe"
+msgstr "Email au groupe"
 
 #: GroupView.php:205
 msgid "Total Members"
@@ -10071,3 +10071,16 @@ msgstr "Retourner au Groupe"
 
 msgid "No member properties have been created"
 msgstr "Aucunes propriétés n'a été créées"
+
+msgid "No assigned Manager"
+msgstr "Acun Manager assigné"
+
+msgid "Add Manager"
+msgstr "Ajouter Manager"
+
+msgid "Group Managers"
+msgstr "Managers du Groupe"
+
+msgid "Assigned Managers"
+msgstr "Managers assignés"
+

@@ -40,6 +40,17 @@ $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId()
 
 $sGroupType = gettext('Unassigned');
 
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+  
+$is_group_manager = false;
+
+if (!empty($manager)) {
+  $is_group_manager = true;
+  $_SESSION['bManageGroups'] = true;
+} else  {
+  $_SESSION['bManageGroups'] = $_SESSION['user']->isManageGroupsEnabled();
+}
+       
 //Get the group's type name
 if ($thisGroup->getType() > 0) {
     $groupeType = ListOptionQuery::create()->filterById(3)->filterByOptionId($thisGroup->getType())->findOne();
@@ -87,7 +98,7 @@ require 'Include/Header.php';
     <?php
       }
     ?>
-    
+
     <?php
       if (Cart::GroupInCart($iGroupID) && $_SESSION['user']->isShowCartEnabled()) {
     ?>
@@ -100,7 +111,7 @@ require 'Include/Header.php';
      }
     ?>
     <?php
-    if ($_SESSION['user']->isManageGroupsEnabled()) {
+    if ( $_SESSION['user']->isManageGroupsEnabled() ) {
         echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
         echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; 
     }?>
@@ -147,7 +158,7 @@ require 'Include/Header.php';
         // Display link
         ?>
         <div class="btn-group">
-          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= gettext('Email Group') ?></a>
+          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= gettext("Email Group") ?></a>
           <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -158,7 +169,7 @@ require 'Include/Header.php';
         </div>
 
         <div class="btn-group">
-          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?= gettext("Email (BCC)") ?></a>
           <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -228,7 +239,9 @@ require 'Include/Header.php';
     </div>
 </div>
 
-
+<?php 
+   if ($_SESSION['user']->isManageGroupsEnabled() ) { 
+?>
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Quick Settings') ?></h3>
@@ -240,6 +253,9 @@ require 'Include/Header.php';
       </form>
   </div>
 </div>
+<?php
+}
+?>
 
 <div class="box collapsed-box">
   <div class="box-header with-border">
@@ -268,7 +284,7 @@ require 'Include/Header.php';
                   <td valign="top"><b><?= gettext('Name') ?></b>
                   <td valign="top"><b><?= gettext('Value') ?></td>
                   <?php
-                  if ($_SESSION['user']->isManageGroupsEnabled()) {
+                  if ( $_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
                       echo '<td valign="top"><b>'.gettext('Edit Value').'</td>';
                       echo '<td valign="top"><b>'.gettext('Remove').'</td>';
                   }
@@ -309,7 +325,7 @@ require 'Include/Header.php';
                     <td valign="top"><?= $pro_Name ?>&nbsp;</td>
                     <td valign="top"><?= $r2p_Value ?>&nbsp;</td>
                     <?php
-                    if (strlen($pro_Prompt) > 0 && $_SESSION['user']->isManageGroupsEnabled()) {
+                    if (strlen($pro_Prompt) > 0 && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true )) {
                     ?>
                         <td valign="top">
                           <a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?>
@@ -322,7 +338,7 @@ require 'Include/Header.php';
                     <?php
                     }
 
-                    if ($_SESSION['user']->isManageGroupsEnabled()) {
+                    if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
                     ?>
                         <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
                     <?php
@@ -347,7 +363,7 @@ require 'Include/Header.php';
             <?php
             }
 
-            if ($_SESSION['user']->isManageGroupsEnabled()) {
+            if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
             ?>
                 <div class="alert alert-info">
                   <div>
@@ -390,6 +406,43 @@ require 'Include/Header.php';
           ?>
     </div>
 </div>
+
+<?php
+  if ( $_SESSION['user']->isManageGroupsEnabled() ) {
+?>
+<div class="box collapsed-box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?= gettext("Group Managers") ?></h3>
+    <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+    </div>
+  </div>
+  <div class="box-body">
+      <b><?= gettext("Assigned Managers") ?>:</b>
+      <div id="Manager-list">
+      <?php
+        $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
+        
+        if ($managers->count()) {
+          foreach ($managers as $manager) {
+        ?>
+          <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, 
+        <?php
+          }
+        } else {
+      ?>
+        <p><?= gettext("No assigned Manager") ?>.</p>
+      <?php
+        }
+      ?>
+      </div>
+      <a class="btn btn-primary" id="add-manager"><?= gettext("Add Manager") ?></a>
+  </div>
+</div>
+
+<?php
+  }
+?>
 
 <div class="box collapsed-box">
   <div class="box-header with-border">
@@ -435,7 +488,7 @@ require 'Include/Header.php';
                 
                   for ($row = 1; $row <= $numRows; $row++) {
                       $sRowClass = AlternateRowStyle($sRowClass);
-                      if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled() || $aDisplayFields[$row] == "true") {
+                      if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $aDisplayFields[$row] == "true") {
                       ?>
                       <tr class="<?= $sRowClass ?>">
                       <!--<td><?= $aPropTypes[$aTypeFields[$row]] ?></td>-->
@@ -492,7 +545,7 @@ require 'Include/Header.php';
           ?>
           
           <?php
-             if ($thisGroup->getHasSpecialProps()) {
+             if ($thisGroup->getHasSpecialProps() && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
           ?>
               <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
           <?php
@@ -507,44 +560,52 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <!-- START GROUP MEMBERS LISTING  -->
-    <table class="table" id="membersTable"></table>
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?php echo gettext('Group members: '); ?></h3>
-      </div>
-      <div class="box-body">
-        <table class="table" id="depositsTable" width=100%></table>
-        <div class="row">
-          <div class="col-md-3">
-             <label for="addGroupMember"><?= gettext("Add Group Member: ") ?></label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
-          </div>
-          <div class="col-md-4">
-            <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
-          </div>
-          <div class="col-md-5">
-            <div class="btn-group">
-              <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= gettext('Add Selected Members to Cart') ?></button>
-              <button type="button" id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a id="addSelectedToGroup"   disabled> <?= gettext('Add Selected Members to Group') ?></a></li>
-                <li><a id="moveSelectedToGroup"  disabled> <?= gettext('Move Selected Members to Group') ?></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <table class="table" id="membersTable"></table>     
     <!-- END GROUP MEMBERS LISTING -->
   </div>
 </div>
+
+<?php 
+   if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) { 
+?>
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?php echo gettext("Add Group Member: "); ?></h3>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-3">
+        <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
+      </div>
+      <div class="col-md-4">
+        <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
+      </div>
+      <?php 
+        if ($_SESSION['user']->isManageGroupsEnabled()) { 
+      ?>
+      <div class="col-md-5">
+        <div class="btn-group">
+          <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= gettext('Add Selected Members to Cart') ?></button>
+          <button type="button" id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a id="addSelectedToGroup"   disabled> <?= gettext('Add Selected Members to Group') ?></a></li>
+            <li><a id="moveSelectedToGroup"  disabled> <?= gettext('Move Selected Members to Group') ?></a></li>
+          </ul>
+        </div>
+      </div>
+      <?php 
+        }
+      ?>
+
+    </div>
+  </div>
+</div>
+<?php
+   }
+?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentGroup = <?= $iGroupID ?>;
@@ -564,6 +625,7 @@ require 'Include/Header.php';
   $(document).ready(function () {
     $('#isGroupActive').prop('checked', <?= $thisGroup->isActive()? 'true': 'false' ?>).change();
     $('#isGroupEmailExport').prop('checked', <?= $thisGroup->isIncludeInEmailExport()? 'true': 'false' ?>).change();
+    
     $("#deleteGroupButton").click(function() {
       console.log("click");
       bootbox.setDefaults({

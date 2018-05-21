@@ -9,6 +9,7 @@ use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Record2propertyR2p;
 
 
+
 $app->group('/properties', function() {
 
     $this->post('/persons/assign', function($request, $response, $args) {
@@ -154,7 +155,7 @@ $app->group('/properties', function() {
     });
     
     $this->post('/groups/assign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if ( !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(401);
         }
  
@@ -202,7 +203,7 @@ $app->group('/properties', function() {
     
     
     $this->delete('/groups/unassign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if ( !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(401);
         }
         

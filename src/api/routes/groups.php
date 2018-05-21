@@ -9,9 +9,12 @@ use EcclesiaCRM\ListOption;
 use EcclesiaCRM\ListOptionQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\GroupManagerPersonQuery;
+use EcclesiaCRM\GroupManagerPerson;
+
 
 $app->group('/groups', function () {
-    $this->get('/', function () {        
+    $this->get('/', function () {
         echo GroupQuery::create()->find()->toJSON();
     });
     
@@ -47,7 +50,96 @@ $app->group('/groups', function () {
       }
       return $response->withJson($return);    
     });
+    
+    $this->post('/deleteAllManagers', function ($request, $response, $args) {
+        $options = (object) $request->getParsedBody();
         
+        if ( isset ($options->groupID) ) {
+          $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
+          
+          if ($managers != null) {
+            $managers->delete();
+          }
+          return $response->withJson(['status' => "success"]);        
+        }
+            
+        return $response->withJson(['status' => "failed"]);        
+    });
+    
+    $this->post('/deleteManager', function ($request, $response, $args) {
+        $options = (object) $request->getParsedBody();
+        
+        if ( isset ($options->groupID) && isset ($options->personID) ) {
+          $manager = GroupManagerPersonQuery::Create()->filterByPersonID($options->personID)->filterByGroupId($options->groupID)->findOne();
+          
+          if ($manager != null) {
+            $manager->delete();
+          }
+          
+          $managers = GroupManagerPersonQuery::Create()->filterByGroupId($options->groupID)->find();
+          
+          if ($managers->count()) {
+            $data = [];
+          
+            foreach ($managers as $manager) {
+          
+             $elt = ['name'=> $manager->getPerson()->getFullName(),
+                  'personID'=>$manager->getPerson()->getId()];
+                
+             array_push($data, $elt);
+            
+            }
+          
+            return $response->withJson($data);
+          } else {
+            return $response->withJson(['status' => "empty"]);
+          }
+        }
+            
+        return $response->withJson(['status' => "failed"]);        
+    });
+    $this->post('/getmanagers', function ($request, $response, $args) {
+        $option = (object) $request->getParsedBody();
+        
+        if (isset ($option->groupID)) {
+          $managers = GroupManagerPersonQuery::Create()->findByGroupId($option->groupID);
+          
+          if ($managers->count()) {
+            $data = [];
+          
+            foreach ($managers as $manager) {
+          
+             $elt = ['name'=> $manager->getPerson()->getFullName(),
+                  'personID'=>$manager->getPerson()->getId()];
+                
+             array_push($data, $elt);
+            
+            }
+          
+            return $response->withJson($data);
+          } else {
+            return $response->withJson(['status' => "empty"]);
+          }
+        }
+            
+        return $response->withJson(['status' => "failed"]);        
+    });
+    $this->post('/addManager', function ($request, $response, $args) {
+        $options = (object)$request->getParsedBody();
+        
+        if (isset ($options->personID) && isset($options->groupID)) {
+          $groupManager = new GroupManagerPerson();
+        
+          $groupManager->setPersonId($options->personID);
+          $groupManager->setGroupId($options->groupID);
+          
+          $groupManager->save();
+          
+          return $response->withJson(['status' => "success".$options->groupID." ".$options->personID]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
     $this->get('/groupsInCart', function () {
         $groupsInCart = [];
         $groups = GroupQuery::create()->find();

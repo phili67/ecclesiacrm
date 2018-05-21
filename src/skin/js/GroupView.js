@@ -49,11 +49,11 @@ $(document).ready(function () {
           buttons: {
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'btn btn-primary cancel-button-class'
+              className: 'btn btn-primary'
             },
             confirm: {
               label: i18next.t('OK'),
-              className: 'btn btn-danger confirm-button-class'
+              className: 'btn btn-danger'
             }
           },
           title: i18next.t('Are you sure you want to unassign this property?'),
@@ -85,11 +85,11 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: i18next.t('OK'),
-              className: 'btn btn-primary confirm-button-class'
+              className: 'btn btn-primary'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'btn btn-default cancel-button-class'
+              className: 'btn btn-default'
             }
           },
           title: i18next.t('Are you sure you want to change this property?'),          
@@ -459,4 +459,212 @@ function initDataTable() {
         }
       }
     }
+    
+    
+    // start manager
+    $("#add-manager").click(function() {
+      createManagerWindow(window.CRM.currentGroup);
+    });
+    
+    $('body').on('click','.delete-person-manager', function(){ 
+      var personID = $(this).data('personid');
+      var groupID  = $(this).data('groupid');
+      
+       window.CRM.APIRequest({
+         method: 'POST',
+         path: 'groups/deleteManager',
+         data: JSON.stringify({"groupID":groupID,"personID":personID})
+      }).done(function(data) {
+        if (data.status == undefined) {
+          var len = data.length;
+          
+          var optionValues = '';
+      
+          for (i=0; i<len; ++i) {
+            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+          }
+          
+          if (optionValues != '') {
+            $("#Manager-list").html(optionValues);
+          } else {
+            $("#Manager-list").html(i18next.t("No assigned Manager")+".");
+          }
+        } else {
+          $("#Manager-list").html(i18next.t("No assigned Manager")+".");
+        }
+      });
+    });
+    
+    
+    function BootboxContentManager(){
+      var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Manage Group Managers")+'</h3>'
+       + '<div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4">'
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
+              +'</div>'
+              +'<div class="col-md-8">'
+              +'<select size="6" style="width:100%" id="select-manager-persons" multiple>'
+              +'</select>'
+             +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add person") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-manager-Id" id="person-manager-Id" class="form-control select2"'
+                    +'style="width:100%">'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+          
+          var object = $('<div/>').html(frm_str).contents();
+
+        return object
+    }
+    
+    // the add people to calendar
+  
+    function addManagersFromGroup(groupID)
+    {
+        $('#select-manager-persons').find('option').remove();
+      
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'groups/getmanagers',
+          data: JSON.stringify({"groupID": groupID})
+        }).done(function(data) {    
+          var elt = document.getElementById("select-manager-persons");
+          var len = data.length;
+          
+          var optionValues = '';
+      
+          for (i=0; i<len; ++i) {
+            var option = document.createElement("option");
+
+            option.text = data[i].name;
+            option.value = data[i].personID;
+            
+            optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+      
+            elt.appendChild(option);
+          }
+          
+          if (optionValues != '') {
+            $("#Manager-list").html(optionValues);
+          } else {
+            $("#Manager-list").html(i18next.t("No assigned Manager")+".");
+          }
+        });  
+    }
+    
+    function createManagerWindow (groupID)
+    {
+      var modal = bootbox.dialog({
+         message: BootboxContentManager(),
+         buttons: [
+          {
+           label: i18next.t("Delete"),
+           className: "btn btn-warning",
+           callback: function() {                        
+              bootbox.confirm(i18next.t("Are you sure, you want to delete this Manager ?"), function(result){ 
+                if (result) {
+                  $('#select-manager-persons :selected').each(function(i, sel){ 
+                    var personID = $(sel).val();
+                  
+                    window.CRM.APIRequest({
+                       method: 'POST',
+                       path: 'groups/deleteManager',
+                       data: JSON.stringify({"groupID":groupID,"personID":personID})
+                    }).done(function(data) {
+                      $("#select-manager-persons option[value='"+personID+"']").remove();
+                      
+                      var opts = $('#select-manager-persons > option').map(function() { return this.text+'<a class="delete-person-manager" data-personid"'+this.value+'" data-groupid"'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>'; }).get();
+                      
+                      if (opts.length) {
+                        $("#Manager-list").html(opts.join(", "));
+                      } else {
+                        $("#Manager-list").html(i18next.t("No assigned Manager")+".");
+                      }
+                    });
+                  });
+                }
+              });
+              return false;
+           }
+          },
+          {
+           label: i18next.t("Delete Managers"),
+           className: "btn btn-danger",
+           callback: function() {
+            bootbox.confirm(i18next.t("Are you sure, you want to delete all the managers ?"), function(result){ 
+              if (result) {
+                window.CRM.APIRequest({
+                   method: 'POST',
+                   path: 'groups/deleteAllManagers',
+                   data: JSON.stringify({"groupID":groupID})
+                }).done(function(data) {
+                  addManagersFromGroup(groupID);
+                  modal.modal("hide");
+                });
+              }
+            });
+            return false;
+           }
+          },
+          {
+           label: i18next.t("Ok"),
+           className: "btn btn-primary",
+           callback: function() {
+             modal.modal("hide");
+             return true;
+           }
+          },
+         ],
+         show: false,
+         onEscape: function() {
+            modal.modal("hide");
+         }
+       });
+     
+       $("#person-manager-Id").select2({ 
+          language: window.CRM.shortLocale,
+          minimumInputLength: 2,
+          placeholder: " -- "+i18next.t("Person")+" -- ",
+          allowClear: true, // This is for clear get the clear button if wanted 
+          ajax: {
+              url: function (params){
+                return window.CRM.root + "/api/people/searchonlyperson/" + params.term;
+              },
+              dataType: 'json',
+              delay: 250,
+              data: "",
+              processResults: function (data, params) {
+                return {results: data};
+              },
+              cache: true
+          }
+        });
+           
+       $("#person-manager-Id").on("select2:select",function (e) { 
+         if (e.params.data.personID !== undefined) {
+             window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'groups/addManager',
+                  data: JSON.stringify({"groupID":window.CRM.currentGroup,"personID": e.params.data.personID})
+             }).done(function(data) { 
+               addManagersFromGroup(groupID);
+             });
+          }
+       });
+     
+       addManagersFromGroup(groupID);
+       modal.modal('show');
+     
+      // this will ensure that image and table can be focused
+      $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  
+    }
+
+// end manager
+
 }
