@@ -10050,7 +10050,7 @@ msgstr "Le protocal CalDAV fonctionne avec la fonction php date_default_timezone
 #UserList
 
 msgid "Not modifiable"
-msgstr "Non modifialble"
+msgstr "Non modifiable"
 
 msgid "The sidebar is collapse by default"
 msgstr "La barre latérale est refermée par défaut"
