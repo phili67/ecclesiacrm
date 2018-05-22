@@ -131,13 +131,13 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     <?php
     } ?>
             </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Funds') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Donation Funds') ?></h4>
             <ul class="control-sidebar-menu">
                 <?php if ($isAdmin) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
-                            <i class="fa fa-cog"></i> <?= _('Fund List') ?>
+                            <i class="fa fa-cog"></i> <?= _('Edit Donation Funds') ?>
                         </a>
                     </li>
                     <?php

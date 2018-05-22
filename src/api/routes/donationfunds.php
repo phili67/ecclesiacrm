@@ -32,6 +32,15 @@ $app->group('/donationfunds', function () {
     return json_encode(['status' => "OK"]); 
   });
   
+  $this->post('/delete', function ($request, $response, $args) {    
+    $fund = (object)$request->getParsedBody();
+    
+    $donation = DonationFundQuery::Create()->findOneById($fund->fundId);
+    $donation->delete();
+    
+    return json_encode(['status' => "OK"]); 
+  });
+  
   $this->post('/create', function ($request, $response, $args) {    
     $fund = (object)$request->getParsedBody();
     

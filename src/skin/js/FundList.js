@@ -55,7 +55,7 @@ $(document).ready(function () {
         title:i18next.t('Delete'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<button class="btn btn-danger delete-fund" data-id="'+data+'" disabled>'+i18next.t('Delete')+'</button>';
+          return '<button class="btn btn-danger delete-fund" data-id="'+data+'" >'+i18next.t('Delete')+'</button>';
         }
       }
     ],
@@ -96,6 +96,25 @@ $(document).ready(function () {
         return object
     }
     
+  $(document).on("click",".delete-fund", function(){
+     var fundId = $(this).data("id");
+     
+     bootbox.confirm({
+      title: i18next.t("Attention"),
+      message: i18next.t("If you delete the fund, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
+      callback: function(result){
+        if (result) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'donationfunds/delete',
+            data: JSON.stringify({"fundId": fundId})
+          }).done(function(data) {
+            window.CRM.dataFundTable.ajax.reload();
+          });
+        }
+      }
+    });
+  });  
   
   $(document).on("click",".edit-fund", function(){
      var fundId = $(this).data("id");
