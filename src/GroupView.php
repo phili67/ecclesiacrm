@@ -242,315 +242,323 @@ require 'Include/Header.php';
 <?php 
    if ($_SESSION['user']->isManageGroupsEnabled() ) { 
 ?>
-<div class="box">
-  <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Quick Settings') ?></h3>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box collapsed-box">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= gettext('Quick Settings') ?></h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+          <form>
+              <div class="col-sm-4"> <b><?= gettext('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Active') ?>" data-off="<?= gettext('Disabled') ?>"> </div>
+              <div class="col-sm-6"> <b><?= gettext('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Include') ?>" data-off="<?= gettext('Exclude') ?>"></div>
+          </form>
+      </div>
+    </div>
   </div>
-  <div class="box-body">
-      <form>
-          <div class="col-sm-4"> <b><?= gettext('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Active') ?>" data-off="<?= gettext('Disabled') ?>"> </div>
-          <div class="col-sm-6"> <b><?= gettext('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Include') ?>" data-off="<?= gettext('Exclude') ?>"></div>
-      </form>
+  <div class="col-lg-6">
+    <div class="box collapsed-box">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= gettext("Group Managers") ?></h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+          <b><?= gettext("Assigned Managers") ?>:</b>
+          <div id="Manager-list">
+          <?php
+            $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
+        
+            if ($managers->count()) {
+              foreach ($managers as $manager) {
+            ?>
+              <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, 
+            <?php
+              }
+            } else {
+          ?>
+            <p><?= gettext("No assigned Manager") ?>.</p>
+          <?php
+            }
+          ?>
+          </div>
+          <a class="btn btn-primary" id="add-manager"><?= gettext("Add Manager") ?></a>
+      </div>
+    </div>
   </div>
 </div>
+
 <?php
 }
 ?>
 
-<div class="box collapsed-box">
-  <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group Properties') ?></h3>
-    <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box collapsed-box">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= gettext('Group Properties') ?></h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+                <b><?= gettext('Assigned Properties') ?>:</b>
+                <?php
+                $sAssignedProperties = ',';
+
+                //Was anything returned?
+                if (mysqli_num_rows($rsAssignedProperties) == 0) {
+                    // No, indicate nothing returned
+                  ?>
+                    <p><?= gettext('No property assignments') ?></p>
+                <?php
+                } else {
+                    // Display table of properties
+                ?>              
+                  <table width="100%" cellpadding="2" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
+                    <tr class="TableHeader">
+                      <td width="15%" valign="top"><b><?= gettext('Type') ?></b>
+                      <td valign="top"><b><?= gettext('Name') ?></b>
+                      <td valign="top"><b><?= gettext('Value') ?></td>
+                      <?php
+                      if ( $_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
+                          echo '<td valign="top"><b>'.gettext('Edit Value').'</td>';
+                          echo '<td valign="top"><b>'.gettext('Remove').'</td>';
+                      }
+                    echo '</tr>';
+
+                    $last_pro_prt_ID = '';
+                    $bIsFirst = true;
+
+                    //Loop through the rows
+                    while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
+                        $pro_Prompt = '';
+                        $r2p_Value = '';
+
+                        extract($aRow);
+
+                        if ($pro_prt_ID != $last_pro_prt_ID) {
+                            if ($bIsFirst) {
+                                $rowColor = 'RowColorB';
+                            } else {
+                                $rowColor =  'RowColorC';
+                            }
+                          ?>  
+                        
+                            <tr class="<?= $rowColor?>"><td>
+                            <b><?= gettext($prt_Name)?></b></td>
+                       <?php
+                            $bIsFirst = false;
+                            $last_pro_prt_ID = $pro_prt_ID;
+                            $sRowClass = 'RowColorB';
+                        } else {
+                        ?>
+                            <tr class="<?= $sRowClass ?>">
+                            <td valign="top">&nbsp;</td>
+                        <?php
+                        }
+                        ?>
+
+                        <td valign="top"><?= $pro_Name ?>&nbsp;</td>
+                        <td valign="top"><?= $r2p_Value ?>&nbsp;</td>
+                        <?php
+                        if (strlen($pro_Prompt) > 0 && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true )) {
+                        ?>
+                            <td valign="top">
+                              <a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?>
+                              </a>
+                            </td>
+                        <?php
+                        } else {
+                        ?>
+                            <td>&nbsp;</td>
+                        <?php
+                        }
+
+                        if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
+                        ?>
+                            <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
+                        <?php
+                        } else {
+                        ?>
+                            <td>&nbsp;</td>
+                        <?php
+                        }
+                        ?>
+
+                        </tr>
+                        <?php
+
+                        //Alternate the row style
+                        $sRowClass = AlternateRowStyle($sRowClass);
+
+                        $sAssignedProperties .= $pro_ID.',';
+                    }
+                    ?>
+
+                    </table>
+                <?php
+                }
+
+                if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
+                ?>
+                    <div class="alert alert-info">
+                      <div>
+                          <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
+
+                          <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/groups/assign' ?>" id="assign-property-form">
+                            <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
+                            <div class="row">
+                              <div class="form-group col-xs-12 col-md-7">
+                              <select name="PropertyId" class="input-group-properties form-control select2"
+                                              style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
+                              <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
+                                <?php
+                                foreach ($ormProperties as $ormProperty) {
+                                    //If the property doesn't already exist for this Person, write the <OPTION> tag
+                                    if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
+                                    ?>
+                                        <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>                              
+                                    <?php
+                                    }
+                                }
+                                ?>
+
+                              </select>
+                              </div>
+                              <div id="prompt-box" class="col-xs-12 col-md-7"></div>
+                              <div class="form-group col-xs-12 col-md-7">
+                                 <input type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
+                              </div>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+              <?php
+                } else {
+              ?>
+                  <br><br><br>
+              <?php
+                }
+              ?>
+        </div>
     </div>
   </div>
-  <div class="box-body">
-            <b><?= gettext('Assigned Properties') ?>:</b>
-            <?php
-            $sAssignedProperties = ',';
+  <div class="col-lg-6">
+    <div class="box collapsed-box">
+      <div class="box-header with-border">
+        <h3 class="box-title"><?= gettext('Group-Specific Properties') ?></h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+          <b><?= gettext('Assigned Properties') ?>:</b>
+              <?php
+              if ($thisGroup->getHasSpecialProps()) {
+                  // Create arrays of the properties.
+                  for ($row = 1; $row <= $numRows; $row++) {
+                      $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
+                      extract($aRow);
 
-            //Was anything returned?
-            if (mysqli_num_rows($rsAssignedProperties) == 0) {
-                // No, indicate nothing returned
-              ?>
-                <p><?= gettext('No property assignments') ?></p>
-            <?php
-            } else {
-                // Display table of properties
-            ?>              
-              <table width="100%" cellpadding="2" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
-                <tr class="TableHeader">
-                  <td width="15%" valign="top"><b><?= gettext('Type') ?></b>
-                  <td valign="top"><b><?= gettext('Name') ?></b>
-                  <td valign="top"><b><?= gettext('Value') ?></td>
-                  <?php
-                  if ( $_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
-                      echo '<td valign="top"><b>'.gettext('Edit Value').'</td>';
-                      echo '<td valign="top"><b>'.gettext('Remove').'</td>';
+                      $aNameFields[$row] = $prop_Name;
+                      $aDescFields[$row] = $prop_Description;
+                      $aFieldFields[$row] = $prop_Field;
+                      $aTypeFields[$row] = $type_ID;
+                      $aDisplayFields[$row] = $prop_PersonDisplay;
+                      $aPropFields[$row] = $prop_ID;
+                      $aSpecialFields[$row] = $prop_Special;
                   }
-                echo '</tr>';
 
-                $last_pro_prt_ID = '';
-                $bIsFirst = true;
-
-                //Loop through the rows
-                while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
-                    $pro_Prompt = '';
-                    $r2p_Value = '';
-
-                    extract($aRow);
-
-                    if ($pro_prt_ID != $last_pro_prt_ID) {
-                        if ($bIsFirst) {
-                            $rowColor = 'RowColorB';
-                        } else {
-                            $rowColor =  'RowColorC';
-                        }
-                      ?>  
-                        
-                        <tr class="<?= $rowColor?>"><td>
-                        <b><?= gettext($prt_Name)?></b></td>
-                   <?php
-                        $bIsFirst = false;
-                        $last_pro_prt_ID = $pro_prt_ID;
-                        $sRowClass = 'RowColorB';
-                    } else {
-                    ?>
-                        <tr class="<?= $sRowClass ?>">
-                        <td valign="top">&nbsp;</td>
-                    <?php
-                    }
-                    ?>
-
-                    <td valign="top"><?= $pro_Name ?>&nbsp;</td>
-                    <td valign="top"><?= $r2p_Value ?>&nbsp;</td>
-                    <?php
-                    if (strlen($pro_Prompt) > 0 && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true )) {
-                    ?>
-                        <td valign="top">
-                          <a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?>
-                          </a>
-                        </td>
-                    <?php
-                    } else {
-                    ?>
-                        <td>&nbsp;</td>
-                    <?php
-                    }
-
-                    if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
-                    ?>
-                        <td valign="top"><a data-group_id="<?= $iGroupID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
-                    <?php
-                    } else {
-                    ?>
-                        <td>&nbsp;</td>
-                    <?php
-                    }
-                    ?>
-
+                  // Construct the table
+                  if ($numRows == 0) {
+                  ?>
+                      <p><?= gettext("No member properties have been created")?></p>
+                  <?php
+                  } else {
+                  ?>
+              
+                  <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
+                    <tr class="TableHeader">
+                      <!--<td><b><?= gettext('Type') ?></b></td>-->
+                      <td><b><?= gettext('Name') ?></b></td>
+                      <td><b><?= gettext('Description') ?></b></td>
                     </tr>
                     <?php
-
-                    //Alternate the row style
-                    $sRowClass = AlternateRowStyle($sRowClass);
-
-                    $sAssignedProperties .= $pro_ID.',';
-                }
-                ?>
-
-                </table>
-            <?php
-            }
-
-            if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
-            ?>
-                <div class="alert alert-info">
-                  <div>
-                      <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
-
-                      <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/groups/assign' ?>" id="assign-property-form">
-                        <input type="hidden" name="GroupId" value="<?= $iGroupID ?>" >
-                        <div class="row">
-                          <div class="form-group col-xs-12 col-md-7">
-                          <select name="PropertyId" class="input-group-properties form-control select2"
-                                          style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
-                          <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
-                            <?php
-                            foreach ($ormProperties as $ormProperty) {
-                                //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                if (strlen(strstr($sAssignedProperties, ','.$ormProperty->getProId().',')) == 0) {
-                                ?>
-                                    <option value="<?= $ormProperty->getProId() ?>" data-pro_Prompt="<?= $ormProperty->getProPrompt() ?>" data-pro_Value=""><?= $ormProperty->getProName() ?></option>                              
-                                <?php
-                                }
+                      $sRowClass = 'RowColorA';
+                
+                      for ($row = 1; $row <= $numRows; $row++) {
+                          $sRowClass = AlternateRowStyle($sRowClass);
+                          if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $aDisplayFields[$row] == "true") {
+                          ?>
+                          <tr class="<?= $sRowClass ?>">
+                          <!--<td><?= $aPropTypes[$aTypeFields[$row]] ?></td>-->
+                          <td><?= $aNameFields[$row] ?></td>
+                          <td>
+                          <?php 
+                            if ($aDescFields[$row] == "true" || $aDescFields[$row] == "false") {
+                          ?>
+                            <?= ($aDescFields[$row] == "true")?gettext("Yes"):gettext("No") ?>
+                          <?php
+                            } else if ( $aDescFields[$row] == "" ) {
+                          ?>
+                            <?= gettext("Unknown") ?>
+                          <?php
+                            } else if ($aTypeFields[$row] == 10) {
+                          ?> 
+                            <?= $aDescFields[$row]." ".SystemConfig::getValue("sCurrency") ?>
+                          <?php
+                            } else if ($aTypeFields[$row] == 11) {
+                          ?>                        
+                            <a href="tel:<?= $aDescFields[$row] ?>"><?= $aDescFields[$row] ?></a>
+                          <?php
+                            } else if ($aTypeFields[$row] == 9) {
+                              $onePerson = PersonQuery::Create()->findOneById($aDescFields[$row]);
+                          ?>
+                              <a target="_top" href="PersonView.php?PersonID=<?= $onePerson->getId()?>"><?= $onePerson->getFullName() ?></a>
+                          <?php
+                            } else if ($aTypeFields[$row] == 12) {
+                              $oneList = ListOptionQuery::Create()->filterById($aSpecialFields[$row])->filterByOptionId($aDescFields[$row])->findOne();
+                          ?>
+                              <?= ($oneList == null)?gettext("Unassigned"):$oneList->getOptionName() ?>
+                          <?php
+                            } else {
+                          ?>
+                            <?= $aDescFields[$row] ?>
+                          <?php
                             }
-                            ?>
-
-                          </select>
-                          </div>
-                          <div id="prompt-box" class="col-xs-12 col-md-7"></div>
-                          <div class="form-group col-xs-12 col-md-7">
-                             <input type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
-                          </div>
-                        </div>
-                    </form>
-                  </div>
-                </div>
-          <?php
-            } else {
-          ?>
-              <br><br><br>
-          <?php
-            }
-          ?>
-    </div>
-</div>
-
-<?php
-  if ( $_SESSION['user']->isManageGroupsEnabled() ) {
-?>
-<div class="box collapsed-box">
-  <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("Group Managers") ?></h3>
-    <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-    </div>
-  </div>
-  <div class="box-body">
-      <b><?= gettext("Assigned Managers") ?>:</b>
-      <div id="Manager-list">
-      <?php
-        $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
-        
-        if ($managers->count()) {
-          foreach ($managers as $manager) {
-        ?>
-          <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, 
-        <?php
-          }
-        } else {
-      ?>
-        <p><?= gettext("No assigned Manager") ?>.</p>
-      <?php
-        }
-      ?>
-      </div>
-      <a class="btn btn-primary" id="add-manager"><?= gettext("Add Manager") ?></a>
-  </div>
-</div>
-
-<?php
-  }
-?>
-
-<div class="box collapsed-box">
-  <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group-Specific Properties') ?></h3>
-    <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-    </div>
-  </div>
-  <div class="box-body">
-      <b><?= gettext('Assigned Properties') ?>:</b>
-          <?php
-          if ($thisGroup->getHasSpecialProps()) {
-              // Create arrays of the properties.
-              for ($row = 1; $row <= $numRows; $row++) {
-                  $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
-                  extract($aRow);
-
-                  $aNameFields[$row] = $prop_Name;
-                  $aDescFields[$row] = $prop_Description;
-                  $aFieldFields[$row] = $prop_Field;
-                  $aTypeFields[$row] = $type_ID;
-                  $aDisplayFields[$row] = $prop_PersonDisplay;
-                  $aPropFields[$row] = $prop_ID;
-                  $aSpecialFields[$row] = $prop_Special;
-              }
-
-              // Construct the table
-              if ($numRows == 0) {
-              ?>
-                  <p><?= gettext("No member properties have been created")?></p>
-              <?php
+                          ?>
+                            &nbsp;</td>
+                          </tr>
+                    <?php
+                        }
+                      }
+                    ?>
+                      </table>
+                <?php
+                  }
               } else {
               ?>
-              
-              <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
-                <tr class="TableHeader">
-                  <!--<td><b><?= gettext('Type') ?></b></td>-->
-                  <td><b><?= gettext('Name') ?></b></td>
-                  <td><b><?= gettext('Description') ?></b></td>
-                </tr>
-                <?php
-                  $sRowClass = 'RowColorA';
-                
-                  for ($row = 1; $row <= $numRows; $row++) {
-                      $sRowClass = AlternateRowStyle($sRowClass);
-                      if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $aDisplayFields[$row] == "true") {
-                      ?>
-                      <tr class="<?= $sRowClass ?>">
-                      <!--<td><?= $aPropTypes[$aTypeFields[$row]] ?></td>-->
-                      <td><?= $aNameFields[$row] ?></td>
-                      <td>
-                      <?php 
-                        if ($aDescFields[$row] == "true" || $aDescFields[$row] == "false") {
-                      ?>
-                        <?= ($aDescFields[$row] == "true")?gettext("Yes"):gettext("No") ?>
-                      <?php
-                        } else if ( $aDescFields[$row] == "" ) {
-                      ?>
-                        <?= gettext("Unknown") ?>
-                      <?php
-                        } else if ($aTypeFields[$row] == 10) {
-                      ?> 
-                        <?= $aDescFields[$row]." ".SystemConfig::getValue("sCurrency") ?>
-                      <?php
-                        } else if ($aTypeFields[$row] == 11) {
-                      ?>                        
-                        <a href="tel:<?= $aDescFields[$row] ?>"><?= $aDescFields[$row] ?></a>
-                      <?php
-                        } else if ($aTypeFields[$row] == 9) {
-                          $onePerson = PersonQuery::Create()->findOneById($aDescFields[$row]);
-                      ?>
-                          <a target="_top" href="PersonView.php?PersonID=<?= $onePerson->getId()?>"><?= $onePerson->getFullName() ?></a>
-                      <?php
-                        } else if ($aTypeFields[$row] == 12) {
-                          $oneList = ListOptionQuery::Create()->filterById($aSpecialFields[$row])->filterByOptionId($aDescFields[$row])->findOne();
-                      ?>
-                          <?= ($oneList == null)?gettext("Unassigned"):$oneList->getOptionName() ?>
-                      <?php
-                        } else {
-                      ?>
-                        <?= $aDescFields[$row] ?>
-                      <?php
-                        }
-                      ?>
-                        &nbsp;</td>
-                      </tr>
-                <?php
-                    }
-                  }
-                ?>
-                  </table>
-            <?php
-              }
-          } else {
-          ?>
-              <p><?= gettext("Disabled for this group.") ?></p>
-          <?php
-          }          
-            //Print Assigned Properties
-          ?>
+                  <p><?= gettext("Disabled for this group.") ?></p>
+              <?php
+              }          
+                //Print Assigned Properties
+              ?>
           
-          <?php
-             if ($thisGroup->getHasSpecialProps() && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
-          ?>
-              <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
-          <?php
-             }
-          ?>
+              <?php
+                 if ($thisGroup->getHasSpecialProps() && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
+              ?>
+                  <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
+              <?php
+                 }
+              ?>
+      </div>
+    </div>
   </div>
 </div>
 
