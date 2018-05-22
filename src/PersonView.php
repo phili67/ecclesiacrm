@@ -915,7 +915,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 <?php
                                 }
                                 ?>
-                                <td valign="top"><a data-person_id="<?= $iPersonID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a></td>
+                                <td valign="top">
+                                <?php 
+                                  if ($_SESSION['user']->isEditRecordsEnabled()) {
+                                ?>
+                                  <a data-person_id="<?= $iPersonID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a></td>
+                                <?php
+                                  }
+                                ?>
                                 <?php
                             }
                             ?>
@@ -928,7 +935,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 </table>
             <?php endif; ?>
 
-              <?php if ($bOkToEdit && count($ormProperties) != 0): ?>
+              <?php if ($_SESSION['user']->isEditRecordsEnabled() && $bOkToEdit && count($ormProperties) != 0): ?>
                 <div class="alert alert-info">
                   <div>
                     <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
