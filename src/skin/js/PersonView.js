@@ -413,11 +413,11 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: i18next.t('OK'),
-              className: 'confirm-button-class'
+              className: 'btn btn-danger'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'cancel-button-class'
+              className: 'btn btn-primary'
             }
           },
           title: i18next.t('Are you sure you want to unassign this property?'),
@@ -451,11 +451,11 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: i18next.t('OK'),
-              className: 'confirm-button-class'
+              className: 'btn btn-primary'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'cancel-button-class'
+              className: 'btn btn-default'
             }
           },
           title: i18next.t('Are you sure you want to change this property?'),          
@@ -957,7 +957,7 @@ $(document).ready(function () {
   /* Custom filtering function which will search data in column four between two values */
    $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
-        if (settings.nTable.id == "automaticPaymentsTable") {
+        if (settings.nTable.id == "automaticPaymentsTable" || settings.nTable.id == "assigned-properties-table" || settings.nTable.id == "assigned-volunteer-opps-table") {
           return true;
         }
         
