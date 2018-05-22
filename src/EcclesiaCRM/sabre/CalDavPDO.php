@@ -1319,7 +1319,7 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
 
             foreach ($currentInvites as $oldSharee) {
 
-                if ($oldSharee->href === $sharee->href) {
+                if ($oldSharee->href === $sharee->href || $oldSharee->principal === $sharee->principal) {// sometimes a user can delete his email address
                     // This is an update
                     $sharee->properties = array_merge(
                         $oldSharee->properties,
