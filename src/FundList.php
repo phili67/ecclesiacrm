@@ -18,7 +18,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 
 //Set the page title
-$sPageTitle = gettext('Fund List');
+$sPageTitle = gettext('Donation Fund Editor');
 
 require 'Include/Header.php'; ?>
 
