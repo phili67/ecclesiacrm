@@ -50,6 +50,13 @@ function addProfilesToMainDropdown()
           placeholder: " -- "+i18next.t("Person")+" -- "
         });
         
+        $("#personSelect").on("select2:select", function (event) {
+          if ($(this).find(':selected').data('email') == '') {
+            window.CRM.DisplayAlert("Error","The user must have an email address.");
+            $("#personSelect").val('').trigger("change");
+          }
+        });
+        
         $(".data-table").DataTable({
           "language": {
             "url": window.CRM.plugin.dataTable.language.url
