@@ -207,7 +207,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     //$user->createHomeDir();
                     $user = UserQuery::create()->findPk($iPersonID);
                     
-                    $old_ManageGroups = $user->getManageGroups();
+                    $old_ManageGroups = $user->isManageGroupsEnabled();
                     
                     $oldUserName = $user->getUserName();
                     
@@ -230,7 +230,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->renameHomeDir($oldUserName,$sUserName);
                     $user->createTimeLineNote("updated");// the calendars are moved from one username to another in the function : renameHomeDir
                     
-                    if ($ManageGroups) {
+                    if ($ManageGroups || $Admin) {
                       $user->createGroupAdminCalendars();
                     } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
                       $user->deleteGroupAdminCalendars();
