@@ -29,9 +29,9 @@ class PDF_GroupDirectory extends ChurchInfoReport
             //Move to the right
             $this->Cell(10);
             //Framed title
-            $sTitle = $sGroupName.' - '. OutputUtils::translate_text_fpdf((gettext('Group Directory'));
+            $sTitle = $sGroupName.' - '. OutputUtils::translate_text_fpdf(gettext('Group Directory'));
             if (strlen($sRoleName)) {
-                $sTitle .= ' ('.OutputUtils::translate_text_fpdf((gettext($sRoleName)).')';
+                $sTitle .= ' ('.OutputUtils::translate_text_fpdf(gettext($sRoleName)).')';
             }
             $this->Cell(197, 10, $sTitle, 1, 0, 'C');
         }
@@ -119,7 +119,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->Write(5, OutputUtils::translate_text_fpdf(($sName));
+        $this->Write(5, OutputUtils::translate_text_fpdf($sName));
         $this->SetFont($this->_Font, '', $this->_Char_Size);
         $this->_CurLine++;
     }
@@ -134,7 +134,7 @@ class PDF_GroupDirectory extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(108, 5, OutputUtils::translate_text_fpdf(($text));
+        $this->MultiCell(108, 5, OutputUtils::translate_text_fpdf($text));
         $this->_CurLine += $numlines;
     }
 }
