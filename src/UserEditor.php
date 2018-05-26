@@ -79,10 +79,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
     if (strlen($sUserName) < 3) {
         if ($NewUser == false) {
             //Report error for current user creation
-            Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=Login must be a least 3 characters!');
+            Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
         } else {
             //Report error for new user creation
-            Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText=Login must be a least 3 characters!');
+            Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
         }
     } else {
         if (isset($_POST['AddRecords'])) {
@@ -200,7 +200,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $email->send();
                 } else {
                     // Set the error text for duplicate when new user
-                    Redirect('UserEditor.php?NewPersonID=' . $PersonID . '&ErrorText=Login already in use, please select a different login!');
+                    Redirect('UserEditor.php?NewPersonID=' . $PersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
                 }
             } else {
                 if ($undupCount == 0) {
@@ -240,7 +240,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $email->send();                  
                 } else {
                     // Set the error text for duplicate when currently existing
-                    Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=Login already in use, please select a different login!');
+                    Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
                 }
             }
         }
@@ -461,9 +461,7 @@ foreach ($userProfiles as $userProfile) {
                                     // Loop through all the people
                                     while ($aRow = mysqli_fetch_array($rsPeople)) {
                                         extract($aRow); ?>
-                                        <option value="<?= $per_ID ?>"<?php if ($per_ID == $iPersonID) {
-                                            echo ' selected';
-                                        } ?>><?= $per_LastName . ', ' . $per_FirstName ?></option>
+                                        <option value="<?= $per_ID ?>"<?= ($per_ID == $iPersonID)?' selected':'' ?> data-email="<?= $per_Email ?>"><?= $per_LastName . ', ' . $per_FirstName ?></option>
                                         <?php
                                     } ?>
                                 </select>

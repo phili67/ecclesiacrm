@@ -3813,6 +3813,12 @@ msgstr "Réglages personnels"
 msgid "Variable name"
 msgstr "Nom de la variable"
 
+msgid "Login already in use, please select a different login!"
+msgstr "Le login est déjà utilisé, veuillez en choisir un autre !"
+
+msgid "Login must be a least 3 characters!"
+msgstr "Le Login doit contenir au minimum 3 caractères !"
+
 #: SettingsIndividual.php:98 SettingsUser.php:85 UserEditor.php:478
 msgid "Current Value"
 msgstr "Valeur Actuelle"
@@ -10085,3 +10091,4 @@ msgstr "Managers assignés"
 
 msgid "Add New Fund"
 msgstr "Ajouter un nouveau Fond"
+
