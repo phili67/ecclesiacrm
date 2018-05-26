@@ -105,10 +105,10 @@ require 'Include/Header.php';
   </div>
 </div>
 
+<form method=post action=SystemSettings.php>
 <div class="row">
   <div class="col-lg-12">
     <div class="box box-body">
-      <form method=post action=SystemSettings.php>
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
             <?php foreach (SystemConfig::getCategories() as $category=>$settings) {
@@ -127,11 +127,8 @@ require 'Include/Header.php';
            <?php
             // Build Category Pages
             foreach (SystemConfig::getCategories() as  $category=>$settings) {
-                ?>
-
-            <div class="tab-pane <?php if ($category == 'Church Information') {
-                    echo 'active';
-                } ?>" id="<?= str_replace(" ", '', $category) ?>">
+          ?>
+            <div class="tab-pane <?= ($category == 'Church Information')?'active':'' ?>" id="<?= str_replace(" ", '', $category) ?>">
                 <div class="table-responsive">
               <table class="table table-striped">
                 <tr>
@@ -251,12 +248,12 @@ require 'Include/Header.php';
             }
             ?>
           </div>
-        </div>
         <input type=submit class='btn btn-primary' name=save value="<?= gettext('Save Settings') ?>">
     </div>
-    </form>
   </div>
 </div>
+</form>
+
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   $(document).ready(function () {
@@ -273,7 +270,7 @@ require 'Include/Header.php';
             if ($setting->getType() == 'ajax') {
                 ?>
                 updateDropDrownFromAjax($('#ajax-<?= $setting->getId() ?>'));
-<?php
+  <?php
             }
         }
     } ?>
