@@ -50,7 +50,8 @@ class AppIntegrityService
   {
     $prerequisites = array(
       'PHP 7.0+'                                  => version_compare(PHP_VERSION, '7.0.0', '>='),
-      'PCRE and UTF-8 Support'                    => function_exists('preg_match') && @preg_match('/^.$/u', 'ñ') && @preg_match('/^\pL$/u', 'ñ'),
+      'PCRE Support'                              => function_exists('preg_match'),
+      'UTF-8 Support'                             => @preg_match('/^.$/u', 'A') && @preg_match('/^\pL$/u', 'A'),
       'Multibyte Encoding'                        => extension_loaded('mbstring'),
       'PHP Phar'                                  => extension_loaded('phar'),
       'PHP Session'                               => extension_loaded('session'),
