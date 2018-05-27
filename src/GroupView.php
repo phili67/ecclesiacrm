@@ -13,7 +13,6 @@
  *
  *  Copyright Contributors
  *
- *
  * **************************************************************************** */
 
 //Include the function library
@@ -28,6 +27,7 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
+use EcclesiaCRM\GroupPropMasterQuery;
 
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
@@ -76,9 +76,7 @@ $ormProperties = PropertyQuery::Create()
                   
 
 // Get data for the form as it now exists..
-$sSQL = 'SELECT * FROM groupprop_master WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-$rsPropList = RunQuery($sSQL);
-$numRows = mysqli_num_rows($rsPropList);
+$ormPropList = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID);
 
 //Set the page title
 $sPageTitle = gettext('Group View').' : '.$thisGroup->getName();
@@ -111,10 +109,13 @@ require 'Include/Header.php';
      }
     ?>
     <?php
-    if ( $_SESSION['user']->isManageGroupsEnabled() ) {
-        echo '<a class="btn btn-app" href="GroupEditor.php?GroupID=' . $thisGroup->getId() . '"><i class="fa fa-pencil"></i>' . gettext('Edit this Group') . '</a>';
-        echo '<button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i>' . gettext('Delete this Group') . '</button>'; 
-    }?>
+      if ( $_SESSION['user']->isManageGroupsEnabled() ) {
+    ?>
+        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= gettext('Edit this Group') ?></a>
+        <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= gettext('Delete this Group') ?></button>
+    <?php
+      }
+    ?>
 
 
     <?php
@@ -222,20 +223,23 @@ require 'Include/Header.php';
 
 <div class="box">
     <div class="box-body">
-      
+      <center>
         <button class="btn btn-success" type="button">
             <?= gettext('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
         </button>
         <button class="btn btn-info" type="button">
-        <?php if (!empty($defaultRole)) {
+        <?php 
+          if (!empty($defaultRole)) {
         ?>
             <?= gettext('Default Role') ?> <span class="badge"><?= $defaultRole->getOptionName() ?></span>
         <?php
-    } ?>
+          } 
+        ?>
         </button>
         <button class="btn btn-primary" type="button">
             <?= gettext('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
         </button>
+      </center>
     </div>
 </div>
 
@@ -263,7 +267,7 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext("Group Managers") ?></h3>
+        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= gettext("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= gettext("Group Managers") ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
@@ -301,7 +305,7 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('Group Properties') ?></h3>
+        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= gettext("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= gettext('Group Properties') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
@@ -452,7 +456,7 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('Group-Specific Properties') ?></h3>
+        <h3 class="box-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= gettext("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= gettext('Group-Specific Properties') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
@@ -462,21 +466,9 @@ require 'Include/Header.php';
               <?php
               if ($thisGroup->getHasSpecialProps()) {
                   // Create arrays of the properties.
-                  for ($row = 1; $row <= $numRows; $row++) {
-                      $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
-                      extract($aRow);
-
-                      $aNameFields[$row] = $prop_Name;
-                      $aDescFields[$row] = $prop_Description;
-                      $aFieldFields[$row] = $prop_Field;
-                      $aTypeFields[$row] = $type_ID;
-                      $aDisplayFields[$row] = $prop_PersonDisplay;
-                      $aPropFields[$row] = $prop_ID;
-                      $aSpecialFields[$row] = $prop_Special;
-                  }
 
                   // Construct the table
-                  if ($numRows == 0) {
+                  if ($ormPropList->count() == 0) {
                   ?>
                       <p><?= gettext("No member properties have been created")?></p>
                   <?php
@@ -492,44 +484,44 @@ require 'Include/Header.php';
                     <?php
                       $sRowClass = 'RowColorA';
                 
-                      for ($row = 1; $row <= $numRows; $row++) {
+                      foreach ($ormPropList as $prop) {
                           $sRowClass = AlternateRowStyle($sRowClass);
-                          if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $aDisplayFields[$row] == "true") {
+                          if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                           ?>
                           <tr class="<?= $sRowClass ?>">
-                          <!--<td><?= $aPropTypes[$aTypeFields[$row]] ?></td>-->
-                          <td><?= $aNameFields[$row] ?></td>
+                          <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
+                          <td><?= $prop->getName() ?></td>
                           <td>
                           <?php 
-                            if ($aDescFields[$row] == "true" || $aDescFields[$row] == "false") {
+                            if ($prop->getDescription() == "true" || $prop->getDescription() == "false") {
                           ?>
-                            <?= ($aDescFields[$row] == "true")?gettext("Yes"):gettext("No") ?>
+                            <?= ($prop->getDescription() == "true")?gettext("Yes"):gettext("No") ?>
                           <?php
-                            } else if ( $aDescFields[$row] == "" ) {
+                            } else if ( $prop->getDescription() == "" ) {
                           ?>
                             <?= gettext("Unknown") ?>
                           <?php
-                            } else if ($aTypeFields[$row] == 10) {
+                            } else if ($prop->getTypeId() == 10) {
                           ?> 
-                            <?= $aDescFields[$row]." ".SystemConfig::getValue("sCurrency") ?>
+                            <?= $prop->getDescription()." ".SystemConfig::getValue("sCurrency") ?>
                           <?php
-                            } else if ($aTypeFields[$row] == 11) {
+                            } else if ($prop->getTypeId() == 11) {
                           ?>                        
-                            <a href="tel:<?= $aDescFields[$row] ?>"><?= $aDescFields[$row] ?></a>
+                            <a href="tel:<?= $prop->getDescription() ?>"><?= $prop->getDescription() ?></a>
                           <?php
-                            } else if ($aTypeFields[$row] == 9) {
-                              $onePerson = PersonQuery::Create()->findOneById($aDescFields[$row]);
+                            } else if ($prop->getTypeId() == 9) {
+                              $onePerson = PersonQuery::Create()->findOneById($prop->getDescription());
                           ?>
                               <a target="_top" href="PersonView.php?PersonID=<?= $onePerson->getId()?>"><?= $onePerson->getFullName() ?></a>
                           <?php
-                            } else if ($aTypeFields[$row] == 12) {
-                              $oneList = ListOptionQuery::Create()->filterById($aSpecialFields[$row])->filterByOptionId($aDescFields[$row])->findOne();
+                            } else if ($prop->getTypeId() == 12) {
+                              $oneList = ListOptionQuery::Create()->filterById($prop->getSpecial())->filterByOptionId($prop->getDescription())->findOne();
                           ?>
                               <?= ($oneList == null)?gettext("Unassigned"):$oneList->getOptionName() ?>
                           <?php
                             } else {
                           ?>
-                            <?= $aDescFields[$row] ?>
+                            <?= $prop->getDescription() ?>
                           <?php
                             }
                           ?>
@@ -544,7 +536,7 @@ require 'Include/Header.php';
                   }
               } else {
               ?>
-                  <p><?= gettext("Disabled for this group.") ?></p>
+                  <p><?= gettext("Disabled for this group.") ?> <?= gettext("You should Edit the group and \"Enable Group Specific Properties\". To do this, press the buttion above : \"Edit this Group\"") ?></p>
               <?php
               }          
                 //Print Assigned Properties

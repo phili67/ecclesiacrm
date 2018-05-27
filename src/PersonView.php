@@ -803,14 +803,24 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                           $sSQL = 'SELECT groupprop_master.* FROM groupprop_master WHERE grp_ID = '.$grp_ID." AND prop_PersonDisplay = 'true' ORDER BY prop_ID";
                           $rsPropList = RunQuery($sSQL);
 
-                          $sSQL = 'SELECT * FROM groupprop_'.$grp_ID.' WHERE per_ID = '.$iPersonID;
+                          /*$sSQL = 'SELECT * FROM groupprop_'.$grp_ID.' WHERE per_ID = '.$iPersonID;
                           $rsPersonProps = RunQuery($sSQL);
-                          $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
+                          $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);*/
 
                           echo '<div class="box-body">';
+                          
+                          echo '<label>'.gettext("Informations").'</label><br>';
 
                           while ($aProps = mysqli_fetch_array($rsPropList)) {
                               extract($aProps);
+                              $sRowClass = AlternateRowStyle($sRowClass);
+                              if ($type_ID == 11) {
+                                $prop_Special = $sPhoneCountry;
+                              }
+                              echo '<strong>'.$prop_Name.'</strong>: '.displayCustomField($type_ID, $prop_Description, $prop_Special).'<br/>';
+                              
+                              // Old code                              
+                              /*extract($aProps);
                               $currentData = trim($aPersonProps[$prop_Field]);
                               if (strlen($currentData) > 0) {
                                   $sRowClass = AlternateRowStyle($sRowClass);
@@ -818,7 +828,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                       $prop_Special = $sPhoneCountry;
                                   }
                                   echo '<strong>'.$prop_Name.'</strong>: '.displayCustomField($type_ID, $currentData, $prop_Special).'<br/>';
-                              }
+                              }*/
                           }
 
                           echo '</div><!-- /.box-body -->';

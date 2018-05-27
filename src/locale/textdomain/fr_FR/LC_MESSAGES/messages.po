@@ -8216,6 +8216,9 @@ msgstr "Exclure"
 msgid "No property assignments"
 msgstr "Aucunes propriétés assignées"
 
+msgid "You should Edit the group and \"Enable Group Specific Properties\". To do this, press the buttion above : \"Edit this Group\""
+msgstr "Vous pourriez Editer le groupe et \"Activer les Propriétés spécifiques du groupe\". Pour cela, cliquer : \"Modifier ce Groupe\""
+
 #: 
 msgid "View Cart"
 msgstr "Afficher le panier"
