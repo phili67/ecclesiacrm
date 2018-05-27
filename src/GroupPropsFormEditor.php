@@ -312,7 +312,7 @@ if ($numRows == 0) {
       <th><?= gettext('Name') ?></th>
       <th><?= gettext('Description') ?></th>
       <th><?= gettext('Special option') ?></th>
-      <th><?= gettext('Show in') ?><br><?= gettext('Person View') ?></th>
+      <th><?= gettext('Show in') ?><br>"<?= gettext('Person Profile') ?>"</th>
     </tr>
 
   <?php

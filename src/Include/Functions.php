@@ -772,15 +772,16 @@ function displayCustomField($type, $data, $special)
     case 2:
       return OutputUtils::FormatDate($data);
       break;
-    // Handler for text fields, years, seasons, numbers, money
+    // Handler for text fields, years, seasons, numbers
     case 3:
     case 4:
     case 6:
     case 8:
-    case 10:
       return $data;
       break;
-
+    case 10:
+      return $data." ".SystemConfig::getValue("sCurrency");
+      break;
     // Handler for extended text fields (MySQL type TEXT, Max length: 2^16-1)
     case 5:
       /*if (strlen($data) > 100) {
@@ -804,7 +805,7 @@ function displayCustomField($type, $data, $special)
           $rsTemp = RunQuery($sSQL);
           extract(mysqli_fetch_array($rsTemp));
 
-          return $per_FirstName.' '.$per_LastName;
+          return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$per_FirstName.' '.$per_LastName.'</a>';
       } else {
           return '';
       }
@@ -812,7 +813,7 @@ function displayCustomField($type, $data, $special)
 
     // Handler for phone numbers
     case 11:
-      return ExpandPhoneNumber($data, $special, $dummy);
+      return '<a href="tel:'.$data.'">'.ExpandPhoneNumber($data, $special, $dummy).'</a>';
       break;
 
     // Handler for custom lists
