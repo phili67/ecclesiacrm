@@ -557,6 +557,7 @@ CREATE TABLE `family_fam` (
 --
 
 CREATE TABLE `groupprop_master` (
+  `grp_mster_id` mediumint(9) unsigned NOT NULL auto_increment,
   `grp_ID` mediumint(9) unsigned NOT NULL default '0',
   `prop_ID` tinyint(3) unsigned NOT NULL default '0',
   `prop_Field` varchar(5) NOT NULL default '0',
@@ -564,7 +565,8 @@ CREATE TABLE `groupprop_master` (
   `prop_Description` varchar(60) default NULL,
   `type_ID` smallint(5) unsigned NOT NULL default '0',
   `prop_Special` mediumint(9) unsigned default NULL,
-  `prop_PersonDisplay` enum('false','true') NOT NULL default 'false'
+  `prop_PersonDisplay` enum('false','true') NOT NULL default 'false',
+  PRIMARY KEY  (`grp_mster_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT='Group-specific properties order, name, description, type';
 
 --
