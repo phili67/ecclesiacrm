@@ -521,7 +521,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
         ?>
         <?php
-          if ( $_SESSION['user']->isManageGroupsEnabled() ) {
+          if ( $_SESSION['user']->isManageGroupsEnabled() || $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ) {
         ?>
         <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><?= gettext('Assigned Groups') ?></a></li>
         <?php
@@ -834,9 +834,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                           echo '</div><!-- /.box-body -->';
                       } ?>
                       <div class="box-footer" style="width:275px">
-                        <code>
-                          <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
+                          <?php 
+                            if ($_SESSION['user']->isManageGroupsEnabled()) {
                           ?>
+                           <code>
                             <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
                             <div class="btn-group">
                               <button type="button" class="btn btn-default"><?= gettext('Action') ?></button>
@@ -859,9 +860,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                             <button data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
                             </div>
                             <!--<a data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" class="btn btn-danger groupRemove" role="button"><i class="fa fa-trash-o"></i></a>-->
-                          <?php
-                      } ?>
                         </code>
+                      <?php
+                        } 
+                      ?>
                       </div>
                       <!-- /.box-footer-->
                     </div>
