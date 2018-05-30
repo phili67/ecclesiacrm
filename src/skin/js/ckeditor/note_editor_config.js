@@ -5,9 +5,9 @@
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
-  
-    config.toolbarGroups = [
-    { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },//'source',
+    
+  config.toolbarGroups = [
+    { name: 'document', groups: [ 'document'] },//'source',
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
     { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
     { name: 'forms', groups: [ 'forms' ] },
@@ -63,7 +63,6 @@ CKEDITOR.editorConfig = function( config ) {
     'table,' +
     'tableselection,' +
     'tabletools,' +
-    'templates,' +
     'undo,' +
     'wysiwygarea';
 };

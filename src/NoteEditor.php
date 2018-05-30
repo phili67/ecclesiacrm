@@ -5,7 +5,7 @@
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker, 2018 Philippe Logel
-  *
+ *
  ******************************************************************************/
 
 //Include the function library
@@ -222,6 +222,13 @@ if (isset($_POST['Submit'])) {
 require 'Include/Header.php';
 
 ?>
+
+<style>
+    
+    
+    
+
+</style>
 <form method="post"<?= SystemURLs::getRootPath() ?>/NoteEditor.php" enctype="multipart/form-data">
   
   <div class="box box-primary">
@@ -296,12 +303,15 @@ require 'Include/Header.php';
 <?php require 'Include/Footer.php' ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  CKEDITOR.replace('NoteText',{
-    customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
-    language : window.CRM.lang
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">  
+  var editor = CKEDITOR.replace('NoteText',{
+      customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
+      language : window.CRM.lang
   });
+    
+  add_ckeditor_buttons(editor);
   
   $( "#selectType" ).change(function() {
     switch ($(this).val()) {

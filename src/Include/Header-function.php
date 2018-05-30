@@ -146,6 +146,7 @@ function Header_body_scripts()
             showCart:<?= ($_SESSION['user']->isShowCartEnabled())?"true":"false" ?>,
             bSidebarExpandOnHover:<?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
             bSidebarCollapse:<?= ($_SESSION['bSidebarCollapse'])?"true":"false" ?>,
+            iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
             plugin: {
                 dataTable : {
                    "language": {

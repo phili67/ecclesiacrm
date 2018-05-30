@@ -704,6 +704,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 <?php if ($EventID > 0 ) { ?>
@@ -718,10 +719,12 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
          order: [[ 1, "asc" ]]
        });
      
-     CKEDITOR.replace('NoteText',{
+     var editor = CKEDITOR.replace('NoteText',{
        customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
        language : window.CRM.lang
      });  
+     
+     add_ckeditor_buttons(editor);
      
      $('.collapse').on('shown.bs.collapse', function(){
         $(this).parent().find(".fa-chevron-down").removeClass("fa-chevron-down").addClass("fa-chevron-up");

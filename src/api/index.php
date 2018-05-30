@@ -49,9 +49,11 @@ require __DIR__.'/routes/groups.php';
 require __DIR__.'/routes/userprofile.php';
 require __DIR__.'/routes/people.php';
 
-// share documents toutes
-
+// share documents routes
 require __DIR__.'/routes/sharedocument.php';
+
+// share ckeditor routes
+require __DIR__.'/routes/ckeditor.php';
 
 // finance routes
 require __DIR__.'/routes/deposits.php';
