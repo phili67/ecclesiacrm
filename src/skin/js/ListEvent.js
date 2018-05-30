@@ -1,5 +1,20 @@
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//                This code can't be incoprorated in another software without any authorizaion
+//
+//  Updated : 2018/05/30
+//
+
+var editor = null;
+
 function addEvent(dateStart,dateEnd)
 {
+   if (editor != null) {
+      editor.destroy(false);
+      editor = null;              
+   }
+       
    modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','ListEvent.php');
        
    // we add the calendars and the types
@@ -31,11 +46,15 @@ function addEvent(dateStart,dateEnd)
    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
    // this will create the toolbar for the textarea
-   CKEDITOR.replace('eventPredication',{
-    customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-    language : window.CRM.lang,
-    width : '100%'
-   });
+   if (editor == null) {
+     editor = CKEDITOR.replace('eventPredication',{
+       customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+       language : window.CRM.lang,
+       width : '100%'
+     });
+   
+     add_ckeditor_buttons(editor);
+   }
 
    $(".ATTENDENCES").hide();
 
@@ -118,6 +137,10 @@ $('#add-event').click('focus', function (e) {
           path: 'events/info',
           data: JSON.stringify({"eventID":eventID})
       }).done(function(calEvent) {
+         if (editor != null) {
+           editor.destroy(false);
+           editor = null;              
+         }
       
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
        
@@ -153,11 +176,15 @@ $('#add-event').click('focus', function (e) {
          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
          // this will create the toolbar for the textarea
-         CKEDITOR.replace('eventPredication',{
-           customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
-           language : window.CRM.lang,
-           width : '100%'
-         });
+         if (editor == null) {
+           editor = CKEDITOR.replace('eventPredication',{
+             customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+             language : window.CRM.lang,
+             width : '100%'
+           });
+   
+           add_ckeditor_buttons(editor);
+         }
 
          $(".ATTENDENCES").hide();
 

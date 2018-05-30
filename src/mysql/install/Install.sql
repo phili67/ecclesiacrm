@@ -1604,3 +1604,22 @@ CREATE TABLE group_manager_person (
       REFERENCES group_grp(grp_ID)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- We create ckeditor_templates table
+-- 
+CREATE TABLE ckeditor_templates (
+    `cke_tmp_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
+    `cke_tmp_per_ID` mediumint(9) unsigned NOT NULL,
+    `cke_tmp_title` varchar(255) NOT NULL default '',
+    `cke_tmp_desc` varchar(255) default NULL,
+    `cke_tmp_text` text,
+    `cke_tmp_image` varchar(255) default NULL,
+    PRIMARY KEY(cke_tmp_id),
+    CONSTRAINT fk_cke_tmp_per_ID
+      FOREIGN KEY (cke_tmp_per_ID) 
+      REFERENCES person_per(per_ID)
+      ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;

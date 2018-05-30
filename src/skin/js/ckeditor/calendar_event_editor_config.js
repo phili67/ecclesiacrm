@@ -5,20 +5,19 @@
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '150px';
-  
-  config.toolbar = [
-    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
-    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    
+  config.toolbarGroups = [
+    { name: 'styles', groups: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+    { name: 'document', groups: [ 'mode' ] },//'source',
     '/',
-    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
-    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
-    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
-    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
-    { name: 'insert', items: [ 'Image','Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak' ] },
-    { name: 'tools', items: [ 'Maximize'] }
+    { name: 'clipboard', groups: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
+    { name: 'colors', groups: [ 'colors' ] },
+    { name: 'tools', groups: [ 'tools' ] },
+    { name: 'others', groups: [ 'others' ] }
   ];
-
   
+
   config.plugins =
     'undo,' +
     'colorbutton,' +

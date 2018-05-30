@@ -8219,6 +8219,16 @@ msgstr "Aucunes propriétés assignées"
 msgid "You should Edit the group and \"Enable Group Specific Properties\". To do this, press the buttion above : \"Edit this Group\""
 msgstr "Vous pourriez Editer le groupe et \"Activer les Propriétés spécifiques du groupe\". Pour cela, cliquer : \"Modifier ce Groupe\""
 
+msgid "Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group"
+msgstr "Ajouter des propriétés pour tous les membres de ce groupe. Ces propriétés sont visible dans chque profile utilisateir  &rarr; Groupes assignés"
+
+msgid "Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members."
+msgstr "Ajouter un manager seulement pour ce groupe. Il peut ajouter supprimer des membres de ce groupe, mais en créer."
+
+msgid "Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties"
+msgstr "Ajouter des propriétés pour ce groupe. Ces proprités sont globales pour tous les groupes et peuvent être modifiées via la barre administrateur à droite &rarr; Propriétés de Groupe"
+
+
 #: 
 msgid "View Cart"
 msgstr "Afficher le panier"
