@@ -25,7 +25,7 @@ $app->group('/ckeditor', function () {
         $elt = ['title' => $template->getTitle(), 
         'description' => $template->getDesc(), 
         'html' => $template->getText(), 
-        'image' => 'template2.gif',
+        'image' => $template->getImage(),
         'id' => $template->getId()];
         array_push($templatesArr, $elt);
       }
@@ -56,7 +56,7 @@ CKEDITOR.addTemplates( 'default',
           $elt = ['title' => $template->getTitle(), 
           'description' => $template->getDesc(), 
           'html' => $template->getText(), 
-          'image' => 'template1.gif',
+          'image' => $template->getImage(),
           'id' => $template->getId()];
           array_push($templatesArr, $elt);
         }
@@ -90,6 +90,7 @@ CKEDITOR.addTemplates( 'default',
         
         $template->setTitle($input->title);
         $template->setDesc($input->desc);
+        $template->setImage("template".rand(1, 3).".gif");
       
         $template->save();
       
@@ -100,11 +101,7 @@ CKEDITOR.addTemplates( 'default',
     });
     
     
-    $this->post('/savetemplate', function ($request, $response, $args) {
-      //$res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
-      //$photo = new Photo("Person",$args['personId']);
-      //return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
-      
+    $this->post('/savetemplate', function ($request, $response, $args) {      
       $input = (object)$request->getParsedBody();
       
       if ( isset ($input->personID) && isset ($input->title) && isset ($input->desc) && isset ($input->text) ) {
@@ -114,6 +111,7 @@ CKEDITOR.addTemplates( 'default',
         $template->setTitle($input->title);
         $template->setDesc($input->desc);
         $template->setText($input->text);
+        $template->setImage("template".rand(1, 3).".gif");
       
         $template->save();
       
