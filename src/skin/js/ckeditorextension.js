@@ -389,24 +389,24 @@
     
 
     editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command
-      label: "Manage templates",
+      label: i18next.t("Manage templates"),
       command: 'manageTemplates',
       toolbar: 'document',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/newpage/icons/newpage.png'
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/newpage/icons/hidpi/newpage.png'
     });
 
     editor.ui.addButton('SaveTemplateButton', { // add new button and bind our command
-      label: "Save templates",
+      label: i18next.t("Save templates"),
       command: 'saveTemplates',
       toolbar: 'document',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/save.png'
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
     });
     
     editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command
-      label: "Apply templates",
+      label: i18next.t("Apply templates"),
       command: 'applyTemplates',
       toolbar: 'document',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/templates/icons/templates.png'
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/templates/icons/hidpi/templates.png'
     });
   }
   

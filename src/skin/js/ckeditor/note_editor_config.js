@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
     
   config.toolbarGroups = [
-    { name: 'document', groups: [ 'document'] },//'source',
+    { name: 'document', groups: [ 'document', 'applyTemplates','manageTemplates','saveTemplates'] },//'source',
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
     { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
     { name: 'forms', groups: [ 'forms' ] },
