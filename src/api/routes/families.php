@@ -17,8 +17,32 @@ use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Property;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
+
 
 $app->group('/families', function () {
+    $this->post('/familyproperties/{familyID:[0-9]+}', function ($request, $response, $args) {
+      $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS."='f'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('ProTypeName')
+                            ->findByR2pRecordId($args['familyID']);
+
+      return $ormAssignedProperties->toJSON();
+    });
+    
     $this->get('/{familyId:[0-9]+}', function ($request, $response, $args) {
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJSON($family->toJSON());
