@@ -4,6 +4,7 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Pledge as BasePledge;
 use Propel\Runtime\Exception\PropelException;
+use Propel\Runtime\Connection\ConnectionInterface;
 
 /**
  * Skeleton subclass for representing a row from the 'pledge_plg' table.
@@ -16,14 +17,17 @@ use Propel\Runtime\Exception\PropelException;
  */
 class Pledge extends BasePledge
 {
-    public function preDelete()
+    public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
     {
-        $deposit = DepositQuery::create()->findOneById($this->getDepid());
-        if (!$deposit->getClosed()) {
-            return true;
-        } else {
+      $deposit = DepositQuery::create()->findOneById($this->getDepid());
+      
+      if (parent::preDelete($con)) {        
+          if ($deposit != null && $deposit->getClosed()) {
             throw new PropelException('Cannot delete a payment from a closed deposit', 500);
-        }
+          }
+          
+          return true;
+      }
     }
     
     public function toArray()
