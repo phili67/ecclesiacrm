@@ -1,4 +1,132 @@
 $(document).ready(function () {
+  $("#deletePhoto").click (function () {
+    $.ajax({
+    type: "POST",
+    url: window.CRM.root + "/api/persons/"+window.CRM.currentPersonID+"/photo",
+    encode: true,
+    dataType: 'json',
+    data: {
+      "_METHOD": "DELETE"
+    }
+    }).done(function(data) {
+      location.reload();
+    });
+  });
+
+  window.CRM.photoUploader =  $("#photoUploader").PhotoUploader({
+    url: window.CRM.root + "/api/persons/"+window.CRM.currentPersonID+"/photo",
+    maxPhotoSize: window.CRM.maxUploadSize,
+    photoHeight: window.CRM.iPhotoHeight,
+    photoWidth: window.CRM.iPhotoWidth,
+    done: function(e) {
+      window.location.reload();
+    }
+  });
+
+  $("#uploadImageButton").click(function(){
+    window.CRM.photoUploader.show();
+  });
+
+
+  $(document).ready(function() {
+      
+      $("#input-volunteer-opportunities").select2({ 
+        language: window.CRM.shortLocale
+      });
+      $("#input-person-properties").select2({ 
+        language: window.CRM.shortLocale
+      });
+
+      $("#assigned-volunteer-opps-table").DataTable(window.CRM.plugin.dataTable);
+
+      contentExists(window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/photo", function(success) {
+          if (success) {
+              $("#view-larger-image-btn").removeClass('hide');
+
+              $("#view-larger-image-btn").click(function() {
+                  bootbox.alert({
+                      title: i18next.t("Photo"),
+                      message: '<img class="img-rounded img-responsive center-block" src="'+window.CRM.root+'/api/persons/' + window.CRM.currentPersonID + '/photo" />',
+                      backdrop: true
+                  });
+              });
+          }
+      });
+
+  });
+  
+  // the assigned properties
+  window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/persons/personproperties/"+window.CRM.currentPersonID,
+      type: 'POST',
+      contentType: "application/json",
+      dataSrc: "Record2propertyR2ps"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    "searching": false,
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('Name'),
+        data:'ProName',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Value'),
+        data:'R2pValue',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Edit'),
+        data:'ProId',
+        render: function(data, type, full, meta) {
+          if (full.ProPrompt != '') {       
+            return '<a class="btn btn-success edit-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
+          }
+          
+          return "";
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Delete'),
+        data:'ProId',
+        render: function(data, type, full, meta) {
+          return '<a class="btn btn-danger remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
+        }
+      }
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("paymentRow");
+    }
+  });
+  
+  $('body').on('click','.assign-property-btn',function(){
+   var property_id = $('.input-person-properties').val();
+   var property_pro_value = $('.property-value').val();     
+   
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'properties/persons/assign',
+      data: JSON.stringify({"PersonId": window.CRM.currentPersonID,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
+    }).done(function(data) {
+      if (data && data.success) {
+           window.CRM.dataPropertiesTable.ajax.reload();
+           promptBox.removeClass('form-group').html('');
+      }
+    });
+  });
+
   
   $('.changeRole').click(function(event) {
     var GroupID = $(this).data("groupid");
@@ -374,7 +502,7 @@ $(document).ready(function () {
                     $('<label></label>').html(pro_prompt)
                 )
                 .append(
-                    $('<textarea rows="3" class="form-control" name="PropertyValue"></textarea>').val(pro_value)
+                    $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
                 );
         }
 
@@ -400,7 +528,7 @@ $(document).ready(function () {
 
     });
 
-    $('.remove-property-btn').click(function (event) {
+    $('body').on('click','.remove-property-btn',function(){ 
         event.preventDefault();
         var thisLink = $(this);
         var dataToSend = {
@@ -431,7 +559,7 @@ $(document).ready(function () {
                     dataType: 'json',
                     success: function (data, status, xmlHttpReq) {
                         if (data && data.success) {
-                            location.reload();
+                          window.CRM.dataPropertiesTable.ajax.reload();
                         }
                     }
                 });
@@ -440,7 +568,7 @@ $(document).ready(function () {
         });
     });
     
-    $('.edit-property-btn').click(function (event) {
+    $('body').on('click','.edit-property-btn',function(){ 
         event.preventDefault();
         var thisLink = $(this);
         var person_id = thisLink.data('person_id');
@@ -468,7 +596,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"PersonId": person_id,"PropertyId" : property_id, "PropertyValue":result})
                   }).done(function(data) {
                     if (data && data.success) {
-                            location.reload();
+                       window.CRM.dataPropertiesTable.ajax.reload();
                     }
                 });
             }

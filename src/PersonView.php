@@ -29,7 +29,6 @@ use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
-
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
 
@@ -105,9 +104,6 @@ if (empty($person)) {
     exit;
 }
 
-$assignedProperties = Record2propertyR2pQuery::Create()
-  ->findByR2pRecordId($iPersonID);
-
 // Get the lists of custom person fields
 $sSQL = 'SELECT person_custom_master.* FROM person_custom_master
   ORDER BY custom_Order';
@@ -141,15 +137,6 @@ $rsAssignedVolunteerOpps = RunQuery($sSQL);
 // Get all the volunteer opportunities
 $sSQL = 'SELECT vol_ID, vol_Name FROM volunteeropportunity_vol ORDER BY vol_Order';
 $rsVolunteerOpps = RunQuery($sSQL);
-
-// Get the Properties assigned to this Person
-$sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
-FROM record2property_r2p
-LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
-LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-WHERE pro_Class = 'p' AND r2p_record_ID = ".$iPersonID.
-' ORDER BY prt_Name, pro_Name';
-$rsAssignedProperties = RunQuery($sSQL);
 
 //Get all the properties
 $ormProperties = PropertyQuery::Create()
@@ -884,80 +871,17 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <div class="main-box-body clearfix">
             <?php
             $sAssignedProperties = ','; ?>
-            <?php if (mysqli_num_rows($rsAssignedProperties) == 0): ?>
-                <br>
-                <div class="alert alert-warning">
-                  <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No property assignments.') ?></span>
-                </div>
-            <?php else: ?>
-                <table class="table table-condensed dt-responsive" id="assigned-properties-table" width="100%">
-                    <thead>
-                        <tr class="TableHeader">
-                            <th><?= gettext('Type') ?></th>
-                            <th><?= gettext('Name') ?></th>
-                            <th><?= gettext('Value') ?></th>
-                            <?php if ($bOkToEdit): ?>
-                            <th><?= gettext('Edit Value') ?></th>
-                                <th><?= gettext('Remove') ?></th>
-                            <?php endif; ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        //Loop through the rows
-                        while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
-                            $pro_Prompt = '';
-                            $r2p_Value = '';
-                            extract($aRow);
-                            ?>
-
-                            <tr>
-                            <td><?= $prt_Name ?></td>
-                            <td><?= $pro_Name ?></td>
-                            <td><?= $r2p_Value ?></td>
-                          <?php
-                            if ($bOkToEdit) {
-                                if (strlen($pro_Prompt) > 0) {
-                                ?>
-                                   <td valign="top"><a data-person_id="<?= $iPersonID?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
-                                <?php
-                                } else {
-                                ?>
-                                   <td></td>
-                                <?php
-                                }
-                                ?>
-                                <td valign="top">
-                                <?php 
-                                  if ($_SESSION['user']->isEditRecordsEnabled()) {
-                                ?>
-                                  <a data-person_id="<?= $iPersonID ?>" data-property_id="<?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a></td>
-                                <?php
-                                  }
-                                ?>
-                                <?php
-                            }
-                            ?>
-                            </tr>
-                            
-                            <?php
-                            $sAssignedProperties .= $pro_ID.',';                        
-                        } ?>
-                    </tbody>
-                </table>
-            <?php endif; ?>
+            
+              <table class="table table-condensed dt-responsive" id="assigned-properties-table" width="100%"></table>
 
               <?php if ($_SESSION['user']->isEditRecordsEnabled() && $bOkToEdit && count($ormProperties) != 0): ?>
                 <div class="alert alert-info">
                   <div>
                     <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
-
-                    <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/persons/assign' ?>" id="assign-property-form">
-                        <input type="hidden" name="PersonId" value="<?= $person->getId() ?>" >
                         <div class="row">
                             <div class="form-group col-xs-12 col-md-7">
-                                <select name="PropertyId" id="input-person-properties" class="form-control select2"
-                                    style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
+                                <select name="PropertyId" id="input-person-properties" class="form-control input-person-properties select2"
+                                    style="width:100%" data-placeholder="<?= gettext("Select") ?> ..."  data-personID="<?= $iPersonID ?>">
                                 <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
                                 <?php
                                   foreach ($ormProperties as $ormProperty) {
@@ -974,10 +898,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
                             </div>
                             <div class="form-group col-xs-12 col-md-7">
-                                <input id="assign-property-btn" type="submit" class="btn btn-primary" value="<?= gettext('Assign') ?>" name="Submit">
+                                <input id="assign-property-btn" type="submit" class="btn btn-primary  assign-property-btn" value="<?= gettext('Assign') ?>">
                             </div>
                         </div>
-                    </form>
                   </div>
                 </div>
               <?php endif; ?>
@@ -1344,68 +1267,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = <?= $iPersonID ?>;
-  window.CRM.currentFamily = <?= $iFamilyID ?>;
-
-
-  $("#deletePhoto").click (function () {
-    $.ajax({
-    type: "POST",
-    url: window.CRM.root + "/api/persons/<?= $iPersonID ?>/photo",
-    encode: true,
-    dataType: 'json',
-    data: {
-      "_METHOD": "DELETE"
-    }
-    }).done(function(data) {
-      location.reload();
-    });
-  });
-
-  window.CRM.photoUploader =  $("#photoUploader").PhotoUploader({
-    url: window.CRM.root + "/api/persons/<?= $iPersonID ?>/photo",
-    maxPhotoSize: window.CRM.maxUploadSize,
-    photoHeight: <?= SystemConfig::getValue("iPhotoHeight") ?>,
-    photoWidth: <?= SystemConfig::getValue("iPhotoWidth") ?>,
-    done: function(e) {
-      window.location.reload();
-    }
-  });
-
-  $("#uploadImageButton").click(function(){
-    window.CRM.photoUploader.show();
-  });
-
-
-  $(document).ready(function() {
-      
-      $("#input-volunteer-opportunities").select2({ 
-        language: window.CRM.shortLocale
-      });
-      $("#input-person-properties").select2({ 
-        language: window.CRM.shortLocale
-      });
-
-      $("#assigned-volunteer-opps-table").DataTable(window.CRM.plugin.dataTable);
-      $("#assigned-properties-table").DataTable(window.CRM.plugin.dataTable);
-
-
-      contentExists(window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/photo", function(success) {
-          if (success) {
-              $("#view-larger-image-btn").removeClass('hide');
-
-              $("#view-larger-image-btn").click(function() {
-                  bootbox.alert({
-                      title: "<?= gettext('Photo') ?>",
-                      message: '<img class="img-rounded img-responsive center-block" src="<?= SystemURLs::getRootPath() ?>/api/persons/' + window.CRM.currentPersonID + '/photo" />',
-                      backdrop: true
-                  });
-              });
-          }
-      });
-
-  });
-
-
+  window.CRM.currentFamily   = <?= $iFamilyID ?>;
+  window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
+  window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
 </script>
 
 <?php require 'Include/Footer.php' ?>
