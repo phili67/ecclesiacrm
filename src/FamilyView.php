@@ -179,10 +179,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 
 ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    window.CRM.currentFamily = <?= $iFamilyID ?>;
-</script>
-
 <?php if (!empty($fam_DateDeactivated)) {
     ?>
     <div class="alert alert-warning">
@@ -624,112 +620,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                     <div class="main-box clearfix">
                         <div class="main-box-body clearfix">
                             <?php
-                            $sAssignedProperties = ",";
-
-    if (mysqli_num_rows($rsAssignedProperties) == 0) {
-        ?>
-                                <br>
-                                <div class="alert alert-warning">
-                                    <i class="fa fa-question-circle fa-fw fa-lg"></i>
-                                    <span><?= gettext("No property assignments.") ?></span>
-                                </div>
-                                <?php
-    } else {
-    ?>
-        <table width="100%" cellpadding="4" class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
-        <tr class="TableHeader">
-        <td width="10%" valign="top"><b><?= gettext("Type") ?></b></td>
-        <td width="15%" valign="top"><b><?= gettext("Name") ?></b></td>
-        <td valign="top"><b><?= gettext("Value") ?></b></td>
-        <?php
-        if ($bOkToEdit) {
-            ?>
-            <td width="10%" valign="top"><b><?= gettext("Edit Value") ?> </td>
-            <td valign="top"><b><?= gettext("Remove") ?></td>
-      <?php
-        }
-      ?>
-        </tr>
-      <?php
-        $last_pro_prt_ID = "";
-        $bIsFirst = true;
-
-        //Loop through the rows
-        while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
-            $pro_Prompt = "";
-            $r2p_Value = "";
-
-            extract($aRow);
-
-            if ($pro_prt_ID != $last_pro_prt_ID) {
-                if ($bIsFirst) {
-                    $rowColor = "RowColorB";
-                } else {
-                    $rowColor = "RowColorC";
-                }                
-              ?>
-                <tr class="<?= $rowColor ?>">
-              
-                <td><b><?= $prt_Name ?></b></td>
-              <?php
-                $bIsFirst = false;
-                $last_pro_prt_ID = $pro_prt_ID;
-                $sRowClass = "RowColorB";
-            } else {
-            ?>
-                <tr class="<?= $sRowClass ?>">
-                <td valign="top">&nbsp;</td>
-            <?php
-            }
-            ?>
-            <td valign="center"><?=  $pro_Name ?></td>
-            <td valign="center"><?=  $r2p_Value ?>&nbsp</td>
-            <?php
-
-            if ($bOkToEdit) {
-                if (strlen($pro_Prompt) > 0) {
-                ?>
-                    <td valign="top"><a data-family_id="<?= $iFamilyID ?>" data-property_id="<?= $pro_ID ?>" data-property_Name="<?= $r2p_Value ?>" class="edit-property-btn btn btn-success"><?= gettext('Edit Value') ?></a></td>
-                <?php
-                } else {
-                ?>
-                    <td>&nbsp;</td>
-                <?php
-                }
-                ?>
-
-                <td valign="top"><a data-family_id="<?= $iFamilyID ?>" data-property_id=" <?= $pro_ID ?>" class="remove-property-btn btn btn-danger"><?= gettext('Remove') ?></a>
-            
-            <?php
-            }
-            ?>            
-
-            </tr>
-            
-            <?php
-            //Alternate the row style
-            $sRowClass = AlternateRowStyle($sRowClass);
-
-            $sAssignedProperties .= $pro_ID . ",";
-        }
-        
-        //Close the table
-        ?>
-        </table>
-    <?php
-    }
-    if ($bOkToEdit) {
-        ?>
+                              $sAssignedProperties = ",";
+                            ?>
+                          <table width="100%" cellpadding="4" id="assigned-properties-table" class="table table-condensed dt-responsive dataTable no-footer dtr-inline"></table>
+                          <?php
+                            if ($bOkToEdit) {
+                          ?>
                                 <div class="alert alert-info">
                                     <div>
                                         <h4><strong><?= gettext("Assign a New Property") ?>:</strong></h4>
 
-                                        <form method="post" action="<?= SystemURLs::getRootPath(). '/api/properties/families/assign' ?>" id="assign-property-form">
-                                            <input type="hidden" name="FamilyId" value="<?= $iFamilyID ?>" >
                                             <div class="row">
                                                 <div class="form-group col-xs-12 col-md-7">
-                                                    <select name="PropertyId" class="input-family-properties form-control select2"
-                                                             style="width:100%" data-placeholder="<?= gettext("Select") ?> ...">
+                                                    <select name="PropertyId" id="input-family-properties" class="input-family-properties form-control select2"
+                                                             style="width:100%" data-placeholder="<?= gettext("Select") ?> ..." data-familyID="<?= $iFamilyID ?>">
                                                         <option selected disabled> -- <?= gettext('select an option') ?>
                                                             --
                                                         </option>
@@ -747,15 +651,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                                 <div id="prompt-box" class="col-xs-12 col-md-7">
                                                 </div>
                                                 <div class="form-group col-xs-12 col-md-7">
-                                                    <input type="submit" class="btn btn-primary"
-                                                           value="<?= gettext("Assign") ?>" name="Submit2">
+                                                    <input type="submit" class="btn btn-primary assign-property-btn" value="<?= gettext("Assign") ?>">
                                                 </div>
                                             </div>
-                                        </form>
                                     </div>
                                 </div>
-                                <?php
-    } ?>
+                              <?php
+                                } 
+                              ?>
                         </div>
                     </div>
                 </div>
@@ -1006,6 +909,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js" ></script>
         
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+        window.CRM.currentFamily = <?= $iFamilyID ?>;
         window.CRM.currentActive = <?= (empty($fam_DateDeactivated) ? 'true' : 'false') ?>;
         var dataT = 0;
         var dataPaymentTable = 0;

@@ -1,4 +1,60 @@
 $(document).ready(function () {
+  
+  window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
+      ajax:{
+        url: window.CRM.root + "/api/families/familyproperties/"+window.CRM.currentFamily,
+        type: 'POST',
+        contentType: "application/json",
+        dataSrc: "Record2propertyR2ps"
+      },
+      "language": {
+        "url": window.CRM.plugin.dataTable.language.url
+      },
+      "searching": false,
+      columns: [
+        {
+          width: 'auto',
+          title:i18next.t('Name'),
+          data:'ProName',
+          render: function(data, type, full, meta) {
+            return i18next.t(data);
+          }
+        },
+        {
+          width: 'auto',
+          title:i18next.t('Value'),
+          data:'R2pValue',
+          render: function(data, type, full, meta) {
+            return data;
+          }
+        },
+        {
+          width: 'auto',
+          title:i18next.t('Edit'),
+          data:'ProId',
+          render: function(data, type, full, meta) {
+            if (full.ProPrompt != '') {       
+              return '<a class="btn btn-success edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
+            }
+          
+            return "";
+          }
+        },
+        {
+          width: 'auto',
+          title:i18next.t('Delete'),
+          data:'ProId',
+          render: function(data, type, full, meta) {
+            return '<a class="btn btn-danger remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
+          }
+        }
+      ],
+      responsive: true,
+      createdRow : function (row,data,index) {
+        $(row).addClass("paymentRow");
+      }
+    });
+    
     
     $(".input-family-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
@@ -13,12 +69,12 @@ $(document).ready(function () {
               $('<label></label>').html(pro_prompt)
             )
             .append(
-              $('<textarea rows="3" class="form-control" name="PropertyValue"></textarea>').val(pro_value)
+              $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
             );
         }
     });
     
-    $('.remove-property-btn').click(function (event) {
+    $('body').on('click','.remove-property-btn',function(){ 
         event.preventDefault();
         var thisLink = $(this);
         var family_id = thisLink.data('family_id');
@@ -28,11 +84,11 @@ $(document).ready(function () {
           buttons: {
             confirm: {
               label: i18next.t('OK'),
-              className: 'confirm-button-class'
+              className: 'btn btn-default'
             },
             cancel: {
               label: i18next.t('Cancel'),
-              className: 'cancel-button-class'
+              className: 'btn btn-primary'
             }
           },
           title: i18next.t('Are you sure you want to unassign this property?'),
@@ -45,7 +101,7 @@ $(document).ready(function () {
                 data: JSON.stringify({"FamilyId": family_id,"PropertyId" : property_id})
               }).done(function(data) {
                 if (data && data.success) {
-                  location.reload();
+                  window.CRM.dataPropertiesTable.ajax.reload()
                 }
               });
             }
@@ -53,7 +109,7 @@ $(document).ready(function () {
        });
     });
     
-    $('.edit-property-btn').click(function (event) {
+    $('body').on('click','.edit-property-btn',function(){ 
       event.preventDefault();
       var thisLink = $(this);
       var family_id = thisLink.data('family_id');
@@ -64,11 +120,11 @@ $(document).ready(function () {
         buttons: {
           confirm: {
             label: i18next.t('OK'),
-            className: 'confirm-button-class'
+            className: 'btn btn-primary'
           },
           cancel: {
             label: i18next.t('Cancel'),
-            className: 'cancel-button-class'
+            className: 'btn btn-default'
           }
         },
         title: i18next.t('Are you sure you want to change this property?'),          
@@ -81,7 +137,7 @@ $(document).ready(function () {
               data: JSON.stringify({"FamilyId": family_id,"PropertyId" : property_id, "PropertyValue":result})
             }).done(function(data) {
               if (data && data.success) {
-                location.reload();
+                window.CRM.dataPropertiesTable.ajax.reload()
               }
             });
           }
@@ -89,25 +145,42 @@ $(document).ready(function () {
       });
     });
     
-
-     $('#assign-property-form').submit(function (event) {
-        event.preventDefault();
-        var thisForm = $(this);
-        var url = thisForm.attr('action');
-        var dataToSend = thisForm.serialize();
-
-        $.ajax({
-          type: 'POST',
-          url: url,
-          data: dataToSend,
-          dataType: 'json',
-          success: function (data, status, xmlHttpReq) {
-            if (data && data.success) {
-              location.reload();
-            }
-          }
-      });
+  $('body').on('click','.assign-property-btn',function(){
+   var property_id = $('.input-family-properties').val();
+   var property_pro_value = $('.property-value').val();     
+   
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'properties/families/assign',
+      data: JSON.stringify({"FamilyId": window.CRM.currentFamily,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
+    }).done(function(data) {
+      if (data && data.success) {
+           window.CRM.dataPropertiesTable.ajax.reload();
+           promptBox.removeClass('form-group').html('');
+      }
     });
+  });
+
+    
+
+   $('#assign-property-form').submit(function (event) {
+      event.preventDefault();
+      var thisForm = $(this);
+      var url = thisForm.attr('action');
+      var dataToSend = thisForm.serialize();
+
+      $.ajax({
+        type: 'POST',
+        url: url,
+        data: dataToSend,
+        dataType: 'json',
+        success: function (data, status, xmlHttpReq) {
+          if (data && data.success) {
+            location.reload();
+          }
+        }
+    });
+  });
 
 
   $(".data-table").DataTable({
