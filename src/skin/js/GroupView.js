@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+  window.CRM.APIRequest({
+    method: "GET",
+    path: "groups/" + window.CRM.currentGroup + "/roles",
+  }).done(function (data) {
+    window.CRM.groupRoles = data.ListOptions;
+    $("#newRoleSelection").select2({
+      data: $(window.CRM.groupRoles).map(function () {
+        return {
+          id: this.OptionId,
+          text: i18next.t(this.OptionName)
+        };
+      })
+    });
+    initDataTable();
+  });  
+  
   window.CRM.dataPropertiesTable = $("#AssignedPropertiesTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/groups/groupproperties/"+window.CRM.currentGroup,
@@ -33,7 +49,11 @@ $(document).ready(function () {
         title:i18next.t('Edit'),
         data:'ProId',
         render: function(data, type, full, meta) {        
-          return '<a class="btn btn-success edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
+          if (full.ProPrompt != '') {       
+            return '<a class="btn btn-success edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
+          }
+          
+          return '';
         }
       },
       {
@@ -84,23 +104,6 @@ $(document).ready(function () {
   $(".input-group-properties").select2({ 
     language: window.CRM.shortLocale
   });
-
-  window.CRM.APIRequest({
-    method: "GET",
-    path: "groups/" + window.CRM.currentGroup + "/roles",
-  }).done(function (data) {
-    window.CRM.groupRoles = data.ListOptions;
-    $("#newRoleSelection").select2({
-      data: $(window.CRM.groupRoles).map(function () {
-        return {
-          id: this.OptionId,
-          text: i18next.t(this.OptionName)
-        };
-      })
-    });
-    initDataTable();
-    //echo '<option value="' . $role['lst_OptionID'] . '">' . $role['lst_OptionName'] . '</option>';
-  });  
   
    $('body').on('click','.assign-property-btn',function(){
      var property_id = $('.input-group-properties').val();
