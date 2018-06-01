@@ -10105,3 +10105,6 @@ msgstr "Managers assignés"
 msgid "Add New Fund"
 msgstr "Ajouter un nouveau Fond"
 
+msgid "Manage Group Members"
+msgstr "Gestion des membres du groupe"
+
