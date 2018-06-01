@@ -1,9 +1,93 @@
 $(document).ready(function () {
 
-  $.ajax({
+  window.CRM.dataPropertiesTable = $("#AssignedPropertiesTable").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/groups/groupproperties/"+window.CRM.currentGroup,
+      type: 'POST',
+      contentType: "application/json",
+      dataSrc: "Record2propertyR2ps"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    "searching": false,
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('Name'),
+        data:'ProName',
+        render: function(data, type, full, meta) {
+          return i18next.t(data);
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Value'),
+        data:'R2pValue',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Edit'),
+        data:'ProId',
+        render: function(data, type, full, meta) {        
+          return '<a class="btn btn-success edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Delete'),
+        data:'ProId',
+        render: function(data, type, full, meta) {
+          return '<a class="btn btn-danger remove-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
+        }
+      }
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("paymentRow");
+    }
+  });
+  
+  $('#isGroupActive').prop('checked', window.CRM.isActive).change();
+  $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).change();
+  
+  $("#deleteGroupButton").click(function() {
+    console.log("click");
+    bootbox.setDefaults({
+    locale: window.CRM.shortLocale}),
+    bootbox.confirm({
+      title: i18next.t("Confirm Delete Group"),
+      message: '<p style="color: red">'+
+        i18next.t("Please confirm deletion of this group record")+window.CRM.groupName+"</p>"+
+        "<p>"+
+        i18next.t("This will also delete all Roles and Group-Specific Property data associated with this Group record.")+
+        "</p><p>"+
+        i18next.t("All group membership and properties will be destroyed.  The group members themselves will not be altered.")+"</p>",
+      callback: function (result) {
+        if (result)
+        {
+            window.CRM.APIRequest({
+              method: "DELETE",
+              path: "groups/" + window.CRM.currentGroup,
+            }).done(function (data) {
+              if (data.status == "success")
+                window.location.href = window.CRM.root + "/GroupList.php";
+            });
+        }
+      }
+    });
+  });
+  
+  $(".input-group-properties").select2({ 
+    language: window.CRM.shortLocale
+  });
+
+  window.CRM.APIRequest({
     method: "GET",
-    url: window.CRM.root + "/api/groups/" + window.CRM.currentGroup + "/roles",
-    dataType: "json"
+    path: "groups/" + window.CRM.currentGroup + "/roles",
   }).done(function (data) {
     window.CRM.groupRoles = data.ListOptions;
     $("#newRoleSelection").select2({
@@ -16,30 +100,26 @@ $(document).ready(function () {
     });
     initDataTable();
     //echo '<option value="' . $role['lst_OptionID'] . '">' . $role['lst_OptionName'] . '</option>';
-  });
+  });  
   
-  
-   $('#assign-property-form').submit(function (event) {
-        event.preventDefault();
-        var thisForm = $(this);
-        var url = thisForm.attr('action');
-        var dataToSend = thisForm.serialize();
-
-        $.ajax({
-            type: 'POST',
-            url: url,
-            data: dataToSend,
-            dataType: 'json',
-            success: function (data, status, xmlHttpReq) {
-                if (data && data.success) {
-                    location.reload();
-                }
-            }
-        });
+   $('body').on('click','.assign-property-btn',function(){
+     var property_id = $('.input-group-properties').val();
+     var property_pro_value = $('.property-value').val();     
+     
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'properties/groups/assign',
+        data: JSON.stringify({"GroupId": window.CRM.currentGroup,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
+      }).done(function(data) {
+        if (data && data.success) {
+             window.CRM.dataPropertiesTable.ajax.reload();
+             promptBox.removeClass('form-group').html('');
+        }
+      });
     });
 
   
-  $('.remove-property-btn').click(function (event) {
+  $('body').on('click','.remove-property-btn',function(){ 
         event.preventDefault();
         var thisLink = $(this);
         var group_id = thisLink.data('group_id');
@@ -66,7 +146,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"GroupId": group_id,"PropertyId" : property_id})
                   }).done(function(data) {
                     if (data && data.success) {
-                            location.reload();
+                        window.CRM.dataPropertiesTable.ajax.reload()
                     }
                 });
             }
@@ -74,7 +154,7 @@ $(document).ready(function () {
         });
     });
     
-    $('.edit-property-btn').click(function (event) {
+    $('body').on('click','.edit-property-btn',function(){ 
         event.preventDefault();
         var thisLink = $(this);
         var group_id = thisLink.data('group_id');
@@ -102,7 +182,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"GroupId": group_id,"PropertyId" : property_id, "PropertyValue":result})
                   }).done(function(data) {
                     if (data && data.success) {
-                            location.reload();
+                        window.CRM.dataPropertiesTable.ajax.reload()
                     }
                 });
             }
@@ -123,7 +203,7 @@ $(document).ready(function () {
                     $('<label></label>').html(pro_prompt)
                 )
                 .append(
-                    $('<textarea rows="3" class="form-control" name="PropertyValue"></textarea>').val(pro_value)
+                    $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
                 );
         }
 
@@ -133,6 +213,9 @@ $(document).ready(function () {
   $(".personSearch").select2({
     minimumInputLength: 2,
     language: window.CRM.shortLocale,
+    minimumInputLength: 2,
+    placeholder: " -- "+i18next.t("Person")+" -- ",
+    allowClear: true, // This is for clear get the clear button if wanted 
     ajax: {
       url: function (params) {
         return window.CRM.root + "/api/persons/search/" + params.term;
