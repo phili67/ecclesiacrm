@@ -75,9 +75,9 @@ $(document).ready(function () {
           }
       
           if ($.inArray(full.Id, window.CRM.groupsInCart) > -1) {
-            return "<span>"+i18next.t("All members of this group are in the cart")+"</span>&nbsp;<a onclick=\"saveScrollCoordinates()\" class=\"btn btn-xs btn-danger \" id=\"removeGroupFromCart\" data-groupid=\"" + full.Id + "\">" + i18next.t("Remove all") + "</a>";
+            return "<span>"+i18next.t("All members of this group are in the cart")+"</span>&nbsp;<a class=\"btn btn-xs btn-danger \" id=\"removeGroupFromCart\" data-groupid=\"" + full.Id + "\">" + i18next.t("Remove all") + "</a>";
           } else if (window.CRM.showCart){
-            return "<span>"+i18next.t("Not all members of this group are in the cart")+"</span>&nbsp;<a onclick=\"saveScrollCoordinates()\" id=\"AddGroupToCart\" class=\"btn btn-xs btn-primary"+activLink+"\" data-groupid=\"" + full.Id + "\">" + i18next.t("Add all") + "</a>";
+            return "<span>"+i18next.t("Not all members of this group are in the cart")+"</span>&nbsp;<a id=\"AddGroupToCart\" class=\"btn btn-xs btn-primary"+activLink+"\" data-groupid=\"" + full.Id + "\">" + i18next.t("Add all") + "</a>";
           } else {
             return i18next.t("Cart isn't showable");
           }
