@@ -59,7 +59,7 @@ $app->group('/pledges', function () {
             
       if (!empty($pledge)) {
         $pledge->delete();
-      }      
+      }
           
       return json_encode(['status' => "OK"]);
     });
