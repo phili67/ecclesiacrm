@@ -1190,9 +1190,11 @@ INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qr
 --
 
 CREATE TABLE `record2property_r2p` (
+  `r2p_id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
   `r2p_pro_ID` mediumint(8) unsigned NOT NULL default '0',
   `r2p_record_ID` mediumint(8) unsigned NOT NULL default '0',
-  `r2p_Value` text NOT NULL
+  `r2p_Value` text NOT NULL,
+   PRIMARY KEY  (`r2p_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 --

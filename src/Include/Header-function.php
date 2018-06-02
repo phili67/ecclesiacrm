@@ -25,6 +25,7 @@ use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2p;
+use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Group;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Map\PropertyTableMap;
@@ -426,75 +427,35 @@ function addMenuItem($ormMenu, $mIdx)
       <ul class="treeview-menu">
       <?php
             //Get the Properties assigned to all the sunday Group
-            $sSQL = "SELECT pro_Name,  grp_ID, grp_Name
-              FROM property_pro
-              LEFT JOIN record2property_r2p ON r2p_pro_ID = pro_ID
-              LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-              LEFT JOIN group_grp ON group_grp.grp_ID = record2property_r2p.r2p_record_ID
-              WHERE pro_Class = 'm' AND grp_Type = '4' AND prt_Name = 'MENU' ORDER BY pro_Name, grp_Name ASC";
-            $rsAssignedProperties = RunQuery($sSQL);
-            
-            /*$ormAssignedProperties = PropertyQuery::Create()
-                              ->addJoin(PropertyTableMap::COL_PRO_ID,Record2propertyR2pTableMap::COL_R2P_PRO_ID,Criteria::LEFT_JOIN)
-                              ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                              ->addJoin(Record2propertyR2pTableMap::COL_R2P_RECORD_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
-                              ->withColumn(GroupTableMap::COL_GRP_ID,"groupId")
-                              ->withColumn(GroupTableMap::COL_GRP_NAME,"groupName")
-                              ->where(PropertyTableMap::COL_PRO_CLASS." = 'm' AND ".GroupTableMap::COL_GRP_TYPE." = '4' AND ". PropertyTypeTableMap::COL_PRT_NAME." = 'MENU' ORDER By ".PropertyTableMap::COL_PRO_NAME.", ".GroupTableMap::COL_GRP_NAME)
-                              ->find(); 
-            
-            echo ($ormAssignedProperties)."<br><br>";*/
-
-            /*$ormAssignedProperties = GroupQuery::Create()
-                              ->filterByType(4)
-                              ->addJoin(GroupTableMap::COL_GRP_ID,Record2propertyR2pTableMap::COL_R2P_RECORD_ID,Criteria::LEFT_JOIN)
-                              ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
-                              ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                              ->withColumn(PropertyTypeTableMap::COL_PRT_NAME,"proName")
-                              //->withColumn(GroupTableMap::COL_GRP_NAME,"groupName")
-                              //->where(PropertyTableMap::COL_PRO_CLASS." = 'm' AND ". PropertyTypeTableMap::COL_PRT_NAME." = 'MENU' ORDER By ".PropertyTableMap::COL_PRO_NAME.", ".GroupTableMap::COL_GRP_NAME)
-                              ->find(); 
-            
-            echo ($ormAssignedProperties)."<br><br>";*/
-
-                        
+            $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_RECORD_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn("GroupId",GroupTableMap::COL_GRP_ID)
+                            ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS." = 'm' AND ".GroupTableMap::COL_GRP_TYPE." = '4' AND ". PropertyTypeTableMap::COL_PRT_NAME." = 'MENU'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('groupName')
+                            ->find();
 
             //Get the sunday groups not assigned by properties
-            $sSQL = "SELECT grp_ID , grp_Name,prt_Name
-                  FROM group_grp
-                  LEFT JOIN record2property_r2p ON record2property_r2p.r2p_record_ID = group_grp.grp_ID
-                  LEFT JOIN property_pro ON property_pro.pro_ID = record2property_r2p.r2p_pro_ID
-                  LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-                  WHERE ((record2property_r2p.r2p_record_ID IS NULL) OR (propertytype_prt.prt_Name != 'MENU')) AND grp_Type = '4' ORDER BY grp_Name ASC";
-            $rsWithoutAssignedProperties = RunQuery($sSQL);
-
+            $ormWithoutAssignedProperties = GroupQuery::Create()
+                            ->addJoin(GroupTableMap::COL_GRP_ID,Record2propertyR2pTableMap::COL_R2P_RECORD_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('PrtName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->addAsColumn("GroupId",GroupTableMap::COL_GRP_ID)
+                            ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
+                            ->where("((".Record2propertyR2pTableMap::COL_R2P_RECORD_ID." IS NULL) OR (".PropertyTypeTableMap::COL_PRT_NAME." != 'Menu')) AND ".GroupTableMap::COL_GRP_TYPE." = '4'")
+                            ->addAscendingOrderByColumn('groupName')
+                            ->find();
 
             if ($ormMenu->getName() == 'sundayschool') {
                 echo "\n<li><a href='" . SystemURLs::getRootPath() . "/sundayschool/SundaySchoolDashboard.php'><i class='fa fa-angle-double-right'></i>" . gettext('Dashboard') . '</a></li>';
 
                 $property = '';
-                while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
-                    if ($aRow[pro_Name] != $property) {
-                        if (!empty($property)) {
-                            echo '</ul></li>';
-                        }
-
-                        echo '<li><a href="#"><i class="fa fa-user-o"></i><span>'.$aRow[pro_Name].'</span></a>';
-                        echo '<ul class="treeview-menu">';
-
-
-                        $property = $aRow[pro_Name];
-                    }
-
-                    $str = gettext($aRow[grp_Name]);
-                    if (strlen($str)>$maxStr) {
-                        $str = substr($str, 0, $maxStr-3)." ...";
-                    }
-
-                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
-                }
-                
-                /*foreach ($ormAssignedProperties as $ormAssignedProperty) {
+                foreach ($ormAssignedProperties as $ormAssignedProperty) {
                     if ($ormAssignedProperty->getProName() != $property) {
                         if (!empty($property)) {
                             echo '</ul></li>';
@@ -513,20 +474,21 @@ function addMenuItem($ormMenu, $mIdx)
                     }
 
                     echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $ormAssignedProperty->getGroupId() . "'><i class='fa fa-angle-double-right'></i> " .$str. '</a></li>';
-                }*/
+                }
 
                 if (!empty($property)) {
                     echo '</ul></li>';
                 }
 
                 // the non assigned group to a group property
-                while ($aRow = mysqli_fetch_array($rsWithoutAssignedProperties)) {
-                    $str = gettext($aRow[grp_Name]);
+                foreach ($ormWithoutAssignedProperties as $ormWithoutAssignedProperty) {
+                    $str = gettext($ormWithoutAssignedProperty->getGroupName());
                     if (strlen($str)>$maxStr) {
                         $str = substr($str, 0, $maxStr-3)." ...";
                     }
 
-                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $aRow[grp_ID] . "'><i class='fa fa-angle-double-right'></i> " . $str . '</a></li>';
+                    echo "\n<li><a href='" . SystemURLs::getRootPath() . '/sundayschool/SundaySchoolClassView.php?groupId=' . $ormWithoutAssignedProperty->getGroupId() . "'><i class='fa fa-angle-double-right'></i> " . $str . '</a></li>';
+                  
                 }
             }
         }
