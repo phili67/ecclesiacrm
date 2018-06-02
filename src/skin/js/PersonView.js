@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
   $("#deletePhoto").click (function () {
     $.ajax({
     type: "POST",

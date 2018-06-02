@@ -41,6 +41,7 @@ $app->group('/persons', function () {
         return $response->withJson($return);    
     });
     
+    // api for person properties
     $this->post('/personproperties/{personID:[0-9]+}', function ($request, $response, $args) {
       $ormAssignedProperties = Record2propertyR2pQuery::Create()
                             ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
