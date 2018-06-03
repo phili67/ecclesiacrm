@@ -120,7 +120,6 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
         } ?>
 
         <h4 class="alert-heading"><?= gettext("Anniversaries of the day")?></h4>
-        <p>
         <div class="row">
 
     <?php
@@ -158,7 +157,6 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
         } ?>
 
         </div>
-        </p>
     <?php
     } ?>
   </div>
