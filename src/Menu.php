@@ -72,14 +72,12 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     if ($peopleWithBirthDaysCount > 0) {
         ?>
         <h4 class="alert-heading"><?= gettext("Birthdates of the day") ?></h4>
-        <p>
         <div class="row">
 
       <?php
         $new_row = false;
         $count_people = 0;
 
-        {
             foreach ($peopleWithBirthDays as $peopleWithBirthDay) {
                 if ($new_row == false) {
                     ?>
@@ -108,10 +106,9 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
                 </div>
             <?php
             }
-          } ?>
+         ?>
 
         </div>
-        </p>
     <?php
     } ?>
 
