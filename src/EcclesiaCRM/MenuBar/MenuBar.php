@@ -180,7 +180,7 @@ class MenuBar {
         $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
         $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
-        $menuItem = new Menu ("Dashboard","fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
+        $menuItem = new Menu ("Calendar","fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
         $menuItem = new Menu ("List Church Events","fa fa-angle-double-right","ListEvents.php",true,$menu);
         $menuItem = new Menu ("List Event Types","fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
         $menuItem = new Menu ("Check-in and Check-out","fa fa-angle-double-right","Checkin.php",true,$menu);
@@ -263,10 +263,10 @@ class MenuBar {
     
     private function is_treeview_Opened($links)
     {
-      $link = substr($_SERVER['REQUEST_URI'],1);
+      $link = $_SERVER['REQUEST_URI'];
       
       foreach($links as $l) {
-         if (!strcmp($l,$link)) {
+         if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
             return " active";
          }             
       }
@@ -276,10 +276,10 @@ class MenuBar {
     
     private function is_treeview_menu_open ($links)
     {
-      $link = substr($_SERVER['REQUEST_URI'],1);
+      $link = $_SERVER['REQUEST_URI'];
       
       foreach($links as $l) {
-         if (!strcmp($l,$link)) {
+         if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
             return "class=\"treeview-menu menu-open\" style=\"display: block;\"";
          }             
       }
@@ -289,10 +289,10 @@ class MenuBar {
     
     private function is_li_class_active ($links)
     {
-      $link = substr($_SERVER['REQUEST_URI'],1);
+      $link = $_SERVER['REQUEST_URI'];
       
       foreach($links as $l) {
-         if (!strcmp($l,$link)) {
+         if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
             return "class=\"active\"";
          }             
       }
