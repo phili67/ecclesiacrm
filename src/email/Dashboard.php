@@ -62,7 +62,7 @@ require '../Include/Header.php';
         echo '<tr><td><b>'.gettext('Unsubscribed count since last send:').'</b> </td><td>'.$list['stats']['unsubscribe_count_since_send'].'</td></tr>';
         echo '<tr><td><b>'.gettext('Cleaned count:').'</b> </td><td>'.$list['stats']['cleaned_count'].'</td></tr>';
         echo '<tr><td><b>'.gettext('Cleaned count since last send:').'</b> </td><td>'.$list['stats']['cleaned_count_since_send'].'</td></tr>';
-        echo '</tr></table>'; ?>
+        echo '</table>'; ?>
           </div>
         </div>
       </div>
