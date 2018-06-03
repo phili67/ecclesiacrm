@@ -146,7 +146,7 @@ $logger = LoggerUtils::getAppLogger();
 
 // ORM Logs
 $ormLogger = new Logger('ormLogger');
-$dbClassName = "\\Propel\\Runtime\\Connection\\DebugPDO";
+$dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";//DebugPDO for debugging
 $manager->setConfiguration(buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD, $dbClassName));
 $ormLogger->pushHandler(new StreamHandler(LoggerUtils::buildLogFilePath("orm"), LoggerUtils::getLogLevel()));
 $serviceContainer->setLogger('defaultLogger', $ormLogger);
