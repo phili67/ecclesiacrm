@@ -45,3 +45,8 @@ CREATE TABLE ckeditor_templates (
 -- We add the primary key to the record2property_r2p table, so we can define a real propel class
 -- 
 ALTER TABLE `record2property_r2p` ADD `r2p_id` mediumint(9) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT;
+
+--
+-- Now the menuconfig_mcf is no more usefull
+-- 
+DROP TABLE IF EXISTS menuconfig_mcf;

@@ -55,9 +55,7 @@ class UpgradeService
                   }
               }
           }
-          // always rebuild the menu
-          SQLUtils::sqlImport(SystemURLs::getDocumentRoot() . '/mysql/upgrade/rebuild_nav_menus.sql', $connection);
-          
+
           unset($_SESSION['updateDataBase']);
 
           return true;
