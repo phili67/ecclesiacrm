@@ -811,7 +811,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 $prop_Special = $sPhoneCountry;
                               }
                       ?>
-                              <strong><?= $ormPropList->getName() ?></strong>: <?= displayCustomField($type_ID, $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
+                              <strong><?= $ormPropList->getName() ?></strong>: <?= displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
                       <?php
                           }
                       ?>
