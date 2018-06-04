@@ -132,6 +132,10 @@ if (isset($_POST['SaveChanges'])) {
             } else {
                 $temp = 'false';
             }
+            
+            if ($aTypeFields[$iPropID] == 2) {            
+               $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
+            }
 
             $sSQL = "UPDATE groupprop_master
           SET `prop_Name` = '".$aNameFields[$iPropID]."',
