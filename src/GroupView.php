@@ -393,46 +393,12 @@ require 'Include/Header.php';
                           $sRowClass = AlternateRowStyle($sRowClass);
                           if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                           ?>
-                          <tr class="<?= $sRowClass ?>">
+                        <tr class="<?= $sRowClass ?>">
                           <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
                           <td><?= $prop->getName() ?></td>
-                          <td>
-                          <?php 
-                            if ($prop->getDescription() == "true" || $prop->getDescription() == "false") {
-                          ?>
-                            <?= ($prop->getDescription() == "true")?gettext("Yes"):gettext("No") ?>
-                          <?php
-                            } else if ( $prop->getDescription() == "" ) {
-                          ?>
-                            <?= gettext("Unknown") ?>
-                          <?php
-                            } else if ($prop->getTypeId() == 10) {
-                          ?> 
-                            <?= $prop->getDescription()." ".SystemConfig::getValue("sCurrency") ?>
-                          <?php
-                            } else if ($prop->getTypeId() == 11) {
-                          ?>                        
-                            <a href="tel:<?= $prop->getDescription() ?>"><?= $prop->getDescription() ?></a>
-                          <?php
-                            } else if ($prop->getTypeId() == 9) {
-                              $onePerson = PersonQuery::Create()->findOneById($prop->getDescription());
-                          ?>
-                              <a target="_top" href="PersonView.php?PersonID=<?= $onePerson->getId()?>"><?= $onePerson->getFullName() ?></a>
-                          <?php
-                            } else if ($prop->getTypeId() == 12) {
-                              $oneList = ListOptionQuery::Create()->filterById($prop->getSpecial())->filterByOptionId($prop->getDescription())->findOne();
-                          ?>
-                              <?= ($oneList == null)?gettext("Unassigned"):$oneList->getOptionName() ?>
-                          <?php
-                            } else {
-                          ?>
-                            <?= $prop->getDescription() ?>
-                          <?php
-                            }
-                          ?>
-                            &nbsp;</td>
-                          </tr>
-                    <?php
+                          <td><?= displayCustomField($prop->getTypeId(), $prop->getDescription(), $prop->getSpecial()) ?></td>
+                        </tr>
+                      <?php
                         }
                       }
                     ?>

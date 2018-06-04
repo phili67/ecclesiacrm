@@ -781,7 +781,7 @@ function displayCustomField($type, $data, $special)
 
     // Handler for date fields
     case 2:
-      return OutputUtils::FormatDate($data);
+      return OutputUtils::change_date_for_place_holder($data);
       break;
     // Handler for text fields, years, seasons, numbers
     case 3:
