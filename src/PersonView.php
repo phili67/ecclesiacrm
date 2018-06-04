@@ -29,6 +29,19 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\VolunteerOpportunityQuery;
+
+use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
+use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
+use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
+use EcclesiaCRM\Map\GroupTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -73,8 +86,12 @@ $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') A
 $rsPerson = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsPerson));
 
-
 $person = PersonQuery::create()->findPk($iPersonID);
+
+if (empty($person)) {
+    Redirect('members/404.php?type=Person');
+    exit;
+}
 
 $iFamilyID = $person->getFamId();
 
@@ -100,11 +117,6 @@ $ormAutoPayments = AutoPaymentQuery::create()
            ->findByFamilyid($iFamilyID);
 
 
-if (empty($person)) {
-    Redirect('members/404.php?type=Person');
-    exit;
-}
-
 // Get the lists of custom person fields
 $sSQL = 'SELECT person_custom_master.* FROM person_custom_master
   ORDER BY custom_Order';
@@ -116,28 +128,25 @@ $rsCustomData = RunQuery($sSQL);
 $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
 
 // Get the Groups this Person is assigned to
-$sSQL = 'SELECT grp_ID, grp_Name, grp_hasSpecialProps, role.lst_OptionName AS roleName
-FROM group_grp
-LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$iPersonID.'
-ORDER BY grp_Name';
-$rsAssignedGroups = RunQuery($sSQL);
-$sAssignedGroups = ',';
-
-// Get all the Groups
-$sSQL = 'SELECT grp_ID, grp_Name FROM group_grp ORDER BY grp_Name';
-$rsGroups = RunQuery($sSQL);
+$ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
+       ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
+       ->addMultipleJoin(array(array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID,ListOptionTableMap::COL_LST_OPTIONID),array(GroupTableMap::COL_GRP_ROLELISTID,ListOptionTableMap::COL_LST_ID)),Criteria::LEFT_JOIN)
+       ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+       ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID.' = '.$iPersonID.' ORDER BY grp_Name')
+       ->addAsColumn('roleName',ListOptionTableMap::COL_LST_OPTIONNAME)
+       ->addAsColumn('groupName',GroupTableMap::COL_GRP_NAME)
+       ->addAsColumn('groupID',GroupTableMap::COL_GRP_ID)
+       ->addAsColumn('hasSpecialProps',GroupTableMap::COL_GRP_HASSPECIALPROPS)
+       ->find();
 
 // Get the volunteer opportunities this Person is assigned to
-$sSQL = 'SELECT vol_ID, vol_Name, vol_Description FROM volunteeropportunity_vol
-LEFT JOIN person2volunteeropp_p2vo ON p2vo_vol_ID = vol_ID
-WHERE person2volunteeropp_p2vo.p2vo_per_ID = '.$iPersonID.' ORDER by vol_Order';
-$rsAssignedVolunteerOpps = RunQuery($sSQL);
+$ormAssignedVolunteerOpps = VolunteerOpportunityQuery::Create()
+        ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
+        ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$iPersonID)
+        ->find();
 
 // Get all the volunteer opportunities
-$sSQL = 'SELECT vol_ID, vol_Name FROM volunteeropportunity_vol ORDER BY vol_Order';
-$rsVolunteerOpps = RunQuery($sSQL);
+$ormVolunteerOpps = VolunteerOpportunityQuery::Create()->orderByOrder()->find();
 
 //Get all the properties
 $ormProperties = PropertyQuery::Create()
@@ -147,12 +156,12 @@ $ormProperties = PropertyQuery::Create()
 
 
 // Get Field Security List Matrix
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-$rsSecurityGrp = RunQuery($sSQL);
-
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
+$securityListOptions = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(5);
+              
+foreach ($securityListOptions as $securityListOption) {
+    $aSecurityType[$securityListOption->getOptionId()] = $securityListOption->getOptionName();
 }
 
 $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
@@ -761,7 +770,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <div class="main-box-body clearfix">
               <?php
               //Was anything returned?
-              if (mysqli_num_rows($rsAssignedGroups) == 0) {
+              if ($ormAssignedGroups->count() == 0) {
                   ?>
                 <br>
                 <div class="alert alert-warning">
@@ -769,64 +778,55 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 </div>
               <?php
               } else {
-                  echo '<div class="row">';
+              ?>
+                  <div class="row">
+              <?php
                   // Loop through the rows
-                  while ($aRow = mysqli_fetch_array($rsAssignedGroups)) {
-                      extract($aRow); ?>
+                  foreach ($ormAssignedGroups as $ormAssignedGroup) {
+              ?>
                   <div class="col-md-4">
                     <p><br/></p>
                     <!-- Info box -->
                     <div class="box box-info">
                       <div class="box-header">
-                        <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>"><?= $grp_Name ?></a></h3>
+                        <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
 
                         <div class="box-tools pull-right">
-                          <div class="label bg-aqua"><?= gettext($roleName) ?></div>
+                          <div class="label bg-aqua"><?= gettext($ormAssignedGroup->getRoleName()) ?></div>
                         </div>
                       </div>
                       <?php
-                      // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
-                      if ($grp_hasSpecialProps) {
+                        // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
+                        if ($ormAssignedGroup->getHasSpecialProps()) {
                           // Get the special properties for this group
-                          $sSQL = 'SELECT groupprop_master.* FROM groupprop_master WHERE grp_ID = '.$grp_ID." AND prop_PersonDisplay = 'true' ORDER BY prop_ID";
-                          $rsPropList = RunQuery($sSQL);
+                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                      ?>
 
-                          /*$sSQL = 'SELECT * FROM groupprop_'.$grp_ID.' WHERE per_ID = '.$iPersonID;
-                          $rsPersonProps = RunQuery($sSQL);
-                          $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);*/
-
-                          echo '<div class="box-body">';
+                          <div class="box-body">
                           
-                          echo '<label>'.gettext("Informations").'</label><br>';
-
-                          while ($aProps = mysqli_fetch_array($rsPropList)) {
-                              extract($aProps);
-                              $sRowClass = AlternateRowStyle($sRowClass);
-                              if ($type_ID == 11) {
+                          <label><?= gettext("Informations") ?></label><br>
+                      <?php
+                          foreach ($ormPropLists as $ormPropList) {
+                              if ($ormPropList->getTypeId() == 11) {
                                 $prop_Special = $sPhoneCountry;
                               }
-                              echo '<strong>'.$prop_Name.'</strong>: '.displayCustomField($type_ID, $prop_Description, $prop_Special).'<br/>';
-                              
-                              // Old code                              
-                              /*extract($aProps);
-                              $currentData = trim($aPersonProps[$prop_Field]);
-                              if (strlen($currentData) > 0) {
-                                  $sRowClass = AlternateRowStyle($sRowClass);
-                                  if ($type_ID == 11) {
-                                      $prop_Special = $sPhoneCountry;
-                                  }
-                                  echo '<strong>'.$prop_Name.'</strong>: '.displayCustomField($type_ID, $currentData, $prop_Special).'<br/>';
-                              }*/
+                      ?>
+                              <strong><?= $ormPropList->getName() ?></strong>: <?= displayCustomField($type_ID, $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
+                      <?php
                           }
+                      ?>
 
-                          echo '</div><!-- /.box-body -->';
-                      } ?>
+                        </div><!-- /.box-body -->
+                      <?php
+                        } 
+                      ?>
+                      
                       <div class="box-footer" style="width:275px">
                           <?php 
                             if ($_SESSION['user']->isManageGroupsEnabled()) {
                           ?>
                            <code>
-                            <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $grp_ID ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
+                            <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
                             <div class="btn-group">
                               <button type="button" class="btn btn-default"><?= gettext('Action') ?></button>
                               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -834,20 +834,19 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 <span class="sr-only">Toggle Dropdown</span>
                               </button>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a  class="changeRole" data-groupid="<?= $grp_ID ?>"><?= gettext('Change Role') ?></a></li>
-                                <?php if ($grp_hasSpecialProps) {
-                              ?>
-                                  <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $grp_ID ?>&PersonID=<?= $iPersonID ?>"><?= gettext('Update Properties') ?></a></li>
+                                <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= gettext('Change Role') ?></a></li>
+                                <?php 
+                                  if ($grp_hasSpecialProps) {
+                                ?>
+                                  <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= gettext('Update Properties') ?></a></li>
                                 <?php
-                          } ?>
+                                  } 
+                                ?>
                               </ul>
-                                                            
-
                             </div>
                             <div class="btn-group">
-                            <button data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
+                               <button data-groupid="<?= $ormAssignedGroup->getGroupID() ?>" data-groupname="<?= $ormAssignedGroup->getGroupName() ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
                             </div>
-                            <!--<a data-groupid="<?= $grp_ID ?>" data-groupname="<?= $grp_Name ?>" class="btn btn-danger groupRemove" role="button"><i class="fa fa-trash-o"></i></a>-->
                         </code>
                       <?php
                         } 
@@ -857,11 +856,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     </div>
                     <!-- /.box -->
                   </div>
-                  <?php
+                <?php
                   // NOTE: this method is crude.  Need to replace this with use of an array.
-                  $sAssignedGroups .= $grp_ID.',';
+                  $sAssignedGroups .= $ormAssignedGroup->getGroupID().',';
                   }
-                  echo '</div>';
+                ?>
+                </div>
+           <?php
               }
            ?>
             </div>
@@ -919,51 +920,62 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     $sAssignedVolunteerOpps = ',';
 
     //Was anything returned?
-    if (mysqli_num_rows($rsAssignedVolunteerOpps) == 0) {
+    if ($ormAssignedVolunteerOpps->count() == 0) {
         ?>
-                <br>
-                <div class="alert alert-warning">
-                  <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
-                </div>
-              <?php
+      <br>
+      <div class="alert alert-warning">
+        <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
+      </div>
+  <?php
     } else {
-        echo '<table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%">';
-        echo '<thead>';
-        echo '<tr class="TableHeader">';
-        echo '<th>'.gettext('Name').'</th>';
-        echo '<th>'.gettext('Description').'</th>';
-        if ($_SESSION['user']->isEditRecordsEnabled()) {
-            echo '<th>'.gettext('Remove').'</th>';
-        }
-        echo '</tr>';
-        echo '</thead>';
-        echo '<tbody>';
-
+  ?>
+        <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%">
+          <thead>
+        		<tr class="TableHeader">
+              <th><?= gettext('Name') ?></th>
+              <th><?= gettext('Description') ?></th>
+        <?php
+          if ($_SESSION['user']->isEditRecordsEnabled()) {
+        ?>
+              <th><?= gettext('Remove') ?></th>
+        <?php  
+          }
+        ?>
+          </tr>
+        </thead>
+        <tbody>
+        
+        <?php
         // Loop through the rows
-        while ($aRow = mysqli_fetch_array($rsAssignedVolunteerOpps)) {
-            extract($aRow);
-
+        foreach ($ormAssignedVolunteerOpps as $ormAssignedVolunteerOpp) {
             // Alternate the row style
             $sRowClass = AlternateRowStyle($sRowClass);
+        ?>
 
-            echo '<tr class="'.$sRowClass.'">';
-            echo '<td>'.$vol_Name.'</a></td>';
-            echo '<td>'.$vol_Description.'</a></td>';
-
+            <tr class="<?= $sRowClass ?>">
+            <td><?= $ormAssignedVolunteerOpp->getName() ?></a></td>
+            <td><?= $ormAssignedVolunteerOpp->getDescription() ?></a></td>
+        <?php
             if ($_SESSION['user']->isEditRecordsEnabled()) {
-                echo '<td><a class="SmallText btn btn-danger" href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$per_ID.'&RemoveVO='.$vol_ID.'">'.gettext('Remove').'</a></td>';
+        ?>
+              <td><a class="SmallText btn btn-danger" href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $per_ID ?>&RemoveVO=<?= $ormAssignedVolunteerOpp->getID()?>"><?= gettext('Remove')?></a></td>
+        <?php
             }
+        ?>
 
-            echo '</tr>';
-
+          </tr>
+        <?php
             // NOTE: this method is crude.  Need to replace this with use of an array.
-            $sAssignedVolunteerOpps .= $vol_ID.',';
+            $sAssignedVolunteerOpps .= $ormAssignedVolunteerOpp->getID().',';
         }
-        echo '</tbody>';
-        echo '</table>';
-    } ?>
+        ?>
+        </tbody>
+        </table>
+    <?php
+      } 
+    ?>
 
-                <?php if ($_SESSION['user']->isEditRecordsEnabled() && $rsVolunteerOpps->num_rows): ?>
+                <?php if ($_SESSION['user']->isEditRecordsEnabled() && $ormVolunteerOpps->count()): ?>
                 <div class="alert alert-info">
                     <div>
                         <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
@@ -974,11 +986,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple
                                     class="form-control select2" style="width:100%" data-placeholder="<?= gettext("Select") ?>...">
                                     <?php
-                                    while ($aRow = mysqli_fetch_array($rsVolunteerOpps)) {
-                                        extract($aRow);
+                                    foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
                                         //If the property doesn't already exist for this Person, write the <OPTION> tag
                                         if (strlen(strstr($sAssignedVolunteerOpps, ','.$vol_ID.',')) == 0) {
-                                            echo '<option value="'.$vol_ID.'">'.$vol_Name.'</option>';
+                                            echo '<option value="'.$ormVolunteerOpp->getId().'">'.$ormVolunteerOpp->getName().'</option>';
                                         }
                                     } ?>
                                 </select>
