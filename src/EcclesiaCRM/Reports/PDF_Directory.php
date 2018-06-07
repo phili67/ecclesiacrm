@@ -257,7 +257,7 @@ class PDF_Directory extends ChurchInfoReport
                 extract($rowCustomField);
                 $sCustom = 'bCustom'.$custom_Order;
                 if ($this->_Custom[$custom_Order]) {
-                    $currentFieldData = displayCustomField($type_ID, $aCustomData[$custom_Field], $custom_Special);
+                    $currentFieldData = displayCustomField($type_ID, $aCustomData[$custom_Field], $custom_Special,false);
 
 //                    $currentFieldData = trim($aCustomData[$custom_Field]);
                     if ($currentFieldData != '') {
