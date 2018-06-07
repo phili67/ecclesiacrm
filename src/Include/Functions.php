@@ -765,7 +765,7 @@ function FormatAddressLine($Address, $City, $State)
 //
 // Formats the data for a custom field for display-only uses
 //
-function displayCustomField($type, $data, $special)
+function displayCustomField($type, $data, $special,$with_link=true)
 {
     global $cnInfoCentral;
 
@@ -815,8 +815,11 @@ function displayCustomField($type, $data, $special)
           $sSQL = 'SELECT per_FirstName, per_LastName FROM person_per WHERE per_ID ='.$data;
           $rsTemp = RunQuery($sSQL);
           extract(mysqli_fetch_array($rsTemp));
-
-          return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$per_FirstName.' '.$per_LastName.'</a>';
+          if ($with_link) {
+            return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$per_FirstName.' '.$per_LastName.'</a>';
+          } else {
+            return $per_FirstName.' '.$per_LastName;
+          }
       } else {
           return '';
       }
@@ -824,7 +827,11 @@ function displayCustomField($type, $data, $special)
 
     // Handler for phone numbers
     case 11:
-      return '<a href="tel:'.$data.'">'.ExpandPhoneNumber($data, $special, $dummy).'</a>';
+      if ($with_link) {
+        return '<a href="tel:'.$data.'">'.ExpandPhoneNumber($data, $special, $dummy).'</a>';
+      } else {
+        return ExpandPhoneNumber($data, $special, $dummy);
+      }
       break;
 
     // Handler for custom lists
