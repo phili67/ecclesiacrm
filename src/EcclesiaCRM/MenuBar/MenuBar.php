@@ -77,6 +77,7 @@ class MenuBar {
 
                       $menuItemItem = new Menu ($str,"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
                       $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                      $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                   }
               }
           }
@@ -94,6 +95,7 @@ class MenuBar {
           foreach ($groups as $group) {
               $menuItemItem = new Menu ( $group->getName(),"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+              $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
           }
       }
       
@@ -173,6 +175,17 @@ class MenuBar {
     
     private function createMenuBar ()
     {
+      // home Area
+      $menu = new Menu ("Personal area","fa fa-home","email/Dashboard.php",true);
+
+        $menuItem = new Menu ("Home","fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
+        $menuItem = new Menu ("Change Password","fa fa-key","UserPasswordChange.php",true,$menu);
+        $menuItem = new Menu ("Change Settings","fa fa-gear","SettingsIndividual.php",true,$menu);
+        $menuItem = new Menu ("Documents","fa fa-file","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
+
+      $this->addMenu($menu);
+      
+      
       // the Events Menu
       $menu = new Menu ("Events","fa fa-ticket fa-calendar pull-right&quot;","",true);
         // add the badges
@@ -204,6 +217,7 @@ class MenuBar {
       
       // we add the sundayschool groups
       $this->addSundaySchoolGroups();
+      
       
       // the Email
       $menu = new Menu ("Email","fa fa-envelope","email/Dashboard.php",true);

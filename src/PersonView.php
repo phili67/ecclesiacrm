@@ -59,6 +59,13 @@ if (array_key_exists('RemoveVO', $_GET)) {
     $iRemoveVO = InputUtils::LegacyFilterInput($_GET['RemoveVO'], 'int');
 }
 
+$bDocuments = false;
+
+if (array_key_exists('documents', $_GET)) {
+    $bDocuments = true;
+}
+
+
 if (isset($_POST['VolunteerOpportunityAssign']) && $_SESSION['user']->isEditRecordsEnabled()) {
     $volIDs = $_POST['VolunteerOpportunityIDs'];
     if ($volIDs) {
@@ -500,10 +507,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <ul class="nav nav-tabs" role="tablist">
         <?php 
           $activeTab = "";
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() ) {
+          if ( ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) ) {
             $activeTab = "timeline";
         ?>
-          <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
+          <li role="presentation" <?= (!$bDocuments)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
         <?php
           }
         ?>
@@ -551,8 +558,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         ?>
         <?php
           if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
+            if ($bDocuments) $activeTab = 'notes';
         ?>
-        <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><?= gettext("Documents") ?></a></li>
+        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><?= gettext("Documents") ?></a></li>
         <?php
           }
         ?>
@@ -931,7 +939,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   ?>
         <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%">
           <thead>
-        		<tr class="TableHeader">
+            <tr class="TableHeader">
               <th><?= gettext('Name') ?></th>
               <th><?= gettext('Description') ?></th>
         <?php
@@ -1007,79 +1015,82 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         </div>
         <?php if ($_SESSION['user']->isFinanceEnabled()) {
         ?>
-                <div role="tab-pane fade" class="tab-pane" id="finance">
-                    <div class="main-box clearfix">
-                        <div class="main-box-body clearfix">
-                            <?php if ($ormAutoPayments->count() > 0) {
-            ?>
-            
-                                <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+        <div role="tab-pane fade" class="tab-pane" id="finance">
+            <div class="main-box clearfix">
+                <div class="main-box-body clearfix">
+                    <?php 
+                      if ($ormAutoPayments->count() > 0) {
+                    ?>
+    
+                        <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
-                                <?php
-        } ?>
-                            <p align="center">
-                                <a class="btn btn-primary"
-                                   href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                      } 
+                    ?>
+                    <p align="center">
+                        <a class="btn btn-primary"
+                           href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                    </p>
                 </div>
-                <div role="tab-pane fade" class="tab-pane" id="pledges">
-                    <div class="main-box clearfix">
-                        <div class="main-box-body clearfix">
-                                <input type="checkbox" name="ShowPledges" id="ShowPledges"
-                                       value="1" <?php if ($_SESSION['sshowPledges']) {
-                                      echo " checked";
-                                  } ?>><?= gettext("Show Pledges") ?>
-                                                          <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                                                                 value="1" <?php if ($_SESSION['sshowPayments']) {
-                                      echo " checked";
-                                  } ?>><?= gettext("Show Payments") ?>
-                                  <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
-                                  <input type="text" Name="Min" id="Min"
-                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
-                                       
-                                <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
-                                
-                                <input type="text" Name="Max" id="Max"
-                                       value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
-                                <?php
-                                $tog = 0;
+            </div>
+        </div>
+        <div role="tab-pane fade" class="tab-pane" id="pledges">
+            <div class="main-box clearfix">
+                <div class="main-box-body clearfix">
+                        <input type="checkbox" name="ShowPledges" id="ShowPledges"
+                               value="1" <?php if ($_SESSION['sshowPledges']) {
+                              echo " checked";
+                          } ?>><?= gettext("Show Pledges") ?>
+                                                  <input type="checkbox" name="ShowPayments" id="ShowPayments"
+                                                         value="1" <?php if ($_SESSION['sshowPayments']) {
+                              echo " checked";
+                          } ?>><?= gettext("Show Payments") ?>
+                          <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                          <input type="text" Name="Min" id="Min"
+                               value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                               
+                        <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
+                        
+                        <input type="text" Name="Max" id="Max"
+                               value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                <?php
+                  $tog = 0;
 
-        if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
-        
-        ?>
-        
-        <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
+                  if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
 
-        <?php
-        } // if bShowPledges
+                ?>
 
-                                ?>
-                            
-                            <p align="center">
-                                <a class="btn btn-primary"
-                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
-                                <a class="btn btn-default"
-                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
-                            </p>
+                  <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
 
-                            <?php
-    } ?>
+                <?php
+                  } // if bShowPledges
+                ?>
+                    
+                    <p align="center">
+                        <a class="btn btn-primary"
+                           href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                        <a class="btn btn-default"
+                           href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                    </p>
 
-                            <?php if ($_SESSION['user']->isCanvasserEnabled()) {
-        ?>
+              <?php
+                } 
+              ?>
 
-                            <p align="center">
-                                <a class="btn btn-default"
-                                   href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
-                            </p>
-                        </div>
-                    </div>
+              <?php 
+                if ($_SESSION['user']->isCanvasserEnabled()) {
+              ?>
+                    <p align="center">
+                        <a class="btn btn-default"
+                           href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                    </p>
                 </div>
-            <?php
-    } ?>
-        <div role="tab-pane fade" class="tab-pane" id="notes">
+            </div>
+        </div>
+    <?php
+      } 
+    ?>
+        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'notes')?"active":"" ?>" id="notes" >
           <div class="row filter-note-type">
               <div class="col-md-1" style="line-height:27px">
               <table width=400px>
