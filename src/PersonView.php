@@ -412,12 +412,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 $custom_Special = $sPhoneCountry;
             }
             echo '<li><i class="fa-li '.(($type_ID == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$custom_Name.': <span>';
-            $temp_string=nl2br((displayCustomField($type_ID, $currentData, $custom_Special)));
-            if ($type_ID == 11) {
-                echo "<a href=\"tel:".$temp_string."\">".$temp_string."</a>";
-            } else {
-                echo $temp_string;
-            }
+            $temp_string=nl2br(OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special));
+            echo $temp_string;
             echo '</span></li>';
         }
     } ?>
@@ -819,7 +815,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 $prop_Special = $sPhoneCountry;
                               }
                       ?>
-                              <strong><?= $ormPropList->getName() ?></strong>: <?= displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
+                              <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
                       <?php
                           }
                       ?>

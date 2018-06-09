@@ -13,7 +13,7 @@ class PDF_Directory extends ChurchInfoReport
     public $_Margin_Top = 0;         // Top margin
     public $_Char_Size = 10;        // Character size
     public $_Column = 0;
-    public $_Font = 'Times';
+    public $_Font = 'Arial';
     public $_Gutter = 5;
     public $_LS = 4;
     public $sFamily;
@@ -257,7 +257,7 @@ class PDF_Directory extends ChurchInfoReport
                 extract($rowCustomField);
                 $sCustom = 'bCustom'.$custom_Order;
                 if ($this->_Custom[$custom_Order]) {
-                    $currentFieldData = displayCustomField($type_ID, $aCustomData[$custom_Field], $custom_Special,false);
+                    $currentFieldData = OutputUtils::displayCustomField($type_ID, $aCustomData[$custom_Field], $custom_Special,false);
 
 //                    $currentFieldData = trim($aCustomData[$custom_Field]);
                     if ($currentFieldData != '') {
