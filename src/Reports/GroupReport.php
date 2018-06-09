@@ -17,6 +17,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_GroupDirectory;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 $bOnlyCartMembers = $_POST['OnlyCart'];
 $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
@@ -58,14 +59,14 @@ if ($iMode == 1) {
     $bHasProps = (mysqli_num_rows($rsProps) > 0);
 
     $sSQL = 'SELECT * FROM person_per
-			LEFT JOIN family_fam ON per_fam_ID = fam_ID ';
+      LEFT JOIN family_fam ON per_fam_ID = fam_ID ';
 
     if ($bHasProps) {
         $sSQL .= 'LEFT JOIN groupprop_'.$iGroupID.' ON groupprop_'.$iGroupID.'.per_ID = person_per.per_ID ';
     }
 
     $sSQL .= 'LEFT JOIN person2group2role_p2g2r ON p2g2r_per_ID = person_per.per_ID
-			WHERE p2g2r_grp_ID = '.$iGroupID;
+      WHERE p2g2r_grp_ID = '.$iGroupID;
 
     if ($iRoleID > 0) {
         $sSQL .= ' AND p2g2r_rle_ID = '.$iRoleID;
@@ -141,7 +142,7 @@ if ($iMode == 1) {
             while ($aPropRow = mysqli_fetch_array($rsProps)) {
                 if (isset($_POST[$aPropRow['prop_Field'].'enable'])) {
                     $currentData = trim($aRow[$aPropRow['prop_Field']]);
-                    $OutStr .= $aPropRow['prop_Name'].': '.displayCustomField($aPropRow['type_ID'], $currentData, $aPropRow['prop_Special'])."\n";
+                    $OutStr .= $aPropRow['prop_Name'].': '.OutputUtils::displayCustomField($aPropRow['type_ID'], $currentData, $aPropRow['prop_Special'],false)."\n";
                 }
             }
             mysqli_data_seek($rsProps, 0);

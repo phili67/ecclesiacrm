@@ -340,15 +340,15 @@ msgstr "Dépend de si c'est la méthode d'exportation par personne ou par famill
 
 #: CSVExport.php:186
 msgid "Custom Field Selection"
-msgstr "Personnaliser le champs de selection"
+msgstr "Sélection champ personnalisable"
 
 #: CSVExport.php:194
 msgid "Custom Person Fields"
-msgstr "Personnaliser les champs Personne"
+msgstr "Champs Personnalisables de Personne"
 
 #: CSVExport.php:212
 msgid "Custom Family Fields"
-msgstr "Personnaliser les champs Famille"
+msgstr "Champs personnalisables de Famille"
 
 #: CSVExport.php:239 FinancialReports.php:107
 msgid "Filters"

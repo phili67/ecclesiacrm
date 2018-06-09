@@ -16,10 +16,10 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Utils\OutputUtils;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -32,14 +32,14 @@ if ( !($_SESSION['user']->isEditRecordsEnabled() ||
 
 // Get this person
 $sSQL = 'SELECT a.*, family_fam.*, cls.lst_OptionName AS sClassName, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName,
-				b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName
-			FROM person_per a
-			LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
-			LEFT JOIN list_lst cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-			LEFT JOIN list_lst fmr ON a.per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-			LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
-			LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
-			WHERE a.per_ID = '.$iPersonID;
+        b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName
+      FROM person_per a
+      LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
+      LEFT JOIN list_lst cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
+      LEFT JOIN list_lst fmr ON a.per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
+      LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
+      LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
+      WHERE a.per_ID = '.$iPersonID;
 $rsPerson = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsPerson));
 
@@ -67,19 +67,19 @@ $rsNotes = RunQuery($sSQL);
 
 // Get the Groups this Person is assigned to
 $sSQL = 'SELECT grp_ID, grp_Name, grp_hasSpecialProps, role.lst_OptionName AS roleName
-		FROM group_grp
-		LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-		LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-		WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$iPersonID.'
-		ORDER BY grp_Name';
+    FROM group_grp
+    LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
+    LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
+    WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$iPersonID.'
+    ORDER BY grp_Name';
 $rsAssignedGroups = RunQuery($sSQL);
 
 // Get the Properties assigned to this Person
 $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
-		FROM record2property_r2p
-		LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
-		LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-		WHERE pro_Class = 'p' AND r2p_record_ID = ".$iPersonID.
+    FROM record2property_r2p
+    LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
+    LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
+    WHERE pro_Class = 'p' AND r2p_record_ID = ".$iPersonID.
         ' ORDER BY prt_Name, pro_Name';
 $rsAssignedProperties = RunQuery($sSQL);
 
@@ -96,19 +96,19 @@ while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
 $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
 //if ($per_BirthMonth > 0 && $per_BirthDay > 0)
 //{
-//	$dBirthDate = $per_BirthMonth . "/" . $per_BirthDay;
-//	if (is_numeric($per_BirthYear))
-//	{
-//		$dBirthDate .= "/" . $per_BirthYear;
-//	}
+//  $dBirthDate = $per_BirthMonth . "/" . $per_BirthDay;
+//  if (is_numeric($per_BirthYear))
+//  {
+//    $dBirthDate .= "/" . $per_BirthYear;
+//  }
 //}
 //elseif (is_numeric($per_BirthYear))
 //{
-//	$dBirthDate = $per_BirthYear;
+//  $dBirthDate = $per_BirthYear;
 //}
 //else
 //{
-//	$dBirthDate = "";
+//  $dBirthDate = "";
 //}
 
 // Assign the values locally, after selecting whether to display the family or person information
@@ -143,8 +143,8 @@ $personSheet = PersonQuery::create()->findPk($per_ID);
 
 if ($personSheet) {
     echo "<table>";
-    echo "	<tr>";
-    echo "	<td  style=\"padding:5px;\">";
+    echo "  <tr>";
+    echo "  <td  style=\"padding:5px;\">";
     $imgName = str_replace(SystemURLs::getDocumentRoot(), "", $personSheet->getPhoto()->getPhotoURI());
     
     echo "<img src=\"".$imgName."\" width=110/>";
@@ -185,12 +185,12 @@ $iFamilyID = $fam_ID;
 if ($fam_ID) {
     //Get the family members for this family
     $sSQL = 'SELECT per_ID, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
-		per_BirthMonth, per_BirthDay, per_BirthYear, per_Flags, cls.lst_OptionName AS sClassName,
-		fmr.lst_OptionName AS sFamRole
-		FROM person_per
-		LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-		LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-		WHERE per_fam_ID = '.$iFamilyID.' ORDER BY fmr.lst_OptionSequence';
+    per_BirthMonth, per_BirthDay, per_BirthYear, per_Flags, cls.lst_OptionName AS sClassName,
+    fmr.lst_OptionName AS sFamRole
+    FROM person_per
+    LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
+    LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
+    WHERE per_fam_ID = '.$iFamilyID.' ORDER BY fmr.lst_OptionSequence';
     $rsFamilyMembers = RunQuery($sSQL);
 }
 ?>
@@ -200,24 +200,24 @@ if ($fam_ID) {
 
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 <tr>
-	<td width="33%" valign="top" align="left">
-		<table cellspacing="1" cellpadding="4">
-		<tr>
-			<td class="LabelColumn"><?= gettext('Home Phone') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn"><?= $sHomePhone ?>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="LabelColumn"><?= gettext('Work Phone') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn"><?= $sWorkPhone ?>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="LabelColumn"><?= gettext('Mobile Phone') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
-		</tr>
-		<?php
+  <td width="33%" valign="top" align="left">
+    <table cellspacing="1" cellpadding="4">
+    <tr>
+      <td class="LabelColumn"><?= gettext('Home Phone') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn"><?= $sHomePhone ?>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="LabelColumn"><?= gettext('Work Phone') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn"><?= $sWorkPhone ?>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="LabelColumn"><?= gettext('Mobile Phone') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
+    </tr>
+    <?php
             $numColumn3Fields = floor($numCustomFields / 3);
             $leftOverFields = $numCustomFields - $numColumn3Fields;
             $numColumn1Fields = ceil($leftOverFields / 2);
@@ -232,20 +232,20 @@ if ($fam_ID) {
                         $custom_Special = $sCountry;
                     }
                     echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn">'.displayCustomField($type_ID, $currentData, $custom_Special).'</td></tr>';
+                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
                 }
             }
         ?>
-		</table>
-	</td>
+    </table>
+  </td>
 
-	<td width="33%" valign="top" align="left">
-		<table cellspacing="1" cellpadding="4">
-		<tr>
-			<td class="LabelColumn"><?= gettext('Gender') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn">
-				<?php
+  <td width="33%" valign="top" align="left">
+    <table cellspacing="1" cellpadding="4">
+    <tr>
+      <td class="LabelColumn"><?= gettext('Gender') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn">
+        <?php
                 switch (strtolower($per_Gender)) {
                     case 1:
                         echo gettext('Male');
@@ -254,34 +254,34 @@ if ($fam_ID) {
                         echo gettext('Female');
                         break;
                 } ?>
-			</td>
-		</tr>
-		<tr>
-			<td class="LabelColumn"><?= gettext('Birth Date') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn"><?= $dBirthDate ?>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="LabelColumn"><?= gettext('Family') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumn">
-			<?php if ($fam_Name != '') {
+      </td>
+    </tr>
+    <tr>
+      <td class="LabelColumn"><?= gettext('Birth Date') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn"><?= $dBirthDate ?>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="LabelColumn"><?= gettext('Family') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumn">
+      <?php if ($fam_Name != '') {
                     echo $fam_Name;
                 } else {
                     echo gettext('Unassigned');
                 } ?>
-			&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="LabelColumn"><?= gettext('Family Role') ?>:</td>
-			<td width="<?= $iTableSpacerWidth ?>"></td>
-			<td class="TextColumnWithBottomBorder"><?php if ($sFamRole != '') {
+      &nbsp;</td>
+    </tr>
+    <tr>
+      <td class="LabelColumn"><?= gettext('Family Role') ?>:</td>
+      <td width="<?= $iTableSpacerWidth ?>"></td>
+      <td class="TextColumnWithBottomBorder"><?php if ($sFamRole != '') {
                     echo $sFamRole;
                 } else {
                     echo gettext('Unassigned');
                 } ?>&nbsp;</td>
-		</tr>
-		<?php
+    </tr>
+    <?php
             for ($i = 1; $i <= $numColumn2Fields; $i++) {
                 $Row = mysqli_fetch_array($rsCustomFields);
                 extract($Row);
@@ -290,34 +290,34 @@ if ($fam_ID) {
                     $custom_Special = $sCountry;
                 }
                 echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                echo '<td class="TextColumn">'.displayCustomField($type_ID, $currentData, $custom_Special).'</td></tr>';
+                echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
             }
         ?>
-		</table>
-	</td>
-	<td width="33%" valign="top" align="left">
-		<table cellspacing="1" cellpadding="4">
-			<tr>
-				<td class="LabelColumn"><?= gettext('Email') ?>:</td>
-				<td width="<?= $iTableSpacerWidth ?>"></td>
-				<td class="TextColumnWithBottomBorder"><?= $sUnformattedEmail ?>&nbsp;</td>
-			</tr>
-			<tr>
-				<td class="LabelColumn"><?= gettext('Work / Other Email') ?>:</td>
-				<td width="<?= $iTableSpacerWidth ?>"></td>
-				<td class="TextColumnWithBottomBorder"><?= $sWorkEmail ?>&nbsp;</td>
-			</tr>
-			<tr>
-				<td class="LabelColumn"><?= gettext('Membership Date') ?>:</td>
-				<td width="<?= $iTableSpacerWidth ?>"></td>
-				<td class="TextColumn"><?= OutputUtils::FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
-			</tr>
-			<tr>
-				<td class="LabelColumn"><?= gettext('Classification') ?>:</td>
-				<td width="<?= $iTableSpacerWidth ?>"></td>
-				<td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
-			</tr>
-		<?php
+    </table>
+  </td>
+  <td width="33%" valign="top" align="left">
+    <table cellspacing="1" cellpadding="4">
+      <tr>
+        <td class="LabelColumn"><?= gettext('Email') ?>:</td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumnWithBottomBorder"><?= $sUnformattedEmail ?>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="LabelColumn"><?= gettext('Work / Other Email') ?>:</td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumnWithBottomBorder"><?= $sWorkEmail ?>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="LabelColumn"><?= gettext('Membership Date') ?>:</td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"><?= OutputUtils::FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="LabelColumn"><?= gettext('Classification') ?>:</td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
+      </tr>
+    <?php
             for ($i = 1; $i <= $numColumn3Fields; $i++) {
                 $Row = mysqli_fetch_array($rsCustomFields);
                 extract($Row);
@@ -326,10 +326,10 @@ if ($fam_ID) {
                     $custom_Special = $sCountry;
                 }
                 echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                echo '<td class="TextColumn">'.displayCustomField($type_ID, $currentData, $custom_Special).'</td></tr>';
+                echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
             }
         ?>
-		</table>
+    </table>
     </td>
 </tr>
 </table>
@@ -340,12 +340,12 @@ if ($fam_ID) {
 
 <b><?= gettext('Family Members') ?>:</b>
 <table cellpadding=5 cellspacing=0 width="100%">
-	<tr class="TableHeader">
-		<td><?= gettext('Name') ?></td>
-		<td><?= gettext('Gender') ?></td>
-		<td><?= gettext('Role') ?></td>
-		<td><?= gettext('Age') ?></td>
-	</tr>
+  <tr class="TableHeader">
+    <td><?= gettext('Name') ?></td>
+    <td><?= gettext('Gender') ?></td>
+    <td><?= gettext('Role') ?></td>
+    <td><?= gettext('Age') ?></td>
+  </tr>
 <?php
     $sRowClass = 'RowColorA';
 
@@ -361,21 +361,21 @@ if ($fam_ID) {
 
         // Display the family member
     ?>
-		<tr class="<?= $sRowClass ?>">
-			<td>
-				<?= $per_FirstName.' '.$per_LastName ?>
-				<br>
-			</td>
-			<td>
-				<?php switch ($per_Gender) {case 1: echo gettext('Male'); break; case 2: echo gettext('Female'); break; default: echo ''; } ?>&nbsp;
-			</td>
-			<td>
-				<?= $sFamRole ?>&nbsp;
-			</td>
-			<td data-birth-date="<?= $per_Flags == 1 ? '' : date_create($per_BirthYear.'-'.$per_BirthMonth.'-'.$per_BirthDay)->format('Y-m-d') ?>">
-			</td>
-		</tr>
-	<?php
+    <tr class="<?= $sRowClass ?>">
+      <td>
+        <?= $per_FirstName.' '.$per_LastName ?>
+        <br>
+      </td>
+      <td>
+        <?php switch ($per_Gender) {case 1: echo gettext('Male'); break; case 2: echo gettext('Female'); break; default: echo ''; } ?>&nbsp;
+      </td>
+      <td>
+        <?= $sFamRole ?>&nbsp;
+      </td>
+      <td data-birth-date="<?= $per_Flags == 1 ? '' : date_create($per_BirthYear.'-'.$per_BirthMonth.'-'.$per_BirthDay)->format('Y-m-d') ?>">
+      </td>
+    </tr>
+  <?php
             }
             echo '</table>';
         }
@@ -418,7 +418,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
             $firstRow = true;
             // Get the special properties for this group
             $sSQL = 'SELECT groupprop_master.* FROM groupprop_master
-									WHERE grp_ID = '.$grp_ID." AND prop_PersonDisplay = 'true' ORDER BY prop_ID";
+                  WHERE grp_ID = '.$grp_ID." AND prop_PersonDisplay = 'true' ORDER BY prop_ID";
             $rsPropList = RunQuery($sSQL);
 
             $sSQL = 'SELECT * FROM groupprop_'.$grp_ID.' WHERE per_ID = '.$iPersonID;
@@ -439,7 +439,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
                     if ($type_ID == 11) {
                         $prop_Special = $sCountry;
                     }
-                    echo "<tr class=\"$sRowClass\"><td>".$prop_Name.'</td><td>'.displayCustomField($type_ID, $currentData, $prop_Special).'</td></tr>';
+                    echo "<tr class=\"$sRowClass\"><td>".$prop_Name.'</td><td>'.OutputUtils::displayCustomField($type_ID, $currentData, $prop_Special,false).'</td></tr>';
                 }
             }
             if (!$firstRow) {

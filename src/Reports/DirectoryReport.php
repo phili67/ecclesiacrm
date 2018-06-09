@@ -210,7 +210,7 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
             $OutStr .= $pdf->sGetHeadString($rsCustomFields, $aHead);
             $bNoRecordName = false;
         }
-
+        
         // Find the Spouse of Household
         $sSQL = "SELECT * FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID
             WHERE per_fam_ID = ".$iFamilyID."

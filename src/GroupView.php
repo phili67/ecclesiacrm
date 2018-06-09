@@ -21,6 +21,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
@@ -396,7 +397,7 @@ require 'Include/Header.php';
                         <tr class="<?= $sRowClass ?>">
                           <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
                           <td><?= $prop->getName() ?></td>
-                          <td><?= displayCustomField($prop->getTypeId(), $prop->getDescription(), $prop->getSpecial()) ?></td>
+                          <td><?= OutputUtils::displayCustomField($prop->getTypeId(), $prop->getDescription(), $prop->getSpecial()) ?></td>
                         </tr>
                       <?php
                         }

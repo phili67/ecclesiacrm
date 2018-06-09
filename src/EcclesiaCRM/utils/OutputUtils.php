@@ -11,10 +11,120 @@ class OutputUtils {
   public static function translate_text_fpdf($string)
   {
     if (!empty($string))
-      return iconv('UTF-8', 'windows-1252', gettext($string));
+      return utf8_decode($string);//iconv('UTF-8', 'windows-1252', gettext($string));
     
     return "";
   }
+  
+  public static function convertCurrency($cur) 
+  {
+    define('EURO', chr(128));
+    
+    switch ($cur) {
+      case "€":
+        $cur = "euro";//.EURO;
+        break;
+    }
+    
+    return $cur;
+  }
+    
+  //
+  // Formats the data for a custom field for display-only uses
+  //
+  public static function displayCustomField($type, $data, $special,$with_link=true)
+  {
+      global $cnInfoCentral;
+
+      switch ($type) {
+      // Handler for boolean fields
+      case 1:
+        if ($data == 'true') {
+            return gettext('Yes');
+        } elseif ($data == 'false') {
+            return gettext('No');
+        }
+        break;
+
+      // Handler for date fields
+      case 2:
+        return OutputUtils::change_date_for_place_holder($data);
+        break;
+      // Handler for text fields, years, seasons, numbers
+      case 3:
+      case 4:
+      case 6:
+      case 8:
+        return $data;
+        break;
+      case 10:
+        if ($with_link) {
+           return $data." ".SystemConfig::getValue("sCurrency");
+        } else {
+          return $data." ".OutputUtils::convertCurrency(SystemConfig::getValue("sCurrency"));
+        }
+        break;
+      // Handler for extended text fields (MySQL type TEXT, Max length: 2^16-1)
+      case 5:
+        /*if (strlen($data) > 100) {
+            return mb_substr($data, 0, 100) . "...";
+        }else{
+            return $data;
+        }
+        */
+        return $data;
+        break;
+
+      // Handler for season.  Capitalize the word for nicer display.
+      case 7:
+        return ucfirst($data);
+        break;
+
+      // Handler for "person from group"
+      case 9:
+        if ($data > 0) {
+            $sSQL = 'SELECT per_FirstName, per_LastName FROM person_per WHERE per_ID ='.$data;
+            $rsTemp = RunQuery($sSQL);
+            extract(mysqli_fetch_array($rsTemp));
+            if ($with_link) {
+              return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$per_FirstName.' '.$per_LastName.'</a>';
+            } else {
+              return $per_FirstName.' '.$per_LastName;
+            }
+        } else {
+            return '';
+        }
+        break;
+
+      // Handler for phone numbers
+      case 11:
+        if ($with_link) {
+          return '<a href="tel:'.$data.'">'.ExpandPhoneNumber($data, $special, $dummy).'</a>';
+        } else {
+          return ExpandPhoneNumber($data, $special, $dummy);
+        }
+        break;
+
+      // Handler for custom lists
+      case 12:
+        if ($data > 0) {
+            $sSQL = "SELECT lst_OptionName FROM list_lst WHERE lst_ID = $special AND lst_OptionID = $data";
+            $rsTemp = RunQuery($sSQL);
+            extract(mysqli_fetch_array($rsTemp));
+
+            return $lst_OptionName;
+        } else {
+            return '';
+        }
+        break;
+
+      // Otherwise, display error for debugging.
+      default:
+        return gettext('Invalid Editor ID!');
+        break;
+    }
+  }
+
   
   //
   // Generates an HTML form <input> line for a custom field
