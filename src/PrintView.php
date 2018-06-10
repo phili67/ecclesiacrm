@@ -432,7 +432,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
                     // only create the properties table if it's actually going to be used
                     if ($firstRow) {
                         echo '<tr><td colspan="2"><table width="50%"><tr><td width="15%"></td><td><table width="90%" cellspacing="0">';
-                        echo '<tr class="TinyTableHeader"><td>Property</td><td>Value</td></tr>';
+                        echo '<tr class="TinyTableHeader"><td>'.gettext('Property').'</td><td>'.gettext("Value").'</td></tr>';
                         $firstRow = false;
                     }
                     $sRowClass = AlternateRowStyle($sRowClass);

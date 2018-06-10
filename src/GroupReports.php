@@ -16,6 +16,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
+
 
 // Get all the groups
 $sSQL = 'SELECT * FROM group_grp ORDER BY grp_Name';
@@ -26,7 +28,7 @@ $sPageTitle = gettext('Group reports');
 require 'Include/Header.php';
 ?>
 
-<script src="skin/js/GroupRoles.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupRoles.js"></script>
 
 <?php if (!isset($_POST['GroupID'])) {
     ?>
@@ -37,7 +39,7 @@ require 'Include/Header.php';
                 <h3 class="box-title"><?= gettext('Select the group you would like to report') ?>:</h3>
             </div>
             <div class="box-body">
-                <form method="POST" action="GroupReports.php">
+                <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php">
                     <div class="row">
                         <div class="col-xs-6">
                             <label for="GroupID"><?= gettext('Select Group') ?>:</label>

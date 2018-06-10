@@ -10108,3 +10108,18 @@ msgstr "Ajouter un nouveau Fond"
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
+#
+msgid "Return to Person"
+msgstr "Retour à la Personne"
+
+msgid "Modify Specific Properties"
+msgstr "Modifier Propriétés spécifiques"
+
+msgid "Group-Person-Specific Properties"
+msgstr "Propriétés Groupe-Personne-Spécifiques"
+
+msgid "Group Informations"
+msgstr "Informations Groupe"
+
+msgid "Person Informations"
+msgstr "Informations Personne"
