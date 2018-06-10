@@ -142,7 +142,9 @@ if ($iMode == 1) {
             while ($aPropRow = mysqli_fetch_array($rsProps)) {
                 if (isset($_POST[$aPropRow['prop_Field'].'enable'])) {
                     $currentData = trim($aRow[$aPropRow['prop_Field']]);
-                    $OutStr .= $aPropRow['prop_Name'].': '.OutputUtils::displayCustomField($aPropRow['type_ID'], $currentData, $aPropRow['prop_Special'],false)."\n";
+                    if (!empty($currentData)) {
+                      $OutStr .= $aPropRow['prop_Name'].': '.OutputUtils::displayCustomField($aPropRow['type_ID'], $currentData, $aPropRow['prop_Special'],false)."\n";
+                    }
                 }
             }
             mysqli_data_seek($rsProps, 0);

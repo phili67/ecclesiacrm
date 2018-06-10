@@ -13,15 +13,26 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\GroupManagerPersonQuery;
+
+// Get the Group, Property, and Action from the querystring
+$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+  
+$is_group_manager = false;
+
+if (!empty($manager)) {
+  $is_group_manager = true;
+}
 
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
+if ( !($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
     Redirect('Menu.php');
     exit;
 }
 
-// Get the Group, Property, and Action from the querystring
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+
 $iPropID = InputUtils::LegacyFilterInput($_GET['PropID'], 'int');
 $sField = InputUtils::LegacyFilterInput($_GET['Field']);
 $sAction = $_GET['Action'];

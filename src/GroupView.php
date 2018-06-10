@@ -110,12 +110,16 @@ require 'Include/Header.php';
     <?php
       if ( $_SESSION['user']->isManageGroupsEnabled() ) {
     ?>
-        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= gettext('Edit this Group') ?></a>
-        <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= gettext('Delete this Group') ?></button>
+        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Group") ?></a>
+        <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= gettext("Delete this Group") ?></button>
     <?php
       }
     ?>
-
+     
+     <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php" style="display:inline">
+       <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
+       <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= gettext("Group reports") ?></button>
+     </form>
 
     <?php
 
@@ -506,7 +510,7 @@ require 'Include/Header.php';
    
 </script>
 
-<script src="skin/js/GroupView.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupView.js" ></script>
 
 
 

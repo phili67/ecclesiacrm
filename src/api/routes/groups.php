@@ -16,6 +16,8 @@ use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
+use EcclesiaCRM\Service\GroupService;
+
 
 
 
@@ -252,9 +254,13 @@ $app->group('/groups', function () {
         $person = PersonQuery::create()->findPk($userID);
         $group = GroupQuery::create()->findPk($groupID);
         $groupRoleMemberships = $group->getPerson2group2roleP2g2rs();
+                
+        $groupService = new GroupService();
+        
         foreach ($groupRoleMemberships as $groupRoleMembership) {
             if ($groupRoleMembership->getPersonId() == $person->getId()) {
-                $groupRoleMembership->delete();
+                $groupService->removeUserFromGroup($groupID, $person->getId());
+                //$groupRoleMembership->delete();
                 $note = new Note();
                 $note->setText(gettext("Deleted from group"). ": " . $group->getName());
                 $note->setType("group");

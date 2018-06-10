@@ -802,13 +802,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       <?php
                         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
                         if ($ormAssignedGroup->getHasSpecialProps()) {
-                          // Get the special properties for this group
-                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                          // Get the special properties for this group only for the group                          
+                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
                       ?>
 
                           <div class="box-body">
                           
-                          <label><?= gettext("Informations") ?></label><br>
+                          <label><?= gettext("Group Informations") ?></label><br>
                       <?php
                           foreach ($ormPropLists as $ormPropList) {
                               if ($ormPropList->getTypeId() == 11) {
@@ -816,6 +816,36 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                               }
                       ?>
                               <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
+                      <?php
+                          }
+
+                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                          
+                          $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
+                          $rsPersonProps = RunQuery($sSQL);
+                          $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
+                          
+                          ?>
+                          <br>
+                          <label><?= gettext("Person Informations") ?></label><br>
+                          
+                          <?php
+                            foreach ($ormPropLists as $ormPropList) {
+                              $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                              if (strlen($currentData) > 0) {
+                                  if ($type_ID == 11) {
+                                      $prop_Special = $sPhoneCountry;
+                                  }
+                          ?>
+                                  <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?><br/>
+                          <?php
+                              }
+                          }
+                          
+                          if ($ormPropLists->count()>0) {
+                      ?>
+                      
+                        <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
                       <?php
                           }
                       ?>

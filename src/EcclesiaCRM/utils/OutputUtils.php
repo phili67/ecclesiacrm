@@ -77,9 +77,12 @@ class OutputUtils {
 
       // Handler for season.  Capitalize the word for nicer display.
       case 7:
-        return ucfirst($data);
+        if ($data != null) {
+          return gettext(ucfirst(gettext($data)));
+        } else {
+          return gettext("None");
+        }
         break;
-
       // Handler for "person from group"
       case 9:
         if ($data > 0) {
