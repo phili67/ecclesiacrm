@@ -178,7 +178,9 @@ class CalendarService
               $type  = $evnt->getType();
               $desc  = $evnt->getDesc();
               $grpID = $evnt->getGroupId();
-              $loc   = "";
+              $loc   = $evnt->getLocation();
+              $lat   = $evnt->getLatitude();
+              $long  = $evnt->getLongitude();
               $text  = $evnt->getText();
               $calID = $calendar['id'];
               $fEvnt = false;
@@ -196,7 +198,7 @@ class CalendarService
                     $event = $this->createCalendarItem('event',$icon,
                       $title, $start, $end, 
                      '',$id,$type,$grpID,
-                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable);// only the event id sould be edited and moved and have custom color
+                      $desc,$text,$calID,$calendarColor,$subid++,1,$reccurenceID,$writeable,$loc,$lat,$long);// only the event id sould be edited and moved and have custom color
             
                     array_push($events, $event);
                   }
@@ -207,7 +209,7 @@ class CalendarService
                 $event = $this->createCalendarItem('event',$icon,
                   $title, $start, $end, 
                  '',$id,$type,$grpID,
-                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable);// only the event id sould be edited and moved and have custom color
+                  $desc,$text,$calID,$calendarColor,0,0,0,$writeable,$loc,$lat,$long);// only the event id sould be edited and moved and have custom color
             
                 array_push($events, $event);
               }
@@ -218,7 +220,7 @@ class CalendarService
         return $events;
     }
     
-    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$reccurenceID = '',$writeable=false)
+    public function createCalendarItem($type, $icon, $title, $start, $end, $uri,$eventID=0,$eventTypeID=0,$groupID=0,$desc="",$text="",$calendarid=null,$backgroundColor = null,$subid = 0,$recurrent=0,$reccurenceID = '',$writeable=false,$location = "",$latitude = 0,$longitude = 0)
     {
         $event = [];
         switch ($type) {
@@ -255,6 +257,9 @@ class CalendarService
           $event['Text'] = $text;   
           $event['recurrent'] = $recurrent;
           $event['writeable'] = $writeable;
+          $event['location']  = $location;
+          $event['longitude'] = $longitude;
+          $event['latitude']  = $latitude;
           
           if ($calendarid != null) {
             $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;   

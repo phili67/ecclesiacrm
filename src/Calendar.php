@@ -19,8 +19,9 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventTypesQuery;
-
+use EcclesiaCRM\dto\ChurchMetaData;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Church Calendar');
@@ -44,13 +45,14 @@ $eventTypes = EventTypesQuery::Create()
     }
     
     .input-group-addon {
-  border: 2;
-  padding:1px 1px;
-}
+      border: 2;
+      padding:1px 1px;
+    }
 
-.input-group-addon:last-child {
-  border-left: 1;
-}
+    .input-group-addon:last-child {
+      border-left: 1;
+    }
+    
 </style>
 
 <div class="col">
@@ -209,8 +211,17 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 <link href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
 
+<!--Google Map Scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  var isModifiable  = true;
+  window.CRM.isModifiable  = true;
+  
+  window.CRM.churchloc = {
+      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
+      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+  window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarSideBar.js"></script>
@@ -218,3 +229,6 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarV2.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+
+

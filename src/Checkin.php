@@ -39,6 +39,8 @@ use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Group;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 
 $EventID = 0;
@@ -813,6 +815,19 @@ function loadPerson($iPersonID)
 }
 ?>
 
+<!--Google Map Scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  window.CRM.isModifiable  = true;
+  
+  window.CRM.churchloc = {
+      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
+      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+  window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+</script>
+
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
-
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>

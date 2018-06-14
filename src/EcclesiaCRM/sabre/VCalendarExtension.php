@@ -19,6 +19,14 @@ class VCalendarExtension extends VCalendarBase {
             'PRODID'   => '-//EcclesiaCRM.// VObject ' . VObject\Version::VERSION . '//EN',
             'CALSCALE' => 'GREGORIAN',
         ];
-
+    }
+    
+    public function serialize()
+    {
+       $ret = parent::serialize();
+       
+       $ret = str_replace(" commaGMAP ",",",$ret);
+       
+       return $ret;
     }
 }

@@ -29,6 +29,7 @@ use EcclesiaCRM\Map\CalendarinstancesTableMap;
 use EcclesiaCRM\Map\PrincipalsTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -757,13 +758,22 @@ foreach ($allMonths as $mVal) {
   </a>
 </div>
 
+<!--Google Map Scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ListEvent.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  var isModifiable  = "true";
+  window.CRM.isModifiable  = "true";
+  
+  window.CRM.churchloc = {
+      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
+      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+  window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
 <?php

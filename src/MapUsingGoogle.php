@@ -7,10 +7,27 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\FamilyQuery;
 use EcclesiaCRM\Base\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
+
+use EcclesiaCRM\EventQuery;
+
+use Sabre\CalDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
+
 
 //Set the page title
 $sPageTitle = gettext('View on Map');
@@ -39,18 +56,58 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         </div>
         <?php
         }
-
+        
+        
+        // new way to manage events
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();         
+        
+        // We set the BackEnd for sabre Backends
+        $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+        // get all the calendars for the current user
+        
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",false);
+        
+        $eventsArr = [];
+        
+        foreach ($calendars as $calendar) {
+          // we get all the events for the Cal
+          $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
+          
+          if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the events are present or not
+            continue;
+          }
+          
+          foreach ($eventsForCal as $eventForCal) {
+            $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
+            
+            if ($evnt != null && $evnt->getLocation() != '') {
+              $eventsArr[] = $evnt->getID();
+            }            
+          }
+        }
+        
+        
+        // we can work with the normal locations
         $plotFamily = false;
         //Get the details from DB
         $dirRoleHead = SystemConfig::getValue('sDirRoleHead');
 
         if ($iGroupID > 0) {
+           // security test
+           $currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+                
+           if ($currentUserBelongToGroup == 0) {
+              Redirect('Menu.php');
+           }
+
             //Get all the members of this group
             $persons = PersonQuery::create()
-            ->usePerson2group2roleP2g2rQuery()
-            ->filterByGroupId($iGroupID)
-            ->endUse()
-            ->find();
+              ->usePerson2group2roleP2g2rQuery()
+              ->filterByGroupId($iGroupID)
+              ->endUse()
+              ->find();
         } elseif ($iGroupID == 0) {
             // group zero means map the cart
             if (!empty($_SESSION['aPeopleCart'])) {
@@ -59,8 +116,12 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 ->find();
             }
         } else {
-            //Map all the families
-            $families = FamilyQuery::create()
+          if ( !($_SESSION['user']->isShowMapEnabled()) ) {
+              Redirect('Menu.php');
+          }
+           
+          //Map all the families
+          $families = FamilyQuery::create()
             ->filterByDateDeactivated(null)
             ->filterByLatitude(0, Criteria::NOT_EQUAL)
             ->filterByLongitude(0, Criteria::NOT_EQUAL)
@@ -68,7 +129,8 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
             ->filterByFmrId($dirRoleHead)
             ->endUse()
             ->find();
-            $plotFamily = true;
+            
+          $plotFamily = true;
         }
 
         //Markericons list
@@ -97,6 +159,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                         src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[0] ?>.png'/>
                     <?= gettext('Unassigned') ?>
                 </div>
+                <div class="legenditem">
+                        <img
+                            src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
+                        <?= gettext("Calendar") ?>
+                </div>
                 <?php
                 foreach ($icons as $icon) {
                     ?>
@@ -106,7 +173,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                         <?= $icon->getOptionName() ?>
                     </div>
                     <?php
-                } ?>
+                } ?>                
             </div>
         </div>
 
@@ -134,6 +201,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
             </div>
         </div>
     </div> <!--Box-->
+
+
+    <?php
+    }
+require 'Include/Footer.php' ?>
 
     <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
         var churchloc = {
@@ -206,6 +278,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                     $arr['Longitude'] = $family->getLongitude();
                     $arr['Name'] = $family->getName();
                     $arr['Classification'] = $class->GetClsId();
+                    $arr['type'] = 'family';          
                     array_push($arrPlotItems, $arr);
                 }
             }
@@ -223,10 +296,33 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 $arr['Longitude'] = $latLng['Longitude'];
                 $arr['Name'] = $member->getFullName();
                 $arr['Classification'] = $member->getClsId();
+                $arr['type'] = 'person';
                 array_push($arrPlotItems, $arr);
             }
         } //end IF $plotFamily
+        
+        // now we can add the Events
+        foreach ($eventsArr as $ev) {
+          //echo "coucou".$ev;
+          
+          $event = EventQuery::Create()->findOneById($ev);
 
+          $photoFileThumb = SystemURLs::getRootPath() ."/skin/icons/event.png";
+          $arr['ID'] = $ev;
+          $arr['Salutation'] = $event->getTitle()." (".$event->getDesc().")";
+          $arr['Name'] = $event->getTitle()." (".$event->getDesc().")";
+          $arr['Text'] = $event->getText();
+          $arr['Address'] = $event->getLocation();
+          $arr['Thumbnail'] = $photoFileThumb;
+          $arr['bigThumbnail'] = SystemURLs::getRootPath() ."/skin/icons/bigevent.png";
+          $arr['Latitude'] = $event->getLatitude();
+          $arr['Longitude'] = $event->getLongitude();
+          $arr['Classification'] = 0;
+          $arr['type'] = 'event';
+          $arr['desc'] = $event->getDesc();
+          array_push($arrPlotItems, $arr);          
+        }
+        
             ?>
 
             var plotArray = <?= json_encode($arrPlotItems) ?>;
@@ -242,7 +338,14 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 //icon image
                 var clsid = plotArray[i].Classification;
                 var markerIcon = markerIcons[clsid];
+                
                 var iconurl = iconBase + markerIcon + '.png';
+                
+                if (plotArray[i].type == 'event') {
+                  iconurl = plotArray[i].Thumbnail;
+                }
+                
+
                 var image = {
                     url: iconurl,
                     // This marker is 37 pixels wide by 34 pixels high.
@@ -258,10 +361,12 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
                 //Infowindow Content
                 var imghref, contentString;
-                if (bPlotFamily) {
+                if (plotArray[i].type == 'family') {
                     imghref = "FamilyView.php?FamilyID=" + plotArray[i].ID;
-                } else {
+                } else if (plotArray[i].type == 'person') {
                     imghref = "PersonView.php?PersonID=" + plotArray[i].ID;
+                } else if (plotArray[i].type == 'event') {
+                    imghref = window.CRM.root+"/Calendar.php";
                 }
 
                 contentString = "<b><a href='" + imghref + "'>" + plotArray[i].Salutation + "</a></b>";
@@ -269,7 +374,13 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 if (plotArray[i].Thumbnail.length > 0) {
                     //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
                     contentString += "<div class='image-container'><a href='" + imghref + "'>";
-                    contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].Thumbnail + "'></a></div>";
+                    if (plotArray[i].type == 'event') {
+                       contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].bigThumbnail + "'></a>";
+                       contentString += "<b>"+i18next.t("Comments")+"</b>";
+                       contentString += "<br>"+plotArray[i].Text+"</div>";
+                    } else {
+                       contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].Thumbnail + "'></a>";
+                    }
                 }
 
                 //Add marker and infowindow
@@ -284,6 +395,3 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         initialize();
 
     </script>
-    <?php
-    }
-require 'Include/Footer.php' ?>

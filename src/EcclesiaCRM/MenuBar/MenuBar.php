@@ -78,6 +78,7 @@ class MenuBar {
                       $menuItemItem = new Menu ($str,"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
                       $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                       $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
+                      $menuItemItem->addLink("MapUsingGoogle.php?GroupID=" . $group->getID());
                   }
               }
           }
@@ -185,7 +186,6 @@ class MenuBar {
 
       $this->addMenu($menu);
       
-      
       // the Events Menu
       $menu = new Menu ("Events","fa fa-ticket fa-calendar pull-right&quot;","",true);
         // add the badges
@@ -194,6 +194,8 @@ class MenuBar {
         $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
         $menuItem = new Menu ("Calendar","fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
+        $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingGoogle.php",true,$menu);
+
         $menuItem = new Menu ("List Church Events","fa fa-angle-double-right","ListEvents.php",true,$menu);
         $menuItem = new Menu ("List Event Types","fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
         $menuItem = new Menu ("Check-in and Check-out","fa fa-angle-double-right","Checkin.php",true,$menu);
@@ -203,7 +205,11 @@ class MenuBar {
       // the People menu
       $menu = new Menu ("People","fa fa-users","#",true);
       
-        $menuItem = new Menu ("Dashboard","fa fa-angle-double-right","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+        $menuItem = new Menu ("Dashboard","fa fa-angle-double-right","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
+        $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
+        $menuItem->addLink("GeoPage.php");
+        $menuItem->addLink("UpdateAllLatLon.php");
+        
         $menuItem = new Menu ("Add New Person","fa fa-angle-double-right","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
         $menuItem = new Menu ("View All Persons","fa fa-angle-double-right","SelectList.php?mode=person",true,$menu);
         $menuItem = new Menu ("Add New Family","fa fa-angle-double-right","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);

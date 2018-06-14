@@ -64,6 +64,8 @@ $(document).ready(function () {
      $('#EventCalendar option:first-child').attr("selected", "selected");
 
      modal.modal("show");
+
+     initMap();
   }
 
 

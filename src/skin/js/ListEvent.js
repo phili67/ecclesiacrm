@@ -59,6 +59,8 @@ function addEvent(dateStart,dateEnd)
    $(".ATTENDENCES").hide();
 
    modal.modal("show");
+   
+   initMap();
 }
 
 
@@ -141,12 +143,13 @@ $('#add-event').click('focus', function (e) {
            editor.destroy(false);
            editor = null;              
          }
-      
+         
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
        
          $('form #EventTitle').val(calEvent.Title);
          $('form #EventDesc').val(calEvent.Desc);
          $('form #eventPredication').val(calEvent.Text);
+         $('form #EventLocation').val(calEvent.location);
 
          // we add the calendars and the types
          addCalendars(calEvent.calendarID);
@@ -189,6 +192,8 @@ $('#add-event').click('focus', function (e) {
          $(".ATTENDENCES").hide();
 
          modal.modal("show");
+         
+         initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);                   
       });
     });
     

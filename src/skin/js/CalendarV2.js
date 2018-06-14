@@ -27,8 +27,8 @@ $(document).ready(function () {
         right: 'month,agendaWeek,agendaDay,listMonth,actualizeButton',//listYear
     },
     height: parent,
-    selectable: isModifiable,
-    editable:isModifiable,
+    selectable: window.CRM.isModifiable,
+    editable:window.CRM.isModifiable,
     defaultView: wAgendaName,
     viewRender: function(view, element){
       localStorage.setItem("wAgendaName",view.name);
@@ -143,7 +143,7 @@ $(document).ready(function () {
     var dateStart = moment(calEvent.start).format(fmt);
     var dateEnd = moment(calEvent.end).format(fmt);
     
-    if (calEvent.type == "event" && isModifiable) {
+    if (calEvent.type == "event" && window.CRM.isModifiable) {
        // only with group event We create the dialog,
        if (calEvent.type == "event") {
          var box = bootbox.dialog({
@@ -256,6 +256,7 @@ $(document).ready(function () {
                    $('form #EventTitle').val(calEvent.title);
                    $('form #EventDesc').val(calEvent.Desc);
                    $('form #eventPredication').val(calEvent.Text);
+                   $('form #EventLocation').val(calEvent.location);
      
                    // we add the calendars and the types
                    addCalendars(calEvent.calendarID);
@@ -296,7 +297,9 @@ $(document).ready(function () {
 
                    $(".ATTENDENCES").hide();
  
-                   modal.modal("show");
+                   initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);
+
+                   modal.modal("show");                   
                 }
               }
             }
@@ -457,7 +460,10 @@ select: function(start, end) {
 
        $(".ATTENDENCES").hide();
  
+       initMap();
+
        modal.modal("show");
+       
     } else {
        window.CRM.DisplayAlert("Error","To add an event, You have to create a calendar or activate one first.");
     }

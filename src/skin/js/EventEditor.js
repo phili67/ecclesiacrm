@@ -125,6 +125,7 @@
   $('body').on('click','.date-title .date-range', function(){ 
       $( ".date-title").slideUp();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
       $('.date-recurrence').slideDown();      
@@ -136,6 +137,7 @@
   $('body').on('click','.eventPredicationTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
@@ -147,6 +149,7 @@
   $('body').on('click','#EventTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
@@ -155,9 +158,28 @@
       $('#EventDesc').attr("rows", "1");
   });
   
+  $('body').on('click','#EventLocation', function(){ 
+      $( ".map-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventPredication").slideUp();
+      $('#EventDesc').attr("rows", "1");
+      
+      // Safari Google Map bug correction for an inclusion in a bootbox
+      document.getElementById('MyMap').style.position = 'relative';
+      document.getElementById('MyMap').style.background = 'none';
+      document.getElementById('MyMap').style.width = '420px';
+      document.getElementById('MyMap').style.height = '210px';
+  });
+
+  
   $('body').on('click','#EventDesc', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
@@ -169,6 +191,7 @@
   $('body').on('click','.ATTENDENCES-title', function(){ 
     $( ".date-title").slideDown();
     //$('.ATTENDENCES-title').slideUp();
+    $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
@@ -182,6 +205,7 @@
     $( ".date-title").slideDown();
     $('.ATTENDENCES-title').slideDown();
     $( ".ATTENDENCES" ).slideUp();
+    $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
@@ -239,11 +263,12 @@
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
     $('.eventPredication').slideUp();
-      
+    $( ".map-title").slideUp();
+        
     window.CRM.APIRequest({
-          method: 'POST',
-          path: 'events/attendees',
-          data: JSON.stringify({"typeID":typeID,"eventID":eventID})
+      method: 'POST',
+      path: 'events/attendees',
+      data: JSON.stringify({"typeID":typeID,"eventID":eventID})
     }).done(function(eventTypes) {      
       var len = eventTypes.length;
     
@@ -402,6 +427,18 @@
                 +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
+            +'<div class="row  div-title">'
+              +'<div class="col-md-3">' + i18next.t('Location') + ":</div>"
+              +'<div class="col-md-9">'
+                  +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title map-title">'
+              +'<div class="col-md-3">' + i18next.t("Map") + ":</div>"
+              +'<div class="col-md-9">'
+                +'<div id="MyMap"></div>'
+              +'</div>'
+            +'</div>'       
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
               +'<div class="col-md-9">'
@@ -616,6 +653,8 @@
                     
                     return false;                    
                   }
+                  
+                  var loc       = $('form #EventLocation').val();
 
                   var e = document.getElementById("eventType");
                   var eventTypeID = e.options[e.selectedIndex].value;
@@ -685,8 +724,8 @@
                       data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID})
-                  }).done(function(data) {                   
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
+                  }).done(function(data) {
                      $('#calendar').fullCalendar('unselect');              
                      add = true;              
                      modal.modal("hide");   
