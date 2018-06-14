@@ -17,21 +17,37 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\GroupQuery;
 
 
 // Get all the groups
 $sSQL = 'SELECT * FROM group_grp ORDER BY grp_Name';
 $rsGroups = RunQuery($sSQL);
 
+$groupName = "";
+
+if (isset($_POST['GroupID'])) {
+    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int'); 
+    $groupName = " : ".GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
+}
+
+
 // Set the page title and include HTML header
-$sPageTitle = gettext('Group reports');
+$sPageTitle = gettext('Group reports').$groupName;
 require 'Include/Header.php';
 ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupRoles.js"></script>
 
-<?php if (!isset($_POST['GroupID'])) {
-    ?>
+<?php 
+  if (!isset($_POST['GroupID'])) {
+    $currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+    
+    if ($currentUserBelongToGroup == 0) {
+        Redirect('Menu.php');
+    }
+?>
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="box">
@@ -93,7 +109,10 @@ require 'Include/Header.php';
     </div>
     <?php
 } else {
-                                $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int'); ?>
+    $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int'); 
+    $groupName = GroupQuery::Create()->findOneById($_POST['GroupID'])->getName();
+    
+    ?>
     <div class="row">
         <div class="col-lg-12">
             <div class="box">

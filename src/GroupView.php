@@ -27,6 +27,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
@@ -40,6 +41,9 @@ use Propel\Runtime\ActiveQuery\Criteria;
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
+// check if the user belongs to the group
+$currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+    
 //Get the data on this group
 $thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
 
@@ -89,7 +93,7 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <?php 
-      if ($_SESSION['user']->isShowMapEnabled()) {
+      if ($_SESSION['user']->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
     ?>
       <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
     <?php
@@ -116,11 +120,16 @@ require 'Include/Header.php';
       }
     ?>
      
+    <?php
+      if ($_SESSION['bManageGroups']) {
+    ?>
      <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php" style="display:inline">
        <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
        <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= gettext("Group reports") ?></button>
      </form>
-
+    <?php
+      }
+    ?>
     <?php
 
 // Email Group link
@@ -247,7 +256,7 @@ require 'Include/Header.php';
 </div>
 
 <?php 
-   if ($_SESSION['user']->isManageGroupsEnabled() ) { 
+   if ( $_SESSION['user']->isManageGroupsEnabled() ) { 
 ?>
 
 <div class="row">
@@ -302,6 +311,10 @@ require 'Include/Header.php';
 
 <?php
 }
+?>
+
+<?php
+  if ( $_SESSION['bManageGroups'] ) {
 ?>
 
 <div class="row">
@@ -429,6 +442,10 @@ require 'Include/Header.php';
     </div>
   </div>
 </div>
+
+<?php
+  }
+?>
 
 <div class="box">
   <div class="box-header with-border">
