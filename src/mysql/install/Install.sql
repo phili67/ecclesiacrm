@@ -418,6 +418,7 @@ CREATE TABLE `events_event` (
   `event_typename` varchar(40) NOT NULL default '',
   `event_grpid` mediumint(9),
   `event_location` text,
+  `event_coordinates` varchar(255) NOT NULL default '',
   `event_calendardata` mediumblob,
   `event_uri` varbinary(200) DEFAULT NULL,
   `event_calendarid` INTEGER UNSIGNED NOT NULL  DEFAULT '0',
