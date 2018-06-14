@@ -1,3 +1,5 @@
+  var marker = null;
+  
   function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
       //Create marker
       var marker = new google.maps.Marker({
@@ -13,6 +15,16 @@
           //set image/gravtar
           $('.profile-user-img').initial();
       });
+      
+      return marker;
+  }
+  
+  function deleteMarker(mark)
+  {
+    if (mark != null) {
+      mark.setMap(null);
+    }
+    mark = null;
   }
 
 
@@ -58,20 +70,15 @@
 
         contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
         contentString += "<p>" + Address + "</p>";
-        
-        contentString += "<div class='image-container'><a href='" + imghref + "'>";
-        contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + window.CRM.root+"/skin/icons/bigevent.png" + "'></a>";
-        contentString += "<b>"+i18next.t("Comments")+"</b>";
-        contentString += "<br>"+Text+"</div>";
 
         //Add marker and infowindow
-        addMarkerWithInfowindow(window.CRM.map, latlng, image, Name, contentString);
+        marker  = addMarkerWithInfowindow(window.CRM.map, latlng, image, Name, contentString);
       } else {
         //Churchmark
-        var churchMark = new google.maps.Marker({
+        marker = new google.maps.Marker({
             icon: window.CRM.root + "/skin/icons/church.png",
             position: new google.maps.LatLng(window.CRM.churchloc),
             map: window.CRM.map
-        });      
+        });
       }
   }

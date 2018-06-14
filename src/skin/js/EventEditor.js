@@ -235,13 +235,62 @@
     $("#endDateEventrecurrence").prop("disabled", (_val == 0)?true:false);
   });
   
-  
-  
   $(document).on('change','#eventType',function (val) {
     var e = document.getElementById("eventType");
     var typeID = e.options[e.selectedIndex].value;
     
     addAttendees(typeID);
+  });
+  
+  $('#EventLocation').bind("enterKey",function(e){
+   //do stuff here
+   alert('coucou');
+  });
+  
+  $(document).on('keydown','#EventLocation',function (val) {    
+    if (val.which == 13) {
+      deleteMarker(marker);
+      
+      var address       = $('form #EventLocation').val();
+  
+      $.ajax({
+        url:"http://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false",
+        type: "POST",
+        success:function(res){
+          var latitude  = res.results[0].geometry.location.lat;
+          var longitude = res.results[0].geometry.location.lng;
+          var EventTitle =  $('form #EventTitle').val();
+          var EventDesc =  $('form #EventDesc').val();
+      
+          if (latitude > 0 && longitude) {
+            var Salutation = EventTitle + " ("+EventDesc+")";
+            var Name = EventTitle;
+            var latlng = new google.maps.LatLng(latitude, longitude);
+
+            var imghref = window.CRM.root+"/Calendar.php";
+            var iconurl = window.CRM.root+"/skin/icons/event.png";
+      
+            var image = {
+                url: iconurl,
+                // This marker is 37 pixels wide by 34 pixels high.
+                size: new google.maps.Size(37, 34),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+
+            contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+            contentString += "<p>" + address + "</p>";
+      
+            //Add marker and infowindow
+            marker  = addMarkerWithInfowindow(window.CRM.map, latlng, image, Name, contentString);
+        
+            window.CRM.map.setCenter(latlng);
+          }
+        }
+      });
+    }
   });
   
   function addAttendees(typeID,first_time,eventID)
@@ -430,7 +479,7 @@
             +'<div class="row  div-title">'
               +'<div class="col-md-3">' + i18next.t('Location') + ":</div>"
               +'<div class="col-md-9">'
-                  +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                  +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
             +'<div class="row div-title map-title">'
