@@ -254,7 +254,8 @@
       var address       = $('form #EventLocation').val();
   
       $.ajax({
-        url:"http://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false",
+        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false",
+        //https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>
         type: "POST",
         success:function(res){
           var latitude  = res.results[0].geometry.location.lat;
