@@ -174,9 +174,7 @@ class CalendarService
               $start = $evnt->getStart('Y-m-d H:i:s');
               $end   = $evnt->getEnd('Y-m-d H:i:s');
               $id    = $evnt->getID();
-              $subid = 1;
               $type  = $evnt->getType();
-              $desc  = $evnt->getDesc();
               $grpID = $evnt->getGroupId();
               $loc   = $evnt->getLocation();
               $lat   = $evnt->getLatitude();
@@ -184,6 +182,7 @@ class CalendarService
               $text  = $evnt->getText();
               $calID = $calendar['id'];
               $fEvnt = false;
+              $subid = 1;
     
               foreach ($freqEvents as $key => $value) {      
                 if ($key == 'freq' && $value != 'none') {        

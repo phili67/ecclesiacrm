@@ -130,11 +130,11 @@
       $('.date-end').slideDown();
       $('.date-recurrence').slideDown();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
   
-  $('body').on('click','.eventPredicationTitle', function(){ 
+  $('body').on('click','.eventNotesTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
@@ -142,7 +142,7 @@
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideDown();
+      $( ".eventNotes").slideDown();
       $('#EventDesc').attr("rows", "1");
   });
   
@@ -154,7 +154,7 @@
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
   
@@ -165,13 +165,13 @@
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
       
       // Safari Google Map bug correction for an inclusion in a bootbox
       document.getElementById('MyMap').style.position = 'relative';
       document.getElementById('MyMap').style.background = 'none';
-      document.getElementById('MyMap').style.width = '420px';
+      document.getElementById('MyMap').style.width = '100%';
       document.getElementById('MyMap').style.height = '210px';
   });
 
@@ -184,7 +184,7 @@
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "3");
   });
   
@@ -195,7 +195,7 @@
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
-    $( ".eventPredication").slideUp();
+    $( ".eventNotes").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
     $('#EventDesc').attr("rows", "1");
   });
@@ -209,7 +209,7 @@
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
-    $( ".eventPredication").slideUp();
+    $( ".eventNotes").slideUp();
     $('#EventDesc').attr("rows", "1");
 
     var e = document.getElementById("EventCalendar");
@@ -254,7 +254,7 @@
       var address       = $('form #EventLocation').val();
   
       $.ajax({
-        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false",
+        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey,
         //https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>
         type: "POST",
         success:function(res){
@@ -263,7 +263,7 @@
           var EventTitle =  $('form #EventTitle').val();
           var EventDesc =  $('form #EventDesc').val();
       
-          if (latitude > 0 && longitude) {
+          if ( latitude > 0 && longitude > 0 ) {
             var Salutation = EventTitle + " ("+EventDesc+")";
             var Name = EventTitle;
             var latlng = new google.maps.LatLng(latitude, longitude);
@@ -312,7 +312,7 @@
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
-    $('.eventPredication').slideUp();
+    $('.eventNotes').slideUp();
     $( ".map-title").slideUp();
         
     window.CRM.APIRequest({
@@ -626,14 +626,14 @@
                 +'<hr/>'
               +'</div>'
             +'</div>'            
-            +'<div class="row eventPredicationTitle div-title">'
+            +'<div class="row eventNotesTitle div-title">'
               +'<div class="col-md-12">'
-                +i18next.t('Sermon')
+                +i18next.t('Notes')
               +'</div>'
             +'</div>'
-            +'<div class="row  eventPredication  div-block">'
+            +'<div class="row  eventNotes  div-block">'
               +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
+                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
               +'</div>'
             +'</div>'
             +'<div class="row  div-title">'
@@ -764,7 +764,7 @@
                   
                   var EventCountNotes  = $('form #EventCountNotes').val();
                              
-                  var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
+                  var eventNotes = CKEDITOR.instances['eventNotes'].getData();//$('form #eventNotes').val();
               
                   var add = false;
                                                             
@@ -772,7 +772,7 @@
                       method: 'POST',
                       path: 'events/',
                       data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
-                          "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
+                          "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
                           "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
                   }).done(function(data) {

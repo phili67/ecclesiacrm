@@ -268,7 +268,7 @@ $app->group('/events', function () {
         $location = '';
         
         if (isset($input->location)) {
-          $location = str_replace('\n',' ',$input->location);
+          $location = str_replace("\n"," ",$input->location);
           $latLng = GeoUtils::getLatLong($input->location);
           if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
              $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
@@ -354,7 +354,7 @@ $app->group('/events', function () {
         }
         
         $event->setType($input->eventTypeID);
-        $event->setText($input->eventPredication);
+        $event->setText($input->eventNotes);
         $event->setTypeName($eventTypeName);
         $event->setInActive($input->eventInActive);
         
@@ -704,7 +704,7 @@ $app->group('/events', function () {
         $location = '';
         
         if (isset($input->location)) {
-          $location = str_replace('\n',' ',$input->location);
+          $location = str_replace("\n"," ",$input->location);
           
           $latLng = GeoUtils::getLatLong($input->location);
           if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
@@ -773,7 +773,7 @@ $app->group('/events', function () {
         }
         
         $event->setType($input->eventTypeID);
-        $event->setText($input->eventPredication);
+        $event->setText($input->eventNotes);
         $event->setTypeName($eventTypeName);
         $event->setInActive($input->eventInActive);
 

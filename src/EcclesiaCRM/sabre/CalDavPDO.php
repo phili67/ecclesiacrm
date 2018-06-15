@@ -849,7 +849,7 @@ SQL;
         $coordinates = '';
         
         if ($extraData['location'] != '') {
-          $extraData['location'] = str_replace("\n",' ',$extraData['location']);
+          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
           
           $latLng = GeoUtils::getLatLong($extraData['location']);
           if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
@@ -913,7 +913,7 @@ SQL;
         $coordinates = '';
         
         if ($extraData['location'] != '') {
-          $extraData['location'] = str_replace("\n",' ',$extraData['location']);
+          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
 
           $latLng = GeoUtils::getLatLong($extraData['location']);
           if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {

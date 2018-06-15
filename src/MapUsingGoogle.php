@@ -375,9 +375,12 @@ require 'Include/Footer.php' ?>
                     //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
                     contentString += "<div class='image-container'><a href='" + imghref + "'>";
                     if (plotArray[i].type == 'event') {
-                       contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].bigThumbnail + "'></a>";
-                       contentString += "<b>"+i18next.t("Comments")+"</b>";
-                       contentString += "<br>"+plotArray[i].Text+"</div>";
+                      contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].bigThumbnail + "'></a>";
+                      
+                      if (plotArray[i].Text != '') {
+                         contentString += "<b>"+i18next.t("Notes")+"</b>";
+                         contentString += "<br>"+plotArray[i].Text+"</div>";
+                      }
                     } else {
                        contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].Thumbnail + "'></a>";
                     }
