@@ -125,54 +125,77 @@
   $('body').on('click','.date-title .date-range', function(){ 
       $( ".date-title").slideUp();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideDown();
       $('.date-end').slideDown();
       $('.date-recurrence').slideDown();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
   
-  $('body').on('click','.eventPredicationTitle', function(){ 
+  $('body').on('click','.eventNotesTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideDown();
+      $( ".eventNotes").slideDown();
       $('#EventDesc').attr("rows", "1");
   });
   
   $('body').on('click','#EventTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
   
-  $('body').on('click','#EventDesc', function(){ 
-      $( ".date-title").slideDown();
+  $('body').on('click','#EventLocation', function(){ 
+      $( ".map-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
       $('.date-end').slideUp();
       $('.date-recurrence').slideUp();      
       $( ".ATTENDENCES" ).slideUp();
-      $( ".eventPredication").slideUp();
+      $( ".eventNotes").slideUp();
+      $('#EventDesc').attr("rows", "1");
+      
+      // Safari Google Map bug correction for an inclusion in a bootbox
+      document.getElementById('MyMap').style.position = 'relative';
+      document.getElementById('MyMap').style.background = 'none';
+      document.getElementById('MyMap').style.width = '100%';
+      document.getElementById('MyMap').style.height = '210px';
+  });
+
+  
+  $('body').on('click','#EventDesc', function(){ 
+      $( ".date-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "3");
   });
   
   $('body').on('click','.ATTENDENCES-title', function(){ 
     $( ".date-title").slideDown();
     //$('.ATTENDENCES-title').slideUp();
+    $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
-    $( ".eventPredication").slideUp();
+    $( ".eventNotes").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
     $('#EventDesc').attr("rows", "1");
   });
@@ -182,10 +205,11 @@
     $( ".date-title").slideDown();
     $('.ATTENDENCES-title').slideDown();
     $( ".ATTENDENCES" ).slideUp();
+    $( ".map-title").slideUp();
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();      
-    $( ".eventPredication").slideUp();
+    $( ".eventNotes").slideUp();
     $('#EventDesc').attr("rows", "1");
 
     var e = document.getElementById("EventCalendar");
@@ -211,13 +235,63 @@
     $("#endDateEventrecurrence").prop("disabled", (_val == 0)?true:false);
   });
   
-  
-  
   $(document).on('change','#eventType',function (val) {
     var e = document.getElementById("eventType");
     var typeID = e.options[e.selectedIndex].value;
     
     addAttendees(typeID);
+  });
+  
+  $('#EventLocation').bind("enterKey",function(e){
+   //do stuff here
+   alert('coucou');
+  });
+  
+  $(document).on('keydown','#EventLocation',function (val) {    
+    if (val.which == 13) {
+      deleteMarker(marker);
+      
+      var address       = $('form #EventLocation').val();
+  
+      $.ajax({
+        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey,
+        //https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>
+        type: "POST",
+        success:function(res){
+          var latitude  = res.results[0].geometry.location.lat;
+          var longitude = res.results[0].geometry.location.lng;
+          var EventTitle =  $('form #EventTitle').val();
+          var EventDesc =  $('form #EventDesc').val();
+      
+          if ( latitude > 0 && longitude > 0 ) {
+            var Salutation = EventTitle + " ("+EventDesc+")";
+            var Name = EventTitle;
+            var latlng = new google.maps.LatLng(latitude, longitude);
+
+            var imghref = window.CRM.root+"/Calendar.php";
+            var iconurl = window.CRM.root+"/skin/icons/event.png";
+      
+            var image = {
+                url: iconurl,
+                // This marker is 37 pixels wide by 34 pixels high.
+                size: new google.maps.Size(37, 34),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+
+            contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+            contentString += "<p>" + address + "</p>";
+      
+            //Add marker and infowindow
+            marker  = addMarkerWithInfowindow(window.CRM.map, latlng, image, Name, contentString);
+        
+            window.CRM.map.setCenter(latlng);
+          }
+        }
+      });
+    }
   });
   
   function addAttendees(typeID,first_time,eventID)
@@ -238,12 +312,13 @@
     $('.date-start').slideUp();
     $('.date-end').slideUp();
     $('.date-recurrence').slideUp();
-    $('.eventPredication').slideUp();
-      
+    $('.eventNotes').slideUp();
+    $( ".map-title").slideUp();
+        
     window.CRM.APIRequest({
-          method: 'POST',
-          path: 'events/attendees',
-          data: JSON.stringify({"typeID":typeID,"eventID":eventID})
+      method: 'POST',
+      path: 'events/attendees',
+      data: JSON.stringify({"typeID":typeID,"eventID":eventID})
     }).done(function(eventTypes) {      
       var len = eventTypes.length;
     
@@ -402,6 +477,18 @@
                 +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
+            +'<div class="row  div-title">'
+              +'<div class="col-md-3">' + i18next.t('Location') + ":</div>"
+              +'<div class="col-md-9">'
+                  +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title map-title">'
+              +'<div class="col-md-3">' + i18next.t("Map") + ":</div>"
+              +'<div class="col-md-9">'
+                +'<div id="MyMap"></div>'
+              +'</div>'
+            +'</div>'       
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
               +'<div class="col-md-9">'
@@ -539,14 +626,14 @@
                 +'<hr/>'
               +'</div>'
             +'</div>'            
-            +'<div class="row eventPredicationTitle div-title">'
+            +'<div class="row eventNotesTitle div-title">'
               +'<div class="col-md-12">'
-                +i18next.t('Sermon')
+                +i18next.t('Notes')
               +'</div>'
             +'</div>'
-            +'<div class="row  eventPredication  div-block">'
+            +'<div class="row  eventNotes  div-block">'
               +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
-                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventPredication" id="eventPredication"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
+                  +'<textarea name="EventText" cols="80" class="form-control input-sm eventNotes" id="eventNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
               +'</div>'
             +'</div>'
             +'<div class="row  div-title">'
@@ -616,6 +703,8 @@
                     
                     return false;                    
                   }
+                  
+                  var loc       = $('form #EventLocation').val();
 
                   var e = document.getElementById("eventType");
                   var eventTypeID = e.options[e.selectedIndex].value;
@@ -675,7 +764,7 @@
                   
                   var EventCountNotes  = $('form #EventCountNotes').val();
                              
-                  var eventPredication = CKEDITOR.instances['eventPredication'].getData();//$('form #eventPredication').val();
+                  var eventNotes = CKEDITOR.instances['eventNotes'].getData();//$('form #eventNotes').val();
               
                   var add = false;
                                                             
@@ -683,10 +772,10 @@
                       method: 'POST',
                       path: 'events/',
                       data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
-                          "Fields":fields,"EventCountNotes":EventCountNotes,"eventPredication":eventPredication,
+                          "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID})
-                  }).done(function(data) {                   
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
+                  }).done(function(data) {
                      $('#calendar').fullCalendar('unselect');              
                      add = true;              
                      modal.modal("hide");   

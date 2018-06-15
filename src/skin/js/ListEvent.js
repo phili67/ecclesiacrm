@@ -37,7 +37,7 @@ function addEvent(dateStart,dateEnd)
    $('.date-start').hide();
    $('.date-end').hide();
    $('.date-recurrence').hide();
-   $(".eventPredication").hide();
+   $(".eventNotes").hide();
 
    $("#typeEventrecurrence").prop("disabled", true);
    $("#endDateEventrecurrence").prop("disabled", true);
@@ -47,7 +47,7 @@ function addEvent(dateStart,dateEnd)
 
    // this will create the toolbar for the textarea
    if (editor == null) {
-     editor = CKEDITOR.replace('eventPredication',{
+     editor = CKEDITOR.replace('eventNotes',{
        customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
        language : window.CRM.lang,
        width : '100%'
@@ -59,6 +59,8 @@ function addEvent(dateStart,dateEnd)
    $(".ATTENDENCES").hide();
 
    modal.modal("show");
+   
+   initMap();
 }
 
 
@@ -141,12 +143,13 @@ $('#add-event').click('focus', function (e) {
            editor.destroy(false);
            editor = null;              
          }
-      
+         
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
        
          $('form #EventTitle').val(calEvent.Title);
          $('form #EventDesc').val(calEvent.Desc);
-         $('form #eventPredication').val(calEvent.Text);
+         $('form #eventNotes').val(calEvent.Text);
+         $('form #EventLocation').val(calEvent.location);
 
          // we add the calendars and the types
          addCalendars(calEvent.calendarID);
@@ -170,14 +173,14 @@ $('#add-event').click('focus', function (e) {
          $('.date-start').hide();
          $('.date-end').hide();
          $('.date-recurrence').hide();
-         $(".eventPredication").hide();
+         $(".eventNotes").hide();
 
          // this will ensure that image and table can be focused
          $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
          // this will create the toolbar for the textarea
          if (editor == null) {
-           editor = CKEDITOR.replace('eventPredication',{
+           editor = CKEDITOR.replace('eventNotes',{
              customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
              language : window.CRM.lang,
              width : '100%'
@@ -189,6 +192,8 @@ $('#add-event').click('focus', function (e) {
          $(".ATTENDENCES").hide();
 
          modal.modal("show");
+         
+         initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);                   
       });
     });
     

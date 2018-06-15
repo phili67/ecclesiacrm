@@ -32,6 +32,7 @@ use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Utils\GeoUtils;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
@@ -115,6 +116,9 @@ $app->group('/events', function () {
           $arr['calendarID'] = [$event->getEventCalendarid(),0];
           $arr['eventTypeID'] = $event->getType();
           $arr['inActive'] = $event->getInActive();
+          $arr['location'] = $event->getLocation();
+          $arr['latitude'] = $event->getLatitude();
+          $arr['longitude'] = $event->getLongitude();
           
           return $response->withJson($arr); 
           
@@ -259,6 +263,17 @@ $app->group('/events', function () {
         $calendarId = $calIDs[0];
         $Id         = $calIDs[1];          
         $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+        
+        $coordinates = "";        
+        $location = '';
+        
+        if (isset($input->location)) {
+          $location = str_replace("\n"," ",$input->location);
+          $latLng = GeoUtils::getLatLong($input->location);
+          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+          }
+        }
 
         // we remove to Sabre 
         if (!empty($input->recurrenceValid)) {        
@@ -271,10 +286,13 @@ $app->group('/events', function () {
             'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
             'DESCRIPTION' => $input->EventDesc,
             'SUMMARY' => $input->EventTitle,
+            'LOCATION' => $input->location,
             'UID' => $uuid,
             'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
             'SEQUENCE' => '0',
-            'TRANSP' => 'OPAQUE'
+            'TRANSP' => 'OPAQUE',
+            'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+            "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
           ];
         
         } else {
@@ -287,9 +305,12 @@ $app->group('/events', function () {
             'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
             'DESCRIPTION' => $input->EventDesc,              
             'SUMMARY' => $input->EventTitle,
+            'LOCATION' => $input->location,
             'UID' => $uuid,
             'SEQUENCE' => '0',
-            'TRANSP' => 'OPAQUE'
+            'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+            "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
+            //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
           ];
           
         }
@@ -313,11 +334,12 @@ $app->group('/events', function () {
         }*/
         
         $vcalendar->add('VEVENT',$vevent);        
+        //return $response->withJson(["status" => $vcalendar->serialize()]);        
 
 
         // Now we move to propel, to finish the put extra infos        
         $etag = $calendarBackend->createCalendarObject($calIDs, $uuid, $vcalendar->serialize());
-        
+                
         $event = EventQuery::Create()->findOneByEtag(str_replace('"',"",$etag));
         $eventTypeName = "";
         
@@ -332,11 +354,14 @@ $app->group('/events', function () {
         }
         
         $event->setType($input->eventTypeID);
+        $event->setText($input->eventNotes);
         $event->setTypeName($eventTypeName);
         $event->setInActive($input->eventInActive);
         
         // we set the groupID to manage correctly the attendees : Historical
         $event->setGroupId ($calendar->getGroupId());
+        $event->setLocation ($input->location);
+        $event->setCoordinates($coordinates);
         
         $event->save();        
         
@@ -675,6 +700,18 @@ $app->group('/events', function () {
         
         $calIDs = explode(",",$input->calendarID);
         
+        $coordinates = "";        
+        $location = '';
+        
+        if (isset($input->location)) {
+          $location = str_replace("\n"," ",$input->location);
+          
+          $latLng = GeoUtils::getLatLong($input->location);
+          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+          }
+        }
+        
         if (!empty($input->recurrenceValid)) {        
         
           $vcalendar->add(
@@ -689,7 +726,9 @@ $app->group('/events', function () {
               'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
               'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
               'SEQUENCE' => '0',
-              'TRANSP' => 'OPAQUE'
+              'TRANSP' => 'OPAQUE',
+              'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+              "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
           ]);
         
         } else {
@@ -705,7 +744,9 @@ $app->group('/events', function () {
             'SUMMARY' => $input->EventTitle,
             'UID' => $uuid,
             'SEQUENCE' => '0',
-            'TRANSP' => 'OPAQUE'
+            'TRANSP' => 'OPAQUE',
+            'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+            "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
           ]);
           
         }
@@ -732,9 +773,13 @@ $app->group('/events', function () {
         }
         
         $event->setType($input->eventTypeID);
-        $event->setText($input->eventPredication);
+        $event->setText($input->eventNotes);
         $event->setTypeName($eventTypeName);
         $event->setInActive($input->eventInActive);
+
+        $event->setLocation ($input->location);
+        $event->setCoordinates($coordinates);
+
         
         // we set the groupID to manage correctly the attendees : Historical
         $event->setGroupId ($calendar->getGroupId());

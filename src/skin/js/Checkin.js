@@ -39,7 +39,7 @@ $(document).ready(function () {
      $('.date-start').hide();
      $('.date-end').hide();
      $('.date-recurrence').hide();
-     $(".eventPredication").hide();
+     $(".eventNotes").hide();
 
      $("#typeEventrecurrence").prop("disabled", true);
      $("#endDateEventrecurrence").prop("disabled", true);
@@ -49,7 +49,7 @@ $(document).ready(function () {
 
      // this will create the toolbar for the textarea
      if (editor == null) {
-       editor = CKEDITOR.replace('eventPredication',{
+       editor = CKEDITOR.replace('eventNotes',{
         customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
         language : window.CRM.lang,
         width : '100%'
@@ -64,6 +64,8 @@ $(document).ready(function () {
      $('#EventCalendar option:first-child').attr("selected", "selected");
 
      modal.modal("show");
+
+     initMap();
   }
 
 

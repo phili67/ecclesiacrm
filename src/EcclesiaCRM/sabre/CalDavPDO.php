@@ -17,6 +17,7 @@ use Sabre\DAV\Exception\Forbidden;
 use Sabre\DAV\Xml\Element\Sharee;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
+use EcclesiaCRM\Utils\GeoUtils;
 
 class CalDavPDO extends SabreCalDavBase\PDO {        
 
@@ -845,11 +846,23 @@ SQL;
 
         $extraData = $this->extractCalendarData($calendarData);
 
-        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+        $coordinates = '';
+        
+        if ($extraData['location'] != '') {
+          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
+          
+          $latLng = GeoUtils::getLatLong($extraData['location']);
+          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+          }
+        }
+
+        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_coordinates, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
         $stmt->execute([
             $calendarId,
             $objectUri,
             $calendarData,
+            $coordinates,
             time(),
             mb_convert_encoding($extraData['title'], "UTF-8"),
             mb_convert_encoding($extraData['description'], "UTF-8"),
@@ -896,9 +909,20 @@ SQL;
         list($calendarId, $instanceId) = $calendarId;
 
         $extraData = $this->extractCalendarData($calendarData);
+        
+        $coordinates = '';
+        
+        if ($extraData['location'] != '') {
+          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
 
-        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
-        $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
+          $latLng = GeoUtils::getLatLong($extraData['location']);
+          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+          }
+        }
+
+        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_coordinates = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt->execute([$calendarData, $coordinates, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
         
 
         $this->addChange($calendarId, $objectUri, 2);

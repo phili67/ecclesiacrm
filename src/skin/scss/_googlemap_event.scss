@@ -1,0 +1,13 @@
+    #MyMap {
+       position: relative;
+       overflow: hidden;
+       margin: 0;
+       padding: 0;
+       width : 100%;
+       height:200px;
+    }
+    
+    .job_listings-map-wrapper #job_listings-map-canvas img {
+      max-width: none;
+    }
+

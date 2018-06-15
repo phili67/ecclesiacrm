@@ -8239,7 +8239,7 @@ msgstr "Votre panier est vide"
 
 #: MapUsingGoogle.php:16
 msgid "View on Map"
-msgstr "Afficher la carte"
+msgstr "Voir sur la carte"
 
 #: MapUsingGoogle.php:93 MapUsingGoogle.php:116
 msgid "Legend"

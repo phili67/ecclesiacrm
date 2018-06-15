@@ -35,6 +35,20 @@ class Event extends BaseEvent
     
   }
   
+  public function getLatitude()
+  {
+     $LatLong = explode(' commaGMAP ', $this->getCoordinates());
+     
+     return $LatLong[0];
+  }
+
+  public function getLongitude()
+  {
+     $LatLong = explode(' commaGMAP ', $this->getCoordinates());
+     
+     return $LatLong[1];
+  }
+  
   public function checkOutPerson($PersonId)
   {    
     $AttendanceRecord = EventAttendQuery::create()
