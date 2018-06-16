@@ -16,6 +16,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Check for Create Directory user permission.
 if (!$bCreateDirectory) {
@@ -54,15 +55,6 @@ $aDefaultClasses = explode(',', SystemConfig::getValue('sDirClassifications'));
 $aDirRoleHead = explode(',', SystemConfig::getValue('sDirRoleHead'));
 $aDirRoleSpouse = explode(',', SystemConfig::getValue('sDirRoleSpouse'));
 $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
-
-// Get Field Security List Matrix
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-$rsSecurityGrp = RunQuery($sSQL);
-
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
-}
 
 ?>
 <div class="table-responsive">
@@ -186,7 +178,7 @@ while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
          <?php
          if ($numCustomFields > 0) {
              while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_ASSOC)) {
-                 if (($aSecurityType[$rowCustomField['custom_FieldSec']] == 'bAll') || ($_SESSION[$aSecurityType[$rowCustomField['custom_FieldSec']]])) {
+                 if (OutputUtils::securityFilter($custom_FieldSec)) {
                      ?>
                 <input type="checkbox" Name="bCustom<?= $rowCustomField['custom_Order'] ?>" value="1" checked><?= $rowCustomField['custom_Name'] ?><br>
          <?php

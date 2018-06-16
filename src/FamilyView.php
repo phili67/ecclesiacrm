@@ -155,16 +155,6 @@ $ormClassifications = ListOptionQuery::Create()
               ->findById(1);
 
 
-// Get Field Security List Matrix
-$securityListOptions = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(5);
-              
-foreach ($securityListOptions as $securityListOption) {
-    $aSecurityType[$securityListOption->getOptionId()] = $securityListOption->getOptionName();
-}
-
-
 //Set the spacer cell width
 $iTableSpacerWidth = 10;
 

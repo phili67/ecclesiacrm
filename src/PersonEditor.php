@@ -73,15 +73,6 @@ if ($iPersonID > 0) {
     exit;
 }
 
-// Get Field Security List Matrix
-$listOptions = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(5);
-              
-foreach ($listOptions as $listOption) {
-    $aSecurityType[$listOption->getOptionId()] = $listOption->getOptionName();
-}
-
 $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByOrder()
                      ->find();
@@ -303,7 +294,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $aCustomData = [];
     
     foreach ($ormCustomFields as $rowCustomField) {
-        if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
+        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getId()]);
             
             //echo $rowCustomField->getId()." ".$currentFieldData;
@@ -507,10 +498,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sSQL = '';
 
             foreach ($ormCustomFields as $rowCustomField) {
-              if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
+              if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
                     $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
                     sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getId(), $sPhoneCountry);
-                }              
+              }
             }
         
             // chop off the last 2 characters (comma and space) added in the last while loop iteration.
@@ -1374,47 +1365,47 @@ require 'Include/Header.php';
         <div class="box-body">
             <?php if ($numCustomFields > 0) {
 
-                                $cnt = 0;
-                                
-                                foreach ($ormCustomFields as $rowCustomField) {
-    
-                                    if ($aSecurityType[$rowCustomField->getCustomFieldSec()] == 'bAll' || $_SESSION[$aSecurityType[$rowCustomField->getCustomFieldSec()]]) {
-                                        if ($cnt == 0) {
-                                            echo "<div class='row'>";
-                                        }
-        
+              $cnt = 0;
+              
+              foreach ($ormCustomFields as $rowCustomField) {
 
-                                        echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label>';
+                  if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                      if ($cnt == 0) {
+                          echo "<div class='row'>";
+                      }
 
-                                        if (array_key_exists($rowCustomField->getId(), $aCustomData)) {
-                                            $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
-                                        } else {
-                                            $currentFieldData = '';
-                                        }
 
-                                        if ($type_ID == 11) {
-                                            $custom_Special = $sPhoneCountry;
-                                        }
+                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label>';
 
-                                        OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
-                                        if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
-                                            echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
-                                        }
-                                        echo '</div>';
-        
-                                        $cnt+=1;
-                                        $cnt%=3;
+                      if (array_key_exists($rowCustomField->getId(), $aCustomData)) {
+                          $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
+                      } else {
+                          $currentFieldData = '';
+                      }
 
-                                        if ($cnt == 0) {
-                                            echo '</div>';
-                                        }
-                                    }
-                                }                            
+                      if ($type_ID == 11) {
+                          $custom_Special = $sPhoneCountry;
+                      }
 
-                                if ($cnt) {
-                                    echo '</div>';
-                                }
-                            } ?>
+                      OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
+                      if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
+                          echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
+                      }
+                      echo '</div>';
+
+                      $cnt+=1;
+                      $cnt%=3;
+
+                      if ($cnt == 0) {
+                          echo '</div>';
+                      }
+                  }
+              }                            
+
+              if ($cnt) {
+                  echo '</div>';
+              }
+          } ?>
         </div>
     </div>
   <?php

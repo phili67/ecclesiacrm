@@ -38,6 +38,10 @@ class Family
     public $_nAdultMale;   // if one adult male
     public $_nAdultFemale; // and 1 adult female we assume spouses
     public $_type;         // 0=patriarch, 1=martriarch
+    
+    public function __construct()
+    {
+    }
 
     // constructor, initialize variables
     public function Family($famtype)
@@ -191,15 +195,6 @@ if (isset($_POST['UploadCSV'])) {
             if ($type_ID != 9 && $type_ID != 12) {
                 $sFamCustomFieldList .= '<option value="f'.$fam_custom_Field.'">'.$fam_custom_Name."</option>\n";
             }
-        }
-
-        // Get Field Security List Matrix
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-        $rsSecurityGrp = RunQuery($sSQL);
-
-        while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-            extract($aRow);
-            $aSecurityType[$lst_OptionID] = $lst_OptionName;
         }
 
         // add select boxes for import destination mapping

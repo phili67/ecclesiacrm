@@ -59,15 +59,6 @@ while ($aRow = mysqli_fetch_array($rsFamilyRoles)) {
     $roleSequence[$lst_OptionSequence] = $lst_OptionID;
 }
 
-// Get Field Security List Matrix
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-$rsSecurityGrp = RunQuery($sSQL);
-
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
-}
-
 //
 // Prepare the MySQL query
 //
@@ -316,7 +307,7 @@ if ($sFormat == 'addtocart') {
         }
         while ($aFamRow = mysqli_fetch_array($rsFamCustomFields)) {
             extract($aFamRow);
-            if (($aSecurityType[$fam_custom_FieldSec] == 'bAll') || ($_SESSION[$aSecurityType[$fam_custom_FieldSec]])) {
+            if (OutputUtils::securityFilter($fam_custom_Field)) {
                 if (isset($_POST["$fam_custom_Field"])) {
                     $bUsedCustomFields = true;
                     $headerString .= "\"".InputUtils::translate_special_charset($fam_custom_Name)."\"".$delimiter;
@@ -328,7 +319,7 @@ if ($sFormat == 'addtocart') {
     if ($sFormat == 'rollup') {
         while ($aFamRow = mysqli_fetch_array($rsFamCustomFields)) {
             extract($aFamRow);
-            if (($aSecurityType[$fam_custom_FieldSec] == 'bAll') || ($_SESSION[$aSecurityType[$fam_custom_FieldSec]])) {
+            if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
                 if (isset($_POST["$fam_custom_Field"])) {
                     $bUsedCustomFields = true;
                     $headerString .= "\"".InputUtils::translate_special_charset($fam_custom_Name)."\"".$delimiter;
@@ -545,7 +536,7 @@ if ($sFormat == 'addtocart') {
                             $type_ID = '';
 
                             extract($aCustomField);
-                            if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
+                            if (OutputUtils::securityFilter($custom_FieldSec)) {
                                 if (isset($_POST["$custom_Field"])) {
                                     if ($type_ID == 11) {
                                         $custom_Special = $sCountry;
