@@ -292,7 +292,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     <!-- About Me Box -->
     <?php 
-      if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isEditRecordsEnabled() ) { 
+      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isEditRecordsEnabled())?true:false;
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -302,7 +302,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <div class="box-body">
         <ul class="fa-ul">
         <?php
-          if (count($person->getOtherFamilyMembers()) > 0) {
+          if ( $can_see_privatedata ) {
+            if (count($person->getOtherFamilyMembers()) > 0) {
         ?>
           <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
               <?php
@@ -402,30 +403,32 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($per_LinkedIn) ?>"><?= gettext('LinkedIn') ?></a></span></li>
           <?php
     }
+    
+    } // end of $can_see_privatedata
 
     // Display the right-side custom fields
     while ($Row = mysqli_fetch_array($rsCustomFields)) {
         extract($Row);
-        $currentData = trim($aCustomData[$custom_Field]);
-        if ($currentData != '') {
-            if ($type_ID == 11) {
-                $custom_Special = $sPhoneCountry;
-            }
-            echo '<li><i class="fa-li '.(($type_ID == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$custom_Name.': <span>';
-            $temp_string=nl2br(OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special));
-            echo $temp_string;
-            echo '</span></li>';
+        
+        if (OutputUtils::securityFilter($custom_FieldSec)) {
+          $currentData = trim($aCustomData[$custom_Field]);
+          if ($currentData != '') {
+              if ($type_ID == 11) {
+                  $custom_Special = $sPhoneCountry;
+              }
+              echo '<li><i class="fa-li '.(($type_ID == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$custom_Name.': <span>';
+              $temp_string=nl2br(OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special));
+              echo $temp_string;
+              echo '</span></li>';
+          }
         }
     } ?>
         </ul>
       </div>
     </div>
-      <div class="alert alert-info alert-dismissable">
-          <i class="fa fa-fw fa-tree"></i> <?php echo gettext('indicates items inherited from the associated family record.'); ?>
-      </div>
-    <?php
-     }
-    ?>
+    <div class="alert alert-info alert-dismissable">
+        <i class="fa fa-fw fa-tree"></i> <?php echo gettext('indicates items inherited from the associated family record.'); ?>
+    </div>
     
   </div>
   <div class="col-lg-9 col-md-9 col-sm-9">

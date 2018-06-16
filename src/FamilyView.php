@@ -220,96 +220,104 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     } ?>
                 <hr/>
             <?php 
-                if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+               $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())?true:false;
             ?>
                 <ul class="fa-ul">
+                  <?php
+                    if ($can_see_privatedata) {
+                  ?>
                     <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:<span>
-          <a
-                            href="http://maps.google.com/?q=<?= $family->getAddress() ?>"
+                       <a href="http://maps.google.com/?q=<?= $family->getAddress() ?>"
                             target="_blank"><?= $family->getAddress() ?></a></span><br>
 
-                        <?php if ($fam_Latitude && $fam_Longitude) {
-        if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
-            $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
-            $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
-            echo $sDistance . " " . strtolower(SystemConfig::getValue("sDistanceUnit")) . " " . $sDirection . " " . gettext(" of church<br>");
-        }
-    } else {
-        $bHideLatLon = true;
-    } ?>
-                        <?php if (!$bHideLatLon) { /* Lat/Lon can be hidden - General Settings */ ?>
-                    <li><i class="fa-li fa fa-compass"></i><?= gettext("Latitude/Longitude") ?>
-                        <span><?= $fam_Latitude . " / " . $fam_Longitude ?></span></li>
-                    <?php
-    }
-    if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ ?>
-                        <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
-                            <span style="color:<?= ($fam_SendNewsLetter == "TRUE" ? "green" : "red") ?>"><i
-                                        class="fa fa-<?= ($fam_SendNewsLetter == "TRUE" ? "check" : "times") ?>"></i></span>
-                        </li>
+                        <?php 
+                          if ($fam_Latitude && $fam_Longitude) {
+                                if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
+                                    $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
+                                    $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
+                                    echo $sDistance . " " . strtolower(SystemConfig::getValue("sDistanceUnit")) . " " . $sDirection . " " . gettext(" of church<br>");
+                                }
+                          } else {
+                                $bHideLatLon = true;
+                          } 
+                        ?>
+                        <?php 
+                          if (!$bHideLatLon) { /* Lat/Lon can be hidden - General Settings */ ?>
+                            <li><i class="fa-li fa fa-compass"></i><?= gettext("Latitude/Longitude") ?>
+                                <span><?= $fam_Latitude . " / " . $fam_Longitude ?></span></li>
                         <?php
-    }
-    if (!SystemConfig::getValue("bHideWeddingDate") && $fam_WeddingDate != "") { /* Wedding Date can be hidden - General Settings */ ?>
-                        <li><i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
-                            <span><?= OutputUtils::FormatDate($fam_WeddingDate, false) ?></span></li>
+                          }
+                          if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ ?>
+                            <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
+                                <span style="color:<?= ($fam_SendNewsLetter == "TRUE" ? "green" : "red") ?>"><i
+                                            class="fa fa-<?= ($fam_SendNewsLetter == "TRUE" ? "check" : "times") ?>"></i></span>
+                            </li>
                         <?php
-    }
-    if (SystemConfig::getValue("bUseDonationEnvelopes")) {
-        ?>
-                        <li><i class="fa-li fa fa-phone"></i><?= gettext("Envelope Number") ?>
-                            <span><?= $fam_Envelope ?></span>
-                        </li>
+                          }
+                          if (!SystemConfig::getValue("bHideWeddingDate") && $fam_WeddingDate != "") { /* Wedding Date can be hidden - General Settings */ ?>
+                            <li><i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
+                                <span><?= OutputUtils::FormatDate($fam_WeddingDate, false) ?></span></li>
                         <?php
-    }
-    if ($sHomePhone != "") {
-        ?>
-                        <li><i class="fa-li fa fa-phone"></i><?= gettext("Home Phone") ?>: <span><a
-                                        href="tel:<?= $sHomePhone ?>"><?= $sHomePhone ?></a></span></li>
+                          }
+                          if (SystemConfig::getValue("bUseDonationEnvelopes")) {
+                        ?>
+                            <li><i class="fa-li fa fa-phone"></i><?= gettext("Envelope Number") ?>
+                                <span><?= $fam_Envelope ?></span>
+                            </li>
                         <?php
-    }
-    if ($sWorkPhone != "") {
-        ?>
-                        <li><i class="fa-li fa fa-building"></i><?= gettext("Work Phone") ?>: <span><a
-                                        href="tel:<?= $sWorkPhone ?>"><?= $sWorkPhone ?></a></span></li>
+                          }
+                          if ($sHomePhone != "") {
+                        ?>
+                            <li><i class="fa-li fa fa-phone"></i><?= gettext("Home Phone") ?>: <span><a
+                                            href="tel:<?= $sHomePhone ?>"><?= $sHomePhone ?></a></span></li>
                         <?php
-    }
-    if ($sCellPhone != "") {
-        ?>
-                        <li><i class="fa-li fa fa-mobile"></i><?= gettext("Mobile Phone") ?>: <span><a
-                                        href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
-                        <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a 
-                                        href="sms:<?= $sCellPhone ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
+                          }
+                          if ($sWorkPhone != "") {
+                        ?>
+                          <li><i class="fa-li fa fa-building"></i><?= gettext("Work Phone") ?>: <span>
+                            <a href="tel:<?= $sWorkPhone ?>"><?= $sWorkPhone ?></a></span>
+                          </li>
+                        <?php
+                          }
+                          if ($sCellPhone != "") {
+                        ?>
+                            <li><i class="fa-li fa fa-mobile"></i><?= gettext("Mobile Phone") ?>: <span><a
+                                            href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
+                            <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a 
+                                            href="sms:<?= $sCellPhone ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
 
                         <?php
-    }
-    if ($fam_Email != "") {
-        ?>
-                        <li><i class="fa-li fa fa-envelope"></i><?= gettext("Email") ?>:<a
-                                    href="mailto:<?= $fam_Email ?>">
-                                <span><?= $fam_Email ?></span></a></li>
-                        <?php if ($mailchimp->isActive()) {
-            ?>
-                            <li><i class="fa-li fa fa-send"></i><?= gettext("Email") ?>:
-                                <span><?= $mailchimp->isEmailInMailChimp($fam_Email) ?></span>
-                                </a></li>
-                            <?php
-        }
-    }
-    // Display the left-side custom fields
-    while ($Row = mysqli_fetch_array($rsFamCustomFields)) {
-        extract($Row);
-        if (($aSecurityType[$fam_custom_FieldSec] == 'bAll') || ($_SESSION[$aSecurityType[$fam_custom_FieldSec]])) {
-            $currentData = trim($aFamCustomData[$fam_custom_Field]);
-            if ($type_ID == 11) {
-                $fam_custom_Special = $sPhoneCountry;
-            }
-            echo "<li><i class=\"fa-li fa fa-tag\"></i>" . $fam_custom_Name . ": <span>" . OutputUtils::displayCustomField($type_ID, $currentData, $fam_custom_Special) . "</span></li>";
-        }
-    } ?>
+                          }
+                          if ($fam_Email != "") {
+                        ?>
+                            <li><i class="fa-li fa fa-envelope"></i><?= gettext("Email") ?>:
+                              <a href="mailto:<?= $fam_Email ?>"><span><?= $fam_Email ?></span></a>
+                            </li>
+                          <?php 
+                            if ($mailchimp->isActive()) {
+                          ?>
+                              <li><i class="fa-li fa fa-send"></i><?= gettext("Email") ?>:
+                                  <span><?= $mailchimp->isEmailInMailChimp($fam_Email) ?></span>
+                                  </a></li>
+                              <?php
+                            }
+                          }
+    
+                    } // end of can_see_privatedata
+    
+                    // Display the left-side custom fields
+                    while ($Row = mysqli_fetch_array($rsFamCustomFields)) {
+                        extract($Row);
+        
+                        if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
+                            $currentData = trim($aFamCustomData[$fam_custom_Field]);
+                            if ($type_ID == 11) {
+                                $fam_custom_Special = $sPhoneCountry;
+                            }
+                            echo "<li><i class=\"fa-li fa fa-tag\"></i>" . $fam_custom_Name . ": <span>" . OutputUtils::displayCustomField($type_ID, $currentData, $fam_custom_Special) . "</span></li>";
+                        }
+                    } ?>
                 </ul>
-            <?php
-            }
-            ?>
             </div>
         </div>
     </div>

@@ -416,9 +416,28 @@ if ($numRows == 0) {
             <td colspan="7">
             <table width="100%">
                 <tr>
+                    <td>
+                    </td>
+                    <td>
+                      <div><?= gettext('Type') ?>:</div>
+                    </td>
+                    <td>
+                      <div><?= gettext('Name') ?>:</div>
+                    </td>
+                    <td>
+                        <div><?= gettext('Security Option') ?></div>
+                    </td>
+                    <td nowrap>
+                        <div><?= gettext('Side') ?>:</div>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
                     <td width="15%"></td>
-                    <td valign="top">
-                    <div><?= gettext('Type') ?>:</div>
+                    <td valign="top">                    
                     <?php
                         echo '<select name="newFieldType" class="form-control">';
 
@@ -431,7 +450,6 @@ if ($numRows == 0) {
                     <a href="<?= SystemURLs::getSupportURL() ?>"><?= gettext('Help on types..') ?></a>
                     </td>
                     <td valign="top">
-                        <div><?= gettext('Name') ?>:</div>
                         <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                         <?php
                             if ($bNewNameError) {
@@ -444,16 +462,14 @@ if ($numRows == 0) {
                         &nbsp;
                     </td>
                     <td valign="top" nowrap>
-                        <div><?= gettext('Security Option') ?></div>
                         <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
                     </td>
                     <td valign="top" nowrap>
-                        <div><?= gettext('Side') ?>:</div>
                         <input type="radio" name="newFieldSide" value="0" checked><?= gettext('Left') ?>
                         <input type="radio" name="newFieldSide" value="1"><?= gettext('Right') ?>
                         &nbsp;
                     </td>
-                    <td>
+                    <td valign="top">
                         <input type="submit" class="btn btn-primary" <?= 'value="'.gettext('Add New Field').'"' ?> Name="AddField">
                     </td>
                     <td width="15%"></td>

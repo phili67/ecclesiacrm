@@ -16,6 +16,67 @@ class OutputUtils {
     return "";
   }
   
+  public function securityFilter($fieldSec)
+  {
+    switch ($fieldSec) {
+      case 1: // bAll
+        return true;
+        break;
+      case 2: // bAdmin
+        if ($_SESSION['user']->isAdmin()) {
+          return true;
+        }
+        break;
+      case 3: // bAddRecords        
+        if ($_SESSION['user']->isAddRecordsEnabled()) {
+          return true;
+        }
+        break;
+      case 4: // bEditRecords        
+        if ($_SESSION['user']->isEditRecordsEnabled()) {
+          return true;
+        }
+        break;
+      case 5: // bDeleteRecords        
+        if ($_SESSION['user']->isDeleteRecordsEnabled()) {
+          return true;
+        }
+        break;
+      case 6: // bMenuOptions        
+        if ($_SESSION['user']->isMenuOptionsEnabled()) {
+          return true;
+        }
+        break;
+      case 7: // bManageGroups        
+        if ($_SESSION['user']->isManageGroupsEnabled()) {
+          return true;
+        }
+        break;
+      case 8: // bFinance        
+        if ($_SESSION['user']->isFinanceEnabled()) {
+          return true;
+        }
+        break;
+      case 9: // bNotes        
+        if ($_SESSION['user']->isNotesEnabled()) {
+          return true;
+        }
+        break;
+      /*case 10: // bCommunication        
+        if ($_SESSION['user']->isNotesEnabled()) {
+          return true;
+        }
+        break;*/
+      case 11: // bCanvasser        
+        if ($_SESSION['user']->isCanvasserEnabled()) {
+          return true;
+        }
+        break;
+    }
+        
+    return false;
+  }
+  
   public static function convertCurrency($cur) 
   {
     define('EURO', chr(128));
