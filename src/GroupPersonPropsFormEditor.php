@@ -4,7 +4,7 @@
  *  filename    : GroupPersonPropsFormEditor.php
  *  last change : 2018-06-09
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Philippe Logel
+ *  copyright   : Copyright 2018 Philippe Logel
  *
  *  function    : Editor for group-person-specific properties form
  *
