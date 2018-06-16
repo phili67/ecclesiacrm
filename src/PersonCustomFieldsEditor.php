@@ -90,11 +90,11 @@ require 'Include/Header.php'; ?>
               }
 
               $sSQL = "UPDATE person_custom_master
-					SET custom_Name = '".$aNameFields[$iFieldID]."',
-						custom_Special = ".$aSpecialFields[$iFieldID].",
-						custom_Side = '".$temp."',
-						custom_FieldSec = ".$aFieldSecurity[$iFieldID]."
-					WHERE custom_Field = '".$aFieldFields[$iFieldID]."';";
+          SET custom_Name = '".$aNameFields[$iFieldID]."',
+            custom_Special = ".$aSpecialFields[$iFieldID].",
+            custom_Side = '".$temp."',
+            custom_FieldSec = ".$aFieldSecurity[$iFieldID]."
+          WHERE custom_Field = '".$aFieldFields[$iFieldID]."';";
               RunQuery($sSQL);
           }
       }
@@ -163,8 +163,8 @@ require 'Include/Header.php'; ?>
                   // Insert into the master table
                   $newOrderID = $last + 1;
                   $sSQL = "INSERT INTO person_custom_master
-						(custom_Order , custom_Field , custom_Name ,  custom_Special , custom_Side , custom_FieldSec, type_ID)
-						VALUES ('".$newOrderID."', 'c".$newFieldNum."', '".$newFieldName."', ".$newSpecial.", '".$newFieldSide."', '".$newFieldSec."', '".$newFieldType."');";
+            (custom_Order , custom_Field , custom_Name ,  custom_Special , custom_Side , custom_FieldSec, type_ID)
+            VALUES ('".$newOrderID."', 'c".$newFieldNum."', '".$newFieldName."', ".$newSpecial.", '".$newFieldSide."', '".$newFieldSec."', '".$newFieldType."');";
                   RunQuery($sSQL);
 
                   // Insert into the custom fields table
@@ -248,14 +248,14 @@ require 'Include/Header.php'; ?>
   }
   function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
   {
-      $sOptList = '<select name="'.$fld_name.'">';
+      $sOptList = '<select name="'.$fld_name.'" class="form-control">';
       $grp_Count = count($aSecGrp);
 
       for ($i = 0; $i < $grp_Count; $i++) {
           $aAryRow = $aSecGrp[$i];
           //extract($aAryRow);
           $sOptList .= '<option value="'.$aAryRow['lst_OptionID'].'"';
-          //		echo "lst_OptionName:".$aAryRow['lst_OptionName']."<br>";
+          //    echo "lst_OptionName:".$aAryRow['lst_OptionName']."<br>";
           if ($aAryRow['lst_OptionName'] == $currOpt) {
               $sOptList .= ' selected';
           }
@@ -325,7 +325,7 @@ require 'Include/Header.php'; ?>
             <td class="TextColumn" align="center">
               <input type="text" name="<?= $row ?>name"
                      value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35"
-                     maxlength="40">
+                     maxlength="40" class="form-control">
               <?php
               if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
                   echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
@@ -423,11 +423,30 @@ require 'Include/Header.php'; ?>
         <td colspan="7">
           <table width="100%">
             <tr>
+                <td>
+                </td>
+                <td>
+                  <div><?= gettext('Type') ?>:</div>
+                </td>
+                <td>
+                  <div><?= gettext('Name') ?>:</div>
+                </td>
+                <td>
+                    <div><?= gettext('Side') ?>:</div>
+                </td>
+                <td nowrap>
+                    <div><?= gettext('Security Option') ?></div>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
               <td width="15%"></td>
               <td valign="top">
-                <div><?= gettext('Type') ?>:</div>
                 <?php
-                echo '<select name="newFieldType">';
+                echo '<select name="newFieldType" class="form-control">';
 
                 for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
                     echo '<option value="'.$iOptionID.'"';
@@ -438,8 +457,7 @@ require 'Include/Header.php'; ?>
                 <a href="<?= SystemURLs::getSupportURL() ?>"><?= gettext('Help on types..') ?></a>
               </td>
               <td valign="top">
-                <div><?= gettext('Name') ?>:</div>
-                <input type="text" name="newFieldName" size="30" maxlength="40">
+                <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                 <?php
                 if ($bNewNameError) {
                     echo '<div><span style="color: red;"><BR>'.gettext('You must enter a name').'</span></div>';
@@ -451,16 +469,14 @@ require 'Include/Header.php'; ?>
                 &nbsp;
               </td>
               <td valign="top" nowrap>
-                <div><?= gettext('Side') ?>:</div>
                 <input type="radio" name="newFieldSide" value="0" checked><?= gettext('Left') ?>
                 <input type="radio" name="newFieldSide" value="1"><?= gettext('Right') ?>
                 &nbsp;
               </td>
               <td valign="top" nowrap>
-                <div><?= gettext('Security Option') ?></div>
                 <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
               </td>
-              <td>
+              <td valign="top">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Add New Field') ?>" Name="AddField">
               </td>
               <td width="15%"></td>
