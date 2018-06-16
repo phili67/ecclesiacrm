@@ -81,10 +81,6 @@ $securityListOptions = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(5);
               
-foreach ($securityListOptions as $securityListOption) {
-    $aSecurityType[$securityListOption->getOptionId()] = $securityListOption->getOptionName();
-}
-
 $bErrorFlag = false;
 $sNameError = '';
 $sEmailError = '';
@@ -499,7 +495,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
             while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
                 extract($rowCustomField);
-                if (($aSecurityType[$fam_custom_FieldSec] == 'bAll') || ($_SESSION[$aSecurityType[$fam_custom_FieldSec]])) {
+                if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
+
                     $currentFieldData = trim($aCustomData[$fam_custom_Field]);
 
                     sqlCustomField($sSQL, $type_ID, $currentFieldData, $fam_custom_Field, $sCountry);
@@ -923,8 +920,8 @@ require 'Include/Header.php';
     <?php mysqli_data_seek($rsCustomFields, 0);
         while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
             extract($rowCustomField);
-            if (($aSecurityType[$fam_custom_FieldSec] == 'bAll') || ($_SESSION[$aSecurityType[$fam_custom_FieldSec]])) {
-                ?>
+            if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
+          ?>
       <div class="row">
         <div class="form-group col-md-4">
         <label><?= $fam_custom_Name  ?> </label>

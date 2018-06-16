@@ -13,6 +13,8 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\Utils\OutputUtils;
+
 // If user does not have CSV Export permission, redirect to the menu.
 if (!$bExportCSV) {
     Redirect('Menu.php');
@@ -38,15 +40,6 @@ $numCustomFields = mysqli_num_rows($rsCustomFields);
 $sSQL = 'SELECT family_custom_master.* FROM family_custom_master ORDER BY fam_custom_Order';
 $rsFamCustomFields = RunQuery($sSQL);
 $numFamCustomFields = mysqli_num_rows($rsFamCustomFields);
-
-// Get Field Security List Matrix
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-$rsSecurityGrp = RunQuery($sSQL);
-
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
-}
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('CSV Export');
@@ -197,7 +190,7 @@ require 'Include/Header.php';
                       // Display the custom fields
                       while ($Row = mysqli_fetch_array($rsCustomFields)) {
                           extract($Row);
-                          if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
+                          if (OutputUtils::securityFilter($custom_FieldSec)) {
                               echo '<tr><td class="LabelColumn">'.$custom_Name.'</td>';
                               echo '<td class="TextColumn"><input type="checkbox" name='.$custom_Field.' value="1"></td></tr>';
                           }
@@ -215,7 +208,7 @@ require 'Include/Header.php';
                       // Display the family custom fields
                       while ($Row = mysqli_fetch_array($rsFamCustomFields)) {
                           extract($Row);
-                          if ($aSecurityType[$fam_custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$fam_custom_FieldSec]]) {
+                          if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
                               echo '<tr><td class="LabelColumn">'.$fam_custom_Name.'</td>';
                               echo '<td class="TextColumn"><input type="checkbox" name='.$fam_custom_Field.' value="1"></td></tr>';
                           }

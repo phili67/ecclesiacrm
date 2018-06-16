@@ -87,11 +87,6 @@ $rsAssignedProperties = RunQuery($sSQL);
 $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
 $rsSecurityGrp = RunQuery($sSQL);
 
-while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-    extract($aRow);
-    $aSecurityType[$lst_OptionID] = $lst_OptionName;
-}
-
 // Format the BirthDate
 $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
 //if ($per_BirthMonth > 0 && $per_BirthDay > 0)
@@ -226,7 +221,7 @@ if ($fam_ID) {
             for ($i = 1; $i <= $numColumn1Fields; $i++) {
                 $Row = mysqli_fetch_array($rsCustomFields);
                 extract($Row);
-                if ($aSecurityType[$custom_FieldSec] == 'bAll' || $_SESSION[$aSecurityType[$custom_FieldSec]]) {
+                if (OutputUtils::securityFilter($custom_FieldSec)) {
                     $currentData = trim($aCustomData[$custom_Field]);
                     if ($type_ID == 11) {
                         $custom_Special = $sCountry;

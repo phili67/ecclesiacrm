@@ -161,16 +161,7 @@ $ormProperties = PropertyQuery::Create()
                   ->orderByProName()
                   ->find();
 
-
-// Get Field Security List Matrix
-$securityListOptions = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(5);
               
-foreach ($securityListOptions as $securityListOption) {
-    $aSecurityType[$securityListOption->getOptionId()] = $securityListOption->getOptionName();
-}
-
 $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
 
 $sFamilyInfoBegin = '<span style="color: red;">';
