@@ -83,8 +83,8 @@ if (isset($_POST['User'])) {
         $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();  //ok
         $_SESSION['bFinance'] = $currentUser->isFinanceEnabled();            //ok
         $_SESSION['bNotes'] = $currentUser->isNotesEnabled();
-        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
         $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();
+        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
         $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();
         $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
         
