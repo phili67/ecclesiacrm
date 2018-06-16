@@ -38,7 +38,7 @@ see [Checkout our Change Log](CHANGELOG.md)
 To test out the demo, you may login to the http://demo.ecclesiacrm.com  with the following:
 
 - **Username:** admin
-- **Password:** changeme
+- **Password:** contact us to have the password.
 
 ## New UI
 
