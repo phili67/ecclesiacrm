@@ -316,18 +316,30 @@ if ($numRows == 0) {
     } ?>
     </td></tr>
         <tr>
+            <th></th>
+            <th></th>
             <th><?= gettext('Type') ?></th>
             <th><?= gettext('Name') ?></th>
             <th><?= gettext('Special option') ?></th>
             <th><?= gettext('Security Option') ?></th>
             <th><?= gettext('Family-View Side') ?></th>
-            <th><?= gettext('Delete') ?></th>
         </tr>
     <?php
 
     for ($row = 1; $row <= $numRows; $row++) {
         ?>
         <tr>
+            <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
+            <td>
+                <?php
+                if ($row > 1) {
+                    echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
+                }
+        if ($row < $numRows) {
+            echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
+        } ?>
+                <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>');"><img src="Images/x.gif" border="0"></a>
+            </td>
             <td class="TextColumn">
                 <?= $aPropTypes[$aTypeFields[$row]] ?>
             </td>
@@ -377,18 +389,6 @@ if ($numRows == 0) {
             <td class="TextColumn" align="center" nowrap>
                 <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= gettext('Left') ?>
                 <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= gettext('Right') ?>
-            </td>
-            <td>
-                <input type="button" class="btn btn-danger" value="<?= gettext('Delete') ?>"   name="delete" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>');">
-            </td>
-            <td class="TextColumn" width="5%" nowrap>
-                <?php
-                if ($row > 1) {
-                    echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
-                }
-        if ($row < $numRows) {
-            echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
-        } ?>
             </td>
 
         </tr>
