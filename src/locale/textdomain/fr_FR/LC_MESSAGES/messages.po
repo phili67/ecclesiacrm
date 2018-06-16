@@ -1587,7 +1587,7 @@ msgstr "Ajouter un type d&#39;événement"
 
 #: FamilyCustomFieldsEditor.php:29
 msgid "Custom Family Fields Editor"
-msgstr "Personnaliser le gestionnaire de champ famille"
+msgstr "Editeur des champs personnalisables de Famille"
 
 #: FamilyCustomFieldsEditor.php:166 PersonCustomFieldsEditor.php:155
 msgid "Default Option"
@@ -1737,7 +1737,7 @@ msgstr "Enveloppe d&#39;info"
 
 #: FamilyEditor.php:888 PersonEditor.php:1189
 msgid "Custom Fields"
-msgstr "Personnaliser les champs"
+msgstr "Champs personnalisables"
 
 #: FamilyEditor.php:919 FamilyView.php:350 PersonView.php:493
 #: PrintView.php:334
@@ -3107,7 +3107,7 @@ msgstr "Sélectionner"
 
 #: PersonCustomFieldsEditor.php:24
 msgid "Custom Person Fields Editor"
-msgstr "Gestionnaire des champs personnalisés Personne"
+msgstr "Editeur des champs personnalisables de Personne"
 
 #: PersonCustomFieldsEditor.php:274
 msgid "Warning:  By deleting this field, you will irrevokably lose all person data assigned for this field!"
