@@ -562,11 +562,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iOriginalFamily = $person->getFamId();
         $iFamily = $person->getFamId();
         $iFamilyRole = $person->getFmrId();
-        $dMembershipDate = $person->getMembershipDate();
-        $dFriendDate = $person->getFriendDate();
+        $dMembershipDate = ($person->getMembershipDate() != null)?$person->getMembershipDate()->format('Y-m-d'):"";
+        $dFriendDate = ($person->getFriendDate() != null)?$person->getFriendDate()->format('Y-m-d'):"";
         $iClassification = $person->getClsId();
         $iViewAgeFlag = $person->getFlags();
-
+        
         $iFacebookID = $person->getFacebookID();
         $sTwitter = $person->getTwitter();
         $sLinkedIn = $person->getLinkedIn();
@@ -1239,9 +1239,9 @@ require 'Include/Header.php';
                     <label for="FacebookID">
                         <?php
                         if ($bFacebookID) {
-                            echo '<span style="color: red;">'.gettext('Facebook').':</span></td>';
+                            echo '<span style="color: red;">'.gettext('Facebook').' ID:</span></td>';
                         } else {
-                            echo gettext('Facebook').':</td>';
+                            echo gettext('Facebook').' ID:</td>';
                         }
                         ?>
                     </label>
