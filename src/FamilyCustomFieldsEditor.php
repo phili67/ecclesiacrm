@@ -355,7 +355,7 @@ if ($numRows == 0) {
             <?php
             if ($aTypeFields[$row] == 9) {
                 echo '<select name="'.$row.'special" class="form-control">';
-                echo '<option value="0" selected>Select a group</option>';
+                echo '<option value="0" selected>'.gettext("Select a group").'</option>';
 
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
                 $rsGroupList = RunQuery($sSQL);

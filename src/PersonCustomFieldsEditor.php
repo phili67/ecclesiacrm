@@ -25,6 +25,10 @@ $sPageTitle = gettext('Custom Person Fields Editor');
 
 require 'Include/Header.php'; ?>
 
+  <div class="alert alert-warning">
+    <i class="fa fa-ban"></i>
+    <?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
+  </div>
 
 <div class="box box-body">
 
@@ -281,12 +285,8 @@ require 'Include/Header.php'; ?>
     }
   </script>
 
-  <div class="alert alert-warning">
-    <i class="fa fa-ban"></i>
-    <?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
-  </div>
   <form method="post" action="PersonCustomFieldsEditor.php" name="PersonCustomFieldsEditor">
-<div class="table-responsive">
+  <div class="table-responsive">
     <table class="table">
 
       <?php
@@ -346,8 +346,8 @@ require 'Include/Header.php'; ?>
             <td class="TextColumn" align="center">
               <?php
               if ($aTypeFields[$row] == 9) {
-                  echo '<select name="'.$row.'special">';
-                  echo '<option value="0" selected>Select a group</option>';
+                  echo '<select name="'.$row.'special" class="form-control">';
+                  echo '<option value="0" selected>'.gettext("Select a group").'</option>';
 
                   $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
                   $rsGroupList = RunQuery($sSQL);

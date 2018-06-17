@@ -544,9 +544,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $bSendNewsLetter = ($family->getSendNewsletter() == 'TRUE');
         $bOkToCanvass = ($family->getOkToCanvass() == 'TRUE');
         $iCanvasser = $family->getCanvasser();
-        if (!empty($family->getWeddingdate())) {
-            $dWeddingDate = $family->getWeddingdate()->format("Y-M-d");
-        }
+        $dWeddingDate = ($family->getWeddingdate() != null)?$family->getWeddingdate()->format("Y-M-d"):"";
         $nLatitude = $family->getLatitude();
         $nLongitude = $family->getLongitude();
 
