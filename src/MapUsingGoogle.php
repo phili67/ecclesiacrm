@@ -370,7 +370,8 @@ require 'Include/Footer.php' ?>
                 }
 
                 contentString = "<b><a href='" + imghref + "'>" + plotArray[i].Salutation + "</a></b>";
-                contentString += "<p>" + plotArray[i].Address + "</p>";
+                contentString += '<p><a href="http://maps.google.com/?q=1  ' + plotArray[i].Address + '" target="_blank">' + plotArray[i].Address + '</a></p>';
+
                 if (plotArray[i].Thumbnail.length > 0) {
                     //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
                     contentString += "<div class='image-container'><a href='" + imghref + "'>";
