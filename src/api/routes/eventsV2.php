@@ -426,6 +426,7 @@ $app->group('/events', function () {
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         
         $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);
+        
           
         $vcalendar = VObject\Reader::read($event['calendardata']);
         
@@ -726,6 +727,7 @@ $app->group('/events', function () {
               'UID' => $uuid,//'CE4306F2-8CC0-41DF-A971-1ED88AC208C7',// attention tout est en majuscules
               'RRULE' => $input->recurrenceType.';'.'UNTIL='.(new \DateTime($input->endrecurrence))->format('Ymd\THis'),
               'SEQUENCE' => '0',
+              'LOCATION' => $input->location,
               'TRANSP' => 'OPAQUE',
               'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
               "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
@@ -744,6 +746,7 @@ $app->group('/events', function () {
             'SUMMARY' => $input->EventTitle,
             'UID' => $uuid,
             'SEQUENCE' => '0',
+            'LOCATION' => $input->location,
             'TRANSP' => 'OPAQUE',
             'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
             "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates

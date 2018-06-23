@@ -5,7 +5,7 @@
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //                This code can't be incoprorated in another software without any authorizaion
 //
-//  Updated : 2018/05/13
+//  Updated : 2018/06/23
 //
 
 namespace EcclesiaCRM\MyPDO;
@@ -17,7 +17,6 @@ use Sabre\DAV\Exception\Forbidden;
 use Sabre\DAV\Xml\Element\Sharee;
 
 use Sabre\CalDAV\Backend as SabreCalDavBase;
-use EcclesiaCRM\Utils\GeoUtils;
 
 class CalDavPDO extends SabreCalDavBase\PDO {        
 
@@ -27,223 +26,6 @@ class CalDavPDO extends SabreCalDavBase\PDO {
         
         $this->calendarObjectTableName = 'events_event';
     }
-    
-    public function modifyVCalendar ($vObject,$OLD_REC_ID,$new_start,$new_end,$summary=null,$desc=null)
-    {
-        $title = '';
-        $componentType = null;
-        $component = null;
-        $firstOccurence = '0000-00-00 00:00:00';
-        $lastOccurence = '0000-00-00 00:00:00';
-        $freqlastOccurence = '0000-00-00 00:00:00';
-        $uid = null;
-        $freqEvents = [];
-        $freq = 'none';
-        $location = null;
-        $description = null;
-        $attentees = null;
-        
-
-        foreach ($vObject->getComponents() as $component) {
-            if ($component->name !== 'VTIMEZONE') {
-                $componentType = $component->name;
-                $uid = (string)$component->UID;
-                break;
-            }
-        }
-        
-        if (!$componentType) {
-            throw new \Sabre\DAV\Exception\BadRequest('Calendar objects must have a VJOURNAL, VEVENT or VTODO component');
-        }
-        
-        
-        if ($componentType === 'VEVENT') {
-
-            $firstOccurence = $component->DTSTART->getDateTime()->format('Y-m-d H:i:s');
-            
-            if ( isset($component->SUMMARY) ) {
-               $title = $component->SUMMARY->getValue();
-            }
-            
-            if (isset($component->LOCATION)) {
-               $location = $component->LOCATION->getValue();       
-            }
-            
-            if (isset($component->DESCRIPTION)) {
-               $description = $component->DESCRIPTION->getValue();       
-            }
-                        
-            // Finding the last occurence is a bit harder
-            if (!isset($component->RRULE)) {
-                if (isset($component->DTEND)) {
-                    $lastOccurence = $component->DTEND->getDateTime()->format('Y-m-d H:i:s');
-                } elseif (isset($component->DURATION)) {
-                    $endDate = clone $component->DTSTART->getDateTime();
-                    $endDate = $endDate->add(VObject\DateTimeParser::parse($component->DURATION->getValue()));
-                    $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
-                } elseif (!$component->DTSTART->hasTime()) {
-                    $endDate = clone $component->DTSTART->getDateTime();
-                    
-                    $endDate = $endDate->modify('+1 day');
-                    $lastOccurence = $endDate->format('Y-m-d H:i:s');//->getTimeStamp();
-                } else {
-                    $lastOccurence = $firstOccurence;
-                }
-            } else {
-                if (isset($component->RRULE)) {
-                  $freq = $component->RRULE->getValue();       
-                }
-                
-                if (isset($component->DTEND)) {
-                    $lastOccurence = $component->DTEND->getDateTime()->format('Y-m-d H:i:s');
-                }
-
-                $it = new VObject\Recur\EventIterator($vObject, (string)$component->UID);
-                $maxDate = new \DateTime('2038-01-01');
-                if ($it->isInfinite()) {
-                    $freqlastOccurence = $maxDate->format('Y-m-d H:i:s');//->getTimeStamp();
-                } else {
-                    $end = $it->getDtEnd();
-                    $i=0;
-                    while ($it->valid() && $end < $maxDate) {
-                        $componentSubObject = $it->getEventObject();
-                        
-                        //print_r($componentSubObject->name);
-                        if ($componentSubObject->name == 'VEVENT') { 
-                           //echo "le nom : ".$componentSubObject->SUMMARY->getValue()."<br>";
-                           //echo "le date : ".$componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s')."<br>";
-                           //echo "le date : ".$componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')."<br>";
-                           $extras = [];
-                                       
-                           if (isset($componentSubObject->LOCATION)) {
-                             $extras['LOCATION'] = $componentSubObject->LOCATION->getValue(); 
-                           }
-                           
-                           if (isset($componentSubObject->ATTENDEE)) {
-                             foreach($vcalendar->VEVENT->ATTENDEE as $attendee) {
-                                //echo 'Attendee ', (string)$attendee;
-                                array_push($attendees,(string)$attendee);
-                             }
-                           }
-
-                           if (isset($componentSubObject->DESCRIPTION)) {
-                             $extras['DESCRIPTION'] = $componentSubObject->DESCRIPTION->getValue(); 
-                           }
-                           
-                           if (isset($componentSubObject->{'RECURRENCE-ID'})) {
-                             $extras['RECURRENCE-ID'] = $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s');
-                           }
-                           
-                           if (isset($componentSubObject->{'UID'})) {
-                             $extras['UID'] = $componentSubObject->{'UID'}->getValue();
-                           }
-                          
-                           
-                           if (!empty($extras)) {
-
-                             if ( $OLD_REC_ID != $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
-                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
-                               // An event have be created before, now we have to update the event
-                               $componentSubObject->DTSTART = (new \DateTime($new_start))->format('Ymd\THis');
-                               $componentSubObject->DTEND = (new \DateTime($new_end))->format('Ymd\THis');
-                               
-                               // we don't have to change the summary and title only if it's set : editEvent, not in moveEvent
-                               if (!is_null($summary)) {
-                                 $componentSubObject->SUMMARY = $summary;   
-                               }
-                               
-                               if (!is_null($desc)) {
-                                 $componentSubObject->DESCRIPTION = $desc;   
-                               }
-                               
-                             } else if ( $OLD_REC_ID == $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
-                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
-                               // We have to create a new event in this case
-                               
-                                $vObject->add(
-                                 'VEVENT', [
-                                  'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
-                                  'UID' => $component->UID,
-                                  'DTEND' => (new \DateTime($new_end))->format('Ymd\THis'),
-                                  'SUMMARY' => (is_null($summary))?$component->SUMMARY->getValue():$summary,
-                                  'TRANSP' => 'OPAQUE',
-                                  'DTSTART' => (new \DateTime($new_start))->format('Ymd\THis'),
-                                  'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-                                  'DESCRIPTION' => (is_null($desc))?$component->DESCRIPTION->getValue():$desc,
-                                  'SEQUENCE' => '0',
-                                  'RECURRENCE-ID' => (new \DateTime($OLD_REC_ID))->format('Ymd\THis')
-                                  ]);
-                                                                 
-                             }
-
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
-                                          
-                             $subEvent = array_merge($subEvent,$extras);
-
-                           } else {
-                           
-                             if ( $OLD_REC_ID != $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
-                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
-                                // An event have be created before, now we have to update the event
-                               $componentSubObject->DTSTART = (new \DateTime($new_start))->format('Ymd\THis');
-                               $componentSubObject->DTEND = (new \DateTime($new_end))->format('Ymd\THis');
-                               
-                               // we don't have to change the summary and title only if it's set : editEvent, not in moveEvent
-                               if (!is_null($summary)) {
-                                 $componentSubObject->SUMMARY = $summary;   
-                               }
-                               
-                               if (!is_null($desc)) {
-                                 $componentSubObject->DESCRIPTION = $desc;   
-                               }
-                               
-                             } else if ( $OLD_REC_ID == $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s') 
-                               && $OLD_REC_ID == $componentSubObject->{'RECURRENCE-ID'}->getDateTime()->format('Y-m-d H:i:s') ) {
-                                // We have to create a new event in this case
-                               
-                                $vObject->add(
-                                 'VEVENT', [
-                                  'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
-                                  'UID' => $component->UID,
-                                  'DTEND' => (new \DateTime($new_end))->format('Ymd\THis'),
-                                  'SUMMARY' => (is_null($summary))?$component->SUMMARY->getValue():$summary,
-                                  'TRANSP' => 'OPAQUE',
-                                  'DTSTART' => (new \DateTime($new_start))->format('Ymd\THis'),
-                                  'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
-                                  'DESCRIPTION' => (is_null($desc))?$component->DESCRIPTION->getValue():$desc,
-                                  'SEQUENCE' => '0',
-                                  'RECURRENCE-ID' => (new \DateTime($OLD_REC_ID))->format('Ymd\THis')
-                                  ]);
-                             }
-
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
-                           }
-                           
-                           array_push($freqEvents,$subEvent);
-                        }
-
-                        $end = $it->getDtEnd();
-                        $it->next();
-
-                    }
-                    $freqlastOccurence = $end->format('Y-m-d H:i:s');//->getTimeStamp();
-                }
-
-            }
-
-            // Ensure Occurence values are positive
-            if ($firstOccurence < 0) $firstOccurence = 0;
-            if ($lastOccurence < 0) $lastOccurence = 0;
-        }
-        
-        return $vObject;
-    }
-    
-    
     
     public function extractCalendarData ($calendarData,$start='2010-01-01 00:00:00',$end='2070-12-31 23:59:59')
     {
@@ -410,7 +192,9 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                                           'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
                            }
                            
-                           array_push($freqEvents,$subEvent);
+                           if ( isset($subEvent['RECURRENCE-ID']) && !array_search($subEvent['RECURRENCE-ID'],$freqEvents) || !isset($subEvent['RECURRENCE-ID']) ) {
+                             array_push($freqEvents,$subEvent);
+                           }
                         }
 
                         $end = $it->getDtEnd();
@@ -530,7 +314,7 @@ class CalDavPDO extends SabreCalDavBase\PDO {
      * @param string $principalUri
      * @return array
      */
-     function getCalendarsForUser($principalUri,$order="calendarorder",$allCalendars=false) {
+     function getCalendarsForUser($principalUri) {
 
         $fields = array_values($this->propertyMap);
         $fields[] = 'calendarid';
@@ -546,22 +330,18 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 
         // Making fields a comma-delimited list
         $fields = implode(', ', $fields);
-        
         $stmt = $this->pdo->prepare(<<<SQL
 SELECT {$this->calendarInstancesTableName}.id as id, $fields FROM {$this->calendarInstancesTableName}
     LEFT JOIN {$this->calendarTableName} ON
         {$this->calendarInstancesTableName}.calendarid = {$this->calendarTableName}.id
-WHERE principaluri = ? ORDER BY $order ASC 
+WHERE principaluri = ? ORDER BY calendarorder ASC
 SQL
         );
-        
         $stmt->execute([$principalUri]);
 
         $calendars = [];
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-        
-          if ( $row['present'] || $allCalendars == true) {
-          
+
             $components = [];
             if ($row['components']) {
                 $components = explode(',', $row['components']);
@@ -598,7 +378,6 @@ SQL
             }
 
             $calendars[] = $calendar;
-          }
 
         }
 
@@ -644,7 +423,7 @@ SQL
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ?');
+        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ?');
         $stmt->execute([$calendarId]);
 
         $result = [];
@@ -655,6 +434,7 @@ SQL
                 'lastmodified' => (int)$row['event_lastmodified'],
                 'etag'         => '"' . $row['event_etag'] . '"',
                 'size'         => (int)$row['event_size'],
+                'location'     => $row['event_location'],
                 'component'    => strtolower($row['event_componenttype']),
             ];
         }
@@ -686,7 +466,7 @@ SQL
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_id = ?');
+        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_id = ?');
         $stmt->execute([$calendarId, $objectId]);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -698,6 +478,7 @@ SQL
             'lastmodified' => (int)$row['event_lastmodified'],
             'etag'         => '"' . $row['event_etag'] . '"',
             'size'         => (int)$row['event_size'],
+            'location'     => $row['event_location'],
             'calendardata' => $row['event_calendardata'],
             'component'    => strtolower($row['event_componenttype']),
          ];
@@ -711,7 +492,7 @@ SQL
         }
         list($calendarId, $instanceId) = $calendarId;
 
-        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt = $this->pdo->prepare('SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_uri = ?');
         $stmt->execute([$calendarId, $objectUri]);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -723,6 +504,7 @@ SQL
             'lastmodified' => (int)$row['event_lastmodified'],
             'etag'         => '"' . $row['event_etag'] . '"',
             'size'         => (int)$row['event_size'],
+            'location'     => $row['event_location'],
             'calendardata' => $row['event_calendardata'],
             'component'    => strtolower($row['event_componenttype']),
          ];
@@ -750,7 +532,7 @@ SQL
 
         $result = [];
         foreach (array_chunk($uris, 900) as $chunk) {
-            $query = 'SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_uri IN (';
+            $query = 'SELECT event_id, event_uri, event_lastmodified, event_etag, event_calendarid, event_size, event_location, event_calendardata, event_componenttype FROM ' . $this->calendarObjectTableName . ' WHERE event_calendarid = ? AND event_uri IN (';
             // Inserting a whole bunch of question marks
             $query .= implode(',', array_fill(0, count($chunk), '?'));
             $query .= ')';
@@ -766,6 +548,7 @@ SQL
                     'lastmodified' => (int)$row['event_lastmodified'],
                     'etag'         => '"' . $row['event_etag'] . '"',
                     'size'         => (int)$row['event_size'],
+                    'location'     => $row['event_location'],
                     'calendardata' => $row['event_calendardata'],
                     'component'    => strtolower($row['event_componenttype']),
                 ];
@@ -846,26 +629,14 @@ SQL;
 
         $extraData = $this->extractCalendarData($calendarData);
 
-        $coordinates = '';
-        
-        if ($extraData['location'] != '') {
-          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
-          
-          $latLng = GeoUtils::getLatLong($extraData['location']);
-          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
-             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
-          }
-        }
-
-        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_coordinates, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->calendarObjectTableName . ' (event_calendarid, event_uri, event_calendardata, event_lastmodified, event_title, event_desc, event_location, event_last_occurence, event_etag, event_size, event_componenttype, event_start, event_end, event_uid, event_grpid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
         $stmt->execute([
             $calendarId,
             $objectUri,
             $calendarData,
-            $coordinates,
             time(),
-            mb_convert_encoding($extraData['title'], "UTF-8"),
-            mb_convert_encoding($extraData['description'], "UTF-8"),
+            $extraData['title'],
+            $extraData['description'],
             $extraData['location'],
             $extraData['freqlastOccurence'],
             $extraData['etag'],
@@ -909,20 +680,17 @@ SQL;
         list($calendarId, $instanceId) = $calendarId;
 
         $extraData = $this->extractCalendarData($calendarData);
-        
-        $coordinates = '';
-        
-        if ($extraData['location'] != '') {
-          $extraData['location'] = str_replace("\n"," ",$extraData['location']);
 
-          $latLng = GeoUtils::getLatLong($extraData['location']);
-          if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
-             $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
-          }
-        }
-
-        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_coordinates = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
-        $stmt->execute([$calendarData, $coordinates, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
+        $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarObjectTableName . ' SET event_calendardata = ?, event_lastmodified = ?, event_title = ?, event_desc = ?, event_location = ?, event_last_occurence = ?, event_etag = ?, event_size = ?, event_componenttype = ?, event_start = ?, event_end = ?, event_uid = ? WHERE event_calendarid = ? AND event_uri = ?');
+        $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
+        
+        // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
+        //error_log("La date est = ".$extraData['firstOccurence']."\n\n", 3, "/var/log/mes-erreurs.log");
+        //error_log("Le blob = ".$calendarData."\n\n", 3, "/var/log/mes-erreurs.log");
+        
+        /*foreach ($extraData as $key => $val) {
+           error_log("Key = ".$key." val = ".$val."\n\n", 3, "/var/log/mes-erreurs.log");
+        }*/
         
 
         $this->addChange($calendarId, $objectUri, 2);
@@ -1266,113 +1034,6 @@ SQL;
 
         $stmt = $this->pdo->prepare('UPDATE ' . $this->calendarInstancesTableName . ' SET principaluri = ? WHERE principaluri = ?');
         $stmt->execute([$new_principaluri,$old_principaluri]);
-
-    }
-    
-        /**
-     * Updates the list of shares.
-     *
-     * @param mixed $calendarId
-     * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
-     * @return void
-     */
-    function updateInvites($calendarId, array $sharees) {
-
-        if (!is_array($calendarId)) {
-            throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
-        }
-        $currentInvites = $this->getInvites($calendarId);
-        list($calendarId, $instanceId) = $calendarId;
-
-        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->calendarInstancesTableName . " WHERE calendarid = ? AND share_href = ? AND access IN (2,3)");
-        $updateStmt = $this->pdo->prepare("UPDATE " . $this->calendarInstancesTableName . " SET access = ?, share_displayname = ?, share_invitestatus = ? WHERE calendarid = ? AND share_href = ?");
-
-        $insertStmt = $this->pdo->prepare('
-INSERT INTO ' . $this->calendarInstancesTableName . '
-    (
-        calendarid,
-        principaluri,
-        access,
-        displayname,
-        uri,
-        description,
-        calendarorder,
-        calendarcolor,
-        timezone,
-        transparent,
-        share_href,
-        share_displayname,
-        share_invitestatus,
-        grpid
-    )
-    SELECT
-        ?,
-        ?,
-        ?,
-        displayname,
-        ?,
-        description,
-        calendarorder,
-        calendarcolor,
-        timezone,
-        1,
-        ?,
-        ?,
-        ?,
-        grpid
-    FROM ' . $this->calendarInstancesTableName . ' WHERE id = ?');
-
-        foreach ($sharees as $sharee) {
-
-            if ($sharee->access === \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS) {
-                // if access was set no NOACCESS, it means access for an
-                // existing sharee was removed.
-                $removeStmt->execute([$calendarId, $sharee->href]);
-                continue;
-            }
-
-            if (is_null($sharee->principal)) {
-                // If the server could not determine the principal automatically,
-                // we will mark the invite status as invalid.
-                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_INVALID;
-            } else {
-                // Because sabre/dav does not yet have an invitation system,
-                // every invite is automatically accepted for now.
-                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED;
-            }
-
-            foreach ($currentInvites as $oldSharee) {
-
-                if ($oldSharee->href === $sharee->href || $oldSharee->principal === $sharee->principal) {// sometimes a user can delete his email address
-                    // This is an update
-                    $sharee->properties = array_merge(
-                        $oldSharee->properties,
-                        $sharee->properties
-                    );
-                    $updateStmt->execute([
-                        $sharee->access,
-                        isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
-                        $sharee->inviteStatus ?: $oldSharee->inviteStatus,
-                        $calendarId,
-                        $sharee->href
-                    ]);
-                    continue 2;
-                }
-
-            }
-            // If we got here, it means it was a new sharee
-            $insertStmt->execute([
-                $calendarId,
-                $sharee->principal,
-                $sharee->access,
-                \Sabre\DAV\UUIDUtil::getUUID(),
-                $sharee->href,
-                isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
-                $sharee->inviteStatus ?: \Sabre\DAV\Sharing\Plugin::INVITE_NORESPONSE,
-                $instanceId
-            ]);
-
-        }
 
     }
 
