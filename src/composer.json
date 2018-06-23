@@ -1,6 +1,6 @@
 {
     "name": "EcclesiaCRM",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "type": "project",
     "keywords": [
         "church",
@@ -40,7 +40,7 @@
         "geocoder-php/google-maps-provider": "4.1.0",
         "geocoder-php/bing-maps-provider": "4.0.0",
         "mustache/mustache": "~2.5",
-        "nexmo/client": "@beta",
+        "nexmo/client": "1.4.0",
         "slim/http-cache": "^0.4.0",
         "sabre/dav": "~3.2.0"
     },
