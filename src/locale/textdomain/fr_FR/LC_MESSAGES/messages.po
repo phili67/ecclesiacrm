@@ -10123,3 +10123,6 @@ msgstr "Informations Groupe"
 
 msgid "Person Informations"
 msgstr "Informations Personne"
+
+msgid "This custom field isn't configured correctly"
+msgstr "Ce champ personalisable n'est pas configuré correctement"
