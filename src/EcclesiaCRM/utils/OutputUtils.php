@@ -270,36 +270,40 @@ class OutputUtils {
 
     // Handler for "person from group"
     case 9:
-      // ... Get First/Last name of everyone in the group, plus their person ID ...
-      // In this case, prop_Special is used to store the Group ID for this selection box
-      // This allows the group special-property designer to allow selection from a specific group
+      if (!empty($special)) {
+        // ... Get First/Last name of everyone in the group, plus their person ID ...
+        // In this case, prop_Special is used to store the Group ID for this selection box
+        // This allows the group special-property designer to allow selection from a specific group
 
-      $sSQL = 'SELECT person_per.per_ID, person_per.per_FirstName, person_per.per_LastName
-                        FROM person2group2role_p2g2r
-                        LEFT JOIN person_per ON person2group2role_p2g2r.p2g2r_per_ID = person_per.per_ID
-                        WHERE p2g2r_grp_ID = '.$special.' ORDER BY per_FirstName';
+        $sSQL = 'SELECT person_per.per_ID, person_per.per_FirstName, person_per.per_LastName
+                          FROM person2group2role_p2g2r
+                          LEFT JOIN person_per ON person2group2role_p2g2r.p2g2r_per_ID = person_per.per_ID
+                          WHERE p2g2r_grp_ID = '.$special.' ORDER BY per_FirstName';
 
-      $rsGroupPeople = RunQuery($sSQL);
+        $rsGroupPeople = RunQuery($sSQL);
 
-      echo '<select name="'.$fieldname.'" class="form-control" >';
-      echo '<option value="0"';
-      if ($data <= 0) {
-          echo ' selected';
+        echo '<select name="'.$fieldname.'" class="form-control" >';
+        echo '<option value="0"';
+        if ($data <= 0) {
+            echo ' selected';
+        }
+        echo '>'.gettext('Unassigned').'</option>';
+        echo '<option value="0">-----------------------</option>';
+
+        while ($aRow = mysqli_fetch_array($rsGroupPeople)) {
+            extract($aRow);
+
+            echo '<option value="'.$per_ID.'"';
+            if ($data == $per_ID) {
+                echo ' selected';
+            }
+            echo '>'.$per_FirstName.'&nbsp;'.$per_LastName.'</option>';
+        }
+
+        echo '</select>';
+      } else {
+        echo gettext("This custom field isn't configured correctly");
       }
-      echo '>'.gettext('Unassigned').'</option>';
-      echo '<option value="0">-----------------------</option>';
-
-      while ($aRow = mysqli_fetch_array($rsGroupPeople)) {
-          extract($aRow);
-
-          echo '<option value="'.$per_ID.'"';
-          if ($data == $per_ID) {
-              echo ' selected';
-          }
-          echo '>'.$per_FirstName.'&nbsp;'.$per_LastName.'</option>';
-      }
-
-      echo '</select>';
       break;
 
     // Handler for money amounts
