@@ -43,7 +43,7 @@ $app->group('/sharedocument', function () {
             $name = PersonQuery::Create()->findOneById ($id)->getFullName();
             
             $person = ['id' => $id,
-                       'name' => (($noteShare->getRights() == 1)?gettext("[👁  ]"):gettext("[👁 ✐]"))."   ".$name];
+                       'name' => (($noteShare->getRights() == 1)?gettext("[👀  ]"):gettext("[👀 ✐]"))."   ".$name];
                     
             array_push($result, $person);        
           }
