@@ -72,7 +72,7 @@
           if (data[i].present == true) {
             var option = document.createElement("option");
             
-            var hello = "✐👁✖❌  ✔✕✖✅";
+            var hello = "✐👀✖❌  ✔✕✖✅";
 
             option.text = '✅'+" "+data[i].calendarName;
             option.value = data[i].calendarID;
@@ -234,14 +234,14 @@
           if (data[i].access == 2) {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[👁  ]")+" "+data[i].principal.replace("principals/", "");
+            option.text = i18next.t("[👀  ]")+" "+data[i].principal.replace("principals/", "");
             option.value = data[i].principal;
         
             elt.appendChild(option);
           } else if (data[i].access == 3) {
             var option = document.createElement("option");
 
-            option.text = i18next.t("[👁 ✐]")+" "+data[i].principal.replace("principals/", "");
+            option.text = i18next.t("[👀 ✐]")+" "+data[i].principal.replace("principals/", "");
             option.value = data[i].principal;
         
             elt.appendChild(option);
@@ -268,9 +268,9 @@
               +'<div class="col-md-8">'
                 +'<select name="person-group-Id-Share" id="person-group-rights" class="form-control input-sm"'
                     +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select your rights")+" [👁  ]"+i18next.t("or")+" [👁 ✐]"+' -- </option>'
-                    +'<option value="1">'+i18next.t("[👁  ]")+' -- '+i18next.t("[R ]")+'</option>'
-                    +'<option value="2">'+i18next.t("[👁 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
+                    +'<option value="0">'+i18next.t("Select your rights")+" [👀  ]"+i18next.t("or")+" [👀 ✐]"+' -- </option>'
+                    +'<option value="1">'+i18next.t("[👀  ]")+' -- '+i18next.t("[R ]")+'</option>'
+                    +'<option value="2">'+i18next.t("[👀 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
                 +'</select>'
               +'</div>'
             +'</div>'
@@ -392,9 +392,9 @@
                data: JSON.stringify({"calIDs":calIDs,"principal": principal,"rightAccess":rightAccess})
             }).done(function(data) {
               if (rightAccess == 1) {
-                res = str.replace(i18next.t('[👁 ✐]'), i18next.t('[👁  ]'));
+                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
               } else {
-                res = str.replace(i18next.t('[👁  ]'), i18next.t('[👁 ✐]'));
+                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
               }
             
               var elt = [principal,res];
