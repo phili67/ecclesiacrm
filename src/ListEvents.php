@@ -765,8 +765,21 @@ foreach ($allMonths as $mVal) {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ListEvent.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
-
+<?php
+  if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+<?php
+  }
+?>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = "true";
   

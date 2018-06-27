@@ -6,6 +6,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\LocaleInfo;
 use Geocoder\Provider\BingMaps\BingMaps;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
+use Geocoder\Provider\Nominatim\Nominatim;
 use Geocoder\StatefulGeocoder;
 use Http\Adapter\Guzzle6\Client;
 use Geocoder\Query\GeocodeQuery;
@@ -25,13 +26,16 @@ class GeoUtils
         $lat = 0;
         $long = 0;
         try {
-            switch (SystemConfig::getValue("sGeoCoderProvider")) {
+            switch (SystemConfig::getValue("sMapProvider")) {
                 case "GoogleMaps":
                     $provider = new GoogleMaps($adapter, null, null, true, SystemConfig::getValue("sGoogleMapKey"));
                     break;
                 case "BingMaps":
                     $provider = new BingMaps($adapter, SystemConfig::getValue("sBingMapKey"));
                     break;
+                case "OpenStreetMap":
+                    $provider = new Nominatim($adapter, SystemConfig::getValue("sNominatimLink"));
+                    break;                
             }
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
             $geoCoder = new StatefulGeocoder($provider, $localeInfo->getShortLocale());

@@ -15,6 +15,7 @@
 namespace EcclesiaCRM\MenuBar;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -78,7 +79,13 @@ class MenuBar {
                       $menuItemItem = new Menu ($str,"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
                       $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                       $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
-                      $menuItemItem->addLink("MapUsingGoogle.php?GroupID=" . $group->getID());
+                      if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+                        $menuItemItem->addLink("MapUsingLeaflet.php?GroupID=" . $group->getID());
+                      } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+                        $menuItemItem->addLink("MapUsingGoogle.php?GroupID=" . $group->getID());
+                      } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+                        $menuItemItem->addLink("MapUsingBing.php?GroupID=" . $group->getID());
+                      }
                   }
               }
           }
@@ -194,7 +201,13 @@ class MenuBar {
         $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
         $menuItem = new Menu ("Calendar","fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
-        $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingGoogle.php",true,$menu);
+        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingLeaflet.php",true,$menu);
+        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingGoogle.php",true,$menu);
+        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingBing.php",true,$menu);
+        }
 
         $menuItem = new Menu ("List Church Events","fa fa-angle-double-right","ListEvents.php",true,$menu);
         $menuItem = new Menu ("List Event Types","fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);

@@ -104,8 +104,22 @@ if (!Cart::HasPeople()) {
                             class="fa fa-file-excel-o"></i><?= gettext('CSV Export') ?></a>
                 <?php
         } ?>
-            <a href="MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i
-                        class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>
+        <?php
+            if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+        ?>
+              <a href="MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>
+        <?php
+            } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+        ?>
+              <a href="MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>
+        <?php
+            } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+        ?>
+              <a href="MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>        
+        <?php
+            }
+        ?>
+
             <a href="Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app"><i
                         class="fa fa-file-pdf-o"></i><?= gettext('Name Tags') ?></a>
              <?php

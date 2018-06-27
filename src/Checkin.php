@@ -830,4 +830,18 @@ function loadPerson($iPersonID)
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+<?php
+  }
+?>

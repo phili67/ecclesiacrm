@@ -188,6 +188,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                         class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[0] ?>.png'/>
                     <div class="legenditemtext"><?= gettext('Unassigned') ?></div>
                 </div>
+                <div class="legenditem">
+                        <img
+                            src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
+                        <?= gettext("Calendar") ?>
+                </div>
                 <?php
                 foreach ($icons as $icon) {
                     ?>
