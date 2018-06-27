@@ -103,6 +103,12 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/leaflet/dist/',
+                        src: ['**/*'],
+                        dest: 'src/skin/external/leaflet/'
+                    },
+                    {
+                        expand: true,
                         filter: 'isFile',
                         flatten: true,
                         src: ['node_modules/bootbox/bootbox.min.js'],
