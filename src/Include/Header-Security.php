@@ -18,7 +18,7 @@ $csp = array(
     "media-src 'self'",
     "frame-src 'self' www.youtube.com",
     "font-src 'self' fonts.gstatic.com",
-    "connect-src 'self' www.bing.com",
+    "connect-src 'self' www.bing.com  nominatim.openstreetmap.org",
     "report-uri ".SystemURLs::getRootPath()."/api/system/csp-report"
 );
 if (SystemConfig::getBooleanValue("bHSTSEnable")) {

@@ -19,7 +19,7 @@
       var address_nomatim = address.replace(/ /g,'+');
   
       $.ajax({
-        url:"https://nominatim.openstreetmap.org/search?q="+address_nomatim+"&format=json",
+        url:window.CRM.sNominatimLink+"/search?q="+address_nomatim+"&format=json",
         type: "GET",
         dataType: "json",
         success:function(res){

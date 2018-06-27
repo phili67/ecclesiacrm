@@ -138,6 +138,7 @@ function Header_body_scripts()
             bSidebarCollapse:<?= ($_SESSION['bSidebarCollapse'])?"true":"false" ?>,
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
+            sNominatimLink:"<?= SystemConfig::getValue('sNominatimLink')?>",
             iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
             sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",            
             plugin: {
