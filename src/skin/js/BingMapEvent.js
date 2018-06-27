@@ -1,0 +1,113 @@
+  var marker = null;
+  
+  function updateMap()
+  {
+    document.getElementById('MyMap').style.width = '100%';
+    document.getElementById('MyMap').style.height = '240px';      
+    /*if (window.CRM.map) {
+      window.CRM.map.setMapType(Microsoft.Maps.MapTypeId.mercator);
+      setTimeout(function(){
+        window.CRM.map.setMapType(Microsoft.Maps.MapTypeId.auto);
+      }, 1)
+    }*/
+  }
+  
+  
+  $(document).on('keydown','#EventLocation',function (val) {    
+    if (val.which == 13) {
+      deleteMarker(marker);
+      
+      var address       = $('form #EventLocation').val();  
+      var EventTitle    = $('form #EventTitle').val();
+      var EventDesc     = $('form #EventDesc').val();
+      var Salutation = EventTitle + " ("+EventDesc+")";
+      var Name = EventTitle;
+
+      var imghref = window.CRM.root+"/Calendar.php";
+      var iconurl = window.CRM.root+"/skin/icons/event.png";
+  
+      var icon = { 
+        icon: iconurl,
+      };
+      
+      var contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+
+      Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
+          var searchManager = new Microsoft.Maps.Search.SearchManager(window.CRM.map);
+          var requestOptions = {
+              bounds: window.CRM.map.getBounds(),
+              where: address,
+              callback: function (answer, userData) {
+                  window.CRM.map.setView({ bounds: answer.results[0].bestView });
+                  
+                  var centerCard = {
+                    lat: Number(answer.results[0].location.latitude),
+                    lng: Number(answer.results[0].location.longitude)};
+                    
+                  marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
+              }
+          };
+          searchManager.geocode(requestOptions);
+      });
+    }
+  });
+  
+  function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {         
+      var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), image);
+      
+      map.entities.push(pin);
+
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.01, marker_position.lng), 
+      { title: title,description: infowindow_content, visible: false });
+        
+      infobox.setMap(map);
+        
+      Microsoft.Maps.Events.addHandler(pin, 'click', function () {
+          infobox.setOptions({ visible: true });
+      });
+      
+      return pin;
+  }
+  
+  function deleteMarker(mark)
+  {
+    if (mark != null) {
+      window.CRM.map.entities.remove(mark)
+    }
+    mark = null;
+  }
+
+
+  function initMap(longitude,latitude,Salutation,Address,Name,Text) {
+      // Create a map object and specify the DOM element for display.
+      window.CRM.map = new Microsoft.Maps.Map('#MyMap', {});
+          
+      if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
+        var centerCard = {
+          lat: Number(latitude),
+          lng: Number(longitude)};
+
+        var imghref = window.CRM.root+"/Calendar.php";
+        var iconurl = window.CRM.root+"/skin/icons/event.png";
+                
+        var icon = { 
+          icon: iconurl,
+        };
+
+        contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+
+        //Add marker and infowindow
+        marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
+      } else {
+        //Churchmark
+        var icon = { 
+          icon: window.CRM.root + "/skin/icons/church.png",
+        };
+
+        marker = addMarkerWithInfowindow(window.CRM.map,window.CRM.churchloc,icon,"titre",window.CRM.sChurchName);
+      }
+  }
+  
+  function GetMap() {
+    initMap();
+  }

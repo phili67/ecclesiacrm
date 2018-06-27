@@ -168,11 +168,7 @@
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
       
-      // Safari Google Map bug correction for an inclusion in a bootbox
-      document.getElementById('MyMap').style.position = 'relative';
-      document.getElementById('MyMap').style.background = 'none';
-      document.getElementById('MyMap').style.width = '100%';
-      document.getElementById('MyMap').style.height = '210px';
+      updateMap();
   });
 
   
@@ -240,58 +236,6 @@
     var typeID = e.options[e.selectedIndex].value;
     
     addAttendees(typeID);
-  });
-  
-  $('#EventLocation').bind("enterKey",function(e){
-   //do stuff here
-   alert('coucou');
-  });
-  
-  $(document).on('keydown','#EventLocation',function (val) {    
-    if (val.which == 13) {
-      deleteMarker(marker);
-      
-      var address       = $('form #EventLocation').val();
-  
-      $.ajax({
-        url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey,
-        //https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>
-        type: "POST",
-        success:function(res){
-          var latitude  = res.results[0].geometry.location.lat;
-          var longitude = res.results[0].geometry.location.lng;
-          var EventTitle =  $('form #EventTitle').val();
-          var EventDesc =  $('form #EventDesc').val();
-      
-          if ( latitude > 0 && longitude > 0 ) {
-            var Salutation = EventTitle + " ("+EventDesc+")";
-            var Name = EventTitle;
-            var latlng = new google.maps.LatLng(latitude, longitude);
-
-            var imghref = window.CRM.root+"/Calendar.php";
-            var iconurl = window.CRM.root+"/skin/icons/event.png";
-      
-            var image = {
-                url: iconurl,
-                // This marker is 37 pixels wide by 34 pixels high.
-                size: new google.maps.Size(37, 34),
-                // The origin for this image is (0, 0).
-                origin: new google.maps.Point(0, 0),
-                // The anchor for this image is the base of the flagpole at (0, 32).
-                anchor: new google.maps.Point(0, 32)
-            };
-
-            contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
-            contentString += "<p>" + address + "</p>";
-      
-            //Add marker and infowindow
-            marker  = addMarkerWithInfowindow(window.CRM.map, latlng, image, Name, contentString);
-        
-            window.CRM.map.setCenter(latlng);
-          }
-        }
-      });
-    }
   });
   
   function addAttendees(typeID,first_time,eventID)
@@ -810,6 +754,6 @@
             modal.modal("hide");
          }*/
        });
-       
+              
        return modal;
     }

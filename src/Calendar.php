@@ -51,8 +51,7 @@ $eventTypes = EventTypesQuery::Create()
 
     .input-group-addon:last-child {
       border-left: 1;
-    }
-    
+    }    
 </style>
 
 <div class="col">
@@ -229,6 +228,21 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarV2.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+<?php
+  }
+?>
+
 
 

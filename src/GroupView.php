@@ -94,9 +94,20 @@ require 'Include/Header.php';
   <div class="box-body">
     <?php 
       if ($_SESSION['user']->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
+        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     ?>
-      <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+        <a class="btn btn-app" href="MapUsingLeaflet.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+      <?php
+        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps') {
+      ?>
+        <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+        
     <?php
+        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+    ?>
+        <a class="btn btn-app" href="MapUsingBing.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
+    <?php
+        }    
       }
     ?>
 

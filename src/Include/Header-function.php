@@ -137,7 +137,9 @@ function Header_body_scripts()
             bSidebarExpandOnHover:<?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
             bSidebarCollapse:<?= ($_SESSION['bSidebarCollapse'])?"true":"false" ?>,
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
+            sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
             iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
+            sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",            
             plugin: {
                 dataTable : {
                    "language": {

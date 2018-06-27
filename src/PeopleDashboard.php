@@ -118,7 +118,22 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       if ($_SESSION['user']->isShowMapEnabled()) {
     ?>
       <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= gettext('Family Geographic') ?></a>
+    <?php
+        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+    ?>
+      <a href="MapUsingLeaflet.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+    <?php
+        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+    ?>
       <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+    <?php
+        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+    ?>
+      <a href="MapUsingBing.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+    <?php
+        } 
+    ?>    
+    
       <a href="UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= gettext('Update All Family Coordinates') ?></a>
     <?php
       }
