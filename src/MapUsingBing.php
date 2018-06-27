@@ -1,4 +1,11 @@
 <?php
+
+//
+//  This code is under copyright not under MIT Licence
+//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//  Updated     : 2018/06/27
+//
+
 require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/ReportFunctions.php';
