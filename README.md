@@ -1,4 +1,4 @@
-Welcome to Church Web CRM
+Welcome to EcclesiaCM Web CRM
 ---
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/church-web-crm/badge/?version=latest)](https://readthedocs.org/projects/church-web-crm/?badge=latest)
