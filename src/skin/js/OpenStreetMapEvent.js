@@ -88,9 +88,9 @@
          var centerCard = {
             lat: Number(latitude),
             lng: Number(longitude)};
-         window.CRM.map = L.map('MyMap').setView([centerCard.lat, centerCard.lng], window.CRM.mapZoom);
+         window.CRM.map = L.map('MyMap').setView([centerCard.lat, centerCard.lng], window.CRM.iLittleMapZoom);
       } else {
-         window.CRM.map = L.map('MyMap').setView([window.CRM.churchloc.lat, window.CRM.churchloc.lng], window.CRM.mapZoom);
+         window.CRM.map = L.map('MyMap').setView([window.CRM.churchloc.lat, window.CRM.churchloc.lng], window.CRM.iLittleMapZoom);
       }
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

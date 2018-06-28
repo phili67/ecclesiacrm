@@ -3233,11 +3233,11 @@ msgstr "Effacer cet Enregistrement"
 
 #: PersonView.php:397
 msgid "Make User"
-msgstr "Créer un Utilisateur"
+msgstr "Créer Utilisateur"
 
 #: PersonView.php:401
 msgid "Edit User"
-msgstr "Modifier un Utilisateur"
+msgstr "Modifier Utilisateur"
 
 #: PersonView.php:405
 msgid "List Members"
@@ -3245,7 +3245,7 @@ msgstr "Lister des membres"
 
 #: PersonView.php:566 PrintView.php:388
 msgid "No group assignments."
-msgstr "Aucune tâches assignée au groupe"
+msgstr "N'appartient à aucun groupe."
 
 #: PersonView.php:624
 msgid "Change Role"
@@ -3261,7 +3261,7 @@ msgstr "Assigner à un Nouveau Groupe"
 
 #: PersonView.php:765
 msgid "No volunteer opportunity assignments."
-msgstr "Aucunes assignation  d&#39;opportunité de bénévolat."
+msgstr "Ne fait pas de bénévolat."
 
 #: PersonView.php:808
 msgid "Assign a New Volunteer Opportunity"

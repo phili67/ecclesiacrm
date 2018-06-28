@@ -16,10 +16,14 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
+use EcclesiaCRM\ListOptionIconQuery;
 
 $mode = trim($_GET['mode']);
+
+$listID = 0;
 
 // Check security for the mode selected.
 switch ($mode) {
@@ -32,10 +36,28 @@ switch ($mode) {
         break;
 
     case 'grptypes':
+        $listID = 3;
     case 'grproles':
+        if (!$listID) {
+          $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        }
     case 'groupcustom':
-        $iGroupID = GroupPropMasterQuery::Create()->findOneBySpecial($listID)->getGroupId();
-        $manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+        if (!$listID) {
+          $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        }
+        
+        $iGroupID = 0;
+        $manager  = null;
+        
+        $grpManager = GroupPropMasterQuery::Create()->findOneBySpecial($listID);
+        
+        if ($grpManager != null) {
+          $iGroupID = $grpManager->getGroupId();
+        }
+         
+        if ($iGroupID > 0) {
+          $manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+        }
 
         if (!($_SESSION['user']->isManageGroupsEnabled() || !empty($manager) ) ) {
             Redirect('Menu.php');
@@ -202,7 +224,7 @@ if (isset($_POST['AddField'])) {
 
             // Insert into the appropriate options table
             $sSQL = 'INSERT INTO list_lst (lst_ID, lst_OptionID, lst_OptionName, lst_OptionSequence)
-					VALUES ('.$listID.','.$newOptionID.",'".$newFieldName."',".$newOptionSequence.')';
+                    VALUES ('.$listID.','.$newOptionID.",'".$newFieldName."',".$newOptionSequence.')';
 
             RunQuery($sSQL);
             $iNewNameError = 0;
@@ -299,7 +321,7 @@ if ($embedded) {
 
 ?>
 <div class="box">
-	<div class="box-body">
+    <div class="box-body">
 <form method="post" action="OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
 
 <div class="callout callout-warning"><?= gettext('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
@@ -316,25 +338,25 @@ if ($bErrorFlag) {
 ?>
 
 <br>
-<table cellpadding="3" width="30%" align="center">
+<table cellpadding="3" width="35%" align="center">
 
 <?php
 for ($row = 1; $row <= $numRows; $row++) {
     ?>
-	<tr align="center">
-		<td class="LabelColumn">
-			<b>
-			<?php
+    <tr align="center">
+        <td class="LabelColumn">
+            <b>
+            <?php
             if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {
                 echo gettext('Default').' ';
             }
     echo $row; ?>
-			</b>
-		</td>
+            </b>
+        </td>
 
-		<td class="TextColumn" nowrap>
+        <td class="TextColumn" nowrap>
 
-			<?php
+            <?php
             if ($row != 1) {
                 echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
             }
@@ -344,51 +366,61 @@ for ($row = 1; $row <= $numRows; $row++) {
     if ($numRows > 0) {
         echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=delete"><img src="Images/x.gif" border="0"></a>';
     } ?>
-		</td>
-		<td class="TextColumn">
-			<span class="SmallText">
-				<input class="input-small" type="text" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30" maxlength="40">
-			</span>
-			<?php
+        </td>
+        <td class="TextColumn">
+            <span class="SmallText">
+                <input class="input-small" type="text" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30" maxlength="40">
+            </span>
+            <?php
 
             if ($aNameErrors[$row] == 1) {
                 echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
             } elseif ($aNameErrors[$row] == 2) {
                 echo '<span style="color: red;"><BR>'.gettext('Duplicate name found.').' </span>';
             } ?>
-		</td>
-		<?php
+        </td>
+        <?php
         if ($mode == 'grproles') {
             echo '<td class="TextColumn"><input class="form-control input-small" type="button" class="btn btn-default" value="'.gettext('Make Default')."\" Name=\"default\" onclick=\"javascript:document.location='OptionManagerRowOps.php?mode=".$mode.'&ListID='.$listID.'&ID='.$aIDs[$row]."&Action=makedefault';\" ></td>";
-        } ?>
+        } else if ($mode == 'classes') {
+          $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
+          if ($icon == null || $icon != null && $icon->getUrl() == '') {
+            echo '<td><img src="Images/+.png" border="0" class="AddImage" data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'"></td>';
+          } else {
+            echo '<td><img src="Images/x.gif" border="0" class="RemoveImage"  data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'"  ></td><td><img src="/skin/icons/markers/'.$icon->getUrl().'" border="0" height="25"> </td>';
+          }
+        }
+        
+        
+        ?>
 
-	</tr>
+    </tr>
 <?php
 } ?>
 
 </table>
   <br/>
-	<input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
+    <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
 
 
-	<?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
+    <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
             ?>
-		<input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
-	<?php
+        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
+    <?php
         } elseif ($mode != 'grproles') {
             ?>
-		<input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?php
+        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?php
         echo 'Menu.php'; ?>';">
-	<?php
+    <?php
         } ?>
-	</div>
+    </div>
 </div>
 
 <div class="box box-primary">
-	<div class="box-body">
+    <div class="box-body">
 <?=  gettext('Name for New').' '.$noun ?>:&nbsp;
 <span class="SmallText">
-	<input class="form-control input-small" type="text" name="newFieldName" size="30" maxlength="40">
+    <input class="form-control input-small" type="text" name="newFieldName" size="30" maxlength="40">
 </span>
 <p>  </p>
 <input type="submit" class="btn btn-success" value="<?= gettext('Add New').' '.$adjplusname ?>" Name="AddField">
@@ -405,12 +437,16 @@ for ($row = 1; $row <= $numRows; $row++) {
 ?>
 </center>
 </form>
-	</div>
+    </div>
 </div>
 <?php
 if ($embedded) {
-    echo '</body></html>';
+?>
+    </body></html>
+<?php
 } else {
     include 'Include/Footer.php';
 }
 ?>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/IconPicker.js"></script>

@@ -112,11 +112,17 @@ switch ($sAction) {
         $sSQL = "SELECT '' FROM list_lst WHERE lst_ID = $listID";
         $rsPropList = RunQuery($sSQL);
         $numRows = mysqli_num_rows($rsPropList);
-
+        
+        
         // Make sure we never delete the only option
         if ($numRows > 1) {
             $sSQL = "DELETE FROM list_lst WHERE lst_ID = $listID AND lst_OptionSequence = '".$iOrder."'";
             RunQuery($sSQL);
+            
+            if ($listID == 1) { // we are in the case of custom icon for person classification, so we have to delete the icon in list_icon
+              $sSQL = "DELETE FROM list_icon WHERE lst_ic_lst_ID = $listID AND lst_ic_lst_Option_ID = ".$iID;
+              RunQuery($sSQL);
+            }
 
             // Shift the remaining rows up by one
             for ($reorderRow = $iOrder + 1; $reorderRow <= $numRows + 1; $reorderRow++) {

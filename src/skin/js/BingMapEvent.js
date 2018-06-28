@@ -51,6 +51,8 @@
                     lng: Number(answer.results[0].location.longitude)};
                     
                   marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
+                  
+                  window.CRM.map.setCenter(new Microsoft.Maps.Location(centerCard.lat, centerCard.lng), window.CRM.iLittleMapZoom );
               }
           };
           searchManager.geocode(requestOptions);
@@ -85,10 +87,11 @@
 
 
   function initMap(longitude,latitude,Salutation,Address,Name,Text) {
-      // Create a map object and specify the DOM element for display.
-      window.CRM.map = new Microsoft.Maps.Map('#MyMap', {});
           
       if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
+        // Create a map object and specify the DOM element for display.
+        window.CRM.map = new Microsoft.Maps.Map('#MyMap', {center: new Microsoft.Maps.Location(latitude, longitude),zoom: window.CRM.iLittleMapZoom});
+
         var centerCard = {
           lat: Number(latitude),
           lng: Number(longitude)};
@@ -105,6 +108,9 @@
         //Add marker and infowindow
         marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
       } else {
+        // Create a map object and specify the DOM element for display.
+        window.CRM.map = new Microsoft.Maps.Map('#MyMap', {center: new Microsoft.Maps.Location(window.CRM.churchloc.lat, window.CRM.churchloc.lng),zoom: window.CRM.iLittleMapZoom});
+
         //Churchmark
         var icon = { 
           icon: window.CRM.root + "/skin/icons/church.png",
