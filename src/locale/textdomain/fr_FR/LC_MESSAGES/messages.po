@@ -3038,7 +3038,7 @@ msgstr "Option"
 
 #: OptionManager.php:300
 msgid "Warning: Removing will reset all assignments for all persons with the assignment!"
-msgstr "Avertissement: Cette suppression réinitialisera les affectations de toutes les personnes ayant cette affectation!"
+msgstr "ATTENTION : Les suppresions de classification sont irréversibles et vous obligeront à refaire toutes les classifications pour chaque personnes !"
 
 #: OptionManager.php:307
 msgid "Error: Duplicate"
