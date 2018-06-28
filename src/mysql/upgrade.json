@@ -306,6 +306,7 @@
             "4.2.1"
         ],
         "scripts": [
+            "/mysql/upgrade/4.3.0-upgrade.sql"
         ],
         "dbVersion": "4.3.0"
     }
