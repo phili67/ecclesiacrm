@@ -144,6 +144,18 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       ->addAsColumn('url',ListOptionIconTableMap::COL_LST_IC_LST_URL)
       ->find();
         
+    foreach ($icons as $icon) {
+      if ($icon->getUrl() == null) {
+        ?>
+           <div class="callout callout-danger">
+                <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
+                <?= gettext('Missing Map classification icon for : ').$icon->getOptionName() ?>
+            </div>
+        <?php
+        break;
+      }
+    }
+
     $arrPlotItemsSeperate = [];
     
     $arrPlotItemsSeperate["-2"] = array();

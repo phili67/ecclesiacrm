@@ -320,11 +320,12 @@ if ($embedded) {
 }
 
 ?>
+
+<div class="callout callout-danger"><?= gettext('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
+
 <div class="box">
     <div class="box-body">
 <form method="post" action="OptionManager.php?<?= "mode=$mode&ListID=$listID" ?>" name="OptionManager">
-
-<div class="callout callout-warning"><?= gettext('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
 
 <?php
 

@@ -37,8 +37,11 @@ class Person extends BasePerson implements iPhoto
     {
       $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
       
-      if (!empty($icon)) {      
-        return ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId())->getUrl();
+      if (!empty($icon)) {
+        $lst = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
+        if (!empty($lst)) {
+          return $icon->getUrl();
+        }
       } 
       
       return 'gm-red-pushpin.png';
