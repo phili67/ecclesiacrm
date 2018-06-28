@@ -19,6 +19,9 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Map\ListOptionIconTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
+
 
 use EcclesiaCRM\EventQuery;
 
@@ -143,45 +146,53 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
     //Markericons list
     $icons = ListOptionQuery::create()
-    ->filterById(1)
-    ->orderByOptionSequence()
-    ->find();
-
-    $markerIcons = explode(',', SystemConfig::getValue('sGMapIcons'));
-    array_unshift($markerIcons, 'red-pushpin'); //red-pushpin for unassigned classification
+      ->filterById(1)
+      ->orderByOptionSequence()
+      ->addJoin(ListOptionTableMap::COL_LST_OPTIONID,ListOptionIconTableMap::COL_LST_IC_LST_OPTION_ID,Criteria::LEFT_JOIN)
+      ->addAsColumn('url',ListOptionIconTableMap::COL_LST_IC_LST_URL)
+      ->find();
+      
+    $arrPlotItemsSeperate = [];
+    
+    $arrPlotItemsSeperate["-2"] = array();
+    $arrPlotItemsSeperate["-1"] = array();
 ?>
 
 
     <div class="box">
         <!-- Google map div -->
-        <div id="mapid" class="map-div" ></div>
+        <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
         <div id="maplegend" style="z-index: 1000; position: absolute; bottom: 127px; left: 0px;"><h4><?= gettext('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
-                    <img
-                        src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[0] ?>.png'/>
+                    <input type="checkbox" class="view" data-id="-2" name="feature"
+               value="scales" checked /><img
+                        src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
                     <?= gettext('Unassigned') ?>
                 </div>
                 <div class="legenditem">
-                        <img
-                            src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
-                        <?= gettext("Calendar") ?>
+                    <input type="checkbox" class="view" data-id="-1" name="feature"
+               value="scales" checked /><img
+                        src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
+                    <?= gettext("Calendar") ?>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
+                   $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
                     ?>
                     <div class="legenditem">
-                        <img
-                            src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[$icon->getOptionId()] ?>.png'/>
+                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked /><img
+                            src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
                         <?= $icon->getOptionName() ?>
                     </div>
                     <?php
-                } ?>                
+                } 
+                ?>                
             </div>
         </div>
-
+        
         <!-- map Mobile legend-->
         <div id="maplegend-mobile" class="box visible-xs-block">
             <div class="row legendbox">
@@ -189,21 +200,23 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
             </div>
             <div class="row legendbox">
                 <div class="col-xs-6 legenditem">
-                    <img
-                        class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[0] ?>.png'/>
+                    <input type="checkbox" class="view" data-id="-2" name="feature"
+               value="scales" checked /><img
+                        class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
                     <div class="legenditemtext"><?= gettext('Unassigned') ?></div>
                 </div>
                 <div class="legenditem">
-                        <img
-                            src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
-                        <?= gettext("Calendar") ?>
+                    <input type="checkbox" class="view" data-id="-1" name="feature"
+               value="scales" checked /><img
+                        src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
+                    <?= gettext("Calendar") ?>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
                     ?>
                     <div class="col-xs-6 legenditem">
-                        <img
-                            class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/<?= $markerIcons[$icon->getOptionId()] ?>.png'/>
+                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked /><img
+                            class="legendicon" src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
                         <div class="legenditemtext"><?= $icon->getOptionName() ?></div>
                     </div>
                     <?php
@@ -225,10 +238,8 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       lng: <?= ChurchMetaData::getChurchLongitude() ?>};
 
 
-  var markerIcons = <?= json_encode($markerIcons) ?>;
-  var iconsJSON = <?= $icons->toJSON() ?>;
-  var icons = iconsJSON.ListOptions;
-  var iconBase = 'https://www.google.com/intl/en_us/mapfiles/ms/micons/';
+  var iconBase = window.CRM.root+'/skin/icons/markers/';
+  var newPlotArray = null;
   
   
   function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {         
@@ -236,7 +247,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       
       map.entities.push(pin);
 
-      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.01, marker_position.lng), 
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.005, marker_position.lng), 
       { title: title,description: infowindow_content, visible: false });
         
       infobox.setMap(map);
@@ -245,12 +256,15 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
           infobox.setOptions({ visible: true });
       });
 
+     return pin;
   }
   
   
   function initialize() {
       // init map
       map = new Microsoft.Maps.Map('#mapid', {});
+      
+      window.CRM.map = map;// the Map is stored in the DOM
 
       //Churchmark
       var icon = { 
@@ -260,14 +274,13 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sChurchName') ?>");
       
       <?php
-      $arr = array();
-        $arrPlotItems = array();
+        $arr = array();
+        
         if ($plotFamily) {
             foreach ($families as $family) {
                 if ($family->hasLatitudeAndLongitude()) {
                     //this helps to add head people persons details: otherwise doesn't seems to populate
-                    $class = $family->getHeadPeople()[0];
-                    $family->getHeadPeople()[0];
+                    $member = $family->getHeadPeople()[0];
                     $photoFileThumb = SystemURLs::getRootPath() . '/api/families/' . $family->getId() . '/photo';
                     $arr['ID'] = $family->getId();
                     $arr['Name'] = $family->getName();
@@ -277,9 +290,15 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                     $arr['Latitude'] = $family->getLatitude();
                     $arr['Longitude'] = $family->getLongitude();
                     $arr['Name'] = $family->getName();
-                    $arr['Classification'] = $class->GetClsId();
+                    $arr['iconClassification'] = $member->getUrlIcon();
                     $arr['type'] = 'family';          
-                    array_push($arrPlotItems, $arr);
+                    $arr['mark'] = null;
+                    
+                    if ($member->getClsId() == 0) {
+                      array_push($arrPlotItemsSeperate["-2"], $arr);
+                    } else {
+                      array_push($arrPlotItemsSeperate[$member->getClsId()], $arr);
+                    }
                 }
             }
         } else {
@@ -295,9 +314,15 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 $arr['Latitude'] = $latLng['Latitude'];
                 $arr['Longitude'] = $latLng['Longitude'];
                 $arr['Name'] = $member->getFullName();
-                $arr['Classification'] = $member->getClsId();
+                $arr['iconClassification'] = $member->getUrlIcon();
                 $arr['type'] = 'person';
-                array_push($arrPlotItems, $arr);
+                $arr['mark'] = null;
+                
+                if ($member->getClsId() == 0) {
+                  array_push($arrPlotItemsSeperate["-2"], $arr);
+                } else {
+                  array_push($arrPlotItemsSeperate[$member->getClsId()], $arr);
+                }
             }
         } //end IF $plotFamily
         
@@ -317,76 +342,112 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
           $arr['bigThumbnail'] = SystemURLs::getRootPath() ."/skin/icons/bigevent.png";
           $arr['Latitude'] = $event->getLatitude();
           $arr['Longitude'] = $event->getLongitude();
-          $arr['Classification'] = 0;
+          $arr['iconClassification'] = '';
           $arr['type'] = 'event';
           $arr['desc'] = $event->getDesc();
-          array_push($arrPlotItems, $arr);          
+          $arr['mark'] = null;
+          
+          array_push($arrPlotItemsSeperate["-1"], $arr);
         }
         
       ?>
 
-      var plotArray = <?= json_encode($arrPlotItems) ?>;
+      newPlotArray = <?= json_encode($arrPlotItemsSeperate) ?>;
+      
       var bPlotFamily = <?= ($plotFamily) ? 'true' : 'false' ?>;
-      if (plotArray.length == 0) {
-          return;
-      }
+      
       //loop through the families/persons and add markers
-      for (var i = 0; i < plotArray.length; i++) {
-          if (plotArray[i].Latitude + plotArray[i].Longitude == 0)
-              continue;
+      for (var key in newPlotArray) {
+        //loop through the families/persons and add markers
+        var plotArray = newPlotArray[key];
+        
+        for (var i = 0; i < plotArray.length; i++) {
+            if (plotArray[i].Latitude + plotArray[i].Longitude == 0)
+                continue;
 
-          //icon image
-          var clsid = plotArray[i].Classification;
-          var markerIcon = markerIcons[clsid];
-          
-          var iconurl = iconBase + markerIcon + '.png';
-          
-          if (plotArray[i].type == 'event') {
-            iconurl = plotArray[i].Thumbnail;
-          }
-          
-
-          //Churchmark
-          var icon = { 
-               icon: iconurl,
-          };
-
-          //Latlng object
-          var latlng = {lat:plotArray[i].Latitude, lng:plotArray[i].Longitude};
-
-          //Infowindow Content
-          var imghref, contentString;
-          if (plotArray[i].type == 'family') {
-              imghref = "FamilyView.php?FamilyID=" + plotArray[i].ID;
-          } else if (plotArray[i].type == 'person') {
-              imghref = "PersonView.php?PersonID=" + plotArray[i].ID;
-          } else if (plotArray[i].type == 'event') {
-              imghref = window.CRM.root+"/Calendar.php";
-          }
-
-          contentString = "<b><a href='" + imghref + "'>" + plotArray[i].Salutation + "</a></b>";
-          contentString += '<p><a href="http://maps.google.com/?q=1  ' + plotArray[i].Address + '" target="_blank">' + plotArray[i].Address + '</a></p>';
-
-          if (plotArray[i].Thumbnail.length > 0) {
-              //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
-              contentString += "<div class='image-container'><a href='" + imghref + "'>";
-              if (plotArray[i].type == 'event') {
-                contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].bigThumbnail + "'></a>";
-                
-                if (plotArray[i].Text != '') {
-                   contentString += "<b>"+i18next.t("Notes")+"</b>";
-                   contentString += "<br>"+plotArray[i].Text+"</div>";
-                }
-              } else {
-                 contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plotArray[i].Thumbnail + "'></a>";
-              }
-          }
-
-          //Add marker and infowindow
-          addMarkerWithInfowindow(map, latlng, icon, plotArray[i].Name, contentString);
+            add_marker(plotArray[i]);
+        }
       }
     
   }
+  
+  function add_marker (plot) {
+    var iconurl = iconBase + plot.iconClassification;
+    
+    if (plot.type == 'event') {
+      iconurl = plot.Thumbnail;
+    }
+    
+
+    //Churchmark
+    var icon = { 
+         icon: iconurl,
+    };
+
+    //Latlng object
+    var latlng = {lat:plot.Latitude, lng:plot.Longitude};
+
+    //Infowindow Content
+    var imghref, contentString;
+    if (plot.type == 'family') {
+        imghref = "FamilyView.php?FamilyID=" + plot.ID;
+    } else if (plot.type == 'person') {
+        imghref = "PersonView.php?PersonID=" + plot.ID;
+    } else if (plot.type == 'event') {
+        imghref = window.CRM.root+"/Calendar.php";
+    }
+
+    contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
+    contentString += '<p><a href="http://maps.google.com/?q=1  ' + plot.Address + '" target="_blank">' + plot.Address + '</a></p>';
+
+    if (plot.Thumbnail.length > 0) {
+        //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
+        contentString += "<div class='image-container'><a href='" + imghref + "'>";
+        if (plot.type == 'event') {
+          contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.bigThumbnail + "'></a>";
+          
+          if (plot.Text != '') {
+             contentString += "<b>"+i18next.t("Notes")+"</b>";
+             contentString += "<br>"+plot.Text+"</div>";
+          }
+        } else {
+           contentString += "<img class='profile-user-img img-responsive img-circle' border='1' src='" + plot.Thumbnail + "'></a>";
+        }
+    }
+
+    //Add marker and infowindow
+    plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Name, contentString);
+  }
+  
+  function add_all_markers_for_id (id) {
+    var plotArray = newPlotArray[id];
+        
+    for (var i = 0; i < plotArray.length; i++) {
+        if (plotArray[i].Latitude + plotArray[i].Longitude == 0)
+            continue;
+        //icon image
+        add_marker(plotArray[i]);
+    }
+  }
+  
+  function delete_all_markers_for_id (id) {
+    var plotArray = newPlotArray[id];
+        
+    for (var i = 0; i < plotArray.length; i++) {
+      if (plotArray[i].mark != null) {
+        window.CRM.map.entities.remove(plotArray[i].mark)
+      }
+      plotArray[i].mark = null;
+    }
+  }
+
+  $('.view').change(function() {
+    if ($(this).is(':checked') == false) {
+      delete_all_markers_for_id ($(this).data("id"));
+    } else {
+      add_all_markers_for_id ($(this).data("id"));      
+    }
+  });
   
   
   function GetMap() {

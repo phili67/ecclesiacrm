@@ -88,6 +88,11 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
                 } ?>
                 <div class="col-sm-3">
                 <label class="checkbox-inline">
+                  <?php if ($peopleWithBirthDay->getUrlIcon() != '') { ?>
+                    <img src="<?= SystemURLs::getRootPath() ?>/skin/icons/markers/<?= $peopleWithBirthDay->getUrlIcon() ?>">
+                  <?php
+                    }
+                  ?>
                     <a href="<?= $peopleWithBirthDay->getViewURI()?>" class="btn btn-link" style="text-decoration: none"><?= $peopleWithBirthDay->getFullNameWithAge() ?></a>
                 </label>
                 </div>

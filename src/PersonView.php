@@ -41,6 +41,7 @@ use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\ListOptionIconQuery;
 
 
 $timelineService = new TimelineService();
@@ -81,11 +82,12 @@ if ($iRemoveVO > 0 && $_SESSION['user']->isEditRecordsEnabled()) {
 }
 
 // Get this person's data
-$sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
+$sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
         b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
       FROM person_per a
       LEFT JOIN family_fam ON a.per_fam_ID = family_fam.fam_ID
-      LEFT JOIN list_lst cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
+      LEFT JOIN list_lst  cls ON a.per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
+      LEFT JOIN list_icon clsicon ON clsicon.lst_ic_lst_Option_ID = cls.lst_OptionID 
       LEFT JOIN list_lst fmr ON a.per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
       LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
       LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
@@ -266,7 +268,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 ?>
 
         <p class="text-muted text-center">
-          <?= gettext($sClassName);
+        
+          <?php
+            if (!empty($sClassIcon)) {
+          ?>
+            <img src="<?= SystemURLs::getRootPath()."/skin/icons/markers/".$sClassIcon?>" boder=0>
+          <?php
+            }
+          ?>
+            <?= gettext($sClassName);
     if ($per_MembershipDate) {
         echo gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false);
     } ?>

@@ -101,7 +101,7 @@
 
       // Create a map object and specify the DOM element for display.
       window.CRM.map = new google.maps.Map(document.getElementById('MyMap'), {
-          zoom: window.CRM.mapZoom,
+          zoom: window.CRM.iLittleMapZoom,
           center: centerCard
       });
       
@@ -110,7 +110,7 @@
         google.maps.event.trigger(window.CRM.map, "resize");
         window.CRM.map.setCenter(currentCenter); // Re-set previous center
 
-        window.CRM.map.setZoom(15);
+        window.CRM.map.setZoom(window.CRM.iLittleMapZoom);
       });
 
     
