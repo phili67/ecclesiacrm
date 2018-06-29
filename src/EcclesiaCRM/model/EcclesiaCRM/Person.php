@@ -41,10 +41,12 @@ class Person extends BasePerson implements iPhoto
         $lst = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
         if (!empty($lst)) {
           return $icon->getUrl();
+        } else {
+          return '../interrogation_point.png';
         }
       } 
       
-      return '../interrogation_point.png';
+      return 'gm-red-pushpin.png';
     }
     
     public function isMale()
