@@ -136,13 +136,14 @@ function Header_body_scripts()
             showCart:<?= ($_SESSION['user']->isShowCartEnabled())?"true":"false" ?>,
             bSidebarExpandOnHover:<?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
             bSidebarCollapse:<?= ($_SESSION['bSidebarCollapse'])?"true":"false" ?>,
-            sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",            
+            sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
             iLittleMapZoom:<?= SystemConfig::getValue('iLittleMapZoom')?>,
             sNominatimLink:"<?= SystemConfig::getValue('sNominatimLink')?>",
             iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
-            sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",            
+            sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",
+            sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,
             plugin: {
                 dataTable : {
                    "language": {
