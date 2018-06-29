@@ -66,5 +66,41 @@ $('.AddImage').click('focus', function (e) {
     }).done(function(data) {
        location.reload();
     });
-  });  
+  },
+  function(directory) {
+      window.CRM.APIRequest({
+          method: 'POST',
+          path: 'mapicons/getall',
+      }).done(function(data) {
+        var len = data.length;
+    
+        $('#here_table').append('<table width=100%></table>');
+        
+        var table = $('#here_table').children();
+        
+        for(i=0;i<len;i++){
+         if (i%9 == 0) {
+             if (i==0) {
+               var buff = '<tr>';
+             } else {
+               table.append( buff+'</tr>');
+               var buff = '<tr>';
+             }
+          } else {
+            buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
+          }
+        }
+    
+        if (buff != '') {
+          len = len%9;
+          for (i=0;i<len;i++) {
+            buff += '<td></td>';
+          }
+          table.append( buff+'</tr>');
+        }
+      });
+    }
+    
+    
+);  
 });
