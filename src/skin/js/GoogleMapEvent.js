@@ -6,7 +6,8 @@
 
  
   var marker = null;
-  
+  var infowindow = null;
+    
   function updateMap()
   {
       // Safari Google Map bug correction for an inclusion in a bootbox
@@ -73,9 +74,7 @@
 
       google.maps.event.addListener(marker, 'click', function () {
           infowindow.setContent(infowindow_content);
-          infowindow.open(map, marker);
-          //set image/gravtar
-          $('.profile-user-img').initial();
+          infowindow.open(window.CRM.map, marker);
       });
       
       return marker;
@@ -103,6 +102,10 @@
       window.CRM.map = new google.maps.Map(document.getElementById('MyMap'), {
           zoom: window.CRM.iLittleMapZoom,
           center: centerCard
+      });
+      
+      infowindow = new google.maps.InfoWindow({
+        maxWidth: 200
       });
       
       google.maps.event.addListenerOnce(window.CRM.map, 'idle', function () {
