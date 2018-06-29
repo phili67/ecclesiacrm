@@ -30,3 +30,41 @@ $('.RemoveClassification').click('focus', function (e) {
       }
     });
 });
+
+
+$('.RemoveImage').click('focus', function (e) {
+  var lstID = $(this).data('id');
+  var lstOptionID = $(this).data('optionid');
+  
+  window.CRM.APIRequest({
+      method: 'POST',
+      path: 'mapicons/removeIcon',
+      data: JSON.stringify({"lstID":lstID,"lstOptionID":lstOptionID})
+  }).done(function(data) {
+     location.reload();
+  });
+});
+
+
+$('.AddImage').click('focus', function (e) {
+  var lstID       = $(this).data('id');
+  var lstOptionID = $(this).data('optionid');
+  var name        = $(this).data('name');
+  
+  modal = createImagePickerWindow ({
+    title:i18next.t("Map Icon GoogleMap"),
+    firstLabel:i18next.t("Classification"),
+    label:name,
+    message: i18next.t("Select your classification icon"),
+    directory:window.CRM.root+'/skin/icons/markers/'
+  },
+  function(selectedName) {
+     window.CRM.APIRequest({
+        method: 'POST',
+        path: 'mapicons/setIconName',
+        data: JSON.stringify({"name":selectedName,"lstID":lstID,"lstOptionID":lstOptionID})
+    }).done(function(data) {
+       location.reload();
+    });
+  });  
+});

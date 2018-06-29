@@ -386,7 +386,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
           if ($icon == null || $icon != null && $icon->getUrl() == '') {
-            echo '<td><img src="Images/+.png" border="0" class="AddImage" data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'"></td>';
+            echo '<td><img src="Images/+.png" border="0" class="AddImage" data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'" data-name="'.htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8').'"></td>';
           } else {
             echo '<td><img src="Images/x.gif" border="0" class="RemoveImage"  data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'"  ></td><td><img src="/skin/icons/markers/'.$icon->getUrl().'" border="0" height="25"> </td>';
           }
