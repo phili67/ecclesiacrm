@@ -279,13 +279,13 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       
       map.entities.push(pin);
 
-      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.005, marker_position.lng), 
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), 
       { title: title,description: infowindow_content, visible: false });
         
       infobox.setMap(map);
         
       Microsoft.Maps.Events.addHandler(pin, 'click', function () {
-          infobox.setOptions({ visible: true });
+          infobox.setOptions({ visible: true,offset: new Microsoft.Maps.Point(0, 32) });
       });
 
      return pin;

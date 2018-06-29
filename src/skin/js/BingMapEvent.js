@@ -36,7 +36,7 @@
         icon: iconurl,
       };
       
-      var contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+      contentString = "<p>" + address + "</p>";
 
       Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
           var searchManager = new Microsoft.Maps.Search.SearchManager(window.CRM.map);
@@ -65,13 +65,13 @@
       
       map.entities.push(pin);
 
-      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.001, marker_position.lng), 
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), 
       { title: title,description: infowindow_content, visible: false });
         
       infobox.setMap(map);
         
       Microsoft.Maps.Events.addHandler(pin, 'click', function () {
-          infobox.setOptions({ visible: true });
+          infobox.setOptions({ visible: true,offset: new Microsoft.Maps.Point(0, 32) });
       });
       
       return pin;
@@ -103,7 +103,7 @@
           icon: iconurl,
         };
 
-        contentString = "<b><a href='" + imghref + "'>" + Salutation + "</a></b>";
+        contentString = '<p><a href="http://maps.google.com/?q=1  ' + Address + '" target="_blank">' + Address + '</a></p>';
 
         //Add marker and infowindow
         marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
