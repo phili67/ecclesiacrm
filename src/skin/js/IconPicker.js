@@ -14,6 +14,40 @@
 //  },
 //  function(selectedName) {
 //     console.log(selectedName);
+//  },
+//  function(directory) {
+//     // for example:
+//    window.CRM.APIRequest({
+//          method: 'POST',
+//          path: 'mapicons/getall',
+//      }).done(function(data) {
+//        var len = data.length;
+//
+//        $('#here_table').append('<table width=100%></table>');
+//
+//        var table = $('#here_table').children();
+//        
+//        for(i=0;i<len;i++){
+//         if (i%9 == 0) {
+//             if (i==0) {
+//               var buff = '<tr>';
+//             } else {
+//               table.append( buff+'</tr>');
+//               var buff = '<tr>';
+//             }
+//          } else {
+//            buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
+//          }
+//        }
+//    
+//        if (buff != '') {
+//          len = len%9;
+//          for (i=0;i<len;i++) {
+//            buff += '<td></td>';
+//          }
+//          table.append( buff+'</tr>');
+//        }
+//      });
 //  });  
   
   
@@ -49,44 +83,8 @@
 
       $(this).css('border', "solid 1px blue"); 
     });
-
     
-    function AddIcons(directory) {
-      window.CRM.APIRequest({
-          method: 'POST',
-          path: 'mapicons/getall',
-      }).done(function(data) {
-        var len = data.length;
-    
-        $('#here_table').append('<table width=100%></table>');
-        
-        var table = $('#here_table').children();
-        
-        for(i=0;i<len;i++){
-         if (i%9 == 0) {
-             if (i==0) {
-               var buff = '<tr>';
-             } else {
-               table.append( buff+'</tr>');
-               var buff = '<tr>';
-             }
-          } else {
-            buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
-          }
-        }
-    
-        if (buff != '') {
-          len = len%9;
-          for (i=0;i<len;i++) {
-            buff += '<td></td>';
-          }
-          table.append( buff+'</tr>');
-        }
-      });
-    }
-    
-    
-    function createImagePickerWindow (options,callback) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+    function createImagePickerWindow (options,callbackRes,callBackIcons) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {      
       var diag = bootbox.dialog({
          message: BootboxContent(options.title,options.firstLabel,options.label,options.message,options.directory),
@@ -100,8 +98,8 @@
            label: i18next.t("Validate"),
            className: "btn btn-primary",
            callback: function() {
-              if (callback) {
-                  return callback(selectedName);
+              if (callbackRes) {
+                  return callbackRes(selectedName);
               }
             }
           }
@@ -110,8 +108,11 @@
             modal.modal("hide");
          }
        });
-               
-       AddIcons(options.directory);
+      
+       if (callBackIcons) {
+         callBackIcons(options.directory);
+       }
+       
        diag.modal("show");
               
        return diag;
