@@ -2853,7 +2853,7 @@ msgstr "Toutes les personnes"
 
 #: Include/Footer.php:80
 msgid "Classifications Manager"
-msgstr "Gestionnaire des Classifications"
+msgstr "Gestionnaire de Classifications"
 
 #: PeopleDashboard.php:92
 msgid "Email All"
@@ -6513,7 +6513,7 @@ msgstr "Classifications de Personne"
 
 #: OptionManager.php:71
 msgid "Person Classifications Editor"
-msgstr "Gestionnaire des Classifications de Personne"
+msgstr "Gestionnaire de Classifications de Personne"
 
 #: OptionManager.php:77
 msgid "Group Type"
@@ -8370,8 +8370,23 @@ msgid "system user login reset"
 msgstr "l'identifiant de l'utilisateur système a été réinitialisé"
 
 #: MapUsingGoogle.php:25
-msgid "Missing Families? Update Family Latitude or Longitude now."
-msgstr "Familles manquantes ? Mettre à jour les Latitude et Longitude des familles maintenant."
+msgid "Missing Families?"
+msgstr "Familles manquantes ?"
+
+msgid "Update Family Latitude or Longitude now."
+msgstr "Mettre à jour les Latitude et Longitude des familles maintenant."
+
+msgid "Missing Person Map classification icon for"
+msgstr "Icône de Classification manquante pour"
+
+msgid "Clik"
+msgstr "Cliquer"
+
+msgid "here"
+msgstr "ici"
+
+msgid "to solve the problem."
+msgstr "pour résoudre le problème."
 
 #: UpdateAllLatLon.php:22
 msgid "Families without Geo Info"

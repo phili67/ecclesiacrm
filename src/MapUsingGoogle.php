@@ -42,7 +42,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 <div class="callout callout-info">
     <a href="<?= SystemURLs::getRootPath() ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
-    <?= gettext('Missing Families? Update Family Latitude or Longitude now.') ?>
+    <?= gettext('Missing Families?').'<a href="'.SystemURLs::getRootPath().'/UpdateAllLatLon.php" >'.' '.gettext('Update Family Latitude or Longitude now.') ?></a>
 </div>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {
@@ -148,8 +148,8 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       if ($icon->getUrl() == null) {
         ?>
            <div class="callout callout-danger">
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
-                <?= gettext('Missing Map classification icon for : ').$icon->getOptionName() ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
+                <?= gettext("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". ".gettext("Clik").' <a href="'.SystemURLs::getRootPath().'/OptionManager.php?mode=classes">'.gettext("here").'</a> '.gettext("to solve the problem.") ?>                
             </div>
         <?php
         break;
@@ -191,9 +191,18 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                    $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
                     ?>
                     <div class="legenditem">
-                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked /><img
-                            src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
-                        <?= $icon->getOptionName() ?>
+                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
+                        <?php 
+                          if (!empty($icon->getUrl())) {
+                        ?>
+                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
+                        <?php
+                          } else {
+                        ?>
+                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                        <?php
+                          }
+                        ?><?= $icon->getOptionName() ?>
                     </div>
                     <?php
                 } 
@@ -223,8 +232,18 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 foreach ($icons as $icon) {
                     ?>
                     <div class="col-xs-6 legenditem">
-                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked /><img
-                            class="legendicon" src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
+                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
+                        <?php 
+                          if (!empty($icon->getUrl())) {
+                        ?>
+                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
+                        <?php
+                          } else {
+                        ?>
+                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                        <?php
+                          }
+                        ?>
                         <div class="legenditemtext"><?= $icon->getOptionName() ?></div>
                     </div>
                     <?php
