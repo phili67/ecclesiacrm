@@ -83,6 +83,7 @@
 
       $(this).css('border', "solid 1px blue"); 
     });
+
     
     function createImagePickerWindow (options,callbackRes,callBackIcons) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
     {      

@@ -31,6 +31,7 @@ $('.RemoveClassification').click('focus', function (e) {
     });
 });
 
+
 $('.RemoveImage').click('focus', function (e) {
   var lstID = $(this).data('id');
   var lstOptionID = $(this).data('optionid');
