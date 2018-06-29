@@ -137,16 +137,25 @@ SystemConfig::init(ConfigQuery::create()->find());
 // enable logs if we are in debug mode
 // **************************************************
 
+$logLevel = SystemConfig::getValue('sLogLevel');
+
 // PHP Logs
-ini_set('log_errors', 1);
-ini_set('error_log', LoggerUtils::buildLogFilePath("php"));
+if ($logLevel == 0) {
+  ini_set('log_errors', 1);
+  ini_set('error_log', LoggerUtils::buildLogFilePath("php"));
+}
 
 // APP Logs
 $logger = LoggerUtils::getAppLogger();
 
 // ORM Logs
 $ormLogger = new Logger('ormLogger');
-$dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";//DebugPDO for debugging
+if ($logLevel == 0) {
+  $dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";//DebugPDO for debugging
+} else {
+  $dbClassName = "\\Propel\\Runtime\\Connection\\DebugPDO"; // for debugging
+}
+
 $manager->setConfiguration(buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD, $dbClassName));
 $ormLogger->pushHandler(new StreamHandler(LoggerUtils::buildLogFilePath("orm"), LoggerUtils::getLogLevel()));
 $serviceContainer->setLogger('defaultLogger', $ormLogger);

@@ -14,6 +14,8 @@
     }
 
     window.CRM.DisplayErrorMessage = function(endpoint, error) {
+      if (window.CRM.sLogLevel == 0)
+        return;
       if (endpoint.indexOf("/api/dashboard") !== -1) {// we are in the case, we're logout
         //location.reload();
         return;
