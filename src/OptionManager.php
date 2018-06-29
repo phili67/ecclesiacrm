@@ -365,7 +365,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
     }
     if ($numRows > 0) {
-        echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=delete"><img src="Images/x.gif" border="0"></a>';
+        echo '<img src="Images/x.gif" class="RemoveClassification" data-mode="'.$mode.'" data-order="'.$aSeqs[$row].'" data-listid="'.$listID.'" data-id="'.$aIDs[$row].'" data-name="'.htmlentities(stripslashes($aNameFields[$row])).'"border="0">';
     } ?>
         </td>
         <td class="TextColumn">
@@ -451,3 +451,4 @@ if ($embedded) {
 ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/IconPicker.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/OptionManager.js"></script>

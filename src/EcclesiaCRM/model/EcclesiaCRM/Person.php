@@ -44,7 +44,7 @@ class Person extends BasePerson implements iPhoto
         }
       } 
       
-      return 'gm-red-pushpin.png';
+      return '../interrogation_point.png';
     }
     
     public function isMale()
