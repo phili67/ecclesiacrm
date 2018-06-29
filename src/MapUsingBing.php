@@ -429,8 +429,8 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         imghref = window.CRM.root+"/Calendar.php";
     }
 
-    contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-    contentString += '<p><a href="http://maps.google.com/?q=1  ' + plot.Address + '" target="_blank">' + plot.Address + '</a></p>';
+    //contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
+    contentString = '<p><a href="http://maps.google.com/?q=1  ' + plot.Address + '" target="_blank">' + plot.Address + '</a></p>';
 
     if (plot.Thumbnail.length > 0) {
         //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
@@ -448,7 +448,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
     }
 
     //Add marker and infowindow
-    plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Name, contentString);
+    plot.mark = addMarkerWithInfowindow(window.CRM.map, latlng, icon, plot.Salutation, contentString);
   }
   
   function add_all_markers_for_id (id) {

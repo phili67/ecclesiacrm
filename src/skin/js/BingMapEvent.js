@@ -65,7 +65,7 @@
       
       map.entities.push(pin);
 
-      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.01, marker_position.lng), 
+      var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat + 0.001, marker_position.lng), 
       { title: title,description: infowindow_content, visible: false });
         
       infobox.setMap(map);
