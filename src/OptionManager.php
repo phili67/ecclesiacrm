@@ -339,7 +339,7 @@ if ($bErrorFlag) {
 ?>
 
 <br>
-<table cellpadding="3" width="35%" align="center">
+<table cellpadding="3" width="50%" align="center">
 
 <?php
 for ($row = 1; $row <= $numRows; $row++) {
@@ -385,10 +385,23 @@ for ($row = 1; $row <= $numRows; $row++) {
             echo '<td class="TextColumn"><input class="form-control input-small" type="button" class="btn btn-default" value="'.gettext('Make Default')."\" Name=\"default\" onclick=\"javascript:document.location='OptionManagerRowOps.php?mode=".$mode.'&ListID='.$listID.'&ID='.$aIDs[$row]."&Action=makedefault';\" ></td>";
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
+          
           if ($icon == null || $icon != null && $icon->getUrl() == '') {
-            echo '<td><img src="Images/+.png" border="0" class="AddImage" data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'" data-name="'.htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8').'"></td>';
+          ?>
+            <td><img src="Images/+.png" border="0" class="AddImage" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>"></td>
+            <td></td>
+            <td>&nbsp;</td>
+            <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
+            <?= gettext("Visible only in PersonView") ?></td>
+          <?php
           } else {
-            echo '<td><img src="Images/x.gif" border="0" class="RemoveImage"  data-ID="'.$listID.'" data-optionID="'.$aIDs[$row].'"  ></td><td><img src="/skin/icons/markers/'.$icon->getUrl().'" border="0" height="25"> </td>';
+          ?>
+            <td><img src="Images/x.gif" border="0" class="RemoveImage"  data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>"  ></td>
+            <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
+            <td>&nbsp;</td>
+            <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>"  <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
+            <?= gettext("Visible only in PersonView") ?></td>
+          <?php
           }
         }
         

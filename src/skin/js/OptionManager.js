@@ -4,6 +4,20 @@
 //  Updated     : 2018/06/28
 //
 
+$('.checkOnlyPersonView').click('focus', function (e) {
+  var ID        = $(this).data('id');
+  var optionID  = $(this).data('optionid');
+  var isChecked = $(this).is(':checked');
+
+  window.CRM.APIRequest({
+      method: 'POST',
+      path: 'mapicons/checkOnlyPersonView',
+      data: JSON.stringify({"lstID":ID,"lstOptionID":optionID,"onlyPersonView" : isChecked})
+  }).done(function(data) {
+     location.reload();
+  });
+});
+
 $('.RemoveClassification').click('focus', function (e) {
   var mode = $(this).data('mode');
   var order = $(this).data('order');

@@ -49,6 +49,18 @@ class Person extends BasePerson implements iPhoto
       return 'gm-red-pushpin.png';
     }
     
+    public function getOnlyVisiblePersonView()
+    {
+      $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($this->GetClsId());
+      
+      if (!empty($icon)) {
+        return $icon->getOnlyVisiblePersonView();
+      }
+      
+      return false;
+    }
+
+    
     public function isMale()
     {
         return $this->getGender() == 1;

@@ -16,6 +16,31 @@ $app->group('/mapicons', function () {
 
   });
   
+  $this->post('/checkOnlyPersonView', function ($request, $response, $args) {
+    $params = (object)$request->getParsedBody();
+          
+    if (isset ($params->onlyPersonView) && isset ($params->lstID) && isset ($params->lstOptionID)) {    
+      $icon = ListOptionIconQuery::Create()->filterByListId($params->lstID)->findOneByListOptionId($params->lstOptionID);
+      
+      if (!empty($icon)) {
+        $icon->setOnlyVisiblePersonView($params->onlyPersonView);
+        $icon->save();
+      } else {
+        $icon = new ListOptionIcon();
+        
+        $icon->setListId($params->lstID);
+        $icon->setListOptionId($params->lstOptionID);
+        $icon->setOnlyVisiblePersonView($params->onlyPersonView);
+        $icon->save();
+      }
+      
+      return $response->withJson(['status' => "success"]);
+    }
+    
+    return $response->withJson(['status' => "failed"]);
+  });
+  
+  
   $this->post('/setIconName', function ($request, $response, $args) {
     $params = (object)$request->getParsedBody();
           
