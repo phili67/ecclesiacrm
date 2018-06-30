@@ -651,11 +651,13 @@ CREATE TABLE `list_lst` (
 --
 
 INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_OptionName`) VALUES
-  (1, 1, 1, 'Member'),
-  (1, 2, 2, 'Regular Attender'),
-  (1, 3, 3, 'Guest'),
-  (1, 5, 4, 'Non-Attender'),
-  (1, 4, 5, 'Non-Attender (staff)'),
+  (1, 1, 1, 'Cell Manager'),
+  (1, 2, 2, 'Member'),
+  (1, 3, 3, 'Regular Attender'),
+  (1, 4, 4, 'Guest'),
+  (1, 5, 5, 'Non-Attender'),
+  (1, 6, 6, 'Non-Attender (staff)'),
+  (1, 7, 7, 'Deceased'),
   (2, 1, 1, 'Head of Household'),
   (2, 2, 2, 'Spouse'),
   (2, 3, 3, 'Child'),
@@ -693,6 +695,29 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
   (11, 1, 1, 'Member'),
   (12, 1, 1, 'Teacher'),
   (12, 2, 2, 'Student');
+  
+  --
+-- A person classification can have an icon
+-- 
+CREATE TABLE list_icon (
+    `lst_ic_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
+    `lst_ic_lst_ID` mediumint(9) unsigned NOT NULL,
+    `lst_ic_lst_Option_ID` mediumint(9) unsigned NOT NULL,
+    `lst_ic_lst_url` varchar(50) default NULL,
+    PRIMARY KEY(lst_ic_id)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+INSERT INTO `list_icon` (`lst_ic_id`, `lst_ic_lst_ID`, `lst_ic_lst_Option_ID`, `lst_ic_lst_url`) VALUES
+(6, 1, 1, 'm-chapel-2.png'),
+(1, 1, 2, 'gm-green-dot.png'),
+(2, 1, 3, 'gm-orange-dot.png'),
+(3, 1, 4, 'gm-grn-pushpin.png'),
+(4, 1, 5, 'gm-blue-pushpin.png'),
+(5, 1, 6, 'gm-purple-pushpin.png'),
+(7, 1, 7, 'm-cross.png');
+
+
 
 --
 -- Dumping data for table `note_nte`
@@ -1549,16 +1574,4 @@ CREATE TABLE ckeditor_templates (
       FOREIGN KEY (cke_tmp_per_ID) 
       REFERENCES person_per(per_ID)
       ON DELETE CASCADE
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-
-
---
--- A person classification can have an icon
--- 
-CREATE TABLE list_icon (
-    `lst_ic_id` mediumint(9) unsigned  NOT NULL AUTO_INCREMENT,
-    `lst_ic_lst_ID` mediumint(9) unsigned NOT NULL,
-    `lst_ic_lst_Option_ID` mediumint(9) unsigned NOT NULL,
-    `lst_ic_lst_url` varchar(50) default NULL,
-    PRIMARY KEY(lst_ic_id)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
