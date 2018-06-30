@@ -709,14 +709,14 @@ CREATE TABLE list_icon (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 
-INSERT INTO `list_icon` (`lst_ic_id`, `lst_ic_lst_ID`, `lst_ic_lst_Option_ID`, `lst_ic_lst_url`) VALUES
-(6, 1, 1, 'm-chapel-2.png'),
-(1, 1, 2, 'gm-green-dot.png'),
-(2, 1, 3, 'gm-orange-dot.png'),
-(3, 1, 4, 'gm-grn-pushpin.png'),
-(4, 1, 5, 'gm-blue-pushpin.png'),
-(5, 1, 6, 'gm-purple-pushpin.png'),
-(7, 1, 7, 'm-cross.png');
+INSERT INTO `list_icon` (`lst_ic_id`, `lst_ic_lst_ID`, `lst_ic_lst_Option_ID`, `lst_ic_lst_url`, `lst_ic_only_person_View`) VALUES
+(6, 1, 1, 'm-chapel-2.png',0),
+(1, 1, 2, 'gm-green-dot.png',0),
+(2, 1, 3, 'gm-orange-dot.png',0),
+(3, 1, 4, 'gm-grn-pushpin.png',0),
+(4, 1, 5, 'gm-blue-pushpin.png',0),
+(5, 1, 6, 'gm-purple-pushpin.png',0),
+(7, 1, 7, 'm-cross.png',1);
 
 
 
