@@ -79,20 +79,19 @@ $('.AddImage').click('focus', function (e) {
         var table = $('#here_table').children();
         
         for(i=0;i<len;i++){
-         if (i%9 == 0) {
+         if (i%8 == 0) {
              if (i==0) {
                var buff = '<tr>';
              } else {
                table.append( buff+'</tr>');
                var buff = '<tr>';
              }
-          } else {
-            buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
           }
+          buff += '<td><img src="' + directory+data[i] + '" class="imgCollection" data-name="'+data[i]+'" style="border:solid 1px white"></td>';
         }
     
         if (buff != '') {
-          len = len%9;
+          len = len%8;
           for (i=0;i<len;i++) {
             buff += '<td></td>';
           }
@@ -100,7 +99,5 @@ $('.AddImage').click('focus', function (e) {
         }
       });
     }
-    
-    
-);  
+  );  
 });
