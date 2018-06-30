@@ -79,6 +79,10 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
         $count_people = 0;
 
             foreach ($peopleWithBirthDays as $peopleWithBirthDay) {
+              if ($peopleWithBirthDay->getOnlyVisiblePersonView()) {
+                continue;
+              }
+              
                 if ($new_row == false) {
                     ?>
 

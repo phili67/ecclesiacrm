@@ -139,6 +139,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
       ->orderByOptionSequence()
       ->addJoin(ListOptionTableMap::COL_LST_OPTIONID,ListOptionIconTableMap::COL_LST_IC_LST_OPTION_ID,Criteria::LEFT_JOIN)
       ->addAsColumn('url',ListOptionIconTableMap::COL_LST_IC_LST_URL)
+      ->addAsColumn('onlyInPersonView',ListOptionIconTableMap::COL_LST_IC_ONLY_PERSON_VIEW)
       ->find();
       
     foreach ($icons as $icon) {
@@ -182,6 +183,9 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 </div>
                 <?php
                 foreach ($icons as $icon) {
+                  if ($icon->getOnlyInPersonView()) {
+                    continue;
+                  }
                    $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
                     ?>
                     <div class="legenditem">
@@ -225,6 +229,9 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 </div>
                 <?php
                 foreach ($icons as $icon) {
+                  if ($icon->getOnlyInPersonView()) {
+                    continue;
+                  }
                     ?>
                     <div class="col-xs-6 legenditem">
                         <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
@@ -299,6 +306,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 if ($family->hasLatitudeAndLongitude()) {
                     //this helps to add head people persons details: otherwise doesn't seems to populate
                     $member = $family->getHeadPeople()[0];
+                    
+                    if ($member->getOnlyVisiblePersonView()) {
+                      continue;
+                    }
+
                     $photoFileThumb = SystemURLs::getRootPath() . '/api/families/' . $family->getId() . '/photo';
                     $arr['ID'] = $family->getId();
                     $arr['Name'] = $family->getName();
@@ -324,6 +336,10 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         } else {
             //plot Person
             foreach ($persons as $member) {
+                if ($member->getOnlyVisiblePersonView()) {
+                  continue;
+                }
+                
                 $latLng = $member->getLatLng();
                 $photoFileThumb = SystemURLs::getRootPath() . '/api/persons/' . $member->getId() . '/thumbnail';
                 $arr['ID'] = $member->getId();
