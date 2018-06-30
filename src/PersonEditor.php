@@ -104,10 +104,10 @@ $bNoFormat_CellPhone = false;
 if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     //Get all the variables from the request object and assign them locally
     $sTitle = InputUtils::LegacyFilterInput($_POST['Title']);
-    $sFirstName = InputUtils::LegacyFilterInput($_POST['FirstName']);
-    $sMiddleName = InputUtils::LegacyFilterInput($_POST['MiddleName']);
-    $sLastName = InputUtils::LegacyFilterInput($_POST['LastName']);
-    $sSuffix = InputUtils::LegacyFilterInput($_POST['Suffix']);
+    $sFirstName = InputUtils::FilterString($_POST['FirstName']);
+    $sMiddleName = InputUtils::FilterString($_POST['MiddleName']);
+    $sLastName = InputUtils::FilterString($_POST['LastName']);
+    $sSuffix = InputUtils::FilterString($_POST['Suffix']);
     $iGender = InputUtils::LegacyFilterInput($_POST['Gender'], 'int');
 
     // Person address stuff is normally surpressed in favor of family address info
@@ -117,13 +117,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sZip = '';
     $sCountry = '';
     if (array_key_exists('Address1', $_POST)) {
-        $sAddress1 = InputUtils::LegacyFilterInput($_POST['Address1']);
+        $sAddress1 = InputUtils::FilterString($_POST['Address1']);
     }
     if (array_key_exists('Address2', $_POST)) {
-        $sAddress2 = InputUtils::LegacyFilterInput($_POST['Address2']);
+        $sAddress2 = InputUtils::FilterString($_POST['Address2']);
     }
     if (array_key_exists('City', $_POST)) {
-        $sCity = InputUtils::LegacyFilterInput($_POST['City']);
+        $sCity = InputUtils::FilterString($_POST['City']);
     }
     if (array_key_exists('Zip', $_POST)) {
         $sZip = InputUtils::LegacyFilterInput($_POST['Zip']);
@@ -137,19 +137,19 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sFamState = '';
     $sFamCountry = '';
     if (array_key_exists('FamAddress1', $_POST)) {
-        $sFamAddress1 = InputUtils::LegacyFilterInput($_POST['FamAddress1']);
+        $sFamAddress1 = InputUtils::FilterString($_POST['FamAddress1']);
     }
     if (array_key_exists('FamAddress2', $_POST)) {
-        $sFamAddress2 = InputUtils::LegacyFilterInput($_POST['FamAddress2']);
+        $sFamAddress2 = InputUtils::FilterString($_POST['FamAddress2']);
     }
     if (array_key_exists('FamCity', $_POST)) {
-        $sFamCity = InputUtils::LegacyFilterInput($_POST['FamCity']);
+        $sFamCity = InputUtils::FilterString($_POST['FamCity']);
     }
     if (array_key_exists('FamZip', $_POST)) {
         $sFamZip = InputUtils::LegacyFilterInput($_POST['FamZip']);
     }
     if (array_key_exists('FamState', $_POST)) {
-        $sFamState = InputUtils::LegacyFilterInput($_POST['FamState']);
+        $sFamState = InputUtils::FilterString($_POST['FamState']);
     }
 
     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
@@ -158,7 +158,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
 
     if (array_key_exists('FamCountry', $_POST)) {
-        $sFamCountry = InputUtils::LegacyFilterInput($_POST['FamCountry']);
+        $sFamCountry = InputUtils::FilterString($_POST['FamCountry']);
     }
     
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family'], 'int');
@@ -175,7 +175,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sState = '';
     if ($sCountryTest == 'United States' || $sCountryTest == 'Canada') {
         if (array_key_exists('State', $_POST)) {
-            $sState = InputUtils::LegacyFilterInput($_POST['State']);
+            $sState = InputUtils::FilterString($_POST['State']);
         }
     } else {
         if (array_key_exists('StateTextbox', $_POST)) {
