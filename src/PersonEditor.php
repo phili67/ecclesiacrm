@@ -52,8 +52,6 @@ if ($iPersonID > 0) {
     $person = PersonQuery::Create()
         ->findOneById($iPersonID);
         
-    $per_fam_ID = $person->getFamId();
-
     if (empty($person)) {
         Redirect('Menu.php');
         exit();
@@ -347,7 +345,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->save();
             
             //Get the key back You use the same code in CartView.php
-            $fam_ID = $family->getId();
+            $iFamily = $family->getId();            
         }
 
         if ($bHideAge) {
@@ -1418,41 +1416,6 @@ require 'Include/Header.php';
            onclick="javascript:document.location='SelectList.php?mode=person';">
 </form>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-  $(function() {
-    $("[data-mask]").inputmask();
-  });
-</script>
-
-<script>
-  // we hide by default the familyAdress
-  $("#familyAdress").hide();
-  
-  // This scroll the family at the right place
-  var selectedItem = $("#optionFamily option:selected").val();
-  
-  $('#optionFamily').val(1).change();
-  $('#optionFamily').val(selectedItem).change();
-  
-  
-  $('#optionFamily').change(function(data) {
-    if (this.value == -1) {
-      $('#optionFamily').attr('size', '2');    
-      $("#familyAdress").fadeIn(1000);
-    }  else {
-      $('#optionFamily').attr('size', '8');
-      $("#familyAdress").fadeOut(100);
-    }
-  });
-</script>
-
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    $(document).ready(function() {
-        $("#famcountry-input").select2();
-        $("#famstate-input").select2();
-        $("#country-input").select2();
-        $("#state-input").select2();
-    });
-</script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>

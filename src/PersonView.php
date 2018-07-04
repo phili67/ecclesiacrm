@@ -278,7 +278,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           ?>
             <?= gettext($sClassName);
     if ($per_MembershipDate) {
-        echo gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false);
+        echo "<br>".gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false);
     } ?>
         </p>
         <?php if ($bOkToEdit) {
