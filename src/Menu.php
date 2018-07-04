@@ -64,59 +64,88 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
 if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
-    ?>
+?>
     <div class="alert alert-info alert-dismissible bg-purple disabled color-palette" id="Menu_Banner">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
 
     <?php
-    if ($peopleWithBirthDaysCount > 0) {
-        ?>
-        <h4 class="alert-heading"><?= gettext("Birthdates of the day") ?></h4>
-        <div class="row">
-
-      <?php
+        $new_unclassified_row = false;
+        $cout_unclassified_people = 0;
+        $unclassified = "";
+        
         $new_row = false;
         $count_people = 0;
+        $classified = "";
+        
+        $new_row = false;
+        $count_people = 0;
+        
+        foreach ($peopleWithBirthDays as $peopleWithBirthDay) {
+          if ($peopleWithBirthDay->getOnlyVisiblePersonView()) {
+            if ($new_unclassified_row == false) {
+                $unclassified .= '<div class="row">';
+                $new_unclassified_row = true;
+                $unclassified .= '<div class="col-sm-3">';
+                $unclassified .= '<label class="checkbox-inline">';
+                
+                if ($peopleWithBirthDay->getUrlIcon() != '') { 
+                    $unclassified .= '<img src="'.SystemURLs::getRootPath()."/skin/icons/markers/".$peopleWithBirthDay->getUrlIcon().'">';
+                }
+                
+                $unclassified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
+                
+                $unclassified .= '</label>';
+                $unclassified .= '</div>';
 
-            foreach ($peopleWithBirthDays as $peopleWithBirthDay) {
-              if ($peopleWithBirthDay->getOnlyVisiblePersonView()) {
-                continue;
-              }
-              
-                if ($new_row == false) {
-                    ?>
-
-                    <div class="row">
-                <?php
-                    $new_row = true;
-                } ?>
-                <div class="col-sm-3">
-                <label class="checkbox-inline">
-                  <?php if ($peopleWithBirthDay->getUrlIcon() != '') { ?>
-                    <img src="<?= SystemURLs::getRootPath() ?>/skin/icons/markers/<?= $peopleWithBirthDay->getUrlIcon() ?>">
-                  <?php
-                    }
-                  ?>
-                    <a href="<?= $peopleWithBirthDay->getViewURI()?>" class="btn btn-link" style="text-decoration: none"><?= $peopleWithBirthDay->getFullNameWithAge() ?></a>
-                </label>
-                </div>
-              <?php
-                $count_people+=1;
-                $count_people%=4;
-                if ($count_people == 0) {
-                    ?>
-                    </div>
-                    <?php $new_row = false;
+                $cout_unclassified_people+=1;
+                $cout_unclassified_people%=4;
+                if ($cout_unclassified_people == 0) {
+                    $unclassified .= '</div>';
+                    $new_unclassified_row = false;
                 }
             }
 
-            if ($new_row == true) {
-                ?>
-                </div>
-            <?php
+            if ($new_unclassified_row == true) {
+                $unclassified .= '</div>';
             }
-         ?>
+            continue;
+          }
+          
+          // we now work with the classified date
+          if ($new_row == false) {
+                $classified .= '<div class="row">';
+                $new_row = true;
+          }
+          
+          $classified .= '<div class="col-sm-3">';
+          $classified .= '<label class="checkbox-inline">';
+          
+          if ($peopleWithBirthDay->getUrlIcon() != '') { 
+              $classified .= '<img src="'.SystemURLs::getRootPath().'/skin/icons/markers/'.$peopleWithBirthDay->getUrlIcon().'">';
+          }
+          $classified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
+          $classified .= '</label>';
+          $classified .= '</div>';
 
+          $count_people+=1;
+          $count_people%=4;
+          if ($count_people == 0) {
+              $classified .= '</div>';
+              $new_row = false;
+          }
+        }
+
+        if ($new_row == true) {
+            $classified .= '</div>';
+        }
+
+      if (!empty($classified)) {
+     ?>
+        <h4 class="alert-heading"><?= gettext("Birthdates of the day") ?></h4>
+        <div class="row">
+          <?php
+             echo $classified;
+          ?>
         </div>
     <?php
     } ?>
@@ -167,6 +196,24 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
 
         </div>
     <?php
+    } ?>
+    
+     <?php if ($unclassified) {
+        if ($peopleWithBirthDaysCount > 0) {
+            ?>
+            <hr>
+          <?php
+              } ?>
+
+              <h4 class="alert-heading"><?= gettext("Unclassified birthdates")?></h4>
+              <div class="row">
+
+              <?php
+                 echo $unclassified;
+              ?>
+
+              </div>
+          <?php
     } ?>
   </div>
 
