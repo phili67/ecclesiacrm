@@ -10144,3 +10144,6 @@ msgstr "Ce champ personalisable n'est pas configuré correctement"
 
 msgid "Visible only in PersonView"
 msgstr "Visible seulement dans PersonView"
+
+msgid "Unclassified birthdates"
+msgstr "Anniversaires non classés"
