@@ -1,11 +1,3 @@
-/* 
-the selected field
-*/
-
-.select2-selection--single {
-border:1px !important;
-}
-
 /*
  Pagination
  */
@@ -44,9 +36,9 @@ the buttons
 }
 
 .btn {
-   border-radius: 1px  !important;
+   border-radius: 2px  !important;
    border:1px gray !important;
-   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4);
+   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
 }
 
 .btn-box-tool {
@@ -54,18 +46,14 @@ the buttons
 }
 
 .btn-app {
-   padding-top:20px;
-   padding-bottom:60px;
    border:1px;
    background-color: #dfdbde;
-   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4);
+   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
 }
 
-.btn-primary .btn-danger .btn-default {
-  color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
+.btn-default {
+  background-color: #ddd !important;
+  border-color: #ddd !important;
 }
 
 .form-control {
@@ -73,6 +61,7 @@ the buttons
   border-left:0px;
   border-right:0px;
   color:#222 !important;
+  font-weight: 500 !important;
 }
 
 .input-group-addon {
@@ -99,8 +88,23 @@ color:gray;
 }
 
 select[size] {
-  border: 1px solid #eee;
+  border: 1px solid #eee !important;
 }
+
+/* 
+the selected field
+*/
+
+.select2-selection--single {
+border:1px !important;
+font-weight:400;
+}
+
+.select2-container {
+border: 1px solid #d2d6de !important;
+font-weight:400;
+}
+
 
 /* 
    the dataTable 
@@ -120,7 +124,7 @@ font-weight: 600;
 {
 border-top: 0;
 border: 0px;
-font-weight: 300;
+font-weight: 350;
 }
 
 .pagination .paginate_button.active a, .pagination .paginate_button.active a:focus, .pagination .paginate_button.active a:hover, .pagination>.page-item.active>a.mat-button, .pagination>.page-item.active>a.mat-button:focus, .pagination>.page-item.active>a.mat-button:hover, .pagination>.page-item.active>span, .pagination>.page-item.active>span:focus, .pagination>.page-item.active>span:hover {
@@ -148,6 +152,14 @@ text-align: center;
 }
 
 /* the bgcolor */
+
+.bg-fuchsia {
+  box-shadow: 1px 1px 6px #AAA;
+}
+
+.bg-orange {
+  box-shadow: 1px 1px 6px #AAA;
+}
 
 .bg-olive {
   box-shadow: 1px 1px 6px #AAA;
@@ -255,6 +267,7 @@ text-align: center;
   border-radius: 30px  !important;
   background-color: #9c27b0  !important;
   background-image: none !important;
+  font-weight: 400 !important;
   color: #fff  !important;
   float: left  !important;
   margin-left: .75em  !important;
@@ -304,7 +317,7 @@ color: #000 !important;
 }
 
 .main-header .navbar {
- background-color: rgba(200, 200, 200, 0.84) !important;
+ background-color: rgba(180, 180, 180, 0.94) !important;
  border-bottom:1px black !important;
 }
 
