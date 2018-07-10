@@ -1373,7 +1373,7 @@ require 'Include/Header.php';
                       }
 
 
-                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label>';
+                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label><br>';
 
                       if (array_key_exists($rowCustomField->getId(), $aCustomData)) {
                           $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
@@ -1410,9 +1410,9 @@ require 'Include/Header.php';
                         } ?>
     <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
     <?php if ($_SESSION['user']->isAddRecordsEnabled()) {
-                            echo '<input type="submit" class="btn btn-primary" value="'.gettext('Save and Add').'" name="PersonSubmitAndAdd">';
+                            echo '<input type="submit" class="btn btn-success" value="'.gettext('Save and Add').'" name="PersonSubmitAndAdd">';
                         } ?>
-    <input type="button" class="btn btn-primary" value="<?= gettext('Cancel') ?>" name="PersonCancel"
+    <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="PersonCancel"
            onclick="javascript:document.location='SelectList.php?mode=person';">
 </form>
 

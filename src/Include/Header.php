@@ -64,10 +64,10 @@ $MenuFirst = 1;
     <!-- Logo -->
     <a href="<?= SystemURLs::getRootPath() ?>/Menu.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>C</b>RM</span>
+      <span class="logo-mini"><img src="<?= SystemURLs::getRootPath() ?>/icon-small.png" height=36"/></span>
       <!-- logo for regular state and mobile devices -->
       <?php
-      $headerHTML = 'Ecclesia<b>CRM</b>'.SystemService::getDBMainVersion();
+      $headerHTML = '<img src="'.SystemURLs::getRootPath().'/icon-large.png" height=36"/>'.SystemService::getDBMainVersion();
       $sHeader = SystemConfig::getValue("sHeader");
       if (!empty($sHeader)) {
           $headerHTML = html_entity_decode($sHeader, ENT_QUOTES);
@@ -108,7 +108,7 @@ $MenuFirst = 1;
               <span class="hidden-xs"><?= $_SESSION['user']->getName() ?> </span>
 
             </a>
-            <ul class="hidden-xxs dropdown-menu" style="background-color:rgba(255, 255, 255, 0.5);">
+            <ul class="hidden-xxs dropdown-menu" style="background-color:rgba(255, 255, 255, 0.5);box-shadow: 0 2px 2px 0 rgba(156,39,176,.14),0 3px 1px -2px rgba(156,39,176,.2),0 3px 10px 0 rgba(156,39,176,.12);">
               <li class="user-header" id="yourElement" style="height:205px">
                 <table border=0 class="table-dropdown-menu">
                 <tr style="border-bottom: 1pt solid black;">
