@@ -10162,3 +10162,11 @@ msgstr "Modifier"
 
 msgid "Add Pastoral Care Notes"
 msgstr "Ajouter notes de suivi pastoral"
+
+# PastoralCareList.php
+
+msgid "Pastoral Care Type Editor"
+msgstr "Editeur de type de suivi Pastoral"
+
+msgid "Add a New Pastoral Care Type"
+msgstr "Ajouter un nouveau type de suivi pastoral"

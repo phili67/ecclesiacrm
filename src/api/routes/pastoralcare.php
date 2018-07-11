@@ -24,100 +24,170 @@ use EcclesiaCRM\PersonQuery;
 
 $app->group('/pastoralcare', function () {
 
-    $this->post('/add', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-       
-      if (isset ($input->typeID) ){
-        $pstCare = new PastoralCare();
+  $this->post('/', function ($request, $response, $args) {    
+      return PastoralCareTypeQuery::Create()->find()->toJSON();
+  });
+  
+  $this->post('/deletetype', function ($request, $response, $args) {    
+    $input = (object)$request->getParsedBody();
+    
+    if (isset ($input->pastoralCareTypeId) ){
+      $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
         
-        $pstCare->setTypeId($input->typeID);
+      if ($pstCareType != null) {
+        $pstCareType->delete();
+      }
+      
+      return $response->withJson(['status' => "success"]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });
+  
+  
+  $this->post('/createtype', function ($request, $response, $args) {    
+    $input = (object)$request->getParsedBody();
+    
+    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description)){
+      $pstCareType = new PastoralCareType();
+      
+      $pstCareType->setVisible($input->Visible);
+      $pstCareType->setTitle($input->Title);
+      $pstCareType->setDesc($input->Description);
+      
+      $pstCareType->save();
+      
+      return $response->withJson(['status' => "success"]);
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });  
 
-        $pstCare->setPersonId($input->personID);
-        $pstCare->setPastorId($input->currentPastorId);
-        
-        $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
-        
-        if ($pastor != null) {
-          $pstCare->setPastorName($pastor->getFullName());
-        }
-        
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $pstCare->setDate($date->format('Y-m-d H:i:s'));
-        
-        $pstCare->setVisible($input->visibilityStatus);
-        $pstCare->setText($input->noteText);
+  
+  $this->post('/settype', function ($request, $response, $args) {    
+    $input = (object)$request->getParsedBody();
     
-        $pstCare->save();
-        
-        return $response->withJson(['status' => "success"]); 
-        
-      }   
+    if (isset ($input->pastoralCareTypeId) && isset ($input->Visible) 
+      && isset ($input->Title) && isset ($input->Description)){
+      $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
       
-      return $response->withJson(['status' => "failed"]);
-    });
-    
-    $this->post('/delete', function ($request, $response, $args) {
-       $input = (object)$request->getParsedBody();
-       
-      if (isset ($input->ID) ){
-        $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
-                
-        if ($pstCare != null) {
-          $pstCare->delete();
-        }
-        
-        return $response->withJson(['status' => "success"]); 
-        
-      }   
+      $pstCareType->setVisible($input->Visible);
+      $pstCareType->setTitle($input->Title);
+      $pstCareType->setDesc($input->Description);
       
-      return $response->withJson(['status' => "failed"]);
-    });
-    
-    $this->post('/getinfo', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-       
-      if (isset ($input->ID) ){
-        $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
-        
-        $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
-        
-        return $response->withJson(["id"=> $pstCare->getId(),"typeid" => $pstCare->getTypeId(),"typedesc" => $typeDesc,"visible" => $pstCare->getVisible(),"text" => $pstCare->getText()]); 
-        
-      }   
+      $pstCareType->save();
       
-      return $response->withJson(['status' => "failed"]);
-    });
+      return $response->withJson(['status' => "success"]);
+    }   
     
-    $this->post('/modify', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-       
-      if (isset ($input->ID) ){
-        $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
-        
-        
-        $pstCare->setTypeId($input->typeID);
+    return $response->withJson(['status' => "failed"]);
+  });  
+  
+  $this->post('/edittype', function ($request, $response, $args) {    
+    $input = (object)$request->getParsedBody();
+    
+    if (isset ($input->pastoralCareTypeId) ){
+      return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });  
+  
+  $this->post('/add', function ($request, $response, $args) {
+    $input = (object)$request->getParsedBody();
+     
+    if (isset ($input->typeID) ){
+      $pstCare = new PastoralCare();
+      
+      $pstCare->setTypeId($input->typeID);
 
-        $pstCare->setPersonId($input->personID);
-        $pstCare->setPastorId($input->currentPastorId);
-        
-        $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
-        
-        if ($pastor != null) {
-          $pstCare->setPastorName($pastor->getFullName());
-        }
-        
-        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-        $pstCare->setDate($date->format('Y-m-d H:i:s'));
-        
-        $pstCare->setVisible($input->visibilityStatus);
-        $pstCare->setText($input->noteText);
-    
-        $pstCare->save();
-        
-        return $response->withJson(['status' => "success"]); 
-        
-      }   
+      $pstCare->setPersonId($input->personID);
+      $pstCare->setPastorId($input->currentPastorId);
       
-      return $response->withJson(['status' => "failed"]);
-    });
+      $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
+      
+      if ($pastor != null) {
+        $pstCare->setPastorName($pastor->getFullName());
+      }
+      
+      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+      $pstCare->setDate($date->format('Y-m-d H:i:s'));
+      
+      $pstCare->setVisible($input->visibilityStatus);
+      $pstCare->setText($input->noteText);
+  
+      $pstCare->save();
+      
+      return $response->withJson(['status' => "success"]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });
+  
+  $this->post('/delete', function ($request, $response, $args) {
+     $input = (object)$request->getParsedBody();
+     
+    if (isset ($input->ID) ){
+      $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
+              
+      if ($pstCare != null) {
+        $pstCare->delete();
+      }
+      
+      return $response->withJson(['status' => "success"]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });
+  
+  $this->post('/getinfo', function ($request, $response, $args) {
+    $input = (object)$request->getParsedBody();
+     
+    if (isset ($input->ID) ){
+      $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
+      
+      $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
+      
+      return $response->withJson(["id"=> $pstCare->getId(),"typeid" => $pstCare->getTypeId(),"typedesc" => $typeDesc,"visible" => $pstCare->getVisible(),"text" => $pstCare->getText()]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });
+  
+  $this->post('/modify', function ($request, $response, $args) {
+    $input = (object)$request->getParsedBody();
+     
+    if (isset ($input->ID) ){
+      $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
+      
+      
+      $pstCare->setTypeId($input->typeID);
+
+      $pstCare->setPersonId($input->personID);
+      $pstCare->setPastorId($input->currentPastorId);
+      
+      $pastor = PersonQuery::Create()->findOneById ($input->currentPastorId);
+      
+      if ($pastor != null) {
+        $pstCare->setPastorName($pastor->getFullName());
+      }
+      
+      $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+      $pstCare->setDate($date->format('Y-m-d H:i:s'));
+      
+      $pstCare->setVisible($input->visibilityStatus);
+      $pstCare->setText($input->noteText);
+  
+      $pstCare->save();
+      
+      return $response->withJson(['status' => "success"]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+  });
 });

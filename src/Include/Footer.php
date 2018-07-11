@@ -143,6 +143,20 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     <?php
     } ?>
             </ul>
+            
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _("Pastoral Care") ?></h4>
+            <ul class="control-sidebar-menu">
+                <?php if ($isAdmin) {
+        ?>
+                    <li>
+                        <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
+                            <i class="fa fa-cog"></i> <?= _("Pastoral Care Type Editor") ?>
+                        </a>
+                    </li>
+                    <?php
+    } ?>
+            </ul>
+
             <!-- /.control-sidebar-menu -->
 
         </div>
