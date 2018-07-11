@@ -3224,8 +3224,8 @@ msgid "Printable Page"
 msgstr "Page imprimable"
 
 #: PersonView.php:385
-msgid "Edit \"Why Came\" Notes"
-msgstr "Editer la note \"Raison de la venue\""
+msgid "Pastoral Care"
+msgstr "Suivi pastoral"
 
 #: PersonView.php:391
 msgid "Delete this Record"
@@ -4080,8 +4080,8 @@ msgid "Add New Opportunity"
 msgstr "Ajouter une Nouvelle Opportunité"
 
 #: WhyCameEditor.php:31
-msgid "\"Why Came\" notes for "
-msgstr "Les notes \"Raison de la venue\" pour "
+msgid "Pastoral care for"
+msgstr "Suivi pastoral pour"
 
 #: WhyCameEditor.php:86
 msgid "Why did you come to the church?"
@@ -10147,3 +10147,9 @@ msgstr "Visible seulement dans PersonView"
 
 msgid "Unclassified birthdates"
 msgstr "Anniversaires non classés"
+
+msgid "You must enter text for this note"
+msgstr "Vous devez entrer un message pour cette note"
+
+msgid "Pastoral notes"
+msgstr "Notes pastorales"
