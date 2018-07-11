@@ -100,6 +100,35 @@ $app->group('/events', function () {
         return $response->withJson($return);    
     });
     
+    $this->post('/deleteeventtype',function ($request, $response, $args) {
+        $input = (object)$request->getParsedBody();
+        
+        if (isset ($input->typeID) ){
+          $eventType = EventTypesQuery::Create()
+                      ->filterById(InputUtils::LegacyFilterInput($input->typeID))
+                      ->limit(1)
+                      ->findOne();
+      
+          if (!empty($eventType)) {
+            $eventType->delete();
+          }
+    
+          $eventCountNames = EventCountNameQuery::Create()
+                          ->findByTypeId(InputUtils::LegacyFilterInput($input->typeID));
+    
+          if (!empty($eventCountNames)) {
+            $eventCountNames->delete();
+          }
+
+          
+          return $response->withJson(['status' => "success"]); 
+          
+        }   
+        
+        return $response->withJson(['status' => "failed"]);
+
+    });
+    
     $this->post('/info', function ($request, $response, $args) {
         $input = (object)$request->getParsedBody();
         

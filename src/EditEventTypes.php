@@ -173,7 +173,7 @@ print_r($cCountID);*/
       <input type="text" class="form-control" name="newEvtName" value="<?= $aTypeName ?>" size="30" maxlength="35" autofocus />
     </td>
     <td class="TextColumn" width="50%">
-      <button type="submit" Name="Action" value="NAME" class="btn btn-default"><?= gettext('Save Name') ?></button>
+      <button type="submit" Name="Action" value="NAME" class="btn btn-primary"><?= gettext('Save Name') ?></button>
     </td>
   </tr>
   <tr>
@@ -202,7 +202,7 @@ print_r($cCountID);*/
       <tr>
         <td class="TextColumn" width="35%"><?= $cCountName[$c] ?></td>
         <td class="TextColumn" width="50%">
-          <button type="submit" name="Action" value="DELETE_<?=  $cCountID[$c] ?>" class="btn btn-default"><?= gettext('Remove') ?></button>
+          <button type="submit" name="Action" value="DELETE_<?=  $cCountID[$c] ?>" class="btn btn-danger"><?= gettext('Remove') ?></button>
         </td>
       </tr>
      <?php
@@ -213,7 +213,7 @@ print_r($cCountID);*/
            <input class='form-control' type="text" name="newCountName" length="20" placeholder="<?= gettext("New Attendance Count") ?>" />
         </td>
         <td class="TextColumn" width="50%">
-           <button type="submit" name="Action" value="ADD" class="btn btn-default"><?= gettext('Add counter') ?></button>
+           <button type="submit" name="Action" value="ADD" class="btn btn-success"><?= gettext('Add counter') ?></button>
         </td>
       </tr>
 </table>

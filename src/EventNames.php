@@ -26,6 +26,7 @@ use EcclesiaCRM\EventTypes;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\dto\ChurchMetaData;
 
 if ( !$_SESSION['user']->isAdmin() ) {
     Redirect('Menu.php');
@@ -84,29 +85,6 @@ if (isset($_POST['Action'])) {
             
       $_POST = array();
       Redirect('EventNames.php'); // clear POST
-      break;
-
-    case 'DELETE':
-      $theID = $_POST['theID'];
-      
-      $eventType = EventTypesQuery::Create()
-                      ->filterById(InputUtils::LegacyFilterInput($theID))
-                      ->limit(1)
-                      ->findOne();
-      
-      if (!empty($eventType)) {
-        $eventType->delete();
-      }
-      
-      $eventCountNames = EventCountNameQuery::Create()
-                      ->findByTypeId(InputUtils::LegacyFilterInput($theID));
-      
-      if (!empty($eventCountNames)) {
-        $eventCountNames->delete();
-      }
-            
-      $theID = '';
-      $_POST['Action'] = '';
       break;
     }
 }
@@ -331,28 +309,22 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                 <table class='table-simple-padding'>
                   <tr>
                     <td>
-                      <form name="ProcessEventType" action="EventEditor.php" method="POST" class="pull-left">
-                        <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
-                        <button type="submit" name="Action" value="<?= gettext('Create Event') ?>" class="btn btn-default btn-sm">
+                        <button value="<?= gettext('Create Event') ?>" class="btn btn-primary btn-sm add-event">
                           <?= gettext('Create Event') ?>
                         </button>
-                      </form>
                     </td>
                     <td>
                       <form name="ProcessEventType" action="EditEventTypes.php" method="POST" class="pull-left">
                         <input type="hidden" name="EN_tyid" value="<?= $aTypeID[$row] ?>">
-                        <button type="submit" class="btn btn-default btn-sm" name="Action" title="<?= gettext('Edit') ?>" data-tooltip value="<?= gettext('Edit') ?>">
+                        <button type="submit" class="btn btn-success btn-sm" name="Action" title="<?= gettext('Edit') ?>" data-tooltip value="<?= gettext('Edit') ?>">
                           <i class='fa fa-pencil'></i>
                         </button>
                       </form>
                     </td>
                     <td>
-                      <form name="ProcessEventType" action="EventNames.php" method="POST" class="pull-left">
-                        <input type="hidden" name="theID" value="<?= $aTypeID[$row] ?>">
-                        <button type="submit" class="btn btn-default btn-sm" title="<?= gettext('Delete') ?>" data-tooltip name="Action" value="DELETE" onClick="return confirm("<?= gettext('Deleting this event TYPE will NOT delete any existing Events or Attendance Counts.  Are you sure you want to DELETE Event Type ID: ').$aTypeID[$row] ?>")">
+                        <button class="btn btn-danger btn-sm delete-event" title="<?= gettext('Delete') ?>" data-tooltip name="Action" data-typeid="<?= $aTypeID[$row] ?>">
                           <i class='fa fa-trash'></i>
                         </button>
-                      </form>
                     </td>
                   </tr>
                 </table>
@@ -390,3 +362,39 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 </script>
 
 <?php require 'Include/Footer.php' ?>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+
+
+<!--Google Map Scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  window.CRM.isModifiable  = true;
+  
+  window.CRM.churchloc = {
+      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
+      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+  window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
+</script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventNames.js" ></script>
+
+<?php
+  if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+<?php
+  } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+?>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+<?php
+  }
+?>
+
