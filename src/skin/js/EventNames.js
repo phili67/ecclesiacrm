@@ -102,11 +102,7 @@ $(document).ready(function () {
             }).done(function(data) {
                location.reload();
             });
-          } else {
-            revertFunc();
           }
-          
-          console.log('This was logged in the callback: ' + result);
         }        
     });
   });  
