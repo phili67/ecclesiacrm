@@ -4779,7 +4779,7 @@ msgstr "Exporter toutes les classes, les enfants et les parents dans une fichier
 
 #: sundayschool/SundaySchoolDashboard.php:188
 msgid "Students not in a Sunday School Class"
-msgstr "Les étudiants qui ne sont pas à l'école du dimanche"
+msgstr "Étudiants n'étant pas à l'école du dimanche"
 
 #: sundayschool/SundaySchoolReports.php:122
 msgid "At least one group must be selected to make class lists or attendance sheets."
@@ -5172,6 +5172,9 @@ msgstr "Fonctions"
 #: sundayschool/SundaySchoolDashboard.php:50
 msgid "Add New Class"
 msgstr "Ajouter une nouvelle classe"
+
+msgid "Add Sunday School Class"
+msgstr "Ajouter une classe Ecole du dimanche"
 
 #: sundayschool/SundaySchoolDashboard.php:58
 msgid "Export to CSV"
@@ -10153,3 +10156,9 @@ msgstr "Vous devez entrer un message pour cette note"
 
 msgid "Pastoral notes"
 msgstr "Notes pastorales"
+
+msgid "Modify"
+msgstr "Modifier"
+
+msgid "Add Pastoral Care Notes"
+msgstr "Ajouter notes de suivi pastoral"

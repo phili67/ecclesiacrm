@@ -463,7 +463,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
        } ?>
       <?php if ($_SESSION['user']->isNotesEnabled()) {
         ?>
-        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/WhyCameEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Edit \"Why Came\" Notes") ?></a>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
         <?php
          }
         ?>
