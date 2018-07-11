@@ -48,8 +48,14 @@ the buttons
 .btn-app {
    border:1px;
    background-color: #dfdbde;
-   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
+   /*box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;*/
+   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14), 2px 7px 5px -5px rgba(169, 170, 176, 0.4) !important;
 }
+
+.btn-app:hover {
+   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 1px 3px 3px -3px rgba(169, 170, 176, 0.4) !important;
+}
+
 
 .btn-default {
   background-color: #ddd !important;
