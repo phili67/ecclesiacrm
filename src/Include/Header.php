@@ -108,7 +108,7 @@ $MenuFirst = 1;
               <span class="hidden-xs"><?= $_SESSION['user']->getName() ?> </span>
 
             </a>
-            <ul class="hidden-xxs dropdown-menu" style="background-color:rgba(255, 255, 255, 0.5);box-shadow: 0 2px 2px 0 rgba(156,39,176,.14),0 3px 1px -2px rgba(156,39,176,.2),0 3px 10px 0 rgba(156,39,176,.12);">
+            <ul class="hidden-xxs dropdown-menu">
               <li class="user-header" id="yourElement" style="height:205px">
                 <table border=0 class="table-dropdown-menu">
                 <tr style="border-bottom: 1pt solid black;">
