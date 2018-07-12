@@ -14,7 +14,7 @@ $('.checkOnlyPersonView').click('focus', function (e) {
       path: 'mapicons/checkOnlyPersonView',
       data: JSON.stringify({"lstID":ID,"lstOptionID":optionID,"onlyPersonView" : isChecked})
   }).done(function(data) {
-     location.reload();
+     //location.reload();
   });
 });
 

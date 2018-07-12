@@ -145,7 +145,7 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
             $sel1 = 'SELECTED';
             $sel2 = '';
         }
-        echo "<td class=TextColumnWithBottomBorder><select class=\"form-control \" name=\"new_value[$ucfg_id]\">";
+        echo "<td class=TextColumnWithBottomBorder><select class=\"form-control input-sm \" name=\"new_value[$ucfg_id]\">";
         echo "<option value='' $sel1>".gettext('False');
         echo "<option value='1' $sel2>".gettext('True');
         echo '</select></td>';

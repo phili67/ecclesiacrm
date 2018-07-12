@@ -456,7 +456,7 @@ foreach ($userProfiles as $userProfile) {
                         ?>
                             <th><?= gettext('Person to Make User') ?>:</th>
                             <th>
-                                <select name="PersonID" size="30" id="personSelect" class="form-control">
+                                <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
                                     <?php
                                     // Loop through all the people
                                     while ($aRow = mysqli_fetch_array($rsPeople)) {
@@ -573,7 +573,7 @@ foreach ($userProfiles as $userProfile) {
                     </tr>
                     <tr>
                         <td><?= gettext('Style') ?>:</td>
-                        <td class="TextColumnWithBottomBorder"><select class="form-control" name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
+                        <td class="TextColumnWithBottomBorder"><select class="form-control input-sm" name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
                     </tr>
                   </tbody>
                 </table>
@@ -638,7 +638,7 @@ foreach ($userProfiles as $userProfile) {
                         $sel2 = '';
                     }
                     echo "\n<tr class='user_settings' data-name='".$ucfg_name."'>";
-                    echo "<td><select class=\"form-control\"  name=\"new_permission[$ucfg_id]\">";
+                    echo "<td><select class=\"form-control input-sm\"  name=\"new_permission[$ucfg_id]\">";
                     echo "<option value=\"FALSE\" $sel1>" . gettext('False');
                     echo "<option value=\"TRUE\" $sel2>" . gettext('True');
                     echo '</select></td>';
@@ -666,7 +666,7 @@ foreach ($userProfiles as $userProfile) {
                             $sel1 = 'SELECTED';
                             $sel2 = '';
                         }
-                        echo "<td><select class=\"form-control\" name=\"new_value[$ucfg_id]\">";
+                        echo "<td><select class=\"form-control input-sm\" name=\"new_value[$ucfg_id]\">";
                         echo "<option value=\"\" $sel1>" . gettext('False');
                         echo "<option value=\"1\" $sel2>" . gettext('True');
                         echo '</select></td>';
