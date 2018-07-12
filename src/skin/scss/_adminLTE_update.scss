@@ -41,6 +41,17 @@ the buttons
    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
 }
 
+.btn-link-menu {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: none !important;
+}
+
+.btn-link-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+  color:gray;
+}
+
 .btn-box-tool {
    box-shadow: none !important;
 }
@@ -68,6 +79,8 @@ the buttons
   border-right:0px;
   color:#222 !important;
   font-weight: 500 !important;
+  height : 25px;
+  padding: 12px 10px !important;
 }
 
 .input-group-addon {
@@ -355,56 +368,50 @@ width: 100%;
 
 /* the tabs */
 .nav-tabs-custom {
-/*position: relative;
-border-radius: 3px;
-background: #ffffff !important;
-border: 1px solid #d2d2d2 !important;
-border-top: 1.5px solid #d2d2d2 !important;
-border-radius: 6px;
-margin-bottom: 20px;
-width: 100%;
-font-size:12px;*/
-background: none !important;
-font-size:14px;
+  background: none !important;
+  font-size:14px;
 }
 
 .nav-tabs-custom>.nav-tabs>li {
-  border: none !important;
-  border-radius: none  !important;
-  background-color: none  !important;
-  background-image: none !important;
-  color: black  !important;
-  float: left  !important;
-  margin-left: .25em  !important;
-  box-shadow: none;
-  margin-bottom: 6px !important;
-  margin-top: 6px !important;
+  border: 1px white  !important;
 }
 
 .nav-tabs-custom>.nav-tabs>li>a {
-color: black !important;
-font-weight:400;
+  font-weight:400;
+  border: 1px white  !important;
+  border-radius: 30px  !important;
+  background-color: white  !important;
+  background-image: none !important;
+  color: black  !important;
+  float: left  !important;
+  margin-bottom: 7px !important;
+  margin-top: 3px !important;
 }
 
+.nav-tabs-custom>.nav-tabs>li>a:hover {
+  font-weight:400;
+  border: 1px #ddd  !important;
+  background-color: #ddd  !important;
+  color: black  !important;
+}
+
+
 .nav-tabs-custom>.nav-tabs>li.active>a, .nav-tabs-custom>.nav-tabs>li.active:hover>a {
-  border: none !important;
-  border-radius: 30px  !important;
+  border: 1px #f39c12  !important;
   background-color: #f39c12  !important;
-  background-image: none !important;
   color: #fff  !important;
-  float: left  !important;
   box-shadow: 0 2px 2px 0 rgba(156,39,176,.14),0 3px 1px -2px rgba(156,39,176,.2),0 1px 5px 0 rgba(156,39,176,.12)  !important;
 }
 
 .tab-content {
-position: relative;
-border-radius: 3px;
-/*background: #ffffff !important;*/
-/*border: 1px solid #d2d2d2 !important;*/
-/*border-top: 1.5px solid #d2d2d2 !important;*/
-border-radius: 6px;
-margin-bottom: 20px;
-width: 100%;
+  position: relative;
+  border-radius: 3px;
+  /*background: #ffffff !important;*/
+  /*border: 1px solid #d2d2d2 !important;*/
+  /*border-top: 1.5px solid #d2d2d2 !important;*/
+  border-radius: 6px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 /*

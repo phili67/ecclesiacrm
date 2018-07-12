@@ -370,7 +370,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         </td>
         <td class="TextColumn">
             <span class="SmallText">
-                <input class="input-small" type="text" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30" maxlength="40">
+                <input class="form-control input-md" type="text" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="30" maxlength="40">
             </span>
             <?php
 
@@ -382,7 +382,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         </td>
         <?php
         if ($mode == 'grproles') {
-            echo '<td class="TextColumn"><input class="form-control input-small" type="button" class="btn btn-default" value="'.gettext('Make Default')."\" Name=\"default\" onclick=\"javascript:document.location='OptionManagerRowOps.php?mode=".$mode.'&ListID='.$listID.'&ID='.$aIDs[$row]."&Action=makedefault';\" ></td>";
+            echo '<td class="TextColumn"><input class="form-control form-control input-md" type="button" class="btn btn-default" value="'.gettext('Make Default')."\" Name=\"default\" onclick=\"javascript:document.location='OptionManagerRowOps.php?mode=".$mode.'&ListID='.$listID.'&ID='.$aIDs[$row]."&Action=makedefault';\" ></td>";
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
           
@@ -434,7 +434,7 @@ for ($row = 1; $row <= $numRows; $row++) {
     <div class="box-body">
 <?=  gettext('Name for New').' '.$noun ?>:&nbsp;
 <span class="SmallText">
-    <input class="form-control input-small" type="text" name="newFieldName" size="30" maxlength="40">
+    <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
 </span>
 <p>  </p>
 <input type="submit" class="btn btn-success" value="<?= gettext('Add New').' '.$adjplusname ?>" Name="AddField">

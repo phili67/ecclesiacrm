@@ -123,7 +123,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
           if ($peopleWithBirthDay->getUrlIcon() != '') { 
               $classified .= '<img src="'.SystemURLs::getRootPath().'/skin/icons/markers/'.$peopleWithBirthDay->getUrlIcon().'">';
           }
-          $classified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
+          $classified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link-menu" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
           $classified .= '</label>';
           $classified .= '</div>';
 
