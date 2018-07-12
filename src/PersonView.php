@@ -461,7 +461,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
             <?php
        } ?>
-      <?php if ($_SESSION['user']->isNotesEnabled()) {
+      <?php if ($_SESSION['user']->isPastoralCareEnabled()) {
         ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
         <?php

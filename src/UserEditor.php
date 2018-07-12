@@ -85,6 +85,13 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
         }
     } else {
+       
+        if (isset($_POST['PastoralCare'])) {
+            $PastoralCare = 1;
+        } else {
+            $PastoralCare = 0;
+        }
+        
         if (isset($_POST['AddRecords'])) {
             $AddRecords = 1;
         } else {
@@ -167,6 +174,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setPassword($sPasswordHashSha256);
                     $user->setLastLogin(date('Y-m-d H:i:s'));
                     
+                    $user->setPastoralCare($PastoralCare);
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);
@@ -211,6 +219,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $oldUserName = $user->getUserName();
                     
+                    $user->setPastoralCare($PastoralCare);
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);                    
@@ -271,6 +280,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $sAction = 'add';
             $vNewUser = 'true';
 
+            $usr_PastoralCare = 0;
             $usr_AddRecords = 0;
             $usr_EditRecords = 0;
             $usr_DeleteRecords = 0;
@@ -291,6 +301,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $sAction = 'add';
         $bShowPersonSelect = true;
 
+        $usr_PastoralCare = 0;
         $usr_AddRecords = 0;
         $usr_EditRecords = 0;
         $usr_DeleteRecords = 0;
@@ -488,6 +499,13 @@ foreach ($userProfiles as $userProfile) {
                     <tr>
                         <td><?= gettext('Login Name') ?>:</td>
                         <td><input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
+                    </tr>
+
+                    <tr>
+                        <td><?= gettext('Pastoral Care') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
+                        echo ' checked';
+                    } ?>></td>
                     </tr>
 
                     <tr>

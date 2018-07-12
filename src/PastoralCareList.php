@@ -16,6 +16,10 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
+if ( !($_SESSION['user']->isAdmin()) ) {
+  Redirect('Menu.php');
+  exit;
+}
 
 //Set the page title
 $sPageTitle = gettext("Pastoral Care Type Editor");

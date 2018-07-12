@@ -31,7 +31,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/deletetype', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->pastoralCareTypeId) ){
+    if (isset ($input->pastoralCareTypeId) && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
         
       if ($pstCareType != null) {
@@ -49,7 +49,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/createtype', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description)){
+    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCareType = new PastoralCareType();
       
       $pstCareType->setVisible($input->Visible);
@@ -69,7 +69,7 @@ $app->group('/pastoralcare', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->pastoralCareTypeId) && isset ($input->Visible) 
-      && isset ($input->Title) && isset ($input->Description)){
+      && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
       
       $pstCareType->setVisible($input->Visible);
@@ -87,7 +87,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/edittype', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->pastoralCareTypeId) ){
+    if (isset ($input->pastoralCareTypeId)  && $_SESSION['user']->isPastoralCareEnabled() ){
       return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
     }   
     
@@ -97,7 +97,9 @@ $app->group('/pastoralcare', function () {
   $this->post('/add', function ($request, $response, $args) {
     $input = (object)$request->getParsedBody();
      
-    if (isset ($input->typeID) ){
+    if (isset ($input->typeID)  && isset ($input->personID) && isset ($input->currentPastorId) 
+      && isset ($input->visibilityStatus) && isset ($input->noteText)
+      && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCare = new PastoralCare();
       
       $pstCare->setTypeId($input->typeID);
@@ -129,7 +131,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/delete', function ($request, $response, $args) {
      $input = (object)$request->getParsedBody();
      
-    if (isset ($input->ID) ){
+    if (isset ($input->ID)  && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
               
       if ($pstCare != null) {
@@ -146,7 +148,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/getinfo', function ($request, $response, $args) {
     $input = (object)$request->getParsedBody();
      
-    if (isset ($input->ID) ){
+    if (isset ($input->ID) && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
       
       $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
@@ -161,10 +163,12 @@ $app->group('/pastoralcare', function () {
   $this->post('/modify', function ($request, $response, $args) {
     $input = (object)$request->getParsedBody();
      
-    if (isset ($input->ID) ){
+    if (isset ($input->ID) && isset ($input->typeID)  && isset ($input->personID) 
+      && isset ($input->currentPastorId) 
+      && isset ($input->visibilityStatus) && isset ($input->noteText)
+      && $_SESSION['user']->isPastoralCareEnabled() ){
       $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
-      
-      
+            
       $pstCare->setTypeId($input->typeID);
 
       $pstCare->setPersonId($input->personID);

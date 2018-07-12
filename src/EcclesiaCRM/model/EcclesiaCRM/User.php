@@ -301,6 +301,11 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isCanvasser();
     }
+    
+    public function isPastoralCareEnabled()
+    {
+        return $this->isAdmin() || $this->isPastoralCare();
+    }
 
     public function updatePassword($password)
     {
