@@ -1,6 +1,7 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
 
+require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
 ?>
@@ -23,6 +24,10 @@ require_once 'Header-Security.php';
     <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
 
     <title>EcclesiaCRM: <?= $sPageTitle ?></title>
+    
+    <?php
+    Header_fav_icons();
+    ?>
 
 </head>
 <body class="hold-transition login-page">
