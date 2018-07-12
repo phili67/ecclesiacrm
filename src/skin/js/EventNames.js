@@ -69,7 +69,7 @@ $(document).ready(function () {
   }
 
 
-  $('#add-event').click('focus', function (e) {
+  $('.add-event').click('focus', function (e) {
     var fmt = 'YYYY-MM-DD HH:mm:ss';
   
     var dateStart = moment().format(fmt);
