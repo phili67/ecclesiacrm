@@ -129,7 +129,7 @@ $iTableSpacerWidth = 10;
 require 'Include/Header-Short.php';
 ?>
 
-<table width="200"><tr><td>
+<table width="400"><tr><td>
 <p class="ShadedBox">
 
 <?php
