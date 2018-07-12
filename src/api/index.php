@@ -49,6 +49,9 @@ require __DIR__.'/routes/groups.php';
 require __DIR__.'/routes/userprofile.php';
 require __DIR__.'/routes/people.php';
 
+// the pastoral care route
+require __DIR__.'/routes/pastoralcare.php';
+
 // the map icons
 require __DIR__.'/routes/mapicons.php';
 
