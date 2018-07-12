@@ -44,3 +44,9 @@ CREATE TABLE pastoral_care (
       REFERENCES pastoral_care_type(pst_cr_tp_id)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+
+--
+-- ALTER TABLE `query_qry` DROP COLUMN `qry_Type`;
+--
+ALTER TABLE `user_usr` ADD COLUMN `usr_PastoralCare` tinyint(1) DEFAULT '0';
