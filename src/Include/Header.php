@@ -177,7 +177,7 @@ $MenuFirst = 1;
   <!-- =============================================== -->
 
   <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(128,128,128,0.95)),url(<?= SystemURLs::getRootPath() ?>/Images/sidebar.jpg);background-repeat: no-repeat;">
+  <aside class="main-sidebar" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(128,128,128,0.95)),url(<?= SystemURLs::getRootPath() ?>/Images/sidebar.jpg);background-repeat: repeat-y;">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- search form -->
