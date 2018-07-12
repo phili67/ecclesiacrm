@@ -10171,6 +10171,11 @@ msgstr "Editeur de type de suivi Pastoral"
 msgid "Add a New Pastoral Care Type"
 msgstr "Ajouter un nouveau type de suivi pastoral"
 
+msgid "Please add some records with the button below."
+msgstr "Ajouter des enregistrements, ci-dessous, pour assurer le suivi."
+
 # GroupList.php
 msgid "Number of groups:"
 msgstr "Nombre de groupes :"
+
+
