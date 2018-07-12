@@ -27,11 +27,10 @@ $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $currentPersonID = InputUtils::LegacyFilterInput($_GET['PersonID']);
 $iWhyCameID = InputUtils::LegacyFilterInput($_GET['WhyCameID']);
 
-if (!($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())) {
-    Redirect('Menu.php');
-    exit;
+if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
+  Redirect('Menu.php');
+  exit;
 }
-
 
 $currentPastorId = $_SESSION['user']->getPerson()->getID();
 

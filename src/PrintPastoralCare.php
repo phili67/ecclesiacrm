@@ -22,8 +22,7 @@ use EcclesiaCRM\PastoralCareQuery;
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
-if ( !($_SESSION['user']->isEditRecordsEnabled() ||
-    ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ) ) {
+if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
   Redirect('Menu.php');
   exit;
 }
@@ -492,7 +491,7 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
 
 $currentPastorId = $_SESSION['user']->getPerson()->getID();
 
-if ($_SESSION['user']->isAdmin()) {
+if ($_SESSION['user']->isPastoralCareEnabled()) {
   echo '<br><br><p style="text-transform: uppercase;font-size:24px"><b>'.gettext('Pastoral Care').'</b></p>';
   
   if ($ormPastoralCares->count() > 0) {
@@ -505,6 +504,7 @@ if ($_SESSION['user']->isAdmin()) {
          echo '<p class="ShadedBox">'.gettext("Private Data").'</p>';
        }
        echo '<span class="SmallText"><small>'.gettext('Entered:').($ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s')).'</small></span><br>';
+       echo '<br>';
     }
     
   } else {
