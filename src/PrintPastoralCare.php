@@ -494,15 +494,21 @@ $currentPastorId = $_SESSION['user']->getPerson()->getID();
 
 if ($_SESSION['user']->isAdmin()) {
   echo '<br><br><p style="text-transform: uppercase;font-size:24px"><b>'.gettext('Pastoral Care').'</b></p>';
+  
+  if ($ormPastoralCares->count() > 0) {
 
-  foreach ($ormPastoralCares as $ormPastoralCare) {
-     echo '<p class="ShadedBox"><b>'.$ormPastoralCare->getPastoralCareType()->getTitle().'</b> : '.$ormPastoralCare->getPastorName().'</p>';
-     if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
-       echo '<p class="ShadedBox">'.$ormPastoralCare->getText().'</p>';
-     } else {
-       echo '<p class="ShadedBox">'.gettext("Private Data").'</p>';
-     }
-     echo '<span class="SmallText"><small>'.gettext('Entered:').($ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s')).'</small></span><br>';
+    foreach ($ormPastoralCares as $ormPastoralCare) {
+       echo '<p class="ShadedBox"><b>'.$ormPastoralCare->getPastoralCareType()->getTitle().'</b> : '.$ormPastoralCare->getPastorName().'</p>';
+       if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
+         echo '<p class="ShadedBox">'.$ormPastoralCare->getText().'</p>';
+       } else {
+         echo '<p class="ShadedBox">'.gettext("Private Data").'</p>';
+       }
+       echo '<span class="SmallText"><small>'.gettext('Entered:').($ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s')).'</small></span><br>';
+    }
+    
+  } else {
+    echo gettext("None");
   }
 }
 require 'Include/Footer-Short.php';
