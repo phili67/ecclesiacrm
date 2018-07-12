@@ -108,7 +108,7 @@ $MenuFirst = 1;
               <span class="hidden-xs"><?= $_SESSION['user']->getName() ?> </span>
 
             </a>
-            <ul class="hidden-xxs dropdown-menu" style="background-color:rgba(255, 255, 255, 0.5);box-shadow: 0 2px 2px 0 rgba(156,39,176,.14),0 3px 1px -2px rgba(156,39,176,.2),0 3px 10px 0 rgba(156,39,176,.12);">
+            <ul class="hidden-xxs dropdown-menu">
               <li class="user-header" id="yourElement" style="height:205px">
                 <table border=0 class="table-dropdown-menu">
                 <tr style="border-bottom: 1pt solid black;">
@@ -177,7 +177,7 @@ $MenuFirst = 1;
   <!-- =============================================== -->
 
   <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(128,128,128,0.95)),url(<?= SystemURLs::getRootPath() ?>/Images/sidebar.jpg);background-repeat: no-repeat;">
+  <aside class="main-sidebar" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,0.95),rgba(128,128,128,0.95)),url(<?= SystemURLs::getRootPath() ?>/Images/sidebar.jpg);background-repeat: repeat-y;">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- search form -->
