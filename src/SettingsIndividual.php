@@ -128,7 +128,7 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     // Current Value
     if ($ucfg_type == 'text') {
         echo "<td class=TextColumnWithBottomBorder>
-      <input type=text size=30 maxlength=255 name='new_value[$ucfg_id]'
+      <input class=\"form-control input-md\" type=text size=30 maxlength=255 name='new_value[$ucfg_id]'
       value='".htmlspecialchars($ucfg_value, ENT_QUOTES)."'></td>";
     } elseif ($ucfg_type == 'textarea') {
         echo "<td class=TextColumnWithBottomBorder>
@@ -145,7 +145,7 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
             $sel1 = 'SELECTED';
             $sel2 = '';
         }
-        echo "<td class=TextColumnWithBottomBorder><select name=\"new_value[$ucfg_id]\">";
+        echo "<td class=TextColumnWithBottomBorder><select class=\"form-control input-sm \" name=\"new_value[$ucfg_id]\">";
         echo "<option value='' $sel1>".gettext('False');
         echo "<option value='1' $sel2>".gettext('True');
         echo '</select></td>';

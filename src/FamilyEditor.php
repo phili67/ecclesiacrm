@@ -661,9 +661,9 @@ require 'Include/Header.php';
   <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
   <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title"><?= gettext('Family Info') ?></h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
@@ -672,7 +672,7 @@ require 'Include/Header.php';
         <div class="row">
           <div class="col-md-6">
             <label><?= gettext('Family Name') ?>:</label>
-            <input type="text" Name="Name" id="FamilyName" value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="48"  class="form-control">
+            <input type="text" Name="Name" id="FamilyName" value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="48"  class="form-control input-sm">
             <?php if ($sNameError) {
     ?><font color="red"><?= $sNameError ?></font><?php
 } ?>
@@ -682,15 +682,15 @@ require 'Include/Header.php';
         <div class="row">
           <div class="col-md-6">
             <label><?= gettext('Address') ?> 1:</label>
-              <input type="text" Name="Address1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+              <input type="text" Name="Address1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control input-sm">
           </div>
           <div class="col-md-6">
             <label><?= gettext('Address') ?> 2:</label>
-            <input type="text" Name="Address2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+            <input type="text" Name="Address2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control input-sm">
           </div>
           <div class="col-md-6">
             <label><?= gettext('City') ?>:</label>
-            <input type="text" Name="City" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
+            <input type="text" Name="City" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control input-sm">
           </div>
         </div>
         <p/>
@@ -704,13 +704,13 @@ require 'Include/Header.php';
           </div>
           <div <?= (SystemConfig::getValue('bStateUnuseful'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
             <label><?= gettext('None US/CND State') ?>:</label>
-            <input type="text"  class="form-control" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+            <input type="text"  class="form-control input-sm" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                 echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
             } ?>" size="20" maxlength="30">
           </div>
           <div class="form-group col-md-3">
             <label><?= gettext('Zip')?>:</label>
-            <input type="text" Name="Zip"  class="form-control" <?php
+            <input type="text" Name="Zip"  class="form-control input-sm" <?php
                             // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                             if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                                 echo 'style="text-transform:uppercase" ';
@@ -728,11 +728,11 @@ require 'Include/Header.php';
         <div class="row">
           <div class="form-group col-md-3">
             <label><?= gettext('Latitude') ?>:</label>
-            <input type="text" class="form-control" Name="Latitude" value="<?= $nLatitude ?>" size="30" maxlength="50">
+            <input type="text" class="form-control input-sm" Name="Latitude" value="<?= $nLatitude ?>" size="30" maxlength="50">
           </div>
           <div class="form-group col-md-3">
             <label><?= gettext('Longitude') ?>:</label>
-            <input type="text" class="form-control" Name="Longitude" value="<?= $nLongitude ?>" size="30" maxlength="50">
+            <input type="text" class="form-control input-sm" Name="Longitude" value="<?= $nLongitude ?>" size="30" maxlength="50">
           </div>
         </div>
         <?php
@@ -748,9 +748,9 @@ require 'Include/Header.php';
         });
     </script>
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title"><?= gettext('Contact Info') ?></h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit" >
       </div>
     </div><!-- /.box-header -->
@@ -762,7 +762,7 @@ require 'Include/Header.php';
             <div class="input-group-addon">
               <i class="fa fa-phone"></i>
             </div>
-            <input type="text" Name="HomePhone" value="<?= htmlentities(stripslashes($sHomePhone)) ?>" size="30" maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat')?>"' data-mask>
+            <input type="text" Name="HomePhone" value="<?= htmlentities(stripslashes($sHomePhone)) ?>" size="30" maxlength="30" class="form-control input-sm" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat')?>"' data-mask>
             <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
                   echo ' checked';
               } ?>><?= gettext('Do not auto-format') ?>
@@ -774,7 +774,7 @@ require 'Include/Header.php';
             <div class="input-group-addon">
               <i class="fa fa-phone"></i>
             </div>
-            <input type="text" name="WorkPhone" value="<?= htmlentities(stripslashes($sWorkPhone)) ?>" size="30" maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt')?>"' data-mask/>
+            <input type="text" name="WorkPhone" value="<?= htmlentities(stripslashes($sWorkPhone)) ?>" size="30" maxlength="30" class="form-control input-sm" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt')?>"' data-mask/>
             <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?= $bNoFormat_WorkPhone ? ' checked' : ''?>><?= gettext('Do not auto-format') ?>
           </div>
         </div>
@@ -784,7 +784,7 @@ require 'Include/Header.php';
             <div class="input-group-addon">
               <i class="fa fa-phone"></i>
             </div>
-            <input type="text" name="CellPhone" value="<?= htmlentities(stripslashes($sCellPhone)) ?>" size="30" maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell')?>"' data-mask>
+            <input type="text" name="CellPhone" value="<?= htmlentities(stripslashes($sCellPhone)) ?>" size="30" maxlength="30" class="form-control input-sm" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell')?>"' data-mask>
             <input type="checkbox" name="NoFormat_CellPhone" value="1" <?= $bNoFormat_CellPhone ? ' checked' : '' ?>><?= gettext('Do not auto-format') ?>
           </div>
         </div>
@@ -796,7 +796,7 @@ require 'Include/Header.php';
             <div class="input-group-addon">
               <i class="fa fa-envelope"></i>
             </div>
-            <input type="text" Name="Email" class="form-control" value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font color="red"><?php echo '<BR>'.$sEmailError ?></font>
+            <input type="text" Name="Email" class="form-control input-sm" value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font color="red"><?php echo '<BR>'.$sEmailError ?></font>
           </div>
         </div>
         <?php if (!SystemConfig::getValue('bHideFamilyNewsletter')) { /* Newsletter can be hidden - General Settings */ ?>
@@ -812,9 +812,9 @@ require 'Include/Header.php';
     </div>
   </div>
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title"><?= gettext('Other Info') ?>:</h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
@@ -886,9 +886,9 @@ require 'Include/Header.php';
   </div>
   <?php if (SystemConfig::getValue('bUseDonationEnvelopes')) { /* Donation envelopes can be hidden - General Settings */ ?>
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3><?= gettext('Envelope Info') ?></h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
@@ -908,9 +908,9 @@ require 'Include/Header.php';
     if ($numCustomFields > 0) {
         ?>
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title"><?= gettext('Custom Fields') ?></h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
@@ -939,9 +939,9 @@ require 'Include/Header.php';
   <?php
     } ?>
   <div class="box box-info clearfix">
-    <div class="box-header">
+    <div class="box-header with-border" >
       <h3 class="box-title"><?= gettext('Family Members') ?></h3>
-      <div class="pull-right"><br/>
+      <div class="pull-right">
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="FamilySubmit">
       </div>
     </div><!-- /.box-header -->
@@ -953,7 +953,7 @@ require 'Include/Header.php';
   <tr>
     <td colspan="2">
     <div class="MediumText">
-      <center><?= $iFamilyID < 0 ? gettext('You may create family members now or add them later.  All entries will become <i>new</i> person records.') : '' ?></center>
+      <center><b><?= $iFamilyID < 0 ? gettext('You may create family members now or add them later.  All entries will become <i>new</i> person records.') : '' ?></b></center>
     </div><br><br>
             <div class="table-responsive">
     <table cellpadding="3" cellspacing="0" width="100%">
@@ -988,23 +988,23 @@ require 'Include/Header.php';
             ?>
     <input type="hidden" name="PersonID<?= $iCount ?>" value="<?= $aPersonIDs[$iCount] ?>">
     <tr>
-      <td class="TextColumn">
-        <input name="FirstName<?= $iCount ?>" type="text" value="<?= $aFirstNames[$iCount] ?>" size="10">
+      <td class="TextColumnFam">
+        <input class="form-control input-md" name="FirstName<?= $iCount ?>" type="text" value="<?= $aFirstNames[$iCount] ?>" size="10">
         <div><font color="red"><?php if (array_key_exists($iCount, $aFirstNameError)) {
                 echo $aFirstNameError[$iCount];
             } ?></font></div>
       </td>
-      <td class="TextColumn">
-        <input name="MiddleName<?= $iCount ?>" type="text" value="<?= $aMiddleNames[$iCount] ?>" size="10">
+      <td class="TextColumnFam">
+        <input class="form-control input-md" name="MiddleName<?= $iCount ?>" type="text" value="<?= $aMiddleNames[$iCount] ?>" size="10">
       </td>
-      <td class="TextColumn">
-        <input name="LastName<?= $iCount ?>" type="text" value="<?= $aLastNames[$iCount] ?>" size="10">
+      <td class="TextColumnFam">
+        <input class="form-control input-md" name="LastName<?= $iCount ?>" type="text" value="<?= $aLastNames[$iCount] ?>" size="10">
       </td>
-      <td class="TextColumn">
-        <input name="Suffix<?= $iCount ?>" type="text" value="<?= $aSuffix[$iCount] ?>" size="10">
+      <td class="TextColumnFam">
+        <input class="form-control input-md" name="Suffix<?= $iCount ?>" type="text" value="<?= $aSuffix[$iCount] ?>" size="10">
       </td>
-      <td class="TextColumn">
-        <select name="Gender<?php echo $iCount ?>">
+      <td class="TextColumnFam">
+        <select class="form-control input-sm" name="Gender<?php echo $iCount ?>">
           <option value="0" <?php if ($aGenders[$iCount] == 0) {
                 echo 'selected';
             } ?> ><?= gettext('Select Gender') ?></option>
@@ -1017,8 +1017,8 @@ require 'Include/Header.php';
         </select>
       </td>
 
-      <td class="TextColumn">
-        <select name="Role<?php echo $iCount ?>">
+      <td class="TextColumnFam">
+        <select class="form-control input-sm" name="Role<?php echo $iCount ?>">
           <option value="0" <?php if ($aRoles[$iCount] == 0) {
                 echo 'selected';
             } ?> ><?= gettext('Select Role') ?></option>
@@ -1033,8 +1033,8 @@ require 'Include/Header.php';
                 } ?>
         </select>
       </td>
-      <td class="TextColumn">
-        <select name="BirthMonth<?php echo $iCount ?>">
+      <td class="TextColumnFam">
+        <select class="form-control input-sm" name="BirthMonth<?php echo $iCount ?>">
           <option value="0" <?php if ($aBirthMonths[$iCount] == 0) {
                     echo 'selected';
                 } ?>><?= gettext('Unknown') ?></option>
@@ -1076,8 +1076,8 @@ require 'Include/Header.php';
                 } ?>><?= gettext('December') ?></option>
         </select>
       </td>
-      <td class="TextColumn">
-        <select name="BirthDay<?= $iCount ?>">
+      <td class="TextColumnFam">
+        <select class="form-control input-sm" name="BirthDay<?= $iCount ?>">
           <option value="0"><?= gettext('Unk')?></option>
           <?php for ($x = 1; $x < 32; $x++) {
                     if ($x < 10) {
@@ -1085,28 +1085,31 @@ require 'Include/Header.php';
                     } else {
                         $sDay = $x;
                     } ?>
-          <option value="<?= $sDay ?>" <?php if ($aBirthDays[$iCount] == $x) {
-                        echo 'selected';
-                    } ?>><?= $x ?></option>
-        <?php
-                } ?>
+          <option value="<?= $sDay ?>" <?= ($aBirthDays[$iCount] == $x)?'selected':''?>><?= $x ?></option>
+          <?php
+            } 
+          ?>
         </select>
       </td>
-      <td class="TextColumn">
+      <td class="TextColumnFam">
       <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || $_SESSION['bSeePrivacyData']) {
                     $UpdateBirthYear = 1; ?>
-        <input name="BirthYear<?= $iCount ?>" type="text" value="<?= $aBirthYears[$iCount] ?>" size="4" maxlength="4">
-        <div><font color="red"><?php if (array_key_exists($iCount, $aBirthDateError)) {
-                        echo $aBirthDateError[$iCount];
-                    } ?></font></div>
+        <input class="form-control input-md" name="BirthYear<?= $iCount ?>" type="text" value="<?= $aBirthYears[$iCount] ?>" size="4" maxlength="4">
+        <?php 
+          if (array_key_exists($iCount, $aBirthDateError)) {
+        ?>
+            <div><font color="red"><?= $aBirthDateError[$iCount] ?></font></div>
+        <?php
+          } 
+        ?>
       <?php
-                } else {
-                    $UpdateBirthYear = 0;
-                } ?>
-        &nbsp;
+        } else {
+            $UpdateBirthYear = 0;
+        } 
+      ?>
       </td>
       <td>
-        <select name="Classification<?php echo $iCount ?>">
+        <select class="form-control input-sm" name="Classification<?php echo $iCount ?>">
           <option value="0" <?php if ($aClassification[$iCount] == 0) {
                     echo 'selected';
                 } ?>><?= gettext('Unassigned') ?></option>

@@ -252,7 +252,7 @@ require 'Include/Header.php'; ?>
   }
   function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
   {
-      $sOptList = '<select name="'.$fld_name.'" class="form-control">';
+      $sOptList = '<select name="'.$fld_name.'" class="form-control input-sm">';
       $grp_Count = count($aSecGrp);
 
       for ($i = 0; $i < $grp_Count; $i++) {
@@ -321,7 +321,7 @@ require 'Include/Header.php'; ?>
             ?>
           <tr>
             <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
-            <td>
+            <td class="TextColumnFam">
               <?php
               if ($row != 1) {
                   echo "<a href=\"PersonCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
@@ -331,10 +331,10 @@ require 'Include/Header.php'; ?>
             } ?>
               <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>');"><img src="Images/x.gif" border="0"></a>
             </td>
-            <td class="TextColumn">
+            <td class="TextColumnFam">
               <?= $aPropTypes[$aTypeFields[$row]] ?>
             </td>
-            <td class="TextColumn" align="center">
+            <td class="TextColumnFam" align="center">
               <input type="text" name="<?= $row ?>name"
                      value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35"
                      maxlength="40" class="form-control">
@@ -343,10 +343,10 @@ require 'Include/Header.php'; ?>
                   echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
               } ?>
             </td>
-            <td class="TextColumn" align="center">
+            <td class="TextColumnFam" align="center">
               <?php
               if ($aTypeFields[$row] == 9) {
-                  echo '<select name="'.$row.'special" class="form-control">';
+                  echo '<select name="'.$row.'special" class="form-control input-sm">';
                   echo '<option value="0" selected>'.gettext("Select a group").'</option>';
 
                   $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
@@ -373,7 +373,7 @@ require 'Include/Header.php'; ?>
               } ?>
 
             </td>
-            <td class="TextColumn" align="center" nowrap>
+            <td class="TextColumnFam" align="center" nowrap>
               <?php
               if (isset($aSecurityType[$aFieldSecurity[$row]])) {
                   echo GetSecurityList($aSecurityGrp, $row.'FieldSec', $aSecurityType[$aFieldSecurity[$row]]);
@@ -381,7 +381,7 @@ require 'Include/Header.php'; ?>
                   echo GetSecurityList($aSecurityGrp, $row.'FieldSec');
               } ?>
             </td>
-            <td class="TextColumn" align="center" nowrap>
+            <td class="TextColumnFam" align="center" nowrap>
               <input type="radio" Name="<?= $row ?>side"
                      value="0" <?php if (!$aSideFields[$row]) {
                   echo ' checked';
@@ -423,13 +423,13 @@ require 'Include/Header.php'; ?>
             <tr>
                 <td>
                 </td>
-                <td>
+                <td class="TextColumnFam">
                   <div><?= gettext('Type') ?>:</div>
                 </td>
-                <td>
+                <td class="TextColumnFam">
                   <div><?= gettext('Name') ?>:</div>
                 </td>
-                <td>
+                <td class="TextColumnFam">
                     <div><?= gettext('Side') ?>:</div>
                 </td>
                 <td nowrap>
@@ -442,9 +442,9 @@ require 'Include/Header.php'; ?>
             </tr>
             <tr>
               <td width="15%"></td>
-              <td valign="top">
+              <td valign="top" class="TextColumnFam">
                 <?php
-                echo '<select name="newFieldType" class="form-control">';
+                echo '<select name="newFieldType" class="form-control input-sm">';
 
                 for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
                     echo '<option value="'.$iOptionID.'"';
@@ -466,12 +466,12 @@ require 'Include/Header.php'; ?>
                 ?>
                 &nbsp;
               </td>
-              <td valign="top" nowrap>
+              <td valign="top" nowrap class="TextColumnFam">
                 <input type="radio" name="newFieldSide" value="0" checked><?= gettext('Left') ?>
                 <input type="radio" name="newFieldSide" value="1"><?= gettext('Right') ?>
                 &nbsp;
               </td>
-              <td valign="top" nowrap>
+              <td valign="top" nowrap class="TextColumnFam">
                 <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
               </td>
               <td valign="top">

@@ -706,9 +706,9 @@ require 'Include/Header.php';
     <?php
 } ?>
     <div class="box box-info clearfix">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?= gettext('Personal Info') ?></h3>
-            <div class="pull-right"><br/>
+            <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
@@ -717,7 +717,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-md-2">
                         <label><?= gettext('Gender') ?>:</label>
-                        <select name="Gender" class="form-control">
+                        <select name="Gender" class="form-control input-sm">
                             <option value="0"><?= gettext('Select Gender') ?></option>
                             <option value="0" disabled>-----------------------</option>
                             <option value="1" <?php if ($iGender == 1) {
@@ -781,7 +781,7 @@ require 'Include/Header.php';
                 <div class="row">
                     <div class="col-md-2">
                         <label><?= gettext('Birth Month') ?>:</label>
-                        <select name="BirthMonth" class="form-control">
+                        <select name="BirthMonth" class="form-control input-sm">
                             <option value="0" <?php if ($iBirthMonth == 0) {
         echo 'selected';
     } ?>><?= gettext('Select Month') ?></option>
@@ -825,7 +825,7 @@ require 'Include/Header.php';
                     </div>
                     <div class="col-md-2">
                         <label><?= gettext('Birth Day') ?>:</label>
-                        <select name="BirthDay" class="form-control">
+                        <select name="BirthDay" class="form-control input-sm">
                             <option value="0"><?= gettext('Select Day') ?></option>
                             <?php for ($x = 1; $x < 32; $x++) {
         if ($x < 10) {
@@ -843,7 +843,7 @@ require 'Include/Header.php';
                     <div class="col-md-2">
                         <label><?= gettext('Birth Year') ?>:</label>
                         <input type="text" name="BirthYear" value="<?php echo $iBirthYear ?>" maxlength="4" size="5"
-                               placeholder="yyyy" class="form-control">
+                               placeholder="yyyy" class="form-control input-sm">
                         <?php if ($sBirthYearError) {
         ?><font color="red"><br><?php echo $sBirthYearError ?>
                             </font><?php
@@ -864,16 +864,16 @@ require 'Include/Header.php';
         </div>
     </div>
     <div class="box box-info clearfix">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?= gettext("Person or Family Info") ?></h3>
-            <div class="pull-right"><br/>
+            <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
             <div class="form-group col-md-3">
                 <label><?= gettext("Person or Family Role") ?>:</label>
-                <select name="FamilyRole" class="form-control">
+                <select name="FamilyRole" class="form-control input-sm">
                     <option value="0"><?= gettext("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php 
@@ -912,7 +912,7 @@ require 'Include/Header.php';
               <div class="form-group">
                 <div class="row">
                     <div class="col-md-12">
-                      <div class="box-header">
+                      <div class="box-header with-border">
                         <h3 class="box-title"><?= gettext('Person or Family Address') ?></h3>
                       </div>
                     </div><!-- /.box-header -->
@@ -972,9 +972,9 @@ require 'Include/Header.php';
         </div>
     </div>
     <div class="box box-info clearfix">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?= gettext('Contact Info') ?></h3>
-            <div class="pull-right"><br/>
+            <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
@@ -1289,9 +1289,9 @@ require 'Include/Header.php';
         </div>
     </div>
     <div class="box box-info clearfix">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?= gettext('Membership Info') ?></h3>
-            <div class="pull-right"><br/>
+            <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
@@ -1354,9 +1354,9 @@ require 'Include/Header.php';
   <?php if ($numCustomFields > 0) {
                             ?>
     <div class="box box-info clearfix">
-        <div class="box-header">
+        <div class="box-header with-border">
             <h3 class="box-title"><?= gettext('Custom Fields') ?></h3>
-            <div class="pull-right"><br/>
+            <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->

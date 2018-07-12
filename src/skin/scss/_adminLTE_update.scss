@@ -42,7 +42,7 @@ the buttons
 }
 
 .btn-link-menu {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
   box-shadow: none !important;
 }
 
@@ -73,7 +73,7 @@ the buttons
   border-color: #ddd !important;
 }
 
-.form-control {
+input.form-control {
   border-top:0px;
   border-left:0px;
   border-right:0px;
@@ -82,6 +82,11 @@ the buttons
   height : 25px;
   padding: 12px 10px !important;
 }
+
+select.form-control {
+  color:black !important;
+}
+
 
 .input-group-addon {
   border:0px;
@@ -104,6 +109,12 @@ max-width: 100%;
 margin-bottom: 5px;
 font-weight: 400;
 color:gray;
+margin-top: 8px;
+}
+
+td.LabelColumn h2 {
+  font-size:12px;
+  margin-top:0px;
 }
 
 select[size] {
@@ -424,4 +435,9 @@ width: 100%;
     background-color: rgba(255, 255, 255, 0.95) !important;
     background-color:rgba(255, 255, 255, 0.5);box-shadow: 0 2px 2px 0 rgba(156,156,156,.14),0 3px 1px -2px rgba(128,128,128,.2),0 3px 10px 0 rgba(128,128,128,.12) !important;
     margin-top:-8px;
+}
+
+
+td.TextColumnFam  {
+padding: 4px !important;
 }

@@ -103,9 +103,17 @@ $(document).ready(function () {
     ]
   });
   
+  $("#groupsTable").on( 'search.dt', function () {              
+    var info = window.CRM.dataTableList.page.info();       
+    $('#numberOfGroups').html(info.recordsDisplay);
+  });
+  
   $('#table-filter').on('change', function(){
        window.CRM.dataTableList.search(this.value).draw();
        localStorage.setItem("groupSelect",this.selectedIndex);
+       
+       var info = window.CRM.dataTableList.page.info();       
+       $('#numberOfGroups').html(info.recordsDisplay);
   });
   
   $(document).on("click","#AddGroupToCart",function(link){
