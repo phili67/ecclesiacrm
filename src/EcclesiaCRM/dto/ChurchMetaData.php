@@ -74,21 +74,29 @@ class ChurchMetaData
     {
         return SystemConfig::getValue('sChurchWebSite');
     }
-
+    
     public static function getChurchLatitude()
     {
+      if (!empty(self::getChurchFullAddress())) {
         if (empty(SystemConfig::getValue('iChurchLatitude'))) {
             self::updateLatLng();
         }
         return SystemConfig::getValue('iChurchLatitude');
+      }
+      
+      return 0;
     }
 
     public static function getChurchLongitude()
     {
+      if (!empty(self::getChurchFullAddress())) {
         if (empty(SystemConfig::getValue('iChurchLongitude'))) {
             self::updateLatLng();
         }
         return SystemConfig::getValue('iChurchLongitude');
+      }
+      
+      return 0;
     }
 
     private static function updateLatLng()
