@@ -316,7 +316,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 // Style sheet (CSS) file selection options
 function StyleSheetOptions($currentStyle)
 {
-    foreach (['skin-blue-light','skin-yellow-light', 'skin-green-light', 'skin-purple-light', 'skin-red-light', 'skin-black-light'] as $stylename) {
+    foreach (['skin-blue-light','skin-yellow-light', 'skin-green-light', 'skin-purple-light', 'skin-red-light'] as $stylename) {
         echo '<option value="' . $stylename . '"';
         if ($stylename == $currentStyle) {
             echo ' selected';
@@ -487,7 +487,7 @@ foreach ($userProfiles as $userProfile) {
                     } ?>
                     <tr>
                         <td><?= gettext('Login Name') ?>:</td>
-                        <td><input type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
+                        <td><input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
                     </tr>
 
                     <tr>
@@ -573,7 +573,7 @@ foreach ($userProfiles as $userProfile) {
                     </tr>
                     <tr>
                         <td><?= gettext('Style') ?>:</td>
-                        <td class="TextColumnWithBottomBorder"><select name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
+                        <td class="TextColumnWithBottomBorder"><select class="form-control" name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
                     </tr>
                   </tbody>
                 </table>
@@ -638,7 +638,7 @@ foreach ($userProfiles as $userProfile) {
                         $sel2 = '';
                     }
                     echo "\n<tr class='user_settings' data-name='".$ucfg_name."'>";
-                    echo "<td><select name=\"new_permission[$ucfg_id]\">";
+                    echo "<td><select class=\"form-control\"  name=\"new_permission[$ucfg_id]\">";
                     echo "<option value=\"FALSE\" $sel1>" . gettext('False');
                     echo "<option value=\"TRUE\" $sel2>" . gettext('True');
                     echo '</select></td>';
@@ -649,14 +649,14 @@ foreach ($userProfiles as $userProfile) {
                     // Current Value
                     if ($ucfg_type == 'text') {
                         echo "<td>
-            <input type=\"text\" size=\"30\" maxlength=\"255\" name=\"new_value[$ucfg_id]\"
+            <input class=\"form-control input-md\" type=\"text\" size=\"30\" maxlength=\"255\" name=\"new_value[$ucfg_id]\"
             value=\"" . htmlspecialchars($ucfg_value, ENT_QUOTES) . '"></td>';
                     } elseif ($ucfg_type == 'textarea') {
                         echo "<td>
             <textarea rows=\"4\" cols=\"30\" name=\"new_value[$ucfg_id]\">"
                             . htmlspecialchars($ucfg_value, ENT_QUOTES) . '</textarea></td>';
                     } elseif ($ucfg_type == 'number' || $ucfg_type == 'date') {
-                        echo '<td><input type="text" size="15"'
+                        echo '<td><input class="form-control input-md" type="text" size="15"'
                             . " maxlength=\"15\" name=\"new_value[$ucfg_id]\" value=\"$ucfg_value\"></td>";
                     } elseif ($ucfg_type == 'boolean') {
                         if ($ucfg_value) {
@@ -666,7 +666,7 @@ foreach ($userProfiles as $userProfile) {
                             $sel1 = 'SELECTED';
                             $sel2 = '';
                         }
-                        echo "<td><select name=\"new_value[$ucfg_id]\">";
+                        echo "<td><select class=\"form-control\" name=\"new_value[$ucfg_id]\">";
                         echo "<option value=\"\" $sel1>" . gettext('False');
                         echo "<option value=\"1\" $sel2>" . gettext('True');
                         echo '</select></td>';

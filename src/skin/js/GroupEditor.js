@@ -247,9 +247,9 @@ $("document").ready(function()
           if(type === 'display')
           {
             if (data === 'Student' || data === 'Teacher')
-              return '<input type="text" class="roleName" id="roleName-' + full.lst_OptionID + '" value="' + i18next.t(data) + '" readonly>';
+              return '<input type="text" class="form-control input-md" id="roleName-' + full.lst_OptionID + '" value="' + i18next.t(data) + '" readonly>';
             else
-              return '<input type="text" class="roleName" id="roleName-' + full.lst_OptionID + '" value="' + data + '">';
+              return '<input type="text" class="form-control input-md" id="roleName-' + full.lst_OptionID + '" value="' + data + '">';
           }
           else
             return data;

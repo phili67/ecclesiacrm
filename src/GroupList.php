@@ -27,21 +27,31 @@ $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 
 ?>
 
-<p>
-<label>
-<?= gettext("Show type of group:") ?>
-<select id="table-filter" class="form-control input-sm">
-<option value=""><?= gettext("All") ?></option>
-<?php
-  echo '<option>'.gettext("Unassigned").'</option>';
-  foreach ($rsGroupTypes as $groupType) {
-      echo '<option>'.$groupType->getOptionName().'</option>';
-  } ?>
-</select>
-</label>
-</p>
+<div class="row">
+  <div class="col-lg-3">
+    <label>
+      <?= gettext("Show type of group:") ?>
+    </label>
+  </div>
+  <div class="col-lg-3">
+    <select id="table-filter" class="form-control input-sm">
+    <option value=""><?= gettext("All") ?></option>
+    <?php
+      echo '<option>'.gettext("Unassigned").'</option>';
+      foreach ($rsGroupTypes as $groupType) {
+          echo '<option>'.$groupType->getOptionName().'</option>';
+      } ?>
+    </select>
+  </div>
+  <div class="col-lg-5" align="right">
+    <label>
+      <?= gettext("Number of groups:") ?>
+    </label>
+    <span id="numberOfGroups"></span>
+  </div>
+</div>
 
-
+<br>
 
 <div class="box box-body">
 <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">

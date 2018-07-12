@@ -65,7 +65,7 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
 ?>
-    <div class="alert alert-info alert-dismissible bg-purple disabled color-palette" id="Menu_Banner">
+    <div class="callout callout-success alert alert-info alert-dismissible " id="Menu_Banner">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
 
     <?php
@@ -244,7 +244,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
-        <div class="small-box bg-olive">
+        <div class="small-box bg-purple">
             <div class="inner">
                 <h3 id="peopleStatsDashboard">
                     0
@@ -357,7 +357,7 @@ if ($depositData) { // If the user has Finance permissions, then let's display t
 <div class="row">
     <div class="col-lg-6">
         <div class="box box-solid">
-            <div class="box-header">
+            <div class="box-header with-border">
                 <i class="fa fa-user-plus"></i>
                 <h3 class="box-title"><?= gettext('Latest Families') ?></h3>
                 <div class="box-tools pull-right">
@@ -386,7 +386,7 @@ if ($depositData) { // If the user has Finance permissions, then let's display t
     </div>
     <div class="col-lg-6">
         <div class="box box-solid">
-            <div class="box-header">
+            <div class="box-header with-border">
                 <i class="fa fa-check"></i>
                 <h3 class="box-title"><?= gettext('Updated Families') ?></h3>
                 <div class="box-tools pull-right">

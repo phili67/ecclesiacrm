@@ -148,7 +148,7 @@ require '../Include/Header.php';
 </div><!-- /.row -->
 <!-- on continue -->
 <div class="box box-info">
-  <div class="box-header">
+  <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Sunday School Classes') ?></h3>
       <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -198,7 +198,7 @@ require '../Include/Header.php';
 
 
 <div class="box box-danger">
-  <div class="box-header">
+  <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Students not in a Sunday School Class') ?></h3>
       <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -265,7 +265,7 @@ require '../Include/Header.php';
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title"
-              id="delete-Image-label"><?= gettext('Add') ?> <?= gettext('Sunday School') ?> <?= gettext('Class') ?> </h4>
+              id="delete-Image-label"><?= gettext("Add Sunday School Class") ?> </h4>
         </div>
 
         <div class="modal-body">
