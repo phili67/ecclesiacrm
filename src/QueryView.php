@@ -208,7 +208,7 @@ function DoQuery()
                         //If this field is called "AddToCart", don't display this field...
                         $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
                         if ($fieldInfo->name != 'AddToCart') {
-                            echo '<th>'.$fieldInfo->name.'</th>';
+                            echo '<th>'.gettext($fieldInfo->name).'</th>';
                         }
                     } ?>
             </thead>
