@@ -14,6 +14,11 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
 
+if (!($_SESSION['user']->isMailChimpEnabled())) {
+    Redirect('Menu.php');
+    exit;
+}
+
 $mailchimp = new MailChimpService();
 
 //Set the page title

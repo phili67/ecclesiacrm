@@ -3949,6 +3949,9 @@ msgstr "Style"
 msgid "Set Permission True to give this user the ability to change their current value."
 msgstr "Fixer les permissions sur Vrai, pour permettre à l'utilisateur de modifier ses valeurs actuelles."
 
+msgid "GRPD Data Protection Officer"
+msgstr "DPO pour le RGPD"
+
 #: UserList.php:36
 msgid "User Listing"
 msgstr "Liste des Utilisateurs"

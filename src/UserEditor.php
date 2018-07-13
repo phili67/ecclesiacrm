@@ -86,12 +86,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         }
     } else {
        
-        if (isset($_POST['PastoralCare'])) {
-            $PastoralCare = 1;
-        } else {
-            $PastoralCare = 0;
-        }
-        
         if (isset($_POST['AddRecords'])) {
             $AddRecords = 1;
         } else {
@@ -153,6 +147,25 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $Admin = 0;
         }
+        
+        if (isset($_POST['PastoralCare'])) {
+            $PastoralCare = 1;
+        } else {
+            $PastoralCare = 0;
+        }
+
+        if (isset($_POST['MailChimp'])) {
+            $MailChimp = 1;
+        } else {
+            $MailChimp = 0;
+        }
+
+        if (isset($_POST['GdrpDpo'])) {
+            $GdrpDpo = 1;
+        } else {
+            $GdrpDpo = 0;
+        }
+        
         $Style = InputUtils::LegacyFilterInput($_POST['Style']);
 
         // Initialize error flag
@@ -175,6 +188,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setLastLogin(date('Y-m-d H:i:s'));
                     
                     $user->setPastoralCare($PastoralCare);
+                    $user->setMailChimp($MailChimp);
+                    $user->setGdrpDpo($GdrpDpo);
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);
@@ -219,8 +234,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $oldUserName = $user->getUserName();
                     
-                    $user->setPastoralCare($PastoralCare);
                     $user->setAddRecords($AddRecords);
+                    $user->setPastoralCare($PastoralCare);
+                    $user->setMailChimp($MailChimp);
+                    $user->setGdrpDpo($GdrpDpo);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);                    
                     $user->setShowCart($ShowCart);
@@ -280,8 +297,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $sAction = 'add';
             $vNewUser = 'true';
 
-            $usr_PastoralCare = 0;
             $usr_AddRecords = 0;
+            $usr_PastoralCare = 0;
+            $usr_GDRP_DPO = 0;
+            $usr_MailChimp = 0;
             $usr_EditRecords = 0;
             $usr_DeleteRecords = 0;
             $usr_ShowCart = 0;
@@ -293,7 +312,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_Admin = 0;
             $usr_EditSelf = 1;
             $usr_Canvasser = 0;
-            $usr_Style = '';
+            $usr_Style = 'skin-blue-light';
         }
 
         // New user without person selected yet
@@ -301,8 +320,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $sAction = 'add';
         $bShowPersonSelect = true;
 
-        $usr_PastoralCare = 0;
         $usr_AddRecords = 0;
+        $usr_PastoralCare = 0;
+        $usr_GDRP_DPO = 0;
+        $usr_MailChimp = 0;
         $usr_EditRecords = 0;
         $usr_DeleteRecords = 0;
         $usr_ShowCart = 0;
@@ -315,7 +336,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_EditSelf = 1;
         $usr_Canvasser = 0;
         $sUserName = '';
-        $usr_Style = '';
+        $usr_Style = 'skin-blue-light';
         $vNewUser = 'true';
 
         // Get all the people who are NOT currently users
@@ -502,13 +523,6 @@ foreach ($userProfiles as $userProfile) {
                     </tr>
 
                     <tr>
-                        <td><?= gettext('Pastoral Care') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
-
-                    <tr>
                         <td><?= gettext('Add Records') ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
                         echo ' checked';
@@ -589,6 +603,28 @@ foreach ($userProfiles as $userProfile) {
                         echo ' checked';
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
                     </tr>
+                    
+                                        <tr>
+                        <td><?= gettext('MailChimp') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
+                        echo ' checked';
+                    } ?>></td>
+                    </tr>
+
+                    <tr>
+                        <td><?= gettext("GRPD Data Protection Officer") ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?php if ($usr_GDRP_DPO) {
+                        echo ' checked';
+                    } ?>></td>
+                    </tr>
+
+                    <tr>
+                        <td><?= gettext('Pastoral Care') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
+                        echo ' checked';
+                    } ?>></td>
+                    </tr>
+
                     <tr>
                         <td><?= gettext('Style') ?>:</td>
                         <td class="TextColumnWithBottomBorder"><select class="form-control input-sm" name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>

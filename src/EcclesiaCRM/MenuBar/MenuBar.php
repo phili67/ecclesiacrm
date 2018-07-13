@@ -239,8 +239,10 @@ class MenuBar {
       
       
       // the Email
-      $menu = new Menu ("Email","fa fa-envelope","email/Dashboard.php",true);
-      $this->addMenu($menu);
+      if ($_SESSION['user']->isMailChimpEnabled()) {
+        $menu = new Menu ("Email","fa fa-envelope","email/Dashboard.php",true);
+        $this->addMenu($menu);
+      }
       
       // The deposit      
       $menu = new Menu ("Deposit","fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());

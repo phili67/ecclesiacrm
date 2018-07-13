@@ -55,8 +55,5 @@ ALTER TABLE `user_usr` ADD COLUMN `usr_MailChimp` tinyint(1) DEFAULT '0';
 -- 
 -- GDRP update
 --
-ALTER TABLE `user_usr` ADD COLUMN `usr_GDRP_PDO` tinyint(1) DEFAULT '0';
-ALTER TABLE `person_per` ADD COLUMN `per_GDPR_last_consult` datetime default NULL;
-
-
-`pst_cr_date` datetime default NULL,
+ALTER TABLE `user_usr` ADD COLUMN `usr_GDRP_DPO` tinyint(1) DEFAULT '0';
+ALTER TABLE `person_per` ADD COLUMN `per_DateDeactivated` datetime default NULL;

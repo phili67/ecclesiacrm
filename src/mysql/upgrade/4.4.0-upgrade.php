@@ -57,7 +57,7 @@ require '../../Include/Config.php';*/
     //why_come
     $pstCare = new PastoralCare();
       
-    $pstCare->setTypeId(1);//getJoin
+    $pstCare->setTypeId(2);//getJoin
 
     $pstCare->setPersonId($wCame['why_per_ID']);
     $pstCare->setPastorId(1);// the administrator per default
@@ -122,6 +122,23 @@ require '../../Include/Config.php';*/
   // now we can drop the table
   $sqlEvents = "DROP TABLE IF EXISTS `whycame_why`";
   $connection->exec($sqlEvents);
+  
+  // upgrade languages
+  switch (SystemConfig::getValue('sLanguage')) {
+    case 'fr_FR':
+       $sql = "INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
+(1, 'Pourquoi êtes-vous venu à l\'église', '', 1),
+(2, 'Pourquoi continuez-vous à venir ?', '', 1),
+(3, 'Avez-vous une requêtes à nous faire ?', '', 1),
+(4, 'Comment avez-vous entendu parler de l\'église ?', '', 1),
+(5, 'Baptême', 'Formation', 0),
+(6, 'Mariage', 'Formation', 0),
+(7, 'Relation d\'aide', 'Thérapie et suivi', 0)
+ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);";
+       $connection->exec($sql);
+       
+       break;
+  }
   
   $logger->info("End of translate");
 ?>
