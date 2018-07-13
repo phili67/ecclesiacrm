@@ -92,7 +92,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
                     $unclassified .= '<img src="'.SystemURLs::getRootPath()."/skin/icons/markers/".$peopleWithBirthDay->getUrlIcon().'">';
                 }
                 
-                $unclassified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
+                $unclassified .= '<a href="'.$peopleWithBirthDay->getViewURI().'" class="btn btn-link-menu" style="text-decoration: none">'.$peopleWithBirthDay->getFullNameWithAge().'</a>';
                 
                 $unclassified .= '</label>';
                 $unclassified .= '</div>';
@@ -173,7 +173,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
             } ?>
             <div class="col-sm-3">
             <label class="checkbox-inline">
-              <a href="<?= $Anniversary->getViewURI() ?>" class="btn btn-link" style="text-decoration: none"><?= $Anniversary->getFamilyString() ?></a>
+              <a href="<?= $Anniversary->getViewURI() ?>" class="btn btn-link-menu" style="text-decoration: none"><?= $Anniversary->getFamilyString() ?></a>
             </label>
             </div>
 
