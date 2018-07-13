@@ -111,6 +111,8 @@ require '../../Include/Config.php';*/
     
   }
   
+  // now we delete the unusefull files
+  unlink(SystemURLs::getDocumentRoot()."/WhyCameEditor.php");
   unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/WhyCame.php");
   unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/WhyCameQuery.php");
   unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/model/EcclesiaCRM/Base/WhyCame.php");
