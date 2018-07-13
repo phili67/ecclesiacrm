@@ -50,3 +50,13 @@ CREATE TABLE pastoral_care (
 -- ALTER TABLE `query_qry` DROP COLUMN `qry_Type`;
 --
 ALTER TABLE `user_usr` ADD COLUMN `usr_PastoralCare` tinyint(1) DEFAULT '0';
+ALTER TABLE `user_usr` ADD COLUMN `usr_MailChimp` tinyint(1) DEFAULT '0';
+
+-- 
+-- GDRP update
+--
+ALTER TABLE `user_usr` ADD COLUMN `usr_GDRP_PDO` tinyint(1) DEFAULT '0';
+ALTER TABLE `person_per` ADD COLUMN `per_GDPR_last_consult` datetime default NULL;
+
+
+`pst_cr_date` datetime default NULL,

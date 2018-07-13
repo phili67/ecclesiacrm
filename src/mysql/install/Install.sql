@@ -843,6 +843,7 @@ CREATE TABLE `person_per` (
   `per_FacebookID` bigint(20) unsigned default NULL,
   `per_Twitter` varchar(50) default NULL,
   `per_LinkedIn` varchar(50) default NULL,
+  `per_GDPR_Date` datetime default NULL,
   PRIMARY KEY  (`per_ID`),
   KEY `per_ID` (`per_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
@@ -1258,6 +1259,8 @@ CREATE TABLE `user_usr` (
   `usr_Notes` tinyint(1) unsigned NOT NULL default '0',
   `usr_Admin` tinyint(1) unsigned NOT NULL default '0',
   `usr_PastoralCare` tinyint(1) DEFAULT '0';
+  `usr_GDRP_PDO` tinyint(1) DEFAULT '0',
+  `usr_MailChimp` tinyint(1) DEFAULT '0',
   `usr_SearchLimit` tinyint(4) default '10',
   `usr_Style` varchar(50) default 'Style.css',
   `usr_showPledges` tinyint(1) NOT NULL default '0',
