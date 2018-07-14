@@ -3,6 +3,23 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
 
+require '../Include/CountryDropDown.php';
+require '../Include/StateDropDown.php';
+
+function getSupportedLocales()
+{
+  $localesFile = file_get_contents(SystemURLs::getDocumentRoot()."/locale/locales.json");
+  $locales = json_decode($localesFile, true);
+  $res = '';
+  $first = true;
+  foreach ($locales as $key => $value) {
+    $res .= '<option value="'.$value["locale"].'" '.(($first)?"selected":"").'>'.gettext($key)." (".$value["locale"].")"."</option>\n";
+    $first = false;
+  }
+
+  return $res;
+}
+
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
 $sPageTitle = 'EcclesiaCRM – Setup';
@@ -126,9 +143,26 @@ require '../Include/HeaderNotLoggedIn.php';
                 <small id="DB_PASSWORD2_HELP" class="form-text text-muted"></small>
             </div>
         </section>
-        <!--
-        <h2>Church Info</h2>
+        <h2>Church Main Infos</h2>
         <section>
+            <div class="form-group">
+                <label for="sLanguage">Language Messages (For the system Settings)</label>
+                <select name="sLanguage" id="sChurchName"  class="form-control" aria-describedby="sChurchNameHelp" required>
+                  <?= getSupportedLocales() ?>
+                </select>
+                <small id="sChurchNameHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="sTimeZoneSet">Time Zone Set : WebDAV | CalDAV</label>
+                <input type="text" name="sTimeZoneSet" id="sTimeZoneSet" class="form-control"
+                       aria-describedby="sTimeZoneSetHelp" required value="america/new_york">
+                <small id="sTimeZoneSetHelp" class="form-text text-muted">
+                    Time zone fr webdav server : america/new_york<br>
+                    In france : Europe/Paris<br>
+                    You can find the defaut time Zone : <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>
+                </small>
+            </div>
+            
             <div class="form-group">
                 <label for="sChurchName">Church Name</label>
                 <input type="text" name="sChurchName" id="sChurchName" class="form-control"
@@ -136,23 +170,23 @@ require '../Include/HeaderNotLoggedIn.php';
                 <small id="sChurchNameHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="sChurchAddress">Church Address</label>
+                <label for="sChurchAddress">Church Address (1 street Christian)</label>
                 <input type="text" name="sChurchAddress" id="sChurchAddress" class="form-control"
                        aria-describedby="sChurchAddressHelp" required>
                 <small id="sChurchAddressHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchCity">Church City</label>
+                <label for="sChurchCity">Church City (New York)</label>
                 <input type="text" name="sChurchCity" id="sChurchCity" class="form-control"
                        aria-describedby="sChurchCityHelp" required>
                 <small id="sChurchCityHelp" class="form-text text-muted"></small>
             </div>
 
             <div class="form-group">
-                <label for="sChurchState">Church State</label>
+                <label for="sChurchState">Church State </label>
                 <input type="text" name="sChurchState" id="sChurchState" class="form-control"
-                       aria-describedby="sChurchStateHelp" required>
+                       aria-describedby="sChurchStateHelp">
                 <small id="sChurchStateHelp" class="form-text text-muted"></small>
             </div>
 
@@ -165,8 +199,10 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sChurchCountry">Church Country</label>
-                <input type="text" name="sChurchCountry" id="sChurchCountry" class="form-control"
-                       aria-describedby="sChurchCountryHelp" required>
+                    <?php
+                      $countriesDDF = new CountryDropDown();     
+                      echo $countriesDDF->getDropDown("", "sChurchCountry");
+                    ?>
                 <small id="sChurchCountryHelp" class="form-text text-muted"></small>
             </div>
 
@@ -188,29 +224,107 @@ require '../Include/HeaderNotLoggedIn.php';
                 This information can be updated late on via <b><i>System Settings</i></b>.
             </div>
         </section>
+        <h2>Church Signer | Tax Signer | DPO GRPD</h2>
+        <section>
+            <div class="form-group">
+                <label for="sChurchName">Confirm Signer</label>
+                <input type="text" name="sConfirmSigner" id="sConfirmSigner" class="form-control"
+                       aria-describedby="sConfirmSignerHelp" required>
+                <small id="sConfirmSignerHelp" class="form-text text-muted">
+                  Database information confirmation and correction report signer
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="sReminderSigner">Reminder Signer</label>
+                <input type="text" name="sReminderSigner" id="sReminderSigner" class="form-control"
+                       aria-describedby="sReminderSignerHelp" required>
+                <small id="sReminderSignerHelp" class="form-text text-muted">
+                  Pledge Reminder Signer
+                </small>
+            </div>
 
+            <div class="form-group">
+                <label for="sTaxSigner">Tax Signer</label>
+                <input type="text" name="sTaxSigner" id="sTaxSigner" class="form-control"
+                       aria-describedby="sTaxSignerHelp">
+                <small id="sTaxSignerHelp" class="form-text text-muted">
+                  Tax Report signer
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="sGdprDpoSigner">DPO Grpd Signer</label>
+                <input type="text" name="sGdprDpoSigner" id="sConfirmSigner" class="form-control"
+                       aria-describedby="sGdprDpoSignerHelp">
+                <small id="sGdprDpoSignerHelp" class="form-text text-muted">
+                  The DPO administrator for the GDPR.
+                </small>
+            </div>
+            
+            <div class="callout callout-info" id="prerequisites-war">
+                This information can be updated late on via <b><i>System Settings</i> too</b>.
+            </div>
+        </section>
+        
+        <h2>Social Networks</h2>
+        <section>
+
+            <div class="form-group">
+                <label for="sChurchName">Church WebSite</label>
+                <input type="text" name="sChurchWebSite" id="sChurchWebSite" class="form-control"
+                       aria-describedby="sChurchWebSiteHelp">
+                <small id="sChurchWebSiteHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="sChurchAddress">Church FaceBook</label>
+                <input type="text" name="sChurchFB" id="sChurchFB" class="form-control"
+                       aria-describedby="sChurchFBHelp">
+                <small id="sChurchFBHelp" class="form-text text-muted"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="sChurchTwitter">Church Twitter</label>
+                <input type="text" name="sChurchTwitter" id="sChurchTwitter" class="form-control"
+                       aria-describedby="sChurchTwitterHelp">
+                <small id="sChurchFBHelp" class="form-text text-muted"></small>
+            </div>
+
+
+            <div class="callout callout-info" id="prerequisites-war">
+                This information can be updated late on via <b><i>System Settings</i> too</b>.
+            </div>
+        </section>
+       
         <h2>Mail Server</h2>
         <section>
+            <div class="callout callout-info" id="prerequisites-war">
+                This information can be updated late on via <b><i>System Settings</i> too</b>.
+            </div>
             <div class="form-group">
                 <label for="sSMTPHost">SMTP Host</label>
                 <input type="text" name="sSMTPHost" id="sSMTPHost" class="form-control"
-                       aria-describedby="sSMTPHostHelp" required>
+                       aria-describedby="sSMTPHostHelp">
                 <small id="sSMTPHostHelp" class="form-text text-muted">
-                    Either a single hostname, you can also specify a different port by using this format: [hostname:port]
+                    Either a single hostname, you can also specify a different port by using this format: [hostname:port]<br>
+                    SMTP Server Address (mail.server.com:25)<br>
+                    SMTP Server Address (mail.server.com:587) for an SSL over TLS connexion
                 </small>
             </div>
             <div class="form-group">
-                <label for="iSMTPTimeout">SMTP Host Timeout</label>
-                <input type="number" name="iSMTPTimeout" id="iSMTPTimeout" class="form-control"
-                       aria-describedby="iSMTPTimeoutHelp" value="30" required>
-                <small id="iSMTPTimeoutHelp" class="form-text text-muted">
-                    The SMTP server timeout in seconds.
+                <label for="bSMTPAuth">SMTP Auth</label>
+                <select name="bSMTPAuth" id="bSMTPAuth"  class="form-control" aria-describedby="bSMTPAuthHelp">
+                  <option value="1" selected>True</option> 
+                  <option value="0">False</option>
+                </select>
+                <small id="sSMTPHostHelp" class="form-text text-muted">
+                    Does your SMTP server require auththentication (username/password)?
                 </small>
             </div>
             <div class="form-group">
                 <label for="sSMTPUser">SMTP Host User</label>
                 <input type="text" name="sSMTPUser" id="sSMTPUser" class="form-control"
-                       aria-describedby="sSMTPUserHelp" required>
+                       aria-describedby="sSMTPUserHelp">
                 <small id="sSMTPUserHelp" class="form-text text-muted">
                     SMTP username.
                 </small>
@@ -218,12 +332,59 @@ require '../Include/HeaderNotLoggedIn.php';
             <div class="form-group">
                 <label for="sSMTPPass">SMTP Host Password</label>
                 <input type="password" name="sSMTPPass" id="sSMTPPass" class="form-control"
-                       aria-describedby="sSMTPPassHelp" required>
+                       aria-describedby="sSMTPPassHelp">
                 <small id="sSMTPPassHelp" class="form-text text-muted">
                     SMTP password.
                 </small>
             </div>
-        </section>-->
+            <div class="form-group">
+                <label for="iSMTPTimeout">SMTP Host Timeout</label>
+                <input type="number" name="iSMTPTimeout" id="iSMTPTimeout" class="form-control"
+                       aria-describedby="iSMTPTimeoutHelp" value="10">
+                <small id="iSMTPTimeoutHelp" class="form-text text-muted">
+                    The SMTP server timeout in seconds.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="sToEmailAddress">Send to Email address</label>
+                <input type="email" name="sToEmailAddress" id="sToEmailAddress" class="form-control"
+                       aria-describedby="sToEmailAddressHelp" value="">
+                <small id="sToEmailAddressHelp" class="form-text text-muted">
+                    Default account for receiving a copy of all emails
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="bPHPMailerAutoTLS">Mailer Auto TLS</label>
+                <select name="bPHPMailerAutoTLS" id="bPHPMailerAutoTLS"  class="form-control" aria-describedby="bPHPMailerAutoTLSHelp">
+                  <option value="0" selected>False</option> 
+                  <option value="1">True</option>
+                </select>
+                <small id="bPHPMailerAutoTLSHelp" class="form-text text-muted">
+                    Automatically enable SMTP encryption if offered by the relaying server.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="sPHPMailerSMTPSecure">PHPMailer SMTP Secure</label>
+                <select name="sPHPMailerSMTPSecure" id="sPHPMailerSMTPSecure"  class="form-control" aria-describedby="sPHPMailerSMTPSecureHelp">
+                  <option value="" selected>None</option> 
+                  <option value="tls">TLS</option> 
+                  <option value="ssl">SSL</option>
+                </select>
+                <small id="bPHPMailerAutoTLSHelp" class="form-text text-muted">
+                    Set the encryption system to use - ssl (deprecated) or tls
+                </small>
+            </div>
+        </section>
+        
+        <h2>Final infos</h2>
+        <section>
+            <div class="callout callout-info" id="prerequisites-war">
+                To open a connection to EcclesiaCRM, use the inforamtion below :
+                <ul>
+                  <li>login    : <b>admin</b></li>
+                  <li>password : <b>changeme</b></li>
+            </div>
+        </section>
     </div>
 </form>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery.steps/jquery.steps.min.js"></script>
