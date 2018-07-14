@@ -1,6 +1,7 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
 
+$bSuppressSessionTests = true;
 require_once 'Header-function.php';
 require_once 'Header-Security.php';
 
