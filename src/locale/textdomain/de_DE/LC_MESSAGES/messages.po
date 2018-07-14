@@ -5728,8 +5728,7 @@ msgstr "Südafrika"
 
 #: settings-countries.php:212
 msgid "South Georgia & South Sandwich Islands"
-msgstr "South Georgia & South Sandwich Islands\n"
-""
+msgstr "South Georgia & South Sandwich Islands"
 
 #: settings-countries.php:213
 msgid "South Korea (대한민국)"
@@ -5753,8 +5752,7 @@ msgstr "Turkmenistan"
 
 #: settings-countries.php:238
 msgid "Turks and Caicos Islands"
-msgstr "Turks and Caicos Islands\n"
-""
+msgstr "Turks and Caicos Islands"
 
 #: settings-countries.php:239
 msgid "Tuvalu"
