@@ -6380,7 +6380,7 @@ msgid "Manage Profiles"
 msgstr "Profile Verwalten"
 
 msgid "Add Pastoral Care Notes"
-msgstr "Neue Pastoral Care Notizen Hinzufügen"
+msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
 msgid "Modify"
 msgstr "Ändern"
@@ -6627,3 +6627,12 @@ msgstr "Lehrer in Korb Entfernen"
 
 msgid "Pastoral care for"
 msgstr "Pastoral Pflege für"
+
+msgid "Personals"
+msgstr "Persönliche"
+
+msgid "Missing Families?"
+msgstr "Vermisste Familie ?"
+
+msgid "Update Family Latitude or Longitude now."
+msgstr "Familie Längengrad oder Breitengrad jetz Aktualisieren."
