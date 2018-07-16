@@ -116,19 +116,10 @@ require '../Include/Header.php';
         class="fa fa-user-plus"></i><?= gettext('Add Students') ?> </a>
 
   <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
-  <?php
-    if (Cart::StudentInCart($iGroupId)) {
-  ?>
-    <a class="btn btn-app bg-aqua makeCheckOut" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-cart-arrow-down"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
-    <a class="btn btn-app RemoveFromStudentGroupCart" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Student from Cart") ?></span></a>  
-  <?php 
-    } else {
-  ?>
   <?php 
   if ($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId)) {
   ?>
-    <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>
-  
+    <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>  
   <?php 
     }
   ?>
@@ -144,23 +135,26 @@ require '../Include/Header.php';
   <?php 
     }
   ?>
-   <?php
-    if ($_SESSION['user']->isShowCartEnabled()) {
-   ?>
-    <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Student to Cart") ?></span></a>    
   <?php
-     }
-   }
+    if (Cart::StudentInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()){
+  ?>
+    <a class="btn btn-app RemoveFromStudentGroupCart" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Students from Cart") ?></span></a>
+  <?php 
+    } else if ($_SESSION['user']->isShowCartEnabled()) {
+   ?>
+    <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Students to Cart") ?></span></a>    
+  <?php
+    }
   ?>
   <?php
     if (Cart::TeacherInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()) {
   ?>
-    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teacher from Cart") ?></span></a>
+    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teachers from Cart") ?></span></a>
     
   <?php 
     } else if ($_SESSION['user']->isShowCartEnabled()) {
   ?>
-    <a class="btn btn-app AddToTeacherGroupCart <?= (count($rsTeachers) == 0)?"disabled":"" ?>" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Teacher to Cart") ?></span></a>
+    <a class="btn btn-app AddToTeacherGroupCart <?= (count($rsTeachers) == 0)?"disabled":"" ?>" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Teachers to Cart") ?></span></a>
   <?php 
    }
 
