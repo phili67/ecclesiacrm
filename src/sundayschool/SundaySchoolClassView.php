@@ -149,8 +149,7 @@ require '../Include/Header.php';
   <?php
     if (Cart::TeacherInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()) {
   ?>
-    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teachers from Cart") ?></span></a>
-    
+    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teachers from Cart") ?></span></a>    
   <?php 
     } else if ($_SESSION['user']->isShowCartEnabled()) {
   ?>
