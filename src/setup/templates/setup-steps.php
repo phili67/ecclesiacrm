@@ -10,12 +10,15 @@ function getSupportedLocales()
 {
   $localesFile = file_get_contents(SystemURLs::getDocumentRoot()."/locale/locales.json");
   $locales = json_decode($localesFile, true);
-  $res = '';
+  $res = '<br><select id="sLanguage" name="sLanguage" class="form-control select2" aria-describedby="sChurchNameHelp" style="width:100%"  required>';
   $first = true;
+                  
   foreach ($locales as $key => $value) {
     $res .= '<option value="'.$value["locale"].'" '.(($first)?"selected":"").'>'.gettext($key)." (".$value["locale"].")"."</option>\n";
     $first = false;
   }
+  
+  $res .= '</select><br>';
 
   return $res;
 }
@@ -23,13 +26,13 @@ function getSupportedLocales()
 
 function select_Timezone($selected = '') {
     $OptionsArray = timezone_identifiers_list();
-        $select= '<select name="sTimeZone" class="form-control" aria-describedby="sTimeZoneHelp" required>';
+        $select= '<br><select id="sTimeZone" name="sTimeZone" class="form-control select2" aria-describedby="sTimeZoneHelp" style="width:100%" required>';
         while (list ($key, $row) = each ($OptionsArray) ){
             $select .='<option value="'.$row.'"';
             $select .= ($key == $selected ? ' selected' : '');
             $select .= '>'.$row.'</option>';
         }  // endwhile;
-        $select.='</select>';
+        $select.='</select><br>';
   return $select;
 }
 
@@ -160,10 +163,8 @@ require '../Include/HeaderNotLoggedIn.php';
         <section>
             <div class="form-group">
                 <label for="sLanguage">Language Messages (For the system Settings)</label>
-                <select name="sLanguage" id="sChurchName"  class="form-control" aria-describedby="sChurchNameHelp" required>
-                  <?= getSupportedLocales() ?>
-                </select>
-                <small id="sChurchNameHelp" class="form-text text-muted"></small>
+                <?= getSupportedLocales() ?>
+                <small id="sLanguageHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
                 <label for="sTimeZone">Time Zone : WebDAV | CalDAV</label>
@@ -401,6 +402,7 @@ require '../Include/HeaderNotLoggedIn.php';
 </form>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery.steps/jquery.steps.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/select2/select2.full.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/setup.js"></script>
 
 <?php
