@@ -6170,13 +6170,13 @@ msgid "Families with valid self verify links"
 msgstr "Familien als gültig per Links Selbst überprüft"
 
 msgid "Add New Person"
-msgstr "Hinzufügen Neuen Person"
+msgstr "Neuen Person Hinzufügen"
 
 msgid "View All Persons"
 msgstr "View alle Personen"
 
 msgid "Add New Family"
-msgstr "Hinzufügen Neuen Familie"
+msgstr "Neuen Familie Hinzufügen"
 
 msgid "View Active Families"
 msgstr "View aktiv Familien"
@@ -6278,13 +6278,13 @@ msgid "Sundayschool Attendance"
 msgstr "Sonntagsschule Anwesenheit"
 
 msgid "Add New Group"
-msgstr "Hinzufügen Neuen Gruppe"
+msgstr "Neuen Gruppe Hinzufügen"
 
 msgid "Group Functions"
 msgstr "Gruppe Funktionen"
 
 msgid "Add Manager"
-msgstr "Hinzufügen Manager"
+msgstr "Manager Hinzufügen"
 
 msgid "Group Managers"
 msgstr "Gruppe Managern"
@@ -6308,16 +6308,16 @@ msgid "You can create/delete sunday school group. "
 msgstr "Sie können generieren/löschen Sonntagsschule Gruppe."
 
 msgid "Add new roles, but not modify or rename the Student and the Teacher roles."
-msgstr "Hinzufügen Neuen Rollen, aber nicht ändern oder umbenennen Sudent and Lehrer Rollen."
+msgstr "Neuen Rollen Hinzufügen, aber nicht ändern oder umbenennen Sudent and Lehrer Rollen."
 
 msgid "Assign a New Menu Sunday School Category"
 msgstr "Zuweisen ein Neuen Sonntagsschule Menü Kategorie"
 
 msgid "Add New Role"
-msgstr "Hinzufügen Neue Rolle"
+msgstr "Neue Rolle Hinzufügen"
 
 msgid "Add Group-Specific Properties"
-msgstr "Hinzufügen gruppenspezifischen Einstellungen"
+msgstr "Gruppenspezifischen Einstellungen Hinzufügen"
 
 msgid "Contact Info"
 msgstr "Kontaktinformationen"
@@ -6368,19 +6368,19 @@ msgid "Pastoral Care Type Editor"
 msgstr "Pastoral Pflege Typen Edit"
 
 msgid "Add a New Pastoral Care Type"
-msgstr "Hinzufügen Neue Pastoral Care Typ"
+msgstr "Neue Pastoral Care Typ Hinzufügen"
 
 msgid "Profile management"
 msgstr "Profil Verwaltung"
 
 msgid "Add Profile"
-msgstr "Hinzufügen Profil"
+msgstr "Profil Hinzufügen"
 
 msgid "Manage Profiles"
 msgstr "Profile Verwalten"
 
 msgid "Add Pastoral Care Notes"
-msgstr "Hinzufügen Neue Pastoral Care Notizen"
+msgstr "Neue Pastoral Care Notizen Hinzufügen"
 
 msgid "Modify"
 msgstr "Ändern"
@@ -6392,13 +6392,13 @@ msgid "Birthdate"
 msgstr "Geburtsdatum"
 
 msgid "Add New Calendar"
-msgstr "Hinzufügen Neue Kanlendar"
+msgstr "Neue Kanlendar Hinzufügen"
 
 msgid "Exclude/include Calendars"
 msgstr "Ausschließen/Einschließen Kalendar"
 
 msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
-msgstr "Ausschließen/Einschließen Gruppen. Für Hinzufügen ein Kalendar, Hinzufügen ein neue Gruppe."
+msgstr "Ausschließen/Einschließen Gruppen. Für ein Kalendar Hinzufügen, erst neue Gruppe Hinzufügen."
 
 msgid "Exclude/include the Shared"
 msgstr "Ausschließen/Einschließen Gemeinsam"
@@ -6416,7 +6416,7 @@ msgid "Or sign in as a different user"
 msgstr "Oder anmelden Sie sich als einem anderen Benutzernamen"
 
 msgid "Add Profile to Current User"
-msgstr "Hinzufügen Profil for Aktual Benutzer"
+msgstr "Profil for Aktual Benutzer Hinzufügen"
 
 msgid "Allow to see ballon Help"
 msgstr "erlauben ballon Help anzuzeigen"
@@ -6437,7 +6437,7 @@ msgid "Help & Manual"
 msgstr "Hilfe & Anleitung"
 
 msgid "New User"
-msgstr "Hinzufügen Benutzer"
+msgstr "Benutzer Hinzufügen "
 
 msgid "User Settings"
 msgstr "Benutzer Einstellung"
@@ -6491,7 +6491,7 @@ msgid "Choose your Document Type"
 msgstr "Wähle Dokument Typ"
 
 msgid "Add a Document"
-msgstr "Hinzufügen ein Dokument"
+msgstr "Dokument Hinzufügen"
 
 msgid "Classic Document"
 msgstr "Standarddokument"
