@@ -6624,3 +6624,6 @@ msgstr "Studenten in Korb Entfernen"
 
 msgid "Remove Teachers from Cart"
 msgstr "Lehrer in Korb Entfernen"
+
+msgid "Pastoral care for"
+msgstr "Pastoral Pflege für"
