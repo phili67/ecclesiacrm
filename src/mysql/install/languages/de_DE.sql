@@ -67,7 +67,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
   (1, 5, 5, 'nicht teilnehmenden'),
   (1, 6, 6, 'nicht teilnehmenden (staff)'),
   (1, 7, 7, 'Verstorben'),
-  (2, 1, 1, 'Représentant famille'),
+  (2, 1, 1, 'Familienoberhaupt'),
   (2, 2, 2, 'Gemeinsam'),
   (2, 3, 3, 'Kinder'),
   (2, 4, 4, 'Weitere Familienangehörige '),
@@ -79,16 +79,16 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
 ON DUPLICATE KEY UPDATE lst_OptionName=VALUES(lst_OptionName);
 
 INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
-  (1, 'p', 'Personen', 'Propriétés générales de personnes'),
-  (2, 'f', 'Familie', 'Propriétés générales de familles'),
-  (3, 'g', 'Gruppe', 'Propriétés générales de groupes'),
-  (4, 'm', 'Menu', 'Pour personnaliser le menu école du dimanche.')
+  (1, 'p', 'Personen', 'Personen Allgemeine Eigenschaften'),
+  (2, 'f', 'Familie', 'Familie Allgemeine Eigenschaften'),
+  (3, 'g', 'Gruppe', 'Gruppe Allgemeine Eigenschaften'),
+  (4, 'm', 'Menu', 'Nicht zu ändern.')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
 INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
-  (1, 'p', 1, 'Désactivé', 'A une invalidité.', 'Quelle en est sa nature ?'),
-  (2, 'f', 2, 'Parent isolé', 'est un parent isolé dans sa famille.', ''),
-  (3, 'g', 3, 'Jeune', 'est orienté jeune.', '')
+  (1, 'p', 1, 'Deaktiviert', 'Hat ein Invalidität.', 'Welcher ?'),
+  (2, 'f', 2, 'Alleinerziehende', 'Kommentar', ''),
+  (3, 'g', 3, 'Jung', 'est orienté jeune.', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`) VALUES
