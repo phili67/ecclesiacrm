@@ -34,8 +34,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (2052, 'sUnsubscribeStart', 'Si vous ne voulez plus recevoir ces emails de'),
 (2053, 'sUnsubscribeEnd', 'dans le futur, contactez les administrateurs de l\'église'),
 (1017, 'sReminderNoPledge', 'Dons: Nous n\'avons aucun enregistrement de dons de votre part pour cette année fiscale.'),
-(1018, 'sReminderNoPayments', 'Paiements : Nous n\'avons aucun enregistrement de votre part pour cette année fiscale.'),
-(2055, 'sTimeZoneSet', 'Europe/Paris')
+(1018, 'sReminderNoPayments', 'Paiements : Nous n\'avons aucun enregistrement de votre part pour cette année fiscale.')
 ON DUPLICATE KEY UPDATE cfg_name=VALUES(cfg_name),cfg_value=VALUES(cfg_value);
 
 
