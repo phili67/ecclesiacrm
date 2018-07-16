@@ -32,7 +32,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (2050, 'bStateUnuseful', '0'),
 (2051, 'sCurrency', '€'),
 (2052, 'sUnsubscribeStart', 'Wenn Sie nicht länger diese E-Mails empfangen von'),
-(2053, 'sUnsubscribeEnd', 'in der Zukunft, Bitte teilen Sie der Kirche Systemverwaltung'),
+(2053, 'sUnsubscribeEnd', 'in der Zukunft, Bitte teilen Sie der Kirche Netzwerkadministrator'),
 (1017, 'sReminderNoPledge', 'Spenden : Wir haben keine Aufzeichnung von ihm für dieses Jahres.'),
 (1018, 'sReminderNoPayments', 'Zahlungen : Wir haben keine Aufzeichnung von ihm für dieses Jahres.'),
 (2055, 'sTimeZoneSet', 'Europe/Berlin')
@@ -79,9 +79,9 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
 ON DUPLICATE KEY UPDATE lst_OptionName=VALUES(lst_OptionName);
 
 INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
-  (1, 'p', 'Personne', 'Propriétés générales de personnes'),
-  (2, 'f', 'Famille', 'Propriétés générales de familles'),
-  (3, 'g', 'Groupe', 'Propriétés générales de groupes'),
+  (1, 'p', 'Personen', 'Propriétés générales de personnes'),
+  (2, 'f', 'Familie', 'Propriétés générales de familles'),
+  (3, 'g', 'Gruppe', 'Propriétés générales de groupes'),
   (4, 'm', 'Menu', 'Pour personnaliser le menu école du dimanche.')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
@@ -92,8 +92,8 @@ INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pr
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`) VALUES
-(1, 'Utilisateur Administrateur'),
-(2, 'Utilisateur Minimum')
+(1, 'Administrator Benutzer'),
+(2, 'Normal Benutzer ')
 ON DUPLICATE KEY UPDATE usrprf_name=VALUES(usrprf_name);
 
 
@@ -102,11 +102,11 @@ ON DUPLICATE KEY UPDATE usrprf_name=VALUES(usrprf_name);
 --
 
 INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-(1, 'Pourquoi êtes-vous venu à l\'église', '', 1),
-(2, 'Pourquoi continuez-vous à venir ?', '', 1),
-(3, 'Avez-vous une requêtes à nous faire ?', '', 1),
-(4, 'Comment avez-vous entendu parler de l\'église ?', '', 1),
-(5, 'Baptême', 'Formation', 0),
-(6, 'Mariage', 'Formation', 0),
-(7, 'Relation d\'aide', 'Thérapie et suivi', 0)
+(1, 'Warum sind Sie in unsere Kirche gekommen ?', '', 1),
+(2, 'Warum kommen sie dann immer wieder her ?', '', 1),
+(3, 'Haben Sie irgendwelche ein Wünsche ?', '', 1),
+(4, 'Wie sind Sie auf uns gekommen ?', '', 1),
+(5, 'Taufe', 'Ausbildung', 0),
+(6, 'Hochzeit', 'Ausbildung', 0),
+(7, 'Hilfeleistungen ', 'Therapie', 0)
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);

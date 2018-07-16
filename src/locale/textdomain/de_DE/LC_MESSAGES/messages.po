@@ -6451,6 +6451,12 @@ msgstr "Jungs"
 msgid "Girls"
 msgstr "Mädchen"
 
+msgid "Boy"
+msgstr "Jung"
+
+msgid "Girl"
+msgstr "Mädchen"
+
 msgid "Home Address"
 msgstr "Privatadresse"
 
@@ -6639,3 +6645,18 @@ msgstr "Familie Längengrad oder Breitengrad jetz Aktualisieren."
 
 msgid "Family Info"
 msgstr "Familie Informationen"
+
+msgid "Delete Persons From Cart and CRM"
+msgstr "Personen von Korb und CRM Löschen"
+
+msgid "Deposit Summary"
+msgstr "Anzahlung Zusammenfassung"
+
+msgid "Check all"
+msgstr "aktivieren Sie alle"
+
+msgid "Uncheck all"
+msgstr "Deaktivieren Sie alle"
+
+msgid "Validate Attendance"
+msgstr "Validieren Besucher"
