@@ -6636,3 +6636,6 @@ msgstr "Vermisste Familie ?"
 
 msgid "Update Family Latitude or Longitude now."
 msgstr "Familie Längengrad oder Breitengrad jetz Aktualisieren."
+
+msgid "Family Info"
+msgstr "Familie Informationen"

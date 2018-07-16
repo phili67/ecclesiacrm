@@ -1257,7 +1257,7 @@ CREATE TABLE `user_usr` (
   `usr_Finance` tinyint(1) unsigned NOT NULL default '0',
   `usr_Notes` tinyint(1) unsigned NOT NULL default '0',
   `usr_Admin` tinyint(1) unsigned NOT NULL default '0',
-  `usr_PastoralCare` tinyint(1) DEFAULT '0';
+  `usr_PastoralCare` tinyint(1) DEFAULT '0',
   `usr_SearchLimit` tinyint(4) default '10',
   `usr_Style` varchar(50) default 'Style.css',
   `usr_showPledges` tinyint(1) NOT NULL default '0',
