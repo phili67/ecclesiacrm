@@ -6592,6 +6592,9 @@ msgstr "Edit diese Klasse"
 msgid "Make Check-Out"
 msgstr "Auschecken Machen"
 
+msgid "Make Check-out "
+msgstr "Auschecken Machen"
+ 
 msgid "Export Attendance"
 msgstr "Anwesenheitsliste exportieren"
 
@@ -6653,10 +6656,64 @@ msgid "Deposit Summary"
 msgstr "Anzahlung Zusammenfassung"
 
 msgid "Check all"
-msgstr "aktivieren Sie alle"
+msgstr "Aktivieren Sie alle"
 
 msgid "Uncheck all"
 msgstr "Deaktivieren Sie alle"
 
 msgid "Validate Attendance"
 msgstr "Validieren Besucher"
+
+msgid "Add Event Member"
+msgstr "Veranstaltung Mitglieder hinzuzufügen"
+
+msgid "Person or Family or Group"
+msgstr "Person oder Familie oder Gruppe"
+
+msgid "Delete All Attendees"
+msgstr "Alle Teilnehmer Löschen"
+
+msgid "Close Window"
+msgstr "Fenster schließen"
+
+msgid "Attendance"
+msgstr"Besucher"
+
+msgid "Text for Event ID"
+msgstr "Text für Veranstaltung"
+
+msgid "Sermon Text"
+msgstr "Bibeltextes"
+
+msgid "Closed:"
+msgstr "Schließen : "
+
+msgid "Deposit Tracking"
+msgstr "Anzahlung Verfolgung"
+
+msgid "records returned"
+msgstr "zurückgegebenen Datensätze"
+
+msgid "Generate Deposit Slip for Selected Rows (PDF)"
+msgstr "Einzahlungsbeleg für ausgewählten Zeilen generieren (PDF)"
+
+msgid "Enable Group Specific Properties"
+msgstr "Aktivieren Gruppe spezifischen Eigenschaften"
+
+msgid "Disable Group Specific Properties"
+msgstr "Deaktivieren Gruppe spezifischen Eigenschaften"
+
+msgid "Special Group Settings : Sunday School Type"
+msgstr "Spezial Gruppe Einstellung : Sonntagsschule Typ"
+
+msgid "Add Selected Members to Cart"
+msgstr "Ausgewählten Mitglieder hinzuzufügen in den Korb"
+
+msgid "Remove Selected Members from group"
+msgstr "Ausgewählten Mitglieder von Gruppe Entfernen"
+
+msgid "Add"
+msgstr "Hinzuzufügen"
+
+msgid "Manage Group Members"
+msgstr "Gruppen Mitglieder Verwalten"

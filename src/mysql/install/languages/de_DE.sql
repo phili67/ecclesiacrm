@@ -13,7 +13,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (112, 'sTimeFormat', '%H:%M'),
 (1011, 'sTaxReport1', 'Dieser Brief ist eine Erinnerung auf alle Spenden für'),
 (1012, 'sTaxReport2', 'Danke, dass Sie uns unterstützt haben dieses Jahr. Wir wissen Ihre Besorgnis zu schätzen !'),
-(1013, 'sTaxReport3', 'Si vous avez des questions ou des modifications à faire concernant le rapport, contactez votre église au numéro ci-dessus pendant les heures de travail, entre 9h00 et 17h00.'),
+(1013, 'sTaxReport3', 'Sollten Sie irgendwelche Fragen oder Wünsche haben zum Bericht, Benachrichtigen Sie bitte uns ans Telefon nummer oben während der Arbeitszeit, von 9h00 bis 17h00 Uhr.'),
 (1015, 'sReminder1', 'Cette lettre est un récapitulatif des informations envoyés pour l\'année fiscale en cours'),
 (1019, 'sConfirm1', 'Cette lettre résume les informations qui sont enregistrées dans notre base de données. Relisez  soigneusement, corrigez les et retournez-nous ce formulaire ci nécessaire à notre église.'),
 (1020, 'sConfirm2', 'Merci pour nous avoir aidé à compléter ces informations. Si vous voulez des renseignements concernant la base de données.'),
