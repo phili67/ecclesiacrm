@@ -139,3 +139,8 @@ function submitSetupData(form) {
     });
 
 }
+
+$(document).ready(function() { 
+  $("#sLanguage").select2();
+  $("#sTimeZone").select2();
+});

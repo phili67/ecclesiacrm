@@ -240,8 +240,7 @@ class SystemConfig
         "sCurrency" => new ConfigItem(2051, "sCurrency", "text", "$", gettext("The currency symbol you want to use in the deposit in $ per default")),
         "sUnsubscribeStart" => new ConfigItem(2052, "sUnsubscribeStart", "text", "If you do not want to receive these emails from", gettext("If you do not want to receive these emails from")),
         "sUnsubscribeEnd" => new ConfigItem(2053, "sUnsubscribeEnd", "text", "in the future, please contact the church admins", gettext("in the future, please contact the church admins")),
-        "iDocumentTimeLeft" => new ConfigItem(2054,"iDocumentTimeLeft","number","30",gettext("Time in minutes when a share document can't be opened.")),
-        "sTimeZoneSet" => new ConfigItem(2055,"sTimeZoneSet","text","america/new_york",gettext("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"))
+        "iDocumentTimeLeft" => new ConfigItem(2054,"iDocumentTimeLeft","number","30",gettext("Time in minutes when a share document can't be opened."))
       );
   }
 
@@ -258,7 +257,7 @@ class SystemConfig
       gettext('System Settings')  => ["sLogLevel", "bRegistered","sGZIPname","sZIPname","sPGPname","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
       gettext('Quick Search') => ["bSearchIncludePersons","bSearchIncludePersonsMax","bSearchIncludeAddresses", "bSearchIncludeAddressesMax", "bSearchIncludeFamilies","bSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","bSearchIncludeFamilyHOHMax","bSearchIncludeGroups","bSearchIncludeGroupsMax","bSearchIncludeDeposits", "bSearchIncludeDepositsMax", "bSearchIncludePayments", "bSearchIncludePaymentsMax"],
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
-      gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sTimeZoneSet"],
+      gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat"],
       gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]

@@ -85,7 +85,7 @@ $app->group('/', function () {
 (24, 'iSMTPTimeout', '".$connection->real_escape_string($setupDate['iSMTPTimeout'])."'),
 (26, 'sToEmailAddress', '".$connection->real_escape_string($setupDate['sToEmailAddress'])."'),
 (2045, 'bPHPMailerAutoTLS', '".$connection->real_escape_string($setupDate['bPHPMailerAutoTLS'])."'),
-(2055, 'sTimeZoneSet', '".$connection->real_escape_string($setupDate['sTimeZoneSet'])."'),
+(2055, 'sTimeZone', '".$connection->real_escape_string($setupDate['sTimeZone'])."'),
 (2046, 'sPHPMailerSMTPSecure', '".$connection->real_escape_string($setupDate['sPHPMailerSMTPSecure'])."')";
 
         $connection->query($sql);
