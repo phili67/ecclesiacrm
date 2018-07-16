@@ -20,6 +20,19 @@ function getSupportedLocales()
   return $res;
 }
 
+
+function select_Timezone($selected = '') {
+    $OptionsArray = timezone_identifiers_list();
+        $select= '<select name="sTimeZone" class="form-control" aria-describedby="sTimeZoneHelp" required>';
+        while (list ($key, $row) = each ($OptionsArray) ){
+            $select .='<option value="'.$row.'"';
+            $select .= ($key == $selected ? ' selected' : '');
+            $select .= '>'.$row.'</option>';
+        }  // endwhile;
+        $select.='</select>';
+  return $select;
+}
+
 $URL = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
 $sPageTitle = 'EcclesiaCRM – Setup';
@@ -153,10 +166,9 @@ require '../Include/HeaderNotLoggedIn.php';
                 <small id="sChurchNameHelp" class="form-text text-muted"></small>
             </div>
             <div class="form-group">
-                <label for="sTimeZoneSet">Time Zone Set : WebDAV | CalDAV</label>
-                <input type="text" name="sTimeZoneSet" id="sTimeZoneSet" class="form-control"
-                       aria-describedby="sTimeZoneSetHelp" required value="america/new_york">
-                <small id="sTimeZoneSetHelp" class="form-text text-muted">
+                <label for="sTimeZone">Time Zone : WebDAV | CalDAV</label>
+                <?= select_Timezone() ?>
+                <small id="sTimeZoneHelp" class="form-text text-muted">
                     Time zone fr webdav server : america/new_york<br>
                     In france : Europe/Paris<br>
                     You can find the defaut time Zone : <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>

@@ -33,7 +33,7 @@ use EcclesiaCRM\dto\SystemConfig;
 //*****************
 // settings
 //*****************
-date_default_timezone_set(SystemConfig::getValue('sTimeZoneSet')); //<------ Be carefull to set the good Time Zone : 'Europe/Paris'
+date_default_timezone_set(SystemConfig::getValue('sTimeZone')); //<------ Be carefull to set the good Time Zone : 'Europe/Paris'
 
 // If you want to run the SabreDAV server in a custom location (using mod_rewrite for instance)
 
