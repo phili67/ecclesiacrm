@@ -6368,7 +6368,7 @@ msgid "Pastoral Care Type Editor"
 msgstr "Pastoral Pflege Typen Edit"
 
 msgid "Add a New Pastoral Care Type"
-msgstr "Neue Pastoral Care Typ Hinzufügen"
+msgstr "Neue Pastoral Pflege Typ Hinzufügen"
 
 msgid "Profile management"
 msgstr "Profil Verwaltung"
