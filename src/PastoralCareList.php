@@ -38,6 +38,8 @@ require 'Include/Header.php'; ?>
 
 <table class="table table-striped table-bordered" id="pastoral-careTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
+</div>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PastoralCareList.js" ></script>
 
 <?php
