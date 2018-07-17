@@ -76,7 +76,9 @@ if (isset($_POST['User'])) {
 
         // If user has administrator privilege, override other settings and enable all permissions.
         $_SESSION['bAdmin'] = $currentUser->isAdmin();                       //ok
-        $_SESSION['bPastoralCare'] = $currentUser->isPastoralCare();         //ok
+        $_SESSION['bPastoralCare'] = $currentUser->isPastoralCareEnabled();         //ok
+        $_SESSION['bMailChimp'] = $currentUser->isMailChimpEnabled();         //ok
+        $_SESSION['bGdrpDpo'] = $currentUser->isGdrpDpoEnabled();         //ok
         $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();
         $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();
         $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();

@@ -50,3 +50,10 @@ CREATE TABLE pastoral_care (
 -- ALTER TABLE `query_qry` DROP COLUMN `qry_Type`;
 --
 ALTER TABLE `user_usr` ADD COLUMN `usr_PastoralCare` tinyint(1) DEFAULT '0';
+ALTER TABLE `user_usr` ADD COLUMN `usr_MailChimp` tinyint(1) DEFAULT '0';
+
+-- 
+-- GDRP update
+--
+ALTER TABLE `user_usr` ADD COLUMN `usr_GDRP_DPO` tinyint(1) DEFAULT '0';
+ALTER TABLE `person_per` ADD COLUMN `per_DateDeactivated` datetime default NULL;

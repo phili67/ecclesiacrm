@@ -307,6 +307,16 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isPastoralCare();
     }
 
+    public function isMailChimpEnabled()
+    {
+        return $this->isAdmin() || $this->isMailChimp();
+    }
+    
+    public function isGdrpDpoEnabled()
+    {
+        return $this->isAdmin() || $this->isGdrpDpo();
+    }
+
     public function updatePassword($password)
     {
         $this->setPassword($this->hashPassword($password));
