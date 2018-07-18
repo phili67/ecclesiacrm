@@ -14,18 +14,18 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1011, 'sTaxReport1', 'Dieser Brief ist eine Erinnerung auf alle Spenden für'),
 (1012, 'sTaxReport2', 'Danke, dass Sie uns unterstützt haben dieses Jahr. Wir wissen Ihre Besorgnis zu schätzen !'),
 (1013, 'sTaxReport3', 'Sollten Sie irgendwelche Fragen oder Wünsche haben zum Bericht, Benachrichtigen Sie bitte uns ans Telefon nummer oben während der Arbeitszeit, von 9h00 bis 17h00 Uhr.'),
-(1015, 'sReminder1', 'Cette lettre est un récapitulatif des informations envoyés pour l\'année fiscale en cours'),
-(1019, 'sConfirm1', 'Cette lettre résume les informations qui sont enregistrées dans notre base de données. Relisez  soigneusement, corrigez les et retournez-nous ce formulaire ci nécessaire à notre église.'),
-(1020, 'sConfirm2', 'Merci pour nous avoir aidé à compléter ces informations. Si vous voulez des renseignements concernant la base de données.'),
+(1015, 'sReminder1', 'Dieser Brief ist ein zusammenfassenden der dem Daten für laufenden Steuerjahr '),
+(1019, 'sConfirm1', 'Dieser Brief ist ein zusammenfassenden dem Daten die in der Datenbank protokolliert sind. Lesen Sie noch einmal sorgfältig, Korrigiert die Fehler und schicken sie uns dieses Formular zu unserer Kirche.'),
+(1020, 'sConfirm2', 'Ich wollte euch nur dafür danken dass Sie uns dieser Daten gegeben haben. Wenn ihr was über Datenbank erfahren wollt ?'),
 (1021, 'sConfirm3', 'Email _____________________________________ passwort ________________'),
 (1022, 'sConfirm4', '[  ] I will nicht mehr in Verbindung mit der Kirche gebracht werden. (ankreuzen Sie der Kontrollbox für meinen Aufnahmen sofort zu löschen).'),
 (1026, 'sPledgeSummary1', 'Zusammenfassung die Spenden und Zahlungen Versprechungen für dieses Jahres'),
 (1027, 'sPledgeSummary2', 'wie'),
-(1028, 'sDirectoryDisclaimer1', 'Nous avons travaillé à rendre ces données aussi exactes que possible. Si vous constatez des erreurs ou des omissions, contactez nous. Cet annuaire est utilisé pour les personnes de'),
-(1029, 'sDirectoryDisclaimer2', ', et les informations contenus ne seront pas utilisées à des fins commerciales.'),
+(1028, 'sDirectoryDisclaimer1', 'Wir haben gearbeitet für genaue Bewertung Daten abzugeben. Falls Sie eine Fehler oder ein Mängel feststellen, Informieren Sie uns bitte. Der Gesamtbericht ist genutzt für die person von'),
+(1029, 'sDirectoryDisclaimer2', ', Und die Informationen enthält werden nicht für hauptsächlich kommerzielle Zwecke verwendet werden.'),
 (1031, 'sZeroGivers', 'Dieser Brief fasst die Zahlungsermächtigungen für'),
-(1032, 'sZeroGivers2', 'Merci pour de nous aider à faire la différence. Nous apprécions grandement  votre participation !'),
-(1033, 'sZeroGivers3', 'Si vous avez des questions ou à apporter des corrections à ce rapport, contactez notre église au numéro ci-dessus pendant les heures de 9h00 à 12h00 du lundi au vendredi.'),
+(1032, 'sZeroGivers2', 'Danke vielmals dass Sie gemeinsam mit uns geholfen haben. Wir schätzen Ihrer Beteiligung  !'),
+(1033, 'sZeroGivers3', 'Falls Sie irgendwelche Fragen oder Korrekturen für diesen Bericht haben, rufen Sie unseren Kirche während der Öffnungszeiten unter dieser Telefonnummer.'),
 (1048, 'sConfirmSincerely', 'Auf sehr bald'),
 (1049, 'sDear', 'Lieber (Liebe)'),
 (1051, 'sTimeEnglish', ''),
@@ -34,8 +34,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (2052, 'sUnsubscribeStart', 'Wenn Sie nicht länger diese E-Mails empfangen von'),
 (2053, 'sUnsubscribeEnd', 'in der Zukunft, Bitte teilen Sie der Kirche Netzwerkadministrator'),
 (1017, 'sReminderNoPledge', 'Spenden : Wir haben keine Aufzeichnung von ihm für dieses Jahres.'),
-(1018, 'sReminderNoPayments', 'Zahlungen : Wir haben keine Aufzeichnung von ihm für dieses Jahres.'),
-(2055, 'sTimeZoneSet', 'Europe/Berlin')
+(1018, 'sReminderNoPayments', 'Zahlungen : Wir haben keine Aufzeichnung von ihm für dieses Jahres.')
 ON DUPLICATE KEY UPDATE cfg_name=VALUES(cfg_name),cfg_value=VALUES(cfg_value);
 
 
