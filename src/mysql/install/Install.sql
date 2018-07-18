@@ -695,7 +695,7 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Opt
   (11, 1, 1, 'Member'),
   (12, 1, 1, 'Teacher'),
   (12, 2, 2, 'Student');
-  
+
   --
 -- A person classification can have an icon
 -- 
