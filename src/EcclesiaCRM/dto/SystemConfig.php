@@ -241,7 +241,7 @@ class SystemConfig
         "sUnsubscribeStart" => new ConfigItem(2052, "sUnsubscribeStart", "text", "If you do not want to receive these emails from", gettext("If you do not want to receive these emails from")),
         "sUnsubscribeEnd" => new ConfigItem(2053, "sUnsubscribeEnd", "text", "in the future, please contact the church admins", gettext("in the future, please contact the church admins")),
         "sTimeZoneSet" => new ConfigItem(2055,"sTimeZoneSet","text","america/new_york",gettext("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york")),
-        "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR"))
+        "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR")),
         "iDocumentTimeLeft" => new ConfigItem(2054,"iDocumentTimeLeft","number","30",gettext("Time in minutes when a share document can't be opened."))
       );
   }
