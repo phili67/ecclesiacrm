@@ -10181,4 +10181,6 @@ msgstr "Ajouter des enregistrements, ci-dessous, pour assurer le suivi."
 msgid "Number of groups:"
 msgstr "Nombre de groupes :"
 
-
+# UserPasswordChange.php
+msgid "Alert"
+msgstr "Alerte"

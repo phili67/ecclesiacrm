@@ -6717,3 +6717,7 @@ msgstr "Hinzuzufügen"
 
 msgid "Manage Group Members"
 msgstr "Gruppen Mitglieder Verwalten"
+
+# UserPasswordChange.php
+msgid "Alert"
+msgstr "Warnung"
