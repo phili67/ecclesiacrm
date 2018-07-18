@@ -193,8 +193,16 @@ class MenuBar {
 
       $this->addMenu($menu);
       
+      if ($_SESSION['user']->isGdrpDpoEnabled()) {
+        // the GDPR Menu
+        $menu = new Menu ("GDPR","fa fa-get-pocket pull-right&quot;","",true);
+          $menuItem = new Menu ("Dashboard","fa fa-rebel","GDPR.php",true,$menu);
+          
+        $this->addMenu($menu);
+      }
+      
       // the Events Menu
-      $menu = new Menu ("Events","fa fa-ticket fa-calendar pull-right&quot;","",true);
+      $menu = new Menu ("Events","fa fa-ticket pull-right&quot;","",true);
         // add the badges
         $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
         $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
