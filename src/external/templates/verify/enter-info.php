@@ -9,7 +9,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 
     <div class="register-box">
         <div class="register-logo">
-            <a href="<?= SystemURLs::getRootPath() ?>/"><b>Church</b>CRM</a><br/>
+            <a href="<?= SystemURLs::getRootPath() ?>/"><b>Ecclesia</b>CRM</a><br/>
             <span><?= SystemConfig::getValue("sChurchName") .  $token ?></span>
         </div>
 
