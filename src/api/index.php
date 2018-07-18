@@ -97,7 +97,7 @@ require __DIR__.'/routes/geocoder.php';
 
 require __DIR__.'/routes/public-data.php';
 
-// gdrp routes
+// gdrp route
 require __DIR__.'/routes/gdrp.php';
 
 
