@@ -198,7 +198,6 @@ class MenuBar {
         $menu = new Menu ("GDPR","fa fa-get-pocket pull-right&quot;","",true);
           $menuItem = new Menu ("Dashboard","fa fa-rebel","GDPR.php",true,$menu);
           
-          
         $this->addMenu($menu);
       }
       
