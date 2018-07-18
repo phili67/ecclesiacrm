@@ -97,6 +97,9 @@ require __DIR__.'/routes/geocoder.php';
 
 require __DIR__.'/routes/public-data.php';
 
+// gdrp routes
+require __DIR__.'/routes/gdrp.php';
+
 
 // Run app
 $app->run();
