@@ -49,7 +49,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           return data;
         }
-      },
+      },      
       {
         width: 'auto',
         title:i18next.t('Type'),
@@ -65,8 +65,7 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {        
           return data;
         }
-      },  
-          
+      },      
       /*{
         width: 'auto',
         title:i18next.t('Delete'),
