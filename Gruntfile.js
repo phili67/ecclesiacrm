@@ -352,7 +352,7 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('genLocaleJSFiles', '', function () {
-        var locales = grunt.file.readJSON("src/locale/locales.json");
+        var locales = grunt.file.readJSON("src/locale/locales.json");// this get all the supported languages
         var poEditorLocales = {};
         for (var key in locales ) {
             var localeConfig = locales[key];
@@ -363,7 +363,7 @@ module.exports = function (grunt) {
             var enableDatePicker = localeConfig["datePicker"];
             var enableSelect2 = localeConfig["select2"];
 
-            var tempFile = 'locale/JSONKeys/'+locale+'.json';
+            var tempFile = 'locale/JSONKeys_JS/'+locale+'.json';
             var poTerms = grunt.file.read(tempFile);
             if (poTerms == "") {
                 poTerms = "{}";

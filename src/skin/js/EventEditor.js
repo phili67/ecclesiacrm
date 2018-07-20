@@ -436,7 +436,7 @@
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
               +'<div class="col-md-9">'
-                +"<textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Calendar description") + "'></textarea>"
+                +"<textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
               +'</div>'
             +'</div>'          
             +'<div class="row date-title div-title">'

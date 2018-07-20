@@ -1,8 +1,15 @@
 <?php
 
-$db_username = 'churchcrm';
-$db_password = 'churchcrm';
-$db_name = 'churchcrm';
+include "connection.php";
+
+/*
+// Put 
+<?php
+  $db_username = 'user_name';
+  $db_password = 'password';
+  $db_name = 'ecclesiacrm';
+*/
+
 $stringsDir = 'db-strings';
 $stringFiles = [];
 
@@ -38,14 +45,14 @@ foreach ($stringFiles as $stringFile) {
     file_put_contents($stringFile, "\r\n?>", FILE_APPEND);
 }
 
-$stringFile = $stringsDir.'/settings-countries.php';
+/*$stringFile = $stringsDir.'/settings-countries.php';
 require '../src/ChurchCRM/data/Countries.php';
 file_put_contents($stringFile, "<?php\r\n", FILE_APPEND);
 
 foreach (ChurchCRM\data\Countries::getNames() as $country) {
     file_put_contents($stringFile, 'gettext("'.addslashes($country)."\");\r\n", FILE_APPEND);
 }
-file_put_contents($stringFile, "\r\n?>", FILE_APPEND);
+file_put_contents($stringFile, "\r\n?>", FILE_APPEND);*/
 
 $stringFile = $stringsDir.'/settings-locales.php';
 file_put_contents($stringFile, "<?php\r\n", FILE_APPEND);
