@@ -34,7 +34,7 @@ $("document").ready(function()
     {
       $("#groupSpecificPropertiesModal").modal("show");
       $("#gsproperties-label").text(i18next.t('Confirm Enable Group Specific Properties'));
-      $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('This will create a group-specific properties table for this group.  You should then add needed properties with the Group-Specific Properties Form Editor.'));
+      $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('This will create a group-specific properties table for this group. You should then add needed properties with the Group-Specific Properties Form Editor.'));
       $("#setgroupSpecificProperties").text(i18next.t('Enable Group Specific Properties'));
       $("#setgroupSpecificProperties").data("action",1);
     }
@@ -42,7 +42,7 @@ $("document").ready(function()
     {
       $("#groupSpecificPropertiesModal").modal("show");
       $("#gsproperties-label").text(i18next.t('Confirm Disable Group Specific Properties'));
-      $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('Are you sure you want to remove the group-specific person properties?  All group member properties data will be lost!'));
+      $("#groupSpecificPropertiesModal .modal-body span").text(i18next.t('Are you sure you want to remove the group-specific person properties? All group member properties data will be lost!'));
       $("#setgroupSpecificProperties").text(i18next.t('Disable Group Specific Properties'));
       $("#setgroupSpecificProperties").data("action",0);
     }

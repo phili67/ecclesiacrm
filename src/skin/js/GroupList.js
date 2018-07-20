@@ -49,7 +49,7 @@ $(document).ready(function () {
     columns: [
       {
         width: 'auto',
-        title:i18next.t( 'Group Name'),
+        title:i18next.t('Group Name'),
         data: 'Name',
         render: function (data, type, full, meta) {
             return '<a href=\'GroupView.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-search-plus fa-stack-1x fa-inverse"></i></span></a><a href=\'GroupEditor.php?GroupID=' + full.Id + '\'><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>' + data;
@@ -57,14 +57,14 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t( 'Members'),
+        title:i18next.t('Members'),
         data: 'memberCount',
         searchable: false,
         defaultContent: "0"
       },
       {
         width: 'auto',
-        title:i18next.t( 'Group Cart Status'),
+        title:i18next.t('Group Cart Status'),
         searchable: false,
         render: function (data, type, full, meta) {
           // we add the memberCount, so we could disable the button Add All
@@ -85,7 +85,7 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t( 'Group Type'),
+        title:i18next.t('Group Type'),
         data: 'groupType',
         defaultContent: "",
         searchable: true,

@@ -631,7 +631,7 @@ $(document).ready(function () {
                     }
                     
                     bootbox.prompt({
-                      title:i18next.t( 'Change role'),
+                      title:i18next.t('Change role'),
                       inputType: 'select',
                       inputOptions: roles,
                       callback: function (result) {

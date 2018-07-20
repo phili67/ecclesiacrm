@@ -474,7 +474,7 @@ foreach ($allMonths as $mVal) {
                     ?>                       
                         <input type="hidden" name="EventID" value="<?= $aEventID[$row] ?>">
                         <button type="submit" name="Action" title="<?=gettext('Make Check-out') ?>" data-tooltip value="<?=gettext('Make Check-out') ?>" class="btn btn-<?= ($attNumRows[$row]-$realAttCheckOut[$row] > 0)?"success":"default" ?> btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
-                          <i class='fa fa-check-circle'></i> <?=gettext('Make Check-out') ?>
+                          <i class='fa fa-check-circle'></i> <?= gettext("Make Check-out") ?>
                         </button>                      
                     <?php 
                       if ($aEventRights[$row]) {

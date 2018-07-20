@@ -50,9 +50,9 @@ class MenuBar {
     private function addGroups()
     {
       // the assigned Groups
-      $menu = new Menu ("Groups","fa fa-tag","#",true);
+      $menu = new Menu (gettext("Groups"),"fa fa-tag","#",true);
       
-      $menuItem = new Menu ("List Groups","fa fa-angle-double-right","GroupList.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+      $menuItem = new Menu (gettext("List Groups"),"fa fa-angle-double-right","GroupList.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
       
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3)
@@ -98,7 +98,7 @@ class MenuBar {
                   ->find();
 
       if ($groups->count()>0) {// only if the groups exist : !empty doesn't work !
-          $menuItem = new Menu ("Unassigned","fa fa-user-o","#",true,$menu);
+          $menuItem = new Menu (gettext("Unassigned"),"fa fa-user-o","#",true,$menu);
 
           foreach ($groups as $group) {
               $menuItemItem = new Menu ( $group->getName(),"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
@@ -107,7 +107,7 @@ class MenuBar {
           }
       }
       
-      $menuItem = new Menu ("Group Assignment Helper","fa fa-angle-double-right","SelectList.php?mode=groupassign",true,$menu);
+      $menuItem = new Menu (gettext("Group Assignment Helper"),"fa fa-angle-double-right","SelectList.php?mode=groupassign",true,$menu);
             
       $this->addMenu($menu);
     }
@@ -139,9 +139,9 @@ class MenuBar {
                       ->addAscendingOrderByColumn('groupName')
                       ->find();
                       
-      $menu = new Menu ("Sunday School","fa fa-child","#",true);
+      $menu = new Menu (gettext("Sunday School"),"fa fa-child","#",true);
       
-      $menuItem = new Menu ("Dashboard","fa fa-angle-double-right","sundayschool/SundaySchoolDashboard.php",true,$menu);
+      $menuItem = new Menu (gettext("Dashboard"),"fa fa-angle-double-right","sundayschool/SundaySchoolDashboard.php",true,$menu);
       
       
       $property = '';
@@ -164,7 +164,7 @@ class MenuBar {
       
       // the non assigned group to a group property
       if ($ormWithoutAssignedProperties->count()>0) {// only if the groups exist : !empty doesn't work !
-          $menuItem = new Menu ("Unassigned","fa fa-user-o","#",true,$menu);
+          $menuItem = new Menu (gettext("Unassigned"),"fa fa-user-o","#",true,$menu);
           
           foreach ($ormWithoutAssignedProperties as $ormWithoutAssignedProperty) {
               $str = gettext($ormWithoutAssignedProperty->getGroupName());
@@ -184,58 +184,58 @@ class MenuBar {
     private function createMenuBar ()
     {
       // home Area
-      $menu = new Menu ("Personal area","fa fa-home","",true);
+      $menu = new Menu (gettext("Personal area"),"fa fa-home","",true);
 
-        $menuItem = new Menu ("Home","fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
-        $menuItem = new Menu ("Change Password","fa fa-key","UserPasswordChange.php",true,$menu);
-        $menuItem = new Menu ("Change Settings","fa fa-gear","SettingsIndividual.php",true,$menu);
-        $menuItem = new Menu ("Documents","fa fa-file","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
+        $menuItem = new Menu (gettext("Home"),"fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
+        $menuItem = new Menu (gettext("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);
+        $menuItem = new Menu (gettext("Change Settings"),"fa fa-gear","SettingsIndividual.php",true,$menu);
+        $menuItem = new Menu (gettext("Documents"),"fa fa-file","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
 
       $this->addMenu($menu);
       
       if ($_SESSION['user']->isGdrpDpoEnabled()) {
         // the GDPR Menu
-        $menu = new Menu ("GDPR","fa fa-get-pocket pull-right&quot;","",true);
-          $menuItem = new Menu ("Dashboard","fa fa-rebel","GDPR.php",true,$menu);
+        $menu = new Menu (gettext("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
+          $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPR.php",true,$menu);
           
         $this->addMenu($menu);
       }
       
       // the Events Menu
-      $menu = new Menu ("Events","fa fa-ticket pull-right&quot;","",true);
+      $menu = new Menu (gettext("Events"),"fa fa-ticket pull-right&quot;","",true);
         // add the badges
         $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
         $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
         $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
-        $menuItem = new Menu ("Calendar","fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
+        $menuItem = new Menu (gettext("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
         if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
-          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingLeaflet.php",true,$menu);
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php",true,$menu);
         } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
-          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingGoogle.php",true,$menu);
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php",true,$menu);
         } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-          $menuItem = new Menu ("View on Map","fa fa-map-o","MapUsingBing.php",true,$menu);
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php",true,$menu);
         }
 
-        $menuItem = new Menu ("List Church Events","fa fa-angle-double-right","ListEvents.php",true,$menu);
-        $menuItem = new Menu ("List Event Types","fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
-        $menuItem = new Menu ("Check-in and Check-out","fa fa-angle-double-right","Checkin.php",true,$menu);
+        $menuItem = new Menu (gettext("List Church Events"),"fa fa-angle-double-right","ListEvents.php",true,$menu);
+        $menuItem = new Menu (gettext("List Event Types"),"fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-angle-double-right","Checkin.php",true,$menu);
       
       $this->addMenu($menu);
       
       // the People menu
-      $menu = new Menu ("People","fa fa-users","#",true);
+      $menu = new Menu (gettext("People"),"fa fa-users","#",true);
       
-        $menuItem = new Menu ("Dashboard","fa fa-angle-double-right","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-angle-double-right","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
         $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
         
-        $menuItem = new Menu ("Add New Person","fa fa-angle-double-right","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
-        $menuItem = new Menu ("View All Persons","fa fa-angle-double-right","SelectList.php?mode=person",true,$menu);
-        $menuItem = new Menu ("Add New Family","fa fa-angle-double-right","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
-        $menuItem = new Menu ("View Active Families","fa fa-angle-double-right","FamilyList.php",true,$menu);
-        $menuItem = new Menu ("View Inactive Families","fa fa-angle-double-right","FamilyList.php?mode=inactive",true,$menu);
+        $menuItem = new Menu (gettext("Add New Person"),"fa fa-angle-double-right","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+        $menuItem = new Menu (gettext("View All Persons"),"fa fa-angle-double-right","SelectList.php?mode=person",true,$menu);
+        $menuItem = new Menu (gettext("Add New Family"),"fa fa-angle-double-right","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+        $menuItem = new Menu (gettext("View Active Families"),"fa fa-angle-double-right","FamilyList.php",true,$menu);
+        $menuItem = new Menu (gettext("View Inactive Families"),"fa fa-angle-double-right","FamilyList.php?mode=inactive",true,$menu);
 
       $this->addMenu($menu);
       
@@ -248,12 +248,12 @@ class MenuBar {
       
       // the Email
       if ($_SESSION['user']->isMailChimpEnabled()) {
-        $menu = new Menu ("Email","fa fa-envelope","email/Dashboard.php",true);
+        $menu = new Menu (gettext("Email"),"fa fa-envelope","email/Dashboard.php",true);
         $this->addMenu($menu);
       }
       
       // The deposit      
-      $menu = new Menu ("Deposit","fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());
+      $menu = new Menu (gettext("Deposit"),"fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());
         // add the badges
         $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
         $deposits = DepositQuery::Create()->find();
@@ -270,9 +270,9 @@ class MenuBar {
           $menu->addBadge('badge pull-right bg-blue current-deposit','',gettext("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
         }
 
-        $menuItem = new Menu ("Envelope Manager","fa fa-angle-double-right","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("View All Deposits","fa fa-angle-double-right","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("Deposit Reports","fa fa-angle-double-right","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-angle-double-right","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View All Deposits"),"fa fa-angle-double-right","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-angle-double-right","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
         $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-angle-double-right","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
       
       if ($_SESSION['user']->isFinanceEnabled()) {
@@ -280,23 +280,23 @@ class MenuBar {
       }
       
       // the menu Fundraisers
-      $menu = new Menu ("Fundraiser","fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
+      $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
 
-        $menuItem = new Menu ("View All Fundraisers","fa fa-angle-double-right","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("Create New Fundraiser","fa fa-angle-double-right","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("Edit Fundraiser","fa fa-angle-double-right","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("View Buyers","fa fa-angle-double-right","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu ("Add Donors to Buyer List","fa fa-angle-double-right","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-angle-double-right","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-angle-double-right","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-angle-double-right","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View Buyers"),"fa fa-angle-double-right","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-angle-double-right","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
 
       if ($_SESSION['user']->isFinanceEnabled()) {
         $this->addMenu($menu);
       }
       
       // the menu report
-      $menu = new Menu ("Data/Reports","fa fa-file-pdf-o","#",$_SESSION['user']->isAdmin());
+      $menu = new Menu (gettext("Data/Reports"),"fa fa-file-pdf-o","#",$_SESSION['user']->isAdmin());
 
-        $menuItem = new Menu ("Reports Menu","fa fa-angle-double-right","ReportList.php",$_SESSION['user']->isAdmin(),$menu);
-        $menuItem = new Menu ("Query Menu","fa fa-angle-double-right","QueryList.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-angle-double-right","ReportList.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Query Menu"),"fa fa-angle-double-right","QueryList.php",$_SESSION['user']->isAdmin(),$menu);
 
       if ($_SESSION['user']->isAdmin()) {
         $this->addMenu($menu);
