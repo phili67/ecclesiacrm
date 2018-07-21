@@ -119,7 +119,7 @@ class SystemConfig
         "iChecksPerDepositForm" => new ConfigItem(57, "iChecksPerDepositForm", "number", "14", gettext("Number of checks for Deposit Slip Report")),
         "bUseScannedChecks" => new ConfigItem(58, "bUseScannedChecks", "boolean", "0", gettext("Set true to enable use of scanned checks")),
         "sDistanceUnit" => new ConfigItem(64, "sDistanceUnit", "choice", "miles", gettext("Unit used to measure distance, miles or km."), "",'{"Choices":["'.gettext("miles").'","'.gettext("kilometers").'"]}'),
-        "sTimeZone" => new ConfigItem(65, "sTimeZone", "choice", "America/New_York", gettext("Time zone"), "http://php.net/manual/en/timezones.php", json_encode(["Choices"=>timezone_identifiers_list()])),
+        "sTimeZone" => new ConfigItem(65, "sTimeZone", "choice", "America/New_York", gettext("Time zone")." : ".gettext("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york"), "http://php.net/manual/en/timezones.php", json_encode(["Choices"=>timezone_identifiers_list()])),
         "bForceUppercaseZip" => new ConfigItem(67, "bForceUppercaseZip", "boolean", "0", gettext("Make user-entered zip/postcodes UPPERCASE when saving to the database.")),
         "bEnableNonDeductible" => new ConfigItem(72, "bEnableNonDeductible", "boolean", "0", gettext("Enable non-deductible payments")),
         "sElectronicTransactionProcessor" => new ConfigItem(73, "sElectronicTransactionProcessor", "choice", "Vanco", gettext("Electronic Transaction Processor"), '','{"Choices":["'.gettext("Vanco").'","'.gettext("Authorize.NET").'"]}'),
@@ -241,7 +241,6 @@ class SystemConfig
         "sUnsubscribeStart" => new ConfigItem(2052, "sUnsubscribeStart", "text", "If you do not want to receive these emails from", gettext("If you do not want to receive these emails from")),
         "sUnsubscribeEnd" => new ConfigItem(2053, "sUnsubscribeEnd", "text", "in the future, please contact the church admins", gettext("in the future, please contact the church admins")),
         "iDocumentTimeLeft" => new ConfigItem(2054,"iDocumentTimeLeft","number","30",gettext("Time in minutes when a share document can't be opened.")),
-        "sTimeZoneSet" => new ConfigItem(2055,"sTimeZoneSet","text","america/new_york",gettext("CalDAV protocol to work with php date_default_timezone_set function default settings : america/new_york")),
         "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR"))        
       );
   }
@@ -259,7 +258,7 @@ class SystemConfig
       gettext('System Settings')  => ["sLogLevel", "bRegistered","sGZIPname","sZIPname","sPGPname","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
       gettext('Quick Search') => ["bSearchIncludePersons","bSearchIncludePersonsMax","bSearchIncludeAddresses", "bSearchIncludeAddressesMax", "bSearchIncludeFamilies","bSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","bSearchIncludeFamilyHOHMax","bSearchIncludeGroups","bSearchIncludeGroupsMax","bSearchIncludeDeposits", "bSearchIncludeDepositsMax", "bSearchIncludePayments", "bSearchIncludePaymentsMax"],
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
-      gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sTimeZoneSet"],
+      gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat"],
       gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
