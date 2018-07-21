@@ -61,6 +61,7 @@ function Header_fav_icons ()
 
     <!-- For first- and second-generation iPad: -->
     <link rel="apple-touch-icon" sizes="72x72" href="<?= SystemURLs::getRootPath() ?>/Favicons/favicon-72-precomposed.png">
+    <meta name="apple-mobile-web-app-title" content="CRM : <?= SystemConfig::getValue('sChurchName') ?>">
 
     <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
     <link rel="apple-touch-icon" href="<?= SystemURLs::getRootPath() ?>/Favicons/favicon-57.png">
