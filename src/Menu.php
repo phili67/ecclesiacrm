@@ -25,6 +25,12 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
 
+// we place this part to avoid a problem during the upgrade process
+// Set the page title
+$sPageTitle = gettext('Welcome to').' '. ChurchMetaData::getChurchName();
+
+require 'Include/Header.php';
+
 $financialService = new FinancialService();
 $dashboardService = new DashboardService();
 //Last edited active families
@@ -48,12 +54,6 @@ if ($_SESSION['user']->isFinanceEnabled()) {
         $depositData = $deposits->toJSON();
     }
 }
-
-
-// Set the page title
-$sPageTitle = gettext('Welcome to').' '. ChurchMetaData::getChurchName();
-
-require 'Include/Header.php';
 
 $showBanner = SystemConfig::getValue("bEventsOnDashboardPresence");
 
