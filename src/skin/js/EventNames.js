@@ -69,7 +69,7 @@ $(document).ready(function () {
   }
 
 
-  $('.add-event').click('focus', function (e) {
+  $(document).on('click','.add-event',function() {
     var fmt = 'YYYY-MM-DD HH:mm:ss';
   
     var dateStart = moment().format(fmt);
@@ -78,7 +78,7 @@ $(document).ready(function () {
     addEvent(dateStart,dateEnd);
   });
 
-  $('.delete-event').click('focus', function (e) {
+  $(document).on('click','.delete-event',function() {
     var typeID = $(this).data("typeid");
     
     bootbox.confirm({
