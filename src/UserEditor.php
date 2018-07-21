@@ -160,6 +160,12 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $MailChimp = 0;
         }
 
+        if (isset($_POST['MainDashboard'])) {
+            $MainDashboard = 1;
+        } else {
+            $MainDashboard = 0;
+        }
+
         if (isset($_POST['GdrpDpo'])) {
             $GdrpDpo = 1;
         } else {
@@ -189,6 +195,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
+                    $user->setMainDashboard($MainDashboard);
                     $user->setGdrpDpo($GdrpDpo);
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
@@ -237,6 +244,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setAddRecords($AddRecords);
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
+                    $user->setMainDashboard($MainDashboard);
                     $user->setGdrpDpo($GdrpDpo);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);                    
@@ -301,6 +309,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_PastoralCare = 0;
             $usr_GDRP_DPO = 0;
             $usr_MailChimp = 0;
+            $usr_MainDashboard = 0;
             $usr_EditRecords = 0;
             $usr_DeleteRecords = 0;
             $usr_ShowCart = 0;
@@ -324,6 +333,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_PastoralCare = 0;
         $usr_GDRP_DPO = 0;
         $usr_MailChimp = 0;
+        $usr_MainDashboard = 0;
         $usr_EditRecords = 0;
         $usr_DeleteRecords = 0;
         $usr_ShowCart = 0;
@@ -604,7 +614,14 @@ foreach ($userProfiles as $userProfile) {
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
                     </tr>
                     
-                                        <tr>
+                    <tr>
+                        <td><?= gettext('MainDashboard') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
+                        echo ' checked';
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Can see the Main Dashboard and the birthdates in the calendar.)') ?></span></td>
+                    </tr>
+
+                    <tr>
                         <td><?= gettext('MailChimp') ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
                         echo ' checked';

@@ -293,7 +293,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     <!-- About Me Box -->
     <?php 
-      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isEditRecordsEnabled())?true:false;
+      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isEditRecordsEnabled())?true:false;
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -499,7 +499,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   </div>
   
   <?php 
-    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())) {
+    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] )) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">

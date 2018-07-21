@@ -51,6 +51,7 @@ CREATE TABLE pastoral_care (
 --
 ALTER TABLE `user_usr` ADD COLUMN `usr_PastoralCare` tinyint(1) DEFAULT '0';
 ALTER TABLE `user_usr` ADD COLUMN `usr_MailChimp` tinyint(1) DEFAULT '0';
+ALTER TABLE `user_usr` ADD COLUMN `usr_MainDashboard` tinyint(1) DEFAULT '0';
 
 -- 
 -- GDRP update

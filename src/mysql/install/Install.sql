@@ -1261,6 +1261,7 @@ CREATE TABLE `user_usr` (
   `usr_PastoralCare` tinyint(1) DEFAULT '0',
   `usr_GDRP_DPO` tinyint(1) DEFAULT '0',
   `usr_MailChimp` tinyint(1) DEFAULT '0',
+  `usr_MainDashboard` tinyint(1) DEFAULT '0',
   `usr_SearchLimit` tinyint(4) default '10',
   `usr_Style` varchar(50) default 'Style.css',
   `usr_showPledges` tinyint(1) NOT NULL default '0',

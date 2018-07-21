@@ -16,7 +16,7 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security
-if (!$_SESSION['user']->isFinanceEnabled() && !$_SESSION['user']->isAdmin()) {
+if (!$_SESSION['user']->isFinanceEnabled()) {
     Redirect('Menu.php');
     exit;
 }
@@ -76,7 +76,7 @@ if (!$output) {
 }
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
-if (!$_SESSION['user']->isAdmin() && SystemConfig::getValue('bCSVAdminOnly') && $output != 'pdf') {
+if (!$_SESSION['user']->isFinanceEnabled() && SystemConfig::getValue('bCSVAdminOnly') && $output != 'pdf') {
     Redirect('Menu.php');
     exit;
 }

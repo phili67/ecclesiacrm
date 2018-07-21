@@ -53,7 +53,7 @@ require '../Include/Header.php';
       } 
     ?>
     <?php 
-      if ($bExportSundaySchoolPDF || $_SESSION['user']->isAdmin()) { 
+      if ($_SESSION['bExportSundaySchoolPDF'] || $_SESSION['user']->isAdmin()) { 
     ?>  
      <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
@@ -62,7 +62,7 @@ require '../Include/Header.php';
       }
     ?>
     <?php 
-      if ($_SESSION['bExportCSV'] || $bExportSundaySchoolCSV || $_SESSION['user']->isAdmin()) { 
+      if ($_SESSION['bExportCSV'] || $_SESSION['bExportSundaySchoolCSV'] || $_SESSION['user']->isAdmin()) { 
     ?>
      <a href="SundaySchoolClassListExport.php" class="btn btn-app"
        title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i

@@ -88,7 +88,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) { 
+                         if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isMainDashboardEnabled()) { 
                         ?>
                        <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Birthdate") ?>" data-off="<?= gettext("Birthdate") ?>">
                        <?php 
@@ -97,7 +97,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) { 
+                         if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isMainDashboardEnabled()) { 
                         ?>
                        <input data-size="mini" id="isAnniversaryActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Wedding") ?>" data-off="<?= gettext("Wedding") ?>">
                        <?php 
@@ -144,7 +144,7 @@ $eventTypes = EventTypesQuery::Create()
                     <div class="panel-heading">
                      <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
-                          <i class="fa fa-users"></i><?= !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
+                          <i class="fa fa-users"></i><?= !($_SESSION['user']->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                        </a>
                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
                           <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>

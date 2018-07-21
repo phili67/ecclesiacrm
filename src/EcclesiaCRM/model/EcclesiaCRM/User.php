@@ -317,6 +317,11 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isGdrpDpo();
     }
 
+    public function isMainDashboardEnabled()
+    {
+        return $this->isAdmin() || $this->isMainDashboard();
+    }
+
     public function updatePassword($password)
     {
         $this->setPassword($this->hashPassword($password));
