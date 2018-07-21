@@ -1,5 +1,6 @@
 
 # extra changes
+
 msgid "Jan"
 msgstr ""
 
@@ -25,4 +26,300 @@ msgid "Nov"
 msgstr ""
 
 msgid "Dec"
+msgstr ""
+
+msgid "User permission to send email via mailto: links"
+msgstr ""
+
+msgid  "user permission to send email via mailto: links"
+msgstr ""
+
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+msgid "User permission to create directories"
+msgstr ""
+
+msgid "User permission to export CSV files"
+msgstr ""
+
+msgid "User permission to use IST Address Verification"
+msgstr ""
+
+msgid "Allow to see ballon Help"
+msgstr ""
+
+msgid "To export to another For european CharSet use ;"
+msgstr ""
+
+msgid "Default is UTF-8, For european CharSet use Windows-1252 for example for French language."
+msgstr ""
+
+msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
+msgstr ""
+
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+msgid "The sidebar is collapse by default"
+msgstr ""
+
+
+msgid "Select the event to which you would like to add your cart"
+msgstr ""
+
+msgid "Credit Card People"
+msgstr ""
+
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+msgid "Person assigned to a group"
+msgstr ""
+
+msgid "Returns all persons assigned to a group."
+msgstr ""
+
+
+msgid "Person by Age"
+msgstr ""
+
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+msgid "Person by Property"
+msgstr ""
+
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+msgid "Person by Role and Gender"
+msgstr ""
+
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+msgid "Person not assigned to a group"
+msgstr "Returns all the persons not assigned to a group."
+
+msgid "Recent friends"
+msgstr ""
+
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+msgid "Select all members"
+msgstr ""
+
+msgid "People who are members"
+msgstr ""
+
+msgid "Families to Canvass"
+msgstr ""
+
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+msgid "Family Member Count"
+msgstr ""
+
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+msgid "Family Pledge by Fiscal Year"
+msgstr ""
+
+msgid "Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+msgid "Birthdays"
+msgstr ""
+
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+msgid "Membership anniversaries"
+msgstr ""
+
+msgid "Members who joined in a particular month"
+msgstr ""
+
+msgid "Missing pledges"
+msgstr "Find people who pledged one year but not another"
+
+msgid "Pledge comparison"
+msgstr "Compare pledges between two fiscal years"
+
+msgid "Registered students"
+msgstr ""
+
+msgid "Find Registered students"
+msgstr ""
+
+msgid "Select database users"
+msgstr ""
+
+msgid "People who are registered as database users"
+msgstr ""
+
+msgid "Volunteers"
+msgstr ""
+
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+msgid "Advanced Search"
+msgstr ""
+
+msgid "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work Email."
+msgstr ""
+
+msgid "CustomSearch"
+msgstr ""
+
+msgid "Find people with a custom field value"
+msgstr ""
+
+msgid "Total By Gender"
+msgstr ""
+
+msgid "Total of records matching a given gender."
+msgstr ""
+
+msgid "Custom field"
+msgstr ""
+
+msgid "Choose customer person field"
+msgstr ""
+
+msgid "Field value"
+msgstr ""
+
+msgid "Match custom field to this value"
+msgstr ""
+
+msgid "The desired gender to search the database for."
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Field"
+msgstr ""
+
+msgid "Select field to search for."
+msgstr ""
+
+msgid "Enter any part of the following: Name, City, State, Zip, Home Phone, Email, or Work Email."
+msgstr ""
+
+msgid "Minimum Age"
+msgstr ""
+
+msgid "Maximum Age"
+msgstr ""
+
+msgid "The minimum age for which you want records returned."
+msgstr ""
+
+msgid "The maximum age for which you want records returned."
+msgstr ""
+
+msgid "The property for which you would like person records returned."
+msgstr ""
+
+msgid "Select the desired family role."
+msgstr ""
+
+msgid "The gender for which you would like records returned."
+msgstr ""
+
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+msgid "Returns all the persons not assigned to a group."
+msgstr ""
+
+msgid "Number of months since becoming a friend"
+msgstr ""
+
+msgid "Months"
+msgstr ""
+
+msgid "No."
+msgstr ""
+
+msgid "Fiscal Year."
+msgstr ""
+
+msgid "The birthday month for which you would like records returned."
+msgstr ""
+
+msgid "Member, Regular Attender, etc."
+msgstr ""
+
+msgid "The membership anniversary month for which you would like records returned."
+msgstr ""
+
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+msgid "First Fiscal Year"
+msgstr ""
+
+msgid "Pledged this year"
+msgstr ""
+
+msgid "but not this year"
+msgstr ""
+
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+msgid "First fiscal year for comparison"
+msgstr ""
+
+msgid "Second Fiscal Year"
+msgstr ""
+
+msgid "Second fiscal year for comparison"
+msgstr ""
+
+msgid "Group of registered students"
+msgstr ""
+
+msgid "Volunteer opportunities"
+msgstr ""
+
+msgid "Choose a volunteer opportunity"
+msgstr ""
+
+msgid "First volunteer opportunity choice"
+msgstr ""
+
+msgid "Second volunteer opportunity choice"
+msgstr ""
+
+msgid "There were "
+msgstr ""
+
+msgid "pm"
+msgstr " "
+
+msgid "am"
+msgstr " "
+
+msgid "Assign a New Property:"
+msgstr ""
+
+msgid "Teacher"
+msgstr ""
+
+msgid "Student"
 msgstr ""

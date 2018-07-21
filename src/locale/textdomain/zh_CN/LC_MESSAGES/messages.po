@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-21 11:19+0200\n"
+"POT-Creation-Date: 2018-07-21 21:55+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1945,6 +1945,1035 @@ msgstr ""
 msgid "Child"
 msgstr "成人/儿童"
 
+#: EcclesiaCRM/data/Countries.php:15
+msgid "Afghanistan (‫افغانستان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:15
+msgid "Åland Islands (Åland)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:15
+msgid "Albania (Shqipëri)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:16
+msgid "Algeria (‫الجزائر‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:16
+msgid "American Samoa"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:16
+msgid "Andorra"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:17
+msgid "Angola"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:17
+msgid "Anguilla"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:17
+msgid "Antarctica"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:17
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:18
+msgid "Argentina"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:18
+msgid "Armenia (Հայաստան)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:18
+msgid "Aruba"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:18
+msgid "Ascension Island"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:19
+msgid "Australia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:19
+msgid "Austria (Österreich)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:19
+msgid "Azerbaijan (Azərbaycan)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:20
+msgid "Bahamas"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:20
+msgid "Bahrain (‫البحرين‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:20
+msgid "Bangladesh (বাংলাদেশ)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:20
+msgid "Barbados"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:21
+msgid "Belarus (Беларусь)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:21
+msgid "Belgium (België)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:21
+msgid "Belize"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:21
+msgid "Benin (Bénin)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:22
+msgid "Bermuda"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:22
+msgid "Bhutan (འབྲུག)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:22
+msgid "Bolivia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:22
+msgid "Bosnia and Herzegovina (Босна и Херцеговина)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:23
+msgid "Botswana"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:23
+msgid "Bouvet Island"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:23
+msgid "Brazil (Brasil)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:23
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:24
+msgid "British Virgin Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:24
+msgid "Brunei"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:24
+msgid "Bulgaria (България)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:24
+msgid "Burkina Faso"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:25
+msgid "Burundi (Uburundi)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:25
+msgid "Cambodia (កម្ពុជា)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:25
+msgid "Cameroon (Cameroun)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:25
+msgid "Canada"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:26
+msgid "Canary Islands (islas Canarias)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:26
+msgid "Cape Verde (Kabu Verdi)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:26
+msgid "Caribbean Netherlands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:27
+msgid "Cayman Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:27
+msgid "Central African Republic (République centrafricaine)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:27
+msgid "Ceuta and Melilla (Ceuta y Melilla)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:28
+msgid "Chad (Tchad)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:28
+#, fuzzy
+msgid "Chile"
+msgstr "成人/儿童"
+
+#: EcclesiaCRM/data/Countries.php:28
+msgid "China (中国)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:28
+msgid "Christmas Island"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:28
+msgid "Clipperton Island"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:29
+msgid "Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:29
+msgid "Colombia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:29
+msgid "Comoros (‫جزر القمر‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:30
+msgid "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:30
+msgid "Congo (Republic) (Congo-Brazzaville)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:30
+msgid "Cook Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Costa Rica"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Côte d’Ivoire"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Croatia (Hrvatska)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Cuba"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Curaçao"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:31
+msgid "Cyprus (Κύπρος)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:32
+msgid "Czech Republic (Česká republika)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:32
+msgid "Denmark (Danmark)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:32
+msgid "Diego Garcia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:32
+msgid "Djibouti"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:32
+msgid "Dominica"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:33
+msgid "Dominican Republic (República Dominicana)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:33
+msgid "Ecuador"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:33
+msgid "Egypt (‫مصر‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:33
+msgid "El Salvador"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:34
+msgid "Equatorial Guinea (Guinea Ecuatorial)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:34
+msgid "Eritrea"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:34
+msgid "Estonia (Eesti)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:34
+msgid "Ethiopia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:35
+msgid "Falkland Islands (Islas Malvinas)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:35
+msgid "Faroe Islands (Føroyar)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:35
+msgid "Fiji"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:35
+msgid "Finland (Suomi)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:36
+#, fuzzy
+msgid "France"
+msgstr "取消"
+
+#: EcclesiaCRM/data/Countries.php:36
+msgid "French Guiana (Guyane française)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:36
+msgid "French Polynesia (Polynésie française)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:37
+msgid "French Southern Territories (Terres australes françaises)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:37
+msgid "Gabon"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:37
+msgid "Gambia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:37
+msgid "Georgia (საქართველო)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:38
+msgid "Germany (Deutschland)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:38
+msgid "Ghana (Gaana)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:38
+msgid "Gibraltar"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:38
+msgid "Greece (Ελλάδα)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:38
+msgid "Greenland (Kalaallit Nunaat)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Grenada"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guadeloupe"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guam"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guatemala"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guernsey"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guinea (Guinée)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:39
+msgid "Guinea-Bissau (Guiné Bissau)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Guyana"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Haiti"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Heard & McDonald Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Honduras"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Hong Kong (香港)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:40
+msgid "Hungary (Magyarország)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "Iceland (Ísland)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "India (भारत)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "Indonesia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "Iran (‫ایران‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "Iraq (‫العراق‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:41
+msgid "Ireland"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Isle of Man"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Israel (‫ישראל‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Italy (Italia)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Jamaica"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Japan (日本)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Jersey"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:42
+msgid "Jordan (‫الأردن‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kazakhstan (Казахстан)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kenya"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kiribati"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kosovo (Kosovë)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kuwait (‫الكويت‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:43
+msgid "Kyrgyzstan (Кыргызстан)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Laos (ລາວ)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Latvia (Latvija)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Lebanon (‫لبنان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Lesotho"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Liberia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:44
+msgid "Libya (‫ليبيا‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:45
+msgid "Liechtenstein"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:45
+msgid "Lithuania (Lietuva)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:45
+msgid "Luxembourg"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:45
+msgid "Macau (澳門)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:45
+msgid "Macedonia (FYROM) (Македонија)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Madagascar (Madagasikara)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Malawi"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Malaysia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Maldives"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Mali"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Malta"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:46
+msgid "Marshall Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Martinique"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Mauritania (‫موريتانيا‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Mauritius (Moris)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Mayotte"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Mexico (México)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:47
+msgid "Micronesia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:48
+msgid "Moldova (Republica Moldova)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:48
+msgid "Monaco"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:48
+msgid "Mongolia (Монгол)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:48
+msgid "Montenegro (Crna Gora)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:48
+#, fuzzy
+msgid "Montserrat"
+msgstr "月"
+
+#: EcclesiaCRM/data/Countries.php:48
+msgid "Morocco (‫المغرب‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:49
+msgid "Mozambique (Moçambique)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:49
+msgid "Myanmar (Burma) (မြန်မာ)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:49
+msgid "Namibia (Namibië)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:49
+msgid "Nauru"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:49
+msgid "Nepal (नेपाल)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:50
+msgid "Netherlands (Nederland)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:50
+msgid "New Caledonia (Nouvelle-Calédonie)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:50
+#, fuzzy
+msgid "New Zealand"
+msgstr "新角色"
+
+#: EcclesiaCRM/data/Countries.php:50
+msgid "Nicaragua"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:50
+msgid "Niger (Nijar)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:51
+msgid "Nigeria"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:51
+msgid "Niue"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:51
+msgid "Norfolk Island"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:51
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:51
+msgid "North Korea (조선 민주주의 인민 공화국)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Norway (Norge)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Oman (‫عُمان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Pakistan (‫پاکستان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Palau"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Palestine (‫فلسطين‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:52
+msgid "Panama (Panamá)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Papua New Guinea"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Paraguay"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Peru (Perú)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Philippines"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Pitcairn Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:53
+msgid "Poland (Polska)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Portugal"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Puerto Rico"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Qatar (‫قطر‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Réunion (La Réunion)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Romania (România)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:54
+msgid "Russia (Россия)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:55
+msgid "Rwanda"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:55
+msgid "Saint Barthélemy (Saint-Barthélemy)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:55
+msgid "Saint Helena"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:55
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:55
+msgid "Saint Lucia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:56
+msgid "Saint Martin (Saint-Martin (partie française))"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:56
+msgid "Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:56
+msgid "Samoa"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:57
+msgid "San Marino"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:57
+msgid "São Tomé and Príncipe (São Tomé e Príncipe)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:57
+msgid "Saudi Arabia (‫المملكة العربية السعودية‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Senegal (Sénégal)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Serbia (Србија)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Seychelles"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Sierra Leone"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Singapore"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:58
+msgid "Sint Maarten"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:59
+msgid "Slovakia (Slovensko)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:59
+msgid "Slovenia (Slovenija)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:59
+msgid "Solomon Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:59
+msgid "Somalia (Soomaaliya)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:59
+msgid "South Africa"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:60
+msgid "South Georgia & South Sandwich Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:60
+msgid "South Korea (대한민국)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:60
+msgid "South Sudan (‫جنوب السودان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:60
+msgid "Spain (España)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:61
+msgid "Sri Lanka (ශ්‍රී ලංකාව)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:61
+msgid "St. Vincent & Grenadines"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:61
+msgid "Sudan (‫السودان‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:61
+msgid "Suriname"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:61
+msgid "Svalbard and Jan Mayen (Svalbard og Jan Mayen)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:62
+msgid "Swaziland"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:62
+msgid "Sweden (Sverige)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:62
+msgid "Switzerland (Schweiz)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:62
+msgid "Syria (‫سوريا‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:62
+msgid "Taiwan (台灣)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Tajikistan"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Tanzania"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Thailand (ไทย)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Timor-Leste"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Togo"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Tokelau"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:63
+msgid "Tonga"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:64
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:64
+msgid "Tristan da Cunha"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:64
+msgid "Tunisia (‫تونس‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:64
+msgid "Turkey (Türkiye)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:64
+msgid "Turkmenistan"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:65
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:65
+msgid "Tuvalu"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:65
+msgid "U.S. Outlying Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:65
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:65
+msgid "Uganda"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:66
+msgid "Ukraine (Україна)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:66
+msgid "United Arab Emirates (‫الإمارات العربية المتحدة‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:66
+msgid "United Kingdom"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:66
+#, fuzzy
+msgid "United States"
+msgstr "国"
+
+#: EcclesiaCRM/data/Countries.php:67
+msgid "Uruguay"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:67
+msgid "Uzbekistan (Oʻzbekiston)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:67
+msgid "Vanuatu"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:67
+msgid "Vatican City (Città del Vaticano)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:67
+msgid "Venezuela"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Vietnam (Việt Nam)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Western Sahara (‫الصحراء الغربية‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Yemen (‫اليمن‬‎)"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Zambia"
+msgstr ""
+
+#: EcclesiaCRM/data/Countries.php:68
+msgid "Zimbabwe"
+msgstr ""
+
 #: EcclesiaCRM/dto/Cart.php:101 EcclesiaCRM/dto/Cart.php:160
 #, fuzzy
 msgid "PersonID for Cart must be numeric"
@@ -2256,6 +3285,12 @@ msgstr "过滤器"
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Time zone"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:122
+msgid ""
+"CalDAV protocol to work with php date_default_timezone_set function default "
+"settings : america/new_york"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:123
@@ -2720,86 +3755,80 @@ msgid "Time in minutes when a share document can't be opened."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:244
-msgid ""
-"CalDAV protocol to work with php date_default_timezone_set function default "
-"settings : america/new_york"
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "The DPO administrator for the GDPR"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:252
+#: EcclesiaCRM/dto/SystemConfig.php:251
 msgid "Church Information"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:252
 #, fuzzy
 msgid "User setup"
 msgstr "用户列表"
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:253
 #, fuzzy
 msgid "Email Setup"
 msgstr "电子邮件组"
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:254
 #, fuzzy
 msgid "People Setup"
 msgstr "人"
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:255
 #, fuzzy
 msgid "Map Settings"
 msgstr "保存设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:256
 #, fuzzy
 msgid "Report Settings"
 msgstr "其他设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:257
 #, fuzzy
 msgid "Financial Settings"
 msgstr "财务报告"
 
-#: EcclesiaCRM/dto/SystemConfig.php:259 Include/Footer.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:258 Include/Footer.php:164
 #: SystemSettings.php:28
 #, fuzzy
 msgid "System Settings"
 msgstr "保存设置"
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "Quick Search"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:260
 #, fuzzy
 msgid "Backup"
 msgstr "背面"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:261
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:264
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Users Specific Schedule Tasks"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Sundayschool Attendance"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:317 EcclesiaCRM/dto/SystemConfig.php:329
-#: EcclesiaCRM/dto/SystemConfig.php:342
+#: EcclesiaCRM/dto/SystemConfig.php:316 EcclesiaCRM/dto/SystemConfig.php:328
+#: EcclesiaCRM/dto/SystemConfig.php:341
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:360
+#: EcclesiaCRM/dto/SystemConfig.php:359
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
@@ -6020,59 +7049,59 @@ msgstr "斜体"
 msgid " Bold"
 msgstr "胆大"
 
-#: Include/Header-function.php:108
+#: Include/Header-function.php:109
 #, fuzzy
 msgid "Issue Report!"
 msgstr "进度报告"
 
-#: Include/Header-function.php:115
+#: Include/Header-function.php:116
 msgid "Enter a Title for your bug / feature report"
 msgstr ""
 
-#: Include/Header-function.php:125
+#: Include/Header-function.php:126
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr ""
 
-#: Include/Header-function.php:133
+#: Include/Header-function.php:134
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
 msgstr ""
 
-#: Include/Header-function.php:134
+#: Include/Header-function.php:135
 msgid "Please do not include any confidential information."
 msgstr ""
 
-#: Include/Header-function.php:135
+#: Include/Header-function.php:136
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
 msgstr ""
 
-#: Include/Header-function.php:136
+#: Include/Header-function.php:137
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
 msgstr ""
 
-#: Include/Header-function.php:140
+#: Include/Header-function.php:141
 msgid "Submit"
 msgstr "提交"
 
-#: Include/Header-function.php:147
+#: Include/Header-function.php:148
 #, fuzzy
 msgid "Issue Report done!"
 msgstr "报表模型"
 
-#: Include/Header-function.php:149
+#: Include/Header-function.php:150
 msgid "Successfully submitted Issue"
 msgstr ""
 
-#: Include/Header-function.php:150
+#: Include/Header-function.php:151
 msgid "View Issue on GitHub"
 msgstr ""
 
-#: Include/Header-function.php:152
+#: Include/Header-function.php:153
 msgid "OK"
 msgstr ""
 
@@ -6595,7 +7624,7 @@ msgstr "家庭删除确认"
 msgid "Self Verify"
 msgstr "验证"
 
-#: Menu.php:54
+#: Menu.php:30
 msgid "Welcome to"
 msgstr ""
 
@@ -9161,22 +10190,369 @@ msgstr "没有"
 msgid "Dec"
 msgstr "Déc"
 
-#~ msgid "Add Cart to Event"
-#~ msgstr "加入购物车事件"
+msgid "User permission to send email via mailto: links"
+msgstr ""
 
 #, fuzzy
-#~ msgid "Select the event to which you would like to add your cart"
-#~ msgstr "选择事件时，如果你想添加您的购物车"
+msgid "user permission to send email via mailto: links"
+msgstr "美国地址验证"
+
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+msgid "User permission to create directories"
+msgstr ""
+
+msgid "User permission to export CSV files"
+msgstr ""
+
+#, fuzzy
+msgid "User permission to use IST Address Verification"
+msgstr "美国地址验证"
+
+msgid "Allow to see ballon Help"
+msgstr ""
+
+msgid "To export to another For european CharSet use ;"
+msgstr ""
+
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+
+msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
+msgstr ""
+
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+msgid "The sidebar is collapse by default"
+msgstr ""
+
+#, fuzzy
+msgid "Select the event to which you would like to add your cart"
+msgstr "选择事件时，如果你想添加您的购物车"
+
+#, fuzzy
+msgid "Credit Card People"
+msgstr "信用卡"
+
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+#, fuzzy
+msgid "Person assigned to a group"
+msgstr "未分配"
+
+#, fuzzy
+msgid "Returns all persons assigned to a group."
+msgstr "未分配"
+
+#, fuzzy
+msgid "Person by Age"
+msgstr "人"
+
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+#, fuzzy
+msgid "Person by Property"
+msgstr "人"
+
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+#, fuzzy
+msgid "Person by Role and Gender"
+msgstr "选择性别"
+
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+#, fuzzy
+msgid "Person not assigned to a group"
+msgstr "未分配"
+
+#, fuzzy
+msgid "Recent friends"
+msgstr "最近编辑"
+
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+#, fuzzy
+msgid "Select all members"
+msgstr "选择所有"
+
+#, fuzzy
+msgid "People who are members"
+msgstr "选择所有"
+
+#, fuzzy
+msgid "Families to Canvass"
+msgstr "OK（确定）招商"
+
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+#, fuzzy
+msgid "Family Member Count"
+msgstr "家庭成员"
+
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+#, fuzzy
+msgid "Family Pledge by Fiscal Year"
+msgstr "选择会计年度"
+
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+#, fuzzy
+msgid "Birthdays"
+msgstr "生日"
+
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+#, fuzzy
+msgid "Membership anniversaries"
+msgstr "会员日期"
+
+msgid "Members who joined in a particular month"
+msgstr ""
+
+#, fuzzy
+msgid "Missing pledges"
+msgstr "邻居的家庭"
+
+#, fuzzy
+msgid "Pledge comparison"
+msgstr "质押摘要"
+
+#, fuzzy
+msgid "Registered students"
+msgstr "额外的学生"
+
+msgid "Find Registered students"
+msgstr ""
+
+#, fuzzy
+msgid "Select database users"
+msgstr "数据文件"
+
+#, fuzzy
+msgid "People who are registered as database users"
+msgstr "选择所有"
+
+#, fuzzy
+msgid "Volunteers"
+msgstr "义工机会编辑器"
+
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+msgid "Advanced Search"
+msgstr ""
+
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+
+msgid "CustomSearch"
+msgstr ""
+
+msgid "Find people with a custom field value"
+msgstr ""
+
+#, fuzzy
+msgid "Total By Gender"
+msgstr "选择性别"
+
+msgid "Total of records matching a given gender."
+msgstr ""
+
+#, fuzzy
+msgid "Custom field"
+msgstr "自定义字段"
+
+#, fuzzy
+msgid "Choose customer person field"
+msgstr "自定义联系人字段"
+
+#, fuzzy
+msgid "Field value"
+msgstr "估价值"
+
+msgid "Match custom field to this value"
+msgstr ""
+
+msgid "The desired gender to search the database for."
+msgstr ""
+
+#, fuzzy
+msgid "Search"
+msgstr "三月"
+
+#, fuzzy
+msgid "Field"
+msgstr "估价值"
+
+msgid "Select field to search for."
+msgstr ""
+
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+
+#, fuzzy
+msgid "Minimum Age"
+msgstr "最低价格"
+
+#, fuzzy
+msgid "Maximum Age"
+msgstr "最大距离"
+
+msgid "The minimum age for which you want records returned."
+msgstr ""
+
+msgid "The maximum age for which you want records returned."
+msgstr ""
+
+#, fuzzy
+msgid "The property for which you would like person records returned."
+msgstr "选择您想添加您的购物车"
+
+#, fuzzy
+msgid "Select the desired family role."
+msgstr "选择家庭："
+
+#, fuzzy
+msgid "The gender for which you would like records returned."
+msgstr "选择您想添加您的购物车"
+
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "未分配"
+
+msgid "Number of months since becoming a friend"
+msgstr ""
+
+#, fuzzy
+msgid "Months"
+msgstr "月"
+
+#, fuzzy
+msgid "No."
+msgstr "没有"
+
+#, fuzzy
+msgid "Fiscal Year."
+msgstr "财政年度"
+
+#, fuzzy
+msgid "The birthday month for which you would like records returned."
+msgstr "选择您想添加您的购物车"
+
+msgid "Member, Regular Attender, etc."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr "选择您想添加您的购物车"
+
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+#, fuzzy
+msgid "First Fiscal Year"
+msgstr "财政年度"
+
+#, fuzzy
+msgid "Pledged this year"
+msgstr "删除这条记录"
+
+msgid "but not this year"
+msgstr ""
+
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+msgid "First fiscal year for comparison"
+msgstr ""
+
+#, fuzzy
+msgid "Second Fiscal Year"
+msgstr "选择会计年度"
+
+msgid "Second fiscal year for comparison"
+msgstr ""
+
+#, fuzzy
+msgid "Group of registered students"
+msgstr "额外的学生"
+
+#, fuzzy
+msgid "Volunteer opportunities"
+msgstr "义工机会编辑器"
+
+#, fuzzy
+msgid "Choose a volunteer opportunity"
+msgstr "分配一个新的义工机会"
+
+#, fuzzy
+msgid "First volunteer opportunity choice"
+msgstr "义工机会编辑器"
+
+#, fuzzy
+msgid "Second volunteer opportunity choice"
+msgstr "义工机会编辑器"
+
+#, fuzzy
+msgid "There were "
+msgstr "那里"
+
+msgid "pm"
+msgstr "下午"
+
+msgid "am"
+msgstr "我"
+
+#, fuzzy
+msgid "Assign a New Property:"
+msgstr "分配一个新的属性"
+
+#, fuzzy
+msgid "Teacher"
+msgstr "额外的教师"
+
+#, fuzzy
+msgid "Student"
+msgstr "额外的学生"
+
+#~ msgid "Add Cart to Event"
+#~ msgstr "加入购物车事件"
 
 #~ msgid "OR"
 #~ msgstr "或"
 
 #~ msgid "Add Cart to Group"
 #~ msgstr "加入购物车集团"
-
-#, fuzzy
-#~ msgid "Select the group to which you would like to add your cart"
-#~ msgstr "选择您想添加您的购物车"
 
 #~ msgid ""
 #~ "Warning: Field changes will be lost if you do not 'Save Changes' before "
@@ -9268,9 +10644,3 @@ msgstr "Déc"
 
 #~ msgid "Do you have any suggestions for us?"
 #~ msgstr "你对我们有什么建议吗？"
-
-#~ msgid "pm"
-#~ msgstr "下午"
-
-#~ msgid "am"
-#~ msgstr "我"
