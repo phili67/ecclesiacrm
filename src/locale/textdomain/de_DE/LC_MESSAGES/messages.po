@@ -9627,7 +9627,7 @@ msgid "Oct"
 msgstr "Oktober"
 
 msgid "Nov"
-msgstr "Novemeber"
+msgstr "November"
 
 msgid "Dec"
 msgstr "Dez"
