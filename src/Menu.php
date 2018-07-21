@@ -36,7 +36,7 @@ $updatedMembers = $dashboardService->getUpdatedMembers(12);
 //Newly added members from Active families
 $latestMembers = $dashboardService->getLatestMembers(12);
 
-if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isAdmin())) {
+if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isMainDashboardEnabled())) {
    Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
    exit;
 }

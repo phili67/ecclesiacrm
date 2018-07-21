@@ -284,7 +284,7 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
         <tr>
           <td width="75%">
       <?php 
-        if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
+        if ($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
       ?>           
               <div class="col-md-3">
                   <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Class List') ?>">

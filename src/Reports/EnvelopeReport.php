@@ -16,7 +16,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
-if (!$_SESSION['user']->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
+if (!$_SESSION['user']->isFinanceEnabled() && SystemConfig::getValue('bCSVAdminOnly')) {
     Redirect('Menu.php');
     exit;
 }
