@@ -420,7 +420,7 @@ require 'Include/Header.php';
                 
                       foreach ($ormPropList as $prop) {
                           $sRowClass = AlternateRowStyle($sRowClass);
-                          if ( $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
+                          if ( $_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                           ?>
                         <tr class="<?= $sRowClass ?>">
                           <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
@@ -527,7 +527,7 @@ require 'Include/Header.php';
   
   var isShowable  = <?php
      // it should be better to write this part in the api/groups/members
-      if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() 
+      if ($_SESSION['user']->isSeePrivacyDataEnabled() 
         || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
         || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeachForGroup($iGroupID))) {
          echo "true";

@@ -210,7 +210,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     } ?>
                 <hr/>
             <?php 
-               $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin())?true:false;
+               $can_see_privatedata = ($iCurrentUserFamID == $iFamilyID || $_SESSION['user']->isSeePrivacyDataEnabled())?true:false;
             ?>
                 <ul class="fa-ul">
                   <?php
@@ -398,7 +398,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     </div>
 
 <?php 
-  if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+  if ($iCurrentUserFamID == $iFamilyID || $_SESSION['user']->isSeePrivacyDataEnabled()) {
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
             <div class="box box-success box-body">
@@ -494,7 +494,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 ?>
 </div>
 
-<?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['bSeePrivacyData']  || $_SESSION['user']->isAdmin()) { ?>
+<?php if ($iCurrentUserFamID == $iFamilyID || $_SESSION['user']->isSeePrivacyDataEnabled()) { ?>
 <div class="row">
     <div class="col-lg-12">
         <div class="nav-tabs-custom tab-success">

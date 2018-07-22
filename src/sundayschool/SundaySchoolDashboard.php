@@ -238,7 +238,7 @@ require '../Include/Header.php';
           echo '  </span></a></td>';
           echo '<td>'.$firstName.'</td>';
           echo '<td>'.$LastName.'</td>';
-          if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {          
+          if ($_SESSION['user']->isSeePrivacyDataEnabled()) {          
             echo '<td>'.$birthDate.'</td>';
             echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
             echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';

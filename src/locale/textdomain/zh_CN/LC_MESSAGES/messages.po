@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-21 21:55+0200\n"
+"POT-Creation-Date: 2018-07-22 22:45+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -466,7 +466,7 @@ msgstr ""
 #: PaddleNumEditor.php:146 PersonEditor.php:712 PersonEditor.php:870
 #: PersonEditor.php:978 PersonEditor.php:1295 PersonEditor.php:1360
 #: PersonEditor.php:1411 PledgeEditor.php:722 PropertyEditor.php:193
-#: PropertyTypeEditor.php:111 UserEditor.php:656 UserPasswordChange.php:216
+#: PropertyTypeEditor.php:111 UserEditor.php:674 UserPasswordChange.php:216
 msgid "Save"
 msgstr "保存"
 
@@ -483,8 +483,8 @@ msgstr "保存"
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
 #: sundayschool/SundaySchoolDashboard.php:279
-#: sundayschool/SundaySchoolReports.php:307 TaxReport.php:54 UserEditor.php:657
-#: UserEditor.php:764
+#: sundayschool/SundaySchoolReports.php:307 TaxReport.php:54 UserEditor.php:675
+#: UserEditor.php:782
 msgid "Cancel"
 msgstr "取消"
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Encrypt backup file with a password?"
 msgstr "使用密码加密备份文件？"
 
-#: BackupDatabase.php:72 Login.php:227 Login.php:305 UserList.php:55
+#: BackupDatabase.php:72 Login.php:229 Login.php:307 UserList.php:55
 msgid "Password"
 msgstr "密码"
 
@@ -3874,7 +3874,7 @@ msgstr ""
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr ""
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:223
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:225
 msgid "Email/Username"
 msgstr ""
 
@@ -4187,53 +4187,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:386
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:391
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:389
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:394
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:392
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:397
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:395
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:400
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:398
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:403
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:401
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:406
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:404
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:409
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:409 PersonView.php:1159
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:414 PersonView.php:1159
 #, fuzzy
 msgid "Dav create file"
 msgstr "创建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:414
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:419
 #, fuzzy
 msgid "Dav create directory"
 msgstr "创建目录"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:419 PersonView.php:1161
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:424 PersonView.php:1161
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:424 PersonView.php:1160
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:429 PersonView.php:1160
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:429
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:434
 msgid "Dav delete file"
 msgstr ""
 
@@ -5168,7 +5168,7 @@ msgstr "家庭删除确认"
 msgid "Reset your password"
 msgstr "重新输入密码"
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:531
+#: external/templates/password/enter-username.php:30 UserEditor.php:542
 #, fuzzy
 msgid "Login Name"
 msgstr "登录用户名"
@@ -6874,7 +6874,7 @@ msgid "Edit Donation Funds"
 msgstr "捐赠基金的编辑"
 
 #: Include/Footer.php:147 PersonView.php:466 PrintPastoralCare.php:495
-#: UserEditor.php:639
+#: UserEditor.php:657
 msgid "Pastoral Care"
 msgstr ""
 
@@ -7455,34 +7455,34 @@ msgid ""
 "administrator."
 msgstr "太多次失败登录您的帐户已被锁定。请与管理员联系。"
 
-#: Login.php:190 Login.php:240
+#: Login.php:192 Login.php:242
 msgid "Login"
 msgstr "注册"
 
-#: Login.php:203 Login.php:265
+#: Login.php:205 Login.php:267
 msgid "Please Login"
 msgstr "请登录"
 
-#: Login.php:208 Login.php:273
+#: Login.php:210 Login.php:275
 msgid "Your previous session timed out.  Please login again."
 msgstr ""
 
-#: Login.php:232
+#: Login.php:234
 #, fuzzy
 msgid "I forgot my password"
 msgstr "无效的登录名或密码"
 
-#: Login.php:248
+#: Login.php:250
 #, fuzzy
 msgid "Register a new Family"
 msgstr "建立新的家庭"
 
-#: Login.php:316
+#: Login.php:318
 #, fuzzy
 msgid "Enter your password to retrieve your session"
 msgstr "输入此用户的密码。"
 
-#: Login.php:319
+#: Login.php:321
 msgid "Or sign in as a different user"
 msgstr ""
 
@@ -8814,7 +8814,7 @@ msgstr "分配"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:605
+#: Reports/CanvassReports.php:169 UserEditor.php:616
 #, fuzzy
 msgid "Canvasser"
 msgstr "兜揽"
@@ -9318,31 +9318,31 @@ msgid "My User Settings"
 msgstr "我的用户设置"
 
 #: SettingsIndividual.php:101 SettingsUser.php:84 SystemSettings.php:135
-#: UserEditor.php:675
+#: UserEditor.php:693
 msgid "Variable name"
 msgstr "变量名"
 
-#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:676
+#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:694
 msgid "Current Value"
 msgstr "当前值"
 
-#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:677
+#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:695
 #, fuzzy
 msgid "Notes"
 msgstr "注："
 
 #: SettingsIndividual.php:119 SettingsIndividual.php:168 SettingsUser.php:97
-#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:763
+#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:781
 msgid "Save Settings"
 msgstr "保存设置"
 
 #: SettingsIndividual.php:149 SettingsUser.php:113 SettingsUser.php:143
-#: SystemSettings.php:195 UserEditor.php:713 UserEditor.php:741
+#: SystemSettings.php:195 UserEditor.php:731 UserEditor.php:759
 msgid "False"
 msgstr ""
 
 #: SettingsIndividual.php:150 SettingsUser.php:114 SettingsUser.php:144
-#: SystemSettings.php:196 UserEditor.php:714 UserEditor.php:742
+#: SystemSettings.php:196 UserEditor.php:732 UserEditor.php:760
 msgid "True"
 msgstr ""
 
@@ -9356,7 +9356,7 @@ msgid ""
 "value.<BR>"
 msgstr "真设置权限给新用户的能力，改变他们的当前值。 <BR>"
 
-#: SettingsUser.php:83 UserEditor.php:674
+#: SettingsUser.php:83 UserEditor.php:692
 msgid "Permission"
 msgstr "允许"
 
@@ -9765,139 +9765,156 @@ msgstr ""
 msgid "Login must be a least 3 characters!"
 msgstr ""
 
-#: UserEditor.php:233 UserEditor.php:277
+#: UserEditor.php:241 UserEditor.php:286
 msgid "Login already in use, please select a different login!"
 msgstr ""
 
-#: UserEditor.php:273
+#: UserEditor.php:282
 msgid "The same as before"
 msgstr ""
 
-#: UserEditor.php:442
+#: UserEditor.php:453
 msgid "User Editor"
 msgstr "用户编辑器"
 
-#: UserEditor.php:455
+#: UserEditor.php:466
 #, fuzzy
 msgid "Profile management"
 msgstr "物业取消分配"
 
-#: UserEditor.php:458
+#: UserEditor.php:469
 msgid "Add Profile"
 msgstr ""
 
-#: UserEditor.php:459
+#: UserEditor.php:470
 #, fuzzy
 msgid "Manage Profiles"
 msgstr "管理组和角色"
 
-#: UserEditor.php:461
+#: UserEditor.php:472
 msgid "Add Profile to Current User"
 msgstr ""
 
-#: UserEditor.php:485
+#: UserEditor.php:496
 msgid "Note: Changes will not take effect until next logon."
 msgstr "注：更改将不会生效，直到下一次登录。"
 
-#: UserEditor.php:499
+#: UserEditor.php:510
 #, fuzzy
 msgid "Person to Make User"
 msgstr "人，使用户"
 
-#: UserEditor.php:513
+#: UserEditor.php:524
 #, fuzzy
 msgid "User"
 msgstr "用户名"
 
-#: UserEditor.php:536
+#: UserEditor.php:547
 #, fuzzy
 msgid "Add Records"
 msgstr "添加记录"
 
-#: UserEditor.php:543
+#: UserEditor.php:554
 #, fuzzy
 msgid "Edit Records"
 msgstr "编辑记录"
 
-#: UserEditor.php:550
+#: UserEditor.php:561
 #, fuzzy
 msgid "Delete Records"
 msgstr "删除记录"
 
-#: UserEditor.php:557
+#: UserEditor.php:568
 #, fuzzy
 msgid "Show Cart"
 msgstr "显示支付"
 
-#: UserEditor.php:564
+#: UserEditor.php:575
 #, fuzzy
 msgid "Show Map"
 msgstr "显示在"
 
-#: UserEditor.php:571
+#: UserEditor.php:582
 #, fuzzy
 msgid "Manage Properties and Classifications"
 msgstr "管理属性和分类"
 
-#: UserEditor.php:578
+#: UserEditor.php:589
 #, fuzzy
 msgid "Manage Groups and Roles"
 msgstr "管理组和角色"
 
-#: UserEditor.php:585
+#: UserEditor.php:596
 #, fuzzy
 msgid "Manage Donations and Finance"
 msgstr "管理捐款和金融"
 
-#: UserEditor.php:592
+#: UserEditor.php:603
 #, fuzzy
 msgid "View, Add and Edit Documents"
 msgstr "查看，添加和编辑备注"
 
-#: UserEditor.php:599
+#: UserEditor.php:610
 #, fuzzy
 msgid "Edit Self"
 msgstr "编辑自"
 
-#: UserEditor.php:602
+#: UserEditor.php:613
 msgid "(Edit own family only.)"
 msgstr "（编辑自己的家庭。）"
 
-#: UserEditor.php:608
+#: UserEditor.php:619
 msgid "(Canvass volunteer.)"
 msgstr "（招商志愿者。）"
 
-#: UserEditor.php:611
+#: UserEditor.php:622
 #, fuzzy
 msgid "Admin"
 msgstr "管理员："
 
-#: UserEditor.php:614
+#: UserEditor.php:625
 msgid "(Grants all privileges.)"
 msgstr "（授予所有权限）。"
 
-#: UserEditor.php:618
-msgid "MainDashboard"
-msgstr ""
-
-#: UserEditor.php:621
-msgid "(Can see the Main Dashboard and the birthdates in the calendar.)"
-msgstr ""
-
-#: UserEditor.php:625
-msgid "MailChimp"
+#: UserEditor.php:629
+msgid "Main Dashboard"
 msgstr ""
 
 #: UserEditor.php:632
-msgid "GRPD Data Protection Officer"
+msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
+msgstr ""
+
+#: UserEditor.php:636
+#, fuzzy
+msgid "See Privacy Data"
+msgstr "私人"
+
+#: UserEditor.php:639
+msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
+msgstr ""
+
+#: UserEditor.php:643
+msgid "MailChimp"
 msgstr ""
 
 #: UserEditor.php:646
+msgid "Allow a user to use MailChimp tool"
+msgstr ""
+
+#: UserEditor.php:650
+msgid "GRPD Data Protection Officer"
+msgstr ""
+
+#: UserEditor.php:653
+msgid "General Data Protection Regulation in UE"
+msgstr ""
+
+#: UserEditor.php:664
 #, fuzzy
 msgid "Style"
 msgstr "风格"
 
-#: UserEditor.php:669
+#: UserEditor.php:687
 #, fuzzy
 msgid ""
 "Set Permission True to give this user the ability to change their current "
@@ -10222,9 +10239,6 @@ msgstr ""
 msgid ""
 "Default is UTF-8, For european CharSet use Windows-1252 for example for "
 "French language."
-msgstr ""
-
-msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
 msgid "Enable sidebar expand on hover effect for sidebar mini"

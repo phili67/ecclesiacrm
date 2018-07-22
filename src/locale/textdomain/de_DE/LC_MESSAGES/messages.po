@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-21 22:19+0200\n"
+"POT-Creation-Date: 2018-07-22 22:45+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -433,7 +433,7 @@ msgstr "Speichern privater private Daten bei Vanco"
 #: PaddleNumEditor.php:146 PersonEditor.php:712 PersonEditor.php:870
 #: PersonEditor.php:978 PersonEditor.php:1295 PersonEditor.php:1360
 #: PersonEditor.php:1411 PledgeEditor.php:722 PropertyEditor.php:193
-#: PropertyTypeEditor.php:111 UserEditor.php:656 UserPasswordChange.php:216
+#: PropertyTypeEditor.php:111 UserEditor.php:674 UserPasswordChange.php:216
 msgid "Save"
 msgstr "Speichern"
 
@@ -450,8 +450,8 @@ msgstr "Speichern"
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
 #: sundayschool/SundaySchoolDashboard.php:279
-#: sundayschool/SundaySchoolReports.php:307 TaxReport.php:54 UserEditor.php:657
-#: UserEditor.php:764
+#: sundayschool/SundaySchoolReports.php:307 TaxReport.php:54 UserEditor.php:675
+#: UserEditor.php:782
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -521,7 +521,7 @@ msgstr "tar.gz (inklusive Fotos)"
 msgid "Encrypt backup file with a password?"
 msgstr "Soll die Sicherung mit einem Passwort verschlüsselt werden?"
 
-#: BackupDatabase.php:72 Login.php:227 Login.php:305 UserList.php:55
+#: BackupDatabase.php:72 Login.php:229 Login.php:307 UserList.php:55
 msgid "Password"
 msgstr "Passwort"
 
@@ -3741,7 +3741,7 @@ msgstr "Dein neuer Account"
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr ""
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:223
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:225
 msgid "Email/Username"
 msgstr "Email/Benutzername"
 
@@ -4018,51 +4018,51 @@ msgstr "Jahre alt"
 msgid "yr old"
 msgstr "jahre alt"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:386
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:391
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:389
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:394
 msgid "system user updated"
 msgstr "danach aktualisiere"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:392
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:397
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:395
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:400
 msgid "system user password reset"
 msgstr "Rücksetzen Ihrer passwort"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:398
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:403
 msgid "system user changed password"
 msgstr "Passwort ändern"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:401
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:406
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:404
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:409
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:409 PersonView.php:1159
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:414 PersonView.php:1159
 msgid "Dav create file"
 msgstr "Erstelle Datei"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:414
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:419
 msgid "Dav create directory"
 msgstr "Erstelle Verzeichnis"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:419 PersonView.php:1161
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:424 PersonView.php:1161
 msgid "Dav update file"
 msgstr "Bitte update die"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:424 PersonView.php:1160
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:429 PersonView.php:1160
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:429
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:434
 msgid "Dav delete file"
 msgstr ""
 
@@ -4937,7 +4937,7 @@ msgstr "Familie Registrieren"
 msgid "Reset your password"
 msgstr "Rücksetzen Ihrer passwort"
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:531
+#: external/templates/password/enter-username.php:30 UserEditor.php:542
 msgid "Login Name"
 msgstr "Benutzername"
 
@@ -6527,7 +6527,7 @@ msgid "Edit Donation Funds"
 msgstr "Editieren Spende Fond"
 
 #: Include/Footer.php:147 PersonView.php:466 PrintPastoralCare.php:495
-#: UserEditor.php:639
+#: UserEditor.php:657
 msgid "Pastoral Care"
 msgstr "Pastoral Pflege"
 
@@ -7074,31 +7074,31 @@ msgstr ""
 "Zu viele fehlgeschlagene Anmeldungen: Dein Konto wurde gesperrt. Melde dich "
 "bei dem Administrator."
 
-#: Login.php:190 Login.php:240
+#: Login.php:192 Login.php:242
 msgid "Login"
 msgstr "Anmelden"
 
-#: Login.php:203 Login.php:265
+#: Login.php:205 Login.php:267
 msgid "Please Login"
 msgstr "Bitte anmelden"
 
-#: Login.php:208 Login.php:273
+#: Login.php:210 Login.php:275
 msgid "Your previous session timed out.  Please login again."
 msgstr ""
 
-#: Login.php:232
+#: Login.php:234
 msgid "I forgot my password"
 msgstr "Ich habe mein Passwort vergessen"
 
-#: Login.php:248
+#: Login.php:250
 msgid "Register a new Family"
 msgstr "Registriere Deine Familie"
 
-#: Login.php:316
+#: Login.php:318
 msgid "Enter your password to retrieve your session"
 msgstr "Geben Sie Ihre passwort, um Ihr Sitzung zurückzubekommen."
 
-#: Login.php:319
+#: Login.php:321
 msgid "Or sign in as a different user"
 msgstr "Oder anmelden Sie sich als einem anderen Benutzernamen"
 
@@ -8341,7 +8341,7 @@ msgstr "Zugewiesen"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:605
+#: Reports/CanvassReports.php:169 UserEditor.php:616
 msgid "Canvasser"
 msgstr "Aktionsmitarbeiter"
 
@@ -8832,30 +8832,30 @@ msgid "My User Settings"
 msgstr "Meine Benutzereinstellungen"
 
 #: SettingsIndividual.php:101 SettingsUser.php:84 SystemSettings.php:135
-#: UserEditor.php:675
+#: UserEditor.php:693
 msgid "Variable name"
 msgstr "Veränderbarer Name"
 
-#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:676
+#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:694
 msgid "Current Value"
 msgstr "Derzeitige Einstellung"
 
-#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:677
+#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:695
 msgid "Notes"
 msgstr "Notizen"
 
 #: SettingsIndividual.php:119 SettingsIndividual.php:168 SettingsUser.php:97
-#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:763
+#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:781
 msgid "Save Settings"
 msgstr "Änderungen Übernehmen"
 
 #: SettingsIndividual.php:149 SettingsUser.php:113 SettingsUser.php:143
-#: SystemSettings.php:195 UserEditor.php:713 UserEditor.php:741
+#: SystemSettings.php:195 UserEditor.php:731 UserEditor.php:759
 msgid "False"
 msgstr ""
 
 #: SettingsIndividual.php:150 SettingsUser.php:114 SettingsUser.php:144
-#: SystemSettings.php:196 UserEditor.php:714 UserEditor.php:742
+#: SystemSettings.php:196 UserEditor.php:732 UserEditor.php:760
 msgid "True"
 msgstr ""
 
@@ -8871,7 +8871,7 @@ msgstr ""
 "Setze die Erlaubnis auf WAHR um neuen Nutzern die Möglichkeit zu geben ihre "
 "Einstellungen zu ändern.<BR>"
 
-#: SettingsUser.php:83 UserEditor.php:674
+#: SettingsUser.php:83 UserEditor.php:692
 msgid "Permission"
 msgstr "Erlaubnis"
 
@@ -9230,124 +9230,142 @@ msgstr "Backup wurde heruntergeladen. Die Kopie auf dem Server wurde entfernt."
 msgid "Login must be a least 3 characters!"
 msgstr "Geben Sie mindestens 3 Ziffern für den Login"
 
-#: UserEditor.php:233 UserEditor.php:277
+#: UserEditor.php:241 UserEditor.php:286
 msgid "Login already in use, please select a different login!"
 msgstr "Login bereits verwendet, Wählen Sie einen anderen Login"
 
-#: UserEditor.php:273
+#: UserEditor.php:282
 msgid "The same as before"
 msgstr "Das Gleiche wie zuvor"
 
-#: UserEditor.php:442
+#: UserEditor.php:453
 msgid "User Editor"
 msgstr "Benutzer Editor"
 
-#: UserEditor.php:455
+#: UserEditor.php:466
 msgid "Profile management"
 msgstr "Profil Verwaltung"
 
-#: UserEditor.php:458
+#: UserEditor.php:469
 msgid "Add Profile"
 msgstr "Profil Hinzufügen"
 
-#: UserEditor.php:459
+#: UserEditor.php:470
 msgid "Manage Profiles"
 msgstr "Profile Verwalten"
 
-#: UserEditor.php:461
+#: UserEditor.php:472
 msgid "Add Profile to Current User"
 msgstr "Profil for Aktual Benutzer Hinzufügen"
 
-#: UserEditor.php:485
+#: UserEditor.php:496
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Notiz: Änderungen werden erst bei dem nächsten Login wirksam."
 
-#: UserEditor.php:499
+#: UserEditor.php:510
 msgid "Person to Make User"
 msgstr "Personen zu Benutzern machen"
 
-#: UserEditor.php:513
+#: UserEditor.php:524
 msgid "User"
 msgstr "Benutzer"
 
-#: UserEditor.php:536
+#: UserEditor.php:547
 msgid "Add Records"
 msgstr "Eintrag hinzufügen"
 
-#: UserEditor.php:543
+#: UserEditor.php:554
 msgid "Edit Records"
 msgstr "Eintrag bearbeiten"
 
-#: UserEditor.php:550
+#: UserEditor.php:561
 msgid "Delete Records"
 msgstr "Eintrag löschen"
 
-#: UserEditor.php:557
+#: UserEditor.php:568
 msgid "Show Cart"
 msgstr "Zeige den Korb"
 
-#: UserEditor.php:564
+#: UserEditor.php:575
 msgid "Show Map"
 msgstr "Anzeigen in"
 
-#: UserEditor.php:571
+#: UserEditor.php:582
 msgid "Manage Properties and Classifications"
 msgstr "Einstellungen und Einordnungen verwalten"
 
-#: UserEditor.php:578
+#: UserEditor.php:589
 msgid "Manage Groups and Roles"
 msgstr "Gruppen und Rollen verwalten"
 
-#: UserEditor.php:585
+#: UserEditor.php:596
 msgid "Manage Donations and Finance"
 msgstr "Spenden und Finanzen verwalten"
 
-#: UserEditor.php:592
+#: UserEditor.php:603
 msgid "View, Add and Edit Documents"
 msgstr "Anzeigen, hinzufügn und bearbeiten von Notizen"
 
-#: UserEditor.php:599
+#: UserEditor.php:610
 msgid "Edit Self"
 msgstr "Kann eigene Daten verändern"
 
-#: UserEditor.php:602
+#: UserEditor.php:613
 msgid "(Edit own family only.)"
 msgstr "(Nur eigene Familie ändern.)"
 
-#: UserEditor.php:608
+#: UserEditor.php:619
 msgid "(Canvass volunteer.)"
 msgstr "(Aktionsmitarbeiter)"
 
-#: UserEditor.php:611
+#: UserEditor.php:622
 msgid "Admin"
 msgstr "Adminstrator"
 
-#: UserEditor.php:614
+#: UserEditor.php:625
 msgid "(Grants all privileges.)"
 msgstr "(Hat alle Rechte)"
 
-#: UserEditor.php:618
-msgid "MainDashboard"
+#: UserEditor.php:629
+#, fuzzy
+msgid "Main Dashboard"
 msgstr "Haupt Dashboard"
 
-#: UserEditor.php:621
+#: UserEditor.php:632
 #, fuzzy
-msgid "(Can see the Main Dashboard and the birthdates in the calendar.)"
+msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
 msgstr "(Haupt Dashboard und Kalender sichtbar)"
 
-#: UserEditor.php:625
+#: UserEditor.php:636
+#, fuzzy
+msgid "See Privacy Data"
+msgstr "Privat"
+
+#: UserEditor.php:639
+msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
+msgstr "Benutzer darf private Daten wie Geburtsdatum, Alter, sehen"
+
+#: UserEditor.php:643
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: UserEditor.php:632
+#: UserEditor.php:646
+msgid "Allow a user to use MailChimp tool"
+msgstr ""
+
+#: UserEditor.php:650
 msgid "GRPD Data Protection Officer"
 msgstr "GRPD Data Protection Officer"
 
-#: UserEditor.php:646
+#: UserEditor.php:653
+msgid "General Data Protection Regulation in UE"
+msgstr ""
+
+#: UserEditor.php:664
 msgid "Style"
 msgstr "Darstellung der Datenfelder"
 
-#: UserEditor.php:669
+#: UserEditor.php:687
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
@@ -9663,9 +9681,6 @@ msgid ""
 "Default is UTF-8, For european CharSet use Windows-1252 for example for "
 "French language."
 msgstr ""
-
-msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
-msgstr "Benutzer darf private Daten wie Geburtsdatum, Alter, sehen"
 
 msgid "Enable sidebar expand on hover effect for sidebar mini"
 msgstr ""

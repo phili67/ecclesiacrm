@@ -166,6 +166,13 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $MainDashboard = 0;
         }
 
+        if (isset($_POST['SeePrivacyData'])) {
+            $SeePrivacyData = 1;
+        } else {
+            $SeePrivacyData = 0;
+        }
+        
+
         if (isset($_POST['GdrpDpo'])) {
             $GdrpDpo = 1;
         } else {
@@ -196,6 +203,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
                     $user->setMainDashboard($MainDashboard);
+                    $user->setSeePrivacyData($SeePrivacyData);
                     $user->setGdrpDpo($GdrpDpo);
                     $user->setAddRecords($AddRecords);
                     $user->setEditRecords($EditRecords);
@@ -245,6 +253,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
                     $user->setMainDashboard($MainDashboard);
+                    $user->setSeePrivacyData($SeePrivacyData);
                     $user->setGdrpDpo($GdrpDpo);
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);                    
@@ -310,6 +319,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_GDRP_DPO = 0;
             $usr_MailChimp = 0;
             $usr_MainDashboard = 0;
+            $usr_SeePrivacyData = 0;
             $usr_EditRecords = 0;
             $usr_DeleteRecords = 0;
             $usr_ShowCart = 0;
@@ -334,6 +344,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_GDRP_DPO = 0;
         $usr_MailChimp = 0;
         $usr_MainDashboard = 0;
+        $usr_SeePrivacyData = 0;
         $usr_EditRecords = 0;
         $usr_DeleteRecords = 0;
         $usr_ShowCart = 0;
@@ -615,24 +626,31 @@ foreach ($userProfiles as $userProfile) {
                     </tr>
                     
                     <tr>
-                        <td><?= gettext('MainDashboard') ?>:</td>
+                        <td><?= gettext('Main Dashboard') ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
                         echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Can see the Main Dashboard and the birthdates in the calendar.)') ?></span></td>
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Main Dashboard and the birthdates in the calendar are visible.)') ?></span></td>
+                    </tr>
+
+                    <tr>
+                        <td><?= gettext('See Privacy Data') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?php if ($usr_SeePrivacyData) {
+                        echo ' checked';
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow user to see member privacy data, e.g. Birth Year, Age.') ?></span></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext('MailChimp') ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
                         echo ' checked';
-                    } ?>></td>
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow a user to use MailChimp tool') ?></span></td>
                     </tr>
 
                     <tr>
                         <td><?= gettext("GRPD Data Protection Officer") ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?php if ($usr_GDRP_DPO) {
                         echo ' checked';
-                    } ?>></td>
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('General Data Protection Regulation in UE') ?></span></td>
                     </tr>
 
                     <tr>
