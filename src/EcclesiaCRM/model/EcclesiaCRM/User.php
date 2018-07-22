@@ -322,6 +322,11 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isMainDashboard();
     }
 
+    public function isSeePrivacyDataEnabled()
+    {
+        return $this->isAdmin() || $this->isSeePrivacyData();
+    }
+
     public function updatePassword($password)
     {
         $this->setPassword($this->hashPassword($password));

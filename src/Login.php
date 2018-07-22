@@ -79,6 +79,8 @@ if (isset($_POST['User'])) {
         $_SESSION['bPastoralCare'] = $currentUser->isPastoralCareEnabled();         //ok
         $_SESSION['bMailChimp'] = $currentUser->isMailChimpEnabled();         //ok
         $_SESSION['bGdrpDpo'] = $currentUser->isGdrpDpoEnabled();         //ok
+        $_SESSION['bMainDashboard'] = $currentUser->isMainDashboardEnabled(); // ok
+        $_SESSION['bSeePrivacyData'] = $currentUser->isSeePrivacyDataEnabled(); // ok
         $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();
         $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();
         $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();

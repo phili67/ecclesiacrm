@@ -293,7 +293,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     <!-- About Me Box -->
     <?php 
-      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isEditRecordsEnabled())?true:false;
+      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isEditRecordsEnabled())?true:false;
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -454,7 +454,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php
        }
       ?>
-      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled()) {
         ?>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
               <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
@@ -499,7 +499,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   </div>
   
   <?php 
-    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['bSeePrivacyData'] )) {
+    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled() )) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
@@ -507,7 +507,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <ul class="nav nav-tabs" role="tablist">
         <?php 
           $activeTab = "";
-          if ( ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) ) {
+          if ( ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
           <li role="presentation" <?= (!$bDocuments)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
@@ -569,7 +569,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <!-- Tab panes -->
       <div class="tab-content">
         <?php 
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin() ) {
+          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled() ) {
         ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline')?"active":"" ?>" id="timeline">
           <div class="row filter-note-type">

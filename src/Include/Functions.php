@@ -593,7 +593,7 @@ function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
 
 function FormatAge($Month, $Day, $Year, $Flags)
 {
-    if (($Flags & 1)) { //||!$_SESSION['bSeePrivacyData']
+    if (($Flags & 1)) { //||!$_SESSION['user']->isSeePrivacyDataEnabled()
         return;
     }
 

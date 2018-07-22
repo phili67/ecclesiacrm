@@ -491,7 +491,7 @@ require 'Include/Header.php';
 
 
 <?php 
-  if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+  if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
 ?>
 <div class="box box-primary">
     <div class="box-header  with-border">
@@ -1243,7 +1243,7 @@ if (!isset($sPersonColumn5)) {
 
       echo '<td>';
     
-      if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+      if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
     
         if ($fam_Name != '') {
             echo '<a href="FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
@@ -1255,7 +1255,7 @@ if (!isset($sPersonColumn5)) {
       }
     
       echo '<td>';
-      if ($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+      if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
         // Phone number or zip code
         if ($sPersonColumn5 == 'Home Phone') {
             echo SelectWhichInfo(ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy),
@@ -1339,7 +1339,7 @@ if (!isset($sPersonColumn5)) {
     ?>
     <td>
   <?php
-   if($_SESSION['bSeePrivacyData'] || $_SESSION['user']->isAdmin()) {
+   if($_SESSION['user']->isSeePrivacyDataEnabled()) {
       if ($iMode == 1) {
     ?>
             <a href="PrintView.php?PersonID=<?= $per_ID ?>">

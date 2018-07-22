@@ -58,9 +58,6 @@ msgstr ""
 msgid "Default is UTF-8, For european CharSet use Windows-1252 for example for French language."
 msgstr ""
 
-msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
-msgstr ""
-
 msgid "Enable sidebar expand on hover effect for sidebar mini"
 msgstr ""
 

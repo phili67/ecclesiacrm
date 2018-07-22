@@ -1092,7 +1092,7 @@ require 'Include/Header.php';
         </select>
       </td>
       <td class="TextColumnFam">
-      <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || $_SESSION['bSeePrivacyData']) {
+      <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || $_SESSION['user']->isSeePrivacyDataEnabled()) {
                     $UpdateBirthYear = 1; ?>
         <input class="form-control input-md" name="BirthYear<?= $iCount ?>" type="text" value="<?= $aBirthYears[$iCount] ?>" size="4" maxlength="4">
         <?php 
