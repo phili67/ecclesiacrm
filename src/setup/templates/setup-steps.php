@@ -392,8 +392,8 @@ require '../Include/HeaderNotLoggedIn.php';
         <h2>Final infos</h2>
         <section>
             <div class="callout callout-info" id="prerequisites-war">
-                To open a connection to EcclesiaCRM, use the inforamtion below :
-                <ul>
+                To open a connection to EcclesiaCRM, use the information below :
+                <ul style="padding-left:20px">
                   <li>login    : <b>admin</b></li>
                   <li>password : <b>changeme</b></li>
             </div>
