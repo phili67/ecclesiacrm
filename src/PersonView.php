@@ -217,6 +217,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     );
 
 ?>
+
+<?php if (!empty($person->getDateDeactivated())) {
+    ?>
+    <div class="alert alert-warning">
+        <strong><?= gettext("This Person is Deactivated") ?> </strong>
+    </div>
+    <?php
+} ?>
+
 <div class="row">
   <div class="col-lg-3 col-md-3 col-sm-3">
     <div class="box box-primary">
@@ -495,6 +504,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
     } ?>
       <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>
+      
+    <?php 
+      if ($bOkToEdit && $_SESSION['user']->isAdmin()) {
+    ?>
+        <button class="btn btn-app bg-orange" id="activateDeactivate">
+            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Person')); ?>
+        </button>
+      <?php
+        } 
+      ?>
     </div>
   </div>
   
@@ -1323,6 +1342,40 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.currentFamily   = <?= $iFamilyID ?>;
   window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
+  window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
+
+  
+  $(document).ready(function () {
+    $("#activateDeactivate").click(function () {
+      console.log("click activateDeactivate");
+      popupTitle = (window.CRM.currentActive == true ? "<?= gettext('Confirm Deactivation') ?>" : "<?= gettext('Confirm Activation') ?>" );
+      if (window.CRM.currentActive == true) {
+          popupMessage = "<?= gettext('Please confirm deactivation of person') . ': ' . $person->getFullName() ?>";
+      }
+      else {
+          popupMessage = "<?= gettext('Please confirm activation of person') . ': ' . $person->getFullName()  ?>";
+      }
+
+      bootbox.confirm({
+          title: popupTitle,
+          message: '<p style="color: red">' + popupMessage + '</p>',
+          callback: function (result) {
+              if (result) {
+                  $.ajax({
+                      method: "POST",
+                      url: window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/activate/" + !window.CRM.currentActive,
+                      dataType: "json",
+                      encode: true
+                  }).done(function (data) {
+                    if (data.success == true) {
+                        window.location.href = window.CRM.root + "/PersonView.php?PersonID=" + window.CRM.currentPersonID;
+                    }
+                  });
+              }
+          }
+      });
+    });
+  });
 </script>
 
 <?php require 'Include/Footer.php' ?>

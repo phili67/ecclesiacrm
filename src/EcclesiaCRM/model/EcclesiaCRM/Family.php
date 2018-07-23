@@ -161,7 +161,7 @@ class Family extends BaseFamily implements iPhoto
       explode(",", SystemConfig::getValue("sDirRoleChild")));
     $foundPeople = array();
     foreach ($this->getPeople() as $person) {
-      if (!in_array($person->getFmrId(), $roleIds)) {
+      if (!in_array($person->getFmrId(), $roleIds) && empty($person->getDateDeactivated())) {
         array_push($foundPeople, $person);
       }
     }
@@ -172,7 +172,7 @@ class Family extends BaseFamily implements iPhoto
     $roleIds = explode(",", SystemConfig::getValue($roleConfigName));
     $foundPeople = array();
     foreach ($this->getPeople() as $person) {
-      if (in_array($person->getFmrId(), $roleIds)) {
+      if (in_array($person->getFmrId(), $roleIds) && empty($person->getDateDeactivated())) {
           array_push($foundPeople, $person);
       }
     }
@@ -182,6 +182,9 @@ class Family extends BaseFamily implements iPhoto
   public function getEmails() {
     $emails = array();
     foreach ($this->getPeople() as $person) {
+      if (!empty($person->getDateDeactivated())) {
+        continue;
+      }
       $email = $person->getEmail();
       if ($email != null) {
         array_push($emails, $email);
@@ -224,6 +227,21 @@ class Family extends BaseFamily implements iPhoto
 
         $note->save();
     }
+    
+    public function getActivatedPeople ()
+    {
+      $people = $this->getPeople();
+      
+      $foundPeople = [];
+      
+      foreach ($this->getPeople() as $person) {
+        if (empty($person->getDateDeactivated())) {
+          array_push($foundPeople, $person);
+        }
+      }
+      
+      return $foundPeople;
+    }
 
     /**
      * Figure out how to address a family for correspondence.
@@ -244,7 +262,7 @@ class Family extends BaseFamily implements iPhoto
         $people = $this->getPeople();
         $notChildren = null;
         foreach ($people as $person) {
-            if ($person->getFmrId() != $childRoleId) {
+            if ($person->getFmrId() != $childRoleId && empty($person->getDateDeactivated())) {
                 $notChildren[] = $person;
             }
         }

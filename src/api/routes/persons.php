@@ -12,6 +12,8 @@ use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\NoteQuery;
 
 
 $app->group('/persons', function () {
@@ -40,6 +42,42 @@ $app->group('/persons', function () {
         
         return $response->withJson($return);    
     });
+    
+    /**
+     * Update the person status to activated or deactivated with :familyId and :status true/false.
+     * Pass true to activate and false to deactivate.     *
+     */
+    $this->post('/{personId:[0-9]+}/activate/{status}', function ($request, $response, $args) {
+        $personId = $args["personId"];
+        $newStatus = $args["status"];
+
+        $person = PersonQuery::create()->findPk($personId);
+        $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
+
+        //update only if the value is different
+        if ($currentStatus != $newStatus) {
+            if ($newStatus == "false") {
+                $person->setDateDeactivated(date('YmdHis'));
+            } elseif ($newStatus == "true") {
+                $person->setDateDeactivated(Null);
+            }
+            $person->save();
+
+            //Create a note to record the status change
+            $note = new Note();
+            $note->setPerId($personId);
+            if ($newStatus == 'false') {
+                $note->setText(gettext('Deactivated the Person'));
+            } else {
+                $note->setText(gettext('Activated the Person'));
+            }
+            $note->setType('edit');
+            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->save();
+        }
+        return $response->withJson(['success' => true]);
+
+    });    
     
     // api for person properties
     $this->post('/personproperties/{personID:[0-9]+}', function ($request, $response, $args) {

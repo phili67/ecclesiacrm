@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-07-22T20:46:13.111Z\n"
-"PO-Revision-Date: 2018-07-22T20:46:13.111Z\n"
+"POT-Creation-Date: 2018-07-23T17:31:53.602Z\n"
+"PO-Revision-Date: 2018-07-23T17:31:53.602Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -480,6 +480,12 @@ msgstr ""
 msgid "Delete Event Type"
 msgstr ""
 
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr ""
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -650,13 +656,16 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
-msgid "DateEntered"
+msgid "Date Entered"
 msgstr ""
 
-msgid "DateLastEdited"
+msgid "Date Last Edited"
 msgstr ""
 
-msgid "editedByFullName"
+msgid "Edited By Name"
+msgstr ""
+
+msgid "Deactivated"
 msgstr ""
 
 msgid "Sunday School Menu assignement"
@@ -872,6 +881,12 @@ msgid "Pastoral Care Type Editor"
 msgstr ""
 
 msgid "Add Pastoral Care Type"
+msgstr ""
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr ""
+
+msgid "Are you sure you want to remove all persons from the CRM"
 msgstr ""
 
 msgid "Photo"

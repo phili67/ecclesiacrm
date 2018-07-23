@@ -29,7 +29,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
           <b><?= gettext('Address') ?></b>: <?= $family->getAddress(); ?><br/>
           <b><?= gettext('Home Phone')?></b>: <?= $family->getHomePhone(); ?>
           <h3><?= gettext('Member(s)')?></h3>
-          <?php foreach ($family->getPeople() as $person) {
+          <?php foreach ($family->getActivatedPeople() as $person) {
     ?>
                 <?= $person->getFamilyRoleName().' - '.$person->getFullName(); ?><br/>
            <?php

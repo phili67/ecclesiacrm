@@ -24,6 +24,9 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -62,6 +65,84 @@ $Anniversaries = MenuEventsCount::getAnniversaries();
 $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
 $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
+
+if ($_SESSION['user']->isGdrpDpoEnabled()) {
+  // RGPD
+  $time = new DateTime('now');
+  $newtime = $time->modify('-2 year')->format('Y-m-d');
+ 
+  $families = FamilyQuery::create()
+        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+            ->orderByName()
+            ->find();
+
+  $persons = PersonQuery::create()
+          ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+              ->orderByLastName()
+              ->find();
+              
+  if ($persons->count()+$families->count() > 0) {
+?>
+  <div class="callout callout-warning alert alert-info alert-dismissible " id="Menu_RGPD">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
+       <h4 class="alert-heading"><?= gettext("GDPR") ?>  (<?= gettext("message for the DPO") ?>)</h4>
+       <div class="row">
+           <div class="col-sm-1">
+           </div>
+           <div class="col-sm-5">
+            <?php
+               if ($persons->count()) {
+            ?>
+             <?php
+                if ( $persons->count() == 1 ) {
+             ?>
+                <?= $persons->count()." ".gettext("person must be deleted from the CRM.") ?>
+            <?php } else { ?>
+                <?= $persons->count()." ".gettext("persons must be deleted from the CRM.") ?>
+            <?php
+                }
+            ?>
+              <br>
+                <b><?= gettext("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/PersonList.php?mode=GDRP"><?= gettext("link") ?></a> <?= gettext("to solve the problem.") ?></b>
+            <?php
+             } else {
+            ?>
+                <?= gettext("No Person to remove in the CRM.") ?>
+            <?php
+             }
+            ?>
+        </div>
+        <div class="col-sm-5">
+            <?php
+               if ($families->count()) {
+            ?>
+           <?php
+                if ( $families->count() == 1 ) {
+             ?>
+                <?= $families->count()." ".gettext("family must be deleted from the CRM.") ?>
+            <?php } else { ?>
+                <?= $families->count()." ".gettext("families must be deleted from the CRM.") ?>
+            <?php
+                }
+            ?>
+              <br>
+                <b><?= gettext("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php?mode=GDRP"><?= gettext("link") ?></a> <?= gettext("to solve the problem.") ?></b>
+            <?php
+             } else {
+            ?>
+                <?= gettext("No Family to remove in the CRM.") ?>
+            <?php
+             }
+            ?>
+        </div>
+        <div class="col-sm-1">
+       </div>
+    </div>
+  </div>
+<?php    
+  }  
+}
+            
 
 if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
 ?>

@@ -26,7 +26,7 @@ use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\NoteQuery;
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('GDPR');
+$sPageTitle = gettext('GDPR Dashboard');
 require 'Include/Header.php';
 
 if (!($_SESSION['user']->isGdrpDpoEnabled())) {
@@ -39,31 +39,19 @@ $notes = NoteQuery::Create()
       ->filterByEnteredBy(array('min' => 2))
       ->find();
       
-echo $notes->count();
+//echo $notes->count();
 
 ?>
 
 <div class="box box-primary box-body">
-  <div class="btn-group">
-    <a class="btn btn-app newPastorCare" data-typeid="" data-visible="" data-typeDesc=""><i class="fa fa-sticky-note"></i><?= gettext("Filter") ?></a>
-    <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-       <span class="caret"></span>
-       <span class="sr-only">Menu déroulant</span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-        <li> <a class="filterFamily" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Family") ?></a></li>
-        <li> <a class="filterPerson" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Person") ?></a></li>
-        <li> <a class="filter" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Person") ?></a></li>
-    </ul>
-  </div>
-  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/coucou.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GDPRListExport.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
 </div>
 
 <div class="box box-body">
   <table class="table table-striped table-bordered" id="GDRP-Table" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GDRP.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GDRPDashboard.js" ></script>
 
 <?php require 'Include/Footer.php'; ?>
 

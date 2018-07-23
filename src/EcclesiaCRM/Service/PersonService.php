@@ -62,7 +62,7 @@ class PersonService
                   group_grp.grp_RoleListID = list_lst.lst_ID AND
                   person2group2role_p2g2r.p2g2r_rle_ID =  list_lst.lst_OptionID
 
-              where per_email != ''
+              where per_email != '' AND per_DateDeactivated is null
 
               order by per_id;";
         $rsPeopleWithEmails = RunQuery($sSQL);

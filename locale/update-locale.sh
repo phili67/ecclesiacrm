@@ -66,7 +66,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js-strings.po" -t "JSONKeys_JS/${lang}.json"
      
      # now we add the extra terms
-     mergeJson=$(jq -s '.[0] * .[1]' "JSONKeys_JS/${lang}.json" "JSONKeys_JS/${lang}_extra.json")
+     mergeJson=$(jq -s '.[0] * .[1]' "JSONKeys_JS/${lang}.json" "JSONKeys_JS/${lang}/${lang}_extra.json")
      
      echo $mergeJson > "JSONKeys_JS/${lang}.json"
    fi 

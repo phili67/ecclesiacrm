@@ -3,7 +3,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
@@ -23,40 +23,41 @@ if (strtolower($sMode) == 'gdrp') {
    $time = new DateTime('now');
    $newtime = $time->modify('-2 year')->format('Y-m-d');
    
-   $families = FamilyQuery::create()
+   $persons = PersonQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-            ->orderByName()
+            ->orderByLastName()
             ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
-    $families = FamilyQuery::create()
+    $persons = PersonQuery::create()
         ->filterByDateDeactivated(null, Criteria::ISNOTNULL)
-            ->orderByName()
+            ->orderByLastName()
             ->find();
 } else {
     $sMode = 'Active';
-    $families = FamilyQuery::create()
+    $persons = PersonQuery::create()
         ->filterByDateDeactivated(null)
-            ->orderByName()
+            ->orderByLastName()
             ->find();
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Family List');
+$sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Person List');
 require 'Include/Header.php'; ?>
 
 <div class="pull-right">
-  <a class="btn btn-success" role="button" href="FamilyEditor.php"> <span class="fa fa-plus"
-                                                                          aria-hidden="true"></span><?= gettext('Add Family') ?>
+  <a class="btn btn-success" role="button" href="PersonEditor.php"> 
+    <span class="fa fa-plus" aria-hidden="true"></span><?= gettext('Add New Person') ?>
   </a>
 </div>
 <p><br/><br/></p>
 <div class="box">
     <div class="box-body">
-        <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
+        <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th><?= gettext('Name') ?></th>
+                <th><?= gettext('First Name') ?></th>
                 <th><?= gettext('Address') ?></th>
                 <th><?= gettext('Home Phone') ?></th>
                 <th><?= gettext('Cell Phone') ?></th>
@@ -71,31 +72,34 @@ require 'Include/Header.php'; ?>
             </thead>
             <tbody>
 
-            <!--Populate the table with family details -->
-            <?php foreach ($families as $family) {
-    ?>
+            <!--Populate the table with Person details -->
+          <?php 
+            foreach ($persons as $person) {
+          ?>
             <tr>
-                <td><a href='FamilyView.php?FamilyID=<?= $family->getId() ?>'>
+                <td><a href='PersonView.php?PersonID=<?= $person->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fa fa-square fa-stack-2x"></i>
                             <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
-                    <a href='FamilyEditor.php?FamilyID=<?= $family->getId() ?>'>
+                    <a href='PersonEditor.php?PersonID=<?= $person->getId() ?>'>
                         <span class="fa-stack">
                             <i class="fa fa-square fa-stack-2x"></i>
                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                         </span>
-                    </a><?= $family->getName() ?></td>
+                    </a><?= $person->getLastName() ?>
+                </td>
+                <td> <?= $person->getFirstName() ?></td>
                 <?php    
                 if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
                 ?>
-                  <td> <?= $family->getAddress() ?></td>
-                  <td><?= $family->getHomePhone() ?></td>
-                  <td><?= $family->getCellPhone() ?></td>
-                  <td><?= $family->getEmail() ?></td>
-                  <td><?= date_format($family->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><?= date_format($family->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td> <?= $person->getAddress() ?></td>
+                  <td><?= $person->getHomePhone() ?></td>
+                  <td><?= $person->getCellPhone() ?></td>
+                  <td><?= $person->getEmail() ?></td>
+                  <td><?= date_format($person->getDateEntered(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td><?= date_format($person->getDateLastEdited(), SystemConfig::getValue('sDateFormatLong')) ?></td>
                 <?php
                 } else {
                 ?>
@@ -104,35 +108,32 @@ require 'Include/Header.php'; ?>
                   <td> <?= gettext('Private Data') ?></td>
                   <td> <?= gettext('Private Data') ?></td>
                   <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
                 <?php
                 }
               if (strtolower($sMode) == 'gdrp') { ?>
-                  <td> <?= date_format($family->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><a class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>"><?= gettext("Remove") ?></a></td>
+                  <td> <?= date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
+                  <td><a class="btn btn-danger remove-property-btn" data-person_id="<?= $person->getId() ?>"><?= gettext("Remove") ?></a></td>
               <?php 
                 } 
            }
-                ?>
+        ?>
             </tr>
             </tbody>
         </table>
-        <?php if (strtolower($sMode) == 'gdrp') { ?>
-          <a class="btn btn-danger <?= ($families->count() == 0)?"disabled":"" ?>" id="remove-all"><?= gettext("Remove All") ?></a>
+        <?php if (strtolower($sMode) == 'gdrp') { ?>        
+        <a class="btn btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><?= gettext("Remove All") ?></a>
         <?php } ?>
     </div>
 </div>
 
-
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
   $(document).ready(function () {
-    $('#families').DataTable(window.CRM.plugin.dataTable);
+    $('#personlist').DataTable(window.CRM.plugin.dataTable);
   });
 </script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonList.js" ></script>
 
 <?php
 require 'Include/Footer.php';
 ?>
-
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyList.js" ></script>
