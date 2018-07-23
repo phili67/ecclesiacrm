@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-23 19:31+0200\n"
+"POT-Creation-Date: 2018-07-23 21:14+0200\n"
 "Language: fr-fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,14 +124,14 @@ msgstr "Personnes"
 
 #: api/routes/people.php:145 api/routes/search.php:141
 #: EcclesiaCRM/MenuBar/MenuBar.php:250 members/online-pending-verify.php:24
-#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:315
+#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:316
 #: PeopleDashboard.php:154 sundayschool/SundaySchoolDashboard.php:117
 msgid "Families"
 msgstr "Familles"
 
 #: api/routes/people.php:182 api/routes/search.php:180 Calendar.php:147
 #: EcclesiaCRM/MenuBar/MenuBar.php:53
-#: external/templates/verify/verify-family-info.php:108 Menu.php:372
+#: external/templates/verify/verify-family-info.php:108 Menu.php:373
 #: PeopleDashboard.php:217
 msgid "Groups"
 msgstr "Groupes"
@@ -205,7 +205,7 @@ msgstr "Ce rôle ne peut pas être attribué."
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:35 FamilyEditor.php:684
 #: FamilyEditor.php:688 FamilyList.php:60 FamilyView.php:219 GeoPage.php:360
-#: GroupReports.php:144 Menu.php:457 Menu.php:486 PersonEditor.php:923
+#: GroupReports.php:144 Menu.php:458 Menu.php:487 PersonEditor.php:923
 #: PersonEditor.php:927 PersonEditor.php:991 PersonEditor.php:1007
 #: PersonList.php:61 PersonView.php:340 Register.php:43
 #: Reports/ConfirmReportEmail.php:125 Reports/ConfirmReportEmail.php:130
@@ -311,7 +311,7 @@ msgstr "Date"
 
 #: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:219
-#: sundayschool/SundaySchoolReports.php:217
+#: sundayschool/SundaySchoolReports.php:222
 msgid "Fiscal Year"
 msgstr "Année Fiscale"
 
@@ -334,7 +334,7 @@ msgstr "Fonds"
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
-#: sundayschool/SundaySchoolReports.php:202
+#: sundayschool/SundaySchoolReports.php:207
 msgid "None"
 msgstr "Aucun"
 
@@ -477,7 +477,7 @@ msgstr "Enregistrer"
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
 #: sundayschool/SundaySchoolDashboard.php:279
-#: sundayschool/SundaySchoolReports.php:307 TaxReport.php:54 UserEditor.php:675
+#: sundayschool/SundaySchoolReports.php:312 TaxReport.php:54 UserEditor.php:675
 #: UserEditor.php:782
 msgid "Cancel"
 msgstr "Annuler"
@@ -696,7 +696,7 @@ msgstr "Désactiver OK pour démarcher toutes les familles."
 msgid "ClearAllOkToCanvass button not confimed."
 msgstr "Le bouton AutoriserDémarchagePourTous n'est pas confirmé."
 
-#: CanvassAutomation.php:116 sundayschool/SundaySchoolReports.php:191
+#: CanvassAutomation.php:116 sundayschool/SundaySchoolReports.php:196
 msgid "Report Details"
 msgstr "Détails des rapports"
 
@@ -918,7 +918,7 @@ msgstr "Si vous ajoutez une nouvelle famille, entrez les données ci-dessous."
 #: CartToFamily.php:235
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:31 FamilyEditor.php:674
-#: LettersAndLabels.php:70 Menu.php:456 Menu.php:485
+#: LettersAndLabels.php:70 Menu.php:457 Menu.php:486
 #: Reports/ConfirmReportEmail.php:120 Reports/ConfirmReport.php:116
 #: SelectDelete.php:153 SelectDelete.php:272
 msgid "Family Name"
@@ -1856,6 +1856,30 @@ msgstr "URL de l'image"
 #: PersonEditor.php:1413 PledgeEditor.php:724
 msgid "Save and Add"
 msgstr "Enregistrer et Ajouter"
+
+#: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:51
+#: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:80 FamilyList.php:102
+#: FamilyList.php:103 FamilyList.php:104 FamilyList.php:105 FamilyList.php:106
+#: FamilyList.php:107 PersonList.php:106 PersonList.php:107 PersonList.php:108
+#: PersonList.php:109 PersonList.php:110 PrintPastoralCare.php:504
+#: SelectList.php:1256 SelectList.php:1279 SelectList.php:1362
+#: sundayschool/SundaySchoolClassView.php:291
+#: sundayschool/SundaySchoolClassView.php:292
+#: sundayschool/SundaySchoolClassView.php:293
+#: sundayschool/SundaySchoolClassView.php:294
+#: sundayschool/SundaySchoolClassView.php:295
+#: sundayschool/SundaySchoolClassView.php:296
+#: sundayschool/SundaySchoolClassView.php:297
+#: sundayschool/SundaySchoolClassView.php:298
+#: sundayschool/SundaySchoolClassView.php:299
+#: sundayschool/SundaySchoolClassView.php:300
+#: sundayschool/SundaySchoolClassView.php:301
+#: sundayschool/SundaySchoolClassView.php:302
+#: sundayschool/SundaySchoolDashboard.php:247
+#: sundayschool/SundaySchoolDashboard.php:248
+#: sundayschool/SundaySchoolDashboard.php:249
+msgid "Private Data"
+msgstr "Donnée privée"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
@@ -3970,7 +3994,7 @@ msgstr "Changer les Réglages"
 msgid "Documents"
 msgstr "Vos documents"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:198 Menu.php:88
+#: EcclesiaCRM/MenuBar/MenuBar.php:198 Menu.php:89
 msgid "GDPR"
 msgstr "RGPD"
 
@@ -4011,7 +4035,7 @@ msgstr "Listes les types d'événement"
 msgid "Check-in and Check-out"
 msgstr "Vérifier et confirmer"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:229 Menu.php:334 PeopleDashboard.php:175
+#: EcclesiaCRM/MenuBar/MenuBar.php:229 Menu.php:335 PeopleDashboard.php:175
 msgid "People"
 msgstr "Personnes"
 
@@ -4096,13 +4120,13 @@ msgid "Query Menu"
 msgstr "Menu Requête"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:209
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:64 Menu.php:458
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:64 Menu.php:459
 #: PersonList.php:65
 msgid "Created"
 msgstr "Créé"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:214
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:155 Menu.php:487
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:155 Menu.php:488
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -5521,28 +5545,6 @@ msgstr "Modifié"
 msgid "Deactivation date"
 msgstr "Date de désactivation"
 
-#: FamilyList.php:102 FamilyList.php:103 FamilyList.php:104 FamilyList.php:105
-#: FamilyList.php:106 FamilyList.php:107 PersonList.php:106 PersonList.php:107
-#: PersonList.php:108 PersonList.php:109 PersonList.php:110
-#: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
-#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:291
-#: sundayschool/SundaySchoolClassView.php:292
-#: sundayschool/SundaySchoolClassView.php:293
-#: sundayschool/SundaySchoolClassView.php:294
-#: sundayschool/SundaySchoolClassView.php:295
-#: sundayschool/SundaySchoolClassView.php:296
-#: sundayschool/SundaySchoolClassView.php:297
-#: sundayschool/SundaySchoolClassView.php:298
-#: sundayschool/SundaySchoolClassView.php:299
-#: sundayschool/SundaySchoolClassView.php:300
-#: sundayschool/SundaySchoolClassView.php:301
-#: sundayschool/SundaySchoolClassView.php:302
-#: sundayschool/SundaySchoolDashboard.php:247
-#: sundayschool/SundaySchoolDashboard.php:248
-#: sundayschool/SundaySchoolDashboard.php:249
-msgid "Private Data"
-msgstr "Donnée privée"
-
 #: FamilyList.php:121 PersonList.php:124
 msgid "Remove All"
 msgstr "Tout supprimer"
@@ -6127,8 +6129,7 @@ msgid "Date Last Edited"
 msgstr "Date dernière modif."
 
 #: GDPRListExport.php:65
-#, fuzzy
-msgid "edited By Name"
+msgid "Edited By Name"
 msgstr "Editer par Nom"
 
 #: GDPRListExport.php:66
@@ -6425,7 +6426,7 @@ msgid "Select the group you would like to report"
 msgstr "Sélectionner le groupe que vous voulez signaler"
 
 #: GroupReports.php:61 PersonToGroup.php:61
-#: sundayschool/SundaySchoolReports.php:198
+#: sundayschool/SundaySchoolReports.php:203
 msgid "Select Group"
 msgstr "Sélectionner le groupe"
 
@@ -7383,7 +7384,7 @@ msgid "here"
 msgstr "ici"
 
 #: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
-#: Menu.php:106 Menu.php:129
+#: Menu.php:107 Menu.php:130
 msgid "to solve the problem."
 msgstr "pour résoudre le problème."
 
@@ -7444,96 +7445,96 @@ msgstr "Enregistrement des Familles automatique"
 msgid "Self Verify"
 msgstr "Vérification automatique"
 
-#: Menu.php:33
+#: Menu.php:34
 msgid "Welcome to"
 msgstr "Bienvenue dans"
 
-#: Menu.php:88
+#: Menu.php:89
 msgid "message for the DPO"
 msgstr "message pour le DPO"
 
-#: Menu.php:99
+#: Menu.php:100
 msgid "person must be deleted from the CRM."
 msgstr "personne doit être supprimée du CRM."
 
-#: Menu.php:101
+#: Menu.php:102
 msgid "persons must be deleted from the CRM."
 msgstr "personnes doivent être supprimées du CRM."
 
-#: Menu.php:106 Menu.php:129
+#: Menu.php:107 Menu.php:130
 msgid "Click the"
 msgstr "Cliquer sur le"
 
-#: Menu.php:106 Menu.php:129
+#: Menu.php:107 Menu.php:130
 msgid "link"
 msgstr "lien"
 
-#: Menu.php:110
+#: Menu.php:111
 msgid "No Person to remove in the CRM."
 msgstr "Aucune personne ne doit être supprimée du CRM."
 
-#: Menu.php:122
+#: Menu.php:123
 msgid "family must be deleted from the CRM."
 msgstr "famille doit être supprimée du CRM."
 
-#: Menu.php:124
+#: Menu.php:125
 msgid "families must be deleted from the CRM."
 msgstr "familles doivent être supprimées du CRM"
 
-#: Menu.php:133
+#: Menu.php:134
 msgid "No Family to remove in the CRM."
 msgstr "Aucune famille ne doit être supprimée du CRM."
 
-#: Menu.php:225
+#: Menu.php:226
 msgid "Birthdates of the day"
 msgstr "Anniversaires du jour"
 
-#: Menu.php:241
+#: Menu.php:242
 msgid "Anniversaries of the day"
 msgstr "Anniversaires de mariage du jour"
 
-#: Menu.php:289
+#: Menu.php:290
 msgid "Unclassified birthdates"
 msgstr "Anniversaires non classés"
 
-#: Menu.php:322 PeopleDashboard.php:161
+#: Menu.php:323 PeopleDashboard.php:161
 msgid "See all Families"
 msgstr "Voir toutes les familles"
 
-#: Menu.php:341 PeopleDashboard.php:182
+#: Menu.php:342 PeopleDashboard.php:182
 msgid "See All People"
 msgstr "Voir toutes les personnes"
 
-#: Menu.php:353 sundayschool/SundaySchoolDashboard.php:152
+#: Menu.php:354 sundayschool/SundaySchoolDashboard.php:152
 msgid "Sunday School Classes"
 msgstr "Classes d&#39;école du dimanche"
 
-#: Menu.php:360 Menu.php:379 Menu.php:406 PeopleDashboard.php:203
+#: Menu.php:361 Menu.php:380 Menu.php:407 PeopleDashboard.php:203
 #: PeopleDashboard.php:224
 msgid "More info"
 msgstr "Plus d'info"
 
-#: Menu.php:399
+#: Menu.php:400
 msgid "Attendees Checked In"
 msgstr "Participants à un Appel non validés"
 
-#: Menu.php:423
+#: Menu.php:424
 msgid "Deposit Tracking"
 msgstr "Suivi des dépôts"
 
-#: Menu.php:443
+#: Menu.php:444
 msgid "Latest Families"
 msgstr "Dernières familles ajoutées"
 
-#: Menu.php:472
+#: Menu.php:473
 msgid "Updated Families"
 msgstr "Familles mises à jour"
 
-#: Menu.php:503
+#: Menu.php:504
 msgid "Latest Members"
 msgstr "Derniers membres ajoutés"
 
-#: Menu.php:537
+#: Menu.php:538
 msgid "Updated Members"
 msgstr "Membres mis à jour"
 
@@ -8810,7 +8811,7 @@ msgstr ""
 "________________________________________________________________"
 
 #: Reports/PhotoBook.php:156 Reports/PhotoBook.php:168
-#: sundayschool/SundaySchoolReports.php:299
+#: sundayschool/SundaySchoolReports.php:304
 msgid "PhotoBook"
 msgstr "Trombinoscope"
 
@@ -9296,41 +9297,40 @@ msgstr "Entrer le Nom"
 msgid "Sunday School Reports"
 msgstr "Rapports école du dimanche"
 
-#: sundayschool/SundaySchoolReports.php:135
+#: sundayschool/SundaySchoolReports.php:140
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
 msgstr ""
 "Au moins un groupe doit être sélectionné pour faire des listes de classe ou "
 "des feuilles de présence."
 
-#: sundayschool/SundaySchoolReports.php:198
+#: sundayschool/SundaySchoolReports.php:203
 msgid "To select multiple hold CTL"
 msgstr ""
 "Pour sélectionner plusieurs groupes, appuyer en même temps sur la touche CTRL"
 
-#: sundayschool/SundaySchoolReports.php:207
+#: sundayschool/SundaySchoolReports.php:212
 msgid "Multiple groups will have a Page Break between Groups<br>"
 msgstr "Les différents groupes sont séparés par un saut de page<br>"
 
-#: sundayschool/SundaySchoolReports.php:209
+#: sundayschool/SundaySchoolReports.php:214
 msgid "List all Roles (unchecked will list Teacher/Student roles only)"
 msgstr ""
 "Lister tous les Rôles (en décochant, vous listerez uniquement les rôles "
 "Moniteur/Etudiant)"
 
-#: sundayschool/SundaySchoolReports.php:211
+#: sundayschool/SundaySchoolReports.php:216
 msgid "With Photos"
 msgstr "Avec les photos"
 
-#: sundayschool/SundaySchoolReports.php:224
+#: sundayschool/SundaySchoolReports.php:229
 msgid "First Sunday"
 msgstr "Premier dimanche"
 
-#: sundayschool/SundaySchoolReports.php:229
+#: sundayschool/SundaySchoolReports.php:234
 msgid "Last Sunday"
 msgstr "Dernier dimanche"
 
-#: sundayschool/SundaySchoolReports.php:234
 #: sundayschool/SundaySchoolReports.php:239
 #: sundayschool/SundaySchoolReports.php:244
 #: sundayschool/SundaySchoolReports.php:249
@@ -9338,26 +9338,27 @@ msgstr "Dernier dimanche"
 #: sundayschool/SundaySchoolReports.php:259
 #: sundayschool/SundaySchoolReports.php:264
 #: sundayschool/SundaySchoolReports.php:269
+#: sundayschool/SundaySchoolReports.php:274
 msgid "No Sunday School"
 msgstr "Pas d&#39;école du dimanche"
 
-#: sundayschool/SundaySchoolReports.php:274
+#: sundayschool/SundaySchoolReports.php:279
 msgid "Extra Students"
 msgstr "Les étudiants supplémentaires"
 
-#: sundayschool/SundaySchoolReports.php:278
+#: sundayschool/SundaySchoolReports.php:283
 msgid "Extra Teachers"
 msgstr "Les moniteurs supplémentaires"
 
-#: sundayschool/SundaySchoolReports.php:290
+#: sundayschool/SundaySchoolReports.php:295
 msgid "Class List"
 msgstr "Liste des classes"
 
-#: sundayschool/SundaySchoolReports.php:293
+#: sundayschool/SundaySchoolReports.php:298
 msgid "Attendance Sheet"
 msgstr "Feuille de présence"
 
-#: sundayschool/SundaySchoolReports.php:296
+#: sundayschool/SundaySchoolReports.php:301
 msgid "Real Attendance Sheet"
 msgstr "Feuille de présence réelle"
 
