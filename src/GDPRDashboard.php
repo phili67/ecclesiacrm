@@ -44,19 +44,7 @@ $notes = NoteQuery::Create()
 ?>
 
 <div class="box box-primary box-body">
-  <!--<div class="btn-group">
-    <a class="btn btn-app newPastorCare" data-typeid="" data-visible="" data-typeDesc=""><i class="fa fa-sticky-note"></i><?= gettext("Filter") ?></a>
-    <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
-       <span class="caret"></span>
-       <span class="sr-only">Menu déroulant</span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-        <li> <a class="filterFamily" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Family") ?></a></li>
-        <li> <a class="filterPerson" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Person") ?></a></li>
-        <li> <a class="filter" data-typeid="" data-visible="" data-typeDesc=""><?= gettext("by") ?> <?= gettext("Person") ?></a></li>
-    </ul>
-  </div>-->
-  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/coucou.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GDPRListExport.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
 </div>
 
 <div class="box box-body">

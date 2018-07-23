@@ -60,7 +60,7 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('edited By Name'),
+        title:i18next.t('Edited By Name'),
         data:'editedByFullName',
         render: function(data, type, full, meta) {        
           return data;

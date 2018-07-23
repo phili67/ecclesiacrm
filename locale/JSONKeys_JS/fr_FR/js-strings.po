@@ -684,8 +684,8 @@ msgstr "Date saisie"
 msgid "Date Last Edited"
 msgstr "Date dernière modif."
 
-msgid "edited By Name"
-msgstr ""
+msgid "Edited By Name"
+msgstr "Editer par Nom"
 
 msgid "Deactivated"
 msgstr "Désactivé"

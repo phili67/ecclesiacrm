@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-23 19:06+0200\n"
+"POT-Creation-Date: 2018-07-23 19:31+0200\n"
 "Language: fr-fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -82,7 +82,8 @@ msgstr "Activer la famille."
 
 #: api/routes/gdrp.php:45 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
-#: FinancialReports.php:294 ListEvents.php:552 Reports/ConfirmReport.php:229
+#: FinancialReports.php:294 GDPRListExport.php:82 ListEvents.php:552
+#: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Oui"
 
@@ -251,10 +252,9 @@ msgstr "Configuration de paiement automatique"
 msgid "For the"
 msgstr "Pour la"
 
-#: AutoPaymentEditor.php:772 AutoPaymentEditor.php:781 GDPRDashboard.php:55
-#: GDPRDashboard.php:56 Include/Footer.php:77 PledgeEditor.php:537
-#: PropertyEditor.php:43 PropertyList.php:24 PropertyTypeEditor.php:88
-#: PropertyTypeList.php:67
+#: AutoPaymentEditor.php:772 AutoPaymentEditor.php:781 Include/Footer.php:77
+#: PledgeEditor.php:537 PropertyEditor.php:43 PropertyList.php:24
+#: PropertyTypeEditor.php:88 PropertyTypeList.php:67
 msgid "Person"
 msgstr "Personne"
 
@@ -262,11 +262,11 @@ msgstr "Personne"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194
 #: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:204 FinancialReports.php:302 GDPRDashboard.php:54
-#: Include/Footer.php:55 members/404.php:16 PersonView.php:539
-#: PledgeEditor.php:537 PrintPastoralCare.php:262 PrintView.php:260
-#: PropertyEditor.php:46 PropertyList.php:28 PropertyTypeEditor.php:89
-#: PropertyTypeList.php:67 SelectList.php:1115
+#: FamilyView.php:204 FinancialReports.php:302 Include/Footer.php:55
+#: members/404.php:16 PersonView.php:539 PledgeEditor.php:537
+#: PrintPastoralCare.php:262 PrintView.php:260 PropertyEditor.php:46
+#: PropertyList.php:28 PropertyTypeEditor.php:89 PropertyTypeList.php:67
+#: SelectList.php:1115
 msgid "Family"
 msgstr "Famille"
 
@@ -1306,7 +1306,7 @@ msgstr "Requis"
 
 #: CSVExport.php:63 CSVImport.php:206 DonatedItemEditor.php:207
 #: FindFundRaiser.php:237 FundRaiserEditor.php:168 FundRaiserEditor.php:194
-#: PersonEditor.php:732
+#: GDPRListExport.php:60 PersonEditor.php:732
 msgid "Title"
 msgstr "Titre"
 
@@ -4342,8 +4342,7 @@ msgstr "Ce document est consulté par"
 msgid "Minutes left"
 msgstr "Minutes restantes"
 
-#: EcclesiaCRM/Service/TimelineService.php:221 GDPRDashboard.php:54
-#: GDPRDashboard.php:55 GDPRDashboard.php:56 PrintView.php:500
+#: EcclesiaCRM/Service/TimelineService.php:221 PrintView.php:500
 msgid "by"
 msgstr "par"
 
@@ -4708,10 +4707,10 @@ msgid "Add a New Electronic Payment Method"
 msgstr "Ajouter une nouvelle méthode de paiement électronique"
 
 #: ElectronicPaymentList.php:195 FamilyCustomFieldsEditor.php:321
-#: FamilyCustomFieldsEditor.php:422 GroupPropsFormEditor.php:315
-#: GroupPropsFormEditor.php:441 GroupView.php:414 OptionManager.php:103
-#: PersonCustomFieldsEditor.php:311 PersonCustomFieldsEditor.php:427
-#: PropertyEditor.php:153 SelectDelete.php:217
+#: FamilyCustomFieldsEditor.php:422 GDPRListExport.php:62
+#: GroupPropsFormEditor.php:315 GroupPropsFormEditor.php:441 GroupView.php:414
+#: OptionManager.php:103 PersonCustomFieldsEditor.php:311
+#: PersonCustomFieldsEditor.php:427 PropertyEditor.php:153 SelectDelete.php:217
 msgid "Type"
 msgstr "Type"
 
@@ -6107,13 +6106,34 @@ msgstr "Valeur estimée"
 msgid "GDPR Dashboard"
 msgstr "Tableau de bord RGPD"
 
-#: GDPRDashboard.php:48
-msgid "Filter"
-msgstr "Filtres"
-
-#: GDPRDashboard.php:59 PastoralCare.php:91 PersonView.php:470
+#: GDPRDashboard.php:47 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
 msgstr "Page imprimable"
+
+#: GDPRListExport.php:59
+msgid "Full Name"
+msgstr "Nom complet"
+
+#: GDPRListExport.php:61
+msgid "Text"
+msgstr "Texte"
+
+#: GDPRListExport.php:63
+msgid "Date Entered"
+msgstr "Date saisie"
+
+#: GDPRListExport.php:64
+msgid "Date Last Edited"
+msgstr "Date dernière modif."
+
+#: GDPRListExport.php:65
+#, fuzzy
+msgid "edited By Name"
+msgstr "Editer par Nom"
+
+#: GDPRListExport.php:66
+msgid "Deactivated"
+msgstr "Désactiver"
 
 #: GeoPage.php:88
 msgid "Family Geographic Utilities"
@@ -10242,6 +10262,9 @@ msgstr "Moniteur"
 
 msgid "Student"
 msgstr "Etudiant"
+
+#~ msgid "Filter"
+#~ msgstr "Filtres"
 
 #~ msgid "There was a problem retrieving the requested object"
 #~ msgstr "Il y a eu un problème lors de la récupération de l'objet demandé"
