@@ -17,6 +17,7 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\FinancialService;
@@ -144,7 +145,7 @@ if ($_SESSION['user']->isGdrpDpoEnabled()) {
 }
             
 
-if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0)) {
+if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) && $_SESSION['user']->isSeePrivacyDataEnabled()) {
 ?>
     <div class="callout callout-success alert alert-info alert-dismissible " id="Menu_Banner">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
