@@ -31,6 +31,11 @@ $groups = GroupQuery::create()
 $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
+if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
+   Redirect('Menu.php');
+   exit;
+}
+
 // Is this the second pass?
 if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || isset($_POST['SubmitClassAttendance']) || isset($_POST['SubmitRealClassAttendance']) ) {
     $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');

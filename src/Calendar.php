@@ -88,7 +88,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isMainDashboardEnabled()) { 
+                         if ($_SESSION['user']->isSeePrivacyDataEnabled()) { 
                         ?>
                        <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Birthdate") ?>" data-off="<?= gettext("Birthdate") ?>">
                        <?php 
@@ -97,7 +97,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isMainDashboardEnabled()) { 
+                         if ($_SESSION['user']->isSeePrivacyDataEnabled()) { 
                         ?>
                        <input data-size="mini" id="isAnniversaryActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Wedding") ?>" data-off="<?= gettext("Wedding") ?>">
                        <?php 
