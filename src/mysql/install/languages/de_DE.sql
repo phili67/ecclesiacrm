@@ -101,11 +101,12 @@ ON DUPLICATE KEY UPDATE usrprf_name=VALUES(usrprf_name);
 --
 
 INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-(1, 'Warum sind Sie in unsere Kirche gekommen ?', '', 1),
-(2, 'Warum kommen sie dann immer wieder her ?', '', 1),
-(3, 'Haben Sie irgendwelche ein Wünsche ?', '', 1),
-(4, 'Wie sind Sie auf uns gekommen ?', '', 1),
-(5, 'Taufe', 'Ausbildung', 0),
-(6, 'Hochzeit', 'Ausbildung', 0),
-(7, 'Hilfeleistungen ', 'Therapie', 0)
+(1, 'klassischen Pastoral Notizen', '', 1),
+(2, 'Warum sind Sie in unsere Kirche gekommen ?', '', 1),
+(3, 'Warum kommen sie dann immer wieder her ?', '', 1),
+(4, 'Haben Sie irgendwelche ein Wünsche ?', '', 1),
+(5, 'Wie sind Sie auf uns gekommen ?', '', 1),
+(6, 'Taufe', 'Ausbildung', 0),
+(7, 'Hochzeit', 'Ausbildung', 0),
+(8, 'Hilfeleistungen ', 'Therapie', 0)
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);

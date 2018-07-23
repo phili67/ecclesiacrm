@@ -55,11 +55,6 @@ ALTER TABLE `user_usr` ADD COLUMN `usr_MainDashboard` tinyint(1) DEFAULT '0';
 ALTER TABLE `user_usr` ADD COLUMN `usr_SeePrivacyData` tinyint(1) DEFAULT '0';
 
 delete from `userconfig_ucfg` where `ucfg_name` = 'bSeePrivacyData';
-
-
-delete from orders where id_users = 1 and id_product = 2
-
-
 -- 
 -- GDRP update
 --
