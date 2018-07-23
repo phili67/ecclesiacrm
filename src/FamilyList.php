@@ -21,7 +21,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 
    $time = new DateTime('now');
-   $newtime = $time->modify('-1 year')->format('Y-m-d');
+   $newtime = $time->modify('-2 year')->format('Y-m-d');
    
    $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)

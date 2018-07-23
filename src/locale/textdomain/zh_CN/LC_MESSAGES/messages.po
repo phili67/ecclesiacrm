@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-23 14:29+0200\n"
+"POT-Creation-Date: 2018-07-23 19:06+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,14 +132,14 @@ msgstr "人"
 
 #: api/routes/people.php:145 api/routes/search.php:141
 #: EcclesiaCRM/MenuBar/MenuBar.php:250 members/online-pending-verify.php:24
-#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:234
+#: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:315
 #: PeopleDashboard.php:154 sundayschool/SundaySchoolDashboard.php:117
 msgid "Families"
 msgstr "家庭"
 
 #: api/routes/people.php:182 api/routes/search.php:180 Calendar.php:147
 #: EcclesiaCRM/MenuBar/MenuBar.php:53
-#: external/templates/verify/verify-family-info.php:108 Menu.php:291
+#: external/templates/verify/verify-family-info.php:108 Menu.php:372
 #: PeopleDashboard.php:217
 #, fuzzy
 msgid "Groups"
@@ -223,7 +223,7 @@ msgstr ""
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:35 FamilyEditor.php:684
 #: FamilyEditor.php:688 FamilyList.php:60 FamilyView.php:219 GeoPage.php:360
-#: GroupReports.php:144 Menu.php:376 Menu.php:405 PersonEditor.php:923
+#: GroupReports.php:144 Menu.php:457 Menu.php:486 PersonEditor.php:923
 #: PersonEditor.php:927 PersonEditor.php:991 PersonEditor.php:1007
 #: PersonList.php:61 PersonView.php:340 Register.php:43
 #: Reports/ConfirmReportEmail.php:125 Reports/ConfirmReportEmail.php:130
@@ -935,7 +935,7 @@ msgstr "如果要添加一个新的家庭，输入以下数据。"
 #: CartToFamily.php:235
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:31 FamilyEditor.php:674
-#: LettersAndLabels.php:70 Menu.php:375 Menu.php:404
+#: LettersAndLabels.php:70 Menu.php:456 Menu.php:485
 #: Reports/ConfirmReportEmail.php:120 Reports/ConfirmReport.php:116
 #: SelectDelete.php:153 SelectDelete.php:272
 msgid "Family Name"
@@ -4013,7 +4013,7 @@ msgstr "保存设置"
 msgid "Documents"
 msgstr "评论"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/MenuBar/MenuBar.php:198 Menu.php:88
 msgid "GDPR"
 msgstr ""
 
@@ -4061,7 +4061,7 @@ msgstr "编辑事件类型"
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:229 Menu.php:253 PeopleDashboard.php:175
+#: EcclesiaCRM/MenuBar/MenuBar.php:229 Menu.php:334 PeopleDashboard.php:175
 msgid "People"
 msgstr "人"
 
@@ -4163,14 +4163,14 @@ msgid "Query Menu"
 msgstr "查询视图"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:209
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:64 Menu.php:377
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:64 Menu.php:458
 #: PersonList.php:65
 #, fuzzy
 msgid "Created"
 msgstr "创建文件"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:214
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:155 Menu.php:406
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:155 Menu.php:487
 #, fuzzy
 msgid "Updated"
 msgstr "更新"
@@ -7599,6 +7599,7 @@ msgid "here"
 msgstr "那里"
 
 #: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
+#: Menu.php:106 Menu.php:129
 msgid "to solve the problem."
 msgstr ""
 
@@ -7665,69 +7666,107 @@ msgstr "家庭删除确认"
 msgid "Self Verify"
 msgstr "验证"
 
-#: Menu.php:30
+#: Menu.php:33
 msgid "Welcome to"
 msgstr ""
 
-#: Menu.php:144
+#: Menu.php:88
+msgid "message for the DPO"
+msgstr ""
+
+#: Menu.php:99
+msgid "person must be deleted from the CRM."
+msgstr ""
+
+#: Menu.php:101
+msgid "persons must be deleted from the CRM."
+msgstr ""
+
+#: Menu.php:106 Menu.php:129
+msgid "Click the"
+msgstr ""
+
+#: Menu.php:106 Menu.php:129
+msgid "link"
+msgstr ""
+
+#: Menu.php:110
+#, fuzzy
+msgid "No Person to remove in the CRM."
+msgstr "集团成功地从车中取出。"
+
+#: Menu.php:122
+msgid "family must be deleted from the CRM."
+msgstr ""
+
+#: Menu.php:124
+msgid "families must be deleted from the CRM."
+msgstr ""
+
+#: Menu.php:133
+#, fuzzy
+msgid "No Family to remove in the CRM."
+msgstr "集团成功地从车中取出。"
+
+#: Menu.php:225
 msgid "Birthdates of the day"
 msgstr ""
 
-#: Menu.php:160
+#: Menu.php:241
 #, fuzzy
 msgid "Anniversaries of the day"
 msgstr "周年日期"
 
-#: Menu.php:208
+#: Menu.php:289
 msgid "Unclassified birthdates"
 msgstr ""
 
-#: Menu.php:241 PeopleDashboard.php:161
+#: Menu.php:322 PeopleDashboard.php:161
 #, fuzzy
 msgid "See all Families"
 msgstr "所有的家庭"
 
-#: Menu.php:260 PeopleDashboard.php:182
+#: Menu.php:341 PeopleDashboard.php:182
 #, fuzzy
 msgid "See All People"
 msgstr "所有角色"
 
-#: Menu.php:272 sundayschool/SundaySchoolDashboard.php:152
+#: Menu.php:353 sundayschool/SundaySchoolDashboard.php:152
 #, fuzzy
 msgid "Sunday School Classes"
 msgstr "主日学报告"
 
-#: Menu.php:279 Menu.php:298 Menu.php:325 PeopleDashboard.php:203
+#: Menu.php:360 Menu.php:379 Menu.php:406 PeopleDashboard.php:203
 #: PeopleDashboard.php:224
 msgid "More info"
 msgstr ""
 
-#: Menu.php:318
+#: Menu.php:399
 #, fuzzy
 msgid "Attendees Checked In"
 msgstr "出席者（"
 
-#: Menu.php:342
+#: Menu.php:423
 #, fuzzy
 msgid "Deposit Tracking"
 msgstr "存款上市"
 
-#: Menu.php:362
+#: Menu.php:443
 #, fuzzy
 msgid "Latest Families"
 msgstr "家庭"
 
-#: Menu.php:391
+#: Menu.php:472
 #, fuzzy
 msgid "Updated Families"
 msgstr "更新家庭记录"
 
-#: Menu.php:422
+#: Menu.php:503
 #, fuzzy
 msgid "Latest Members"
 msgstr "总会员人数"
 
-#: Menu.php:456
+#: Menu.php:537
 #, fuzzy
 msgid "Updated Members"
 msgstr "出席委员"
