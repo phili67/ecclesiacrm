@@ -1580,6 +1580,7 @@ CREATE TABLE pastoral_care_type (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 INSERT INTO `pastoral_care_type` (`pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
+  ('Classical Pastoral note','', true),
   ('Why did you come to the church?','', true),
   ('Why do you keep coming?','', true),
   ('Do you have any suggestions for us?','', true),
