@@ -411,10 +411,10 @@ msgid "Event Creation"
 msgstr "Générer votre événement"
 
 msgid "Title"
-msgstr "Title"
+msgstr "Titre"
 
 msgid "Calendar Title"
-msgstr "Nom de votre événement"
+msgstr "Titre de votre événement"
 
 msgid "Location"
 msgstr "Localisation"

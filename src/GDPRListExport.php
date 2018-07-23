@@ -62,7 +62,7 @@ fputcsv($out, [InputUtils::translate_special_charset(gettext("Full Name"),$sCSVE
   InputUtils::translate_special_charset(gettext("Type"),$sCSVExportCharset),
   InputUtils::translate_special_charset(gettext("Date Entered"),$sCSVExportCharset),
   InputUtils::translate_special_charset(gettext("Date Last Edited"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("edited By Name"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Edited By Name"),$sCSVExportCharset),
   InputUtils::translate_special_charset(gettext("Deactivated"),$sCSVExportCharset) ], $delimiter);
 
 // only the unday groups
