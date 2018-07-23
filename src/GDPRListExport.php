@@ -1,9 +1,9 @@
 <?php
 /*******************************************************************************
 *
-*  filename    : sundayschol/SundaySchoolClassListExport.php
-*  last change : 2017-11-03 Philippe Logel
-*  description : Creates a csv for a Sunday School Class List
+*  filename    : GDPRListExport.php
+*  last change : 2018-07-23 Philippe Logel
+*  description : Creates a csv for a GDPR List
 
 ******************************************************************************/
 require 'Include/Config.php';
@@ -43,7 +43,7 @@ header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
 header('Content-Type: text/csv;charset='.$sCSVExportCharset);
-header('Content-Disposition: attachment; filename=SundaySchool-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+header('Content-Disposition: attachment; filename=GDPRList-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
 $delimiter = $sCSVExportDelemiter;
