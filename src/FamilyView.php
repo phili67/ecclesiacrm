@@ -335,7 +335,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <?php       
                  if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
                     $emails = "";
-                    foreach ($family->getPeople() as $person) {
+                    foreach ($family->getActivatedPeople() as $person) {
                       $emails .= $person->getEmail().$sMailtoDelimiter;
                     }
                     
@@ -414,7 +414,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($family->getPeople() as $person) {
+                        <?php foreach ($family->getActivatedPeople() as $person) {
                     ?>
                             <tr>
                                 <td>
@@ -921,7 +921,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                     popupMessage = "<?= gettext('Please confirm deactivation of family') . ': ' . $fam_Name ?>";
                 }
                 else {
-                    popupMessage = "<?= gettext('Please confirm activation of family') . ': ' . $fam_Name  ?>";
+                    popupMessage = "<?= gettext('Please confirm activation of family') . ': ' . $fam_Name  ?><br>cocuou";
                 }
 
                 bootbox.confirm({

@@ -84,7 +84,7 @@ $app->group('/sharedocument', function () {
     $params = (object)$request->getParsedBody();
           
     if (isset ($params->familyID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
-       $members = FamilyQuery::Create()->findOneById($params->familyID)->getPeople();
+       $members = FamilyQuery::Create()->findOneById($params->familyID)->getActivatedPeople();
        
        foreach ($members as $member) {   
           if ($member->getId() > 0) {   

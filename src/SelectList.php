@@ -336,8 +336,10 @@ if (isset($sLetter)) {
 $sGroupBySQL = ' GROUP BY per_ID';
 
 $activeFamiliesWhereExt = ' AND fam_DateDeactivated is null';
+$activePersonsWhereExt = ' AND per_DateDeactivated is null';
+
 $sWhereExt = $sGroupWhereExt . $sFilterWhereExt . $sClassificationWhereExt .
-    $sFamilyRoleWhereExt . $sGenderWhereExt . $sLetterWhereExt . $sPersonPropertyWhereExt . $activeFamiliesWhereExt;
+    $sFamilyRoleWhereExt . $sGenderWhereExt . $sLetterWhereExt . $sPersonPropertyWhereExt . $activeFamiliesWhereExt . $activePersonsWhereExt;
 
 $sSQL = $sBaseSQL.$sJoinExt.' WHERE 1'.$sWhereExt.$sGroupBySQL;
 

@@ -408,10 +408,6 @@ $app->group('/calendar', function () {
          
         if ( isset ($params->calIDs) && isset ($params->familyID) && isset ($params->notification) ) {
         
-          $fam = FamilyQuery::Create()->findOneById ($params->familyID);
-          
-          $persons = $fam->getPeople();
-          
           $calendarId = explode(",",$params->calIDs);
           
           // we'll connect to sabre
@@ -420,6 +416,11 @@ $app->group('/calendar', function () {
           // We set the BackEnd for sabre Backends
           $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
 
+          
+          $fam = FamilyQuery::Create()->findOneById ($params->familyID);          
+          $persons = $fam->getActivatedPeople();
+          
+          $res_global = "";
           
           foreach ($persons as $person) {
             $user = UserQuery::Create()->findOneByPersonId ($person->getId());
@@ -442,10 +443,13 @@ $app->group('/calendar', function () {
               
             }        
         
-            $result = $calendarBackend->getInvites($calendarId); 
+            $result = $calendarBackend->getInvites($calendarId);
                 
-            return $response->withJson($result);
+            $res_global .= $result." ";
+            
           }
+          
+          return $response->withJson($res_global);
         }
         
         return $response->withJson(['status' => "failed"]);

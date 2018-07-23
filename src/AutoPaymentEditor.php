@@ -190,9 +190,8 @@ if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($linkBack != '') {
           $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
-          if (!empty($ormFamily->getPeople()) && $ormFamily->getPeople()->count() == 1) {
-             $people = $ormFamily->getPeople();
-             
+          $people = $ormFamily->getActivatedPeople();
+          if (!empty($people) && count($people) == 1) {
              $personId = -1;
              
              foreach ($people as $person) {

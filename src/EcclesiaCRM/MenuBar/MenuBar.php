@@ -52,7 +52,7 @@ class MenuBar {
       // the assigned Groups
       $menu = new Menu (gettext("Groups"),"fa fa-tag","#",true);
       
-      $menuItem = new Menu (gettext("List Groups"),"fa fa-angle-double-right","GroupList.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+      $menuItem = new Menu (gettext("List Groups"),"fa fa-circle-o","GroupList.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
       
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3)
@@ -76,7 +76,7 @@ class MenuBar {
                           $str = substr($str, 0, $this->_maxStr-3)." ...";
                       }
 
-                      $menuItemItem = new Menu ($str,"fa fa-angle-double-right","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
+                      $menuItemItem = new Menu ($str,"fa fa-circle-o","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
                       $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                       $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                       if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
@@ -107,7 +107,7 @@ class MenuBar {
           }
       }
       
-      $menuItem = new Menu (gettext("Group Assignment Helper"),"fa fa-angle-double-right","SelectList.php?mode=groupassign",true,$menu);
+      $menuItem = new Menu (gettext("Group Assignment Helper"),"fa fa-circle-o","SelectList.php?mode=groupassign",true,$menu);
             
       $this->addMenu($menu);
     }
@@ -141,7 +141,7 @@ class MenuBar {
                       
       $menu = new Menu (gettext("Sunday School"),"fa fa-child","#",true);
       
-      $menuItem = new Menu (gettext("Dashboard"),"fa fa-angle-double-right","sundayschool/SundaySchoolDashboard.php",true,$menu);
+      $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","sundayschool/SundaySchoolDashboard.php",true,$menu);
       
       
       $property = '';
@@ -157,7 +157,7 @@ class MenuBar {
               $str = substr($str, 0, $this->_maxStr-3)." ...";
           }
           
-          $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/SundaySchoolClassView.php?groupId=" . $ormAssignedProperty->getGroupId(),true,$menuItem);
+          $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $ormAssignedProperty->getGroupId(),true,$menuItem);
           $menuItemItem->addLink("GroupEditor.php?GroupID=" . $ormAssignedProperty->getGroupId());
           $menuItemItem->addLink("GroupView.php?GroupID=" . $ormAssignedProperty->getGroupId());
       }
@@ -172,7 +172,7 @@ class MenuBar {
                   $str = substr($str, 0, $this->_maxStr-3)." ...";
               }
               
-              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/SundaySchoolClassView.php?groupId=" . $ormWithoutAssignedProperty->getGroupId(),true,$menuItem);
+              $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $ormWithoutAssignedProperty->getGroupId(),true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $ormWithoutAssignedProperty->getGroupId());
               $menuItemItem->addLink("GroupView.php?GroupID=" . $ormWithoutAssignedProperty->getGroupId());
           }
@@ -196,7 +196,9 @@ class MenuBar {
       if ($_SESSION['user']->isGdrpDpoEnabled()) {
         // the GDPR Menu
         $menu = new Menu (gettext("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
-          $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPR.php",true,$menu);
+          $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPRDashboard.php",true,$menu);
+          $menuItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=GDRP",true,$menu);
+          $menuItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=GDRP",true,$menu);
           
         $this->addMenu($menu);
       }
@@ -217,25 +219,38 @@ class MenuBar {
           $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php",true,$menu);
         }
 
-        $menuItem = new Menu (gettext("List Church Events"),"fa fa-angle-double-right","ListEvents.php",true,$menu);
-        $menuItem = new Menu (gettext("List Event Types"),"fa fa-angle-double-right","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
-        $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-angle-double-right","Checkin.php",true,$menu);
+        $menuItem = new Menu (gettext("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
+        $menuItem = new Menu (gettext("List Event Types"),"fa fa-circle-o","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-circle-o","Checkin.php",true,$menu);
       
       $this->addMenu($menu);
       
       // the People menu
       $menu = new Menu (gettext("People"),"fa fa-users","#",true);
       
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-angle-double-right","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
         $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
         
-        $menuItem = new Menu (gettext("Add New Person"),"fa fa-angle-double-right","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
-        $menuItem = new Menu (gettext("View All Persons"),"fa fa-angle-double-right","SelectList.php?mode=person",true,$menu);
-        $menuItem = new Menu (gettext("Add New Family"),"fa fa-angle-double-right","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
-        $menuItem = new Menu (gettext("View Active Families"),"fa fa-angle-double-right","FamilyList.php",true,$menu);
-        $menuItem = new Menu (gettext("View Inactive Families"),"fa fa-angle-double-right","FamilyList.php?mode=inactive",true,$menu);
+        $menuItem = new Menu (gettext("View All Persons"),"fa fa-circle-o","SelectList.php?mode=person",true,$menu);
+        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php?GroupID=-1",true,$menu);
+        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php?GroupID=-1",true,$menu);
+        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php?GroupID=-1",true,$menu);
+        }
+        
+        $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
+          $menuItemItem = new Menu (gettext("Add New Person"),"fa fa-circle-o","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+          $menuItemItem = new Menu (gettext("View Active Persons"),"fa fa-circle-o","PersonList.php",true,$menuItem);
+          $menuItemItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=inactive",true,$menuItem);
+        
+        $menuItem = new Menu (gettext("Families"),"fa fa-angle-double-right","#",true,$menu);
+          $menuItemItem = new Menu (gettext("Add New Family"),"fa fa-circle-o","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+          $menuItemItem = new Menu (gettext("View Active Families"),"fa fa-circle-o","FamilyList.php",true,$menuItem);
+          $menuItemItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=inactive",true,$menuItem);
 
       $this->addMenu($menu);
       
@@ -270,10 +285,10 @@ class MenuBar {
           $menu->addBadge('badge pull-right bg-blue current-deposit','',gettext("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
         }
 
-        $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-angle-double-right","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("View All Deposits"),"fa fa-angle-double-right","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-angle-double-right","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-angle-double-right","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
+        $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
       
       if ($_SESSION['user']->isFinanceEnabled()) {
         $this->addMenu($menu);
@@ -282,11 +297,11 @@ class MenuBar {
       // the menu Fundraisers
       $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
 
-        $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-angle-double-right","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-angle-double-right","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-angle-double-right","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("View Buyers"),"fa fa-angle-double-right","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-angle-double-right","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-circle-o","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("View Buyers"),"fa fa-circle-o","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+        $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-circle-o","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
 
       if ($_SESSION['user']->isFinanceEnabled()) {
         $this->addMenu($menu);
@@ -295,8 +310,8 @@ class MenuBar {
       // the menu report
       $menu = new Menu (gettext("Data/Reports"),"fa fa-file-pdf-o","#",$_SESSION['user']->isAdmin());
 
-        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-angle-double-right","ReportList.php",$_SESSION['user']->isAdmin(),$menu);
-        $menuItem = new Menu (gettext("Query Menu"),"fa fa-angle-double-right","QueryList.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-circle-o","ReportList.php",$_SESSION['user']->isAdmin(),$menu);
+        $menuItem = new Menu (gettext("Query Menu"),"fa fa-circle-o","QueryList.php",$_SESSION['user']->isAdmin(),$menu);
 
       if ($_SESSION['user']->isAdmin()) {
         $this->addMenu($menu);
@@ -330,13 +345,13 @@ class MenuBar {
       return "class=\"treeview-menu menu-open\"";
     }
     
-    private function is_li_class_active ($links)
+    private function is_li_class_active ($links,$is_menu=false)
     {
       $link = $_SERVER['REQUEST_URI'];
       
       foreach($links as $l) {
          if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-            return "class=\"active\"";
+            return "class=\"active ".(($is_menu)?"treeview":"")."\"";
          }             
       }
       
@@ -346,7 +361,12 @@ class MenuBar {
     private function addSubMenu($menus)
     {
       foreach ($menus as $menu) {
-        echo "<li ".$this->is_li_class_active($menu->getLinks())."><a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\" ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>".gettext($menu->getTitle())."</a>\n";
+        echo "<li ".$this->is_li_class_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false)."><a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\" ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>".gettext($menu->getTitle());
+        if (count($menu->subMenu()) > 0) {
+          echo " <i class=\"fa fa-angle-left pull-right\"></i>\n";
+        }
+        
+        echo "</a>\n";
         
         if (count($menu->subMenu()) > 0) {
           echo "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";

@@ -184,6 +184,18 @@ $app->group('/families', function () {
                 $family->setDateDeactivated(Null);
             }
             $family->save();
+            
+            $persons = $family->getPeople();
+            
+            // all person from the family should be deactivated too
+            foreach ($persons as $person) {
+              if ($newStatus == "false") {
+                $person->setDateDeactivated(date('YmdHis'));
+              } elseif ($newStatus == "true") {
+                $person->setDateDeactivated(Null);
+              }
+              $person->save();
+            }
 
             //Create a note to record the status change
             $note = new Note();

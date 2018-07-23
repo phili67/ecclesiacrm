@@ -36,7 +36,7 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('DateEntered'),
+        title:i18next.t('Date Entered'),
         data:'DateEntered',
         render: function(data, type, full, meta) {
           return data;
@@ -44,7 +44,7 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('DateLastEdited'),
+        title:i18next.t('Date Last Edited'),
         data:'DateLastEdited',
         render: function(data, type, full, meta) {
           return data;
@@ -55,18 +55,25 @@ $(document).ready(function () {
         title:i18next.t('Type'),
         data:'Type',
         render: function(data, type, full, meta) {        
-          return data;
+          return i18next.t(data);
         }
       },
       {
         width: 'auto',
-        title:i18next.t('editedByFullName'),
+        title:i18next.t('edited By Name'),
         data:'editedByFullName',
         render: function(data, type, full, meta) {        
           return data;
         }
       },      
-      /*{
+      {
+        width: 'auto',
+        title:i18next.t('Deactivated'),
+        data:'Deactivated',
+        render: function(data, type, full, meta) {        
+          return data;
+        }
+      },       /*{
         width: 'auto',
         title:i18next.t('Delete'),
         data:'Id',
