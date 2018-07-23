@@ -36,13 +36,26 @@ class FamilyDashboardItem implements DashboardItemInterface {
    * @return array|\EcclesiaCRM\Family[]|mixed|\Propel\Runtime\ActiveRecord\ActiveRecordInterface[]|\Propel\Runtime\Collection\ObjectCollection
    */
   private static function getUpdatedFamilies($limit = 12) {
-    return FamilyQuery::create()
+    $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
                     ->filterByDateLastEdited(null, Criteria::NOT_EQUAL)
                     ->orderByDateLastEdited('DESC')
                     ->limit($limit)
                     ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
                     ->find()->toArray();
+                    
+    if (!$_SESSION['user']->isSeePrivacyDataEnabled()) {
+      $res = [];
+  
+      foreach ($families as $family) {
+          $family["Address1"] = gettext("Private Data");
+          $res[] = $family;
+      }
+  
+      return $res;
+    }
+    
+    return $families;
   }
 
   /**
@@ -52,12 +65,26 @@ class FamilyDashboardItem implements DashboardItemInterface {
    */
   private static function getLatestFamilies($limit = 12) {
 
-    return FamilyQuery::create()
+    $families = FamilyQuery::create()
                     ->filterByDateDeactivated(null)
                     ->orderByDateEntered('DESC')
                     ->limit($limit)
                     ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
                     ->find()->toArray();
+
+                    
+    if (!$_SESSION['user']->isSeePrivacyDataEnabled()) {
+      $res = [];
+  
+      foreach ($families as $family) {
+          $family["Address1"] = gettext("Private Data");
+          $res[] = $family;
+      }
+  
+      return $res;
+    }
+    
+    return $families;
   }
 
   public static function shouldInclude($PageName) {
