@@ -44,10 +44,28 @@ $notes = NoteQuery::Create()
 ?>
 
 <div class="box box-primary box-body">
-  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GDPRListExport.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+  <div class="row ">
+      <div class="col-sm-2" style="vertical-align: middle;">
+         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GDPRListExport.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+      </div>
+      <div class="col-sm-10" style="vertical-align: middle;">
+        <table>
+          <tr>
+            <td><label><?= gettext("GDPR DPO Signer") ?></label></td><td>&nbsp;:&nbsp;</td><td><?= SystemConfig::getValue('sGdprDpoSigner') ?></td>
+          </tr>
+          <tr>
+            <td><label><?= gettext("GDPR DPO Signer Email") ?></label></td><td>&nbsp;:&nbsp;</td><td><?= SystemConfig::getValue('sGdprDpoSignerEmail') ?></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 </div>
 
 <div class="box box-body">
+<div class="box-header with-border">
+  <i class="fa fa-user-plus"></i>
+  <h3 class="box-title"><?= gettext("GDPR Person status") ?></h3>
+</div>
   <table class="table table-striped table-bordered" id="GDRP-Table" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
