@@ -320,3 +320,12 @@ msgstr ""
 
 msgid "Student"
 msgstr ""
+
+msgid "CASH"
+msgstr ""
+
+msgid "CHECK"
+msgstr ""
+
+msgid "CHECKS"
+msgstr ""

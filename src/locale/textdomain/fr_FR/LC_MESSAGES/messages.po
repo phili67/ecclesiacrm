@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
+
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 08:33+0200\n"
+"POT-Creation-Date: 2018-07-24 09:26+0200\n"
 "Language: fr-fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,12 +74,12 @@ msgstr ""
 "Le fichier sélectionné dépasse la capacité de téléchargement du serveur de"
 
 #: api/routes/families.php:204
-msgid "Deactivated the Family"
-msgstr "Désactiver la famille."
+msgid "Family Deactivated"
+msgstr " Famille désactivée"
 
 #: api/routes/families.php:206
-msgid "Activated the Family"
-msgstr "Activer la famille."
+msgid "Family Activated"
+msgstr " Famille désactivée"
 
 #: api/routes/gdrp.php:45 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
@@ -109,11 +110,12 @@ msgstr "Carte de crédit"
 msgid "Bank account"
 msgstr "Compte bancaire"
 
-#: api/routes/payments.php:137 FinancialReports.php:262 PledgeEditor.php:614
+#: api/routes/payments.php:137 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
+#: FinancialReports.php:262 PledgeEditor.php:614
 msgid "Cash"
 msgstr "Espèce"
 
-#: api/routes/payments.php:145
+#: api/routes/payments.php:145 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 msgid "Checks"
 msgstr "Chèques"
 
@@ -137,12 +139,12 @@ msgid "Groups"
 msgstr "Groupes"
 
 #: api/routes/persons.php:70
-msgid "Deactivated the Person"
-msgstr "Désactiver la Personne."
+msgid "Person Deactivated"
+msgstr "Personne désactivée"
 
 #: api/routes/persons.php:72
-msgid "Activated the Person"
-msgstr "Activer la Personnes"
+msgid "Person Activated"
+msgstr "Personne désactivée"
 
 #: api/routes/properties.php:28 api/routes/properties.php:78
 #: api/routes/properties.php:99 api/routes/properties.php:149
@@ -325,10 +327,10 @@ msgstr "Montant du paiement"
 msgid "Payment interval (months)"
 msgstr "Intervalle de paiement (mois)"
 
-#: AutoPaymentEditor.php:853 ElectronicPaymentList.php:200
-#: FinancialReports.php:301 FindDepositSlip.php:48
-#: Reports/FamilyPledgeSummary.php:218 Reports/PledgeSummary.php:220
-#: SelectDelete.php:218
+#: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
+#: ElectronicPaymentList.php:200 FinancialReports.php:301
+#: FindDepositSlip.php:48 Reports/FamilyPledgeSummary.php:218
+#: Reports/PledgeSummary.php:220 SelectDelete.php:218
 msgid "Fund"
 msgstr "Fonds"
 
@@ -1426,7 +1428,7 @@ msgstr "Date d&#39;anniversaire de mariage:"
 msgid "Date Entered:"
 msgstr "Date entrée:"
 
-#: CSVExport.php:425 FinancialReports.php:316
+#: CSVExport.php:425 FinancialReports.php:322
 msgid "Output Method:"
 msgstr "Méthode d'exportation:"
 
@@ -1580,7 +1582,7 @@ msgstr "Dépôt clos"
 
 #: DepositSlipEditor.php:89
 msgid "Deposit Details: "
-msgstr "Détails de dépôt : "
+msgstr "Détails du dépôt : "
 
 #: DepositSlipEditor.php:99
 msgid "Comment:"
@@ -1608,7 +1610,7 @@ msgstr ""
 
 #: DepositSlipEditor.php:134
 msgid "Deposit Summary: "
-msgstr "Synthèse des dépôts : "
+msgstr "Synthèse dépôt :"
 
 #: DepositSlipEditor.php:157
 msgid "Payments on this deposit slip:"
@@ -3785,7 +3787,9 @@ msgstr "Le mail du DPO"
 #: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
 "The private datas should be deleted after the sGdprExpirationDate in Year."
-msgstr "Les données privées doivent être supprimées après le délai sGdprExpirationDate en années."
+msgstr ""
+"Les données privées doivent être supprimées après le délai "
+"sGdprExpirationDate en années."
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Church Information"
@@ -4135,6 +4139,84 @@ msgstr "Menu des Rapports"
 msgid "Query Menu"
 msgstr "Menu Requête"
 
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+msgid "Coin"
+msgstr "Pièce"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
+msgid "Counts"
+msgstr "Effectifs"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
+#: EcclesiaCRM/Reports/PDF_Attendance.php:190
+#: EcclesiaCRM/Reports/PDF_Attendance.php:595
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Totaux"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
+msgid "Total Coin"
+msgstr "Nombre totale de Connexion"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+msgid "Bill"
+msgstr "Fact."
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
+msgid "Total Cash"
+msgstr "Total Espèce"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
+msgid "Deposit totals by Currency Type"
+msgstr "Totaux des dépots par Type de devise"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
+msgid "Deposit totals by fund"
+msgstr "Détails de dépôt : "
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:274
+msgid "Deposit Summary"
+msgstr "Synthèse dépôt : "
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:359
+msgid "Deposit total"
+msgstr "Détails de dépôt : "
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
+msgid "Chk No."
+msgstr "Chèq. n°"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+msgid "PmtMethod"
+msgstr "Méthode"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
+msgid "Rcd From"
+msgstr "De"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
+msgid "Memo"
+msgstr "Mémo"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
+#: PledgeEditor.php:749 SelectDelete.php:221
+msgid "Amount"
+msgstr "Montant"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:315
+msgid "Anonymous"
+msgstr "Anonyme"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:393
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:398
+msgid "Witness"
+msgstr "Réviseur"
+
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:209
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:70 Menu.php:459
 #: PersonList.php:73
@@ -4228,12 +4310,6 @@ msgstr "Déplacement copie fichier DAV"
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:434
 msgid "Dav delete file"
 msgstr "Suppression fichier DAV"
-
-#: EcclesiaCRM/Reports/PDF_Attendance.php:190
-#: EcclesiaCRM/Reports/PDF_Attendance.php:595
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Totaux"
 
 #: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
@@ -4757,10 +4833,6 @@ msgstr "Type"
 #: ElectronicPaymentList.php:197
 msgid "Next Date"
 msgstr "Prochaine date"
-
-#: ElectronicPaymentList.php:198 PledgeEditor.php:749 SelectDelete.php:221
-msgid "Amount"
-msgstr "Montant"
 
 #: ElectronicPaymentList.php:199
 msgid "Interval"
@@ -5974,15 +6046,15 @@ msgstr ""
 "Les membres votants doivent avoir fait <br>un don au cours de ces dernières "
 "années<br> (0 si aucun don n&#39;est requis)"
 
-#: FinancialReports.php:318
+#: FinancialReports.php:324
 msgid "CSV"
 msgstr "CSV"
 
-#: FinancialReports.php:325 PaddleNumEditor.php:151
+#: FinancialReports.php:331 PaddleNumEditor.php:151
 msgid "Back"
 msgstr "Revenir"
 
-#: FinancialReports.php:327 GroupReports.php:171 ReminderReport.php:49
+#: FinancialReports.php:333 GroupReports.php:171 ReminderReport.php:49
 #: TaxReport.php:52
 msgid "Create Report"
 msgstr "Créer le rapport"
@@ -6124,19 +6196,19 @@ msgstr "Valeur estimée"
 msgid "GDPR Dashboard"
 msgstr "Tableau de bord RGPD"
 
-#: GDPRDashboard.php:47 PastoralCare.php:91 PersonView.php:470
+#: GDPRDashboard.php:46 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
 msgstr "Page imprimable"
 
-#: GDPRDashboard.php:52
+#: GDPRDashboard.php:51
 msgid "GDPR DPO Signer"
 msgstr "Le signataire (DPO RGPD)"
 
-#: GDPRDashboard.php:55
+#: GDPRDashboard.php:54
 msgid "GDPR DPO Signer Email"
 msgstr "Le mail du signataire (DPO RGPD)"
 
-#: GDPRDashboard.php:65
+#: GDPRDashboard.php:64
 msgid "GDPR Person status"
 msgstr "Statut des Personnes pour le RGPD"
 
@@ -6162,7 +6234,7 @@ msgstr "Editer par Nom"
 
 #: GDPRListExport.php:66
 msgid "Deactivated"
-msgstr "Désactiver"
+msgstr "Désactivé"
 
 #: GeoPage.php:88
 msgid "Family Geographic Utilities"
@@ -8108,7 +8180,7 @@ msgstr "Non assigné"
 
 #: PersonView.php:224
 msgid "This Person is Deactivated"
-msgstr " Cette Personnes est désactivée"
+msgstr " Cette Personne est désactivée"
 
 #: PersonView.php:268
 msgid "Undefined"
@@ -10292,14 +10364,20 @@ msgstr "Moniteur"
 msgid "Student"
 msgstr "Etudiant"
 
+msgid "CASH"
+msgstr "ESPÈCES"
+
+msgid "CHECK"
+msgstr "CHÈQUE"
+
+msgid "CHECKS"
+msgstr "CHÈQUES"
+
 #~ msgid "Filter"
 #~ msgstr "Filtres"
 
 #~ msgid "There was a problem retrieving the requested object"
 #~ msgstr "Il y a eu un problème lors de la récupération de l'objet demandé"
-
-#~ msgid "Total $"
-#~ msgstr "Total €"
 
 #~ msgid "Names of markers for Google Maps in order of classification"
 #~ msgstr "Nom des markers Google Maps pour la classification"
@@ -10400,9 +10478,6 @@ msgstr "Etudiant"
 #~ msgid "Google Maps Zoom"
 #~ msgstr "Zoom Google maps"
 
-#~ msgid "Event Group"
-#~ msgstr "Événement du Groupe"
-
 #~ msgid "Stack Trace"
 #~ msgstr "Trace de données"
 
@@ -10424,47 +10499,8 @@ msgstr "Etudiant"
 #~ msgid "Confirm Enable Group Specific Properties"
 #~ msgstr "Confirmer l'Activation des Propriétés Spécifique du groupe"
 
-#~ msgid ""
-#~ "This will create a group-specific properties table for this group.  You "
-#~ "should then add needed properties with the Group-Specific Properties Form "
-#~ "Editor."
-#~ msgstr ""
-#~ "Vous allez créer un tableau de propriétés spécifiques pour ce groupe. "
-#~ "Vous devrez ensuite ajouter les propriétés nécessaires avec le "
-#~ "Gestionnaire de Groupe-Propiétés Spécifique"
-
-#~ msgid "Confirm Disable Group Specific Properties"
-#~ msgstr "Confirmer la suppression des Propriétés Spécifiques du groupe"
-
-#~ msgid ""
-#~ "Are you sure you want to remove the group-specific person properties?  "
-#~ "All group member properties data will be lost!"
-#~ msgstr ""
-#~ "Êtes-vous sûr de vouloir supprimer les propriétés spécifiques des "
-#~ "personnes ? Toutes les données de propriétés relatives aux membres dans "
-#~ "le groupe seront perdues !"
-
-#~ msgid "Role Name"
-#~ msgstr "Nom du rôle"
-
 #~ msgid "Sequence"
 #~ msgstr "Ordre de tri"
-
-#~ msgid "Checking Cart Status"
-#~ msgstr "Vérifier le statut du panier"
-
-#~ msgid "All members of this group are in the cart"
-#~ msgstr "Tous les membres du groupes sont dans le panier"
-
-#~ msgid "Not all members of this group are in the cart"
-#~ msgstr "Le panier ne contient pas tous les membres du groupe"
-
-#~ msgid "Add all"
-#~ msgstr "Tout ajouter"
-
-#~ msgid "Are you sure you want to remove the selected group members?"
-#~ msgstr ""
-#~ "Êtes vous sûr de vouloir effacer tous les membres du groupe sélectionné ?"
 
 #~ msgid "Do you want to delete this person?  This cannot be undone."
 #~ msgstr ""
@@ -10482,86 +10518,17 @@ msgstr "Etudiant"
 #~ msgid "GroupID required for role selection prompt"
 #~ msgstr "GroupID requière pour le rôle une sélection rapide"
 
-#~ msgid "Select Group and Role"
-#~ msgstr "Sélectionner Groupe et Rôle"
-
-#~ msgid "Are you sure you want to remove this person's membership from"
-#~ msgstr "Êtes-vous sûr de vouloir supprimer appartenance de ce membre de "
-
-#~ msgid "Add A Group Name"
-#~ msgstr "Rajouter un nom de groupe"
-
-#~ msgid "Default Name Group"
-#~ msgstr "Groupe de nom par défaut "
-
-#~ msgid "Group Role"
-#~ msgstr "Rôle du groupe"
-
-#~ msgid "Members from group"
-#~ msgstr "Les membres d'un groupe"
-
-#~ msgid "Members to another group"
-#~ msgstr "Les membres vers un autre groupe"
-
-#~ msgid "Members to cart"
-#~ msgstr "Les membres vers le chariot"
-
-#~ msgid "OR Create a Group and add the CART in ONE ACTION"
-#~ msgstr "OU créer un groupe et ajouter le contenu du Panier en Une Action"
-
-#~ msgid "Create Group + ADD Cart"
-#~ msgstr "Créer Groupe + Ajouter au Pannier"
-
-#~ msgid "With Limit"
-#~ msgstr "Avec limitation"
-
-#~ msgid "Filter Settings"
-#~ msgstr "Réglages des filtres"
-
-#~ msgid "Event Type Filter"
-#~ msgstr "Filtres du type d'événements"
-
-#~ msgid "Event Group Filter"
-#~ msgstr "Filtres Groupe d'événements"
-
-#~ msgid "Calendar Title"
-#~ msgstr "Titre du calendrier"
-
-#~ msgid "Calendar description"
-#~ msgstr "Description du calendrier"
-
 #~ msgid "Personal"
 #~ msgstr "Personnel"
 
 #~ msgid "Visitors"
 #~ msgstr "Visiteurs"
 
-#~ msgid "Move Event"
-#~ msgstr "Déplacement événement"
-
 #~ msgid "Are you sure about this change?"
 #~ msgstr "Êtes vous sûr de vouloir faire ce changement ?"
 
-#~ msgid "will be dropped."
-#~ msgstr "sera déplacé."
-
-#~ msgid "Resize Event"
-#~ msgstr "Redimensionner événement"
-
-#~ msgid "Event Creation"
-#~ msgstr "Creation événement"
-
-#~ msgid "Event was added successfully."
-#~ msgstr "Événement ajouté avec succès."
-
 #~ msgid "Profile"
 #~ msgstr "Profil"
-
-#~ msgid ""
-#~ "Field where Father Of Confession is listed, must be a people of group type"
-#~ msgstr ""
-#~ "Champ où le Père de confession est listé, doit être sous forme de groupe "
-#~ "de personnes"
 
 #~ msgid "Field where last Confession is stored, must be a date type"
 #~ msgstr ""
@@ -10573,9 +10540,6 @@ msgstr "Etudiant"
 
 #~ msgid "Family Address"
 #~ msgstr "Adresse familiale"
-
-#~ msgid "Sunday School Menu assignement"
-#~ msgstr "Affectation menu école du dimanche"
 
 #~ msgid ""
 #~ "Do you really want to delete the persons in the cart and from the CRM?"
@@ -10606,28 +10570,8 @@ msgstr "Etudiant"
 #~ msgid "Persons not assigned to a group"
 #~ msgstr "Personnes non affectées à un groupe"
 
-#~ msgid "Event added"
-#~ msgstr "Evénement ajoutée"
-
-#~ msgid "Add All Group Members"
-#~ msgstr "Ajouter tous les membres d'un groupe"
-
-#~ msgid "Are you sure you want to DELETE all persons from Event ID: "
-#~ msgstr ""
-#~ "Etes-vous sûr de vouloir supprimer toutes les personnes de cet événement "
-#~ "ID : "
-
 #~ msgid "Absent"
 #~ msgstr "Absent"
-
-#~ msgid "CASH"
-#~ msgstr "ESPÈCES"
-
-#~ msgid "CHECK"
-#~ msgstr "CHÈQUE"
-
-#~ msgid "CHECKS"
-#~ msgstr "CHÈQUES"
 
 #~ msgid "TOTAL"
 #~ msgstr "TOTAL"
@@ -10665,48 +10609,6 @@ msgstr "Etudiant"
 #~ msgid "Woman"
 #~ msgstr "Femmme"
 
-#~ msgid "Are you sure, you want to delete this Profile ?"
-#~ msgstr "Êtes vous sûr de vouloir supprimer ce Profil ?"
-
-#~ msgid "Deposit Summary"
-#~ msgstr "Résumé du dépôt"
-
-#~ msgid "PmtMethod"
-#~ msgstr "Méthode Pay"
-
-#~ msgid "Rcd From"
-#~ msgstr "Enr. de"
-
-#~ msgid "Memo"
-#~ msgstr "Mémo"
-
-#~ msgid "Counts"
-#~ msgstr "Comptes"
-
-#~ msgid "Deposit total"
-#~ msgstr "Total du dépôt"
-
-#~ msgid "Deposit totals by Currency Type"
-#~ msgstr "Totaux du dépôt par type Paiement"
-
-#~ msgid "Deposit totals by fund"
-#~ msgstr "Totaux du dépôt par fond"
-
-#~ msgid "Total Coin"
-#~ msgstr "Nombre de pièces"
-
-#~ msgid "Bill"
-#~ msgstr "Fact."
-
-#~ msgid "Coin"
-#~ msgstr "Pièce"
-
-#~ msgid "Total Cash"
-#~ msgstr "Total liquide"
-
-#~ msgid "Witness"
-#~ msgstr "Réviseur"
-
 #~ msgid "FALSE"
 #~ msgstr "Faux"
 
@@ -10718,38 +10620,3 @@ msgstr "Etudiant"
 
 #~ msgid "[R ]"
 #~ msgstr "[R ]"
-
-#~ msgid "Event Calendar"
-#~ msgstr "Evénements Calendrier"
-
-#~ msgid "Set Calendar Name"
-#~ msgstr "Choisir un nom de calendrier"
-
-#~ msgid "Calendar Owner"
-#~ msgstr "Calendrier Perso"
-
-#~ msgid "Modify Share Name"
-#~ msgstr "Modifier Nom du partage"
-
-#~ msgid "Modify Group Name"
-#~ msgstr "Modifier Nom du Groupe"
-
-#~ msgid "Modify Calendar Name"
-#~ msgstr "Modifier Nom du calendrier"
-
-#~ msgid "Exclude/include Groups"
-#~ msgstr "Exclure/Inclure Groupes"
-
-#~ msgid "To add a Group Calendar"
-#~ msgstr "Pour ajouter un nouveau Calendrier"
-
-#~ msgid "Add a new group"
-#~ msgstr "Ajouter Nouveau Groupe"
-
-#~ msgid "You'll lose the calendar"
-#~ msgstr "Vous allez perdre votre calendrier"
-
-#~ msgid "the events and all the share calendars too. This cannot be undone."
-#~ msgstr ""
-#~ "les événements et tous les calendriers partagés aussi. Cette action est "
-#~ "irréversible."
