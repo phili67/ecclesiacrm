@@ -241,7 +241,9 @@ class SystemConfig
         "sUnsubscribeStart" => new ConfigItem(2052, "sUnsubscribeStart", "text", "If you do not want to receive these emails from", gettext("If you do not want to receive these emails from")),
         "sUnsubscribeEnd" => new ConfigItem(2053, "sUnsubscribeEnd", "text", "in the future, please contact the church admins", gettext("in the future, please contact the church admins")),
         "iDocumentTimeLeft" => new ConfigItem(2054,"iDocumentTimeLeft","number","30",gettext("Time in minutes when a share document can't be opened.")),
-        "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR"))        
+        "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR")),
+        "bGDPR" => new ConfigItem(2057,"bGDPR","boolean","0",gettext("GDPR option")),
+        "sGdprDpoSignerEmail" => new ConfigItem(2058,"sGdprDpoSignerEmail","text","",gettext("The DPO email"))
       );
   }
 
@@ -253,12 +255,13 @@ class SystemConfig
       gettext('Email Setup')  => ["sSMTPHost","bSMTPAuth","sSMTPUser","sSMTPPass", "iSMTPTimeout","sToEmailAddress", "bPHPMailerAutoTLS","sPHPMailerSMTPSecure"],
       gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","bStateUnuseful","sDefaultState","sDefaultCountry","bShowFamilyData","bHidePersonAddress","bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle","iPersonAddressStyle","sNewPersonNotificationRecipientIDs"],
       gettext('Map Settings')  => ["sMapProvider","sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
-      gettext('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sGdprDpoSigner", "sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
+      gettext('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       gettext('Financial Settings') => ["sCurrency","sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
       gettext('System Settings')  => ["sLogLevel", "bRegistered","sGZIPname","sZIPname","sPGPname","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
       gettext('Quick Search') => ["bSearchIncludePersons","bSearchIncludePersonsMax","bSearchIncludeAddresses", "bSearchIncludeAddressesMax", "bSearchIncludeFamilies","bSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","bSearchIncludeFamilyHOHMax","bSearchIncludeGroups","bSearchIncludeGroupsMax","bSearchIncludeDeposits", "bSearchIncludeDepositsMax", "bSearchIncludePayments", "bSearchIncludePaymentsMax"],
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       gettext('Localization')  => ["sLanguage","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat"],
+      gettext('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail"],
       gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]

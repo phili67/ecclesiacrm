@@ -45,12 +45,20 @@ if (strtolower($sMode) == 'gdrp') {
 $sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Person List');
 require 'Include/Header.php'; ?>
 
+<?php
+  if ($_SESSION['user']->isAddRecordsEnabled()) {
+?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="PersonEditor.php"> 
     <span class="fa fa-plus" aria-hidden="true"></span><?= gettext('Add New Person') ?>
   </a>
 </div>
+
 <p><br/><br/></p>
+<?php
+  }
+?>
+
 <div class="box">
     <div class="box-body">
         <table id="personlist" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
@@ -103,6 +111,7 @@ require 'Include/Header.php'; ?>
                 <?php
                 } else {
                 ?>
+                  <td> <?= gettext('Private Data') ?></td>
                   <td> <?= gettext('Private Data') ?></td>
                   <td> <?= gettext('Private Data') ?></td>
                   <td> <?= gettext('Private Data') ?></td>

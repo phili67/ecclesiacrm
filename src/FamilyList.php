@@ -45,12 +45,18 @@ if (strtolower($sMode) == 'gdrp') {
 $sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Family List');
 require 'Include/Header.php'; ?>
 
+<?php
+  if ($_SESSION['user']->isAddRecordsEnabled()) {
+?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="FamilyEditor.php"> <span class="fa fa-plus"
                                                                           aria-hidden="true"></span><?= gettext('Add Family') ?>
   </a>
 </div>
 <p><br/><br/></p>
+<?php
+  }
+?>
 <div class="box">
     <div class="box-body">
         <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">

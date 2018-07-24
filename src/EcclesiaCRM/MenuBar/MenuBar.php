@@ -193,7 +193,7 @@ class MenuBar {
 
       $this->addMenu($menu);
       
-      if ($_SESSION['user']->isGdrpDpoEnabled()) {
+      if ($_SESSION['user']->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
         // the GDPR Menu
         $menu = new Menu (gettext("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
           $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPRDashboard.php",true,$menu);
@@ -229,17 +229,21 @@ class MenuBar {
       $menu = new Menu (gettext("People"),"fa fa-users","#",true);
       
         $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
+        $menuItem->addLink("MapUsingLeaflet.php?GroupID=-1");
         $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
+        $menuItem->addLink("MapUsingBing.php?GroupID=-1");
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
         
         $menuItem = new Menu (gettext("View All Persons"),"fa fa-circle-o","SelectList.php?mode=person",true,$menu);
-        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php?GroupID=-1",true,$menu);
-        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php?GroupID=-1",true,$menu);
-        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php?GroupID=-1",true,$menu);
+        if ($_SESSION['user']->isShowMapEnabled()) {
+          if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php?GroupID=-1",true,$menu);
+          } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php?GroupID=-1",true,$menu);
+          } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php?GroupID=-1",true,$menu);
+          }
         }
         
         $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
