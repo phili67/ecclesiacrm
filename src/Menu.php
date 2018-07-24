@@ -70,7 +70,7 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 if ($_SESSION['user']->isGdrpDpoEnabled()) {
   // RGPD
   $time = new DateTime('now');
-  $newtime = $time->modify('-2 year')->format('Y-m-d');
+  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
  
   $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)

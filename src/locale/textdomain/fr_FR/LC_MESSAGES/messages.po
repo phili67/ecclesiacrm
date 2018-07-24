@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 05:19+0200\n"
+"POT-Creation-Date: 2018-07-24 08:33+0200\n"
 "Language: fr-fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,7 +237,9 @@ msgstr "Vous pourrez le visualiser dans votre compte, dans la partie documents"
 #: api/routes/userprofile.php:39 api/routes/userprofile.php:62
 #: api/routes/userprofile.php:82 api/routes/userprofile.php:112
 msgid "POST to userprofile name, global variable, userPerms and userValues"
-msgstr "ENVOI au nom du profile utilisateur, variable globale, userPerms et userValues"
+msgstr ""
+"ENVOI au nom du profile utilisateur, variable globale, userPerms et "
+"userValues"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
 #: Include/Functions.php:323
@@ -3780,74 +3782,79 @@ msgstr "Option RGPD"
 msgid "The DPO email"
 msgstr "Le mail du DPO"
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
+#: EcclesiaCRM/dto/SystemConfig.php:247
+msgid ""
+"The private datas should be deleted after the sGdprExpirationDate in Year."
+msgstr "Les données privées doivent être supprimées après le délai sGdprExpirationDate en années."
+
+#: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Church Information"
 msgstr "Information de l'église"
 
-#: EcclesiaCRM/dto/SystemConfig.php:254
+#: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "User setup"
 msgstr "Réglages utilisateur"
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:256
 msgid "Email Setup"
 msgstr "Réglages Email"
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:257
 msgid "People Setup"
 msgstr "Installation de personnes"
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:258
 msgid "Map Settings"
 msgstr "Réglages Carte"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:259
 msgid "Report Settings"
 msgstr "Réglages Rapport"
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:260
 msgid "Financial Settings"
 msgstr "Réglages financier"
 
-#: EcclesiaCRM/dto/SystemConfig.php:260 Include/Footer.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:261 Include/Footer.php:164
 #: SystemSettings.php:28
 msgid "System Settings"
 msgstr "Réglages Système"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Quick Search"
 msgstr "Recherche rapide"
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Backup"
 msgstr "Sauvegarde"
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Localization"
 msgstr "Localisation"
 
-#: EcclesiaCRM/dto/SystemConfig.php:264 EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:265 EcclesiaCRM/MenuBar/MenuBar.php:198
 #: Menu.php:89
 msgid "GDPR"
 msgstr "RGPD"
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Integration"
 msgstr "Intégration"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Users Specific Schedule Tasks"
 msgstr "Tâches planifiées utilisateurs"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Sundayschool Attendance"
 msgstr "Compte de présence école du dimanche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:319 EcclesiaCRM/dto/SystemConfig.php:331
-#: EcclesiaCRM/dto/SystemConfig.php:344
+#: EcclesiaCRM/dto/SystemConfig.php:320 EcclesiaCRM/dto/SystemConfig.php:332
+#: EcclesiaCRM/dto/SystemConfig.php:345
 msgid "An invalid configuration name has been requested"
 msgstr "Nom de configuration invalide demandé"
 
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:363
 msgid "An invalid configuration id has been requested"
 msgstr "ID de configuration invalide demandé"
 
@@ -6117,19 +6124,19 @@ msgstr "Valeur estimée"
 msgid "GDPR Dashboard"
 msgstr "Tableau de bord RGPD"
 
-#: GDPRDashboard.php:49 PastoralCare.php:91 PersonView.php:470
+#: GDPRDashboard.php:47 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
 msgstr "Page imprimable"
 
-#: GDPRDashboard.php:54
+#: GDPRDashboard.php:52
 msgid "GDPR DPO Signer"
 msgstr "Le signataire (DPO RGPD)"
 
-#: GDPRDashboard.php:57
+#: GDPRDashboard.php:55
 msgid "GDPR DPO Signer Email"
 msgstr "Le mail du signataire (DPO RGPD)"
 
-#: GDPRDashboard.php:67
+#: GDPRDashboard.php:65
 msgid "GDPR Person status"
 msgstr "Statut des Personnes pour le RGPD"
 
