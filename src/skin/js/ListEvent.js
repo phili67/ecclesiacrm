@@ -42,9 +42,6 @@ function addEvent(dateStart,dateEnd)
    $("#typeEventrecurrence").prop("disabled", true);
    $("#endDateEventrecurrence").prop("disabled", true);
 
-   // this will ensure that image and table can be focused
-   $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-
    // this will create the toolbar for the textarea
    if (editor == null) {
      editor = CKEDITOR.replace('eventNotes',{
@@ -174,9 +171,6 @@ $('#add-event').click('focus', function (e) {
          $('.date-end').hide();
          $('.date-recurrence').hide();
          $(".eventNotes").hide();
-
-         // this will ensure that image and table can be focused
-         $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
 
          // this will create the toolbar for the textarea
          if (editor == null) {

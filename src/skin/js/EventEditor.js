@@ -754,6 +754,9 @@
             modal.modal("hide");
          }*/
        });
+       
+       // this will ensure that image and table can be focused
+       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
               
        return modal;
     }

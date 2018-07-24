@@ -30,7 +30,7 @@ $(document).ready(function () {
         }
 
         // this will create the toolbar for the textarea
-        modal = createEventEditorWindow (typeid,typeDesc,visible,id);
+        modal = createPastoralCareWindow (typeid,typeDesc,visible,id);
     
         $('form #NoteText').val(text);
     
@@ -89,7 +89,7 @@ $(document).ready(function () {
     }
 
     // this will create the toolbar for the textarea
-    modal = createEventEditorWindow (typeid,typeDesc,visible);
+    modal = createPastoralCareWindow (typeid,typeDesc,visible);
     
     /*var text = "coucou";
     $('form #NoteText').val(text);*/
@@ -140,7 +140,7 @@ $(document).ready(function () {
     return object
   }
     
-  function createEventEditorWindow (typeID,typeDesc,visible,id) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
+  function createPastoralCareWindow (typeID,typeDesc,visible,id) // dialogType : createEvent or modifyEvent, eventID is when you modify and event
   {
     if (id === undefined) {
       id = -1;
@@ -191,8 +191,12 @@ $(document).ready(function () {
           modal.modal("hide");
        }*/
      });
-            
-     return modal;
+     
+             
+    // this will ensure that image and table can be focused
+    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+      
+    return modal;
   }
   
 
