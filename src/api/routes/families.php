@@ -201,9 +201,9 @@ $app->group('/families', function () {
             $note = new Note();
             $note->setFamId($familyId);
             if ($newStatus == 'false') {
-                $note->setText(gettext('Deactivated the Family'));
+                $note->setText(gettext('Family Deactivated'));
             } else {
-                $note->setText(gettext('Activated the Family'));
+                $note->setText(gettext('Family Activated'));
             }
             $note->setType('edit');
             $note->setEntered($_SESSION['user']->getPersonId());

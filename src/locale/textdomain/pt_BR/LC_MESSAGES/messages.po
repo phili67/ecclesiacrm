@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 08:33+0200\n"
+"POT-Creation-Date: 2018-07-24 09:26+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,12 +78,14 @@ msgstr ""
 "O arquivo selecionado excede o tamanho máximo para upload deste servidor de"
 
 #: api/routes/families.php:204
-msgid "Deactivated the Family"
-msgstr "Família desativada"
+#, fuzzy
+msgid "Family Deactivated"
+msgstr "Esta Família está Desativada"
 
 #: api/routes/families.php:206
-msgid "Activated the Family"
-msgstr "Família ativa"
+#, fuzzy
+msgid "Family Activated"
+msgstr "Esta Família está Desativada"
 
 #: api/routes/gdrp.php:45 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
@@ -118,11 +120,12 @@ msgstr "Cartão de crédito"
 msgid "Bank account"
 msgstr "Conta bancária "
 
-#: api/routes/payments.php:137 FinancialReports.php:262 PledgeEditor.php:614
+#: api/routes/payments.php:137 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
+#: FinancialReports.php:262 PledgeEditor.php:614
 msgid "Cash"
 msgstr "Dinheiro"
 
-#: api/routes/payments.php:145
+#: api/routes/payments.php:145 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 #, fuzzy
 msgid "Checks"
 msgstr "Cheque"
@@ -148,13 +151,13 @@ msgstr "Grupos"
 
 #: api/routes/persons.php:70
 #, fuzzy
-msgid "Deactivated the Person"
-msgstr "Família desativada"
+msgid "Person Deactivated"
+msgstr "Esta Família está Desativada"
 
 #: api/routes/persons.php:72
 #, fuzzy
-msgid "Activated the Person"
-msgstr "Família ativa"
+msgid "Person Activated"
+msgstr "Esta Família está Desativada"
 
 #: api/routes/properties.php:28 api/routes/properties.php:78
 #: api/routes/properties.php:99 api/routes/properties.php:149
@@ -340,10 +343,10 @@ msgstr "Valor do pagamento"
 msgid "Payment interval (months)"
 msgstr "Intervalo para pagamentos (meses)"
 
-#: AutoPaymentEditor.php:853 ElectronicPaymentList.php:200
-#: FinancialReports.php:301 FindDepositSlip.php:48
-#: Reports/FamilyPledgeSummary.php:218 Reports/PledgeSummary.php:220
-#: SelectDelete.php:218
+#: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
+#: ElectronicPaymentList.php:200 FinancialReports.php:301
+#: FindDepositSlip.php:48 Reports/FamilyPledgeSummary.php:218
+#: Reports/PledgeSummary.php:220 SelectDelete.php:218
 msgid "Fund"
 msgstr "Fundos"
 
@@ -1474,7 +1477,7 @@ msgstr "Data de aniversário"
 msgid "Date Entered:"
 msgstr "Data de entrada:"
 
-#: CSVExport.php:425 FinancialReports.php:316
+#: CSVExport.php:425 FinancialReports.php:322
 msgid "Output Method:"
 msgstr "Método de saída:"
 
@@ -4199,6 +4202,92 @@ msgstr "Menu de Relatórios"
 msgid "Query Menu"
 msgstr "Menu de consulta"
 
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
+msgid "Coin"
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
+#, fuzzy
+msgid "Counts"
+msgstr "Contador"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:104
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:120
+#: EcclesiaCRM/Reports/PDF_Attendance.php:190
+#: EcclesiaCRM/Reports/PDF_Attendance.php:595
+#: sundayschool/SundaySchoolAttendeesExport.php:184
+msgid "Totals"
+msgstr "Totais"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
+#, fuzzy
+msgid "Total Coin"
+msgstr "Total de Logins"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
+msgid "Bill"
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
+#, fuzzy
+msgid "Total Cash"
+msgstr "Totais"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
+msgid "Deposit totals by Currency Type"
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
+#, fuzzy
+msgid "Deposit totals by fund"
+msgstr "Detalhes do Depósito: "
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:274
+#, fuzzy
+msgid "Deposit Summary"
+msgstr "Resumo dos Depósitos: "
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:359
+#, fuzzy
+msgid "Deposit total"
+msgstr "Relatório de depósito"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
+msgid "Chk No."
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+#, fuzzy
+msgid "PmtMethod"
+msgstr "Método"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
+#, fuzzy
+msgid "Rcd From"
+msgstr "De:"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
+msgid "Memo"
+msgstr ""
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
+#: PledgeEditor.php:749 SelectDelete.php:221
+msgid "Amount"
+msgstr "Quantia"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:315
+msgid "Anonymous"
+msgstr "Anônimo"
+
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:393
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:398
+msgid "Witness"
+msgstr ""
+
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:209
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:70 Menu.php:459
 #: PersonList.php:73
@@ -4295,12 +4384,6 @@ msgstr ""
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:434
 msgid "Dav delete file"
 msgstr ""
-
-#: EcclesiaCRM/Reports/PDF_Attendance.php:190
-#: EcclesiaCRM/Reports/PDF_Attendance.php:595
-#: sundayschool/SundaySchoolAttendeesExport.php:184
-msgid "Totals"
-msgstr "Totais"
 
 #: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
@@ -4848,10 +4931,6 @@ msgstr "Tipo"
 #: ElectronicPaymentList.php:197
 msgid "Next Date"
 msgstr "Próxima Data"
-
-#: ElectronicPaymentList.php:198 PledgeEditor.php:749 SelectDelete.php:221
-msgid "Amount"
-msgstr "Quantia"
 
 #: ElectronicPaymentList.php:199
 msgid "Interval"
@@ -6084,15 +6163,15 @@ msgstr ""
 "Membros votantes devem ter feito <br> uma doação dentro desta muitos anos "
 "<br> (0 para não exigir uma doação):"
 
-#: FinancialReports.php:318
+#: FinancialReports.php:324
 msgid "CSV"
 msgstr "CSV"
 
-#: FinancialReports.php:325 PaddleNumEditor.php:151
+#: FinancialReports.php:331 PaddleNumEditor.php:151
 msgid "Back"
 msgstr "Retornar"
 
-#: FinancialReports.php:327 GroupReports.php:171 ReminderReport.php:49
+#: FinancialReports.php:333 GroupReports.php:171 ReminderReport.php:49
 #: TaxReport.php:52
 msgid "Create Report"
 msgstr "Criar relatório"
@@ -6246,19 +6325,19 @@ msgstr "Valor Estimado"
 msgid "GDPR Dashboard"
 msgstr "Painel"
 
-#: GDPRDashboard.php:47 PastoralCare.php:91 PersonView.php:470
+#: GDPRDashboard.php:46 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
 msgstr "Página para impressão"
 
-#: GDPRDashboard.php:52
+#: GDPRDashboard.php:51
 msgid "GDPR DPO Signer"
 msgstr ""
 
-#: GDPRDashboard.php:55
+#: GDPRDashboard.php:54
 msgid "GDPR DPO Signer Email"
 msgstr ""
 
-#: GDPRDashboard.php:65
+#: GDPRDashboard.php:64
 #, fuzzy
 msgid "GDPR Person status"
 msgstr "Lista pessoas"
@@ -10599,6 +10678,29 @@ msgstr "Professores"
 msgid "Student"
 msgstr "Alunos"
 
+msgid "CASH"
+msgstr ""
+
+msgid "CHECK"
+msgstr ""
+
+msgid "CHECKS"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Deactivated the Person"
+#~ msgstr "Família desativada"
+
+#, fuzzy
+#~ msgid "Activated the Person"
+#~ msgstr "Família ativa"
+
+#~ msgid "Deactivated the Family"
+#~ msgstr "Família desativada"
+
+#~ msgid "Activated the Family"
+#~ msgstr "Família ativa"
+
 #, fuzzy
 #~ msgid "Filter"
 #~ msgstr "Filtros"
@@ -10691,9 +10793,6 @@ msgstr "Alunos"
 
 #~ msgid "Deposit Slip"
 #~ msgstr "Erro de depósito"
-
-#~ msgid "Deposit Report"
-#~ msgstr "Relatório de depósito"
 
 #~ msgid "Person View"
 #~ msgstr "Ver pessoa"
@@ -10812,9 +10911,6 @@ msgstr "Alunos"
 #~ "A exclusão deste TIPO de evento NÃO vai apagar todos os eventos "
 #~ "existentes ou contadores de presença. Tem certeza de que deseja excluir "
 #~ "Tipo de Evento ID: ␣"
-
-#~ msgid "Anonymous"
-#~ msgstr "Anônimo"
 
 #~ msgid "There was a problem retrieving the requested object"
 #~ msgstr "Ocorreu um problema ao recuperar o objeto solicitado"

@@ -14,5 +14,6 @@
     "This event calendar isn't writeable !!!" : "Cet événement de calendrier n'est pas accessible en écriture !!!",
     "To add an event, You have to create a calendar or activate one first." : "Pour ajouter un événément, vous devez avoir créé un calendrier ou en cliquand un pour l'activer",
     "Event added" : "Evénement ajoutée",
-    "Event was added successfully." : "Evénement ajouté avec succès"
+    "Event was added successfully." : "Evénement ajouté avec succès",
+    "Electronic Transaction Details": "Détails de la transaction électronique"
 }

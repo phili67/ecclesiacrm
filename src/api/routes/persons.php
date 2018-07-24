@@ -67,9 +67,9 @@ $app->group('/persons', function () {
             $note = new Note();
             $note->setPerId($personId);
             if ($newStatus == 'false') {
-                $note->setText(gettext('Deactivated the Person'));
+                $note->setText(gettext('Person Deactivated'));
             } else {
-                $note->setText(gettext('Activated the Person'));
+                $note->setText(gettext('Person Activated'));
             }
             $note->setType('edit');
             $note->setEntered($_SESSION['user']->getPersonId());
