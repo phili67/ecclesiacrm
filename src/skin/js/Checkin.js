@@ -44,9 +44,6 @@ $(document).ready(function () {
      $("#typeEventrecurrence").prop("disabled", true);
      $("#endDateEventrecurrence").prop("disabled", true);
 
-     // this will ensure that image and table can be focused
-     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
-
      // this will create the toolbar for the textarea
      if (editor == null) {
        editor = CKEDITOR.replace('eventNotes',{
