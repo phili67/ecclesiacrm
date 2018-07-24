@@ -1,5 +1,4 @@
 INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
-(39, 'sLanguage', 'fr_FR'),
 (64, 'sDistanceUnit', 'kilometers'),
 (65, 'sTimeZone', 'Europe/Paris'),
 (100, 'sPhoneFormat', '99 99 99 99 99'),

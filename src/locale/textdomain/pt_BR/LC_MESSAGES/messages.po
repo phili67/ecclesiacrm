@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 09:26+0200\n"
+"POT-Creation-Date: 2018-07-24 23:01+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10252,69 +10252,84 @@ msgstr "Inglês - Estados Unidos"
 
 #: settings-locales.php:11
 #, fuzzy
-msgid "French - France"
+msgid "French - Belgium"
 msgstr "Francês - França"
 
 #: settings-locales.php:12
 #, fuzzy
+msgid "French - Canada"
+msgstr "Francês - França"
+
+#: settings-locales.php:13
+#, fuzzy
+msgid "French - France"
+msgstr "Francês - França"
+
+#: settings-locales.php:14
+#, fuzzy
+msgid "French - Swiss"
+msgstr "Francês - França"
+
+#: settings-locales.php:15
+#, fuzzy
 msgid "German - Germany"
 msgstr "Alemão - Alemanha - Germany"
 
-#: settings-locales.php:13
+#: settings-locales.php:16
 #, fuzzy
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: settings-locales.php:14
+#: settings-locales.php:17
 msgid "Indonesian - Indonesia"
 msgstr "Indonésio - Indonésia"
 
-#: settings-locales.php:15
+#: settings-locales.php:18
 #, fuzzy
 msgid "Italian - Italy"
 msgstr "Italiano - Itália"
 
-#: settings-locales.php:16
+#: settings-locales.php:19
 #, fuzzy
 msgid "Norwegian"
 msgstr "Norueguês"
 
-#: settings-locales.php:17
+#: settings-locales.php:20
 #, fuzzy
 msgid "Polish"
 msgstr "Polonês"
 
-#: settings-locales.php:18
+#: settings-locales.php:21
 #, fuzzy
 msgid "Portuguese - Brazil"
 msgstr "Português - Brasil"
 
-#: settings-locales.php:19
+#: settings-locales.php:22
 #, fuzzy
 msgid "Romanian - Romania"
 msgstr "Romeno - Roménia"
 
-#: settings-locales.php:20
+#: settings-locales.php:23
 #, fuzzy
 msgid "Russian"
 msgstr "Russo"
 
-#: settings-locales.php:21
+#: settings-locales.php:24
 #, fuzzy
 msgid "Spanish - Spain"
 msgstr "Espanhol - Espanha"
 
-#: settings-locales.php:22
+#: settings-locales.php:25
 #, fuzzy
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Norte) (Suécia)"
 
-#: settings-locales.php:23
+#: settings-locales.php:26
 #, fuzzy
 msgid "Thai"
 msgstr "Tailandês"
 
-#: settings-locales.php:24
+#: settings-locales.php:27
 #, fuzzy
 msgid "Vietnamese"
 msgstr "Vietnamita"
