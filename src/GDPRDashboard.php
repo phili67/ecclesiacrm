@@ -38,7 +38,6 @@ $notes = NoteQuery::Create()
       ->filterByPerId(array('min' => 1))
       ->filterByEnteredBy(array('min' => 2))
       ->find();
-
 ?>
 
 <div class="box box-primary box-body">
