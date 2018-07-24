@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 05:19+0200\n"
+"POT-Creation-Date: 2018-07-24 08:33+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3820,82 +3820,87 @@ msgstr ""
 msgid "The DPO email"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:253
-msgid "Church Information"
+#: EcclesiaCRM/dto/SystemConfig.php:247
+msgid ""
+"The private datas should be deleted after the sGdprExpirationDate in Year."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
+msgid "Church Information"
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:255
 #, fuzzy
 msgid "User setup"
 msgstr "Användare lista"
 
-#: EcclesiaCRM/dto/SystemConfig.php:255
+#: EcclesiaCRM/dto/SystemConfig.php:256
 #, fuzzy
 msgid "Email Setup"
 msgstr "Epost grupp"
 
-#: EcclesiaCRM/dto/SystemConfig.php:256
+#: EcclesiaCRM/dto/SystemConfig.php:257
 #, fuzzy
 msgid "People Setup"
 msgstr "Personer"
 
-#: EcclesiaCRM/dto/SystemConfig.php:257
+#: EcclesiaCRM/dto/SystemConfig.php:258
 #, fuzzy
 msgid "Map Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/dto/SystemConfig.php:258
+#: EcclesiaCRM/dto/SystemConfig.php:259
 #, fuzzy
 msgid "Report Settings"
 msgstr "Övriga inställningar"
 
-#: EcclesiaCRM/dto/SystemConfig.php:259
+#: EcclesiaCRM/dto/SystemConfig.php:260
 #, fuzzy
 msgid "Financial Settings"
 msgstr "Financiellarapporter"
 
-#: EcclesiaCRM/dto/SystemConfig.php:260 Include/Footer.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:261 Include/Footer.php:164
 #: SystemSettings.php:28
 #, fuzzy
 msgid "System Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261
+#: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Quick Search"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:262
+#: EcclesiaCRM/dto/SystemConfig.php:263
 #, fuzzy
 msgid "Backup"
 msgstr "Tillbaka"
 
-#: EcclesiaCRM/dto/SystemConfig.php:263
+#: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:264 EcclesiaCRM/MenuBar/MenuBar.php:198
+#: EcclesiaCRM/dto/SystemConfig.php:265 EcclesiaCRM/MenuBar/MenuBar.php:198
 #: Menu.php:89
 msgid "GDPR"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Users Specific Schedule Tasks"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Sundayschool Attendance"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:319 EcclesiaCRM/dto/SystemConfig.php:331
-#: EcclesiaCRM/dto/SystemConfig.php:344
+#: EcclesiaCRM/dto/SystemConfig.php:320 EcclesiaCRM/dto/SystemConfig.php:332
+#: EcclesiaCRM/dto/SystemConfig.php:345
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:362
+#: EcclesiaCRM/dto/SystemConfig.php:363
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
@@ -6320,19 +6325,19 @@ msgstr "Redigera värd"
 msgid "GDPR Dashboard"
 msgstr ""
 
-#: GDPRDashboard.php:49 PastoralCare.php:91 PersonView.php:470
+#: GDPRDashboard.php:47 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
 msgstr "Utskriftbar sida"
 
-#: GDPRDashboard.php:54
+#: GDPRDashboard.php:52
 msgid "GDPR DPO Signer"
 msgstr ""
 
-#: GDPRDashboard.php:57
+#: GDPRDashboard.php:55
 msgid "GDPR DPO Signer Email"
 msgstr ""
 
-#: GDPRDashboard.php:67
+#: GDPRDashboard.php:65
 #, fuzzy
 msgid "GDPR Person status"
 msgstr "Person lista"

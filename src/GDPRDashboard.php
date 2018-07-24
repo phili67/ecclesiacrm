@@ -38,8 +38,6 @@ $notes = NoteQuery::Create()
       ->filterByPerId(array('min' => 1))
       ->filterByEnteredBy(array('min' => 2))
       ->find();
-      
-//echo $notes->count();
 
 ?>
 
@@ -63,7 +61,7 @@ $notes = NoteQuery::Create()
 
 <div class="box box-body">
 <div class="box-header with-border">
-  <i class="fa fa-user-plus"></i>
+  <i class="fa fa-user"></i>
   <h3 class="box-title"><?= gettext("GDPR Person status") ?></h3>
 </div>
   <table class="table table-striped table-bordered" id="GDRP-Table" cellpadding="5" cellspacing="0"  width="100%"></table>
