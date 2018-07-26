@@ -236,7 +236,6 @@ msgstr "Modifier le modèle sélectionné"
 msgid "Delete the template you select"
 msgstr "Supprimer modèle sélectionné"
 
-#, fuzzy
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Etes-vous sûr de vouloir supprimer ce modèle ? Cette action ne peut être "
@@ -245,7 +244,6 @@ msgstr ""
 msgid "OK"
 msgstr "OK"
 
-#, fuzzy
 msgid "Replace actual content"
 msgstr "Remplacer le contenu actuel"
 
@@ -1003,7 +1001,6 @@ msgstr "Renommer"
 msgid "Choose your Profile Name"
 msgstr "Choisissez votre nom du Profile"
 
-#, fuzzy
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile "
 "settings already exist !!!</center>"
