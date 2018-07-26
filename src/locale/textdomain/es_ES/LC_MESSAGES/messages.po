@@ -18,9 +18,8 @@ msgid "Create From sunday school class view"
 msgstr ""
 
 #: api/routes/attendees.php:163
-#, fuzzy
 msgid "Attendance"
-msgstr "Contador de Asistentes"
+msgstr "participación"
 
 #: api/routes/attendees.php:201 api/routes/attendees.php:222
 #: api/routes/attendees.php:244 api/routes/attendees.php:276
@@ -31,7 +30,7 @@ msgstr "POST a separador requiere un arreglo de Personas, ID de Familia o ID de 
 
 #: api/routes/calendarV2.php:178
 msgid "For thunderbird the URL is"
-msgstr ""
+msgstr "Para thunderbird la URL se"
 
 #: api/routes/calendarV2.php:179
 msgid "This address can be used only with a CalDav server."
@@ -74,14 +73,12 @@ msgstr ""
 "El archivo seleccionado excede el máximo tamaño de carga del servidor de"
 
 #: api/routes/families.php:204
-#, fuzzy
 msgid "Family Deactivated"
-msgstr "Esta Familia está Desactivada"
+msgstr "Desactivado Familia"
 
 #: api/routes/families.php:206
-#, fuzzy
 msgid "Family Activated"
-msgstr "Esta Familia está Desactivada"
+msgstr "Activado Familia"
 
 #: api/routes/gdrp.php:45 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
@@ -105,12 +102,10 @@ msgid "Added to group"
 msgstr "Agregado al grupo"
 
 #: api/routes/payments.php:57 PledgeEditor.php:680
-#, fuzzy
 msgid "Credit card"
 msgstr "Tarjeta de Crédito"
 
 #: api/routes/payments.php:59 PledgeEditor.php:682
-#, fuzzy
 msgid "Bank account"
 msgstr "Cuenta bancaria"
 
@@ -120,9 +115,8 @@ msgid "Cash"
 msgstr "Efectivo"
 
 #: api/routes/payments.php:145 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
-#, fuzzy
 msgid "Checks"
-msgstr "Cheque"
+msgstr "Cheques"
 
 #: api/routes/people.php:64 api/routes/people.php:109 api/routes/search.php:59
 #: EcclesiaCRM/MenuBar/MenuBar.php:249
@@ -144,14 +138,12 @@ msgid "Groups"
 msgstr "Grupos"
 
 #: api/routes/persons.php:70
-#, fuzzy
 msgid "Person Deactivated"
-msgstr "Desactivar"
+msgstr "Deactivado persona"
 
 #: api/routes/persons.php:72
-#, fuzzy
 msgid "Person Activated"
-msgstr "Activar"
+msgstr "Activado persona"
 
 #: api/routes/properties.php:28 api/routes/properties.php:78
 #: api/routes/properties.php:99 api/routes/properties.php:149
@@ -184,19 +176,16 @@ msgid "The property is successfully unassigned."
 msgstr "La propiedad ha sido desasignada exitosamente."
 
 #: api/routes/properties.php:260
-#, fuzzy
 msgid "The menu could not be assigned."
-msgstr "El rol no pudo ser asignado."
+msgstr "El menú no pudo ser asignado."
 
 #: api/routes/properties.php:263
-#, fuzzy
 msgid "The menu is successfully assigned."
-msgstr "El rol ha sido exitosamente asignado."
+msgstr "El menú ha sido exitosamente asignado."
 
 #: api/routes/properties.php:292
-#, fuzzy
 msgid "The menu is successfully unassigned."
-msgstr "El rol ha sido exitosamente asignado."
+msgstr "El menú ha sido exitosamente asignado."
 
 #: api/routes/roles.php:39
 msgid "The role is already assigned."
@@ -257,14 +246,12 @@ msgid "Cannot execute query."
 msgstr "No se puede ejecutar la consulta."
 
 #: AutoPaymentEditor.php:111
-#, fuzzy
 msgid "Automatic payment configuration"
-msgstr "Ajuste de Pago Automático para "
+msgstr "Configuración del Pago Automático"
 
 #: AutoPaymentEditor.php:772
-#, fuzzy
 msgid "For the"
-msgstr "␣de"
+msgstr " de la"
 
 #: AutoPaymentEditor.php:772 AutoPaymentEditor.php:781 Include/Footer.php:77
 #: PledgeEditor.php:537 PropertyEditor.php:43 PropertyList.php:24
@@ -613,18 +600,16 @@ msgid "Enter Winners"
 msgstr "Introduzca los ganadores"
 
 #: Calendar.php:27
-#, fuzzy
 msgid "Church Calendar"
-msgstr "Calendario Público"
+msgstr "Calendario de la iglesia"
 
 #: Calendar.php:62 CSVExport.php:232 FinancialReports.php:107
 msgid "Filters"
 msgstr "Filtros"
 
 #: Calendar.php:66
-#, fuzzy
 msgid "By Types"
-msgstr "Tipo"
+msgstr "por tipo"
 
 #: Calendar.php:70 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
 #: ManageEnvelopes.php:146
@@ -633,14 +618,13 @@ msgstr "Todo "
 
 #: Calendar.php:87
 msgid "Limit"
-msgstr ""
+msgstr "Límite"
 
 #: Calendar.php:87
 msgid "No Limit"
-msgstr ""
+msgstr "Sin Límite "
 
 #: Calendar.php:93
-#, fuzzy
 msgid "Birthdate"
 msgstr "Fecha de Nacimiento"
 
@@ -649,41 +633,36 @@ msgid "Wedding"
 msgstr "Boda"
 
 #: Calendar.php:114
-#, fuzzy
 msgid "Calendars"
-msgstr "Calendario"
+msgstr "Calendarios"
 
 #: Calendar.php:121
-#, fuzzy
 msgid "Personals"
-msgstr "Personas"
+msgstr "Personales"
 
 #: Calendar.php:126
-#, fuzzy
 msgid "Exclude/include Calendars"
-msgstr "Calendarios Anclados"
+msgstr "Excluir/incluir Calendarios"
 
 #: Calendar.php:127
-#, fuzzy
 msgid "Add New Calendar"
 msgstr "Nuevo Calendario"
 
 #: Calendar.php:147 Calendar.php:172
 msgid "Shared"
-msgstr ""
+msgstr "Compartido"
 
 #: Calendar.php:152
 msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
-msgstr ""
+msgstr "Excluir/incluir grupos. Que agregar calendarios, Crear un nuevo grupo"
 
 #: Calendar.php:172
-#, fuzzy
 msgid "Users"
-msgstr "Usuario"
+msgstr "Usuarios"
 
 #: Calendar.php:177
 msgid "Exclude/include the Shared"
-msgstr ""
+msgstr "Excluir/incluir Compartidos"
 
 #: CanvassAutomation.php:20 ReportList.php:49
 msgid "Canvass Automation"
@@ -1019,9 +998,8 @@ msgid "Go To Labels"
 msgstr "Ir a Etiquetas"
 
 #: CartView.php:83
-#, fuzzy
 msgid "Cart Functions"
-msgstr "Funciones"
+msgstr "Carrito Funciones"
 
 #: CartView.php:86
 msgid "Empty Cart"
@@ -1139,14 +1117,12 @@ msgid "Select event"
 msgstr "Seleccionar evento"
 
 #: Checkin.php:245 FamilyView.php:693 PersonView.php:1097
-#, fuzzy
 msgid "From"
-msgstr "De:"
+msgstr "Del"
 
 #: Checkin.php:245 FamilyView.php:697 PersonView.php:1101
-#, fuzzy
 msgid "To"
-msgstr "Para:"
+msgstr "Al"
 
 #: Checkin.php:267
 #, fuzzy
@@ -4030,9 +4006,8 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
-#, fuzzy
 msgid "Personal area"
-msgstr "Email Personal"
+msgstr "Espacio personal"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: external/templates/registration/family-register-members.php:95
@@ -4050,14 +4025,12 @@ msgid "Change Settings"
 msgstr "Cambiar Ajustes"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:192 FamilyView.php:516 PersonView.php:582
-#, fuzzy
 msgid "Documents"
-msgstr "Comentarios"
+msgstr "Documentos"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:252
-#, fuzzy
 msgid "View Inactive Persons"
-msgstr "Ver Familias Inactivas"
+msgstr "Ver personas Inactivas"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/MenuBar/MenuBar.php:257
 msgid "View Inactive Families"

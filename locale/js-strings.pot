@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-07-24T21:40:53.922Z\n"
-"PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
+"POT-Creation-Date: 2018-07-26T09:17:16.186Z\n"
+"PO-Revision-Date: 2018-07-26T09:17:16.186Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -223,13 +223,13 @@ msgstr ""
 msgid "Delete the template you select"
 msgstr ""
 
-msgid "Are you sur to delete this template? This can't be undone."
+msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 
 msgid "OK"
 msgstr ""
 
-msgid "Replace actual contents"
+msgid "Replace actual content"
 msgstr ""
 
 msgid "Manage templates"
@@ -959,7 +959,7 @@ msgstr ""
 
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile "
-"settings yet exist !!!</center>"
+"settings already exist !!!</center>"
 msgstr ""
 
 msgid "User Delete Confirmation"

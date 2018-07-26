@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-24 23:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "pm"
+msgstr " "
+
+msgid "am"
+msgstr " "
+
+msgid "Teachers"
+msgstr "Moniteurs"
+
+msgid "Students"
+msgstr "Etudiants"
+
+msgid "Teacher"
+msgstr "Moniteur"
+
+msgid "Student"
+msgstr "Etudiant"
+
+msgid "create"
+msgstr "création"
+
+msgid "edit"
+msgstr "édition"
+
+msgid "photo"
+msgstr "photo"
+
+msgid "group"
+msgstr "groupe"
+
+msgid "note"
+msgstr "note"
+
+msgid "You have to set a Title for your event"
+msgstr "Vous devez saisir un titre pour votre événement"
+
+msgid "This event calendar isn't writeable !!!"
+msgstr "Cet événement de calendrier n'est pas accessible en écriture !!!"
+
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+"Pour ajouter un événément, vous devez avoir créé un calendrier ou en "
+"cliquand un pour l'activer"
+
+msgid "Event added"
+msgstr "Evénement ajoutée"
+
+msgid "Event was added successfully."
+msgstr "Evénement ajouté avec succès"
+
+msgid "Electronic Transaction Details"
+msgstr "Détails de la transaction électronique"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# copyright 2018 Philippe Logel EcclesiaCRM
+
 cd src
 # Extract PHP Terms
 find . -iname '*.php' | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o ../locale/messages.pot -L PHP
@@ -52,6 +54,10 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
 
    msgfmt -o "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.mo" "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po"
    
+   if [ -f "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po~" ]; then
+        rm "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po~"
+   fi
+   
    if [ -f "JSONKeys_JS/${lang}/js-strings.po" ]; then
      echo "traduction exist for ${lang}"
      # To do
@@ -62,13 +68,22 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      
      # We start the merge 
      msgmerge -U JSONKeys_JS/${lang}/js-strings.po js-strings.po
+     msgmerge -U JSONKeys_JS/${lang}/js_extra.po JSONKeys_JS/js_extra.pot
      
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js-strings.po" -t "JSONKeys_JS/${lang}.json"
+     i18next-conv -l fr -s "JSONKeys_JS/${lang}/js_extra.po" -t "JSONKeys_JS/${lang}/js_extra.json"
      
      # now we add the extra terms
-     mergeJson=$(jq -s '.[0] * .[1]' "JSONKeys_JS/${lang}.json" "JSONKeys_JS/${lang}/${lang}_extra.json")
+     mergeJson=$(jq -s '.[0] * .[1]' "JSONKeys_JS/${lang}.json" "JSONKeys_JS/${lang}/js_extra.json")
      
      echo $mergeJson > "JSONKeys_JS/${lang}.json"
+     
+     # cleanup
+     rm "JSONKeys_JS/${lang}/js_extra.json"
+     
+     if [ -f "JSONKeys_JS/${lang}/js-strings.po~" ]; then
+        rm "JSONKeys_JS/${lang}/js-strings.po~"
+     fi
    fi 
 
 done
