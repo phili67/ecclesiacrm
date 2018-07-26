@@ -92,12 +92,42 @@
     "datePicker": false,
     "select2": false
   },
+  "French - Belgium": {
+    "poEditor": "fr",
+    "locale": "fr_BE",
+    "languageCode": "fr",
+    "countryCode": "FR",
+    "dataTables": "Belgium",
+    "fullCalendar" : true,
+    "datePicker": true,
+    "select2": true
+  },
+  "French - Canada": {
+    "poEditor": "fr",
+    "locale": "fr_CA",
+    "languageCode": "fr",
+    "countryCode": "FR",
+    "dataTables": "Canada",
+    "fullCalendar" : true,
+    "datePicker": true,
+    "select2": true
+  },
   "French - France": {
     "poEditor": "fr",
     "locale": "fr_FR",
     "languageCode": "fr",
     "countryCode": "FR",
     "dataTables": "French",
+    "fullCalendar" : true,
+    "datePicker": true,
+    "select2": true
+  },
+  "French - Swiss": {
+    "poEditor": "fr",
+    "locale": "fr_CH",
+    "languageCode": "fr",
+    "countryCode": "FR",
+    "dataTables": "Swiss",
     "fullCalendar" : true,
     "datePicker": true,
     "select2": true

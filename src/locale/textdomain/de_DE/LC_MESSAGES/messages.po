@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 09:26+0200\n"
+"POT-Creation-Date: 2018-07-24 23:01+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -11,11 +11,11 @@ msgstr ""
 
 #: api/routes/attendees.php:77
 msgid "POST to cart requires a personID and an eventID"
-msgstr "POST zu Korb erfordert ein personID und ein eventID"
+msgstr "POST zum Korb erfordert ein personID und ein eventID"
 
 #: api/routes/attendees.php:139 api/routes/attendees.php:160
 msgid "Create From sunday school class view"
-msgstr "Erstellen von Sonntagsschule class view"
+msgstr "Erstellen vom Sonntagsschule class view"
 
 #: api/routes/attendees.php:163
 msgid "Attendance"
@@ -25,11 +25,11 @@ msgstr "Besucher"
 #: api/routes/attendees.php:244 api/routes/attendees.php:276
 #: api/routes/attendees.php:309
 msgid "POST to cart requires a EventID"
-msgstr "POST zu Korb erforderti erfordert en EventID"
+msgstr "POST zum Korb erfordert en EventID"
 
 #: api/routes/calendarV2.php:178
 msgid "For thunderbird the URL is"
-msgstr "Für ThunderBird URL ist"
+msgstr "Für ThunderBird das URL ist"
 
 #: api/routes/calendarV2.php:179
 msgid "This address can be used only with a CalDav server."
@@ -37,7 +37,7 @@ msgstr "Diese Adresse kann nur mit CalDAV server verwendet werden."
 
 #: api/routes/cart.php:46
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
-msgstr "POST zum Korb erfordert ein Persone, FamilyID, oder GroupID"
+msgstr "POST zum Korb erfordert ein Person, FamilyID, oder GroupID"
 
 #: api/routes/cart.php:60 api/routes/cart.php:73
 msgid "records(s) successfully added to selected Group."
@@ -68,14 +68,12 @@ msgid "The selected file exceeds this servers maximum upload size of"
 msgstr "Die Datei überschreitet die maximale Dateigröße"
 
 #: api/routes/families.php:204
-#, fuzzy
 msgid "Family Deactivated"
-msgstr " Diese Familie ist deaktiviert."
+msgstr " Familie deaktiviert."
 
 #: api/routes/families.php:206
-#, fuzzy
 msgid "Family Activated"
-msgstr " Diese Familie ist deaktiviert."
+msgstr " Familie aktiviert."
 
 #: api/routes/gdrp.php:45 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
@@ -135,14 +133,12 @@ msgid "Groups"
 msgstr "Gruppen"
 
 #: api/routes/persons.php:70
-#, fuzzy
 msgid "Person Deactivated"
-msgstr " Diese Familie ist deaktiviert."
+msgstr "Persondeaktiviert."
 
 #: api/routes/persons.php:72
-#, fuzzy
 msgid "Person Activated"
-msgstr " Diese Familie ist deaktiviert."
+msgstr "Personaktiviert."
 
 #: api/routes/properties.php:28 api/routes/properties.php:78
 #: api/routes/properties.php:99 api/routes/properties.php:149
@@ -516,17 +512,13 @@ msgid ""
 "database, you should encrypt the backup data if it will be stored somewhere "
 "potentially accessible to others"
 msgstr ""
+"If you are concerned about confidentiality of data stored in the EcclesiaCRM "
+"database, you should encrypt the backup data if it will be stored somewhere "
+"potentially accessible to others"
 
 #: BackupDatabase.php:54
-msgid ""
-"For added backup security, you can e-mail the backup to yourself at an e-"
-"mail account hosted off-site or to a trusted friend.  Be sure to use "
-"encryption if you do this, however."
-msgstr ""
-"Zusätzliche Sicherheit kann dadurch erreicht werden, dass du die "
-"Datenbanksicherung dir selbst an eine e-mail Adresse zusendest, die nicht "
-"auf dem selben Server verwaltet wird,  oder an eine Person deines "
-"Vertrauens. Die Datei sollte vorher verschlüsselt werden."
+msgid "For added backup security, you can e-mail the backup to yourself at an e-mail account hosted off-site or to a trusted friend.  Be sure to use encryption if you do this, however."
+msgstr "Zusätzliche Sicherheit kann dadurch erreicht werden, dass du die Datenbanksicherung dir selbst an eine e-mail Adresse zusendest, die nicht  auf dem selben Server verwaltet wird,  oder an eine Person deines  Vertrauens. Die Datei sollte vorher verschlüsselt werden."
 
 #: BackupDatabase.php:58
 msgid "Select archive type"
@@ -546,15 +538,15 @@ msgstr "tar.gz (inklusive Fotos)"
 
 #: BackupDatabase.php:70
 msgid "Encrypt backup file with a password?"
-msgstr "Soll die Sicherung mit einem Passwort verschlüsselt werden?"
+msgstr "Soll die Sicherung mit einem Kennwort verschlüsselt werden?"
 
 #: BackupDatabase.php:72 Login.php:229 Login.php:307 UserList.php:55
 msgid "Password"
-msgstr "Passwort"
+msgstr "Kennwort"
 
 #: BackupDatabase.php:73
 msgid "Re-type Password"
-msgstr "Wiederholung des Passworts"
+msgstr "Wiederholung des Kennworts"
 
 #: BackupDatabase.php:77
 msgid "Generate and Download Backup"
@@ -796,6 +788,9 @@ msgid ""
 "information on the overall progress of the canvass, and the progress of "
 "individual canvassers."
 msgstr ""
+"Generate a PDF containing a progress report.  The progress report includes "
+"information on the overall progress of the canvass, and the progress of "
+"individual canvassers."
 
 #: CanvassAutomation.php:213
 msgid "Summary Report"
@@ -806,6 +801,8 @@ msgid ""
 "Generate a PDF containing a summary report.  The summary report includes "
 "comments extracted from the canvass data."
 msgstr ""
+"Zusammenfassung der PDF erstellt. Der bericht enthält Stellungnahmen von der "
+"Befragung Datei"
 
 #: CanvassAutomation.php:223
 msgid "Not Interested Report"
@@ -1006,7 +1003,7 @@ msgstr "Korb in Familie leeren"
 
 #: CartView.php:99
 msgid "Empty Cart to Event"
-msgstr "Korb in Veranstaltung  leeren"
+msgstr "Korb in Ereignis leeren"
 
 #: CartView.php:104 CSVExport.php:45
 msgid "CSV Export"
@@ -1089,23 +1086,23 @@ msgstr "Rolle in der Familie"
 
 #: Checkin.php:25
 msgid "Event Checkin"
-msgstr "Anmeldung zur Veranstaltung"
+msgstr "Anmeldung zur Ereignis"
 
 #: Checkin.php:185 ListEvents.php:128
 msgid "Add New Event"
-msgstr "Neue Veranstaltung hinzufügen"
+msgstr "Neues Ereignis hinzufügen"
 
 #: Checkin.php:201
 msgid "Select the event to which you would like to check people in for"
-msgstr "Veranstaltung auswählen zu der Teilnehmer angemeldet werden sollen"
+msgstr "Ereignis auswählen zu der Teilnehmer angemeldet werden sollen"
 
 #: Checkin.php:211
 msgid "Select Event"
-msgstr "Veranstaltung auswählen"
+msgstr "Ereignis auswählen"
 
 #: Checkin.php:217
 msgid "Select event"
-msgstr "Veranstaltung auswählen"
+msgstr "Ereignis auswählen"
 
 #: Checkin.php:245 FamilyView.php:693 PersonView.php:1097
 msgid "From"
@@ -1117,11 +1114,12 @@ msgstr "An:"
 
 #: Checkin.php:267
 msgid "Set your free attendees"
-msgstr "besuchen keine Veranstaltung"
+msgstr "Wählen ihrer freier Teilnehmer"
 
 #: Checkin.php:275
 msgid "You can set here the attendees for some group of persons."
 msgstr ""
+"Hier können Sie den Teilnehmer für einige gruppe oder personen festlegen."
 
 #: Checkin.php:282
 msgid "Set your attendees Event"
@@ -1137,7 +1135,7 @@ msgstr "Besucher zum Ereignis hinzufügen"
 
 #: Checkin.php:347
 msgid "Add single child/parents Attendees"
-msgstr ""
+msgstr "Einzelne Kind/Eltern Teilnehmer hinzufügen"
 
 #: Checkin.php:354
 msgid "Add Attendees for Event"
@@ -1149,7 +1147,7 @@ msgstr "Personen"
 
 #: Checkin.php:373
 msgid "Adult Name(Optional)"
-msgstr ""
+msgstr "Ausgewachsene Name (Optional)"
 
 #: Checkin.php:378
 msgid "Checked in By(Optional)"
@@ -1165,19 +1163,19 @@ msgstr "Besucher hinzufügen"
 
 #: Checkin.php:416
 msgid "Person has been already checked in for this event"
-msgstr ""
+msgstr "Person wurde bereits für diese Ereignis eingecheckt "
 
 #: Checkin.php:464
 msgid "CheckOut Person"
-msgstr "Abmelden"
+msgstr "Auschecken Person"
 
 #: Checkin.php:464
 msgid "Delete Checkin in Entry"
-msgstr ""
+msgstr "Eincheck in Eintrag löschen"
 
 #: Checkin.php:489
 msgid "Adult Checking Out Person"
-msgstr ""
+msgstr "Ausgewachsene Auschecken Person"
 
 #: Checkin.php:493
 msgid "Adult Name (Optional)"
@@ -1185,7 +1183,7 @@ msgstr "Ausgewachsene Name (Optional)"
 
 #: Checkin.php:499
 msgid "CheckOut"
-msgstr "Abmelden"
+msgstr "Auschecken"
 
 #: Checkin.php:518 Checkin.php:559 Checkin.php:658 DepositSlipEditor.php:276
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:218
@@ -1243,7 +1241,7 @@ msgstr "Aktivieren Sie alle"
 
 #: Checkin.php:682
 msgid "Add some notes"
-msgstr "Notiz hinzufügen"
+msgstr "Hinweis hinzufügen"
 
 #: Checkin.php:689
 msgid "Validate Attendance"
@@ -1590,7 +1588,7 @@ msgid ""
 "Important note: failed transactions will be deleted permanantly when the "
 "deposit slip is closed."
 msgstr ""
-"Wichtige Mitteilung: fehlgeschlagene Transaktionen werden dauerhaft gelöscht "
+"Wichtige Hinweis: fehlgeschlagene Transaktionen werden dauerhaft gelöscht "
 "wenn der Einzahlungsbeleg geschlossen wird."
 
 #: DepositSlipEditor.php:134
@@ -1691,7 +1689,7 @@ msgstr "Welche Rolle hat der Ehepartner?"
 
 #: DirectoryReports.php:142
 msgid "Which role is a child?"
-msgstr "Welche Rolle hat das Kind?"
+msgstr "Welche Rolle ist ein Kind?"
 
 #: DirectoryReports.php:161
 msgid "Information to Include"
@@ -1869,7 +1867,7 @@ msgstr "Speichern und hinzufügen"
 #: sundayschool/SundaySchoolDashboard.php:248
 #: sundayschool/SundaySchoolDashboard.php:249
 msgid "Private Data"
-msgstr "Privat"
+msgstr "Private Daten"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
@@ -1971,11 +1969,11 @@ msgstr "Österreich"
 
 #: EcclesiaCRM/data/Countries.php:19
 msgid "Azerbaijan (Azərbaycan)"
-msgstr ""
+msgstr "Azerbaijan (Azərbaycan)"
 
 #: EcclesiaCRM/data/Countries.php:20
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 #: EcclesiaCRM/data/Countries.php:20
 msgid "Bahrain (‫البحرين‬‎)"
@@ -1983,47 +1981,47 @@ msgstr "Bahrain"
 
 #: EcclesiaCRM/data/Countries.php:20
 msgid "Bangladesh (বাংলাদেশ)"
-msgstr ""
+msgstr "Bangladesh (বাংলাদেশ)"
 
 #: EcclesiaCRM/data/Countries.php:20
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #: EcclesiaCRM/data/Countries.php:21
 msgid "Belarus (Беларусь)"
-msgstr ""
+msgstr "Belarus (Беларусь)"
 
 #: EcclesiaCRM/data/Countries.php:21
 msgid "Belgium (België)"
-msgstr ""
+msgstr "Belgium (België)"
 
 #: EcclesiaCRM/data/Countries.php:21
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 #: EcclesiaCRM/data/Countries.php:21
 msgid "Benin (Bénin)"
-msgstr ""
+msgstr "Benin (Bénin)"
 
 #: EcclesiaCRM/data/Countries.php:22
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 #: EcclesiaCRM/data/Countries.php:22
 msgid "Bhutan (འབྲུག)"
-msgstr ""
+msgstr "Bhutan (འབྲུག)"
 
 #: EcclesiaCRM/data/Countries.php:22
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 #: EcclesiaCRM/data/Countries.php:22
 msgid "Bosnia and Herzegovina (Босна и Херцеговина)"
-msgstr ""
+msgstr "Bosnia and Herzegovina (Босна и Херцеговина)"
 
 #: EcclesiaCRM/data/Countries.php:23
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #: EcclesiaCRM/data/Countries.php:23
 msgid "Bouvet Island"
@@ -2031,7 +2029,7 @@ msgstr "Bouvetinsel"
 
 #: EcclesiaCRM/data/Countries.php:23
 msgid "Brazil (Brasil)"
-msgstr ""
+msgstr "Brazil (Brasil)"
 
 #: EcclesiaCRM/data/Countries.php:23
 msgid "British Indian Ocean Territory"
@@ -2115,11 +2113,11 @@ msgstr "Clipperton Island"
 
 #: EcclesiaCRM/data/Countries.php:29
 msgid "Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))"
-msgstr ""
+msgstr "Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))"
 
 #: EcclesiaCRM/data/Countries.php:29
 msgid "Colombia"
-msgstr ""
+msgstr "Colombia"
 
 #: EcclesiaCRM/data/Countries.php:29
 msgid "Comoros (‫جزر القمر‬‎)"
@@ -2127,11 +2125,11 @@ msgstr "Komoren"
 
 #: EcclesiaCRM/data/Countries.php:30
 msgid "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)"
-msgstr ""
+msgstr "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)"
 
 #: EcclesiaCRM/data/Countries.php:30
 msgid "Congo (Republic) (Congo-Brazzaville)"
-msgstr ""
+msgstr "Congo (Republic) (Congo-Brazzaville)"
 
 #: EcclesiaCRM/data/Countries.php:30
 msgid "Cook Islands"
@@ -2139,55 +2137,55 @@ msgstr "Cookinseln"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Côte d’Ivoire"
-msgstr ""
+msgstr "Côte d’Ivoire"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Croatia (Hrvatska)"
-msgstr ""
+msgstr "Croatia (Hrvatska)"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Curaçao"
-msgstr ""
+msgstr "Curaçao"
 
 #: EcclesiaCRM/data/Countries.php:31
 msgid "Cyprus (Κύπρος)"
-msgstr ""
+msgstr "Cyprus (Κύπρος)"
 
 #: EcclesiaCRM/data/Countries.php:32
 msgid "Czech Republic (Česká republika)"
-msgstr ""
+msgstr "Czech Republic (Česká republika)"
 
 #: EcclesiaCRM/data/Countries.php:32
 msgid "Denmark (Danmark)"
-msgstr ""
+msgstr "Denmark (Danmark)"
 
 #: EcclesiaCRM/data/Countries.php:32
 msgid "Diego Garcia"
-msgstr ""
+msgstr "Diego Garcia"
 
 #: EcclesiaCRM/data/Countries.php:32
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 #: EcclesiaCRM/data/Countries.php:32
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 #: EcclesiaCRM/data/Countries.php:33
 msgid "Dominican Republic (República Dominicana)"
-msgstr ""
+msgstr "Dominican Republic (República Dominicana)"
 
 #: EcclesiaCRM/data/Countries.php:33
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: EcclesiaCRM/data/Countries.php:33
 msgid "Egypt (‫مصر‬‎)"
@@ -2275,59 +2273,59 @@ msgstr "Griechenland"
 
 #: EcclesiaCRM/data/Countries.php:38
 msgid "Greenland (Kalaallit Nunaat)"
-msgstr ""
+msgstr "Greenland (Kalaallit Nunaat)"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadeloupe"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guernsey"
-msgstr ""
+msgstr "Guernsey"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guinea (Guinée)"
-msgstr ""
+msgstr "Guinea (Guinée)"
 
 #: EcclesiaCRM/data/Countries.php:39
 msgid "Guinea-Bissau (Guiné Bissau)"
-msgstr ""
+msgstr "Guinea-Bissau (Guiné Bissau)"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Heard & McDonald Islands"
-msgstr ""
+msgstr "Heard & McDonald Islands"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Hong Kong (香港)"
-msgstr ""
+msgstr "Hong Kong (香港)"
 
 #: EcclesiaCRM/data/Countries.php:40
 msgid "Hungary (Magyarország)"
-msgstr ""
+msgstr "Hungary (Magyarország)"
 
 #: EcclesiaCRM/data/Countries.php:41
 msgid "Iceland (Ísland)"
@@ -2335,11 +2333,11 @@ msgstr "Island"
 
 #: EcclesiaCRM/data/Countries.php:41
 msgid "India (भारत)"
-msgstr ""
+msgstr "India (भारत)"
 
 #: EcclesiaCRM/data/Countries.php:41
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 #: EcclesiaCRM/data/Countries.php:41
 msgid "Iran (‫ایران‬‎)"
@@ -2439,39 +2437,39 @@ msgstr "Litauen"
 
 #: EcclesiaCRM/data/Countries.php:45
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburg"
 
 #: EcclesiaCRM/data/Countries.php:45
 msgid "Macau (澳門)"
-msgstr ""
+msgstr "Macau (澳門)"
 
 #: EcclesiaCRM/data/Countries.php:45
 msgid "Macedonia (FYROM) (Македонија)"
-msgstr ""
+msgstr "Macedonia (FYROM) (Македонија)"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Madagascar (Madagasikara)"
-msgstr ""
+msgstr "Madagascar (Madagasikara)"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaysia"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Maldives"
-msgstr ""
+msgstr "Maldives"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 #: EcclesiaCRM/data/Countries.php:46
 msgid "Marshall Islands"
@@ -2479,7 +2477,7 @@ msgstr "Marshallinseln"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Martinique"
-msgstr ""
+msgstr "Martinique"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Mauritania (‫موريتانيا‬‎)"
@@ -2487,31 +2485,31 @@ msgstr "Mauretanien"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Mauritius (Moris)"
-msgstr ""
+msgstr "Mauritius (Moris)"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Mexico (México)"
-msgstr ""
+msgstr "Mexico (México)"
 
 #: EcclesiaCRM/data/Countries.php:47
 msgid "Micronesia"
-msgstr ""
+msgstr "Micronesia"
 
 #: EcclesiaCRM/data/Countries.php:48
 msgid "Moldova (Republica Moldova)"
-msgstr ""
+msgstr "Moldova (Republica Moldova)"
 
 #: EcclesiaCRM/data/Countries.php:48
 msgid "Monaco"
-msgstr ""
+msgstr "Monaco"
 
 #: EcclesiaCRM/data/Countries.php:48
 msgid "Mongolia (Монгол)"
-msgstr ""
+msgstr "Mongolia (Монгол)"
 
 #: EcclesiaCRM/data/Countries.php:48
 msgid "Montenegro (Crna Gora)"
@@ -2595,11 +2593,11 @@ msgstr "Oman"
 
 #: EcclesiaCRM/data/Countries.php:52
 msgid "Pakistan (‫پاکستان‬‎)"
-msgstr ""
+msgstr "Pakistan (‫پاکستان‬‎)"
 
 #: EcclesiaCRM/data/Countries.php:52
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 #: EcclesiaCRM/data/Countries.php:52
 msgid "Palestine (‫فلسطين‬‎)"
@@ -2607,39 +2605,39 @@ msgstr "Palästinensische "
 
 #: EcclesiaCRM/data/Countries.php:52
 msgid "Panama (Panamá)"
-msgstr ""
+msgstr "Panama (Panamá)"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papua New Guinea"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Paraguay"
-msgstr ""
+msgstr "Paraguay"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Peru (Perú)"
-msgstr ""
+msgstr "Peru (Perú)"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Philippines"
-msgstr ""
+msgstr "Philippines"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Pitcairn Islands"
-msgstr ""
+msgstr "Pitcairn Islands"
 
 #: EcclesiaCRM/data/Countries.php:53
 msgid "Poland (Polska)"
-msgstr ""
+msgstr "Poland (Polska)"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Puerto Rico"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Qatar (‫قطر‬‎)"
@@ -2647,7 +2645,7 @@ msgstr "Katar"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Réunion (La Réunion)"
-msgstr ""
+msgstr "Réunion (La Réunion)"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Romania (România)"
@@ -2655,7 +2653,7 @@ msgstr "Rumänien (Rumänien)"
 
 #: EcclesiaCRM/data/Countries.php:54
 msgid "Russia (Россия)"
-msgstr ""
+msgstr "Russia (Россия)"
 
 #: EcclesiaCRM/data/Countries.php:55
 msgid "Rwanda"
@@ -2663,7 +2661,7 @@ msgstr "Ruanda"
 
 #: EcclesiaCRM/data/Countries.php:55
 msgid "Saint Barthélemy (Saint-Barthélemy)"
-msgstr ""
+msgstr "Saint Barthélemy (Saint-Barthélemy)"
 
 #: EcclesiaCRM/data/Countries.php:55
 msgid "Saint Helena"
@@ -2671,7 +2669,7 @@ msgstr "St. Helena"
 
 #: EcclesiaCRM/data/Countries.php:55
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts and Nevis"
 
 #: EcclesiaCRM/data/Countries.php:55
 msgid "Saint Lucia"
@@ -2755,19 +2753,19 @@ msgstr "Südkorea"
 
 #: EcclesiaCRM/data/Countries.php:60
 msgid "South Sudan (‫جنوب السودان‬‎)"
-msgstr ""
+msgstr "South Sudan (‫جنوب السودان‬‎)"
 
 #: EcclesiaCRM/data/Countries.php:60
 msgid "Spain (España)"
-msgstr ""
+msgstr "Spanien (España)"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "Sri Lanka (ශ්‍රී ලංකාව)"
-msgstr ""
+msgstr "Sri Lanka (ශ්‍රී ලංකාව)"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "St. Vincent & Grenadines"
-msgstr ""
+msgstr "St. Vincent & Grenadines"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "Sudan (‫السودان‬‎)"
@@ -2775,11 +2773,11 @@ msgstr "Sudan"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "Suriname"
-msgstr ""
+msgstr "Suriname"
 
 #: EcclesiaCRM/data/Countries.php:61
 msgid "Svalbard and Jan Mayen (Svalbard og Jan Mayen)"
-msgstr ""
+msgstr "Svalbard and Jan Mayen (Svalbard og Jan Mayen)"
 
 #: EcclesiaCRM/data/Countries.php:62
 msgid "Swaziland"
@@ -2787,11 +2785,11 @@ msgstr "Swasiland"
 
 #: EcclesiaCRM/data/Countries.php:62
 msgid "Sweden (Sverige)"
-msgstr ""
+msgstr "Sweden (Sverige)"
 
 #: EcclesiaCRM/data/Countries.php:62
 msgid "Switzerland (Schweiz)"
-msgstr ""
+msgstr "Schweiz"
 
 #: EcclesiaCRM/data/Countries.php:62
 msgid "Syria (‫سوريا‬‎)"
@@ -2799,7 +2797,7 @@ msgstr "Syrien"
 
 #: EcclesiaCRM/data/Countries.php:62
 msgid "Taiwan (台灣)"
-msgstr ""
+msgstr "Taiwan (台灣)"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Tajikistan"
@@ -2807,31 +2805,31 @@ msgstr "Tadschikistan"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzania"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Thailand (ไทย)"
-msgstr ""
+msgstr "Thailand (ไทย)"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Timor-Leste"
-msgstr ""
+msgstr "Timor-Leste"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Tokelau"
-msgstr ""
+msgstr "Tokelau"
 
 #: EcclesiaCRM/data/Countries.php:63
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 #: EcclesiaCRM/data/Countries.php:64
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad and Tobago"
 
 #: EcclesiaCRM/data/Countries.php:64
 msgid "Tristan da Cunha"
@@ -2927,7 +2925,7 @@ msgstr "Sambia"
 
 #: EcclesiaCRM/data/Countries.php:68
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 #: EcclesiaCRM/dto/Cart.php:101 EcclesiaCRM/dto/Cart.php:160
 msgid "PersonID for Cart must be numeric"
@@ -2947,79 +2945,79 @@ msgstr "Einordnung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:33
 msgid "NONE"
-msgstr ""
+msgstr "KEIN"
 
 #: EcclesiaCRM/dto/SystemConfig.php:34
 msgid "DEBUG"
-msgstr ""
+msgstr "DEBUG"
 
 #: EcclesiaCRM/dto/SystemConfig.php:35
 msgid "INFO"
-msgstr ""
+msgstr "INFO"
 
 #: EcclesiaCRM/dto/SystemConfig.php:36
 msgid "NOTICE"
-msgstr ""
+msgstr "HINWEIS"
 
 #: EcclesiaCRM/dto/SystemConfig.php:37
 msgid "WARNING"
-msgstr ""
+msgstr "WARNUNG"
 
 #: EcclesiaCRM/dto/SystemConfig.php:38
 msgid "ERROR"
-msgstr ""
+msgstr "FEHLER"
 
 #: EcclesiaCRM/dto/SystemConfig.php:39
 msgid "CRITICAL"
-msgstr ""
+msgstr "KRITISCHEN"
 
 #: EcclesiaCRM/dto/SystemConfig.php:40
 msgid "ALERT"
-msgstr ""
+msgstr "ALERT"
 
 #: EcclesiaCRM/dto/SystemConfig.php:41
 msgid "EMERGENCY"
-msgstr ""
+msgstr "NOTFALL"
 
 #: EcclesiaCRM/dto/SystemConfig.php:50
 msgid "Title FirstName MiddleName LastName"
-msgstr ""
+msgstr "Titel Vorname MiddleName Nachname"
 
 #: EcclesiaCRM/dto/SystemConfig.php:51
 msgid "Title FirstName MiddleInitial. LastName"
-msgstr ""
+msgstr "Titel Vorname MiddleInitial. Nachname"
 
 #: EcclesiaCRM/dto/SystemConfig.php:52
 msgid "LastName, Title FirstName MiddleName"
-msgstr ""
+msgstr "Nachname, Titel Vorname MiddleName"
 
 #: EcclesiaCRM/dto/SystemConfig.php:53
 msgid "LastName, Title FirstName MiddleInitial"
-msgstr ""
+msgstr "Nachname, Titel Vorname MiddleInitial"
 
 #: EcclesiaCRM/dto/SystemConfig.php:54
 msgid "FirstName MiddleName LastName"
-msgstr ""
+msgstr "Vorname MiddleName Nachname"
 
 #: EcclesiaCRM/dto/SystemConfig.php:55
 msgid "Title FirstName LastName"
-msgstr ""
+msgstr "Titel Vorname Nachname"
 
 #: EcclesiaCRM/dto/SystemConfig.php:56
 msgid "LastName, Title FirstName"
-msgstr ""
+msgstr "Nachname, Titel Vorname"
 
 #: EcclesiaCRM/dto/SystemConfig.php:65
 msgid "Address city state zip"
-msgstr ""
+msgstr "Adresse Stadt Staat Postleitzahl"
 
 #: EcclesiaCRM/dto/SystemConfig.php:66
 msgid "Address zip city state"
-msgstr ""
+msgstr "Adresse Postleitzahl Stadt Staat"
 
 #: EcclesiaCRM/dto/SystemConfig.php:74
 msgid "Event Log severity to write, used by ORM and App Logs"
-msgstr ""
+msgstr "Event Log severity to write, used by ORM and App Logs"
 
 #: EcclesiaCRM/dto/SystemConfig.php:75
 msgid "Include only these classifications in the directory, comma seperated"
@@ -3042,7 +3040,7 @@ msgstr "Diese Familienrollen sind als Kinder gedacht"
 msgid ""
 "Session timeout length in seconds\rSet to zero to disable session timeouts."
 msgstr ""
-"Session timeout in Sekunden\rSetze den Wert auf Null, um das timeout zu "
+"Session timeout in Sekunden Setze den Wert auf Null, um das timeout zu "
 "deaktivieren."
 
 #: EcclesiaCRM/dto/SystemConfig.php:80
@@ -3057,17 +3055,19 @@ msgstr "Sollen nur Administratoren CSV Dateien exportieren dürfen?"
 
 #: EcclesiaCRM/dto/SystemConfig.php:82
 msgid "Minimum length a user may set their password to"
-msgstr ""
+msgstr "Mindestlänge des Kennworts ein Benutzer festlegen musst für"
 
 #: EcclesiaCRM/dto/SystemConfig.php:83
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
 "characters changed)\rSet to zero to disable this feature"
 msgstr ""
+"Minimum amount that a new password must differ from the old one (# of "
+"characters changed)\rSet to zero to disable this feature"
 
 #: EcclesiaCRM/dto/SystemConfig.php:84
 msgid "A comma-seperated list of disallowed (too obvious) passwords."
-msgstr ""
+msgstr "Eine kommagetrennte liste of Nicht erlaubt Kennwörtern"
 
 #: EcclesiaCRM/dto/SystemConfig.php:85
 msgid ""
@@ -3076,43 +3076,50 @@ msgid ""
 "account.\rThis feature helps to protect against automated password guessing "
 "attacks.\rSet to zero to disable this feature."
 msgstr ""
+"Maximum number of failed logins to allow before a user account is locked."
+"\rOnce the maximum has been reached, an administrator must re-enable the "
+"account.\rThis feature helps to protect against automated password guessing "
+"attacks.\rSet to zero to disable this feature."
 
 #: EcclesiaCRM/dto/SystemConfig.php:86
 msgid ""
 "PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
 msgstr ""
+"PDF behandlungsmodus.\r1 =  Dialog Speichern\r2 = im aktuellen Browser-"
+"Fenster geöffnet."
 
 #: EcclesiaCRM/dto/SystemConfig.php:87
 msgid "Default City"
-msgstr "Standart"
+msgstr "Standardort"
 
 #: EcclesiaCRM/dto/SystemConfig.php:88
 msgid "Default State - Must be 2-letter abbreviation!"
-msgstr ""
+msgstr "Standart Statt - muß Abkürzung in 2 Buchstaben !"
 
 #: EcclesiaCRM/dto/SystemConfig.php:90
 msgid "Default account for receiving a copy of all emails"
-msgstr ""
+msgstr "Standart Account zum Empfangen einer Kopie des emails"
 
 #: EcclesiaCRM/dto/SystemConfig.php:91
 msgid "SMTP Server timeout in sec"
-msgstr ""
+msgstr "SMTP Server-Zeitüberschreitung in sec"
 
 #: EcclesiaCRM/dto/SystemConfig.php:92
 msgid "SMTP Server Address (mail.server.com:25)"
-msgstr ""
+msgstr "SMTP Server-Adresse (mail.server.com:25)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:93
 msgid "Does your SMTP server require auththentication (username/password)?"
 msgstr ""
+"Ist Ihre SMTP-Server Authentifizierung erforderlich (Benutzername/Kennwort)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:94
 msgid "SMTP Username"
-msgstr ""
+msgstr "SMTP Benutzername"
 
 #: EcclesiaCRM/dto/SystemConfig.php:95
 msgid "SMTP Password"
-msgstr "Passwort"
+msgstr "SMTP Kennwort"
 
 #: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
@@ -3120,10 +3127,13 @@ msgid ""
 "option causes certain info from a person's assigned family record to be"
 "\rdisplayed IF the corresponding info has NOT been entered for that person. "
 msgstr ""
+"Unavailable person info inherited from assigned family for display?\rThis "
+"option causes certain info from a person's assigned family record to be"
+"\rdisplayed IF the corresponding info has NOT been entered for that person. "
 
 #: EcclesiaCRM/dto/SystemConfig.php:100
 msgid "Internationalization (I18n) support"
-msgstr ""
+msgstr "Internationalization (I18n) support"
 
 #: EcclesiaCRM/dto/SystemConfig.php:101
 msgid "First month of the fiscal year"
@@ -3131,55 +3141,61 @@ msgstr "Einstellen der Voreinstellung des Steuerjahrs"
 
 #: EcclesiaCRM/dto/SystemConfig.php:102
 msgid "Link of the nominatim server : https://nominatim.openstreetmap.org"
-msgstr ""
+msgstr "Link der nominatim server : https://nominatim.openstreetmap.org"
 
 #: EcclesiaCRM/dto/SystemConfig.php:103
 msgid "Google map API requires a unique key"
-msgstr ""
+msgstr "Google map API benötigt einen eindeutigen Schlüssel"
 
 #: EcclesiaCRM/dto/SystemConfig.php:104
 msgid "Bing map API requires a unique key"
-msgstr ""
+msgstr "Bing map API benötigt ein eindeutiger Schlüsse"
 
 #: EcclesiaCRM/dto/SystemConfig.php:105
 msgid "Google/OpenStreetMap/BingMaps Maps Zoom"
-msgstr ""
+msgstr "Google/OpenStreetMap/BingMaps Maps Zoom"
 
 #: EcclesiaCRM/dto/SystemConfig.php:106
 msgid "Google/OpenStreetMap/BingMaps Litle Maps Zoom"
-msgstr ""
+msgstr "Google/OpenStreetMap/BingMaps Litle Maps Zoom"
 
 #: EcclesiaCRM/dto/SystemConfig.php:107
 msgid "Latitude of the church, used to center the Google map"
-msgstr ""
+msgstr "Breitengrad der Kirche, zentriert der Google map"
 
 #: EcclesiaCRM/dto/SystemConfig.php:108
 msgid "Longitude of the church, used to center the Google map"
-msgstr ""
+msgstr "Längengrad der Kirche, zentriert der Google map"
 
 #: EcclesiaCRM/dto/SystemConfig.php:109
 msgid ""
 "Set true to disable entering addresses in Person Editor.  Set false to "
 "enable entering addresses in Person Editor."
 msgstr ""
+"Wähle Sie True zum Adressen eingeben deaktivieren. Wähle Sie False zum "
+"Adressen eingeben aktivieren in Person Editor."
 
 #: EcclesiaCRM/dto/SystemConfig.php:110
 msgid ""
 "Set true to disable entering Friend Date in Person Editor.  Set false to "
 "enable entering Friend Date in Person Editor."
 msgstr ""
+"Wähle Sie True zum Freunde Datum deaktivieren.  Wähle Sie False zum Freunde "
+"Datum aktivieren in Person Editor."
 
 #: EcclesiaCRM/dto/SystemConfig.php:111
 msgid ""
 "Set true to disable management of newsletter subscriptions in the Family "
 "Editor."
-msgstr ""
+msgstr "Wähle Sie True zum newsletter aktivieren in the Familie Editor"
 
 #: EcclesiaCRM/dto/SystemConfig.php:112
 msgid ""
 "Set true to disable entering Wedding Date in Family Editor.  Set false to "
 "enable entering Wedding Date in Family Editor."
 msgstr ""
+"Wähle Sie True zum Hochzeit Datum deaktivieren.  Wähle Sie False zum "
+"Hochzeit Datum aktivieren in Familie Editor."
 
 #: EcclesiaCRM/dto/SystemConfig.php:113
 msgid ""
@@ -3187,10 +3203,12 @@ msgid ""
 "false to enable entering Latitude and Longitude in Family Editor.  Lookups "
 "are still performed, just not displayed."
 msgstr ""
+"Wähle Sie True zum Breitengrad und Längengrad deaktivieren.  Wähle Sie False "
+"zum Breitengrad und Längengrad aktivieren in Person Editor."
 
 #: EcclesiaCRM/dto/SystemConfig.php:114
 msgid "Set true to enable use of donation envelopes"
-msgstr "Setze auf true um Spendenbriefumschläge zu aktivieren."
+msgstr "Wähle Sie true um Spendenbriefumschläge zu aktivieren."
 
 #: EcclesiaCRM/dto/SystemConfig.php:115
 msgid ""
@@ -3198,14 +3216,17 @@ msgid ""
 "page. Be sure to close your tags! Note: You must REFRESH YOUR BROWSER A "
 "SECOND TIME to view the new header."
 msgstr ""
+"Schreiben Sie hier einen HTML code which die durch den HTML HEAD angezeigt "
+"wird. Verlieren Sie keine Option Endtag ! Notizen : Aktualisieren Sie Ihr "
+"Browser-Fenster zweimal."
 
 #: EcclesiaCRM/dto/SystemConfig.php:116
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Username"
-msgstr ""
+msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Benutzername"
 
 #: EcclesiaCRM/dto/SystemConfig.php:117
 msgid "Intelligent Search Technolgy, Ltd. CorrectAddress Password"
-msgstr ""
+msgstr "Intelligent Search Technolgy, Ltd. CorrectAddress Kennwort"
 
 #: EcclesiaCRM/dto/SystemConfig.php:118
 msgid "Select GeoCoder Provider"
@@ -3233,17 +3254,20 @@ msgstr "Kilometer"
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid "Time zone"
-msgstr "Zeitstrahl"
+msgstr "Zeitzone"
 
 #: EcclesiaCRM/dto/SystemConfig.php:122
 msgid ""
 "CalDAV protocol to work with php date_default_timezone_set function default "
 "settings : america/new_york"
 msgstr ""
+"CalDAV protocol für php date_default_timezone_set function standart "
+"Einstellung : america/new_york"
 
 #: EcclesiaCRM/dto/SystemConfig.php:123
 msgid "Make user-entered zip/postcodes UPPERCASE when saving to the database."
 msgstr ""
+"Benutzer eingegeben PLZ/Postkodes GROßBUCHSTABE ween Datenbank zu Speichern"
 
 #: EcclesiaCRM/dto/SystemConfig.php:124
 msgid "Enable non-deductible payments"
@@ -3255,11 +3279,11 @@ msgstr "Details der elektronischen Übertragung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:125
 msgid "Vanco"
-msgstr ""
+msgstr "Vanco"
 
 #: EcclesiaCRM/dto/SystemConfig.php:125
 msgid "Authorize.NET"
-msgstr ""
+msgstr "Authorize.NET"
 
 #: EcclesiaCRM/dto/SystemConfig.php:126
 msgid "Set true to enable family self registration."
@@ -3267,27 +3291,31 @@ msgstr "Setze auf true um Spendenbriefumschläge zu aktivieren."
 
 #: EcclesiaCRM/dto/SystemConfig.php:131
 msgid "This part is important for the time Line date and time"
-msgstr ""
+msgstr "Dieser Part ist für die Zeitstrahl und Zeit wichtig"
 
 #: EcclesiaCRM/dto/SystemConfig.php:132
 msgid "Set the time in English format or 24 hours."
-msgstr ""
+msgstr "Wählen Sie English für zeit im 24 Stunden zu haben."
 
 #: EcclesiaCRM/dto/SystemConfig.php:135
 msgid "php format for the date, in English : j/m/y g:i a"
-msgstr ""
+msgstr "php format für datum, im English : j/m/y g:i a"
 
 #: EcclesiaCRM/dto/SystemConfig.php:137
 msgid ""
 "For defining the date in Date-Picker, per default : yyyy-mm-dd, In French : "
 "dd/mm/yyyy for example."
 msgstr ""
+"Zum Date-Picker Datum Definieren, Standardeinstellung : yyyy-mm-dd, In "
+"Deutsch : dd/mm/yyyy zum beispiel"
 
 #: EcclesiaCRM/dto/SystemConfig.php:138
 msgid ""
 "For defining the date in Date-Picker, per default : Y-m-d, In French : d/m/Y "
 "for example."
 msgstr ""
+"Zum Date-Picker Datum Definieren, Standardeinstellung : Y-m-d, In Deutsch : "
+"d/m/Y zum beispiel"
 
 #: EcclesiaCRM/dto/SystemConfig.php:139
 msgid ""
@@ -3296,18 +3324,22 @@ msgid ""
 "released or sold.  If this field is true the registration option in the "
 "admin menu changes to update registration."
 msgstr ""
+"EcclesiaCRM ist jetz registriert.  The EcclesiaCRM team uses registration "
+"information to track usage.  This information is kept confidential and never "
+"released or sold.  If this field is true the registration option in the "
+"admin menu changes to update registration"
 
 #: EcclesiaCRM/dto/SystemConfig.php:140
 msgid "Left Margin (1 = 1/100th inch)"
-msgstr ""
+msgstr "Linken Rand (1 = 1/100th inch)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:141
 msgid "Line Thickness (1 = 1/100th inch"
-msgstr ""
+msgstr "Linienstärke (1 = 1/100th inch"
 
 #: EcclesiaCRM/dto/SystemConfig.php:143 FinancialReports.php:291
 msgid "Church Address"
-msgstr "Adresse der Kirche"
+msgstr "Kirche Adresse"
 
 #: EcclesiaCRM/dto/SystemConfig.php:144
 msgid "Church City"
@@ -3384,7 +3416,7 @@ msgstr "Erstelle Verzeichnis aus Korb"
 
 #: EcclesiaCRM/dto/SystemConfig.php:169
 msgid "Church Letterhead path and file"
-msgstr ""
+msgstr "Kirche Briefkopf Pfad und Datei"
 
 #: EcclesiaCRM/dto/SystemConfig.php:173
 msgid "Church Checking Account Number"
@@ -3396,11 +3428,11 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:175
 msgid "Enable Remote Backups to Cloud Services"
-msgstr ""
+msgstr "Enable Remote Backups to Cloud Services"
 
 #: EcclesiaCRM/dto/SystemConfig.php:176
 msgid "Cloud Service Type (Supported values: WebDAV, Local)"
-msgstr ""
+msgstr "Cloud Service Type (Supported values: WebDAV, Local)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:176
 msgid "WebDAV"
@@ -3416,11 +3448,11 @@ msgstr "Kein Backup läuft"
 
 #: EcclesiaCRM/dto/SystemConfig.php:178
 msgid "Remote Backup Username"
-msgstr ""
+msgstr "Remote Backup Benutzername"
 
 #: EcclesiaCRM/dto/SystemConfig.php:179
 msgid "Remote Backup Password"
-msgstr "Wiederholung des Passworts"
+msgstr "Wiederholung des Kennworts"
 
 #: EcclesiaCRM/dto/SystemConfig.php:180
 msgid "Interval in Hours for Automatic Remote Backups"
@@ -3432,7 +3464,7 @@ msgstr "Letzte Integritätsprüfung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:182
 msgid "QuickBooks Deposit Ticket Settings"
-msgstr ""
+msgstr "QuickBooks Deposit Ticket Settings"
 
 #: EcclesiaCRM/dto/SystemConfig.php:183
 msgid "Enable Integrity Check"
@@ -3448,19 +3480,19 @@ msgstr "Letzte Integritätsprüfung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:187
 msgid "Used to end a letter before Signer"
-msgstr ""
+msgstr "Abschließend einem Brief vor dem Signierungsvorgang"
 
 #: EcclesiaCRM/dto/SystemConfig.php:188
 msgid "Text before name in emails/reports"
-msgstr ""
+msgstr "Text vor dem Namen im E-Mails/Berichte "
 
 #: EcclesiaCRM/dto/SystemConfig.php:189
 msgid "Google Analytics Tracking Code"
-msgstr ""
+msgstr "Google Analytics Tracking-Code"
 
 #: EcclesiaCRM/dto/SystemConfig.php:191
 msgid "Deposit ticket type.  QBDT - Quickbooks"
-msgstr ""
+msgstr "Ablagerung ticket typ. QBDT - Quickbooks"
 
 #: EcclesiaCRM/dto/SystemConfig.php:192
 msgid ""
@@ -3470,7 +3502,7 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:194
 msgid "Set the export address)"
-msgstr ""
+msgstr "Exportadresse definieren)"
 
 #: EcclesiaCRM/dto/SystemConfig.php:195
 msgid "Display bill counts on deposit slip"
@@ -3478,51 +3510,51 @@ msgstr "Zahlungen auf diesem Einzahlungsbeleg:"
 
 #: EcclesiaCRM/dto/SystemConfig.php:196
 msgid "EcclesiaCRM Cloud Access URL"
-msgstr ""
+msgstr "EcclesiaCRM Cloud Access URL"
 
 #: EcclesiaCRM/dto/SystemConfig.php:197
 msgid "Nexmo SMS API Key"
-msgstr ""
+msgstr "Nexmo SMS API Key"
 
 #: EcclesiaCRM/dto/SystemConfig.php:198
 msgid "Nexmo SMS API Secret"
-msgstr ""
+msgstr "Nexmo SMS API Secret"
 
 #: EcclesiaCRM/dto/SystemConfig.php:199
 msgid "Nexmo SMS From Number"
-msgstr ""
+msgstr "Nexmo SMS From Number"
 
 #: EcclesiaCRM/dto/SystemConfig.php:200
 msgid "OpenLP URL"
-msgstr ""
+msgstr "OpenLP URL"
 
 #: EcclesiaCRM/dto/SystemConfig.php:201
 msgid "OpenLP Username"
-msgstr ""
+msgstr "OpenLP Benutzername"
 
 #: EcclesiaCRM/dto/SystemConfig.php:202
 msgid "OpenLP Password"
-msgstr "Altes Passwort"
+msgstr "Altes Kennwort"
 
 #: EcclesiaCRM/dto/SystemConfig.php:203
 msgid "KioskVisibilityTimestamp"
-msgstr ""
+msgstr "KioskVisibilityTimestamp"
 
 #: EcclesiaCRM/dto/SystemConfig.php:204
 msgid "Show/Hide Lost Password Link on the login screen"
-msgstr ""
+msgstr "Zeigt/Blendet Kennwort verolren Link auf dem Anmeldebildschirm"
 
 #: EcclesiaCRM/dto/SystemConfig.php:205
 msgid "Your Church's Website"
-msgstr ""
+msgstr "Ihre Kirche Webseite"
 
 #: EcclesiaCRM/dto/SystemConfig.php:206
 msgid "Your Church's Facebook Page"
-msgstr ""
+msgstr "Ihre Kirche Facebook-Seite"
 
 #: EcclesiaCRM/dto/SystemConfig.php:207
 msgid "Your Church's Twitter Page"
-msgstr ""
+msgstr "Ihre Kirche Twitter-Seite"
 
 #: EcclesiaCRM/dto/SystemConfig.php:208
 msgid "lookup user images on Google when no local image is present"
@@ -3533,10 +3565,12 @@ msgid ""
 "Comma Separated list of PersonIDs of people to notify when a new family or "
 "person is added"
 msgstr ""
+"Comma Separated list of PersonIDs of people to notify when a new family or "
+"person is added"
 
 #: EcclesiaCRM/dto/SystemConfig.php:210
 msgid "Allow unauthenticated reads of events from the external calendar API"
-msgstr ""
+msgstr "Allow unauthenticated reads of events from the external calendar API"
 
 #: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "Search People"
@@ -3548,15 +3582,15 @@ msgstr "Wähle Familie:"
 
 #: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Show Family Head of House Names"
-msgstr ""
+msgstr "Zeigt der Leiter Familie des Haushalts Namen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:214
 msgid "Search Groups"
-msgstr "Wähle die Gruppe"
+msgstr "Gruppe Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:215
 msgid "Search Deposits"
-msgstr "Zahlungen: "
+msgstr "Einlagen Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Search Payments"
@@ -3564,7 +3598,7 @@ msgstr "Zahlungen anzeigen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "Search Addresses"
-msgstr "Adresse der Kirche"
+msgstr "Adresse suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:218
 msgid "Maximum number of People"
@@ -3596,23 +3630,23 @@ msgstr "Maximale Anzahl an Nachbarn:"
 
 #: EcclesiaCRM/dto/SystemConfig.php:225
 msgid "Height to use for images"
-msgstr ""
+msgstr "Höhe zu verwenden für Benutzer Bilder"
 
 #: EcclesiaCRM/dto/SystemConfig.php:226
 msgid "Width to use for images"
-msgstr ""
+msgstr "Breite zu verwenden für Benutzer Bilder"
 
 #: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Width to use for thumbnails"
-msgstr ""
+msgstr "Breite zu verwenden für Miniaturansichten"
 
 #: EcclesiaCRM/dto/SystemConfig.php:228
 msgid "Point size to use for initials thumbnails"
-msgstr ""
+msgstr "Schriftgröße für den Anfangszustand Miniaturansichten verwendet"
 
 #: EcclesiaCRM/dto/SystemConfig.php:229
 msgid "Client cache seconds for images"
-msgstr ""
+msgstr "Client cache seconds for images"
 
 #: EcclesiaCRM/dto/SystemConfig.php:230
 msgid "Server cache time for remote images"
@@ -3624,13 +3658,13 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:232
 msgid "Show Birthdates Anniversaries on start up of the CRM"
-msgstr ""
+msgstr "Geburstage und Jubiläen beim Systemstart anzeigen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:233
 msgid ""
 "Number of seconds after page load until the banner disappears, default 10 "
 "seconds"
-msgstr ""
+msgstr "Anzahl von Sekunden an, nach der Banner disappears"
 
 #: EcclesiaCRM/dto/SystemConfig.php:234
 msgid "Automatically enable SMTP encryption if offered by the relaying server."
@@ -3675,20 +3709,20 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:244
 msgid "The DPO administrator for the GDPR"
-msgstr ""
+msgstr "DPO administrator für GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:245
 msgid "GDPR option"
-msgstr ""
+msgstr "GDPR optionnen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:246
 msgid "The DPO email"
-msgstr ""
+msgstr "DPO E-mail"
 
 #: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
 "The private datas should be deleted after the sGdprExpirationDate in Year."
-msgstr ""
+msgstr "Die privaten Daten sollte gestrichen werden nach der sGdprExpirationDate im Jahre"
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Church Information"
@@ -3738,7 +3772,7 @@ msgstr "Lokalisierung"
 #: EcclesiaCRM/dto/SystemConfig.php:265 EcclesiaCRM/MenuBar/MenuBar.php:198
 #: Menu.php:89
 msgid "GDPR"
-msgstr ""
+msgstr "GDPR"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Integration"
@@ -3755,11 +3789,11 @@ msgstr "Sonntagsschule Anwesenheit"
 #: EcclesiaCRM/dto/SystemConfig.php:320 EcclesiaCRM/dto/SystemConfig.php:332
 #: EcclesiaCRM/dto/SystemConfig.php:345
 msgid "An invalid configuration name has been requested"
-msgstr ""
+msgstr "Eine ungültige Konfiguration Name wurde angefordert"
 
 #: EcclesiaCRM/dto/SystemConfig.php:363
 msgid "An invalid configuration id has been requested"
-msgstr ""
+msgstr "Eine ungültige Konfiguration ID wurde angefordert"
 
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:41
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
@@ -3781,11 +3815,11 @@ msgstr "Einordnung"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:28
 msgid "Guardian(s) of"
-msgstr ""
+msgstr "Hüter der"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "A notification was triggered by the classroom teacher at"
-msgstr ""
+msgstr "Eine Anmeldung wurde beim Klasse Lehrer erforderlich"
 
 #: EcclesiaCRM/Emails/notifications/NotificationEmail.php:29
 msgid "Please go to this location"
@@ -3797,7 +3831,7 @@ msgstr "Dein neuer Account"
 
 #: EcclesiaCRM/Emails/users/AccountDeletedEmail.php:16
 msgid "Your EcclesiaCRM Account was Deleted."
-msgstr ""
+msgstr "Ihrer Ecclesia Account wurde gelöscht."
 
 #: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:225
 msgid "Email/Username"
@@ -3805,11 +3839,11 @@ msgstr "Email/Benutzername"
 
 #: EcclesiaCRM/Emails/users/DocumentEmail.php:22
 msgid "A document is shared with you"
-msgstr ""
+msgstr "Ein Dokument ist mit Ihnen verwendet"
 
 #: EcclesiaCRM/Emails/users/DocumentEmail.php:27
 msgid "I've shared a document with you in"
-msgstr ""
+msgstr "Ich habe dieser Dokument mit Ihnen verwendet"
 
 #: EcclesiaCRM/Emails/users/LockedEmail.php:11
 msgid "Account Locked"
@@ -3817,7 +3851,7 @@ msgstr "Account gesperrt"
 
 #: EcclesiaCRM/Emails/users/LockedEmail.php:16
 msgid "Your EcclesiaCRM account was locked."
-msgstr ""
+msgstr "Ihre EcclesiaCRM account war abgeschlossen."
 
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:18
 msgid "Your New Account"
@@ -3825,42 +3859,42 @@ msgstr "Dein neuer Account"
 
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:23
 msgid "A EcclesiaCRM account was created for you"
-msgstr ""
+msgstr "Ein EcclesiaCRM account wurde für Sie erstellt"
 
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:31
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
 #: UserPasswordChange.php:205
 msgid "New Password"
-msgstr "Neues Passwort"
+msgstr "Neues Kennwort"
 
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:17
 msgid "Password Changed"
-msgstr "Passwort geändert"
+msgstr "Kennwort geändert"
 
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:22
 msgid "Your EcclesiaCRM password was changed"
-msgstr ""
+msgstr "Ihre EcclesiaCRM kennwort wurde geändert"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:17
 msgid "Password Reset"
-msgstr "Passwort zurücksetzen"
+msgstr "Kennwort zurücksetzen"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
 msgid "You EcclesiaCRM updated password has been changed"
-msgstr ""
+msgstr "Ihre aktualisiert EcclesiaCRM kennwort wurde geändert"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
 msgid "Password Reset Link"
-msgstr "Passwort zurücksetzen"
+msgstr "Kennwort zurücksetzen"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:22
 msgid "You can reset your EcclesiaCRM password by clicking this link"
-msgstr ""
+msgstr "Sie können Ihr EcclesiaCRM kennwort Zurücksetzen Durch diesen Link Aufklicken"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:29
 msgid "Reset Password"
-msgstr "Wiederholung des Passworts"
+msgstr "Wiederholung des Kennworts"
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:11
 msgid "Account Unlocked"
@@ -3868,11 +3902,11 @@ msgstr "Account entsperrt "
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
 msgid "Your EcclesiaCRM account was unlocked."
-msgstr ""
+msgstr "Ihre EcclesiaCRM Account war offen."
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
-msgstr ""
+msgstr "Bitte, überprüfen Sie Ihrer Familie Informationen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:55
 msgid "List Groups"
@@ -3894,7 +3928,7 @@ msgstr "Dashboard"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
 msgid "Personal area"
-msgstr "Persönlicher Sitzung"
+msgstr "Persönlicher Bereich"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: external/templates/registration/family-register-members.php:95
@@ -3904,7 +3938,7 @@ msgstr "Haus"
 #: EcclesiaCRM/MenuBar/MenuBar.php:190 Include/Header.php:122
 #: PersonView.php:469
 msgid "Change Password"
-msgstr "Passwort ändern"
+msgstr "Kennwort ändern"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:191 Include/Header.php:124
 #: PersonView.php:468
@@ -3916,17 +3950,16 @@ msgid "Documents"
 msgstr "Dokumente"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:200 EcclesiaCRM/MenuBar/MenuBar.php:252
-#, fuzzy
 msgid "View Inactive Persons"
-msgstr "View inaktiv Familien"
+msgstr "Inaktiven Personen Sehen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:201 EcclesiaCRM/MenuBar/MenuBar.php:257
 msgid "View Inactive Families"
-msgstr "View inaktiv Familien"
+msgstr "Inaktiven Familien sehen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:207
 msgid "Events"
-msgstr "Veranstaltung"
+msgstr "Ereignisse"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:213 ListEvents.php:345 MapUsingBing.php:192
 #: MapUsingBing.php:238 MapUsingGoogle.php:188 MapUsingGoogle.php:233
@@ -3943,11 +3976,11 @@ msgstr "Zeige auf Karte"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:222
 msgid "List Church Events"
-msgstr "Kirche Veranstaltungen auflisten"
+msgstr "Kirche Ereignisse auflisten"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:223
 msgid "List Event Types"
-msgstr "Veranstaltung Liste Typen"
+msgstr "Ereignis Typen Liste"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:224
 msgid "Check-in and Check-out"
@@ -3966,9 +3999,8 @@ msgid "Add New Person"
 msgstr "Neuen Person Hinzufügen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:251
-#, fuzzy
 msgid "View Active Persons"
-msgstr "View alle Personen"
+msgstr "Aktiven Personen sehen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:255
 msgid "Add New Family"
@@ -4036,15 +4068,14 @@ msgstr "Berichtemenü"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:318
 msgid "Query Menu"
-msgstr "Anfragenmenü"
+msgstr "Query menü"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:102
 msgid "Coin"
-msgstr ""
+msgstr "Münze"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:103
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:119
-#, fuzzy
 msgid "Counts"
 msgstr "Anzahl"
 
@@ -4057,27 +4088,24 @@ msgid "Totals"
 msgstr "Summen"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:112
-#, fuzzy
 msgid "Total Coin"
-msgstr "Gesamte Logins"
+msgstr "Gesamte Münze"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:118
 msgid "Bill"
-msgstr ""
+msgstr "Stückliste"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:128
-#, fuzzy
 msgid "Total Cash"
-msgstr "Summen"
+msgstr "Zahlbare"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:135
 msgid "Deposit totals by Currency Type"
-msgstr ""
+msgstr "Gesamten Einlagen beim Währungstyp"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
-#, fuzzy
 msgid "Deposit totals by fund"
-msgstr "Einzahlungsdetails:"
+msgstr "Gesamten Einlagen beim fond"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:224
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:274
@@ -4086,27 +4114,24 @@ msgstr "Anzahlung Zusammenfassung"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:246
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:359
-#, fuzzy
 msgid "Deposit total"
-msgstr "Einzahlungsbericht"
+msgstr "Gesamten Einlagen"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
 msgid "Chk No."
-msgstr ""
+msgstr "Scheck Nu."
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
-#, fuzzy
 msgid "PmtMethod"
 msgstr "Methode"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:291
-#, fuzzy
 msgid "Rcd From"
-msgstr "Von:"
+msgstr "Dtsatz. Von:"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
 msgid "Memo"
-msgstr ""
+msgstr "Memo"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
 #: PledgeEditor.php:749 SelectDelete.php:221
@@ -4121,7 +4146,7 @@ msgstr "Anonym"
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:393
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:398
 msgid "Witness"
-msgstr ""
+msgstr " Zeugnis"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:209
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:150 FamilyList.php:70 Menu.php:459
@@ -4140,7 +4165,7 @@ msgstr "Familienansicht"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:223
 msgid "Verification email sent"
-msgstr ""
+msgstr "E-Mail Bestätigungs geschickt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:300
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:261
@@ -4171,7 +4196,7 @@ msgstr "jahre alt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:391
 msgid "system user created"
-msgstr ""
+msgstr "System Benutzer hergestellt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:394
 msgid "system user updated"
@@ -4179,23 +4204,23 @@ msgstr "danach aktualisiere"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:397
 msgid "system user deleted"
-msgstr ""
+msgstr "System Benutzer gelöcht"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:400
 msgid "system user password reset"
-msgstr "Rücksetzen Ihrer passwort"
+msgstr "Rücksetzen Ihrer Kennwort"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:403
 msgid "system user changed password"
-msgstr "Passwort ändern"
+msgstr "System Benutzer hat das Kennwort geändert"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:406
 msgid "system user password changed by admin"
-msgstr ""
+msgstr "System Benutzer Kennwort beim Admin geändert"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:409
 msgid "system user login reset"
-msgstr ""
+msgstr "System Benutzer Login zurückgesetzt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:414 PersonView.php:1178
 msgid "Dav create file"
@@ -4211,11 +4236,11 @@ msgstr "Bitte update die"
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:429 PersonView.php:1179
 msgid "Dav move copy file"
-msgstr ""
+msgstr "Dav Datei verschieben/kopieren."
 
 #: EcclesiaCRM/model/EcclesiaCRM/User.php:434
 msgid "Dav delete file"
-msgstr ""
+msgstr "Dav Datei löschen"
 
 #: EcclesiaCRM/Reports/PDF_CertificatesReport.php:30
 msgid "Certificate of Ownership"
@@ -4397,7 +4422,7 @@ msgstr "Kirche Informationen"
 
 #: EcclesiaCRM/tasks/ChurchNameTask.php:22
 msgid "Church Name is set to default value"
-msgstr ""
+msgstr "Kirche Name is seinen Standardwert festgelegt"
 
 #: EcclesiaCRM/tasks/EmailTask.php:27
 msgid "Set Email Settings"
@@ -4405,7 +4430,7 @@ msgstr "Systemeinstellungen"
 
 #: EcclesiaCRM/tasks/EmailTask.php:32
 msgid "SMTP Server info are blank"
-msgstr ""
+msgstr "SMTP Server info sind leer"
 
 #: EcclesiaCRM/tasks/HttpsTask.php:19
 msgid "Configure HTTPS"
@@ -4413,7 +4438,7 @@ msgstr "HTTPS zu konfigurieren"
 
 #: EcclesiaCRM/tasks/HttpsTask.php:22
 msgid "Your system could be more secure by installing an TLS/SSL Cert."
-msgstr ""
+msgstr "Ihrer System kann noch sicherer sein durch einer TLS/SSL Zertifikat Installieren"
 
 #: EcclesiaCRM/tasks/IntegrityCheckTask.php:36
 #: EcclesiaCRM/tasks/IntegrityCheckTask.php:41
@@ -4451,7 +4476,7 @@ msgstr "Vermisst Data Rolen"
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:28
 #: EcclesiaCRM/tasks/PrerequisiteCheckTask.php:33 IntegrityCheck.php:36
 msgid "Unmet Application Prerequisites"
-msgstr ""
+msgstr "Unerfüllte Anwendungsvoraussetzungen"
 
 #: EcclesiaCRM/tasks/RegisteredTask.php:28
 msgid "Register Software"
@@ -4459,7 +4484,7 @@ msgstr "Registriere Deine Familie"
 
 #: EcclesiaCRM/tasks/RegisteredTask.php:33
 msgid "Let us know that you are using the software"
-msgstr ""
+msgstr "Teilen Sie uns dass Sie die Software verwenden"
 
 #: EcclesiaCRM/tasks/UpdateFamilyCoordinatesTask.php:36
 msgid "Missing Coordinates"
@@ -4467,11 +4492,11 @@ msgstr "Vermisst Koordinaten"
 
 #: EcclesiaCRM/tasks/UpdateFamilyCoordinatesTask.php:41
 msgid "Family Coordinates Data for Some Families"
-msgstr ""
+msgstr "Familie Basispunkt-Koordinatendaten für einigen Familien"
 
 #: EcclesiaCRM/utils/GeoUtils.php:157 EcclesiaCRM/utils/GeoUtils.php:189
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: EcclesiaCRM/utils/GeoUtils.php:159
 msgid "SSW"
@@ -4479,68 +4504,68 @@ msgstr ""
 
 #: EcclesiaCRM/utils/GeoUtils.php:161
 msgid "SW"
-msgstr ""
+msgstr "SW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:163
 msgid "WSW"
-msgstr ""
+msgstr "WSW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:165
 msgid "W"
-msgstr ""
+msgstr "W"
 
 #: EcclesiaCRM/utils/GeoUtils.php:167
 msgid "WNW"
-msgstr ""
+msgstr "WNW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:169
 msgid "NW"
-msgstr ""
+msgstr "NW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:171
 msgid "NNW"
-msgstr ""
+msgstr "NNW"
 
 #: EcclesiaCRM/utils/GeoUtils.php:173
 msgid "N"
-msgstr "Nein"
+msgstr "N"
 
 #: EcclesiaCRM/utils/GeoUtils.php:175
 msgid "NNE"
-msgstr ""
+msgstr "NNO"
 
 #: EcclesiaCRM/utils/GeoUtils.php:177
 msgid "NE"
-msgstr ""
+msgstr "NO"
 
 #: EcclesiaCRM/utils/GeoUtils.php:179
 msgid "ENE"
-msgstr ""
+msgstr "ONO"
 
 #: EcclesiaCRM/utils/GeoUtils.php:181
 msgid "E"
-msgstr ""
+msgstr "O"
 
 #: EcclesiaCRM/utils/GeoUtils.php:183
 msgid "ESE"
-msgstr ""
+msgstr "OSO"
 
 #: EcclesiaCRM/utils/GeoUtils.php:185
 msgid "SE"
-msgstr ""
+msgstr "SO"
 
 #: EcclesiaCRM/utils/GeoUtils.php:187
 msgid "SSE"
-msgstr ""
+msgstr "SSO"
 
 #: EcclesiaCRM/utils/MiscUtils.php:52
 msgid "Your browser does not support the audio element."
-msgstr ""
+msgstr "Ihrer Browser unterstützt nicht Audioteil."
 
 #: EcclesiaCRM/utils/MiscUtils.php:57 EcclesiaCRM/utils/MiscUtils.php:63
 #: EcclesiaCRM/utils/MiscUtils.php:71
 msgid "Your browser does not support the video tag."
-msgstr ""
+msgstr "Ihrer Browser unterstützt nicht video tag."
 
 #: EcclesiaCRM/utils/MiscUtils.php:107
 msgid "Classic Document"
@@ -4580,7 +4605,7 @@ msgstr "Herbst"
 
 #: EcclesiaCRM/utils/OutputUtils.php:305
 msgid "This custom field isn't configured correctly"
-msgstr ""
+msgstr "Benutzerdefinierte Feld ist nicht ordnungsgemäß konfiguriert"
 
 #: EcclesiaCRM/utils/OutputUtils.php:363
 msgid "Error: Invalid Editor ID!"
@@ -4588,7 +4613,7 @@ msgstr "Fehler: Ungültige Editor ID!"
 
 #: EditEventAttendees.php:26
 msgid "Church Event Editor"
-msgstr "Veranstaltungs Editor"
+msgstr "Kirche Ereignisse Editor"
 
 #: EditEventAttendees.php:53
 msgid "Attendees for Event ID:"
@@ -4600,11 +4625,11 @@ msgstr "Kein gültiges Datum"
 
 #: EditEventAttendees.php:117
 msgid "No Attendees Assigned to Event"
-msgstr "Es sind keine Besucher der Veranstaltung zugewiesen"
+msgstr "Es sind keine Ereignis Besucher zugewiesen"
 
 #: EditEventAttendees.php:128
 msgid "Add Event Member"
-msgstr "Veranstaltung Mitglieder hinzuzufügen"
+msgstr "Ereignis Mitglieder hinzuzufügen"
 
 #: EditEventAttendees.php:139
 msgid "Delele All Attendees"
@@ -4617,7 +4642,7 @@ msgstr "Auschecken Machen"
 
 #: EditEventTypes.php:34 EventNames.php:35
 msgid "Edit Event Types"
-msgstr "Veranstaltungsarten bearbeiten"
+msgstr "Ereignissarten bearbeiten"
 
 #: EditEventTypes.php:120 EventNames.php:125
 msgid "Weekly on"
@@ -4637,11 +4662,11 @@ msgstr "Jährlich am"
 
 #: EditEventTypes.php:160
 msgid "Edit Event Type"
-msgstr "Veranstaltungsart bearbeiten"
+msgstr "Ereignissarten bearbeiten"
 
 #: EditEventTypes.php:170 EventNames.php:290 ListEvents.php:344
 msgid "Event Type"
-msgstr "Veranstaltungsart"
+msgstr "Ereignissarten"
 
 #: EditEventTypes.php:176
 msgid "Save Name"
@@ -4673,11 +4698,11 @@ msgstr "CSV Import"
 
 #: eGive.php:262
 msgid "Start Date: "
-msgstr "Beginn Datum/Uhrzeit"
+msgstr "Beginn Datum :"
 
 #: eGive.php:264
 msgid "End Date: "
-msgstr "Datum der Veranstaltung"
+msgstr "Datum end :"
 
 #: eGive.php:351
 msgid "Re-import to selected family"
@@ -4861,15 +4886,15 @@ msgstr ""
 
 #: EventAttendance.php:24
 msgid "Event Attendees"
-msgstr "Veranstaltungsteilnehmer"
+msgstr  "Ereignis Teilnehmer"
 
 #: EventAttendance.php:44
 msgid "Event Nonattendees"
-msgstr "besuchen keine Veranstaltung"
+msgstr "Keines Ereignis Teilnehmer"
 
 #: EventAttendance.php:50
 msgid "Event Guests"
-msgstr "Veranstaltungsgäste"
+msgstr "Ereignissgäste"
 
 #: EventAttendance.php:56
 msgid "All Events of Type"
@@ -4901,11 +4926,11 @@ msgstr " in dieser Kategorie."
 
 #: EventAttendance.php:102
 msgid "Event Title"
-msgstr "Veranstaltungsbezeichnung"
+msgstr "Ereignissbezeichnung"
 
 #: EventAttendance.php:103
 msgid "Event Date"
-msgstr "Datum der Veranstaltung"
+msgstr "Ereignis Datum"
 
 #: EventAttendance.php:104
 msgid "Generate Report"
@@ -4913,11 +4938,11 @@ msgstr "Bericht erstellen"
 
 #: EventAttendance.php:136
 msgid "Attending Members"
-msgstr "Mitglieder in der Veranstaltung"
+msgstr "Mitglieder in das Ereignis"
 
 #: EventAttendance.php:147
 msgid "Non-Attending Members"
-msgstr "Mitglieder die keine Veranstaltung besuchen"
+msgstr "Mitglieder die keines Ereignis besuchen"
 
 #: EventAttendance.php:162
 msgid "Guests"
@@ -4929,7 +4954,7 @@ msgstr "Es befinden sich"
 
 #: EventAttendance.php:206
 msgid "There are no events in this category"
-msgstr "In dieser Kategorie gibt es keine Veranstaltungen"
+msgstr "In dieser Kategorie gibt es keine Ereignisse"
 
 #: EventAttendance.php:206
 msgid "There are no Records"
@@ -4937,7 +4962,7 @@ msgstr "Es gibt keine Einträge"
 
 #: EventNames.php:175
 msgid "EVENT TYPE NAME"
-msgstr "VERANSTALTUNGSART NAME"
+msgstr "EREIGNISSESART NAME"
 
 #: EventNames.php:193 PledgeEditor.php:573
 msgid "Weekly"
@@ -5039,7 +5064,7 @@ msgstr "Event erstellen"
 
 #: EventNames.php:349
 msgid "Add Event Type"
-msgstr "Veranstaltungsart hinzufügen"
+msgstr "Ereignissesart hinzufügen"
 
 #: external/routes/calendar.php:12
 msgid "External Calendar API is disabled"
@@ -5047,7 +5072,7 @@ msgstr ""
 
 #: external/routes/password.php:65
 msgid "Unable to reset password"
-msgstr "Ungültiges Passwort"
+msgstr "Ungültiges Kennwort"
 
 #: external/routes/verify.php:29
 msgid "Unable to load verification info"
@@ -5075,7 +5100,7 @@ msgstr "Familie Registrieren"
 
 #: external/templates/password/enter-username.php:27
 msgid "Reset your password"
-msgstr "Rücksetzen Ihrer passwort"
+msgstr "Rücksetzen Ihrer Kennwort"
 
 #: external/templates/password/enter-username.php:30 UserEditor.php:542
 msgid "Login Name"
@@ -5518,14 +5543,12 @@ msgid "Edited"
 msgstr "Editiert"
 
 #: FamilyList.php:73 PersonList.php:76
-#, fuzzy
 msgid "Deactivation date"
-msgstr "inaktiv"
+msgstr "Deaktivierungsdatum"
 
 #: FamilyList.php:127 PersonList.php:133
-#, fuzzy
 msgid "Remove All"
-msgstr "Entfernen"
+msgstr "Entfernen Alle"
 
 #: FamilyView.php:37
 msgid "Family View"
@@ -5649,7 +5672,7 @@ msgstr "Eine regelmäßige Zahlung hinzufügen"
 
 #: FamilyView.php:688 PersonView.php:1092
 msgid "Show Pledges"
-msgstr "Zeige Zusagen"
+msgstr "Zeige anzeigen"
 
 #: FamilyView.php:692 PersonView.php:1096
 msgid "Show Payments"
@@ -6081,9 +6104,8 @@ msgid "Estimated value"
 msgstr "Geschätzter Preis:"
 
 #: GDPRDashboard.php:29
-#, fuzzy
 msgid "GDPR Dashboard"
-msgstr "Dashboard"
+msgstr "GDPR Dashboard"
 
 #: GDPRDashboard.php:46 PastoralCare.php:91 PersonView.php:470
 msgid "Printable Page"
@@ -6091,46 +6113,39 @@ msgstr "Druckbare Seite"
 
 #: GDPRDashboard.php:51
 msgid "GDPR DPO Signer"
-msgstr ""
+msgstr "GDPR DPO Unterzeichner"
 
 #: GDPRDashboard.php:54
 msgid "GDPR DPO Signer Email"
-msgstr ""
+msgstr "GDPR DPO Unterzeichner Email"
 
 #: GDPRDashboard.php:64
-#, fuzzy
 msgid "GDPR Person status"
-msgstr "Auflistung der Personen"
+msgstr "GDPR Personstatus"
 
 #: GDPRListExport.php:59
-#, fuzzy
 msgid "Full Name"
-msgstr "Dateiname"
+msgstr "Vollständiger Name"
 
 #: GDPRListExport.php:61
-#, fuzzy
 msgid "Text"
-msgstr "Zeige den Korb"
+msgstr "Text"
 
 #: GDPRListExport.php:63
-#, fuzzy
 msgid "Date Entered"
-msgstr "Datum:"
+msgstr "eingegebene Datum"
 
 #: GDPRListExport.php:64
-#, fuzzy
 msgid "Date Last Edited"
-msgstr "Zuletzt geändert"
+msgstr "Letzten Datum Editiert"
 
 #: GDPRListExport.php:65
-#, fuzzy
 msgid "Edited By Name"
-msgstr "Nach Namen"
+msgstr "Bearbeitete Name"
 
 #: GDPRListExport.php:66
-#, fuzzy
 msgid "Deactivated"
-msgstr "inaktiv"
+msgstr "Deaktiviert"
 
 #: GeoPage.php:88
 msgid "Family Geographic Utilities"
@@ -6222,7 +6237,7 @@ msgstr ""
 
 #: GetText.php:40
 msgid "Text for Event ID"
-msgstr "Text für Veranstaltung"
+msgstr "Ereignis Text ID"
 
 #: GetText.php:44
 msgid "Close Window"
@@ -6945,7 +6960,7 @@ msgstr "Einstellen der Dokumenttitel"
 
 #: Include/Header.php:121
 msgid "You can change here your password"
-msgstr "Rücksetzen Ihrer passwort"
+msgstr "Rücksetzen Ihrer Kennwort"
 
 #: Include/Header.php:123
 msgid "Change Custom Settings"
@@ -7156,19 +7171,19 @@ msgstr "Persönlicher Sitzung"
 
 #: ListEvents.php:66
 msgid "Listing All Church Events"
-msgstr "Alle Veranstaltungen auflisten"
+msgstr "Alle Ereignisse auflisten"
 
 #: ListEvents.php:135
 msgid "Select Event Types To Display"
-msgstr "Wähle Veranstaltungsarten zum Anzeigen aus"
+msgstr "Wähle Ereignissarten zum Anzeigen aus"
 
 #: ListEvents.php:177
 msgid "Display Events in Month"
-msgstr "Zeige Veranstaltungen im Jahr"
+msgstr "Zeige Ereignisse im Monat"
 
 #: ListEvents.php:195
 msgid "Display Events in Year"
-msgstr "Zeige Veranstaltungen im Jahr"
+msgstr "Zeige Ereignisse im Jahr"
 
 #: ListEvents.php:283
 msgid "login"
@@ -7196,11 +7211,11 @@ msgstr "Bibeltextes"
 
 #: ListEvents.php:432 ListEvents.php:591 ListEvents.php:678
 msgid "Check-in"
-msgstr "Anmelden"
+msgstr "Einchecken"
 
 #: ListEvents.php:433 ListEvents.php:596 ListEvents.php:683
 msgid "Check-out"
-msgstr "Abmelden"
+msgstr "Auschecken"
 
 #: ListEvents.php:434 ListEvents.php:601 ListEvents.php:688
 msgid "Rest"
@@ -7238,7 +7253,7 @@ msgstr "Zurück zu den Events"
 
 #: Login.php:40 Login.php:55
 msgid "Invalid login or password"
-msgstr "Ungültiges Passwort"
+msgstr "Ungültiges Kennwort"
 
 #: Login.php:43
 msgid ""
@@ -7262,7 +7277,7 @@ msgstr ""
 
 #: Login.php:234
 msgid "I forgot my password"
-msgstr "Ich habe mein Passwort vergessen"
+msgstr "Ich habe mein Kennwort vergessen"
 
 #: Login.php:250
 msgid "Register a new Family"
@@ -7270,7 +7285,7 @@ msgstr "Registriere Deine Familie"
 
 #: Login.php:318
 msgid "Enter your password to retrieve your session"
-msgstr "Geben Sie Ihre passwort, um Ihr Sitzung zurückzubekommen."
+msgstr "Geben Sie Ihre Kennwort, um Ihr Sitzung zurückzubekommen."
 
 #: Login.php:321
 msgid "Or sign in as a different user"
@@ -7434,7 +7449,6 @@ msgid "link"
 msgstr ""
 
 #: Menu.php:111
-#, fuzzy
 msgid "No Person to remove in the CRM."
 msgstr "Gruppe wurde erfolgreich aus dem Korb entfernt."
 
@@ -7447,9 +7461,8 @@ msgid "families must be deleted from the CRM."
 msgstr ""
 
 #: Menu.php:134
-#, fuzzy
 msgid "No Family to remove in the CRM."
-msgstr "Gruppe wurde erfolgreich aus dem Korb entfernt."
+msgstr "Keine Familie im CRM zu entfernen"
 
 #: Menu.php:226
 msgid "Birthdates of the day"
@@ -7754,7 +7767,7 @@ msgstr "Neue Pastoral Pflege Notizen Hinzufügen"
 
 #: PastoralCare.php:121
 msgid "Modify"
-msgstr "Ändern"
+msgstr "Bearbeiten"
 
 #: PastoralCare.php:149 PledgeEditor.php:731
 msgid "Return"
@@ -8018,9 +8031,8 @@ msgid "Friend Date"
 msgstr "Eingabedatum"
 
 #: PersonList.php:45
-#, fuzzy
 msgid "Person List"
-msgstr "Auflistung der Personen"
+msgstr "Personen Liste"
 
 #: PersonToGroup.php:50
 msgid "Add Person to Group"
@@ -8043,9 +8055,8 @@ msgid "Not assigned"
 msgstr "Nicht festgeleget"
 
 #: PersonView.php:224
-#, fuzzy
 msgid "This Person is Deactivated"
-msgstr " Diese Familie ist deaktiviert."
+msgstr "Dieser Personist deaktiviert."
 
 #: PersonView.php:268
 msgid "Undefined"
@@ -8084,9 +8095,8 @@ msgid "List Members"
 msgstr "Mitgliederliste"
 
 #: PersonView.php:512
-#, fuzzy
 msgid " this Person"
-msgstr "Person"
+msgstr "diese Person "
 
 #: PersonView.php:549 PrintPastoralCare.php:381 PrintView.php:379
 msgid "Assigned Groups"
@@ -8106,7 +8116,7 @@ msgstr "Kirche Informationen"
 
 #: PersonView.php:871
 msgid "Modify Specific Properties"
-msgstr "Gruppenspezifische Einstellungen"
+msgstr " spezifische Eigenschaften Bearbeiten"
 
 #: PersonView.php:894
 msgid "Change Role"
@@ -8118,11 +8128,11 @@ msgstr "Eigenschaften aktualisieren"
 
 #: PersonView.php:984
 msgid "No volunteer opportunity assignments."
-msgstr "Keine ehrenamtlichen Tätigkeiten erfasst."
+msgstr "Keine Freiwilligen Tätigkeiten erfasst."
 
 #: PersonView.php:1038
 msgid "Assign a New Volunteer Opportunity"
-msgstr "Neue ehrenamtliche Aufgabe festlegen"
+msgstr "Neue Freiwillige Aufgabe festlegen"
 
 #: PersonView.php:1153
 msgid "Show"
@@ -8130,25 +8140,23 @@ msgstr "Zeigen"
 
 #: PersonView.php:1157
 msgid "All type"
-msgstr "Alle Menschen"
+msgstr "Alle Typen"
 
 #: PersonView.php:1162
 msgid "Shared documents"
-msgstr "Dokumente"
+msgstr "Gemeinsam Dokumente"
 
 #: PersonView.php:1180
 msgid "Update file"
-msgstr "Aktualisiert Familien"
+msgstr "Aktualisiert Datei"
 
 #: PersonView.php:1353
-#, fuzzy
 msgid "Please confirm deactivation of person"
-msgstr "Bitte bestätige die Deaktivierung der Familie"
+msgstr "Bitte bestätige die Person Deaktivierung"
 
 #: PersonView.php:1356
-#, fuzzy
 msgid "Please confirm activation of person"
-msgstr "Bitte bestätige die Aktivierung der Familie"
+msgstr "Bitte bestätige die Person Aktivierung"
 
 #: PledgeEditor.php:471
 msgid "Pledge Editor"
@@ -8168,7 +8176,7 @@ msgstr "mehr Einträge passen."
 
 #: PledgeEditor.php:500
 msgid "Payment Editor - Modify Existing Payment"
-msgstr "Zahlungseditor - Ändern existierender Zahlungen"
+msgstr "Zahlungseditor -  Existierender Zahlungen Bearbeiten"
 
 #: PledgeEditor.php:502
 msgid "Payment Editor - New Deposit Slip Will Be Created"
@@ -8275,7 +8283,7 @@ msgstr "Eingegeben:"
 
 #: PrintView.php:491
 msgid "Notes:"
-msgstr "Notizen:"
+msgstr "Hinweis:"
 
 #: PrintView.php:500
 msgid "Last Edited"
@@ -8402,7 +8410,7 @@ msgstr "Sonntagsschule"
 
 #: QueryList.php:17
 msgid "Query Listing"
-msgstr "Abfrageliste"
+msgstr "Query Liste"
 
 #: QueryList.php:32
 msgid "Run a Free-Text Query"
@@ -9080,7 +9088,7 @@ msgstr "Derzeitige Einstellung"
 
 #: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:695
 msgid "Notes"
-msgstr "Notizen"
+msgstr "Hinweise"
 
 #: SettingsIndividual.php:119 SettingsIndividual.php:168 SettingsUser.php:97
 #: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:781
@@ -9498,7 +9506,7 @@ msgstr "Profil for Aktual Benutzer Hinzufügen"
 
 #: UserEditor.php:496
 msgid "Note: Changes will not take effect until next logon."
-msgstr "Notiz: Änderungen werden erst bei dem nächsten Login wirksam."
+msgstr "Hinweis: Änderungen werden erst bei dem nächsten Login wirksam."
 
 #: UserEditor.php:510
 msgid "Person to Make User"
@@ -9565,19 +9573,16 @@ msgid "(Grants all privileges.)"
 msgstr "(Hat alle Rechte)"
 
 #: UserEditor.php:629
-#, fuzzy
 msgid "Main Dashboard"
 msgstr "Haupt Dashboard"
 
 #: UserEditor.php:632
-#, fuzzy
 msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
 msgstr "(Haupt Dashboard und Kalender sichtbar)"
 
 #: UserEditor.php:636
-#, fuzzy
 msgid "See Privacy Data"
-msgstr "Privat"
+msgstr "persönlichen Daten Sehen"
 
 #: UserEditor.php:639
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
@@ -9645,27 +9650,27 @@ msgstr "Nicht geändert werden"
 
 #: UserPasswordChange.php:54
 msgid "You must enter a password in both boxes"
-msgstr "Du musst ein Passwort in beide Felder eintragen"
+msgstr "Du musst ein Kennwort in beide Felder eintragen"
 
 #: UserPasswordChange.php:60 UserPasswordChange.php:115
 msgid "You must enter the same password in both boxes"
-msgstr "Du musst dasselbe Passwort in beide Felder eintragen"
+msgstr "Du musst dasselbe Kennwort in beide Felder eintragen"
 
 #: UserPasswordChange.php:103
 msgid "Invalid password"
-msgstr "Ungültiges Passwort"
+msgstr "Ungültiges Kennwort"
 
 #: UserPasswordChange.php:109
 msgid "You must enter your new password in both boxes"
-msgstr "Du musst ein neues Passwort in beide Felder eintragen"
+msgstr "Du musst ein neues Kennwort in beide Felder eintragen"
 
 #: UserPasswordChange.php:121
 msgid "Your password choice is too obvious. Please choose something else."
-msgstr "Dein Passwort ist zu offensichtlich. Such dir ein anderes aus."
+msgstr "Dein Kennwort ist zu offensichtlich. Such dir ein anderes aus."
 
 #: UserPasswordChange.php:127
 msgid "Your new password must be at least"
-msgstr "Dein neues Passwort muss mindestens"
+msgstr "Dein neues Kennwort muss mindestens"
 
 #: UserPasswordChange.php:127
 msgid "characters"
@@ -9673,15 +9678,15 @@ msgstr "Stellen haben"
 
 #: UserPasswordChange.php:133
 msgid "You need to actually change your password (nice try, though!)"
-msgstr "Du musst dein Passwort ändern (war aber ein guter Versuch!)"
+msgstr "Du musst dein Kennwort ändern (war aber ein guter Versuch!)"
 
 #: UserPasswordChange.php:136
 msgid "Your new password is too similar to your old one.  Be more creative!"
-msgstr "Das neue Passwort ist dem Alten zu ähnlich. Bitte etwas kreativer!"
+msgstr "Das neue Kennwort ist dem Alten zu ähnlich. Bitte etwas kreativer!"
 
 #: UserPasswordChange.php:166
 msgid "User Password Change"
-msgstr "Benutzerpasswort ändern"
+msgstr "BenutzerKennwort ändern"
 
 # UserPasswordChange.php
 #: UserPasswordChange.php:173
@@ -9693,7 +9698,7 @@ msgid ""
 "Your account record indicates that you need to change your password before "
 "proceding."
 msgstr ""
-"Deine Kontoaufzeichnung zeigt, dass du dein Passwort ändern musst bevor es "
+"Deine Kontoaufzeichnung zeigt, dass du dein Kennwort ändern musst bevor es "
 "weiter gehen kann."
 
 #: UserPasswordChange.php:186
@@ -9708,15 +9713,15 @@ msgstr "Stellen lang sein."
 
 #: UserPasswordChange.php:188
 msgid "Enter a new password for this user."
-msgstr "Gib ein neues Passwort für diesen Benutzer ein."
+msgstr "Gib ein neues Kennwort für diesen Benutzer ein."
 
 #: UserPasswordChange.php:199
 msgid "Old Password"
-msgstr "Altes Passwort"
+msgstr "Altes Kennwort"
 
 #: UserPasswordChange.php:209
 msgid "Confirm New Password"
-msgstr "Passwort bestätigen"
+msgstr "Kennwort bestätigen"
 
 #: USISTAddressVerification.php:46
 msgid "US Address Verification"
@@ -9738,7 +9743,7 @@ msgstr "Bestätige das Löschen von"
 
 #: VolunteerOpportunityEditor.php:98
 msgid "There are people assigned to this Volunteer Opportunity."
-msgstr "Neue ehrenamtliche Aufgabe festlegen:"
+msgstr "Neue Freiwillige Aufgabe festlegen:"
 
 #: VolunteerOpportunityEditor.php:99
 msgid "Volunteer Opportunity will be unassigned for the following people."
@@ -9746,7 +9751,7 @@ msgstr "Volunteer Opportunity für die folgenden Personen aufgehoben werden."
 
 #: VolunteerOpportunityEditor.php:108
 msgid "Yes, delete this Volunteer Opportunity"
-msgstr "Neue ehrenamtliche Aufgabe festlegen:"
+msgstr "Neue Freiwillige Aufgabe festlegen:"
 
 #: VolunteerOpportunityEditor.php:193
 msgid "Volunteer Opportunity Editor"
@@ -9761,7 +9766,7 @@ msgid ""
 "NOTE: ADD, Delete, and Ordering changes are immediate.  Changes to Name or "
 "Desc fields must be saved by pressing 'Save Changes'"
 msgstr ""
-"Anmerkung: Hinzufügen, Löschen Änderungen der Reihenfolge wirken sofort. "
+"Hinweis: Hinzufügen, Löschen Änderungen der Reihenfolge wirken sofort. "
 "Änderungen an Namen oder Beschreibungsfeldern müssen durch drücken der "
 "Speicherntaste gesichert werden."
 
@@ -9806,58 +9811,70 @@ msgid "English - United States"
 msgstr "USA"
 
 #: settings-locales.php:11
+msgid "French - Belgium"
+msgstr "Französisch (Belgium)"
+
+#: settings-locales.php:12
+msgid "French - Canada"
+msgstr "Französisch (Canada)"
+
+#: settings-locales.php:13
 msgid "French - France"
 msgstr "Französisch (Frankreich)"
 
-#: settings-locales.php:12
+#: settings-locales.php:14
+msgid "French - Swiss"
+msgstr "Französisch (Schweiz)"
+
+#: settings-locales.php:15
 msgid "German - Germany"
 msgstr "Deutsch (Deutschland)"
 
-#: settings-locales.php:13
+#: settings-locales.php:16
 msgid "Hungarian"
 msgstr "Ungarisch"
 
-#: settings-locales.php:14
+#: settings-locales.php:17
 msgid "Indonesian - Indonesia"
 msgstr "Rumänisch (Rumänien)"
 
-#: settings-locales.php:15
+#: settings-locales.php:18
 msgid "Italian - Italy"
 msgstr "Italienisch"
 
-#: settings-locales.php:16
+#: settings-locales.php:19
 msgid "Norwegian"
 msgstr "Norwegisch"
 
-#: settings-locales.php:17
+#: settings-locales.php:20
 msgid "Polish"
 msgstr "Polnisch"
 
-#: settings-locales.php:18
+#: settings-locales.php:21
 msgid "Portuguese - Brazil"
 msgstr "Portugiesisch (Brasilien)"
 
-#: settings-locales.php:19
+#: settings-locales.php:22
 msgid "Romanian - Romania"
 msgstr "Rumänisch (Rumänien)"
 
-#: settings-locales.php:20
+#: settings-locales.php:23
 msgid "Russian"
 msgstr "Russisch"
 
-#: settings-locales.php:21
+#: settings-locales.php:24
 msgid "Spanish - Spain"
 msgstr "Spanisch (Spanien)"
 
-#: settings-locales.php:22
+#: settings-locales.php:25
 msgid "Sami (Northern) (Sweden)"
 msgstr "Samisch (Schweden)"
 
-#: settings-locales.php:23
+#: settings-locales.php:26
 msgid "Thai"
 msgstr "Thailändisch"
 
-#: settings-locales.php:24
+#: settings-locales.php:27
 msgid "Vietnamese"
 msgstr "Vietnamesisch"
 
@@ -9924,24 +9941,22 @@ msgid "Enable sidebar expand on hover effect for sidebar mini"
 msgstr ""
 
 msgid "The sidebar is collapse by default"
-msgstr ""
+msgstr "Die sidebar standard reduzieren."
 
 msgid "Select the event to which you would like to add your cart"
-msgstr "Wähle die Veranstaltung aus zu der du den Korb hinzufügen willst"
+msgstr "Wähle die Ereignis aus zu der du den Korb hinzufügen willst"
 
 msgid "Credit Card People"
 msgstr "Kreditkarte"
 
 msgid "People who are configured to pay by credit card."
-msgstr ""
+msgstr "Menschen, die per Kreditkarte bezahlen wollen"
 
-#, fuzzy
 msgid "Person assigned to a group"
-msgstr "Kein Zugewiesen Manager"
+msgstr "Gruppe zugewiesene Person"
 
-#, fuzzy
 msgid "Returns all persons assigned to a group."
-msgstr "Kein Zugewiesen Manager"
+msgstr "Gibt alle zugewiesene Person in einer Gruppe"
 
 msgid "Person by Age"
 msgstr "Personen nach Alter"
@@ -9961,87 +9976,80 @@ msgstr "Personen nach Rolle und Geschlecht"
 msgid "Selects person records with the family role and gender specified."
 msgstr ""
 
-#, fuzzy
 msgid "Person not assigned to a group"
-msgstr "Kein Zugewiesen Manager"
+msgstr "Nicht Gruppe zugewiesene Person"
 
 msgid "Recent friends"
 msgstr "Neue Freunde"
 
 msgid "Friends who signed up in previous months"
-msgstr ""
+msgstr "Freunde der in den vergangenen Monaten unterzeichnet"
 
 msgid "Select all members"
 msgstr "Wähle alle Mitglieder"
 
-#, fuzzy
 msgid "People who are members"
-msgstr "Mitglieder"
+msgstr "Mitglieder menschen"
 
-#, fuzzy
 msgid "Families to Canvass"
-msgstr "Ok für die Aktion"
+msgstr "Familien zu prüfen"
 
 msgid "People in families that are ok to canvass."
-msgstr ""
+msgstr "Menschen in famielien die okay sind zum prüfen."
 
 msgid "Family Member Count"
-msgstr "Familienmitglieder"
+msgstr "Familienangehörigen Anzahl"
 
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 
-#, fuzzy
 msgid "Family Pledge by Fiscal Year"
-msgstr "Steuerjahr auswählen"
+msgstr "Geschäftsjahr Familien Versprechungen"
 
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
+"Familien Name Versprechungen Zusammenfassung für jeden Fonds für diese "
+"Steuerjahr"
 
 msgid "Birthdays"
 msgstr "Geburtstage"
 
 msgid "People with birthdays in a particular month"
-msgstr ""
+msgstr "Menschen Geburtstage in einem bestimmten Monat"
 
 msgid "Membership anniversaries"
 msgstr "Mitgliedschaftsjubiläum"
 
 msgid "Members who joined in a particular month"
-msgstr ""
+msgstr "Mitglieder die in einem bestimmten Monat beigetreten"
 
-#, fuzzy
 msgid "Missing pledges"
-msgstr "Vermisste Familie ?"
+msgstr "Vermisste Versprechungen"
 
-#, fuzzy
 msgid "Pledge comparison"
-msgstr "Summe der Zusagen"
+msgstr "Versprechungen Vergleich"
 
-#, fuzzy
 msgid "Registered students"
-msgstr "Registriere Deine Familie"
+msgstr "Registrierten Kursteilnehmer"
 
 msgid "Find Registered students"
-msgstr ""
+msgstr "Registrierten Kursteilnehmer finden"
 
 msgid "Select database users"
 msgstr "Wähle Datenbanknutzer"
 
-#, fuzzy
 msgid "People who are registered as database users"
-msgstr "Wähle alle Mitglieder"
+msgstr "Menschen die registriert sind als Datenbanknutzer"
 
 msgid "Volunteers"
 msgstr "Freiwillige"
 
-#, fuzzy
 msgid "Find volunteers for a particular opportunity"
-msgstr "Erste Freiwilligenarbeitwahl"
+msgstr "Freiwilligen für eine besondere Gelegenheit finden"
 
 msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
+msgstr "Freiwilligen für swei spezifischen Gelegenheit finden"
 
 msgid "Advanced Search"
 msgstr "Expertensuche"
@@ -10052,10 +10060,10 @@ msgid ""
 msgstr ""
 
 msgid "CustomSearch"
-msgstr ""
+msgstr "Benutzerdefinierte Suche"
 
 msgid "Find people with a custom field value"
-msgstr ""
+msgstr "Menschen mit ein benutzerdefiniertes Feld finden"
 
 msgid "Total By Gender"
 msgstr "Personen nach Geschlecht"
@@ -10063,9 +10071,8 @@ msgstr "Personen nach Geschlecht"
 msgid "Total of records matching a given gender."
 msgstr ""
 
-#, fuzzy
 msgid "Custom field"
-msgstr "Benutzerdefinierte Felder"
+msgstr "benutzerdefiniertes Feld"
 
 msgid "Choose customer person field"
 msgstr "Wähle ein spezielles Personenfeld"
@@ -10074,77 +10081,67 @@ msgid "Field value"
 msgstr "Feldwert"
 
 msgid "Match custom field to this value"
-msgstr ""
+msgstr "benutzerdefiniertes zu diesem Wert vergleich"
 
 msgid "The desired gender to search the database for."
 msgstr ""
 
-#, fuzzy
 msgid "Search"
-msgstr "März"
+msgstr "Suchen"
 
-#, fuzzy
 msgid "Field"
-msgstr "Feldwert"
+msgstr "Feld"
 
 msgid "Select field to search for."
-msgstr ""
+msgstr "Feld Wählen zu suchen für."
 
 msgid ""
 "Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
 "or Work Email."
 msgstr ""
 
-#, fuzzy
 msgid "Minimum Age"
-msgstr "Endpreis:"
+msgstr "Mindestalter"
 
-#, fuzzy
 msgid "Maximum Age"
-msgstr "Maximale Entfernung"
+msgstr "Höchstalter"
 
 msgid "The minimum age for which you want records returned."
-msgstr ""
+msgstr "Mindestalter dessen Informationen Sie anzeigen möchten."
 
 msgid "The maximum age for which you want records returned."
-msgstr ""
+msgstr "Höchstalter dessen Datensätze  Sie anzeigen möchten."
 
-#, fuzzy
 msgid "The property for which you would like person records returned."
-msgstr "Wähle die Gruppe aus zu der du den Korb hinzufügen willst"
+msgstr ""
+"Die Eigenschaft dem Sie für die Person Datensätze zurückgegebenen möchten."
 
-#, fuzzy
 msgid "Select the desired family role."
-msgstr "Wähle Familie:"
+msgstr "Wähle Sie den gewünschten Familien rolle."
 
-#, fuzzy
 msgid "The gender for which you would like records returned."
-msgstr "Wähle die Gruppe aus zu der du den Korb hinzufügen willst"
+msgstr "Die geschlecht dem Sie für Datensätze zurückgegebene möchten."
 
 msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
+msgstr "Gibt alle Personen die vor ein Jahresende geboren wurden."
 
-#, fuzzy
 msgid "Returns all the persons not assigned to a group."
-msgstr "Kein Zugewiesen Manager"
+msgstr "Kein Gruppe zugewiesene Person"
 
 msgid "Number of months since becoming a friend"
-msgstr ""
+msgstr "Anzahl der Monate seit Beginn einem Freund"
 
-#, fuzzy
 msgid "Months"
-msgstr "Monat"
+msgstr "Monaten"
 
-#, fuzzy
 msgid "No."
-msgstr "Nein"
+msgstr "Nu."
 
 msgid "Fiscal Year."
 msgstr "Geschäftsjahr."
 
-#, fuzzy
 msgid "The birthday month for which you would like records returned."
-msgstr "Wähle die Gruppe aus zu der du den Korb hinzufügen willst"
+msgstr "Geburstage Monat für die die Datensätze angezeigt werden"
 
 msgid "Member, Regular Attender, etc."
 msgstr "Mitglied, regelmäßiger Gast, etc."
@@ -10155,80 +10152,73 @@ msgid ""
 msgstr "Wähle die Gruppe aus zu der du den Korb hinzufügen willst"
 
 msgid "Find people who pledged one year but not another"
-msgstr ""
+msgstr "Menschen finde, die eine Jahre aber nicht eine andere versprochen haben"
 
-#, fuzzy
 msgid "First Fiscal Year"
-msgstr "Steuerjahr"
+msgstr "Erste Steuerjahr"
 
-#, fuzzy
 msgid "Pledged this year"
-msgstr "Diesen Eintrag löschen"
+msgstr "Versprechung für dieses Jahr"
 
 msgid "but not this year"
-msgstr ""
+msgstr "aber nicht für dieses Jahr"
 
 msgid "Compare pledges between two fiscal years"
-msgstr ""
+msgstr "Versprechung Vergleichen zwischen zwei Steuerjahr"
 
 msgid "First fiscal year for comparison"
-msgstr ""
+msgstr "Erste Steuerjahr zum Vergleich"
 
-#, fuzzy
 msgid "Second Fiscal Year"
-msgstr "Steuerjahr auswählen"
+msgstr "Zweiten Steuerjahr"
 
 msgid "Second fiscal year for comparison"
-msgstr ""
+msgstr "Zweiten Steuerjahr  zum Vergleich"
 
-#, fuzzy
 msgid "Group of registered students"
-msgstr "Registriere Deine Familie"
+msgstr "Registrierten Kursteilnehmer Gruppe"
 
-#, fuzzy
 msgid "Volunteer opportunities"
 msgstr "Möglichkeiten zur Freiwilligenarbeit"
 
-#, fuzzy
 msgid "Choose a volunteer opportunity"
-msgstr "Neue ehrenamtliche Aufgabe festlegen"
+msgstr "Neue Möglichkeiten zur Freiwilligenarbeit"
 
-#, fuzzy
 msgid "First volunteer opportunity choice"
-msgstr "Zweite Freiwilligenarbeitswahl"
+msgstr "Erste Möglichkeiten zur Freiwilligenarbeitswahl"
 
 msgid "Second volunteer opportunity choice"
-msgstr "Zweite Freiwilligenarbeitswahl"
+msgstr "Zweite Möglichkeiten zur Freiwilligenarbeitswahl"
 
-#, fuzzy
 msgid "There were "
-msgstr "Dort sind"
+msgstr "Es waren"
 
 msgid "pm"
-msgstr "pm"
+msgstr " "
 
 msgid "am"
-msgstr "abends"
+msgstr " "
 
-#, fuzzy
 msgid "Assign a New Property:"
-msgstr "Neue Eingenschaft festlegen"
+msgstr "Weisen Sie einen neuen Eigenschaften"
 
 msgid "Teacher"
 msgstr "Lehrer"
 
-#, fuzzy
 msgid "Student"
 msgstr "Studenten"
 
 msgid "CASH"
-msgstr ""
+msgstr "GELD"
 
 msgid "CHECK"
-msgstr ""
+msgstr "SCHECK"
 
 msgid "CHECKS"
-msgstr ""
+msgstr "SCHECKS"
+
+#~ msgid "Deposit totals nach Währung Type"
+#~ msgstr "Gesamten Einlagen nach Währung Typ"
 
 #, fuzzy
 #~ msgid "Deactivated the Person"
@@ -10248,7 +10238,7 @@ msgstr ""
 #~ msgstr "Filter"
 
 #~ msgid "Add Cart to Event"
-#~ msgstr "Korb zur Veranstaltung hinzufügen"
+#~ msgstr "Korb zur Ereignis hinzufügen"
 
 #~ msgid "OR"
 #~ msgstr "oder"
@@ -10286,16 +10276,16 @@ msgstr ""
 #~ msgstr "Es muss ein Eventtyp ausgewählt werden."
 
 #~ msgid "Event Desc"
-#~ msgstr "Veranstaltungsbeschreibung"
+#~ msgstr "Ereignissbeschreibung"
 
 #~ msgid "Attendance Notes: "
-#~ msgstr "Besucher Notizen:"
+#~ msgstr "Besucher Hinweise:"
 
 #~ msgid "Event Sermon"
 #~ msgstr "Predigt"
 
 #~ msgid "Event Status"
-#~ msgstr "Veranstaltungsstatus"
+#~ msgstr "Ereignissstatus"
 
 #~ msgid "Add All Family Members to Cart"
 #~ msgstr "Alle Familienmitglieder zum Korb hinzufügen"
@@ -10319,7 +10309,7 @@ msgstr ""
 #~ msgstr "Einzahlungsbeleg"
 
 #~ msgid "Text for Event ID: "
-#~ msgstr "Text für Veranstaltungs ID:"
+#~ msgstr "Text für Ereignisse ID:"
 
 #~ msgid "Person View"
 #~ msgstr "Person anzeigen"
@@ -10341,10 +10331,10 @@ msgstr ""
 #~ msgstr "Gruppenmitglieder hinzufügen: "
 
 #~ msgid "Note Editor"
-#~ msgstr "Notiz Editor"
+#~ msgstr "Hinweis Editor"
 
 #~ msgid "Edit \"Why Came\" Notes"
-#~ msgstr "Bearbeite Notizen zum Besuchsgrund:"
+#~ msgstr "Bearbeite Hinweise zum Besuchsgrund:"
 
 #~ msgid "Payment Editor: "
 #~ msgstr "Zahlungen Editor"
@@ -10383,7 +10373,7 @@ msgstr ""
 #~ msgstr "Bitte bestätige die Zurücksetzung des PW dieses Benutzers"
 
 #~ msgid "\"Why Came\" notes for "
-#~ msgstr "Anmerkungen zu \"Warum Kirchenbesuch\""
+#~ msgstr "Hinweis zu \"Warum Kirchenbesuch\""
 
 #~ msgid "Why did you come to the church?"
 #~ msgstr "Warum kommen sie in die Kirche?"

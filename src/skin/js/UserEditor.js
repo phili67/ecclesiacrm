@@ -275,7 +275,7 @@ function addProfilesToMainDropdown()
                     } else if (data && data.status=="error") {
                       bootbox.alert({
                           title:i18next.t("Error"),
-                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings yet exist !!!</center>"),
+                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings already exist !!!</center>"),
                           size: "small"
                       });
                     }

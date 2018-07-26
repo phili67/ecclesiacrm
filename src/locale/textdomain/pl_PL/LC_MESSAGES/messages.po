@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 09:26+0200\n"
+"POT-Creation-Date: 2018-07-24 23:01+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10400,58 +10400,70 @@ msgid "English - United States"
 msgstr ""
 
 #: settings-locales.php:11
-msgid "French - France"
+msgid "French - Belgium"
 msgstr ""
 
 #: settings-locales.php:12
-msgid "German - Germany"
+msgid "French - Canada"
 msgstr ""
 
 #: settings-locales.php:13
-msgid "Hungarian"
+msgid "French - France"
 msgstr ""
 
 #: settings-locales.php:14
-msgid "Indonesian - Indonesia"
+msgid "French - Swiss"
 msgstr ""
 
 #: settings-locales.php:15
-msgid "Italian - Italy"
+msgid "German - Germany"
 msgstr ""
 
 #: settings-locales.php:16
-msgid "Norwegian"
+msgid "Hungarian"
 msgstr ""
 
 #: settings-locales.php:17
-msgid "Polish"
+msgid "Indonesian - Indonesia"
 msgstr ""
 
 #: settings-locales.php:18
-msgid "Portuguese - Brazil"
+msgid "Italian - Italy"
 msgstr ""
 
 #: settings-locales.php:19
-msgid "Romanian - Romania"
+msgid "Norwegian"
 msgstr ""
 
 #: settings-locales.php:20
-msgid "Russian"
+msgid "Polish"
 msgstr ""
 
 #: settings-locales.php:21
-msgid "Spanish - Spain"
+msgid "Portuguese - Brazil"
 msgstr ""
 
 #: settings-locales.php:22
-msgid "Sami (Northern) (Sweden)"
+msgid "Romanian - Romania"
 msgstr ""
 
 #: settings-locales.php:23
-msgid "Thai"
+msgid "Russian"
 msgstr ""
 
 #: settings-locales.php:24
+msgid "Spanish - Spain"
+msgstr ""
+
+#: settings-locales.php:25
+msgid "Sami (Northern) (Sweden)"
+msgstr ""
+
+#: settings-locales.php:26
+msgid "Thai"
+msgstr ""
+
+#: settings-locales.php:27
 #, fuzzy
 msgid "Vietnamese"
 msgstr "Nazwa Zmiennej"

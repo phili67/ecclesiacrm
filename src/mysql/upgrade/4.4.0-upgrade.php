@@ -125,7 +125,7 @@ require '../../Include/Config.php';*/
   
   // upgrade languages
   switch (SystemConfig::getValue('sLanguage')) {
-    case 'fr_FR':
+    case 'fr_FR':case 'fr_BE':case 'fr_CH':case 'fr_CA':
        $sql = "INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
 (1, 'Note pastorale classique', '', 1),
 (2, 'Pourquoi êtes-vous venu à l\'église', '', 1),

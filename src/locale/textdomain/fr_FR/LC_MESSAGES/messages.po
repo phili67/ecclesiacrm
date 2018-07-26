@@ -1,9 +1,8 @@
 msgid ""
 msgstr ""
-
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 09:26+0200\n"
+"POT-Creation-Date: 2018-07-24 23:01+0200\n"
 "Language: fr-fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9951,58 +9950,70 @@ msgid "English - United States"
 msgstr "Anglais - USA"
 
 #: settings-locales.php:11
+msgid "French - Belgium"
+msgstr "Français - Belgique"
+
+#: settings-locales.php:12
+msgid "French - Canada"
+msgstr "Français - Canada"
+
+#: settings-locales.php:13
 msgid "French - France"
 msgstr "Français - France"
 
-#: settings-locales.php:12
+#: settings-locales.php:14
+msgid "French - Swiss"
+msgstr "Français - Suisse"
+
+#: settings-locales.php:15
 msgid "German - Germany"
 msgstr "Allemand - Allemagne"
 
-#: settings-locales.php:13
+#: settings-locales.php:16
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: settings-locales.php:14
+#: settings-locales.php:17
 msgid "Indonesian - Indonesia"
 msgstr "Indonésien - Indonésie"
 
-#: settings-locales.php:15
+#: settings-locales.php:18
 msgid "Italian - Italy"
 msgstr "Italien - Italie"
 
-#: settings-locales.php:16
+#: settings-locales.php:19
 msgid "Norwegian"
 msgstr "Norvégien"
 
-#: settings-locales.php:17
+#: settings-locales.php:20
 msgid "Polish"
 msgstr "Polonais"
 
-#: settings-locales.php:18
+#: settings-locales.php:21
 msgid "Portuguese - Brazil"
 msgstr "Portugais - Brésil"
 
-#: settings-locales.php:19
+#: settings-locales.php:22
 msgid "Romanian - Romania"
 msgstr "Roumain - Roumanie"
 
-#: settings-locales.php:20
+#: settings-locales.php:23
 msgid "Russian"
 msgstr "Russe"
 
-#: settings-locales.php:21
+#: settings-locales.php:24
 msgid "Spanish - Spain"
 msgstr "Espagnol - Espagne"
 
-#: settings-locales.php:22
+#: settings-locales.php:25
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (Northern) (Suède)"
 
-#: settings-locales.php:23
+#: settings-locales.php:26
 msgid "Thai"
 msgstr "Thai"
 
-#: settings-locales.php:24
+#: settings-locales.php:27
 msgid "Vietnamese"
 msgstr "Vietnamien"
 

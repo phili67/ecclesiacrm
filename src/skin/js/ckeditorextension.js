@@ -238,7 +238,7 @@
                   className : 'cke_dialog_ui_button_danger',
                   title: i18next.t("Delete the template you select"),
                   onClick: function() {
-                    var r = confirm(i18next.t("Are you sur to delete this template? This can't be undone."));
+                    var r = confirm(i18next.t("Are you sure to delete this template? This can't be undone."));
               
                     if (r == true && currentTemplateID > 0) {                
                       window.CRM.APIRequest({
@@ -345,7 +345,7 @@
                     }, {
                         id: "chkInsertOpt",
                         type: "checkbox",
-                        label: i18next.t("Replace actual contents"),
+                        label: i18next.t("Replace actual content"),
                         "default": true
                     }]
                 }]

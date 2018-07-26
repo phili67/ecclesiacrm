@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-07-23T12:29:22.635Z\n"
+"POT-Creation-Date: 2018-07-26T05:26:54.241Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -236,7 +236,8 @@ msgstr "Modifier le modèle sélectionné"
 msgid "Delete the template you select"
 msgstr "Supprimer modèle sélectionné"
 
-msgid "Are you sur to delete this template? This can't be undone."
+#, fuzzy
+msgid "Are you sure to delete this template? This can't be undone."
 msgstr ""
 "Etes-vous sûr de vouloir supprimer ce modèle ? Cette action ne peut être "
 "annulée."
@@ -244,7 +245,8 @@ msgstr ""
 msgid "OK"
 msgstr "OK"
 
-msgid "Replace actual contents"
+#, fuzzy
+msgid "Replace actual content"
 msgstr "Remplacer le contenu actuel"
 
 msgid "Manage templates"
@@ -1003,7 +1005,7 @@ msgstr "Choisissez votre nom du Profile"
 
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile "
-"settings yet exist !!!</center>"
+"settings already exist !!!</center>"
 msgstr ""
 "<center>Vous devriez choisir un autre Nom de Profile <br>-- or --<br> ou ces "
 "options de profiles existent déjà !!!</center>"
