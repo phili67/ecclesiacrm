@@ -45,7 +45,7 @@ $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
   </div>
   <div class="col-lg-5" align="right">
     <label>
-      <?= gettext("Number of groups:") ?>
+      <?= gettext("Groups count:") ?>
     </label>
     <span id="numberOfGroups"></span>
   </div>

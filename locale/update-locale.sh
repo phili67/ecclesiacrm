@@ -68,7 +68,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      
      # We start the merge 
      msgmerge -U JSONKeys_JS/${lang}/js-strings.po js-strings.po
-     msgmerge -U JSONKeys_JS/${lang}/js_extra.po JSONKeys_JS/js_extra.pot
+     msgmerge -U JSONKeys_JS/${lang}/js_extra.po js_extra.pot
      
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js-strings.po" -t "JSONKeys_JS/${lang}.json"
      i18next-conv -l fr -s "JSONKeys_JS/${lang}/js_extra.po" -t "JSONKeys_JS/${lang}/js_extra.json"

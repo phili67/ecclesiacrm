@@ -174,7 +174,7 @@ $("document").ready(function(){
        var end=moment().format('YYYY-MM-DD');
        
        var modal = bootbox.dialog({
-         title: i18next.t("Set the year range to export"),
+         title: i18next.t("Set year range to export"),
          message: BootboxContentCSV(start,end),
          buttons: [
           {
@@ -282,7 +282,7 @@ $("document").ready(function(){
        var end=moment().format('YYYY-MM-DD');
        
        var modal = bootbox.dialog({
-         title: i18next.t("Set the year range to export"),
+         title: i18next.t("Set year range to export"),
          message: BootboxContentPDF(start,end),
          buttons: [
           {

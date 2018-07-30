@@ -254,7 +254,7 @@ $(document).ready(function () {
          label: i18next.t("Delete"),
          className: "btn btn-warning",
          callback: function() {                        
-            bootbox.confirm(i18next.t("Are you sure, you want to delete this Person ?"), function(result){ 
+            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){ 
               if (result) {
                 $('#select-share-persons :selected').each(function(i, sel){ 
                   var personID = $(sel).val();
@@ -283,7 +283,7 @@ $(document).ready(function () {
          label: i18next.t("Stop sharing"),
          className: "btn btn-danger",
          callback: function() {
-          bootbox.confirm(i18next.t("Are you sure, you want to stop sharing your document ?"), function(result){ 
+          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){ 
             if (result) {
               window.CRM.APIRequest({
                  method: 'POST',

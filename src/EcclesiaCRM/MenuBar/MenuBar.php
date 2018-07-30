@@ -184,7 +184,7 @@ class MenuBar {
     private function createMenuBar ()
     {
       // home Area
-      $menu = new Menu (gettext("Personal area"),"fa fa-home","",true);
+      $menu = new Menu (gettext("Private Space"),"fa fa-home","",true);
 
         $menuItem = new Menu (gettext("Home"),"fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
         $menuItem = new Menu (gettext("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);

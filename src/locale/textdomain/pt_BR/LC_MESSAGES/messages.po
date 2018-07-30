@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 23:01+0200\n"
+"POT-Creation-Date: 2018-07-30 23:35+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -248,8 +248,11 @@ msgid "[👀 ✐]"
 msgstr ""
 
 #: api/routes/sharedocument.php:73 api/routes/sharedocument.php:105
-#: api/routes/sharedocument.php:139
 msgid "You can visualize it in your account, in the document tab."
+msgstr ""
+
+#: api/routes/sharedocument.php:139
+msgid "You can view it in your account, in the document tab."
 msgstr ""
 
 #: api/routes/userprofile.php:39 api/routes/userprofile.php:62
@@ -331,7 +334,7 @@ msgstr "Data"
 
 #: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:219
-#: sundayschool/SundaySchoolReports.php:222
+#: sundayschool/SundaySchoolReports.php:222 queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Ano fiscal"
 
@@ -383,6 +386,7 @@ msgstr "Sobrenome"
 #: CSVImport.php:215 DirectoryReports.php:241
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:692
 #: PersonEditor.php:931 PersonEditor.php:1023 Register.php:44
+#: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Cidade"
 
@@ -390,6 +394,7 @@ msgstr "Cidade"
 #: CSVImport.php:216 DirectoryReports.php:245
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:699
 #: PersonEditor.php:938 PersonEditor.php:1043 Register.php:45
+#: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Estado"
 
@@ -434,7 +439,7 @@ msgstr "Telefone"
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:293 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:247 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "e-mail"
 
@@ -925,6 +930,7 @@ msgstr "Adicionar Carrinho a uma Família"
 #: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:244
 #: UserList.php:50 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Nome"
 
@@ -986,7 +992,7 @@ msgstr "(Use a caixa de texto para paises diferentes de EUA e Canadá)"
 #: PersonEditor.php:1127 PersonEditor.php:1129 PersonList.php:70
 #: PersonView.php:372 PrintPastoralCare.php:203 PrintView.php:201
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Telefone residencial"
 
@@ -1125,12 +1131,12 @@ msgstr "Remover"
 #: CartView.php:319 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
 #: FamilyEditor.php:971 FinancialReports.php:116 OptionManager.php:95
 #: PeopleDashboard.php:352 PersonEditor.php:1301 PrintPastoralCare.php:313
-#: PrintView.php:311
+#: PrintView.php:311 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Classificação"
 
 #: CartView.php:320 CSVExport.php:163 CSVExport.php:284 OptionManager.php:88
-#: PrintPastoralCare.php:273 PrintView.php:271
+#: PrintPastoralCare.php:273 PrintView.php:271 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "Papel na Família"
@@ -1259,7 +1265,7 @@ msgstr "Listagem"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:966
 #: PersonEditor.php:719 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:240 PrintView.php:340
-#: sundayschool/SundaySchoolClassView.php:222
+#: sundayschool/SundaySchoolClassView.php:222 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Gênero"
 
@@ -1313,6 +1319,7 @@ msgstr "Retornar a Eventos"
 
 #: Checkin.php:801 Include/Functions.php:1186 PersonView.php:290
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Membro"
 
@@ -1437,7 +1444,7 @@ msgstr "Não use filtros"
 #: external/templates/registration/family-register-members.php:59
 #: FamilyEditor.php:1013 PersonEditor.php:725 PrintPastoralCare.php:248
 #: PrintPastoralCare.php:367 PrintView.php:246 PrintView.php:365
-#: SelectList.php:573 SelectList.php:1237
+#: SelectList.php:573 SelectList.php:1237 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Masculino"
 
@@ -1447,7 +1454,7 @@ msgstr "Masculino"
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1016 PersonEditor.php:728 PrintPastoralCare.php:251
 #: PrintPastoralCare.php:367 PrintView.php:249 PrintView.php:365
-#: SelectList.php:574 SelectList.php:1239
+#: SelectList.php:574 SelectList.php:1239 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Feminino"
 
@@ -1718,8 +1725,9 @@ msgstr "Aguardando depósito"
 msgid "Confirm Delete"
 msgstr "Confirma exclusão"
 
-#: DepositSlipEditor.php:268 FindDepositSlip.php:112
-msgid "Are you sure you want to delete the selected"
+#: DepositSlipEditor.php:268
+#, fuzzy
+msgid "Are you sure ? You're about to delete the selected"
 msgstr "Você tem certeza de que quer apagar o que foi selecionado"
 
 #: DepositSlipEditor.php:268
@@ -3123,7 +3131,7 @@ msgstr "Estes são os números de papíes famíliares designados como filhos"
 #: EcclesiaCRM/dto/SystemConfig.php:79
 #, fuzzy
 msgid ""
-"Session timeout length in seconds\rSet to zero to disable session timeouts."
+"Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 "Tempo limite de sessão em segundos Defina como zero para desativar o tempo "
 "limite da sessão."
@@ -3147,9 +3155,10 @@ msgid "Minimum length a user may set their password to"
 msgstr "O tamanho mínimo da senha de um usuário pode é"
 
 #: EcclesiaCRM/dto/SystemConfig.php:83
+#, fuzzy
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
-"characters changed)\rSet to zero to disable this feature"
+"characters changed). Set to zero to disable this feature"
 msgstr ""
 "Número mínimo de caracteres diferentes que uma nova senha deve ser diferente "
 "da anterior (número de caracteres alterado)\rDefina como zero para desativar "
@@ -3161,11 +3170,12 @@ msgstr ""
 "Uma lista separada por vírgulas não é permitida como senha (muito óbvio)."
 
 #: EcclesiaCRM/dto/SystemConfig.php:85
+#, fuzzy
 msgid ""
-"Maximum number of failed logins to allow before a user account is locked."
-"\rOnce the maximum has been reached, an administrator must re-enable the "
-"account.\rThis feature helps to protect against automated password guessing "
-"attacks.\rSet to zero to disable this feature."
+"Maximum number of failed logins to allow before a user account is locked.. "
+"Once the maximum has been reached, an administrator must re-enable the "
+"account.. This feature helps to protect against automated password guessing "
+"attacks.. Set to zero to disable this feature."
 msgstr ""
 "Número máximos de logins falhados antes da conta do usuário ser bloqueada.\r "
 "Uma vez que este número tenha sido alcançado, um administrador deve "
@@ -3174,8 +3184,9 @@ msgstr ""
 "desativar esse recurso."
 
 #: EcclesiaCRM/dto/SystemConfig.php:86
+#, fuzzy
 msgid ""
-"PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
+"PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 "Modo de manipulação de PDF.\r1 = Salvar o arquivo de diálogo\r2 = Abrir na "
 "janela atual do navegador"
@@ -3213,10 +3224,11 @@ msgid "SMTP Password"
 msgstr "Senha do SMTP"
 
 #: EcclesiaCRM/dto/SystemConfig.php:96
+#, fuzzy
 msgid ""
-"Unavailable person info inherited from assigned family for display?\rThis "
-"option causes certain info from a person's assigned family record to be"
-"\rdisplayed IF the corresponding info has NOT been entered for that person. "
+"Unavailable person info inherited from assigned family for display?. This "
+"option causes certain info from a person's assigned family record to be. "
+"displayed IF the corresponding info has NOT been entered for that person. "
 msgstr ""
 "Informação de pessoa indisponível herdada da família atribuída para exibição?"
 "\rEsta opção faz com que determinadas informações do registro familiar "
@@ -4055,8 +4067,8 @@ msgstr "Painel"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
 #, fuzzy
-msgid "Personal area"
-msgstr "Pessoal"
+msgid "Private Space"
+msgstr "Privado"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: external/templates/registration/family-register-members.php:95
@@ -4954,10 +4966,12 @@ msgid "Vanco ACH"
 msgstr "Vanco ACH"
 
 #: ElectronicPaymentList.php:210 FamilyEditor.php:968
+#: queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Mês"
 
 #: ElectronicPaymentList.php:211 FamilyEditor.php:970 Include/Functions.php:93
+#: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Ano"
 
@@ -6219,6 +6233,10 @@ msgid "Generate Deposit Slip for Selected Rows (PDF)"
 msgstr "Declarações para gerar Selecionado"
 
 #: FindDepositSlip.php:112
+msgid "Are you sure you want to delete the selected"
+msgstr "Você tem certeza de que quer apagar o que foi selecionado"
+
+#: FindDepositSlip.php:112
 msgid "Deposit(s)"
 msgstr "Depósito(s)"
 
@@ -6578,8 +6596,8 @@ msgstr "Mostrar tipo de grupo:"
 
 #: GroupList.php:48
 #, fuzzy
-msgid "Number of groups:"
-msgstr "Número de colunas"
+msgid "Groups count:"
+msgstr "Grupo de Funções"
 
 #: GroupList.php:66 GroupList.php:69
 msgid "Add New Group"
@@ -8630,6 +8648,7 @@ msgid "Age"
 msgstr "idade"
 
 #: PrintPastoralCare.php:432 PrintView.php:430 PropertyList.php:58
+#: queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Propriedade"
 
@@ -8757,7 +8776,7 @@ msgid "Property Type Editor"
 msgstr "Editor de tipo de propriedade"
 
 #: PropertyTypeEditor.php:85 PropertyTypeList.php:43
-#: sundayschool/SundaySchoolDashboard.php:165
+#: sundayschool/SundaySchoolDashboard.php:165 queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Classe"
 
@@ -10205,6 +10224,406 @@ msgstr ""
 msgid "Add New Opportunity"
 msgstr "Adicionar nova oportunidade"
 
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr "CEP"
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr "2012/2013"
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr "2013/2014"
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr "2014/2015"
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr "2015/2016"
+
+#: queryparameteroptions_qpo.php:14
+msgid "WorkEmail"
+msgstr "E-mail do trabalho"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr "Frequentador"
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr "Visitante"
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr "Não frequentador"
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr "Não frequentador (funcionários)"
+
+#: queryparameters_qrp.php:2
+msgid "Minimum Age"
+msgstr "Idade mínima"
+
+#: queryparameters_qrp.php:3
+msgid "Maximum Age"
+msgstr "Idade Máxima"
+
+#: queryparameters_qrp.php:7
+msgid "Beginning Date"
+msgstr "Data Inicial"
+
+#: queryparameters_qrp.php:8
+msgid "Ending Date"
+msgstr "Data Final"
+
+#: queryparameters_qrp.php:9
+msgid "Search"
+msgstr "Busca"
+
+#: queryparameters_qrp.php:10
+msgid "Field"
+msgstr "Campo"
+
+#: queryparameters_qrp.php:13 query_qry.php:9 query_qry.php:52
+msgid "Registered students"
+msgstr "Alunos Registrados"
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr "Oportunidades de Voluntariado"
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr "Meses"
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr "Primeiro Ano Fiscal"
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr "Segundo Ano Fiscal"
+
+#: queryparameters_qrp.php:21
+msgid "Custom field"
+msgstr "Campo personalizado"
+
+#: queryparameters_qrp.php:22
+msgid "Field value"
+msgstr "Valor do Campo "
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr "A idade mínima para a qual você deseja recuperar registros."
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr "A idade máxima para a qual você deseja recuperar registros."
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr "Gênero desejado para buscar no banco de dados:"
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr "Selecione o papel familiar desejado"
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr "Gênero do qual você deseja obter registros. "
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr "Propriedade da qual você deseja obter registros de pessoas."
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+"Por favor, escolha a data de início para calcular as contribuições totais "
+"para cada membro (isto é AAAA-MM-DD). NOTA: Você só pode escolher as datas "
+"que contenham doações."
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+"Por favor, indique a última data para calcular as contribuições totais para "
+"cada membro (isto é AAAA-MM-DD)."
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+"Entre qualquer parte de: Nome, Cidade, Estado, CEP, Telefone de casa, E-"
+"mail, ou E-mai de Trabalho."
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr "Selecione o campo para a busca."
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr "O mês de aniversário para o qual você deseja obter registros. "
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr "A classe da CD/UV da qual você gostaria de obter os registros."
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr "Grupo de alunos registrados"
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr ""
+"O mês de aniversários dos membros do qual você gostaria de obter os "
+"registros."
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr "Escolha uma oportunidade de voluntariado"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr "Número de meses desde que se tornou um amigo"
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr "Primeiro Ano Fiscal para comparação"
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr "Segundo  Ano Fiscal para comparação"
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr "Promessas deste ano"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr "mas não neste ano"
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr "Ano Fiscal."
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr "Membro, Frequentador, etc."
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr "Primeira escolha de oportunidade de voluntariado"
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr "Segunda escolha de oportunidade de voluntariado"
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr "Escolher campo personalizado das pessoas"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr "Casar campo personalizado com este valor"
+
+#: query_qry.php:2 query_qry.php:45
+msgid "Family Member Count"
+msgstr "Contador de Membro da Família"
+
+#: query_qry.php:3 query_qry.php:46
+msgid "Person by Age"
+msgstr "Pessoas por idade"
+
+#: query_qry.php:4 query_qry.php:47
+msgid "Total By Gender"
+msgstr "Total por Gênero"
+
+#: query_qry.php:5 query_qry.php:48
+msgid "Person by Role and Gender"
+msgstr "Pessoas por Papel e Gênero"
+
+#: query_qry.php:6 query_qry.php:49
+msgid "Person by Property"
+msgstr "Pessoas por Propriedade"
+
+#: query_qry.php:7 query_qry.php:50
+msgid "Advanced Search"
+msgstr "Busca Avançada"
+
+#: query_qry.php:8 query_qry.php:51
+msgid "Birthdays"
+msgstr "Aniversários"
+
+#: query_qry.php:10 query_qry.php:53
+msgid "Membership anniversaries"
+msgstr "Aniversários de membros"
+
+#: query_qry.php:11 query_qry.php:54
+msgid "Select database users"
+msgstr "Selecionar usuários do banco de dados"
+
+#: query_qry.php:12 query_qry.php:55
+msgid "Select all members"
+msgstr "Selecionar todos os membros"
+
+#: query_qry.php:13 query_qry.php:56
+msgid "Volunteers"
+msgstr "Voluntários"
+
+#: query_qry.php:14 query_qry.php:57
+msgid "Recent friends"
+msgstr "Amigos Recentes"
+
+#: query_qry.php:15 query_qry.php:58
+msgid "Families to Canvass"
+msgstr "Famílias para visitação"
+
+#: query_qry.php:16 query_qry.php:59
+msgid "Pledge comparison"
+msgstr "Comparação de Promessas"
+
+#: query_qry.php:17 query_qry.php:60
+#, fuzzy
+msgid "Missing pledges"
+msgstr "Promessas Perdidas"
+
+#: query_qry.php:18 query_qry.php:61
+msgid "Credit Card People"
+msgstr "Cartão de Crédito da Pessoa"
+
+#: query_qry.php:19 query_qry.php:62
+msgid "Family Pledge by Fiscal Year"
+msgstr "Promessas Familiares por Ano Fiscal"
+
+#: query_qry.php:20 query_qry.php:63
+#, fuzzy
+msgid "Person not assigned to a group"
+msgstr "Não atribuido"
+
+#: query_qry.php:21 query_qry.php:64
+#, fuzzy
+msgid "Person assigned to a group"
+msgstr "Não atribuido"
+
+#: query_qry.php:22 query_qry.php:65
+msgid "CustomSearch"
+msgstr "Busca Personalizada"
+
+#: query_qry.php:23 query_qry.php:66
+msgid "Returns each family and the total number of people assigned to them."
+msgstr "Retornar cada família e o total de pessoas atribuídas a elas."
+
+#: query_qry.php:24 query_qry.php:67
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+"Retornar qualquer registro de pessoas com idades entre as duas idades dadas."
+
+#: query_qry.php:25 query_qry.php:68
+msgid "Total of records matching a given gender."
+msgstr "Total de registros combinando com um dado gênero"
+
+#: query_qry.php:26 query_qry.php:69
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+"Selecionar registros pessoais com função familiar ou gênero especificados."
+
+#: query_qry.php:27 query_qry.php:70
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+"Selecionar registros pessoais com função familiar ou gênero especificados."
+
+#: query_qry.php:28 query_qry.php:71
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+"Buscar por qualquer parte do Nome, Cidade, Estado, CEP, Telefone "
+"Residencial, e-mail ou e-mail de serviço"
+
+#: query_qry.php:29 query_qry.php:72
+msgid "People with birthdays in a particular month"
+msgstr "Pessoas com aniversário em um mês em particular"
+
+#: query_qry.php:30 query_qry.php:73
+msgid "Find Registered students"
+msgstr "Encontrar alunos Registrados"
+
+#: query_qry.php:31 query_qry.php:74
+msgid "Members who joined in a particular month"
+msgstr "Membros que se juntaram em um mês particular"
+
+#: query_qry.php:32 query_qry.php:75
+msgid "People who are registered as database users"
+msgstr "Pessoas que são registradas como usuários do banco de dados"
+
+#: query_qry.php:33 query_qry.php:76
+msgid "People who are members"
+msgstr "Pessoas que são membros"
+
+#: query_qry.php:34 query_qry.php:77
+msgid "Find volunteers for a particular opportunity"
+msgstr "Procurar voluntários para um oportunidade em particular"
+
+#: query_qry.php:35 query_qry.php:78
+msgid "Friends who signed up in previous months"
+msgstr "Amigos que se inscreveram em meses anteriores"
+
+#: query_qry.php:36 query_qry.php:79
+msgid "People in families that are ok to canvass."
+msgstr "Pessoas em Famílias que aceitam visitação."
+
+#: query_qry.php:37 query_qry.php:80
+msgid "Compare pledges between two fiscal years"
+msgstr "Comparar promessas entre dois anos fiscais"
+
+#: query_qry.php:38 query_qry.php:81
+msgid "Find people who pledged one year but not another"
+msgstr "Encontrar pessoas que prometeram em um ano mas não no outro"
+
+#: query_qry.php:39 query_qry.php:82
+msgid "People who are configured to pay by credit card."
+msgstr "Pessoas que configuraram para pagar pelo cartão de crédito."
+
+#: query_qry.php:40 query_qry.php:83
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr "Resumo das promessas por nome de família por fundo por ano fiscal"
+
+#: query_qry.php:41 query_qry.php:84
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "Não atribuido"
+
+#: query_qry.php:42 query_qry.php:85
+#, fuzzy
+msgid "Returns all persons assigned to a group."
+msgstr "Não atribuido"
+
+#: query_qry.php:43 query_qry.php:86
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+"Encontrar voluntários que combinam com dois códigos específicos de "
+"oportunidades"
+
+#: query_qry.php:44 query_qry.php:87
+msgid "Find people with a custom field value"
+msgstr "Procurar pessoa com um valor de campo personalizado"
+
 #: settings-locales.php:2
 #, fuzzy
 msgid "Albanian"
@@ -10334,6 +10753,60 @@ msgstr "Tailandês"
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr "Permissão de usuário para mandar e-mails via mailto: links "
+
+#: userconfig_ucfg.php:3
+msgid "Delimiter to separate emails in mailto: links"
+msgstr "Delimitador para separar e-mails no mailto: links"
+
+#: userconfig_ucfg.php:4
+#, fuzzy
+msgid "User permission to export CSV files for the sunday school"
+msgstr "Permissão para o usuário exportar arquivos CSV"
+
+#: userconfig_ucfg.php:5
+#, fuzzy
+msgid "User permission to export PDF files for the sunday school"
+msgstr "Permissão para o usuário exportar arquivos CSV"
+
+#: userconfig_ucfg.php:6
+msgid "User permission to create directories"
+msgstr "Permissão para o usuário criar diretórios"
+
+#: userconfig_ucfg.php:7
+msgid "User permission to export CSV files"
+msgstr "Permissão para o usuário exportar arquivos CSV"
+
+#: userconfig_ucfg.php:8
+msgid "User permission to use IST Address Verification"
+msgstr "Permissão para o usuário usar verificação de endereço IST"
+
+#: userconfig_ucfg.php:9
+msgid "Allow to see ballon Help"
+msgstr ""
+
+#: userconfig_ucfg.php:10
+msgid "To export to another For european CharSet use ;"
+msgstr "Para exportar para outro formato europeu CharSet use ;"
+
+#: userconfig_ucfg.php:11
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+"O padrão é UTF-8, para conjunto de caracteres europeu use o Windows-1252, "
+"por exemplo, para o idioma francês."
+
+#: userconfig_ucfg.php:12
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+#: userconfig_ucfg.php:13
+msgid "The sidebar is collapse by default"
+msgstr ""
+
 #, fuzzy
 msgid "Jan"
 msgstr "e"
@@ -10368,310 +10841,6 @@ msgstr "Não"
 msgid "Dec"
 msgstr ""
 
-msgid "User permission to send email via mailto: links"
-msgstr "Permissão de usuário para mandar e-mails via mailto: links "
-
-#, fuzzy
-msgid "user permission to send email via mailto: links"
-msgstr "Permissão de usuário para mandar e-mails via mailto: links "
-
-#, fuzzy
-msgid "User permission to export CSV files for the sunday school"
-msgstr "Permissão para o usuário exportar arquivos CSV"
-
-#, fuzzy
-msgid "User permission to export PDF files for the sunday school"
-msgstr "Permissão para o usuário exportar arquivos CSV"
-
-msgid "User permission to create directories"
-msgstr "Permissão para o usuário criar diretórios"
-
-msgid "User permission to export CSV files"
-msgstr "Permissão para o usuário exportar arquivos CSV"
-
-msgid "User permission to use IST Address Verification"
-msgstr "Permissão para o usuário usar verificação de endereço IST"
-
-msgid "Allow to see ballon Help"
-msgstr ""
-
-msgid "To export to another For european CharSet use ;"
-msgstr "Para exportar para outro formato europeu CharSet use ;"
-
-msgid ""
-"Default is UTF-8, For european CharSet use Windows-1252 for example for "
-"French language."
-msgstr ""
-"O padrão é UTF-8, para conjunto de caracteres europeu use o Windows-1252, "
-"por exemplo, para o idioma francês."
-
-msgid "Enable sidebar expand on hover effect for sidebar mini"
-msgstr ""
-
-msgid "The sidebar is collapse by default"
-msgstr ""
-
-#, fuzzy
-msgid "Select the event to which you would like to add your cart"
-msgstr "Selecione o evento para o qual você gostaria de adicionar seu carrinho"
-
-msgid "Credit Card People"
-msgstr "Cartão de Crédito da Pessoa"
-
-msgid "People who are configured to pay by credit card."
-msgstr "Pessoas que configuraram para pagar pelo cartão de crédito."
-
-#, fuzzy
-msgid "Person assigned to a group"
-msgstr "Não atribuido"
-
-#, fuzzy
-msgid "Returns all persons assigned to a group."
-msgstr "Não atribuido"
-
-msgid "Person by Age"
-msgstr "Pessoas por idade"
-
-msgid "Returns any person records with ages between two given ages."
-msgstr ""
-"Retornar qualquer registro de pessoas com idades entre as duas idades dadas."
-
-msgid "Person by Property"
-msgstr "Pessoas por Propriedade"
-
-msgid "Returns person records which are assigned the given property."
-msgstr ""
-"Selecionar registros pessoais com função familiar ou gênero especificados."
-
-msgid "Person by Role and Gender"
-msgstr "Pessoas por Papel e Gênero"
-
-msgid "Selects person records with the family role and gender specified."
-msgstr ""
-"Selecionar registros pessoais com função familiar ou gênero especificados."
-
-#, fuzzy
-msgid "Person not assigned to a group"
-msgstr "Não atribuido"
-
-msgid "Recent friends"
-msgstr "Amigos Recentes"
-
-msgid "Friends who signed up in previous months"
-msgstr "Amigos que se inscreveram em meses anteriores"
-
-msgid "Select all members"
-msgstr "Selecionar todos os membros"
-
-msgid "People who are members"
-msgstr "Pessoas que são membros"
-
-msgid "Families to Canvass"
-msgstr "Famílias para visitação"
-
-msgid "People in families that are ok to canvass."
-msgstr "Pessoas em Famílias que aceitam visitação."
-
-msgid "Family Member Count"
-msgstr "Contador de Membro da Família"
-
-msgid "Returns each family and the total number of people assigned to them."
-msgstr "Retornar cada família e o total de pessoas atribuídas a elas."
-
-msgid "Family Pledge by Fiscal Year"
-msgstr "Promessas Familiares por Ano Fiscal"
-
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr "Resumo das promessas por nome de família por fundo por ano fiscal"
-
-msgid "Birthdays"
-msgstr "Aniversários"
-
-msgid "People with birthdays in a particular month"
-msgstr "Pessoas com aniversário em um mês em particular"
-
-msgid "Membership anniversaries"
-msgstr "Aniversários de membros"
-
-msgid "Members who joined in a particular month"
-msgstr "Membros que se juntaram em um mês particular"
-
-#, fuzzy
-msgid "Missing pledges"
-msgstr "Promessas Perdidas"
-
-msgid "Pledge comparison"
-msgstr "Comparação de Promessas"
-
-msgid "Registered students"
-msgstr "Alunos Registrados"
-
-msgid "Find Registered students"
-msgstr "Encontrar alunos Registrados"
-
-msgid "Select database users"
-msgstr "Selecionar usuários do banco de dados"
-
-msgid "People who are registered as database users"
-msgstr "Pessoas que são registradas como usuários do banco de dados"
-
-msgid "Volunteers"
-msgstr "Voluntários"
-
-msgid "Find volunteers for a particular opportunity"
-msgstr "Procurar voluntários para um oportunidade em particular"
-
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
-"Encontrar voluntários que combinam com dois códigos específicos de "
-"oportunidades"
-
-msgid "Advanced Search"
-msgstr "Busca Avançada"
-
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-"Buscar por qualquer parte do Nome, Cidade, Estado, CEP, Telefone "
-"Residencial, e-mail ou e-mail de serviço"
-
-msgid "CustomSearch"
-msgstr "Busca Personalizada"
-
-msgid "Find people with a custom field value"
-msgstr "Procurar pessoa com um valor de campo personalizado"
-
-msgid "Total By Gender"
-msgstr "Total por Gênero"
-
-msgid "Total of records matching a given gender."
-msgstr "Total de registros combinando com um dado gênero"
-
-msgid "Custom field"
-msgstr "Campo personalizado"
-
-msgid "Choose customer person field"
-msgstr "Escolher campo personalizado das pessoas"
-
-msgid "Field value"
-msgstr "Valor do Campo "
-
-msgid "Match custom field to this value"
-msgstr "Casar campo personalizado com este valor"
-
-msgid "The desired gender to search the database for."
-msgstr "Gênero desejado para buscar no banco de dados:"
-
-msgid "Search"
-msgstr "Busca"
-
-msgid "Field"
-msgstr "Campo"
-
-msgid "Select field to search for."
-msgstr "Selecione o campo para a busca."
-
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-"Entre qualquer parte de: Nome, Cidade, Estado, CEP, Telefone de casa, E-"
-"mail, ou E-mai de Trabalho."
-
-msgid "Minimum Age"
-msgstr "Idade mínima"
-
-msgid "Maximum Age"
-msgstr "Idade Máxima"
-
-msgid "The minimum age for which you want records returned."
-msgstr "A idade mínima para a qual você deseja recuperar registros."
-
-msgid "The maximum age for which you want records returned."
-msgstr "A idade máxima para a qual você deseja recuperar registros."
-
-msgid "The property for which you would like person records returned."
-msgstr "Propriedade da qual você deseja obter registros de pessoas."
-
-msgid "Select the desired family role."
-msgstr "Selecione o papel familiar desejado"
-
-msgid "The gender for which you would like records returned."
-msgstr "Gênero do qual você deseja obter registros. "
-
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
-
-#, fuzzy
-msgid "Returns all the persons not assigned to a group."
-msgstr "Não atribuido"
-
-msgid "Number of months since becoming a friend"
-msgstr "Número de meses desde que se tornou um amigo"
-
-msgid "Months"
-msgstr "Meses"
-
-#, fuzzy
-msgid "No."
-msgstr "Não"
-
-msgid "Fiscal Year."
-msgstr "Ano Fiscal."
-
-msgid "The birthday month for which you would like records returned."
-msgstr "O mês de aniversário para o qual você deseja obter registros. "
-
-msgid "Member, Regular Attender, etc."
-msgstr "Membro, Frequentador, etc."
-
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr ""
-"O mês de aniversários dos membros do qual você gostaria de obter os "
-"registros."
-
-msgid "Find people who pledged one year but not another"
-msgstr "Encontrar pessoas que prometeram em um ano mas não no outro"
-
-msgid "First Fiscal Year"
-msgstr "Primeiro Ano Fiscal"
-
-msgid "Pledged this year"
-msgstr "Promessas deste ano"
-
-msgid "but not this year"
-msgstr "mas não neste ano"
-
-msgid "Compare pledges between two fiscal years"
-msgstr "Comparar promessas entre dois anos fiscais"
-
-msgid "First fiscal year for comparison"
-msgstr "Primeiro Ano Fiscal para comparação"
-
-msgid "Second Fiscal Year"
-msgstr "Segundo Ano Fiscal"
-
-msgid "Second fiscal year for comparison"
-msgstr "Segundo  Ano Fiscal para comparação"
-
-msgid "Group of registered students"
-msgstr "Grupo de alunos registrados"
-
-msgid "Volunteer opportunities"
-msgstr "Oportunidades de Voluntariado"
-
-msgid "Choose a volunteer opportunity"
-msgstr "Escolha uma oportunidade de voluntariado"
-
-msgid "First volunteer opportunity choice"
-msgstr "Primeira escolha de oportunidade de voluntariado"
-
-msgid "Second volunteer opportunity choice"
-msgstr "Segunda escolha de oportunidade de voluntariado"
-
 #, fuzzy
 msgid "There were "
 msgstr "fazem"
@@ -10701,6 +10870,27 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Personal area"
+#~ msgstr "Pessoal"
+
+#, fuzzy
+#~ msgid "user permission to send email via mailto: links"
+#~ msgstr "Permissão de usuário para mandar e-mails via mailto: links "
+
+#, fuzzy
+#~ msgid "Select the event to which you would like to add your cart"
+#~ msgstr ""
+#~ "Selecione o evento para o qual você gostaria de adicionar seu carrinho"
+
+#, fuzzy
+#~ msgid "No."
+#~ msgstr "Não"
+
+#, fuzzy
+#~ msgid "Number of groups:"
+#~ msgstr "Número de colunas"
 
 #, fuzzy
 #~ msgid "Deactivated the Person"
@@ -10945,64 +11135,6 @@ msgstr ""
 
 #~ msgid "Add Church Event"
 #~ msgstr "Adicionar Evento da Igreja"
-
-#~ msgid "Zip Code"
-#~ msgstr "CEP"
-
-#~ msgid "2012/2013"
-#~ msgstr "2012/2013"
-
-#~ msgid "2013/2014"
-#~ msgstr "2013/2014"
-
-#~ msgid "2014/2015"
-#~ msgstr "2014/2015"
-
-#~ msgid "2015/2016"
-#~ msgstr "2015/2016"
-
-#~ msgid "WorkEmail"
-#~ msgstr "E-mail do trabalho"
-
-#~ msgid "Regular Attender"
-#~ msgstr "Frequentador"
-
-#~ msgid "Guest"
-#~ msgstr "Visitante"
-
-#~ msgid "Non-Attender"
-#~ msgstr "Não frequentador"
-
-#~ msgid "Non-Attender (staff)"
-#~ msgstr "Não frequentador (funcionários)"
-
-#~ msgid "Beginning Date"
-#~ msgstr "Data Inicial"
-
-#~ msgid "Ending Date"
-#~ msgstr "Data Final"
-
-#~ msgid ""
-#~ "Please select the beginning date to calculate total contributions for "
-#~ "each member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that "
-#~ "conatain donations."
-#~ msgstr ""
-#~ "Por favor, escolha a data de início para calcular as contribuições totais "
-#~ "para cada membro (isto é AAAA-MM-DD). NOTA: Você só pode escolher as "
-#~ "datas que contenham doações."
-
-#~ msgid ""
-#~ "Please enter the last date to calculate total contributions for each "
-#~ "member (i.e. YYYY-MM-DD)."
-#~ msgstr ""
-#~ "Por favor, indique a última data para calcular as contribuições totais "
-#~ "para cada membro (isto é AAAA-MM-DD)."
-
-#~ msgid "The sunday school class for which you would like records returned."
-#~ msgstr "A classe da CD/UV da qual você gostaria de obter os registros."
-
-#~ msgid "Delimiter to separate emails in mailto: links"
-#~ msgstr "Delimitador para separar e-mails no mailto: links"
 
 #~ msgid "Allow user to add new event"
 #~ msgstr "Permite ao usuário adicionar um novo evento"

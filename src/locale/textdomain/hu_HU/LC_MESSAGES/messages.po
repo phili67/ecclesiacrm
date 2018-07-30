@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 23:01+0200\n"
+"POT-Creation-Date: 2018-07-30 23:35+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -252,8 +252,11 @@ msgid "[👀 ✐]"
 msgstr ""
 
 #: api/routes/sharedocument.php:73 api/routes/sharedocument.php:105
-#: api/routes/sharedocument.php:139
 msgid "You can visualize it in your account, in the document tab."
+msgstr ""
+
+#: api/routes/sharedocument.php:139
+msgid "You can view it in your account, in the document tab."
 msgstr ""
 
 #: api/routes/userprofile.php:39 api/routes/userprofile.php:62
@@ -337,7 +340,7 @@ msgstr "Dátum"
 
 #: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:219
-#: sundayschool/SundaySchoolReports.php:222
+#: sundayschool/SundaySchoolReports.php:222 queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Költségvetési év"
 
@@ -389,6 +392,7 @@ msgstr "Vezetéknév"
 #: CSVImport.php:215 DirectoryReports.php:241
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:692
 #: PersonEditor.php:931 PersonEditor.php:1023 Register.php:44
+#: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "City"
 
@@ -396,6 +400,7 @@ msgstr "City"
 #: CSVImport.php:216 DirectoryReports.php:245
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:699
 #: PersonEditor.php:938 PersonEditor.php:1043 Register.php:45
+#: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Állami"
 
@@ -440,7 +445,7 @@ msgstr "Telefon"
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:293 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:247 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -916,6 +921,7 @@ msgstr "Add kosárba Family"
 #: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:244
 #: UserList.php:50 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Név"
 
@@ -977,7 +983,7 @@ msgstr "(Használja a szövegdobozba a más országokban, mint az USA és Kanada
 #: PersonEditor.php:1127 PersonEditor.php:1129 PersonList.php:70
 #: PersonView.php:372 PrintPastoralCare.php:203 PrintView.php:201
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Otthoni telefon"
 
@@ -1116,12 +1122,12 @@ msgstr "Eltávolít"
 #: CartView.php:319 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
 #: FamilyEditor.php:971 FinancialReports.php:116 OptionManager.php:95
 #: PeopleDashboard.php:352 PersonEditor.php:1301 PrintPastoralCare.php:313
-#: PrintView.php:311
+#: PrintView.php:311 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Besorolás"
 
 #: CartView.php:320 CSVExport.php:163 CSVExport.php:284 OptionManager.php:88
-#: PrintPastoralCare.php:273 PrintView.php:271
+#: PrintPastoralCare.php:273 PrintView.php:271 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "Család Szerep"
@@ -1258,7 +1264,7 @@ msgstr "Felhasználó Listing"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:966
 #: PersonEditor.php:719 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:240 PrintView.php:340
-#: sundayschool/SundaySchoolClassView.php:222
+#: sundayschool/SundaySchoolClassView.php:222 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Nemek"
 
@@ -1313,6 +1319,7 @@ msgstr "Vissza a Lekérdezés menü"
 
 #: Checkin.php:801 Include/Functions.php:1186 PersonView.php:290
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Tag"
 
@@ -1440,7 +1447,7 @@ msgstr "Ne Szűrés"
 #: external/templates/registration/family-register-members.php:59
 #: FamilyEditor.php:1013 PersonEditor.php:725 PrintPastoralCare.php:248
 #: PrintPastoralCare.php:367 PrintView.php:246 PrintView.php:365
-#: SelectList.php:573 SelectList.php:1237
+#: SelectList.php:573 SelectList.php:1237 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Férfi"
 
@@ -1450,7 +1457,7 @@ msgstr "Férfi"
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1016 PersonEditor.php:728 PrintPastoralCare.php:251
 #: PrintPastoralCare.php:367 PrintView.php:249 PrintView.php:365
-#: SelectList.php:574 SelectList.php:1239
+#: SelectList.php:574 SelectList.php:1239 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Női"
 
@@ -1732,9 +1739,9 @@ msgstr "Befizetési Listing"
 msgid "Confirm Delete"
 msgstr "Törlés megerősítése"
 
-#: DepositSlipEditor.php:268 FindDepositSlip.php:112
+#: DepositSlipEditor.php:268
 #, fuzzy
-msgid "Are you sure you want to delete the selected"
+msgid "Are you sure ? You're about to delete the selected"
 msgstr "Biztos benne, hogy törölni szeretné ezt az alapot?"
 
 #: DepositSlipEditor.php:268
@@ -3143,7 +3150,7 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:79
 msgid ""
-"Session timeout length in seconds\rSet to zero to disable session timeouts."
+"Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:80
@@ -3163,7 +3170,7 @@ msgstr ""
 #: EcclesiaCRM/dto/SystemConfig.php:83
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
-"characters changed)\rSet to zero to disable this feature"
+"characters changed). Set to zero to disable this feature"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:84
@@ -3172,15 +3179,15 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:85
 msgid ""
-"Maximum number of failed logins to allow before a user account is locked."
-"\rOnce the maximum has been reached, an administrator must re-enable the "
-"account.\rThis feature helps to protect against automated password guessing "
-"attacks.\rSet to zero to disable this feature."
+"Maximum number of failed logins to allow before a user account is locked.. "
+"Once the maximum has been reached, an administrator must re-enable the "
+"account.. This feature helps to protect against automated password guessing "
+"attacks.. Set to zero to disable this feature."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:86
 msgid ""
-"PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
+"PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:87
@@ -3219,9 +3226,9 @@ msgstr "Jelszó"
 
 #: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
-"Unavailable person info inherited from assigned family for display?\rThis "
-"option causes certain info from a person's assigned family record to be"
-"\rdisplayed IF the corresponding info has NOT been entered for that person. "
+"Unavailable person info inherited from assigned family for display?. This "
+"option causes certain info from a person's assigned family record to be. "
+"displayed IF the corresponding info has NOT been entered for that person. "
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:100
@@ -4047,8 +4054,8 @@ msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
 #, fuzzy
-msgid "Personal area"
-msgstr "Personal Email"
+msgid "Private Space"
+msgstr "Magán"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: external/templates/registration/family-register-members.php:95
@@ -4981,10 +4988,12 @@ msgid "Vanco ACH"
 msgstr ""
 
 #: ElectronicPaymentList.php:210 FamilyEditor.php:968
+#: queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Hónap"
 
 #: ElectronicPaymentList.php:211 FamilyEditor.php:970 Include/Functions.php:93
+#: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Év"
 
@@ -6289,6 +6298,11 @@ msgstr "Létrehoz kimutatásokhoz Kiválasztott"
 
 #: FindDepositSlip.php:112
 #, fuzzy
+msgid "Are you sure you want to delete the selected"
+msgstr "Biztos benne, hogy törölni szeretné ezt az alapot?"
+
+#: FindDepositSlip.php:112
+#, fuzzy
 msgid "Deposit(s)"
 msgstr "Letét"
 
@@ -6646,8 +6660,8 @@ msgstr "Típusa Csoport"
 
 #: GroupList.php:48
 #, fuzzy
-msgid "Number of groups:"
-msgstr "Oszlopok száma"
+msgid "Groups count:"
+msgstr "Group Listing"
 
 #: GroupList.php:66 GroupList.php:69
 #, fuzzy
@@ -8749,6 +8763,7 @@ msgid "Age"
 msgstr "Életkor"
 
 #: PrintPastoralCare.php:432 PrintView.php:430 PropertyList.php:58
+#: queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Ingatlan"
 
@@ -8876,7 +8891,7 @@ msgid "Property Type Editor"
 msgstr "Ingatlan típusa szerkesztő"
 
 #: PropertyTypeEditor.php:85 PropertyTypeList.php:43
-#: sundayschool/SundaySchoolDashboard.php:165
+#: sundayschool/SundaySchoolDashboard.php:165 queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Osztály"
 
@@ -10365,6 +10380,437 @@ msgstr ""
 msgid "Add New Opportunity"
 msgstr "Új Opportunity"
 
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:14
+#, fuzzy
+msgid "WorkEmail"
+msgstr "Munka / Egyéb Email"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:17
+#, fuzzy
+msgid "Guest"
+msgstr "Vendégek"
+
+#: queryparameteroptions_qpo.php:18
+#, fuzzy
+msgid "Non-Attender"
+msgstr "Nem Résztvevő tagok"
+
+#: queryparameteroptions_qpo.php:19
+#, fuzzy
+msgid "Non-Attender (staff)"
+msgstr "Nem Résztvevő tagok"
+
+#: queryparameters_qrp.php:2
+#, fuzzy
+msgid "Minimum Age"
+msgstr "Minimum ár"
+
+#: queryparameters_qrp.php:3
+#, fuzzy
+msgid "Maximum Age"
+msgstr "Maximális távolság"
+
+#: queryparameters_qrp.php:7
+#, fuzzy
+msgid "Beginning Date"
+msgstr "Wedding Date"
+
+#: queryparameters_qrp.php:8
+#, fuzzy
+msgid "Ending Date"
+msgstr "Wedding Date"
+
+#: queryparameters_qrp.php:9
+#, fuzzy
+msgid "Search"
+msgstr "Március"
+
+#: queryparameters_qrp.php:10
+#, fuzzy
+msgid "Field"
+msgstr "Becsült érték"
+
+#: queryparameters_qrp.php:13 query_qry.php:9 query_qry.php:52
+#, fuzzy
+msgid "Registered students"
+msgstr "Extra Hallgatók"
+
+#: queryparameters_qrp.php:14
+#, fuzzy
+msgid "Volunteer opportunities"
+msgstr "Önkéntes Opportunity szerkesztő"
+
+#: queryparameters_qrp.php:15
+#, fuzzy
+msgid "Months"
+msgstr "Hónap"
+
+#: queryparameters_qrp.php:16
+#, fuzzy
+msgid "First Fiscal Year"
+msgstr "Költségvetési év"
+
+#: queryparameters_qrp.php:17
+#, fuzzy
+msgid "Second Fiscal Year"
+msgstr "Válassza a pénzügyi év"
+
+#: queryparameters_qrp.php:21
+#, fuzzy
+msgid "Custom field"
+msgstr "Egyéni mezők"
+
+#: queryparameters_qrp.php:22
+#, fuzzy
+msgid "Field value"
+msgstr "Becsült érték"
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr ""
+
+#: queryparameters_qrp.php:26
+#, fuzzy
+msgid "Select the desired family role."
+msgstr "Válassza Család:"
+
+#: queryparameters_qrp.php:27
+#, fuzzy
+msgid "The gender for which you would like records returned."
+msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
+
+#: queryparameters_qrp.php:28
+#, fuzzy
+msgid "The property for which you would like person records returned."
+msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr ""
+
+#: queryparameters_qrp.php:33
+#, fuzzy
+msgid "The birthday month for which you would like records returned."
+msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
+
+#: queryparameters_qrp.php:34
+#, fuzzy
+msgid "The sunday school class for which you would like records returned."
+msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
+
+#: queryparameters_qrp.php:35
+#, fuzzy
+msgid "Group of registered students"
+msgstr "Extra Hallgatók"
+
+#: queryparameters_qrp.php:36
+#, fuzzy
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
+
+#: queryparameters_qrp.php:37
+#, fuzzy
+msgid "Choose a volunteer opportunity"
+msgstr "Rendelni egy új Önkéntes lehetőség"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr ""
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:41
+#, fuzzy
+msgid "Pledged this year"
+msgstr "Rekord törlése"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr ""
+
+#: queryparameters_qrp.php:43
+#, fuzzy
+msgid "Fiscal Year."
+msgstr "Költségvetési év"
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr ""
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+#: queryparameters_qrp.php:46
+#, fuzzy
+msgid "First volunteer opportunity choice"
+msgstr "Önkéntes Opportunity szerkesztő"
+
+#: queryparameters_qrp.php:47
+#, fuzzy
+msgid "Second volunteer opportunity choice"
+msgstr "Önkéntes Opportunity szerkesztő"
+
+#: queryparameters_qrp.php:48
+#, fuzzy
+msgid "Choose customer person field"
+msgstr "Egyéni Személy mezők"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr ""
+
+#: query_qry.php:2 query_qry.php:45
+#, fuzzy
+msgid "Family Member Count"
+msgstr "Családtagok"
+
+#: query_qry.php:3 query_qry.php:46
+#, fuzzy
+msgid "Person by Age"
+msgstr "Személy"
+
+#: query_qry.php:4 query_qry.php:47
+#, fuzzy
+msgid "Total By Gender"
+msgstr "Válassza a nemek"
+
+#: query_qry.php:5 query_qry.php:48
+#, fuzzy
+msgid "Person by Role and Gender"
+msgstr "Válassza a nemek"
+
+#: query_qry.php:6 query_qry.php:49
+#, fuzzy
+msgid "Person by Property"
+msgstr "Személy"
+
+#: query_qry.php:7 query_qry.php:50
+msgid "Advanced Search"
+msgstr ""
+
+#: query_qry.php:8 query_qry.php:51
+#, fuzzy
+msgid "Birthdays"
+msgstr "Születésnap"
+
+#: query_qry.php:10 query_qry.php:53
+#, fuzzy
+msgid "Membership anniversaries"
+msgstr "Tagsági Date"
+
+#: query_qry.php:11 query_qry.php:54
+#, fuzzy
+msgid "Select database users"
+msgstr "Gyártó Data File"
+
+#: query_qry.php:12 query_qry.php:55
+#, fuzzy
+msgid "Select all members"
+msgstr "Az összes,"
+
+#: query_qry.php:13 query_qry.php:56
+#, fuzzy
+msgid "Volunteers"
+msgstr "Önkéntes Opportunity szerkesztő"
+
+#: query_qry.php:14 query_qry.php:57
+#, fuzzy
+msgid "Recent friends"
+msgstr "By Nemrég Szerkesztett"
+
+#: query_qry.php:15 query_qry.php:58
+#, fuzzy
+msgid "Families to Canvass"
+msgstr "Ok To korteskedés"
+
+#: query_qry.php:16 query_qry.php:59
+#, fuzzy
+msgid "Pledge comparison"
+msgstr "Pledge Összefoglaló"
+
+#: query_qry.php:17 query_qry.php:60
+#, fuzzy
+msgid "Missing pledges"
+msgstr "Szomszéd családok"
+
+#: query_qry.php:18 query_qry.php:61
+#, fuzzy
+msgid "Credit Card People"
+msgstr "Hitelkártya"
+
+#: query_qry.php:19 query_qry.php:62
+#, fuzzy
+msgid "Family Pledge by Fiscal Year"
+msgstr "Válassza a pénzügyi év"
+
+#: query_qry.php:20 query_qry.php:63
+#, fuzzy
+msgid "Person not assigned to a group"
+msgstr "Nincs hozzárendelve"
+
+#: query_qry.php:21 query_qry.php:64
+#, fuzzy
+msgid "Person assigned to a group"
+msgstr "Nincs hozzárendelve"
+
+#: query_qry.php:22 query_qry.php:65
+msgid "CustomSearch"
+msgstr ""
+
+#: query_qry.php:23 query_qry.php:66
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+#: query_qry.php:24 query_qry.php:67
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+#: query_qry.php:25 query_qry.php:68
+msgid "Total of records matching a given gender."
+msgstr ""
+
+#: query_qry.php:26 query_qry.php:69
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+#: query_qry.php:27 query_qry.php:70
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+#: query_qry.php:28 query_qry.php:71
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+
+#: query_qry.php:29 query_qry.php:72
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+#: query_qry.php:30 query_qry.php:73
+msgid "Find Registered students"
+msgstr ""
+
+#: query_qry.php:31 query_qry.php:74
+msgid "Members who joined in a particular month"
+msgstr ""
+
+#: query_qry.php:32 query_qry.php:75
+#, fuzzy
+msgid "People who are registered as database users"
+msgstr "Az összes,"
+
+#: query_qry.php:33 query_qry.php:76
+#, fuzzy
+msgid "People who are members"
+msgstr "Az összes,"
+
+#: query_qry.php:34 query_qry.php:77
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+#: query_qry.php:35 query_qry.php:78
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+#: query_qry.php:36 query_qry.php:79
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+#: query_qry.php:37 query_qry.php:80
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+#: query_qry.php:38 query_qry.php:81
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+#: query_qry.php:39 query_qry.php:82
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+#: query_qry.php:40 query_qry.php:83
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+#: query_qry.php:41 query_qry.php:84
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "Nincs hozzárendelve"
+
+#: query_qry.php:42 query_qry.php:85
+#, fuzzy
+msgid "Returns all persons assigned to a group."
+msgstr "Nincs hozzárendelve"
+
+#: query_qry.php:43 query_qry.php:86
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+#: query_qry.php:44 query_qry.php:87
+msgid "Find people with a custom field value"
+msgstr ""
+
 #: settings-locales.php:2
 msgid "Albanian"
 msgstr ""
@@ -10470,6 +10916,58 @@ msgstr ""
 msgid "Vietnamese"
 msgstr "Változó neve"
 
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr ""
+
+#: userconfig_ucfg.php:3
+#, fuzzy
+msgid "Delimiter to separate emails in mailto: links"
+msgstr "USA Address Verification"
+
+#: userconfig_ucfg.php:4
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:5
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:6
+msgid "User permission to create directories"
+msgstr ""
+
+#: userconfig_ucfg.php:7
+msgid "User permission to export CSV files"
+msgstr ""
+
+#: userconfig_ucfg.php:8
+#, fuzzy
+msgid "User permission to use IST Address Verification"
+msgstr "USA Address Verification"
+
+#: userconfig_ucfg.php:9
+msgid "Allow to see ballon Help"
+msgstr ""
+
+#: userconfig_ucfg.php:10
+msgid "To export to another For european CharSet use ;"
+msgstr ""
+
+#: userconfig_ucfg.php:11
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+
+#: userconfig_ucfg.php:12
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+#: userconfig_ucfg.php:13
+msgid "The sidebar is collapse by default"
+msgstr ""
+
 #, fuzzy
 msgid "Jan"
 msgstr "és"
@@ -10504,336 +11002,6 @@ msgstr "Nincs"
 msgid "Dec"
 msgstr "Déc"
 
-msgid "User permission to send email via mailto: links"
-msgstr ""
-
-#, fuzzy
-msgid "user permission to send email via mailto: links"
-msgstr "USA Address Verification"
-
-msgid "User permission to export CSV files for the sunday school"
-msgstr ""
-
-msgid "User permission to export PDF files for the sunday school"
-msgstr ""
-
-msgid "User permission to create directories"
-msgstr ""
-
-msgid "User permission to export CSV files"
-msgstr ""
-
-#, fuzzy
-msgid "User permission to use IST Address Verification"
-msgstr "USA Address Verification"
-
-msgid "Allow to see ballon Help"
-msgstr ""
-
-msgid "To export to another For european CharSet use ;"
-msgstr ""
-
-msgid ""
-"Default is UTF-8, For european CharSet use Windows-1252 for example for "
-"French language."
-msgstr ""
-
-msgid "Enable sidebar expand on hover effect for sidebar mini"
-msgstr ""
-
-msgid "The sidebar is collapse by default"
-msgstr ""
-
-#, fuzzy
-msgid "Select the event to which you would like to add your cart"
-msgstr "Válassza ki az eseményt, amelyre szeretné felvenni a kosárba"
-
-#, fuzzy
-msgid "Credit Card People"
-msgstr "Hitelkártya"
-
-msgid "People who are configured to pay by credit card."
-msgstr ""
-
-#, fuzzy
-msgid "Person assigned to a group"
-msgstr "Nincs hozzárendelve"
-
-#, fuzzy
-msgid "Returns all persons assigned to a group."
-msgstr "Nincs hozzárendelve"
-
-#, fuzzy
-msgid "Person by Age"
-msgstr "Személy"
-
-msgid "Returns any person records with ages between two given ages."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Property"
-msgstr "Személy"
-
-msgid "Returns person records which are assigned the given property."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Role and Gender"
-msgstr "Válassza a nemek"
-
-msgid "Selects person records with the family role and gender specified."
-msgstr ""
-
-#, fuzzy
-msgid "Person not assigned to a group"
-msgstr "Nincs hozzárendelve"
-
-#, fuzzy
-msgid "Recent friends"
-msgstr "By Nemrég Szerkesztett"
-
-msgid "Friends who signed up in previous months"
-msgstr ""
-
-#, fuzzy
-msgid "Select all members"
-msgstr "Az összes,"
-
-#, fuzzy
-msgid "People who are members"
-msgstr "Az összes,"
-
-#, fuzzy
-msgid "Families to Canvass"
-msgstr "Ok To korteskedés"
-
-msgid "People in families that are ok to canvass."
-msgstr ""
-
-#, fuzzy
-msgid "Family Member Count"
-msgstr "Családtagok"
-
-msgid "Returns each family and the total number of people assigned to them."
-msgstr ""
-
-#, fuzzy
-msgid "Family Pledge by Fiscal Year"
-msgstr "Válassza a pénzügyi év"
-
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr ""
-
-#, fuzzy
-msgid "Birthdays"
-msgstr "Születésnap"
-
-msgid "People with birthdays in a particular month"
-msgstr ""
-
-#, fuzzy
-msgid "Membership anniversaries"
-msgstr "Tagsági Date"
-
-msgid "Members who joined in a particular month"
-msgstr ""
-
-#, fuzzy
-msgid "Missing pledges"
-msgstr "Szomszéd családok"
-
-#, fuzzy
-msgid "Pledge comparison"
-msgstr "Pledge Összefoglaló"
-
-#, fuzzy
-msgid "Registered students"
-msgstr "Extra Hallgatók"
-
-msgid "Find Registered students"
-msgstr ""
-
-#, fuzzy
-msgid "Select database users"
-msgstr "Gyártó Data File"
-
-#, fuzzy
-msgid "People who are registered as database users"
-msgstr "Az összes,"
-
-#, fuzzy
-msgid "Volunteers"
-msgstr "Önkéntes Opportunity szerkesztő"
-
-msgid "Find volunteers for a particular opportunity"
-msgstr ""
-
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
-
-msgid "Advanced Search"
-msgstr ""
-
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-
-msgid "CustomSearch"
-msgstr ""
-
-msgid "Find people with a custom field value"
-msgstr ""
-
-#, fuzzy
-msgid "Total By Gender"
-msgstr "Válassza a nemek"
-
-msgid "Total of records matching a given gender."
-msgstr ""
-
-#, fuzzy
-msgid "Custom field"
-msgstr "Egyéni mezők"
-
-#, fuzzy
-msgid "Choose customer person field"
-msgstr "Egyéni Személy mezők"
-
-#, fuzzy
-msgid "Field value"
-msgstr "Becsült érték"
-
-msgid "Match custom field to this value"
-msgstr ""
-
-msgid "The desired gender to search the database for."
-msgstr ""
-
-#, fuzzy
-msgid "Search"
-msgstr "Március"
-
-#, fuzzy
-msgid "Field"
-msgstr "Becsült érték"
-
-msgid "Select field to search for."
-msgstr ""
-
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-
-#, fuzzy
-msgid "Minimum Age"
-msgstr "Minimum ár"
-
-#, fuzzy
-msgid "Maximum Age"
-msgstr "Maximális távolság"
-
-msgid "The minimum age for which you want records returned."
-msgstr ""
-
-msgid "The maximum age for which you want records returned."
-msgstr ""
-
-#, fuzzy
-msgid "The property for which you would like person records returned."
-msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
-
-#, fuzzy
-msgid "Select the desired family role."
-msgstr "Válassza Család:"
-
-#, fuzzy
-msgid "The gender for which you would like records returned."
-msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
-
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
-
-#, fuzzy
-msgid "Returns all the persons not assigned to a group."
-msgstr "Nincs hozzárendelve"
-
-msgid "Number of months since becoming a friend"
-msgstr ""
-
-#, fuzzy
-msgid "Months"
-msgstr "Hónap"
-
-#, fuzzy
-msgid "No."
-msgstr "Nincs"
-
-#, fuzzy
-msgid "Fiscal Year."
-msgstr "Költségvetési év"
-
-#, fuzzy
-msgid "The birthday month for which you would like records returned."
-msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
-
-msgid "Member, Regular Attender, etc."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr "Válassza ki a csoportot, amelyhez szeretne hozzáadni a kosárban"
-
-msgid "Find people who pledged one year but not another"
-msgstr ""
-
-#, fuzzy
-msgid "First Fiscal Year"
-msgstr "Költségvetési év"
-
-#, fuzzy
-msgid "Pledged this year"
-msgstr "Rekord törlése"
-
-msgid "but not this year"
-msgstr ""
-
-msgid "Compare pledges between two fiscal years"
-msgstr ""
-
-msgid "First fiscal year for comparison"
-msgstr ""
-
-#, fuzzy
-msgid "Second Fiscal Year"
-msgstr "Válassza a pénzügyi év"
-
-msgid "Second fiscal year for comparison"
-msgstr ""
-
-#, fuzzy
-msgid "Group of registered students"
-msgstr "Extra Hallgatók"
-
-#, fuzzy
-msgid "Volunteer opportunities"
-msgstr "Önkéntes Opportunity szerkesztő"
-
-#, fuzzy
-msgid "Choose a volunteer opportunity"
-msgstr "Rendelni egy új Önkéntes lehetőség"
-
-#, fuzzy
-msgid "First volunteer opportunity choice"
-msgstr "Önkéntes Opportunity szerkesztő"
-
-#, fuzzy
-msgid "Second volunteer opportunity choice"
-msgstr "Önkéntes Opportunity szerkesztő"
-
 #, fuzzy
 msgid "There were "
 msgstr "Ott"
@@ -10864,6 +11032,22 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Personal area"
+#~ msgstr "Personal Email"
+
+#, fuzzy
+#~ msgid "Select the event to which you would like to add your cart"
+#~ msgstr "Válassza ki az eseményt, amelyre szeretné felvenni a kosárba"
+
+#, fuzzy
+#~ msgid "No."
+#~ msgstr "Nincs"
+
+#, fuzzy
+#~ msgid "Number of groups:"
+#~ msgstr "Oszlopok száma"
 
 #, fuzzy
 #~ msgid "Deactivated the Person"
