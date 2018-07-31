@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 23:01+0200\n"
+"POT-Creation-Date: 2018-07-31 16:17+0200\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,8 +235,11 @@ msgid "[👀 ✐]"
 msgstr ""
 
 #: api/routes/sharedocument.php:73 api/routes/sharedocument.php:105
-#: api/routes/sharedocument.php:139
 msgid "You can visualize it in your account, in the document tab."
+msgstr ""
+
+#: api/routes/sharedocument.php:139
+msgid "You can view it in your account, in the document tab."
 msgstr ""
 
 #: api/routes/userprofile.php:39 api/routes/userprofile.php:62
@@ -320,7 +323,7 @@ msgstr ""
 
 #: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:219
-#: sundayschool/SundaySchoolReports.php:222
+#: sundayschool/SundaySchoolReports.php:222 queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr ""
 
@@ -373,6 +376,7 @@ msgstr "นามสกุล"
 #: CSVImport.php:215 DirectoryReports.php:241
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:692
 #: PersonEditor.php:931 PersonEditor.php:1023 Register.php:44
+#: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "เมือง"
 
@@ -380,6 +384,7 @@ msgstr "เมือง"
 #: CSVImport.php:216 DirectoryReports.php:245
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:699
 #: PersonEditor.php:938 PersonEditor.php:1043 Register.php:45
+#: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "จังหวัด"
 
@@ -424,7 +429,7 @@ msgstr "โทรศัพท์"
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:293 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:247 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "อีเมล"
 
@@ -874,6 +879,7 @@ msgstr ""
 #: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:244
 #: UserList.php:50 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
+#: queryparameteroptions_qpo.php:4
 #, fuzzy
 msgid "Name"
 msgstr "ชื่อธนาคาร"
@@ -937,7 +943,7 @@ msgstr ""
 #: PersonEditor.php:1127 PersonEditor.php:1129 PersonList.php:70
 #: PersonView.php:372 PrintPastoralCare.php:203 PrintView.php:201
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "โทรศัพท์บ้าน"
 
@@ -1077,12 +1083,12 @@ msgstr ""
 #: CartView.php:319 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
 #: FamilyEditor.php:971 FinancialReports.php:116 OptionManager.php:95
 #: PeopleDashboard.php:352 PersonEditor.php:1301 PrintPastoralCare.php:313
-#: PrintView.php:311
+#: PrintView.php:311 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr ""
 
 #: CartView.php:320 CSVExport.php:163 CSVExport.php:284 OptionManager.php:88
-#: PrintPastoralCare.php:273 PrintView.php:271
+#: PrintPastoralCare.php:273 PrintView.php:271 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "บทบาทในครอบครัว"
@@ -1209,7 +1215,7 @@ msgstr ""
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:966
 #: PersonEditor.php:719 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:240 PrintView.php:340
-#: sundayschool/SundaySchoolClassView.php:222
+#: sundayschool/SundaySchoolClassView.php:222 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "เพศ"
 
@@ -1260,6 +1266,7 @@ msgstr ""
 
 #: Checkin.php:801 Include/Functions.php:1186 PersonView.php:290
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr ""
 
@@ -1382,7 +1389,7 @@ msgstr "ไม่ใช้ฟิลเตอร์"
 #: external/templates/registration/family-register-members.php:59
 #: FamilyEditor.php:1013 PersonEditor.php:725 PrintPastoralCare.php:248
 #: PrintPastoralCare.php:367 PrintView.php:246 PrintView.php:365
-#: SelectList.php:573 SelectList.php:1237
+#: SelectList.php:573 SelectList.php:1237 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "ชาย"
 
@@ -1392,7 +1399,7 @@ msgstr "ชาย"
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1016 PersonEditor.php:728 PrintPastoralCare.php:251
 #: PrintPastoralCare.php:367 PrintView.php:249 PrintView.php:365
-#: SelectList.php:574 SelectList.php:1239
+#: SelectList.php:574 SelectList.php:1239 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "หญิง"
 
@@ -1655,8 +1662,8 @@ msgstr ""
 msgid "Confirm Delete"
 msgstr "ยืนยันที่จะลบการจ่ายเงินอัตโนมัต"
 
-#: DepositSlipEditor.php:268 FindDepositSlip.php:112
-msgid "Are you sure you want to delete the selected"
+#: DepositSlipEditor.php:268
+msgid "Are you sure ? You're about to delete the selected"
 msgstr ""
 
 #: DepositSlipEditor.php:268
@@ -3057,7 +3064,7 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:79
 msgid ""
-"Session timeout length in seconds\rSet to zero to disable session timeouts."
+"Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:80
@@ -3077,7 +3084,7 @@ msgstr ""
 #: EcclesiaCRM/dto/SystemConfig.php:83
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
-"characters changed)\rSet to zero to disable this feature"
+"characters changed). Set to zero to disable this feature"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:84
@@ -3086,15 +3093,15 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:85
 msgid ""
-"Maximum number of failed logins to allow before a user account is locked."
-"\rOnce the maximum has been reached, an administrator must re-enable the "
-"account.\rThis feature helps to protect against automated password guessing "
-"attacks.\rSet to zero to disable this feature."
+"Maximum number of failed logins to allow before a user account is locked.. "
+"Once the maximum has been reached, an administrator must re-enable the "
+"account.. This feature helps to protect against automated password guessing "
+"attacks.. Set to zero to disable this feature."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:86
 msgid ""
-"PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
+"PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:87
@@ -3132,9 +3139,9 @@ msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 
 #: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
-"Unavailable person info inherited from assigned family for display?\rThis "
-"option causes certain info from a person's assigned family record to be"
-"\rdisplayed IF the corresponding info has NOT been entered for that person. "
+"Unavailable person info inherited from assigned family for display?. This "
+"option causes certain info from a person's assigned family record to be. "
+"displayed IF the corresponding info has NOT been entered for that person. "
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:100
@@ -3917,7 +3924,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
-msgid "Personal area"
+msgid "Private Space"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
@@ -4394,7 +4401,7 @@ msgid "by"
 msgstr ""
 
 #: EcclesiaCRM/Service/TimelineService.php:291
-msgid "Share by"
+msgid "Shared by"
 msgstr ""
 
 #: EcclesiaCRM/Service/UpgradeService.php:64
@@ -4791,10 +4798,12 @@ msgid "Vanco ACH"
 msgstr ""
 
 #: ElectronicPaymentList.php:210 FamilyEditor.php:968
+#: queryparameters_qrp.php:11
 msgid "Month"
 msgstr ""
 
 #: ElectronicPaymentList.php:211 FamilyEditor.php:970 Include/Functions.php:93
+#: queryparameters_qrp.php:20
 msgid "Year"
 msgstr ""
 
@@ -6046,6 +6055,10 @@ msgid "Generate Deposit Slip for Selected Rows (PDF)"
 msgstr ""
 
 #: FindDepositSlip.php:112
+msgid "Are you sure you want to delete the selected"
+msgstr ""
+
+#: FindDepositSlip.php:112
 msgid "Deposit(s)"
 msgstr ""
 
@@ -6383,8 +6396,9 @@ msgid "Show type of group:"
 msgstr ""
 
 #: GroupList.php:48
-msgid "Number of groups:"
-msgstr ""
+#, fuzzy
+msgid "Groups count:"
+msgstr "สมาชิกกลุ่ม"
 
 #: GroupList.php:66 GroupList.php:69
 msgid "Add New Group"
@@ -8330,6 +8344,7 @@ msgid "Age"
 msgstr ""
 
 #: PrintPastoralCare.php:432 PrintView.php:430 PropertyList.php:58
+#: queryparameters_qrp.php:6
 msgid "Property"
 msgstr ""
 
@@ -8449,7 +8464,7 @@ msgid "Property Type Editor"
 msgstr ""
 
 #: PropertyTypeEditor.php:85 PropertyTypeList.php:43
-#: sundayschool/SundaySchoolDashboard.php:165
+#: sundayschool/SundaySchoolDashboard.php:165 queryparameters_qrp.php:12
 msgid "Class"
 msgstr ""
 
@@ -9831,6 +9846,405 @@ msgstr ""
 msgid "Add New Opportunity"
 msgstr ""
 
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:14
+#, fuzzy
+msgid "WorkEmail"
+msgstr "อีเมล ที่ทำงาน/ที่อื่นๆ"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:17
+msgid "Guest"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:18
+msgid "Non-Attender"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:19
+msgid "Non-Attender (staff)"
+msgstr ""
+
+#: queryparameters_qrp.php:2
+msgid "Minimum Age"
+msgstr ""
+
+#: queryparameters_qrp.php:3
+msgid "Maximum Age"
+msgstr ""
+
+#: queryparameters_qrp.php:7
+#, fuzzy
+msgid "Beginning Date"
+msgstr "วันแต่งงาน"
+
+#: queryparameters_qrp.php:8
+#, fuzzy
+msgid "Ending Date"
+msgstr "วันแต่งงาน"
+
+#: queryparameters_qrp.php:9
+#, fuzzy
+msgid "Search"
+msgstr "ผู้หญิงที่อยู่ในวงศาคณาญาติที่เราให้ความเคารพ"
+
+#: queryparameters_qrp.php:10
+#, fuzzy
+msgid "Field"
+msgstr "เลือกฟิลด์"
+
+#: queryparameters_qrp.php:13 query_qry.php:9 query_qry.php:52
+msgid "Registered students"
+msgstr ""
+
+#: queryparameters_qrp.php:14
+msgid "Volunteer opportunities"
+msgstr ""
+
+#: queryparameters_qrp.php:15
+msgid "Months"
+msgstr ""
+
+#: queryparameters_qrp.php:16
+msgid "First Fiscal Year"
+msgstr ""
+
+#: queryparameters_qrp.php:17
+msgid "Second Fiscal Year"
+msgstr ""
+
+#: queryparameters_qrp.php:21
+#, fuzzy
+msgid "Custom field"
+msgstr "เลือกฟิลด์"
+
+#: queryparameters_qrp.php:22
+#, fuzzy
+msgid "Field value"
+msgstr "เลือกฟิลด์"
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr ""
+
+#: queryparameters_qrp.php:26
+msgid "Select the desired family role."
+msgstr ""
+
+#: queryparameters_qrp.php:27
+msgid "The gender for which you would like records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:28
+msgid "The property for which you would like person records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr ""
+
+#: queryparameters_qrp.php:33
+msgid "The birthday month for which you would like records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:34
+msgid "The sunday school class for which you would like records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:35
+msgid "Group of registered students"
+msgstr ""
+
+#: queryparameters_qrp.php:36
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:37
+msgid "Choose a volunteer opportunity"
+msgstr ""
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr ""
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:41
+msgid "Pledged this year"
+msgstr ""
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr ""
+
+#: queryparameters_qrp.php:43
+msgid "Fiscal Year."
+msgstr ""
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr ""
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+#: queryparameters_qrp.php:46
+msgid "First volunteer opportunity choice"
+msgstr ""
+
+#: queryparameters_qrp.php:47
+msgid "Second volunteer opportunity choice"
+msgstr ""
+
+#: queryparameters_qrp.php:48
+msgid "Choose customer person field"
+msgstr ""
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr ""
+
+#: query_qry.php:2 query_qry.php:45
+#, fuzzy
+msgid "Family Member Count"
+msgstr "บทบาทในครอบครัว"
+
+#: query_qry.php:3 query_qry.php:46
+#, fuzzy
+msgid "Person by Age"
+msgstr "ชื่อจริง"
+
+#: query_qry.php:4 query_qry.php:47
+#, fuzzy
+msgid "Total By Gender"
+msgstr "เพศ"
+
+#: query_qry.php:5 query_qry.php:48
+#, fuzzy
+msgid "Person by Role and Gender"
+msgstr "เพศ"
+
+#: query_qry.php:6 query_qry.php:49
+#, fuzzy
+msgid "Person by Property"
+msgstr "ชื่อจริง"
+
+#: query_qry.php:7 query_qry.php:50
+msgid "Advanced Search"
+msgstr ""
+
+#: query_qry.php:8 query_qry.php:51
+#, fuzzy
+msgid "Birthdays"
+msgstr "วันเกิด"
+
+#: query_qry.php:10 query_qry.php:53
+#, fuzzy
+msgid "Membership anniversaries"
+msgstr "วันที่เป็นสมาชิก"
+
+#: query_qry.php:11 query_qry.php:54
+#, fuzzy
+msgid "Select database users"
+msgstr "เพศ"
+
+#: query_qry.php:12 query_qry.php:55
+#, fuzzy
+msgid "Select all members"
+msgstr "เพศ"
+
+#: query_qry.php:13 query_qry.php:56
+msgid "Volunteers"
+msgstr ""
+
+#: query_qry.php:14 query_qry.php:57
+msgid "Recent friends"
+msgstr "Friends who signed up in previous months"
+
+#: query_qry.php:15 query_qry.php:58
+msgid "Families to Canvass"
+msgstr ""
+
+#: query_qry.php:16 query_qry.php:59
+msgid "Pledge comparison"
+msgstr "Compare pledges between two fiscal years"
+
+#: query_qry.php:17 query_qry.php:60
+msgid "Missing pledges"
+msgstr "Find people who pledged one year but not another"
+
+#: query_qry.php:18 query_qry.php:61
+#, fuzzy
+msgid "Credit Card People"
+msgstr "บัตรเครดิต"
+
+#: query_qry.php:19 query_qry.php:62
+msgid "Family Pledge by Fiscal Year"
+msgstr ""
+
+#: query_qry.php:20 query_qry.php:63
+msgid "Person not assigned to a group"
+msgstr "Returns all the persons not assigned to a group."
+
+#: query_qry.php:21 query_qry.php:64
+msgid "Person assigned to a group"
+msgstr ""
+
+#: query_qry.php:22 query_qry.php:65
+msgid "CustomSearch"
+msgstr ""
+
+#: query_qry.php:23 query_qry.php:66
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+#: query_qry.php:24 query_qry.php:67
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+#: query_qry.php:25 query_qry.php:68
+msgid "Total of records matching a given gender."
+msgstr ""
+
+#: query_qry.php:26 query_qry.php:69
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+#: query_qry.php:27 query_qry.php:70
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+#: query_qry.php:28 query_qry.php:71
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+
+#: query_qry.php:29 query_qry.php:72
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+#: query_qry.php:30 query_qry.php:73
+msgid "Find Registered students"
+msgstr ""
+
+#: query_qry.php:31 query_qry.php:74
+msgid "Members who joined in a particular month"
+msgstr ""
+
+#: query_qry.php:32 query_qry.php:75
+#, fuzzy
+msgid "People who are registered as database users"
+msgstr "เพศ"
+
+#: query_qry.php:33 query_qry.php:76
+#, fuzzy
+msgid "People who are members"
+msgstr "เพศ"
+
+#: query_qry.php:34 query_qry.php:77
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+#: query_qry.php:35 query_qry.php:78
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+#: query_qry.php:36 query_qry.php:79
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+#: query_qry.php:37 query_qry.php:80
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+#: query_qry.php:38 query_qry.php:81
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+#: query_qry.php:39 query_qry.php:82
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+#: query_qry.php:40 query_qry.php:83
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+#: query_qry.php:41 query_qry.php:84
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "Returns all the persons not assigned to a group."
+
+#: query_qry.php:42 query_qry.php:85
+msgid "Returns all persons assigned to a group."
+msgstr ""
+
+#: query_qry.php:43 query_qry.php:86
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+#: query_qry.php:44 query_qry.php:87
+msgid "Find people with a custom field value"
+msgstr ""
+
 #: settings-locales.php:2
 msgid "Albanian"
 msgstr ""
@@ -9935,6 +10349,56 @@ msgstr ""
 msgid "Vietnamese"
 msgstr ""
 
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr ""
+
+#: userconfig_ucfg.php:3
+msgid "Delimiter to separate emails in mailto: links"
+msgstr ""
+
+#: userconfig_ucfg.php:4
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:5
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:6
+msgid "User permission to create directories"
+msgstr ""
+
+#: userconfig_ucfg.php:7
+msgid "User permission to export CSV files"
+msgstr ""
+
+#: userconfig_ucfg.php:8
+msgid "User permission to use IST Address Verification"
+msgstr ""
+
+#: userconfig_ucfg.php:9
+msgid "Allow to see ballon Help"
+msgstr ""
+
+#: userconfig_ucfg.php:10
+msgid "To export to another For european CharSet use ;"
+msgstr ""
+
+#: userconfig_ucfg.php:11
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+
+#: userconfig_ucfg.php:12
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+#: userconfig_ucfg.php:13
+msgid "The sidebar is collapse by default"
+msgstr ""
+
 msgid "Jan"
 msgstr "Jan"
 
@@ -9964,305 +10428,6 @@ msgstr "ไม่มี"
 msgid "Dec"
 msgstr "Déc"
 
-msgid "User permission to send email via mailto: links"
-msgstr ""
-
-msgid "user permission to send email via mailto: links"
-msgstr ""
-
-msgid "User permission to export CSV files for the sunday school"
-msgstr ""
-
-msgid "User permission to export PDF files for the sunday school"
-msgstr ""
-
-msgid "User permission to create directories"
-msgstr ""
-
-msgid "User permission to export CSV files"
-msgstr ""
-
-msgid "User permission to use IST Address Verification"
-msgstr ""
-
-msgid "Allow to see ballon Help"
-msgstr ""
-
-msgid "To export to another For european CharSet use ;"
-msgstr ""
-
-msgid ""
-"Default is UTF-8, For european CharSet use Windows-1252 for example for "
-"French language."
-msgstr ""
-
-msgid "Enable sidebar expand on hover effect for sidebar mini"
-msgstr ""
-
-msgid "The sidebar is collapse by default"
-msgstr ""
-
-msgid "Select the event to which you would like to add your cart"
-msgstr ""
-
-#, fuzzy
-msgid "Credit Card People"
-msgstr "บัตรเครดิต"
-
-msgid "People who are configured to pay by credit card."
-msgstr ""
-
-msgid "Person assigned to a group"
-msgstr ""
-
-msgid "Returns all persons assigned to a group."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Age"
-msgstr "ชื่อจริง"
-
-msgid "Returns any person records with ages between two given ages."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Property"
-msgstr "ชื่อจริง"
-
-msgid "Returns person records which are assigned the given property."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Role and Gender"
-msgstr "เพศ"
-
-msgid "Selects person records with the family role and gender specified."
-msgstr ""
-
-msgid "Person not assigned to a group"
-msgstr "Returns all the persons not assigned to a group."
-
-msgid "Recent friends"
-msgstr "Friends who signed up in previous months"
-
-msgid "Friends who signed up in previous months"
-msgstr ""
-
-#, fuzzy
-msgid "Select all members"
-msgstr "เพศ"
-
-#, fuzzy
-msgid "People who are members"
-msgstr "เพศ"
-
-msgid "Families to Canvass"
-msgstr ""
-
-msgid "People in families that are ok to canvass."
-msgstr ""
-
-#, fuzzy
-msgid "Family Member Count"
-msgstr "บทบาทในครอบครัว"
-
-msgid "Returns each family and the total number of people assigned to them."
-msgstr ""
-
-msgid "Family Pledge by Fiscal Year"
-msgstr ""
-
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr ""
-
-#, fuzzy
-msgid "Birthdays"
-msgstr "วันเกิด"
-
-msgid "People with birthdays in a particular month"
-msgstr ""
-
-#, fuzzy
-msgid "Membership anniversaries"
-msgstr "วันที่เป็นสมาชิก"
-
-msgid "Members who joined in a particular month"
-msgstr ""
-
-msgid "Missing pledges"
-msgstr "Find people who pledged one year but not another"
-
-msgid "Pledge comparison"
-msgstr "Compare pledges between two fiscal years"
-
-msgid "Registered students"
-msgstr ""
-
-msgid "Find Registered students"
-msgstr ""
-
-#, fuzzy
-msgid "Select database users"
-msgstr "เพศ"
-
-#, fuzzy
-msgid "People who are registered as database users"
-msgstr "เพศ"
-
-msgid "Volunteers"
-msgstr ""
-
-msgid "Find volunteers for a particular opportunity"
-msgstr ""
-
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
-
-msgid "Advanced Search"
-msgstr ""
-
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-
-msgid "CustomSearch"
-msgstr ""
-
-msgid "Find people with a custom field value"
-msgstr ""
-
-#, fuzzy
-msgid "Total By Gender"
-msgstr "เพศ"
-
-msgid "Total of records matching a given gender."
-msgstr ""
-
-#, fuzzy
-msgid "Custom field"
-msgstr "เลือกฟิลด์"
-
-msgid "Choose customer person field"
-msgstr ""
-
-#, fuzzy
-msgid "Field value"
-msgstr "เลือกฟิลด์"
-
-msgid "Match custom field to this value"
-msgstr ""
-
-msgid "The desired gender to search the database for."
-msgstr ""
-
-#, fuzzy
-msgid "Search"
-msgstr "ผู้หญิงที่อยู่ในวงศาคณาญาติที่เราให้ความเคารพ"
-
-#, fuzzy
-msgid "Field"
-msgstr "เลือกฟิลด์"
-
-msgid "Select field to search for."
-msgstr ""
-
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-
-msgid "Minimum Age"
-msgstr ""
-
-msgid "Maximum Age"
-msgstr ""
-
-msgid "The minimum age for which you want records returned."
-msgstr ""
-
-msgid "The maximum age for which you want records returned."
-msgstr ""
-
-msgid "The property for which you would like person records returned."
-msgstr ""
-
-msgid "Select the desired family role."
-msgstr ""
-
-msgid "The gender for which you would like records returned."
-msgstr ""
-
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
-
-#, fuzzy
-msgid "Returns all the persons not assigned to a group."
-msgstr "Returns all the persons not assigned to a group."
-
-msgid "Number of months since becoming a friend"
-msgstr ""
-
-msgid "Months"
-msgstr ""
-
-#, fuzzy
-msgid "No."
-msgstr "ไม่มี"
-
-msgid "Fiscal Year."
-msgstr ""
-
-msgid "The birthday month for which you would like records returned."
-msgstr ""
-
-msgid "Member, Regular Attender, etc."
-msgstr ""
-
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr ""
-
-msgid "Find people who pledged one year but not another"
-msgstr ""
-
-msgid "First Fiscal Year"
-msgstr ""
-
-msgid "Pledged this year"
-msgstr ""
-
-msgid "but not this year"
-msgstr ""
-
-msgid "Compare pledges between two fiscal years"
-msgstr ""
-
-msgid "First fiscal year for comparison"
-msgstr ""
-
-msgid "Second Fiscal Year"
-msgstr ""
-
-msgid "Second fiscal year for comparison"
-msgstr ""
-
-msgid "Group of registered students"
-msgstr ""
-
-msgid "Volunteer opportunities"
-msgstr ""
-
-msgid "Choose a volunteer opportunity"
-msgstr ""
-
-msgid "First volunteer opportunity choice"
-msgstr ""
-
-msgid "Second volunteer opportunity choice"
-msgstr ""
-
 msgid "There were "
 msgstr ""
 
@@ -10291,6 +10456,10 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+#, fuzzy
+#~ msgid "No."
+#~ msgstr "ไม่มี"
 
 #, fuzzy
 #~ msgid "Filter"

@@ -117,7 +117,7 @@ $(document).ready(function () {
     $("#exportSelectedRowsCSV").prop('disabled', !(selectedRows));
     $("#exportSelectedRowsCSV").html("<i class=\"fa fa-download\"></i> "+i18next.t("Export")+" (" + selectedRows + ") "+i18next.t("Selected Rows")+" (CSV)");
     $("#generateDepositSlip").prop('disabled', !(selectedRows));
-    $("#generateDepositSlip").html("<i class=\"fa fa-download\"></i> "+i18next.t("Generate Deposit Split for Selected")+" (" + selectedRows + ") "+i18next.t("Rows")+" (PDF)");
+    $("#generateDepositSlip").html("<i class=\"fa fa-download\"></i> "+i18next.t("Generate Deposit Slip for Selected")+" (" + selectedRows + ") "+i18next.t("Rows")+" (PDF)");
   });
 
   $('.exportButton').click(function (sender) {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 23:01+0200\n"
+"POT-Creation-Date: 2018-07-31 16:17+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -252,8 +252,11 @@ msgid "[👀 ✐]"
 msgstr ""
 
 #: api/routes/sharedocument.php:73 api/routes/sharedocument.php:105
-#: api/routes/sharedocument.php:139
 msgid "You can visualize it in your account, in the document tab."
+msgstr ""
+
+#: api/routes/sharedocument.php:139
+msgid "You can view it in your account, in the document tab."
 msgstr ""
 
 #: api/routes/userprofile.php:39 api/routes/userprofile.php:62
@@ -337,7 +340,7 @@ msgstr "Data"
 
 #: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:219
-#: sundayschool/SundaySchoolReports.php:222
+#: sundayschool/SundaySchoolReports.php:222 queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Exercițiu financiar"
 
@@ -389,6 +392,7 @@ msgstr "Nume"
 #: CSVImport.php:215 DirectoryReports.php:241
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:692
 #: PersonEditor.php:931 PersonEditor.php:1023 Register.php:44
+#: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Oraș"
 
@@ -396,6 +400,7 @@ msgstr "Oraș"
 #: CSVImport.php:216 DirectoryReports.php:245
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:699
 #: PersonEditor.php:938 PersonEditor.php:1043 Register.php:45
+#: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "De stat"
 
@@ -439,7 +444,7 @@ msgstr "Telefon"
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:293 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:247 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "E-mail"
 
@@ -917,6 +922,7 @@ msgstr "Adauga in cos pentru a Familiei"
 #: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:244
 #: UserList.php:50 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Nume"
 
@@ -978,7 +984,7 @@ msgstr "(Utilizați caseta de text în alte scopuri decât SUA și Canada)"
 #: PersonEditor.php:1127 PersonEditor.php:1129 PersonList.php:70
 #: PersonView.php:372 PrintPastoralCare.php:203 PrintView.php:201
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Telefon acasă"
 
@@ -1117,12 +1123,12 @@ msgstr "Îndepărta"
 #: CartView.php:319 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
 #: FamilyEditor.php:971 FinancialReports.php:116 OptionManager.php:95
 #: PeopleDashboard.php:352 PersonEditor.php:1301 PrintPastoralCare.php:313
-#: PrintView.php:311
+#: PrintView.php:311 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Clasificare"
 
 #: CartView.php:320 CSVExport.php:163 CSVExport.php:284 OptionManager.php:88
-#: PrintPastoralCare.php:273 PrintView.php:271
+#: PrintPastoralCare.php:273 PrintView.php:271 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
 msgstr "Rolul familiei"
@@ -1258,7 +1264,7 @@ msgstr "Listarea utilizator"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:966
 #: PersonEditor.php:719 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:240 PrintView.php:340
-#: sundayschool/SundaySchoolClassView.php:222
+#: sundayschool/SundaySchoolClassView.php:222 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Gen"
 
@@ -1313,6 +1319,7 @@ msgstr "Revenirea la meniul Query"
 
 #: Checkin.php:801 Include/Functions.php:1186 PersonView.php:290
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
+#: queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Membru"
 
@@ -1440,7 +1447,7 @@ msgstr "Nu Filtru"
 #: external/templates/registration/family-register-members.php:59
 #: FamilyEditor.php:1013 PersonEditor.php:725 PrintPastoralCare.php:248
 #: PrintPastoralCare.php:367 PrintView.php:246 PrintView.php:365
-#: SelectList.php:573 SelectList.php:1237
+#: SelectList.php:573 SelectList.php:1237 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Masculin"
 
@@ -1450,7 +1457,7 @@ msgstr "Masculin"
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1016 PersonEditor.php:728 PrintPastoralCare.php:251
 #: PrintPastoralCare.php:367 PrintView.php:249 PrintView.php:365
-#: SelectList.php:574 SelectList.php:1239
+#: SelectList.php:574 SelectList.php:1239 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Femeie"
 
@@ -1732,9 +1739,9 @@ msgstr "Listarea depozit"
 msgid "Confirm Delete"
 msgstr "Confirmați ștergerea"
 
-#: DepositSlipEditor.php:268 FindDepositSlip.php:112
+#: DepositSlipEditor.php:268
 #, fuzzy
-msgid "Are you sure you want to delete the selected"
+msgid "Are you sure ? You're about to delete the selected"
 msgstr "Sunteți sigur că doriți să ștergeți acest fond?"
 
 #: DepositSlipEditor.php:268
@@ -3145,7 +3152,7 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:79
 msgid ""
-"Session timeout length in seconds\rSet to zero to disable session timeouts."
+"Session timeout length in seconds. Set to zero to disable session timeouts."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:80
@@ -3165,7 +3172,7 @@ msgstr ""
 #: EcclesiaCRM/dto/SystemConfig.php:83
 msgid ""
 "Minimum amount that a new password must differ from the old one (# of "
-"characters changed)\rSet to zero to disable this feature"
+"characters changed). Set to zero to disable this feature"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:84
@@ -3174,15 +3181,15 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:85
 msgid ""
-"Maximum number of failed logins to allow before a user account is locked."
-"\rOnce the maximum has been reached, an administrator must re-enable the "
-"account.\rThis feature helps to protect against automated password guessing "
-"attacks.\rSet to zero to disable this feature."
+"Maximum number of failed logins to allow before a user account is locked.. "
+"Once the maximum has been reached, an administrator must re-enable the "
+"account.. This feature helps to protect against automated password guessing "
+"attacks.. Set to zero to disable this feature."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:86
 msgid ""
-"PDF handling mode.\r1 = Save File dialog\r2 = Open in current browser window"
+"PDF handling mode.. 1 = Save File dialog. 2 = Open in current browser window"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:87
@@ -3221,9 +3228,9 @@ msgstr "Parolă"
 
 #: EcclesiaCRM/dto/SystemConfig.php:96
 msgid ""
-"Unavailable person info inherited from assigned family for display?\rThis "
-"option causes certain info from a person's assigned family record to be"
-"\rdisplayed IF the corresponding info has NOT been entered for that person. "
+"Unavailable person info inherited from assigned family for display?. This "
+"option causes certain info from a person's assigned family record to be. "
+"displayed IF the corresponding info has NOT been entered for that person. "
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:100
@@ -4050,8 +4057,8 @@ msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:187 Include/Header.php:120
 #, fuzzy
-msgid "Personal area"
-msgstr "E-mail personal"
+msgid "Private Space"
+msgstr "Privat"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:189
 #: external/templates/registration/family-register-members.php:95
@@ -4561,8 +4568,9 @@ msgid "by"
 msgstr "de"
 
 #: EcclesiaCRM/Service/TimelineService.php:291
-msgid "Share by"
-msgstr ""
+#, fuzzy
+msgid "Shared by"
+msgstr "Donate de"
 
 #: EcclesiaCRM/Service/UpgradeService.php:64
 msgid "Databse upgrade failed"
@@ -4984,10 +4992,12 @@ msgid "Vanco ACH"
 msgstr ""
 
 #: ElectronicPaymentList.php:210 FamilyEditor.php:968
+#: queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Lună"
 
 #: ElectronicPaymentList.php:211 FamilyEditor.php:970 Include/Functions.php:93
+#: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "An"
 
@@ -6292,6 +6302,11 @@ msgstr "Genera declarații pentru selectia"
 
 #: FindDepositSlip.php:112
 #, fuzzy
+msgid "Are you sure you want to delete the selected"
+msgstr "Sunteți sigur că doriți să ștergeți acest fond?"
+
+#: FindDepositSlip.php:112
+#, fuzzy
 msgid "Deposit(s)"
 msgstr "Depozit"
 
@@ -6651,8 +6666,8 @@ msgstr "Tipul Grupa"
 
 #: GroupList.php:48
 #, fuzzy
-msgid "Number of groups:"
-msgstr "Număr de coloane"
+msgid "Groups count:"
+msgstr "Listarea grup"
 
 #: GroupList.php:66 GroupList.php:69
 #, fuzzy
@@ -8756,6 +8771,7 @@ msgid "Age"
 msgstr "Vârstă"
 
 #: PrintPastoralCare.php:432 PrintView.php:430 PropertyList.php:58
+#: queryparameters_qrp.php:6
 msgid "Property"
 msgstr "Proprietate"
 
@@ -8885,7 +8901,7 @@ msgid "Property Type Editor"
 msgstr "Tip de Editor"
 
 #: PropertyTypeEditor.php:85 PropertyTypeList.php:43
-#: sundayschool/SundaySchoolDashboard.php:165
+#: sundayschool/SundaySchoolDashboard.php:165 queryparameters_qrp.php:12
 msgid "Class"
 msgstr "Clasă"
 
@@ -10386,6 +10402,437 @@ msgstr ""
 msgid "Add New Opportunity"
 msgstr "Adauga oportunitate nou"
 
+#: queryparameteroptions_qpo.php:5
+msgid "Zip Code"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:9
+msgid "2012/2013"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:10
+msgid "2013/2014"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:11
+msgid "2014/2015"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:12
+msgid "2015/2016"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:14
+#, fuzzy
+msgid "WorkEmail"
+msgstr "Muncă / Alte E-mail"
+
+#: queryparameteroptions_qpo.php:16
+msgid "Regular Attender"
+msgstr ""
+
+#: queryparameteroptions_qpo.php:17
+#, fuzzy
+msgid "Guest"
+msgstr "Vizitatori"
+
+#: queryparameteroptions_qpo.php:18
+#, fuzzy
+msgid "Non-Attender"
+msgstr "Non-participarea membrilor"
+
+#: queryparameteroptions_qpo.php:19
+#, fuzzy
+msgid "Non-Attender (staff)"
+msgstr "Non-participarea membrilor"
+
+#: queryparameters_qrp.php:2
+#, fuzzy
+msgid "Minimum Age"
+msgstr "Pret minim"
+
+#: queryparameters_qrp.php:3
+#, fuzzy
+msgid "Maximum Age"
+msgstr "Distanța maximă"
+
+#: queryparameters_qrp.php:7
+#, fuzzy
+msgid "Beginning Date"
+msgstr "Nunta Data"
+
+#: queryparameters_qrp.php:8
+#, fuzzy
+msgid "Ending Date"
+msgstr "Nunta Data"
+
+#: queryparameters_qrp.php:9
+#, fuzzy
+msgid "Search"
+msgstr "Martie"
+
+#: queryparameters_qrp.php:10
+#, fuzzy
+msgid "Field"
+msgstr "Valoarea estimată"
+
+#: queryparameters_qrp.php:13 query_qry.php:9 query_qry.php:52
+#, fuzzy
+msgid "Registered students"
+msgstr "Elevii Extra"
+
+#: queryparameters_qrp.php:14
+#, fuzzy
+msgid "Volunteer opportunities"
+msgstr "Voluntari oportunitate Editor"
+
+#: queryparameters_qrp.php:15
+#, fuzzy
+msgid "Months"
+msgstr "Lună"
+
+#: queryparameters_qrp.php:16
+#, fuzzy
+msgid "First Fiscal Year"
+msgstr "Exercițiu financiar"
+
+#: queryparameters_qrp.php:17
+#, fuzzy
+msgid "Second Fiscal Year"
+msgstr "Selectați anul fiscal"
+
+#: queryparameters_qrp.php:21
+#, fuzzy
+msgid "Custom field"
+msgstr "Câmpuri personalizate"
+
+#: queryparameters_qrp.php:22
+#, fuzzy
+msgid "Field value"
+msgstr "Valoarea estimată"
+
+#: queryparameters_qrp.php:23
+msgid "The minimum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:24
+msgid "The maximum age for which you want records returned."
+msgstr ""
+
+#: queryparameters_qrp.php:25
+msgid "The desired gender to search the database for."
+msgstr ""
+
+#: queryparameters_qrp.php:26
+#, fuzzy
+msgid "Select the desired family role."
+msgstr "Selectați familia:"
+
+#: queryparameters_qrp.php:27
+#, fuzzy
+msgid "The gender for which you would like records returned."
+msgstr "Selectați grupul la care doriți să adăugați coș"
+
+#: queryparameters_qrp.php:28
+#, fuzzy
+msgid "The property for which you would like person records returned."
+msgstr "Selectați grupul la care doriți să adăugați coș"
+
+#: queryparameters_qrp.php:29
+msgid ""
+"Please select the beginning date to calculate total contributions for each "
+"member (i.e. YYYY-MM-DD). NOTE: You can only choose dates that conatain "
+"donations."
+msgstr ""
+
+#: queryparameters_qrp.php:30
+msgid ""
+"Please enter the last date to calculate total contributions for each member "
+"(i.e. YYYY-MM-DD)."
+msgstr ""
+
+#: queryparameters_qrp.php:31
+msgid ""
+"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
+"or Work Email."
+msgstr ""
+
+#: queryparameters_qrp.php:32
+msgid "Select field to search for."
+msgstr ""
+
+#: queryparameters_qrp.php:33
+#, fuzzy
+msgid "The birthday month for which you would like records returned."
+msgstr "Selectați grupul la care doriți să adăugați coș"
+
+#: queryparameters_qrp.php:34
+#, fuzzy
+msgid "The sunday school class for which you would like records returned."
+msgstr "Selectați grupul la care doriți să adăugați coș"
+
+#: queryparameters_qrp.php:35
+#, fuzzy
+msgid "Group of registered students"
+msgstr "Elevii Extra"
+
+#: queryparameters_qrp.php:36
+#, fuzzy
+msgid ""
+"The membership anniversary month for which you would like records returned."
+msgstr "Selectați grupul la care doriți să adăugați coș"
+
+#: queryparameters_qrp.php:37
+#, fuzzy
+msgid "Choose a volunteer opportunity"
+msgstr "Atribui o oportunitate Voluntar nou"
+
+#: queryparameters_qrp.php:38
+msgid "Number of months since becoming a friend"
+msgstr ""
+
+#: queryparameters_qrp.php:39
+msgid "First fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:40
+msgid "Second fiscal year for comparison"
+msgstr ""
+
+#: queryparameters_qrp.php:41
+#, fuzzy
+msgid "Pledged this year"
+msgstr "Ștergeți această înregistrare"
+
+#: queryparameters_qrp.php:42
+msgid "but not this year"
+msgstr ""
+
+#: queryparameters_qrp.php:43
+#, fuzzy
+msgid "Fiscal Year."
+msgstr "Exercițiu financiar"
+
+#: queryparameters_qrp.php:44
+msgid "Member, Regular Attender, etc."
+msgstr ""
+
+#: queryparameters_qrp.php:45
+msgid "Get all persons who were born before the Year you mentioned."
+msgstr ""
+
+#: queryparameters_qrp.php:46
+#, fuzzy
+msgid "First volunteer opportunity choice"
+msgstr "Voluntari oportunitate Editor"
+
+#: queryparameters_qrp.php:47
+#, fuzzy
+msgid "Second volunteer opportunity choice"
+msgstr "Voluntari oportunitate Editor"
+
+#: queryparameters_qrp.php:48
+#, fuzzy
+msgid "Choose customer person field"
+msgstr "Custom fields Persoana"
+
+#: queryparameters_qrp.php:49
+msgid "Match custom field to this value"
+msgstr ""
+
+#: query_qry.php:2 query_qry.php:45
+#, fuzzy
+msgid "Family Member Count"
+msgstr "Membrii de familie"
+
+#: query_qry.php:3 query_qry.php:46
+#, fuzzy
+msgid "Person by Age"
+msgstr "Persoană"
+
+#: query_qry.php:4 query_qry.php:47
+#, fuzzy
+msgid "Total By Gender"
+msgstr "Selectați de gen"
+
+#: query_qry.php:5 query_qry.php:48
+#, fuzzy
+msgid "Person by Role and Gender"
+msgstr "Selectați de gen"
+
+#: query_qry.php:6 query_qry.php:49
+#, fuzzy
+msgid "Person by Property"
+msgstr "Persoană"
+
+#: query_qry.php:7 query_qry.php:50
+msgid "Advanced Search"
+msgstr ""
+
+#: query_qry.php:8 query_qry.php:51
+#, fuzzy
+msgid "Birthdays"
+msgstr "Zi de naștere"
+
+#: query_qry.php:10 query_qry.php:53
+#, fuzzy
+msgid "Membership anniversaries"
+msgstr "Membru Data"
+
+#: query_qry.php:11 query_qry.php:54
+#, fuzzy
+msgid "Select database users"
+msgstr "Face fișier de date"
+
+#: query_qry.php:12 query_qry.php:55
+#, fuzzy
+msgid "Select all members"
+msgstr "Selectați toate"
+
+#: query_qry.php:13 query_qry.php:56
+#, fuzzy
+msgid "Volunteers"
+msgstr "Voluntari oportunitate Editor"
+
+#: query_qry.php:14 query_qry.php:57
+#, fuzzy
+msgid "Recent friends"
+msgstr "De editat recent"
+
+#: query_qry.php:15 query_qry.php:58
+#, fuzzy
+msgid "Families to Canvass"
+msgstr "Ok a dezbate"
+
+#: query_qry.php:16 query_qry.php:59
+#, fuzzy
+msgid "Pledge comparison"
+msgstr "Gaj Sumar"
+
+#: query_qry.php:17 query_qry.php:60
+#, fuzzy
+msgid "Missing pledges"
+msgstr "Familiile vecine"
+
+#: query_qry.php:18 query_qry.php:61
+#, fuzzy
+msgid "Credit Card People"
+msgstr "Card de credit"
+
+#: query_qry.php:19 query_qry.php:62
+#, fuzzy
+msgid "Family Pledge by Fiscal Year"
+msgstr "Selectați anul fiscal"
+
+#: query_qry.php:20 query_qry.php:63
+#, fuzzy
+msgid "Person not assigned to a group"
+msgstr "Nu este alocat"
+
+#: query_qry.php:21 query_qry.php:64
+#, fuzzy
+msgid "Person assigned to a group"
+msgstr "Nu este alocat"
+
+#: query_qry.php:22 query_qry.php:65
+msgid "CustomSearch"
+msgstr ""
+
+#: query_qry.php:23 query_qry.php:66
+msgid "Returns each family and the total number of people assigned to them."
+msgstr ""
+
+#: query_qry.php:24 query_qry.php:67
+msgid "Returns any person records with ages between two given ages."
+msgstr ""
+
+#: query_qry.php:25 query_qry.php:68
+msgid "Total of records matching a given gender."
+msgstr ""
+
+#: query_qry.php:26 query_qry.php:69
+msgid "Selects person records with the family role and gender specified."
+msgstr ""
+
+#: query_qry.php:27 query_qry.php:70
+msgid "Returns person records which are assigned the given property."
+msgstr ""
+
+#: query_qry.php:28 query_qry.php:71
+msgid ""
+"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
+"Email."
+msgstr ""
+
+#: query_qry.php:29 query_qry.php:72
+msgid "People with birthdays in a particular month"
+msgstr ""
+
+#: query_qry.php:30 query_qry.php:73
+msgid "Find Registered students"
+msgstr ""
+
+#: query_qry.php:31 query_qry.php:74
+msgid "Members who joined in a particular month"
+msgstr ""
+
+#: query_qry.php:32 query_qry.php:75
+#, fuzzy
+msgid "People who are registered as database users"
+msgstr "Selectați toate"
+
+#: query_qry.php:33 query_qry.php:76
+#, fuzzy
+msgid "People who are members"
+msgstr "Selectați toate"
+
+#: query_qry.php:34 query_qry.php:77
+msgid "Find volunteers for a particular opportunity"
+msgstr ""
+
+#: query_qry.php:35 query_qry.php:78
+msgid "Friends who signed up in previous months"
+msgstr ""
+
+#: query_qry.php:36 query_qry.php:79
+msgid "People in families that are ok to canvass."
+msgstr ""
+
+#: query_qry.php:37 query_qry.php:80
+msgid "Compare pledges between two fiscal years"
+msgstr ""
+
+#: query_qry.php:38 query_qry.php:81
+msgid "Find people who pledged one year but not another"
+msgstr ""
+
+#: query_qry.php:39 query_qry.php:82
+msgid "People who are configured to pay by credit card."
+msgstr ""
+
+#: query_qry.php:40 query_qry.php:83
+msgid ""
+"Pledge summary by family name for each fund for the selected fiscal year"
+msgstr ""
+
+#: query_qry.php:41 query_qry.php:84
+#, fuzzy
+msgid "Returns all the persons not assigned to a group."
+msgstr "Nu este alocat"
+
+#: query_qry.php:42 query_qry.php:85
+#, fuzzy
+msgid "Returns all persons assigned to a group."
+msgstr "Nu este alocat"
+
+#: query_qry.php:43 query_qry.php:86
+msgid "Find volunteers for who match two specific opportunity codes"
+msgstr ""
+
+#: query_qry.php:44 query_qry.php:87
+msgid "Find people with a custom field value"
+msgstr ""
+
 #: settings-locales.php:2
 msgid "Albanian"
 msgstr ""
@@ -10491,6 +10938,58 @@ msgstr ""
 msgid "Vietnamese"
 msgstr "Denumirea variabilei"
 
+#: userconfig_ucfg.php:2
+msgid "User permission to send email via mailto: links"
+msgstr ""
+
+#: userconfig_ucfg.php:3
+#, fuzzy
+msgid "Delimiter to separate emails in mailto: links"
+msgstr "SUA Adresa de verificare"
+
+#: userconfig_ucfg.php:4
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:5
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+#: userconfig_ucfg.php:6
+msgid "User permission to create directories"
+msgstr ""
+
+#: userconfig_ucfg.php:7
+msgid "User permission to export CSV files"
+msgstr ""
+
+#: userconfig_ucfg.php:8
+#, fuzzy
+msgid "User permission to use IST Address Verification"
+msgstr "SUA Adresa de verificare"
+
+#: userconfig_ucfg.php:9
+msgid "Allow to see ballon Help"
+msgstr ""
+
+#: userconfig_ucfg.php:10
+msgid "To export to another For european CharSet use ;"
+msgstr ""
+
+#: userconfig_ucfg.php:11
+msgid ""
+"Default is UTF-8, For european CharSet use Windows-1252 for example for "
+"French language."
+msgstr ""
+
+#: userconfig_ucfg.php:12
+msgid "Enable sidebar expand on hover effect for sidebar mini"
+msgstr ""
+
+#: userconfig_ucfg.php:13
+msgid "The sidebar is collapse by default"
+msgstr ""
+
 #, fuzzy
 msgid "Jan"
 msgstr "și"
@@ -10525,336 +11024,6 @@ msgstr "Nu"
 msgid "Dec"
 msgstr "Déc"
 
-msgid "User permission to send email via mailto: links"
-msgstr ""
-
-#, fuzzy
-msgid "user permission to send email via mailto: links"
-msgstr "SUA Adresa de verificare"
-
-msgid "User permission to export CSV files for the sunday school"
-msgstr ""
-
-msgid "User permission to export PDF files for the sunday school"
-msgstr ""
-
-msgid "User permission to create directories"
-msgstr ""
-
-msgid "User permission to export CSV files"
-msgstr ""
-
-#, fuzzy
-msgid "User permission to use IST Address Verification"
-msgstr "SUA Adresa de verificare"
-
-msgid "Allow to see ballon Help"
-msgstr ""
-
-msgid "To export to another For european CharSet use ;"
-msgstr ""
-
-msgid ""
-"Default is UTF-8, For european CharSet use Windows-1252 for example for "
-"French language."
-msgstr ""
-
-msgid "Enable sidebar expand on hover effect for sidebar mini"
-msgstr ""
-
-msgid "The sidebar is collapse by default"
-msgstr ""
-
-#, fuzzy
-msgid "Select the event to which you would like to add your cart"
-msgstr "Selectați evenimentul la care doriți să adăugați coș"
-
-#, fuzzy
-msgid "Credit Card People"
-msgstr "Card de credit"
-
-msgid "People who are configured to pay by credit card."
-msgstr ""
-
-#, fuzzy
-msgid "Person assigned to a group"
-msgstr "Nu este alocat"
-
-#, fuzzy
-msgid "Returns all persons assigned to a group."
-msgstr "Nu este alocat"
-
-#, fuzzy
-msgid "Person by Age"
-msgstr "Persoană"
-
-msgid "Returns any person records with ages between two given ages."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Property"
-msgstr "Persoană"
-
-msgid "Returns person records which are assigned the given property."
-msgstr ""
-
-#, fuzzy
-msgid "Person by Role and Gender"
-msgstr "Selectați de gen"
-
-msgid "Selects person records with the family role and gender specified."
-msgstr ""
-
-#, fuzzy
-msgid "Person not assigned to a group"
-msgstr "Nu este alocat"
-
-#, fuzzy
-msgid "Recent friends"
-msgstr "De editat recent"
-
-msgid "Friends who signed up in previous months"
-msgstr ""
-
-#, fuzzy
-msgid "Select all members"
-msgstr "Selectați toate"
-
-#, fuzzy
-msgid "People who are members"
-msgstr "Selectați toate"
-
-#, fuzzy
-msgid "Families to Canvass"
-msgstr "Ok a dezbate"
-
-msgid "People in families that are ok to canvass."
-msgstr ""
-
-#, fuzzy
-msgid "Family Member Count"
-msgstr "Membrii de familie"
-
-msgid "Returns each family and the total number of people assigned to them."
-msgstr ""
-
-#, fuzzy
-msgid "Family Pledge by Fiscal Year"
-msgstr "Selectați anul fiscal"
-
-msgid ""
-"Pledge summary by family name for each fund for the selected fiscal year"
-msgstr ""
-
-#, fuzzy
-msgid "Birthdays"
-msgstr "Zi de naștere"
-
-msgid "People with birthdays in a particular month"
-msgstr ""
-
-#, fuzzy
-msgid "Membership anniversaries"
-msgstr "Membru Data"
-
-msgid "Members who joined in a particular month"
-msgstr ""
-
-#, fuzzy
-msgid "Missing pledges"
-msgstr "Familiile vecine"
-
-#, fuzzy
-msgid "Pledge comparison"
-msgstr "Gaj Sumar"
-
-#, fuzzy
-msgid "Registered students"
-msgstr "Elevii Extra"
-
-msgid "Find Registered students"
-msgstr ""
-
-#, fuzzy
-msgid "Select database users"
-msgstr "Face fișier de date"
-
-#, fuzzy
-msgid "People who are registered as database users"
-msgstr "Selectați toate"
-
-#, fuzzy
-msgid "Volunteers"
-msgstr "Voluntari oportunitate Editor"
-
-msgid "Find volunteers for a particular opportunity"
-msgstr ""
-
-msgid "Find volunteers for who match two specific opportunity codes"
-msgstr ""
-
-msgid "Advanced Search"
-msgstr ""
-
-msgid ""
-"Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
-"Email."
-msgstr ""
-
-msgid "CustomSearch"
-msgstr ""
-
-msgid "Find people with a custom field value"
-msgstr ""
-
-#, fuzzy
-msgid "Total By Gender"
-msgstr "Selectați de gen"
-
-msgid "Total of records matching a given gender."
-msgstr ""
-
-#, fuzzy
-msgid "Custom field"
-msgstr "Câmpuri personalizate"
-
-#, fuzzy
-msgid "Choose customer person field"
-msgstr "Custom fields Persoana"
-
-#, fuzzy
-msgid "Field value"
-msgstr "Valoarea estimată"
-
-msgid "Match custom field to this value"
-msgstr ""
-
-msgid "The desired gender to search the database for."
-msgstr ""
-
-#, fuzzy
-msgid "Search"
-msgstr "Martie"
-
-#, fuzzy
-msgid "Field"
-msgstr "Valoarea estimată"
-
-msgid "Select field to search for."
-msgstr ""
-
-msgid ""
-"Enter any part of the following: Name, City, State, Zip, Home Phone, Email, "
-"or Work Email."
-msgstr ""
-
-#, fuzzy
-msgid "Minimum Age"
-msgstr "Pret minim"
-
-#, fuzzy
-msgid "Maximum Age"
-msgstr "Distanța maximă"
-
-msgid "The minimum age for which you want records returned."
-msgstr ""
-
-msgid "The maximum age for which you want records returned."
-msgstr ""
-
-#, fuzzy
-msgid "The property for which you would like person records returned."
-msgstr "Selectați grupul la care doriți să adăugați coș"
-
-#, fuzzy
-msgid "Select the desired family role."
-msgstr "Selectați familia:"
-
-#, fuzzy
-msgid "The gender for which you would like records returned."
-msgstr "Selectați grupul la care doriți să adăugați coș"
-
-msgid "Get all persons who were born before the Year you mentioned."
-msgstr ""
-
-#, fuzzy
-msgid "Returns all the persons not assigned to a group."
-msgstr "Nu este alocat"
-
-msgid "Number of months since becoming a friend"
-msgstr ""
-
-#, fuzzy
-msgid "Months"
-msgstr "Lună"
-
-#, fuzzy
-msgid "No."
-msgstr "Nu"
-
-#, fuzzy
-msgid "Fiscal Year."
-msgstr "Exercițiu financiar"
-
-#, fuzzy
-msgid "The birthday month for which you would like records returned."
-msgstr "Selectați grupul la care doriți să adăugați coș"
-
-msgid "Member, Regular Attender, etc."
-msgstr ""
-
-#, fuzzy
-msgid ""
-"The membership anniversary month for which you would like records returned."
-msgstr "Selectați grupul la care doriți să adăugați coș"
-
-msgid "Find people who pledged one year but not another"
-msgstr ""
-
-#, fuzzy
-msgid "First Fiscal Year"
-msgstr "Exercițiu financiar"
-
-#, fuzzy
-msgid "Pledged this year"
-msgstr "Ștergeți această înregistrare"
-
-msgid "but not this year"
-msgstr ""
-
-msgid "Compare pledges between two fiscal years"
-msgstr ""
-
-msgid "First fiscal year for comparison"
-msgstr ""
-
-#, fuzzy
-msgid "Second Fiscal Year"
-msgstr "Selectați anul fiscal"
-
-msgid "Second fiscal year for comparison"
-msgstr ""
-
-#, fuzzy
-msgid "Group of registered students"
-msgstr "Elevii Extra"
-
-#, fuzzy
-msgid "Volunteer opportunities"
-msgstr "Voluntari oportunitate Editor"
-
-#, fuzzy
-msgid "Choose a volunteer opportunity"
-msgstr "Atribui o oportunitate Voluntar nou"
-
-#, fuzzy
-msgid "First volunteer opportunity choice"
-msgstr "Voluntari oportunitate Editor"
-
-#, fuzzy
-msgid "Second volunteer opportunity choice"
-msgstr "Voluntari oportunitate Editor"
-
 #, fuzzy
 msgid "There were "
 msgstr "Acolo"
@@ -10885,6 +11054,22 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Personal area"
+#~ msgstr "E-mail personal"
+
+#, fuzzy
+#~ msgid "Select the event to which you would like to add your cart"
+#~ msgstr "Selectați evenimentul la care doriți să adăugați coș"
+
+#, fuzzy
+#~ msgid "No."
+#~ msgstr "Nu"
+
+#, fuzzy
+#~ msgid "Number of groups:"
+#~ msgstr "Număr de coloane"
 
 #, fuzzy
 #~ msgid "Deactivated the Person"

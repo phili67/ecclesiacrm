@@ -1,0 +1,1032 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2018-07-31T14:39:47.785Z\n"
+"PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Set Calendar Name"
+msgstr "Defina el nombre del calendario."
+
+msgid "Include/Exclude your Calendars in the SideBar"
+msgstr "Incluir/excluir las calendarios en la barra lateral"
+
+msgid "Calendars"
+msgstr "Calendarios"
+
+msgid "Set Status"
+msgstr "Establecer de estado"
+
+msgid "Select [Exclude] or [Include]"
+msgstr "Establecer [Excluir] o [Incluir]"
+
+msgid "[INCLUDE]"
+msgstr "[INCLUIR]"
+
+msgid "[EXCLUDE]"
+msgstr "[EXCLUIR]"
+
+msgid "Ok"
+msgstr "Aceptar"
+
+msgid "[👀  ]"
+msgstr "[👀  ]"
+
+msgid "[👀 ✐]"
+msgstr "[👀 ✐]"
+
+msgid "Share your Calendar"
+msgstr "Compartir los calendarios"
+
+msgid "With"
+msgstr "Con"
+
+msgid "Set Rights"
+msgstr "Establecer derechos"
+
+msgid "Select your rights"
+msgstr "Selecciona tus derechos"
+
+msgid "or"
+msgstr "o"
+
+msgid "[R ]"
+msgstr "[R ]"
+
+msgid "[RW]"
+msgstr "[RW]"
+
+msgid "Send email notification"
+msgstr "Enviar una notificación por correo electrónico"
+
+msgid "Add persons/Family/groups"
+msgstr "Agregar personas/Familias/Grupos"
+
+msgid "Delete"
+msgstr "Borrar"
+
+msgid "Are you sure, you want to delete this Share ?"
+msgstr "¿Estás seguro de borrar esta Compartir"
+
+msgid "Stop sharing"
+msgstr "Dejar de Compartir"
+
+msgid "Are you sure, you want to stop sharing your document ?"
+msgstr "¿Estás seguro de Dejar de Compartir su documento ?"
+
+msgid "Person or Family or Group"
+msgstr "Persona o Familia o Grupo"
+
+msgid "Are you sure?"
+msgstr "¿Estás seguro"
+
+msgid ""
+"You'll lose the calendar, the events and all the share calendars too. This "
+"cannot be undone."
+msgstr ""
+"Te perderás il calendario, los Eventos e todos los compartir calendarios "
+
+msgid "Manage"
+msgstr "Gestionar"
+
+msgid "Calendar Management for"
+msgstr "Gestión del calendario per"
+
+msgid "Modify Calendar Name"
+msgstr "Cambiar nombre del calendario."
+
+msgid "Modify Group Name"
+msgstr "Cambiar nombre de grupo"
+
+msgid "Modify Share Name"
+msgstr "Cambiar nombre del compartido"
+
+msgid "Actualize"
+msgstr "Actualizar"
+
+msgid "Move Event"
+msgstr "Mover Evento"
+
+msgid "Are you sure about this change?"
+msgstr "¿Estás seguro de questo cambio ?"
+
+msgid "will be dropped."
+msgstr "serán retirados."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "You're about to move all the events. Would you like to :"
+msgstr "Estás a punto de Mover todos los Eventos. ¿Te gustaría :"
+
+msgid "Only this Event"
+msgstr "Sólo este evento"
+
+msgid "All Events"
+msgstr "Todos los eventos"
+
+msgid "Modify Event"
+msgstr "Cambiar Evento"
+
+msgid ""
+"What would you like to do ? Be careful with the deletion, it's impossible to "
+"revert !!!"
+msgstr ""
+"¿Qué te gustaría hacer? Ten cuidado con la supresión, Esto no puede "
+"deshacerse !!!"
+
+msgid "Delete Event"
+msgstr "Suprimir evento"
+
+msgid "Are you sure to delete this event?"
+msgstr "¿Estás seguro de Suprimir evento"
+
+msgid "Delete all repeated Events"
+msgstr "Suprimir todos repeated eventos"
+
+msgid ""
+"You are about to delete all the repeated Events linked to this event. Are "
+"you sure? This can't be undone."
+msgstr ""
+"Estás a punto de borrar todos repeated eventos vinculados a Este Evento. "
+"¿Estás seguro ? Esto no puede deshacerse."
+
+msgid "No"
+msgstr "No"
+
+msgid "Only this event"
+msgstr "Sólo Este Evento"
+
+msgid "Every Events linked to this Event"
+msgstr "Cada eventos vinculados a Este Evento"
+
+msgid "Add More Attendees"
+msgstr "Añadir más asistentes"
+
+msgid "Make Attendance"
+msgstr "Hacer la participación"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Resize Event"
+msgstr "Redimensionar Evento"
+
+msgid "You're about to resize all the events. Would you like to :"
+msgstr "Estás a punto de Redimensionar todos eventos. ¿Te gustaría :"
+
+msgid "Event added"
+msgstr "Evento añadidos"
+
+msgid ""
+"Event was added successfully. Would you like to make the Attendance or to "
+"add attendees ?"
+msgstr ""
+"Evento añadidos correctamente. ¿Te gustaría hacer la participación o añadir "
+"a los otros asistentes."
+
+msgid "Present"
+msgstr "Presente"
+
+msgid "Absent"
+msgstr "Ausente"
+
+msgid "CKEditor Template Creation"
+msgstr "CKEditor creación Modelos"
+
+msgid "Template Name"
+msgstr "Nombre Modelos"
+
+msgid "Explanation field cannot be empty."
+msgstr "Campo de explanation no puede estar vacío."
+
+msgid "Template Description"
+msgstr "Descripción del Modelos"
+
+msgid "(No templates defined)"
+msgstr "(No Modelos definido)"
+
+msgid "Content Templates"
+msgstr "Contenido de Modelos"
+
+msgid "Please select the template to open in the editor"
+msgstr "Por favor, seleccione el Modelo para abrir en el editor:"
+
+msgid "Template Options"
+msgstr "Modelos Opciones"
+
+msgid "Modify"
+msgstr "Cambiar"
+
+msgid "Modify the template you select"
+msgstr "Cambiar il seleccionado modelo"
+
+msgid "Delete the template you select"
+msgstr "Borrar il seleccionado modelo"
+
+msgid "Are you sure to delete this template? This can't be undone."
+msgstr "¿Estás seguro de borrar esta modelo ? Esto no puede deshacerse."
+
+msgid "OK"
+msgstr "Si"
+
+msgid "Replace actual content"
+msgstr "Cambiar actual contenido"
+
+msgid "Manage templates"
+msgstr "Gestionar Modelos"
+
+msgid "Save templates"
+msgstr "Guardar el modelo"
+
+msgid "Apply templates"
+msgstr "Apply Modelo"
+
+msgid "Error making API Call to"
+msgstr "Error making API Call to"
+
+msgid "Error text"
+msgstr "Mensaje de error"
+
+msgid "Stack Trace"
+msgstr "Stack Trace"
+
+msgid "ERROR"
+msgstr "ERROR"
+
+msgid "There was a problem retrieving the requested object"
+msgstr "Hubo un problema al obtener el objeto solicitado"
+
+msgid "Do you really want to delete the persons in the cart and from the CRM?"
+msgstr "¿Realmente desea borrar este personas del Carrito e del CRM"
+
+msgid "This action can never be undone !!!!"
+msgstr "Esto action no puede jamás deshacerse !!!!"
+
+msgid "Yes : if you're sure"
+msgstr "Si : si estás seguro"
+
+msgid "Select the event to which you would like to add your cart"
+msgstr "Seleccione el evento a la que desea para añadir su carrito"
+
+msgid "Create First A New Event"
+msgstr "Crear primera un nuevo evento"
+
+msgid "Add to Event"
+msgstr "Añade al evento"
+
+msgid ""
+"You can add the content of the cart to the selected event below<br> - OR - "
+"<br>Create first an event and add them after."
+msgstr ""
+"Puedes agregar el contenido del carrito al evento escogido más abajo<br> - O "
+"- <br>Crear primero uno Evento e Agréguense después."
+
+msgid "New Release"
+msgstr "Nueva Versión"
+
+msgid "Installed version"
+msgstr "Versión instalada"
+
+msgid "New One"
+msgstr "Nuevo"
+
+msgid "View Cart"
+msgstr "Ver Carrito"
+
+msgid "Empty Cart"
+msgstr "Vaciado Carrito"
+
+msgid "Empty Cart to Group"
+msgstr "Vaciado Carrito en el Grupo"
+
+msgid "Empty Cart to Family"
+msgstr "Vaciado Carrito en la Familia"
+
+msgid "Empty Cart to Event"
+msgstr "Vaciado Carrito en el Evento"
+
+msgid "Map Cart"
+msgstr "Mapa del Carrito "
+
+msgid "Delete Persons From Cart and CRM"
+msgstr "Borrar Personas del Carrito e CRM"
+
+msgid "View all"
+msgstr "Mostrar todos"
+
+msgid "Your Cart is Empty"
+msgstr "Su Carrito está vacío"
+
+msgid "Select Group"
+msgstr "Seleccionar uno grupo "
+
+msgid "Please select target group for members"
+msgstr "Por favor seleccione el grupo objetivo para miembros"
+
+msgid "Select Role"
+msgstr "Seleccione Rol"
+
+msgid "Please select target Role for members"
+msgstr "Por favor seleccione el Rol objetivo para miembros"
+
+msgid "GroupID required for role selection prompt"
+msgstr "ID de Grupo requerido para seleccionar rol"
+
+msgid "Select Group and Role"
+msgstr "Seleccione Grupo y Rol"
+
+msgid "Add A Group Name"
+msgstr "Agregar un Nombre de Grupo"
+
+msgid "Default Name Group"
+msgstr "Nombre de Grupo por Defecto"
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "Family"
+msgstr "Familia"
+
+msgid "Anonymous"
+msgstr "Anónimo"
+
+msgid "Fund"
+msgstr "Fondo"
+
+msgid "Pledge or payment"
+msgstr "Promesa o Pago"
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Amount"
+msgstr "Cantidad"
+
+msgid "Method"
+msgstr "Método"
+
+msgid "Check Number"
+msgstr "Número de cheque"
+
+msgid "Details"
+msgstr "Detalles"
+
+msgid "Selected Rows"
+msgstr "Filas seleccionadas"
+
+msgid "Attention"
+msgstr "Atención"
+
+msgid "Are you sure you want to DELETE all persons from Event ID:"
+msgstr "¿Está seguro de que desea borrar todos personas del Evento ID:"
+
+msgid "Are you sure you want to DELETE this person from Event ID:"
+msgstr "¿Está seguro de que desea borrar esta persona del Evento ID:"
+
+msgid "No attendees"
+msgstr "No participación"
+
+msgid "Attendance Notes: "
+msgstr "Nota de Asistencia:"
+
+msgid "Event Creation"
+msgstr "Creación del Evento"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Calendar Title"
+msgstr "Título Calendario"
+
+msgid "Location"
+msgstr "Localización"
+
+msgid "Map"
+msgstr "Map"
+
+msgid "Desc"
+msgstr "Desc"
+
+msgid "Event description"
+msgstr "Descripción de Evento"
+
+msgid "From"
+msgstr "Del"
+
+msgid "to"
+msgstr "Al"
+
+msgid "Start Date"
+msgstr "fecha de comienzo"
+
+msgid "End Date"
+msgstr "fecha límite"
+
+msgid "Repeat"
+msgstr "Repetir"
+
+msgid "Daily"
+msgstr "Diario"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "Monthly"
+msgstr "Mensual"
+
+msgid "Quarterly"
+msgstr "Trimestral"
+
+msgid "Semesterly"
+msgstr "Semestre"
+
+msgid "Yearly"
+msgstr "Anual"
+
+msgid "End"
+msgstr "Término"
+
+msgid "Calendar"
+msgstr "Calendario"
+
+msgid "Add as attendees"
+msgstr "Agregar asistentes"
+
+msgid "Attendances"
+msgstr "Participantes"
+
+msgid "Personal"
+msgstr "Personal"
+
+msgid "Attendance Counts"
+msgstr "Cuenta Participantes"
+
+msgid "Notes"
+msgstr "Notas"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "inactive"
+msgstr "Inactivo"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Delete Event Type"
+msgstr "Borrar tipo de evento"
+
+msgid "Are you sure you want to remove this family from the CRM"
+msgstr "¿Seguro que desea eliminar este Familia de esto CRM"
+
+msgid "Are you sure you want to remove all families from the CRM"
+msgstr "¿Seguro que desea eliminar estos Familias de esto CRM"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Value"
+msgstr "Valor"
+
+msgid "Edit Value"
+msgstr "Editar valor"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Are you sure you want to unassign this property?"
+msgstr "¿Está seguro de que desea desasignar esta propiedad?"
+
+msgid "Are you sure you want to change this property?"
+msgstr "¿Está seguro de quiere cambiar esta propiedad?"
+
+msgid "Verification email sent"
+msgstr "Email de verificación enviado"
+
+msgid "Failed to send verification email"
+msgstr "Falla al enviar email de verificación"
+
+msgid "Failed to add verification"
+msgstr "Falla al agregar verificación"
+
+msgid "Remove from Cart"
+msgstr "Remover del Carrito"
+
+msgid "Add to Cart"
+msgstr "Agregar al Carrito"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Bank Draft"
+msgstr "Giro Bancario"
+
+msgid "Credit Card"
+msgstr "Tarjeta de Crédito"
+
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+msgid "Next payment date"
+msgstr "Próxima fecha de pago"
+
+msgid "Interval (months)"
+msgstr "Intervalo de Pagos (meses)"
+
+msgid "Updated By"
+msgstr "Actualizado por"
+
+msgid "Confirm Delete Automatic payment"
+msgstr "Confirmar la Eliminación del Pago Automático"
+
+msgid "Pledge or Payment"
+msgstr "Promesa o Pago"
+
+msgid "Dep ID"
+msgstr "Dep ID"
+
+msgid "Closed"
+msgstr "Cerrado"
+
+msgid "Fiscal Year"
+msgstr "Año fiscal"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "NonDeductible"
+msgstr "no deducible"
+
+msgid "Schedule"
+msgstr "Agendar"
+
+msgid "CHECK"
+msgstr "CHEQUE"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Date Updated"
+msgstr "Fecha de actualización"
+
+msgid "Confirm Delete"
+msgstr "Confirmar Eliminación"
+
+msgid "Pledge"
+msgstr "Promesa"
+
+msgid "Payment"
+msgstr "Pago"
+
+msgid "Deposit ID"
+msgstr "Depósito ID"
+
+msgid "Deposit Date"
+msgstr "Fecha de Depósito"
+
+msgid "Deposit Total"
+msgstr "Depósitos Total"
+
+msgid "Deposit Comment"
+msgstr "Comentario de Depósito"
+
+msgid "Deposit Type"
+msgstr "Tipo de Depósito"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "Generate Deposit Slip for Selected"
+msgstr "Generar Ficha de Depósitos para Filas Seleccionadas"
+
+msgid "Rows"
+msgstr "Filas"
+
+msgid "Select the method to add to a group"
+msgstr "Seleccione el método Para añadir a un grupo"
+
+msgid "Select an existing Group"
+msgstr "Seleccionar un Grupo ya existente"
+
+msgid "or Create a new Group from the Cart"
+msgstr "o Crear un nuevo Grupo del carrito,"
+
+msgid "Select the group to which you would like to add your cart"
+msgstr "Seleccione el grupo que desea Agregar al Carrito"
+
+msgid "Group Name"
+msgstr "Nombre de Grupo"
+
+msgid "Add Cart to Group"
+msgstr "Agregar Carrito al Grupo"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "You have to select one group and a group role if you want"
+msgstr "Debe seleccionar uno Grupo e une rol de grupo si quiere"
+
+msgid "You have to set a Group Name"
+msgstr "Tienes que uno Grupo Nombre"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid ""
+"If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+" si se borra el fondo, <u><b>Perderá todos datos conectados.</b></"
+"u><br><b>¿Estás seguro ? Esta acción NO PUEDE ser deshecha.</b>"
+
+msgid "Fund Editor"
+msgstr "Editar Fondo"
+
+msgid "Add Fund"
+msgstr "Agregar Fondo"
+
+msgid "Full Name"
+msgstr "Nombre Completo "
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Date Entered"
+msgstr "Fecha de entrada"
+
+msgid "Date Last Edited"
+msgstr "Última Edición"
+
+msgid "Edited By Name"
+msgstr "Editado Por Nombre"
+
+msgid "Deactivated"
+msgstr "Desactivado"
+
+msgid "Sunday School Menu assignement"
+msgstr "menú asignó Escuela Dominical"
+
+msgid "Confirm Enable Group Specific Properties"
+msgstr "Confirmar la Habilitación de Propiedades Específicas de Grupo"
+
+msgid ""
+"This will create a group-specific properties table for this group. You "
+"should then add needed properties with the Group-Specific Properties Form "
+"Editor."
+msgstr ""
+"Esto creará una tabla de propiedades específicas para este grupo. Debería "
+"posteriormente agregar las propiedades necesarias con el Editor de "
+"Propiedades Especificas de Grupo."
+
+msgid "Enable Group Specific Properties"
+msgstr "Habilitar Propiedades Específicas de Grupo"
+
+msgid "Confirm Disable Group Specific Properties"
+msgstr "Confirmar deshabilitar grupo propiedades específicas"
+
+msgid ""
+"Are you sure you want to remove the group-specific person properties? All "
+"group member properties data will be lost!"
+msgstr ""
+"¿Está seguro de que desea borrar esto grupo-específicas propiedades del "
+"persona?"
+
+msgid "Disable Group Specific Properties"
+msgstr "Deshabilitar Propiedades Específicas de Grupo"
+
+msgid "Sunday School"
+msgstr "Escuela Dominical"
+
+msgid "Role Name"
+msgstr "Nombre de Rol"
+
+msgid "Make Default"
+msgstr "Poner por defecto"
+
+msgid "Default"
+msgstr "Por defecto"
+
+msgid "Sequence"
+msgstr "Secuencia"
+
+msgid "Members"
+msgstr "Miembros"
+
+msgid "Group Cart Status"
+msgstr "Estado de Carrito del Grupo"
+
+msgid "All members of this group are in the cart"
+msgstr "Todos los miembros de este grupo están en el Carrito"
+
+msgid "Remove all"
+msgstr "Remover todo"
+
+msgid "Not all members of this group are in the cart"
+msgstr "No todos los miembros de este grupo están en el Carrito"
+
+msgid "Add all"
+msgstr "Agregar todo"
+
+msgid "Cart isn't showable"
+msgstr "No Grupo sea visible"
+
+msgid "Group Type"
+msgstr "Tipo de Grupo"
+
+msgid "Unassigned"
+msgstr "Sin Asignar"
+
+msgid "Confirm Delete Group"
+msgstr "Confirmar el Borrado de Grupo"
+
+msgid "Please confirm deletion of this group record"
+msgstr "Por favor confirme que desea borrar este grupo de registros"
+
+msgid ""
+"This will also delete all Roles and Group-Specific Property data associated "
+"with this Group record."
+msgstr ""
+"Esto también borrará todos los roles y propiedades específicas de grupos "
+"asociados a este grupo."
+
+msgid ""
+"All group membership and properties will be destroyed.  The group members "
+"themselves will not be altered."
+msgstr ""
+"Todos pertenencias a un grupo será bora. Los miembros del grupo no se "
+"modificarán."
+
+msgid "Person"
+msgstr "Persona"
+
+msgid "Are you sure you want to remove the selected group members?"
+msgstr ""
+"¿Está seguro de que desea remover los miembros seleccionados del grupo?"
+
+msgid "Group Role"
+msgstr "Rol de Grupo"
+
+msgid "Private Data"
+msgstr "Datos Personales"
+
+msgid "Address"
+msgstr "Dirección"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Zip Code"
+msgstr "Código Postal"
+
+msgid "Cell Phone"
+msgstr "Teléfono Celular"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Members from group"
+msgstr "Miembros del Grupo"
+
+msgid "Add"
+msgstr "Agregar"
+
+msgid "Members to another group"
+msgstr "Miembros de otro Grupo"
+
+msgid "Members to cart"
+msgstr "Miembros al Carrito"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "No assigned Manager"
+msgstr "No asignado Administrador"
+
+msgid "Manage Group Managers"
+msgstr "Gestionar del grupo de administradores"
+
+msgid "Add person"
+msgstr "Agregar Persona"
+
+msgid "Are you sure, you want to delete this Manager ?"
+msgstr "¿Está seguro de que desea borrar esto Administrador ?"
+
+msgid "Delete Managers"
+msgstr "Borrar Administradores"
+
+msgid "Are you sure, you want to delete all the managers ?"
+msgstr "¿Estás seguro de borrar todos Administradores?"
+
+msgid "Validate"
+msgstr "Validar"
+
+msgid "You have to set a Title and a Description for your issue."
+msgstr "Debe configurar un Título e una descripción para su Problema."
+
+msgid ""
+"Deleting an event will also delete all attendance counts for that event."
+msgstr ""
+"Borrar uno evento se también borrar todos los cuenta del participación para "
+"esto evento."
+
+msgid "Are you sure you want to DELETE the event ?"
+msgstr "¿Está seguro de que desea BORRAR esto Evento"
+
+msgid "Delete this person?"
+msgstr "clasificación esta persona?"
+
+msgid "Do you want to delete this person?  This cannot be undone."
+msgstr "Desea eliminar a esta persona? Esto no puede deshacerse."
+
+msgid "Delete Classification"
+msgstr "Borrar clasificación"
+
+msgid "Please confirm deletion of this classification"
+msgstr "Por favor confirme la eliminación de esta clasificación"
+
+msgid ""
+"This will also delete this Classification for all the associated persons."
+msgstr "Esto también borrará esta clasificación para los personas asociadas."
+
+msgid "This can't be undone !!!!"
+msgstr "Esto no puede deshacerse !!!!"
+
+msgid "Map Icon GoogleMap"
+msgstr "Map Icon GoogleMap"
+
+msgid "Classification"
+msgstr "Clasificación"
+
+msgid "Select your classification icon"
+msgstr "Selecciona tu Clasificación icono"
+
+msgid "Pastoral Care Note Creation"
+msgstr "creación de Nota Atención Pastoral"
+
+msgid "For every administrator"
+msgstr "para todos los administradores"
+
+msgid "Show"
+msgstr "Mostrar"
+
+msgid "Hide"
+msgstr "Ocultar"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Visible for other authorized users"
+msgstr "Visible per otros usuarios autorizados"
+
+#, fuzzy
+msgid ""
+"If you delete the pastoral care type, <u><b>you'll lose all the connected "
+"datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Si borra il tipo de Atención Pastoral, <u><b>Perderá todos datos conectados."
+"</b></u><br><b>¿Estás seguro ? Esta acción NO PUEDE ser deshecha.</b>"
+
+msgid "Pastoral Care Type Editor"
+msgstr "Editor de tipo de Atención Pastoral"
+
+msgid "Add Pastoral Care Type"
+msgstr "Agregar al Atención Pastoral Tipo"
+
+msgid "Are you sure you want to remove this person from the CRM"
+msgstr "¿Está seguro de que desea remover esta persona del CRM"
+
+msgid "Are you sure you want to remove all persons from the CRM"
+msgstr "¿Está seguro de que desea remover todos los personas del CRM"
+
+msgid "Photo"
+msgstr "Fotografía"
+
+msgid "Are you sure you want to remove this person's membership from"
+msgstr "¿Estás seguro de borrar el persona incorporar de"
+
+msgid "Share your Document"
+msgstr "Compartir archivos"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "¿Estás seguro de querer borrar esta Persona."
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "¿Estás seguro de Dejar de Compartir su documento ?"
+
+msgid "Change role"
+msgstr "Cambiar Rol"
+
+msgid "Remove Students from Cart"
+msgstr "Remover estudiantes del carrito"
+
+msgid "Add Students to Cart"
+msgstr "Agregar Estudiantes al carrito"
+
+msgid "Remove Teachers from Cart"
+msgstr "Remover Profesores del carrito"
+
+msgid "Add Teachers to Cart"
+msgstr "Agregar Profesores al carrito"
+
+msgid "Select the event Type you would like to use to create the Attendance"
+msgstr "Seleccionar tipo de evento que quiera usar para crear la participación"
+
+msgid "Create Event With Students"
+msgstr "Crear Evento con estudiantes"
+
+msgid ""
+"You can create the event automatically with the students<br> - OR - <br>Add "
+"the students to the cart and create an event to add them after."
+msgstr ""
+"Tú puedes crear uno Evento automáticamente con estudiantes<br> - O - "
+"<br>Agregar Estudiantes al Carrito e crear uno Evento para Agregar ellos "
+"después"
+
+msgid "First, set your time range correctly to make the extraction."
+msgstr ""
+"Primero, Configure su rango de años correctamente para hacer extracciones."
+
+msgid "Set year range to export"
+msgstr "Establecer rango de años para exportar"
+
+msgid "Extra students"
+msgstr "Estudiantes Adicionales"
+
+msgid "export with photos"
+msgstr "Exportación con fotografías"
+
+msgid "Profile management"
+msgstr "Gestión de perfiles"
+
+msgid "Select your Profile"
+msgstr "Seleccione su perfil"
+
+msgid "Profile Name"
+msgstr "Perfil Nombre"
+
+msgid "Are you sure? You're about to delete this Profile."
+msgstr "¿Estás seguro de querer borrar esto perfil."
+
+msgid "Rename"
+msgstr "Renombrar "
+
+msgid "Choose a Profile Name"
+msgstr "Elegir uno nombre de perfil"
+
+msgid ""
+"<center>You must set another Profile Name <br>-- or --<br> this Profile Name "
+"already exist !!!</center>"
+msgstr ""
+"<center>Ustedes debe establecer uno otro nombre del perfil <br>-- o --<br> "
+"Esto nombre del perfil ya existen !!!"
+
+msgid "User Delete Confirmation"
+msgstr "Confirmación de Eliminación del Usuario"
+
+msgid "Please confirm removal of user status from:"
+msgstr "Confirme la eliminación de estado de usuario de:"
+
+msgid ""
+"Be carefull, You are about to lose the home folder and the associated files, "
+"the Calendars, the Share calendars and all the events too, for"
+msgstr ""
+"Ten cuidado, está a punto de perder la carpeta de inicio, los archivo "
+"asociadas, los calendarios. los calendarios compartiro e todos los eventos, "
+"para "
+
+msgid "This can't be undone"
+msgstr "Esto no puede deshacerse"
+
+msgid "Action Confirmation"
+msgstr "Confirmación de Acción"
+
+msgid "Please confirm reset failed login count"
+msgstr "Por favor confirme restablecer la cuenta de ingresos fallidos"
+
+msgid "Please confirm the password reset of this user"
+msgstr "Por favor confirme la renovación de contraseña de este usuario"
+
+msgid "Password reset for"
+msgstr "Restablecer las contraseñas de"
+
+msgid "success"
+msgstr "Éxito"

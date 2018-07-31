@@ -33,8 +33,8 @@ $(document).ready(function () {
             title: i18next.t("User Delete Confirmation"),
             message: '<p style="color: red">' +
             i18next.t("Please confirm removal of user status from:")+'<b>' + userName + '</b><br><br>'+
-            i18next.t("Be carefull !!! You will lose the home folder and the files, the Calendars, the Share calendars and all the events too, for")+':<b> ' + userName + '</b><br><br>'+
-            i18next.t("This can be undone")+'</p>',
+            i18next.t("Be carefull, You are about to lose the home folder and the associated files, the Calendars, the Share calendars and all the events too, for")+':<b> ' + userName + '</b><br><br>'+
+            i18next.t("This can't be undone")+'</p>',
             callback: function (result) {
                 if (result) {
                     $.ajax({

@@ -117,7 +117,7 @@ $MenuFirst = 1;
                 </td>
                 <td valign="middle" align="left" style="padding-top:10px">   
                   <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
-                      <p ><i class="fa fa fa-user"></i> <?= gettext("Personal area") ?></p></a>
+                      <p ><i class="fa fa fa-user"></i> <?= gettext("Private Space") ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("You can change here your password")?>" data-placement="right">
                       <p ><i class="fa fa fa-key"></i> <?= gettext('Change Password') ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Change Custom Settings")?>" data-placement="right">

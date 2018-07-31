@@ -122,7 +122,7 @@ function addProfilesToMainDropdown()
                callback: function() {
                   var profileID = $('#select-userprofile').val();
                   
-                  bootbox.confirm(i18next.t("Are you sure, you want to delete this Profile ?"), function(result){ 
+                  bootbox.confirm(i18next.t("Are you sure? You're about to delete this Profile."), function(result){ 
                     if (result) {
                       window.CRM.APIRequest({
                          method: 'POST',
@@ -263,7 +263,7 @@ function addProfilesToMainDropdown()
            user_perm = user_perm.slice(0, -1);
            user_value = user_value.slice(0, -1);
            
-           bootbox.prompt(i18next.t("Choose your Profile Name"), function(result){ 
+           bootbox.prompt(i18next.t("Choose a Profile Name"), function(result){ 
              if (result) {
                 window.CRM.APIRequest({
                   method: 'POST',
@@ -275,7 +275,7 @@ function addProfilesToMainDropdown()
                     } else if (data && data.status=="error") {
                       bootbox.alert({
                           title:i18next.t("Error"),
-                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile settings already exist !!!</center>"),
+                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile Name already exist !!!</center>"),
                           size: "small"
                       });
                     }

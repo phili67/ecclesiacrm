@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-07-26T09:17:16.186Z\n"
-"PO-Revision-Date: 2018-07-26T09:17:16.186Z\n"
+"POT-Creation-Date: 2018-07-31T14:41:00.534Z\n"
+"PO-Revision-Date: 2018-07-31T14:41:00.535Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -600,7 +600,7 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-msgid "Generate Deposit Split for Selected"
+msgid "Generate Deposit Slip for Selected"
 msgstr ""
 
 msgid "Rows"
@@ -898,7 +898,10 @@ msgstr ""
 msgid "Share your Document"
 msgstr ""
 
-msgid "Are you sure, you want to delete this Person ?"
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr ""
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr ""
 
 msgid "Change role"
@@ -930,7 +933,7 @@ msgstr ""
 msgid "First, set your time range correctly to make the extraction."
 msgstr ""
 
-msgid "Set the year range to export"
+msgid "Set year range to export"
 msgstr ""
 
 msgid "Extra students"
@@ -948,18 +951,18 @@ msgstr ""
 msgid "Profile Name"
 msgstr ""
 
-msgid "Are you sure, you want to delete this Profile ?"
+msgid "Are you sure? You're about to delete this Profile."
 msgstr ""
 
 msgid "Rename"
 msgstr ""
 
-msgid "Choose your Profile Name"
+msgid "Choose a Profile Name"
 msgstr ""
 
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile "
-"settings already exist !!!</center>"
+"Name already exist !!!</center>"
 msgstr ""
 
 msgid "User Delete Confirmation"
@@ -969,11 +972,11 @@ msgid "Please confirm removal of user status from:"
 msgstr ""
 
 msgid ""
-"Be carefull !!! You will lose the home folder and the files, the Calendars, "
-"the Share calendars and all the events too, for"
+"Be carefull, You are about to lose the home folder and the associated "
+"files, the Calendars, the Share calendars and all the events too, for"
 msgstr ""
 
-msgid "This can be undone"
+msgid "This can't be undone"
 msgstr ""
 
 msgid "Action Confirmation"
