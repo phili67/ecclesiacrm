@@ -3788,7 +3788,7 @@ msgstr "Schnellsuche"
 
 #: EcclesiaCRM/dto/SystemConfig.php:263
 msgid "Backup"
-msgstr "Zurück"
+msgstr "Datensicherung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:264
 msgid "Localization"
