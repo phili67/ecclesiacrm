@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 23:35+0200\n"
+"POT-Creation-Date: 2018-07-31 16:17+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4531,8 +4531,9 @@ msgid "by"
 msgstr "Naast"
 
 #: EcclesiaCRM/Service/TimelineService.php:291
-msgid "Share by"
-msgstr ""
+#, fuzzy
+msgid "Shared by"
+msgstr "Geschonken door"
 
 #: EcclesiaCRM/Service/UpgradeService.php:64
 msgid "Databse upgrade failed"

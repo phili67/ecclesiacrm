@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-31 15:45+0200\n"
+"POT-Creation-Date: 2018-07-31 16:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4326,7 +4326,7 @@ msgid "by"
 msgstr ""
 
 #: EcclesiaCRM/Service/TimelineService.php:291
-msgid "Share by"
+msgid "Shared by"
 msgstr ""
 
 #: EcclesiaCRM/Service/UpgradeService.php:64

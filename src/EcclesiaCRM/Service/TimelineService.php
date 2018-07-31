@@ -288,7 +288,7 @@ class TimelineService
           $item['sharePersonID'] = $sharePerson->getId();
           $item['shareRights'] = $shareRights;
           $item['headerLink'] = '';
-          $item['header'] = gettext('Share by') . ' : ' . $sharePerson->getFullName();
+          $item['header'] = gettext("Shared by") . ' : ' . $sharePerson->getFullName();
           
           $item['deleteLink'] = '';
           
