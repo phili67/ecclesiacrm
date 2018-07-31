@@ -68,17 +68,17 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
 if ($_SESSION['user']->isGdrpDpoEnabled()) {
-  // RGPD
+  // RGPD, when a person is completely deactivated
   $time = new DateTime('now');
   $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
  
   $families = FamilyQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
             ->orderByName()
             ->find();
 
   $persons = PersonQuery::create()
-          ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+              ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
               ->orderByLastName()
               ->find();
               

@@ -24,21 +24,34 @@ if (strtolower($sMode) == 'gdrp') {
    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
    
    $persons = PersonQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a person is completely deactivated
             ->orderByLastName()
             ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
-    $persons = PersonQuery::create()
-        ->filterByDateDeactivated(null, Criteria::ISNOTNULL)
-            ->orderByLastName()
-            ->find();
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+  $time = new DateTime('now');
+  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+
+  $persons = PersonQuery::create()
+          ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
+          ->orderByLastName()
+          ->find();
 } else {
-    $sMode = 'Active';
-    $persons = PersonQuery::create()
-        ->filterByDateDeactivated(null)
-            ->orderByLastName()
-            ->find();
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+  $sMode = 'Active';
+  $persons = PersonQuery::create()
+          ->filterByDateDeactivated(null)
+          ->orderByLastName()
+          ->find();
 }
 
 // Set the page title and include HTML header

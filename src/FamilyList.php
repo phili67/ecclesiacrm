@@ -29,11 +29,24 @@ if (strtolower($sMode) == 'gdrp') {
             ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+    $time = new DateTime('now');
+    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+
     $families = FamilyQuery::create()
-        ->filterByDateDeactivated(null, Criteria::ISNOTNULL)
+            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
             ->orderByName()
             ->find();
 } else {
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+  
     $sMode = 'Active';
     $families = FamilyQuery::create()
         ->filterByDateDeactivated(null)

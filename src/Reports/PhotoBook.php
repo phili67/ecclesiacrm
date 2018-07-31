@@ -147,6 +147,9 @@ class PDF_PhotoBook extends ChurchInfoReport
         $RoleListID =$this->group->getRoleListId();
         $groupRole = ListOptionQuery::create()->filterById($RoleListID)->filterByOptionName($roleName)->findOne();
         $groupRoleMemberships = Person2group2roleP2g2rQuery::create()
+                            ->usePersonQuery()
+                              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+                            ->endUse()
                             ->filterByGroup($this->group)
                             ->filterByRoleId($groupRole->getOptionId())
                             ->joinWithPerson()

@@ -61,6 +61,7 @@ class CalendarService
         
         if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
           $peopleWithBirthDays = PersonQuery::create()
+            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
             ->JoinWithFamily();
           
           // get the first and the last month

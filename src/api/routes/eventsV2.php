@@ -181,6 +181,9 @@ $app->group('/events', function () {
         $params = (object)$request->getParsedBody();
                 
         $persons = Person2group2roleP2g2rQuery::create()
+            ->usePersonQuery()
+              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->endUse()
             ->filterByGroupId($params->GroupID)
             ->find();
 
@@ -208,12 +211,13 @@ $app->group('/events', function () {
     $this->post('/family',function($request, $response, $args) {
         $params = (object)$request->getParsedBody();
                 
-        $family = FamilyQuery::create()->findPk($params->FamilyID);
+        $family = FamilyQuery::create()
+             ->findPk($params->FamilyID);
 
         foreach ($family->getPeople() as $person) {
           //return $response->withJson(['person' => $person->getId(),"eventID" => $params->EventID]);
           try {
-            if ($person->getId() > 0) {
+            if ($person->getId() > 0 && $person->getDateDeactivated() == null) {// RGPD, when a person is completely deactivated
               $eventAttent = new EventAttend();
         
               $eventAttent->setEventId($params->EventID);

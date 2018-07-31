@@ -138,13 +138,19 @@ if (!empty($_POST['GroupID'])) {
 }
 
 //Exclude inactive families
-if ($bExcludeInactive) {
+if ($bExcludeInactive && $_SESSION['user']->isGdrpDpoEnabled()) {// only DPO can print all the directory
     $sWhereExt .= ' AND fam_DateDeactivated is null';
 }
 
 if (array_key_exists('cartdir', $_POST)) {
     $sWhereExt .= 'AND per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')';
 }
+
+//Exclude inactive families RGPD
+if ($bExcludeInactive && $_SESSION['user']->isGdrpDpoEnabled()) {// only DPO can print all the directory
+    $sWhereExt .= ' AND per_DateDeactivated is null';
+}
+
 
 $mysqlinfo = mysqli_get_server_info($cnInfoCentral);
 $mysqltmp = explode('.', $mysqlinfo);

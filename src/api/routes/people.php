@@ -50,6 +50,9 @@ $app->group('/people', function () {
           $id++;
         
           foreach ($people as $person) {
+            if ($person->getDateDeactivated() != null)
+              continue;
+              
             $elt = ['id'=>$id++,
                 'text'=>$person->getFullName(),
                 'personID'=>$person->getId()];
@@ -95,6 +98,9 @@ $app->group('/people', function () {
           $id++;
         
           foreach ($people as $person) {
+            if ($person->getDateDeactivated() != null)
+              continue;
+              
             $elt = ['id'=>$id++,
                 'text'=>$person->getFullName(),
                 'personID'=>$person->getId()];
@@ -129,7 +135,10 @@ $app->group('/people', function () {
             
             foreach ($families as $family)
             {                    
-                $searchArray=[
+               if ($family->getDateDeactivated() != null)
+                 continue;
+
+               $searchArray=[
                   "id" => $id++,
                   "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                   'familyID'=>$family->getId()

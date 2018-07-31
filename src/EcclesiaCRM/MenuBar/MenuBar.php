@@ -246,15 +246,17 @@ class MenuBar {
           }
         }
         
-        $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
-          $menuItemItem = new Menu (gettext("Add New Person"),"fa fa-circle-o","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
-          $menuItemItem = new Menu (gettext("View Active Persons"),"fa fa-circle-o","PersonList.php",true,$menuItem);
-          $menuItemItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=inactive",true,$menuItem);
+        if ($_SESSION['user']->isEditRecordsEnabled()) {
+          $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
+            $menuItemItem = new Menu (gettext("Add New Person"),"fa fa-circle-o","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+            $menuItemItem = new Menu (gettext("View Active Persons"),"fa fa-circle-o","PersonList.php",true,$menuItem);
+            $menuItemItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=inactive",true,$menuItem);
         
-        $menuItem = new Menu (gettext("Families"),"fa fa-angle-double-right","#",true,$menu);
-          $menuItemItem = new Menu (gettext("Add New Family"),"fa fa-circle-o","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
-          $menuItemItem = new Menu (gettext("View Active Families"),"fa fa-circle-o","FamilyList.php",true,$menuItem);
-          $menuItemItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=inactive",true,$menuItem);
+          $menuItem = new Menu (gettext("Families"),"fa fa-angle-double-right","#",true,$menu);
+            $menuItemItem = new Menu (gettext("Add New Family"),"fa fa-circle-o","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+            $menuItemItem = new Menu (gettext("View Active Families"),"fa fa-circle-o","FamilyList.php",true,$menuItem);
+            $menuItemItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=inactive",true,$menuItem);
+        }
 
       $this->addMenu($menu);
       
