@@ -4469,7 +4469,6 @@ msgid "by"
 msgstr "par"
 
 #: EcclesiaCRM/Service/TimelineService.php:291
-#, fuzzy
 msgid "Shared by"
 msgstr "Partagé par"
 

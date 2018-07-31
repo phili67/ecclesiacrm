@@ -230,7 +230,6 @@ msgid "You can visualize it in your account, in the document tab."
 msgstr "Man kann es sich visualisieren in Ihrem Dokumentregistern Account."
 
 #: api/routes/sharedocument.php:139
-#, fuzzy
 msgid "You can view it in your account, in the document tab."
 msgstr "Man kann es sich visualisieren in Ihrem Dokumentregistern Account."
 
