@@ -17,7 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
 msgid "pm"
 msgstr " "
 
@@ -25,46 +24,46 @@ msgid "am"
 msgstr " "
 
 msgid "Teachers"
-msgstr ""
+msgstr "Profesores"
 
 msgid "Students"
-msgstr ""
+msgstr "Estudiantes"
 
 msgid "Teacher"
-msgstr ""
+msgstr "Profesor"
 
 msgid "Student"
-msgstr ""
+msgstr "Estudiante"
 
 msgid "create"
-msgstr ""
+msgstr "Crear"
 
 msgid "edit"
-msgstr ""
+msgstr "Editar"
 
 msgid "photo"
-msgstr ""
+msgstr "Fotografía"
 
 msgid "group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "note"
-msgstr ""
+msgstr "nota"
 
 msgid "You have to set a Title for your event"
-msgstr ""
+msgstr "Usted tiene que fijar uno Título para su evento"
 
-msgid "This event calendar isn't writeable !!!"
-msgstr ""
+msgid "This event isn't modifiable !!!"
+msgstr "Este evento no se puede cambiar !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
-msgstr ""
+msgstr "Para agregar evento, Tienes que crear uno calendario o activar uno primero."
 
 msgid "Event added"
-msgstr ""
+msgstr "Evento añadido"
 
 msgid "Event was added successfully."
-msgstr ""
+msgstr "Evento añadido correctamente"
 
 msgid "Electronic Transaction Details"
-msgstr ""
+msgstr "Detalles de la transacción electrónica"

@@ -84,6 +84,10 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
      if [ -f "JSONKeys_JS/${lang}/js-strings.po~" ]; then
         rm "JSONKeys_JS/${lang}/js-strings.po~"
      fi
+     
+     if [ -f "JSONKeys_JS/${lang}/js_extra.po~" ]; then
+        rm "JSONKeys_JS/${lang}/js_extra.po~"
+     fi
    fi 
 
 done

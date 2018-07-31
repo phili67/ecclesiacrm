@@ -52,7 +52,8 @@ msgstr "note"
 msgid "You have to set a Title for your event"
 msgstr "Vous devez saisir un titre pour votre événement"
 
-msgid "This event calendar isn't writeable !!!"
+#, fuzzy
+msgid "This event isn't modifiable !!!"
 msgstr "Cet événement de calendrier n'est pas accessible en écriture !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."

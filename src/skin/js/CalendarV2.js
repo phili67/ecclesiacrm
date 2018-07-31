@@ -35,7 +35,7 @@ $(document).ready(function () {
     },
     eventDrop: function(event, delta, revertFunc) {
       if (event.writeable == false) {
-        window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
         $('#calendar').fullCalendar( 'refetchEvents' );
         return;
       }
@@ -133,7 +133,7 @@ $(document).ready(function () {
   },
   eventClick: function(calEvent, jsEvent, view) {
     if (calEvent.writeable == false) {
-        window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
         
         return;
     }
@@ -314,7 +314,7 @@ $(document).ready(function () {
   },
   eventResize: function(event, delta, revertFunc) {
     if (event.writeable == false) {
-      window.CRM.DisplayAlert("Error","This event calendar isn't writeable !!!");
+      window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
       $('#calendar').fullCalendar( 'refetchEvents' );
       return;
     }

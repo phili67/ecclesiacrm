@@ -54,7 +54,7 @@ msgstr ""
 msgid "You have to set a Title for your event"
 msgstr ""
 
-msgid "This event calendar isn't writeable !!!"
+msgid "This event isn't modifiable !!!"
 msgstr ""
 
 msgid "To add an event, You have to create a calendar or activate one first."
