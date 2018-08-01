@@ -56,6 +56,10 @@ if ($iPersonID > 0) {
         Redirect('Menu.php');
         exit();
     }
+    
+    if ($person->getDateDeactivated() != null) {
+      Redirect('members/404.php?type=Person');
+    }
 
     if (!(
         $_SESSION['user']->isEditRecordsEnabled() ||
@@ -678,6 +682,7 @@ $ormClassifications = ListOptionQuery::Create()
 
 //Get Families for the drop-down
 $ormFamilies = FamilyQuery::Create()
+                  ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
                   ->orderByName()
                   ->find();
 

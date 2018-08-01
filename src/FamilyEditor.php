@@ -58,6 +58,10 @@ if ($iFamilyID > 0) {
         Redirect('Menu.php');
         exit;
     }
+    
+    if ($family->getDateDeactivated() != null) {
+      Redirect('members/404.php');
+    }    
 } elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
     Redirect('Menu.php');
     exit;

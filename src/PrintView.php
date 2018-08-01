@@ -136,6 +136,11 @@ require 'Include/Header-Short.php';
 
 $personSheet = PersonQuery::create()->findPk($per_ID);
 
+if ($personSheet->getDateDeactivated() != null) {
+  Redirect('members/404.php?type=Person');
+}    
+
+
 if ($personSheet) {
     echo "<table>";
     echo "  <tr>";
@@ -179,7 +184,7 @@ $iFamilyID = $fam_ID;
 
 if ($fam_ID) {
     //Get the family members for this family
-    $sSQL = 'SELECT per_ID, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
+    $sSQL = 'SELECT per_ID, per_DateDeactivated, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
     per_BirthMonth, per_BirthDay, per_BirthYear, per_Flags, cls.lst_OptionName AS sClassName,
     fmr.lst_OptionName AS sFamRole
     FROM person_per
@@ -344,15 +349,19 @@ if ($fam_ID) {
 <?php
     $sRowClass = 'RowColorA';
 
-            // Loop through all the family members
-            while ($aRow = mysqli_fetch_array($rsFamilyMembers)) {
-                $per_BirthYear = '';
-                $agr_Description = '';
-                
-                extract($aRow);
-                
-                // Alternate the row style
-                $sRowClass = AlternateRowStyle($sRowClass)
+    // Loop through all the family members
+    while ($aRow = mysqli_fetch_array($rsFamilyMembers)) {
+         
+        $per_BirthYear = '';
+        $agr_Description = '';
+        
+        extract($aRow);
+
+        if ($per_DateDeactivated != null)// // RGPD, when a person is completely deactivated
+          continue;
+        
+        // Alternate the row style
+        $sRowClass = AlternateRowStyle($sRowClass)
 
         // Display the family member
     ?>

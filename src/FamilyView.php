@@ -112,6 +112,21 @@ if (empty($family)) {
     exit;
 }
 
+
+if ($family->getDateDeactivated() != null) {
+    $time = new DateTime('now');
+    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+    
+    if ( $new_time > $family->getDateDeactivated() ) {
+      if ( !$_SESSION['user']->isGdrpDpoEnabled() ) {
+        Redirect('members/404.php?type=Person');
+        exit;
+      }
+    } else if (!$_SESSION['user']->isEditRecordsEnabled()){
+      Redirect('members/404.php?type=Person');
+      exit;
+    }
+}
 //Get the pledges for this family
 $ormPledges = PledgeQuery::Create()
             ->leftJoinPerson()

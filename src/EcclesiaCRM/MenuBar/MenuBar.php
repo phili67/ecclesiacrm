@@ -226,7 +226,7 @@ class MenuBar {
       $this->addMenu($menu);
       
       // the People menu
-      $menu = new Menu (gettext("People"),"fa fa-users","#",true);
+      $menu = new Menu (gettext("People")." & ".gettext("Families"),"fa fa-users","#",true);
       
         $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
         $menuItem->addLink("MapUsingLeaflet.php?GroupID=-1");

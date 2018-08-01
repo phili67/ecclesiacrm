@@ -38,7 +38,7 @@ if (strtolower($sMode) == 'gdrp') {
   $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
 
   $persons = PersonQuery::create()
-          ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
+          ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
           ->orderByLastName()
           ->find();
 } else {
