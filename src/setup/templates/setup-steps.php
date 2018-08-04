@@ -237,7 +237,7 @@ require '../Include/HeaderNotLoggedIn.php';
                 This information can be updated late on via <b><i>System Settings</i></b>.
             </div>
         </section>
-        <h2>Church Signer | Tax Signer | DPO GRPD</h2>
+        <h2>Church Signer | Tax Signer | DPO GDPR</h2>
         <section>
             <div class="form-group">
                 <label for="sChurchName">Confirm Signer</label>
@@ -263,6 +263,17 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="sTaxSignerHelp">
                 <small id="sTaxSignerHelp" class="form-text text-muted">
                   Tax Report signer
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="bGDPR">GDPR Europe</label>
+                <select name="bGDPR" id="bGDPR"  class="form-control" aria-describedby="bGDPRHelp">
+                  <option value="1">True</option>
+                  <option value="0" selected>False</option> 
+                </select>
+                <small id="bGDPRHelp" class="form-text text-muted">
+                    When you would like to activated it or not
                 </small>
             </div>
 

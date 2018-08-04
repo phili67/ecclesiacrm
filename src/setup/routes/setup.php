@@ -64,6 +64,7 @@ $app->group('/', function () {
         
         // and the info for the church Administration
         $sql = "INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES 
+(2057, 'bGDPR', '".$connection->real_escape_string($setupDate['bGDPR'])."'),
 (1003, 'sChurchName', '".$connection->real_escape_string($setupDate['sChurchName'])."'),
 (1004, 'sChurchAddress', '".$connection->real_escape_string($setupDate['sChurchAddress'])."'),
 (1005, 'sChurchCity', '".$connection->real_escape_string($setupDate['sChurchCity'])."'),
