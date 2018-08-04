@@ -10,6 +10,7 @@ use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\Utils\GeoUtils;
 use DateTime;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+use EcclesiaCRM\PersonQuery;
 
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
@@ -23,6 +24,18 @@ use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 class Family extends BaseFamily implements iPhoto
 {
     private $photo;
+    
+    
+    public function preDelete(ConnectionInterface $con = NULL)
+    {
+      $persons = PersonQuery::Create()->findByFamId($this->getId());
+
+      if ($persons->count() > 0) {
+        $persons->delete();
+      }
+      
+      return parent::preDelete($con);
+    }
     
     public function getAddress()
     {
@@ -235,7 +248,7 @@ class Family extends BaseFamily implements iPhoto
       $foundPeople = [];
       
       foreach ($this->getPeople() as $person) {
-        if (empty($person->getDateDeactivated())) {
+        if (empty($person->getDateDeactivated()) || $_SESSION['user']->isGdrpDpoEnabled()) {
           array_push($foundPeople, $person);
         }
       }

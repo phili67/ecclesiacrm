@@ -56,9 +56,15 @@ $(document).ready(function () {
         {
           window.CRM.APIRequest({
             method: 'POST',
-            path: 'gdrp/removeallpersons'
+            path: 'gdrp/removeallfamilies'
           }).done(function(data) {
-            location.reload();
+            if (data.status == "failed") {
+              bootbox.alert(i18next.t("Not all the families were DELETED : Some of them have records of donations and may NOT be deleted until these donations are associated with another family."), function(){ 
+                 location.reload();
+              }); 
+            } else {
+              location.reload();
+            }
           }); 
         }
       }

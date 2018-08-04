@@ -59,7 +59,7 @@ if ($iFamilyID > 0) {
         exit;
     }
     
-    if ($family->getDateDeactivated() != null) {
+    if ($family->getDateDeactivated() != null  && !$_SESSION['user']->isGdrpDpoEnabled() ) {
       Redirect('members/404.php');
     }    
 } elseif (!$_SESSION['user']->isAddRecordsEnabled()) {

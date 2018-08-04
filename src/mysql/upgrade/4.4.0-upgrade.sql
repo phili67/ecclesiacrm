@@ -55,8 +55,50 @@ ALTER TABLE `user_usr` ADD COLUMN `usr_MainDashboard` tinyint(1) DEFAULT '0';
 ALTER TABLE `user_usr` ADD COLUMN `usr_SeePrivacyData` tinyint(1) DEFAULT '0';
 
 delete from `userconfig_ucfg` where `ucfg_name` = 'bSeePrivacyData';
+
 -- 
 -- GDRP update
 --
 ALTER TABLE `user_usr` ADD COLUMN `usr_GDRP_DPO` tinyint(1) DEFAULT '0';
 ALTER TABLE `person_per` ADD COLUMN `per_DateDeactivated` datetime default NULL;
+
+-- 
+-- Note_nte update
+--
+
+-- alter nte_per_ID for foreign key
+ALTER TABLE note_nte CHANGE nte_per_ID  nte_per_ID mediumint(9) unsigned NULL;
+
+UPDATE `note_nte`
+   SET nte_per_ID = NULL
+WHERE nte_ID in (
+  select tt.nte_ID 
+    from 
+    (
+    SELECT nte_ID FROM `note_nte` WHERE nte_per_ID=0
+    ) as tt
+);
+
+ALTER TABLE note_nte
+ADD CONSTRAINT fk_nte_per_ID 
+  FOREIGN KEY (nte_per_ID) REFERENCES person_per(per_ID)
+  ON DELETE CASCADE;
+
+-- alter nte_fam_ID for foreign key
+ALTER TABLE note_nte CHANGE nte_fam_ID  nte_fam_ID mediumint(9) unsigned NULL;
+
+UPDATE `note_nte`
+   SET nte_fam_ID = NULL
+WHERE nte_ID in (
+  select tt.nte_ID 
+    from 
+    (
+    SELECT nte_ID FROM `note_nte` WHERE nte_fam_ID=0
+    ) as tt
+);
+
+
+ALTER TABLE note_nte
+ADD CONSTRAINT fk_nte_fam_ID
+  FOREIGN KEY (nte_fam_ID) REFERENCES family_fam(fam_ID)
+  ON DELETE CASCADE;

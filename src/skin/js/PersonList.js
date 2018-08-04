@@ -58,7 +58,13 @@ $(document).ready(function () {
             method: 'POST',
             path: 'gdrp/removeallpersons'
           }).done(function(data) {
-            location.reload();
+            if (data.status == "failed") {
+              bootbox.alert(i18next.t("Not all the persons were DELETED : Some of them have records of donations and may NOT be deleted until these donations are associated with another family."), function(){ 
+                 location.reload();
+              }); 
+            } else {
+              location.reload();
+            }
           }); 
         }
       }
