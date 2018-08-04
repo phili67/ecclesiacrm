@@ -79,7 +79,8 @@ fputcsv($out, [InputUtils::translate_special_charset(gettext("Full Name"),$sCSVE
             (!empty($note->getDateLastEdited()))?$note->getDateLastEdited()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"",
             InputUtils::translate_special_charset($note->getEditedByLastName()." ".$note->getEditedByFirstName(),
             $sCSVExportCharset).' '.InputUtils::translate_special_charset($Address2,$sCSVExportCharset).' '.InputUtils::translate_special_charset($city,$sCSVExportCharset).' '.InputUtils::translate_special_charset($state,$sCSVExportCharset).' '.$zip,
-            gettext("Yes")], $delimiter);
+            (!is_null($note->getDeactivated()))?gettext("Yes"):gettext("No")
+            ], $delimiter);
  
  
  }

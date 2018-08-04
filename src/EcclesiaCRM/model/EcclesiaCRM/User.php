@@ -334,7 +334,11 @@ class User extends BaseUser
 
     public function isPasswordValid($password)
     {
-        return $this->getPassword() == $this->hashPassword($password);
+      if ($this->getPerson()->getDateDeactivated() != null) {
+        return false;
+      }
+        
+      return $this->getPassword() == $this->hashPassword($password);
     }
 
     public function hashPassword($password)

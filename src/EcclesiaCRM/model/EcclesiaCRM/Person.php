@@ -27,6 +27,35 @@ class Person extends BasePerson implements iPhoto
     const SELF_REGISTER = -1;
     const SELF_VERIFY = -2;
     private $photo;
+    
+    public function preDelete(ConnectionInterface $con = null)
+    {
+      $this->deletePhoto();
+
+      $obj = Person2group2roleP2g2rQuery::create()->filterByPerson($this)->find($con);
+      if (!empty($obj)) {
+          $groupService = new GroupService();
+          foreach ($obj as $group2roleP2g2r) {
+              $groupService->removeUserFromGroup($group2roleP2g2r->getGroupId(), $group2roleP2g2r->getPersonId());
+          }
+      }
+
+      $perCustom = PersonCustomQuery::create()->findPk($this->getId(), $con);
+      if (!is_null($perCustom)) {
+          $perCustom->delete($con);
+      }
+
+      $user = UserQuery::create()->findPk($this->getId(), $con);
+      if (!is_null($user)) {
+          $user->delete($con);
+      }
+
+      PersonVolunteerOpportunityQuery::create()->filterByPersonId($this->getId())->find($con)->delete();
+
+      Record2propertyR2pQuery::create()->findByR2pRecordId($this->getId())->delete();
+
+      return parent::preDelete($con);
+    }
 
     public function getFullName()
     {
@@ -409,37 +438,6 @@ class Person extends BasePerson implements iPhoto
 
         }
         return $nameString;
-    }
-
-    public function preDelete(ConnectionInterface $con = null)
-    {
-        $this->deletePhoto();
-
-        $obj = Person2group2roleP2g2rQuery::create()->filterByPerson($this)->find($con);
-        if (!empty($obj)) {
-            $groupService = new GroupService();
-            foreach ($obj as $group2roleP2g2r) {
-                $groupService->removeUserFromGroup($group2roleP2g2r->getGroupId(), $group2roleP2g2r->getPersonId());
-            }
-        }
-
-        $perCustom = PersonCustomQuery::create()->findPk($this->getId(), $con);
-        if (!is_null($perCustom)) {
-            $perCustom->delete($con);
-        }
-
-        $user = UserQuery::create()->findPk($this->getId(), $con);
-        if (!is_null($user)) {
-            $user->delete($con);
-        }
-
-        PersonVolunteerOpportunityQuery::create()->filterByPersonId($this->getId())->find($con)->delete();
-
-        Record2propertyR2pQuery::create()->findByR2pRecordId($this->getId())->delete();
-
-        NoteQuery::create()->filterByPerson($this)->find($con)->delete();
-
-        return parent::preDelete($con);
     }
     
     public function getNumericCellPhone()

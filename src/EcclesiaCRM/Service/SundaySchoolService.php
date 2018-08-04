@@ -56,7 +56,11 @@ class SundaySchoolService
               and lst.lst_ID = grp.grp_RoleListID
               and lst.lst_OptionID = person_grp.p2g2r_rle_ID
               and lst.lst_OptionName = '".$role."'
+              and per_DateDeactivated is null
             order by per_FirstName";
+            
+        // RGPD, when a person is completely deactivated : and per_DateDeactivated is null 
+
         $rsMembers = RunQuery($sql);
         $members = [];
         while ($row = mysqli_fetch_assoc($rsMembers)) {
@@ -181,11 +185,14 @@ class SundaySchoolService
                 left join person_per mom on fam.fam_id = mom.per_fam_id and mom.per_Gender = 2 and (mom.per_fmr_ID = 1 or mom.per_fmr_ID = 2),`group_grp` grp, `person2group2role_p2g2r` person_grp
 
             where kid.per_fam_id = fam.fam_ID and grp.grp_ID = '.$groupId."
+              and kid.per_DateDeactivated is null 
               and fam.fam_DateDeactivated is null
               and grp_Type = 4 and grp.grp_ID = person_grp.p2g2r_grp_ID  and person_grp.p2g2r_per_ID = kid.per_ID
               and lst.lst_OptionID = person_grp.p2g2r_rle_ID and lst.lst_ID = grp.grp_RoleListID and lst.lst_OptionName = 'Student'
 
             order by grp.grp_Name, fam.fam_Name";
+            
+            // RGPD, when a person is completely deactivated : and kid.per_DateDeactivated is null 
 
         $rsKids = RunQuery($sSQL);
         $kids = [];
@@ -216,11 +223,14 @@ class SundaySchoolService
                 left join person_per mom on fam.fam_id = mom.per_fam_id and mom.per_Gender = 2 and (mom.per_fmr_ID = 1 or mom.per_fmr_ID = 2),`group_grp` grp, `person2group2role_p2g2r` person_grp
 
             where teacher.per_fam_id = fam.fam_ID and grp.grp_ID = '.$groupId."
+              and teacher.per_DateDeactivated is null 
               and fam.fam_DateDeactivated is null
               and grp_Type = 4 and grp.grp_ID = person_grp.p2g2r_grp_ID  and person_grp.p2g2r_per_ID = teacher.per_ID
               and lst.lst_OptionID = person_grp.p2g2r_rle_ID and lst.lst_ID = grp.grp_RoleListID and lst.lst_OptionName = 'Teacher'
 
             order by grp.grp_Name, fam.fam_Name";
+            
+            // RGPD, when a person is completely deactivated : and teacher.per_DateDeactivated is null 
 
         $rsteachers = RunQuery($sSQL);
         $teachers = [];

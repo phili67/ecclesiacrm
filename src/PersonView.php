@@ -97,9 +97,25 @@ extract(mysqli_fetch_array($rsPerson));
 
 $person = PersonQuery::create()->findPk($iPersonID);
 
+
 if (empty($person)) {
     Redirect('members/404.php?type=Person');
     exit;
+}
+
+if ($person->getDateDeactivated() != null) {
+    $time = new DateTime('now');
+    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+    
+    if ( $new_time > $person->getDateDeactivated() ) {
+      if ( !$_SESSION['user']->isGdrpDpoEnabled() ) {
+        Redirect('members/404.php?type=Person');
+        exit;
+      }
+    } else if (!$_SESSION['user']->isEditRecordsEnabled()){
+      Redirect('members/404.php?type=Person');
+      exit;
+    }
 }
 
 $iFamilyID = $person->getFamId();
@@ -509,7 +525,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       if ($bOkToEdit && $_SESSION['user']->isAdmin()) {
     ?>
         <button class="btn btn-app bg-orange" id="activateDeactivate">
-            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Person')); ?>
+            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . " " .gettext(' this Person')); ?>
         </button>
       <?php
         } 

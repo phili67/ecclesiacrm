@@ -4,6 +4,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PledgeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
@@ -24,25 +25,45 @@ if (strtolower($sMode) == 'gdrp') {
    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
    
    $persons = PersonQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a person is completely deactivated
+            ->_or() // or : this part is unusefull, it's only for debugging
+            ->useFamilyQuery()
+              ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a Family is completely deactivated
+            ->endUse()
             ->orderByLastName()
             ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
-    $persons = PersonQuery::create()
-        ->filterByDateDeactivated(null, Criteria::ISNOTNULL)
-            ->orderByLastName()
-            ->find();
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+  $time = new DateTime('now');
+  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+
+  $persons = PersonQuery::create()
+          ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
+          ->useFamilyQuery()// this part is unusefull, it's only for debugging
+            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a Family is completely deactivated
+          ->endUse()
+          ->orderByLastName()
+          ->find();
 } else {
-    $sMode = 'Active';
-    $persons = PersonQuery::create()
-        ->filterByDateDeactivated(null)
-            ->orderByLastName()
-            ->find();
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+  $sMode = 'Active';
+  $persons = PersonQuery::create()
+          ->filterByDateDeactivated(null)
+          ->orderByLastName()
+          ->find();
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Person List');
+$sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Person List');
 require 'Include/Header.php'; ?>
 
 <?php
@@ -57,6 +78,17 @@ require 'Include/Header.php'; ?>
 <p><br/><br/></p>
 <?php
   }
+?>
+
+<?php 
+  if (strtolower($sMode) == 'gdrp') { 
+?>
+<div class="alert alert-warning">
+    <strong> <?= gettext('WARNING: Some persons may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
+    <strong> <?= gettext('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
+</div>
+<?php 
+  } 
 ?>
 
 <div class="box">
@@ -119,9 +151,12 @@ require 'Include/Header.php'; ?>
                   <td> <?= gettext('Private Data') ?></td>
                 <?php
                 }
-              if (strtolower($sMode) == 'gdrp') { ?>
+              if (strtolower($sMode) == 'gdrp') { 
+                $famID = $person->getFamId();
+                $pledges  = PledgeQuery::Create()->findByFamId($famID);
+              ?>
                   <td> <?= date_format($person->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><a class="btn btn-danger remove-property-btn" data-person_id="<?= $person->getId() ?>"><?= gettext("Remove") ?></a></td>
+                  <td><a class="btn btn-danger remove-property-btn <?= ($pledges->count() > 0)?"disabled":"" ?>" data-person_id="<?= $person->getId() ?>"><?= gettext("Remove") ?></a></td>
               <?php 
                 } 
            }
@@ -129,8 +164,9 @@ require 'Include/Header.php'; ?>
             </tr>
             </tbody>
         </table>
+        
         <?php if (strtolower($sMode) == 'gdrp') { ?>        
-        <a class="btn btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><?= gettext("Remove All") ?></a>
+           <a class="btn btn-danger <?= ($persons->count() == 0)?"disabled":"" ?>" id="remove-all"><?= gettext("Remove All") ?></a>
         <?php } ?>
     </div>
 </div>

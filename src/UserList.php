@@ -53,7 +53,7 @@ require 'Include/Header.php';
                 <th align="center"><?= gettext('Total Logins') ?></th>
                 <th align="center"><?= gettext('Failed Logins') ?></th>
                 <th align="center"><?= gettext('Password') ?></th>
-
+                <th align="center"><?= gettext('Status') ?></th>
             </tr>
             </thead>
             <tbody>
@@ -113,6 +113,9 @@ require 'Include/Header.php';
                                         class="fa fa-send-o" aria-hidden="true"></i></a>
                             <?php
     } ?>
+                    </td>
+                    <td>
+                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= ($user->getPerson()->getDateDeactivated() == null)?'<div style="color:green;text-align:center">'.gettext("Activated").'</div>':'<div style="color:red;text-align:center">'.gettext("Deactivated").'</div>' ?></a>
                     </td>
 
                 </tr>

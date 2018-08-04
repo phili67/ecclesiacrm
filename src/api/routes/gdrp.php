@@ -4,6 +4,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
@@ -59,7 +60,7 @@ $app->group('/gdrp', function () {
       {
          $person = PersonQuery::Create()->findOneById($input->personId);
          
-         if ($person != null) {
+         if (!is_null($person)) {
            $person->delete();
          }
          
@@ -79,15 +80,30 @@ $app->group('/gdrp', function () {
 
       $persons = PersonQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-            ->find();
-         
-      if ($persons != null) {
+        ->_or() // or : this part is unusefull, it's only for debugging
+        ->useFamilyQuery()
+          ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a Family is completely deactivated
+        ->endUse()
+        ->find();
+      
+      $count = 0;
+      
+      if ($persons->count() > 0) {
          foreach ($persons as $person) {
-           $person->delete();
+           $pledges  = PledgeQuery::Create()->findByFamId($person->getFamId());
+
+           if (is_null($pledges) || !is_null($pledges) && $pledges->count() == 0) {
+             $person->delete();
+             $count++;
+           }
          }
       }
       
-      return $response->withJson(['status' => "success"]);
+      if ($persons->count() == $count) {
+        return $response->withJson(['status' => "success"]);
+      }
+      
+      return $response->withJson(['status' => "failed"]);
   });
   
   $this->post('/removefamily', function ($request, $response, $args) {
@@ -100,7 +116,7 @@ $app->group('/gdrp', function () {
       if ( isset ($input->familyId) )
       {
          $family = FamilyQuery::Create()->findOneById($input->familyId);
-         
+
          if ($family != null) {
            $family->delete();
          }
@@ -121,15 +137,26 @@ $app->group('/gdrp', function () {
 
       $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-            ->find();
+        ->find();
+        
+      $count = 0;
          
-      if ($families != null) {
+      if ($families->count() > 0) {
          foreach ($families as $family) {
-           $family->delete();
+           $pledges  = PledgeQuery::Create()->findByFamId($family->getId());
+           
+           if (is_null($pledges) || !is_null($pledges) && $pledges->count() == 0) {
+             $family->delete();
+             $count++;
+           }
          }
       }
       
-      return $response->withJson(['status' => "success"]);
+      if ($families->count() == $count) {
+        return $response->withJson(['status' => "success"]);
+      }
+      
+      return $response->withJson(['status' => "failed"]);
   });
   
   

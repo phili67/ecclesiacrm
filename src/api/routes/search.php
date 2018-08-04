@@ -28,8 +28,9 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
         try {
           $searchLikeString = '%'.$query.'%';
-          $people = PersonQuery::create()->
-            filterByFirstName($searchLikeString, Criteria::LIKE)->
+          $people = PersonQuery::create()
+             ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+             ->filterByFirstName($searchLikeString, Criteria::LIKE)->
               _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
               _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkEmail($searchLikeString, Criteria::LIKE)->
@@ -111,8 +112,9 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
         try {
           $results = [];
-          $families = FamilyQuery::create()->
-              filterByName("%$query%", Criteria::LIKE)->
+          $families = FamilyQuery::create()
+              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+              ->filterByName("%$query%", Criteria::LIKE)->
               _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->

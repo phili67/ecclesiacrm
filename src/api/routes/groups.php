@@ -217,6 +217,9 @@ $app->group('/groups', function () {
         $groupID = $args['groupID'];
         $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
             ->joinWithPerson()
+            ->usePersonQuery()
+              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->endUse()
             ->findByGroupId($groupID);
         
             

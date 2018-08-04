@@ -56,6 +56,10 @@ if ($iPersonID > 0) {
         Redirect('Menu.php');
         exit();
     }
+    
+    if ($person->getDateDeactivated() != null && !$_SESSION['user']->isGdrpDpoEnabled()) {
+      Redirect('members/404.php?type=Person');
+    }
 
     if (!(
         $_SESSION['user']->isEditRecordsEnabled() ||
@@ -677,9 +681,16 @@ $ormClassifications = ListOptionQuery::Create()
               ->findById(1);
 
 //Get Families for the drop-down
-$ormFamilies = FamilyQuery::Create()
+if ($_SESSION['user']->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
+   $ormFamilies = FamilyQuery::Create()
                   ->orderByName()
                   ->find();
+} else {
+   $ormFamilies = FamilyQuery::Create()
+                  ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+                  ->orderByName()
+                  ->find();
+}
 
 //Get Family Roles for the drop-down
 $ormFamilyRoles = ListOptionQuery::Create()

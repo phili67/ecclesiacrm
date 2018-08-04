@@ -1480,8 +1480,8 @@ update version_ver set ver_update_end = now();
 
 CREATE TABLE `note_nte` (
   `nte_ID` mediumint(8) unsigned NOT NULL auto_increment,
-  `nte_per_ID` mediumint(8) unsigned NOT NULL default '0',
-  `nte_fam_ID` mediumint(8) unsigned NOT NULL default '0',
+  `nte_per_ID` mediumint(9) unsigned NULL,
+  `nte_fam_ID` mediumint(9) unsigned NULL,
   `nte_Private` mediumint(8) unsigned NOT NULL default '0',
   `nte_Title` varchar(100) DEFAULT '',
   `nte_Text` text,
@@ -1493,7 +1493,13 @@ CREATE TABLE `note_nte` (
   `nte_isEditedByDate` datetime default NULL,
   `nte_Type` varchar(50) DEFAULT NULL,
   `nte_Info` varchar(500) DEFAULT NULL,
-  PRIMARY KEY  (`nte_ID`)
+  PRIMARY KEY  (`nte_ID`),
+  CONSTRAINT fk_nte_per_ID 
+    FOREIGN KEY (nte_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_nte_fam_ID
+    FOREIGN KEY (nte_fam_ID) REFERENCES family_fam(fam_ID)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 

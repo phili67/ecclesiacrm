@@ -4,6 +4,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PledgeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
@@ -25,24 +26,37 @@ if (strtolower($sMode) == 'gdrp') {
    
    $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-            ->orderByName()
-            ->find();
+        ->orderByName()
+        ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
-    $families = FamilyQuery::create()
-        ->filterByDateDeactivated(null, Criteria::ISNOTNULL)
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+
+  $time = new DateTime('now');
+  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+
+  $families = FamilyQuery::create()
+            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
             ->orderByName()
             ->find();
 } else {
+  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+    Redirect("Menu.php");
+    exit;
+  }
+  
     $sMode = 'Active';
     $families = FamilyQuery::create()
         ->filterByDateDeactivated(null)
-            ->orderByName()
-            ->find();
+        ->orderByName()
+        ->find();
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext(ucfirst($sMode)) . ' ' . gettext('Family List');
+$sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Family List');
 require 'Include/Header.php'; ?>
 
 <?php
@@ -57,6 +71,19 @@ require 'Include/Header.php'; ?>
 <?php
   }
 ?>
+
+<?php 
+  if (strtolower($sMode) == 'gdrp') { 
+?>
+<div class="alert alert-warning">
+    <strong> <?= gettext('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
+    <strong> <?= gettext('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
+</div>
+<?php 
+  } 
+?>
+
+
 <div class="box">
     <div class="box-body">
         <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
@@ -113,9 +140,11 @@ require 'Include/Header.php'; ?>
                   <td> <?= gettext('Private Data') ?></td>
                 <?php
                 }
-              if (strtolower($sMode) == 'gdrp') { ?>
+              if (strtolower($sMode) == 'gdrp') { 
+                $pledges  = PledgeQuery::Create()->findByFamId($family->getId());
+              ?>
                   <td> <?= date_format($family->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><a class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>"><?= gettext("Remove") ?></a></td>
+                  <td><button class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>" <?= ($pledges->count() > 0)?"disabled":"" ?>><?= gettext("Remove") ?></button></td>
               <?php 
                 } 
            }
