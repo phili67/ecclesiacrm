@@ -380,7 +380,7 @@ msgstr "Ville"
 #: PersonEditor.php:949 PersonEditor.php:1054 Register.php:45
 #: queryparameteroptions_qpo.php:6
 msgid "State"
-msgstr "Etat"
+msgstr "Région"
 
 #: AutoPaymentEditor.php:919 BackupDatabase.php:63 CartToFamily.php:294
 #: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:249
