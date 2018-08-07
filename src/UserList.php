@@ -30,7 +30,7 @@ if (!$_SESSION['user']->isAdmin()) {
 $rsUsers = UserQuery::create()->find();
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('User Listing');
+$sPageTitle = _("System Users Listing");
 require 'Include/Header.php';
 
 ?>

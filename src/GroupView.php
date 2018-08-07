@@ -436,7 +436,7 @@ require 'Include/Header.php';
                   }
               } else {
               ?>
-                  <p><?= gettext("Disabled for this group.") ?> <?= gettext("You should Edit the group and \"Enable Group Specific Properties\". To do this, press the buttion above : \"Edit this Group\"") ?></p>
+                  <p><?= gettext("Disabled for this group.") ?> <?= gettext("You should Edit the group and \"Enable Group Specific Properties\". To do this, press the button above : \"Edit this Group\"") ?></p>
               <?php
               }          
                 //Print Assigned Properties

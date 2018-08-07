@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-07-30T07:11:37.200Z\n"
+"POT-Creation-Date: 2018-08-05T06:25:26.967Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -506,6 +506,12 @@ msgstr "Êtes-vous sûr de vouloir supprimer cette famille du CRM"
 msgid "Are you sure you want to remove all families from the CRM"
 msgstr "Êtes-vous sûr de vouloir supprimer toutes les familles du CRM"
 
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+
 msgid "Name"
 msgstr "Nom"
 
@@ -930,6 +936,12 @@ msgstr "Êtes-vous sûr de vouloir supprimer cette personnes du CRM"
 
 msgid "Are you sure you want to remove all persons from the CRM"
 msgstr "Êtes-vous sûr de vouloir supprimer toutes les personnes du CRM"
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
 
 msgid "Photo"
 msgstr "Photo"
