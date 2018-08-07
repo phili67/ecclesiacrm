@@ -34,6 +34,12 @@ $(document).ready(function () {
       localStorage.setItem("wAgendaName",view.name);
     },
     eventDrop: function(event, delta, revertFunc) {
+      if (event.type == 'birthday' || event.type == 'anniversary') {
+        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
+        $('#calendar').fullCalendar( 'refetchEvents' );
+        return false;
+      }
+      
       if (event.writeable == false) {
         window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
         $('#calendar').fullCalendar( 'refetchEvents' );
@@ -313,7 +319,7 @@ $(document).ready(function () {
     }
   },
   eventResize: function(event, delta, revertFunc) {
-    if (event.writeable == false) {
+    if (event.writeable == false || event.type == 'birthday' || event.type == 'anniversary') {
       window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
       $('#calendar').fullCalendar( 'refetchEvents' );
       return;
