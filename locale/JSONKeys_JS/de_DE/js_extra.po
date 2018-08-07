@@ -52,14 +52,12 @@ msgstr "Hinweis"
 msgid "You have to set a Title for your event"
 msgstr "Sie sollten ein Titel für Ihr Ereignis Wählen"
 
-#, fuzzy
 msgid "This event isn't modifiable !!!"
-msgstr "Cet événement de calendrier n'est pas accessible en écriture !!!"
+msgstr "Diese Ereignis kann nicht veränderts !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
 msgstr ""
-"Pour ajouter un événément, vous devez avoir créé un calendrier ou en "
-"cliquand un pour l'activer"
+"Für eine Ereignis hinzufügen, Sie müssen einen Kalender erstellen, oder zuerst einer aktivieren. "
 
 msgid "Event added"
 msgstr "Ereignis hinzugefügt"

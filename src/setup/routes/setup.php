@@ -64,6 +64,7 @@ $app->group('/', function () {
         
         // and the info for the church Administration
         $sql = "INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES 
+(39,'sLanguage', '".$connection->real_escape_string($setupDate['sLanguage'])."'),
 (2057, 'bGDPR', '".$connection->real_escape_string($setupDate['bGDPR'])."'),
 (1003, 'sChurchName', '".$connection->real_escape_string($setupDate['sChurchName'])."'),
 (1004, 'sChurchAddress', '".$connection->real_escape_string($setupDate['sChurchAddress'])."'),
@@ -74,11 +75,12 @@ $app->group('/', function () {
 (1047, 'sChurchCountry', '".$connection->real_escape_string($setupDate['sChurchCountry'])."'),
 (1025, 'sConfirmSigner', '".$connection->real_escape_string($setupDate['sConfirmSigner'])."'),
 (2013, 'sChurchWebSite', '".$connection->real_escape_string($setupDate['sChurchWebSite'])."'),
+(1016, 'sReminderSigner', '".$connection->real_escape_string($setupDate['sReminderSigner'])."'),
+(1014, 'sTaxSigner', '".$connection->real_escape_string($setupDate['sTaxSigner'])."'),
 (2014, 'sChurchFB', '".$connection->real_escape_string($setupDate['sChurchFB'])."'),
 (2015, 'sChurchTwitter', '".$connection->real_escape_string($setupDate['sChurchTwitter'])."'),
-(1016, 'sReminderSigner', '".$connection->real_escape_string($setupDate['sReminderSigner'])."'),
 (2056, 'sGdprDpoSigner', '".$connection->real_escape_string($setupDate['sGdprDpoSigner'])."'),
-(1014, 'sTaxSigner', '".$connection->real_escape_string($setupDate['sTaxSigner'])."'),
+(2058, 'sGdprDpoSignerEmail', '".$connection->real_escape_string($setupDate['sGdprDpoSignerEmail'])."'),
 (27, 'sSMTPHost', '".$connection->real_escape_string($setupDate['sSMTPHost'])."'),
 (28, 'bSMTPAuth', '".$connection->real_escape_string($setupDate['bSMTPAuth'])."'),
 (29, 'sSMTPUser', '".$connection->real_escape_string($setupDate['sSMTPUser'])."'),
@@ -87,7 +89,7 @@ $app->group('/', function () {
 (26, 'sToEmailAddress', '".$connection->real_escape_string($setupDate['sToEmailAddress'])."'),
 (2045, 'bPHPMailerAutoTLS', '".$connection->real_escape_string($setupDate['bPHPMailerAutoTLS'])."'),
 (2055, 'sTimeZone', '".$connection->real_escape_string($setupDate['sTimeZone'])."'),
-(2046, 'sPHPMailerSMTPSecure', '".$connection->real_escape_string($setupDate['sPHPMailerSMTPSecure'])."')";
+(2046, 'sPHPMailerSMTPSecure', '".$connection->real_escape_string($setupDate['sPHPMailerSMTPSecure'])."') ON DUPLICATE KEY UPDATE cfg_id=VALUES(cfg_id)";
 
         $connection->query($sql);
         

@@ -218,8 +218,8 @@ $eventTypes = EventTypesQuery::Create()
   window.CRM.isModifiable  = true;
   
   window.CRM.churchloc = {
-      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
-      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+      lat: <?= str_replace(",",".",ChurchMetaData::getChurchLatitude()) ?>,
+      lng: <?= str_replace(",",".",ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 

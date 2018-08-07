@@ -498,7 +498,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       
       <?php
     }
-    if ($_SESSION['user']->isDeleteRecordsEnabled()) {
+    if ($_SESSION['user']->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
         ?>
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
       <?php
@@ -522,7 +522,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>
       
     <?php 
-      if ($bOkToEdit && $_SESSION['user']->isAdmin()) {
+      if ($bOkToEdit && $_SESSION['user']->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
     ?>
         <button class="btn btn-app bg-orange" id="activateDeactivate">
             <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . " " .gettext(' this Person')); ?>

@@ -28,7 +28,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1048, 'sConfirmSincerely', 'A très bientôt'),
 (1049, 'sDear', 'Cher (Chère)'),
 (1051, 'sTimeEnglish', ''),
-(2050, 'bStateUnuseful', '1'),
+(2050, 'bStateUnusefull', '1'),
 (2051, 'sCurrency', '€'),
 (2052, 'sUnsubscribeStart', 'Si vous ne voulez plus recevoir ces emails de'),
 (2053, 'sUnsubscribeEnd', 'dans le futur, contactez les administrateurs de l\'église'),

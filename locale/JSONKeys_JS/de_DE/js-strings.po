@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-07-30T07:11:37.200Z\n"
+"POT-Creation-Date: 2018-08-05T06:25:26.967Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,13 +12,13 @@ msgid "Set Calendar Name"
 msgstr "Stellen Kalendername"
 
 msgid "Include/Exclude your Calendars in the SideBar"
-msgstr "Einschließen/Ausschließen in der SideBar"
+msgstr "Einschließen/Ausschließen Ihren Kalender im SideBar"
 
 msgid "Calendars"
 msgstr "Kalendar"
 
 msgid "Set Status"
-msgstr "Stellen Status"
+msgstr "Status Stellen"
 
 msgid "Select [Exclude] or [Include]"
 msgstr "Wählen [EINBEZIEHEN] oder [AUSSCHLIEßEN]"
@@ -191,10 +191,10 @@ msgstr ""
 "oder  Teilnehmer hinzufügen?"
 
 msgid "Present"
-msgstr "Vorliegen"
+msgstr "Anwesend"
 
 msgid "Absent"
-msgstr "Enthäutet"
+msgstr "Abwesend"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Vorlagenerstellung"
@@ -494,6 +494,13 @@ msgstr "Wollen Sie diese Familie wirklich aus Ihrer CRM löschen?"
 msgid "Are you sure you want to remove all families from the CRM"
 msgstr "Wollen Sie diesen Familie wirklich aus Ihrer CRM löschen?"
 
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr "Einige Familien wurden Spenden zugewiesen und darf erst gelöscht "
+"werden wenn diese Spenden einer anderen Familie zugwiesen werden."
+
 msgid "Name"
 msgstr "Name"
 
@@ -608,7 +615,6 @@ msgstr "Zahlungsart"
 msgid "Export"
 msgstr "Exportieren"
 
-#, fuzzy
 msgid "Generate Deposit Slip for Selected"
 msgstr "Einzahlungsbeleg für ausgewählten"
 
@@ -920,6 +926,13 @@ msgstr "Wollen Sie diese Person wirklich aus Ihrer CRM löschen?"
 msgid "Are you sure you want to remove all persons from the CRM"
 msgstr "Wollen Sie alle Personen wirklich aus Ihrer CRM löschen?"
 
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr "Einige Familien waren nicht gelöcht : Einige person wurden Spenden zugewiesen und darf erst gelöscht "
+"werden wenn diese Spenden einer anderen Familie zugwiesen werden."
+
 msgid "Photo"
 msgstr "Photo"
 
@@ -929,13 +942,11 @@ msgstr "Soll dieses Person wirklich von seine Mitgliedschaft entfernt werden"
 msgid "Share your Document"
 msgstr "Dokumente freizugeben"
 
-#, fuzzy
 msgid "Are you sure ? You're about to delete this Person ?"
 msgstr "Wollen Sie das aktuelle Profil tatsächlich löschen?"
 
-#, fuzzy
 msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Soll diese Freigabe beenden wirklich gelöscht werden?"
+msgstr "Soll diese Gemeinsam wirklich beendet werden?"
 
 msgid "Change role"
 msgstr "Rolle ändern"
@@ -969,7 +980,6 @@ msgid "First, set your time range correctly to make the extraction."
 msgstr ""
 "Erster, Einstellen Sie den Zeitbereich korrekt ein für eine Extraktion."
 
-#, fuzzy
 msgid "Set year range to export"
 msgstr "Jahresbereich für exportieren Einstellen"
 
@@ -988,22 +998,19 @@ msgstr "Wählen Sie ein Profil"
 msgid "Profile Name"
 msgstr "Profil Name"
 
-#, fuzzy
 msgid "Are you sure? You're about to delete this Profile."
 msgstr "Wollen Sie das aktuelle Profil tatsächlich löschen?"
 
 msgid "Rename"
 msgstr "Umbenennen"
 
-#, fuzzy
 msgid "Choose a Profile Name"
 msgstr "Wählen Sie Ihr Profil Name"
 
-#, fuzzy
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile Name "
 "already exist !!!</center>"
-msgstr "<center>Sie müssen ein anderes Profil Name Wählen <br>-- oder --<br>."
+msgstr "<center>Sie müssen ein anderes Profil Name Wählen <br>-- oder --<br> Diese Profil Name existiert ja schon."
 
 msgid "User Delete Confirmation"
 msgstr "Bestätigung Benutzer löschen"
@@ -1011,7 +1018,6 @@ msgstr "Bestätigung Benutzer löschen"
 msgid "Please confirm removal of user status from:"
 msgstr "Bitte bestätige die Entfernung des Benutzerstatus von:"
 
-#, fuzzy
 msgid ""
 "Be carefull, You are about to lose the home folder and the associated files, "
 "the Calendars, the Share calendars and all the events too, for"
@@ -1019,7 +1025,6 @@ msgstr ""
 "Sei vorsichtig !!! You will lose the home folder and the files, the "
 "Calendars, the Share calendars and all the events too, for"
 
-#, fuzzy
 msgid "This can't be undone"
 msgstr "Alle Änderungen können Sie nicht zurücknehmen"
 
@@ -1039,7 +1044,7 @@ msgid "success"
 msgstr "Erfolg"
 
 #~ msgid "Are you sure, you want to delete this Person ?"
-#~ msgstr "Wollen Sie diese Person wirklich  löschen?"
+#~ msgstr "Wollen Sie diese Person wirklich löschen?"
 
 #~ msgid "Set the year range to export"
 #~ msgstr "Jahresbereich für exportieren Einstellen"

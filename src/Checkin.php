@@ -644,7 +644,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                                 <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <label>
-                                  <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?gettext("Present"):"Absent" ?></span>
+                                  <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?gettext("Present"):gettext("Absent") ?></span>
                                 </label>
                             </form>
                         </td>

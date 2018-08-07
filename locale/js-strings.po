@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-08-04T06:58:59.122Z\n"
-"PO-Revision-Date: 2018-08-04T06:58:59.122Z\n"
+"POT-Creation-Date: 2018-08-07T18:27:51.842Z\n"
+"PO-Revision-Date: 2018-08-07T18:27:51.842Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -486,6 +486,12 @@ msgstr ""
 msgid "Are you sure you want to remove all families from the CRM"
 msgstr ""
 
+msgid ""
+"Not all the families were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
+msgstr ""
+
 msgid "Name"
 msgstr ""
 
@@ -887,6 +893,12 @@ msgid "Are you sure you want to remove this person from the CRM"
 msgstr ""
 
 msgid "Are you sure you want to remove all persons from the CRM"
+msgstr ""
+
+msgid ""
+"Not all the persons were DELETED : Some of them have records of donations "
+"and may NOT be deleted until these donations are associated with another "
+"family."
 msgstr ""
 
 msgid "Photo"

@@ -117,7 +117,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     $sCountry = InputUtils::LegacyFilterInput($_POST['Country']);
     $iFamilyMemberRows = InputUtils::LegacyFilterInput($_POST['FamCount']);
 
-    if ($sCountry == 'United States' || $sCountry == 'Canada' || $sCountry == '') {
+    if ($sCountry == 'United States' || $sCountry == 'Canada' || $sCountry == '' || $sCountry != '') {
         $sState = InputUtils::LegacyFilterInput($_POST['State']);
     } else {
         $sState = InputUtils::LegacyFilterInput($_POST['StateTextbox']);
@@ -699,14 +699,14 @@ require 'Include/Header.php';
         </div>
         <p/>
         <div class="row">
-          <div <?= (SystemConfig::getValue('bStateUnuseful'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
+          <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
             <label for="StatleTextBox"><?= gettext('State')?>: </label>
              <?php                          
                 $statesDD = new StateDropDown();     
                 echo $statesDD->getDropDown($sState);
              ?>
           </div>
-          <div <?= (SystemConfig::getValue('bStateUnuseful'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
+          <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
             <label><?= gettext('None US/CND State') ?>:</label>
             <input type="text"  class="form-control input-sm" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                 echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
