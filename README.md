@@ -25,7 +25,10 @@ Welcome to EcclesiaCM Web CRM
 
 ## Project Metrics 
 
-[![Throughput Graph](https://waffle.io/phili67/ecclesiacrm/metrics/throughput.svg)](https://waffle.io/phili67/ecclesiacrm/metrics/throughput)
+[![Throughput Graph](https://waffle.io/phili67/ecclesiacrm/throughput.svg)](https://waffle.io/phili67/ecclesiacrm/metrics/throughput)
+
+[![Throughput Graph](https://graphs.waffle.io/ChurchCRM/CRM/throughput.svg)](https://waffle.io/ChurchCRM/CRM/metrics/throughput)
+
 
 see [Download Stats](http://www.somsubhra.com/github-release-stats/?username=ecclesiacrm&repository=CRM)
 
