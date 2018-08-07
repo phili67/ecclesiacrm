@@ -726,7 +726,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
                 $sAddress .= "\n".$sAddress2;
             }
 
-            if (!$bOnlyComplete || ((strlen($sAddress)) && strlen($sCity) && (SystemConfig::getValue('bStateUnuseful') || strlen($sState)) && strlen($sZip))) {
+            if (!$bOnlyComplete || ((strlen($sAddress)) && strlen($sCity) && (SystemConfig::getValue('bStateUnusefull') || strlen($sState)) && strlen($sZip))) {
                 $sLabelList[] = ['Name'=>$sName, 'Address'=>$sAddress, 'City'=>$sCity, 'State'=>$sState, 'Zip'=>$sZip]; //,'fam_ID'=>$aRow['fam_ID']);
             }
         } // end of foreach loop

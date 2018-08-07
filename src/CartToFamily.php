@@ -275,7 +275,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <td class="TextColumn"><input type="text" Name="City" value="<?= $sCity ?>" maxlength="50"></td>
   </tr>
 
-  <tr <?= (SystemConfig::getValue('bStateUnuseful'))?"style=\"display: none;\"":""?>>
+  <tr <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":""?>>
     <td class="LabelColumn"><?= gettext('State') ?>:</td>
     <td class="TextColumn">
       <?php                          

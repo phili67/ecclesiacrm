@@ -195,14 +195,7 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="sChurchCityHelp" required>
                 <small id="sChurchCityHelp" class="form-text text-muted"></small>
             </div>
-
-            <div class="form-group">
-                <label for="sChurchState">Church State </label>
-                <input type="text" name="sChurchState" id="sChurchState" class="form-control"
-                       aria-describedby="sChurchStateHelp">
-                <small id="sChurchStateHelp" class="form-text text-muted"></small>
-            </div>
-
+                        
             <div class="form-group">
                 <label for="sChurchZip">Church Zip</label>
                 <input type="text" name="sChurchZip" id="sChurchZip" class="form-control"
@@ -279,10 +272,19 @@ require '../Include/HeaderNotLoggedIn.php';
 
             <div class="form-group">
                 <label for="sGdprDpoSigner">DPO Grpd Signer</label>
-                <input type="text" name="sGdprDpoSigner" id="sConfirmSigner" class="form-control"
+                <input type="text" name="sGdprDpoSigner" id="sGdprDpoSigner" class="form-control"
                        aria-describedby="sGdprDpoSignerHelp">
                 <small id="sGdprDpoSignerHelp" class="form-text text-muted">
                   The DPO administrator for the GDPR.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="sGdprDpoSignerEmail">DPO Grpd Signer Email</label>
+                <input type="email" name="sGdprDpoSignerEmail" id="sGdprDpoSignerEmail" class="form-control"
+                       aria-describedby="sGdprDpoSignerEmailHelp">
+                <small id="sGdprDpoSignerHelp" class="form-text text-muted">
+                  The DPO administrator for the GDPR email.
                 </small>
             </div>
             
