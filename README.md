@@ -27,6 +27,8 @@ Welcome to EcclesiaCM Web CRM
 
 [![Throughput Graph](https://waffle.io/phili67/ecclesiacrm/throughput.svg)](https://waffle.io/phili67/ecclesiacrm/metrics/throughput)
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/phili67/ecclesiacrm.svg?columns=all)](https://waffle.io/phili67/ecclesiacrm)
+
 [![Throughput Graph](https://graphs.waffle.io/ChurchCRM/CRM/throughput.svg)](https://waffle.io/ChurchCRM/CRM/metrics/throughput)
 
 
