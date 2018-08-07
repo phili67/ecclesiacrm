@@ -14,7 +14,7 @@ class States
     public function __construct()
     {       
         $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
-        $this->countryCode = $localeInfo->getShortLocale();
+        $this->countryCode = $localeInfo->getCountryCode();
         
         $stateFileName = SystemURLs::getDocumentRoot() . '/locale/states/'. $this->countryCode .'.json';
         

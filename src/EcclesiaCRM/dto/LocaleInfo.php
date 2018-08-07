@@ -40,7 +40,7 @@ class LocaleInfo
 
     public function getCountryCode()
     {
-        return $this->country;
+        return strtolower($this->country);
     }
 
     public function getDataTables()
