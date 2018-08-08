@@ -7,7 +7,8 @@
 
 ### Development 
 [![GitHub contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)]()
-[![Stories in Ready](https://badge.waffle.io/phili67/ecclesiacrm.png?label=in%20Review&title=In+Review)](https://waffle.io/phili67/ecclesiacrm)
+[![Stories in Ready](https://badge.waffle.io/phili67/ecclesiacrm.svg?label=in%20Review&title=In+Review)](https://waffle.io/phili67/ecclesiacrm)
+[![Stories in Ready](https://badge.waffle.io/ChurchCRM/CRM.png?label=in%20Review&title=In+Review)](https://waffle.io/phili67/ecclesiacrm)
 [![Join the chat at https://gitter.im/ecclesiacrm/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ecclesiacrm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!--[![Build Status](https://travis-ci.org/ChurchCRM/CRM.svg?branch=master)](https://travis-ci.org/ChurchCRM/CRM)
 [![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
