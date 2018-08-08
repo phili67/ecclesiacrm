@@ -16,6 +16,23 @@ class OutputUtils {
     return "";
   }
   
+  public function number_localized ($number)
+  {
+    $locale = localeconv();
+    $comma = ',';
+    
+    if ($locale['mon_decimal_point'] == '') {
+       $comma = '.';
+    }
+    
+    return number_format($number,2, $comma, $locale['mon_thousands_sep']);
+  }
+  
+  public function number_dot ($number)
+  {
+    return str_replace(",",".",$number);
+  }  
+  
   public function securityFilter($fieldSec)
   {
     switch ($fieldSec) {

@@ -14,7 +14,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Map\ListOptionIconTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
-
+use EcclesiaCRM\Utils\OutputUtils;
 
 use EcclesiaCRM\EventQuery;
 
@@ -265,8 +265,8 @@ require 'Include/Footer.php' ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     var churchloc = {
-        lat: <?= ChurchMetaData::getChurchLatitude() ?>,
-        lng: <?= ChurchMetaData::getChurchLongitude() ?>};
+        lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+        lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
 
 
     var iconBase = window.CRM.root+'/skin/icons/markers/';
