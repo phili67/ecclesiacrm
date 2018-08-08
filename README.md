@@ -1,4 +1,4 @@
-![Join the chat at https://gitter.im/ecclesiacrm/Lobby](https://avatars-02.gitter.im/group/iv/3/5a48f6ebd73408ce4f857d8e?size=16){:.some-css-class width="200"} Welcome to EcclesiaCM Web CRM
+![Join the chat at https://gitter.im/ecclesiacrm/Lobby](https://avatars-02.gitter.im/group/iv/3/5a48f6ebd73408ce4f857d8e?v=4&s=200){:.some-css-class width="200"} Welcome to EcclesiaCM Web CRM
 ---
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
