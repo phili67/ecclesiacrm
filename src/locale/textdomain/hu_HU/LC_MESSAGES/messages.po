@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 14:07+0200\n"
+"POT-Creation-Date: 2018-08-08 19:17+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -499,7 +499,7 @@ msgstr ""
 #: PaddleNumEditor.php:146 PersonEditor.php:723 PersonEditor.php:881
 #: PersonEditor.php:989 PersonEditor.php:1306 PersonEditor.php:1371
 #: PersonEditor.php:1422 PledgeEditor.php:722 PropertyEditor.php:193
-#: PropertyTypeEditor.php:111 UserEditor.php:674 UserPasswordChange.php:216
+#: PropertyTypeEditor.php:111 UserEditor.php:675 UserPasswordChange.php:216
 msgid "Save"
 msgstr "Kivéve"
 
@@ -516,8 +516,8 @@ msgstr "Kivéve"
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
 #: sundayschool/SundaySchoolDashboard.php:279
-#: sundayschool/SundaySchoolReports.php:312 TaxReport.php:54 UserEditor.php:675
-#: UserEditor.php:782
+#: sundayschool/SundaySchoolReports.php:312 TaxReport.php:54 UserEditor.php:676
+#: UserEditor.php:783
 msgid "Cancel"
 msgstr "Töröl"
 
@@ -647,7 +647,7 @@ msgid "By Types"
 msgstr "Type"
 
 #: Calendar.php:71 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
-#: ManageEnvelopes.php:146
+#: ManageEnvelopes.php:146 PastoralCare.php:105
 msgid "All"
 msgstr ""
 
@@ -1253,7 +1253,7 @@ msgstr "CheckOut"
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:218
 #: ElectronicPaymentList.php:283 EventNames.php:325 FamilyView.php:869
 #: FindDepositSlip.php:121 FundRaiserEditor.php:199 ListEvents.php:398
-#: PaddleNumList.php:55 PastoralCare.php:122 PastoralCare.php:128
+#: PaddleNumList.php:55 PastoralCare.php:145 PastoralCare.php:151
 #: PersonView.php:1348 PropertyList.php:69 PropertyList.php:110
 #: PropertyTypeList.php:47 PropertyTypeList.php:78 PropertyTypeList.php:80
 msgid "Delete"
@@ -3990,6 +3990,7 @@ msgstr ""
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:31
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: UserPasswordChange.php:205
 #, fuzzy
 msgid "New Password"
@@ -4032,6 +4033,15 @@ msgstr ""
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
 msgid "Your EcclesiaCRM account was unlocked."
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+#, fuzzy
+msgid "Your Account"
+msgstr "Összeg"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
@@ -5338,7 +5348,7 @@ msgstr "Family Törlés megerősítése"
 msgid "Reset your password"
 msgstr ""
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:542
+#: external/templates/password/enter-username.php:30 UserEditor.php:543
 #, fuzzy
 msgid "Login Name"
 msgstr "Bejelentkezés Név"
@@ -6425,7 +6435,7 @@ msgstr "Becsült érték"
 msgid "GDPR Dashboard"
 msgstr ""
 
-#: GDPRDashboard.php:46 PastoralCare.php:91 PersonView.php:486
+#: GDPRDashboard.php:46 PastoralCare.php:96 PersonView.php:486
 msgid "Printable Page"
 msgstr "Nyomtatható oldal"
 
@@ -8212,24 +8222,24 @@ msgstr "Létrehoz kimutatásokhoz Kiválasztott"
 msgid "Add a New Pastoral Care Type"
 msgstr "Hozzáadása Új Ingatlan típusa"
 
-#: PastoralCare.php:49
+#: PastoralCare.php:54
 msgid "Pastoral care for"
 msgstr ""
 
-#: PastoralCare.php:59
+#: PastoralCare.php:64
 msgid "Please add some records with the button below."
 msgstr ""
 
-#: PastoralCare.php:71
+#: PastoralCare.php:76
 #, fuzzy
 msgid "Add Pastoral Care Notes"
 msgstr "A kosárban"
 
-#: PastoralCare.php:121
+#: PastoralCare.php:144
 msgid "Modify"
 msgstr ""
 
-#: PastoralCare.php:149 PledgeEditor.php:731
+#: PastoralCare.php:172 PledgeEditor.php:731
 msgid "Return"
 msgstr ""
 
@@ -8573,7 +8583,7 @@ msgstr ""
 msgid "Family:"
 msgstr "Család"
 
-#: PersonView.php:491 PrintPastoralCare.php:495 UserEditor.php:657
+#: PersonView.php:491 PrintPastoralCare.php:495 UserEditor.php:658
 msgid "Pastoral Care"
 msgstr ""
 
@@ -9119,7 +9129,7 @@ msgstr "Kijelöl"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:616
+#: Reports/CanvassReports.php:169 UserEditor.php:617
 #, fuzzy
 msgid "Canvasser"
 msgstr "Kortes"
@@ -9626,31 +9636,31 @@ msgid "My User Settings"
 msgstr "A Felhasználói beállítások"
 
 #: SettingsIndividual.php:101 SettingsUser.php:84 SystemSettings.php:135
-#: UserEditor.php:693
+#: UserEditor.php:694
 msgid "Variable name"
 msgstr "Változó neve"
 
-#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:694
+#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:695
 msgid "Current Value"
 msgstr "Aktuális érték"
 
-#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:695
+#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:696
 #, fuzzy
 msgid "Notes"
 msgstr "Megjegyzések:"
 
 #: SettingsIndividual.php:119 SettingsIndividual.php:168 SettingsUser.php:97
-#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:781
+#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:782
 msgid "Save Settings"
 msgstr "Beállítások mentése"
 
 #: SettingsIndividual.php:149 SettingsUser.php:113 SettingsUser.php:143
-#: SystemSettings.php:195 UserEditor.php:731 UserEditor.php:759
+#: SystemSettings.php:195 UserEditor.php:732 UserEditor.php:760
 msgid "False"
 msgstr ""
 
 #: SettingsIndividual.php:150 SettingsUser.php:114 SettingsUser.php:144
-#: SystemSettings.php:196 UserEditor.php:732 UserEditor.php:760
+#: SystemSettings.php:196 UserEditor.php:733 UserEditor.php:761
 msgid "True"
 msgstr ""
 
@@ -9666,7 +9676,7 @@ msgstr ""
 "Állítsa Permission Igaz, hogy az új felhasználók képesek megváltoztatni a "
 "jelenlegi értékét. <BR>"
 
-#: SettingsUser.php:83 UserEditor.php:692
+#: SettingsUser.php:83 UserEditor.php:693
 msgid "Permission"
 msgstr "Engedély"
 
@@ -10078,161 +10088,161 @@ msgstr ""
 msgid "Backup Downloaded, Copy on server removed"
 msgstr ""
 
-#: UserEditor.php:82 UserEditor.php:85
+#: UserEditor.php:83 UserEditor.php:86
 msgid "Login must be a least 3 characters!"
 msgstr ""
 
-#: UserEditor.php:241 UserEditor.php:286
+#: UserEditor.php:242 UserEditor.php:287
 msgid "Login already in use, please select a different login!"
 msgstr ""
 
-#: UserEditor.php:282
+#: UserEditor.php:283
 msgid "The same as before"
 msgstr ""
 
-#: UserEditor.php:453
+#: UserEditor.php:454
 msgid "User Editor"
 msgstr "Felhasználó szerkesztő"
 
-#: UserEditor.php:466
+#: UserEditor.php:467
 #, fuzzy
 msgid "Profile management"
 msgstr "Property Unassignment"
 
-#: UserEditor.php:469
+#: UserEditor.php:470
 msgid "Add Profile"
 msgstr ""
 
-#: UserEditor.php:470
+#: UserEditor.php:471
 #, fuzzy
 msgid "Manage Profiles"
 msgstr "Csoportok kezelése és Szerep"
 
-#: UserEditor.php:472
+#: UserEditor.php:473
 msgid "Add Profile to Current User"
 msgstr ""
 
-#: UserEditor.php:496
+#: UserEditor.php:497
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 "Megjegyzés: A változások nem lépnek életbe, amíg a következő "
 "bejelentkezéskor."
 
-#: UserEditor.php:510
+#: UserEditor.php:511
 #, fuzzy
 msgid "Person to Make User"
 msgstr "Személy készítsünk User"
 
-#: UserEditor.php:524
+#: UserEditor.php:525
 #, fuzzy
 msgid "User"
 msgstr "Felhasználó"
 
-#: UserEditor.php:547
+#: UserEditor.php:548
 #, fuzzy
 msgid "Add Records"
 msgstr "Szerkesztés Records"
 
-#: UserEditor.php:554
+#: UserEditor.php:555
 #, fuzzy
 msgid "Edit Records"
 msgstr "Szerkesztés Records"
 
-#: UserEditor.php:561
+#: UserEditor.php:562
 #, fuzzy
 msgid "Delete Records"
 msgstr "Törlés rekordok"
 
-#: UserEditor.php:568
+#: UserEditor.php:569
 #, fuzzy
 msgid "Show Cart"
 msgstr "Megjelenítés kifizetések"
 
-#: UserEditor.php:575
+#: UserEditor.php:576
 #, fuzzy
 msgid "Show Map"
 msgstr "Megjelenítés"
 
-#: UserEditor.php:582
+#: UserEditor.php:583
 #, fuzzy
 msgid "Manage Properties and Classifications"
 msgstr "Kezelése Tulajdonságok és szempontok"
 
-#: UserEditor.php:589
+#: UserEditor.php:590
 #, fuzzy
 msgid "Manage Groups and Roles"
 msgstr "Csoportok kezelése és Szerep"
 
-#: UserEditor.php:596
+#: UserEditor.php:597
 #, fuzzy
 msgid "Manage Donations and Finance"
 msgstr "Kezelése Adományok és pénzügyek"
 
-#: UserEditor.php:603
+#: UserEditor.php:604
 #, fuzzy
 msgid "View, Add and Edit Documents"
 msgstr "Megtekintése, hozzáadása és szerkesztése Megjegyzés"
 
-#: UserEditor.php:610
+#: UserEditor.php:611
 #, fuzzy
 msgid "Edit Self"
 msgstr "Szerkesztés Self"
 
-#: UserEditor.php:613
+#: UserEditor.php:614
 msgid "(Edit own family only.)"
 msgstr "(Szerkesztés saját családja csak.)"
 
-#: UserEditor.php:619
+#: UserEditor.php:620
 msgid "(Canvass volunteer.)"
 msgstr "(Korteskedés önkéntes.)"
 
-#: UserEditor.php:622
+#: UserEditor.php:623
 msgid "Admin"
 msgstr ""
 
-#: UserEditor.php:625
+#: UserEditor.php:626
 msgid "(Grants all privileges.)"
 msgstr "(Ad minden jogosultságokat.)"
 
-#: UserEditor.php:629
+#: UserEditor.php:630
 msgid "Main Dashboard"
 msgstr ""
 
-#: UserEditor.php:632
+#: UserEditor.php:633
 msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
 msgstr ""
 
-#: UserEditor.php:636
+#: UserEditor.php:637
 #, fuzzy
 msgid "See Privacy Data"
 msgstr "Magán"
 
-#: UserEditor.php:639
+#: UserEditor.php:640
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
-#: UserEditor.php:643
+#: UserEditor.php:644
 msgid "MailChimp"
 msgstr ""
 
-#: UserEditor.php:646
+#: UserEditor.php:647
 msgid "Allow a user to use MailChimp tool"
 msgstr ""
 
-#: UserEditor.php:650
+#: UserEditor.php:651
 msgid "GRPD Data Protection Officer"
 msgstr ""
 
-#: UserEditor.php:653
+#: UserEditor.php:654
 msgid "General Data Protection Regulation in UE"
 msgstr ""
 
-#: UserEditor.php:664
+#: UserEditor.php:665
 #, fuzzy
 msgid "Style"
 msgstr "Stílus"
 
-#: UserEditor.php:687
+#: UserEditor.php:688
 #, fuzzy
 msgid ""
 "Set Permission True to give this user the ability to change their current "
