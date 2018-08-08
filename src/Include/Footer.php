@@ -130,9 +130,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-            </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Donation Funds') ?></h4>
-            <ul class="control-sidebar-menu">
                 <?php if ($isAdmin) {
         ?>
                     <li>
@@ -142,10 +139,6 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-            </ul>
-            
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _("Pastoral Care") ?></h4>
-            <ul class="control-sidebar-menu">
                 <?php if ($isAdmin) {
         ?>
                     <li>
