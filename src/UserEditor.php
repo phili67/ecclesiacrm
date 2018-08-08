@@ -23,6 +23,7 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Emails\NewAccountEmail;
+use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\User;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
@@ -279,7 +280,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                       $user->deleteGroupAdminCalendars();
                     }
                      
-                    $email = new NewAccountEmail($user, gettext("The same as before"));
+                    $email = new UpdateAccountEmail($user, gettext("The same as before"));
                     $email->send();                  
                 } else {
                     // Set the error text for duplicate when currently existing

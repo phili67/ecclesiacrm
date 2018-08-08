@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 14:07+0200\n"
+"POT-Creation-Date: 2018-08-08 19:17+0200\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -483,7 +483,7 @@ msgstr ""
 #: PaddleNumEditor.php:146 PersonEditor.php:723 PersonEditor.php:881
 #: PersonEditor.php:989 PersonEditor.php:1306 PersonEditor.php:1371
 #: PersonEditor.php:1422 PledgeEditor.php:722 PropertyEditor.php:193
-#: PropertyTypeEditor.php:111 UserEditor.php:674 UserPasswordChange.php:216
+#: PropertyTypeEditor.php:111 UserEditor.php:675 UserPasswordChange.php:216
 msgid "Save"
 msgstr "บันทึก"
 
@@ -500,8 +500,8 @@ msgstr "บันทึก"
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
 #: sundayschool/SundaySchoolDashboard.php:279
-#: sundayschool/SundaySchoolReports.php:312 TaxReport.php:54 UserEditor.php:675
-#: UserEditor.php:782
+#: sundayschool/SundaySchoolReports.php:312 TaxReport.php:54 UserEditor.php:676
+#: UserEditor.php:783
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -619,7 +619,7 @@ msgid "By Types"
 msgstr ""
 
 #: Calendar.php:71 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
-#: ManageEnvelopes.php:146
+#: ManageEnvelopes.php:146 PastoralCare.php:105
 msgid "All"
 msgstr ""
 
@@ -1205,7 +1205,7 @@ msgstr ""
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:218
 #: ElectronicPaymentList.php:283 EventNames.php:325 FamilyView.php:869
 #: FindDepositSlip.php:121 FundRaiserEditor.php:199 ListEvents.php:398
-#: PaddleNumList.php:55 PastoralCare.php:122 PastoralCare.php:128
+#: PaddleNumList.php:55 PastoralCare.php:145 PastoralCare.php:151
 #: PersonView.php:1348 PropertyList.php:69 PropertyList.php:110
 #: PropertyTypeList.php:47 PropertyTypeList.php:78 PropertyTypeList.php:80
 msgid "Delete"
@@ -3865,6 +3865,7 @@ msgstr ""
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:31
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31
 #: UserPasswordChange.php:205
 #, fuzzy
 msgid "New Password"
@@ -3905,6 +3906,15 @@ msgstr ""
 
 #: EcclesiaCRM/Emails/users/UnlockedEmail.php:16
 msgid "Your EcclesiaCRM account was unlocked."
+msgstr ""
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
+#, fuzzy
+msgid "Your Account"
+msgstr "สมาชิกกลุ่ม"
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
+msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
@@ -5133,7 +5143,7 @@ msgstr "บทบาทในครอบครัว"
 msgid "Reset your password"
 msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:542
+#: external/templates/password/enter-username.php:30 UserEditor.php:543
 msgid "Login Name"
 msgstr "ชื่อผู้ใช้"
 
@@ -6175,7 +6185,7 @@ msgstr ""
 msgid "GDPR Dashboard"
 msgstr ""
 
-#: GDPRDashboard.php:46 PastoralCare.php:91 PersonView.php:486
+#: GDPRDashboard.php:46 PastoralCare.php:96 PersonView.php:486
 msgid "Printable Page"
 msgstr ""
 
@@ -7820,23 +7830,23 @@ msgstr ""
 msgid "Add a New Pastoral Care Type"
 msgstr ""
 
-#: PastoralCare.php:49
+#: PastoralCare.php:54
 msgid "Pastoral care for"
 msgstr ""
 
-#: PastoralCare.php:59
+#: PastoralCare.php:64
 msgid "Please add some records with the button below."
 msgstr ""
 
-#: PastoralCare.php:71
+#: PastoralCare.php:76
 msgid "Add Pastoral Care Notes"
 msgstr ""
 
-#: PastoralCare.php:121
+#: PastoralCare.php:144
 msgid "Modify"
 msgstr ""
 
-#: PastoralCare.php:149 PledgeEditor.php:731
+#: PastoralCare.php:172 PledgeEditor.php:731
 msgid "Return"
 msgstr ""
 
@@ -8158,7 +8168,7 @@ msgstr ""
 msgid "Family:"
 msgstr "บทบาทในครอบครัว"
 
-#: PersonView.php:491 PrintPastoralCare.php:495 UserEditor.php:657
+#: PersonView.php:491 PrintPastoralCare.php:495 UserEditor.php:658
 msgid "Pastoral Care"
 msgstr ""
 
@@ -8676,7 +8686,7 @@ msgstr "ยังไม่ได้กำหนด"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:616
+#: Reports/CanvassReports.php:169 UserEditor.php:617
 msgid "Canvasser"
 msgstr ""
 
@@ -9154,30 +9164,30 @@ msgid "My User Settings"
 msgstr ""
 
 #: SettingsIndividual.php:101 SettingsUser.php:84 SystemSettings.php:135
-#: UserEditor.php:693
+#: UserEditor.php:694
 msgid "Variable name"
 msgstr ""
 
-#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:694
+#: SettingsIndividual.php:102 SettingsUser.php:85 UserEditor.php:695
 msgid "Current Value"
 msgstr ""
 
-#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:695
+#: SettingsIndividual.php:103 SettingsUser.php:86 UserEditor.php:696
 msgid "Notes"
 msgstr ""
 
 #: SettingsIndividual.php:119 SettingsIndividual.php:168 SettingsUser.php:97
-#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:781
+#: SettingsUser.php:158 SystemSettings.php:251 UserEditor.php:782
 msgid "Save Settings"
 msgstr ""
 
 #: SettingsIndividual.php:149 SettingsUser.php:113 SettingsUser.php:143
-#: SystemSettings.php:195 UserEditor.php:731 UserEditor.php:759
+#: SystemSettings.php:195 UserEditor.php:732 UserEditor.php:760
 msgid "False"
 msgstr ""
 
 #: SettingsIndividual.php:150 SettingsUser.php:114 SettingsUser.php:144
-#: SystemSettings.php:196 UserEditor.php:732 UserEditor.php:760
+#: SystemSettings.php:196 UserEditor.php:733 UserEditor.php:761
 msgid "True"
 msgstr ""
 
@@ -9191,7 +9201,7 @@ msgid ""
 "value.<BR>"
 msgstr ""
 
-#: SettingsUser.php:83 UserEditor.php:692
+#: SettingsUser.php:83 UserEditor.php:693
 msgid "Permission"
 msgstr ""
 
@@ -9565,144 +9575,144 @@ msgstr ""
 msgid "Backup Downloaded, Copy on server removed"
 msgstr ""
 
-#: UserEditor.php:82 UserEditor.php:85
+#: UserEditor.php:83 UserEditor.php:86
 msgid "Login must be a least 3 characters!"
 msgstr ""
 
-#: UserEditor.php:241 UserEditor.php:286
+#: UserEditor.php:242 UserEditor.php:287
 msgid "Login already in use, please select a different login!"
 msgstr ""
 
-#: UserEditor.php:282
+#: UserEditor.php:283
 msgid "The same as before"
 msgstr ""
 
-#: UserEditor.php:453
+#: UserEditor.php:454
 msgid "User Editor"
 msgstr ""
 
-#: UserEditor.php:466
+#: UserEditor.php:467
 msgid "Profile management"
 msgstr ""
 
-#: UserEditor.php:469
+#: UserEditor.php:470
 msgid "Add Profile"
 msgstr ""
 
-#: UserEditor.php:470
+#: UserEditor.php:471
 msgid "Manage Profiles"
 msgstr ""
 
-#: UserEditor.php:472
+#: UserEditor.php:473
 msgid "Add Profile to Current User"
 msgstr ""
 
-#: UserEditor.php:496
+#: UserEditor.php:497
 msgid "Note: Changes will not take effect until next logon."
 msgstr ""
 
-#: UserEditor.php:510
+#: UserEditor.php:511
 msgid "Person to Make User"
 msgstr ""
 
-#: UserEditor.php:524
+#: UserEditor.php:525
 msgid "User"
 msgstr ""
 
-#: UserEditor.php:547
+#: UserEditor.php:548
 msgid "Add Records"
 msgstr ""
 
-#: UserEditor.php:554
+#: UserEditor.php:555
 msgid "Edit Records"
 msgstr ""
 
-#: UserEditor.php:561
+#: UserEditor.php:562
 #, fuzzy
 msgid "Delete Records"
 msgstr "ลบ"
 
-#: UserEditor.php:568
+#: UserEditor.php:569
 msgid "Show Cart"
 msgstr ""
 
-#: UserEditor.php:575
+#: UserEditor.php:576
 msgid "Show Map"
 msgstr ""
 
-#: UserEditor.php:582
+#: UserEditor.php:583
 msgid "Manage Properties and Classifications"
 msgstr ""
 
-#: UserEditor.php:589
+#: UserEditor.php:590
 msgid "Manage Groups and Roles"
 msgstr ""
 
-#: UserEditor.php:596
+#: UserEditor.php:597
 msgid "Manage Donations and Finance"
 msgstr ""
 
-#: UserEditor.php:603
+#: UserEditor.php:604
 msgid "View, Add and Edit Documents"
 msgstr ""
 
-#: UserEditor.php:610
+#: UserEditor.php:611
 msgid "Edit Self"
 msgstr ""
 
-#: UserEditor.php:613
+#: UserEditor.php:614
 msgid "(Edit own family only.)"
 msgstr ""
 
-#: UserEditor.php:619
+#: UserEditor.php:620
 msgid "(Canvass volunteer.)"
 msgstr ""
 
-#: UserEditor.php:622
+#: UserEditor.php:623
 msgid "Admin"
 msgstr ""
 
-#: UserEditor.php:625
+#: UserEditor.php:626
 msgid "(Grants all privileges.)"
 msgstr ""
 
-#: UserEditor.php:629
+#: UserEditor.php:630
 msgid "Main Dashboard"
 msgstr ""
 
-#: UserEditor.php:632
+#: UserEditor.php:633
 msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
 msgstr ""
 
-#: UserEditor.php:636
+#: UserEditor.php:637
 msgid "See Privacy Data"
 msgstr ""
 
-#: UserEditor.php:639
+#: UserEditor.php:640
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
-#: UserEditor.php:643
+#: UserEditor.php:644
 msgid "MailChimp"
 msgstr ""
 
-#: UserEditor.php:646
+#: UserEditor.php:647
 msgid "Allow a user to use MailChimp tool"
 msgstr ""
 
-#: UserEditor.php:650
+#: UserEditor.php:651
 msgid "GRPD Data Protection Officer"
 msgstr ""
 
-#: UserEditor.php:653
+#: UserEditor.php:654
 msgid "General Data Protection Regulation in UE"
 msgstr ""
 
-#: UserEditor.php:664
+#: UserEditor.php:665
 msgid "Style"
 msgstr ""
 
-#: UserEditor.php:687
+#: UserEditor.php:688
 msgid ""
 "Set Permission True to give this user the ability to change their current "
 "value."
