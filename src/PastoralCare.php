@@ -95,7 +95,7 @@ require 'Include/Header.php';
   </div>
   <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
   
-   <div class="btn-group pull-right">
+  <div class="btn-group pull-right">
     <a class="btn btn-app filterByPastor" data-personid="<?= $_SESSION['user']->getPerson()->getId() ?>"><i class="fa fa-sticky-note"></i><?= $_SESSION['user']->getPerson()->getFullName()  ?></a>
     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
        <span class="caret"></span>
@@ -111,6 +111,9 @@ require 'Include/Header.php';
          }
       ?>
     </ul>
+  </div>
+  <div class="pull-right" style="margin-right:15px">
+    <h3><?= _("Filters") ?></h3>
   </div>
 </div>
 
