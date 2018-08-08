@@ -102,7 +102,7 @@ require 'Include/Header.php';
        <span class="sr-only">Menu déroulant</span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li> <a class="filterByPastorAll"><?= _("All") ?></a></li>
+      <li> <a class="filterByPastorAll"><?= _("Everyone") ?></a></li>
       <?php
          foreach ($ormPastors as $ormPastor) {
       ?>
@@ -112,8 +112,8 @@ require 'Include/Header.php';
       ?>
     </ul>
   </div>
-  <div class="pull-right" style="margin-right:15px">
-    <h3><?= _("Filters") ?></h3>
+  <div class="pull-right" style="margin-right:15px;margin-top:10px">
+    <h4><?= _("Filters") ?></h4>
   </div>
 </div>
 
