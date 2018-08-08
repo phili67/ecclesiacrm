@@ -2,7 +2,7 @@
 ---
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Documentation Status](https://readthedocs.org/projects/church-web-crm/badge/?version=latest)](https://readthedocs.org/projects/church-web-crm/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/church-web-crm/badge/?version=latest)](https://www.docs.ecclesiacrm.com)
 [![Github All Releases](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total.svg)](https://github.com/phili67/ecclesiacrm/releases)
 
 ### Development 
