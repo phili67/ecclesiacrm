@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 19:17+0200\n"
+"POT-Creation-Date: 2018-08-08 19:45+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -608,6 +608,7 @@ msgid "Church Calendar"
 msgstr "Calendario de la iglesia"
 
 #: Calendar.php:63 CSVExport.php:232 FinancialReports.php:107
+#: PastoralCare.php:116
 msgid "Filters"
 msgstr "Filtros"
 
@@ -616,7 +617,7 @@ msgid "By Types"
 msgstr "por tipo"
 
 #: Calendar.php:71 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
-#: ManageEnvelopes.php:146 PastoralCare.php:105
+#: ManageEnvelopes.php:146
 msgid "All"
 msgstr "Todo "
 
@@ -1205,7 +1206,7 @@ msgstr "Registro de salida"
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:218
 #: ElectronicPaymentList.php:283 EventNames.php:325 FamilyView.php:869
 #: FindDepositSlip.php:121 FundRaiserEditor.php:199 ListEvents.php:398
-#: PaddleNumList.php:55 PastoralCare.php:145 PastoralCare.php:151
+#: PaddleNumList.php:55 PastoralCare.php:148 PastoralCare.php:154
 #: PersonView.php:1348 PropertyList.php:69 PropertyList.php:110
 #: PropertyTypeList.php:47 PropertyTypeList.php:78 PropertyTypeList.php:80
 msgid "Delete"
@@ -7859,11 +7860,15 @@ msgstr "Por favor, agregar registros con el botón más abajo."
 msgid "Add Pastoral Care Notes"
 msgstr "Agregar al Atención Pastoral"
 
-#: PastoralCare.php:144
+#: PastoralCare.php:105
+msgid "Everyone"
+msgstr "Todos"
+
+#: PastoralCare.php:147
 msgid "Modify"
 msgstr "Cambiar"
 
-#: PastoralCare.php:172 PledgeEditor.php:731
+#: PastoralCare.php:175 PledgeEditor.php:731
 msgid "Return"
 msgstr "Volver"
 
@@ -10498,6 +10503,14 @@ msgstr "CHEQUE"
 
 msgid "CHECKS"
 msgstr "CHEQUES"
+
+#, fuzzy
+#~ msgid "All Pastoral Care Persons"
+#~ msgstr "Agregar al Atención Pastoral"
+
+#, fuzzy
+#~ msgid "All Pastoral care contributor"
+#~ msgstr "Atención Pastoral para"
 
 #~ msgid "Donation Funds"
 #~ msgstr "Fondos de Donaciones"
