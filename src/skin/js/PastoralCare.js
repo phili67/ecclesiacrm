@@ -9,8 +9,20 @@
 var editor = null;
 
 $(document).ready(function () {
-
-    $( ".modify-pastoral" ).click(function() {
+  $( ".filterByPastor" ).click(function() {
+    var ID = $(this).data("personid");
+    
+    $(".all-items").hide();
+    $(".item-"+ID).show();
+  });
+  
+  $( ".filterByPastorAll" ).click(function() {
+    $(".all-items").show();
+  });
+  
+  
+  
+  $( ".modify-pastoral" ).click(function() {
     var ID = $(this).data("id");
     
     window.CRM.APIRequest({
