@@ -1,4 +1,4 @@
-<img src="https://avatars-02.gitter.im/group/iv/3/5a48f6ebd73408ce4f857d8e" width="32" height="32"> Welcome to EcclesiaCM Web CRM
+<img src="https://avatars-02.gitter.im/group/iv/3/5a48f6ebd73408ce4f857d8e" width="48" height="48"> Welcome to EcclesiaCM Web CRM
 ---
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
