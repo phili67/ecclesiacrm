@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 09:39+0200\n"
+"POT-Creation-Date: 2018-08-08 14:07+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,14 +79,14 @@ msgid "Family Activated"
 msgstr "Activado Familia"
 
 #: api/routes/gdrp.php:46 CartView.php:339 CartView.php:359
-#: EcclesiaCRM/utils/OutputUtils.php:104 EcclesiaCRM/utils/OutputUtils.php:203
+#: EcclesiaCRM/utils/OutputUtils.php:121 EcclesiaCRM/utils/OutputUtils.php:220
 #: FinancialReports.php:294 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Sí"
 
 #: api/routes/gdrp.php:46 CartView.php:352 CartView.php:361
-#: EcclesiaCRM/utils/OutputUtils.php:106 EcclesiaCRM/utils/OutputUtils.php:204
+#: EcclesiaCRM/utils/OutputUtils.php:123 EcclesiaCRM/utils/OutputUtils.php:221
 #: FinancialReports.php:295 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
 msgid "No"
@@ -130,7 +130,7 @@ msgstr "Personas"
 msgid "Families"
 msgstr "Familias"
 
-#: api/routes/people.php:191 api/routes/search.php:182 Calendar.php:147
+#: api/routes/people.php:191 api/routes/search.php:182 Calendar.php:148
 #: EcclesiaCRM/MenuBar/MenuBar.php:53
 #: external/templates/verify/verify-family-info.php:108 Menu.php:377
 #: PeopleDashboard.php:217
@@ -205,7 +205,7 @@ msgstr "El rol no pudo ser asignado."
 #: CSVImport.php:214 DirectoryReports.php:163 DirectoryReports.php:237
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:35 FamilyEditor.php:688
-#: FamilyEditor.php:692 FamilyList.php:93 FamilyView.php:234 GeoPage.php:360
+#: FamilyEditor.php:692 FamilyList.php:93 FamilyView.php:234 GeoPage.php:361
 #: GroupReports.php:144 Menu.php:462 Menu.php:491 PersonEditor.php:934
 #: PersonEditor.php:938 PersonEditor.php:1002 PersonEditor.php:1018
 #: PersonList.php:101 PersonView.php:356 Register.php:43
@@ -277,12 +277,12 @@ msgstr "Familia"
 #: AutoPaymentEditor.php:785 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
 #: CSVImport.php:269 DirectoryReports.php:73 DonatedItemEditor.php:185
 #: DonatedItemEditor.php:236 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:290
-#: EcclesiaCRM/utils/OutputUtils.php:346 eGive.php:340 FamilyEditor.php:1119
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:307
+#: EcclesiaCRM/utils/OutputUtils.php:363 eGive.php:340 FamilyEditor.php:1119
 #: GroupEditor.php:103 GroupEditor.php:161 GroupList.php:40 GroupView.php:53
 #: Include/CountryDropDown.php:14 Include/StateDropDown.php:17
 #: MapUsingBing.php:186 MapUsingBing.php:232 MapUsingGoogle.php:182
-#: MapUsingGoogle.php:227 MapUsingLeaflet.php:176 MapUsingLeaflet.php:222
+#: MapUsingGoogle.php:227 MapUsingLeaflet.php:177 MapUsingLeaflet.php:223
 #: PaddleNumEditor.php:175 PersonEditor.php:888 PersonEditor.php:906
 #: PersonEditor.php:1314 PrintPastoralCare.php:268 PrintPastoralCare.php:278
 #: PrintView.php:271 PrintView.php:281 SelectDelete.php:157 SelectList.php:36
@@ -334,7 +334,7 @@ msgstr "Pago Intervalo (meses)"
 msgid "Fund"
 msgstr "Fondo"
 
-#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:144
+#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:161
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
@@ -489,7 +489,7 @@ msgstr "Guardar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: BackupDatabase.php:41 Include/Footer.php:203
+#: BackupDatabase.php:41 Include/Footer.php:196
 msgid "Backup Database"
 msgstr "Respaldar la Base de Datos"
 
@@ -603,68 +603,68 @@ msgstr "Precio"
 msgid "Enter Winners"
 msgstr "Introduzca los ganadores"
 
-#: Calendar.php:27
+#: Calendar.php:28
 msgid "Church Calendar"
 msgstr "Calendario de la iglesia"
 
-#: Calendar.php:62 CSVExport.php:232 FinancialReports.php:107
+#: Calendar.php:63 CSVExport.php:232 FinancialReports.php:107
 msgid "Filters"
 msgstr "Filtros"
 
-#: Calendar.php:66
+#: Calendar.php:67
 msgid "By Types"
 msgstr "por tipo"
 
-#: Calendar.php:70 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
+#: Calendar.php:71 GroupList.php:38 ListEvents.php:137 ListEvents.php:179
 #: ManageEnvelopes.php:146
 msgid "All"
 msgstr "Todo "
 
-#: Calendar.php:87
+#: Calendar.php:88
 msgid "Limit"
 msgstr "Límite"
 
-#: Calendar.php:87
+#: Calendar.php:88
 msgid "No Limit"
 msgstr "Sin Límite "
 
-#: Calendar.php:93
+#: Calendar.php:94
 msgid "Birthdate"
 msgstr "Fecha de Nacimiento"
 
-#: Calendar.php:102 EcclesiaCRM/Reports/PDF_Directory.php:330
+#: Calendar.php:103 EcclesiaCRM/Reports/PDF_Directory.php:330
 msgid "Wedding"
 msgstr "Boda"
 
-#: Calendar.php:114
+#: Calendar.php:115
 msgid "Calendars"
 msgstr "Calendarios"
 
-#: Calendar.php:121
+#: Calendar.php:122
 msgid "Personals"
 msgstr "Personales"
 
-#: Calendar.php:126
+#: Calendar.php:127
 msgid "Exclude/include Calendars"
 msgstr "Excluir/incluir Calendarios"
 
-#: Calendar.php:127
+#: Calendar.php:128
 msgid "Add New Calendar"
 msgstr "Agregar Nuevo Calendario"
 
-#: Calendar.php:147 Calendar.php:172
+#: Calendar.php:148 Calendar.php:173
 msgid "Shared"
 msgstr "Compartido"
 
-#: Calendar.php:152
+#: Calendar.php:153
 msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
 msgstr "Excluir/incluir grupos. Que agregar calendarios, Crear un nuevo grupo"
 
-#: Calendar.php:172
+#: Calendar.php:173
 msgid "Users"
 msgstr "Usuarios"
 
-#: Calendar.php:177
+#: Calendar.php:178
 msgid "Exclude/include the Shared"
 msgstr "Excluir/incluir Compartidos"
 
@@ -881,7 +881,7 @@ msgstr "Agregar el Carrito a Familia"
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:56 EditEventAttendees.php:70 EventAttendance.php:176
 #: EventNames.php:291 FamilyCustomFieldsEditor.php:322
-#: FamilyCustomFieldsEditor.php:425 FamilyList.php:92 GeoPage.php:359
+#: FamilyCustomFieldsEditor.php:425 FamilyList.php:92 GeoPage.php:360
 #: GroupEditor.php:79 GroupPersonPropsFormEditor.php:221
 #: GroupPropsFormEditor.php:316 GroupPropsFormEditor.php:442 GroupView.php:415
 #: ListEvents.php:283 ListEvents.php:285 PersonCustomFieldsEditor.php:312
@@ -960,7 +960,7 @@ msgid "Home Phone"
 msgstr "Teléfono Hogar"
 
 #: CartToFamily.php:318 CartToFamily.php:328 CartToFamily.php:338
-#: EcclesiaCRM/utils/OutputUtils.php:336 FamilyEditor.php:772
+#: EcclesiaCRM/utils/OutputUtils.php:353 FamilyEditor.php:772
 #: FamilyEditor.php:782 FamilyEditor.php:792 PersonEditor.php:1154
 #: PersonEditor.php:1178 PersonEditor.php:1202
 msgid "Do not auto-format"
@@ -1453,7 +1453,7 @@ msgstr ""
 msgid "Create File"
 msgstr "Crear Fichero"
 
-#: CSVImport.php:115 Include/Footer.php:211
+#: CSVImport.php:115 Include/Footer.php:204
 msgid "CSV Import"
 msgstr "Importar CSV"
 
@@ -1893,7 +1893,7 @@ msgstr "Datos Personales"
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/TimelineService.php:189
-#: EcclesiaCRM/utils/OutputUtils.php:205 FamilyEditor.php:1044
+#: EcclesiaCRM/utils/OutputUtils.php:222 FamilyEditor.php:1044
 #: Include/Functions.php:629 Include/Functions.php:642
 msgid "Unknown"
 msgstr "Desconocido"
@@ -3808,7 +3808,7 @@ msgstr "Ajustes de Reporte"
 msgid "Financial Settings"
 msgstr "Ajustes Financieros"
 
-#: EcclesiaCRM/dto/SystemConfig.php:261 Include/Footer.php:164
+#: EcclesiaCRM/dto/SystemConfig.php:261 Include/Footer.php:157
 msgid "System Settings"
 msgstr "Ajustes de Sistema"
 
@@ -4019,14 +4019,14 @@ msgstr "Eventos"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:213 ListEvents.php:345 MapUsingBing.php:192
 #: MapUsingBing.php:238 MapUsingGoogle.php:188 MapUsingGoogle.php:233
-#: MapUsingLeaflet.php:182 MapUsingLeaflet.php:228
+#: MapUsingLeaflet.php:183 MapUsingLeaflet.php:229
 msgid "Calendar"
 msgstr "Calendario"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:215 EcclesiaCRM/MenuBar/MenuBar.php:217
 #: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/MenuBar/MenuBar.php:241
 #: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/MenuBar/MenuBar.php:245
-#: MapUsingBing.php:43 MapUsingGoogle.php:36 MapUsingLeaflet.php:42
+#: MapUsingBing.php:43 MapUsingGoogle.php:36 MapUsingLeaflet.php:43
 msgid "View on Map"
 msgstr "Ver en Mapa"
 
@@ -4639,35 +4639,35 @@ msgstr "Videos Clásicos."
 msgid "Classic File"
 msgstr "Archivos Clásicas"
 
-#: EcclesiaCRM/utils/OutputUtils.php:187
+#: EcclesiaCRM/utils/OutputUtils.php:204
 msgid "Invalid Editor ID!"
 msgstr "Id. de Editor Inválido"
 
-#: EcclesiaCRM/utils/OutputUtils.php:242
+#: EcclesiaCRM/utils/OutputUtils.php:259
 msgid "Select Season"
 msgstr "seleccione temporada"
 
-#: EcclesiaCRM/utils/OutputUtils.php:247
+#: EcclesiaCRM/utils/OutputUtils.php:264
 msgid "Winter"
 msgstr "Invierno"
 
-#: EcclesiaCRM/utils/OutputUtils.php:252
+#: EcclesiaCRM/utils/OutputUtils.php:269
 msgid "Spring"
 msgstr "Primavera"
 
-#: EcclesiaCRM/utils/OutputUtils.php:257
+#: EcclesiaCRM/utils/OutputUtils.php:274
 msgid "Summer"
 msgstr "Verano"
 
-#: EcclesiaCRM/utils/OutputUtils.php:262
+#: EcclesiaCRM/utils/OutputUtils.php:279
 msgid "Fall"
 msgstr "Otoño"
 
-#: EcclesiaCRM/utils/OutputUtils.php:305
+#: EcclesiaCRM/utils/OutputUtils.php:322
 msgid "This custom field isn't configured correctly"
 msgstr "Esto campo personalizado no es configurado correctamente."
 
-#: EcclesiaCRM/utils/OutputUtils.php:363
+#: EcclesiaCRM/utils/OutputUtils.php:380
 msgid "Error: Invalid Editor ID!"
 msgstr "Error: Id. de Editor inválido!"
 
@@ -4926,7 +4926,7 @@ msgstr "Por favor actualizar la"
 msgid "API key in Setting->"
 msgstr "Llave de API en Ajuste->"
 
-#: email/Dashboard.php:99 Include/Footer.php:172
+#: email/Dashboard.php:99 Include/Footer.php:165
 msgid "Edit General Settings"
 msgstr "Editar Ajustes Generales"
 
@@ -5991,7 +5991,7 @@ msgstr "Generar:"
 msgid "Only Families with unpaid pledges"
 msgstr "Solo Familias con promesas sin pagar"
 
-#: FinancialReports.php:285 GeoPage.php:314 PeopleDashboard.php:116
+#: FinancialReports.php:285 GeoPage.php:315 PeopleDashboard.php:116
 msgid "All Families"
 msgstr "Todas las Familias"
 
@@ -6229,87 +6229,87 @@ msgstr "Editado Por Nombre"
 msgid "Deactivated"
 msgstr "Desactivar"
 
-#: GeoPage.php:88
+#: GeoPage.php:89
 msgid "Family Geographic Utilities"
 msgstr "Utilidades Geográficas de Familias"
 
-#: GeoPage.php:213
+#: GeoPage.php:214
 msgid "Select Family:"
 msgstr "Seleccionar Familia"
 
-#: GeoPage.php:215
+#: GeoPage.php:216
 msgid "Select a family"
 msgstr "Seleccione una familia"
 
-#: GeoPage.php:232
+#: GeoPage.php:233
 msgid "Maximum number of neighbors:"
 msgstr "Número Máximo de vecinos"
 
-#: GeoPage.php:239
+#: GeoPage.php:240
 msgid "Maximum distance"
 msgstr "Distancia Máxima"
 
-#: GeoPage.php:247
+#: GeoPage.php:248
 msgid "Show neighbors with these classifications:"
 msgstr "Mostrar vecinos con estas clasificaciones:"
 
-#: GeoPage.php:267
+#: GeoPage.php:268
 msgid "Show Neighbors"
 msgstr "Mostrar Vecinos"
 
-#: GeoPage.php:276
+#: GeoPage.php:277
 msgid "Please select a Family."
 msgstr "Por favor selecciona una Familia."
 
-#: GeoPage.php:285 GeoPage.php:333
+#: GeoPage.php:286 GeoPage.php:334
 msgid "Make Data File"
 msgstr "Crear archivo de datos"
 
-#: GeoPage.php:293
+#: GeoPage.php:294
 msgid "Data file format:"
 msgstr "Formato de archivo de datos"
 
-#: GeoPage.php:298
+#: GeoPage.php:299
 msgid "GPS Visualizer"
 msgstr "Visualizador GPS"
 
-#: GeoPage.php:303
+#: GeoPage.php:304
 msgid "Street Atlas USA"
 msgstr "Street Atlas USA"
 
-#: GeoPage.php:309
+#: GeoPage.php:310
 msgid "Include families in coordinate file:"
 msgstr "Incluir familias en archivo de coordenadas"
 
-#: GeoPage.php:319
+#: GeoPage.php:320
 msgid "Neighbor Families"
 msgstr "Familias vecinas"
 
-#: GeoPage.php:325
+#: GeoPage.php:326
 msgid "Coordinate data base file name:"
 msgstr "Coordinar nombre de archivo base de datos:"
 
-#: GeoPage.php:357
+#: GeoPage.php:358
 msgid "Distance"
 msgstr "Distancia"
 
-#: GeoPage.php:358
+#: GeoPage.php:359
 msgid "Direction"
 msgstr "Dirección"
 
-#: GeoPage.php:384
+#: GeoPage.php:385
 msgid "Direct me"
 msgstr "Guíeme"
 
-#: GeoPage.php:419 SelectList.php:735
+#: GeoPage.php:420 SelectList.php:735
 msgid "Add All to Cart"
 msgstr "Agregar Todo a Carrito"
 
-#: GeoPage.php:423 SelectList.php:736
+#: GeoPage.php:424 SelectList.php:736
 msgid "Intersect with Cart"
 msgstr "Intersecar con el Carrito"
 
-#: GeoPage.php:426 SelectList.php:737
+#: GeoPage.php:427 SelectList.php:737
 msgid "Remove All from Cart"
 msgstr "Remover Todo de Carrito"
 
@@ -6790,53 +6790,44 @@ msgstr "Tipos de Propiedad"
 msgid "Volunteer Opportunities"
 msgstr "Oportunidades de Voluntariado"
 
-#: Include/Footer.php:134
-msgid "Donation Funds"
-msgstr "Fondos de Donaciones"
-
-#: Include/Footer.php:140
+#: Include/Footer.php:137
 msgid "Edit Donation Funds"
 msgstr "Editar Fondos de Donaciones"
 
-#: Include/Footer.php:147 PersonView.php:491 PrintPastoralCare.php:495
-#: UserEditor.php:657
-msgid "Pastoral Care"
-msgstr "Atención Pastoral"
-
-#: Include/Footer.php:153 PastoralCareList.php:25
+#: Include/Footer.php:146 PastoralCareList.php:25
 msgid "Pastoral Care Type Editor"
 msgstr "Editor de tipo de Atención Pastoral"
 
-#: Include/Footer.php:180
+#: Include/Footer.php:173
 msgid "System Users"
 msgstr "Usuarios del Sistema"
 
-#: Include/Footer.php:195 RestoreDatabase.php:27
+#: Include/Footer.php:188 RestoreDatabase.php:27
 msgid "Restore Database"
 msgstr "Restaurar Base de Datos"
 
-#: Include/Footer.php:219 KioskManager.php:17 KioskManager.php:25
+#: Include/Footer.php:212 KioskManager.php:17 KioskManager.php:25
 msgid "Kiosk Manager"
 msgstr "Administrador de Quiosco"
 
-#: Include/Footer.php:225
+#: Include/Footer.php:218
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Por favor contacte el administrador para cambiarlo los ajustes del sistema."
 
-#: Include/Footer.php:231
+#: Include/Footer.php:224
 msgid "CSV Export Records"
 msgstr "Exportar Registros a CSV"
 
-#: Include/Footer.php:242
+#: Include/Footer.php:235
 msgid "Open Tasks"
 msgstr "Abra tareas"
 
-#: Include/Footer.php:243
+#: Include/Footer.php:236
 msgid "You have"
 msgstr "Tiene"
 
-#: Include/Footer.php:244
+#: Include/Footer.php:237
 msgid "task(s)"
 msgstr "tarea(s)"
 
@@ -7422,15 +7413,15 @@ msgstr "Cero"
 msgid "Assign starting at #"
 msgstr "Asignar comenzando por #:"
 
-#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:51
+#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:52
 msgid "Missing Families?"
 msgstr "Faltan Familias?"
 
-#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:51
+#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:52
 msgid "Update Family Latitude or Longitude now."
 msgstr "Actualice la Latitud y Longitud de la Familia ahora."
 
-#: MapUsingBing.php:60 MapUsingGoogle.php:51 MapUsingLeaflet.php:57
+#: MapUsingBing.php:60 MapUsingGoogle.php:51 MapUsingLeaflet.php:58
 msgid ""
 "Unable to display map due to missing Church Latitude or Longitude. Please "
 "update the church Address in the settings menu."
@@ -7447,25 +7438,25 @@ msgstr ""
 "para conjuntos de lugares pequeños. Por favor cree una Llave en la sección "
 "de mapas del menu de ajustes."
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
 msgid "Missing Person Map classification icon for"
 msgstr "Icono de Clasificaciones de Mapa Faltantes para"
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
 msgid "Clik"
 msgstr "Clik"
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
 msgid "here"
 msgstr "aquí␣"
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:150
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
 #: Menu.php:111 Menu.php:134
 msgid "to solve the problem."
 msgstr "para resolver el problema."
 
 #: MapUsingBing.php:180 MapUsingBing.php:225 MapUsingGoogle.php:176
-#: MapUsingGoogle.php:220 MapUsingLeaflet.php:170 MapUsingLeaflet.php:215
+#: MapUsingGoogle.php:220 MapUsingLeaflet.php:171 MapUsingLeaflet.php:216
 msgid "Legend"
 msgstr "Leyenda"
 
@@ -8177,6 +8168,10 @@ msgstr "Acerca de mí"
 #: PersonView.php:334
 msgid "Family:"
 msgstr "Familia:"
+
+#: PersonView.php:491 PrintPastoralCare.php:495 UserEditor.php:657
+msgid "Pastoral Care"
+msgstr "Atención Pastoral"
 
 #: PersonView.php:503
 msgid "Delete this Record"
@@ -10494,6 +10489,9 @@ msgstr "CHEQUE"
 
 msgid "CHECKS"
 msgstr "CHEQUES"
+
+#~ msgid "Donation Funds"
+#~ msgstr "Fondos de Donaciones"
 
 #~ msgid "User Listing"
 #~ msgstr "Listado de usuarios"
