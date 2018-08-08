@@ -20,6 +20,7 @@ use EcclesiaCRM\PastoralCare;
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\PastoralCareType;
 use EcclesiaCRM\PastoralCareTypeQuery;
+use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
 
 
@@ -39,9 +40,13 @@ $ormPastoralCares = PastoralCareQuery::Create()
                       ->leftJoinWithPastoralCareType()
                       ->findByPersonId($currentPersonID);
                       
+$ormPastors = PastoralCareQuery::Create()
+                      ->groupBy(PastoralCareTableMap::COL_PST_CR_PASTOR_ID)
+                      ->orderByPastorName(Propel\Runtime\ActiveQuery\Criteria::DESC)
+                      ->findByPersonId($currentPersonID);
+                      
 $ormPastoralTypeCares = PastoralCareTypeQuery::Create()
                       ->find();
-
 
 //Get name
 $person = PersonQuery::Create()->findOneById ($currentPersonID);
@@ -88,7 +93,25 @@ require 'Include/Header.php';
       ?>
     </ul>
   </div>
-  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
+  
+   <div class="btn-group pull-right">
+    <a class="btn btn-app filterByPastor" data-personid="<?= $_SESSION['user']->getPerson()->getId() ?>"><i class="fa fa-sticky-note"></i><?= $_SESSION['user']->getPerson()->getFullName()  ?></a>
+    <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+       <span class="caret"></span>
+       <span class="sr-only">Menu déroulant</span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li> <a class="filterByPastorAll"><?= _("All") ?></a></li>
+      <?php
+         foreach ($ormPastors as $ormPastor) {
+      ?>
+        <li> <a class="filterByPastor" data-personid="<?= $ormPastor->getPastorId() ?>"><?= $ormPastor->getPastorName() ?></a></li>
+      <?php
+         }
+      ?>
+    </ul>
+  </div>
 </div>
 
 <?php
@@ -106,7 +129,7 @@ require 'Include/Header.php';
 <?php
   foreach ($ormPastoralCares as $ormPastoralCare) {
 ?>
-  <li>
+  <li class="item-<?= $ormPastoralCare->getPastorId()?> all-items">
     <i class="fa fa-clock-o bg-blue"></i>
     <div class="timeline-item">
       <span class="time"><i class="fa fa-clock-o"></i> <?= $ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s') ?></span>
