@@ -22,6 +22,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Church Calendar');
@@ -218,8 +219,8 @@ $eventTypes = EventTypesQuery::Create()
   window.CRM.isModifiable  = true;
   
   window.CRM.churchloc = {
-      lat: <?= str_replace(",",".",ChurchMetaData::getChurchLatitude()) ?>,
-      lng: <?= str_replace(",",".",ChurchMetaData::getChurchLongitude()) ?>};
+      lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+      lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 

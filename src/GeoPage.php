@@ -25,6 +25,7 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Utils\OutputUtils;
 
 function CompareDistance($elem1, $elem2)
 {
@@ -378,7 +379,7 @@ $families = FamilyQuery::create()
                 }
                 $counter++; ?>
                 <tr class="info">
-                    <td><?= $oneResult['Distance'] ?> </td>
+                    <td><?= OutputUtils::number_localized($oneResult['Distance']) ?> </td>
                     <td><?= $oneResult['Bearing'] ?>
                         <a target="_blank"
                            href="https://www.google.com/maps/dir/Current+Location/<?= $oneResult['fam_Latitude'] . ',' . $oneResult['fam_Longitude'] ?>"><?= gettext('Direct me') ?></a>

@@ -784,8 +784,8 @@ foreach ($allMonths as $mVal) {
   window.CRM.isModifiable  = "true";
   
   window.CRM.churchloc = {
-      lat: <?= ChurchMetaData::getChurchLatitude() ?>,
-      lng: <?= ChurchMetaData::getChurchLongitude() ?>};            
+      lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
+      lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};            
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
