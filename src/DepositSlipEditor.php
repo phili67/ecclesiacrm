@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\InputUtils;
+use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\MiscUtils;
 
@@ -139,9 +140,10 @@ require 'Include/Header.php';
           <ul style="margin:0px; border:0px; padding:0px;" id="mainFundTotals">
           <?php
           foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').$fund['Total'].'</li>';
+              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').OutputUtils::number_localized($fund['Total']).'</li>';
           }
           ?>
+          </ul>
         </div>
         <div class="col-lg-6">
           <canvas id="type-donut" style="height:250px"></canvas>
@@ -245,18 +247,18 @@ require 'Include/Header.php';
           $("#mainFundTotals").empty();
           var globalTotal = 0;
           for (i=0; i<len; ++i) {
-            $("#mainFundTotals").append('<li><b>'+fundData[i].label+'</b>: '+window.CRM.currency+fundData[i].value+'</li>');
+            $("#mainFundTotals").append('<li><b>'+fundData[i].label+'</b>: '+window.CRM.currency+Number(fundData[i].value).toLocaleString(window.CRM.lang)+'</li>');
             globalTotal += Number(fundData[i].value);
           }
           
           $("#GlobalTotal").empty();          
-          $("#GlobalTotal").append('<li><b>'+i18next.t("TOTAL")+"("+len+"):</b> "+window.CRM.currency+globalTotal+'</li>');
+          $("#GlobalTotal").append('<li><b>'+i18next.t("TOTAL")+"("+len+"):</b> "+window.CRM.currency+globalTotal.toLocaleString(window.CRM.lang)+'</li>');
           
           if (pledgeData[0].value != null) {
-            $("#GlobalTotal").append('<li><b>'+pledgeData[0].label+" ("+pledgeData[0].countCash+"):</b> "+window.CRM.currency+pledgeData[0].value+"</b></li>");
+            $("#GlobalTotal").append('<li><b>'+pledgeData[0].label+" ("+pledgeData[0].countCash+"):</b> "+window.CRM.currency+Number(pledgeData[0].value).toLocaleString(window.CRM.lang)+"</b></li>");
           }
           if (pledgeData[1].value != null) {
-            $("#GlobalTotal").append('<li><b>'+pledgeData[1].label+" ("+pledgeData[1].countChecks+"):</b> "+window.CRM.currency+pledgeData[1].value+"</b></li>");
+            $("#GlobalTotal").append('<li><b>'+pledgeData[1].label+" ("+pledgeData[1].countChecks+"):</b> "+window.CRM.currency+Number(pledgeData[1].value).toLocaleString(window.CRM.lang)+"</b></li>");
           }
         });
     }

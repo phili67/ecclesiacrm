@@ -81,6 +81,9 @@ $(document).ready(function () {
         title:i18next.t('Deposit Total'),
         data: 'totalAmount',
         searchable: false,
+        render: function (data, type, full, meta) {
+          return Number(data).toLocaleString(window.CRM.lang,{maximumSignificantDigits : 21});;
+        }
       },
       {
         title:i18next.t('Deposit Comment'),
