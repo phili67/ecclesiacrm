@@ -42,7 +42,10 @@ function initPaymentTable(type)
     {
       width: 'auto',
       title:i18next.t('Amount'),
-      data:'sumAmount'
+      data:'sumAmount',
+      render: function (data, type, full, meta) {
+        return Number(data).toLocaleString(window.CRM.lang);
+      }
     },
     {
       width: 'auto',
