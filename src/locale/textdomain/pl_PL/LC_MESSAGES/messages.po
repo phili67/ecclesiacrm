@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-08 19:45+0200\n"
+"POT-Creation-Date: 2018-08-09 21:14+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,14 +85,14 @@ msgstr "To pole jest wymagane."
 
 #: api/routes/gdrp.php:46 CartView.php:339 CartView.php:359
 #: EcclesiaCRM/utils/OutputUtils.php:121 EcclesiaCRM/utils/OutputUtils.php:220
-#: FinancialReports.php:294 GDPRListExport.php:82 ListEvents.php:552
+#: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Tak"
 
 #: api/routes/gdrp.php:46 CartView.php:352 CartView.php:361
 #: EcclesiaCRM/utils/OutputUtils.php:123 EcclesiaCRM/utils/OutputUtils.php:221
-#: FinancialReports.php:295 GDPRListExport.php:82 ListEvents.php:552
+#: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
 msgid "No"
 msgstr "Nie"
@@ -118,7 +118,7 @@ msgid "Bank account"
 msgstr "Numer konta "
 
 #: api/routes/payments.php:137 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
-#: FinancialReports.php:262 PledgeEditor.php:614
+#: FinancialReports.php:342 PledgeEditor.php:614
 msgid "Cash"
 msgstr "Gotówka"
 
@@ -240,7 +240,7 @@ msgid "Deposits"
 msgstr "Deposit"
 
 #: api/routes/search.php:296 Reports/PledgeSummary.php:222
-#: Reports/PledgeSummary.php:224
+#: Reports/PledgeSummary.php:224 Reports/ReminderReport.php:382
 #, fuzzy
 msgid "Payments"
 msgstr "Wszystkie płatności"
@@ -291,7 +291,7 @@ msgstr "Osoba"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:194
 #: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:219 FinancialReports.php:302 Include/Footer.php:55
+#: FamilyView.php:219 FinancialReports.php:419 Include/Footer.php:55
 #: members/404.php:16 PersonView.php:555 PledgeEditor.php:537
 #: PrintPastoralCare.php:262 PrintView.php:265 PropertyEditor.php:46
 #: PropertyList.php:28 PropertyTypeEditor.php:89 PropertyTypeList.php:67
@@ -334,9 +334,10 @@ msgstr "Numer Karty Płatniczej"
 msgid "Disable "
 msgstr ""
 
-#: AutoPaymentEditor.php:819 CanvassEditor.php:193 DepositSlipEditor.php:95
+#: AutoPaymentEditor.php:819 CanvassEditor.php:193 DepositSlipEditor.php:96
 #: EditEventAttendees.php:57 FindFundRaiser.php:236 FundRaiserEditor.php:163
-#: Include/Functions.php:89 PledgeEditor.php:547 SelectDelete.php:220
+#: Include/Functions.php:89 PledgeEditor.php:547 Reports/ReminderReport.php:306
+#: Reports/ReminderReport.php:387 SelectDelete.php:220
 msgid "Date"
 msgstr "Data"
 
@@ -355,9 +356,10 @@ msgid "Payment interval (months)"
 msgstr "Częstotliwość Wpłat (miesiące)"
 
 #: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
-#: ElectronicPaymentList.php:200 FinancialReports.php:301
+#: ElectronicPaymentList.php:200 FinancialReports.php:418
 #: FindDepositSlip.php:48 Reports/FamilyPledgeSummary.php:218
-#: Reports/PledgeSummary.php:220 SelectDelete.php:218
+#: Reports/PledgeSummary.php:220 Reports/ReminderReport.php:307
+#: Reports/ReminderReport.php:390 SelectDelete.php:218
 msgid "Fund"
 msgstr "Cel"
 
@@ -453,7 +455,7 @@ msgid "Email"
 msgstr "Email"
 
 #: AutoPaymentEditor.php:951 ElectronicPaymentList.php:209
-#: FinancialReports.php:263 FindDepositSlip.php:63 PledgeEditor.php:622
+#: FinancialReports.php:343 FindDepositSlip.php:63 PledgeEditor.php:622
 msgid "Credit Card"
 msgstr "Numer Karty Płatniczej"
 
@@ -491,7 +493,7 @@ msgstr "Numer Konta"
 msgid "Store Private Data at Vanco"
 msgstr ""
 
-#: AutoPaymentEditor.php:1058 CanvassEditor.php:237 DepositSlipEditor.php:111
+#: AutoPaymentEditor.php:1058 CanvassEditor.php:237 DepositSlipEditor.php:112
 #: DonatedItemEditor.php:292 FamilyEditor.php:671 FamilyEditor.php:758
 #: FamilyEditor.php:822 FamilyEditor.php:896 FamilyEditor.php:918
 #: FamilyEditor.php:949 FamilyEditor.php:1145 FundRaiserEditor.php:141
@@ -507,7 +509,7 @@ msgstr "Zapisz"
 #: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:277
 #: DonatedItemEditor.php:296 EventNames.php:259
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1149
-#: FamilyView.php:868 FinancialReports.php:68 FundRaiserEditor.php:142
+#: FamilyView.php:868 FinancialReports.php:80 FundRaiserEditor.php:142
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:134 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:93 NoteEditor.php:299
@@ -635,7 +637,7 @@ msgstr "Wprowadź Wygranych"
 msgid "Church Calendar"
 msgstr "Nazwa Kościoła"
 
-#: Calendar.php:63 CSVExport.php:232 FinancialReports.php:107
+#: Calendar.php:63 CSVExport.php:232 FinancialReports.php:125
 #: PastoralCare.php:116
 msgid "Filters"
 msgstr "Sortuj"
@@ -741,7 +743,7 @@ msgstr "Nie zatwierdzono 'Usuń Wyrażam Zgodę'."
 msgid "Report Details"
 msgstr "Rodzaj Raportu"
 
-#: CanvassAutomation.php:121 FinancialReports.php:201
+#: CanvassAutomation.php:121 FinancialReports.php:254
 #, fuzzy
 msgid "Fiscal Year:"
 msgstr "Rok Podatkowy"
@@ -912,7 +914,7 @@ msgstr "Dodaj Koszyk do Rodziny"
 #: EventNames.php:291 FamilyCustomFieldsEditor.php:322
 #: FamilyCustomFieldsEditor.php:425 FamilyList.php:92 GeoPage.php:360
 #: GroupEditor.php:79 GroupPersonPropsFormEditor.php:221
-#: GroupPropsFormEditor.php:316 GroupPropsFormEditor.php:442 GroupView.php:415
+#: GroupPropsFormEditor.php:316 GroupPropsFormEditor.php:442 GroupView.php:417
 #: ListEvents.php:283 ListEvents.php:285 PersonCustomFieldsEditor.php:312
 #: PersonCustomFieldsEditor.php:430 PersonList.php:99 PersonView.php:1008
 #: PrintPastoralCare.php:341 PrintPastoralCare.php:468 PrintView.php:344
@@ -1122,7 +1124,7 @@ msgid "Remove"
 msgstr "Usuń"
 
 #: CartView.php:319 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
-#: FamilyEditor.php:975 FinancialReports.php:116 OptionManager.php:95
+#: FamilyEditor.php:975 FinancialReports.php:136 OptionManager.php:95
 #: PeopleDashboard.php:352 PersonEditor.php:1312 PrintPastoralCare.php:313
 #: PrintView.php:316 queryparameters_qrp.php:19
 msgid "Classification"
@@ -1246,7 +1248,7 @@ msgstr ""
 msgid "CheckOut"
 msgstr "Wypisz"
 
-#: Checkin.php:518 Checkin.php:559 Checkin.php:658 DepositSlipEditor.php:276
+#: Checkin.php:518 Checkin.php:559 Checkin.php:658 DepositSlipEditor.php:278
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:218
 #: ElectronicPaymentList.php:283 EventNames.php:325 FamilyView.php:869
 #: FindDepositSlip.php:121 FundRaiserEditor.php:199 ListEvents.php:398
@@ -1284,7 +1286,7 @@ msgstr "Czas Wypisania"
 msgid "Checked Out By"
 msgstr "Wypisany przez"
 
-#: Checkin.php:555 DepositSlipEditor.php:186 EditEventAttendees.php:73
+#: Checkin.php:555 DepositSlipEditor.php:188 EditEventAttendees.php:73
 #: EventNames.php:295 ListEvents.php:342 PersonView.php:904
 msgid "Action"
 msgstr "Akcja"
@@ -1437,7 +1439,7 @@ msgstr "Osoby w Koszyku (filtry ignorowane)"
 
 #: CSVExport.php:276 CSVExport.php:301 CSVExport.php:337
 #: DirectoryReports.php:71 DirectoryReports.php:89 DirectoryReports.php:107
-#: DirectoryReports.php:125 DirectoryReports.php:144 FinancialReports.php:258
+#: DirectoryReports.php:125 DirectoryReports.php:144 FinancialReports.php:337
 msgid "Use Ctrl Key to select multiple"
 msgstr "Użyj klawisza Ctrl aby zaznaczyć kilka"
 
@@ -1493,7 +1495,7 @@ msgstr "Data Ślubu"
 msgid "Date Entered:"
 msgstr "Wpisane:"
 
-#: CSVExport.php:425 FinancialReports.php:322
+#: CSVExport.php:425
 msgid "Output Method:"
 msgstr "Sposób zapisu:"
 
@@ -1643,38 +1645,38 @@ msgstr "Import zakończony Powidzeniem."
 msgid "persons were imported"
 msgstr "osób zostało zaimportowanych"
 
-#: DepositSlipEditor.php:62
+#: DepositSlipEditor.php:63
 msgid "Deposit Slip Number: "
 msgstr "Deposit Slip Number: "
 
-#: DepositSlipEditor.php:65 PledgeEditor.php:507 PledgeEditor.php:801
+#: DepositSlipEditor.php:66 PledgeEditor.php:507 PledgeEditor.php:801
 #, fuzzy
 msgid "Deposit closed"
 msgstr "Odcinek Deposit"
 
-#: DepositSlipEditor.php:89
+#: DepositSlipEditor.php:90
 #, fuzzy
 msgid "Deposit Details: "
 msgstr "Deposit Report"
 
-#: DepositSlipEditor.php:99
+#: DepositSlipEditor.php:100
 #, fuzzy
 msgid "Comment:"
 msgstr "Komentarz"
 
-#: DepositSlipEditor.php:103
+#: DepositSlipEditor.php:104
 msgid "Closed:"
 msgstr ""
 
-#: DepositSlipEditor.php:106
+#: DepositSlipEditor.php:107
 msgid "Close deposit slip (remember to press Save)"
 msgstr "Zamknij Odcinek Wpłaty (pamiętaj aby nacisnąć &quot;Zapisz&quot;)"
 
-#: DepositSlipEditor.php:117
+#: DepositSlipEditor.php:118
 msgid "Deposit Slip Report"
 msgstr "Raport Odcinków Wpłaty"
 
-#: DepositSlipEditor.php:125
+#: DepositSlipEditor.php:126
 msgid ""
 "Important note: failed transactions will be deleted permanantly when the "
 "deposit slip is closed."
@@ -1682,88 +1684,88 @@ msgstr ""
 "Ważna uwaga: nie udane transakcje będą całkowicie usuniętę gdy Odcinek "
 "Wpłaty zostanie zamknięty."
 
-#: DepositSlipEditor.php:134
+#: DepositSlipEditor.php:135
 #, fuzzy
 msgid "Deposit Summary: "
 msgstr "Deposit Slip Number: "
 
-#: DepositSlipEditor.php:157
+#: DepositSlipEditor.php:159
 msgid "Payments on this deposit slip:"
 msgstr "Płatności na tym Odcinku Wpłaty:"
 
-#: DepositSlipEditor.php:162 eGive.php:266
+#: DepositSlipEditor.php:164 eGive.php:266
 msgid "Import eGive"
 msgstr "Importuj eGive"
 
-#: DepositSlipEditor.php:164
+#: DepositSlipEditor.php:166
 msgid "Add Payment"
 msgstr "Dodaj Płatność"
 
-#: DepositSlipEditor.php:168
+#: DepositSlipEditor.php:170
 msgid "Load Authorized Transactions"
 msgstr "Załaduj Zaakceptowaną Transakcję"
 
-#: DepositSlipEditor.php:169
+#: DepositSlipEditor.php:171
 msgid "Run Transactions"
 msgstr "Rozpocznij Transakcję"
 
-#: DepositSlipEditor.php:187 FindDepositSlip.php:95
+#: DepositSlipEditor.php:189 FindDepositSlip.php:95
 #, fuzzy
 msgid "Delete Selected Rows"
 msgstr "Usuń Użytkownika"
 
-#: DepositSlipEditor.php:198 PledgeEditor.php:595
+#: DepositSlipEditor.php:200 PledgeEditor.php:595
 #, fuzzy
 msgid "Statut"
 msgstr "Hrabstwo"
 
-#: DepositSlipEditor.php:199 PledgeEditor.php:598
+#: DepositSlipEditor.php:201 PledgeEditor.php:598
 #, fuzzy
 msgid "Payment"
 msgstr "Rodzaj wpłaty"
 
-#: DepositSlipEditor.php:199 DepositSlipEditor.php:200
+#: DepositSlipEditor.php:201 DepositSlipEditor.php:202
 #, fuzzy
 msgid "Selected Rows"
 msgstr "Wybierz Rolę"
 
-#: DepositSlipEditor.php:200 PledgeEditor.php:597
-#: Reports/FamilyPledgeSummary.php:219
+#: DepositSlipEditor.php:202 PledgeEditor.php:597
+#: Reports/FamilyPledgeSummary.php:219 Reports/ReminderReport.php:301
 #, fuzzy
 msgid "Pledge"
 msgstr "Datek (Pledged)"
 
-#: DepositSlipEditor.php:214
+#: DepositSlipEditor.php:216
 #, fuzzy
 msgid "Return to Deposit Listing"
 msgstr "Lista Deposit"
 
-#: DepositSlipEditor.php:267 FamilyView.php:857 FindDepositSlip.php:111
+#: DepositSlipEditor.php:269 FamilyView.php:857 FindDepositSlip.php:111
 #: PersonView.php:1337
 msgid "Confirm Delete"
 msgstr "Potwiedź Usunięcie"
 
-#: DepositSlipEditor.php:268
+#: DepositSlipEditor.php:270
 #, fuzzy
 msgid "Are you sure ? You're about to delete the selected"
 msgstr "Czy jesteś pewny że chcesz usunąć ten Cel (Fund)?"
 
-#: DepositSlipEditor.php:268
+#: DepositSlipEditor.php:270
 msgid "payments(s)?"
 msgstr ""
 
-#: DepositSlipEditor.php:269 FindDepositSlip.php:114
+#: DepositSlipEditor.php:271 FindDepositSlip.php:114
 #, fuzzy
 msgid "This action CANNOT be undone, and may have legal implications!"
 msgstr ""
 "UWAGA: Nie można cofnąć tego zadania a może ono prowadzić do komplikacji "
 "prawnych!"
 
-#: DepositSlipEditor.php:270
+#: DepositSlipEditor.php:272
 msgid "Please ensure this what you want to do.</p>"
 msgstr ""
 
-#: DepositSlipEditor.php:273 FindDepositSlip.php:118 GroupEditor.php:60
+#: DepositSlipEditor.php:275 FindDepositSlip.php:118 GroupEditor.php:60
 msgid "Close"
 msgstr ""
 
@@ -1937,7 +1939,7 @@ msgstr "Idź"
 
 #: DonatedItemEditor.php:273 EditEventAttendees.php:58 FundRaiserEditor.php:173
 #: GroupEditor.php:85 GroupPersonPropsFormEditor.php:222
-#: GroupPropsFormEditor.php:317 GroupPropsFormEditor.php:443 GroupView.php:416
+#: GroupPropsFormEditor.php:317 GroupPropsFormEditor.php:443 GroupView.php:418
 #: ListEvents.php:343 PersonView.php:1009 PropertyTypeEditor.php:103
 #: VolunteerOpportunityEditor.php:75 VolunteerOpportunityEditor.php:354
 #: VolunteerOpportunityEditor.php:428
@@ -1980,7 +1982,7 @@ msgstr "Prywatne"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:464
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:473
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/TimelineService.php:189
@@ -3427,7 +3429,7 @@ msgstr ""
 msgid "Line Thickness (1 = 1/100th inch"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:143 FinancialReports.php:291
+#: EcclesiaCRM/dto/SystemConfig.php:143 FinancialReports.php:398
 msgid "Church Address"
 msgstr "Adres Kościoła"
 
@@ -4168,7 +4170,7 @@ msgstr "Dodaj Nowe Pole"
 msgid "View Active Families"
 msgstr "CSV - pogrupowane Rodziny"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:277 FinancialReports.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:277 FinancialReports.php:417
 msgid "Deposit"
 msgstr "Deposit"
 
@@ -4293,11 +4295,11 @@ msgstr "Deposit Slip Number: "
 msgid "Deposit total"
 msgstr "Deposit Report"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282 Reports/ReminderReport.php:388
 msgid "Chk No."
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288 Reports/ReminderReport.php:389
 #, fuzzy
 msgid "PmtMethod"
 msgstr "Sposób"
@@ -4307,12 +4309,13 @@ msgstr "Sposób"
 msgid "Rcd From"
 msgstr "Od:"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:391
 msgid "Memo"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
-#: PledgeEditor.php:749 SelectDelete.php:221
+#: PledgeEditor.php:749 Reports/ReminderReport.php:308
+#: Reports/ReminderReport.php:392 SelectDelete.php:221
 msgid "Amount"
 msgstr "Kwota"
 
@@ -4327,14 +4330,14 @@ msgid "Witness"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:222
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:179 FamilyList.php:97 Menu.php:463
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:188 FamilyList.php:97 Menu.php:463
 #: PersonList.php:105
 #, fuzzy
 msgid "Created"
 msgstr "Utwórz plik (file)"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:227
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:184 Menu.php:492
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:193 Menu.php:492
 #, fuzzy
 msgid "Updated"
 msgstr "Aktualizuj"
@@ -4349,30 +4352,30 @@ msgid "Verification email sent"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:313
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:290
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:299
 #, fuzzy
 msgid "Profile Image Deleted"
 msgstr "Potwiedź Usunięcie"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:326
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:314
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:323
 msgid "Profile Image uploaded"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:471 Include/Functions.php:649
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:480 Include/Functions.php:649
 msgid "mos old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:473 Include/Functions.php:651
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:482 Include/Functions.php:651
 msgid "mo old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:477 Include/Functions.php:624
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:486 Include/Functions.php:624
 #: Include/Functions.php:626 Include/Functions.php:655
 msgid "yrs old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:479 Include/Functions.php:657
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:488 Include/Functions.php:657
 msgid "yr old"
 msgstr ""
 
@@ -4970,7 +4973,7 @@ msgstr "Dodaj nową Automatyczną Płatność"
 
 #: ElectronicPaymentList.php:195 FamilyCustomFieldsEditor.php:321
 #: FamilyCustomFieldsEditor.php:422 GDPRListExport.php:62
-#: GroupPropsFormEditor.php:315 GroupPropsFormEditor.php:441 GroupView.php:414
+#: GroupPropsFormEditor.php:315 GroupPropsFormEditor.php:441 GroupView.php:416
 #: OptionManager.php:103 PersonCustomFieldsEditor.php:311
 #: PersonCustomFieldsEditor.php:427 PropertyEditor.php:153 SelectDelete.php:217
 msgid "Type"
@@ -5418,7 +5421,7 @@ msgstr "Ukryj Wiek"
 
 #: external/templates/registration/family-register-members.php:131
 #: external/templates/registration/family-register.php:97
-#: external/templates/verify/enter-info.php:38 FinancialReports.php:70
+#: external/templates/verify/enter-info.php:38 FinancialReports.php:82
 #: GroupReports.php:99
 msgid "Next"
 msgstr "Następny"
@@ -5931,7 +5934,7 @@ msgstr "Dodaj do Rodziny"
 msgid "Timeline"
 msgstr ""
 
-#: FamilyView.php:521 GroupView.php:341 GroupView.php:399 PersonView.php:575
+#: FamilyView.php:521 GroupView.php:343 GroupView.php:401 PersonView.php:575
 #: PrintPastoralCare.php:453 PrintView.php:460
 #, fuzzy
 msgid "Assigned Properties"
@@ -5946,7 +5949,7 @@ msgstr "Rodzaj Automatycznej płatności"
 msgid "Pledges and Payments"
 msgstr "Datki i Płatności"
 
-#: FamilyView.php:644 GroupView.php:354 PersonView.php:955
+#: FamilyView.php:644 GroupView.php:356 PersonView.php:955
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Przypisz Nowe Właściowści"
@@ -5956,13 +5959,13 @@ msgstr "Przypisz Nowe Właściowści"
 msgid "Select"
 msgstr "Zaznacz"
 
-#: FamilyView.php:650 GroupView.php:359 PersonView.php:960 QueryView.php:317
+#: FamilyView.php:650 GroupView.php:361 PersonView.php:960 QueryView.php:317
 #: QueryView.php:334
 #, fuzzy
 msgid "select an option"
 msgstr "Opcje Dodatkowe"
 
-#: FamilyView.php:667 GroupEditor.php:177 GroupView.php:375 PersonView.php:976
+#: FamilyView.php:667 GroupEditor.php:177 GroupView.php:377 PersonView.php:976
 #: PersonView.php:1071 SelectList.php:1146
 msgid "Assign"
 msgstr "Przypisz"
@@ -6052,229 +6055,229 @@ msgstr "Proszę powierdzić USUNIĘCIE"
 msgid "Family Photo"
 msgstr "Edytor Rodziny"
 
-#: FinancialReports.php:34 ReportList.php:39
+#: FinancialReports.php:36 ReportList.php:39
 msgid "Financial Reports"
 msgstr "Raporty Finansowe"
 
-#: FinancialReports.php:46
+#: FinancialReports.php:49
 msgid "No records were returned from the previous report."
 msgstr "Pojawiły się nowe wpisy od czasu ostatniego Raportu."
 
-#: FinancialReports.php:53 FinancialReports.php:303
+#: FinancialReports.php:59 FinancialReports.php:423
 msgid "Report Type:"
 msgstr "Typ Raportu:"
 
-#: FinancialReports.php:55
+#: FinancialReports.php:62
 msgid "Select Report Type"
 msgstr "Wybierz Typ Raportu"
 
-#: FinancialReports.php:56
+#: FinancialReports.php:63
 msgid "Pledge Summary"
 msgstr "Suma Datków"
 
-#: FinancialReports.php:57 Reports/FamilyPledgeSummary.php:213
+#: FinancialReports.php:64 Reports/FamilyPledgeSummary.php:213
 #, fuzzy
 msgid "Pledge Family Summary"
 msgstr "Datki - Podsumowanie Rodziny"
 
-#: FinancialReports.php:58
+#: FinancialReports.php:65
 msgid "Pledge Reminders"
 msgstr "Datki - Przypomnienia"
 
-#: FinancialReports.php:59
+#: FinancialReports.php:66
 msgid "Voting Members"
 msgstr "Członkowie Głosujący:"
 
-#: FinancialReports.php:60
+#: FinancialReports.php:67
 msgid "Giving Report (Tax Statements)"
 msgstr "Wykaz Datków (Wyciąg na potrzeby Fiskusa)"
 
-#: FinancialReports.php:61
+#: FinancialReports.php:68
 msgid "Zero Givers"
 msgstr "Zerowe Datki"
 
-#: FinancialReports.php:62
+#: FinancialReports.php:69
 msgid "Individual Deposit Report"
 msgstr "Raport "
 
-#: FinancialReports.php:63
+#: FinancialReports.php:70
 msgid "Advanced Deposit Report"
 msgstr "Zaawansowany Raport"
 
-#: FinancialReports.php:132
+#: FinancialReports.php:152
 msgid "Add All Classes"
 msgstr ""
 
-#: FinancialReports.php:133
+#: FinancialReports.php:153
 #, fuzzy
 msgid "Clear All Classes"
 msgstr "Usuń Sortowanie"
 
-#: FinancialReports.php:139
+#: FinancialReports.php:161
 #, fuzzy
 msgid "Filter by Family"
 msgstr "Sortuj wg Rodziny"
 
-#: FinancialReports.php:179
+#: FinancialReports.php:210
 #, fuzzy
 msgid "Add All Families"
 msgstr "Wszystkie Rodziny"
 
-#: FinancialReports.php:180
+#: FinancialReports.php:211
 #, fuzzy
 msgid "Clear All Families"
 msgstr "Wszystkie Rodziny"
 
-#: FinancialReports.php:188
+#: FinancialReports.php:222
 msgid "Report Start Date:"
 msgstr "Data Rozpoczęcia Raportu:"
 
-#: FinancialReports.php:190
+#: FinancialReports.php:228
 msgid "Report End Date:"
 msgstr "Data Końca Raportu:"
 
-#: FinancialReports.php:193
+#: FinancialReports.php:238
 msgid "Apply Report Dates To:"
 msgstr "Przypisz Daty Raportu do:"
 
-#: FinancialReports.php:194
+#: FinancialReports.php:241
 msgid "Deposit Date (Default)"
 msgstr "Data Deposit (Domyślna)"
 
-#: FinancialReports.php:195
+#: FinancialReports.php:244
 msgid "Payment Date"
 msgstr "Data Płatności:"
 
-#: FinancialReports.php:211
+#: FinancialReports.php:268
 msgid "Filter by Deposit:"
 msgstr "Sortuj wg Deposit:"
 
-#: FinancialReports.php:214
+#: FinancialReports.php:274
 msgid "If deposit is selected, date criteria will be ignored."
 msgstr "Jeżeli wybrano Deposit, Data zostanie zignorowana."
 
-#: FinancialReports.php:218
+#: FinancialReports.php:283
 msgid "All deposits within date range"
 msgstr "Wszystkie deposits w przedziale czasowym"
 
-#: FinancialReports.php:232
+#: FinancialReports.php:305
 #, fuzzy
 msgid "Filter by Fund"
 msgstr "Sortuj wg Rodziny"
 
-#: FinancialReports.php:247
+#: FinancialReports.php:312
+msgid "INACTIVE"
+msgstr ""
+
+#: FinancialReports.php:323
 #, fuzzy
 msgid "Add All Funds"
 msgstr "Wszystkie Cele"
 
-#: FinancialReports.php:248
+#: FinancialReports.php:324
 #, fuzzy
 msgid "Clear All Funds"
 msgstr "Wszystkie Cele"
 
-#: FinancialReports.php:256
+#: FinancialReports.php:334
 msgid "Filter by Payment Type:"
 msgstr "Sortuj wg. Sposobu Płatności:"
 
-#: FinancialReports.php:260
+#: FinancialReports.php:340
 msgid "All Methods"
 msgstr "Wszystkie Sposoby"
 
-#: FinancialReports.php:261 PledgeEditor.php:610 PledgeEditor.php:644
+#: FinancialReports.php:341 PledgeEditor.php:610 PledgeEditor.php:644
 msgid "Check"
 msgstr "Czek"
 
-#: FinancialReports.php:264 FindDepositSlip.php:64 PledgeEditor.php:630
+#: FinancialReports.php:344 FindDepositSlip.php:64 PledgeEditor.php:630
 msgid "Bank Draft"
 msgstr "Weksel"
 
-#: FinancialReports.php:265 FindDepositSlip.php:65 PledgeEditor.php:637
+#: FinancialReports.php:345 FindDepositSlip.php:65 PledgeEditor.php:637
 msgid "eGive"
 msgstr "eGive"
 
-#: FinancialReports.php:270
+#: FinancialReports.php:355
 msgid "Minimun Total Amount:"
 msgstr "Kwota Minimalna:"
 
-#: FinancialReports.php:272
+#: FinancialReports.php:358
 msgid "0 - No Minimum"
 msgstr "0 - bez Minimum"
 
-#: FinancialReports.php:277
+#: FinancialReports.php:369
 msgid "Other Settings"
 msgstr "Inne Ustawienia"
 
-#: FinancialReports.php:280
+#: FinancialReports.php:376
 msgid "Include:"
 msgstr "Wliczając (include):"
 
-#: FinancialReports.php:281
+#: FinancialReports.php:378
 msgid "Only Payments with Pledges"
 msgstr "Tylko Płatności z Datkami (Pledges)"
 
-#: FinancialReports.php:282
+#: FinancialReports.php:379
 msgid "All Payments"
 msgstr "Wszystkie płatności"
 
-#: FinancialReports.php:283
+#: FinancialReports.php:383
 msgid "Generate:"
 msgstr "Wygeneruj:"
 
-#: FinancialReports.php:284
+#: FinancialReports.php:385
 msgid "Only Families with unpaid pledges"
 msgstr "Tylko Rodziny z nieopłaconymi Pledges"
 
-#: FinancialReports.php:285 GeoPage.php:315 PeopleDashboard.php:116
+#: FinancialReports.php:386 GeoPage.php:315 PeopleDashboard.php:116
 msgid "All Families"
 msgstr "Wszystkie Rodziny"
 
-#: FinancialReports.php:289
+#: FinancialReports.php:395
 msgid "Report Heading:"
 msgstr "Nagłówek Raportu:"
 
-#: FinancialReports.php:290
+#: FinancialReports.php:397
 msgid "Graphic"
 msgstr "Grafika"
 
-#: FinancialReports.php:292
+#: FinancialReports.php:399
 msgid "Blank"
 msgstr "Puste"
 
-#: FinancialReports.php:293
+#: FinancialReports.php:403
 msgid "Remittance Slip:"
 msgstr "Odcinek Wpłaty:"
 
-#: FinancialReports.php:299
+#: FinancialReports.php:415
 msgid "Sort Data by:"
 msgstr "Sortuj Dane wg.:"
 
-#: FinancialReports.php:304
+#: FinancialReports.php:425
 msgid "All Data"
 msgstr "Wszystkie Dane"
 
-#: FinancialReports.php:305
+#: FinancialReports.php:426
 msgid "Moderate Detail"
 msgstr "Zarządzaj Szczegółami"
 
-#: FinancialReports.php:306
+#: FinancialReports.php:427
 msgid "Summary Data"
 msgstr "Dane Podsumowujące"
 
-#: FinancialReports.php:310
+#: FinancialReports.php:436
 msgid ""
 "Voting members must have made<br> a donation within this many years<br> (0 "
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:324
-msgid "CSV"
-msgstr "CSV"
-
-#: FinancialReports.php:331 PaddleNumEditor.php:151
+#: FinancialReports.php:468 PaddleNumEditor.php:151
 msgid "Back"
 msgstr "Wstecz"
 
-#: FinancialReports.php:333 GroupReports.php:171 ReminderReport.php:49
+#: FinancialReports.php:470 GroupReports.php:171 ReminderReport.php:49
 #: TaxReport.php:52
 msgid "Create Report"
 msgstr "Utwórz Raport"
@@ -6649,7 +6652,7 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Ustawienia Dodatkowe dla Grupy"
 
-#: GroupEditor.php:229 GroupView.php:448
+#: GroupEditor.php:229 GroupView.php:450
 msgid "Edit Group-Specific Properties Form"
 msgstr "Edytuj Ustwatawienia Dodatkowe dla Grupy"
 
@@ -6753,7 +6756,7 @@ msgstr "Edytowanie danych"
 msgid "data for member"
 msgstr "dla"
 
-#: GroupPropsFormEditor.php:61 GroupView.php:393
+#: GroupPropsFormEditor.php:61 GroupView.php:395
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Ustawienia Dodatkowe dla Grupy"
@@ -6937,77 +6940,77 @@ msgstr "Członkowie Grupy:"
 msgid "Assigned Managers"
 msgstr "Przypisz Ankietera"
 
-#: GroupView.php:312
+#: GroupView.php:314
 #, fuzzy
 msgid "No assigned Manager"
 msgstr "Nie przypisano"
 
-#: GroupView.php:317
+#: GroupView.php:319
 #, fuzzy
 msgid "Add Manager"
 msgstr "Dodaj Kupującego"
 
-#: GroupView.php:335
+#: GroupView.php:337
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
-#: GroupView.php:335 Include/Footer.php:103
+#: GroupView.php:337 Include/Footer.php:103
 #, fuzzy
 msgid "Group Properties"
 msgstr "Ustawienia Dodatkowe dla Grupy"
 
-#: GroupView.php:393
+#: GroupView.php:395
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: GroupView.php:407
+#: GroupView.php:409
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Nie dodano jeszcze żadnych nowych Ustawień"
 
-#: GroupView.php:439
+#: GroupView.php:441
 msgid "Disabled for this group."
 msgstr "Wyłącz dla tej Grupy."
 
-#: GroupView.php:439
+#: GroupView.php:441
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: GroupView.php:463
+#: GroupView.php:465
 msgid "Group Members:"
 msgstr "Członkowie Grupy:"
 
-#: GroupView.php:477
+#: GroupView.php:479
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Członkowie Grupy:"
 
-#: GroupView.php:482 sundayschool/SundaySchoolDashboard.php:281
+#: GroupView.php:484 sundayschool/SundaySchoolDashboard.php:281
 #, fuzzy
 msgid "Add"
 msgstr "Adres"
 
-#: GroupView.php:488
+#: GroupView.php:490
 msgid "Remove Selected Members from group"
 msgstr ""
 
-#: GroupView.php:495
+#: GroupView.php:497
 #, fuzzy
 msgid "Add Selected Members to Cart"
 msgstr "Dodaj Członków Grupy do Koszyka"
 
-#: GroupView.php:501
+#: GroupView.php:503
 #, fuzzy
 msgid "Add Selected Members to Group"
 msgstr "Dodaj Osobę do Grupy"
 
-#: GroupView.php:502
+#: GroupView.php:504
 msgid "Move Selected Members to Group"
 msgstr ""
 
@@ -9102,23 +9105,23 @@ msgstr "Zautomatyzowany proces do Ankiety wszystkich członków."
 msgid "Event Attendance Reports"
 msgstr "Uczestnicy"
 
-#: Reports/AdvancedDeposit.php:385 Reports/AdvancedDeposit.php:403
-#: Reports/AdvancedDeposit.php:492 Reports/AdvancedDeposit.php:506
-#: Reports/AdvancedDeposit.php:547 Reports/AdvancedDeposit.php:565
-#: Reports/AdvancedDeposit.php:654 Reports/AdvancedDeposit.php:668
-#: Reports/AdvancedDeposit.php:709 Reports/AdvancedDeposit.php:727
-#: Reports/AdvancedDeposit.php:816 Reports/AdvancedDeposit.php:830
-#: Reports/AdvancedDeposit.php:847
+#: Reports/AdvancedDeposit.php:386 Reports/AdvancedDeposit.php:404
+#: Reports/AdvancedDeposit.php:493 Reports/AdvancedDeposit.php:507
+#: Reports/AdvancedDeposit.php:548 Reports/AdvancedDeposit.php:566
+#: Reports/AdvancedDeposit.php:655 Reports/AdvancedDeposit.php:669
+#: Reports/AdvancedDeposit.php:710 Reports/AdvancedDeposit.php:728
+#: Reports/AdvancedDeposit.php:817 Reports/AdvancedDeposit.php:831
+#: Reports/AdvancedDeposit.php:848
 msgid "items"
 msgstr "przedmioty (items)"
 
-#: Reports/AdvancedDeposit.php:387 Reports/AdvancedDeposit.php:405
-#: Reports/AdvancedDeposit.php:494 Reports/AdvancedDeposit.php:508
-#: Reports/AdvancedDeposit.php:549 Reports/AdvancedDeposit.php:567
-#: Reports/AdvancedDeposit.php:656 Reports/AdvancedDeposit.php:670
-#: Reports/AdvancedDeposit.php:711 Reports/AdvancedDeposit.php:729
-#: Reports/AdvancedDeposit.php:818 Reports/AdvancedDeposit.php:832
-#: Reports/AdvancedDeposit.php:849
+#: Reports/AdvancedDeposit.php:388 Reports/AdvancedDeposit.php:406
+#: Reports/AdvancedDeposit.php:495 Reports/AdvancedDeposit.php:509
+#: Reports/AdvancedDeposit.php:550 Reports/AdvancedDeposit.php:568
+#: Reports/AdvancedDeposit.php:657 Reports/AdvancedDeposit.php:671
+#: Reports/AdvancedDeposit.php:712 Reports/AdvancedDeposit.php:730
+#: Reports/AdvancedDeposit.php:819 Reports/AdvancedDeposit.php:833
+#: Reports/AdvancedDeposit.php:850
 #, fuzzy
 msgid "item"
 msgstr "przedmioty (items)"
@@ -9257,19 +9260,19 @@ msgstr ""
 msgid "Envelope Numbers for all Families"
 msgstr "Przypisz numer Koperty do Wszystkich rodzin"
 
-#: Reports/FamilyPledgeSummary.php:142 Reports/ReminderReport.php:153
+#: Reports/FamilyPledgeSummary.php:142 Reports/ReminderReport.php:154
 msgid "All Funds"
 msgstr "Wszystkie Cele"
 
-#: Reports/FamilyPledgeSummary.php:143 Reports/ReminderReport.php:154
+#: Reports/FamilyPledgeSummary.php:143 Reports/ReminderReport.php:155
 msgid " for all funds"
 msgstr " dla wszystkich celów"
 
-#: Reports/FamilyPledgeSummary.php:145 Reports/ReminderReport.php:156
+#: Reports/FamilyPledgeSummary.php:145 Reports/ReminderReport.php:157
 msgid " for fund "
 msgstr " dla celu "
 
-#: Reports/FamilyPledgeSummary.php:148 Reports/ReminderReport.php:159
+#: Reports/FamilyPledgeSummary.php:148 Reports/ReminderReport.php:160
 msgid "for funds "
 msgstr "dla celów"
 
@@ -9372,29 +9375,44 @@ msgstr ""
 msgid "Underpaid"
 msgstr "Niezadefiniowane"
 
-#: Reports/TaxReport.php:200
+#: Reports/ReminderReport.php:343
+#, fuzzy
+msgid "Total pledges"
+msgstr "Największy datek"
+
+#: Reports/ReminderReport.php:441
+#, fuzzy
+msgid "Total payments"
+msgstr "Wszystkie płatności"
+
+#: Reports/ReminderReport.php:466
+#, fuzzy, php-format
+msgid "Amount due for"
+msgstr "Kwota"
+
+#: Reports/TaxReport.php:201
 #, fuzzy
 msgid "Envelope:"
 msgstr "Koperta"
 
-#: Reports/TaxReport.php:240
+#: Reports/TaxReport.php:241
 msgid "Please detach this slip and mail with your next gift."
 msgstr "Prosimy o oderwanie tego odcinka i przesłanie z następnym Datkiem."
 
-#: Reports/TaxReport.php:242
+#: Reports/TaxReport.php:243
 msgid "Please mail you next gift to "
 msgstr "Prosimy przesłać kolejny datek do"
 
-#: Reports/TaxReport.php:244
+#: Reports/TaxReport.php:245
 #, fuzzy
 msgid ", Phone: "
 msgstr "Tel."
 
-#: Reports/TaxReport.php:281
+#: Reports/TaxReport.php:282
 msgid "Gift Amount:"
 msgstr "Kwota Datku:"
 
-#: Reports/TaxReport.php:284
+#: Reports/TaxReport.php:285
 msgid "Gift Designation:"
 msgstr "Cel Datku:"
 
@@ -11075,6 +11093,9 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+#~ msgid "CSV"
+#~ msgstr "CSV"
 
 #, fuzzy
 #~ msgid "All Pastoral Care Persons"
