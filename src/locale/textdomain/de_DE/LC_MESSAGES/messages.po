@@ -19,7 +19,7 @@ msgstr "Erstellen vom Sonntagsschule class view"
 
 #: api/routes/attendees.php:163
 msgid "Attendance"
-msgstr "Besucher"
+msgstr "Teilnahme"
 
 #: api/routes/attendees.php:201 api/routes/attendees.php:222
 #: api/routes/attendees.php:244 api/routes/attendees.php:276
@@ -1260,7 +1260,7 @@ msgstr "Einige Hinweis hinzufügen"
 
 #: Checkin.php:689
 msgid "Validate Attendance"
-msgstr "Validieren Besucher"
+msgstr "Validieren Teilnahme"
 
 #: Checkin.php:704 EditEventAttendees.php:162
 msgid "Return to Events"
@@ -3694,11 +3694,11 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:237
 msgid "When you make the attendance all the kids are checked by default"
-msgstr "When you make the attendance all the kids are checked by default"
+msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:238
 msgid "When you make the attendance the current user isn't choosed by default"
-msgstr "When you make the attendance the current user isn't choosed by default"
+msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:239
 msgid "Hide dropdown states when they are unusefull"
@@ -3798,7 +3798,7 @@ msgstr "Benutzern bestimmte Aufgaben planen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Sundayschool Attendance"
-msgstr "Sonntagsschule Anwesenheit"
+msgstr "Sonntagsschule Teilnahme"
 
 #: EcclesiaCRM/dto/SystemConfig.php:320 EcclesiaCRM/dto/SystemConfig.php:332
 #: EcclesiaCRM/dto/SystemConfig.php:345
@@ -7246,11 +7246,11 @@ msgstr "Anmelden"
 
 #: ListEvents.php:346
 msgid "Attendance Counts with real Attendees"
-msgstr "Keine Besucherzahlen eingegeben"
+msgstr "Teilnehmerzahl mit richtige Teilnehmer eingegeben"
 
 #: ListEvents.php:347
 msgid "Free Attendance Counts without Attendees"
-msgstr "Keine Besucherzahlen eingegeben"
+msgstr "Freier Teilnehmerzahl mit Teilnehmer eingegeben"
 
 #: ListEvents.php:348
 msgid "Start Date/Time"
@@ -7283,7 +7283,7 @@ msgstr "Besucher"
 #: ListEvents.php:502 ListEvents.php:537 ListEvents.php:608 ListEvents.php:648
 #: ListEvents.php:695 ListEvents.php:733
 msgid "No Attendance Recorded"
-msgstr "Keine Besucher erfasst"
+msgstr "Keine Teilnahme erfasst"
 
 #: ListEvents.php:578
 msgid " Monthly Averages"
@@ -8626,7 +8626,7 @@ msgstr ""
 
 #: ReportList.php:71
 msgid "Event Attendance Reports"
-msgstr "Report der Besucher eines Events"
+msgstr "Teilnahme Ereignis Bericht"
 
 #: Reports/AdvancedDeposit.php:385 Reports/AdvancedDeposit.php:403
 #: Reports/AdvancedDeposit.php:492 Reports/AdvancedDeposit.php:506
@@ -9208,7 +9208,7 @@ msgstr "Edit diese Klasse"
 #: sundayschool/SundaySchoolClassView.php:129
 #: sundayschool/SundaySchoolClassView.php:134
 msgid "Export Attendance"
-msgstr "Anwesenheitsliste exportieren"
+msgstr "Teilnahme exportieren"
 
 #: sundayschool/SundaySchoolClassView.php:141
 msgid "Remove Students from Cart"
@@ -9309,11 +9309,11 @@ msgstr "Funktionen"
 
 #: sundayschool/SundaySchoolDashboard.php:51
 msgid "Add New Class"
-msgstr "Neue Kanlendar Hinzufügen"
+msgstr "Neue Klasse Hinzufügen"
 
 #: sundayschool/SundaySchoolDashboard.php:59
 msgid "Generate class lists and attendance sheets"
-msgstr "Erzeuge Gruppen- und Anwesenheitslisten"
+msgstr "Klasse listung - und Teilnahme Erstellen"
 
 #: sundayschool/SundaySchoolDashboard.php:68
 msgid "Export All Classes, Kids, and Parent to CSV file"
@@ -9346,7 +9346,7 @@ msgstr "Bericht zur Sonntagsschule"
 #: sundayschool/SundaySchoolReports.php:140
 msgid ""
 "At least one group must be selected to make class lists or attendance sheets."
-msgstr "Erzeuge Gruppen- und Anwesenheitslisten"
+msgstr "Erzeuge Gruppen- und Teilnahmes Listen"
 
 #: sundayschool/SundaySchoolReports.php:203
 msgid "To select multiple hold CTL"
@@ -9397,7 +9397,7 @@ msgstr "Liste Klasse"
 
 #: sundayschool/SundaySchoolReports.php:298
 msgid "Attendance Sheet"
-msgstr "Anwesenheitsliste"
+msgstr "Teilnahmeslisten"
 
 #: sundayschool/SundaySchoolReports.php:301
 msgid "Real Attendance Sheet"
