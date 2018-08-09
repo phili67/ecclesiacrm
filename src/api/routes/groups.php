@@ -134,12 +134,12 @@ $app->group('/groups', function () {
             $data = [];
           
             foreach ($managers as $manager) {
-          
-             $elt = ['name'=> $manager->getPerson()->getFullName(),
-                  'personID'=>$manager->getPerson()->getId()];
+              if (!$manager->getPerson()->isDeactivated()) {
+                 $elt = ['name'=> $manager->getPerson()->getFullName(),
+                      'personID'=>$manager->getPerson()->getId()];
                 
-             array_push($data, $elt);
-            
+                 array_push($data, $elt);
+              }            
             }
           
             return $response->withJson($data);

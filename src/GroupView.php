@@ -303,9 +303,11 @@ require 'Include/Header.php';
         
             if ($managers->count()) {
               foreach ($managers as $manager) {
+                if (!$manager->getPerson()->isDeactivated()) {
             ?>
               <?= $manager->getPerson()->getFullName()?><a class="delete-person-manager" data-personid="<?= $manager->getPerson()->getId() ?>" data-groupid="<?= $iGroupID ?>"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, 
             <?php
+                }
               }
             } else {
           ?>
