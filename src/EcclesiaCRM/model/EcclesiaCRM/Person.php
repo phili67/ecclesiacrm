@@ -56,6 +56,15 @@ class Person extends BasePerson implements iPhoto
 
       return parent::preDelete($con);
     }
+    
+    public function isDeactivated()
+    {
+      if ($this->getDateDeactivated() != '' || $this->getFamily()->getDateDeactivated() != '') {
+        return true;
+      }
+      
+      return false;
+    }
 
     public function getFullName()
     {
