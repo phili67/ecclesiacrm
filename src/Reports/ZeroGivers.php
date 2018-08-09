@@ -15,6 +15,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Security
 if (!$_SESSION['user']->isFinanceEnabled()) {
@@ -24,8 +25,8 @@ if (!$_SESSION['user']->isFinanceEnabled()) {
 
 // Filter values
 $output = InputUtils::LegacyFilterInput($_POST['output']);
-$sDateStart = InputUtils::LegacyFilterInput($_POST['DateStart'], 'date');
-$sDateEnd = InputUtils::LegacyFilterInput($_POST['DateEnd'], 'date');
+$sDateStart = InputUtils::FilterDate($_POST['DateStart'], 'date');
+$sDateEnd = InputUtils::FilterDate($_POST['DateEnd'], 'date');
 
 $letterhead = InputUtils::LegacyFilterInput($_POST['letterhead']);
 $remittance = InputUtils::LegacyFilterInput($_POST['remittance']);
@@ -98,12 +99,13 @@ if ($output == 'pdf') {
             $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead);
             $curY += 2 * SystemConfig::getValue('incrementY');
             if ($sDateStart == $sDateEnd) {
-                $DateString = date('F j, Y', strtotime($sDateStart));
+            OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
+                $DateString = OutputUtils::FormatDate($sDateStart);
             } else {
-                $DateString = date('M j, Y', strtotime($sDateStart)).' - '.date('M j, Y', strtotime($sDateEnd));
+                $DateString = OutputUtils::FormatDate($sDateStart).' - '.OutputUtils::FormatDate($sDateEnd);
             }
 
-            $blurb = SystemConfig::getValue('sTaxReport1').' '.$DateString.' '.SystemConfig::getValue('sZeroGivers');
+            $blurb = SystemConfig::getValue('sZeroGivers').' '.$DateString;//.' '.SystemConfig::getValue('sZeroGivers');
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
             $curY += 30 * SystemConfig::getValue('incrementY');
 
@@ -148,11 +150,12 @@ if ($output == 'pdf') {
 } elseif ($output == 'csv') {
 
     // Settings
-    $delimiter = ',';
+    //$delimiter = ',';
+    $delimiter = $sCSVExportDelemiter;
     $eol = "\r\n";
 
     // Build headings row
-    eregi('SELECT (.*) FROM ', $sSQL, $result);
+    preg_match('SELECT (.*) FROM ', $sSQL, $result);
     $headings = explode(',', $result[1]);
     $buffer = '';
     foreach ($headings as $heading) {
@@ -165,14 +168,24 @@ if ($output == 'pdf') {
     while ($row = mysqli_fetch_row($rsReport)) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
-            $buffer .= $field.$delimiter;
+            $buffer .= InputUtils::translate_special_charset($field).$delimiter;
         }
         // Remove trailing delimiter and add eol
         $buffer = mb_substr($buffer, 0, -1).$eol;
     }
 
     // Export file
-    header('Content-type: text/x-csv');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+    header('Content-Description: File Transfer');
+    header('Content-Type: text/csv;charset='.$sCSVExportCharset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+    header('Content-Transfer-Encoding: binary');
+    
+    if ($sCSVExportCharset == "UTF-8") {
+       echo "\xEF\xBB\xBF";
+    }
+    
     echo $buffer;
 }

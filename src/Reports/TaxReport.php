@@ -14,6 +14,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Security
 if (!$_SESSION['user']->isFinanceEnabled()) {
@@ -26,8 +27,8 @@ $letterhead = InputUtils::LegacyFilterInput($_POST['letterhead']);
 $remittance = InputUtils::LegacyFilterInput($_POST['remittance']);
 $output = InputUtils::LegacyFilterInput($_POST['output']);
 $sReportType = InputUtils::LegacyFilterInput($_POST['ReportType']);
-$sDateStart = InputUtils::LegacyFilterInput($_POST['DateStart'], 'date');
-$sDateEnd = InputUtils::LegacyFilterInput($_POST['DateEnd'], 'date');
+$sDateStart = InputUtils::FilterDate($_POST['DateStart'], 'date');
+$sDateEnd = InputUtils::FilterDate($_POST['DateEnd'], 'date');
 $iDepID = InputUtils::LegacyFilterInput($_POST['deposit'], 'int');
 $iMinimum = InputUtils::LegacyFilterInput($_POST['minimum'], 'int');
 
@@ -468,7 +469,8 @@ if ($output == 'pdf') {
 } elseif ($output == 'csv') {
 
     // Settings
-    $delimiter = ',';
+    //$delimiter = ',';
+    $delimiter = $sCSVExportDelemiter;
     $eol = "\r\n";
 
     // Build headings row
@@ -485,14 +487,24 @@ if ($output == 'pdf') {
     while ($row = mysqli_fetch_row($rsReport)) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
-            $buffer .= $field.$delimiter;
+            $buffer .= InputUtils::translate_special_charset($field).$delimiter;
         }
         // Remove trailing delimiter and add eol
         $buffer = mb_substr($buffer, 0, -1).$eol;
     }
 
     // Export file
-    header('Content-type: text/x-csv');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+    header('Content-Description: File Transfer');
+    header('Content-Type: text/csv;charset='.$sCSVExportCharset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
+    header('Content-Transfer-Encoding: binary');
+    
+    if ($sCSVExportCharset == "UTF-8") {
+       echo "\xEF\xBB\xBF";
+    }
+
     echo $buffer;
 }
