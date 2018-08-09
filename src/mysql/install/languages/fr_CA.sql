@@ -18,7 +18,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1021, 'sConfirm3', 'Email _____________________________________ mot de passe ________________'),
 (1022, 'sConfirm4', '[  ] Je ne veux plus être associé à l\'église (coché ici pour être effacé de vos enregistrements).'),
 (1026, 'sPledgeSummary1', 'Résumé des promesses de dons et paiement pour cette année fiscale'),
-(1027, 'sPledgeSummary2', 'comme'),
+(1027, 'sPledgeSummary2', 'pour le'),
 (1028, 'sDirectoryDisclaimer1', 'Nous avons travaillé à rendre ces données aussi exactes que possible. Si vous constatez des erreurs ou des omissions, contactez nous. Cet annuaire est utilisé pour les personnes de'),
 (1029, 'sDirectoryDisclaimer2', ', et les informations contenus ne seront pas utilisées à des fins commerciales.'),
 (1031, 'sZeroGivers', 'Cette lettre résume les paiements pour'),
