@@ -81,7 +81,7 @@ if ($classList[0]) {
 $sSQL .= ' WHERE';
 
 $criteria = '';
-if ($classList[0]) {
+if ($classList[0] && $notInClassList != '()' && $inClassList != '()') {
     $q = ' per_cls_ID IN '.$inClassList.' AND per_fam_ID NOT IN (SELECT DISTINCT per_fam_ID FROM person_per WHERE per_cls_ID IN '.$notInClassList.')';
     if ($criteria) {
         $criteria .= ' AND'.$q;
