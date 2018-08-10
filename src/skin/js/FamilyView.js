@@ -398,8 +398,8 @@ $(document).ready(function () {
         width: 'auto',
         title:i18next.t('Amount'),
         data:'Amount',
-        render: function(data, type, full, meta) {
-          return data;
+        render: function (data, type, full, meta) {
+          return Number(data).toLocaleString(window.CRM.lang);
         }
       },
       {
@@ -545,7 +545,7 @@ $(document).ready(function () {
         title:i18next.t('Amount'),
         data:'Amount',
         render: function(data, type, full, meta) {
-          return data;
+          return Number(data).toLocaleString(window.CRM.lang);
         }
       },
       {

@@ -8,6 +8,16 @@ use EcclesiaCRM\dto\SystemConfig;
 
 class OutputUtils {
 
+  public static function translate_currency_fpdf($string)
+  {
+    if ($string == "€")
+      return chr(128)." ";
+    if ($string == "£")
+      return chr(163)." ";
+    
+    return $string;  
+  }
+  
   public static function translate_text_fpdf($string)
   {
     if (!empty($string))
@@ -16,16 +26,50 @@ class OutputUtils {
     return "";
   }
   
-  public function number_localized ($number)
+  
+  // Wrapper for number_format that uses the locale information
+  // There are three modes: money, integer, and intmoney (whole number money)
+  public function formatNumber($iNumber, $sMode = 'integer',$currency_vis=false)
   {
-    $locale = localeconv();
-    $comma = ',';
-    
-    if ($locale['mon_decimal_point'] == '') {
-       $comma = '.';
+      //$aLocaleInfo = localeconv();
+      global $aLocaleInfo;
+      
+      $currency = $aLocaleInfo['currency_symbol'];
+      
+      if ($currency == '') {
+         $currency = '$';
+      }
+
+      switch ($sMode) {
+      case 'money':
+        return ($currency_vis?$currency:'').' '.number_format($iNumber, 2, $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        break;
+
+      case 'intmoney':
+        return ($currency_vis?$currency:'').' '.number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+        break;
+
+      case 'float':
+        $iDecimals = 2; // need to calculate # decimals in original number
+        return number_format($iNumber, $iDecimals, $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        break;
+
+      case 'integer':
+      default:
+        return number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
+        break;
     }
-    
-    return number_format($number,2, $comma, $locale['mon_thousands_sep']);
+  }
+
+  
+  public function money_localized ($number)
+  {
+    return OutputUtils::formatNumber($number,'money');
+  }
+  
+  public function number_localized($number)
+  {
+    return OutputUtils::formatNumber($number,'float');
   }
   
   public function number_dot ($number)

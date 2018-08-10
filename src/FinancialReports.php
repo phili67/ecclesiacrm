@@ -286,7 +286,7 @@ if ($sReportType == '') {
         while ($aRow = mysqli_fetch_array($rsDeposits)) {
             extract($aRow);
         ?>
-            <option value=<?= $dep_ID ?><?= $dep_ID ?> &nbsp; <?= $dep_Date?> &nbsp;<?= $dep_Type?>
+            <option value=<?= $dep_ID ?>">#<?= $dep_ID ?> &nbsp; (<?= date(SystemConfig::getValue('sDateFormatLong'), strtotime($dep_Date)) ?>) &nbsp;-&nbsp;<?= _($dep_Type) ?>
         <?php
         }
         ?>
