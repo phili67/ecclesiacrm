@@ -54,3 +54,9 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+msgid "CREDITCARD"
+msgstr ""
+
+msgid "CreditCard"
+msgstr ""

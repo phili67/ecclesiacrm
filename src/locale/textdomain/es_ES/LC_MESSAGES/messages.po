@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-09 21:48+0200\n"
+"POT-Creation-Date: 2018-08-10 21:25+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,14 +79,14 @@ msgid "Family Activated"
 msgstr "Activado Familia"
 
 #: api/routes/gdrp.php:46 CartView.php:339 CartView.php:359
-#: EcclesiaCRM/utils/OutputUtils.php:121 EcclesiaCRM/utils/OutputUtils.php:220
+#: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:264
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Sí"
 
 #: api/routes/gdrp.php:46 CartView.php:352 CartView.php:361
-#: EcclesiaCRM/utils/OutputUtils.php:123 EcclesiaCRM/utils/OutputUtils.php:221
+#: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:265
 #: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
 msgid "No"
@@ -277,8 +277,8 @@ msgstr "Familia"
 #: AutoPaymentEditor.php:785 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
 #: CSVImport.php:269 DirectoryReports.php:73 DonatedItemEditor.php:185
 #: DonatedItemEditor.php:236 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:307
-#: EcclesiaCRM/utils/OutputUtils.php:363 eGive.php:340 FamilyEditor.php:1119
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:351
+#: EcclesiaCRM/utils/OutputUtils.php:407 eGive.php:340 FamilyEditor.php:1119
 #: GroupEditor.php:103 GroupEditor.php:161 GroupList.php:40 GroupView.php:53
 #: Include/CountryDropDown.php:14 Include/StateDropDown.php:17
 #: MapUsingBing.php:186 MapUsingBing.php:232 MapUsingGoogle.php:182
@@ -310,7 +310,8 @@ msgstr "Desabilitar "
 #: AutoPaymentEditor.php:819 CanvassEditor.php:193 DepositSlipEditor.php:96
 #: EditEventAttendees.php:57 FindFundRaiser.php:236 FundRaiserEditor.php:163
 #: Include/Functions.php:89 PledgeEditor.php:547 Reports/ReminderReport.php:306
-#: Reports/ReminderReport.php:387 SelectDelete.php:220
+#: Reports/ReminderReport.php:387 Reports/TaxReport.php:365
+#: SelectDelete.php:220
 msgid "Date"
 msgstr "Fecha"
 
@@ -330,13 +331,15 @@ msgstr "Pago Intervalo (meses)"
 
 #: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
 #: ElectronicPaymentList.php:200 FinancialReports.php:418
-#: FindDepositSlip.php:48 Reports/FamilyPledgeSummary.php:218
+#: FindDepositSlip.php:48 Reports/AdvancedDeposit.php:305
+#: Reports/AdvancedDeposit.php:324 Reports/FamilyPledgeSummary.php:218
 #: Reports/PledgeSummary.php:220 Reports/ReminderReport.php:307
-#: Reports/ReminderReport.php:390 SelectDelete.php:218
+#: Reports/ReminderReport.php:390 Reports/TaxReport.php:368
+#: SelectDelete.php:218
 msgid "Fund"
 msgstr "Fondo"
 
-#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:161
+#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:205
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
@@ -963,7 +966,7 @@ msgid "Home Phone"
 msgstr "Teléfono Hogar"
 
 #: CartToFamily.php:318 CartToFamily.php:328 CartToFamily.php:338
-#: EcclesiaCRM/utils/OutputUtils.php:353 FamilyEditor.php:772
+#: EcclesiaCRM/utils/OutputUtils.php:397 FamilyEditor.php:772
 #: FamilyEditor.php:782 FamilyEditor.php:792 PersonEditor.php:1154
 #: PersonEditor.php:1178 PersonEditor.php:1202
 msgid "Do not auto-format"
@@ -1274,7 +1277,7 @@ msgstr "Validar el Asistencia"
 msgid "Return to Events"
 msgstr "Volver a Eventos"
 
-#: Checkin.php:801 Include/Functions.php:1186 PersonView.php:306
+#: Checkin.php:801 Include/Functions.php:1159 PersonView.php:306
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -1896,7 +1899,7 @@ msgstr "Datos Personales"
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/TimelineService.php:189
-#: EcclesiaCRM/utils/OutputUtils.php:222 FamilyEditor.php:1044
+#: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1044
 #: Include/Functions.php:629 Include/Functions.php:642
 msgid "Unknown"
 msgstr "Desconocido"
@@ -4079,6 +4082,9 @@ msgid "View Active Families"
 msgstr "Ver Familias Activas"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:277 FinancialReports.php:417
+#: Reports/AdvancedDeposit.php:259 Reports/AdvancedDeposit.php:379
+#: Reports/AdvancedDeposit.php:410 Reports/AdvancedDeposit.php:422
+#: Reports/AdvancedDeposit.php:513
 msgid "Deposit"
 msgstr "Depósito"
 
@@ -4172,6 +4178,7 @@ msgid "Deposit totals by Currency Type"
 msgstr "Depósitos Total por divisa tipo"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
+#: Reports/AdvancedDeposit.php:865
 msgid "Deposit totals by fund"
 msgstr "Depósitos Total del Fundo"
 
@@ -4185,11 +4192,15 @@ msgstr "Resumen del Depósito"
 msgid "Deposit total"
 msgstr "Depósitos Total"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282 Reports/ReminderReport.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
+#: Reports/AdvancedDeposit.php:304 Reports/AdvancedDeposit.php:313
+#: Reports/AdvancedDeposit.php:322 Reports/ReminderReport.php:388
+#: Reports/TaxReport.php:366
 msgid "Chk No."
 msgstr "Núm. de Che."
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288 Reports/ReminderReport.php:389
+#: Reports/TaxReport.php:367
 msgid "PmtMethod"
 msgstr "Método"
 
@@ -4197,13 +4208,18 @@ msgstr "Método"
 msgid "Rcd From"
 msgstr "datos de"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:391
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
+#: Reports/AdvancedDeposit.php:307 Reports/AdvancedDeposit.php:316
+#: Reports/AdvancedDeposit.php:325 Reports/ReminderReport.php:391
+#: Reports/TaxReport.php:369
 msgid "Memo"
 msgstr "Nota"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
-#: PledgeEditor.php:749 Reports/ReminderReport.php:308
-#: Reports/ReminderReport.php:392 SelectDelete.php:221
+#: PledgeEditor.php:749 Reports/AdvancedDeposit.php:308
+#: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
+#: Reports/ReminderReport.php:308 Reports/ReminderReport.php:392
+#: Reports/TaxReport.php:370 SelectDelete.php:221
 msgid "Amount"
 msgstr "Cantidad"
 
@@ -4320,7 +4336,7 @@ msgstr "Certificado de Propiedad"
 msgid "Directory"
 msgstr "Directorio"
 
-#: EcclesiaCRM/Reports/PDF_Directory.php:58
+#: EcclesiaCRM/Reports/PDF_Directory.php:58 Reports/AdvancedDeposit.php:335
 msgid "Page"
 msgstr "Página"
 
@@ -4652,35 +4668,35 @@ msgstr "Videos Clásicos."
 msgid "Classic File"
 msgstr "Archivos Clásicas"
 
-#: EcclesiaCRM/utils/OutputUtils.php:204
+#: EcclesiaCRM/utils/OutputUtils.php:248
 msgid "Invalid Editor ID!"
 msgstr "Id. de Editor Inválido"
 
-#: EcclesiaCRM/utils/OutputUtils.php:259
+#: EcclesiaCRM/utils/OutputUtils.php:303
 msgid "Select Season"
 msgstr "seleccione temporada"
 
-#: EcclesiaCRM/utils/OutputUtils.php:264
+#: EcclesiaCRM/utils/OutputUtils.php:308
 msgid "Winter"
 msgstr "Invierno"
 
-#: EcclesiaCRM/utils/OutputUtils.php:269
+#: EcclesiaCRM/utils/OutputUtils.php:313
 msgid "Spring"
 msgstr "Primavera"
 
-#: EcclesiaCRM/utils/OutputUtils.php:274
+#: EcclesiaCRM/utils/OutputUtils.php:318
 msgid "Summer"
 msgstr "Verano"
 
-#: EcclesiaCRM/utils/OutputUtils.php:279
+#: EcclesiaCRM/utils/OutputUtils.php:323
 msgid "Fall"
 msgstr "Otoño"
 
-#: EcclesiaCRM/utils/OutputUtils.php:322
+#: EcclesiaCRM/utils/OutputUtils.php:366
 msgid "This custom field isn't configured correctly"
 msgstr "Esto campo personalizado no es configurado correctamente."
 
-#: EcclesiaCRM/utils/OutputUtils.php:380
+#: EcclesiaCRM/utils/OutputUtils.php:424
 msgid "Error: Invalid Editor ID!"
 msgstr "Error: Id. de Editor inválido!"
 
@@ -4889,7 +4905,7 @@ msgstr ""
 
 #: email/Dashboard.php:38
 msgid "import subscribers to a list."
-msgstr ""
+msgstr "importación suscriptores a una lista."
 
 #: email/Dashboard.php:43
 msgid "Generate"
@@ -6960,15 +6976,15 @@ msgstr "Número demasiado largo, debe ser entre -2147483648 y 2147483647"
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr "Monto de dinero muy grande. Máximo es $999999999.99"
 
-#: Include/Functions.php:1152
+#: Include/Functions.php:1125
 msgid " Bold Italic"
 msgstr "negritas itálico"
 
-#: Include/Functions.php:1155
+#: Include/Functions.php:1128
 msgid " Italic"
 msgstr "Itálico"
 
-#: Include/Functions.php:1157
+#: Include/Functions.php:1130
 msgid " Bold"
 msgstr "Negritas"
 
@@ -7342,7 +7358,10 @@ msgid "Monthly Counts"
 msgstr "Cuenta Mensualmente en"
 
 #: ListEvents.php:678 ListEvents.php:683 ListEvents.php:688 ListEvents.php:724
-#: PledgeEditor.php:648 Reports/CanvassReports.php:126
+#: PledgeEditor.php:648 Reports/AdvancedDeposit.php:392
+#: Reports/AdvancedDeposit.php:410 Reports/AdvancedDeposit.php:499
+#: Reports/AdvancedDeposit.php:513 Reports/AdvancedDeposit.php:675
+#: Reports/CanvassReports.php:126
 msgid "Total"
 msgstr "Total"
 
@@ -8667,15 +8686,49 @@ msgstr ""
 msgid "Event Attendance Reports"
 msgstr "Reportes de Asistencia a Evento"
 
-#: Reports/AdvancedDeposit.php:386 Reports/AdvancedDeposit.php:404
-#: Reports/AdvancedDeposit.php:493 Reports/AdvancedDeposit.php:507
-#: Reports/AdvancedDeposit.php:548 Reports/AdvancedDeposit.php:566
-#: Reports/AdvancedDeposit.php:655 Reports/AdvancedDeposit.php:669
-#: Reports/AdvancedDeposit.php:710 Reports/AdvancedDeposit.php:728
-#: Reports/AdvancedDeposit.php:817 Reports/AdvancedDeposit.php:831
-#: Reports/AdvancedDeposit.php:848
-msgid "items"
-msgstr "items"
+#: Reports/AdvancedDeposit.php:246
+msgid "Deposit Report"
+msgstr "Reporte de Depósito"
+
+#: Reports/AdvancedDeposit.php:250
+msgid "Data sorted by"
+msgstr "Datos desglosados por"
+
+#: Reports/AdvancedDeposit.php:257
+msgid "Filtered by"
+msgstr "filtrado por"
+
+#: Reports/AdvancedDeposit.php:262
+msgid "Selected Families"
+msgstr "Familias seleccionadas"
+
+#: Reports/AdvancedDeposit.php:265
+msgid "Selected Funds"
+msgstr "Fondos seleccionados"
+
+#: Reports/AdvancedDeposit.php:268
+msgid "Selected Payment Methods"
+msgstr "Pago seleccionado métodos"
+
+#: Reports/AdvancedDeposit.php:272
+msgid "Showing all records for report dates."
+msgstr "Mostrar todos registros para este informe y fecha Reporte"
+
+#: Reports/AdvancedDeposit.php:306 Reports/AdvancedDeposit.php:315
+msgid "Recieved From"
+msgstr "recibida de"
+
+#: Reports/AdvancedDeposit.php:314
+msgid "Deposit No./ Date"
+msgstr "Núm. de Depósitos/Fecha"
+
+#: Reports/AdvancedDeposit.php:323
+msgid "Deposit No./Date"
+msgstr "Núm. de Depósitos/Fecha"
+
+#: Reports/AdvancedDeposit.php:335
+msgid "Generated on"
+msgstr "Generar a"
 
 #: Reports/AdvancedDeposit.php:388 Reports/AdvancedDeposit.php:406
 #: Reports/AdvancedDeposit.php:495 Reports/AdvancedDeposit.php:509
@@ -8684,8 +8737,26 @@ msgstr "items"
 #: Reports/AdvancedDeposit.php:712 Reports/AdvancedDeposit.php:730
 #: Reports/AdvancedDeposit.php:819 Reports/AdvancedDeposit.php:833
 #: Reports/AdvancedDeposit.php:850
+msgid "items"
+msgstr "items"
+
+#: Reports/AdvancedDeposit.php:390 Reports/AdvancedDeposit.php:408
+#: Reports/AdvancedDeposit.php:497 Reports/AdvancedDeposit.php:511
+#: Reports/AdvancedDeposit.php:552 Reports/AdvancedDeposit.php:570
+#: Reports/AdvancedDeposit.php:659 Reports/AdvancedDeposit.php:673
+#: Reports/AdvancedDeposit.php:714 Reports/AdvancedDeposit.php:732
+#: Reports/AdvancedDeposit.php:821 Reports/AdvancedDeposit.php:835
+#: Reports/AdvancedDeposit.php:852
 msgid "item"
 msgstr "item"
+
+#: Reports/AdvancedDeposit.php:608 Reports/AdvancedDeposit.php:770
+msgid "Dep #"
+msgstr "Dep #"
+
+#: Reports/AdvancedDeposit.php:854
+msgid "Report Total"
+msgstr "Reporte Totale"
 
 #: Reports/CanvassReports.php:46
 msgid "Canvass Progress Report"
@@ -8953,6 +9024,18 @@ msgstr "Monto de Donación:"
 #: Reports/TaxReport.php:285
 msgid "Gift Designation:"
 msgstr "Designación de Donación:"
+
+#: Reports/TaxReport.php:318
+msgid "Total Payments:"
+msgstr "Totalo los pagos:"
+
+#: Reports/TaxReport.php:324
+msgid "Goods and Services Rendered:"
+msgstr ""
+
+#: Reports/TaxReport.php:330
+msgid "Tax-Deductible Contribution:"
+msgstr "Contribución deducible de impuestos:"
 
 #: Reports/VotingMembers.php:44
 msgid "Voting members "
@@ -10519,6 +10602,12 @@ msgstr "CHEQUE"
 
 msgid "CHECKS"
 msgstr "CHEQUES"
+
+msgid "CREDITCARD"
+msgstr "TARJETACRÉDITO"
+
+msgid "CreditCard"
+msgstr "Tarjeta Crédito"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

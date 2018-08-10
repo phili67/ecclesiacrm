@@ -57,7 +57,8 @@ msgstr "Diese Ereignis kann nicht veränderts !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
 msgstr ""
-"Für eine Ereignis hinzufügen, Sie müssen einen Kalender erstellen, oder zuerst einer aktivieren. "
+"Für eine Ereignis hinzufügen, Sie müssen einen Kalender erstellen, oder "
+"zuerst einer aktivieren. "
 
 msgid "Event added"
 msgstr "Ereignis hinzugefügt"
@@ -67,3 +68,36 @@ msgstr "Ereignis erfolgreich hinzugefügt"
 
 msgid "Electronic Transaction Details"
 msgstr "Elektronische Transaktions-Details"
+
+msgid "Daily"
+msgstr "Täglich"
+
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+msgid "Monthly"
+msgstr "monatlich"
+
+msgid "Quarterly"
+msgstr "Vierteljährlich"
+
+msgid "Once"
+msgstr "Einmal"
+
+msgid "Other"
+msgstr "Andere"
+
+msgid "CREDITCARD"
+msgstr "Kreditkarte"
+
+msgid "CASH"
+msgstr "CASH"
+
+msgid "Bank"
+msgstr "Bank"
+
+msgid "CreditCard"
+msgstr "Kreditkarte"
+
+msgid "BankDraft"
+msgstr "Back Draft Bahn"
