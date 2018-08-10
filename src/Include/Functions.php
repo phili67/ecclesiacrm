@@ -1116,33 +1116,6 @@ function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   }
 }
 
-// Wrapper for number_format that uses the locale information
-// There are three modes: money, integer, and intmoney (whole number money)
-function formatNumber($iNumber, $sMode = 'integer')
-{
-    global $aLocaleInfo;
-
-    switch ($sMode) {
-    case 'money':
-      return $aLocaleInfo['currency_symbol'].' '.number_format($iNumber, $aLocaleInfo['frac_digits'], $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
-      break;
-
-    case 'intmoney':
-      return $aLocaleInfo['currency_symbol'].' '.number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
-      break;
-
-    case 'float':
-      $iDecimals = 2; // need to calculate # decimals in original number
-      return number_format($iNumber, $iDecimals, $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
-      break;
-
-    case 'integer':
-    default:
-      return number_format($iNumber, 0, '', $aLocaleInfo['mon_thousands_sep']);
-      break;
-  }
-}
-
 function FilenameToFontname($filename, $family)
 {
     if ($filename == $family) {

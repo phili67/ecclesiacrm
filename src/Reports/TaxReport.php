@@ -77,8 +77,8 @@ if (!empty($_POST['classList'])) {
 // Build SQL Query
 // Build SELECT SQL Portion
 $sSQL = 'SELECT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country, fam_envelope, plg_date, plg_amount, plg_method, plg_comment, plg_CheckNo, fun_Name, plg_PledgeOrPayment, plg_NonDeductible FROM family_fam
-	INNER JOIN pledge_plg ON fam_ID=plg_FamID
-	LEFT JOIN donationfund_fun ON plg_fundID=fun_ID';
+    INNER JOIN pledge_plg ON fam_ID=plg_FamID
+    LEFT JOIN donationfund_fun ON plg_fundID=fun_ID';
 
 if ($classList[0]) {
     $sSQL .= ' LEFT JOIN person_per ON fam_ID=per_fam_ID';
@@ -198,7 +198,7 @@ if ($output == 'pdf') {
             global $letterhead, $sDateStart, $sDateEnd, $iDepID;
             $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead);
             if (SystemConfig::getValue('bUseDonationEnvelopes')) {
-                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('Envelope:').$fam_envelope);
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, _('Envelope:').$fam_envelope);
                 $curY += SystemConfig::getValue('incrementY');
             }
             $curY += 2 * SystemConfig::getValue('incrementY');
@@ -209,9 +209,9 @@ if ($output == 'pdf') {
                 list($sDateStart, $sDateEnd) = mysqli_fetch_row($rsDep);
             }
             if ($sDateStart == $sDateEnd) {
-                $DateString = date('F j, Y', strtotime($sDateStart));
+                $DateString = OutputUtils::FormatDate($sDateStart);
             } else {
-                $DateString = date('M j, Y', strtotime($sDateStart)).' - '.date('M j, Y', strtotime($sDateEnd));
+                $DateString = OutputUtils::FormatDate($sDateStart).' - '.OutputUtils::FormatDate($sDateEnd);
             }
             $blurb = SystemConfig::getValue('sTaxReport1').' '.$DateString.'.';
             $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
@@ -238,11 +238,11 @@ if ($output == 'pdf') {
                 // Add remittance slip
                 $curY = 194;
                 $curX = 60;
-                $this->WriteAt($curX, $curY, gettext('Please detach this slip and mail with your next gift.'));
+                $this->WriteAt($curX, $curY, _('Please detach this slip and mail with your next gift.'));
                 $curY += (1.5 * SystemConfig::getValue('incrementY'));
-                $church_mailing = gettext('Please mail you next gift to ').SystemConfig::getValue('sChurchName').', '
+                $church_mailing = _('Please mail you next gift to ').SystemConfig::getValue('sChurchName').', '
                     .SystemConfig::getValue('sChurchAddress').', '.SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '
-                    .SystemConfig::getValue('sChurchZip').gettext(', Phone: ').SystemConfig::getValue('sChurchPhone');
+                    .SystemConfig::getValue('sChurchZip')._(', Phone: ').SystemConfig::getValue('sChurchPhone');
                 $this->SetFont('Times', 'I', 10);
                 $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $church_mailing);
                 $this->SetFont('Times', '', 10);
@@ -279,15 +279,17 @@ if ($output == 'pdf') {
                 }
                 $curX = 100;
                 $curY = 215;
-                $this->WriteAt($curX, $curY, gettext('Gift Amount:'));
+                $this->WriteAt($curX, $curY, _('Gift Amount:'));
                 $this->WriteAt($curX + 25, $curY, '_______________________________');
                 $curY += (2 * SystemConfig::getValue('incrementY'));
-                $this->WriteAt($curX, $curY, gettext('Gift Designation:'));
+                $this->WriteAt($curX, $curY, _('Gift Designation:'));
                 $this->WriteAt($curX + 25, $curY, '_______________________________');
                 $curY = 200 + (11 * SystemConfig::getValue('incrementY'));
             }
         }
     }
+    
+    $currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
 
     // Instantiate the directory class and build the report.
     $pdf = new PDF_TaxReport();
@@ -300,7 +302,7 @@ if ($output == 'pdf') {
         // Check for minimum amount
         if ($iMinimum > 0) {
             $temp = "SELECT SUM(plg_amount) AS total_gifts FROM pledge_plg
-				WHERE plg_FamID=$fam_ID AND $aSQLCriteria[1]";
+                WHERE plg_FamID=$fam_ID AND $aSQLCriteria[1]";
             $rsMinimum = RunQuery($temp);
             list($total_gifts) = mysqli_fetch_row($rsMinimum);
             if ($iMinimum > $total_gifts) {
@@ -313,20 +315,20 @@ if ($output == 'pdf') {
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, 'Total Payments:');
-            $totalAmountStr = '$'.number_format($totalAmount, 2);
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Total Payments:')));
+            $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, 'Goods and Services Rendered:');
-            $totalAmountStr = '$'.number_format($totalNonDeductible, 2);
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Goods and Services Rendered:')));
+            $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, 'Tax-Deductible Contribution:');
-            $totalAmountStr = '$'.number_format($totalAmount - $totalNonDeductible, 2);
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Tax-Deductible Contribution:')));
+            $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $curY = $pdf->GetY();
@@ -360,12 +362,12 @@ if ($output == 'pdf') {
             $curY += 2 * $summaryIntervalY;
             $pdf->SetFont('Times', 'B', 10);
             $pdf->SetXY($summaryDateX, $curY);
-            $pdf->Cell(20, $summaryIntervalY, 'Date');
-            $pdf->Cell(20, $summaryIntervalY, 'Chk No.', 0, 0, 'C');
-            $pdf->Cell(25, $summaryIntervalY, 'PmtMethod');
-            $pdf->Cell(40, $summaryIntervalY, 'Fund');
-            $pdf->Cell(40, $summaryIntervalY, 'Memo');
-            $pdf->Cell(25, $summaryIntervalY, 'Amount', 0, 1, 'R');
+            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Date')));
+            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Chk No.')), 0, 0, 'C');
+            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('PmtMethod')));
+            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Fund')));
+            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Memo')));
+            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Amount')), 0, 1, 'R');
             //$curY = $pdf->GetY();
             $totalAmount = 0;
             $totalNonDeductible = 0;
@@ -386,13 +388,13 @@ if ($output == 'pdf') {
         }
         // Print Gift Data
         $pdf->SetFont('Times', '', 10);
-        $pdf->Cell(20, $summaryIntervalY, $plg_date);
+        $pdf->Cell(20, $summaryIntervalY, date(SystemConfig::getValue('sDateFormatLong'), strtotime($plg_date)));
         $pdf->Cell(20, $summaryIntervalY, $plg_CheckNo, 0, 0, 'R');
-        $pdf->Cell(25, $summaryIntervalY, $plg_method);
+        $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_($plg_method)));
         $pdf->Cell(40, $summaryIntervalY, $fun_Name);
         $pdf->Cell(40, $summaryIntervalY, $plg_comment);
         $pdf->SetFont('Courier', '', 9);
-        $pdf->Cell(25, $summaryIntervalY, $plg_amount, 0, 1, 'R');
+        $pdf->Cell(25, $summaryIntervalY, OutputUtils::money_localized($plg_amount), 0, 1, 'R');
         $totalAmount += $plg_amount;
         $totalNonDeductible += $plg_NonDeductible;
         $cnt += 1;
@@ -424,19 +426,19 @@ if ($output == 'pdf') {
     $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
     $pdf->Cell(95, $summaryIntervalY, ' ');
     $pdf->Cell(50, $summaryIntervalY, 'Total Payments:');
-    $totalAmountStr = '$'.number_format($totalAmount, 2);
+    $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
     $pdf->Cell(50, $summaryIntervalY, 'Goods and Services Rendered:');
-    $totalAmountStr = '$'.number_format($totalNonDeductible, 2);
+    $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
     $pdf->Cell(50, $summaryIntervalY, 'Tax-Deductible Contribution:');
-    $totalAmountStr = '$'.number_format($totalAmount - $totalNonDeductible, 2);
+    $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $curY = $pdf->GetY();

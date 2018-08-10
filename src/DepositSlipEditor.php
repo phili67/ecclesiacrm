@@ -140,7 +140,7 @@ require 'Include/Header.php';
           <ul style="margin:0px; border:0px; padding:0px;" id="mainFundTotals">
           <?php
           foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').OutputUtils::number_localized($fund['Total']).'</li>';
+              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').OutputUtils::money_localized($fund['Total']).'</li>';
           }
           ?>
           </ul>
