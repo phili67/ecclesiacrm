@@ -510,7 +510,7 @@ msgid ""
 "Not all the families were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr ""
+msgstr "Toutes les familles n'ont pas été supprimées : Certaines ont des enregistrements ou des donations et ne doivent être détruite tant qu'un transfert de données ne soit effectué à une autre famille."
 
 msgid "Name"
 msgstr "Nom"
@@ -626,7 +626,6 @@ msgstr "Type du dépôt"
 msgid "Export"
 msgstr "Export"
 
-#, fuzzy
 msgid "Generate Deposit Slip for Selected"
 msgstr "Générer bordereau de dépôt pour les lignes"
 
@@ -941,7 +940,7 @@ msgid ""
 "Not all the persons were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr ""
+msgstr "Toutes les personnes n'ont pas été supprimées : Certaines ont des enregistrements ou des donations et ne doivent être détruite tant qu'un transfert de données ne soit effectué à une autre famille."
 
 msgid "Photo"
 msgstr "Photo"
@@ -952,11 +951,9 @@ msgstr "Êtes-vous sûr de vouloir supprimer appartenance de ce membre de "
 msgid "Share your Document"
 msgstr "Partager Votre document"
 
-#, fuzzy
 msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Êtes vous sûr de vouloir supprimer ce Profile ?"
+msgstr "Êtes vous sûr de vouloir supprimer cette Personne ?"
 
-#, fuzzy
 msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr "Êtes-vous sûr de vouloir arrêter le partage du document ?"
 
@@ -992,9 +989,8 @@ msgid "First, set your time range correctly to make the extraction."
 msgstr ""
 "Premièrement, fixer correctement le bon intervalle de temps afin d'exporter"
 
-#, fuzzy
 msgid "Set year range to export"
-msgstr "Saisir la période en année"
+msgstr "Saisir la période pour export"
 
 msgid "Extra students"
 msgstr "Etudiants supplémentaires"
@@ -1011,18 +1007,15 @@ msgstr "Sélectionner votre Profile"
 msgid "Profile Name"
 msgstr "Nom du profile"
 
-#, fuzzy
 msgid "Are you sure? You're about to delete this Profile."
 msgstr "Êtes vous sûr de vouloir supprimer ce Profile ?"
 
 msgid "Rename"
 msgstr "Renommer"
 
-#, fuzzy
 msgid "Choose a Profile Name"
 msgstr "Choisissez votre nom du Profile"
 
-#, fuzzy
 msgid ""
 "<center>You must set another Profile Name <br>-- or --<br> this Profile Name "
 "already exist !!!</center>"
@@ -1036,7 +1029,6 @@ msgstr "Utilisateur supprimé"
 msgid "Please confirm removal of user status from:"
 msgstr "Veuillez confirmer la suppression du statut utilisateur de :"
 
-#, fuzzy
 msgid ""
 "Be carefull, You are about to lose the home folder and the associated files, "
 "the Calendars, the Share calendars and all the events too, for"
@@ -1044,7 +1036,6 @@ msgstr ""
 "Attention !!! Vous êtes sur le point de perdre le dossier utilisateur, les "
 "fichiers, les calendriers, ses partages et tous ses événements pour"
 
-#, fuzzy
 msgid "This can't be undone"
 msgstr "Cette action est irréversible"
 

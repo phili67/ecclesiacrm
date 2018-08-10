@@ -52,9 +52,8 @@ msgstr "note"
 msgid "You have to set a Title for your event"
 msgstr "Vous devez saisir un titre pour votre événement"
 
-#, fuzzy
 msgid "This event isn't modifiable !!!"
-msgstr "Cet événement de calendrier n'est pas accessible en écriture !!!"
+msgstr "Cet événement ne peut être modifié !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
 msgstr ""
@@ -69,3 +68,36 @@ msgstr "Evénement ajouté avec succès"
 
 msgid "Electronic Transaction Details"
 msgstr "Détails de la transaction électronique"
+
+msgid "Daily"
+msgstr "Journalier"
+
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+msgid "Monthly"
+msgstr "Mensuel"
+
+msgid "Quarterly"
+msgstr "Trimestriel"
+
+msgid "Once"
+msgstr "Une fois"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "CREDITCARD"
+msgstr "Carte Crédit"
+
+msgid "CASH"
+msgstr "Espèce"
+
+msgid "Bank"
+msgstr "Chèque ou espèce"
+
+msgid "CreditCard"
+msgstr "Carte de crédit"
+
+msgid "BankDraft"
+msgstr "Traitement bancaire"

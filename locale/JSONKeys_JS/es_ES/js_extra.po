@@ -57,7 +57,8 @@ msgid "This event isn't modifiable !!!"
 msgstr "Este evento no se puede cambiar !!!"
 
 msgid "To add an event, You have to create a calendar or activate one first."
-msgstr "Para agregar evento, Tienes que crear uno calendario o activar uno primero."
+msgstr ""
+"Para agregar evento, Tienes que crear uno calendario o activar uno primero."
 
 msgid "Event added"
 msgstr "Evento añadido"
@@ -67,3 +68,36 @@ msgstr "Evento añadido correctamente"
 
 msgid "Electronic Transaction Details"
 msgstr "Detalles de la transacción electrónica"
+
+msgid "Daily"
+msgstr "Diario"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "Monthly"
+msgstr "Mensual"
+
+msgid "Quarterly"
+msgstr "Trimestral"
+
+msgid "Once"
+msgstr "Una Vez"
+
+msgid "Other"
+msgstr "Otro"
+
+msgid "CREDITCARD"
+msgstr "TARJETACRÉDITO"
+
+msgid "CASH"
+msgstr "Efectivo"
+
+msgid "Bank"
+msgstr "Banco"
+
+msgid "CreditCard"
+msgstr "Tarjeta de crédito"
+
+msgid "BankDraft"
+msgstr "Giro Bancario"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-09 21:14+0200\n"
+"POT-Creation-Date: 2018-08-10 21:25+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,14 +84,14 @@ msgid "Family Activated"
 msgstr "Denna inmatning krävs."
 
 #: api/routes/gdrp.php:46 CartView.php:339 CartView.php:359
-#: EcclesiaCRM/utils/OutputUtils.php:121 EcclesiaCRM/utils/OutputUtils.php:220
+#: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:264
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Ja"
 
 #: api/routes/gdrp.php:46 CartView.php:352 CartView.php:361
-#: EcclesiaCRM/utils/OutputUtils.php:123 EcclesiaCRM/utils/OutputUtils.php:221
+#: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:265
 #: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
 msgid "No"
@@ -302,8 +302,8 @@ msgstr "Familj"
 #: AutoPaymentEditor.php:785 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
 #: CSVImport.php:269 DirectoryReports.php:73 DonatedItemEditor.php:185
 #: DonatedItemEditor.php:236 EcclesiaCRM/MenuBar/MenuBar.php:101
-#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:307
-#: EcclesiaCRM/utils/OutputUtils.php:363 eGive.php:340 FamilyEditor.php:1119
+#: EcclesiaCRM/MenuBar/MenuBar.php:167 EcclesiaCRM/utils/OutputUtils.php:351
+#: EcclesiaCRM/utils/OutputUtils.php:407 eGive.php:340 FamilyEditor.php:1119
 #: GroupEditor.php:103 GroupEditor.php:161 GroupList.php:40 GroupView.php:53
 #: Include/CountryDropDown.php:14 Include/StateDropDown.php:17
 #: MapUsingBing.php:186 MapUsingBing.php:232 MapUsingGoogle.php:182
@@ -337,7 +337,8 @@ msgstr ""
 #: AutoPaymentEditor.php:819 CanvassEditor.php:193 DepositSlipEditor.php:96
 #: EditEventAttendees.php:57 FindFundRaiser.php:236 FundRaiserEditor.php:163
 #: Include/Functions.php:89 PledgeEditor.php:547 Reports/ReminderReport.php:306
-#: Reports/ReminderReport.php:387 SelectDelete.php:220
+#: Reports/ReminderReport.php:387 Reports/TaxReport.php:365
+#: SelectDelete.php:220
 msgid "Date"
 msgstr "Datum"
 
@@ -357,13 +358,15 @@ msgstr "Betalningsinterval(månader)"
 
 #: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
 #: ElectronicPaymentList.php:200 FinancialReports.php:418
-#: FindDepositSlip.php:48 Reports/FamilyPledgeSummary.php:218
+#: FindDepositSlip.php:48 Reports/AdvancedDeposit.php:305
+#: Reports/AdvancedDeposit.php:324 Reports/FamilyPledgeSummary.php:218
 #: Reports/PledgeSummary.php:220 Reports/ReminderReport.php:307
-#: Reports/ReminderReport.php:390 SelectDelete.php:218
+#: Reports/ReminderReport.php:390 Reports/TaxReport.php:368
+#: SelectDelete.php:218
 msgid "Fund"
 msgstr "Fond"
 
-#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:161
+#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:205
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
@@ -996,7 +999,7 @@ msgid "Home Phone"
 msgstr "Hemtelefon"
 
 #: CartToFamily.php:318 CartToFamily.php:328 CartToFamily.php:338
-#: EcclesiaCRM/utils/OutputUtils.php:353 FamilyEditor.php:772
+#: EcclesiaCRM/utils/OutputUtils.php:397 FamilyEditor.php:772
 #: FamilyEditor.php:782 FamilyEditor.php:792 PersonEditor.php:1154
 #: PersonEditor.php:1178 PersonEditor.php:1202
 msgid "Do not auto-format"
@@ -1328,7 +1331,7 @@ msgstr "Skapa deltagande formulär"
 msgid "Return to Events"
 msgstr "Återgå till förfrågan meny"
 
-#: Checkin.php:801 Include/Functions.php:1186 PersonView.php:306
+#: Checkin.php:801 Include/Functions.php:1159 PersonView.php:306
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -1988,7 +1991,7 @@ msgstr "Privat"
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/TimelineService.php:189
-#: EcclesiaCRM/utils/OutputUtils.php:222 FamilyEditor.php:1044
+#: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1044
 #: Include/Functions.php:629 Include/Functions.php:642
 msgid "Unknown"
 msgstr "Okänd"
@@ -4173,6 +4176,9 @@ msgid "View Active Families"
 msgstr "CSV kombinera familjer"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:277 FinancialReports.php:417
+#: Reports/AdvancedDeposit.php:259 Reports/AdvancedDeposit.php:379
+#: Reports/AdvancedDeposit.php:410 Reports/AdvancedDeposit.php:422
+#: Reports/AdvancedDeposit.php:513
 msgid "Deposit"
 msgstr "Insättning"
 
@@ -4281,6 +4287,7 @@ msgid "Deposit totals by Currency Type"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:152
+#: Reports/AdvancedDeposit.php:865
 #, fuzzy
 msgid "Deposit totals by fund"
 msgstr "Insättningsrapport"
@@ -4297,11 +4304,15 @@ msgstr "Insättningsblankett nummer:"
 msgid "Deposit total"
 msgstr "Insättningsrapport"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282 Reports/ReminderReport.php:388
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:282
+#: Reports/AdvancedDeposit.php:304 Reports/AdvancedDeposit.php:313
+#: Reports/AdvancedDeposit.php:322 Reports/ReminderReport.php:388
+#: Reports/TaxReport.php:366
 msgid "Chk No."
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:288 Reports/ReminderReport.php:389
+#: Reports/TaxReport.php:367
 #, fuzzy
 msgid "PmtMethod"
 msgstr "Metod"
@@ -4311,13 +4322,18 @@ msgstr "Metod"
 msgid "Rcd From"
 msgstr "Från:"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294 Reports/ReminderReport.php:391
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:294
+#: Reports/AdvancedDeposit.php:307 Reports/AdvancedDeposit.php:316
+#: Reports/AdvancedDeposit.php:325 Reports/ReminderReport.php:391
+#: Reports/TaxReport.php:369
 msgid "Memo"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
-#: PledgeEditor.php:749 Reports/ReminderReport.php:308
-#: Reports/ReminderReport.php:392 SelectDelete.php:221
+#: PledgeEditor.php:749 Reports/AdvancedDeposit.php:308
+#: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
+#: Reports/ReminderReport.php:308 Reports/ReminderReport.php:392
+#: Reports/TaxReport.php:370 SelectDelete.php:221
 msgid "Amount"
 msgstr "Summa"
 
@@ -4440,7 +4456,7 @@ msgstr "Intyg om ägande"
 msgid "Directory"
 msgstr "Katalog"
 
-#: EcclesiaCRM/Reports/PDF_Directory.php:58
+#: EcclesiaCRM/Reports/PDF_Directory.php:58 Reports/AdvancedDeposit.php:335
 msgid "Page"
 msgstr "Sida"
 
@@ -4785,35 +4801,35 @@ msgstr "Klassificering "
 msgid "Classic File"
 msgstr "Ta bort filtrar"
 
-#: EcclesiaCRM/utils/OutputUtils.php:204
+#: EcclesiaCRM/utils/OutputUtils.php:248
 msgid "Invalid Editor ID!"
 msgstr "Ogiltig redigerings ID"
 
-#: EcclesiaCRM/utils/OutputUtils.php:259
+#: EcclesiaCRM/utils/OutputUtils.php:303
 msgid "Select Season"
 msgstr "Välj säsong"
 
-#: EcclesiaCRM/utils/OutputUtils.php:264
+#: EcclesiaCRM/utils/OutputUtils.php:308
 msgid "Winter"
 msgstr "Vinter"
 
-#: EcclesiaCRM/utils/OutputUtils.php:269
+#: EcclesiaCRM/utils/OutputUtils.php:313
 msgid "Spring"
 msgstr "Vår"
 
-#: EcclesiaCRM/utils/OutputUtils.php:274
+#: EcclesiaCRM/utils/OutputUtils.php:318
 msgid "Summer"
 msgstr "Sommer"
 
-#: EcclesiaCRM/utils/OutputUtils.php:279
+#: EcclesiaCRM/utils/OutputUtils.php:323
 msgid "Fall"
 msgstr "Höst"
 
-#: EcclesiaCRM/utils/OutputUtils.php:322
+#: EcclesiaCRM/utils/OutputUtils.php:366
 msgid "This custom field isn't configured correctly"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:380
+#: EcclesiaCRM/utils/OutputUtils.php:424
 msgid "Error: Invalid Editor ID!"
 msgstr "Fel: Ogiltig redigerings ID"
 
@@ -7280,15 +7296,15 @@ msgstr "Nummer för stor.  Måste vara mellan -2147483648 och 2147483647"
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr "Pengar summa för stor.  Maximalla är 999999999.99"
 
-#: Include/Functions.php:1152
+#: Include/Functions.php:1125
 msgid " Bold Italic"
 msgstr " Fet kursiv"
 
-#: Include/Functions.php:1155
+#: Include/Functions.php:1128
 msgid " Italic"
 msgstr " Kursiv"
 
-#: Include/Functions.php:1157
+#: Include/Functions.php:1130
 msgid " Bold"
 msgstr " Fet"
 
@@ -7678,7 +7694,10 @@ msgid "Monthly Counts"
 msgstr "Månadsvis"
 
 #: ListEvents.php:678 ListEvents.php:683 ListEvents.php:688 ListEvents.php:724
-#: PledgeEditor.php:648 Reports/CanvassReports.php:126
+#: PledgeEditor.php:648 Reports/AdvancedDeposit.php:392
+#: Reports/AdvancedDeposit.php:410 Reports/AdvancedDeposit.php:499
+#: Reports/AdvancedDeposit.php:513 Reports/AdvancedDeposit.php:675
+#: Reports/CanvassReports.php:126
 #, fuzzy
 msgid "Total"
 msgstr "Antal"
@@ -9136,15 +9155,59 @@ msgstr "Automatisk stöd för att driva en insamilingskampanj på varje medlem."
 msgid "Event Attendance Reports"
 msgstr "Evenemangdeltagare"
 
-#: Reports/AdvancedDeposit.php:386 Reports/AdvancedDeposit.php:404
-#: Reports/AdvancedDeposit.php:493 Reports/AdvancedDeposit.php:507
-#: Reports/AdvancedDeposit.php:548 Reports/AdvancedDeposit.php:566
-#: Reports/AdvancedDeposit.php:655 Reports/AdvancedDeposit.php:669
-#: Reports/AdvancedDeposit.php:710 Reports/AdvancedDeposit.php:728
-#: Reports/AdvancedDeposit.php:817 Reports/AdvancedDeposit.php:831
-#: Reports/AdvancedDeposit.php:848
-msgid "items"
-msgstr "saker"
+#: Reports/AdvancedDeposit.php:246
+#, fuzzy
+msgid "Deposit Report"
+msgstr "Insättningsrapport"
+
+#: Reports/AdvancedDeposit.php:250
+#, fuzzy
+msgid "Data sorted by"
+msgstr "Donerats av"
+
+#: Reports/AdvancedDeposit.php:257
+#, fuzzy
+msgid "Filtered by"
+msgstr "Filtrera enligt familj"
+
+#: Reports/AdvancedDeposit.php:262
+#, fuzzy
+msgid "Selected Families"
+msgstr "Välj familj:"
+
+#: Reports/AdvancedDeposit.php:265
+#, fuzzy
+msgid "Selected Funds"
+msgstr "Välj roll"
+
+#: Reports/AdvancedDeposit.php:268
+#, fuzzy
+msgid "Selected Payment Methods"
+msgstr "Välj internet betalningspost"
+
+#: Reports/AdvancedDeposit.php:272
+msgid "Showing all records for report dates."
+msgstr ""
+
+#: Reports/AdvancedDeposit.php:306 Reports/AdvancedDeposit.php:315
+#, fuzzy
+msgid "Recieved From"
+msgstr "Från:"
+
+#: Reports/AdvancedDeposit.php:314
+#, fuzzy
+msgid "Deposit No./ Date"
+msgstr "Insättning"
+
+#: Reports/AdvancedDeposit.php:323
+#, fuzzy
+msgid "Deposit No./Date"
+msgstr "Insättning"
+
+#: Reports/AdvancedDeposit.php:335
+#, fuzzy
+msgid "Generated on"
+msgstr "Skapa:"
 
 #: Reports/AdvancedDeposit.php:388 Reports/AdvancedDeposit.php:406
 #: Reports/AdvancedDeposit.php:495 Reports/AdvancedDeposit.php:509
@@ -9153,9 +9216,28 @@ msgstr "saker"
 #: Reports/AdvancedDeposit.php:712 Reports/AdvancedDeposit.php:730
 #: Reports/AdvancedDeposit.php:819 Reports/AdvancedDeposit.php:833
 #: Reports/AdvancedDeposit.php:850
+msgid "items"
+msgstr "saker"
+
+#: Reports/AdvancedDeposit.php:390 Reports/AdvancedDeposit.php:408
+#: Reports/AdvancedDeposit.php:497 Reports/AdvancedDeposit.php:511
+#: Reports/AdvancedDeposit.php:552 Reports/AdvancedDeposit.php:570
+#: Reports/AdvancedDeposit.php:659 Reports/AdvancedDeposit.php:673
+#: Reports/AdvancedDeposit.php:714 Reports/AdvancedDeposit.php:732
+#: Reports/AdvancedDeposit.php:821 Reports/AdvancedDeposit.php:835
+#: Reports/AdvancedDeposit.php:852
 #, fuzzy
 msgid "item"
 msgstr "saker"
+
+#: Reports/AdvancedDeposit.php:608 Reports/AdvancedDeposit.php:770
+msgid "Dep #"
+msgstr ""
+
+#: Reports/AdvancedDeposit.php:854
+#, fuzzy
+msgid "Report Total"
+msgstr "Rapport model"
 
 #: Reports/CanvassReports.php:46
 #, fuzzy
@@ -9448,6 +9530,19 @@ msgstr "Bidragssumma"
 #: Reports/TaxReport.php:285
 msgid "Gift Designation:"
 msgstr "Bidrag till:"
+
+#: Reports/TaxReport.php:318
+#, fuzzy
+msgid "Total Payments:"
+msgstr "Alla betalningar"
+
+#: Reports/TaxReport.php:324
+msgid "Goods and Services Rendered:"
+msgstr ""
+
+#: Reports/TaxReport.php:330
+msgid "Tax-Deductible Contribution:"
+msgstr ""
 
 #: Reports/VotingMembers.php:44
 #, fuzzy
@@ -11133,6 +11228,13 @@ msgstr ""
 
 msgid "CHECKS"
 msgstr ""
+
+msgid "CREDITCARD"
+msgstr ""
+
+#, fuzzy
+msgid "CreditCard"
+msgstr "Kreditkort"
 
 #~ msgid "CSV"
 #~ msgstr "CSV"

@@ -68,3 +68,36 @@ msgstr ""
 
 msgid "Electronic Transaction Details"
 msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr ""
+
+msgid "Quarterly"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "CREDITCARD"
+msgstr ""
+
+msgid "CASH"
+msgstr ""
+
+msgid "Bank"
+msgstr ""
+
+msgid "CreditCard"
+msgstr ""
+
+msgid "BankDraft"
+msgstr ""
