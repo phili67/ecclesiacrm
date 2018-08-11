@@ -22,7 +22,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 
    $time = new DateTime('now');
-   $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
    
    $persons = PersonQuery::create()
             ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a person is completely deactivated
@@ -40,7 +40,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 
   $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
   $persons = PersonQuery::create()
           ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date

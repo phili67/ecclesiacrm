@@ -3741,9 +3741,9 @@ msgstr "DPO E-mail"
 
 #: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
-"The private datas should be deleted after the sGdprExpirationDate in Year."
+"The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
-"Die privaten Daten sollte gestrichen werden nach der sGdprExpirationDate im "
+"Die privaten Daten sollte gestrichen werden nach der iGdprExpirationDate im "
 "Jahre"
 
 #: EcclesiaCRM/dto/SystemConfig.php:254

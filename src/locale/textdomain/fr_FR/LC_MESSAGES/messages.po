@@ -301,7 +301,7 @@ msgstr "Type de paiement automatique"
 
 #: AutoPaymentEditor.php:806
 msgid "Bank Draft "
-msgstr "Traitement bancaire "
+msgstr "Virement bancaire "
 
 #: AutoPaymentEditor.php:810
 msgid "Credit Card "
@@ -3805,10 +3805,10 @@ msgstr "Le mail du DPO"
 
 #: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
-"The private datas should be deleted after the sGdprExpirationDate in Year."
+"The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
 "Les données privées doivent être supprimées après le délai "
-"sGdprExpirationDate en années."
+"iGdprExpirationDate en années."
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
 msgid "Church Information"
@@ -6026,7 +6026,7 @@ msgstr "Chèque"
 
 #: FinancialReports.php:344 FindDepositSlip.php:64 PledgeEditor.php:630
 msgid "Bank Draft"
-msgstr "Traitement bancaire"
+msgstr "Virement bancaire"
 
 #: FinancialReports.php:345 FindDepositSlip.php:65 PledgeEditor.php:637
 msgid "eGive"

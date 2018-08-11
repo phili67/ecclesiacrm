@@ -105,7 +105,7 @@ if (empty($person)) {
 
 if ($person->getDateDeactivated() != null) {
     $time = new DateTime('now');
-    $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+    $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
     
     if ( $new_time > $person->getDateDeactivated() ) {
       if ( !$_SESSION['user']->isGdrpDpoEnabled() ) {
