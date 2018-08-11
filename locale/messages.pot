@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 21:59+0200\n"
+"POT-Creation-Date: 2018-08-11 09:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3670,7 +3670,7 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:247
 msgid ""
-"The private datas should be deleted after the sGdprExpirationDate in Year."
+"The private datas should be deleted after the iGdprExpirationDate in Year."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:254

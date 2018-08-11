@@ -100,4 +100,4 @@ msgid "CreditCard"
 msgstr "Carte de crédit"
 
 msgid "BankDraft"
-msgstr "Traitement bancaire"
+msgstr "Virement bancaire"

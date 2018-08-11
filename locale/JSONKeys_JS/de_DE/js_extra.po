@@ -100,4 +100,4 @@ msgid "CreditCard"
 msgstr "Kreditkarte"
 
 msgid "BankDraft"
-msgstr "Back Draft Bahn"
+msgstr "Banküberweisung"

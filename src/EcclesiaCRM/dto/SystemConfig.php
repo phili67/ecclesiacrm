@@ -244,7 +244,7 @@ class SystemConfig
         "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR")),
         "bGDPR" => new ConfigItem(2057,"bGDPR","boolean","0",gettext("GDPR option")),
         "sGdprDpoSignerEmail" => new ConfigItem(2058,"sGdprDpoSignerEmail","text","",gettext("The DPO email")),
-        "sGdprExpirationDate" => new ConfigItem(2059,"sGdprExpirationDate","number","3",gettext("The private datas should be deleted after the sGdprExpirationDate in Year."))
+        "iGdprExpirationDate" => new ConfigItem(2059,"iGdprExpirationDate","number","3",gettext("The private datas should be deleted after the iGdprExpirationDate in Year."))
       );
   }
 
@@ -262,7 +262,7 @@ class SystemConfig
       gettext('Quick Search') => ["bSearchIncludePersons","bSearchIncludePersonsMax","bSearchIncludeAddresses", "bSearchIncludeAddressesMax", "bSearchIncludeFamilies","bSearchIncludeFamiliesMax","bSearchIncludeFamilyHOH","bSearchIncludeFamilyHOHMax","bSearchIncludeGroups","bSearchIncludeGroupsMax","bSearchIncludeDeposits", "bSearchIncludeDepositsMax", "bSearchIncludePayments", "bSearchIncludePaymentsMax"],
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       gettext('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","sDateFormatLong","sTimeEnglish","sTimeFormat","sDatePickerPlaceHolder","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat"],
-      gettext('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","sGdprExpirationDate"],
+      gettext('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
       gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]

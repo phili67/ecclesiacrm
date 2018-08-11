@@ -76,7 +76,7 @@ $app->group('/gdrp', function () {
       }
   
       $time = new DateTime('now');
-      $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+      $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
       $persons = PersonQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
@@ -133,7 +133,7 @@ $app->group('/gdrp', function () {
       }
   
       $time = new DateTime('now');
-      $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+      $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
       $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)

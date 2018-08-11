@@ -22,7 +22,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 
    $time = new DateTime('now');
-   $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
    
    $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
@@ -36,7 +36,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 
   $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getValue('sGdprExpirationDate').' year')->format('Y-m-d');
+  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
   $families = FamilyQuery::create()
             ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
