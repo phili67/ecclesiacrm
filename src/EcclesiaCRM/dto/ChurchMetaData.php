@@ -78,8 +78,7 @@ class ChurchMetaData
     public static function getChurchLatitude()
     {
       if (!empty(self::getChurchFullAddress())) {
-        if (empty(SystemConfig::getValue('iChurchLatitude')) 
-           || substr_count(SystemConfig::getValue('iChurchLatitude'),',') > 0 || substr_count(SystemConfig::getValue('iChurchLatitude'),'.') == 0) {
+        if (empty(SystemConfig::getValue('iChurchLatitude'))) {
             self::updateLatLng();
         }
         return SystemConfig::getValue('iChurchLatitude');
@@ -91,8 +90,7 @@ class ChurchMetaData
     public static function getChurchLongitude()
     {
       if (!empty(self::getChurchFullAddress())) {
-        if (empty(SystemConfig::getValue('iChurchLatitude')) 
-        || substr_count(SystemConfig::getValue('iChurchLatitude'),',') > 0 || substr_count(SystemConfig::getValue('iChurchLatitude'),'.') == 0) {
+        if (empty(SystemConfig::getValue('iChurchLongitude'))) {
             self::updateLatLng();
         }
         return SystemConfig::getValue('iChurchLongitude');
