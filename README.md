@@ -45,7 +45,7 @@ To test out the demo, you may login to the http://demo.ecclesiacrm.com  with the
 ## New UI
 
 ![Menu](http://www.ecclesiacrm.com/screenshots/menu.PNG)
-![Calendar](http://www.ecclesiacrm.com/screenshots/family.PNG
+![Calendar](http://www.ecclesiacrm.com/screenshots/calendar.PNG)
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
 
