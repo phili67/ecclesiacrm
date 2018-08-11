@@ -61,9 +61,7 @@ class InputUtils {
 
   public static function FilterFloat($sInput)
   {
-    $LocaleInfo = localeconv();
-    $sInput = str_replace($LocaleInfo["mon_thousands_sep"] , "", $sInput);
-    $sInput = str_replace($LocaleInfo["mon_decimal_point"] , ".", $sInput);
+    $sInput = str_replace("," , ".", $sInput);
     
     return (float) floatval(trim($sInput));
   }
