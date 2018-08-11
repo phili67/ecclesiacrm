@@ -6489,11 +6489,11 @@ msgstr "Liste des groupes"
 
 #: GroupList.php:33
 msgid "Show type of group:"
-msgstr "Visualiser le type de groupes :"
+msgstr "Visualiser le type de groupe :"
 
 #: GroupList.php:48
 msgid "Groups count:"
-msgstr "Fonctions du groupe"
+msgstr "Nombre de groupe:"
 
 #: GroupList.php:66 GroupList.php:69
 msgid "Add New Group"

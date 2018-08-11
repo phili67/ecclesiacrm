@@ -385,7 +385,7 @@ msgstr "Ville"
 #: PersonEditor.php:949 PersonEditor.php:1054 Register.php:45
 #: queryparameteroptions_qpo.php:6
 msgid "State"
-msgstr "Etat"
+msgstr "Région"
 
 #: AutoPaymentEditor.php:919 BackupDatabase.php:63 CartToFamily.php:294
 #: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:249
@@ -6489,11 +6489,11 @@ msgstr "Liste des groupes"
 
 #: GroupList.php:33
 msgid "Show type of group:"
-msgstr "Visualiser le type de groupes :"
+msgstr "Visualiser le type de groupe :"
 
 #: GroupList.php:48
 msgid "Groups count:"
-msgstr "Fonctions du groupe"
+msgstr "Nombre de groupe:"
 
 #: GroupList.php:66 GroupList.php:69
 msgid "Add New Group"
