@@ -44,7 +44,8 @@ if (strtolower($sMode) == 'gdrp') {
 
   $persons = PersonQuery::create()
           ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
-          ->useFamilyQuery()// this part is unusefull, it's only for debugging
+          ->_or()// this part is unusefull, it's only for debugging
+          ->useFamilyQuery()
             ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a Family is completely deactivated
           ->endUse()
           ->orderByLastName()
