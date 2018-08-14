@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-11 16:05+0200\n"
+"POT-Creation-Date: 2018-08-14 12:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3830,7 +3830,7 @@ msgid "Password Reset"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
+msgid "Your EcclesiaCRM updated password has been changed"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 21:25+0200\n"
+"POT-Creation-Date: 2018-08-14 11:36+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3943,7 +3943,8 @@ msgid "Password Reset"
 msgstr "Restablecer Contraseña"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:22
-msgid "You EcclesiaCRM updated password has been changed"
+#, fuzzy
+msgid "Your EcclesiaCRM updated password has been changed"
 msgstr "Su contraseña actualizada de EcclesiaCRM ha sido cambiada"
 
 #: EcclesiaCRM/Emails/users/ResetPasswordTokenEmail.php:17
