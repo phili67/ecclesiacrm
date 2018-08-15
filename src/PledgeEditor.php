@@ -742,7 +742,7 @@ require 'Include/Header.php';
         <h3 class="box-title"><?= gettext("Fund Split") ?></h3>
       </div>
         <div class="box-body">
-          <table id="FundTable">
+          <table id="FundTable" style="border-spacing: 10px;border-collapse: separate;">
             <thead>
               <tr>
                 <th class="<?= $PledgeOrPayment == 'Pledge' ? 'LabelColumn' : 'PaymentLabelColumn' ?>"><?= gettext('Fund Name') ?></th>
@@ -764,21 +764,21 @@ require 'Include/Header.php';
                 <tr>
                   <td class="TextColumn"><?= gettext($fun_name) ?></td>
                   <td class="TextColumn">
-                    <input class="FundAmount" type="number" step="any" name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount" value="<?= $nAmount[$fun_id] ?>"><br>
+                    <input class="form-control FundAmount" type="number" step="any" name="<?= $fun_id ?>_Amount" id="<?= $fun_id ?>_Amount" value="<?= $nAmount[$fun_id] ?>"><br>
                     <font color="red"><?= $sAmountError[$fun_id] ?></font>
                   </td>
                   <?php
                     if ($bEnableNonDeductible) {
                         ?>
                       <td class="TextColumn">
-                        <input   type="number" step="any" name="<?= $fun_id ?>_NonDeductible" id="<?= $fun_id ?>_NonDeductible" value="<?= $nNonDeductible[$fun_id]?>" />
+                        <input class="form-control" type="number" step="any" name="<?= $fun_id ?>_NonDeductible" id="<?= $fun_id ?>_NonDeductible" value="<?= $nNonDeductible[$fun_id]?>" />
                         <br>
                         <font color="red"><?= $sNonDeductibleError[$fun_id]?></font>
                       </td>
                     <?php
                     } ?>
                   <td class="TextColumn">
-                    <input  type="text" size=40 name="<?= $fun_id ?>_Comment" id="<?= $fun_id ?>_Comment" value="<?= $sComment[$fun_id] ?>">
+                    <input class="form-control" type="text" size=40 name="<?= $fun_id ?>_Comment" id="<?= $fun_id ?>_Comment" value="<?= $sComment[$fun_id] ?>">
                   </td>
                 </tr>
               <?php
@@ -925,7 +925,7 @@ require 'Include/Header.php';
   }
   
   function CalculateTotal() {
-    var Total = 0;
+    var Total = 0.0;
       $(".FundAmount").each(function(object){
         var FundAmount = Number($(this).val());
         if (FundAmount >0 )
@@ -933,7 +933,7 @@ require 'Include/Header.php';
           Total += FundAmount;
         }
       });
-      $("#TotalAmount").val(Total);
+      $("#TotalAmount").val(Number(Total).toFixed(2));
   }
 </script>
 
