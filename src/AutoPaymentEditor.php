@@ -837,7 +837,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                   <label><?= gettext('Payment amount') ?></label>
              </div>
              <div class="col-md-4">                            
-                  <input type="text" name="Amount" value="<?= $nAmount ?>" class="form-control">
+                  <input type="number" step="any" name="Amount" value="<?= $nAmount ?>" class="form-control">
              </div>
           </div>
           <div class="row">
