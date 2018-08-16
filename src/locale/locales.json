@@ -87,7 +87,7 @@
     "locale": "en_US",
     "languageCode": "en",
     "countryCode": "US",
-    "dataTables": "French",
+    "dataTables": "English",
     "fullCalendar" : false,
     "datePicker": false,
     "select2": false
