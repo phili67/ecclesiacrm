@@ -318,6 +318,7 @@ require 'Include/Footer.php' ?>
 
       <?php
           $arr = array();
+          $familiesLack = "";
     
           if ($plotFamily) {
               foreach ($families as $family) {
@@ -325,6 +326,11 @@ require 'Include/Footer.php' ?>
                       //this helps to add head people persons details: otherwise doesn't seems to populate
                       $member = $family->getHeadPeople()[0];
 
+                      if (is_null($member)) {
+                        $familiesLack .= "<a href=\"".SystemURLs::getRootPath()."/FamilyView.php?FamilyID=".$family->getId()."\">".$family->getName()."</a>, ";
+                        continue;
+                      }
+                    
                       if ($member->getOnlyVisiblePersonView()) {
                         continue;
                       }
@@ -382,7 +388,6 @@ require 'Include/Footer.php' ?>
     
           // now we can add the Events
           foreach ($eventsArr as $ev) {
-            //echo "coucou".$ev;
       
             $event = EventQuery::Create()->findOneById($ev);
 
@@ -410,9 +415,15 @@ require 'Include/Footer.php' ?>
   
         var bPlotFamily = <?= ($plotFamily) ? 'true' : 'false' ?>;
 
+      
+        var familiesLack = '<?= $familiesLack ?>';
+      
+        if (familiesLack != '') {
+          window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Some families haven't any \"head of household\" role name defined or there's any activated members in this families:")+"<br>"+familiesLack);
+        }
+      
         //loop through the families/persons and add markers
         for (var key in newPlotArray) {
-        //loop through the families/persons and add markers
           var plotArray = newPlotArray[key];
         
           for (var i = 0; i < plotArray.length; i++) {

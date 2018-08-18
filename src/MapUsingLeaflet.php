@@ -45,6 +45,7 @@ $sPageTitle = gettext('View on Map');
 require 'Include/Header.php';
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+
 ?>
 
 <div class="callout callout-info">
@@ -301,12 +302,18 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
     <?php
         $arr = array();
+        $familiesLack = "";
         
         if ($plotFamily) {
             foreach ($families as $family) {
                 if ($family->hasLatitudeAndLongitude()) {
                     //this helps to add head people persons details: otherwise doesn't seems to populate
                     $member = $family->getHeadPeople()[0];
+                    
+                    if (is_null($member)) {
+                      $familiesLack .= "<a href=\"".SystemURLs::getRootPath()."/FamilyView.php?FamilyID=".$family->getId()."\">".$family->getName()."</a>, ";
+                      continue;
+                    }
                     
                     if ($member->getOnlyVisiblePersonView()) {
                       continue;
@@ -365,8 +372,6 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         
         // now we can add the Events
         foreach ($eventsArr as $ev) {
-          //echo "coucou".$ev;
-          
           $event = EventQuery::Create()->findOneById($ev);
 
           $photoFileThumb = SystemURLs::getRootPath() ."/skin/icons/event.png";
@@ -388,13 +393,19 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         }
         
       ?>
-
+      
       newPlotArray = <?= json_encode($arrPlotItemsSeperate) ?>;
       
       var bPlotFamily = <?= ($plotFamily) ? 'true' : 'false' ?>;
       
+      var familiesLack = '<?= $familiesLack ?>';
+      
+      if (familiesLack != '') {
+          window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Some families haven't any \"head of household\" role name defined or there's any activated members in this families:")+"<br>"+familiesLack);
+      }
+      
+      //loop through the families/persons and add markers
       for (var key in newPlotArray) {
-        //loop through the families/persons and add markers
         var plotArray = newPlotArray[key];
         
         for (var i = 0; i < plotArray.length; i++) {
