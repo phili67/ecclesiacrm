@@ -101,3 +101,6 @@ msgstr ""
 
 msgid "BankDraft"
 msgstr ""
+
+msgid "Some families haven't any \"head of household\" role name defined or there's any activated members in this families:"
+msgstr ""
