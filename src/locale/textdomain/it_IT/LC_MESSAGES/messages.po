@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 21:25+0200\n"
+"POT-Creation-Date: 2018-08-18 07:51+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,12 +136,12 @@ msgstr "Famiglie"
 msgid "Groups"
 msgstr "Gruppo"
 
-#: api/routes/persons.php:70
+#: api/routes/persons.php:81
 #, fuzzy
 msgid "Person Deactivated"
 msgstr "Questo valore è richiesto."
 
-#: api/routes/persons.php:72
+#: api/routes/persons.php:83
 #, fuzzy
 msgid "Person Activated"
 msgstr "Questo valore è richiesto."
@@ -209,7 +209,7 @@ msgstr ""
 #: FamilyEditor.php:692 FamilyList.php:93 FamilyView.php:234 GeoPage.php:361
 #: GroupReports.php:144 Menu.php:462 Menu.php:491 PersonEditor.php:934
 #: PersonEditor.php:938 PersonEditor.php:1002 PersonEditor.php:1018
-#: PersonList.php:101 PersonView.php:356 Register.php:43
+#: PersonList.php:102 PersonView.php:356 Register.php:43
 #: Reports/ConfirmReportEmail.php:125 Reports/ConfirmReportEmail.php:130
 msgid "Address"
 msgstr "Indirizzo"
@@ -283,7 +283,7 @@ msgstr "Famiglia"
 #: GroupEditor.php:103 GroupEditor.php:161 GroupList.php:40 GroupView.php:53
 #: Include/CountryDropDown.php:14 Include/StateDropDown.php:17
 #: MapUsingBing.php:186 MapUsingBing.php:232 MapUsingGoogle.php:182
-#: MapUsingGoogle.php:227 MapUsingLeaflet.php:177 MapUsingLeaflet.php:223
+#: MapUsingGoogle.php:227 MapUsingLeaflet.php:178 MapUsingLeaflet.php:224
 #: PaddleNumEditor.php:175 PersonEditor.php:888 PersonEditor.php:906
 #: PersonEditor.php:1314 PrintPastoralCare.php:268 PrintPastoralCare.php:278
 #: PrintView.php:271 PrintView.php:281 SelectDelete.php:157 SelectList.php:36
@@ -356,7 +356,7 @@ msgstr "inattivo"
 #: CSVImport.php:207
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:752
-#: PersonList.php:100 sundayschool/SundaySchoolDashboard.php:216
+#: PersonList.php:101 sundayschool/SundaySchoolDashboard.php:216
 #: UserList.php:51
 msgid "First Name"
 msgstr "Nome"
@@ -874,7 +874,7 @@ msgstr "Aggiungi il contenitore alla famiglia"
 #: GroupEditor.php:79 GroupPersonPropsFormEditor.php:221
 #: GroupPropsFormEditor.php:316 GroupPropsFormEditor.php:442 GroupView.php:417
 #: ListEvents.php:283 ListEvents.php:285 PersonCustomFieldsEditor.php:312
-#: PersonCustomFieldsEditor.php:430 PersonList.php:99 PersonView.php:1008
+#: PersonCustomFieldsEditor.php:430 PersonList.php:100 PersonView.php:1008
 #: PrintPastoralCare.php:341 PrintPastoralCare.php:468 PrintView.php:344
 #: PrintView.php:475 PropertyEditor.php:173 PropertyList.php:64
 #: PropertyTypeEditor.php:95 PropertyTypeList.php:42
@@ -941,7 +941,7 @@ msgstr "(Usa il campo testuale per stati esteri)"
 #: external/templates/verify/verify-family-info.php:34
 #: external/templates/verify/verify-family-info.php:77 FamilyEditor.php:764
 #: FamilyList.php:94 FamilyView.php:276 GroupReports.php:145
-#: PersonEditor.php:1138 PersonEditor.php:1140 PersonList.php:102
+#: PersonEditor.php:1138 PersonEditor.php:1140 PersonList.php:103
 #: PersonView.php:388 PrintPastoralCare.php:203 PrintView.php:206
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
 #: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
@@ -1073,7 +1073,7 @@ msgid "families"
 msgstr "Famiglie"
 
 #: CartView.php:318 CartView.php:376 EditEventTypes.php:205 FamilyList.php:101
-#: FamilyList.php:147 PersonList.php:109 PersonList.php:159 PersonView.php:1013
+#: FamilyList.php:147 PersonList.php:110 PersonList.php:160 PersonView.php:1013
 #: PersonView.php:1034
 msgid "Remove"
 msgstr "Rimuovi"
@@ -1859,8 +1859,8 @@ msgstr "Salva e aggiungi"
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:51
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:80 FamilyList.php:135
 #: FamilyList.php:136 FamilyList.php:137 FamilyList.php:138 FamilyList.php:139
-#: FamilyList.php:140 PersonList.php:146 PersonList.php:147 PersonList.php:148
-#: PersonList.php:149 PersonList.php:150 PersonList.php:151
+#: FamilyList.php:140 PersonList.php:147 PersonList.php:148 PersonList.php:149
+#: PersonList.php:150 PersonList.php:151 PersonList.php:152
 #: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
 #: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:291
 #: sundayschool/SundaySchoolClassView.php:292
@@ -3953,7 +3953,7 @@ msgstr "Eventi"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:213 ListEvents.php:345 MapUsingBing.php:192
 #: MapUsingBing.php:238 MapUsingGoogle.php:188 MapUsingGoogle.php:233
-#: MapUsingLeaflet.php:183 MapUsingLeaflet.php:229
+#: MapUsingLeaflet.php:184 MapUsingLeaflet.php:230
 msgid "Calendar"
 msgstr "Anno non valido"
 
@@ -3984,7 +3984,7 @@ msgstr "Persone"
 msgid "View All Persons"
 msgstr "Visualizza tutti"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:251 PersonList.php:74
+#: EcclesiaCRM/MenuBar/MenuBar.php:251 PersonList.php:75
 msgid "Add New Person"
 msgstr "Aggiungi nuova persona"
 
@@ -4163,7 +4163,7 @@ msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:222
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:188 FamilyList.php:97 Menu.php:463
-#: PersonList.php:105
+#: PersonList.php:106
 msgid "Created"
 msgstr "Creata"
 
@@ -5553,32 +5553,32 @@ msgstr ""
 "eliminato fino a quando queste donazioni sono associati a un&#39;altra "
 "famiglia."
 
-#: FamilyList.php:80 PersonList.php:88 SelectDelete.php:155
+#: FamilyList.php:80 PersonList.php:89 SelectDelete.php:155
 msgid "WARNING: This action can not be undone and may have legal implications!"
 msgstr ""
 "ATTENZIONE: Questa azione non può essere annullata e potrebbe avere "
 "implicazioni legali!"
 
-#: FamilyList.php:95 GroupReports.php:147 PersonList.php:103
+#: FamilyList.php:95 GroupReports.php:147 PersonList.php:104
 #: Reports/CanvassReports.php:241 Reports/ConfirmReportEmail.php:193
 #: Reports/ConfirmReportEmail.php:211
 msgid "Cell Phone"
 msgstr "Telefono cellulare"
 
-#: FamilyList.php:96 PersonList.php:104
+#: FamilyList.php:96 PersonList.php:105
 msgid "email"
 msgstr "Email"
 
-#: FamilyList.php:98 PersonList.php:106
+#: FamilyList.php:98 PersonList.php:107
 msgid "Edited"
 msgstr "Modificata"
 
-#: FamilyList.php:100 PersonList.php:108
+#: FamilyList.php:100 PersonList.php:109
 #, fuzzy
 msgid "Deactivation date"
 msgstr "inattivo"
 
-#: FamilyList.php:156 PersonList.php:169
+#: FamilyList.php:156 PersonList.php:170
 #, fuzzy
 msgid "Remove All"
 msgstr "Rimuovi"
@@ -7352,15 +7352,15 @@ msgstr "Persona"
 msgid "Assign starting at #"
 msgstr "Da assegnare:"
 
-#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:52
+#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:53
 msgid "Missing Families?"
 msgstr "Famiglie"
 
-#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:52
+#: MapUsingBing.php:54 MapUsingGoogle.php:45 MapUsingLeaflet.php:53
 msgid "Update Family Latitude or Longitude now."
 msgstr "Famiglie Mancanti? Aggiorna Latitudine e Longitudine Famiglia."
 
-#: MapUsingBing.php:60 MapUsingGoogle.php:51 MapUsingLeaflet.php:58
+#: MapUsingBing.php:60 MapUsingGoogle.php:51 MapUsingLeaflet.php:59
 msgid ""
 "Unable to display map due to missing Church Latitude or Longitude. Please "
 "update the church Address in the settings menu."
@@ -7374,25 +7374,25 @@ msgid ""
 "locations. Please create a Key in the maps sections of the setting menu."
 msgstr ""
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 msgid "Missing Person Map classification icon for"
 msgstr "Gestiione proprietà e classificazioni"
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 msgid "Clik"
 msgstr ""
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 msgid "here"
 msgstr "Ci sono"
 
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:151
+#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 #: Menu.php:111 Menu.php:134
 msgid "to solve the problem."
 msgstr ""
 
 #: MapUsingBing.php:180 MapUsingBing.php:225 MapUsingGoogle.php:176
-#: MapUsingGoogle.php:220 MapUsingLeaflet.php:171 MapUsingLeaflet.php:216
+#: MapUsingGoogle.php:220 MapUsingLeaflet.php:172 MapUsingLeaflet.php:217
 msgid "Legend"
 msgstr ""
 
@@ -8056,12 +8056,12 @@ msgstr "Data Iscrizione"
 msgid "Friend Date"
 msgstr "Data matrimonio"
 
-#: PersonList.php:66
+#: PersonList.php:67
 #, fuzzy
 msgid "Person List"
 msgstr "Lista persone"
 
-#: PersonList.php:87
+#: PersonList.php:88
 #, fuzzy
 msgid ""
 "WARNING: Some persons may have some records of donations and may NOT be "
