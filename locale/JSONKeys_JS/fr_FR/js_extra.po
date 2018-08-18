@@ -101,3 +101,8 @@ msgstr "Carte de crédit"
 
 msgid "BankDraft"
 msgstr "Virement bancaire"
+
+msgid ""
+"Some families haven't any \"head of household\" role name defined or there's "
+"any activated members in this families:"
+msgstr "Certaine familles n'ont pas de nom de rôle \"Représentant Famille\" ou il n'y a pas de membres activés dans ces familles :"
