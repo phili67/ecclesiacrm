@@ -14,6 +14,7 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\Family;
 
 
 $app->group('/persons', function () {
@@ -62,6 +63,16 @@ $app->group('/persons', function () {
                 $person->setDateDeactivated(Null);
             }
             $person->save();
+            
+            // a one person family is deactivated too
+            if ($person->getFamily()->getPeople()->count() == 1) {
+              if ($newStatus == "false") {
+                  $person->getFamily()->setDateDeactivated(date('YmdHis'));
+              } elseif ($newStatus == "true") {
+                  $person->getFamily()->setDateDeactivated(Null);
+              }
+              $person->getFamily()->save();
+            }
 
             //Create a note to record the status change
             $note = new Note();
