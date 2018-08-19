@@ -53,25 +53,37 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
+<?php 
+   if ($_SESSION['user']->isMenuOptionsEnabled()) {
     //Display the new property link
-    echo "<p align=\"center\"><a class='btn btn-primary' href=\"PropertyEditor.php?Type=".$sType.'">'.gettext('Add a New').' '.$sTypeName.' '.gettext('Property').'</a></p>';
+?>
+    <p align="center"><a class='btn btn-primary' href="PropertyEditor.php?Type=<?=$sType?>"><?= gettext('Add a New') ?> <?= $sTypeName?> <?= gettext('Property') ?></a></p>
+<?php
 }
 
 //Start the table
-echo "<table class='table'>";
-echo '<tr>';
-echo '<th valign="top">'.gettext('Name').'</th>';
-echo '<th valign="top">'.gettext('A').' '.$sTypeName.' '.gettext('with this Property...').'</b></th>';
-echo '<th valign="top">'.gettext('Prompt').'</th>';
+?>
+
+<table class='table'>
+<tr>
+<th valign="top"><?= gettext('Name') ?></th>
+<th valign="top"><?= gettext('A')?> <?= $sTypeName ?> <?= gettext('with this Property...') ?></b></th>
+<th valign="top"><?= gettext('Prompt') ?></th>
+
+<?php
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
-    echo '<td valign="top"><b>'.gettext('Edit').'</b></td>';
-    echo '<td valign="top"><b>'.gettext('Delete').'</b></td>';
+?>
+    <td valign="top"><b><?= gettext('Edit') ?></b></td>
+    <td valign="top"><b><?= gettext('Delete') ?></b></td>
+    
+<?php
 }
-echo '</tr>';
+?>
+</tr>
 
-echo '<tr><td>&nbsp;</td></tr>';
+<tr><td>&nbsp;</td></tr>
 
+<?php
 //Initalize the row shading
 $sRowClass = 'RowColorA';
 $iPreviousPropertyType = -1;
@@ -87,8 +99,10 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
     if ($iPreviousPropertyType != $prt_ID) {
 
         //Write the header row
-        echo $sBlankLine;
-        echo '<tr class="RowColorA"><td colspan="5"><b>'.$prt_Name.'</b></td></tr>';
+?>
+        <?= $sBlankLine ?>
+        <tr class="RowColorA"><td colspan="5"><b><?= $prt_Name ?></b></td></tr>
+<?php
         $sBlankLine = '<tr><td>&nbsp;</td></tr>';
 
         //Reset the row color
@@ -96,28 +110,40 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
     }
 
     $sRowClass = AlternateRowStyle($sRowClass);
+    
+?>
 
-    echo '<tr class="'.$sRowClass.'">';
-    echo '<td valign="top">'.$pro_Name.'&nbsp;</td>';
-    echo '<td valign="top">';
+    <tr class="<?= $sRowClass ?>">
+    <td valign="top"><?= $pro_Name ?>&nbsp;</td>
+    <td valign="top">
+<?php
     if (strlen($pro_Description) > 0) {
-        echo '...'.$pro_Description;
+?>
+        ...<?= stripslashes($pro_Description) ?>
+<?php
     }
-    echo '&nbsp;</td>';
-    echo '<td valign="top">'.$pro_Prompt.'&nbsp;</td>';
+?>
+    &nbsp;</td>
+    <td valign="top"><?= $pro_Prompt ?>&nbsp;</td>
+<?php
     if ($_SESSION['user']->isMenuOptionsEnabled()) {
-        echo "<td valign=\"top\"><a class='btn btn-primary' href=\"PropertyEditor.php?PropertyID=".$pro_ID.'&Type='.$sType.'">'.gettext('Edit').'</a></td>';
-        echo "<td valign=\"top\"><a class='btn btn-danger' href=\"PropertyDelete.php?PropertyID=".$pro_ID.'&Type='.$sType.'">'.gettext('Delete').'</a></td>';
+?>
+        <td valign="top"><a class='btn btn-success' href="PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><?= gettext('Edit') ?></a></td>
+        <td valign="top"><a class='btn btn-danger' href="PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><?= gettext('Delete') ?></a></td>
+<?php
     }
-    echo '</tr>';
-
+?>
+    </tr>
+<?php
     //Store the PropertyType
     $iPreviousPropertyType = $prt_ID;
 }
 
 //End the table
-echo '</table></div>';
+?>
 
+</table></div>
+
+<?php
 require 'Include/Footer.php';
-
 ?>

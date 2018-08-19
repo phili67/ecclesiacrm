@@ -20,7 +20,7 @@ if (!$_SESSION['user']->isMenuOptionsEnabled()) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Property Delete Confirmation');
+$sPageTitle = _('Property Delete Confirmation');
 
 // Get the Type and Property
 $sType = $_GET['Type'];
@@ -46,24 +46,21 @@ require 'Include/Header.php';
 
 ?>
 
+<div class="box box-body">
 <p>
-	<?= gettext('Please confirm deletion of this property') ?>:
-</p>
-
-<p class="ShadedBox">
-	<?= $pro_Name ?>
+	<?= _('Please confirm deletion of this property') ?>: <b><?= $pro_Name ?></b>
 </p>
 
 <p>
-	<?= gettext('Deleting this Property will also delete all assignments of this Property to any People, Family, or Group records.') ?>
+	<?= _('Deleting this Property will also delete all assignments of this Property to any People, Family, or Group records.') ?>
 </p>
 
 <p align="center">
-	<a href="PropertyDelete.php?Confirmed=Yes&PropertyID=<?php echo $iPropertyID ?>&Type=<?= $sType ?>"><?= gettext('Yes, delete this record') ?></a> <?= gettext('(this action cannot be undone)') ?>
+	<a href="PropertyDelete.php?Confirmed=Yes&PropertyID=<?= $iPropertyID ?>&Type=<?= $sType ?>" class="btn btn-danger"><?= _('Yes, delete this record') ?></a> <?= _('(this action cannot be undone)') ?>
 	 |
-	<a href="PropertyList.php?Type=<?= $sType ?>"><?= gettext('No, cancel this deletion') ?></a>
+	<a href="PropertyList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= _('No, cancel this deletion') ?></a>
 </p>
 
-</p>
+</div>
 
 <?php require 'Include/Footer.php' ?>
