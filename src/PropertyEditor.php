@@ -40,16 +40,16 @@ $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
 //Based on the type, set the TypeName
 switch ($sType) {
     case 'p':
-        $sTypeName = gettext('Person');
+        $sTypeName = _('Person');
         break;
     case 'f':
-        $sTypeName = gettext('Family');
+        $sTypeName = _('Family');
         break;
     case 'g':
-        $sTypeName = gettext('Group');
+        $sTypeName = _('Group');
         break;
     case 'm':
-        $sTypeName = gettext('Menu');
+        $sTypeName = _('Menu');
         break;
     default:
         Redirect('Menu.php');
@@ -58,7 +58,7 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' '.gettext('Property Editor');
+$sPageTitle = $sTypeName.' '._('Property Editor');
 
 $bError = false;
 $iType = 0;
@@ -72,13 +72,13 @@ if (isset($_POST['Submit'])) {
 
     //Did they enter a name?
     if (strlen($sName) < 1) {
-        $sNameError = '<br><font color="red">'.gettext('You must enter a name').'</font>';
+        $sNameError = '<br><font color="red">'._('You must enter a name').'</font>';
         $bError = true;
     }
 
     //Did they select a Type
     if (strlen($iClass) < 1) {
-        $sClassError = '<br><font color="red">'.gettext('You must select a type').'</font>';
+        $sClassError = '<br><font color="red">'._('You must select a type').'</font>';
         $bError = true;
     }
 
@@ -87,7 +87,7 @@ if (isset($_POST['Submit'])) {
         $propertyType = PropertyTypeQuery::Create()
                         ->findOneByPrtId($iClass);
                         
-        $prt_class = $propertyType->getPrtClass();            
+        $prt_class = $propertyType->getPrtClass();
 
         //Vary the SQL depending on if we're adding or editing
         if ($iPropertyID == 0) {
@@ -150,47 +150,43 @@ require 'Include/Header.php';
     <div class="form-group">
         <div class="row">
             <div class="col-md-6">
-                <label for="Class"><?= gettext('Type') ?>:</label>
+                <label for="Class"><?= _('Type') ?>:</label>
                 <select  class="form-control input-small" name="Class">
-                    <option value=""><?= gettext('Select Property Type') ?></option>
-                    <?php                    
-                    echo $iType;
-                    
+                    <option value=""><?= _('Select Property Type') ?></option>
+                  <?php                    
                     foreach ($ormPropertyTypes as $ormPropertyType) {
-                      echo '<option value="'.$ormPropertyType->getPrtId().'"';
-                      if ($iType == $ormPropertyType->getPrtId()) {
-                            echo 'selected';
-                      }
-                      echo '>'.gettext($ormPropertyType->getPrtName()).'</option>';
-                    }                    
-                    ?>
+                  ?>
+                      <option value="<?= $ormPropertyType->getPrtId()?>" <?= ($iType == $ormPropertyType->getPrtId())?'selected':'' ?>><?= _($ormPropertyType->getPrtName()) ?></option>
+                  <?php
+                    }
+                  ?>
                 </select>
                 <?= $sClassError ?>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="Name"><?= gettext('Name') ?>:</label>
+                <label for="Name"><?= _('Name') ?>:</label>
                 <input class="form-control input-small" type="text" name="Name" value="<?= htmlentities(stripslashes($sName), ENT_NOQUOTES, 'UTF-8') ?>" size="50">
-                <?php echo $sNameError ?>
+                <?= $sNameError ?>
            </div>
        </div>
        <div class="row">
             <div class="col-md-6">
-                <label for="Description">"<?= gettext('A') ?> <?php echo $sTypeName ?><BR><?= gettext('with this property..') ?>":</label>
+                <label for="Description">"<?= _('A') ?> <?= $sTypeName ?><BR><?= _('with this property..') ?>":</label>
                 <textarea class="form-control input-small" name="Description" cols="60" rows="3"><?= htmlentities(stripslashes($sDescription), ENT_NOQUOTES, 'UTF-8') ?></textarea>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label for="Prompt"><?= gettext('Prompt') ?>:</label>
-                <input class="form-control input-small" type="text" name="Prompt" value="<?php echo htmlentities(stripslashes($sPrompt), ENT_NOQUOTES, 'UTF-8') ?>" size="50">
-                <span class="SmallText"><?= gettext('Entering a Prompt value will allow the association of a free-form value.') ?></span>
+                <label for="Prompt"><?= _('Prompt') ?>:</label>
+                <input class="form-control input-small" type="text" name="Prompt" value="<?= htmlentities(stripslashes($sPrompt), ENT_NOQUOTES, 'UTF-8') ?>" size="50">
+                <span class="SmallText"><?= _('Entering a Prompt value will allow the association of a free-form value.') ?></span>
             </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Save') ?>">&nbsp;<input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="document.location='PropertyList.php?Type=<?= $sType ?>';">
+            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Save') ?>">&nbsp;<input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="document.location='PropertyList.php?Type=<?= $sType ?>';">
         </div>
         </div>
     </div>
