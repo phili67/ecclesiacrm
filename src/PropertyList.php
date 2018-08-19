@@ -124,7 +124,7 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
     }
 ?>
     &nbsp;</td>
-    <td valign="top"><?= $pro_Prompt ?>&nbsp;</td>
+    <td valign="top"><?= stripslashes($pro_Prompt) ?>&nbsp;</td>
 <?php
     if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
