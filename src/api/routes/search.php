@@ -306,7 +306,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         }
         
         //Search PastoralCare
-        if ($_SESSION['user']->isPastoralCareEnabled()) {
+        if ($_SESSION['user']->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
           try {
             $searchLikeString = '%'.$query.'%';
             $cares = PastoralCareQuery::Create()
@@ -317,6 +317,8 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                      ->usePastoralCareTypeQuery()
                        ->filterByTitle($searchLikeString, Criteria::LIKE)
                      ->endUse()
+                     ->orderByDate(Criteria::DESC)
+                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
                      ->findByPastorId($_SESSION['user']->getPerson()->getId());
                    
             if (!empty($cares)) {
