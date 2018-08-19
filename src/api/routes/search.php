@@ -13,6 +13,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PastoralCareQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 // Routes search
@@ -302,6 +303,48 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             } catch (Exception $e) {
                 $this->Logger->warn($e->getMessage());
             }
+        }
+        
+        //Search PastoralCare
+        if ($_SESSION['user']->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
+          try {
+            $searchLikeString = '%'.$query.'%';
+            $cares = PastoralCareQuery::Create()
+                     ->filterByText($searchLikeString, Criteria::LIKE)
+                     ->leftJoinPastoralCareType()
+                     ->joinPersonRelatedByPersonId()                     
+                     ->_or()
+                     ->usePastoralCareTypeQuery()
+                       ->filterByTitle($searchLikeString, Criteria::LIKE)
+                     ->endUse()
+                     ->orderByDate(Criteria::DESC)
+                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
+                     ->findByPastorId($_SESSION['user']->getPerson()->getId());
+                   
+            if (!empty($cares)) {
+                $data = [];   
+                $id++;
+        
+                foreach ($cares as $care) {
+                  $elt = ['id'=>$id++,
+                    'text'=>$care->getPersonRelatedByPersonId()->getFullName(),
+                    'uri'=>SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId()];
+        
+                  array_push($data, $elt);
+                }
+        
+                if (!empty($data))
+                {
+                  $dataPayements = ['children' => $data,
+                  'id' => 6,
+                  'text' => gettext('Pastoral Care')];
+
+                  array_push($resultsArray, $dataPayements);
+                }
+            }
+          } catch (Exception $e) {
+            $this->Logger->warn($e->getMessage());
+          }
         }
     }
     
