@@ -65,8 +65,8 @@ $iType = 0;
 
 //Was the form submitted?
 if (isset($_POST['Submit'])) {
-    $sName = addslashes(InputUtils::LegacyFilterInput($_POST['Name']));
-    $sDescription = addslashes(InputUtils::LegacyFilterInput($_POST['Description']));
+    $sName = InputUtils::LegacyFilterInput($_POST['Name']);
+    $sDescription = InputUtils::LegacyFilterInput($_POST['Description']);
     $iClass = InputUtils::LegacyFilterInput($_POST['Class'], 'int');
     $sPrompt = InputUtils::LegacyFilterInput($_POST['Prompt']);
 
@@ -161,7 +161,7 @@ require 'Include/Header.php';
                       if ($iType == $ormPropertyType->getPrtId()) {
                             echo 'selected';
                       }
-                      echo '>'.$ormPropertyType->getPrtName().'</option>';
+                      echo '>'.gettext($ormPropertyType->getPrtName()).'</option>';
                     }                    
                     ?>
                 </select>

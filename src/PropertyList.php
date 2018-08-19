@@ -101,7 +101,7 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
     echo '<td valign="top">'.$pro_Name.'&nbsp;</td>';
     echo '<td valign="top">';
     if (strlen($pro_Description) > 0) {
-        echo '...'.$pro_Description;
+        echo '...'.stripslashes($pro_Description);
     }
     echo '&nbsp;</td>';
     echo '<td valign="top">'.$pro_Prompt.'&nbsp;</td>';
