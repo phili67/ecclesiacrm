@@ -87,6 +87,11 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         }
     } else {
        
+        if (isset($_POST['profileID'])) {
+            $profileID = $_POST['profileID'];
+        } else {
+            $profileID = 0;
+        }
         if (isset($_POST['AddRecords'])) {
             $AddRecords = 1;
         } else {
@@ -210,6 +215,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);
                     
+                    $user->setProfileId($profileID);
+                    
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
                     $user->setMenuOptions($MenuOptions);
@@ -253,6 +260,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setAddRecords($AddRecords);
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
+                    $user->setProfileId($profileID);
                     $user->setMainDashboard($MainDashboard);
                     $user->setSeePrivacyData($SeePrivacyData);
                     $user->setGdrpDpo($GdrpDpo);
@@ -490,6 +498,8 @@ foreach ($userProfiles as $userProfile) {
 </div><!-- Default box -->
 
 <form method="post" action="UserEditor.php">
+
+<input id="profileID" name="profileID" type="hidden" value="<?= $usr_profile_id ?>">
 
 <div class="box">
     <div class="box-body">

@@ -169,6 +169,8 @@ function addProfilesToMainDropdown()
         $('body').on('click','.changeProfile', function(){ 
           var profileID = $(this).data("id");
           
+          var test = $('input[name="profileID"]:hidden').val(profileID);
+          
           window.CRM.APIRequest({
              method: 'POST',
              path: 'userprofile/get',
