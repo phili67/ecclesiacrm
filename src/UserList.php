@@ -27,8 +27,10 @@ if (!$_SESSION['user']->isAdmin()) {
 }
 
 // Get all the User records
-$rsUsers = UserQuery::create()->find();
-
+$rsUsers = UserQuery::create()
+           ->leftJoinWithUserProfile()
+           ->find();
+           
 // Set the page title and include HTML header
 $sPageTitle = _("System Users Listing");
 require 'Include/Header.php';
@@ -49,6 +51,7 @@ require 'Include/Header.php';
                 <th><?= gettext('Actions') ?></th>
                 <th><?= gettext('Name') ?></th>
                 <th><?= gettext('First Name') ?></th>
+                <th align="center"><?= gettext('User Role') ?></th>
                 <th align="center"><?= gettext('Last Login') ?></th>
                 <th align="center"><?= gettext('Total Logins') ?></th>
                 <th align="center"><?= gettext('Failed Logins') ?></th>
@@ -97,6 +100,19 @@ require 'Include/Header.php';
                     <td>
                         <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
+                    <td>
+                        <?php 
+                          if (!is_null($user->getUserProfile())) { 
+                        ?>
+                          <?= $user->getUserProfile()->getUserProfileName() ?>
+                        <?php 
+                          } else {
+                        ?>
+                           <?= gettext("Undefined") ?>
+                        <?php
+                          }
+                        ?>
+                    </td>
                     <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatLong')) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td align="center">
@@ -136,7 +152,6 @@ require 'Include/Header.php';
                          }
                     ?>
                     </td>
-
                 </tr>
                 <?php
 } ?>
