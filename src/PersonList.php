@@ -39,17 +39,26 @@ if (strtolower($sMode) == 'gdrp') {
     exit;
   }
 
-  $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+  if (SystemConfig::getValue('bGDPR')) {
+    $time = new DateTime('now');
+    $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
-  $persons = PersonQuery::create()
-          ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
-          ->_or()// this part is unusefull, it's only for debugging
-          ->useFamilyQuery()
-            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a Family is completely deactivated
-          ->endUse()
-          ->orderByLastName()
-          ->find();
+    $persons = PersonQuery::create()
+            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
+            ->_or()// this part is unusefull, it's only for debugging
+            ->useFamilyQuery()
+              ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a Family is completely deactivated
+            ->endUse()
+            ->orderByLastName()
+            ->find();
+  } else {
+    $time = new DateTime('now');
+    
+    $persons = PersonQuery::create()
+            ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)
+            ->orderByLastName()
+            ->find();
+  }
 } else {
   if (!$_SESSION['user']->isEditRecordsEnabled()) {
     Redirect("Menu.php");

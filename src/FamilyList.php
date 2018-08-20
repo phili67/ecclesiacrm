@@ -35,13 +35,22 @@ if (strtolower($sMode) == 'gdrp') {
     exit;
   }
 
-  $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+  if (SystemConfig::getValue('bGDPR')) {
+    $time = new DateTime('now');
+    $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
-  $families = FamilyQuery::create()
-            ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
-            ->orderByName()
-            ->find();
+    $families = FamilyQuery::create()
+              ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
+              ->orderByName()
+              ->find();
+  } else {
+    $time = new DateTime('now');
+    
+     $families = FamilyQuery::create()
+              ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)// RGPD, when a person is completely deactivated, we only can see the person who are over a certain date
+              ->orderByName()
+              ->find();
+  }
 } else {
   if (!$_SESSION['user']->isEditRecordsEnabled()) {
     Redirect("Menu.php");
