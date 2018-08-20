@@ -3,10 +3,10 @@
 /* copyright 2018 Logel Philippe All right reserved */
 
 use EcclesiaCRM\Person2group2roleP2g2r;
-use EcclesiaCRM\UserProfileQuery;
-use EcclesiaCRM\UserProfile;
+use EcclesiaCRM\UserRoleQuery;
+use EcclesiaCRM\UserRole;
 
-$app->group('/userprofile', function () {
+$app->group('/userrole', function () {
   
     $this->post('/add',function($request,$response,$args) {
       if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
@@ -16,27 +16,27 @@ $app->group('/userprofile', function () {
         $params = (object)$request->getParsedBody();
           
         if (isset ($params->name) && isset ($params->global) && isset ($params->userPerms) && isset ($params->userValues)) {
-          $userCFGs = UserProfileQuery::Create()
-            ->filterByUserProfileName($params->name)
-            ->_or()->filterByUserProfileGlobal($params->global)
-            ->_and()->filterByUserProfilePermissions($params->userPerms)
-            ->_and()->filterByUserProfileValue($params->userValues)
+          $userCFGs = UserRoleQuery::Create()
+            ->filterByName($params->name)
+            ->_or()->filterByGlobal($params->global)
+            ->_and()->filterByPermissions($params->userPerms)
+            ->_and()->filterByValue($params->userValues)
             ->find();
             
           if ($userCFGs->count()) {
             return $response->withJson(['status' => "error"]);
           }
 
-          $userCFG = new UserProfile();
+          $userCFG = new UserRole();
           
-          $userCFG->setUserProfileName($params->name);
-          $userCFG->setUserProfileGlobal($params->global);
-          $userCFG->setUserProfilePermissions($params->userPerms);
-          $userCFG->setUserProfileValue($params->userValues);
+          $userCFG->setName($params->name);
+          $userCFG->setGlobal($params->global);
+          $userCFG->setPermissions($params->userPerms);
+          $userCFG->setValue($params->userValues);
           
           $userCFG->save();          
         } else {
-            throw new \Exception(gettext("POST to userprofile name, global variable, userPerms and userValues"),500);
+            throw new \Exception(gettext("POST to UserRole name, global variable, userPerms and userValues"),500);
         }
         return $response->withJson(['status' => "success"]);
     });
@@ -48,18 +48,18 @@ $app->group('/userprofile', function () {
 
         $params = (object)$request->getParsedBody();
           
-        if (isset ($params->profileID)) {
-          $userCFG = UserProfileQuery::Create()->findOneByUserProfileId($params->profileID);
+        if (isset ($params->roleID)) {
+          $userCFG = UserRoleQuery::Create()->findOneById($params->roleID);
           
           return $response->withJson([
-            'profileID' => $userCFG->getUserProfileId(),
-            'name' => $userCFG->getUserProfileName(),
-            'global' =>  $userCFG->getUserProfileGlobal(),
-            'usrPerms' =>  $userCFG->getUserProfilePermissions(),
-            'userValues' =>  $userCFG->getUserProfileValue()
+            'roleID' => $userCFG->getId(),
+            'name' => $userCFG->getName(),
+            'global' =>  $userCFG->getGlobal(),
+            'usrPerms' =>  $userCFG->getPermissions(),
+            'userValues' =>  $userCFG->getValue()
           ]);                  
         } else {
-            throw new \Exception(gettext("POST to userprofile name, global variable, userPerms and userValues"),500);
+            throw new \Exception(gettext("POST to UserRole name, global variable, userPerms and userValues"),500);
         }
         return $response->withJson(['status' => "success"]);
     });
@@ -71,15 +71,15 @@ $app->group('/userprofile', function () {
 
         $params = (object)$request->getParsedBody();
           
-        if (isset ($params->profileID) && isset ($params->name)) {
-          $userCFG = UserProfileQuery::Create()->findOneByUserProfileId($params->profileID);
+        if (isset ($params->roleID) && isset ($params->name)) {
+          $userCFG = UserRoleQuery::Create()->findOneById($params->roleID);
           
-          $userCFG->setUserProfileName($params->name);
+          $userCFG->setName($params->name);
           
           $userCFG->save();
           
         } else {
-            throw new \Exception(gettext("POST to userprofile name, global variable, userPerms and userValues"),500);
+            throw new \Exception(gettext("POST to UserRole name, global variable, userPerms and userValues"),500);
         }
         return $response->withJson(['status' => "success"]);
     });
@@ -90,7 +90,7 @@ $app->group('/userprofile', function () {
             return $response->withStatus(401);
         }
 
-        $userCFG = UserProfileQuery::Create()->find();
+        $userCFG = UserRoleQuery::Create()->find();
           
         return $response->withJson($userCFG->toArray());                  
     });
@@ -102,14 +102,14 @@ $app->group('/userprofile', function () {
 
         $params = (object)$request->getParsedBody();
           
-        if (isset ($params->profileID)) {
-          $userCFG = UserProfileQuery::Create()->findOneByUserProfileId($params->profileID);
+        if (isset ($params->roleID)) {
+          $userCFG = UserRoleQuery::Create()->findOneById($params->roleID);
           
           if (!empty($userCFG)) {
              $userCFG->delete();
           }
         } else {
-            throw new \Exception(gettext("POST to userprofile name, global variable, userPerms and userValues"),500);
+            throw new \Exception(gettext("POST to UserRole name, global variable, userPerms and userValues"),500);
         }
         return $response->withJson(['status' => "success"]);
     });

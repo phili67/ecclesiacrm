@@ -28,7 +28,7 @@ if (!$_SESSION['user']->isAdmin()) {
 
 // Get all the User records
 $rsUsers = UserQuery::create()
-           ->leftJoinWithUserProfile()
+           ->leftJoinWithUserRole()
            ->find();
            
 // Set the page title and include HTML header
@@ -102,9 +102,9 @@ require 'Include/Header.php';
                     </td>
                     <td>
                         <?php 
-                          if (!is_null($user->getUserProfile())) { 
+                          if (!is_null($user->getUserRole())) { 
                         ?>
-                          <?= $user->getUserProfile()->getUserProfileName() ?>
+                          <?= $user->getUserRole()->getName() ?>
                         <?php 
                           } else {
                         ?>
