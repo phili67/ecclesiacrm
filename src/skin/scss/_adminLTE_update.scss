@@ -475,3 +475,47 @@ background-color:rgba(255, 255, 255, 0.5);box-shadow: 0 2px 2px 0 rgba(156,156,1
 background: repeating-linear-gradient(0deg,rgba(48,48,48,0.95),rgba(28,28,28,0.95));
 background-repeat: repeat-y;
 }
+
+/* special alert */
+.alert-birthday {
+background-color:#a6d58c ;
+border-left-color:#7da169 !important;
+border-left-width:5px;
+}
+
+.alert-birthday a {
+  color:#333;
+}
+
+.alert-birthday a:hover {
+  color:#000;
+}
+
+.alert-pastoral-care {
+background-color:#ffdab6;
+border-left-color:rgba(11, 11, 11, 0.3) !important;
+border-left-width:5px;
+}
+
+.alert-pastoral-care a {
+  color:#333;
+}
+
+.alert-pastoral-care a:hover {
+  color:#000;
+}
+
+
+.alert-gpdr {
+background-color:rgba(228, 30, 32, 0.3) !important;
+border-left-color:#e4280e !important;
+border-left-width:5px;
+}
+
+.alert-gpdr a {
+  color:#333;
+}
+
+.alert-gpdr a:hover {
+  color:#000;
+}

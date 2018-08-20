@@ -27,6 +27,8 @@ use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\PastoralCareQuery;
+use EcclesiaCRM\Map\PastoralCareTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 // we place this part to avoid a problem during the upgrade process
@@ -46,7 +48,7 @@ $updatedMembers = $dashboardService->getUpdatedMembers(12);
 //Newly added members from Active families
 $latestMembers = $dashboardService->getLatestMembers(12);
 
-if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isMainDashboardEnabled())) {
+if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isMainDashboardEnabled() || $_SESSION['user']->isPastoralCareEnabled())) {
    Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
    exit;
 }
@@ -67,7 +69,7 @@ $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
 $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
-if ($_SESSION['user']->isGdrpDpoEnabled()) {
+if ($_SESSION['user']->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
   // when a person is completely deactivated
   $time = new DateTime('now');
   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
@@ -88,8 +90,8 @@ if ($_SESSION['user']->isGdrpDpoEnabled()) {
               
   if ($persons->count()+$families->count() > 0) {
 ?>
-  <div class="callout callout-warning alert alert-info alert-dismissible " id="Menu_RGPD">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
+  <div class="alert alert-gpdr alert-dismissible " id="Menu_RGPD">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
        <h4 class="alert-heading"><?= gettext("GDPR") ?>  (<?= gettext("message for the DPO") ?>)</h4>
        <div class="row">
            <div class="col-sm-1">
@@ -147,12 +149,11 @@ if ($_SESSION['user']->isGdrpDpoEnabled()) {
 <?php    
   }  
 }
-            
 
 if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) && $_SESSION['user']->isSeePrivacyDataEnabled()) {
 ?>
-    <div class="callout callout-success alert alert-info alert-dismissible " id="Menu_Banner">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" style="color:#fff;">&times;</button>
+    <div class="alert alert-birthday alert-dismissible " id="Menu_Banner">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
     <?php
         $new_unclassified_row = false;
@@ -304,7 +305,65 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
   </div>
 
 <?php
-}?>
+}
+
+// The person can see the pastoral care
+if ($_SESSION['user']->isPastoralCareEnabled()) {
+  $cares = PastoralCareQuery::Create()
+                     ->leftJoinPastoralCareType()
+                     ->joinPersonRelatedByPersonId()
+                     ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
+                     ->orderByDate(Criteria::DESC)
+                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
+                     ->findByPastorId($_SESSION['user']->getPerson()->getId());
+    
+  ?>
+  <div class="alert alert-pastoral-care alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h4 class="alert-heading"><?= gettext("Pastoral Care")?></h4>
+        <?php
+          $count_care = 0;
+          $new_row = false;
+          
+          foreach ($cares as $care) {
+            if ($new_row == false) {
+                ?>
+                <div class="row">
+
+                <?php $new_row = true;
+            } ?>
+            
+            <div class="col-sm-3">
+              <label class="checkbox-inline">
+                <a href="<?= SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId() ?>" class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getPersonRelatedByPersonId()->getFullName() ?> (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong'))?>)</a>
+              </label>
+            </div>
+
+            <?php
+            $count_care+=1;
+            $count_care%=4;
+            if ($count_care == 0) {
+                ?>
+                </div>
+            <?php
+                $new_row = false;
+            }
+        ?>
+        <?php
+          }
+          
+          if ($new_row == true) {
+            ?>
+            </div>
+        <?php
+        } 
+        ?>
+  </div>
+
+  <?php
+}
+
+?>
 
 
 <!-- Small boxes (Stat box) -->
