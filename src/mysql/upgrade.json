@@ -349,7 +349,8 @@
             "4.4.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.5.0-upgrade.sql"
+          "/mysql/upgrade/4.5.0-upgrade.sql",
+          "/mysql/upgrade/4.5.0-upgrade.php"
         ],
         "dbVersion": "4.5.0"
     }
