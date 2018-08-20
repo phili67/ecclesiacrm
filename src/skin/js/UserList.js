@@ -1,5 +1,40 @@
 $(document).ready(function () {
-      $.fn.dataTable.moment = function ( format, locale ) {
+    $(".webdavkey").click(function() {
+      var userID = $(this).data("userid");
+      
+      window.CRM.APIRequest({
+         method: 'POST',
+         path: 'users/webdavKey',
+         data: JSON.stringify({"userID": userID})
+      }).done(function(data) {
+        if (data.status == 'success') {
+          if (data.token != null) {
+            window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+data.token);
+          } else {
+            window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+i18next.t("None"));
+          }
+        }
+      });
+    });
+    
+    $(".lock-unlock").click(function() {
+      var userID = $(this).data("userid");
+      
+      window.CRM.APIRequest({
+         method: 'POST',
+         path: 'users/lockunlock',
+         data: JSON.stringify({"userID": userID})
+      }).done(function(data) {
+        if (data.success == true) {
+           location.reload();
+        }
+      });
+    });
+    
+    
+    
+    
+    $.fn.dataTable.moment = function ( format, locale ) {
         var types = $.fn.dataTable.ext.type;
 
         // Add type detection

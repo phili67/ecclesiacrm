@@ -122,8 +122,8 @@ class User extends BaseUser
     {
       if ($oldUserName != $newUserName) {
          try {
-              rename(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($oldUserName),dirname(__FILE__)."/../../../"."private/userdir/".strtolower($newUserName));
-              $this->setHomedir("private/userdir/".strtolower($newUserName));
+              rename(dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($oldUserName)),dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($newUserName)));
+              $this->setHomedir($this->getUserDir());
               $this->save();
             
               // transfert the calendars to a user
@@ -148,8 +148,8 @@ class User extends BaseUser
     {
        try {
        
-            mkdir(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()), 0755, true);
-            $this->setHomedir("private/userdir/".strtolower($this->getUserName()));
+            mkdir(dirname(__FILE__)."/../../../".$this->getUserDir(), 0755, true);
+            $this->setHomedir($this->getUserDir());
             $this->save();
             
             // now we code in Sabre        
@@ -181,7 +181,7 @@ class User extends BaseUser
       $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
 
       // we code now in propel      
-      MiscUtils::delTree(dirname(__FILE__)."/../../../"."private/userdir/".strtolower($this->getUserName()));
+      MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserRootDir());
       
       $this->setHomedir(null);
       $this->save();
@@ -440,6 +440,56 @@ class User extends BaseUser
         }
 
         $note->save();
+    }
+    
+    public function getUserDir($username = '')
+    {
+      if ($username == '') {
+        return $this->getUserRootDir()."/".strtolower($this->getUserName());
+      }
+      
+      return $this->getUserRootDir()."/".strtolower($username);
+    }
+    
+    public function getUserRootDir()
+    {
+      return "private/userdir/".$this->getWebDavKeyUUID();
+    }
+    
+    public function getWebDavKeyUUID()
+    {
+      if ($this->getWebdavkey() == null) {
+        $this->createWebDavUUID();
+        
+        // the old
+        $new_dir = "private/userdir/".$this->getWebdavkey()."/".strtolower($this->getUserName());
+        
+        // in this case we have to create the create the folder
+        mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        $this->setHomedir($new_dir);
+        $this->save();
+        
+        // then we move the files
+        if (file_exists($old_dir) && is_dir($old_dir)) { 
+          $old_dir = "private/userdir/".strtolower($this->getUserName());
+          
+          rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
+        }
+      }
+      
+      return $this->getWebdavkey();
+    }
+    
+    private function createWebDavUUID()
+    {
+      if ($this->getWebdavkey() == null) {
+        // we create the uuid name
+        $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+        
+        // we store the uuid
+        $this->setWebdavkey($uuid);
+        $this->save();
+      }
     }
     
     public function deleteTimeLineNote($type,$info = null)
