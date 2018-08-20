@@ -316,51 +316,53 @@ if ($_SESSION['user']->isPastoralCareEnabled()) {
                      ->orderByDate(Criteria::DESC)
                      ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
                      ->findByPastorId($_SESSION['user']->getPerson()->getId());
-    
+  
+  if ($cares->count() > 0) {    
   ?>
-  <div class="alert alert-pastoral-care alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h4 class="alert-heading"><?= gettext("Pastoral Care")?></h4>
-        <?php
-          $count_care = 0;
-          $new_row = false;
+    <div class="alert alert-pastoral-care alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4 class="alert-heading"><?= gettext("Pastoral Care")?></h4>
+          <?php
+            $count_care = 0;
+            $new_row = false;
           
-          foreach ($cares as $care) {
-            if ($new_row == false) {
-                ?>
-                <div class="row">
+            foreach ($cares as $care) {
+              if ($new_row == false) {
+                  ?>
+                  <div class="row">
 
-                <?php $new_row = true;
-            } ?>
+                  <?php $new_row = true;
+              } ?>
             
-            <div class="col-sm-3">
-              <label class="checkbox-inline">
-                <a href="<?= SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId() ?>" class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getPersonRelatedByPersonId()->getFullName() ?> (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong'))?>)</a>
-              </label>
-            </div>
+              <div class="col-sm-3">
+                <label class="checkbox-inline">
+                  <a href="<?= SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId() ?>" class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getPersonRelatedByPersonId()->getFullName() ?> (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong'))?>)</a>
+                </label>
+              </div>
 
-            <?php
-            $count_care+=1;
-            $count_care%=4;
-            if ($count_care == 0) {
-                ?>
-                </div>
-            <?php
-                $new_row = false;
+              <?php
+              $count_care+=1;
+              $count_care%=4;
+              if ($count_care == 0) {
+                  ?>
+                  </div>
+              <?php
+                  $new_row = false;
+              }
+          ?>
+          <?php
             }
-        ?>
-        <?php
-          }
           
-          if ($new_row == true) {
-            ?>
-            </div>
-        <?php
-        } 
-        ?>
-  </div>
+            if ($new_row == true) {
+              ?>
+              </div>
+          <?php
+          } 
+          ?>
+    </div>
 
   <?php
+  }
 }
 
 ?>
