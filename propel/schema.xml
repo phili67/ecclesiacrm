@@ -786,15 +786,12 @@
       </vendor>
     </table>
     
-    <table name="userprofile_usrprf" idMethod="native" phpName="UserProfile">
-      <column name="usrprf_id" phpName="UserProfileId" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-      <column name="usrprf_name" phpName="UserProfileName" type="VARCHAR" size="256" required="true"/>
-      <column name="usrprf_global" phpName="UserProfileGlobal" type="LONGVARCHAR"/>
-      <column name="usrprf_permissions" phpName="UserProfilePermissions" type="LONGVARCHAR"/>
-      <column name="usrprf_value" phpName="UserProfileValue" type="LONGVARCHAR"/>
-      <index name="usr_per_ID">
-          <index-column name="usrprf_id"/>
-      </index>
+    <table name="userrole_usrrol" idMethod="native" phpName="UserRole">
+      <column name="usrrol_id" phpName="Id" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+      <column name="usrrol_name" phpName="Name" type="VARCHAR" size="256" required="true"/>
+      <column name="usrrol_global" phpName="Global" type="LONGVARCHAR"/>
+      <column name="usrrol_permissions" phpName="Permissions" type="LONGVARCHAR"/>
+      <column name="usrrol_value" phpName="Value" type="LONGVARCHAR"/>
       <vendor type="mysql">
         <parameter name="Engine" value="InnoDB"/>
       </vendor>
@@ -802,7 +799,7 @@
 
     <table name="user_usr" idMethod="native" phpName="User" description="This contains the login information and specific settings for each EcclesiaCRM user">
         <column name="usr_per_ID" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true" defaultValue="0"/>
-        <column name="usr_profile_id" phpName="ProfileId" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned"/>
+        <column name="usr_role_id" phpName="ProfileId" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned"/>
         <column name="usr_Password" phpName="Password" type="VARCHAR" size="500" required="true" defaultValue=""/>
         <column name="usr_NeedPasswordChange" phpName="NeedPasswordChange" type="BOOLEAN" size="1" sqlType="tinyint(3) unsigned" required="true" defaultValue="1"/>
         <column name="usr_LastLogin" phpName="LastLogin" type="TIMESTAMP" required="true" defaultValue="2016-01-01 00:00:00"/>
@@ -852,8 +849,8 @@
         <unique name="usr_UserName">
             <unique-column name="usr_UserName"/>
         </unique>
-        <index name="fk_usr_profile_id">
-          <index-column name="usr_profile_id"/>
+        <index name="fk_usr_role_id">
+          <index-column name="usr_role_id"/>
         </index>
         <unique name="usr_webDavKey">
           <unique-column name="usr_webDavKey"/>
@@ -861,8 +858,8 @@
         <foreign-key foreignTable="person_per">
             <reference local="usr_per_ID" foreign="per_ID"/>
         </foreign-key>
-        <foreign-key foreignTable="userprofile_usrprf" name="fk_usr_profile_id" onDelete="SET NULL">
-          <reference local="usr_profile_id" foreign="usrprf_id"/>
+        <foreign-key foreignTable="userrole_usrrol" name="fk_usr_role_id" onDelete="SET NULL">
+          <reference local="usr_role_id" foreign="usrrol_id"/>
         </foreign-key>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>

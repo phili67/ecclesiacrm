@@ -1236,20 +1236,20 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userprofile_usrprf`
+-- Table structure for table `userrole_usrrol`
 --  
 
-CREATE TABLE userprofile_usrprf (
-    `usrprf_id` mediumint(11) unsigned  NOT NULL AUTO_INCREMENT,
-    `usrprf_name` VARCHAR(256) NOT NULL,
-    `usrprf_global` TEXT COLLATE utf8_unicode_ci,
-    `usrprf_permissions` TEXT COLLATE utf8_unicode_ci,
-    `usrprf_value` TEXT COLLATE utf8_unicode_ci,
-    PRIMARY KEY(usrprf_id)
+CREATE TABLE userrole_usrrol (
+    `usrrol_id` mediumint(11) unsigned  NOT NULL AUTO_INCREMENT,
+    `usrrol_name` VARCHAR(256) NOT NULL,
+    `usrrol_global` TEXT COLLATE utf8_unicode_ci,
+    `usrrol_permissions` TEXT COLLATE utf8_unicode_ci,
+    `usrrol_value` TEXT COLLATE utf8_unicode_ci,
+    PRIMARY KEY(usrrol_id)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 
-INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`, `usrprf_global`, `usrprf_permissions`, `usrprf_value`) VALUES
+INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`, `usrrol_global`, `usrrol_permissions`, `usrrol_value`) VALUES
 (1, 'User Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;MainDashboard:1;SeePrivacyData:1;MailChimp:1;GdrpDpo:1;PastoralCare:1', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:TRUE;bExportSundaySchoolPDF:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;sCSVExportDelemiter:TRUE;sCSVExportCharset:TRUE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bExportSundaySchoolCSV:1;bExportSundaySchoolPDF:1;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1'),
 (2, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;MainDashboard:0;SeePrivacyData:0;MailChimp:0;GdrpDpo:0;PastoralCare:0', 'bEmailMailto:FALSE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:FALSE;bExportSundaySchoolPDF:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;sCSVExportDelemiter:FALSE;sCSVExportCharset:FALSE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:;sMailtoDelimiter:,;bExportSundaySchoolCSV:;bExportSundaySchoolPDF:;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1');
 
@@ -1262,7 +1262,7 @@ INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`, `usrprf_global`, `
 
 CREATE TABLE `user_usr` (
   `usr_per_ID` mediumint(9) unsigned NOT NULL default '0',
-  `usr_profile_id` mediumint(11) unsigned NULL,
+  `usr_role_id` mediumint(11) unsigned NULL,
   `usr_Password` varchar(500) NOT NULL default '',
   `usr_NeedPasswordChange` tinyint(1) unsigned NOT NULL default '1',
   `usr_HomeDir` varchar(500) default NULL,
@@ -1310,8 +1310,8 @@ CREATE TABLE `user_usr` (
   UNIQUE KEY `usr_UserName` (`usr_UserName`),
   UNIQUE KEY `usr_apiKey` (`usr_webDavKey`),
   KEY `usr_per_ID` (`usr_per_ID`),
-  CONSTRAINT fk_usr_profile_id
-    FOREIGN KEY (usr_profile_id) REFERENCES userprofile_usrprf(usrprf_id)
+  CONSTRAINT fk_usr_role_id
+    FOREIGN KEY (usr_role_id) REFERENCES userrole_usrrol(usrrol_id)
     ON DELETE SET NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
