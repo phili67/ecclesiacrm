@@ -144,8 +144,14 @@ require 'Include/Header.php';
       ?>
       </div>
       <div class="timeline-footer">
+      <?php 
+        if ($_SESSION['user']->isAdmin() || $ormPastoralCare->getPastorId() == $currentPastorId) { 
+      ?>
         <a class="btn btn-primary btn-xs modify-pastoral" data-id="<?= $ormPastoralCare->getId() ?>"><?= gettext("Modify") ?></a>
         <a class="btn btn-danger btn-xs delete-pastoral" data-id="<?= $ormPastoralCare->getId() ?>"><?= gettext("Delete") ?></a>
+      <?php 
+        } 
+      ?>
       </div>
       <?php
         } else {
