@@ -7,7 +7,12 @@ use EcclesiaCRM\Emails\ResetPasswordEmail;
 use EcclesiaCRM\Emails\AccountDeletedEmail;
 use EcclesiaCRM\Emails\UnlockedEmail;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Person;
+use EcclesiaCRM\Family;
 use EcclesiaCRM\User;
+use EcclesiaCRM\Note;
+use EcclesiaCRM\NoteQuery;
+
 
 $app->group('/users', function () {
 
@@ -31,6 +36,78 @@ $app->group('/users', function () {
             return $response->withStatus(404);
         }
     });
+    
+    $this->post('/webdavKey', function ($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
+        $params = (object)$request->getParsedBody();
+          
+        if (isset ($params->userID)) {
+        
+          $user = UserQuery::create()->findPk($params->userID);
+          if (!is_null($user)) {
+              return $response->withJson(['status' => "success", "token" => $user->getWebdavkey()]);
+          }
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    $this->post('/lockunlock', function ($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
+        $params = (object)$request->getParsedBody();
+          
+        if (isset ($params->userID)) {
+        
+          $user = UserQuery::create()->findPk($params->userID);
+          
+          if (!is_null($user) && $user->getPersonId() != 1) {
+            $person = $user->getPerson();
+            
+            $newStatus = (empty($person->getDateDeactivated()) ? true : false);
+
+            //update only if the value is different
+            if ($newStatus) {
+                $person->setDateDeactivated(date('YmdHis'));
+            } else {
+                $person->setDateDeactivated(Null);
+            }
+            $person->save();
+        
+            // a one person family is deactivated too
+            if ($person->getFamily()->getPeople()->count() == 1) {
+              if ($newStatus) {
+                  $person->getFamily()->setDateDeactivated(date('YmdHis'));
+              } else {
+                  $person->getFamily()->setDateDeactivated(Null);
+              }
+              $person->getFamily()->save();
+            }
+
+            //Create a note to record the status change
+            $note = new Note();
+            $note->setPerId($personId);
+            if ($newStatus == 'false') {
+                $note->setText(gettext('Person Deactivated'));
+            } else {
+                $note->setText(gettext('Person Activated'));
+            }
+            $note->setType('edit');
+            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->save();
+
+            return $response->withJson(['success' => true]);
+          }
+        }
+        
+        return $response->withJson(['success' => false]);
+    });
+    
 
     $this->post('/{userId:[0-9]+}/login/reset', function ($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {

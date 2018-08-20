@@ -101,7 +101,7 @@ if (isset($_POST['Submit'])) {
             $note->setFamId($iFamilyID);
             $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
-            $note->setText(str_replace("private/userdir/","",$target_file));
+            $note->setText(str_replace($_SESSION['user']->getUserRootDir()."/","",$target_file));
             $note->setType('file');
             $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));
@@ -112,7 +112,7 @@ if (isset($_POST['Submit'])) {
             $note = NoteQuery::create()->findPk($iNoteID);
             $notes = NoteQuery::Create ()->filterByText ($note->getText())->findByPerId($note->getPerId());
             
-            $target_delete_file = "private/userdir/".$note->getText();
+            $target_delete_file = $_SESSION['user']->getUserRootDir()."/".$note->getText();
    
             unlink($target_delete_file);
             
@@ -123,7 +123,7 @@ if (isset($_POST['Submit'])) {
             $note->setFamId($iFamilyID);
             $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
-            $note->setText(str_replace("private/userdir/","",$target_file));
+            $note->setText(str_replace($_SESSION['user']->getUserRootDir()."/","",$target_file));
             $note->setType('file');
             $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));

@@ -691,7 +691,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/private/userdir/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
                       <?php 
                         } 
                       ?>
@@ -1267,7 +1267,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {                        
                       ?>
-                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/private/userdir/".$item['text']) ?>
+                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$item['text']) ?>
                       <?php 
                         } 
                       ?>

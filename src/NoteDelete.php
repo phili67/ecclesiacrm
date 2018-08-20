@@ -54,7 +54,7 @@ if (isset($_GET['Confirmed'])) {
     
     if ($note->getType () == 'file') {
     
-      $target_delete_file = "private/userdir/".$note->getText();
+      $target_delete_file = $_SESSION['user']->getUserRootDir()."/".$note->getText();
 
       unlink($target_delete_file);
     }
@@ -80,7 +80,7 @@ require 'Include/Header.php';
     <?php 
       if ($note->getType() == 'file') {
     ?>
-      <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/private/userdir/".$note->getText()) ?>
+      <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$note->getText()) ?>
     <?php 
       } else {
     ?>

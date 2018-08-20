@@ -72,15 +72,25 @@ require 'Include/Header.php';
                         <?php
                             }
                         ?>
-                            <?php 
-                           if ( $user->getId() != $_SESSION['user']->getId() && $user->getPersonId() != 1 ) {
+                         <?php 
+                           if ( $user->getPersonId() != 1) {
+                         ?>
+                      
+                          <a class="webdavkey" data-userid="<?= $user->getId()?>">
+                             <i class="fa fa-eye" aria-hidden="true"></i>
+                          </a>
+                         <?php
+                           }
+                          ?>
+                        <?php 
+                          if ( $user->getId() != $_SESSION['user']->getId() && $user->getPersonId() != 1 ) {
                         ?>
                             <a onclick="deleteUser(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
                         <?php
-                            } 
+                          } 
                         ?>
-                    </td>
+                      </td>
                     <td>
                         <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
                     </td>
@@ -110,12 +120,21 @@ require 'Include/Header.php';
                         <?php if ($user->getId() != $_SESSION['user']->getId() && !empty($user->getEmail())) {
         ?>
                             <a onclick="resetUserPassword(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
-                                        class="fa fa-send-o" aria-hidden="true"></i></a>
+                                class="fa fa-send-o" aria-hidden="true"></i></a>
                             <?php
     } ?>
                     </td>
                     <td>
-                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= ($user->getPerson()->getDateDeactivated() == null)?'<div style="color:green;text-align:center">'.gettext("Activated").'</div>':'<div style="color:red;text-align:center">'.gettext("Deactivated").'</div>' ?></a>
+                    <?php 
+                        if ( $user->getPersonId() != 1) {
+                    ?>
+                    
+                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getPerson()->getDateDeactivated() == null)?'green':'red'?>" data-userid="<?= $user->getId()?>">
+                             <i class="fa <?= ($user->getPerson()->getDateDeactivated() == null)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
+                          </a>
+                    <?php
+                         }
+                    ?>
                     </td>
 
                 </tr>
