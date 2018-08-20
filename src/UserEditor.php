@@ -27,8 +27,8 @@ use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\User;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\UserProfileQuery;
-use EcclesiaCRM\UserProfile;
+use EcclesiaCRM\UserRoleQuery;
+use EcclesiaCRM\UserRole;
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
@@ -42,8 +42,8 @@ $vNewUser = false;
 $bShowPersonSelect = false;
 
 
-// we search all the available profiles
-$userProfiles = UserProfileQuery::Create()->find();
+// we search all the available roles
+$userRoles = UserRoleQuery::Create()->find();
 
 // Get the PersonID out of either querystring or the form, depending and what we're doing
 if (isset($_GET['PersonID'])) {
@@ -87,10 +87,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         }
     } else {
        
-        if (isset($_POST['profileID'])) {
-            $profileID = $_POST['profileID'];
+        if (isset($_POST['roleID'])) {
+            $roleID = $_POST['roleID'];
         } else {
-            $profileID = 0;
+            $roleID = 0;
         }
         if (isset($_POST['AddRecords'])) {
             $AddRecords = 1;
@@ -215,7 +215,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setEditRecords($EditRecords);
                     $user->setDeleteRecords($DeleteRecords);
                     
-                    $user->setProfileId($profileID);
+                    $user->setRoleId($roleID);
                     
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
@@ -260,7 +260,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setAddRecords($AddRecords);
                     $user->setPastoralCare($PastoralCare);
                     $user->setMailChimp($MailChimp);
-                    $user->setProfileId($profileID);
+                    if ($roleID > 0) {
+                      $user->setRoleId($roleID);
+                    }
                     $user->setMainDashboard($MainDashboard);
                     $user->setSeePrivacyData($SeePrivacyData);
                     $user->setGdrpDpo($GdrpDpo);
@@ -462,32 +464,36 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
 $sPageTitle = gettext('User Editor');
 require 'Include/Header.php';
 
-$first_profileID = 0;
-foreach ($userProfiles as $userProfile) {
-  $first_profileID = $userProfile->getUserProfileId();
+$first_roleID = 0;
+foreach ($userRoles as $userRole) {
+  $first_roleID = $userRole->getId();
   break;
+}
+
+if ($usr_role_id == null) {
+  $usr_role_id = $first_roleID;
 }
 
 ?>
 
 <div class="box">
   <div class="box-header with-border">
-      <h3 class="box-title"><?= gettext("Profile management") ?></h3>
+      <h3 class="box-title"><?= gettext("Role management") ?></h3>
   </div>
   <div class="box-body">
-      <a href="#" id="addProfile" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Profile") ?></a>
-      <a href="#" id="manageProfile" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Profiles")?></a>
+      <a href="#" id="addRole" class="btn btn-app"><i class="fa  fa-plus"></i><?= gettext("Add Role") ?></a>
+      <a href="#" id="manageRole" class="btn btn-app"><i class="fa fa-gear"></i><?= gettext("Manage Roles")?></a>
       <div class="btn-group">
-        <a class="btn btn-app changeProfile" id="mainbuttonProfile" data-id="<?= $first_profileID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Profile to Current User") ?></a>
+        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Role to Current User") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
         </button>
-        <ul class="dropdown-menu" role="menu" id="AllProfiles">
+        <ul class="dropdown-menu" role="menu" id="AllRoles">
             <?php 
-               foreach ($userProfiles as $userProfile) {
+               foreach ($userRoles as $userRole) {
             ?>               
-               <li> <a href="#" class="changeProfile" data-id="<?= $userProfile->getUserProfileId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userProfile->getUserProfileName() ?></a></li>
+               <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
             <?php
                }
             ?>
@@ -499,7 +505,7 @@ foreach ($userProfiles as $userProfile) {
 
 <form method="post" action="UserEditor.php">
 
-<input id="profileID" name="profileID" type="hidden" value="<?= $usr_profile_id ?>">
+<input id="roleID" name="roleID" type="hidden" value="<?= $usr_role_id ?>">
 
 <div class="box">
     <div class="box-body">

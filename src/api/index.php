@@ -46,7 +46,7 @@ require __DIR__.'/routes/properties.php';
 require __DIR__.'/routes/users.php';
 require __DIR__.'/routes/families.php';
 require __DIR__.'/routes/groups.php';
-require __DIR__.'/routes/userprofile.php';
+require __DIR__.'/routes/userrole.php';
 require __DIR__.'/routes/people.php';
 
 // the pastoral care route

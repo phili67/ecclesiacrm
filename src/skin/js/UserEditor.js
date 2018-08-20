@@ -1,46 +1,46 @@
-function addProfilesToMainDropdown()
+function addRolesToMainDropdown()
     {
-      $("#AllProfiles").empty();
+      $("#AllRoles").empty();
       
       
       window.CRM.APIRequest({
             method: 'POST',
-            path: 'userprofile/getall',
+            path: 'userrole/getall',
       }).done(function(data) {    
         var len = data.length;
       
         for (i=0; i<len; ++i) {
-          $("#AllProfiles").append('<li> <a class="changeProfile" data-id="'+data[i].UserProfileId+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].UserProfileName+'</a></li>');
+          $("#AllRoles").append('<li> <a class="changeRole" data-id="'+data[i].Id+'"><i class="fa fa-arrow-circle-o-down"></i>'+data[i].Name+'</a></li>');
           if (i == 0) {
-            $("#mainbuttonProfile").data("id",data[i].UserProfileId);
+            $("#mainbuttonRole").data("id",data[i].Id);
           }          
         }           
       });  
     }
 
-    function addProfiles()
+    function addRoles()
     {
-      $('#select-userprofile').find('option').remove();
+      $('#select-userrole').find('option').remove();
       
       window.CRM.APIRequest({
             method: 'POST',
-            path: 'userprofile/getall',
+            path: 'userrole/getall',
       }).done(function(data) {    
-        var elt = document.getElementById("select-userprofile");
+        var elt = document.getElementById("select-userrole");
         var len = data.length;
       
         for (i=0; i<len; ++i) {
           var option = document.createElement("option");
           // there is a groups.type in function of the new plan of schema
-          option.text = data[i].UserProfileName;
+          option.text = data[i].Name;
           //option.title = data[i].type;        
-          option.value = data[i].UserProfileId;
+          option.value = data[i].Id;
         
           elt.appendChild(option);
         }           
       });  
       
-      addProfilesToMainDropdown();
+      addRolesToMainDropdown();
     }
     
     $(document).ready(function () {
@@ -70,21 +70,21 @@ function addProfilesToMainDropdown()
         
         
         function BootboxContent(){
-          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Profile management")+'</h3>'
+          var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Role management")+'</h3>'
              + '<div>'
                   +'<div class="row div-title">'
                     +'<div class="col-md-4">'
-                    + '<span style="color: red">*</span>' + i18next.t("Select your Profile") + ":"                    
+                    + '<span style="color: red">*</span>' + i18next.t("Select your Role") + ":"                    
                     +'</div>'
                     +'<div class="col-md-8">'
-                    +'<select size="6" style="width:100%" id="select-userprofile">'
+                    +'<select size="6" style="width:100%" id="select-userrole">'
                     +'</select>'
                    +'</div>'
                   +'</div>'
                   +'<div class="row div-title">'
-                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Profile Name") + ":</div>"
+                    +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Role Name") + ":</div>"
                     +'<div class="col-md-8">'
-                      +"<input type='text' id='ProfileName' placeholder='" + i18next.t("Profile Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                      +"<input type='text' id='RoleName' placeholder='" + i18next.t("Role Name") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
                     +'</div>'
                   +'</div>'
                 +'</div>';
@@ -94,19 +94,19 @@ function addProfilesToMainDropdown()
               return object
         }
         
-        $(document).on('change','#select-userprofile',function() {
-          var profileID = $('#select-userprofile').val();
+        $(document).on('change','#select-userrole',function() {
+          var roleID = $('#select-userrole').val();
           
           window.CRM.APIRequest({
              method: 'POST',
-             path: 'userprofile/get',
-             data: JSON.stringify({"profileID": profileID})
+             path: 'userrole/get',
+             data: JSON.stringify({"roleID": roleID})
           }).done(function(data) {
-             $('#ProfileName').val(data.name);
+             $('#RoleName').val(data.name);
           });
         });
                 
-        $("#manageProfile").click(function() {
+        $("#manageRole").click(function() {
           var modal = bootbox.dialog({
              message: BootboxContent(),
              buttons: [
@@ -120,16 +120,16 @@ function addProfilesToMainDropdown()
                label: i18next.t("Delete"),
                className: "btn btn-danger",
                callback: function() {
-                  var profileID = $('#select-userprofile').val();
+                  var roleID = $('#select-userrole').val();
                   
-                  bootbox.confirm(i18next.t("Are you sure? You're about to delete this Profile."), function(result){ 
+                  bootbox.confirm(i18next.t("Are you sure? You're about to delete this Role."), function(result){ 
                     if (result) {
                       window.CRM.APIRequest({
                          method: 'POST',
-                         path: 'userprofile/delete',
-                         data: JSON.stringify({"profileID": profileID})
+                         path: 'userrole/delete',
+                         data: JSON.stringify({"roleID": roleID})
                       }).done(function(data) {
-                        addProfiles();
+                        addRoles();
                       });
                     }
                   });
@@ -140,15 +140,15 @@ function addProfilesToMainDropdown()
                label: i18next.t("Rename"),
                className: "btn btn-primary",
                callback: function() {
-                  var profileID = $('#select-userprofile').val();
-                  var name = $('#ProfileName').val();
+                  var roleID = $('#select-userrole').val();
+                  var name = $('#RoleName').val();
                   
                   window.CRM.APIRequest({
                      method: 'POST',
-                     path: 'userprofile/rename',
-                     data: JSON.stringify({"profileID": profileID,"name":name})
+                     path: 'userrole/rename',
+                     data: JSON.stringify({"roleID": roleID,"name":name})
                   }).done(function(data) {
-                    addProfiles();
+                    addRoles();
                   });
                   return false;
                }
@@ -162,19 +162,19 @@ function addProfilesToMainDropdown()
          
          modal.modal("show");
          
-         addProfiles();
+         addRoles();
         });
 
  
-        $('body').on('click','.changeProfile', function(){ 
-          var profileID = $(this).data("id");
+        $('body').on('click','.changeRole', function(){ 
+          var roleID = $(this).data("id");
           
-          var test = $('input[name="profileID"]:hidden').val(profileID);
+          var test = $('input[name="roleID"]:hidden').val(roleID);
           
           window.CRM.APIRequest({
              method: 'POST',
-             path: 'userprofile/get',
-             data: JSON.stringify({"profileID": profileID})
+             path: 'userrole/get',
+             data: JSON.stringify({"roleID": roleID})
           }).done(function(data) {
              var array = data.global.split(";");
              
@@ -217,7 +217,7 @@ function addProfilesToMainDropdown()
           });
         });
         
-        $("#addProfile").click(function() {
+        $("#addRole").click(function() {
            var global_res = '';
            $(".global_settings").each(function() {
               var _val;
@@ -265,23 +265,23 @@ function addProfilesToMainDropdown()
            user_perm = user_perm.slice(0, -1);
            user_value = user_value.slice(0, -1);
            
-           bootbox.prompt(i18next.t("Choose a Profile Name"), function(result){ 
+           bootbox.prompt(i18next.t("Choose a Role Name"), function(result){ 
              if (result) {
                 window.CRM.APIRequest({
                   method: 'POST',
-                  path: 'userprofile/add',
+                  path: 'userrole/add',
                   data: JSON.stringify({"name": result,"global" : global_res, "userPerms":user_perm,"userValues":user_value})
                 }).done(function(data) {
                     if (data && data.status=="success") {
-                      addProfilesToMainDropdown();
+                      addRolesToMainDropdown();
                     } else if (data && data.status=="error") {
                       bootbox.alert({
                           title:i18next.t("Error"),
-                          message: i18next.t("<center>You must set another Profile Name <br>-- or --<br> this Profile Name already exist !!!</center>"),
+                          message: i18next.t("<center>You must set another Role Name <br>-- or --<br> this Role Name already exist !!!</center>"),
                           size: "small"
                       });
                     }
-                });              
+                });
              }
            });
         });
