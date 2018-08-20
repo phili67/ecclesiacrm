@@ -88,11 +88,10 @@ INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pr
   (3, 'g', 3, 'Jung', 'est orienté jeune.', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
-INSERT INTO `userprofile_usrprf` (`usrprf_id`, `usrprf_name`) VALUES
+INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
 (1, 'Administrator Benutzer'),
 (2, 'Normal Benutzer ')
-ON DUPLICATE KEY UPDATE usrprf_name=VALUES(usrprf_name);
-
+ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
 --
 -- last update for the new CRM 4.4.0
