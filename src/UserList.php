@@ -126,7 +126,7 @@ require 'Include/Header.php';
                     </td>
                     <td>
                     <?php 
-                        if ( $user->getPersonId() != 1) {
+                        if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
                     ?>
                     
                           <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getPerson()->getDateDeactivated() == null)?'green':'red'?>" data-userid="<?= $user->getId()?>">
