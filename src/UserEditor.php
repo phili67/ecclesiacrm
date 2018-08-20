@@ -663,7 +663,7 @@ foreach ($userProfiles as $userProfile) {
 
                     <tr>
                         <td><?= gettext('Style') ?>:</td>
-                        <td class="TextColumnWithBottomBorder"><select class="form-control input-sm" name="Style" class="global_settings"><?php StyleSheetOptions($usr_Style); ?></select></td>
+                        <td class="TextColumnWithBottomBorder"><select class="form-control input-sm global_settings" name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
                     </tr>
                   </tbody>
                 </table>
