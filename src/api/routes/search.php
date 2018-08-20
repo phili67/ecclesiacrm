@@ -318,8 +318,13 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                        ->filterByTitle($searchLikeString, Criteria::LIKE)
                      ->endUse()
                      ->orderByDate(Criteria::DESC)
-                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
-                     ->findByPastorId($_SESSION['user']->getPerson()->getId());
+                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"));
+                     
+            if ($_SESSION['user']->isAdmin()) {
+              $cares->find();
+            } else {
+              $cares->findByPastorId($_SESSION['user']->getPerson()->getId());
+            }
                    
             if (!empty($cares)) {
                 $data = [];   
