@@ -64,7 +64,7 @@ $(document).ready(function () {
     var ID = $(this).data("id");
     
     bootbox.confirm({
-       title:  i18next.t("Delete Event Type") + "?",
+       title:  i18next.t("Delete Pastoral Care Type") + "?",
         message: i18next.t("This action can never be undone !!!!"),
         buttons: {
           cancel: {
@@ -75,7 +75,7 @@ $(document).ready(function () {
           }
         },
         callback: function (result) {
-          if (result == true)// only event can be drag and drop, not anniversary or birthday
+          if (result == true)// only Pastoral care can be drag and drop, not anniversary or birthday
           {
              window.CRM.APIRequest({
                 method: 'POST',
