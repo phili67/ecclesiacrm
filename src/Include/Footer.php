@@ -143,7 +143,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
-                            <i class="fa fa-cog"></i> <?= _("Pastoral Care Type Editor") ?>
+                            <i class="fa fa-cog"></i> <?= _("Pastoral Care Type") ?>
                         </a>
                     </li>
                     <?php
