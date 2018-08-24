@@ -246,7 +246,13 @@ class SystemConfig
         "sGdprDpoSigner" => new ConfigItem(2056,"sGdprDpoSigner","text","",gettext("The DPO administrator for the GDPR")),
         "bGDPR" => new ConfigItem(2057,"bGDPR","boolean","0",gettext("GDPR option")),
         "sGdprDpoSignerEmail" => new ConfigItem(2058,"sGdprDpoSignerEmail","text","",gettext("The DPO email")),
-        "iGdprExpirationDate" => new ConfigItem(2059,"iGdprExpirationDate","number","3",gettext("The private datas should be deleted after the iGdprExpirationDate in Year."))
+        "iGdprExpirationDate" => new ConfigItem(2059,"iGdprExpirationDate","number","3",gettext("The private datas should be deleted after the iGdprExpirationDate in Year.")),
+        "bEnabledMenuLinks" => new ConfigItem(2070, "bEnabledMenuLinks", "boolean", "0", gettext("Show custom links on the left menu.")),
+        "bEnabledSundaySchool" => new ConfigItem(2071, "bEnabledSundaySchool", "boolean", "1", gettext("Enable Sunday School left menu.")),
+        "bEnabledFinance" => new ConfigItem(2072, "bEnabledFinance", "boolean", "1", gettext("Enable Finance menu")),
+        "bEnabledEvents" => new ConfigItem(2073, "bEnabledEvents", "boolean", "1", gettext("Enable Events menu.")),
+        "bEnabledFundraiser" => new ConfigItem(2075, "bEnabledFundraiser", "boolean", "1", gettext("Enable Fundraiser menu.")),
+        "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", gettext("Enable Email menu."))
       );
   }
 
@@ -257,6 +263,7 @@ class SystemConfig
       gettext('User setup') => ["iMinPasswordLength","iMinPasswordChange","iMaxFailedLogins","iSessionTimeout","aDisallowedPasswords","bEnableLostPassword"],
       gettext('Email Setup')  => ["sSMTPHost","bSMTPAuth","sSMTPUser","sSMTPPass", "iSMTPTimeout","sToEmailAddress", "bPHPMailerAutoTLS","sPHPMailerSMTPSecure"],
       gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","sDefaultState","sDefaultCountry","bShowFamilyData","bHidePersonAddress","bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle","iPersonAddressStyle","sNewPersonNotificationRecipientIDs"],
+      gettext('Enabled Features')  => ["bEnabledEvents","bEnabledSundaySchool","bEnabledEmail","bEnabledFinance","bEnabledFundraiser", "bEnabledMenuLinks"],
       gettext('Map Settings')  => ["sMapProvider","sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
       gettext('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       gettext('Financial Settings') => ["sCurrency","sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],

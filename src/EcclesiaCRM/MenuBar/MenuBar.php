@@ -204,26 +204,28 @@ class MenuBar {
       }
       
       // the Events Menu
-      $menu = new Menu (gettext("Events"),"fa fa-ticket pull-right&quot;","",true);
-        // add the badges
-        $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
-        $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
-        $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
+      if (SystemConfig::getBooleanValue("bEnabledEvents")) {
+        $menu = new Menu (gettext("Events"),"fa fa-ticket pull-right&quot;","",true);
+          // add the badges
+          $menu->addBadge('label bg-blue pull-right','AnniversaryNumber',0);
+          $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
+          $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
-        $menuItem = new Menu (gettext("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
-        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php",true,$menu);
-        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php",true,$menu);
-        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-          $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php",true,$menu);
-        }
+          $menuItem = new Menu (gettext("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
+          if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php",true,$menu);
+          } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingGoogle.php",true,$menu);
+          } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
+            $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php",true,$menu);
+          }
 
-        $menuItem = new Menu (gettext("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
-        $menuItem = new Menu (gettext("List Event Types"),"fa fa-circle-o","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
-        $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-circle-o","Checkin.php",true,$menu);
+          $menuItem = new Menu (gettext("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
+          $menuItem = new Menu (gettext("List Event Types"),"fa fa-circle-o","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
+          $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-circle-o","Checkin.php",true,$menu);
       
-      $this->addMenu($menu);
+        $this->addMenu($menu);
+      }
       
       // the People menu
       $menu = new Menu (gettext("People")." & ".gettext("Families"),"fa fa-users","#",true);
@@ -264,52 +266,54 @@ class MenuBar {
       $this->addGroups();
       
       // we add the sundayschool groups
-      $this->addSundaySchoolGroups();
+      if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+        $this->addSundaySchoolGroups();
+      }
       
       
       // the Email
-      if ($_SESSION['user']->isMailChimpEnabled()) {
+      if ($_SESSION['user']->isMailChimpEnabled() && SystemConfig::getBooleanValue("bEnabledEmail")) {
         $menu = new Menu (gettext("Email"),"fa fa-envelope","email/Dashboard.php",true);
         $this->addMenu($menu);
       }
       
-      // The deposit      
-      $menu = new Menu (gettext("Deposit"),"fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());
-        // add the badges
-        $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
-        $deposits = DepositQuery::Create()->find();
+      // The deposit
+      if (SystemConfig::getBooleanValue("bEnabledFinance") && $_SESSION['user']->isFinanceEnabled()) {
+        $menu = new Menu (gettext("Deposit"),"fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());
+          // add the badges
+          $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
+          $deposits = DepositQuery::Create()->find();
         
-        $numberDeposit = 0;
+          $numberDeposit = 0;
         
-        if (!empty($deposits)) {
-          $numberDeposit = $deposits->count();
-        }
+          if (!empty($deposits)) {
+            $numberDeposit = $deposits->count();
+          }
 
-        //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'.gettext("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
-        $menu->addBadge('badge pull-right bg-green count-deposit','',$numberDeposit);
-        if (!empty($deposit)) {
-          $menu->addBadge('badge pull-right bg-blue current-deposit','',gettext("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
-        }
+          //echo '<small class="badge pull-right bg-green count-deposit">'.$numberDeposit. "</small>".((!empty($deposit))?('<small class="badge pull-right bg-blue current-deposit" data-id="'.$_SESSION['iCurrentDeposit'].'">'.gettext("Current")." : ".$_SESSION['iCurrentDeposit'] . "</small>"):"")."\n";
+          $menu->addBadge('badge pull-right bg-green count-deposit','',$numberDeposit);
+          if (!empty($deposit)) {
+            $menu->addBadge('badge pull-right bg-blue current-deposit','',gettext("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
+          }
 
-        $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
+          $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
       
-      if ($_SESSION['user']->isFinanceEnabled()) {
         $this->addMenu($menu);
       }
       
       // the menu Fundraisers
-      $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
+      if (SystemConfig::getBooleanValue("bEnabledFundraiser")) {
+        $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
 
-        $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-circle-o","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("View Buyers"),"fa fa-circle-o","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-        $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-circle-o","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-circle-o","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View Buyers"),"fa fa-circle-o","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-circle-o","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
 
-      if ($_SESSION['user']->isFinanceEnabled()) {
         $this->addMenu($menu);
       }
       
