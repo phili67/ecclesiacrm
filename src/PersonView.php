@@ -57,7 +57,10 @@ require 'Include/Header.php';
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 $user = UserQuery::Create()->findPk($iPersonID);
-$userDir = $user->getUserRootDir();
+
+if (!is_null($user)) {
+  $userDir = $user->getUserRootDir();
+}
 
 $iRemoveVO = 0;
 if (array_key_exists('RemoveVO', $_GET)) {
@@ -1198,7 +1201,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 $realNoteDir = $userDir;// per default the real dir
                 
                 if (isset($item['sharePersonID'])) {// in the cas of a share document
-                  $realNoteDir = UserQuery::Create()->findPk($item['sharePersonID'])->getUserRootDir();
+                  $shareUser = UserQuery::Create()->findPk($item['sharePersonID']);
+                  
+                  if (!is_null($shareUser)) {
+                    $realNoteDir = $shareUser->getUserRootDir();
+                  }
                 }
 
                 if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
