@@ -102,7 +102,7 @@ if ($usr_role_id == null) {
                       <?php 
                          if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
                       ?>
-                      <input type="checkbox" class="checkbox_users" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
+                        <input type="checkbox" class="checkbox_users checkbox_user<?= $user->getPersonId()?>" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
                       <?php
                          }
                       ?>

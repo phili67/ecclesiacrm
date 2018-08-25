@@ -5,6 +5,18 @@ $(document).ready(function () {
         $(this)[0].checked=state;
       });
     });
+
+    
+    $('#user-listing-table').on('click', 'tr', function () {
+        var table = $('#user-listing-table').DataTable();
+        var data = table.row( this ).data();
+        
+        if (data != undefined) {
+          var userID = $(data[0]).data("id");
+          var state = $('.checkbox_user'+userID).prop('checked');
+          $('.checkbox_user'+userID).prop('checked', !state);
+        }
+    } );
     
     $(".changeRole").click(function() {
       var roleID = $(this).data("id");
