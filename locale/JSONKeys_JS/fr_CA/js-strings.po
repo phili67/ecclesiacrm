@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-25T06:43:35.794Z\n"
+"POT-Creation-Date: 2018-08-25T16:52:15.631Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -881,6 +881,28 @@ msgstr "Supprimer cette personne ?"
 msgid "Do you want to delete this person?  This cannot be undone."
 msgstr ""
 "Voulez-vous supprimer cette personne ? Cette action ne pourra être annulée."
+
+msgid "Uri"
+msgstr "Url"
+
+msgid "URI"
+msgstr "URL"
+
+msgid "This link should begin with : http://.... or https://...."
+msgstr "Ce lien devrait commence par : http://.... or https://...."
+
+msgid ""
+"If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
+"u><br><b>Are you sure? This action can't be undone.</b>"
+msgstr ""
+"Si vous effacez ce menu lien, <u><b>Vous perdrez toutes les données associées.</"
+"b></u><br><b>Etes-vous sûr ? Cette action est irréversible.</b>"
+
+msgid "Menu Link Editor"
+msgstr "Editeur de Menu Lien"
+
+msgid "Add Menu Link"
+msgstr "Ajouter un Menu Lien"
 
 msgid "Delete Classification"
 msgstr "Supprimer la classification"
