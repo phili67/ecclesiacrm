@@ -148,6 +148,15 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
+                <?php if ($isAdmin) {
+        ?>
+                    <li>
+                        <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
+                            <i class="fa fa-cog"></i> <?= _("Global Menu Links") ?>
+                        </a>
+                    </li>
+                    <?php
+    } ?>
             </ul>
 
             <!-- /.control-sidebar-menu -->
