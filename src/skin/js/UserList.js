@@ -5,6 +5,7 @@ $(document).ready(function () {
         $(this)[0].checked=state;
       });
     });
+
     
     $('#user-listing-table').on('click', 'tr', function () {
         var table = $('#user-listing-table').DataTable();
