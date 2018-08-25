@@ -20,6 +20,14 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
+        title:i18next.t('Actions'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<a class="edit-pastoral-care" data-id="'+data+'"><i class="fa fa-pencil" aria-hidden="true"></i></a><a class="delete-pastoral-care" data-id="'+data+'">&nbsp;&nbsp;&nbsp;<i class="fa fa-trash-o" aria-hidden="true"></i></a>';
+        }
+      },      
+      {
+        width: 'auto',
         title:i18next.t('Title'),
         data:'Title',
         render: function(data, type, full, meta) {
@@ -40,22 +48,6 @@ $(document).ready(function () {
         data:'Visible',
         render: function(data, type, full, meta) {
           return i18next.t((data)?"true":"false");
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Edit'),
-        data:'Id',
-        render: function(data, type, full, meta) {        
-          return '<button class="btn btn-success edit-pastoral-care" data-id="'+data+'" >'+i18next.t('Edit')+'</button>';
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
-        data:'Id',
-        render: function(data, type, full, meta) {
-          return '<button class="btn btn-danger delete-pastoral-care" data-id="'+data+'" >'+i18next.t('Delete')+'</button>';
         }
       }
     ],
