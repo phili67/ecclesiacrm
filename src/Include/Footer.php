@@ -11,6 +11,7 @@
  ******************************************************************************/
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 
 
@@ -103,11 +104,17 @@ $isAdmin = $_SESSION['user']->isAdmin();
                         <i class="fa fa-cog"></i> <?= _('Group Properties') ?>
                     </a>
                 </li>
+          <?php
+             if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+          ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
                         <i class="fa fa-cog"></i> <?= _('Sunday School Menu Properties') ?>
                     </a>
                 </li>
+          <?php
+             }
+          ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
                         <i class="fa fa-cog"></i> <?= _('Edit Group Types') ?>
@@ -130,7 +137,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-                <?php if ($isAdmin) {
+                <?php if ($isAdmin && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
@@ -148,7 +155,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-                <?php if ($isAdmin) {
+                <?php if ($isAdmin && SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
