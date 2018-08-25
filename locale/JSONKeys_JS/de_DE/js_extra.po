@@ -16,6 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "true"
+msgstr "richtig"
+
+msgid "false"
+msgstr "falsch"
+
 msgid "pm"
 msgstr " "
 
@@ -35,10 +41,10 @@ msgid "Student"
 msgstr "Student"
 
 msgid "Parents"
-msgstr ""
+msgstr "Eltern"
 
 msgid "Kids"
-msgstr ""
+msgstr "Kinder"
 
 msgid "create"
 msgstr "erstellen"

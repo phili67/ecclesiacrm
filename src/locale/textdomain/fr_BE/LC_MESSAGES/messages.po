@@ -247,10 +247,9 @@ msgstr "Vous pourrez le visualiser dans votre compte, dans la partie documents"
 
 #: api/routes/userrole.php:39 api/routes/userrole.php:62
 #: api/routes/userrole.php:82 api/routes/userrole.php:112
-#, fuzzy
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
-"ENVOI au nom du profile utilisateur, variable globale, userPerms et "
+"ENVOI au nom du rôle utilisateur, variable globale, userPerms et "
 "userValues"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
@@ -3709,14 +3708,12 @@ msgid "Maximum number of Addresses"
 msgstr "Nombre maximum d'adresses"
 
 #: EcclesiaCRM/dto/SystemConfig.php:225
-#, fuzzy
 msgid "Search Pastoral Care"
-msgstr "Suivi pastoral"
+msgstr "Recherche Suivi pastoral"
 
 #: EcclesiaCRM/dto/SystemConfig.php:226
-#, fuzzy
 msgid "Maximum number of Pastoral Care results"
-msgstr "Nombre maximum de paiements"
+msgstr "Nombre maximum de résultats dans le suivi pastoral"
 
 #: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Height to use for images"
@@ -3828,30 +3825,27 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Show custom links on the left menu."
-msgstr ""
+msgstr "Visualiser le menu gauche lien personnels"
 
 #: EcclesiaCRM/dto/SystemConfig.php:251
-#, fuzzy
 msgid "Enable Sunday School left menu."
-msgstr "Sous menu Ecole du dimanche"
+msgstr "Activer le menu gauche Ecole du dimanche"
 
 #: EcclesiaCRM/dto/SystemConfig.php:252
-#, fuzzy
 msgid "Enable Finance menu"
-msgstr "Activer les paiements non déductibles"
+msgstr "Activer le menu Finance"
 
 #: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "Enable Events menu."
-msgstr ""
+msgstr "Activer les menu événements"
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
-#, fuzzy
 msgid "Enable Fundraiser menu."
-msgstr "Modifier la collecte de fonds"
+msgstr "Activer le menu Collecte de Fonds"
 
 #: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "Enable Email menu."
-msgstr ""
+msgstr "Activer le menu Email"
 
 #: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Church Information"
@@ -3870,9 +3864,8 @@ msgid "People Setup"
 msgstr "Installation de personnes"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
-#, fuzzy
 msgid "Enabled Features"
-msgstr "Activer"
+msgstr "Activer Fonctionnalités"
 
 #: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Map Settings"
@@ -6925,9 +6918,8 @@ msgid "Edit Donation Funds"
 msgstr "Modifier les Dons/fonds"
 
 #: Include/Footer.php:146
-#, fuzzy
 msgid "Pastoral Care Type"
-msgstr "Suivi pastoral"
+msgstr "Type de Suivis pastoraux"
 
 #: Include/Footer.php:173
 msgid "System Users"
@@ -9816,24 +9808,20 @@ msgid "User Editor"
 msgstr "Gestionnaire d'utilisateur"
 
 #: UserEditor.php:481
-#, fuzzy
 msgid "Role management"
-msgstr "Gestion des Profils"
+msgstr "Gestion des Rôles"
 
 #: UserEditor.php:484
-#, fuzzy
 msgid "Add Role"
 msgstr "Ajouter un nouveau rôle"
 
 #: UserEditor.php:485
-#, fuzzy
 msgid "Manage Roles"
-msgstr "Gestion des Profils"
+msgstr "Gestion des Rôles"
 
 #: UserEditor.php:487
-#, fuzzy
 msgid "Add Role to Current User"
-msgstr "Ajouter le profil à l'utilisateur courant"
+msgstr "Ajouter le rôle à l'utilisateur courant"
 
 #: UserEditor.php:513
 msgid "Note: Changes will not take effect until next logon."
@@ -9965,23 +9953,20 @@ msgid "User Settings"
 msgstr "Réglages Utilisateur"
 
 #: UserList.php:61
-#, fuzzy
 msgid "Add Role to Selected User(s)"
-msgstr "Ajouter le profil à l'utilisateur courant"
+msgstr "Ajouter le rôles à/aux l'utilisateur(s) sélectionné(s)"
 
 #: UserList.php:77
-#, fuzzy
 msgid "Apply Roles"
-msgstr "Tous les Rôles"
+msgstr "Appliquer les Rôles"
 
 #: UserList.php:87
 msgid "Actions"
 msgstr "Actions"
 
 #: UserList.php:90
-#, fuzzy
 msgid "User Role"
-msgstr "Nouveau rôle"
+msgstr "Rôle utilisateur"
 
 #: UserList.php:91
 msgid "Last Login"
@@ -10746,9 +10731,8 @@ msgstr "Moniteur"
 msgid "Student"
 msgstr "Etudiant"
 
-#, fuzzy
 msgid "Parents"
-msgstr "Paiements"
+msgstr "Parents"
 
 msgid "Kids"
 msgstr "Enfants"
