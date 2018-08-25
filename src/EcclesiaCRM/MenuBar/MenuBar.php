@@ -186,11 +186,16 @@ class MenuBar {
     {
       $menuLinks = MenuLinkQuery::Create()->findByPersonId(null);
       
-      $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","#",true);
-      
-      foreach ($menuLinks as $menuLink) {
-          $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
+      if ($menuLinks->count()) {
+        $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","",true);
+
+        foreach ($menuLinks as $menuLink) {
+            $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
+        }
+      } else {
+        $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","MenuLinksList.php",true);
       }
+      
       
       $this->addMenu($menu);
     }
