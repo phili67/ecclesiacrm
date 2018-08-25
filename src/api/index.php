@@ -100,6 +100,9 @@ require __DIR__.'/routes/public-data.php';
 // gdrp route
 require __DIR__.'/routes/gdrp.php';
 
+// menulink route
+require __DIR__.'/routes/menulinks.php';
+
 
 // Run app
 $app->run();

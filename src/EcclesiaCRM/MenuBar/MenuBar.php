@@ -26,6 +26,7 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\MenuLinksQuery;
 
 
 
@@ -181,6 +182,31 @@ class MenuBar {
       $this->addMenu($menu);
     }
     
+    private function addGlobalMenuLinks()
+    {
+      $menuLinks = MenuLinksQuery::Create()->findByPersonId(null);
+      
+      $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","#",true);
+      
+      foreach ($menuLinks as $menuLink) {
+          $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
+      }
+      
+      $this->addMenu($menu);
+    }
+    
+    private function addPersonMenuLinks($mainmenu)
+    {
+      $menuLinks = MenuLinksQuery::Create()->findByPersonId($_SESSION['user']->getPersonId());
+      
+      $menuItem = new Menu (gettext("My Menu Links"),"fa fa-link","#",true,$mainmenu);
+      $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".$_SESSION['user']->getPersonId(),true,$menuItem);
+      
+      foreach ($menuLinks as $menuLink) {
+          $menuItemItem1 = new Menu ($menuLink->getName(),"fa fa-angle-double-right",$menuLink->getUri(),true,$menuItem);
+      }
+    }
+    
     private function createMenuBar ()
     {
       // home Area
@@ -190,6 +216,10 @@ class MenuBar {
         $menuItem = new Menu (gettext("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);
         $menuItem = new Menu (gettext("Change Settings"),"fa fa-gear","SettingsIndividual.php",true,$menu);
         $menuItem = new Menu (gettext("Documents"),"fa fa-file","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
+        
+        if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
+           $this->addPersonMenuLinks($menu);
+        }
 
       $this->addMenu($menu);
       
@@ -326,7 +356,11 @@ class MenuBar {
       if ($_SESSION['user']->isAdmin()) {
         $this->addMenu($menu);
       }
-
+      
+      
+      if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
+        $this->addGlobalMenuLinks();
+      }
     }
     
     private function is_treeview_Opened($links)
@@ -371,7 +405,15 @@ class MenuBar {
     private function addSubMenu($menus)
     {
       foreach ($menus as $menu) {
-        echo "<li ".$this->is_li_class_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false)."><a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\" ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>".gettext($menu->getTitle());
+        $url = $menu->getUri();
+        $real_link = true;
+        
+        if (strpos($menu->getUri(),"http") === false) {
+          $real_link = false;
+          $url = SystemURLs::getRootPath() . "/" . $url;
+        }
+        
+        echo "<li ".$this->is_li_class_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false)."><a href=\"".$url."\" ".(($real_link==true)?'target="_blank"':'')." ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>".gettext($menu->getTitle());
         if (count($menu->subMenu()) > 0) {
           echo " <i class=\"fa fa-angle-left pull-right\"></i>\n";
         }
