@@ -245,9 +245,8 @@ msgstr "You can view it in your account, in the document tab."
 
 #: api/routes/userrole.php:39 api/routes/userrole.php:62
 #: api/routes/userrole.php:82 api/routes/userrole.php:112
-#, fuzzy
 msgid "POST to UserRole name, global variable, userPerms and userValues"
-msgstr "POST to userprofile name, global variable, userPerms and userValues"
+msgstr "POST to userRole name, global variable, userPerms and userValues"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
 #: Include/Functions.php:323
@@ -3693,14 +3692,12 @@ msgid "Maximum number of Addresses"
 msgstr "Numero máximo de DIrecciones"
 
 #: EcclesiaCRM/dto/SystemConfig.php:225
-#, fuzzy
 msgid "Search Pastoral Care"
-msgstr "Atención Pastoral"
+msgstr "Buscar Atención Pastoral"
 
 #: EcclesiaCRM/dto/SystemConfig.php:226
-#, fuzzy
 msgid "Maximum number of Pastoral Care results"
-msgstr "Numero máximo de Pagos"
+msgstr "Numero máximo de Atención Pastoral"
 
 #: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Height to use for images"
@@ -6868,9 +6865,8 @@ msgid "Edit Donation Funds"
 msgstr "Editar Fondos de Donaciones"
 
 #: Include/Footer.php:146
-#, fuzzy
 msgid "Pastoral Care Type"
-msgstr "Atención Pastoral"
+msgstr "Tipos de Atención Pastoral"
 
 #: Include/Footer.php:173
 msgid "System Users"
@@ -9743,24 +9739,20 @@ msgid "User Editor"
 msgstr "Editor de Usuario"
 
 #: UserEditor.php:481
-#, fuzzy
 msgid "Role management"
-msgstr "Gestión de perfiles"
+msgstr "Gestión de roles"
 
 #: UserEditor.php:484
-#, fuzzy
 msgid "Add Role"
 msgstr "Agregar Nuevo Rol"
 
 #: UserEditor.php:485
-#, fuzzy
 msgid "Manage Roles"
-msgstr "Gestionar Perfil"
+msgstr "Gestionar Roles"
 
 #: UserEditor.php:487
-#, fuzzy
 msgid "Add Role to Current User"
-msgstr "Agregar Perfil a los usuarios actuales"
+msgstr "Agregar Rol a los usuarios actuales"
 
 #: UserEditor.php:513
 msgid "Note: Changes will not take effect until next logon."
@@ -9890,12 +9882,10 @@ msgid "User Settings"
 msgstr "Ajustes de Usuario"
 
 #: UserList.php:61
-#, fuzzy
 msgid "Add Role to Selected User(s)"
-msgstr "Agregar Perfil a los usuarios actuales"
+msgstr "Agregar Rol a los usuarios seleccionados"
 
 #: UserList.php:77
-#, fuzzy
 msgid "Apply Roles"
 msgstr "Todos los Roles"
 
@@ -9904,9 +9894,8 @@ msgid "Actions"
 msgstr "Acciones"
 
 #: UserList.php:90
-#, fuzzy
 msgid "User Role"
-msgstr "Nuevo Rol"
+msgstr "Rol del Usuario"
 
 #: UserList.php:91
 msgid "Last Login"
@@ -10654,12 +10643,11 @@ msgstr "Profesor"
 msgid "Student"
 msgstr "Estudiante"
 
-#, fuzzy
 msgid "Parents"
-msgstr "Pagos"
+msgstr "Padres"
 
 msgid "Kids"
-msgstr ""
+msgstr "Niños"
 
 msgid "CASH"
 msgstr "DINERO"

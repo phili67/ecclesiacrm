@@ -298,7 +298,7 @@ msgid "New One"
 msgstr "Nuevo"
 
 msgid "To upgrade simply click this Notification"
-msgstr ""
+msgstr "Para Actualizar clic esta notificación"
 
 msgid "View Cart"
 msgstr "Ver Carrito"
@@ -890,9 +890,8 @@ msgstr "Clasificación"
 msgid "Select your classification icon"
 msgstr "Selecciona tu Clasificación icono"
 
-#, fuzzy
 msgid "Delete Pastoral Care Type"
-msgstr "Agregar al Atención Pastoral Tipo"
+msgstr "Borrar al Atención Pastoral Tipo"
 
 msgid "Pastoral Care Note Creation"
 msgstr "creación de Nota Atención Pastoral"
@@ -996,41 +995,36 @@ msgstr "Estudiantes Adicionales"
 msgid "export with photos"
 msgstr "Exportación con fotografías"
 
-#, fuzzy
 msgid "Role management"
-msgstr "Gestión de perfiles"
+msgstr "Gestión de roles"
 
-#, fuzzy
 msgid "Select your Role"
-msgstr "Seleccione su perfil"
+msgstr "Seleccione su Rol"
 
-#, fuzzy
 msgid "Are you sure? You're about to delete this Role."
-msgstr "¿Estás seguro de querer borrar esto perfil."
+msgstr "¿Estás seguro de querer borrar esto rol."
 
 msgid "Rename"
 msgstr "Renombrar "
 
-#, fuzzy
 msgid "Choose a Role Name"
-msgstr "Elegir uno nombre de perfil"
+msgstr "Elegir uno nombre de Rol"
 
-#, fuzzy
 msgid ""
 "<center>You must set another Role Name <br>-- or --<br> this Role Name "
 "already exist !!!</center>"
 msgstr ""
-"<center>Ustedes debe establecer uno otro nombre del perfil <br>-- o --<br> "
-"Esto nombre del perfil ya existen !!!"
+"<center>Ustedes debe establecer uno otro nombre del rol <br>-- o --<br> "
+"Esto nombre del rol ya existen !!!"
 
 msgid "You've to check at least one user."
-msgstr ""
+msgstr "Tienes que seleccione al menos un usuario."
 
 msgid "WebDav key"
-msgstr ""
+msgstr "clave WebDav"
 
 msgid "The WebDav Key is"
-msgstr ""
+msgstr "La Clave WebDav es"
 
 msgid "User Delete Confirmation"
 msgstr "Confirmación de Eliminación del Usuario"

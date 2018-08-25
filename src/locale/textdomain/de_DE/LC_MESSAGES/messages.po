@@ -242,9 +242,8 @@ msgstr "Man kann es ansehen in Ihrem Dokument Tab Account."
 
 #: api/routes/userrole.php:39 api/routes/userrole.php:62
 #: api/routes/userrole.php:82 api/routes/userrole.php:112
-#, fuzzy
 msgid "POST to UserRole name, global variable, userPerms and userValues"
-msgstr "POST zu userprofile Name, globale Variable , userPerms und userValues"
+msgstr "POST zu userrole Name, globale Variable , userPerms und userValues"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:71
 #: Include/Functions.php:323
@@ -3597,11 +3596,11 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:211
 msgid "Search People"
-msgstr "Alle Menschen anzeigen"
+msgstr "Menschen Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:212
 msgid "Search Family"
-msgstr "Wähle Familie:"
+msgstr "Familie Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:213
 msgid "Show Family Head of House Names"
@@ -3617,11 +3616,11 @@ msgstr "Einlagen Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:216
 msgid "Search Payments"
-msgstr "Zahlungen anzeigen"
+msgstr "Zahlungen Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:217
 msgid "Search Addresses"
-msgstr "Adresse suchen"
+msgstr "Adresse Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:218
 msgid "Maximum number of People"
@@ -3652,14 +3651,12 @@ msgid "Maximum number of Addresses"
 msgstr "Maximale Anzahl an Nachbarn:"
 
 #: EcclesiaCRM/dto/SystemConfig.php:225
-#, fuzzy
 msgid "Search Pastoral Care"
-msgstr "Pastoral Pflege"
+msgstr "Pastoral Pflege Suchen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:226
-#, fuzzy
 msgid "Maximum number of Pastoral Care results"
-msgstr "Maximale Anzahl an Nachbarn:"
+msgstr "Pastoral Pflege Maximale Anzahl Ergebnis"
 
 #: EcclesiaCRM/dto/SystemConfig.php:227
 msgid "Height to use for images"
@@ -3764,30 +3761,27 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:250
 msgid "Show custom links on the left menu."
-msgstr ""
+msgstr "Benutzerdefinierte Links anzeigen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:251
-#, fuzzy
 msgid "Enable Sunday School left menu."
-msgstr "Sonntagsschule"
+msgstr "Sonntagsschule Menu aktivieren"
 
 #: EcclesiaCRM/dto/SystemConfig.php:252
-#, fuzzy
 msgid "Enable Finance menu"
-msgstr "nichtabzugsfähiger Betrag aktivieren"
+msgstr "Finanzen Menu aktivieren"
 
 #: EcclesiaCRM/dto/SystemConfig.php:253
 msgid "Enable Events menu."
-msgstr ""
+msgstr "Ereignisse Menu aktivieren"
 
 #: EcclesiaCRM/dto/SystemConfig.php:254
-#, fuzzy
 msgid "Enable Fundraiser menu."
-msgstr "Fundraiser editieren"
+msgstr "Spendenaktion Menu aktivieren"
 
 #: EcclesiaCRM/dto/SystemConfig.php:255
 msgid "Enable Email menu."
-msgstr ""
+msgstr "Email Menu aktivieren"
 
 #: EcclesiaCRM/dto/SystemConfig.php:262
 msgid "Church Information"
@@ -3806,9 +3800,8 @@ msgid "People Setup"
 msgstr "Menschen Setup"
 
 #: EcclesiaCRM/dto/SystemConfig.php:266
-#, fuzzy
 msgid "Enabled Features"
-msgstr "Aktiviert"
+msgstr "Aktivierten Funktionen"
 
 #: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "Map Settings"
@@ -4117,19 +4110,19 @@ msgstr "Einzahlungsbeleg editieren"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:309 FundRaiserEditor.php:30
 msgid "Fundraiser"
-msgstr "Fundraiser editieren"
+msgstr "Spendenaktion"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:311
 msgid "View All Fundraisers"
-msgstr "Alle Fundraiser anzeigen"
+msgstr "Alle Spendenaktionen anzeigen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:312
 msgid "Create New Fundraiser"
-msgstr "Neuen Fundraiser anlegen"
+msgstr "Neuen Spendenaktion anlegen"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:313
 msgid "Edit Fundraiser"
-msgstr "Fundraiser editieren"
+msgstr "Spendenaktion editieren"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:314
 msgid "View Buyers"
@@ -6188,7 +6181,7 @@ msgstr "Neuen Fonds hinzufügen"
 
 #: FundRaiserEditor.php:32
 msgid "Create New Fund Raiser"
-msgstr "Neuen Spendensammler anlegen"
+msgstr "Neuen Spendenaktion anlegen"
 
 #: FundRaiserEditor.php:51 Include/Functions.php:957 PledgeEditor.php:344
 msgid "Not a valid date"
@@ -6843,9 +6836,8 @@ msgid "Edit Donation Funds"
 msgstr "Spende Fonds Editieren"
 
 #: Include/Footer.php:146
-#, fuzzy
 msgid "Pastoral Care Type"
-msgstr "Pastoral Pflege"
+msgstr "Pastoral Pflege Typ"
 
 #: Include/Footer.php:173
 msgid "System Users"
@@ -7859,7 +7851,7 @@ msgstr "Mache Angabe"
 
 #: PaddleNumList.php:33
 msgid "Buyers for this fundraiser:"
-msgstr "Käufer bei dieser Spendenaktion:"
+msgstr "Käufer bei diese Spendenaktion:"
 
 #: PaddleNumList.php:40
 msgid "Select all"
@@ -8734,7 +8726,6 @@ msgid "Recieved From"
 msgstr "empfangen wurde"
 
 #: Reports/AdvancedDeposit.php:314
-#, fuzzy
 msgid "Deposit No./ Date"
 msgstr "Einzahlung Nu./Datum"
 
@@ -8768,12 +8759,11 @@ msgstr "Sachen"
 
 #: Reports/AdvancedDeposit.php:608 Reports/AdvancedDeposit.php:770
 msgid "Dep #"
-msgstr ""
+msgstr "Einz. #"
 
 #: Reports/AdvancedDeposit.php:854
-#, fuzzy
 msgid "Report Total"
-msgstr "Berichtdetails"
+msgstr "Gesamt Bericht"
 
 #: Reports/CanvassReports.php:46
 msgid "Canvass Progress Report"
@@ -9044,9 +9034,8 @@ msgid "Gift Designation:"
 msgstr "Geschenkbezeichnung:"
 
 #: Reports/TaxReport.php:318
-#, fuzzy
 msgid "Total Payments:"
-msgstr "Gesamtzahl Zahlungen"
+msgstr "Gesamtzahl Zahlungen:"
 
 #: Reports/TaxReport.php:324
 msgid "Goods and Services Rendered:"
@@ -9054,7 +9043,7 @@ msgstr ""
 
 #: Reports/TaxReport.php:330
 msgid "Tax-Deductible Contribution:"
-msgstr ""
+msgstr "Steuerabzugsfähige Beiträge"
 
 #: Reports/VotingMembers.php:44
 msgid "Voting members "
@@ -9713,24 +9702,20 @@ msgid "User Editor"
 msgstr "Benutzer Editor"
 
 #: UserEditor.php:481
-#, fuzzy
 msgid "Role management"
-msgstr "Profil Verwaltung"
+msgstr "Rolle Verwaltung"
 
 #: UserEditor.php:484
-#, fuzzy
 msgid "Add Role"
 msgstr "Neue Rolle Hinzufügen"
 
 #: UserEditor.php:485
-#, fuzzy
 msgid "Manage Roles"
-msgstr "Profile Verwalten"
+msgstr "Rolle Verwalten"
 
 #: UserEditor.php:487
-#, fuzzy
 msgid "Add Role to Current User"
-msgstr "Profil for Aktual Benutzer Hinzufügen"
+msgstr "Rolle for Aktual Benutzer Hinzufügen"
 
 #: UserEditor.php:513
 msgid "Note: Changes will not take effect until next logon."
@@ -9857,23 +9842,20 @@ msgid "User Settings"
 msgstr "Benutzer Einstellung"
 
 #: UserList.php:61
-#, fuzzy
 msgid "Add Role to Selected User(s)"
-msgstr "Profil for Aktual Benutzer Hinzufügen"
+msgstr "Rolle for Aktual Benutzer Hinzufügen"
 
 #: UserList.php:77
-#, fuzzy
 msgid "Apply Roles"
-msgstr "Alle Rollen"
+msgstr "Rollen anwenden"
 
 #: UserList.php:87
 msgid "Actions"
 msgstr "Aktion"
 
 #: UserList.php:90
-#, fuzzy
 msgid "User Role"
-msgstr "Neue Rolle"
+msgstr "Benutzer Rolle"
 
 #: UserList.php:91
 msgid "Last Login"
@@ -10601,12 +10583,11 @@ msgstr "Lehrer"
 msgid "Student"
 msgstr "Studenten"
 
-#, fuzzy
 msgid "Parents"
-msgstr "Zahlungen"
+msgstr "Eltern"
 
 msgid "Kids"
-msgstr ""
+msgstr "Kinder"
 
 msgid "CASH"
 msgstr "GELD"
