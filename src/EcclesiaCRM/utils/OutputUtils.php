@@ -181,9 +181,9 @@ class OutputUtils {
         break;
       case 10:
         if ($with_link) {
-           return $data." ".SystemConfig::getValue("sCurrency");
+           return OutputUtils::number_localized($data)." ".SystemConfig::getValue("sCurrency");
         } else {
-          return $data." ".OutputUtils::convertCurrency(SystemConfig::getValue("sCurrency"));
+          return OutputUtils::number_localized($data)." ".OutputUtils::convertCurrency(SystemConfig::getValue("sCurrency"));
         }
         break;
       // Handler for extended text fields (MySQL type TEXT, Max length: 2^16-1)
@@ -369,7 +369,7 @@ class OutputUtils {
 
     // Handler for money amounts
     case 10:
-      echo '<table width=100%><tr><td><input class="form-control"  type="text" Name="'.$fieldname.'" maxlength="13" size="16" value="'.$data.'"></td><td>&nbsp;'.SystemConfig::getValue("sCurrency")."</td></tr></table>";
+      echo '<table width=100%><tr><td><input class="form-control"  type="number" step="any" Name="'.$fieldname.'" maxlength="13" size="16" value="'.$data.'"></td><td>&nbsp;'.SystemConfig::getValue("sCurrency")."</td></tr></table>";
       break;
 
     // Handler for phone numbers
