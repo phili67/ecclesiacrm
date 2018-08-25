@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    var click_checkbox = false;
+    
+    $(".checkbox_users").click(function() {
+      click_checkbox = true;
+    });
+    
     $(".check_all").click(function() {
       var state = this.checked;
       $(".checkbox_users").each(function() {
@@ -8,15 +14,22 @@ $(document).ready(function () {
 
     
     $('#user-listing-table').on('click', 'tr', function () {
-        var table = $('#user-listing-table').DataTable();
-        var data = table.row( this ).data();
-        
-        if (data != undefined) {
-          var userID = $(data[0]).data("id");
-          var state = $('.checkbox_user'+userID).prop('checked');
-          $('.checkbox_user'+userID).prop('checked', !state);
-        }
-    } );
+      if (click_checkbox == true) {
+        click_checkbox = false;
+        return;        
+      }
+      
+      var table = $('#user-listing-table').DataTable();
+      var data = table.row( this ).data();
+      
+      if (data != undefined) {
+        click_tr = true;
+        var userID = $(data[0]).data("id");
+        var state = $('.checkbox_user'+userID).prop('checked');
+        $('.checkbox_user'+userID).prop('checked', !state);
+        click_tr = false;
+      }
+    });
     
     $(".changeRole").click(function() {
       var roleID = $(this).data("id");
