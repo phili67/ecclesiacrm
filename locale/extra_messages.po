@@ -46,6 +46,12 @@ msgstr ""
 msgid "Student"
 msgstr ""
 
+msgid "Parents"
+msgstr ""
+
+msgid "Kids"
+msgstr ""
+
 msgid "CASH"
 msgstr ""
 

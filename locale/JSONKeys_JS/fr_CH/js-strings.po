@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-05T06:25:26.967Z\n"
+"POT-Creation-Date: 2018-08-25T06:43:35.794Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -306,6 +306,9 @@ msgstr "Version installée"
 msgid "New One"
 msgstr "Nouvelle version"
 
+msgid "To upgrade simply click this Notification"
+msgstr "Pour mettre à jour cliquer simplement cette notification"
+
 msgid "View Cart"
 msgstr "Afficher le panier"
 
@@ -510,7 +513,10 @@ msgid ""
 "Not all the families were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr "Toutes les familles n'ont pas été supprimées : Certaines ont des enregistrements ou des donations et ne doivent être détruite tant qu'un transfert de données ne soit effectué à une autre famille."
+msgstr ""
+"Toutes les familles n'ont pas été supprimées : Certaines ont des "
+"enregistrements ou des donations et ne doivent être détruite tant qu'un "
+"transfert de données ne soit effectué à une autre famille."
 
 msgid "Name"
 msgstr "Nom"
@@ -898,6 +904,9 @@ msgstr "Classification"
 msgid "Select your classification icon"
 msgstr "Choisissez votre icône"
 
+msgid "Delete Pastoral Care Type"
+msgstr "Effacer ce Type de suivi pastoral"
+
 msgid "Pastoral Care Note Creation"
 msgstr "Création d'une note de suivi pastoral"
 
@@ -940,7 +949,10 @@ msgid ""
 "Not all the persons were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr "Toutes les personnes n'ont pas été supprimées : Certaines ont des enregistrements ou des donations et ne doivent être détruite tant qu'un transfert de données ne soit effectué à une autre famille."
+msgstr ""
+"Toutes les personnes n'ont pas été supprimées : Certaines ont des "
+"enregistrements ou des donations et ne doivent être détruite tant qu'un "
+"transfert de données ne soit effectué à une autre famille."
 
 msgid "Photo"
 msgstr "Photo"
@@ -998,30 +1010,36 @@ msgstr "Etudiants supplémentaires"
 msgid "export with photos"
 msgstr "Exports avec photos"
 
-msgid "Profile management"
-msgstr "Gestion des Profile"
+msgid "Role management"
+msgstr "Gestion des Rôles"
 
-msgid "Select your Profile"
-msgstr "Sélectionner votre Profile"
+msgid "Select your Role"
+msgstr "Sélectionner votre rôle"
 
-msgid "Profile Name"
-msgstr "Nom du profile"
-
-msgid "Are you sure? You're about to delete this Profile."
-msgstr "Êtes vous sûr de vouloir supprimer ce Profile ?"
+msgid "Are you sure? You're about to delete this Role."
+msgstr "Êtes vous sûr de vouloir supprimer ce rôle ?"
 
 msgid "Rename"
 msgstr "Renommer"
 
-msgid "Choose a Profile Name"
-msgstr "Choisissez votre nom du Profile"
+msgid "Choose a Role Name"
+msgstr "Choisissez votre nom du rôle"
 
 msgid ""
-"<center>You must set another Profile Name <br>-- or --<br> this Profile Name "
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
 "already exist !!!</center>"
 msgstr ""
 "<center>Vous devriez choisir un autre Nom de Profile <br>-- or --<br> ou ces "
 "options de profiles existent déjà !!!</center>"
+
+msgid "You've to check at least one user."
+msgstr "Vous devez choisir au moins un utilisateur."
+
+msgid "WebDav key"
+msgstr "Clé WebDav"
+
+msgid "The WebDav Key is"
+msgstr "La clé WebDav est"
 
 msgid "User Delete Confirmation"
 msgstr "Utilisateur supprimé"
@@ -1055,6 +1073,9 @@ msgstr "Réinitialisation Mot de Passe pour"
 
 msgid "success"
 msgstr "confirmé"
+
+#~ msgid "Profile Name"
+#~ msgstr "Nom du profile"
 
 #~ msgid "Are you sure, you want to delete this Person ?"
 #~ msgstr "Êtes-vous sûr de supprimer cette personne dur partage ?"

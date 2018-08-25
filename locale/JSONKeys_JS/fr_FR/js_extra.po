@@ -34,6 +34,12 @@ msgstr "Moniteur"
 msgid "Student"
 msgstr "Etudiant"
 
+msgid "Parents"
+msgstr "Parents"
+
+msgid "Kids"
+msgstr "Enfants"
+
 msgid "create"
 msgstr "création"
 
@@ -105,4 +111,6 @@ msgstr "Virement bancaire"
 msgid ""
 "Some families haven't any \"head of household\" role name defined or there's "
 "any activated members in this families:"
-msgstr "Certaine familles n'ont pas de nom de rôle \"Représentant Famille\" ou il n'y a pas de membres activés dans ces familles :"
+msgstr ""
+"Certaine familles n'ont pas de nom de rôle \"Représentant Famille\" ou il "
+"n'y a pas de membres activés dans ces familles :"

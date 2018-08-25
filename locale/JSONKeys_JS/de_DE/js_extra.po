@@ -34,6 +34,12 @@ msgstr "Lehrer"
 msgid "Student"
 msgstr "Student"
 
+msgid "Parents"
+msgstr ""
+
+msgid "Kids"
+msgstr ""
+
 msgid "create"
 msgstr "erstellen"
 

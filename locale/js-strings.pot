@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-08-18T05:57:19.700Z\n"
-"PO-Revision-Date: 2018-08-18T05:57:19.700Z\n"
+"POT-Creation-Date: 2018-08-25T06:53:47.555Z\n"
+"PO-Revision-Date: 2018-08-25T06:53:47.555Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -286,6 +286,9 @@ msgid "Installed version"
 msgstr ""
 
 msgid "New One"
+msgstr ""
+
+msgid "To upgrade simply click this Notification"
 msgstr ""
 
 msgid "View Cart"
@@ -860,6 +863,9 @@ msgstr ""
 msgid "Select your classification icon"
 msgstr ""
 
+msgid "Delete Pastoral Care Type"
+msgstr ""
+
 msgid "Pastoral Care Note Creation"
 msgstr ""
 
@@ -954,27 +960,33 @@ msgstr ""
 msgid "export with photos"
 msgstr ""
 
-msgid "Profile management"
+msgid "Role management"
 msgstr ""
 
-msgid "Select your Profile"
+msgid "Select your Role"
 msgstr ""
 
-msgid "Profile Name"
-msgstr ""
-
-msgid "Are you sure? You're about to delete this Profile."
+msgid "Are you sure? You're about to delete this Role."
 msgstr ""
 
 msgid "Rename"
 msgstr ""
 
-msgid "Choose a Profile Name"
+msgid "Choose a Role Name"
 msgstr ""
 
 msgid ""
-"<center>You must set another Profile Name <br>-- or --<br> this Profile "
-"Name already exist !!!</center>"
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
+"already exist !!!</center>"
+msgstr ""
+
+msgid "You've to check at least one user."
+msgstr ""
+
+msgid "WebDav key"
+msgstr ""
+
+msgid "The WebDav Key is"
 msgstr ""
 
 msgid "User Delete Confirmation"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-05T06:25:26.967Z\n"
+"POT-Creation-Date: 2018-08-25T06:43:35.794Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,6 +297,9 @@ msgstr "Versión instalada"
 msgid "New One"
 msgstr "Nuevo"
 
+msgid "To upgrade simply click this Notification"
+msgstr ""
+
 msgid "View Cart"
 msgstr "Ver Carrito"
 
@@ -499,7 +502,9 @@ msgid ""
 "Not all the families were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr "No todas las familias Se suprimieron : Algunos de ellos tienen datos e no se pueden borrar"
+msgstr ""
+"No todas las familias Se suprimieron : Algunos de ellos tienen datos e no se "
+"pueden borrar"
 
 msgid "Name"
 msgstr "Nombre"
@@ -885,6 +890,10 @@ msgstr "Clasificación"
 msgid "Select your classification icon"
 msgstr "Selecciona tu Clasificación icono"
 
+#, fuzzy
+msgid "Delete Pastoral Care Type"
+msgstr "Agregar al Atención Pastoral Tipo"
+
 msgid "Pastoral Care Note Creation"
 msgstr "creación de Nota Atención Pastoral"
 
@@ -926,7 +935,9 @@ msgid ""
 "Not all the persons were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
-msgstr "No todas las personas Se suprimieron : Algunos de ellos tienen datos e no se pueden borrar"
+msgstr ""
+"No todas las personas Se suprimieron : Algunos de ellos tienen datos e no se "
+"pueden borrar"
 
 msgid "Photo"
 msgstr "Fotografía"
@@ -985,30 +996,41 @@ msgstr "Estudiantes Adicionales"
 msgid "export with photos"
 msgstr "Exportación con fotografías"
 
-msgid "Profile management"
+#, fuzzy
+msgid "Role management"
 msgstr "Gestión de perfiles"
 
-msgid "Select your Profile"
+#, fuzzy
+msgid "Select your Role"
 msgstr "Seleccione su perfil"
 
-msgid "Profile Name"
-msgstr "Perfil Nombre"
-
-msgid "Are you sure? You're about to delete this Profile."
+#, fuzzy
+msgid "Are you sure? You're about to delete this Role."
 msgstr "¿Estás seguro de querer borrar esto perfil."
 
 msgid "Rename"
 msgstr "Renombrar "
 
-msgid "Choose a Profile Name"
+#, fuzzy
+msgid "Choose a Role Name"
 msgstr "Elegir uno nombre de perfil"
 
+#, fuzzy
 msgid ""
-"<center>You must set another Profile Name <br>-- or --<br> this Profile Name "
+"<center>You must set another Role Name <br>-- or --<br> this Role Name "
 "already exist !!!</center>"
 msgstr ""
 "<center>Ustedes debe establecer uno otro nombre del perfil <br>-- o --<br> "
 "Esto nombre del perfil ya existen !!!"
+
+msgid "You've to check at least one user."
+msgstr ""
+
+msgid "WebDav key"
+msgstr ""
+
+msgid "The WebDav Key is"
+msgstr ""
 
 msgid "User Delete Confirmation"
 msgstr "Confirmación de Eliminación del Usuario"
@@ -1041,3 +1063,6 @@ msgstr "Restablecer las contraseñas de"
 
 msgid "success"
 msgstr "Éxito"
+
+#~ msgid "Profile Name"
+#~ msgstr "Perfil Nombre"
