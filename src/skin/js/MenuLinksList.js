@@ -1,10 +1,10 @@
 $(document).ready(function () {
-  window.CRM.dataMenuLinksTable = $("#menulinksTable").DataTable({
+  window.CRM.dataMenuLinkTable = $("#menulinksTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/menulinks/" + window.CRM.personId,
       type: 'POST',
       contentType: "application/json",
-      dataSrc: "MenuLinkss"
+      dataSrc: "MenuLinks"
     },
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
@@ -60,7 +60,7 @@ $(document).ready(function () {
   
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentMenuLinksList(){    
+    function BootboxContentMenuLinkList(){    
       var frm_str = '<div class="box-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
@@ -94,7 +94,7 @@ $(document).ready(function () {
     }
     
   $(document).on("click",".delete-menu-links", function(){
-     var MenuLinksId = $(this).data("id");
+     var MenuLinkId = $(this).data("id");
      
      bootbox.confirm({
       title: i18next.t("Attention"),
@@ -104,9 +104,10 @@ $(document).ready(function () {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'menulinks/delete',
-            data: JSON.stringify({"MenuLinksId": MenuLinksId})
+            data: JSON.stringify({"MenuLinkId": MenuLinkId})
           }).done(function(data) {
-            window.CRM.dataMenuLinksTable.ajax.reload();
+            //window.CRM.dataMenuLinkTable.ajax.reload();
+            location.reload();
           });
         }
       }
@@ -114,15 +115,15 @@ $(document).ready(function () {
   });  
   
   $(document).on("click",".edit-menu-links", function(){
-     var MenuLinksId = $(this).data("id");
+     var MenuLinkId = $(this).data("id");
      
       window.CRM.APIRequest({
         method: 'POST',
         path: 'menulinks/edit',
-        data: JSON.stringify({"MenuLinksId": MenuLinksId})
+        data: JSON.stringify({"MenuLinkId": MenuLinkId})
       }).done(function(data) {
         var modal = bootbox.dialog({
-         message: BootboxContentMenuLinksList,
+         message: BootboxContentMenuLinkList,
          title: i18next.t("Menu Link Editor"),
          buttons: [
           {
@@ -135,9 +136,9 @@ $(document).ready(function () {
              window.CRM.APIRequest({
                 method: 'POST',
                 path: 'menulinks/set',
-                data: JSON.stringify({"MenuLinksId": MenuLinksId, "Name": Name,"URI": URI})
+                data: JSON.stringify({"MenuLinkId": MenuLinkId, "Name": Name,"URI": URI})
              }).done(function(data) {
-                window.CRM.dataMenuLinksTable.ajax.reload();
+                //window.CRM.dataMenuLinkTable.ajax.reload();
                 location.reload();
              });
             }
@@ -165,7 +166,7 @@ $(document).ready(function () {
   
   $(document).on("click","#add-new-menu-links", function(){
     var modal = bootbox.dialog({
-     message: BootboxContentMenuLinksList,
+     message: BootboxContentMenuLinkList,
      title: i18next.t("Add Menu Link"),
      buttons: [
       {
@@ -180,7 +181,7 @@ $(document).ready(function () {
             path: 'menulinks/create',
             data: JSON.stringify({"PersonID":window.CRM.personId, "Name": Name,"URI": URI})
          }).done(function(data) {
-            //window.CRM.dataMenuLinksTable.ajax.reload();
+            //window.CRM.dataMenuLinkTable.ajax.reload();
             location.reload();
          });
         }
