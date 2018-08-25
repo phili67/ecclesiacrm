@@ -1632,3 +1632,20 @@ CREATE TABLE pastoral_care (
       REFERENCES pastoral_care_type(pst_cr_tp_id)
       ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Table structure for table `menu_links`
+--
+
+CREATE TABLE `menu_links` (
+  `linkId` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `linkPersonId` mediumint(9) unsigned default NULL,
+  `linkName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `linkUri` text COLLATE utf8_unicode_ci NOT NULL,
+  `linkOrder` INT NOT NULL,
+  PRIMARY KEY (`linkId`),
+  CONSTRAINT fk_linkPersonId
+    FOREIGN KEY (linkPersonId) 
+    REFERENCES person_per(per_ID)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

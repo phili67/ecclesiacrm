@@ -1152,6 +1152,24 @@
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
+      
+      <table name="menu_links" idMethod="native" phpName="MenuLinks">
+        <column name="linkId" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="linkPersonId" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
+        <column name="linkName" phpName="Name" type="VARCHAR" size="50"/>
+        <column name="linkUri" phpName="Uri" type="LONGVARCHAR" required="true"/>
+        <column name="linkOrder" phpName="Order" type="INTEGER" required="true"/>
+        <foreign-key foreignTable="person_per" name="fk_linkPersonId" onDelete="CASCADE">
+          <reference local="linkPersonId" foreign="per_ID"/>
+        </foreign-key>
+        <index name="fk_linkPersonId">
+          <index-column name="linkPersonId"/>
+        </index>
+        <vendor type="mysql">
+          <parameter name="Engine" value="InnoDB"/>
+        </vendor>
+      </table>
+
 
 
     <!--
