@@ -40,7 +40,7 @@ require 'Include/Header.php'; ?>
 
 <?php if ($_SESSION['user']->isAdmin()) {
 ?>
-    <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= gettext("Add a New Menu Links") ?></button></p>
+    <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= gettext("Add a New Menu Link") ?></button></p>
 <?php 
 }
 

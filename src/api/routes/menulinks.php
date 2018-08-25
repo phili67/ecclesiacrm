@@ -16,8 +16,8 @@
 
 use EcclesiaCRM\dto\SystemConfig;
 
-use EcclesiaCRM\MenuLinks;
-use EcclesiaCRM\MenuLinksQuery;
+use EcclesiaCRM\MenuLink;
+use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\PersonQuery;
 
 $app->group('/menulinks', function () {
@@ -28,17 +28,17 @@ $app->group('/menulinks', function () {
     }
     
     if ($args['userId'] == 0) {
-      return MenuLinksQuery::Create()->findByPersonId(null)->toJSON();
+      return MenuLinkQuery::Create()->findByPersonId(null)->toJSON();
     } else {
-      return MenuLinksQuery::Create()->findByPersonId($args['userId'])->toJSON();
+      return MenuLinkQuery::Create()->findByPersonId($args['userId'])->toJSON();
     }
   });
   
   $this->post('/delete', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->MenuLinksId) ){
-      $menuLink = MenuLinksQuery::Create()->findOneById($input->MenuLinksId);
+    if ( isset ($input->MenuLinkId) ){
+      $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
         
       if ($menuLink != null) {
         $menuLink->delete();
@@ -56,9 +56,13 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->PersonID) && isset ($input->Name) && isset ($input->URI) ){
-      $menuLink = new MenuLinks();
+      $menuLink = new MenuLink();
       
-      $menuLink->setPersonId($input->PersonID);
+      if ($input->PersonID == 0) {
+        $menuLink->setPersonId(null);
+      } else {
+        $menuLink->setPersonId($input->PersonID);
+      }
       $menuLink->setName($input->Name);
       $menuLink->setUri($input->URI);
       
@@ -75,9 +79,9 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->URI) 
-      && isset ($input->MenuLinksId) && isset ($input->Name) && $_SESSION['user']->isPastoralCareEnabled() ){
+      && isset ($input->MenuLinkId) && isset ($input->Name) && $_SESSION['user']->isPastoralCareEnabled() ){
       
-      $menuLink = MenuLinksQuery::Create()->findOneById($input->MenuLinksId);
+      $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
       
       $menuLink->setName($input->Name);
       $menuLink->setUri($input->URI);
@@ -93,8 +97,8 @@ $app->group('/menulinks', function () {
   $this->post('/edit', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->MenuLinksId) ){
-      return MenuLinksQuery::Create()->findOneById($input->MenuLinksId)->toJSON();
+    if (isset ($input->MenuLinkId) ){
+      return MenuLinkQuery::Create()->findOneById($input->MenuLinkId)->toJSON();
     }   
     
     return $response->withJson(['status' => "failed"]);

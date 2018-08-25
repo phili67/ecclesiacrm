@@ -1153,7 +1153,7 @@
         </vendor>
       </table>
       
-      <table name="menu_links" idMethod="native" phpName="MenuLinks">
+      <table name="menu_links" idMethod="native" phpName="MenuLink">
         <column name="linkId" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="linkPersonId" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="linkName" phpName="Name" type="VARCHAR" size="50"/>
@@ -1165,12 +1165,16 @@
         <index name="fk_linkPersonId">
           <index-column name="linkPersonId"/>
         </index>
+        <behavior name="validate">
+            <parameter name="rule1" value="{column: linkname, validator: NotNull}" />
+            <parameter name="rule2" value="{column: linkname, validator: Length, options: {max: 50}}" />
+            <parameter name="rule3" value="{column: linkuri, validator: NotNull}" />
+            <parameter name="rule4" value="{column: linkuri, validator: Length, options: {max: 500}}" />
+        </behavior>
         <vendor type="mysql">
           <parameter name="Engine" value="InnoDB"/>
         </vendor>
       </table>
-
-
 
     <!--
  <table name="istlookup_lu" idMethod="native" phpName="IstlookupLu" >

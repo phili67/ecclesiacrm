@@ -2,7 +2,7 @@
 
 namespace EcclesiaCRM;
 
-use EcclesiaCRM\Base\MenuLinksQuery as BaseMenuLinksQuery;
+use EcclesiaCRM\Base\MenuLinkQuery as BaseMenuLinkQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'menu_links' table.
@@ -14,7 +14,7 @@ use EcclesiaCRM\Base\MenuLinksQuery as BaseMenuLinksQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class MenuLinksQuery extends BaseMenuLinksQuery
+class MenuLinkQuery extends BaseMenuLinkQuery
 {
 
 }

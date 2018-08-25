@@ -26,7 +26,7 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
-use EcclesiaCRM\MenuLinksQuery;
+use EcclesiaCRM\MenuLinkQuery;
 
 
 
@@ -184,7 +184,7 @@ class MenuBar {
     
     private function addGlobalMenuLinks()
     {
-      $menuLinks = MenuLinksQuery::Create()->findByPersonId(null);
+      $menuLinks = MenuLinkQuery::Create()->findByPersonId(null);
       
       $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","#",true);
       
@@ -197,7 +197,7 @@ class MenuBar {
     
     private function addPersonMenuLinks($mainmenu)
     {
-      $menuLinks = MenuLinksQuery::Create()->findByPersonId($_SESSION['user']->getPersonId());
+      $menuLinks = MenuLinkQuery::Create()->findByPersonId($_SESSION['user']->getPersonId());
       
       $menuItem = new Menu (gettext("My Menu Links"),"fa fa-link","#",true,$mainmenu);
       $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".$_SESSION['user']->getPersonId(),true,$menuItem);
