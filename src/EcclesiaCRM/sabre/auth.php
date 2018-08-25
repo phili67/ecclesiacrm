@@ -30,7 +30,7 @@ class BasicAuth extends BaseAbstractBasic
   {
     $currentUser = UserQuery::create()->findOneByUserName($username);
     
-    if ($currentUser != null && $currentUser->isPasswordValid($password)) {
+    if ($currentUser != null && $currentUser->isPasswordValid($password) && $currentUser->getPerson()->getDateDeactivated() == null) {
         // ici on fait un login
         $rootDir = '';
        
