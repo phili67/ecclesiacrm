@@ -34,6 +34,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\VolunteerOpportunityQuery;
+use EcclesiaCRM\UserQuery;
 
 use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
 use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
@@ -54,6 +55,8 @@ require 'Include/Header.php';
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
+
+$user = UserQuery::Create()->findPk($iPersonID);
 
 $iRemoveVO = 0;
 if (array_key_exists('RemoveVO', $_GET)) {
@@ -691,7 +694,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
                       <?php 
                         } 
                       ?>
@@ -1267,7 +1270,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {                        
                       ?>
-                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$item['text']) ?>
+                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$item['text']) ?>
                       <?php 
                         } 
                       ?>

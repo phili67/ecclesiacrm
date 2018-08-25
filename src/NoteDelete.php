@@ -16,6 +16,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\UserQuery;
 
 
 //Set the page title
@@ -26,6 +27,8 @@ $iNoteID = InputUtils::LegacyFilterInput($_GET['NoteID'], 'int');
 
 //Get the data on this note
 $note = NoteQuery::create()->findPk($iNoteID);
+
+$user = UserQuery::Create()->findPk($note->getPerId());
 
 //If deleting a note for a person, set the PersonView page as the redirect
 if ($note->getPerId() > 0) {
@@ -54,7 +57,7 @@ if (isset($_GET['Confirmed'])) {
     
     if ($note->getType () == 'file') {
     
-      $target_delete_file = $_SESSION['user']->getUserRootDir()."/".$note->getText();
+      $target_delete_file = $user->getUserRootDir()."/".$note->getText();
 
       unlink($target_delete_file);
     }
@@ -80,7 +83,7 @@ require 'Include/Header.php';
     <?php 
       if ($note->getType() == 'file') {
     ?>
-      <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$_SESSION['user']->getUserRootDir()."/".$note->getText()) ?>
+      <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$note->getText()) ?>
     <?php 
       } else {
     ?>
@@ -90,7 +93,7 @@ require 'Include/Header.php';
     ?>
   </div>
   <div class="box-footer">
-    <a class="btn btn-default" href="<?= $sReroute ?>"><?= gettext('Cancel') ?></a>
+    <a class="btn btn-primary" href="<?= $sReroute ?>"><?= gettext('Cancel') ?></a>
   	<a class="btn btn-danger" href="NoteDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= gettext('Yes, delete this record') ?></a> <?= gettext('(this action cannot be undone)') ?>
   </div>
 
