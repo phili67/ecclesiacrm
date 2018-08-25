@@ -1,4 +1,40 @@
 $(document).ready(function () {
+    $(".check_all").click(function() {
+      var state = this.checked;
+      $(".checkbox_users").each(function() {
+        $(this)[0].checked=state;
+      });
+    });
+    
+    $(".changeRole").click(function() {
+      var roleID = $(this).data("id");
+      var roleName = this.innerText;
+      var userID = -1;
+      
+      $(".checkbox_users").each(function() {
+          if (this.checked) {
+            userID = $(this).data("id");
+            _val = $(this).val();
+
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'users/applyrole',
+               data: JSON.stringify({"userID": userID,"roleID" : roleID})
+            }).done(function(data) {
+              if (data.success == true) {
+                 // à terminer !!!
+                 $('.role'+data.userID).html(roleName);
+              }
+            });
+          }
+      });
+      
+      if (userID == -1) {
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to check at least one user."));
+      }
+    });
+
+    
     $(".webdavkey").click(function() {
       var userID = $(this).data("userid");
       
@@ -30,8 +66,6 @@ $(document).ready(function () {
         }
       });
     });
-    
-    
     
     
     $.fn.dataTable.moment = function ( format, locale ) {

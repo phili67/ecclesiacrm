@@ -13,6 +13,8 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PrincipalsQuery;
 use EcclesiaCRM\Principals;
+use EcclesiaCRM\UserRoleQuery;
+use EcclesiaCRM\UserConfigQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\DAV\Sharing;
@@ -186,6 +188,121 @@ class User extends BaseUser
       $this->setHomedir(null);
       $this->save();
     }
+    
+    public function ApplyRole($roleID)
+    {
+      $role = UserRoleQuery::Create()->findOneById($roleID);
+      
+      if (!is_null($role)) {
+        // we first apply the global settings to the user
+        $globals = explode(";",$role->getGlobal());
+        
+        foreach ($globals as $val) {
+          $res = explode (":",$val);
+          
+          switch ($res[0]) {
+            case 'AddRecords':
+               $this->setAddRecords($res[1]);
+               break;
+            case 'EditRecords':
+               $this->setEditRecords($res[1]);
+               break;
+            case 'DeleteRecords':
+               $this->setDeleteRecords($res[1]);
+               break;
+            case 'ShowCart':
+               $this->setShowCart($res[1]);
+               break;
+            case 'ShowMap':
+               $this->setShowMap($res[1]);
+               break;
+            case 'MenuOptions':
+               $this->setMenuOptions($res[1]);
+               break;
+            case 'ManageGroups':
+               $this->setManageGroups($res[1]);
+               break;
+            case 'Finance':
+               $this->setFinance($res[1]);
+               break;
+            case 'Notes':
+               $this->setNotes($res[1]);
+               break;
+            case 'EditSelf':
+               $this->setEditSelf($res[1]);
+               break;
+            case 'Canvasser':
+               $this->setCanvasser($res[1]);
+               break;
+            case 'Admin':
+               $this->setAdmin($res[1]);
+               break;
+            case 'MainDashboard':
+               $this->setMainDashboard($res[1]);
+               break;
+            case 'SeePrivacyData':
+               $this->setSeePrivacyData($res[1]);
+               break;
+            case 'MailChimp':
+               $this->setMailChimp($res[1]);
+               break;
+            case 'GdrpDpo':
+               $this->setGdrpDpo($res[1]);
+               break;
+            case 'PastoralCare':
+               $this->setPastoralCare($res[1]);
+               break;
+            case 'Style':
+               $this->setStyle($res[1]);
+               break;
+          }
+        }
+        
+        $this->setRoleId($roleID);
+        
+        $this->save();
+        
+        // now we loop to the permissions
+        $permissions = explode(";",$role->getPermissions());
+        $values      = explode(";",$role->getValue());
+        
+        for ($place=0;$place<count($permissions);$place++) {
+          // we search the default value
+          $permission = explode (":",$permissions[$place]);
+          $value = explode (":",$values[$place]);
+          
+          $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
+          
+          // we search if the config exist
+          $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
+          
+          if (is_null($user_cfg)) {
+            $user_cfg = new UserConfig();
+            
+            $user_cfg->setPersonId($this->getPersonId());
+            $user_cfg->setId($global_cfg->getId());
+            $user_cfg->setName($global_cfg->getName());
+            $user_cfg->setType($global_cfg->getType());
+            $user_cfg->setTooltip($global_cfg->getType());
+            $user_cfg->setTooltip($global_cfg->getType());
+          }
+
+          $user_cfg->setPermission($permission[1]);
+          
+          if ($value[1] == 'semi_colon'){
+            $user_cfg->setValue(';');
+          } else {
+            $user_cfg->setValue($value[1]);
+          }
+          
+          $user_cfg->save();
+        }
+      }
+      
+      return false;
+    }
+    
+
 
     public function getName()
     {
@@ -461,7 +578,7 @@ class User extends BaseUser
       if ($this->getWebdavkey() == null) {
         $this->createWebDavUUID();
         
-        // the old
+        // the new destination
         $new_dir = "private/userdir/".$this->getWebdavkey()."/".strtolower($this->getUserName());
         
         // in this case we have to create the create the folder
@@ -470,7 +587,7 @@ class User extends BaseUser
         $this->save();
         
         // then we move the files
-        if (file_exists($old_dir) && is_dir($old_dir)) { 
+        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) { 
           $old_dir = "private/userdir/".strtolower($this->getUserName());
           
           rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
