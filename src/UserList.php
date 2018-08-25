@@ -17,7 +17,9 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\UserConfigQuery;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
@@ -30,10 +32,23 @@ if (!$_SESSION['user']->isAdmin()) {
 $rsUsers = UserQuery::create()
            ->leftJoinWithUserRole()
            ->find();
-           
+
 // Set the page title and include HTML header
 $sPageTitle = _("System Users Listing");
 require 'Include/Header.php';
+
+// we search all the available roles
+$userRoles = UserRoleQuery::Create()->find();
+
+$first_roleID = 0;
+foreach ($userRoles as $userRole) {
+  $first_roleID = $userRole->getId();
+  break;
+}
+
+if ($usr_role_id == null) {
+  $usr_role_id = $first_roleID;
+}
 
 ?>
 <!-- Default box -->
@@ -41,6 +56,26 @@ require 'Include/Header.php';
     <div class="box-header">
         <a href="UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= gettext('New User') ?></a>
         <a href="SettingsUser.php" class="btn btn-app"><i class="fa fa-wrench"></i><?= gettext('User Settings') ?></a>
+    
+      <div class="btn-group pull-right">
+        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Role to Selected User(s)") ?></a>
+        <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu" id="AllRoles">
+            <?php 
+               foreach ($userRoles as $userRole) {
+            ?>               
+               <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
+            <?php
+               }
+            ?>
+        </ul>
+      </div>
+      <div class="pull-right" style="margin-right:15px;margin-top:10px">
+        <h4><?= _("Apply Roles") ?></h4>
+      </div>
     </div>
 </div>
 <div class="box">
@@ -48,6 +83,7 @@ require 'Include/Header.php';
         <table class="table table-hover dt-responsive" id="user-listing-table" style="width:100%;">
             <thead>
             <tr>
+                <th align="center"></th>
                 <th><?= gettext('Actions') ?></th>
                 <th><?= gettext('Name') ?></th>
                 <th><?= gettext('First Name') ?></th>
@@ -62,6 +98,15 @@ require 'Include/Header.php';
             <tbody>
             <?php foreach ($rsUsers as $user) { //Loop through the person?>
                 <tr>
+                    <td>
+                      <?php 
+                         if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
+                      ?>
+                      <input type="checkbox" class="checkbox_users" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
+                      <?php
+                         }
+                      ?>
+                    </td>
                     <td>
                         <?php 
                            if ( $user->getPersonId() != 1 || $user->getId() == $_SESSION['user']->getId() && $user->getPersonId() == 1) {
@@ -100,7 +145,7 @@ require 'Include/Header.php';
                     <td>
                         <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
-                    <td>
+                    <td class="role<?=$user->getPersonId()?>">
                         <?php 
                           if (!is_null($user->getUserRole())) { 
                         ?>
@@ -140,7 +185,7 @@ require 'Include/Header.php';
                             <?php
     } ?>
                     </td>
-                    <td>
+                    <td  align="center">
                     <?php 
                         if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
                     ?>
@@ -157,6 +202,8 @@ require 'Include/Header.php';
 } ?>
             </tbody>
         </table>
+        
+        <input type="checkbox" class="check_all"> <?= _("Check all") ?>
     </div>
     <!-- /.box-body -->
 </div>

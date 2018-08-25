@@ -2,6 +2,7 @@
 
 // Users APIs
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\User;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\Emails\ResetPasswordEmail;
 use EcclesiaCRM\Emails\AccountDeletedEmail;
@@ -9,7 +10,6 @@ use EcclesiaCRM\Emails\UnlockedEmail;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\Family;
-use EcclesiaCRM\User;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 
@@ -37,6 +37,28 @@ $app->group('/users', function () {
         }
     });
     
+     $this->post('/applyrole', function ($request, $response, $args) {
+        if (!$_SESSION['user']->isAdmin()) {
+            return $response->withStatus(401);
+        }
+        
+        $params = (object)$request->getParsedBody();
+          
+        if (isset ($params->userID) && isset ($params->roleID)) {
+          $user = UserQuery::create()->findPk($params->userID);
+           
+          if (!is_null($user)) {
+             $user->ApplyRole($params->roleID);
+
+             return $response->withJson(['success' => true,'userID' => $params->userID]);
+          }
+        }
+            
+        return $response->withJson(['success' => false]);
+    });
+    
+    
+    
     $this->post('/webdavKey', function ($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {
             return $response->withStatus(401);
@@ -48,7 +70,7 @@ $app->group('/users', function () {
         
           $user = UserQuery::create()->findPk($params->userID);
           if (!is_null($user)) {
-              return $response->withJson(['status' => "success", "token" => $user->getWebdavkey()]);
+            return $response->withJson(['status' => "success", "token" => $user->getWebdavkey()]);
           }
         }
         
