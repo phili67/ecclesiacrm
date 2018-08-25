@@ -57,6 +57,7 @@ require 'Include/Header.php';
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 $user = UserQuery::Create()->findPk($iPersonID);
+$userDir = $user->getUserRootDir();
 
 $iRemoveVO = 0;
 if (array_key_exists('RemoveVO', $_GET)) {
@@ -694,7 +695,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$realNoteDir."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
                       <?php 
                         } 
                       ?>
@@ -1194,6 +1195,12 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <!-- note item -->
             <?php 
               foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
+                $realNoteDir = $userDir;// per default the real dir
+                
+                if (isset($item['sharePersonID'])) {// in the cas of a share document
+                  $realNoteDir = UserQuery::Create()->findPk($item['sharePersonID'])->getUserRootDir();
+                }
+
                 if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Dav move copy file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
@@ -1209,13 +1216,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       &nbsp;
                      <?php 
                      
-                     if ($item['slim'] && !isset($item['currentUserName']) ) {
-                       if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2) ) {
-                                                ?>
-                        <a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>
+                     if ( $item['slim'] && !isset($item['currentUserName']) ) {
+                       if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file') ) {
+                        
+                          if ((isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file')) {
+                     ?>
+                            <a href="<?= $item['editLink'] ?>">
+                              <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                            </a>
                       <?php
+                          }
                         }
                         
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
@@ -1270,7 +1280,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {                        
                       ?>
-                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$item['text']) ?>
+                       <?= ((!empty($item['info']))?$item['info']." : ":"").MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$realNoteDir."/".$item['text']) ?>
                       <?php 
                         } 
                       ?>
