@@ -383,7 +383,7 @@
              path:"systemupgrade/isUpdateRequired"
             }).done(function(data) {
               if (data.Upgrade) {
-                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name, window.CRM.root+'/UpgradeCRM.php',"info","bottom");
+                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom");
               }
             });
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
@@ -753,9 +753,11 @@
     window.CRM.dashboard = {
       renderers: {
         EventsCounters: function (data) {
-          document.getElementById('BirthdateNumber').innerText = data.Birthdays;
-          document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
-          document.getElementById('EventsNumber').innerText = data.Events;
+          if (document.getElementById('BirthdateNumber') != null) {
+            document.getElementById('BirthdateNumber').innerText = data.Birthdays;
+            document.getElementById('AnniversaryNumber').innerText = data.Anniversaries;
+            document.getElementById('EventsNumber').innerText = data.Events;
+          }
         }, 
         FamilyCount: function (data) {
           var dashBoardFam = document.getElementById('familyCountDashboard');
