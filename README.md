@@ -37,7 +37,7 @@ see [Checkout our Change Log](CHANGELOG.md)
 
 ### Demo Account
 
-To test out the demo, you may login to the http://demo.ecclesiacrm.com  with the following:
+To test out the demo, you may login to the https://demo.ecclesiacrm.com  with the following:
 
 - **Username:** admin
 - **Password:** contact us to have the password.
