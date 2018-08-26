@@ -39,7 +39,7 @@ $(document).ready(function () {
         title:i18next.t('Uri'),
         data:'Uri',
         render: function(data, type, full, meta) {
-          return data;
+          return '<a href="'+data+'" target="_blank">'+data+'</a>';
         }
       },
     ],
@@ -116,7 +116,7 @@ $(document).ready(function () {
       }).done(function(data) {
         var modal = bootbox.dialog({
          message: BootboxContentMenuLinkList,
-         title: i18next.t("Menu Link Editor"),
+         title: i18next.t("Custom Menu Link Editor"),
          buttons: [
           {
            label: i18next.t("Save"),
@@ -159,7 +159,7 @@ $(document).ready(function () {
   $(document).on("click","#add-new-menu-links", function(){
     var modal = bootbox.dialog({
      message: BootboxContentMenuLinkList,
-     title: i18next.t("Add Menu Link"),
+     title: i18next.t("Add Custom Menu Link"),
      buttons: [
       {
        label: i18next.t("Save"),

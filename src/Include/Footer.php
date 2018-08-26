@@ -159,7 +159,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
-                            <i class="fa fa-cog"></i> <?= _("Global Menu Links") ?>
+                            <i class="fa fa-cog"></i> <?= _("Global Custom Menus") ?>
                         </a>
                     </li>
                     <?php

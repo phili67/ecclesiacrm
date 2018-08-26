@@ -187,13 +187,13 @@ class MenuBar {
       $menuLinks = MenuLinkQuery::Create()->findByPersonId(null);
       
       if ($menuLinks->count()) {
-        $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","",true);
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true);
 
         foreach ($menuLinks as $menuLink) {
             $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
         }
       } else {
-        $menu = new Menu (gettext("Global Menu Links"),"fa fa-link","MenuLinksList.php",true);
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","MenuLinksList.php",true);
       }
       
       
@@ -204,7 +204,7 @@ class MenuBar {
     {
       $menuLinks = MenuLinkQuery::Create()->findByPersonId($_SESSION['user']->getPersonId());
       
-      $menuItem = new Menu (gettext("My Menu Links"),"fa fa-link","#",true,$mainmenu);
+      $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu);
       $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".$_SESSION['user']->getPersonId(),true,$menuItem);
       
       foreach ($menuLinks as $menuLink) {
