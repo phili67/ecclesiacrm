@@ -85,7 +85,12 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) ){
-      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
+      if ($input->PersonID == 0) {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId(null);
+      } else {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
+      }
+
     
       $find               = false;
       $first_find_order   = -1;
@@ -95,8 +100,6 @@ $app->group('/menulinks', function () {
          if ($menuLink->getId() == $input->MenuLinkId) {
             $find             = true;
             $find_menu_link   = $menuLink;
-            
-            $coucou="toto";
             
             continue;
          }
@@ -112,7 +115,7 @@ $app->group('/menulinks', function () {
          }
       }
          
-      return $response->withJson(['success' => $coucou]);
+      return $response->withJson(['success' => true]);
     }
     
     return $response->withJson(['success' => false]);
@@ -122,7 +125,11 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) ){
-      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId($input->PersonID);
+      if ($input->PersonID == 0) {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
+      } else {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId($input->PersonID);
+      }
     
       $find               = false;
       $first_find_order   = -1;
@@ -160,7 +167,11 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->PersonID) && isset ($input->Name) && isset ($input->URI) ){
-      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
+      if ($input->PersonID == 0) {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId(null);
+      } else {
+        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
+      }
     
       $place = 0;
     
@@ -193,7 +204,7 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->URI) 
-      && isset ($input->MenuLinkId) && isset ($input->Name) && $_SESSION['user']->isPastoralCareEnabled() ){
+      && isset ($input->MenuLinkId) && isset ($input->Name) ){
       
       $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
       
