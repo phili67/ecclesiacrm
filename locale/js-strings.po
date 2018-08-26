@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-08-25T17:17:49.109Z\n"
-"PO-Revision-Date: 2018-08-25T17:17:49.109Z\n"
+"POT-Creation-Date: 2018-08-26T18:47:21.822Z\n"
+"PO-Revision-Date: 2018-08-26T18:47:21.822Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -645,6 +645,9 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
+msgid "Actions"
+msgstr ""
+
 msgid "Description"
 msgstr ""
 
@@ -845,6 +848,9 @@ msgstr ""
 msgid "Uri"
 msgstr ""
 
+msgid "Place"
+msgstr ""
+
 msgid "URI"
 msgstr ""
 
@@ -856,10 +862,10 @@ msgid ""
 "datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
 
-msgid "Menu Link Editor"
+msgid "Custom Menu Link Editor"
 msgstr ""
 
-msgid "Add Menu Link"
+msgid "Add Custom Menu Link"
 msgstr ""
 
 msgid "Delete Classification"

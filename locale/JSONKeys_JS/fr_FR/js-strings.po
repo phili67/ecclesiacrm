@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-25T16:52:15.631Z\n"
+"POT-Creation-Date: 2018-08-26T18:28:22.219Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -668,6 +668,9 @@ msgstr "Saisissez un un nom de groupe"
 msgid "ID"
 msgstr "ID"
 
+msgid "Actions"
+msgstr "Actions"
+
 msgid "Description"
 msgstr "Déscription"
 
@@ -885,6 +888,9 @@ msgstr ""
 msgid "Uri"
 msgstr "Url"
 
+msgid "Place"
+msgstr "Position"
+
 msgid "URI"
 msgstr "URL"
 
@@ -895,14 +901,14 @@ msgid ""
 "If you delete the Menu Link, <u><b>you'll lose all the connected datas.</b></"
 "u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
-"Si vous effacez ce menu lien, <u><b>Vous perdrez toutes les données associées.</"
-"b></u><br><b>Etes-vous sûr ? Cette action est irréversible.</b>"
+"Si vous effacez ce menu lien, <u><b>Vous perdrez toutes les données "
+"associées.</b></u><br><b>Etes-vous sûr ? Cette action est irréversible.</b>"
 
-msgid "Menu Link Editor"
-msgstr "Editeur de Menu Lien"
+msgid "Custom Menu Link Editor"
+msgstr "Editeur de Lien de Menu Personnalisé"
 
-msgid "Add Menu Link"
-msgstr "Ajouter un Menu Lien"
+msgid "Add Custom Menu Link"
+msgstr "Ajouter un Lien de Menu Personnalisé"
 
 msgid "Delete Classification"
 msgstr "Supprimer la classification"
