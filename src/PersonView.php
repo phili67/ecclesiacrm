@@ -1226,7 +1226,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      if ( $item['slim'] && !isset($item['currentUserName']) ) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file') ) {
                         
-                          if ((isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file')) {
+                          /*if ((isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file'))*/ {
                      ?>
                             <a href="<?= $item['editLink'] ?>">
                               <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
