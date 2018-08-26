@@ -184,7 +184,7 @@ class MenuBar {
     
     private function addGlobalMenuLinks()
     {
-      $menuLinks = MenuLinkQuery::Create()->findByPersonId(null);
+      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
       
       if ($menuLinks->count()) {
         $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true);
@@ -202,7 +202,7 @@ class MenuBar {
     
     private function addPersonMenuLinks($mainmenu)
     {
-      $menuLinks = MenuLinkQuery::Create()->findByPersonId($_SESSION['user']->getPersonId());
+      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId($_SESSION['user']->getPersonId());
       
       $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu);
       $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".$_SESSION['user']->getPersonId(),true,$menuItem);

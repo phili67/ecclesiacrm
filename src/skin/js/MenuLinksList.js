@@ -12,14 +12,6 @@ $(document).ready(function () {
     columns: [
       {
         width: 'auto',
-        title:i18next.t('ID'),
-        data:'Id',
-        render: function(data, type, full, meta) {
-          return data;
-        }
-      },
-      {
-        width: 'auto',
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
@@ -42,11 +34,55 @@ $(document).ready(function () {
           return '<a href="'+data+'" target="_blank">'+data+'</a>';
         }
       },
+      {
+        width: 'auto',
+        title:i18next.t('Place'),
+        data:'Order',
+        render: function(data, type, full, meta) {
+          var res = "<center>";
+          if (full.place == "first" || full.place == "intermediate") {
+            res += '<a href="#" class="down_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="Images/downarrow.gif" border="0"></a>';
+          }
+          if (full.place == "last" || full.place == "intermediate") {
+            res += '<a href="#" class="up_action" data-id="'+full.Id+'" data-order="'+full.Order+'"><img src="Images/uparrow.gif" border="0"></a>';
+          }          
+          return res+"</center>";
+        }
+      },
     ],
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
     }
+  });
+  
+  
+  $(document).on("click",".up_action", function(){
+    var MenuPlace     = $(this).data('order');
+    var MenuLinkId    = $(this).data('id');
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'menulinks/upaction',
+      data: JSON.stringify({"PersonID":window.CRM.personId,"MenuLinkId": MenuLinkId,"MenuPlace":MenuPlace})
+    }).done(function(data) {
+      //window.CRM.dataMenuLinkTable.ajax.reload();
+      location.reload();
+    });
+  });
+  
+  $(document).on("click",".down_action", function(){
+    var MenuPlace     = $(this).data('order');
+    var MenuLinkId    = $(this).data('id');
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'menulinks/downaction',
+      data: JSON.stringify({"PersonID":window.CRM.personId,"MenuLinkId": MenuLinkId,"MenuPlace":MenuPlace})
+    }).done(function(data) {
+      //window.CRM.dataMenuLinkTable.ajax.reload();
+      location.reload();
+    });
   });
   
   

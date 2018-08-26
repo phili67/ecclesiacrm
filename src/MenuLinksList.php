@@ -28,7 +28,7 @@ if ( !($_SESSION['user']->isAdmin() || $personId > 0 && $personId == $_SESSION['
 }
 
 //Set the page title
-$sPageTitle = gettext("Custom Menus List Editor");
+$sPageTitle = gettext("Custom Menus List");
 
 if ($personId > 0) {// we are in the case of Personal Links
   $sPageTitle .= " ".gettext("For")." : ".$_SESSION['user']->getFullName();
