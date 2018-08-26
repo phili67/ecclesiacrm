@@ -273,6 +273,8 @@ class User extends BaseUser
           
           $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
           
+          if (is_null($global_cfg)) continue;
+          
           // we search if the config exist
           $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
           
@@ -286,7 +288,7 @@ class User extends BaseUser
             $user_cfg->setTooltip($global_cfg->getType());
             $user_cfg->setTooltip($global_cfg->getType());
           }
-
+          
           $user_cfg->setPermission($permission[1]);
           
           if ($value[1] == 'semi_colon'){
