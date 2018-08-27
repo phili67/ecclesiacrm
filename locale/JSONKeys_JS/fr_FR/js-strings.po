@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-26T18:28:22.219Z\n"
+"POT-Creation-Date: 2018-08-27T13:12:30.086Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -957,7 +957,7 @@ msgid ""
 "If you delete the pastoral care type, <u><b>you'll lose all the connected "
 "datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"
 msgstr ""
-"Si vous effacez ce type de suivi pastiral, <u><b>Vous perdrez toutes les "
+"Si vous effacez ce type de suivi pastoral, <u><b>Vous perdrez toutes les "
 "données associées.</b></u><br><b>Etes-vous sûr ? Cette action est "
 "irréversible.</b>"
 
@@ -999,6 +999,9 @@ msgstr "Êtes-vous sûr de vouloir arrêter le partage du document ?"
 
 msgid "Change role"
 msgstr "Changer rôle"
+
+msgid "Confirm Delete volunteer Opportunity"
+msgstr "Confirmer la suppression du bénévolat"
 
 msgid "Remove Students from Cart"
 msgstr "Supprimer les Etudiants du Panier"

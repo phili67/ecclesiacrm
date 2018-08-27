@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-08-26T18:47:21.822Z\n"
-"PO-Revision-Date: 2018-08-26T18:47:21.822Z\n"
+"POT-Creation-Date: 2018-08-27T13:16:54.415Z\n"
+"PO-Revision-Date: 2018-08-27T13:16:54.415Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -949,6 +949,9 @@ msgid "Are you sure ? You are about to stop sharing your document ?"
 msgstr ""
 
 msgid "Change role"
+msgstr ""
+
+msgid "Confirm Delete volunteer Opportunity"
 msgstr ""
 
 msgid "Remove Students from Cart"
