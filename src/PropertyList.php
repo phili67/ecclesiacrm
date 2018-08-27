@@ -14,6 +14,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 //Get the type to display
 $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
@@ -21,19 +22,19 @@ $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
 //Based on the type, set the TypeName
 switch ($sType) {
     case 'p':
-        $sTypeName = gettext('Person');
+        $sTypeName = _('Person');
         break;
 
     case 'f':
-        $sTypeName = gettext('Family');
+        $sTypeName = _('Family');
         break;
 
     case 'g':
-        $sTypeName = gettext('Group');
+        $sTypeName = _('Group');
         break;
 
     case 'm':
-        $sTypeName = gettext('Menu');
+        $sTypeName = _('Menu');
         break;
 
     default:
@@ -43,7 +44,7 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' '.gettext('Property List');
+$sPageTitle = $sTypeName.' '._('Property List');
 
 //Get the properties
 $sSQL = "SELECT * FROM property_pro, propertytype_prt WHERE prt_ID = pro_prt_ID AND pro_Class = '".$sType."' ORDER BY prt_Name,pro_Name";
@@ -57,31 +58,29 @@ require 'Include/Header.php'; ?>
    if ($_SESSION['user']->isMenuOptionsEnabled()) {
     //Display the new property link
 ?>
-    <p align="center"><a class='btn btn-primary' href="PropertyEditor.php?Type=<?=$sType?>"><?= gettext('Add a New') ?> <?= $sTypeName?> <?= gettext('Property') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="PropertyEditor.php?Type=<?=$sType?>"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
 <?php
 }
 
 //Start the table
 ?>
 
-<table class='table'>
+<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table">
+<thead>
 <tr>
-<th valign="top"><?= gettext('Name') ?></th>
-<th valign="top"><?= gettext('A')?> <?= $sTypeName ?> <?= gettext('with this Property...') ?></b></th>
-<th valign="top"><?= gettext('Prompt') ?></th>
-
 <?php
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-    <td valign="top"><b><?= gettext('Edit') ?></b></td>
-    <td valign="top"><b><?= gettext('Delete') ?></b></td>
-    
+    <td valign="top"><?= _('Action') ?></td>
 <?php
 }
 ?>
+<th valign="top"><?= _('Name') ?></th>
+<th valign="top"><?= _('A')?> <?= $sTypeName ?> <?= _('with this Property...') ?></b></th>
+<th valign="top"><?= _('Prompt') ?></th>
 </tr>
-
-<tr><td>&nbsp;</td></tr>
+</thead>
+<tbody>
 
 <?php
 //Initalize the row shading
@@ -100,11 +99,8 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 
         //Write the header row
 ?>
-        <?= $sBlankLine ?>
-        <tr class="RowColorA"><td colspan="5"><b><?= $prt_Name ?></b></td></tr>
+        <tr class="RowColorA"><td><b><?= _($prt_Name) ?></b></td><td></td><td></td><td></td></tr>
 <?php
-        $sBlankLine = '<tr><td>&nbsp;</td></tr>';
-
         //Reset the row color
         $sRowClass = 'RowColorA';
     }
@@ -114,6 +110,20 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 ?>
 
     <tr class="<?= $sRowClass ?>">
+<?php
+    if ($_SESSION['user']->isMenuOptionsEnabled()) {
+?>
+        <td valign="top">
+        <a href="PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        &nbsp;&nbsp;&nbsp;<a href="PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+        </td>
+<?php
+    } else {
+?>
+    <td></td>
+<?php
+    }
+?>
     <td valign="top"><?= $pro_Name ?>&nbsp;</td>
     <td valign="top">
 <?php
@@ -125,14 +135,6 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 ?>
     &nbsp;</td>
     <td valign="top"><?= stripslashes($pro_Prompt) ?>&nbsp;</td>
-<?php
-    if ($_SESSION['user']->isMenuOptionsEnabled()) {
-?>
-        <td valign="top"><a class='btn btn-success' href="PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><?= gettext('Edit') ?></a></td>
-        <td valign="top"><a class='btn btn-danger' href="PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><?= gettext('Delete') ?></a></td>
-<?php
-    }
-?>
     </tr>
 <?php
     //Store the PropertyType
@@ -141,9 +143,19 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 
 //End the table
 ?>
-
+</tbody>
 </table></div>
 
 <?php
 require 'Include/Footer.php';
 ?>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  $("#property-listing-table").DataTable({
+       "language": {
+         "url": window.CRM.plugin.dataTable.language.url
+       },
+       responsive: true,
+       "order": [[ 2, "asc" ]]
+  });
+</script>

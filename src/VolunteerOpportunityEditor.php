@@ -413,7 +413,7 @@ for ($row = 1; $row <= $numRows; $row++) {
 <tr><td colspan="5"><hr></td></tr>
 <tr>
 <td colspan="5">
-<table width="100%">
+<table width="100%" style="border-spacing : 10px !important;border-collapse : separate;">
 <tr>
 <td width="15%"></td>
 <td valign="top">
