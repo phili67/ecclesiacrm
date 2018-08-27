@@ -15,6 +15,11 @@ use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Family;
+use EcclesiaCRM\VolunteerOpportunityQuery;
+use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
+use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
+use EcclesiaCRM\PersonVolunteerOpportunityQuery;
+use EcclesiaCRM\PersonVolunteerOpportunity;
 
 
 $app->group('/persons', function () {
@@ -42,6 +47,70 @@ $app->group('/persons', function () {
         }
         
         return $response->withJson($return);    
+    });
+    
+
+    /**
+     *
+     * VolunteerOpportunity 
+     *
+     **/
+    $this->post('/volunteers/{personID:[0-9]+}', function ($request, $response, $args) {
+      return VolunteerOpportunityQuery::Create()
+        ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
+        ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$args['personID'])
+        ->find()->toJson();
+    });
+
+    $this->post('/volunteers/delete', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->personId) && isset ($input->volunteerOpportunityId) ){
+      
+        $vol = PersonVolunteerOpportunityQuery::Create()
+          ->filterByPersonId($input->personId)
+          ->findOneByVolunteerOpportunityId($input->volunteerOpportunityId);
+          
+        if (!is_null($vol)){
+          $vol->delete();
+        }
+        
+        $vols = PersonVolunteerOpportunityQuery::Create()
+          ->filterByPersonId($input->personId)
+          ->find();
+        
+        return $response->withJson(['success' => true,'count' => $vols->count()]);
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+    
+    $this->post('/volunteers/add', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->personId) && isset ($input->volID) ){
+      
+        $vol = PersonVolunteerOpportunityQuery::Create()
+          ->filterByPersonId($input->personId)
+          ->findOneByVolunteerOpportunityId($input->volID);
+          
+        if (is_null($vol)){
+          $vol = new PersonVolunteerOpportunity();
+          
+          $vol->setPersonId($input->personId);
+          $vol->setVolunteerOpportunityId($input->volID);
+
+          $vol->save();
+        }
+        
+        $vols = PersonVolunteerOpportunityQuery::Create()
+          ->filterByPersonId($input->personId)
+          ->find();
+        
+        return $response->withJson(['success' => true,'count' => $vols->count()]);
+      }
+      
+      return $response->withJson(['success' => false]);
     });
     
     /**

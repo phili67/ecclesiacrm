@@ -7,6 +7,10 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Record2propertyR2p;
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 
 
@@ -51,12 +55,26 @@ $app->group('/properties', function() {
         $personProperty->setR2pRecordId($personId);
         $personProperty->setR2pProId($propertyId);
         $personProperty->setR2pValue($propertyValue);
-        
+                
         if (!$personProperty->save()) {
             return $response->withJson(['success' => false, 'msg' => gettext('The property could not be assigned.')]);
         }
 
-        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.')]);
+        $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('ProTypeName')
+                            ->findByR2pRecordId($personId);
+
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully assigned.'), 'count' => $ormAssignedProperties->count()]);
     });
     
     
@@ -80,7 +98,21 @@ $app->group('/properties', function() {
         
         $personProperty->delete();
         
-        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.')]);
+        $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('ProTypeName')
+                            ->findByR2pRecordId($personId);
+        
+        return $response->withJson(['success' => true, 'msg' => gettext('The property is successfully unassigned.'), 'count' => $ormAssignedProperties->count()]);
     });
     
     $this->post('/families/assign', function($request, $response, $args) {
