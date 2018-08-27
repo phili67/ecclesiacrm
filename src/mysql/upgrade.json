@@ -368,6 +368,7 @@
             "4.5.1"
         ],
         "scripts": [
+          "/mysql/upgrade/4.5.2-upgrade.php"
         ],
         "dbVersion": "4.5.2"
     }
