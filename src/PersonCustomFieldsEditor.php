@@ -274,10 +274,10 @@ require 'Include/Header.php'; ?>
   ?>
   <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 
-    function confirmDeleteField(event) {
+    function confirmDeleteField(event,row) {
       var answer = confirm("<?= gettext('Warning:  By deleting this field, you will irrevokably lose all person data assigned for this field!') ?>")
       if (answer) {
-        window.location = href = "PersonCustomFieldsRowOps.php?Field=" + event + "&Action=delete"
+        window.location = href = "PersonCustomFieldsRowOps.php?OrderID="+row+"&Field=" + event + "&Action=delete"
         return true;
       }
       event.preventDefault ? event.preventDefault() : event.returnValue = false;
@@ -324,12 +324,16 @@ require 'Include/Header.php'; ?>
             <td class="TextColumnFam">
               <?php
               if ($row != 1) {
-                  echo "<a href=\"PersonCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
+              ?>
+                  <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+              <?php
               }
             if ($row < $numRows) {
-                echo "<a href=\"PersonCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
+              ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+            <?php
             } ?>
-              <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>');"><img src="Images/x.gif" border="0"></a>
+              <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>',<?= $row ?>);"><img src="Images/x.gif" border="0"></a>
             </td>
             <td class="TextColumnFam">
               <?= $aPropTypes[$aTypeFields[$row]] ?>

@@ -286,11 +286,11 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-function confirmDeleteField( Field ) {
+function confirmDeleteField( Field , row) {
 	var answer = confirm (<?= "'"._('Warning:  By deleting this field, you will irrevokably lose all family data assigned for this field!')."'" ?>)
 	if ( answer )
 	{
-		window.location="FamilyCustomFieldsRowOps.php?Field=" + Field +"&Action=delete";
+		window.location="FamilyCustomFieldsRowOps.php?OrderID="+ row +"&Field=" + Field +"&Action=delete";
 		return true;
 	}
 	event.preventDefault ? event.preventDefault() : event.returnValue = false;
@@ -333,12 +333,16 @@ if ($numRows == 0) {
             <td>
                 <?php
                 if ($row > 1) {
-                    echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
+                ?>
+                    <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <?php
                 }
         if ($row < $numRows) {
-            echo "<a href=\"FamilyCustomFieldsRowOps.php?OrderID=$row&Field=".$aFieldFields[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
+        ?>
+            <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row] ?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+        <?php
         } ?>
-                <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>');"><img src="Images/x.gif" border="0"></a>
+                <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>',<?= $row ?>);"><img src="Images/x.gif" border="0"></a>
             </td>
             <td class="TextColumn">
                 <?= $aPropTypes[$aTypeFields[$row]] ?>
