@@ -265,7 +265,7 @@ class MenuBar {
       // the People menu
       $menu = new Menu (gettext("People")." & ".gettext("Families"),"fa fa-users","#",true);
       
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);        
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
         $menuItem->addLink("MapUsingLeaflet.php?GroupID=-1");
         $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
         $menuItem->addLink("MapUsingBing.php?GroupID=-1");
@@ -282,6 +282,8 @@ class MenuBar {
             $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingBing.php?GroupID=-1",true,$menu);
           }
         }
+        
+        $menuItem = new Menu (gettext("Directory reports"),"fa fa-circle-o","DirectoryReports.php",true,$menu);
         
         if ($_SESSION['user']->isEditRecordsEnabled()) {
           $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
