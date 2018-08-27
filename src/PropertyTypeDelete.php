@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: User must have property and classification editing permission
 if (!$_SESSION['user']->isMenuOptionsEnabled()) {
@@ -64,9 +65,9 @@ if (isset($_GET['Warn'])) {
 </p>
 
 <p align="center">
-	<a href="PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= gettext('Yes, delete this record') ?></a>
+	<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= gettext('Yes, delete this record') ?></a>
 	&nbsp;&nbsp;
-	<a href="PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= gettext('No, cancel this deletion') ?></a>
+	<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= gettext('No, cancel this deletion') ?></a>
 
 </p>
 
