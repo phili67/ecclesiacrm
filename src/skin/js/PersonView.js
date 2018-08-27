@@ -38,8 +38,6 @@ $(document).ready(function () {
         language: window.CRM.shortLocale
       });
 
-      $("#assigned-volunteer-opps-table").DataTable(window.CRM.plugin.dataTable);
-
       contentExists(window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/photo", function(success) {
           if (success) {
               $("#view-larger-image-btn").removeClass('hide');
@@ -122,8 +120,13 @@ $(document).ready(function () {
       data: JSON.stringify({"PersonId": window.CRM.currentPersonID,"PropertyId" : property_id,"PropertyValue" : property_pro_value})
     }).done(function(data) {
       if (data && data.success) {
-           window.CRM.dataPropertiesTable.ajax.reload();
-           promptBox.removeClass('form-group').html('');
+         window.CRM.dataPropertiesTable.ajax.reload();
+         promptBox.removeClass('form-group').html('');
+         
+         if (data.count > 0) {
+            $("#properties-warning").hide();
+            $("#properties-table").show();
+         }
       }
     });
   });
@@ -561,6 +564,11 @@ $(document).ready(function () {
                     success: function (data, status, xmlHttpReq) {
                         if (data && data.success) {
                           window.CRM.dataPropertiesTable.ajax.reload();
+                          
+                          if (data.count == 0) {
+                              $("#properties-warning").show();
+                              $("#properties-table").hide();
+                          }
                         }
                     }
                 });
@@ -773,7 +781,103 @@ $(document).ready(function () {
            .responsive.recalc();
   });
 
+  
+  assignedVolunteerTable = $("#assigned-volunteer-opps-table").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/persons/volunteers/"+window.CRM.currentPersonID,
+      type: 'POST',
+      contentType: "application/json",
+      dataSrc: "VolunteerOpportunities"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('Name'),
+        data:'Name',
+        render: function(data, type, full, meta) {
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Description'),
+        data:'Description',
+        render: function(data, type, full, meta) {
+          var fmt = window.CRM.datePickerformat.toUpperCase();
+          
+          return data;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Remove'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<a class="SmallText btn btn-danger delete-volunteerOpportunityId" href="#" data-volunteerOpportunityId="'+full.Id+'">' + i18next.t('Remove')+ '</a>';
+          //return '<a class="SmallText btn btn-danger" href="' + window.CRM.root +'/PersonView.php?PersonID='+window.CRM.currentPersonID+'&RemoveVO='+full.Id+'">' + i18next.t('Remove')+ '</a>';
+        }
+      },
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("assignedVolunteerRow");
+    }
+  });
+  
+  $(document).on("click",".delete-volunteerOpportunityId", function(){
+     var volunteerOpportunityId = $(this).data("volunteeropportunityid");
     
+     bootbox.confirm(i18next.t("Confirm Delete volunteer Opportunity"), function(confirmed) {
+        if (confirmed) {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'persons/volunteers/delete',
+            data: JSON.stringify({"personId": window.CRM.currentPersonID,"volunteerOpportunityId" : volunteerOpportunityId})
+          }).done(function(data) {
+            assignedVolunteerTable.ajax.reload();
+
+            if (data && data.success) {
+              assignedVolunteerTable.ajax.reload();
+              if (data.count == 0) {
+                 $("#volunter-warning").show();
+                 $("#volunter-table").hide();
+              }
+            }
+          });
+        }
+     });
+  });
+  
+  $(document).on("click",".VolunteerOpportunityAssign", function(){     
+     $('#input-volunteer-opportunities').each(function(i, sel){ 
+        var volIDs = $(sel).val();
+        
+        if (volIDs != null) {
+          volIDs.forEach(function(volID) {
+            window.CRM.APIRequest({
+              method: 'POST',
+              path: 'persons/volunteers/add',
+              data: JSON.stringify({"personId": window.CRM.currentPersonID,"volID" : volID})
+            }).done(function(data) {
+              assignedVolunteerTable.ajax.reload();
+
+              if (data && data.success) {
+                $("#input-volunteer-opportunities").val('').trigger('change')
+                if (data.count > 0) {
+                  $("#volunter-warning").hide();
+                  $("#volunter-table").show();
+                }
+              }
+            });
+          });
+        }
+     });
+  });
+  
+  
   automaticPaymentsTable = $("#automaticPaymentsTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/payments/family",
@@ -841,7 +945,7 @@ $(document).ready(function () {
         title:i18next.t('Edit'),
         data:'Id',
         render: function(data, type, full, meta) {        
-          return '<a class="btn btn-success" href="AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t('Edit')+'</a>';
+          return '<a class="btn btn-success" href="' + window.CRM.root +'AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t('Edit')+'</a>';
         }
       },
       {
@@ -1014,7 +1118,7 @@ $(document).ready(function () {
         title:i18next.t('Edit'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="btn btn-success" href="PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t("Edit")+'</a>';
+          return '<a class="btn btn-success" href="' + window.CRM.root + 'PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t("Edit")+'</a>';
         }
       },      
       {

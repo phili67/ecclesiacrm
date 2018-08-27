@@ -329,34 +329,6 @@ function RunQuery($sSQL, $bStopOnError = true)
     }
 }
 
-//
-// Adds a volunteer opportunity assignment to a person
-//
-function AddVolunteerOpportunity($iPersonID, $iVolID)
-{
-    $sSQL = 'select p2vo_ID FROM person2volunteeropp_p2vo WHERE p2vo_per_ID = '.$iPersonID.' AND p2vo_vol_ID = '.$iVolID;
-    $result = RunQuery($sSQL, false);
-    
-    if (mysqli_num_rows($result) == 0) {
-      $sSQL = 'INSERT INTO person2volunteeropp_p2vo (p2vo_per_ID, p2vo_vol_ID) VALUES ('.$iPersonID.', '.$iVolID.')';
-      /*$sSQL = 'INSERT INTO `person2volunteeropp_p2vo` (p2vo_per_ID, p2vo_vol_ID) 
-          SELECT '.$iPersonID.', '.$iVolID.' FROM `person2volunteeropp_p2vo` 
-          WHERE NOT EXISTS (SELECT * FROM `person2volunteeropp_p2vo` 
-                WHERE p2vo_per_ID='.$iPersonID.' AND p2vo_vol_ID='.$iVolID.')
-          LIMIT 1';*/
-
-      $result = RunQuery($sSQL, false);
-    }
-
-    return $result;
-}
-
-function RemoveVolunteerOpportunity($iPersonID, $iVolID)
-{
-    $sSQL = 'DELETE FROM person2volunteeropp_p2vo WHERE p2vo_per_ID = '.$iPersonID.' AND p2vo_vol_ID = '.$iVolID;
-    RunQuery($sSQL);
-}
-
 function ConvertCartToString($aCartArray)
 {
     // Implode the array

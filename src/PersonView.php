@@ -20,6 +20,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
@@ -73,21 +76,6 @@ if (array_key_exists('documents', $_GET)) {
     $bDocuments = true;
 }
 
-
-if (isset($_POST['VolunteerOpportunityAssign']) && $_SESSION['user']->isEditRecordsEnabled()) {
-    $volIDs = $_POST['VolunteerOpportunityIDs'];
-    if ($volIDs) {
-        foreach ($volIDs as $volID) {
-            AddVolunteerOpportunity($iPersonID, $volID);
-        }
-    }
-}
-
-// Service remove-volunteer-opportunity (these links set RemoveVO)
-if ($iRemoveVO > 0 && $_SESSION['user']->isEditRecordsEnabled()) {
-    RemoveVolunteerOpportunity($iPersonID, $iRemoveVO);
-}
-
 // Get this person's data
 $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
         b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
@@ -103,7 +91,6 @@ $rsPerson = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsPerson));
 
 $person = PersonQuery::create()->findPk($iPersonID);
-
 
 if (empty($person)) {
     Redirect('members/404.php?type=Person');
@@ -124,6 +111,20 @@ if ($person->getDateDeactivated() != null) {
       exit;
     }
 }
+
+$ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('ProTypeName')
+                            ->findByR2pRecordId($iPersonID);
 
 $iFamilyID = $person->getFamId();
 
@@ -793,13 +794,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <?php if ($bOkToEdit) {
                 ?>
                     <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
-                      <span class="fa-stack">
+                      <span class="fa-stack"  style="color:green">
                         <i class="fa fa-square fa-stack-2x"></i>
                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                       </span>
                     </a>
                     <a href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?mode=person&PersonID=<?= $tmpPersonId ?>">
-                      <span class="fa-stack">
+                      <span class="fa-stack" style="color:red">
                         <i class="fa fa-square fa-stack-2x"></i>
                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                       </span>
@@ -950,13 +951,19 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         </div>
         <div role="tab-pane fade <?= ($activeTab == 'properties')?"active":"" ?>" class="tab-pane" id="properties">
           <div class="main-box clearfix">
-            <div class="main-box-body clearfix">
+          <div class="main-box-body clearfix">
+            <div class="alert alert-warning" id="properties-warning" <?= ($ormAssignedProperties->count() > 0)?'style="display: none;"':''?>>
+                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No property assignments.') ?></span>
+            </div>
             <?php
-            $sAssignedProperties = ','; ?>
+               $sAssignedProperties = ','; 
+            ?>
             
+            <div id="properties-table" <?= ($ormAssignedProperties->count() == 0)?'style="display: none;"':''?>>
               <table class="table table-condensed dt-responsive" id="assigned-properties-table" width="100%"></table>
+            </div>
 
-              <?php if ($_SESSION['user']->isEditRecordsEnabled() && $bOkToEdit && count($ormProperties) != 0): ?>
+              <?php if ($_SESSION['user']->isEditRecordsEnabled() && $bOkToEdit && $ormProperties->count() != 0): ?>
                 <div class="alert alert-info">
                   <div>
                     <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
@@ -1000,67 +1007,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     $sAssignedVolunteerOpps = ',';
 
     //Was anything returned?
-    if ($ormAssignedVolunteerOpps->count() == 0) {
-        ?>
+     ?>
       <br>
-      <div class="alert alert-warning">
+      <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
         <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
       </div>
-  <?php
-    } else {
-  ?>
-        <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%">
-          <thead>
-            <tr class="TableHeader">
-              <th><?= gettext('Name') ?></th>
-              <th><?= gettext('Description') ?></th>
-        <?php
-          if ($_SESSION['user']->isEditRecordsEnabled()) {
-        ?>
-              <th><?= gettext('Remove') ?></th>
-        <?php  
-          }
-        ?>
-          </tr>
-        </thead>
-        <tbody>
         
-        <?php
-        // Loop through the rows
-        foreach ($ormAssignedVolunteerOpps as $ormAssignedVolunteerOpp) {
-            // Alternate the row style
-            $sRowClass = AlternateRowStyle($sRowClass);
-        ?>
-
-            <tr class="<?= $sRowClass ?>">
-            <td><?= $ormAssignedVolunteerOpp->getName() ?></a></td>
-            <td><?= $ormAssignedVolunteerOpp->getDescription() ?></a></td>
-        <?php
-            if ($_SESSION['user']->isEditRecordsEnabled()) {
-        ?>
-              <td><a class="SmallText btn btn-danger" href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $per_ID ?>&RemoveVO=<?= $ormAssignedVolunteerOpp->getID()?>"><?= gettext('Remove')?></a></td>
-        <?php
-            }
-        ?>
-
-          </tr>
-        <?php
-            // NOTE: this method is crude.  Need to replace this with use of an array.
-            $sAssignedVolunteerOpps .= $ormAssignedVolunteerOpp->getID().',';
-        }
-        ?>
-        </tbody>
-        </table>
-    <?php
-      } 
-    ?>
+      <div id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0)?'style="display: none;"':''?>>
+         <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%"></table>
+      </div>
 
                 <?php if ($_SESSION['user']->isEditRecordsEnabled() && $ormVolunteerOpps->count()): ?>
                 <div class="alert alert-info">
                     <div>
                         <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
 
-                        <form method="post" action="PersonView.php?PersonID=<?= $iPersonID ?>">
                         <div class="row">
                             <div class="form-group col-xs-12 col-md-7">
                                 <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple
@@ -1075,10 +1036,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                 </select>
                             </div>
                             <div class="form-group col-xs-12 col-md-7">
-                                <input type="submit" value="<?= gettext('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary">
+                                <input type="submit" value="<?= gettext('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary VolunteerOpportunityAssign">
                             </div>
                         </div>
-                        </form>
                     </div>
                 </div>
                 <?php endif; ?>
@@ -1229,7 +1189,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                           /*if ((isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file'))*/ {
                      ?>
                             <a href="<?= $item['editLink'] ?>">
-                              <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                              <span class="fa-stack">
+                                <i class="fa fa-square fa-stack-2x"></i>
+                                <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                              </span>
                             </a>
                       <?php
                           }
@@ -1238,20 +1201,25 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
                         <a href="<?= $item['deleteLink'] ?>">
-                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                              <span class="fa-stack">
+                                <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                                <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
+                              </span>
                         </a>
                       <?php
                         }
                         if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
-                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn-xs btn-<?= $item['isShared']?"success":"default" 
-                        ?> shareNote"><i class="fa fa-share-square-o"></i></button>
+                        <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>">
+                            <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
+                            <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
+                        </span>
                       <?php
                         }
-                      } ?>                                   
-                     </span>                  
+                      } ?>
+                     </span>
 
-                  
+
                  <?php
                   if (isset($item['style2']) ) {
                  ?>
