@@ -35,7 +35,7 @@ require 'Include/Header.php';
 <?php //Display the new property link
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-    <p align="center"><a class='btn btn-primary' href="PropertyTypeEditor.php"><?= _('Add a New Property Type') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= _('Add a New Property Type') ?></a></p>
 <?php
 }
 
@@ -83,16 +83,16 @@ foreach ($ormPropertyTypes as $ormPropertyType)
       if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?> 
      <td>
-       <a href="PropertyTypeEditor.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+       <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
         
 <?php
         if ($Properties == 0) {
 ?>
-            &nbsp;&nbsp;&nbsp;<a href="PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
 <?php
         } else {
 ?>
-            &nbsp;&nbsp;&nbsp;<a href="PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId()?>&Warn"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+            &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId()?>&Warn"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
 <?php
         }
 ?>

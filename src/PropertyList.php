@@ -58,7 +58,7 @@ require 'Include/Header.php'; ?>
    if ($_SESSION['user']->isMenuOptionsEnabled()) {
     //Display the new property link
 ?>
-    <p align="center"><a class='btn btn-primary' href="PropertyEditor.php?Type=<?=$sType?>"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?Type=<?=$sType?>"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
 <?php
 }
 
@@ -99,7 +99,16 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 
         //Write the header row
 ?>
-        <tr class="RowColorA"><td><b><?= _($prt_Name) ?></b></td><td></td><td></td><td></td></tr>
+        <tr class="RowColorA"><td><b><?= _($prt_Name) ?></b></td><td></td><td></td>
+
+<?php
+    if ($_SESSION['user']->isMenuOptionsEnabled()) {
+?>        
+        <td></td>
+<?php 
+    }
+?>
+</tr>
 <?php
         //Reset the row color
         $sRowClass = 'RowColorA';
@@ -114,13 +123,9 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
     if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
         <td valign="top">
-        <a href="PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        &nbsp;&nbsp;&nbsp;<a href="PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+        <a href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
         </td>
-<?php
-    } else {
-?>
-    <td></td>
 <?php
     }
 ?>
