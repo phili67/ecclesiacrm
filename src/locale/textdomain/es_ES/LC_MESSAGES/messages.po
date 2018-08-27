@@ -10502,11 +10502,11 @@ msgstr "Inglés - Estados Unidos"
 
 #: settings-locales.php:11
 msgid "French - Belgium"
-msgstr "Francés - Francia"
+msgstr "Francés - Bélgica"
 
 #: settings-locales.php:12
 msgid "French - Canada"
-msgstr "Francés - Francia"
+msgstr "Francés - Canadá"
 
 #: settings-locales.php:13
 msgid "French - France"
@@ -10514,7 +10514,7 @@ msgstr "Francés - Francia"
 
 #: settings-locales.php:14
 msgid "French - Swiss"
-msgstr "Francés - Francia"
+msgstr "Francés - Suizo"
 
 #: settings-locales.php:15
 msgid "German - Germany"
