@@ -49,12 +49,14 @@ $app->group('/menulinks', function () {
       
       $place++;
       
-      if ($place == 1) {
+      if ($place == 1 && $count != 1) {
         $position = "first";
-      } else if ($place == $count) {
+      } else if ($place == $count && $count != 1) {
         $position = "last";
-      } else {
+      } else if ($count != 1){
         $position = "intermediate";
+      } else {
+        $position = "none";
       }
       
       $res .= $new_elt."\"place\":\"".$position."\"},";

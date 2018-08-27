@@ -64,9 +64,9 @@ if (isset($_GET['Warn'])) {
 </p>
 
 <p align="center">
-	<a href="PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>"><?= gettext('Yes, delete this record') ?></a>
+	<a href="PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= gettext('Yes, delete this record') ?></a>
 	&nbsp;&nbsp;
-	<a href="PropertyTypeList.php?Type=<?= $sType ?>"><?= gettext('No, cancel this deletion') ?></a>
+	<a href="PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= gettext('No, cancel this deletion') ?></a>
 
 </p>
 

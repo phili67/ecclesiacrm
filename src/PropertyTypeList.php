@@ -15,16 +15,17 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PropertyTypeQuery;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title
-$sPageTitle = gettext('Property Type List');
+$sPageTitle = _('Property Type List');
 
 $ormPropertyTypes = PropertyTypeQuery::Create()
-	->leftJoinProperty()
-	->groupByPrtId()
-	->groupByPrtClass()
-	->groupByPrtName()
-	->find();
+  ->leftJoinProperty()
+  ->groupByPrtId()
+  ->groupByPrtClass()
+  ->groupByPrtName()
+  ->find();
 
 
 require 'Include/Header.php';
@@ -33,59 +34,118 @@ require 'Include/Header.php';
     <div class="table-responsive">
 <?php //Display the new property link
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
-    echo "<p align=\"center\"><a class='btn btn-primary' href=\"PropertyTypeEditor.php\">".gettext('Add a New Property Type').'</a></p>';
+?>
+    <p align="center"><a class='btn btn-primary' href="PropertyTypeEditor.php"><?= _('Add a New Property Type') ?></a></p>
+<?php
 }
 
 //Start the table
-echo "<table class='table table-hover'>";
-echo '<tr>';
-echo '<th>'.gettext('Name').'</th>';
-echo '<th>'.gettext('Class').'</th>';
-echo '<th align="center">'.gettext('Properties').'</th>';
+?>
+<table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="property-listing-table" style="width:100%">
+<thead>
+<tr>
+<?php
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
-    echo '<th>'.gettext('Edit').'</th>';
-    echo '<th>'.gettext('Delete').'</th>';
+?>
+   <th><?= _('Action') ?></th>
+<?php
 }
-echo '</tr>';
-
+?>
+   <th><?= _('Name') ?></th>
+   <th><?= _('Class') ?></th>
+   <th><?= _('Description') ?></th>
+</tr>
+</thead>
+</tbody>
+<?php
 //Initalize the row shading
 $sRowClass = 'RowColorA';
 
 //Loop through the records
 foreach ($ormPropertyTypes as $ormPropertyType)
 {
-    //extract($aRow);
-
     $sRowClass = AlternateRowStyle($sRowClass);
+    
+?>
 
-    echo '<tr class="'.$sRowClass.'">';
-    echo '<td>'.$ormPropertyType->getPrtName().'</td>';
-    echo '<td>';
-    if ($ormPropertyType->getPrtName() == 'Menu')
-	    echo gettext('Sunday School Sub Menu');
-	else
-	    switch ($ormPropertyType->getPrtClass()) { case 'p': echo gettext('Person'); break; case 'f': echo gettext('Family'); break; case 'g': echo gettext('Group'); break;}
-	    
-    echo '<td align="center">'.$Properties.'</td>';
-    
-    $activLink = "";
-    if ($ormPropertyType->getPrtName() == 'Menu')
-	    $activLink = " disabled";		    
-    
-    if ($_SESSION['user']->isMenuOptionsEnabled()) {
-        echo "<td><a class='btn btn-info".$activLink."' href=\"PropertyTypeEditor.php?PropertyTypeID=".$ormPropertyType->getPrtId().'">'.gettext('Edit').'</a></td>';
+  <tr>
+<?php
+  $activLink = "";
+  
+  if ($ormPropertyType->getPrtName() == 'Menu')
+    $activLink = " disabled";
+
+  if ($ormPropertyType->getPrtName() == 'Menu') {
+?>
+   <td></td>
+<?php
+    } else {
+      if ($_SESSION['user']->isMenuOptionsEnabled()) {
+?> 
+     <td>
+       <a href="PropertyTypeEditor.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        
+<?php
         if ($Properties == 0) {
-            echo "<td><a class='btn btn-danger".$activLink."' href=\"PropertyTypeDelete.php?PropertyTypeID=".$ormPropertyType->getPrtId().'">'.gettext('Delete').'</a></td>';
+?>
+            &nbsp;&nbsp;&nbsp;<a href="PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+<?php
         } else {
-            echo "<td><a class='btn btn-danger".$activLink."' href=\"PropertyTypeDelete.php?PropertyTypeID=".$ormPropertyType->getPrtId().'&Warn">'.gettext('Delete').'</a></td>';
+?>
+            &nbsp;&nbsp;&nbsp;<a href="PropertyTypeDelete.php?PropertyTypeID=<?= $ormPropertyType->getPrtId()?>&Warn"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+<?php
         }
+?>
+   </td>
+<?php
     }
-    echo '</tr>';
-}
+  }
+?>
+    <td><?= _($ormPropertyType->getPrtName()) ?></td>
+    <td>
+<?php
+  if ($ormPropertyType->getPrtName() == 'Menu') {
+?>
+    <?= _('Sunday School Sub Menu') ?></td>
+<?php
+   if ($_SESSION['user']->isMenuOptionsEnabled()) {
+?>
+    <td></td>
+<?php
+   }
+?>
+<?php
+  } else {
+      switch ($ormPropertyType->getPrtClass()) { case 'p': echo _('Person'); break; case 'f': echo _('Family'); break; case 'g': echo _('Group'); break;}
+?>
+      </td>
+      <td><?= _($ormPropertyType->getPrtDescription()) ?></td>
+<?php
+  }
+?>
+    </tr>
+<?php
+  }
 
 //End the table
-echo '</table></div></div>';
-
-require 'Include/Footer.php';
-
 ?>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<?php
+require 'Include/Footer.php';
+?>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  $("#property-listing-table").DataTable({
+       "language": {
+         "url": window.CRM.plugin.dataTable.language.url
+       },
+       responsive: true,
+       "order": [[ 2, "asc" ]]
+  });
+</script>
+
