@@ -480,14 +480,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                     if ($bOkToEdit) {
                                   ?>
                                         <a href="PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
-                                    <span class="fa-stack">
+                                    <span class="fa-stack"  style="color:green">
                                         <i class="fa fa-square fa-stack-2x"></i>
                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                                     </span>
                                         </a>
                                         <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
                                            data-person_id="<?= $person->getId() ?>" data-view="family">
-                                    <span class="fa-stack">
+                                    <span class="fa-stack"  style="color:red">
                                         <i class="fa fa-square fa-stack-2x"></i>
                                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                                     </span>
@@ -567,16 +567,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                      <?php if (isset($item["editLink"])) {
                             ?>
                                                 <a href="<?= $item["editLink"] ?>">
-                                                    <button type="button" class="btn-xs btn-primary"><i
-                                                                class="fa fa-edit"></i></button>
+                                                    <span class="fa-stack">
+                                                      <i class="fa fa-square fa-stack-2x"></i>
+                                                      <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                                                    </span>
                                                 </a>
                                                 <?php
                         }
                         if (isset($item["deleteLink"])) {
                             ?>
                                                 <a href="<?= $item["deleteLink"] ?>">
-                                                    <button type="button" class="btn-xs btn-danger"><i
-                                                                class="fa fa-trash"></i></button>
+                                                    <span class="fa-stack">
+                                                    <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                                                    <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
+                                                  </span>
                                                 </a>
                                                 <?php
                         } ?>
@@ -777,14 +781,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                        if ($item['editLink'] != '') {
                                                 ?>
                         <a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                          </span>
                         </a>
                       <?php
                                             }
                                             if ($item['deleteLink'] != '') {
                                                 ?>
                         <a href="<?= $item['deleteLink'] ?>">
-                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                           <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                              <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
+                            </span>
                         </a>
                       <?php
                           }
