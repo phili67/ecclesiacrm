@@ -217,6 +217,7 @@
         </vendor>
     </table>
     <table name="family_custom_master" idMethod="native" phpName="FamilyCustomMaster">
+        <column name="family_custom_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="fam_custom_Order" phpName="CustomOrder" type="SMALLINT" required="true" defaultValue="0"/>
         <column name="fam_custom_Field" phpName="CustomField" type="VARCHAR" size="5" required="true" defaultValue=""/>
         <column name="fam_custom_Name" phpName="CustomName" type="VARCHAR" size="40" required="true" defaultValue=""/>

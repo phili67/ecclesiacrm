@@ -19,6 +19,10 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMaster;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupQuery;
 
 // Security: user must be administrator to use this page
 if (!$_SESSION['user']->isAdmin()) {
@@ -31,8 +35,8 @@ $sPageTitle = _('Custom Family Fields Editor');
 require 'Include/Header.php'; ?>
 
 <div class="alert alert-warning">
-		<i class="fa fa-ban"></i>
-		<?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
+    <i class="fa fa-ban"></i>
+    <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
 </div>
 
 <div class="box box-body">
@@ -48,22 +52,25 @@ $aNameErrors = [];
 // Does the user want to save changes to text fields?
 if (isset($_POST['SaveChanges'])) {
     // Fill in the other needed custom field data arrays not gathered from the form submit
-    $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-    $rsCustomFields = RunQuery($sSQL);
-    $numRows = mysqli_num_rows($rsCustomFields);
-
-    for ($row = 1; $row <= $numRows; $row++) {
-        $aRow = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH);
-        extract($aRow);
-
-        $aFieldFields[$row] = $fam_custom_Field;
-        $aTypeFields[$row] = $type_ID;
-        if (isset($fam_custom_Special)) {
-            $aSpecialFields[$row] = $fam_custom_Special;
+    $ormCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
+    
+    $numRows = $ormCustomFields->count();
+    
+    $row = 1;
+    
+    // Create arrays of the fields.
+    foreach ($ormCustomFields as $ormCustomField) {
+        $aFieldFields[$row] = $ormCustomField->getCustomField();
+        $aTypeFields[$row] = $ormCustomField->getTypeId();
+        
+        if (!is_null($ormCustomField->getCustomSpecial())) {
+            $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
         } else {
             $aSpecialFields[$row] = 'NULL';
         }
+        $row++;
     }
+    
 
     for ($iFieldID = 1; $iFieldID <= $numRows; $iFieldID++) {
         $aNameFields[$iFieldID] = InputUtils::LegacyFilterInput($_POST[$iFieldID.'name']);
@@ -98,15 +105,15 @@ if (isset($_POST['SaveChanges'])) {
             } else {
                 $temp = 'right';
             }
-
-            $sSQL = "UPDATE family_custom_master
-                    SET `fam_custom_Name` = '".$aNameFields[$iFieldID]."',
-                        `fam_custom_Special` = ".$aSpecialFields[$iFieldID].",
-                        `fam_custom_Side` = '".$temp."',
-                        `fam_custom_FieldSec` = ".$aFieldSecurity[$iFieldID]."
-                    WHERE `fam_custom_Field` = '".$aFieldFields[$iFieldID]."';";
-
-            RunQuery($sSQL);
+            
+            $fam_cus = FamilyCustomMasterQuery::Create()->findOneByCustomField ($aFieldFields[$iFieldID]);
+            
+            $fam_cus->setCustomName($aNameFields[$iFieldID]);
+            $fam_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
+            $fam_cus->setCustomSide($temp);
+            $fam_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
+            
+            $fam_cus->save();
         }
     }
 } else {
@@ -123,13 +130,10 @@ if (isset($_POST['SaveChanges'])) {
             // This should never happen, but check anyhow.
             // $bNewTypeError = true;
         } else {
-            $sSQL = 'SELECT fam_custom_Name FROM family_custom_master';
-            $rsCustomNames = RunQuery($sSQL);
-            while ($aRow = mysqli_fetch_array($rsCustomNames)) {
-                if ($aRow[0] == $newFieldName) {
-                    $bDuplicateNameError = true;
-                    break;
-                }
+            $fam_duplicate = FamilyCustomMasterQuery::Create()->findOneByCustomName($newFieldName);
+            
+            if (!empty($fam_duplicate)) {
+              $bDuplicateNameError = true;
             }
 
             if (!$bDuplicateNameError) {
@@ -178,11 +182,20 @@ if (isset($_POST['SaveChanges'])) {
 
                 // Insert into the master table
                 $newOrderID = $last + 1;
-                $sSQL = "INSERT INTO `family_custom_master`
-                        (`fam_custom_Order` , `fam_custom_Field` , `fam_custom_Name` ,  `fam_custom_Special` , `fam_custom_Side` , `fam_custom_FieldSec` , `type_ID`)
-                        VALUES ('".$newOrderID."', 'c".$newFieldNum."', '".$newFieldName."', ".$newSpecial.", '".$newFieldSide."', '".$newFieldSec."', '".$newFieldType."');";
-                RunQuery($sSQL);
+                
+                $fam_cus = new FamilyCustomMaster();
+                
+                $fam_cus->setCustomOrder($newOrderID);
+                $fam_cus->setCustomField("c".$newFieldNum);
+                $fam_cus->setCustomName($newFieldName);
+                $fam_cus->setCustomSpecial($newSpecial);
+                $fam_cus->setCustomSide($newFieldSide);
+                $fam_cus->setCustomFieldSec($newFieldSec);
+                $fam_cus->setTypeId($newFieldType);
+                
+                $fam_cus->save();
 
+                // this can't be propeled
                 // Insert into the custom fields table
                 $sSQL = 'ALTER TABLE `family_custom` ADD `c'.$newFieldNum.'` ';
 
@@ -232,36 +245,33 @@ if (isset($_POST['SaveChanges'])) {
         }
     }
 
-    // Get data for the form as it now exists..
-    $sSQL = 'SELECT * FROM family_custom_master ORDER BY fam_custom_Order';
-
-    $rsCustomFields = RunQuery($sSQL);
-    $numRows = mysqli_num_rows($rsCustomFields);
-
+    $ormCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
+    
+    $numRows = $ormCustomFields->count();
+    
+    $row = 1;
+    
     // Create arrays of the fields.
-    for ($row = 1; $row <= $numRows; $row++) {
-        $aRow = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH);
-        extract($aRow);
-
-        $aNameFields[$row] = $fam_custom_Name;
-        $aSpecialFields[$row] = $fam_custom_Special;
-        $aFieldFields[$row] = $fam_custom_Field;
-        $aTypeFields[$row] = $type_ID;
-        $aSideFields[$row] = ($fam_custom_Side == 'right');
-        $aFieldSecurity[$row] = $fam_custom_FieldSec;
-        $aNameErrors[$row] = false;
+    foreach ($ormCustomFields as $ormCustomField) {
+        $aNameFields[$row] = $ormCustomField->getCustomName();
+        $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
+        $aFieldFields[$row] = $ormCustomField->getCustomField();
+        $aTypeFields[$row] = $ormCustomField->getTypeId();
+        $aSideFields[$row] = ($ormCustomField->getCustomSide() == 'right');
+        $aFieldSecurity[$row] = $ormCustomField->getCustomFieldSec();
+        $aNameErrors[$row++] = false;
     }
 }
 
 // Prepare Security Group list
-    $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-    $rsSecurityGrp = RunQuery($sSQL);
+    $ormSecurityGrps = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(5);
 
     $aSecurityGrp = [];
-    while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-        $aSecurityGrp[] = $aRow;
-        extract($aRow);
-        $aSecurityType[$lst_OptionID] = $lst_OptionName;
+    foreach ($ormSecurityGrps as $ormSecurityGrp) {
+      $aSecurityGrp[] = $ormSecurityGrp->toArray();
+      $aSecurityType[$ormSecurityGrp->getOptionId()] = $ormSecurityGrp->getOptionName();
     }
 
 function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
@@ -271,11 +281,11 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 
     for ($i = 0; $i < $grp_Count; $i++) {
         $aAryRow = $aSecGrp[$i];
-        $sOptList .= '<option value="'.$aAryRow['lst_OptionID'].'"';
-        if ($aAryRow['lst_OptionName'] == $currOpt) {
+        $sOptList .= '<option value="'.$aAryRow['OptionId'].'"';
+        if ($aAryRow['OptionName'] == $currOpt) {
             $sOptList .= ' selected';
         }
-        $sOptList .= '>'.$aAryRow['lst_OptionName']."</option>\n";
+        $sOptList .= '>'.$aAryRow['OptionName']."</option>\n";
     }
     $sOptList .= '</select>';
 
@@ -287,14 +297,14 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 function confirmDeleteField( Field , row) {
-	var answer = confirm (<?= "'"._('Warning:  By deleting this field, you will irrevokably lose all family data assigned for this field!')."'" ?>)
-	if ( answer )
-	{
-		window.location="FamilyCustomFieldsRowOps.php?OrderID="+ row +"&Field=" + Field +"&Action=delete";
-		return true;
-	}
-	event.preventDefault ? event.preventDefault() : event.returnValue = false;
-	return false;
+  var answer = confirm (<?= "'"._('Warning:  By deleting this field, you will irrevokably lose all family data assigned for this field!')."'" ?>)
+  if ( answer )
+  {
+    window.location="FamilyCustomFieldsRowOps.php?OrderID="+ row +"&Field=" + Field +"&Action=delete";
+    return true;
+  }
+  event.preventDefault ? event.preventDefault() : event.returnValue = false;
+  return false;
 }
 </script>
 <form method="post" action="FamilyCustomFieldsEditor.php" name="FamilyCustomFieldsEditor">
@@ -304,7 +314,8 @@ function confirmDeleteField( Field , row) {
 <?php
 if ($numRows == 0) {
     ?>
-    <center><h2><?= _('No custom Family fields have been added yet') ?></h2>
+    <center>
+       <h2><?= _('No custom Family fields have been added yet') ?></h2>
     </center>
 <?php
 } else {
@@ -312,7 +323,9 @@ if ($numRows == 0) {
     <tr><td colspan="7">
     <?php
     if ($bErrorFlag) {
-        echo '<span class="LargeText" style="color: red;"><BR>'._('Invalid fields or selections. Changes not saved! Please correct and try again!').'</span>';
+    ?>
+        <span class="LargeText" style="color: red;"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
+    <?php
     } ?>
     </td></tr>
         <tr>
@@ -351,40 +364,46 @@ if ($numRows == 0) {
                 <input type="text" class="form-control" name="<?= $row.'name' ?>" value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35" maxlength="40">
                 <?php
                 if ($aNameErrors[$row]) {
-                    echo '<span style="color: red;"><BR>'._('You must enter a name').' </span>';
-                } ?>
+                ?>
+                    <span style="color: red;"><BR><?= _('You must enter a name')?> </span>
+                <?php
+                } 
+                ?>
             </td>
             <td class="TextColumn" align="center">
 
             <?php
             if ($aTypeFields[$row] == 9) {
-                echo '<select name="'.$row.'special" class="form-control  input-sm">';
-                echo '<option value="0" selected>'._("Select a group").'</option>';
-
-                $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
-                $rsGroupList = RunQuery($sSQL);
-
-                while ($aRow = mysqli_fetch_array($rsGroupList)) {
-                    extract($aRow);
-
-                    echo '<option value="'.$grp_ID.'"';
-                    if ($aSpecialFields[$row] == $grp_ID) {
-                        echo ' selected';
-                    }
-                    echo '>'.$grp_Name;
+            ?>
+                <select name="<?= $row ?>special" class="form-control  input-sm">
+                <option value="0" selected><?= _("Select a group")?></option>
+            <?php
+                $ormGroupList = GroupQuery::Create()->orderByName()->find();
+                
+                foreach ($ormGroupList as $group) {
+            ?>
+                  <option value="<?= $group->getId()?>"<?= ($aSpecialFields[$row] == $group->getId())?' selected':''?>><?= $group->getName()?>
+            <?php
                 }
-
-                echo '</select>';
+            ?>
+                </select>
+            <?php
                 if ($aSpecialErrors[$row]) {
-                    echo '<span style="color: red;"><BR>'._('You must select a group.').'</span>';
+            ?>
+                    <span style="color: red;"><BR><?= _('You must select a group.') ?></span>
+            <?php
                 }
             } elseif ($aTypeFields[$row] == 12) {
-
                 // TLH 6-23-07 Added scrollbars to the popup so long lists can be edited.
-                echo "<a href=\"javascript:void(0)\" onClick=\"Newwin=window.open('OptionManager.php?mode=famcustom&ListID=$aSpecialFields[$row]','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')\">"._('Edit List Options').'</a>';
+            ?>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=famcustom&ListID=<?=$aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500,scrollbars=1')"><?= _('Edit List Options') ?></a>
+            <?php
             } else {
-                echo '&nbsp;';
-            } ?>
+            ?>
+                &nbsp;
+            <?php
+            } 
+            ?>
 
             </td>
             <td class="TextColumn" align="center" nowrap>
@@ -442,25 +461,31 @@ if ($numRows == 0) {
                 <tr>
                     <td width="15%"></td>
                     <td valign="top">                    
-                    <?php
-                        echo '<select name="newFieldType" class="form-control input-sm">';
+                        <select name="newFieldType" class="form-control input-sm">
 
+                      <?php
                         for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
-                            echo '<option value="'.$iOptionID.'"';
-                            echo '>'.$aPropTypes[$iOptionID];
+                      ?>
+                            <option value="<?= $iOptionID ?>"><?= $aPropTypes[$iOptionID] ?>
+                      <?php
                         }
-                        echo '</select>';
-                    ?><BR>
+                      ?>
+                        </select>
+                    <BR>
                     <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
                     </td>
                     <td valign="top">
                         <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                         <?php
                             if ($bNewNameError) {
-                                echo '<div><span style="color: red;"><BR>'._('You must enter a name').'</span></div>';
+                        ?>
+                                <div><span style="color: red;"><BR><?= _('You must enter a name') ?></span></div>
+                        <?php
                             }
                             if ($bDuplicateNameError) {
-                                echo '<div><span style="color: red;"><BR>'._('That field name already exists.').'</span></div>';
+                        ?>
+                                <div><span style="color: red;"><BR><?= _('That field name already exists.') ?></span></div>
+                        <?php
                             }
                         ?>
                         &nbsp;
