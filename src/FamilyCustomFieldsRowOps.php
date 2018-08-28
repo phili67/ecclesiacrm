@@ -51,7 +51,7 @@ switch ($sAction) {
         // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
         $famCus = FamilyCustomMasterQuery::Create()->findOneByCustomField($sField);
         
-        if ( $famCus->getTypeId() == 12 ) {
+        if ( !is_null ($famCus) && $famCus->getTypeId() == 12 ) {
            $list = ListOptionQuery::Create()->findById($famCus->getCustomSpecial());
            if( !is_null($list) ) {
              $list->delete();
@@ -72,7 +72,9 @@ switch ($sAction) {
         if ($numRows > 0) {
             for ($reorderRow = $iOrderID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
                 $firstFamCus = FamilyCustomMasterQuery::Create()->findOneByCustomOrder($reorderRow);
-                $firstFamCus->setCustomOrder($reorderRow - 1)->save();
+                if (!is_null($firstFamCus)) {
+                  $firstFamCus->setCustomOrder($reorderRow - 1)->save();
+                }
             }
         }
         break;
