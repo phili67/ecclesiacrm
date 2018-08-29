@@ -378,7 +378,7 @@
         ],
         "scripts": [
           "/mysql/upgrade/4.6.0-upgrade.sql",
-          "/mysql/upgrade/4.6.0-upgrade.sql"
+          "/mysql/upgrade/4.6.0-upgrade.php"
         ],
         "dbVersion": "4.6.0"
     }
