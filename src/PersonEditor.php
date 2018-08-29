@@ -76,7 +76,7 @@ if ($iPersonID > 0) {
 }
 
 $ormCustomFields = PersonCustomMasterQuery::Create()
-                     ->orderByOrder()
+                     ->orderByCustomOrder()
                      ->find();
                      
 
@@ -297,14 +297,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     
     foreach ($ormCustomFields as $rowCustomField) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-            $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getId()]);
+            $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
             
-            //echo $rowCustomField->getId()." ".$currentFieldData;
+            echo $rowCustomField->getCustomField()." ".$currentFieldData;
 
-            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getId(), $aCustomErrors);
+            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
 
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
-            $aCustomData[$rowCustomField->getId()] = $currentFieldData;
+            $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
         }      
     }
 
@@ -501,11 +501,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
             foreach ($ormCustomFields as $rowCustomField) {
               if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-                    $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
-                    sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getId(), $sPhoneCountry);
+                    $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                    sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
+                    
+                    echo $rowCustomField->getCustomField()." ".$currentFieldData;
               }
             }
-        
+            
             // chop off the last 2 characters (comma and space) added in the last while loop iteration.
             if ($sSQL > '') {
                 $sSQL = 'REPLACE INTO person_custom SET '.$sSQL.' per_ID = '.$iPersonID;
@@ -602,14 +604,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $aCustomData['per_ID'] = $iPersonID;
                 
         foreach ($ormCustomFields as $ormCustomField) {
-          //echo $ormCustomField->getId();
+          //echo $ormCustomField->getCustomField();
           $personCustom = PersonCustomQuery::Create()
-                          ->withcolumn($ormCustomField->getId())
+                          ->withcolumn($ormCustomField->getCustomField())
                           ->findOneByPerId($iPersonID);
                           
         if (!is_null($personCustom)) {
-            $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getId());
-            $aCustomData[$ormCustomField->getId()] = $personCustom->getVirtualColumn($ormCustomField->getId());
+            $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
+            $aCustomData[$ormCustomField->getCustomField()] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
           }
         }
         
@@ -1384,10 +1386,10 @@ require 'Include/Header.php';
                       }
 
 
-                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getName().'</label><br>';
+                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getCustomName().'</label><br>';
 
-                      if (array_key_exists($rowCustomField->getId(), $aCustomData)) {
-                          $currentFieldData = trim($aCustomData[$rowCustomField->getId()]);
+                      if (array_key_exists($rowCustomField->getCustomField(), $aCustomData)) {
+                          $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
                       } else {
                           $currentFieldData = '';
                       }
@@ -1396,7 +1398,7 @@ require 'Include/Header.php';
                           $custom_Special = $sPhoneCountry;
                       }
 
-                      OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getId(), $currentFieldData, $rowCustomField->getSpecial(), !isset($_POST['PersonSubmit']));
+                      OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getCustomField(), $currentFieldData, $rowCustomField->getCustomSpecial(), !isset($_POST['PersonSubmit']));
                       if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
                           echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
                       }
