@@ -22,7 +22,9 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\ListOption;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Map\ListOptionTableMap;
 
 // Security: user must be administrator to use this page
 if (!$_SESSION['user']->isAdmin()) {
@@ -163,23 +165,33 @@ if (isset($_POST['SaveChanges'])) {
                 if ($newFieldType == 12) {
                     // Get the first available lst_ID for insertion.
                     // lst_ID 0-9 are reserved for permanent lists.
-                    $sSQL = 'SELECT MAX(lst_ID) FROM list_lst';
-                    $aTemp = mysqli_fetch_array(RunQuery($sSQL));
-                    if ($aTemp[0] > 9) {
-                        $newListID = $aTemp[0] + 1;
+                    $listMax = ListOptionQuery::Create()
+                            ->addAsColumn('MaxID', 'MAX('.ListOptionTableMap::COL_LST_ID.')')
+                            ->findOne();
+                    
+                    $max = $listMax->getMaxID();
+                    
+                    if ($max > 9) {
+                        $newListID = $max + 1;
                     } else {
                         $newListID = 10;
                     }
-
+                    
                     // Insert into the lists table with an example option.
-                    $sSQL = "INSERT INTO list_lst VALUES ($newListID, 1, 1,'"._('Default Option')."')";
-                    RunQuery($sSQL);
-
-                    $newSpecial = "'$newListID'";
+                    $lst = new ListOption();
+                    
+                    $lst->setId($newListID);
+                    $lst->setOptionId(1);
+                    $lst->setOptionSequence(1);
+                    $lst->setOptionName(_("Default Option"));
+                    
+                    $lst->save();
+                    
+                    $newSpecial = $newListID;
                 } else {
                     $newSpecial = 'NULL';
                 }
-
+                
                 // Insert into the master table
                 $newOrderID = $last + 1;
                 

@@ -27,7 +27,7 @@ function getPersonFieldsByType(Request $request, Response $response, array $p_ar
     $keyValue = [];
 
     foreach ($fields as $field) {
-        array_push($keyValue, ["id" => $field->getId() , "value" =>  $field->getName()]);
+        array_push($keyValue, ["id" => $field->getId() , "value" =>  $field->getCustomName()]);
     }
 
     return $response->withJson($keyValue);
