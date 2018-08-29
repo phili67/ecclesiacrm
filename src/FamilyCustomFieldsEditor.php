@@ -407,7 +407,16 @@ if ($numRows == 0) {
 
             </td>
             <td class="TextColumn" align="center" nowrap>
-                <?= GetSecurityList($aSecurityGrp, $row.'FieldSec', $aSecurityType[$aFieldSecurity[$row]]) ?>
+                <?php
+                if (isset($aSecurityType[$aFieldSecurity[$row]])) {
+              ?>
+                  <?= GetSecurityList($aSecurityGrp, $row.'FieldSec', $aSecurityType[$aFieldSecurity[$row]]) ?>
+              <?php
+              } else {
+              ?>
+                  <?= GetSecurityList($aSecurityGrp, $row.'FieldSec') ?>
+              <?php
+              } ?>
             </td>
             <td class="TextColumn" align="center" nowrap>
                 <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= _('Left') ?>
