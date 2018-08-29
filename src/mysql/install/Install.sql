@@ -495,6 +495,7 @@ CREATE TABLE `family_custom` (
 --
 
 CREATE TABLE `family_custom_master` (
+  `family_custom_id` mediumint(9) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `fam_custom_Order` smallint(6) NOT NULL default '0',
   `fam_custom_Field` varchar(5) NOT NULL default '',
   `fam_custom_Name` varchar(40) NOT NULL default '',
