@@ -15,6 +15,7 @@ require '../../Include/Config.php';*/
   $logger->info("Add the forgotten part");
   
   unlink(SystemURLs::getDocumentRoot()."/FamilyCustomFieldsRowOps.php");
+  unlink(SystemURLs::getDocumentRoot()."/PersonCustomFieldsRowOps.php");
     
   $logger->info("End Add the forgotten part");
 ?>
