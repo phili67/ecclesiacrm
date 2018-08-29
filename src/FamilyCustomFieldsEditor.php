@@ -307,18 +307,6 @@ function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
 // Construct the form
 ?>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-function confirmDeleteField( Field , row) {
-  var answer = confirm (<?= "'"._('Warning:  By deleting this field, you will irrevokably lose all family data assigned for this field!')."'" ?>)
-  if ( answer )
-  {
-    window.location="FamilyCustomFieldsRowOps.php?OrderID="+ row +"&Field=" + Field +"&Action=delete";
-    return true;
-  }
-  event.preventDefault ? event.preventDefault() : event.returnValue = false;
-  return false;
-}
-</script>
 <form method="post" action="FamilyCustomFieldsEditor.php" name="FamilyCustomFieldsEditor">
     <div class="table-responsive">
 <table class="table" class="table">
