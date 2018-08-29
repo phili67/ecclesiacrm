@@ -787,6 +787,7 @@ CREATE TABLE `person_custom` (
 --
 
 CREATE TABLE `person_custom_master` (
+  `custom_id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
   `custom_Order` smallint(6) NOT NULL default '0',
   `custom_Field` varchar(5) NOT NULL default '',
   `custom_Name` varchar(40) NOT NULL default '',
@@ -794,7 +795,7 @@ CREATE TABLE `person_custom_master` (
   `custom_Side` enum('left','right') NOT NULL default 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
   `type_ID` tinyint(4) NOT NULL default '0',
-  PRIMARY KEY (`custom_Field`)
+  PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 --

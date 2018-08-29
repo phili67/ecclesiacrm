@@ -2,6 +2,7 @@
 /* contributor Philippe Logel */
 
 // Person APIs
+use Propel\Runtime\Propel;
 use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\Photo;
@@ -20,6 +21,8 @@ use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use EcclesiaCRM\PersonVolunteerOpportunity;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\ListOptionQuery;
 
 
 $app->group('/persons', function () {
@@ -235,6 +238,96 @@ $app->group('/persons', function () {
 
         return $response->withJSON(array("status" => "success"));
 
+    });
+    
+    $this->post('/deletefield', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isAdmin()) {
+          return $response->withStatus(404);
+      }
+      
+      $values = (object)$request->getParsedBody();
+      
+      if ( isset ($values->orderID) && isset ($values->field) )
+      {
+        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+        $perCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+        
+        if ( !is_null ($perCus) && $perCus->getTypeId() == 12 ) {
+           $list = ListOptionQuery::Create()->findById($perCus->getCustomSpecial());
+           if( !is_null($list) ) {
+             $list->delete();
+           }
+        }
+        
+        // this can't be propeled
+        $connection = Propel::getConnection();
+        $sSQL = 'ALTER TABLE `person_custom` DROP `'.$values->field.'` ;';
+        $connection->exec($sSQL); 
+
+        // now we can delete the FamilyCustomMaster
+        $perCus->delete();
+
+        $allperCus = PersonCustomMasterQuery::Create()->find();
+        $numRows = $allperCus->count();
+
+        // Shift the remaining rows up by one, unless we've just deleted the only row
+        if ($numRows > 0) {
+            for ($reorderRow = $values->orderID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
+                $firstperCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($reorderRow);
+                if (!is_null($firstperCus)) {
+                  $firstperCus->setCustomOrder($reorderRow - 1)->save();
+                }
+            }
+        }
+        
+        return $response->withJson(['success' => true]);
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
+    $this->post('/upactionfield', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isAdmin()) {
+          return $response->withStatus(404);
+      }
+
+      $values = (object)$request->getParsedBody();
+      
+      if ( isset ($values->orderID) && isset ($values->field) )
+      {
+        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+        $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID - 1);
+        $firstFamCus->setCustomOrder($values->orderID)->save();
+        
+        $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+        $secondFamCus->setCustomOrder($values->orderID - 1)->save();
+        
+        return $response->withJson(['success' => true]);
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+    
+    $this->post('/downactionfield', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isAdmin()) {
+          return $response->withStatus(404);
+      }
+
+      $values = (object)$request->getParsedBody();
+      
+      if ( isset ($values->orderID) && isset ($values->field) )
+      {
+        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+        $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID + 1);
+        $firstFamCus->setCustomOrder($values->orderID)->save();
+        
+        $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+        $secondFamCus->setCustomOrder($values->orderID + 1)->save();
+        
+        return $response->withJson(['success' => true]);
+      }
+      
+      return $response->withJson(['success' => false]);
     });
 
 });

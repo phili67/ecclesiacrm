@@ -14,6 +14,13 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonCustomMaster;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\ListOption;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Map\ListOptionTableMap;
+
 
 // Security: user must be administrator to use this page
 if (!$_SESSION['user']->isAdmin()) {
@@ -21,13 +28,13 @@ if (!$_SESSION['user']->isAdmin()) {
     exit;
 }
 
-$sPageTitle = gettext('Custom Person Fields Editor');
+$sPageTitle = _('Custom Person Fields Editor');
 
 require 'Include/Header.php'; ?>
 
   <div class="alert alert-warning">
     <i class="fa fa-ban"></i>
-    <?= gettext("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
+    <?= _("Warning: Arrow and delete buttons take effect immediately.  Field name changes will be lost if you do not 'Save Changes' before using an up, down, delete or 'add new' button!") ?>
   </div>
 
 <div class="box box-body">
@@ -42,21 +49,22 @@ require 'Include/Header.php'; ?>
   // Does the user want to save changes to text fields?
   if (isset($_POST['SaveChanges'])) {
       // Fill in the other needed custom field data arrays not gathered from the form submit
-      $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
-      $rsCustomFields = RunQuery($sSQL);
-      $numRows = mysqli_num_rows($rsCustomFields);
-
-      for ($row = 1; $row <= $numRows; $row++) {
-          $aRow = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH);
-          extract($aRow);
-
-          $aFieldFields[$row] = $custom_Field;
-          $aTypeFields[$row] = $type_ID;
-          if (isset($custom_Special)) {
-              $aSpecialFields[$row] = $custom_Special;
-          } else {
-              $aSpecialFields[$row] = 'NULL';
-          }
+      $ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
+      
+      $numRows = $ormCustomFields->count();
+      
+      $row = 1;
+      
+      foreach ($ormCustomFields as $ormCustomField) {
+        $aFieldFields[$row] = $ormCustomField->getCustomField();
+        $aTypeFields[$row] = $ormCustomField->getTypeId();
+        
+        if (!is_null($ormCustomField->getCustomSpecial())) {
+            $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
+        } else {
+            $aSpecialFields[$row] = 'NULL';
+        }
+        $row++;
       }
 
       for ($iFieldID = 1; $iFieldID <= $numRows; $iFieldID++) {
@@ -87,19 +95,20 @@ require 'Include/Header.php'; ?>
       // If no errors, then update.
       if (!$bErrorFlag) {
           for ($iFieldID = 1; $iFieldID <= $numRows; $iFieldID++) {
-              if ($aSideFields[$iFieldID] == 0) {
-                  $temp = 'left';
-              } else {
-                  $temp = 'right';
-              }
-
-              $sSQL = "UPDATE person_custom_master
-          SET custom_Name = '".$aNameFields[$iFieldID]."',
-            custom_Special = ".$aSpecialFields[$iFieldID].",
-            custom_Side = '".$temp."',
-            custom_FieldSec = ".$aFieldSecurity[$iFieldID]."
-          WHERE custom_Field = '".$aFieldFields[$iFieldID]."';";
-              RunQuery($sSQL);
+            if ($aSideFields[$iFieldID] == 0) {
+                $temp = 'left';
+            } else {
+                $temp = 'right';
+            }
+            
+            $per_cus = PersonCustomMasterQuery::Create()->findOneByCustomField ($aFieldFields[$iFieldID]);
+            
+            $per_cus->setCustomName($aNameFields[$iFieldID]);
+            $per_cus->setCustomSpecial($aSpecialFields[$iFieldID]);
+            $per_cus->setCustomSide($temp);
+            $per_cus->setCustomFieldSec($aFieldSecurity[$iFieldID]);
+            
+            $per_cus->save();
           }
       }
   } else {
@@ -114,17 +123,14 @@ require 'Include/Header.php'; ?>
               $bNewNameError = true;
           } elseif (strlen($newFieldType) == 0 || $newFieldType < 1) {
               // This should never happen, but check anyhow.
-        // $bNewTypeError = true;
+              // $bNewTypeError = true;
           } else {
-              $sSQL = 'SELECT custom_Name FROM person_custom_master';
-              $rsCustomNames = RunQuery($sSQL);
-              while ($aRow = mysqli_fetch_array($rsCustomNames)) {
-                  if ($aRow[0] == $newFieldName) {
-                      $bDuplicateNameError = true;
-                      break;
-                  }
-              }
-
+            $per_duplicate = PersonCustomMasterQuery::Create()->findOneByCustomName($newFieldName);
+            
+            if (!empty($per_duplicate)) {
+              $bDuplicateNameError = true;
+            }
+              
               if (!$bDuplicateNameError) {
                   global $cnInfoCentral;
                   // Find the highest existing field number in the table to determine the next free one.
@@ -147,30 +153,49 @@ require 'Include/Header.php'; ?>
                   // If we're inserting a new custom-list type field, create a new list and get its ID
                   if ($newFieldType == 12) {
                       // Get the first available lst_ID for insertion.  lst_ID 0-9 are reserved for permanent lists.
-                      $sSQL = 'SELECT MAX(lst_ID) FROM list_lst';
-                      $aTemp = mysqli_fetch_array(RunQuery($sSQL));
-                      if ($aTemp[0] > 9) {
-                          $newListID = $aTemp[0] + 1;
-                      } else {
-                          $newListID = 10;
-                      }
-
-                      // Insert into the lists table with an example option.
-                      $sSQL = "INSERT INTO list_lst VALUES ($newListID, 1, 1,'".gettext('Default Option')."')";
-                      RunQuery($sSQL);
-
-                      $newSpecial = "'$newListID'";
+                      $listMax = ListOptionQuery::Create()
+                            ->addAsColumn('MaxID', 'MAX('.ListOptionTableMap::COL_LST_ID.')')
+                            ->findOne();
+                    
+                    $max = $listMax->getMaxID();
+                    
+                    if ($max > 9) {
+                        $newListID = $max + 1;
+                    } else {
+                        $newListID = 10;
+                    }
+                    
+                    // Insert into the lists table with an example option.
+                    $lst = new ListOption();
+                    
+                    $lst->setId($newListID);
+                    $lst->setOptionId(1);
+                    $lst->setOptionSequence(1);
+                    $lst->setOptionName(_("Default Option"));
+                    
+                    $lst->save();
+                    
+                    $newSpecial = $newListID;
                   } else {
                       $newSpecial = 'NULL';
                   }
 
                   // Insert into the master table
                   $newOrderID = $last + 1;
-                  $sSQL = "INSERT INTO person_custom_master
-            (custom_Order , custom_Field , custom_Name ,  custom_Special , custom_Side , custom_FieldSec, type_ID)
-            VALUES ('".$newOrderID."', 'c".$newFieldNum."', '".$newFieldName."', ".$newSpecial.", '".$newFieldSide."', '".$newFieldSec."', '".$newFieldType."');";
-                  RunQuery($sSQL);
+                  
+                  $per_cus = new PersonCustomMaster();
+                
+                  $per_cus->setCustomOrder($newOrderID);
+                  $per_cus->setCustomField("c".$newFieldNum);
+                  $per_cus->setCustomName($newFieldName);
+                  $per_cus->setCustomSpecial($newSpecial);
+                  $per_cus->setCustomSide($newFieldSide);
+                  $per_cus->setCustomFieldSec($newFieldSec);
+                  $per_cus->setTypeId($newFieldType);
+                
+                  $per_cus->save();
 
+                  // this can't be propeled
                   // Insert into the custom fields table
                   $sSQL = 'ALTER TABLE person_custom ADD c'.$newFieldNum.' ';
 
@@ -221,35 +246,34 @@ require 'Include/Header.php'; ?>
       }
 
       // Get data for the form as it now exists..
-      $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
-
-      $rsCustomFields = RunQuery($sSQL);
-      $numRows = mysqli_num_rows($rsCustomFields);
-
+      $ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
+    
+      $numRows = $ormCustomFields->count();
+    
+      $row = 1;
+    
       // Create arrays of the fields.
-      for ($row = 1; $row <= $numRows; $row++) {
-          $aRow = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH);
-          extract($aRow);
-
-          $aNameFields[$row] = $custom_Name;
-          $aSpecialFields[$row] = $custom_Special;
-          $aFieldFields[$row] = $custom_Field;
-          $aTypeFields[$row] = $type_ID;
-          $aSideFields[$row] = ($custom_Side == 'right');
-          $aFieldSecurity[$row] = $custom_FieldSec;
-      }
+      foreach ($ormCustomFields as $ormCustomField) {
+          $aNameFields[$row] = $ormCustomField->getCustomName();
+          $aSpecialFields[$row] = $ormCustomField->getCustomSpecial();
+          $aFieldFields[$row] = $ormCustomField->getCustomField();
+          $aTypeFields[$row] = $ormCustomField->getTypeId();
+          $aSideFields[$row] = ($ormCustomField->getCustomSide() == 'right');
+          $aFieldSecurity[$row] = $ormCustomField->getCustomFieldSec();
+          $aNameErrors[$row++] = false;
+      }  
   }
   // Prepare Security Group list
-  $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-  $rsSecurityGrp = RunQuery($sSQL);
-  $aSecurityType = [];
+  $ormSecurityGrps = ListOptionQuery::Create()
+            ->orderByOptionSequence()
+            ->findById(5);
 
   $aSecurityGrp = [];
-  while ($aRow = mysqli_fetch_array($rsSecurityGrp)) {
-      $aSecurityGrp[] = $aRow;
-      extract($aRow);
-      $aSecurityType[$lst_OptionID] = $lst_OptionName;
+  foreach ($ormSecurityGrps as $ormSecurityGrp) {
+    $aSecurityGrp[] = $ormSecurityGrp->toArray();
+    $aSecurityType[$ormSecurityGrp->getOptionId()] = $ormSecurityGrp->getOptionName();
   }
+  
   function GetSecurityList($aSecGrp, $fld_name, $currOpt = 'bAll')
   {
       $sOptList = '<select name="'.$fld_name.'" class="form-control input-sm">';
@@ -257,13 +281,11 @@ require 'Include/Header.php'; ?>
 
       for ($i = 0; $i < $grp_Count; $i++) {
           $aAryRow = $aSecGrp[$i];
-          //extract($aAryRow);
-          $sOptList .= '<option value="'.$aAryRow['lst_OptionID'].'"';
-          //    echo "lst_OptionName:".$aAryRow['lst_OptionName']."<br>";
-          if ($aAryRow['lst_OptionName'] == $currOpt) {
+          $sOptList .= '<option value="'.$aAryRow['OptionId'].'"';
+          if ($aAryRow['OptionName'] == $currOpt) {
               $sOptList .= ' selected';
           }
-          $sOptList .= '>'.$aAryRow['lst_OptionName']."</option>\n";
+          $sOptList .= '>'.$aAryRow['OptionName']."</option>\n";
       }
       $sOptList .= '</select>';
 
@@ -272,18 +294,6 @@ require 'Include/Header.php'; ?>
 
   // Construct the form
   ?>
-  <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-
-    function confirmDeleteField(event,row) {
-      var answer = confirm("<?= gettext('Warning:  By deleting this field, you will irrevokably lose all person data assigned for this field!') ?>")
-      if (answer) {
-        window.location = href = "PersonCustomFieldsRowOps.php?OrderID="+row+"&Field=" + event + "&Action=delete"
-        return true;
-      }
-      event.preventDefault ? event.preventDefault() : event.returnValue = false;
-      return false;
-    }
-  </script>
 
   <form method="post" action="PersonCustomFieldsEditor.php" name="PersonCustomFieldsEditor">
   <div class="table-responsive">
@@ -292,27 +302,30 @@ require 'Include/Header.php'; ?>
       <?php
       if ($numRows == 0) {
           ?>
-       <h2><?= gettext('No custom person fields have been added yet') ?></h2>
+       <h2><?= _('No custom person fields have been added yet') ?></h2>
         <?php
       } else {
           ?>
         <tr>
           <td colspan="6">
             <?php
-            if ($bErrorFlag) {
-                echo '<span class="LargeText" style="color: red;"><BR>'.gettext('Invalid fields or selections. Changes not saved! Please correct and try again!').'</span>';
-            } ?>
+              if ($bErrorFlag) {
+            ?>
+                <span class="LargeText" style="color: red;"><BR><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!') ?></span>
+            <?php
+              } 
+            ?>
           </td>
         </tr>
 
         <tr>
           <th></th>
           <th></th>
-          <th><?= gettext('Type') ?></th>
-          <th><?= gettext('Name') ?></th>
-          <th><?= gettext('Special option') ?></th>
-          <th><?= gettext('Security Option') ?></th>
-          <th><?= gettext('Person-View Side') ?></th>
+          <th><?= _('Type') ?></th>
+          <th><?= _('Name') ?></th>
+          <th><?= _('Special option') ?></th>
+          <th><?= _('Security Option') ?></th>
+          <th><?= _('Person-View Side') ?></th>
         </tr>
 
         <?php
@@ -333,7 +346,7 @@ require 'Include/Header.php'; ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
             <?php
             } ?>
-              <a href="#" onclick="return confirmDeleteField('<?= $aFieldFields[$row] ?>',<?= $row ?>);"><img src="Images/x.gif" border="0"></a>
+              <a href="#" class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
             </td>
             <td class="TextColumnFam">
               <?= $aPropTypes[$aTypeFields[$row]] ?>
@@ -343,57 +356,62 @@ require 'Include/Header.php'; ?>
                      value="<?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>" size="35"
                      maxlength="40" class="form-control">
               <?php
-              if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
-                  echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
-              } ?>
+                if (array_key_exists($row, $aNameErrors) && $aNameErrors[$row]) {
+              ?>
+                  <span style="color: red;"><BR><?= _('You must enter a name') ?></span>
+              <?php
+                } 
+              ?>
             </td>
             <td class="TextColumnFam" align="center">
               <?php
-              if ($aTypeFields[$row] == 9) {
-                  echo '<select name="'.$row.'special" class="form-control input-sm">';
-                  echo '<option value="0" selected>'.gettext("Select a group").'</option>';
+                if ($aTypeFields[$row] == 9) {
+              ?>
+                <select name="<?= $row ?>special" class="form-control input-sm">
+                  <option value="0" selected><?= _("Select a group") ?></option>
+              <?php
+                  $ormGroupList = GroupQuery::Create()->orderByName()->find();
 
-                  $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
-                  $rsGroupList = RunQuery($sSQL);
-
-                  while ($aRow = mysqli_fetch_array($rsGroupList)) {
-                      extract($aRow);
-
-                      echo '<option value="'.$grp_ID.'"';
-                      if ($aSpecialFields[$row] == $grp_ID) {
-                          echo ' selected';
-                      }
-                      echo '>'.$grp_Name.'</option>';
+                  foreach ($ormGroupList as $group) {
+              ?>
+                     <option value="<?= $group->getId()?>"<?= ($aSpecialFields[$row] == $group->getId())?' selected':''?>><?= $group->getName()?>
+              <?php
                   }
-
-                  echo '</select>';
+              ?>
+                </select>
+              <?php
                   if ($aSpecialErrors[$row]) {
-                      echo '<span style="color: red;"><BR>'.gettext('You must select a group.').'</span>';
+              ?>
+                      <span style="color: red;"><BR><?= _('You must select a group.') ?></span>
+              <?php
                   }
-              } elseif ($aTypeFields[$row] == 12) {
-                  echo "<a href=\"javascript:void(0)\" onClick=\"Newwin=window.open('OptionManager.php?mode=custom&ListID=$aSpecialFields[$row]','Newwin','toolbar=no,status=no,width=400,height=500')\">".gettext('Edit List Options').'</a>';
-              } else {
-                  echo '&nbsp;';
-              } ?>
+                } elseif ($aTypeFields[$row] == 12) {
+              ?>
+                  <a href="javascript:void(0)" class="btn btn-success" onClick="Newwin=window.open('OptionManager.php?mode=custom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _('Edit List Options') ?></a>
+              <?php
+                } else {
+              ?>
+                  &nbsp;
+              <?php
+                } 
+              ?>
 
             </td>
             <td class="TextColumnFam" align="center" nowrap>
               <?php
-              if (isset($aSecurityType[$aFieldSecurity[$row]])) {
-                  echo GetSecurityList($aSecurityGrp, $row.'FieldSec', $aSecurityType[$aFieldSecurity[$row]]);
+                if (isset($aSecurityType[$aFieldSecurity[$row]])) {
+              ?>
+                  <?= GetSecurityList($aSecurityGrp, $row.'FieldSec', $aSecurityType[$aFieldSecurity[$row]]) ?>
+              <?php
               } else {
-                  echo GetSecurityList($aSecurityGrp, $row.'FieldSec');
+              ?>
+                  <?= GetSecurityList($aSecurityGrp, $row.'FieldSec') ?>
+              <?php
               } ?>
             </td>
             <td class="TextColumnFam" align="center" nowrap>
-              <input type="radio" Name="<?= $row ?>side"
-                     value="0" <?php if (!$aSideFields[$row]) {
-                  echo ' checked';
-              } ?>><?= gettext('Left') ?>
-              <input type="radio" Name="<?= $row ?>side"
-                     value="1" <?php if ($aSideFields[$row]) {
-                  echo ' checked';
-              } ?>><?= gettext('Right') ?>
+                <input type="radio" Name="<?= $row ?>side" value="0" <?= !$aSideFields[$row] ? ' checked' : ''?>><?= _('Left') ?>
+                <input type="radio" Name="<?= $row ?>side" value="1" <?= $aSideFields[$row] ? ' checked' : ''?>><?= _('Right') ?>
             </td>
           </tr>
         <?php
@@ -405,7 +423,7 @@ require 'Include/Header.php'; ?>
               <tr>
                 <td width="30%"></td>
                 <td width="40%" align="center" valign="bottom">
-                  <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>"
+                  <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>"
                          Name="SaveChanges">
                 </td>
                 <td width="30%"></td>
@@ -428,16 +446,16 @@ require 'Include/Header.php'; ?>
                 <td>
                 </td>
                 <td class="TextColumnFam">
-                  <div><?= gettext('Type') ?>:</div>
+                  <div><?= _('Type') ?>:</div>
                 </td>
                 <td class="TextColumnFam">
-                  <div><?= gettext('Name') ?>:</div>
+                  <div><?= _('Name') ?>:</div>
                 </td>
                 <td class="TextColumnFam">
-                    <div><?= gettext('Side') ?>:</div>
+                    <div><?= _('Side') ?>:</div>
                 </td>
                 <td nowrap>
-                    <div><?= gettext('Security Option') ?></div>
+                    <div><?= _('Security Option') ?></div>
                 </td>
                 <td>
                 </td>
@@ -447,39 +465,45 @@ require 'Include/Header.php'; ?>
             <tr>
               <td width="15%"></td>
               <td valign="top" class="TextColumnFam">
-                <?php
-                echo '<select name="newFieldType" class="form-control input-sm">';
-
+                 <select name="newFieldType" class="form-control input-sm">
+               
+              <?php
                 for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
-                    echo '<option value="'.$iOptionID.'"';
-                    echo '>'.$aPropTypes[$iOptionID].'</option>';
+              ?>
+                    <option value="<?= $iOptionID ?>"><?= $aPropTypes[$iOptionID] ?></option>
+              <?php
                 }
-                echo '</select>';
-                ?><BR>
-                <a href="<?= SystemURLs::getSupportURL() ?>"><?= gettext('Help on types..') ?></a>
+              ?>
+                </select>
+                <BR>
+                <a href="<?= SystemURLs::getSupportURL() ?>"><?= _('Help on types..') ?></a>
               </td>
               <td valign="top">
                 <input type="text" name="newFieldName" size="30" maxlength="40" class="form-control">
                 <?php
                 if ($bNewNameError) {
-                    echo '<div><span style="color: red;"><BR>'.gettext('You must enter a name').'</span></div>';
+                ?>
+                    <div><span style="color: red;"><BR><?= _('You must enter a name') ?></span></div>
+                <?php
                 }
                 if ($bDuplicateNameError) {
-                    echo '<div><span style="color: red;"><BR>'.gettext('That field name already exists.').'</span></div>';
+                ?>
+                    <div><span style="color: red;"><BR><?= _('That field name already exists.') ?></span></div>
+                <?php
                 }
                 ?>
                 &nbsp;
               </td>
               <td valign="top" nowrap class="TextColumnFam">
-                <input type="radio" name="newFieldSide" value="0" checked><?= gettext('Left') ?>
-                <input type="radio" name="newFieldSide" value="1"><?= gettext('Right') ?>
+                <input type="radio" name="newFieldSide" value="0" checked><?= _('Left') ?>
+                <input type="radio" name="newFieldSide" value="1"><?= _('Right') ?>
                 &nbsp;
               </td>
               <td valign="top" nowrap class="TextColumnFam">
                 <?= GetSecurityList($aSecurityGrp, 'newFieldSec') ?>
               </td>
               <td valign="top">
-                <input type="submit" class="btn btn-primary" value="<?= gettext('Add New Field') ?>" Name="AddField">
+                <input type="submit" class="btn btn-primary" value="<?= _('Add New Field') ?>" Name="AddField">
               </td>
               <td width="15%"></td>
             </tr>
@@ -492,5 +516,8 @@ require 'Include/Header.php'; ?>
   </form>
 
 </div>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonCustomFieldsEditor.js"></script>
+
 
 <?php require 'Include/Footer.php'; ?>
