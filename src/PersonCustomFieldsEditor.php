@@ -338,12 +338,12 @@ require 'Include/Header.php'; ?>
               <?php
               if ($row != 1) {
               ?>
-                  <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                  <a href="#" class="up-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
               <?php
               }
             if ($row < $numRows) {
               ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsRowOps.php?OrderID=<?= $row ?>&Field=<?= $aFieldFields[$row]?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <a href="#" class="down-action" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
             <?php
             } ?>
               <a href="#" class="delete-field" data-OrderID="<?= $row ?>" data-Field="<?= $aFieldFields[$row] ?>"><img src="Images/x.gif" border="0"></a>
