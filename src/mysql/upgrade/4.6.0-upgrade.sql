@@ -1,0 +1,1 @@
+ALTER TABLE `family_custom_master` ADD `family_custom_id` mediumint(9) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT;
