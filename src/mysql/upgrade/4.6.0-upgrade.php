@@ -9,6 +9,7 @@ require '../../Include/Config.php';*/
   use EcclesiaCRM\ListOptionQuery;
   use EcclesiaCRM\dto\SystemURLs;
   use EcclesiaCRM\PersonCustomMasterQuery;
+  use EcclesiaCRM\FamilyCustomMasterQuery;
 
   $connection = Propel::getConnection();
   $logger = LoggerUtils::getAppLogger();
@@ -21,11 +22,19 @@ require '../../Include/Config.php';*/
   $per_cus = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
   
   $row = 1;
-  
   foreach ($per_cus as $per) {
     $per->setCustomOrder($row++);
     $per->save();
   }
+  
+  $fam_cus = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
+  
+  $row = 1;
+  foreach ($fam_cus as $fam) {
+    $fam->setCustomOrder($row++);
+    $fam->save();
+  }
+
     
   $logger->info("End Add the forgotten part");
 ?>
