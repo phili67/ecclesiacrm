@@ -49,6 +49,8 @@ use Sabre\DAVACL;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 $app->group('/events', function () {
 
@@ -60,7 +62,7 @@ $app->group('/events', function () {
    
     $this->get('/notDone', function ($request, $response, $args) {
         $Events= EventQuery::create()
-                 ->filterByEnd(new DateTime(),  Propel\Runtime\ActiveQuery\Criteria::GREATER_EQUAL)
+                 ->filterByEnd(new DateTime(),  Criteria::GREATER_EQUAL)
                 ->find();
         return $response->write($Events->toJSON());
     });
