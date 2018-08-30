@@ -199,7 +199,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= gettext('No properties have been added yet') ?></h2>
-      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-success"><?= gettext("Return to Person") ?></a>
+      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
   </center>
 <?php
 } else {
@@ -247,7 +247,7 @@ if ($numRows == 0) {
 
             if ($aTypeFields[$row] == 9) {
       ?>
-              <select name="<?= $row ?>special"  class="form-control">
+              <select name="<?= $row ?>special"  class="form-control input-sm">
                 <option value="0" selected><?= gettext("Select a group") ?></option>
       <?php
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
@@ -271,7 +271,7 @@ if ($numRows == 0) {
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
           <?php
             } else {
                 echo '&nbsp;';
@@ -287,7 +287,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-success"><?= gettext("Return to Person") ?></a>
+            <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
