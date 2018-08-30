@@ -69,7 +69,7 @@ $sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Family List');
 require 'Include/Header.php'; ?>
 
 <?php
-  if ($_SESSION['user']->isAddRecordsEnabled()) {
+  if ($_SESSION['user']->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' ) {
 ?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="FamilyEditor.php"> <span class="fa fa-plus"
