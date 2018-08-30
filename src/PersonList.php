@@ -77,7 +77,7 @@ $sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Person List');
 require 'Include/Header.php'; ?>
 
 <?php
-  if ($_SESSION['user']->isAddRecordsEnabled()) {
+  if ($_SESSION['user']->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' ) {
 ?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="PersonEditor.php"> 
