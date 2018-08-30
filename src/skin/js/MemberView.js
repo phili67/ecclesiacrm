@@ -18,12 +18,14 @@ $('.delete-person').click(function (event) {
     var thisLink = $(this);
     bootbox.confirm({
         title:i18next.t("Delete this person?"),
-        message: i18next.t("Do you want to delete this person?  This cannot be undone.") + " <b>" + thisLink.data('person_name'),
+        message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
         buttons: {
             cancel: {
+                className: 'btn-primary',
                 label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
             },
             confirm: {
+                className: 'btn-danger',
                 label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
             }
         },
