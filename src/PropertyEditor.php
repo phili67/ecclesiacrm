@@ -58,7 +58,7 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' '._('Property Editor');
+$sPageTitle = $sTypeName.' : '._('Property Editor');
 
 $bError = false;
 $iType = 0;
@@ -156,7 +156,7 @@ require 'Include/Header.php';
                   <?php                    
                     foreach ($ormPropertyTypes as $ormPropertyType) {
                   ?>
-                      <option value="<?= $ormPropertyType->getPrtId()?>" <?= ($iType == $ormPropertyType->getPrtId())?'selected':'' ?>><?= _($ormPropertyType->getPrtName()) ?></option>
+                      <option value="<?= $ormPropertyType->getPrtId()?>" <?= ($iType == $ormPropertyType->getPrtId() || _($ormPropertyType->getPrtName()) == $sTypeName)?'selected':'' ?>><?= _($ormPropertyType->getPrtName()) ?></option>
                   <?php
                     }
                   ?>
