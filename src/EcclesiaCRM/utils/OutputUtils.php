@@ -299,7 +299,7 @@ class OutputUtils {
 
     // Handler for season (drop-down selection)
     case 7:
-      echo "<select name=\"$fieldname\" class=\"form-control\" >";
+      echo "<select name=\"$fieldname\" class=\"form-control input-sm\" >";
       echo '  <option value="none">'.gettext('Select Season').'</option>';
       echo '  <option value="winter"';
       if ($data == 'winter') {
@@ -343,7 +343,7 @@ class OutputUtils {
 
         $rsGroupPeople = RunQuery($sSQL);
 
-        echo '<select name="'.$fieldname.'" class="form-control" >';
+        echo '<select name="'.$fieldname.'" class="form-control input-sm" >';
         echo '<option value="0"';
         if ($data <= 0) {
             echo ' selected';
@@ -403,7 +403,7 @@ class OutputUtils {
       $sSQL = "SELECT * FROM list_lst WHERE lst_ID = $special ORDER BY lst_OptionSequence";
       $rsListOptions = RunQuery($sSQL);
       
-      echo '<select class="form-control" name="'.$fieldname.'">';
+      echo '<select class="form-control input-sm" name="'.$fieldname.'">';
       echo '<option value="0" selected>'.gettext('Unassigned').'</option>';
       echo '<option value="0">-----------------------</option>';
 
