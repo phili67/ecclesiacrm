@@ -365,7 +365,7 @@ if ($numRows == 0) {
 
             if ($aTypeFields[$row] == 9) {
       ?>
-              <select name="<?= $row ?>special"  class="form-control">
+              <select name="<?= $row ?>special"  class="form-control input-sm">
                 <option value="0" selected><?= gettext("Select a group") ?></option>
       <?php
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
@@ -389,7 +389,7 @@ if ($numRows == 0) {
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
           <?php
             } else {
                 echo '&nbsp;';
@@ -408,7 +408,7 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="GroupView.php?GroupID=<?= $iGroupID ?>" class="btn btn-success"><?= gettext("Return to Group") ?></a>
+            <a href="GroupView.php?GroupID=<?= $iGroupID ?>" class="btn btn-default"><?= gettext("Return to Group") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
             <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
@@ -435,7 +435,7 @@ if ($numRows == 0) {
     <tr><td colspan="7"></td></tr>
     <tr>
       <td colspan="7">
-      <table width="100%">
+      <table width="100%" style="border-spacing : 10px;border-collapse : separate;">
         <tr>
           <td></td>
           <td><div><?= gettext('Type') ?>:</div></td>
@@ -446,7 +446,7 @@ if ($numRows == 0) {
         <tr>
           <td width="15%"></td>
           <td valign="top">
-             <select name="newFieldType" class="form-control">
+             <select name="newFieldType" class="form-control input-sm">
           <?php
               for ($iOptionID = 1; $iOptionID <= count($aPropTypes); $iOptionID++) {
           ?>
