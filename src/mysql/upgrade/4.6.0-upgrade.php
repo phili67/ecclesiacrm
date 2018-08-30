@@ -8,6 +8,7 @@ require '../../Include/Config.php';*/
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\ListOptionQuery;
   use EcclesiaCRM\dto\SystemURLs;
+  use EcclesiaCRM\PersonCustomMasterQuery;
 
   $connection = Propel::getConnection();
   $logger = LoggerUtils::getAppLogger();
@@ -16,6 +17,15 @@ require '../../Include/Config.php';*/
   
   unlink(SystemURLs::getDocumentRoot()."/FamilyCustomFieldsRowOps.php");
   unlink(SystemURLs::getDocumentRoot()."/PersonCustomFieldsRowOps.php");
+  
+  $per_cus = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
+  
+  $row = 1;
+  
+  foreach ($per_cus as $per) {
+    $per->setCustomOrder($row++);
+    $per->save();
+  }
     
   $logger->info("End Add the forgotten part");
 ?>
