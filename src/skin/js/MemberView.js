@@ -21,9 +21,11 @@ $('.delete-person').click(function (event) {
         message: i18next.t("Do you want to delete this person?  This cannot be undone.") + " <b>" + thisLink.data('person_name'),
         buttons: {
             cancel: {
+                className: 'btn-primary',
                 label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
             },
             confirm: {
+                className: 'btn-danger',
                 label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
             }
         },
