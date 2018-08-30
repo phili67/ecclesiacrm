@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PropertyQuery;
 
 //Get the type to display
 $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
@@ -44,11 +45,17 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' '._('Property List');
+$sPageTitle = $sTypeName.' : '._('Property List');
 
 //Get the properties
-$sSQL = "SELECT * FROM property_pro, propertytype_prt WHERE prt_ID = pro_prt_ID AND pro_Class = '".$sType."' ORDER BY prt_Name,pro_Name";
-$rsProperties = RunQuery($sSQL);
+$ormProperties = PropertyQuery::Create()
+  ->leftJoinPropertyType()
+  ->filterByProClass($sType)
+  ->usePropertyTypeQuery()
+    ->orderByPrtName()
+  ->endUse()
+  ->orderByProName()
+  ->find();
 
 require 'Include/Header.php'; ?>
 
@@ -89,17 +96,13 @@ $iPreviousPropertyType = -1;
 $sBlankLine = '';
 
 //Loop through the records
-while ($aRow = mysqli_fetch_array($rsProperties)) {
-    $pro_Prompt = '';
-    $pro_Description = '';
-    extract($aRow);
-
+foreach ($ormProperties as $ormProperty) {
     //Did the Type change?
-    if ($iPreviousPropertyType != $prt_ID) {
+    if ($iPreviousPropertyType != $ormProperty->getPropertyType()->getPrtId()) {
 
         //Write the header row
 ?>
-        <tr class="RowColorA"><td><b><?= _($prt_Name) ?></b></td><td></td><td></td>
+        <tr class="RowColorA"><td><b><?= _($ormProperty->getPropertyType()->getPrtName()) ?></b></td><td></td><td></td>
 
 <?php
     if ($_SESSION['user']->isMenuOptionsEnabled()) {
@@ -122,28 +125,28 @@ while ($aRow = mysqli_fetch_array($rsProperties)) {
 <?php
     if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-        <td valign="top">
-        <a href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyDelete.php?PropertyID=<?= $pro_ID?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
-        </td>
+      <td valign="top">
+        <a href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?PropertyID=<?= $ormProperty->getProId() ?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyDelete.php?PropertyID=<?= $ormProperty->getProId()?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
+      </td>
 <?php
     }
 ?>
-    <td valign="top"><?= $pro_Name ?>&nbsp;</td>
+    <td valign="top"><?= $ormProperty->getProName() ?>&nbsp;</td>
     <td valign="top">
 <?php
-    if (strlen($pro_Description) > 0) {
+    if (strlen($ormProperty->getProDescription()) > 0) {
 ?>
-        ...<?= stripslashes($pro_Description) ?>
+        ...<?= stripslashes($ormProperty->getProDescription()) ?>
 <?php
     }
 ?>
     &nbsp;</td>
-    <td valign="top"><?= stripslashes($pro_Prompt) ?>&nbsp;</td>
+    <td valign="top"><?= stripslashes($ormProperty->getProPrompt()) ?>&nbsp;</td>
     </tr>
 <?php
     //Store the PropertyType
-    $iPreviousPropertyType = $prt_ID;
+    $iPreviousPropertyType = $ormProperty->getPropertyType()->getPrtId();
 }
 
 //End the table
@@ -161,6 +164,6 @@ require 'Include/Footer.php';
          "url": window.CRM.plugin.dataTable.language.url
        },
        responsive: true,
-       "order": [[ 2, "asc" ]]
+       "order": [[ 1, "asc" ]]
   });
 </script>
