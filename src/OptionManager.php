@@ -20,6 +20,14 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\ListOptionIconQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\ListOption;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMaster;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonCustomMaster;
+use EcclesiaCRM\GroupQuery;
 
 $mode = trim($_GET['mode']);
 
@@ -83,112 +91,97 @@ switch ($mode) {
 switch ($mode) {
     case 'famroles':
         //It don't work for postuguese because in it adjective come after noum
-        $noun = gettext('Role');
+        $noun = _('Role');
         //In the same way, the plural isn't only add s
-        $adjplusname = gettext('Family Role');
-        $adjplusnameplural = gettext('Family Roles');
-        $sPageTitle = gettext('Family Roles Editor');
+        $adjplusname = _('Family Role');
+        $adjplusnameplural = _('Family Roles');
+        $sPageTitle = _('Family Roles Editor');
         $listID = 2;
         $embedded = false;
         break;
     case 'classes':
-        $noun = gettext('Classification');
-        $adjplusname = gettext('Person Classification');
-        $adjplusnameplural = gettext('Person Classifications');
-        $sPageTitle = gettext('Person Classifications Editor');
+        $noun = _('Classification');
+        $adjplusname = _('Person Classification');
+        $adjplusnameplural = _('Person Classifications');
+        $sPageTitle = _('Person Classifications Editor');
         $listID = 1;
         $embedded = false;
         break;
     case 'grptypes':
-        $noun = gettext('Type');
-        $adjplusname = gettext('Group Type');
-        $adjplusnameplural = gettext('Group Types');
-        $sPageTitle = gettext('Group Types Editor');
+        $noun = _('Type');
+        $adjplusname = _('Group Type');
+        $adjplusnameplural = _('Group Types');
+        $sPageTitle = _('Group Types Editor');
         $listID = 3;
         $embedded = false;
         break;
     case 'securitygrp':
-        $noun = gettext('Group');
-        $adjplusname = gettext('Security Group');
-        $adjplusnameplural = gettext('Security Groups');
-        $sPageTitle = gettext('Security Groups Editor');
+        $noun = _('Group');
+        $adjplusname = _('Security Group');
+        $adjplusnameplural = _('Security Groups');
+        $sPageTitle = _('Security Groups Editor');
         $listID = 5;
         $embedded = false;
         break;
-    case 'grproles':
-        $noun = gettext('Role');
-        $adjplusname = gettext('Group Member Role');
-        $adjplusnameplural = gettext('Group Member Roles');
-        $sPageTitle = gettext('Group Member Roles Editor');
+    case 'grproles':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+        $noun = _('Role');
+        $adjplusname = _('Group Member Role');
+        $adjplusnameplural = _('Group Member Roles');
+        $sPageTitle = _('Group Member Roles Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
 
-        $sSQL = 'SELECT grp_DefaultRole FROM group_grp WHERE grp_RoleListID = '.$listID;
-        $rsTemp = RunQuery($sSQL);
-
-        // Validate that this list ID is really for a group roles list. (for security)
-        if (mysqli_num_rows($rsTemp) == 0) {
-            Redirect('Menu.php');
-            break;
-        }
-
-        $aTemp = mysqli_fetch_array($rsTemp);
-        $iDefaultRole = $aTemp[0];
-
+        $ormGroupList = GroupQuery::Create()->findOneByRoleListId($listID);
+        $iDefaultRole = $ormGroupList->getDefaultRole();
+        
         break;
     case 'custom':
-        $noun = gettext('Option');
-        $adjplusname = gettext('Person Custom List Option');
-        $adjplusnameplural = gettext('Person Custom List Options');
-        $sPageTitle = gettext('Person Custom List Options Editor');
+        $noun = _('Option');
+        $adjplusname = _('Person Custom List Option');
+        $adjplusnameplural = _('Person Custom List Options');
+        $sPageTitle = _('Person Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
-
-        $sSQL = "SELECT '' FROM person_custom_master WHERE type_ID = 12 AND custom_Special = ".$listID;
-        $rsTemp = RunQuery($sSQL);
-
-        // Validate that this is a valid person-custom field custom list
-        if (mysqli_num_rows($rsTemp) == 0) {
+        
+        $per_cus = PersonCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
+        
+        if ($per_cus->count() == 0) {
             Redirect('Menu.php');
             break;
         }
 
         break;
     case 'groupcustom':
-        $noun = gettext('Option');
-        $adjplusname = gettext('Custom List Option');
-        $adjplusnameplural = gettext('Custom List Options');
-        $sPageTitle = gettext('Custom List Options Editor');
+        $noun = _('Option');
+        $adjplusname = _('Custom List Option');
+        $adjplusnameplural = _('Custom List Options');
+        $sPageTitle = _('Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
+        
+        $group_cus = GroupPropMasterQuery::Create()->filterByTypeId(12)->findBySpecial($listID);
 
-        $sSQL = "SELECT '' FROM groupprop_master WHERE type_ID = 12 AND prop_Special = ".$listID;
-        $rsTemp = RunQuery($sSQL);
-
-        // Validate that this is a valid group-specific-property field custom list
-        if (mysqli_num_rows($rsTemp) == 0) {
+        if ($group_cus->count() == 0) {
             Redirect('Menu.php');
             break;
         }
-
+        
         break;
     case 'famcustom':
-        $noun = gettext('Option');
-        $adjplusname = gettext('Family Custom List Option');
-        $adjplusnameplural = gettext('Family Custom List Options');
-        $sPageTitle = gettext('Family Custom List Options Editor');
+        $noun = _('Option');
+        $adjplusname = _('Family Custom List Option');
+        $adjplusnameplural = _('Family Custom List Options');
+        $sPageTitle = _('Family Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
 
-        $sSQL = "SELECT '' FROM family_custom_master WHERE type_ID = 12 AND fam_custom_Special = ".$listID;
-        $rsTemp = RunQuery($sSQL);
-
-        // Validate that this is a valid family_custom field custom list
-        if (mysqli_num_rows($rsTemp) == 0) {
+        $fam_cus = FamilyCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
+                
+        if ($fam_cus->count() == 0) {
             Redirect('Menu.php');
             break;
         }
-
+        
         break;
     default:
         Redirect('Menu.php');
@@ -205,28 +198,35 @@ if (isset($_POST['AddField'])) {
         $iNewNameError = 1;
     } else {
         // Check for a duplicate option name
-        $sSQL = "SELECT '' FROM list_lst WHERE lst_ID = $listID AND lst_OptionName = '".$newFieldName."'";
-        $rsCount = RunQuery($sSQL);
-        if (mysqli_num_rows($rsCount) > 0) {
+        $list = ListOptionQuery::Create()->filterByOptionName($newFieldName)->findById ($listID);
+        
+        if (!is_null ($list) && $list->count() > 0) {
             $iNewNameError = 2;
         } else {
             // Get count of the options
-            $sSQL = "SELECT '' FROM list_lst WHERE lst_ID = $listID";
-            $rsTemp = RunQuery($sSQL);
-            $numRows = mysqli_num_rows($rsTemp);
+            $list = ListOptionQuery::Create()->findById ($listID);
+            $numRows = $list->count();
             $newOptionSequence = $numRows + 1;
 
             // Get the new OptionID
-            $sSQL = "SELECT MAX(lst_OptionID) FROM list_lst WHERE lst_ID = $listID";
-            $rsTemp = RunQuery($sSQL);
-            $aTemp = mysqli_fetch_array($rsTemp);
-            $newOptionID = $aTemp[0] + 1;
+            $listMax = ListOptionQuery::Create()
+                        ->addAsColumn('MaxOptionID', 'MAX('.ListOptionTableMap::COL_LST_OPTIONID.')')
+                        ->findOneById ($listID);
+            
+            $max = $listMax->getMaxOptionID();
+            
+            $newOptionID = $max+1;
 
             // Insert into the appropriate options table
-            $sSQL = 'INSERT INTO list_lst (lst_ID, lst_OptionID, lst_OptionName, lst_OptionSequence)
-                    VALUES ('.$listID.','.$newOptionID.",'".$newFieldName."',".$newOptionSequence.')';
-
-            RunQuery($sSQL);
+            $lst = new ListOption();
+            
+            $lst->setId($listID);
+            $lst->setOptionId($newOptionID);
+            $lst->setOptionSequence($newOptionSequence);
+            $lst->setOptionName($newFieldName);
+            
+            $lst->save();
+                    
             $iNewNameError = 0;
         }
     }
@@ -237,27 +237,33 @@ $bDuplicateFound = false;
 
 // Get the original list of options..
 //ADDITION - get Sequence Also
-$sSQL = "SELECT lst_OptionName, lst_OptionID, lst_OptionSequence FROM list_lst WHERE lst_ID=$listID ORDER BY lst_OptionSequence";
-$rsList = RunQuery($sSQL);
-$numRows = mysqli_num_rows($rsList);
+$ormLists = ListOptionQuery::Create()
+                ->orderByOptionSequence()
+                ->findById ($listID);
 
+$numRows =  $ormLists->count();
+              
 $aNameErrors = [];
+
 for ($row = 1; $row <= $numRows; $row++) {
-    $aNameErrors[$row] = 0;
+    $aNameErrors[$row] = 0;    
 }
 
 if (isset($_POST['SaveChanges'])) {
-    for ($row = 1; $row <= $numRows; $row++) {
-        $aRow = mysqli_fetch_array($rsList, MYSQLI_BOTH);
-        $aOldNameFields[$row] = $aRow['lst_OptionName'];
-        $aIDs[$row] = $aRow['lst_OptionID'];
+    $row = 1;
 
-        //addition save off sequence also
-        $aSeqs[$row] = $aRow['lst_OptionSequence'];
+    foreach ($ormLists as $ormList) {
+      $aOldNameFields[$row] = $ormList->getOptionName();
+      $aIDs[$row]           = $ormList->getOptionId();
 
-        $aNameFields[$row] = InputUtils::LegacyFilterInput($_POST[$row.'name']);
+      //addition save off sequence also
+      $aSeqs[$row]          = $ormList->getOptionSequence();
+
+      $aNameFields[$row]    = InputUtils::LegacyFilterInput($_POST[$row.'name']);
+    
+      $row++;
     }
-
+    
     for ($row = 1; $row <= $numRows; $row++) {
         if (strlen($aNameFields[$row]) == 0) {
             $aNameErrors[$row] = 1;
@@ -282,30 +288,33 @@ if (isset($_POST['SaveChanges'])) {
         for ($row = 1; $row <= $numRows; $row++) {
             // Update the type's name if it has changed from what was previously stored
             if ($aOldNameFields[$row] != $aNameFields[$row]) {
-                $sSQL = "UPDATE list_lst SET `lst_OptionName` = '".$aNameFields[$row]."' WHERE `lst_ID` = '$listID' AND `lst_OptionSequence` = '".$row."'";
-                RunQuery($sSQL);
+                $list = ListOptionQuery::Create()->filterByOptionSequence($row)->findOneById($listID);
+                
+                $list->setOptionName($aNameFields[$row]);
+                $list->save();
             }
         }
     }
 }
 
 // Get data for the form as it now exists..
+$ormLists = ListOptionQuery::Create()
+                ->orderByOptionSequence()
+                ->findById ($listID);
 
-$sSQL = "SELECT lst_OptionName, lst_OptionID, lst_OptionSequence FROM list_lst WHERE lst_ID = $listID ORDER BY lst_OptionSequence";
-$rsRows = RunQuery($sSQL);
-$numRows = mysqli_num_rows($rsRows);
+$numRows =  $ormLists->count();
 
 // Create arrays of the option names and IDs
-for ($row = 1; $row <= $numRows; $row++) {
-    $aRow = mysqli_fetch_array($rsRows, MYSQLI_BOTH);
+$row = 1;
 
+foreach ($ormLists as $ormList) {
     if (!$bErrorFlag) {
-        $aNameFields[$row] = $aRow['lst_OptionName'];
+        $aNameFields[$row] = $ormList->getOptionName();
     }
 
-    $aIDs[$row] = $aRow['lst_OptionID'];
+    $aIDs[$row] = $ormList->getOptionId();
     //addition save off sequence also
-    $aSeqs[$row] = $aRow['lst_OptionSequence'];
+    $aSeqs[$row++] = $ormList->getOptionSequence();
 }
 
 //Set the starting row color
@@ -315,13 +324,13 @@ $sRowClass = 'RowColorA';
 if ($embedded) {
     include 'Include/Header-Minimal.php';
 } else {    //It don't work for postuguese because in it adjective come after noum
-    //$sPageTitle = $adj . ' ' . $noun . "s ".gettext("Editor");
+    //$sPageTitle = $adj . ' ' . $noun . "s "._("Editor");
     include 'Include/Header.php';
 }
 
 ?>
 
-<div class="callout callout-danger"><?= gettext('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
+<div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
 
 <div class="box">
     <div class="box-body">
@@ -330,11 +339,17 @@ if ($embedded) {
 <?php
 
 if ($bErrorFlag) {
-    echo '<span class="MediumLargeText" style="color: red;">';
+?>
+    <span class="MediumLargeText" style="color: red;">
+<?php
     if ($bDuplicateFound) {
-        echo '<br>'.gettext('Error: Duplicate').' '.$adjplusnameplural.' '.gettext('are not allowed.');
+?>
+        <br><?= _('Error: Duplicate').' '.$adjplusnameplural.' '._('are not allowed.') ?>
+<?php
     }
-    echo '<br>'.gettext('Invalid fields or selections. Changes not saved! Please correct and try again!').'</span><br><br>';
+?>
+        <br><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!')?></span><br><br>
+<?php
 }
 ?>
 
@@ -349,9 +364,13 @@ for ($row = 1; $row <= $numRows; $row++) {
             <b>
             <?php
             if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {
-                echo gettext('Default').' ';
-            }
-    echo $row; ?>
+            ?>
+                <?= _('Default').' '?>
+            <?php
+            } 
+            ?>
+            
+             <?= $row ?>
             </b>
         </td>
 
@@ -359,14 +378,29 @@ for ($row = 1; $row <= $numRows; $row++) {
 
             <?php
             if ($row != 1) {
-                echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=up"><img src="Images/uparrow.gif" border="0"></a>';
+            ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+            <?php
             }
-    if ($row < $numRows) {
-        echo "<a href=\"OptionManagerRowOps.php?mode=$mode&Order=$aSeqs[$row]&ListID=$listID&ID=".$aIDs[$row].'&Action=down"><img src="Images/downarrow.gif" border="0"></a>';
-    }
-    if ($numRows > 0) {
-        echo '<img src="Images/x.gif" class="RemoveClassification" data-mode="'.$mode.'" data-order="'.$aSeqs[$row].'" data-listid="'.$listID.'" data-id="'.$aIDs[$row].'" data-name="'.htmlentities(stripslashes($aNameFields[$row])).'"border="0">';
-    } ?>
+            if ($row < $numRows) {
+            ?>
+                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+            <?php
+            }
+            if ($numRows > 0) {
+            ?>
+              <?php
+              if ($embedded) {
+              ?>                
+                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=delete"><img src="Images/x.gif" border="0"></a>
+              <?php
+                } else {
+              ?>
+                 <img src="<?= SystemURLs::getRootPath() ?>/Images/x.gif" class="RemoveClassification" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-name="<?= htmlentities(stripslashes($aNameFields[$row])) ?>" border="0">
+            <?php
+                }
+            } 
+            ?>
         </td>
         <td class="TextColumn">
             <span class="SmallText">
@@ -375,14 +409,20 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
 
             if ($aNameErrors[$row] == 1) {
-                echo '<span style="color: red;"><BR>'.gettext('You must enter a name').' </span>';
+            ?>
+                <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
+            <?php
             } elseif ($aNameErrors[$row] == 2) {
-                echo '<span style="color: red;"><BR>'.gettext('Duplicate name found.').' </span>';
+            ?>
+                <span style="color: red;"><BR><?= _('Duplicate name found.') ?> </span>
+            <?php
             } ?>
         </td>
         <?php
         if ($mode == 'grproles') {
-            echo '<td class="TextColumn"><input class="form-control form-control input-md" type="button" class="btn btn-default" value="'.gettext('Make Default')."\" Name=\"default\" onclick=\"javascript:document.location='OptionManagerRowOps.php?mode=".$mode.'&ListID='.$listID.'&ID='.$aIDs[$row]."&Action=makedefault';\" ></td>";
+        ?>
+            <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
+        <?php
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
           
@@ -392,7 +432,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             <td></td>
             <td>&nbsp;</td>
             <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
-            <?= gettext("Visible only in PersonView") ?></td>
+            <?= _("Visible only in PersonView") ?></td>
           <?php
           } else {
           ?>
@@ -400,7 +440,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
             <td>&nbsp;</td>
             <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>"  <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
-            <?= gettext("Visible only in PersonView") ?></td>
+            <?= _("Visible only in PersonView") ?></td>
           <?php
           }
         }
@@ -414,17 +454,16 @@ for ($row = 1; $row <= $numRows; $row++) {
 
 </table>
   <br/>
-    <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
+    <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
 
 
     <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
             ?>
-        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
+        <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
     <?php
         } elseif ($mode != 'grproles') {
             ?>
-        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?php
-        echo 'Menu.php'; ?>';">
+        <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?= 'Menu.php' ?>';">
     <?php
         } ?>
     </div>
@@ -432,21 +471,29 @@ for ($row = 1; $row <= $numRows; $row++) {
 
 <div class="box box-primary">
     <div class="box-body">
-<?=  gettext('Name for New').' '.$noun ?>:&nbsp;
+<?=  _('Name for New').' '.$noun ?>:&nbsp;
 <span class="SmallText">
     <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
 </span>
 <p>  </p>
-<input type="submit" class="btn btn-success" value="<?= gettext('Add New').' '.$adjplusname ?>" Name="AddField">
+<input type="submit" class="btn btn-success" value="<?= _('Add New').' '.$adjplusname ?>" Name="AddField">
 <?php
     if ($iNewNameError > 0) {
-        echo '<div><span style="color: red;"><BR>';
+?>
+        <div><span style="color: red;"><BR>
+      <?php
         if ($iNewNameError == 1) {
-            echo gettext('Error: You must enter a name');
+      ?>
+            <?= _('Error: You must enter a name') ?>
+      <?php
         } else {
-            echo gettext('Error: A ').$noun.gettext(' by that name already exists.');
+      ?>        
+            <?= _('Error: A ').$noun._(' by that name already exists.') ?>
+      <?php
         }
-        echo '</span></div>';
+      ?>
+        <?= '</span></div>' ?>
+<?php
     }
 ?>
 </center>
