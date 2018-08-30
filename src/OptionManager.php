@@ -132,7 +132,12 @@ switch ($mode) {
         $embedded = true;
 
         $ormGroupList = GroupQuery::Create()->findOneByRoleListId($listID);
-        $iDefaultRole = $ormGroupList->getDefaultRole();
+        if (!is_null($ormGroupList) ) {
+           $iDefaultRole = $ormGroupList->getDefaultRole();
+        } else {
+          Redirect('Menu.php');
+          exit;
+        }
         
         break;
     case 'custom':

@@ -12,7 +12,12 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\ListOptionIconQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 // Get the Order, ID, Mode, and Action from the querystring
 if (array_key_exists('Order', $_GET)) {
@@ -76,9 +81,9 @@ switch ($mode) {
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
 
         // Validate that this list ID is really for a group roles list. (for security)
-        $sSQL = "SELECT '' FROM group_grp WHERE grp_RoleListID = ".$listID;
-        $rsTemp = RunQuery($sSQL);
-        if (mysqli_num_rows($rsTemp) == 0) {
+        
+        $ormGroupList = GroupQuery::Create()->findByRoleListId($listID);
+        if ($ormGroupList->count() == 0) {
             Redirect('Menu.php');
             break;
         }
@@ -93,74 +98,89 @@ switch ($mode) {
 switch ($sAction) {
     // Move a field up:  Swap the OptionSequence (ordering) of the selected row and the one above it
     case 'up':
-        $sSQL = "UPDATE list_lst SET lst_OptionSequence = '".$iOrder."' WHERE lst_ID = $listID AND lst_OptionSequence = '".($iOrder - 1)."'";
-        RunQuery($sSQL);
-        $sSQL = "UPDATE list_lst SET lst_OptionSequence = '".($iOrder - 1)."' WHERE lst_ID = $listID AND lst_OptionID = '".$iID."'";
-        RunQuery($sSQL);
+        $list1 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder - 1);
+        $list1->setOptionSequence($iOrder)->save();
+        
+        $list2 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionId($iID);
+        $list2->setOptionSequence($iOrder - 1)->save();
         break;
 
     // Move a field down:  Swap the OptionSequence (ordering) of the selected row and the one below it
     case 'down':
-        $sSQL = "UPDATE list_lst SET lst_OptionSequence = '".$iOrder."' WHERE lst_ID = $listID AND lst_OptionSequence = '".($iOrder + 1)."'";
-        RunQuery($sSQL);
-        $sSQL = "UPDATE list_lst SET lst_OptionSequence = '".($iOrder + 1)."' WHERE lst_ID = $listID AND lst_OptionID = '".$iID."'";
-        RunQuery($sSQL);
+        $list1 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder + 1);
+        $list1->setOptionSequence($iOrder)->save();
+        
+        $list2 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionId($iID);
+        $list2->setOptionSequence($iOrder + 1)->save();
         break;
 
     // Delete a field from the form
     case 'delete':
-        $sSQL = "SELECT '' FROM list_lst WHERE lst_ID = $listID";
-        $rsPropList = RunQuery($sSQL);
-        $numRows = mysqli_num_rows($rsPropList);
-        
-        
+        $list = ListOptionQuery::Create()->findById($listID);
+        $numRows = $list->count();
+
         // Make sure we never delete the only option
-        if ($numRows > 1) {
-            $sSQL = "DELETE FROM list_lst WHERE lst_ID = $listID AND lst_OptionSequence = '".$iOrder."'";
-            RunQuery($sSQL);
+        if ($list->count() > 1) {
+            $list = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder);
+            $list->delete();
+
             
             if ($listID == 1) { // we are in the case of custom icon for person classification, so we have to delete the icon in list_icon
-              $sSQL = "DELETE FROM list_icon WHERE lst_ic_lst_ID = $listID AND lst_ic_lst_Option_ID = ".$iID;
-              RunQuery($sSQL);
+              $icon = ListOptionIconQuery::Create()->filterByListId($listID)->findOneByListOptionId ($iID);
+              
+              if (!is_null($icon)) {
+                $icon->delete();
+              }
             }
 
             // Shift the remaining rows up by one
             for ($reorderRow = $iOrder + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
-                $sSQL = "UPDATE list_lst SET lst_OptionSequence = '".($reorderRow - 1)."' WHERE lst_ID = $listID AND lst_OptionSequence = '".$reorderRow."'";
-                RunQuery($sSQL);
+                $list_upd = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($reorderRow);
+                if (!is_null($list_upd)) {
+                  $list_upd->setOptionSequence($reorderRow - 1)->save();
+                }
             }
 
             // If group roles mode, check if we've deleted the old group default role.  If so, reset default to role ID 1
             // Next, if any group members were using the deleted role, reset their role to the group default.
-            if ($mode == 'grproles') {
+            if ($mode == 'grproles') {// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
                 // Reset if default role was just removed.
-                $sSQL = "UPDATE group_grp SET grp_DefaultRole = 1 WHERE grp_RoleListID = $listID AND grp_DefaultRole = $iID";
-                RunQuery($sSQL);
+                $grp = GroupQuery::Create()->filterByRoleListId($listID)->findOneByDefaultRole($iID);
+                
+                if (!is_null($grp)){
+                  $grp->setDefaultRole(1)->save();
+                }
 
                 // Get the current default role and Group ID (so we can update the p2g2r table)
                 // This seems backwards, but grp_RoleListID is unique, having a 1-1 relationship with grp_ID.
-                $sSQL = "SELECT grp_ID,grp_DefaultRole FROM group_grp WHERE grp_RoleListID = $listID";
-                $rsTemp = RunQuery($sSQL);
-                $aTemp = mysqli_fetch_array($rsTemp);
-
-                $sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = $aTemp[1] WHERE p2g2r_grp_ID = $aTemp[0] AND p2g2r_rle_ID = $iID";
-                RunQuery($sSQL);
+                $grp = GroupQuery::Create()->findOneByRoleListId($listID);
+                
+                
+                $persons = Person2group2roleP2g2rQuery::Create()->filterByGroupId($grp->getId())->findByRoleId($iID);
+                
+                foreach ($persons as $person) {
+                  $person->setRoleId($grp->getDefaultRole());
+                }
+                
+                /*$sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = ".$grp->getDefaultRole()." WHERE p2g2r_grp_ID = ".$grp->getId()." AND p2g2r_rle_ID = $iID";
+                RunQuery($sSQL);*/
             }
 
             // Otherwise, for other types of assignees having a deleted option, reset them to default of 0 (undefined).
             else {
                 if ($deleteCleanupTable != 0) {
+                    $connection = Propel::getConnection();
                     $sSQL = "UPDATE $deleteCleanupTable SET $deleteCleanupColumn = $deleteCleanupResetTo WHERE $deleteCleanupColumn = ".$iID;
-                    RunQuery($sSQL);
+                    $connection->exec($sSQL);
                 }
             }
         }
         break;
 
     // Currently this is used solely for group roles
-    case 'makedefault':
-        $sSQL = "UPDATE group_grp SET grp_DefaultRole = $iID WHERE grp_RoleListID = $listID";
-        RunQuery($sSQL);
+    case 'makedefault':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+        $grp = GroupQuery::Create()->findOneByRoleListId($listID);
+        $grp->setDefaultRole($iID)->save();
         break;
 
     // If no valid action was specified, abort
