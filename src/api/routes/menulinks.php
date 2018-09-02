@@ -70,9 +70,22 @@ $app->group('/menulinks', function () {
     
     if ( isset ($input->MenuLinkId) ){
       $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
-        
+      $place = $menuLink->getOrder();
+      
+      // we search all the links
+      $menuLinks = MenuLinkQuery::Create()->findByPersonId($menuLink->getPersonId());
+      $count = $menuLinks->count();
+
       if ($menuLink != null) {
         $menuLink->delete();
+      }
+      
+      for ($i = $place+1;$i <= $count-1;$i++) {
+        $menuLink = MenuLinkQuery::Create()->findOneByOrder($i);
+        if (!is_null($menuLink)) {
+          $menuLink->setOrder($i-1);
+          $menuLink->save();
+        }
       }
       
       return $response->withJson(['success' => true]); 
@@ -142,8 +155,6 @@ $app->group('/menulinks', function () {
             $find             = true;
             $find_menu_link   = $menuLink;
             
-            $coucou="toto";
-            
             continue;
          }
          
@@ -158,7 +169,7 @@ $app->group('/menulinks', function () {
          }
       }
          
-      return $response->withJson(['success' => $coucou]);
+      return $response->withJson(['success' => true]);
     }
     
     return $response->withJson(['success' => false]);
