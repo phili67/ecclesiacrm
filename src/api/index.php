@@ -10,6 +10,7 @@ use Slim\Container;
 use Slim\App;
 use Slim\HttpCache\Cache;
 use Slim\HttpCache\CacheProvider;
+use EcclesiaCRM\TokenQuery;
 
 // Instantiate the app
 $settings = require __DIR__.'/../Include/slim/settings.php';
@@ -25,10 +26,7 @@ $app = new App($container);
 $app->add(new VersionMiddleware());
 
 $app->add(new JwtAuthentication([
-    /*"environment" => "HTTP_X_TOKEN",
-    "header" => "X-Token",*/
-    /*"cookie" => "nekot",*/
-    "secret" => "supersecretkeyyoushouldnotcommittogithub",
+    "secret" => TokenQuery::Create()->findOneByType("secret")->getToken(),
     "path" => "/api",
     "algorithm" => ["HS256"],
     "error" => function ($response, $arguments) {

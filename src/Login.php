@@ -22,7 +22,10 @@ use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\TokenQuery;
+use EcclesiaCRM\Token;
 
 if (!SystemService::isDBCurrent()) {
     Redirect('SystemDBUpdate.php');
@@ -54,6 +57,26 @@ if (isset($_POST['User'])) {
         // Set the error text
         $sErrorText = gettext('Invalid login or password');
     } else {
+        // manage the token for the secret JWT UUID
+        $token = TokenQuery::Create()->findOneByType("secret");
+        
+        if (is_null($token)) {
+          $token = new Token ();
+          $token->buildSecret();
+          $token->save();
+        }
+        
+        $dateNow = new DateTime("now");
+          
+        if ($dateNow > $token->getValidUntilDate()){// the token expire
+          // we delete the old token
+          $token->delete();
+          // we create a new one
+          $token = new Token ();
+          $token->buildSecret();
+          $token->save();
+        }
+        
         // Set the LastLogin and Increment the LoginCount
         $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
         $currentUser->setLastLogin($date->format('Y-m-d H:i:s'));
