@@ -10,6 +10,8 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\ListOptionIconQuery;
+use EcclesiaCRM\Utils\GeoUtils;
+
 use DateTime;
 
 /**
