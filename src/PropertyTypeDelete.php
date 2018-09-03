@@ -14,6 +14,9 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PropertyTypeQuery;
+use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\Record2propertyR2pQuery;
 
 // Security: User must have property and classification editing permission
 if (!$_SESSION['user']->isMenuOptionsEnabled()) {
@@ -22,52 +25,54 @@ if (!$_SESSION['user']->isMenuOptionsEnabled()) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Property Type Delete Confirmation');
+$sPageTitle = _('Property Type Delete Confirmation');
 
 //Get the PersonID from the querystring
 $iPropertyTypeID = InputUtils::LegacyFilterInput($_GET['PropertyTypeID'], 'int');
 
 //Do we have deletion confirmation?
 if (isset($_GET['Confirmed'])) {
-    $sSQL = 'DELETE FROM propertytype_prt WHERE prt_ID = '.$iPropertyTypeID;
-    RunQuery($sSQL);
-
-    $sSQL = 'SELECT pro_ID FROM property_pro WHERE pro_prt_ID = '.$iPropertyTypeID;
-    $result = RunQuery($sSQL);
-    while ($aRow = mysqli_fetch_array($result)) {
-        $sSQL = 'DELETE FROM record2property_r2p WHERE r2p_pro_ID = '.$aRow['pro_ID'];
-        RunQuery($sSQL);
+    $propType = PropertyTypeQuery::Create()->findOneByPrtId($iPropertyTypeID);
+    if (!is_null($propType)) {
+      $propType->delete();
     }
 
-    $sSQL = 'DELETE FROM property_pro WHERE pro_prt_ID = '.$iPropertyTypeID;
-    RunQuery($sSQL);
+    $properties = PropertyQuery::Create()->findByProPrtId ($iPropertyTypeID);
+    
+    foreach ($properties as $property) {
+      $recProps = Record2propertyR2pQuery::Create()->findByR2pProId ($property->getProId());
+      if(!is_null ($recProps)) {
+        $recProps->delete();
+      }
+    }
+    
+    if (!is_null ($properties)) {
+      $properties->delete();
+    }
 
     Redirect('PropertyTypeList.php');
 }
 
-$sSQL = 'SELECT * FROM propertytype_prt WHERE prt_ID = '.$iPropertyTypeID;
-$rsProperty = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsProperty));
-$sType = '';
+$propType = PropertyTypeQuery::Create()->findOneByPrtId($iPropertyTypeID);
 
 require 'Include/Header.php';
 
 if (isset($_GET['Warn'])) {
     ?>
-	<p align="center" class="LargeError">
-		<?= '<b>'.gettext('Warning').': </b>'.gettext('This property type is still being used by at least one property.').'<BR>'.gettext('If you delete this type, you will also remove all properties using').'<BR>'.gettext('it and lose any corresponding property assignments.'); ?>
-	</p>
+  <p align="center" class="LargeError">
+    <?= '<b>'._('Warning').': </b>'._('This property type is still being used by at least one property.').'<BR>'._('If you delete this type, you will also remove all properties using').'<BR>'._('it and lose any corresponding property assignments.'); ?>
+  </p>
 <?php
 } ?>
 
 <p align="center" class="MediumLargeText">
-	<?= gettext('Please confirm deletion of this Property Type') ?>: <b><?= $prt_Name ?></b>
+  <?= _('Please confirm deletion of this Property Type') ?>: <b><?= _($propType->getPrtName()) ?></b>
 </p>
 
 <p align="center">
-	<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= gettext('Yes, delete this record') ?></a>
-	&nbsp;&nbsp;
-	<a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= gettext('No, cancel this deletion') ?></a>
+  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= _('Yes, delete this record') ?></a>
+  &nbsp;&nbsp;
+  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= _('No, cancel this deletion') ?></a>
 
 </p>
 
