@@ -22,7 +22,11 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Family;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\dto\Cart;
+
 
 // Security: User must have add records permission
 if (!$_SESSION['user']->isAddRecordsEnabled()) {
@@ -44,16 +48,37 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         if (strlen($dWeddingDate) > 0) {
             $dWeddingDate = '"'.$dWeddingDate.'"';
         } else {
-            $dWeddingDate = 'NULL';
+            $dWeddingDate = null;
         }
 
         $iPersonAddress = InputUtils::LegacyFilterInput($_POST['PersonAddress']);
 
+        $per_Address1 = null;
+        $per_Address2 = null;
+        $per_City = null;
+        $per_Zip = null;
+        $per_Country = null;
+        $per_State = null;
+        $per_HomePhone = null;
+        $per_WorkPhone = null;
+        $per_CellPhone = null;
+        $per_Email = null;
+            
         if ($iPersonAddress != 0) {
-            //$person=PersonQuery::Create()->findOneById($iPersonAddress);
-            $sSQL = 'SELECT * FROM person_per WHERE per_ID = '.$iPersonAddress;
-            $rsPerson = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsPerson));
+            $person=PersonQuery::Create()->findOneById($iPersonAddress);
+
+            if (!is_null($person)) {
+              $per_Address1  = $person->getAddress1();
+              $per_Address2  = $person->getAddress2();
+              $per_City      = $person->getCity();
+              $per_Zip       = $person->getZip();
+              $per_Country   = $person->getCountry();
+              $per_State     = $person->getState();
+              $per_HomePhone = $person->getHomePhone();
+              $per_WorkPhone = $person->getWorkPhone();
+              $per_CellPhone = $person->getCellPhone();
+              $per_Email     = $person->getEmail();
+            }
         }
 
         SelectWhichAddress($sAddress1, $sAddress2, InputUtils::LegacyFilterInput($_POST['Address1']), InputUtils::LegacyFilterInput($_POST['Address2']), $per_Address1, $per_Address2, false);
@@ -88,16 +113,35 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $sEmail = SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
 
         if (strlen($sFamilyName) == 0) {
-            $sError = '<p class="callout callout-warning" align="center" style="color:red;">'.gettext('No family name entered!').'</p>';
+            $sError = '<p class="callout callout-warning" align="center" style="color:red;">'._('No family name entered!').'</p>';
             $bError = true;
         } else {
-            $sSQL = "INSERT INTO family_fam (fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country, fam_HomePhone, fam_WorkPhone, fam_CellPhone, fam_Email, fam_WeddingDate, fam_DateEntered, fam_EnteredBy) VALUES ('".$sFamilyName."','".$sAddress1."','".$sAddress2."','".$sCity."','".$sState."','".$sZip."','".$sCountry."','".$sHomePhone."','".$sWorkPhone."','".$sCellPhone."','".$sEmail."',".$dWeddingDate.",'".date('YmdHis')."',".$_SESSION['user']->getPersonId().')';
-            RunQuery($sSQL);
-
+            $fam = new Family();
+            
+            $fam->setName($sFamilyName);
+            $fam->setAddress1($sAddress1);
+            $fam->setAddress1($sAddress2);
+            $fam->setCity($sCity);
+            $fam->setState($sState);
+            $fam->setZip($sZip);
+            $fam->setCountry($sCountry);
+            $fam->setHomePhone($sHomePhone);
+            $fam->setWorkPhone($sWorkPhone);
+            $fam->setCellPhone($sCellPhone);
+            $fam->setEmail($sEmail);
+            $fam->setWeddingdate($dWeddingDate);
+            $fam->setDateEntered(date('YmdHis'));
+            $fam->setEnteredBy($_SESSION['user']->getPersonId());
+            
+            $fam->save();
+            
             //Get the key back
-            $sSQL = 'SELECT MAX(fam_ID) AS iFamilyID FROM family_fam';
-            $rsLastEntry = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsLastEntry));
+            $last = FamilyQuery::create() 
+              ->addAsColumn('maxId', 'MAX('.FamilyTableMap::COL_FAM_ID.')')
+              ->findOne();
+              
+            $iFamilyID = $last->getMaxId();
+            
         }
     }
 
@@ -126,13 +170,18 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         }
 
         $sGlobalMessage = $iCount.' records(s) successfully added to selected Family.';
+        
+        // empty the cart
+        if(sizeof($_SESSION['aPeopleCart'])>0) {
+          $_SESSION['aPeopleCart'] = [];
+        }
 
         Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
     }
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Add Cart to Family');
+$sPageTitle = _('Add Cart to Family');
 require 'Include/Header.php';
 
 echo $sError;
@@ -167,8 +216,8 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   <table class='table table-hover dt-responsive'>
     <tr>
     <td>&nbsp;</td>
-    <td><b><?= gettext('Name') ?></b></td>
-    <td align="center"><b><?= gettext('Assign Role') ?></b></td>
+    <td><b><?= _('Name') ?></b></td>
+    <td align="center"><b><?= _('Assign Role') ?></b></td>
 
     <?php
     $count = 1;    
@@ -186,7 +235,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
               <?php
             } else {
               ?>
-                  <?= gettext('Already in a family') ?>
+                  <?= _('Already in a family') ?>
               <?php
             }
           ?>
@@ -202,17 +251,17 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 <div class="table-responsive">
 <table align="center" class="table table-hover" id="cart-family-table" width="100%">
   <thead>
-		<tr>
-				<th></th>
-				<th></th>
-		</tr>
-	</thead>
-	<tbody>
     <tr>
-    <td class="LabelColumn"><?= gettext('Add to Family') ?>:</td>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td class="LabelColumn"><?= _('Add to Family') ?>:</td>
     <td class="TextColumn">
         <select name="FamilyID"  class="form-control">
-              <option value="0"><?= gettext('Create new family') ?></option>
+              <option value="0"><?= _('Create new family') ?></option>
       <?php            
         // Create the family select drop-down
         foreach ($ormFamilies as $ormFamily) {
@@ -227,25 +276,25 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 
   <tr>
     <td></td>
-    <td><p class="MediumLargeText"><?= gettext('If adding a new family, enter data below.') ?></p></td>
+    <td><p class="MediumLargeText"><?= _('If adding a new family, enter data below.') ?></p></td>
   </tr>
 
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Family Name') ?>:</td>
+    <td class="LabelColumn"><?= _('Family Name') ?>:</td>
     <td class="TextColumnWithBottomBorder"><input type="text" Name="FamilyName" value="<?= $sName ?>" maxlength="48"><font color="red"><?= $sNameError ?></font></td>
   </tr>
 
   <tr>
-        <td class="LabelColumn"><?= gettext('Wedding Date') ?>:</td>
+        <td class="LabelColumn"><?= _('Wedding Date') ?>:</td>
     <td class="TextColumnWithBottomBorder"><input type="text" Name="WeddingDate" value="<?= $dWeddingDate ?>" maxlength="10" id="sel1" size="15"  class="form-control active date-picker"><font color="red"><?php echo '<BR>'.$sWeddingDateError ?></font></td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Use address/contact data from') ?>:</td>
+    <td class="LabelColumn"><?= _('Use address/contact data from') ?>:</td>
     <td class="TextColumn">
       <select name="PersonAddress"  class="form-control">
-         <option value="0"><?= gettext('Only the new data below') ?></option>
+         <option value="0"><?= _('Only the new data below') ?></option>
 
       <?php 
       foreach ($ormCartItems as $ormCartItem) {
@@ -261,22 +310,22 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Address') ?> 1:</td>
+    <td class="LabelColumn"><?= _('Address') ?> 1:</td>
     <td class="TextColumn"><input type="text" Name="Address1" value="<?= $sAddress1 ?>" size="50" maxlength="250"></td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Address') ?> 2:</td>
+    <td class="LabelColumn"><?= _('Address') ?> 2:</td>
     <td class="TextColumn"><input type="text" Name="Address2" value="<?= $sAddress2 ?>" size="50" maxlength="250"></td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('City') ?>:</td>
+    <td class="LabelColumn"><?= _('City') ?>:</td>
     <td class="TextColumn"><input type="text" Name="City" value="<?= $sCity ?>" maxlength="50"></td>
   </tr>
 
-  <tr <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":""?>>
-    <td class="LabelColumn"><?= gettext('State') ?>:</td>
+  <tr <?= (SystemConfig::getValue('bStateUnusefull'))?'style="display: none;"':""?>>
+    <td class="LabelColumn"><?= _('State') ?>:</td>
     <td class="TextColumn">
       <?php                          
           $statesDD = new StateDropDown();     
@@ -286,12 +335,12 @@ if (count($_SESSION['aPeopleCart']) > 0) {
       <input type="text" name="StateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
             echo $sState;
         } ?>" size="20" maxlength="30">
-      <BR><?= gettext('(Use the textbox for countries other than US and Canada)') ?>
+      <BR><?= _('(Use the textbox for countries other than US and Canada)') ?>
     </td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Zip')?>:</td>
+    <td class="LabelColumn"><?= _('Zip')?>:</td>
     <td class="TextColumn">
       <input type="text" Name="Zip" value="<?= $sZip ?>" maxlength="10" size="8">
     </td>
@@ -299,7 +348,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Country') ?>:</td>
+    <td class="LabelColumn"><?= _('Country') ?>:</td>
     <td class="TextColumnWithBottomBorder">
       <?= CountryDropDown::getDropDown($sCountry); ?>
     </td>
@@ -310,37 +359,37 @@ if (count($_SESSION['aPeopleCart']) > 0) {
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Home Phone') ?>:</td>
+    <td class="LabelColumn"><?= _('Home Phone') ?>:</td>
     <td class="TextColumn">
       <input type="text" Name="HomePhone" value="<?= $sHomePhone ?>" size="30" maxlength="30">
       <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
             echo ' checked';
-        } ?>><?= gettext('Do not auto-format') ?>
+        } ?>><?= _('Do not auto-format') ?>
     </td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Work Phone') ?>:</td>
+    <td class="LabelColumn"><?= _('Work Phone') ?>:</td>
     <td class="TextColumn">
       <input type="text" name="WorkPhone" value="<?php echo $sWorkPhone ?>" size="30" maxlength="30">
       <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?php if ($bNoFormat_WorkPhone) {
             echo ' checked';
-        } ?>><?= gettext('Do not auto-format') ?>
+        } ?>><?= _('Do not auto-format') ?>
     </td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Mobile Phone') ?>:</td>
+    <td class="LabelColumn"><?= _('Mobile Phone') ?>:</td>
     <td class="TextColumn">
       <input type="text" name="CellPhone" value="<?php echo $sCellPhone ?>" size="30" maxlength="30">
       <input type="checkbox" name="NoFormat_CellPhone" value="1" <?php if ($bNoFormat_CellPhone) {
             echo ' checked';
-        } ?>><?= gettext('Do not auto-format') ?>
+        } ?>><?= _('Do not auto-format') ?>
     </td>
   </tr>
 
   <tr>
-    <td class="LabelColumn"><?= gettext('Email') ?>:</td>
+    <td class="LabelColumn"><?= _('Email') ?>:</td>
     <td class="TextColumnWithBottomBorder"><input type="text" Name="Email" value="<?= $sEmail ?>" size="30" maxlength="50"></td>
   </tr>
 </tbody>
@@ -348,12 +397,12 @@ if (count($_SESSION['aPeopleCart']) > 0) {
 </div>
 <p align="center">
 <BR>
-<input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Add to Family') ?>">
+<input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Add to Family') ?>">
 <BR><BR>
 </p>
 <?php
 } else {
-            echo "<p align=\"center\" class='callout callout-warning'>".gettext('Your cart is empty!').'</p>';
+            echo "<p align=\"center\" class='callout callout-warning'>"._('Your cart is empty!').'</p>';
         }
 ?>
 </div>
