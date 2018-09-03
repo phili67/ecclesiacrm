@@ -228,7 +228,7 @@ class Person extends BasePerson implements iPhoto
      */
     public function getAddress()
     {
-        if (!empty($this->getAddress1())) {
+        if (!empty($this->getAddress1()) && SystemConfig::getBooleanValue("bHidePersonAddress") == false) {
             $address = [];
             $tmp = $this->getAddress1();
             if (!empty($this->getAddress2())) {

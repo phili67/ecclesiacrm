@@ -41,7 +41,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             limit(SystemConfig::getValue("bSearchIncludePersonsMax"))->find();
       
     
-          if (!empty($people))
+          if (!is_null($people))
           {
             $data = [];
             $id++;
@@ -80,7 +80,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             _or()->filterByState($searchLikeString, Criteria::LIKE)->
             limit(SystemConfig::getValue("bSearchIncludeAddressesMax"))->find();
       
-          if (!empty($addresses))
+          if (!is_null($addresses))
           {          
             $data = [];
             $id++;
@@ -121,14 +121,18 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->
               limit(SystemConfig::getValue("bSearchIncludeFamiliesMax"))->find();
 
-          if (!empty($families))
+          if (!is_null($families))
           {
             $data = []; 
             $id++;          
           
             foreach ($families as $family)
-            {                    
-                $searchArray=[
+            {    
+              /*if ($family->getPeople()->count() == 1) {// we avoid a one person family
+                continue;
+              }*/
+              
+              $searchArray=[
                 "id" => $id++,
                 "text" => $family->getFamilyString(SystemConfig::getBooleanValue("bSearchIncludeFamilyHOH")),
                 "uri" => $family->getViewURI()
@@ -163,7 +167,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 ->find();
             
             
-            if (!empty($groups))
+            if (!is_null($groups))
             { 
               $data = [];   
               $id++;
@@ -209,7 +213,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                     ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
                     ->limit(SystemConfig::getValue("bSearchIncludeDepositsMax"));
               
-              if (!empty($Deposits))
+              if (!is_null($Deposits))
               {      
                 $data = [];               
                 $id++;        
@@ -244,7 +248,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                          ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
                          ->find();
                          
-              if (!empty($Deposits))
+              if (!is_null($Deposits))
               {      
                 $data = [];               
                 $id++;        
@@ -277,7 +281,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             try {
               $Payments = $this->FinancialService->searchPayments($query);
                   
-              if (!empty($Payments))
+              if (!is_null($Payments))
               {  
                 $data = [];   
                 $id++;
@@ -326,7 +330,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               $cares->findByPastorId($_SESSION['user']->getPerson()->getId());
             }
                    
-            if (!empty($cares)) {
+            if (!is_null($cares)) {
                 $data = [];   
                 $id++;
         
