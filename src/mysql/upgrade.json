@@ -372,7 +372,7 @@
         ],
         "dbVersion": "4.5.2"
     },
-    "current": {
+    "4.6.0": {
         "versions": [
             "4.5.2"
         ],
@@ -381,5 +381,13 @@
           "/mysql/upgrade/4.6.0-upgrade.php"
         ],
         "dbVersion": "4.6.0"
+    },
+    "current": {
+        "versions": [
+            "4.6.0"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "4.6.1"
     }
 }

@@ -495,14 +495,15 @@ CREATE TABLE `family_custom` (
 --
 
 CREATE TABLE `family_custom_master` (
-  `family_custom_id` mediumint(9) unsigned NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `family_custom_id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
   `fam_custom_Order` smallint(6) NOT NULL default '0',
   `fam_custom_Field` varchar(5) NOT NULL default '',
   `fam_custom_Name` varchar(40) NOT NULL default '',
   `fam_custom_Special` mediumint(8) unsigned default NULL,
   `fam_custom_Side` enum('left','right') NOT NULL default 'left',
   `fam_custom_FieldSec` tinyint(4) NOT NULL default '1',
-  `type_ID` tinyint(4) NOT NULL default '0'
+  `type_ID` tinyint(4) NOT NULL default '0',
+  PRIMARY KEY  (`family_custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 --
