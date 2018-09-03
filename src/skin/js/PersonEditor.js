@@ -4,8 +4,12 @@ $(document).ready(function () {
     $("[data-mask]").inputmask();
   });
 
-  // we hide by default the familyAdress
-  $("#familyAdress").hide();
+  // we hide by default the familyAddress
+  if (window.CRM.iFamily == 0) {
+    $("#familyAddress").hide();
+  } else {
+    $("#personAddress").hide();
+  }
   
   // This scroll the family at the right place
   var selectedItem = $("#optionFamily option:selected").val();
@@ -16,11 +20,13 @@ $(document).ready(function () {
   
   $('#optionFamily').change(function(data) {
     if (this.value == -1) {
-      $('#optionFamily').attr('size', '2');    
-      $("#familyAdress").fadeIn(1000);
+      $('#optionFamily').attr('size', '2');
+      $("#familyAddress").fadeIn(1000);
+      $("#personAddress").fadeOut(50);
     }  else {
       $('#optionFamily').attr('size', '8');
-      $("#familyAdress").fadeOut(100);
+      $("#familyAddress").fadeOut(50);
+      $("#personAddress").fadeIn(1000);
     }
   });
 
