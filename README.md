@@ -49,5 +49,3 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 <!--![Family](http://www.ecclesiacrm.com/screenshots/family.PNG)
 ![Person](http://www.ecclesiacrm.com/screenshots/person.PNG)-->
 
-
-
