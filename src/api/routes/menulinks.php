@@ -101,35 +101,18 @@ $app->group('/menulinks', function () {
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) ){
       if ($input->PersonID == 0) {
-        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId(null);
+        $personID = null;
       } else {
-        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
+        $personID = $input->PersonID;
       }
+      
+      // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+      $firstMenu = MenuLinkQuery::Create()->filterByPersonId($personID)->findOneByOrder($input->MenuPlace - 1);
+      $firstMenu->setOrder($input->MenuPlace)->save();
+        
+      $secondFamCus = MenuLinkQuery::Create()->filterByPersonId($personID)->findOneById($input->MenuLinkId);
+      $secondFamCus->setOrder($input->MenuPlace - 1)->save();
 
-    
-      $find               = false;
-      $first_find_order   = -1;
-      $find_menu_link     = null;
-    
-      foreach ($menuLinks as $menuLink) {// get the last Order !!!
-         if ($menuLink->getId() == $input->MenuLinkId) {
-            $find             = true;
-            $find_menu_link   = $menuLink;
-            
-            continue;
-         }
-         
-         if ($find == true) {
-            $temp_order = $menuLink->getOrder();
-
-            $menuLink->setOrder($find_menu_link->getOrder());
-            $find_menu_link->setOrder($temp_order);
-            $menuLink->save();
-            $find_menu_link->save();
-            break;
-         }
-      }
-         
       return $response->withJson(['success' => true]);
     }
     
@@ -140,34 +123,18 @@ $app->group('/menulinks', function () {
     $input = (object)$request->getParsedBody();
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) ){
-      if ($input->PersonID == 0) {
-        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
+            if ($input->PersonID == 0) {
+        $personID = null;
       } else {
-        $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId($input->PersonID);
+        $personID = $input->PersonID;
       }
-    
-      $find               = false;
-      $first_find_order   = -1;
-      $find_menu_link     = null;
-    
-      foreach ($menuLinks as $menuLink) {// get the last Order !!!
-         if ($menuLink->getId() == $input->MenuLinkId) {
-            $find             = true;
-            $find_menu_link   = $menuLink;
-            
-            continue;
-         }
-         
-         if ($find == true) {
-            $temp_order = $menuLink->getOrder();
-
-            $menuLink->setOrder($find_menu_link->getOrder());
-            $find_menu_link->setOrder($temp_order);
-            $menuLink->save();
-            $find_menu_link->save();
-            break;
-         }
-      }
+      
+      // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+      $firstMenu = MenuLinkQuery::Create()->filterByPersonId($personID)->findOneByOrder($input->MenuPlace + 1);
+      $firstMenu->setOrder($input->MenuPlace)->save();
+        
+      $secondFamCus = MenuLinkQuery::Create()->filterByPersonId($personID)->findOneById($input->MenuLinkId);
+      $secondFamCus->setOrder($input->MenuPlace + 1)->save();
          
       return $response->withJson(['success' => true]);
     }
