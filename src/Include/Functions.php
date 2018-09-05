@@ -532,10 +532,12 @@ function CollapsePhoneNumber($sPhoneNumber, $sPhoneCountry)
 //
 function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
 {
-    $bWeird = false;
-    $length = strlen($sPhoneNumber);
+  // this is normally unusefull
+  
+  /*$bWeird = false;
+  $length = strlen($sPhoneNumber);
 
-    switch ($sPhoneCountry) {
+  switch ($sPhoneCountry) {
     case 'United States':
       if ($length == 0) {
           return '';
@@ -560,7 +562,9 @@ function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
     // If the country is unknown, we don't know how to format it, so leave it untouched
     default:
       return $sPhoneNumber;
-  }
+  }*/
+  
+  return $sPhoneNumber;
 }
 
 function FormatAge($Month, $Day, $Year, $Flags)
