@@ -160,6 +160,7 @@ switch ($sAction) {
                 
                 foreach ($persons as $person) {
                   $person->setRoleId($grp->getDefaultRole());
+                  $person->save();
                 }
                 
                 /*$sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = ".$grp->getDefaultRole()." WHERE p2g2r_grp_ID = ".$grp->getId()." AND p2g2r_rle_ID = $iID";
