@@ -64,10 +64,6 @@ $ormGroups = GroupQuery::Create()->orderByName()->find();
 $ormCustomFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
 $numCustomFields = $ormCustomFields->count();
 
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
-
 
 $aDefaultClasses = explode(',', SystemConfig::getValue('sDirClassifications'));
 $aDirRoleHead = explode(',', SystemConfig::getValue('sDirRoleHead'));
