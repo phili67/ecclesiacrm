@@ -27,7 +27,8 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonCustom;
-use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\FamilyCustomMaster;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustom;
 use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -76,9 +77,30 @@ $rsCanvassers = CanvassGetCanvassers(_('Canvassers'));
 $rsBraveCanvassers = CanvassGetCanvassers(_('BraveCanvassers'));
 
 // Get the list of custom person fields
-$sSQL = 'SELECT family_custom_master.* FROM family_custom_master ORDER BY fam_custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
+$ormCustomFields = FamilyCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->find();
+
+
+// only the left custom fields
+$ormLeftCustomFields = FamilyCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->filterByCustomSide('left')
+                     ->find()->toArray();
+
+// only the right custom fields
+$ormRightCustomFields = FamilyCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->filterByCustomSide('right')
+                     ->find()->toArray();
+                     
+$numLeftCustomFields = count($ormLeftCustomFields);
+$numRightCustomFields = count($ormRightCustomFields);
+
+$maxCustomFields = max($numRightCustomFields,$numLeftCustomFields);
+
+$numCustomFields = $numRightCustomFields+$numLeftCustomFields;
+
 
 // Get Field Security List Matrix
 $securityListOptions = ListOptionQuery::Create()
@@ -261,15 +283,16 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
     // Validate all the custom fields
     $aCustomData = [];
-    while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-        extract($rowCustomField);
 
-        $currentFieldData = InputUtils::LegacyFilterInput($_POST[$fam_custom_Field]);
+    foreach ($ormCustomFields as $rowCustomField) {
+        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+            $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
+            
+            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
 
-        $bErrorFlag |= !validateCustomField($type_ID, $currentFieldData, $fam_custom_Field, $aCustomErrors);
-
-        // assign processed value locally to $aPersonProps so we can use it to generate the form later
-        $aCustomData[$fam_custom_Field] = $currentFieldData;
+            // assign processed value locally to $aPersonProps so we can use it to generate the form later
+            $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
+        }      
     }
 
     //If no errors, then let's update...
@@ -495,15 +518,11 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         // Update the custom person fields.
         if ($numCustomFields > 0) {
             $sSQL = 'REPLACE INTO family_custom SET ';
-            mysqli_data_seek($rsCustomFields, 0);
 
-            while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                extract($rowCustomField);
-                if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
-
-                    $currentFieldData = trim($aCustomData[$fam_custom_Field]);
-
-                    sqlCustomField($sSQL, $type_ID, $currentFieldData, $fam_custom_Field, $sCountry);
+            foreach ($ormCustomFields as $rowCustomField) {
+                if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                    $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                    sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sCountry);
                 }
             }
 
@@ -564,9 +583,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $aCustomErrors = [];
 
         if ($numCustomFields > 0) {
-            mysqli_data_seek($rsCustomFields, 0);
-            while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                $aCustomErrors[$rowCustomField['fam_custom_Field']] = false;
+            foreach ($ormCustomFields as $rowCustomField) {
+               $aCustomErrors[$rowCustomField->getCustomField()] = false;
             }
         }
 
@@ -647,11 +665,9 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $aCustomData = [];
         $aCustomErrors = [];
         if ($numCustomFields > 0) {
-            mysqli_data_seek($rsCustomFields, 0);
-            while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                extract($rowCustomField);
-                $aCustomData[$fam_custom_Field] = '';
-                $aCustomErrors[$fam_custom_Field] = false;
+            foreach ($ormCustomFields as $rowCustomField) {
+                $aCustomData[$rowCustomField->getCustomField()] = '';
+                $aCustomErrors[$rowCustomField->getCustomField()] = false;
             }
         }
     }
@@ -661,7 +677,7 @@ require 'Include/Header.php';
 
 ?>
 
-<form method="post" action="FamilyEditor.php?FamilyID=<?php echo $iFamilyID ?>">
+<form method="post" action="FamilyEditor.php?FamilyID=<?= $iFamilyID ?>">
   <input type="hidden" Name="iFamilyID" value="<?= $iFamilyID ?>">
   <input type="hidden" name="FamCount" value="<?= $iFamilyMemberRows ?>">
   <div class="box box-info clearfix">
@@ -715,11 +731,11 @@ require 'Include/Header.php';
           <div class="form-group col-md-3">
             <label><?= _("Zip")?>:</label>
             <input type="text" Name="Zip"  class="form-control input-sm" <?php
-                            // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
-                            if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
-                                echo 'style="text-transform:uppercase" ';
-                            }
-                            echo 'value="'.htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8').'" '; ?>
+              // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
+              if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
+                  echo 'style="text-transform:uppercase" ';
+              }
+              echo 'value="'.htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8').'" '; ?>
               maxlength="10" size="8">
           </div>
           <div class="form-group col-md-3">
@@ -767,9 +783,7 @@ require 'Include/Header.php';
               <i class="fa fa-phone"></i>
             </div>
             <input type="text" Name="HomePhone" value="<?= htmlentities(stripslashes($sHomePhone)) ?>" size="30" maxlength="30" class="form-control input-sm" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat')?>"' data-mask>
-            <input type="checkbox" name="NoFormat_HomePhone" value="1" <?php if ($bNoFormat_HomePhone) {
-                  echo ' checked';
-              } ?>><?= _('Do not auto-format') ?>
+            <input type="checkbox" name="NoFormat_HomePhone" value="1" <?= ($bNoFormat_HomePhone)?' checked':'' ?>><?= _('Do not auto-format') ?>
           </div>
         </div>
         <div class="form-group col-md-4">
@@ -800,15 +814,13 @@ require 'Include/Header.php';
             <div class="input-group-addon">
               <i class="fa fa-envelope"></i>
             </div>
-            <input type="text" Name="Email" class="form-control input-sm" value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font color="red"><?php echo '<BR>'.$sEmailError ?></font>
+            <input type="text" Name="Email" class="form-control input-sm" value="<?= htmlentities(stripslashes($sEmail)) ?>" size="30" maxlength="100"><font color="red"><?= '<BR>'.$sEmailError ?></font>
           </div>
         </div>
         <?php if (!SystemConfig::getValue('bHideFamilyNewsletter')) { /* Newsletter can be hidden - General Settings */ ?>
         <div class="form-group col-md-4">
           <label><?= _('Send Newsletter') ?>:</label><br/>
-          <input type="checkbox" Name="SendNewsLetter" value="1" <?php if ($bSendNewsLetter) {
-                  echo ' checked';
-              } ?>>
+          <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?>>
         </div>
         <?php
               } ?>
@@ -842,9 +854,7 @@ require 'Include/Header.php';
         <?php if ($_SESSION['user']->isCanvasserEnabled()) { // Only show this field if the current user is a canvasser?>
           <div class="form-group col-md-4">
             <label><?= _('Ok To Canvass') ?>: </label><br/>
-            <input type="checkbox" Name="OkToCanvass" value="1" <?php if ($bOkToCanvass) {
-                  echo ' checked ';
-              } ?> >
+            <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass)?' checked ':'' ?>>
           </div>
         <?php
               }
@@ -853,18 +863,19 @@ require 'Include/Header.php';
                     ?>
         <div class="form-group col-md-4">
           <label><?= _('Assign a Canvasser') ?>:</label>
-          <?php // Display all canvassers
-                    echo "<select name='Canvasser' class=\"form-control\"><option value=\"0\">None selected</option>";
-                    while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
-                        echo '<option value="'.$aCanvasser['per_ID'].'"';
-                        if ($aCanvasser['per_ID'] == $iCanvasser) {
-                            echo ' selected';
-                        }
-                        echo '>';
-                        echo $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'];
-                        echo '</option>';
-                    }
-                    echo '</select></div>';
+          <select name='Canvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
+              <?php // Display all canvassers 
+                while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+              ?>
+                    <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
+                    <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
+                    </option>
+                <?php
+                }
+                ?>
+          </select>
+        </div>
+        <?php
                 }
 
                 if ($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) {
@@ -872,19 +883,21 @@ require 'Include/Header.php';
           <div class="form-group col-md-4">
             <label><?= _('Assign a Brave Canvasser') ?>: </label>
 
+            <select name='BraveCanvasser' class=\"form-control\"><option value=\"0\">None selected</option>";
             <?php // Display all canvassers
-                        echo "<select name='BraveCanvasser' class=\"form-control\"><option value=\"0\">None selected</option>";
                     while ($aBraveCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
-                        echo '<option value="'.$aBraveCanvasser['per_ID'].'"';
-                        if ($aBraveCanvasser['per_ID'] == $iCanvasser) {
-                            echo ' selected';
-                        }
-                        echo '>';
-                        echo $aBraveCanvasser['per_FirstName'].' '.$aBraveCanvasser['per_LastName'];
-                        echo '</option>';
+            ?>
+                <option value="<?= $aBraveCanvasser['per_ID'] ?>" <?= ($aBraveCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
+                    <?= $aBraveCanvasser['per_FirstName'].' '.$aBraveCanvasser['per_LastName'] ?>
+                </option>
+            <?php
                     }
-                    echo '</select></div>';
-                } ?>
+            ?>
+            </select>
+          </div>
+        <?php
+                } 
+        ?>
       </div>
     </div>
   </div>
@@ -900,9 +913,7 @@ require 'Include/Header.php';
       <div class="row">
         <div class="form-group col-md-4">
           <label><?= _('Envelope Number') ?>:</label>
-          <input type="text" Name="Envelope" <?php if ($fam_Envelope) {
-                    echo ' value="'.$fam_Envelope;
-                } ?>" size="30" maxlength="50">
+          <input type="text" Name="Envelope" <?= ($fam_Envelope)?' value="'.$fam_Envelope.'"':'' ?> size="30" maxlength="50">
         </div>
       </div>
     </div>
@@ -919,26 +930,65 @@ require 'Include/Header.php';
       </div>
     </div><!-- /.box-header -->
     <div class="box-body">
-    <?php mysqli_data_seek($rsCustomFields, 0);
-        while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-            extract($rowCustomField);
-            if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
-          ?>
-      <div class="row">
-        <div class="form-group col-md-4">
-        <label><?= $fam_custom_Name  ?> </label>
-        <?php $currentFieldData = trim($aCustomData[$fam_custom_Field]);
+            <?php if ($numCustomFields > 0) {
+              for ($i=0;$i < $maxCustomFields;$i++) {
+                  echo '<div class="row">';
+                  
+                  echo '  <div class="form-group col-md-6">';
+                  if ($i < $numLeftCustomFields) {
+                    $customField = $ormLeftCustomFields[$i];
+                     
+                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
+                      echo '<label>'.$customField['CustomName'].'</label><br>';
 
-                if ($type_ID == 11) {
-                    $fam_custom_Special = $sCountry;
-                }
+                      if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                          $currentFieldData = trim($aCustomData[$customField['CustomField']]);
+                      } else {
+                          $currentFieldData = '';
+                      }
 
-                OutputUtils::formCustomField($type_ID, $fam_custom_Field, $currentFieldData, $fam_custom_Special, !isset($_POST['FamilySubmit']));
-                echo '<span style="color: red; ">'.$aCustomErrors[$fam_custom_Field].'</span>';
-                echo '</div></div>';
-            }
-        } ?>
-    </div>
+                      if ($type_ID == 11) {
+                          $custom_Special = $sPhoneCountry;
+                      }
+
+                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                      if (isset($aCustomErrors[$customField['TypeId']])) {
+                          echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
+                      }
+                    }
+                  }
+                  echo '  </div>';
+                  
+                  echo '  <div class="form-group col-md-6">';
+                  if ($i < $numRightCustomFields) {
+                    $customField = $ormRightCustomFields[$i];
+                     
+                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
+                       echo '<label>'.$customField['CustomName'].'</label><br>';
+
+                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                            $currentFieldData = trim($aCustomData[$customField['CustomField']]);
+                        } else {
+                            $currentFieldData = '';
+                        }
+
+                        if ($type_ID == 11) {
+                            $custom_Special = $sPhoneCountry;
+                        }
+
+                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                        if (isset($aCustomErrors[$customField['TypeId']])) {
+                            echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
+                        }
+                    }
+                  }
+                  echo '  </div>';
+                     
+                  echo '</div>';
+                
+              }
+          } ?>
+      </div>
   </div>
   <?php
     } ?>
@@ -978,18 +1028,21 @@ require 'Include/Header.php';
     <?php
 
         //Get family roles
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 2 ORDER BY lst_OptionSequence';
-        $rsFamilyRoles = RunQuery($sSQL);
-        $numFamilyRoles = mysqli_num_rows($rsFamilyRoles);
-        for ($c = 1; $c <= $numFamilyRoles; $c++) {
-            $aRow = mysqli_fetch_array($rsFamilyRoles);
-            extract($aRow);
-            $aFamilyRoleNames[$c] = $lst_OptionName;
-            $aFamilyRoleIDs[$c] = $lst_OptionID;
+        $ormFamilyRoles = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(2);
+        
+        $numFamilyRoles = $ormFamilyRoles->count();
+        
+        $c = 1;
+        
+        foreach ($ormFamilyRoles as $rowFamilyRole) {
+            $aFamilyRoleNames[$c] = $rowFamilyRole->getOptionName();
+            $aFamilyRoleIDs[$c++] = $rowFamilyRole->getOptionId();
         }
 
         for ($iCount = 1; $iCount <= $iFamilyMemberRows; $iCount++) {
-            ?>
+    ?>
     <input type="hidden" name="PersonID<?= $iCount ?>" value="<?= $aPersonIDs[$iCount] ?>">
     <tr>
       <td class="TextColumnFam">
@@ -1119,19 +1172,19 @@ require 'Include/Header.php';
                 } ?>><?= _('Unassigned') ?></option>
           <option value="0" disabled>-----------------------</option>
           <?php
-                    //Get Classifications for the drop-down
-                    $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-            $rsClassifications = RunQuery($sSQL);
-
-            //Display Classifications
-            while ($aRow = mysqli_fetch_array($rsClassifications)) {
-                extract($aRow);
-                echo '<option value="'.$lst_OptionID.'"';
-                if ($aClassification[$iCount] == $lst_OptionID) {
+            //Get Classifications for the drop-down
+            $ormClassifications = ListOptionQuery::Create()
+                    ->orderByOptionSequence()
+                    ->findById(1);
+        
+            foreach ($ormClassifications as $rowClassification) {
+                echo '<option value="'.$rowClassification->getOptionId().'"';
+                if ($aClassification[$iCount] == $rowClassification->getOptionId()) {
                     echo ' selected';
                 }
-                echo '>'.$lst_OptionName.'&nbsp;';
+                echo '>'.$rowClassification->getOptionName().'&nbsp;';            
             }
+
             echo '</select></td></tr>';
         }
         echo '</table></div>';
