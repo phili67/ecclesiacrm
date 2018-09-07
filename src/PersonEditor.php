@@ -75,12 +75,29 @@ if ($iPersonID > 0) {
     exit;
 }
 
+// All the custom fields
 $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-                     
 
-$numCustomFields = count($ormCustomFields);
+// only the left custom fields
+$ormLeftCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->filterByCustomSide('left')
+                     ->find()->toArray();
+
+// only the right custom fields
+$ormRightCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->filterByCustomSide('right')
+                     ->find()->toArray();
+                     
+$numLeftCustomFields = count($ormLeftCustomFields);
+$numRightCustomFields = count($ormRightCustomFields);
+
+$maxCustomFields = max($numRightCustomFields,$numLeftCustomFields);
+
+$numCustomFields = $numRightCustomFields+$numLeftCustomFields;
 
 //Initialize the error flag
 $bErrorFlag = false;
@@ -299,8 +316,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
             
-            echo $rowCustomField->getCustomField()." ".$currentFieldData;
-
             $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
 
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
@@ -524,8 +539,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
                     $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
                     sqlCustomField($sSQL, $rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $sPhoneCountry);
-                    
-                    echo $rowCustomField->getCustomField()." ".$currentFieldData;
               }
             }
             
@@ -625,19 +638,15 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $aCustomData['per_ID'] = $iPersonID;
                 
         foreach ($ormCustomFields as $ormCustomField) {
-          //echo $ormCustomField->getCustomField();
           $personCustom = PersonCustomQuery::Create()
                           ->withcolumn($ormCustomField->getCustomField())
                           ->findOneByPerId($iPersonID);
                           
-        if (!is_null($personCustom)) {
+          if (!is_null($personCustom)) {
             $aCustomData[] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
             $aCustomData[$ormCustomField->getCustomField()] = $personCustom->getVirtualColumn($ormCustomField->getCustomField());
           }
         }
-        
-         
-        //print_r($aCustomData);        
     } else {
         //Adding....
         //Set defaults
@@ -1410,21 +1419,18 @@ if ($iFamily != 0) {
         </div><!-- /.box-header -->
         <div class="box-body">
             <?php if ($numCustomFields > 0) {
+              for ($i=0;$i < $maxCustomFields;$i++) {
+                  echo '<div class="row">';
+                  
+                  echo '  <div class="form-group col-md-6">';
+                  if ($i < $numLeftCustomFields) {
+                    $customField = $ormLeftCustomFields[$i];
+                     
+                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
+                      echo '<label>'.$customField['CustomName'].'</label><br>';
 
-              $cnt = 0;
-              
-              foreach ($ormCustomFields as $rowCustomField) {
-
-                  if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-                      if ($cnt == 0) {
-                          echo "<div class='row'>";
-                      }
-
-
-                      echo "<div class=\"form-group col-md-4\"><label>".$rowCustomField->getCustomName().'</label><br>';
-
-                      if (array_key_exists($rowCustomField->getCustomField(), $aCustomData)) {
-                          $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
+                      if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                          $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                       } else {
                           $currentFieldData = '';
                       }
@@ -1433,23 +1439,41 @@ if ($iFamily != 0) {
                           $custom_Special = $sPhoneCountry;
                       }
 
-                      OutputUtils::formCustomField($rowCustomField->getTypeId(), $rowCustomField->getCustomField(), $currentFieldData, $rowCustomField->getCustomSpecial(), !isset($_POST['PersonSubmit']));
-                      if (isset($aCustomErrors[$rowCustomField->getTypeId()])) {
-                          echo '<span style="color: red; ">'.$aCustomErrors[$rowCustomField->getTypeId()].'</span>';
+                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                      if (isset($aCustomErrors[$customField['TypeId']])) {
+                          echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
                       }
-                      echo '</div>';
-
-                      $cnt+=1;
-                      $cnt%=3;
-
-                      if ($cnt == 0) {
-                          echo '</div>';
-                      }
+                    }
                   }
-              }                            
+                  echo '  </div>';
+                  
+                  echo '  <div class="form-group col-md-6">';
+                  if ($i < $numRightCustomFields) {
+                    $customField = $ormRightCustomFields[$i];
+                     
+                    if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
+                       echo '<label>'.$customField['CustomName'].'</label><br>';
 
-              if ($cnt) {
+                        if (array_key_exists($customField['CustomField'], $aCustomData)) {
+                            $currentFieldData = trim($aCustomData[$customField['CustomField']]);
+                        } else {
+                            $currentFieldData = '';
+                        }
+
+                        if ($type_ID == 11) {
+                            $custom_Special = $sPhoneCountry;
+                        }
+
+                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                        if (isset($aCustomErrors[$customField['TypeId']])) {
+                            echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
+                        }
+                    }
+                  }
+                  echo '  </div>';
+                     
                   echo '</div>';
+                
               }
           } ?>
         </div>
