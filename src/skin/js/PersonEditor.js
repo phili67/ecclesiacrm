@@ -34,7 +34,8 @@ $(document).ready(function () {
          $('#FamCity').val(data.City);
          $('#FamZip').val(data.Zip);
          $('#FamStateTextbox').val(data.State);
-
+         
+         $('#FamAddress1').focus();
       })
       
       $('#optionFamily').attr('size', '8');
@@ -42,7 +43,17 @@ $(document).ready(function () {
       $("#personAddress").fadeOut(50);
 
     } else {    
-      if (this.value == -1) {
+      if (this.value == -1) {// we create a new family
+        // we fields are blank
+        $('#famcountry-input').val('').trigger('change');;
+        $('#famstate-input').val('').trigger('change');;
+        $('#FamAddress1').val('');
+        $('#FamAddress2').val('');
+        $('#FamCity').val('');
+        $('#FamZip').val('');
+        $('#FamStateTextbox').val('');
+         
+        // next the fields will appear
         $('#optionFamily').attr('size', '8');
         $("#familyAddress").fadeIn(1000);
         $("#personAddress").fadeOut(50);
@@ -51,6 +62,8 @@ $(document).ready(function () {
         $("#familyAddress").fadeOut(50);
         $("#personAddress").fadeIn(1000);
       }
+      
+      $('#FamAddress1').focus();
     }
   });
 
