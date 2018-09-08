@@ -963,7 +963,7 @@ require 'Include/Header.php';
                 <p>
                 <div class="row">
                   <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
-                    <label for="StatleTextBox"><?= gettext('State')?>: </label><br>
+                    <label for="StatleTextBox"><?= gettext('State') ?>: </label><br>
                     <?php                          
                         $statesDDF = new StateDropDown();     
                         echo $statesDDF->getDropDown($sState,"FamState");
@@ -976,7 +976,7 @@ require 'Include/Header.php';
                     } ?>" size="20" maxlength="30">
                   </div>
                   <div class="form-group col-md-3">
-                    <label><?= gettext('Zip')?>:</label>
+                    <label><?= gettext('Zip') ?>:</label>
                     <input type="text" id="FamZip" name="FamZip"  class="form-control" <?php
                                     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                                     if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
@@ -1203,7 +1203,7 @@ require 'Include/Header.php';
                         <?php
                           if ($bFamilyHomePhone) {
                         ?>
-                            <span style="color: red;"><?= gettext('Home Phone')?>:</span>
+                            <span style="color: red;"><?= gettext('Home Phone') ?>:</span>
                         <?php
                           } else {
                         ?>
@@ -1218,7 +1218,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="HomePhone"
                                value="<?= htmlentities(stripslashes($sHomePhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat')?>"' data-mask>
+                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormat') ?>"' data-mask>
                         <br>
                         <input type="checkbox" name="NoFormat_HomePhone" value="1" <?= ($bNoFormat_HomePhone)?' checked':''?>><?= gettext('Do not auto-format') ?>
                     </div>
@@ -1244,7 +1244,7 @@ require 'Include/Header.php';
                         <input type="text" name="WorkPhone"
                                value="<?= htmlentities(stripslashes($sWorkPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
                                maxlength="30" class="form-control"
-                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt')?>"' data-mask/>
+                               data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatWithExt') ?>"' data-mask/>
                         <br>
                         <input type="checkbox" name="NoFormat_WorkPhone" value="1" <?= ($bNoFormat_WorkPhone)?' checked':'' ?>><?= gettext('Do not auto-format') ?>
                     </div>
@@ -1270,7 +1270,7 @@ require 'Include/Header.php';
                         </div>
                         <input type="text" name="CellPhone"
                                value="<?= htmlentities(stripslashes($sCellPhone), ENT_NOQUOTES, 'UTF-8') ?>" size="30"
-                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell')?>"' data-mask>
+                               maxlength="30" class="form-control" data-inputmask='"mask": "<?= SystemConfig::getValue('sPhoneFormatCell') ?>"' data-mask>
                         <br><input type="checkbox" name="NoFormat_CellPhone" value="1" <?= ($bNoFormat_CellPhone)?' checked':'' ?>><?= gettext('Do not auto-format') ?>
                     </div>
                 </div>
