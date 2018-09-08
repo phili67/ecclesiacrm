@@ -883,7 +883,7 @@ require 'Include/Header.php';
           <div class="form-group col-md-4">
             <label><?= gettext('Assign a Brave Canvasser') ?>: </label>
 
-            <select name='BraveCanvasser' class=\"form-control\"><option value=\"0\">None selected</option>";
+            <select name='BraveCanvasser' class="form-control"><option value="0"><?= gettext('None selected') ?></option>
             <?php // Display all canvassers
                     while ($aBraveCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
             ?>
