@@ -72,7 +72,7 @@ use EcclesiaCRM\dto\SystemURLs;
                     data: 'DateEntered',
                     searchable: false,
                     render: function (data, type, full, meta) {
-                        return moment(data).format("MM-DD-YY");
+                        return moment(data).format(window.CRM.datePickerformat.toUpperCase());
                     }
                 }
             ],
