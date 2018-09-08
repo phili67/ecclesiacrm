@@ -8,13 +8,11 @@
  *                2017 Philippe Logel
  *
  ******************************************************************************/
-
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/CountryDropDown.php';
 require 'Include/StateDropDown.php';
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
@@ -30,22 +28,18 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\PersonCustomMasterQuery;
-
 //Set the page title
 $sPageTitle = gettext('Person Editor');
-
 //Get the PersonID out of the querystring
 if (array_key_exists('PersonID', $_GET)) {
     $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 } else {
     $iPersonID = 0;
 }
-
 $sPreviousPage = '';
 if (array_key_exists('previousPage', $_GET)) {
     $sPreviousPage = InputUtils::LegacyFilterInput($_GET['previousPage']);
 }
-
 // Security: User must have Add or Edit Records permission to use this form in those manners
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
 if ($iPersonID > 0) {
@@ -60,7 +54,6 @@ if ($iPersonID > 0) {
     if ($person->getDateDeactivated() != null && !$_SESSION['user']->isGdrpDpoEnabled()) {
       Redirect('members/404.php?type=Person');
     }
-
     if (!(
         $_SESSION['user']->isEditRecordsEnabled() ||
         ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ||
@@ -74,18 +67,15 @@ if ($iPersonID > 0) {
     Redirect('Menu.php');
     exit;
 }
-
 // All the custom fields
 $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-
 // only the left custom fields
 $ormLeftCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->filterByCustomSide('left')
                      ->find()->toArray();
-
 // only the right custom fields
 $ormRightCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
@@ -94,11 +84,8 @@ $ormRightCustomFields = PersonCustomMasterQuery::Create()
                      
 $numLeftCustomFields = count($ormLeftCustomFields);
 $numRightCustomFields = count($ormRightCustomFields);
-
 $maxCustomFields = max($numRightCustomFields,$numLeftCustomFields);
-
 $numCustomFields = $numRightCustomFields+$numLeftCustomFields;
-
 //Initialize the error flag
 $bErrorFlag = false;
 $sFirstNameError = '';
@@ -111,14 +98,10 @@ $sBirthYearError = '';
 $sFriendDateError = '';
 $sMembershipDateError = '';
 $aCustomErrors = [];
-
 $fam_Country = '';
-
 $bNoFormat_HomePhone = false;
 $bNoFormat_WorkPhone = false;
 $bNoFormat_CellPhone = false;
-
-
 //Is this the second pass?
 if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     //Get all the variables from the request object and assign them locally
@@ -128,7 +111,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sLastName = InputUtils::FilterString($_POST['LastName']);
     $sSuffix = InputUtils::FilterString($_POST['Suffix']);
     $iGender = InputUtils::LegacyFilterInput($_POST['Gender'], 'int');
-
     // Person address stuff is normally surpressed in favor of family address info
     $sAddress1 = '';
     $sAddress2 = '';
@@ -170,26 +152,22 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (array_key_exists('FamState', $_POST)) {
         $sFamState = InputUtils::FilterString($_POST['FamState']);
     }
-
     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
     if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
         $sFamZip = strtoupper($sFamZip);
     }
-
     if (array_key_exists('FamCountry', $_POST)) {
         $sFamCountry = InputUtils::FilterString($_POST['FamCountry']);
     }
     
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family'], 'int');
     $iFamilyRole = InputUtils::LegacyFilterInput($_POST['FamilyRole'], 'int');
-
     // Get their family's country in case person's country was not entered
     if ($iFamily > 0) {
         $fam = FamilyQuery::Create()->findOneById($iFamily);
         
         $fam_Country = $fam->getCountry();
     }
-
     $sCountryTest = SelectWhichInfo($sCountry, $fam_Country, false);
     $sState = '';
     if ($sCountryTest == 'United States' || $sCountryTest == 'Canada') {
@@ -201,7 +179,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sState = InputUtils::LegacyFilterInput($_POST['StateTextbox']);
         }
     }
-
     $sHomePhone = InputUtils::LegacyFilterInput($_POST['HomePhone']);
     $sWorkPhone = InputUtils::LegacyFilterInput($_POST['WorkPhone']);
     $sCellPhone = InputUtils::LegacyFilterInput($_POST['CellPhone']);
@@ -210,7 +187,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $iBirthMonth = InputUtils::LegacyFilterInput($_POST['BirthMonth'], 'int');
     $iBirthDay = InputUtils::LegacyFilterInput($_POST['BirthDay'], 'int');
     $iBirthYear = InputUtils::LegacyFilterInput($_POST['BirthYear'], 'int');
-
     $bHideAge = isset($_POST['HideAge']);
     // Philippe Logel
     $dFriendDate = InputUtils::FilterDate($_POST['FriendDate']);
@@ -223,20 +199,16 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     if (array_key_exists('updateBirthYear', $_POST)) {
         $iupdateBirthYear = InputUtils::LegacyFilterInput($_POST['updateBirthYear'], 'int');
     }
-
     $iFacebook = InputUtils::FilterInt($_POST['Facebook']);
     $sTwitter = InputUtils::FilterString($_POST['Twitter']);
     $sLinkedIn = InputUtils::FilterString($_POST['LinkedIn']);
-
     $bNoFormat_HomePhone = isset($_POST['NoFormat_HomePhone']);
     $bNoFormat_WorkPhone = isset($_POST['NoFormat_WorkPhone']);
     $bNoFormat_CellPhone = isset($_POST['NoFormat_CellPhone']);
-
     //Adjust variables as needed
     if ($iFamily == 0) {
         $iFamilyRole = 0;
     }
-
     //Validate the Last Name.  If family selected, but no last name, inherit from family.
     if (strlen($sLastName) < 1 && !SystemConfig::getValue('bAllowEmptyLastName')) {
         if ($iFamily < 1) {
@@ -247,7 +219,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sLastName = $fam->getName();            
         }
     }
-
     // If they entered a full date, see if it's valid
     if (strlen($iBirthYear) > 0) {
         if ($iBirthYear == 0) { // If zero set to NULL
@@ -262,7 +233,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             }
         }
     }
-
     // Validate Friend Date if one was entered
     if (strlen($dFriendDate) > 0) {
         $dateString = parseAndValidateDate($dFriendDate, $locale = 'US', $pasfut = 'past');
@@ -274,7 +244,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $dFriendDate = $dateString;
         }
     }
-
     // Validate Membership Date if one was entered
     if (strlen($dMembershipDate) > 0) {
         $dateString = parseAndValidateDate($dMembershipDate, $locale = 'US', $pasfut = 'past');
@@ -286,7 +255,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $dMembershipDate = $dateString;
         }
     }
-
     // Validate Email
     if (strlen($sEmail) > 0) {
         if (checkEmail($sEmail) == false) {
@@ -297,7 +265,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sEmail = $sEmail;
         }
     }
-
     // Validate Work Email
     if (strlen($sWorkEmail) > 0) {
         if (checkEmail($sWorkEmail) == false) {
@@ -308,7 +275,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sWorkEmail = $sWorkEmail;
         }
     }
-
     // Validate all the custom fields
     $aCustomData = [];
     
@@ -317,16 +283,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
             
             $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
-
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
             $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
         }      
     }
-
     //If no errors, then let's update...
     if (!$bErrorFlag) {
         $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
-
         if (!$bNoFormat_HomePhone) {
             $sHomePhone = CollapsePhoneNumber($sHomePhone, $sPhoneCountry);
         }
@@ -336,16 +299,14 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if (!$bNoFormat_CellPhone) {
             $sCellPhone = CollapsePhoneNumber($sCellPhone, $sPhoneCountry);
         }
-
         //If no birth year, set to NULL
         if ((strlen($iBirthYear) != 4)) {
             $iBirthYear = 'NULL';
         } else {
             $iBirthYear = "$iBirthYear";
         }
-
         // New Family (add)
-        // Family will be named by the Last Name.
+        // Family will be named by the Last Name of the Person
         if ($iFamily == -1) {
             $family = new Family();
             
@@ -367,12 +328,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             //Get the key back You use the same code in CartView.php
             $iFamily = $family->getId();            
-        } else {// the Family exist
+        } else {// the Family still exist
             $family = FamilyQuery::Create()
                   ->findOneById($iFamily);
             
-            if ( !is_null($family) ) {
-              $family->setName($sLastName);
+            // a member change to a new familly, but the name of the family, shouldn't be changed
+            if ( !is_null($family) ) {//
+              //$family->setName($sLastName);
               $family->setAddress1($sFamAddress1);
               $family->setAddress2($sFamAddress2);
               $family->setCity($sFamCity);
@@ -389,13 +351,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->save();
             }
         }
-
         if ($bHideAge) {
             $per_Flags = 1;
         } else {
             $per_Flags = 0;
         }
-
         // New Person (add)
         if ($iPersonID < 1) {
             $iEnvelope = 0;
@@ -449,9 +409,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->save();
             
             $iPersonID = $person->getId();
-
             $bGetKeyBack = true;
-
             // Existing person (update)
         } else {
             $person = PersonQuery::Create()
@@ -509,7 +467,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             $bGetKeyBack = false;
         }
-
         $person = PersonQuery::create()->findOneByID($iPersonID);
         
         // the Part with note is no more useful :PL
@@ -532,11 +489,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         
         $photo = new Photo("Person", $iPersonID);
         $photo->refresh();
-
         // Update the custom person fields.
         if ($numCustomFields > 0) {
             $sSQL = '';
-
             foreach ($ormCustomFields as $rowCustomField) {
               if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
                     $currentFieldData = trim($aCustomData[$rowCustomField->getCustomField()]);
@@ -551,7 +506,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
                 RunQuery($sSQL);
             }
         }
-
         // Check for redirection to another page after saving information: (ie. PersonEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($sPreviousPage != '') {
             $sPreviousPage = str_replace(';', '&', $sPreviousPage);
@@ -564,11 +518,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             Redirect('PersonEditor.php');
         }
     }
-
     // Set the envelope in case the form failed.
     $per_Envelope = $iEnvelope;
 } else {
-
     //FirstPass
     //Are we editing or adding?
     if ($iPersonID > 0) {
@@ -577,7 +529,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $person = PersonQuery::create()
             ->leftJoinWithFamily()
             ->findOneById($iPersonID);
-
         $sTitle = $person->getTitle();
         $sFirstName = $person->getFirstName();
         $sMiddleName = $person->getMiddleName();
@@ -610,13 +561,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iFacebookID = $person->getFacebookID();
         $sTwitter = $person->getTwitter();
         $sLinkedIn = $person->getLinkedIn();
-
         $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
-
         $sHomePhone = ExpandPhoneNumber($sHomePhone, $sPhoneCountry, $bNoFormat_HomePhone);
         $sWorkPhone = ExpandPhoneNumber($sWorkPhone, $sPhoneCountry, $bNoFormat_WorkPhone);
         $sCellPhone = ExpandPhoneNumber($sCellPhone, $sPhoneCountry, $bNoFormat_CellPhone);
-
         //The following values are True booleans if the family record has a value for the
         //indicated field.  These are used to highlight field headers in red.
         $bFamilyAddress1 = strlen($fam_Address1);
@@ -629,11 +577,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $bFamilyWorkPhone = strlen($fam_WorkPhone);
         $bFamilyCellPhone = strlen($fam_CellPhone);
         $bFamilyEmail = strlen($fam_Email);
-
         $bFacebookID = $iFacebookID != 0;
         $bTwitter =  strlen($sTwitter);
         $bLinkedIn = strlen($sLinkedIn);
-
         $aCustomData = [];        
         
         $aCustomData[] = $iPersonID;
@@ -681,16 +627,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iClassification = '0';
         $iViewAgeFlag = 0;
         $sPhoneCountry = '';
-
         $iFacebookID = 0;
         $sTwitter = '';
         $sLinkedIn = '';
-
-
         $sHomePhone = '';
         $sWorkPhone = '';
         $sCellPhone = '';
-
         //The following values are True booleans if the family record has a value for the
         //indicated field.  These are used to highlight field headers in red.
         $bFamilyAddress1 = 0;
@@ -707,13 +649,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $aCustomData = [];
     }
 }
-
 //Get Classifications for the drop-down
 // Get Field Security List Matrix
 $ormClassifications = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(1);
-
 //Get Families for the drop-down
 if ($_SESSION['user']->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
    $ormFamilies = FamilyQuery::Create()
@@ -725,14 +665,11 @@ if ($_SESSION['user']->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super d
                   ->orderByName()
                   ->find();
 }
-
 //Get Family Roles for the drop-down
 $ormFamilyRoles = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(2);
-
 require 'Include/Header.php';
-
 if ($iFamily != 0) {
   $theFamily = FamilyQuery::Create()
                   ->findOneById($iFamily);
@@ -744,7 +681,6 @@ if ($iFamily != 0) {
   $sCountry  = $theFamily->getCountry();
   $sZip      = $theFamily->getZip();
 }
-
 ?>
 <form method="post" action="PersonEditor.php?PersonID=<?= $iPersonID ?>" name="PersonEditor">
     <div class="alert alert-info alert-dismissable">
@@ -922,16 +858,16 @@ if ($iFamily != 0) {
     </div>
     <div class="box box-info clearfix">
         <div class="box-header with-border">
-            <h3 class="box-title"><?= gettext('Person or Family Info') ?></h3>
+            <h3 class="box-title"><?= _("Person or Family Info") ?></h3>
             <div class="pull-right">
                 <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
             </div>
         </div><!-- /.box-header -->
         <div class="box-body">
             <div class="form-group col-md-3">
-                <label><?= gettext('Person or Family Role') ?>:</label>
+                <label><?= _("Person or Family Role") ?>:</label>
                 <select name="FamilyRole" class="form-control input-sm">
-                    <option value="0"><?= gettext('Unassigned') ?></option>
+                    <option value="0"><?= _("Unassigned") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php 
                         foreach ($ormFamilyRoles as $ormFamilyRole) {
@@ -950,7 +886,7 @@ if ($iFamily != 0) {
                 <label><?= gettext('Person or Family address'); ?>:</label>
                 <select name="Family" size="8" class="form-control" id="optionFamily">
                     <option value="0" selected><?= gettext('Unassigned') ?></option>
-                    <option value="-1" ><?= gettext('Create a new Address or A new family (using last name)') ?></option>
+                    <option value="-1" ><?= _("Create a new Address or A new family (using last name)") ?></option>
                     <option value="0" disabled>-----------------------</option>
                     <?php 
                         foreach ($ormFamilies as $ormFamily) {
@@ -978,15 +914,15 @@ if ($iFamily != 0) {
                 <div class="row">
                   <div class="col-md-6">
                     <label><?= gettext('Address') ?> 1:</label>
-                      <input type="text" name="FamAddress1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                      <input type="text" id="FamAddress1" name="FamAddress1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
                   </div>
                   <div class="col-md-6">
                     <label><?= gettext('Address') ?> 2:</label>
-                    <input type="text" Name="FamAddress2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                    <input type="text" id="FamAddress2" name="FamAddress2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
                   </div>
                   <div class="col-md-6">
                     <label><?= gettext('City') ?>:</label>
-                    <input type="text" Name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
+                    <input type="text" id="FamCity" name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
                   </div>
                 </div>
                 <p/>
@@ -1000,13 +936,13 @@ if ($iFamily != 0) {
                   </div>
                   <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label><?= gettext('None US/CND State') ?>:</label>
-                    <input type="text"  class="form-control" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+                    <input type="text"  class="form-control" id="FamStateTextbox" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                         echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
                     } ?>" size="20" maxlength="30">
                   </div>
                   <div class="form-group col-md-3">
                     <label><?= gettext('Zip')?>:</label>
-                    <input type="text" Name="FamZip"  class="form-control" <?php
+                    <input type="text" id="FamZip" name="FamZip"  class="form-control" <?php
                                     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                                     if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                                         echo 'style="text-transform:uppercase" ';
@@ -1045,9 +981,7 @@ if ($iFamily != 0) {
                                 <?php if ($bFamilyAddress1) {
                         echo '<span style="color: red;">';
                     }
-
                         echo gettext('Address').' 1:';
-
                         if ($bFamilyAddress1) {
                             echo '</span>';
                         } ?>
@@ -1061,9 +995,7 @@ if ($iFamily != 0) {
                                 <?php if ($bFamilyAddress2) {
                             echo '<span style="color: red;">';
                         }
-
                         echo gettext('Address').' 2:';
-
                         if ($bFamilyAddress2) {
                             echo '</span>';
                         } ?>
@@ -1077,9 +1009,7 @@ if ($iFamily != 0) {
                                 <?php if ($bFamilyCity) {
                             echo '<span style="color: red;">';
                         }
-
                         echo gettext('City').':';
-
                         if ($bFamilyCity) {
                             echo '</span>';
                         } ?>
@@ -1097,9 +1027,7 @@ if ($iFamily != 0) {
                             <?php if ($bFamilyState) {
                             echo '<span style="color: red;">';
                         }
-
                         echo gettext('State').':';
-
                         if ($bFamilyState) {
                             echo '</span>';
                         } ?>
@@ -1123,9 +1051,7 @@ if ($iFamily != 0) {
                             <?php if ($bFamilyZip) {
                             echo '<span style="color: red;">';
                         }
-
                         echo gettext('Zip').':';
-
                         if ($bFamilyZip) {
                             echo '</span>';
                         } ?>
@@ -1136,7 +1062,6 @@ if ($iFamily != 0) {
                             if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                                 echo 'style="text-transform:uppercase" ';
                             }
-
                         echo 'value="'.htmlentities(stripslashes($sZip), ENT_NOQUOTES, 'UTF-8').'" '; ?>
                                maxlength="10" size="8">
                     </div>
@@ -1145,9 +1070,7 @@ if ($iFamily != 0) {
                             <?php if ($bFamilyCountry) {
                             echo '<span style="color: red;">';
                         }
-
                         echo gettext('Country').':';
-
                         if ($bFamilyCountry) {
                             echo '</span>';
                         } ?>
@@ -1430,17 +1353,14 @@ if ($iFamily != 0) {
                      
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                       echo '<label>'.$customField['CustomName'].'</label><br>';
-
                       if (array_key_exists($customField['CustomField'], $aCustomData)) {
                           $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                       } else {
                           $currentFieldData = '';
                       }
-
                       if ($type_ID == 11) {
                           $custom_Special = $sPhoneCountry;
                       }
-
                       OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
                       if (isset($aCustomErrors[$customField['TypeId']])) {
                           echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
@@ -1455,17 +1375,14 @@ if ($iFamily != 0) {
                      
                     if ( OutputUtils::securityFilter($customField['CustomFieldSec']) ){
                        echo '<label>'.$customField['CustomName'].'</label><br>';
-
                         if (array_key_exists($customField['CustomField'], $aCustomData)) {
                             $currentFieldData = trim($aCustomData[$customField['CustomField']]);
                         } else {
                             $currentFieldData = '';
                         }
-
                         if ($type_ID == 11) {
                             $custom_Special = $sPhoneCountry;
                         }
-
                         OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
                         if (isset($aCustomErrors[$customField['TypeId']])) {
                             echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
