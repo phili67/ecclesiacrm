@@ -50,6 +50,17 @@ $app->group('/families', function () {
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJSON($family->toJSON());
     });
+    
+    $this->post('/info', function ($request, $response, $args) {
+        $values = (object)$request->getParsedBody();
+      
+        if ( isset ($values->familyId) )
+        {
+          $family = FamilyQuery::create()->findPk($values->familyId);
+          return $family->toJSON();
+        }
+    });
+
 
     $this->get('/numbers', function ($request, $response, $args) {
         return $response->withJson(MenuEventsCount::getNumberAnniversaries());

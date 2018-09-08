@@ -345,7 +345,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         }
 
         // New Family (add)
-        // Family will be named by the Last Name.
+        // Family will be named by the Last Name of the Person
         if ($iFamily == -1) {
             $family = new Family();
             
@@ -367,25 +367,28 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             //Get the key back You use the same code in CartView.php
             $iFamily = $family->getId();            
-        } else {// the Family exist
+        } else {// the Family still exist
             $family = FamilyQuery::Create()
                   ->findOneById($iFamily);
             
-            $family->setName($sLastName);
-            $family->setAddress1($sFamAddress1);
-            $family->setAddress2($sFamAddress2);
-            $family->setCity($sFamCity);
-            $family->setState($sFamState);
-            $family->setZip($sFamZip);
-            $family->setCountry($sFamCountry);
-            $family->setHomePhone($sHomePhone);
-            $family->setWorkPhone($sWorkPhone);
-            $family->setCellPhone($sCellPhone);
-            $family->setEmail($sEmail);
-            $family->setDateEntered(date('YmdHis'));
-            $family->setEnteredBy($_SESSION['user']->getPersonId());
+            // a member change to a new familly, but the name of the family, shouldn't be changed
+            if ( !is_null($family) ) {//
+              //$family->setName($sLastName);
+              $family->setAddress1($sFamAddress1);
+              $family->setAddress2($sFamAddress2);
+              $family->setCity($sFamCity);
+              $family->setState($sFamState);
+              $family->setZip($sFamZip);
+              $family->setCountry($sFamCountry);
+              $family->setHomePhone($sHomePhone);
+              $family->setWorkPhone($sWorkPhone);
+              $family->setCellPhone($sCellPhone);
+              $family->setEmail($sEmail);
+              $family->setDateEntered(date('YmdHis'));
+              $family->setEnteredBy($_SESSION['user']->getPersonId());
             
-            $family->save();
+              $family->save();
+            }
         }
 
         if ($bHideAge) {
@@ -976,15 +979,15 @@ if ($iFamily != 0) {
                 <div class="row">
                   <div class="col-md-6">
                     <label><?= _('Address') ?> 1:</label>
-                      <input type="text" name="FamAddress1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                      <input type="text" id="FamAddress1" name="FamAddress1" value="<?= htmlentities(stripslashes($sAddress1), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
                   </div>
                   <div class="col-md-6">
                     <label><?= _('Address') ?> 2:</label>
-                    <input type="text" Name="FamAddress2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                    <input type="text" id="FamAddress2" name="FamAddress2" value="<?= htmlentities(stripslashes($sAddress2), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
                   </div>
                   <div class="col-md-6">
                     <label><?= _('City') ?>:</label>
-                    <input type="text" Name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
+                    <input type="text" id="FamCity" name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
                   </div>
                 </div>
                 <p/>
@@ -998,13 +1001,13 @@ if ($iFamily != 0) {
                   </div>
                   <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label><?= _('None US/CND State') ?>:</label>
-                    <input type="text"  class="form-control" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
+                    <input type="text"  class="form-control" id="FamStateTextbox" name="FamStateTextbox" value="<?php if ($sCountry != 'United States' && $sCountry != 'Canada') {
                         echo htmlentities(stripslashes($sState), ENT_NOQUOTES, 'UTF-8');
                     } ?>" size="20" maxlength="30">
                   </div>
                   <div class="form-group col-md-3">
                     <label><?= _('Zip')?>:</label>
-                    <input type="text" Name="FamZip"  class="form-control" <?php
+                    <input type="text" id="FamZip" name="FamZip"  class="form-control" <?php
                                     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
                                     if (SystemConfig::getBooleanValue('bForceUppercaseZip')) {
                                         echo 'style="text-transform:uppercase" ';
