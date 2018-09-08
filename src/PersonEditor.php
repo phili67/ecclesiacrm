@@ -96,6 +96,7 @@ $numLeftCustomFields = count($ormLeftCustomFields);
 $numRightCustomFields = count($ormRightCustomFields);
 
 $maxCustomFields = max($numRightCustomFields,$numLeftCustomFields);
+
 $numCustomFields = $numRightCustomFields+$numLeftCustomFields;
 
 //Initialize the error flag
