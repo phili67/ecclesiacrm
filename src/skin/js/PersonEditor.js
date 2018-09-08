@@ -19,14 +19,38 @@ $(document).ready(function () {
   
   
   $('#optionFamily').change(function(data) {
-    if (this.value == -1) {
-      $('#optionFamily').attr('size', '2');
+    var famID = $(this).val();
+    
+    if (famID > 0) {
+      window.CRM.APIRequest({
+         method: 'POST',
+         path: 'families/info',
+         data: JSON.stringify({"familyId":famID})
+      }).done(function(data) {
+         $('#famcountry-input').val(data.Country).trigger('change');;
+         $('#famstate-input').val(data.State).trigger('change');;
+         $('#FamAddress1').val(data.Address1);
+         $('#FamAddress2').val(data.Address2);
+         $('#FamCity').val(data.City);
+         $('#FamZip').val(data.Zip);
+         $('#FamStateTextbox').val(data.State);
+
+      })
+      
+      $('#optionFamily').attr('size', '8');
       $("#familyAddress").fadeIn(1000);
       $("#personAddress").fadeOut(50);
-    }  else {
-      $('#optionFamily').attr('size', '8');
-      $("#familyAddress").fadeOut(50);
-      $("#personAddress").fadeIn(1000);
+
+    } else {    
+      if (this.value == -1) {
+        $('#optionFamily').attr('size', '8');
+        $("#familyAddress").fadeIn(1000);
+        $("#personAddress").fadeOut(50);
+      }  else {
+        $('#optionFamily').attr('size', '2');
+        $("#familyAddress").fadeOut(50);
+        $("#personAddress").fadeIn(1000);
+      }
     }
   });
 
