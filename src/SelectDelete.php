@@ -6,11 +6,6 @@
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001-2003 Deane Barker, Lewis Franklin
  *
-
-
-
-
- *
  ******************************************************************************/
 
 //Include the function library
@@ -50,6 +45,15 @@ if (isset($_GET['CancelFamily'])) {
     exit;
 }
 
+$persons = PersonQuery::Create()->findByFamId($iFamilyID);
+
+$numberPersons = 0;
+
+if ( !is_null ($persons) ) {
+  $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
+  $numberPersons = $persons->count();
+}
+
 $DonationMessage = '';
 
 // Move Donations from 1 family to another
@@ -69,7 +73,11 @@ if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $i
 }
 
 //Set the Page Title
-$sPageTitle = gettext('Family Delete Confirmation');
+if ($numberPersons > 1) {
+   $sPageTitle = gettext('Family Delete Confirmation');
+} else {
+   $sPageTitle = gettext('Person Delete Confirmation');
+}
 
 //Do we have deletion confirmation?
 if (isset($_GET['Confirmed'])) {
@@ -141,17 +149,26 @@ require 'Include/Header.php';
         $bIsDonor = (mysqli_num_rows($rsDonations) > 0);
 
         if ($bIsDonor && !$_SESSION['user']->isFinanceEnabled()) {
-            // Donations from Family. Current user not authorized for Finance
-            echo '<p class="LargeText">' . gettext('Sorry, there are records of donations from this family. This family may not be deleted.') . '<br><br>';
-            echo '<a href="FamilyView.php?FamilyID=' . $iFamilyID . '">' . gettext('Return to Family View') . '</a></p>';
+            // Donations from Family. Current user not authorized for Finance            
+            if ($numberPersons > 1) {
+               echo '<p class="LargeText">' . gettext('Sorry, there are records of donations from this family. This family may not be deleted.') . '<br><br>';
+               echo '<a href="' . SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $iFamilyID . '">' . gettext('Return to Family View') . '</a></p>';
+            } else {
+               echo '<p class="LargeText">' . gettext('Sorry, there are records of donations from this Person. This Person may not be deleted.') . '<br><br>';
+               echo '<a href="' . SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $iPersonId . '">' . gettext('Return to Person View') . '</a></p>';
+            }
         } elseif ($bIsDonor && $_SESSION['user']->isFinanceEnabled()) {
             // Donations from Family. Current user authorized for Finance.
             // Select another family to move donations to.
-            echo '<p class="LargeText">' . gettext('WARNING: This family has records of donations and may NOT be deleted until these donations are associated with another family.') . '</p>';
+            if ($numberPersons > 1) {
+              echo '<p class="LargeText">' . gettext('WARNING: This family has records of donations and may NOT be deleted until these donations are associated with another family.') . '</p>';
+            } else {
+              echo '<p class="LargeText">' . gettext('WARNING: This person has records of donations and may NOT be deleted until these donations are associated with another person or another family.') . '</p>';
+            }
             echo '<form name=SelectFamily method=get action=SelectDelete.php>';
             echo '<div class="ShadedBox">';
-            echo '<div class="LightShadedBox"><strong>' . gettext('Family Name') . ':' . " $fam_Name</strong></div>";
-            echo '<p>' . gettext('Please select another family with whom to associate these donations:');
+            echo '<div class="LightShadedBox"><strong>' . (($numberPersons > 1)?gettext('Family Name'):gettext('Person Name')) . ':' . " $fam_Name</strong></div>";
+            echo '<p>' . gettext('Please select another person or family with whom to associate these donations:');
             echo '<br><b>' . gettext('WARNING: This action can not be undone and may have legal implications!') . '</b></p>';
             echo "<input name=FamilyID value=$iFamilyID type=hidden>";
             echo '<select name="DonationFamilyID" class="form-control input-sm"><option value=0 selected>' . gettext('Unassigned') . '</option>';
@@ -190,14 +207,19 @@ require 'Include/Header.php';
                     echo ', ' . $aHead[$fam_ID];
                 }
                 if ($fam_ID == $iFamilyID) {
-                    echo ' -- ' . gettext('CURRENT FAMILY WITH DONATIONS');
+                    echo ' -- ' . (($numberPersons > 1)?gettext('CURRENT FAMILY WITH DONATIONS'):gettext('CURRENT PERSON WITH DONATIONS'));
                 } else {
                     echo ' ' . FormatAddressLine($fam_Address1, $fam_City, $fam_State);
                 }
             }
             echo '</select><br><br>';
-            echo '<input type="submit" class="btn btn-primary" name="CancelFamily" value="'.gettext("Cancel and Return to Family View").'"> &nbsp; &nbsp; ';
-            echo '<input type="submit" class="btn btn-danger" name="MoveDonations" value="'.gettext("Move Donations to Selected Family").'">';
+            if ($numberPersons > 1) {
+              echo '<input type="submit" class="btn btn-primary" name="CancelFamily" value="'.gettext("Cancel and Return to Family View").'"> &nbsp; &nbsp; ';
+              echo '<input type="submit" class="btn btn-danger" name="MoveDonations" value="'.gettext("Move Donations to Selected Family").'">';
+            } else {
+              echo '<input type="submit" class="btn btn-primary" name="CancelFamily" value="'.gettext("Cancel and Return to Person View").'"> &nbsp; &nbsp; ';
+              echo '<input type="submit" class="btn btn-danger" name="MoveDonations" value="'.gettext("Move Donations to Selected Person").'">';
+            }
             echo '</div></form>';
 
             // Show payments connected with family
@@ -265,14 +287,14 @@ require 'Include/Header.php';
         } else {
             // No Donations from family.  Normal delete confirmation
             echo $DonationMessage;
-            echo "<p class='callout callout-warning'><b>" . gettext('Please confirm deletion of this family record:') . '</b><br/>';
-            echo gettext('Note: This will also delete all Notes associated with this Family record.');
+            echo "<p class='callout callout-warning'><b>" . (($numberPersons > 1)?gettext('Please confirm deletion of this family record:'):gettext('Please confirm deletion of this Person record:')) . '</b><br/>';
+            echo (($numberPersons > 1)?gettext('Note: This will also delete all Notes associated with this Family record.'):gettext('Note: This will also delete all Notes associated with this Person record.'));
             echo gettext('(this action cannot be undone)') . '</p>';
             echo '<div>';
-            echo '<strong>' . gettext('Family Name') . ':</strong>';
+            echo '<strong>' . (($numberPersons > 1)?gettext('Family Name'):gettext('Person Name')) . ':</strong>';
             echo '&nbsp;' . $fam_Name;
             echo '</div><br/>';
-            echo '<div><strong>' . gettext('Family Members:') . '</strong><ul>';
+            echo '<div><strong>' . (($numberPersons > 1)?gettext('Family Members'):gettext('Member')) . ':</strong><ul>';
             //List Family Members
             $sSQL = 'SELECT * FROM person_per WHERE per_fam_ID = ' . $iFamilyID;
             $rsPerson = RunQuery($sSQL);
@@ -282,9 +304,14 @@ require 'Include/Header.php';
                 RunQuery($sSQL);
             }
             echo '</ul></div>';
-            echo "<p class=\"text-center\"><a class='btn btn-danger' href=\"SelectDelete.php?Confirmed=Yes&FamilyID=" . $iFamilyID . '">' . gettext('Delete Family Record ONLY') . '</a> ';
-            echo "<a class='btn btn-danger' href=\"SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=" . $iFamilyID . '">' . gettext('Delete Family Record AND Family Members') . '</a> ';
-            echo "<a class='btn btn-info' href=\"FamilyView.php?FamilyID=" . $iFamilyID . '">' . gettext('No, cancel this deletion') . '</a></p>';
+            if ($numberPersons > 1) {
+              echo '<p class="text-center"><a class="btn btn-danger" href='.SystemURLs::getRootPath()."/SelectDelete.php?Confirmed=Yes&FamilyID=" . $iFamilyID . '">' . gettext('Delete Family Record ONLY') . '</a> ';
+              echo '<a class="btn btn-danger" href="'.SystemURLs::getRootPath().'/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=' . $iFamilyID . '">' . gettext('Delete Family Record AND Family Members') . '</a> ';
+              echo '<a class="btn btn-info" href="'.SystemURLs::getRootPath().'/FamilyView.php?FamilyID=' . $iFamilyID . '">' . gettext('No, cancel this deletion') . '</a></p>';
+            } else {
+              echo '<p class="text-center"><a class="btn btn-danger" href="'.SystemURLs::getRootPath().'/SelectDelete.php?Confirmed=Yes&Members=Yes&FamilyID=' . $iFamilyID . '">' . gettext('Delete Person Record') . '</a> ';
+              echo '<a class="btn btn-info" href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID=' . $iPersonId . '">' . gettext('No, cancel this deletion') . '</a></p>';
+            }
         }
             ?>
     </div>
