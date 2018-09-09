@@ -68,10 +68,6 @@ if ($iFamilyID > 0) {
     exit;
 }
 
-// Get the list of funds
-$sSQL = "SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun WHERE fun_Active = 'true'";
-$rsFunds = RunQuery($sSQL);
-
 // Get the lists of canvassers
 $rsCanvassers = CanvassGetCanvassers(gettext('Canvassers'));
 $rsBraveCanvassers = CanvassGetCanvassers(gettext('BraveCanvassers'));
@@ -947,11 +943,13 @@ require 'Include/Header.php';
                           $currentFieldData = '';
                       }
 
-                      if ($type_ID == 11) {
-                          $custom_Special = $sPhoneCountry;
+                      if ($type_ID == 11) {// in the case of a phone number
+                        $custom_Special = $sCountry;
+                      } else {
+                        $custom_Special = $customField['CustomSpecial'];
                       }
 
-                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                       if (isset($aCustomErrors[$customField['TypeId']])) {
                           echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
                       }
@@ -972,11 +970,13 @@ require 'Include/Header.php';
                             $currentFieldData = '';
                         }
 
-                        if ($type_ID == 11) {
-                            $custom_Special = $sPhoneCountry;
+                        if ($type_ID == 11) {// in the case of a phone number
+                            $custom_Special = $sCountry;
+                        } else {
+                          $custom_Special = $customField['CustomSpecial'];
                         }
 
-                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                         if (isset($aCustomErrors[$customField['TypeId']])) {
                             echo '<span style="color: red; ">'.$aCustomErrors[$customField['TypeId']].'</span>';
                         }
