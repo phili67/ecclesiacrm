@@ -536,12 +536,19 @@
         </vendor>
     </table>
     <table name="egive_egv" idMethod="native" phpName="Egive">
+        <column name="egv_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="egv_egiveID" phpName="EgiveId" type="VARCHAR" size="16" required="true"/>
-        <column name="egv_famID" phpName="FamilyId" type="INTEGER" required="true"/>
+        <column name="egv_famID" phpName="FamilyId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" required="true"/>
         <column name="egv_DateEntered" phpName="DateEntered" type="TIMESTAMP" required="true"/>
         <column name="egv_DateLastEdited" phpName="DateLastEdited" type="TIMESTAMP" required="true"/>
         <column name="egv_EnteredBy" phpName="EnteredBy" type="SMALLINT" required="true" defaultValue="0"/>
         <column name="egv_EditedBy" phpName="EditedBy" type="SMALLINT" required="true" defaultValue="0"/>
+        <foreign-key foreignTable="family_fam" name="fk_egv_famID" onDelete="CASCADE">
+          <reference local="egv_famID" foreign="fam_ID"/>
+        </foreign-key>
+        <index name="fk_egv_famID">
+          <index-column name="egv_famID"/>
+        </index>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
         </vendor>

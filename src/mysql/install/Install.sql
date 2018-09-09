@@ -1409,12 +1409,17 @@ CREATE TABLE `multibuy_mb` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE `egive_egv` (
+  `egv_ID` mediumint(9) unsigned NOT NULL auto_increment,
   `egv_egiveID` varchar(16) character set utf8 NOT NULL,
-  `egv_famID` int(11) NOT NULL,
+  `egv_famID` mediumint(9) unsigned NOT NULL,
   `egv_DateEntered` datetime NOT NULL,
   `egv_DateLastEdited` datetime NOT NULL,
   `egv_EnteredBy` smallint(6) NOT NULL default '0',
-  `egv_EditedBy` smallint(6) NOT NULL default '0'
+  `egv_EditedBy` smallint(6) NOT NULL default '0',
+  PRIMARY KEY  (`egv_ID`),
+  CONSTRAINT fk_egv_famID
+    FOREIGN KEY (egv_famID) REFERENCES family_fam(fam_ID)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 CREATE TABLE `kioskdevice_kdev` (
