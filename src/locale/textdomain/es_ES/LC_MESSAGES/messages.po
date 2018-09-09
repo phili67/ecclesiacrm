@@ -4049,9 +4049,8 @@ msgstr "Dashboard"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:190 EcclesiaCRM/MenuBar/MenuBar.php:196
 #: Include/Footer.php:162
-#, fuzzy
 msgid "Global Custom Menus"
-msgstr "Menus Personalizados"
+msgstr "Global Menus Personalizados"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:207
 msgid "Custom Menus"
@@ -5560,9 +5559,8 @@ msgid "Assign a Canvasser"
 msgstr "Asignar un Escrutador"
 
 #: FamilyEditor.php:862 FamilyEditor.php:882
-#, fuzzy
 msgid "None selected"
-msgstr "No hay un Rol Seleccionado"
+msgstr "No hay Seleccionado"
 
 #: FamilyEditor.php:880
 msgid "Assign a Brave Canvasser"
@@ -7610,7 +7608,6 @@ msgid "For"
 msgstr "Para"
 
 #: MenuLinksList.php:43
-#, fuzzy
 msgid "Add Custom Menu Link"
 msgstr "Agregar un nueva menú enlace"
 
@@ -8116,7 +8113,6 @@ msgid "Person-View Side"
 msgstr "Vista de personas"
 
 #: PersonEditor.php:36
-#, fuzzy
 msgid "Person Editor"
 msgstr "Editor de personas"
 
@@ -9165,9 +9161,8 @@ msgid "Family Delete Confirmation"
 msgstr "Confirmación de eliminación de familia"
 
 #: SelectDelete.php:85
-#, fuzzy
 msgid "Person Delete Confirmation"
-msgstr "Confirmación de eliminación de propiedad"
+msgstr "Confirmación de eliminación de Persona"
 
 #: SelectDelete.php:160
 msgid ""
@@ -9180,14 +9175,12 @@ msgid "Return to Family View"
 msgstr "regresar a vista de familias"
 
 #: SelectDelete.php:168
-#, fuzzy
 msgid ""
 "Sorry, there are records of donations from this Person. This Person may not "
 "be deleted."
-msgstr "Existen donaciones de esta familia, por lo que no se puede remover."
+msgstr "Existen donaciones de esta persona, por lo que no se puede remover."
 
 #: SelectDelete.php:170
-#, fuzzy
 msgid "Return to Person View"
 msgstr "Regresar al persona"
 
@@ -9200,7 +9193,6 @@ msgstr ""
 "hasta que sus donaciones sean asociadas a otra familia"
 
 #: SelectDelete.php:186
-#, fuzzy
 msgid ""
 "WARNING: This person has records of donations and may NOT be deleted until "
 "these donations are associated with another person or another family."
@@ -9209,12 +9201,10 @@ msgstr ""
 "hasta que sus donaciones sean asociadas a otra familia"
 
 #: SelectDelete.php:194 SelectDelete.php:337
-#, fuzzy
 msgid "Person Name"
 msgstr "Nombre de la Persona"
 
 #: SelectDelete.php:197
-#, fuzzy
 msgid ""
 "Please select another person or family with whom to associate these "
 "donations:"
@@ -9225,9 +9215,8 @@ msgid "CURRENT FAMILY WITH DONATIONS"
 msgstr "FAMILIAS CON DONACIONES"
 
 #: SelectDelete.php:236
-#, fuzzy
 msgid "CURRENT PERSON WITH DONATIONS"
-msgstr "FAMILIAS CON DONACIONES"
+msgstr "PERSONAS CON DONACIONES"
 
 #: SelectDelete.php:247
 msgid "Cancel and Return to Family View"
@@ -9238,14 +9227,12 @@ msgid "Move Donations to Selected Family"
 msgstr "Mover donaciones a la familia seleccionada"
 
 #: SelectDelete.php:252
-#, fuzzy
 msgid "Cancel and Return to Person View"
-msgstr "regresar a vista de familias"
+msgstr "regresar a vista de Personas"
 
 #: SelectDelete.php:253
-#, fuzzy
 msgid "Move Donations to Selected Person"
-msgstr "Mover donaciones a la familia seleccionada"
+msgstr "Mover donaciones a la persona seleccionada"
 
 #: SelectDelete.php:283
 msgid "Schedule"
@@ -9264,9 +9251,8 @@ msgid "Please confirm deletion of this family record:"
 msgstr "Confirme la eliminación de este regístro de familia"
 
 #: SelectDelete.php:331
-#, fuzzy
 msgid "Please confirm deletion of this Person record:"
-msgstr "Confirme la eliminación de este regístro de familia"
+msgstr "Confirme la eliminación de este regístro de persona"
 
 #: SelectDelete.php:333
 msgid ""
@@ -9276,12 +9262,11 @@ msgstr ""
 "Familia"
 
 #: SelectDelete.php:333
-#, fuzzy
 msgid ""
 "Note: This will also delete all Notes associated with this Person record."
 msgstr ""
 "Nota: Esto borrará también todas las notas asociadas a los registros de esta "
-"Familia"
+"persona"
 
 #: SelectDelete.php:359
 msgid "Delete Family Record ONLY"
@@ -9292,9 +9277,8 @@ msgid "Delete Family Record AND Family Members"
 msgstr "Borrar registros de familia y sus miembros"
 
 #: SelectDelete.php:367
-#, fuzzy
 msgid "Delete Person Record"
-msgstr "Borrar este registro"
+msgstr "Borrar esta registra persona"
 
 #: SelectList.php:145
 msgid "Person Listing"

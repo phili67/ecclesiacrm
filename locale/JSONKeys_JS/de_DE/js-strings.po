@@ -1,8 +1,7 @@
 msgid ""
 msgstr ""
-
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-08-30T09:25:44.472Z\n"
+"POT-Creation-Date: 2018-09-09T18:47:32.125Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -357,6 +356,9 @@ msgstr "Ja"
 msgid "Family"
 msgstr "Familie"
 
+msgid "Person"
+msgstr "Person"
+
 msgid "Anonymous"
 msgstr "Anonymen"
 
@@ -495,8 +497,9 @@ msgstr "Ereignis Typ Löschen "
 msgid ""
 "Warning:  By deleting this field, you will irrevocably lose all family data "
 "assigned for this field!"
-msgstr "Warnung: Mit dem Löschen dieses Feldes gehen alle familienbezogenen Daten, die mit diesem Feld verknüpft sind, unwiderruflich verloren!"
-
+msgstr ""
+"Warnung: Mit dem Löschen dieses Feldes gehen alle familienbezogenen Daten, "
+"die mit diesem Feld verknüpft sind, unwiderruflich verloren!"
 
 msgid "Are you sure you want to remove this family from the CRM"
 msgstr "Wollen Sie diese Familie wirklich aus Ihrer CRM löschen?"
@@ -792,9 +795,6 @@ msgid ""
 msgstr ""
 "All group membership and properties will be destroyed.  The group members "
 "themselves will not be altered."
-
-msgid "Person"
-msgstr "Person"
 
 msgid "Are you sure you want to remove the selected group members?"
 msgstr "Wollen Sie diese ausgewählten Gruppe Mitglieder wirklich löschen?"

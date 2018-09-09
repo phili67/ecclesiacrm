@@ -5515,9 +5515,8 @@ msgid "Assign a Canvasser"
 msgstr "Einen Befragung mitarbeiter zuweisen"
 
 #: FamilyEditor.php:862 FamilyEditor.php:882
-#, fuzzy
 msgid "None selected"
-msgstr "Keine Gruppe ausgewählt"
+msgstr "Keine ausgewählt"
 
 #: FamilyEditor.php:880
 msgid "Assign a Brave Canvasser"
@@ -8074,7 +8073,6 @@ msgid "Person-View Side"
 msgstr "Personen-Ansicht Seite"
 
 #: PersonEditor.php:36
-#, fuzzy
 msgid "Person Editor"
 msgstr "Personen Editor"
 
@@ -9129,7 +9127,6 @@ msgid "Family Delete Confirmation"
 msgstr "Bestätigung Löschen der Familie"
 
 #: SelectDelete.php:85
-#, fuzzy
 msgid "Person Delete Confirmation"
 msgstr "Bestätigung Benutzer löschen"
 
@@ -9146,16 +9143,14 @@ msgid "Return to Family View"
 msgstr "Zurück zur Familienansicht"
 
 #: SelectDelete.php:168
-#, fuzzy
 msgid ""
 "Sorry, there are records of donations from this Person. This Person may not "
 "be deleted."
 msgstr ""
-"Achtung, dieser Familie sind Spenden zugeordnet. Diese Familie darf nicht "
+"Achtung, dieser Personen sind Spenden zugeordnet. Diese Person darf nicht "
 "gelöscht werden."
 
 #: SelectDelete.php:170
-#, fuzzy
 msgid "Return to Person View"
 msgstr "Zum Person zurückkehren"
 
@@ -9168,7 +9163,6 @@ msgstr ""
 "werden wenn diese Spenden einer anderen Familie zugwiesen werden."
 
 #: SelectDelete.php:186
-#, fuzzy
 msgid ""
 "WARNING: This person has records of donations and may NOT be deleted until "
 "these donations are associated with another person or another family."
@@ -9177,12 +9171,10 @@ msgstr ""
 "werden wenn diese Spenden einer anderen Familie zugwiesen werden."
 
 #: SelectDelete.php:194 SelectDelete.php:337
-#, fuzzy
 msgid "Person Name"
-msgstr "Personennamen"
+msgstr "Personname"
 
 #: SelectDelete.php:197
-#, fuzzy
 msgid ""
 "Please select another person or family with whom to associate these "
 "donations:"
@@ -9195,9 +9187,8 @@ msgid "CURRENT FAMILY WITH DONATIONS"
 msgstr "AKTUELLE FAMILIEN MIT SPENDEN"
 
 #: SelectDelete.php:236
-#, fuzzy
 msgid "CURRENT PERSON WITH DONATIONS"
-msgstr "AKTUELLE FAMILIEN MIT SPENDEN"
+msgstr "AKTUELLE PERSON MIT SPENDEN"
 
 #: SelectDelete.php:247
 msgid "Cancel and Return to Family View"
@@ -9208,14 +9199,12 @@ msgid "Move Donations to Selected Family"
 msgstr "Verschieben Spenden nach die ausgewählte Familie"
 
 #: SelectDelete.php:252
-#, fuzzy
 msgid "Cancel and Return to Person View"
-msgstr "Abbrechen und Zurück zum Familienansicht"
+msgstr "Abbrechen und Zurück zum Personenansicht"
 
 #: SelectDelete.php:253
-#, fuzzy
 msgid "Move Donations to Selected Person"
-msgstr "Verschieben Spenden nach die ausgewählte Familie"
+msgstr "Verschieben Spenden nach die ausgewählte Person"
 
 #: SelectDelete.php:283
 msgid "Schedule"
@@ -9234,9 +9223,8 @@ msgid "Please confirm deletion of this family record:"
 msgstr "Bitte bestätige die Löschung der Familieneinträge:"
 
 #: SelectDelete.php:331
-#, fuzzy
 msgid "Please confirm deletion of this Person record:"
-msgstr "Bitte bestätige die Löschung der Gruppeneinträge"
+msgstr "Bitte bestätige die Löschung der Personneninträge"
 
 #: SelectDelete.php:333
 msgid ""
@@ -9246,11 +9234,10 @@ msgstr ""
 "verknüpft sind."
 
 #: SelectDelete.php:333
-#, fuzzy
 msgid ""
 "Note: This will also delete all Notes associated with this Person record."
 msgstr ""
-"Hinweis: Dies wird auch alle Notizen löschen, die mit dem Famileindatensatz "
+"Hinweis: Dies wird auch alle Notizen löschen, die mit dem Personendatensatz "
 "verknüpft sind."
 
 #: SelectDelete.php:359
@@ -9262,9 +9249,8 @@ msgid "Delete Family Record AND Family Members"
 msgstr "Lösche Familieneinträge und Familienmitglieder"
 
 #: SelectDelete.php:367
-#, fuzzy
 msgid "Delete Person Record"
-msgstr "Diesen Datensatz löschen"
+msgstr "Personen Datensatz löschen"
 
 #: SelectList.php:145
 msgid "Person Listing"
