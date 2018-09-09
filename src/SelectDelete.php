@@ -16,6 +16,10 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\EgiveQuery;
+use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -61,6 +65,7 @@ $DonationMessage = '';
 // Move Donations from 1 family to another
 if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
+    
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
     
     foreach ($pledges as $pledge) {
@@ -70,11 +75,15 @@ if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $i
       $pledge->save();
     }
     
-    $sSQL = "UPDATE egive_egv SET egv_famID='$iDonationFamilyID',
-    egv_DateLastEdited ='$today', egv_EditedBy='" . $_SESSION['user']->getPersonId()
-        . "' WHERE egv_famID='$iFamilyID'";
-    RunQuery($sSQL);
-
+    $egives = EgiveQuery::Create()->findByFamId($iFamilyID);
+    
+    foreach ($egives as $egive) {
+      $egive->setFamId ($iDonationFamilyID);
+      $egive->setDateLastEdited ($today);
+      $egive->setEditedby ($_SESSION['user']->getPersonId());
+      $egive->save();
+    }
+    
     $DonationMessage = '<p><b><font color=red>' . gettext('All donations from this family have been moved to another family.') . '</font></b></p>';
 }
 
@@ -89,34 +98,42 @@ if ($numberPersons > 1) {
 if (isset($_GET['Confirmed'])) {
     // Delete Family
     // Delete all associated Notes associated with this Family record
-    $sSQL = 'DELETE FROM note_nte WHERE nte_fam_ID = ' . $iFamilyID;
-    RunQuery($sSQL);
-
+    $notes = NoteQuery::Create()->findByFamId($iFamilyID);
+    
+    if (!is_null($notes)) {
+      $notes->delete();
+    }
+    
     // Delete Family pledges
-    $sSQL = "DELETE FROM pledge_plg WHERE plg_PledgeOrPayment = 'Pledge' AND plg_FamID = " . $iFamilyID;
-    RunQuery($sSQL);
-
-    // Remove family property data
-    $sSQL = "SELECT pro_ID FROM property_pro WHERE pro_Class='f'";
-    $rsProps = RunQuery($sSQL);
-
-    while ($aRow = mysqli_fetch_row($rsProps)) {
-        $sSQL = 'DELETE FROM record2property_r2p WHERE r2p_pro_ID = ' . $aRow[0] . ' AND r2p_record_ID = ' . $iFamilyID;
-        RunQuery($sSQL);
+    $pledges = PledgeQuery::Create()->filterByPledgeorpayment('Pledge')->findByFamId($iFamilyID);
+    
+    if (!is_null($pledges)) {
+      $pledges->delete();
     }
 
+    // Remove family property data
+    $properties = PropertyQuery::Create()->findByProClass('f');
+    
+    foreach ($properties as $property) {
+      $records = Record2propertyR2pQuery::Create()->filterByR2pProId ($property->getProId())->findByR2pRecordId ($iFamilyID);
+      $records->delete();
+    }
+    
     if (isset($_GET['Members'])) {
         // Delete all persons that were in this family
         PersonQuery::create()->filterByFamId($iFamilyID)->find()->delete();
     } else {
         // Reset previous members' family ID to 0 (undefined)
-        $sSQL = 'UPDATE person_per SET per_fam_ID = 0 WHERE per_fam_ID = ' . $iFamilyID;
-        RunQuery($sSQL);
+        $persons = PersonQuery::Create()->findByFamId ($iFamilyID);
+        
+        foreach ($persons as $person) {
+          $person->setFamId (0);
+          $person->save();
+        }
     }
 
     // Delete the specified Family record
-    $sSQL = 'DELETE FROM family_fam WHERE fam_ID = ' . $iFamilyID;
-    RunQuery($sSQL);
+    $family = FamilyQuery::Create()->findById ($iFamilyID)->delete();
 
     // Remove custom field data
     $sSQL = 'DELETE FROM family_custom WHERE fam_ID = ' . $iFamilyID;
