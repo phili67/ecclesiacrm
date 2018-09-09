@@ -128,9 +128,9 @@ $app->get('/search/{query}', function ($request, $response, $args) {
           
             foreach ($families as $family)
             {    
-              /*if ($family->getPeople()->count() == 1) {// we avoid a one person family
+              if ($family->getPeople()->count() == 1) {// we avoid a one person family
                 continue;
-              }*/
+              }
               
               $searchArray=[
                 "id" => $id++,
