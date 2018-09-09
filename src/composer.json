@@ -25,7 +25,7 @@
     },
     "require": {
         "php": ">=7.0.0",
-        "mailchimp/mailchimp": "2.0.6",
+        "drewm/mailchimp-api": "^2.5",
         "slim/slim": "3.9.2",
         "slim/php-view": "2.2",
         "monolog/monolog": "^1.17",
