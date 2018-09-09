@@ -1500,11 +1500,13 @@ require 'Include/Header.php';
                           $currentFieldData = '';
                       }
 
-                      if ($type_ID == 11) {
+                      if ($type_ID == 11) {// in the case of a phone number
                           $custom_Special = $sPhoneCountry;
+                      } else {
+                          $custom_Special = $customField['CustomSpecial'];
                       }
 
-                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                      OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
                       if (isset($aCustomErrors[$customField['TypeId']])) {
                     ?>
                     <span style="color: red; "><?= $aCustomErrors[$customField['TypeId']] ?></span>
@@ -1530,11 +1532,13 @@ require 'Include/Header.php';
                             $currentFieldData = '';
                         }
 
-                        if ($type_ID == 11) {
+                        if ($type_ID == 11) {// in the case of a phone number
                             $custom_Special = $sPhoneCountry;
+                        } else {
+                            $custom_Special = $customField['CustomSpecial'];
                         }
 
-                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $customField['CustomSpecial'], !isset($_POST['PersonSubmit']));
+                        OutputUtils::formCustomField($customField['TypeId'], $customField['CustomField'], $currentFieldData, $custom_Special, !isset($_POST['PersonSubmit']));
 
                         if (isset($aCustomErrors[$customField['TypeId']])) {
                       ?>
