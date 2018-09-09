@@ -114,8 +114,11 @@ require 'Include/Header.php'; ?>
             <tbody>
 
             <!--Populate the table with family details -->
-            <?php foreach ($families as $family) {
-    ?>
+            <?php 
+              foreach ($families as $family) {
+                if ($family->getPeople()->count() <= 1)// only real family with more than one member will be showed
+                  continue;
+            ?>
             <tr>
                 <td><a href='FamilyView.php?FamilyID=<?= $family->getId() ?>'>
                         <span class="fa-stack">
