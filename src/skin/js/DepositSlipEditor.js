@@ -3,7 +3,7 @@ function initPaymentTable(type)
   var colDef = [
     {
       width: 'auto',
-      title:i18next.t('Family'),
+      title:i18next.t('Family')+' '+i18next.t('or')+' '+i18next.t('Person'),
       data:'FamilyString',
       render: function(data, type, full, meta) {
         var familyName = data ? data : i18next.t('Anonymous');
