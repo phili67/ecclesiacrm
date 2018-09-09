@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-08T16:33:14.477Z\n"
-"PO-Revision-Date: 2018-09-08T16:33:14.477Z\n"
+"POT-Creation-Date: 2018-09-09T18:47:32.125Z\n"
+"PO-Revision-Date: 2018-09-09T18:47:32.125Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -346,6 +346,9 @@ msgid "Yes"
 msgstr ""
 
 msgid "Family"
+msgstr ""
+
+msgid "Person"
 msgstr ""
 
 msgid "Anonymous"
@@ -767,9 +770,6 @@ msgstr ""
 msgid ""
 "All group membership and properties will be destroyed.  The group members "
 "themselves will not be altered."
-msgstr ""
-
-msgid "Person"
 msgstr ""
 
 msgid "Are you sure you want to remove the selected group members?"
