@@ -128,15 +128,6 @@ $ormAssignedProperties = Record2propertyR2pQuery::Create()
 
 $iFamilyID = $person->getFamId();
 
-//Get the pledges for this family
-$ormPledges = PledgeQuery::Create()
-            ->leftJoinPerson()
-            ->withColumn('Person.FirstName', 'EnteredFirstName')
-            ->withColumn('Person.LastName', 'EnteredLastName')
-            ->leftJoinDonationFund()
-            ->withColumn('DonationFund.Name', 'fundName')
-            ->findByFamId($iFamilyID);
-
 //Get the automatic payments for this family
 $ormAutoPayments = AutoPaymentQuery::create()
            ->leftJoinPerson()
@@ -507,8 +498,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php
     }
     if ($_SESSION['user']->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
-        ?>
+       if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
+    ?>        
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
+    <?php
+      } else {
+    ?>
+        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= gettext("Delete this Record") ?></a>
+    <?php
+      }
+    ?>
       <?php
     }
     if ($_SESSION['user']->isManageGroupsEnabled()) {
