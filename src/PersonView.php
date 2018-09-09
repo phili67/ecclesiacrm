@@ -46,6 +46,7 @@ use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionIconQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
 
 
 $timelineService = new TimelineService();
@@ -128,15 +129,6 @@ $ormAssignedProperties = Record2propertyR2pQuery::Create()
 
 $iFamilyID = $person->getFamId();
 
-//Get the pledges for this family
-$ormPledges = PledgeQuery::Create()
-            ->leftJoinPerson()
-            ->withColumn('Person.FirstName', 'EnteredFirstName')
-            ->withColumn('Person.LastName', 'EnteredLastName')
-            ->leftJoinDonationFund()
-            ->withColumn('DonationFund.Name', 'fundName')
-            ->findByFamId($iFamilyID);
-
 //Get the automatic payments for this family
 $ormAutoPayments = AutoPaymentQuery::create()
            ->leftJoinPerson()
@@ -151,10 +143,10 @@ $ormAutoPayments = AutoPaymentQuery::create()
 
 
 // Get the lists of custom person fields
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master
-  ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-
+$ormCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->find();
+                     
 // Get the custom field data for this person.
 $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$iPersonID;
 $rsCustomData = RunQuery($sSQL);
@@ -441,22 +433,24 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     } // end of $can_see_privatedata
 
     // Display the right-side custom fields
-    while ($Row = mysqli_fetch_array($rsCustomFields)) {
-        extract($Row);
-        
-        if (OutputUtils::securityFilter($custom_FieldSec)) {
-          $currentData = trim($aCustomData[$custom_Field]);
+    foreach ($ormCustomFields as $rowCustomField) {
+        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+          $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
           if ($currentData != '') {
-              if ($type_ID == 11) {
-                  $custom_Special = $sPhoneCountry;
+              if ($rowCustomField->getTypeId() == 11) {
+                 $custom_Special = $sPhoneCountry;
+              } else {
+                 $custom_Special = $rowCustomField->getCustomSpecial();
               }
-              echo '<li><i class="fa-li '.(($type_ID == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$custom_Name.': <span>';
-              $temp_string=nl2br(OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special));
+              
+              echo '<li><i class="fa-li '.(($rowCustomField->getTypeId() == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$rowCustomField->getCustomName().': <span>';
+              $temp_string=nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
               echo $temp_string;
               echo '</span></li>';
           }
-        }
-    } ?>
+        }    
+    }
+    ?>
         </ul>
       </div>
     </div>
@@ -507,8 +501,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php
     }
     if ($_SESSION['user']->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
-        ?>
+       if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
+    ?>        
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
+    <?php
+      } else {
+    ?>
+        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= gettext("Delete this Record") ?></a>
+    <?php
+      }
+    ?>
       <?php
     }
     if ($_SESSION['user']->isManageGroupsEnabled()) {
