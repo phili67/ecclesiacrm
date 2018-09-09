@@ -26,6 +26,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 
 $timelineService = new TimelineService();
 $mailchimp = new MailChimpService();
@@ -54,24 +56,30 @@ if ($_SESSION['user']->isDeleteRecordsEnabled() && !empty($_POST['FID']) && !emp
     Redirect("FamilyView.php?FamilyID=" . $_POST['FID']);
     exit;
 }
-// Get the list of funds
-$sSQL = "SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun WHERE fun_Active = 'true'";
-$rsFunds = RunQuery($sSQL);
 
 if ($_SESSION['user']->isFinanceEnabled()) {
     $_SESSION['sshowPledges'] = 1;
     $_SESSION['sshowPayments'] = 1;
 }
 
-$dSQL = "SELECT fam_ID FROM family_fam order by fam_Name";
-$dResults = RunQuery($dSQL);
+$persons = PersonQuery::Create()->findByFamId($iFamilyID);
+
+if ( !is_null ($persons) && $persons->count() == 1 ) {
+    $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
+    
+    Redirect("PersonView.php?PersonID=" . $person->getId());
+}
+
+$ormNextFamilies = FamilyQuery::Create ()->orderByName()->find();
 
 $last_id = 0;
 $next_id = 0;
 $capture_next = 0;
-while ($myrow = mysqli_fetch_row($dResults)) {
-    $fid = $myrow[0];
-    if ($capture_next == 1) {
+
+foreach ($ormNextFamilies as $nextFamily) {
+    $fid = $nextFamily->getId();
+    $numberMembers = $nextFamily->getPeople()->count();
+    if ($capture_next == 1 && $numberMembers > 1) {
         $next_id = $fid;
         break;
     }
@@ -79,9 +87,10 @@ while ($myrow = mysqli_fetch_row($dResults)) {
         $previous_id = $last_id;
         $capture_next = 1;
     }
-    $last_id = $fid;
+    if ($numberMembers > 1) {
+      $last_id = $fid;
+    }
 }
-
 
 $iCurrentUserFamID = $_SESSION['user']->getPerson()->getFamId();
 
@@ -97,8 +106,9 @@ $rsFamily = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsFamily));
 
 // Get the lists of custom person fields
-$sSQL = "SELECT family_custom_master.* FROM family_custom_master ORDER BY fam_custom_Order";
-$rsFamCustomFields = RunQuery($sSQL);
+$ormFamCustomFields = FamilyCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->find();
 
 // Get the custom field data for this person.
 $sSQL = "SELECT * FROM family_custom WHERE fam_ID = " . $iFamilyID;
@@ -127,14 +137,6 @@ if ($family->getDateDeactivated() != null) {
       exit;
     }
 }
-//Get the pledges for this family
-$ormPledges = PledgeQuery::Create()
-            ->leftJoinPerson()
-            ->withColumn('Person.FirstName', 'EnteredFirstName')
-            ->withColumn('Person.LastName', 'EnteredLastName')
-            ->leftJoinDonationFund()
-            ->withColumn('DonationFund.Name', 'fundName')
-            ->findByFamId($iFamilyID);
 
 //Get the automatic payments for this family
 $ormAutoPayments = AutoPaymentQuery::create()
@@ -147,15 +149,6 @@ $ormAutoPayments = AutoPaymentQuery::create()
              ->withColumn('DonationFund.Name','fundName')
            ->orderByNextPayDate()
            ->findByFamilyid($iFamilyID);
-
-//Get the Properties assigned to this Family
-$sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
-    FROM record2property_r2p
-    LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
-    LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-    WHERE pro_Class = 'f' AND r2p_record_ID = " . $iFamilyID .
-" ORDER BY prt_Name, pro_Name";
-$rsAssignedProperties = RunQuery($sSQL);
 
 
 //Get all the properties
@@ -219,7 +212,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <h3 class="profile-username text-center"><?= gettext('Family') . ': ' . $fam_Name ?></h3>
                 <?php if ($bOkToEdit) {
         ?>
-                    <a href="FamilyEditor.php?FamilyID=<?= $fam_ID ?>"
+                    <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $fam_ID ?>"
                        class="btn btn-primary btn-block"><b><?= gettext("Edit") ?></b></a>
                     <?php
     } ?>
@@ -311,17 +304,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                     } // end of can_see_privatedata
     
                     // Display the left-side custom fields
-                    while ($Row = mysqli_fetch_array($rsFamCustomFields)) {
-                        extract($Row);
-        
-                        if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
-                            $currentData = trim($aFamCustomData[$fam_custom_Field]);
-                            if ($type_ID == 11) {
+                    foreach ($ormFamCustomFields as $rowCustomField) {
+                        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+                            $currentData = trim($aFamCustomData[$rowCustomField->getCustomField()]);
+                            if ($rowCustomField->getTypeId() == 11) {
                                 $fam_custom_Special = $sPhoneCountry;
+                            } else {
+                                $fam_custom_Special = $rowCustomField->getCustomSpecial();
                             }
-                            echo "<li><i class=\"fa-li fa fa-tag\"></i>" . $fam_custom_Name . ": <span>" . OutputUtils::displayCustomField($type_ID, $currentData, $fam_custom_Special) . "</span></li>";
-                        }
-                    } ?>
+                            
+                            echo "<li><i class=\"fa-li fa fa-tag\"></i>" . $rowCustomField->getCustomName() . ": <span>" . OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $rowCustomField->getCustomSpecial()) . "</span></li>";
+                        }      
+                    }
+                    
+                    ?>
                 </ul>
             </div>
         </div>
@@ -346,7 +342,31 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
                 <?php
                   }
-                ?>                
+                ?>
+                <?php
+                  if ($_SESSION['user']->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
+                ?>
+                   <a class="btn btn-app bg-olive" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
+                <?php
+                  }
+                ?>
+                
+                <?php 
+                  if (($previous_id > 0)) {
+                ?>
+                    <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
+                <?php
+                  } 
+                ?>
+                
+                <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyList.php"><i class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
+                <?php 
+                   if (($next_id > 0)) {
+                ?>
+                    <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
+                <?php
+                  } 
+                ?>
                 <?php       
                  if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
                     $emails = "";
@@ -361,35 +381,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <?php
                  }
                 ?>
-                <?php
-                  if ($_SESSION['user']->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
-                ?>
-                   <a class="btn btn-app bg-olive" href="PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
-                <?php
-                  }
-                ?>
-                
-                <?php 
-                  if (($previous_id > 0)) {
-                ?>
-                    <a class="btn btn-app" href="FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
-                <?php
-                  } 
-                ?>
-                
-                <a class="btn btn-app" role="button" href="FamilyList.php"><i class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
-                <?php 
-                   if (($next_id > 0)) {
-                ?>
-                    <a class="btn btn-app" role="button" href="FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
-                <?php
-                  } 
-                ?>
-                
                 <?php 
                    if ($_SESSION['user']->isDeleteRecordsEnabled()) {
                 ?>
-                    <a class="btn btn-app bg-maroon" href="SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
+                    <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
                 <?php
                   } 
                 ?>
@@ -397,7 +392,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                  
                 if ($_SESSION['user']->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
                     ?>
-                    <a class="btn btn-app" href="NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
+                    <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
                     <?php
                 } ?>
                         
@@ -479,7 +474,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                   <?php 
                                     if ($bOkToEdit) {
                                   ?>
-                                        <a href="PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
+                                        <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
                                     <span class="fa-stack"  style="color:green">
                                         <i class="fa fa-square fa-stack-2x"></i>
                                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -693,7 +688,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
         } ?>
                             <p align="center">
                                 <a class="btn btn-primary"
-                                   href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                                   href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
                             </p>
                         </div>
                     </div>
@@ -733,9 +728,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                             
                             <p align="center">
                                 <a class="btn btn-primary"
-                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                                   href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
                                 <a class="btn btn-default"
-                                   href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                                   href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                             </p>
 
                             <?php
@@ -746,7 +741,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 
                             <p align="center">
                                 <a class="btn btn-default"
-                                   href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                                   href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                             </p>
                         </div>
                     </div>
