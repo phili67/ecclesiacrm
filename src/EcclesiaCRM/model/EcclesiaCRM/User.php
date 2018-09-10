@@ -403,6 +403,9 @@ class User extends BaseUser
 
     public function isFinanceEnabled()
     {
+        if (!SystemConfig::getBooleanValue('bEnabledFinance'))
+          return false;
+          
         return $this->isAdmin() || $this->isFinance();
     }
 
@@ -428,6 +431,9 @@ class User extends BaseUser
 
     public function isMailChimpEnabled()
     {
+        if (!SystemConfig::getBooleanValue('bEnabledEmail'))
+          return false;
+
         return $this->isAdmin() || $this->isMailChimp();
     }
     
