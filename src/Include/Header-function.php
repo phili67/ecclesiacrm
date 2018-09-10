@@ -191,6 +191,7 @@ function Header_body_scripts()
             iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
             sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",
             sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,
+            sChurchCountry:"<?= SystemConfig::getValue('sChurchCountry') ?>",
             plugin: {
                 dataTable : {
                    "language": {

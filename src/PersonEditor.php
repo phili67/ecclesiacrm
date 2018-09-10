@@ -152,12 +152,16 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
     
     // Person address stuff is normally surpressed in favor of family address info
+    $sFamName  = '';
     $sFamAddress1 = '';
     $sFamAddress2 = '';
     $sFamCity = '';
     $sFamZip = '';
     $sFamState = '';
     $sFamCountry = '';
+    if (array_key_exists('FamName', $_POST)) {
+        $sFamName = InputUtils::FilterString($_POST['FamName']);
+    }
     if (array_key_exists('FamAddress1', $_POST)) {
         $sFamAddress1 = InputUtils::FilterString($_POST['FamAddress1']);
     }
@@ -374,7 +378,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             // a member change to a new familly, but the name of the family, shouldn't be changed
             if ( !is_null($family) ) {//
-              //$family->setName($sLastName);
+              $family->setName($sFamName);
               $family->setAddress1($sFamAddress1);
               $family->setAddress2($sFamAddress2);
               $family->setCity($sFamCity);
@@ -735,7 +739,8 @@ $ormFamilyRoles = ListOptionQuery::Create()
 if ($iFamily != 0) {
   $theFamily = FamilyQuery::Create()
                   ->findOneById($iFamily);
-                  
+  
+  $sFamName  = $theFamily->getName();
   $sAddress1 = $theFamily->getAddress1();
   $sAddress2 = $theFamily->getAddress2();
   $sCity     = $theFamily->getCity();
@@ -945,7 +950,12 @@ require 'Include/Header.php';
                       </div>
                     </div><!-- /.box-header -->
                 </div>
-                <p/>
+                <div class="row">
+                  <div class="col-md-6">
+                    <label><?= gettext('Person Name') ?> <?= gettext('or') ?> <?= gettext('Family Name') ?>:</label>
+                      <input type="text" id="FamName" name="FamName" value="<?= htmlentities(stripslashes($sFamName), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <label><?= gettext('Address') ?> 1:</label>
@@ -960,7 +970,6 @@ require 'Include/Header.php';
                     <input type="text" id="FamCity" name="FamCity" value="<?= htmlentities(stripslashes($sCity), ENT_NOQUOTES, 'UTF-8') ?>" maxlength="50"  class="form-control">
                   </div>
                 </div>
-                <p>
                 <div class="row">
                   <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
                     <label for="StatleTextBox"><?= gettext('State') ?>: </label><br>
