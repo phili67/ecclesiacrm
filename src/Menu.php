@@ -240,7 +240,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     <?php if ($AnniversariesCount > 0) {
         if ($peopleWithBirthDaysCount > 0) {
             ?>
-            <hr>
+            <hr style="background-color: green; height: 1px; border: 0;">
     <?php
         } ?>
 
@@ -288,7 +288,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
      <?php if ($unclassified) {
         if ($peopleWithBirthDaysCount > 0) {
             ?>
-            <hr>
+            <hr  style="background-color: green; height: 1px; border: 0;">
           <?php
               } ?>
 
