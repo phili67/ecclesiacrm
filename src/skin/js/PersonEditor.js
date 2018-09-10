@@ -27,15 +27,14 @@ $(document).ready(function () {
          path: 'families/info',
          data: JSON.stringify({"familyId":famID})
       }).done(function(data) {
-         $('#famcountry-input').val(data.Country).trigger('change');;
-         $('#famstate-input').val(data.State).trigger('change');;
+         $('#famcountry-input').val(data.Country).trigger('change');
+         $('#famstate-input').val(data.State).trigger('change');
+         $('#FamName').val(data.Name);
          $('#FamAddress1').val(data.Address1);
          $('#FamAddress2').val(data.Address2);
          $('#FamCity').val(data.City);
          $('#FamZip').val(data.Zip);
          $('#FamStateTextbox').val(data.State);
-         
-         $('#FamAddress1').focus();
       })
       
       $('#optionFamily').attr('size', '8');
@@ -45,8 +44,9 @@ $(document).ready(function () {
     } else {    
       if (this.value == -1) {// we create a new family
         // we fields are blank
-        $('#famcountry-input').val('').trigger('change');;
-        $('#famstate-input').val('').trigger('change');;
+        $('#famcountry-input').val(window.CRM.sChurchCountry).trigger('change');
+        $('#famstate-input').val('').trigger('change');
+        $('#FamName').val('');
         $('#FamAddress1').val('');
         $('#FamAddress2').val('');
         $('#FamCity').val('');
@@ -63,7 +63,7 @@ $(document).ready(function () {
         $("#personAddress").fadeIn(1000);
       }
       
-      $('#FamAddress1').focus();
+      $('#FamName').focus();
     }
   });
 
