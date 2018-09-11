@@ -132,6 +132,8 @@ require '../Include/Header.php';
    if ($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
+    
+    <a class="btn btn-app bg-purple" href="SundaySchoolLabel.php?groupId=<?= $iGroupId ?>" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Student Badge") ?></span></a>
   <?php 
     }
   ?>

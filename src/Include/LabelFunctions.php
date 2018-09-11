@@ -9,16 +9,15 @@
  *
  *
  *  Copyright 2006 Contributors
-  *
-
+ *
  *
  ******************************************************************************/
 
 // This file contains functions specifically related to address labels
 
-function FontSelect($fieldname)
+function FontSelect($fieldname,$path='')
 {
-    $sFPDF_PATH = 'vendor/setasign/fpdf';
+    $sFPDF_PATH = $path.'vendor/setasign/fpdf';
 
     $d = scandir($sFPDF_PATH.'/font/', SCANDIR_SORT_DESCENDING);
     $fontnames = [];
@@ -54,11 +53,11 @@ function FontSelect($fieldname)
     echo '</tr>';
 }
 
-function FontSizeSelect($fieldname)
+function FontSizeSelect($fieldname,$message='')
 {
-    $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18];
+    $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26];
     echo '<tr>';
-    echo '<td class="LabelColumn"> '.gettext('Font Size').':</td>';
+    echo '<td class="LabelColumn"> '.gettext('Font Size').(!empty($message)?' '.$message:'').':</td>';
     echo '<td class="TextColumn">';
     echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($sizes as $s) {
@@ -133,14 +132,14 @@ function StartRowStartColumn()
 	<td class="LabelColumn">'.gettext('Start Row').':
 	</td>
 	<td class="TextColumn">
-	<input type="text" name="startrow" id="startrow" maxlength="2" size="3" value="1">
+	<input type="text" name="startrow" id="startrow" maxlength="2" size="3" value="1" class="form-control">
 	</td>
 	</tr>
 	<tr>
 	<td class="LabelColumn">'.gettext('Start Column').':
 	</td>
 	<td class="TextColumn">
-	<input type="text" name="startcol" id="startcol" maxlength="2" size="3" value="1">
+	<input type="text" name="startcol" id="startcol" maxlength="2" size="3" value="1" class="form-control">
 	</td>
 	</tr>';
 }
