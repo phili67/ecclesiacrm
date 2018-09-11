@@ -11,11 +11,8 @@
 *  Portions based on code by LPA (lpasseb@numericable.fr)
 *  and Steve Dillon (steved@mad.scientist.com) from www.fpdf.org
 *
-*  Additional Contributions by
-*  2006,2010 Ed Davis
-*  2006 Stephen Shaffer
+*  Copyright : Philippe Logel all rights reserved
 *
-
 ******************************************************************************/
 
 require '../Include/Config.php';

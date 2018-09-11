@@ -2,11 +2,10 @@
 /*******************************************************************************
  *
  *  filename    : SundaySchoolReports.php
- *  last change : 2017-11-01
+ *  last change : 2018-09-11
  *  description : form to invoke Sunday School reports
  *
- *  edited by S. Shaffer May/June 2006 - added capability to include multiple groups.  Group reports are printed with a page break between group selections.
- *  edited to add ORM code : Philippe Logel
+ *  Copyright : Philippe Logel all rights reserved
  *
  ******************************************************************************/
 
