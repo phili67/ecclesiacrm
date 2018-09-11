@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-10 19:06+0200\n"
+"POT-Creation-Date: 2018-09-11 23:10+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,7 +425,7 @@ msgstr "Tel."
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:247 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "E-mail"
 
@@ -894,7 +894,7 @@ msgstr "Korb zur Familie hinzufügen"
 #: PropertyTypeEditor.php:95 PropertyTypeList.php:54
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:216 Reports/FRBidSheets.php:88
-#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:244
+#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:246
 #: UserList.php:88 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
 #: queryparameteroptions_qpo.php:4
@@ -959,7 +959,7 @@ msgstr "(Benutze die Textbox für Länder äußerhalb der USA und Canada)"
 #: PersonEditor.php:1215 PersonEditor.php:1219 PersonList.php:112
 #: PersonView.php:388 PrintPastoralCare.php:203 PrintView.php:206
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:249 queryparameteroptions_qpo.php:8
+#: sundayschool/SundaySchoolClassView.php:251 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Tel. Privat"
 
@@ -1063,7 +1063,7 @@ msgstr "Erstelle Verzeichnis aus Korb"
 msgid "Delete Persons From Cart and CRM"
 msgstr "Personen von Korb und CRM Löschen"
 
-#: CartView.php:246 CartView.php:293
+#: CartView.php:246 CartView.php:293 sundayschool/SundaySchoolLabel.php:137
 msgid "Generate Labels"
 msgstr "Adressaufkleber herstellen"
 
@@ -1221,7 +1221,7 @@ msgstr "Liste"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
 #: PersonEditor.php:782 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
-#: sundayschool/SundaySchoolClassView.php:222 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:224 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Geschlecht"
 
@@ -1487,8 +1487,8 @@ msgid "Work / Other Email"
 msgstr "Email geschäftlich/weitere"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:245
-#: sundayschool/SundaySchoolClassView.php:420
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:422
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Geburtstag"
@@ -1786,7 +1786,7 @@ msgstr ""
 msgid "Paper Size"
 msgstr "Papiergröße"
 
-#: DirectoryReports.php:211 Include/LabelFunctions.php:61
+#: DirectoryReports.php:211 Include/LabelFunctions.php:60
 msgid "Font Size"
 msgstr "Schriftgröße"
 
@@ -1885,9 +1885,7 @@ msgstr "Speichern und hinzufügen"
 #: FamilyList.php:152 PersonList.php:156 PersonList.php:157 PersonList.php:158
 #: PersonList.php:159 PersonList.php:160 PersonList.php:161
 #: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
-#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:291
-#: sundayschool/SundaySchoolClassView.php:292
-#: sundayschool/SundaySchoolClassView.php:293
+#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:293
 #: sundayschool/SundaySchoolClassView.php:294
 #: sundayschool/SundaySchoolClassView.php:295
 #: sundayschool/SundaySchoolClassView.php:296
@@ -1897,6 +1895,8 @@ msgstr "Speichern und hinzufügen"
 #: sundayschool/SundaySchoolClassView.php:300
 #: sundayschool/SundaySchoolClassView.php:301
 #: sundayschool/SundaySchoolClassView.php:302
+#: sundayschool/SundaySchoolClassView.php:303
+#: sundayschool/SundaySchoolClassView.php:304
 #: sundayschool/SundaySchoolDashboard.php:247
 #: sundayschool/SundaySchoolDashboard.php:248
 #: sundayschool/SundaySchoolDashboard.php:249
@@ -4381,15 +4381,15 @@ msgstr "und"
 msgid "Group Directory"
 msgstr "Gruppenverzeichnis"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:78
-#: Reports/PDFLabel.php:785
+#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:77
+#: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
 msgid "Tractor"
 msgstr "Verzeichnis"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:100
 #: Reports/ClassAttendance.php:99 Reports/ClassAttendance.php:187
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:166
+#: sundayschool/SundaySchoolClassView.php:168
 #: sundayschool/SundaySchoolDashboard.php:94
 #: sundayschool/SundaySchoolDashboard.php:166
 msgid "Teachers"
@@ -4407,7 +4407,7 @@ msgstr "Mädchen"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:236
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:238
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Students"
@@ -5262,7 +5262,7 @@ msgid "Family Member"
 msgstr "Familienmitglied"
 
 #: external/templates/registration/family-register-members.php:94
-#: sundayschool/SundaySchoolClassView.php:248
+#: sundayschool/SundaySchoolClassView.php:250
 msgid "Mobile"
 msgstr "Mobiltel."
 
@@ -5305,7 +5305,7 @@ msgid "Confirm"
 msgstr "Bestätigen"
 
 #: external/templates/verify/verify-family-info.php:32
-#: sundayschool/SundaySchoolClassView.php:250
+#: sundayschool/SundaySchoolClassView.php:252
 #: sundayschool/SundaySchoolDashboard.php:220
 msgid "Home Address"
 msgstr "Privatadresse"
@@ -5423,11 +5423,13 @@ msgstr "Bearbeiten der Listenoptionen"
 
 #: FamilyCustomFieldsEditor.php:422 FamilyCustomFieldsEditor.php:506
 #: PersonCustomFieldsEditor.php:413 PersonCustomFieldsEditor.php:498
+#: sundayschool/SundaySchoolLabel.php:121
 msgid "Left"
 msgstr "Links"
 
 #: FamilyCustomFieldsEditor.php:423 FamilyCustomFieldsEditor.php:507
 #: PersonCustomFieldsEditor.php:414 PersonCustomFieldsEditor.php:499
+#: sundayschool/SundaySchoolLabel.php:122
 msgid "Right"
 msgstr "Rechts"
 
@@ -7136,47 +7138,48 @@ msgstr "Mitwirken"
 msgid "Your tasks"
 msgstr "Ihre Vorgänge"
 
-#: Include/LabelFunctions.php:42
+#: Include/LabelFunctions.php:41
 msgid "Font"
 msgstr "Schriftart"
 
-#: Include/LabelFunctions.php:59 Reports/PDFLabel.php:799
+#: Include/LabelFunctions.php:58 Reports/PDFLabel.php:799
+#: Reports/PDFLabelSundaySchool.php:102 sundayschool/SundaySchoolLabel.php:129
 msgid "default"
 msgstr "Standart"
 
-#: Include/LabelFunctions.php:80
+#: Include/LabelFunctions.php:79
 msgid "Label Type"
 msgstr "Aufklebertyp"
 
-#: Include/LabelFunctions.php:97
+#: Include/LabelFunctions.php:96
 msgid "Label Grouping"
 msgstr "Aufkleber gruppieren"
 
-#: Include/LabelFunctions.php:105
+#: Include/LabelFunctions.php:104
 msgid "All Individuals"
 msgstr "Alle Einzelpersonen"
 
-#: Include/LabelFunctions.php:112
+#: Include/LabelFunctions.php:111
 msgid "Grouped by Family"
 msgstr "Nach Familie gruppiert"
 
-#: Include/LabelFunctions.php:117
+#: Include/LabelFunctions.php:116
 msgid "To the parents of"
 msgstr "An die Eltern von"
 
-#: Include/LabelFunctions.php:133
+#: Include/LabelFunctions.php:132
 msgid "Start Row"
 msgstr "Beginne Reihe"
 
-#: Include/LabelFunctions.php:140
+#: Include/LabelFunctions.php:139
 msgid "Start Column"
 msgstr "Beginne Spalte"
 
-#: Include/LabelFunctions.php:152
+#: Include/LabelFunctions.php:151
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ignoriere unvollständige<br>Adressen"
 
-#: Include/LabelFunctions.php:164
+#: Include/LabelFunctions.php:163
 msgid "File Type"
 msgstr "Dateityp"
 
@@ -8417,7 +8420,7 @@ msgid "Printable View"
 msgstr "Druckergerechte Ansicht"
 
 #: PrintPastoralCare.php:344 PrintView.php:347 Reports/CanvassReports.php:239
-#: sundayschool/SundaySchoolClassView.php:246
+#: sundayschool/SundaySchoolClassView.php:248
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Age"
 msgstr "Alter"
@@ -9414,92 +9417,97 @@ msgstr "Edit diese Klasse"
 msgid "Export Attendance"
 msgstr "Teilnahme exportieren"
 
-#: sundayschool/SundaySchoolClassView.php:141
+#: sundayschool/SundaySchoolClassView.php:136
+#, fuzzy
+msgid "Student Badge"
+msgstr "Studenten"
+
+#: sundayschool/SundaySchoolClassView.php:143
 msgid "Remove Students from Cart"
 msgstr "Studenten in Korb Entfernen"
 
-#: sundayschool/SundaySchoolClassView.php:145
+#: sundayschool/SundaySchoolClassView.php:147
 msgid "Add Students to Cart"
 msgstr "Studenten in Korb hinzuzufügen"
 
-#: sundayschool/SundaySchoolClassView.php:152
+#: sundayschool/SundaySchoolClassView.php:154
 msgid "Remove Teachers from Cart"
 msgstr "Lehrer in Korb Entfernen"
 
-#: sundayschool/SundaySchoolClassView.php:156
+#: sundayschool/SundaySchoolClassView.php:158
 msgid "Add Teachers to Cart"
 msgstr "Lehrer in Korb hinzuzufügen"
 
-#: sundayschool/SundaySchoolClassView.php:180
-#: sundayschool/SundaySchoolClassView.php:383
+#: sundayschool/SundaySchoolClassView.php:182
+#: sundayschool/SundaySchoolClassView.php:385
 msgid "Send Message"
 msgstr "Nachricht senden"
 
-#: sundayschool/SundaySchoolClassView.php:182
+#: sundayschool/SundaySchoolClassView.php:184
 msgid "View Profile"
 msgstr "Ansichtsprofil"
 
-#: sundayschool/SundaySchoolClassView.php:193
+#: sundayschool/SundaySchoolClassView.php:195
 msgid "Quick Status"
 msgstr "Schnellstatus"
 
-#: sundayschool/SundaySchoolClassView.php:207
+#: sundayschool/SundaySchoolClassView.php:209
 msgid "Birthdays by Month"
 msgstr "Geburtstag bei Monat"
 
-#: sundayschool/SundaySchoolClassView.php:240
+#: sundayschool/SundaySchoolClassView.php:242
 msgid "Showing students with birthdays in"
 msgstr "Studenten angezeigt mit Geburstage in"
 
-#: sundayschool/SundaySchoolClassView.php:251
+#: sundayschool/SundaySchoolClassView.php:253
 msgid "Dad Name"
 msgstr "Vater Name"
 
-#: sundayschool/SundaySchoolClassView.php:252
+#: sundayschool/SundaySchoolClassView.php:254
 msgid "Dad Mobile"
 msgstr "Vater Mobil"
 
-#: sundayschool/SundaySchoolClassView.php:253
+#: sundayschool/SundaySchoolClassView.php:255
 msgid "Dad Email"
 msgstr "Email Vater"
 
-#: sundayschool/SundaySchoolClassView.php:254
+#: sundayschool/SundaySchoolClassView.php:256
 msgid "Mom Name"
 msgstr "Mutter Name"
 
-#: sundayschool/SundaySchoolClassView.php:255
+#: sundayschool/SundaySchoolClassView.php:257
 msgid "Mom Mobile"
 msgstr "Mutter Mobil"
 
-#: sundayschool/SundaySchoolClassView.php:256
+#: sundayschool/SundaySchoolClassView.php:258
 msgid "Mom Email"
 msgstr "Mutter Email"
 
-#: sundayschool/SundaySchoolClassView.php:345
+#: sundayschool/SundaySchoolClassView.php:347
 msgid "Compose New Message"
 msgstr "Neue Nachricht verfassen"
 
-#: sundayschool/SundaySchoolClassView.php:350
+#: sundayschool/SundaySchoolClassView.php:352
 msgid "Kids Emails"
 msgstr "Kinder Email"
 
-#: sundayschool/SundaySchoolClassView.php:355
+#: sundayschool/SundaySchoolClassView.php:357
 msgid "Parents Emails"
 msgstr "Eltern Email"
 
-#: sundayschool/SundaySchoolClassView.php:360
+#: sundayschool/SundaySchoolClassView.php:362
 msgid "Teachers Emails"
 msgstr "Lehrer Email"
 
-#: sundayschool/SundaySchoolClassView.php:370
+#: sundayschool/SundaySchoolClassView.php:372
 msgid "Attachment"
 msgstr "Anhang"
 
-#: sundayschool/SundaySchoolClassView.php:373
+#: sundayschool/SundaySchoolClassView.php:375
 msgid "Max. 32MB"
 msgstr "Max. 32MB"
 
-#: sundayschool/SundaySchoolClassView.php:380
+#: sundayschool/SundaySchoolClassView.php:382
 msgid "Discard"
 msgstr "Verwerfen"
 
@@ -9542,6 +9550,49 @@ msgstr "Sonntagsschule Klassen"
 #: sundayschool/SundaySchoolDashboard.php:273
 msgid "Enter Name"
 msgstr "Name des Mitglieds"
+
+#: sundayschool/SundaySchoolLabel.php:37
+#, fuzzy
+msgid "Sunday School Badge for"
+msgstr "Bericht zur Sonntagsschule"
+
+#: sundayschool/SundaySchoolLabel.php:48
+#, fuzzy
+msgid "Generate Badges"
+msgstr "Adressaufkleber herstellen"
+
+#: sundayschool/SundaySchoolLabel.php:63 sundayschool/SundaySchoolLabel.php:66
+#: sundayschool/SundaySchoolLabel.php:105
+#, fuzzy
+msgid "Sunday School Name"
+msgstr "Sonntagsschule"
+
+#: sundayschool/SundaySchoolLabel.php:71
+#, fuzzy
+msgid "Title color"
+msgstr "Titel"
+
+#: sundayschool/SundaySchoolLabel.php:76 sundayschool/SundaySchoolLabel.php:90
+msgid "Chose your color"
+msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:85
+msgid "BackGround color"
+msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:99
+msgid "Image"
+msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:112
+msgid ""
+"Add your images to the CRM Images folder. By default scleft1.png and scleft2."
+"png."
+msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:117
+msgid "Image Position"
+msgstr ""
 
 #: sundayschool/SundaySchoolReports.php:31
 msgid "Sunday School Reports"
