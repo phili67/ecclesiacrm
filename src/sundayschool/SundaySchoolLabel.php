@@ -46,13 +46,13 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
 ?>
 <div class="box">
       <div class="box-header with-border">
-          <h3 class="box-title"><?= _('Generate Labels') ?></h3>
+          <h3 class="box-title"><?= _('Generate Badges') ?></h3>
       </div>
       <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFLabelSundaySchool.php" name="labelform">
       <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
       <div class="box-body">
           <table class="table table-hover dt-responsive" id="cart-label-table" width="100%">
-                 <thead>
+            <thead>
           <tr>
               <th></th>
               <th></th>
@@ -108,6 +108,13 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
              </tr>
              <tr>
                 <td>
+                </td>
+                <td>
+                   <b>(<?= gettext("Add your images to the Images folder of the CRM.") ?>)</b>
+                </td>
+             </tr>
+             <tr>
+                <td>
                   <?= gettext("Image Position") ?>
                 </td>
                 <td>
@@ -120,7 +127,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 <?php
                 LabelSelect('labeltype');
                 FontSelect('labelfont','../');
-                FontSizeSelect('labelfontsize');
+                FontSizeSelect('labelfontsize','('.gettext("default").' 24)');
                 StartRowStartColumn();
                 ?>
             </tbody>

@@ -28,7 +28,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutpuUtils;
 use EcclesiaCRM\Service\SundaySchoolService;
 
-function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
+function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
 {
     $sundaySchoolService = new SundaySchoolService();
 
@@ -38,7 +38,7 @@ function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$image, $title_red, 
     //print_r ($thisClassChildren);
     
     foreach ($thisClassChildren as $kid) {
-        $pdf->Add_PDF_Label_SundaySchool($sundayschoolName, $kid['LastName'], $kid['firstName'],$kid['sundayschoolClass'],$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
+        $pdf->Add_PDF_Label_SundaySchool($sundayschoolName, $kid['LastName'], $kid['firstName'],$kid['sundayschoolClass'],$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
     }
 } // end of function GenerateLabels
 
@@ -96,57 +96,27 @@ $pdf = new PDF_Label($sLabelType, $startcol, $startrow);
 
 $sFontInfo = FontFromName($_GET['labelfont']);
 setcookie('labelfont', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
+
+// set the Font Size for the FirstName
 $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
 $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
 
 if ($sFontSize == gettext('default')) {
-    $sFontSize = '10';
+    $sFontSize = '20';
 }
 
-$pdf->Set_Char_Size($sFontSize);
+$pdf->Set_Char_Size(10);
 
 // Manually add a new page if we're using offsets
 if ($startcol > 1 || $startrow > 1) {
     $pdf->AddPage();
 }
 
-$mode = $_GET['groupbymode'];
-setcookie('groupbymode', $mode, time() + 60 * 60 * 24 * 90, '/');
-
-if (array_key_exists('bulkmailpresort', $_GET)) {
-    $bulkmailpresort = $_GET['bulkmailpresort'];
-} else {
-    $bulkmailpresort = false;
-}
-
-setcookie('bulkmailpresort', $bulkmailpresort, time() + 60 * 60 * 24 * 90, '/');
-
-if (array_key_exists('bulkmailquiet', $_GET)) {
-    $bulkmailquiet = $_GET['bulkmailquiet'];
-} else {
-    $bulkmailquiet = false;
-}
-
-setcookie('bulkmailquiet', $bulkmailquiet, time() + 60 * 60 * 24 * 90, '/');
-
-$iBulkCode = 0;
-if ($bulkmailpresort) {
-    $iBulkCode = 1;
-    if (!$bulkmailquiet) {
-        $iBulkCode = 2;
-    }
-}
-
-$bToParents = (array_key_exists('toparents', $_GET) and $_GET['toparents'] == 1);
-setcookie('toparents', $bToParents, time() + 60 * 60 * 24 * 90, '/');
-
-$bOnlyComplete = ($_GET['onlyfull'] == 1);
-
 // à gérer par la suite
 $image = '../Images/'.$sImage;
 
-$aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $sundaySchoolName,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
+$aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 

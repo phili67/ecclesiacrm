@@ -190,7 +190,7 @@ class PDF_Label extends ChurchInfoReport
     }
     
     // Print a label
-    public function Add_PDF_Label_SundaySchool($title, $LastName, $firstName, $group, $image='../Images/scleft1.png', 
+    public function Add_PDF_Label_SundaySchool($title, $LastName, $firstName, $group, $sFirstNameFontSize = 20,$image='../Images/scleft1.png', 
                                                $title_red=0, $title_gren=0, $title_blue=0,
                                                $back_red=255, $back_gren=255, $back_blue=255,
                                                $sImagePosition='Left')
@@ -212,7 +212,7 @@ class PDF_Label extends ChurchInfoReport
         $this->SetXY($_PosX, $_PosY);
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $title),0,0,'C');
         
-        $this->SetFontSize (20);
+        $this->SetFontSize ($sFirstNameFontSize);
         $this->SetTextColor (0,0,0);
         $this->SetXY($_PosX, $_PosY + 6);
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $firstName),0,0,'C');

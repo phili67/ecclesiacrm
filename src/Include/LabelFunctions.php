@@ -53,11 +53,11 @@ function FontSelect($fieldname,$path='')
     echo '</tr>';
 }
 
-function FontSizeSelect($fieldname)
+function FontSizeSelect($fieldname,$message='')
 {
-    $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18];
+    $sizes = [gettext('default'), 6, 7, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26];
     echo '<tr>';
-    echo '<td class="LabelColumn"> '.gettext('Font Size').':</td>';
+    echo '<td class="LabelColumn"> '.gettext('Font Size').(!empty($message)?' '.$message:'').':</td>';
     echo '<td class="TextColumn">';
     echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($sizes as $s) {
