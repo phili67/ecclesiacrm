@@ -188,4 +188,61 @@ class PDF_Label extends ChurchInfoReport
             $this->_COUNTY = 0;
         }
     }
+    
+    // Print a label
+    public function Add_PDF_Label_SundaySchool($title, $LastName, $firstName, $group, $image='../Images/scleft1.png', 
+                                               $title_red=0, $title_gren=0, $title_blue=0,
+                                               $back_red=255, $back_gren=255, $back_blue=255,
+                                               $sImagePosition='Left')
+    {
+
+        // We are in a new page, then we must add a page
+        if ($this->_COUNTX == 0 && $this->_COUNTY == 0) {
+            $this->AddPage();
+        }
+
+        $_PosX = $this->_Margin_Left + ($this->_COUNTX * ($this->_Width + $this->_X_Space));
+        $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
+
+        $this->SetFillColor($back_red,$back_gren,$back_blue);
+        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Line_Height*5, F);
+        
+        $this->SetFontSize (15);
+        $this->SetTextColor ($title_red, $title_gren, $title_blue);
+        $this->SetXY($_PosX, $_PosY);
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $title),0,0,'C');
+        
+        $this->SetFontSize (20);
+        $this->SetTextColor (0,0,0);
+        $this->SetXY($_PosX, $_PosY + 6);
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $firstName),0,0,'C');
+
+        $this->SetFontSize (12);
+        $this->SetXY($_PosX, $_PosY + 12);
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $LastName),0,0,'C');
+        
+        $this->SetFontSize (8);
+        $this->SetXY($_PosX, $_PosY + 18);
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $group),0,0,($sImagePosition == 'Left')?'R':'L');
+        
+        if ($sImagePosition == 'Left') {
+          $this->Image($image,$_PosX, $_PosY,7,$this->_Line_Height*5);
+        } else {
+          $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Line_Height*5);
+        }
+        
+        $this->_COUNTY++;
+
+        if ($this->_COUNTY == $this->_Y_Number) {
+            // End of column reached, we start a new one
+            $this->_COUNTX++;
+            $this->_COUNTY = 0;
+        }
+
+        if ($this->_COUNTX == $this->_X_Number) {
+            // Page full, we start a new one
+            $this->_COUNTX = 0;
+            $this->_COUNTY = 0;
+        }
+    }
 }
