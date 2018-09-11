@@ -109,7 +109,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 <td>
                 </td>
                 <td>
-                   <b>(<?= gettext("Add your images to the Images folder of the CRM.") ?>)</b>
+                   <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png and scleft2.png.") ?>)</b>
                 </td>
              </tr>
              <tr>

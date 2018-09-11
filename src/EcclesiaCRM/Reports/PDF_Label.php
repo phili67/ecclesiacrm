@@ -35,7 +35,7 @@
 
 /*
 *  InfoCentral modifications:
-*	  adjustment of label format parameters: 5160,
+*    adjustment of label format parameters: 5160,
 *
 */
 
@@ -225,10 +225,12 @@ class PDF_Label extends ChurchInfoReport
         $this->SetXY($_PosX, $_PosY + 18);
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $group),0,0,($sImagePosition == 'Left')?'R':'L');
         
-        if ($sImagePosition == 'Left') {
-          $this->Image($image,$_PosX, $_PosY,7,$this->_Line_Height*5);
-        } else {
-          $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Line_Height*5);
+        if ($image != "../Images/" && file_exists($image)) {
+          if ($sImagePosition == 'Left') {
+            $this->Image($image,$_PosX, $_PosY,7,$this->_Line_Height*5);
+          } else {
+            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Line_Height*5);
+          }
         }
         
         $this->_COUNTY++;
