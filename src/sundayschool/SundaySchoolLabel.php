@@ -124,7 +124,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 </td>
              </tr>
                 <?php
-                LabelSelect('labeltype');
+                LabelSelect('labeltype',gettext('Badge Type'));
                 FontSelect('labelfont','../');
                 FontSizeSelect('labelfontsize','('.gettext("default").' 24)');
                 StartRowStartColumn();
@@ -134,7 +134,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-4">
-        <input type="submit" class="btn btn-primary" value="<?= _('Generate Labels') ?>" name="Submit">
+        <input type="submit" class="btn btn-primary" value="<?= _('Generate Badges') ?>" name="Submit">
         </div>
       </div>
     </div>
