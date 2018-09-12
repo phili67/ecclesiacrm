@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 23:10+0200\n"
+"POT-Creation-Date: 2018-09-12 14:10+0200\n"
 "Language: fr-ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1079,7 +1079,7 @@ msgstr "Créer un annuaire depuis le panier"
 msgid "Delete Persons From Cart and CRM"
 msgstr "Supprimer les Personnes du Panier et du CRM"
 
-#: CartView.php:246 CartView.php:293 sundayschool/SundaySchoolLabel.php:137
+#: CartView.php:246 CartView.php:293
 msgid "Generate Labels"
 msgstr "Générer des étiquettes"
 
@@ -4446,7 +4446,7 @@ msgstr "et"
 msgid "Group Directory"
 msgstr "Annuaire du Groupe"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:77
+#: EcclesiaCRM/Reports/PDF_Label.php:122 Include/LabelFunctions.php:77
 #: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
 msgid "Tractor"
 msgstr "Classique"
@@ -7231,39 +7231,39 @@ msgstr "Polices"
 msgid "default"
 msgstr "défaut"
 
-#: Include/LabelFunctions.php:79
+#: Include/LabelFunctions.php:80
 msgid "Label Type"
 msgstr "Type d'étiquette"
 
-#: Include/LabelFunctions.php:96
+#: Include/LabelFunctions.php:101
 msgid "Label Grouping"
 msgstr "Groupement étiquette"
 
-#: Include/LabelFunctions.php:104
+#: Include/LabelFunctions.php:109
 msgid "All Individuals"
 msgstr "Toutes personnes"
 
-#: Include/LabelFunctions.php:111
+#: Include/LabelFunctions.php:116
 msgid "Grouped by Family"
 msgstr "Groupé par Famille"
 
-#: Include/LabelFunctions.php:116
+#: Include/LabelFunctions.php:121
 msgid "To the parents of"
 msgstr "Pour les parents de"
 
-#: Include/LabelFunctions.php:132
+#: Include/LabelFunctions.php:137
 msgid "Start Row"
 msgstr "Ligne de départ"
 
-#: Include/LabelFunctions.php:139
+#: Include/LabelFunctions.php:144
 msgid "Start Column"
 msgstr "Colonne de Départ"
 
-#: Include/LabelFunctions.php:151
+#: Include/LabelFunctions.php:156
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ignorez les Adresses<br>Incomplètes"
 
-#: Include/LabelFunctions.php:163
+#: Include/LabelFunctions.php:168
 msgid "File Type"
 msgstr "Type de fichier"
 
@@ -9326,9 +9326,8 @@ msgid "Please confirm deletion of this family record:"
 msgstr "Veuillez confirmer la suppression de cette famille:"
 
 #: SelectDelete.php:348
-#, fuzzy
 msgid "Please confirm deletion of this Person record:"
-msgstr "Veuillez confirmer la suppression de cette famille:"
+msgstr "Veuillez confirmer la suppression de cette personne:"
 
 #: SelectDelete.php:350
 msgid ""
@@ -9337,11 +9336,10 @@ msgstr ""
 "Note : Ceci supprimera également toutes les Notes liées à cette Famille."
 
 #: SelectDelete.php:350
-#, fuzzy
 msgid ""
 "Note: This will also delete all Notes associated with this Person record."
 msgstr ""
-"Note : Ceci supprimera également toutes les Notes liées à cette Famille."
+"Note : Ceci supprimera également toutes les Notes liées à cette personne."
 
 #: SelectDelete.php:376
 msgid "Delete Family Record ONLY"
@@ -9352,9 +9350,8 @@ msgid "Delete Family Record AND Family Members"
 msgstr "Supprimer les données de la famille ET ses membres."
 
 #: SelectDelete.php:384
-#, fuzzy
 msgid "Delete Person Record"
-msgstr "Effacer cet Enregistrement"
+msgstr "Effacer les Enregistrements de cette personne"
 
 #: SelectList.php:145
 msgid "Person Listing"
@@ -9656,7 +9653,7 @@ msgstr "Entrer le Nom"
 msgid "Sunday School Badge for"
 msgstr "Badge école du dimanche pour"
 
-#: sundayschool/SundaySchoolLabel.php:48
+#: sundayschool/SundaySchoolLabel.php:48 sundayschool/SundaySchoolLabel.php:137
 msgid "Generate Badges"
 msgstr "Générer des Badges"
 
@@ -9685,11 +9682,17 @@ msgstr "Image"
 msgid ""
 "Add your images to the CRM Images folder. By default scleft1.png and scleft2."
 "png."
-msgstr "Ajouter vos images dans le dossier Images du CRM. Par défaut scleft1.png et scleft2."
+msgstr ""
+"Ajouter vos images dans le dossier Images du CRM. Par défaut scleft1.png et "
+"scleft2."
 
 #: sundayschool/SundaySchoolLabel.php:117
 msgid "Image Position"
 msgstr "Position de l'image"
+
+#: sundayschool/SundaySchoolLabel.php:127
+msgid "Badge Type"
+msgstr "Type de Badge"
 
 #: sundayschool/SundaySchoolReports.php:31
 msgid "Sunday School Reports"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 23:10+0200\n"
+"POT-Creation-Date: 2018-09-12 14:10+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1070,7 +1070,7 @@ msgstr "Crear directorio desde Carrito"
 msgid "Delete Persons From Cart and CRM"
 msgstr "Borrar personas del Carrito e del CRM"
 
-#: CartView.php:246 CartView.php:293 sundayschool/SundaySchoolLabel.php:137
+#: CartView.php:246 CartView.php:293
 msgid "Generate Labels"
 msgstr "Generar Etiquetas"
 
@@ -4422,7 +4422,7 @@ msgstr "y"
 msgid "Group Directory"
 msgstr "Directorio de grupos"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:77
+#: EcclesiaCRM/Reports/PDF_Label.php:122 Include/LabelFunctions.php:77
 #: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
 msgid "Tractor"
 msgstr "Tractor"
@@ -7179,39 +7179,39 @@ msgstr "Fuente"
 msgid "default"
 msgstr "Por defecto"
 
-#: Include/LabelFunctions.php:79
+#: Include/LabelFunctions.php:80
 msgid "Label Type"
 msgstr "Tipo de Etiqueta"
 
-#: Include/LabelFunctions.php:96
+#: Include/LabelFunctions.php:101
 msgid "Label Grouping"
 msgstr "Etiqueta de grupo"
 
-#: Include/LabelFunctions.php:104
+#: Include/LabelFunctions.php:109
 msgid "All Individuals"
 msgstr "Todos los individuos"
 
-#: Include/LabelFunctions.php:111
+#: Include/LabelFunctions.php:116
 msgid "Grouped by Family"
 msgstr "Agrupado por Familia"
 
-#: Include/LabelFunctions.php:116
+#: Include/LabelFunctions.php:121
 msgid "To the parents of"
 msgstr "A los padres de"
 
-#: Include/LabelFunctions.php:132
+#: Include/LabelFunctions.php:137
 msgid "Start Row"
 msgstr "Fila de inicio"
 
-#: Include/LabelFunctions.php:139
+#: Include/LabelFunctions.php:144
 msgid "Start Column"
 msgstr "Columna de inicio"
 
-#: Include/LabelFunctions.php:151
+#: Include/LabelFunctions.php:156
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "ignorar Direcciones<br>Incompletas"
 
-#: Include/LabelFunctions.php:163
+#: Include/LabelFunctions.php:168
 msgid "File Type"
 msgstr "Tipo de Archivo"
 
@@ -9584,7 +9584,7 @@ msgstr "Ingresar Nombre"
 msgid "Sunday School Badge for"
 msgstr "Reportes de Escuelas Dominicales"
 
-#: sundayschool/SundaySchoolLabel.php:48
+#: sundayschool/SundaySchoolLabel.php:48 sundayschool/SundaySchoolLabel.php:137
 #, fuzzy
 msgid "Generate Badges"
 msgstr "Generar Etiquetas"
@@ -9622,6 +9622,11 @@ msgstr ""
 #: sundayschool/SundaySchoolLabel.php:117
 msgid "Image Position"
 msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:127
+#, fuzzy
+msgid "Badge Type"
+msgstr "Tipo de Etiqueta"
 
 #: sundayschool/SundaySchoolReports.php:31
 msgid "Sunday School Reports"

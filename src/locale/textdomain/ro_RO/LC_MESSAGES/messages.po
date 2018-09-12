@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 23:10+0200\n"
+"POT-Creation-Date: 2018-09-12 14:10+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1103,7 +1103,7 @@ msgstr "Creați director din coș"
 msgid "Delete Persons From Cart and CRM"
 msgstr ""
 
-#: CartView.php:246 CartView.php:293 sundayschool/SundaySchoolLabel.php:137
+#: CartView.php:246 CartView.php:293
 msgid "Generate Labels"
 msgstr "Genera Etichete"
 
@@ -4550,7 +4550,7 @@ msgstr "și"
 msgid "Group Directory"
 msgstr "Agenda de Grup"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:77
+#: EcclesiaCRM/Reports/PDF_Label.php:122 Include/LabelFunctions.php:77
 #: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
 #, fuzzy
 msgid "Tractor"
@@ -7498,44 +7498,44 @@ msgstr "Font"
 msgid "default"
 msgstr "Lipsă"
 
-#: Include/LabelFunctions.php:79
+#: Include/LabelFunctions.php:80
 #, fuzzy
 msgid "Label Type"
 msgstr "Label Type"
 
-#: Include/LabelFunctions.php:96
+#: Include/LabelFunctions.php:101
 msgid "Label Grouping"
 msgstr "Gruparea eticheta"
 
-#: Include/LabelFunctions.php:104
+#: Include/LabelFunctions.php:109
 msgid "All Individuals"
 msgstr "Toate persoanele fizice"
 
-#: Include/LabelFunctions.php:111
+#: Include/LabelFunctions.php:116
 msgid "Grouped by Family"
 msgstr "Grupate în funcție de familie"
 
-#: Include/LabelFunctions.php:116
+#: Include/LabelFunctions.php:121
 #, fuzzy
 msgid "To the parents of"
 msgstr "Pentru părinții:"
 
-#: Include/LabelFunctions.php:132
+#: Include/LabelFunctions.php:137
 #, fuzzy
 msgid "Start Row"
 msgstr "Start Coloana"
 
-#: Include/LabelFunctions.php:139
+#: Include/LabelFunctions.php:144
 #, fuzzy
 msgid "Start Column"
 msgstr "Start Coloana"
 
-#: Include/LabelFunctions.php:151
+#: Include/LabelFunctions.php:156
 #, fuzzy
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ignora incompletă <br> Adrese"
 
-#: Include/LabelFunctions.php:163
+#: Include/LabelFunctions.php:168
 #, fuzzy
 msgid "File Type"
 msgstr "Tip de fișier"
@@ -10130,7 +10130,7 @@ msgstr "Nume membru"
 msgid "Sunday School Badge for"
 msgstr "Rapoarte de Școală Duminicală"
 
-#: sundayschool/SundaySchoolLabel.php:48
+#: sundayschool/SundaySchoolLabel.php:48 sundayschool/SundaySchoolLabel.php:137
 #, fuzzy
 msgid "Generate Badges"
 msgstr "Genera Etichete"
@@ -10167,6 +10167,11 @@ msgstr ""
 #: sundayschool/SundaySchoolLabel.php:117
 msgid "Image Position"
 msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:127
+#, fuzzy
+msgid "Badge Type"
+msgstr "Label Type"
 
 #: sundayschool/SundaySchoolReports.php:31
 msgid "Sunday School Reports"

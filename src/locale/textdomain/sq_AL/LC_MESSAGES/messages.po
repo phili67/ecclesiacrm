@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-11 23:10+0200\n"
+"POT-Creation-Date: 2018-09-12 14:10+0200\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1105,7 +1105,7 @@ msgstr "Krijo Directory Nga Shportë"
 msgid "Delete Persons From Cart and CRM"
 msgstr ""
 
-#: CartView.php:246 CartView.php:293 sundayschool/SundaySchoolLabel.php:137
+#: CartView.php:246 CartView.php:293
 msgid "Generate Labels"
 msgstr "Generate Etiketa"
 
@@ -4524,7 +4524,7 @@ msgstr "dhe"
 msgid "Group Directory"
 msgstr "Drejtoria Group"
 
-#: EcclesiaCRM/Reports/PDF_Label.php:121 Include/LabelFunctions.php:77
+#: EcclesiaCRM/Reports/PDF_Label.php:122 Include/LabelFunctions.php:77
 #: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
 #, fuzzy
 msgid "Tractor"
@@ -7449,40 +7449,40 @@ msgstr ""
 msgid "default"
 msgstr "Parazgjedhur"
 
-#: Include/LabelFunctions.php:79
+#: Include/LabelFunctions.php:80
 #, fuzzy
 msgid "Label Type"
 msgstr "Lloji i dokumentit"
 
-#: Include/LabelFunctions.php:96
+#: Include/LabelFunctions.php:101
 msgid "Label Grouping"
 msgstr "Label Grupimi"
 
-#: Include/LabelFunctions.php:104
+#: Include/LabelFunctions.php:109
 msgid "All Individuals"
 msgstr "Të gjitha Individët"
 
-#: Include/LabelFunctions.php:111
+#: Include/LabelFunctions.php:116
 msgid "Grouped by Family"
 msgstr "Grupuar sipas Family"
 
-#: Include/LabelFunctions.php:116
+#: Include/LabelFunctions.php:121
 msgid "To the parents of"
 msgstr "Për prindërit e"
 
-#: Include/LabelFunctions.php:132
+#: Include/LabelFunctions.php:137
 msgid "Start Row"
 msgstr "Filloni Rresht"
 
-#: Include/LabelFunctions.php:139
+#: Include/LabelFunctions.php:144
 msgid "Start Column"
 msgstr "Filloni Column"
 
-#: Include/LabelFunctions.php:151
+#: Include/LabelFunctions.php:156
 msgid "Ignore Incomplete<br>Addresses"
 msgstr "Ignore <br> Adresat jo të plotë"
 
-#: Include/LabelFunctions.php:163
+#: Include/LabelFunctions.php:168
 msgid "File Type"
 msgstr "Lloji i dokumentit"
 
@@ -10058,7 +10058,7 @@ msgstr "Anëtar Emri"
 msgid "Sunday School Badge for"
 msgstr "Raportet e diela Shkolla"
 
-#: sundayschool/SundaySchoolLabel.php:48
+#: sundayschool/SundaySchoolLabel.php:48 sundayschool/SundaySchoolLabel.php:137
 #, fuzzy
 msgid "Generate Badges"
 msgstr "Generate Etiketa"
@@ -10095,6 +10095,11 @@ msgstr ""
 #: sundayschool/SundaySchoolLabel.php:117
 msgid "Image Position"
 msgstr ""
+
+#: sundayschool/SundaySchoolLabel.php:127
+#, fuzzy
+msgid "Badge Type"
+msgstr "Lloji i dokumentit"
 
 #: sundayschool/SundaySchoolReports.php:31
 msgid "Sunday School Reports"
