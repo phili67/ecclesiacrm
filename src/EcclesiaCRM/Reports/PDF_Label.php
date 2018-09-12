@@ -64,6 +64,7 @@ class PDF_Label extends ChurchInfoReport
     // List of all Avery formats
     public $_Avery_Labels = [
         'Tractor'=> ['name'=>'Tractor', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>6.5, 'marginTop'=>5, 'NX'=>1, 'NY'=>10, 'SpaceX'=>3.175, 'SpaceY'=>0, 'width'=>120, 'height'=>26.5, 'font-size'=>12],
+        'Badge'  => ['name'=>'Badge', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>1, 'marginTop'=>11.5, 'NX'=>3, 'NY'=>6, 'SpaceX'=>2, 'SpaceY'=>1, 'width'=>70, 'height'=>40, 'font-size'=>11],
         '5160'   => ['name'=>'5160', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>4, 'marginTop'=>11.5, 'NX'=>3, 'NY'=>10, 'SpaceX'=>3.175, 'SpaceY'=>0, 'width'=>66.675, 'height'=>25.4, 'font-size'=>11],
         '5161'   => ['name'=>'5161', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>1, 'marginTop'=>10.7, 'NX'=>2, 'NY'=>10, 'SpaceX'=>3.967, 'SpaceY'=>0, 'width'=>101.6, 'height'=>25.4, 'font-size'=>11],
         '5162'   => ['name'=>'5162', 'paper-size'=>'letter', 'metric'=>'mm', 'marginLeft'=>4, 'marginTop'=>20.224, 'NX'=>2, 'NY'=>7, 'SpaceX'=>4.762, 'SpaceY'=>0, 'width'=>100.807, 'height'=>34, 'font-size'=>12],
@@ -205,31 +206,31 @@ class PDF_Label extends ChurchInfoReport
         $_PosY = $this->_Margin_Top + ($this->_COUNTY * ($this->_Height + $this->_Y_Space));
 
         $this->SetFillColor($back_red,$back_gren,$back_blue);
-        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Line_Height*5, F);
+        $this->Rect($_PosX,$_PosY, $this->_Width, $this->_Height, F);
         
         $this->SetFontSize (15);
         $this->SetTextColor ($title_red, $title_gren, $title_blue);
-        $this->SetXY($_PosX, $_PosY);
+        $this->SetXY($_PosX, $_PosY );
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $title),0,0,'C');
         
         $this->SetFontSize ($sFirstNameFontSize);
         $this->SetTextColor (0,0,0);
-        $this->SetXY($_PosX, $_PosY + 6);
+        $this->SetXY($_PosX, $_PosY + $this->_Height/2 - $this->_Get_Height_Chars($sFirstNameFontSize));
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $firstName),0,0,'C');
 
         $this->SetFontSize (12);
-        $this->SetXY($_PosX, $_PosY + 12);
+        $this->SetXY($_PosX, $_PosY + $this->_Height/4*3 - $this->_Get_Height_Chars(12));
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $LastName),0,0,'C');
         
         $this->SetFontSize (8);
-        $this->SetXY($_PosX, $_PosY + 18);
+        $this->SetXY($_PosX, $_PosY + $this->_Height - 10);
         $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $group),0,0,($sImagePosition == 'Left')?'R':'L');
         
         if ($image != "../Images/" && file_exists($image)) {
           if ($sImagePosition == 'Left') {
-            $this->Image($image,$_PosX, $_PosY,7,$this->_Line_Height*5);
+            $this->Image($image,$_PosX, $_PosY,7,$this->_Height);
           } else {
-            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Line_Height*5);
+            $this->Image($image,$_PosX+$this->_Width-7, $_PosY,7,$this->_Height);
           }
         }
         

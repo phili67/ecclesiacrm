@@ -72,11 +72,16 @@ function FontSizeSelect($fieldname,$message='')
     echo '</tr>';
 }
 
-function LabelSelect($fieldname)
+function LabelSelect($fieldname,$title='')
 {
-    $labels = [gettext('Tractor'), '5160', '5161', '5162', '5163', '5164', '8600', 'L7163'];
+    $labels = [gettext('Tractor'), 'Badge', '5160', '5161', '5162', '5163', '5164', '8600', 'L7163'];
+    
+    if (empty($title)) {
+      $title = gettext('Label Type');
+    }
+    
     echo '<tr>';
-    echo '<td class="LabelColumn">'.gettext('Label Type').':</td>';
+    echo '<td class="LabelColumn">'.$title.':</td>';
     echo '<td class="TextColumn">';
     echo "<select name=\"$fieldname\" class=\"form-control input-sm\">";
     foreach ($labels as $l) {
