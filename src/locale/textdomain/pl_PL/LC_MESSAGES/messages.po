@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 14:10+0200\n"
+"POT-Creation-Date: 2018-09-13 17:51+0200\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,22 +107,22 @@ msgstr "z Grupy"
 msgid "Added to group"
 msgstr "Dodaj do Grupy"
 
-#: api/routes/payments.php:57 PledgeEditor.php:680
+#: api/routes/payments.php:72 PledgeEditor.php:680
 #, fuzzy
 msgid "Credit card"
 msgstr "Numer Karty Płatniczej"
 
-#: api/routes/payments.php:59 PledgeEditor.php:682
+#: api/routes/payments.php:74 PledgeEditor.php:682
 #, fuzzy
 msgid "Bank account"
 msgstr "Numer konta "
 
-#: api/routes/payments.php:137 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
+#: api/routes/payments.php:178 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:144
 #: FinancialReports.php:342 PledgeEditor.php:614
 msgid "Cash"
 msgstr "Gotówka"
 
-#: api/routes/payments.php:145 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
+#: api/routes/payments.php:186 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:139
 #, fuzzy
 msgid "Checks"
 msgstr "Czek"
@@ -220,8 +220,8 @@ msgstr "Poprawnie zapisano właściwości."
 msgid "The role could not be assigned."
 msgstr ""
 
-#: api/routes/search.php:101 AutoPaymentEditor.php:887
-#: AutoPaymentEditor.php:895 CartToFamily.php:313 CartToFamily.php:318
+#: api/routes/search.php:101 AutoPaymentEditor.php:913
+#: AutoPaymentEditor.php:921 CartToFamily.php:313 CartToFamily.php:318
 #: CartView.php:321 CSVExport.php:83 CSVExport.php:88 CSVImport.php:213
 #: CSVImport.php:214 DirectoryReports.php:166 DirectoryReports.php:239
 #: external/templates/registration/family-register-done.php:29
@@ -276,25 +276,25 @@ msgstr ""
 msgid "Cannot execute query."
 msgstr "Nie można przeprowadzić Wyszukiwania."
 
-#: AutoPaymentEditor.php:111
+#: AutoPaymentEditor.php:126
 #, fuzzy
 msgid "Automatic payment configuration"
 msgstr "Ustawienie Automatycznej płatności dla rodziny"
 
-#: AutoPaymentEditor.php:772
+#: AutoPaymentEditor.php:797
 #, fuzzy
 msgid "For the"
 msgstr "Rodziny"
 
-#: AutoPaymentEditor.php:772 AutoPaymentEditor.php:781 Include/Footer.php:78
+#: AutoPaymentEditor.php:797 AutoPaymentEditor.php:806 Include/Footer.php:78
 #: PledgeEditor.php:537 PropertyEditor.php:43 PropertyList.php:26
 #: PropertyTypeEditor.php:88 PropertyTypeList.php:119
 msgid "Person"
 msgstr "Osoba"
 
-#: AutoPaymentEditor.php:772 AutoPaymentEditor.php:781
+#: AutoPaymentEditor.php:797 AutoPaymentEditor.php:806
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
-#: ElectronicPaymentList.php:194
+#: ElectronicPaymentList.php:212
 #: external/templates/registration/family-register-done.php:28
 #: FamilyView.php:212 FinancialReports.php:419 Include/Footer.php:56
 #: members/404.php:16 PersonView.php:565 PledgeEditor.php:537
@@ -304,7 +304,17 @@ msgstr "Osoba"
 msgid "Family"
 msgstr "Rodzina"
 
-#: AutoPaymentEditor.php:785 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
+#: AutoPaymentEditor.php:806 PersonEditor.php:955 PledgeEditor.php:537
+#, fuzzy
+msgid "or"
+msgstr "Praca"
+
+#: AutoPaymentEditor.php:809
+msgid ""
+"WARNING ! You've to select a person or a family to create an auto-payment."
+msgstr ""
+
+#: AutoPaymentEditor.php:811 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
 #: CartView.php:50 CartView.php:61 CSVImport.php:269 DirectoryReports.php:87
 #: DonatedItemEditor.php:185 DonatedItemEditor.php:236
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:168
@@ -321,25 +331,25 @@ msgstr "Rodzina"
 msgid "Unassigned"
 msgstr "Nie przypisany"
 
-#: AutoPaymentEditor.php:801
+#: AutoPaymentEditor.php:827
 msgid "Automatic payment type"
 msgstr "Rodzaj Automatycznej płatności"
 
-#: AutoPaymentEditor.php:806
+#: AutoPaymentEditor.php:832
 #, fuzzy
 msgid "Bank Draft "
 msgstr "Weksel"
 
-#: AutoPaymentEditor.php:810
+#: AutoPaymentEditor.php:836
 #, fuzzy
 msgid "Credit Card "
 msgstr "Numer Karty Płatniczej"
 
-#: AutoPaymentEditor.php:814
+#: AutoPaymentEditor.php:840
 msgid "Disable "
 msgstr ""
 
-#: AutoPaymentEditor.php:819 CanvassEditor.php:193 DepositSlipEditor.php:96
+#: AutoPaymentEditor.php:845 CanvassEditor.php:193 DepositSlipEditor.php:96
 #: EditEventAttendees.php:57 FindFundRaiser.php:236 FundRaiserEditor.php:163
 #: Include/Functions.php:89 PledgeEditor.php:547 Reports/ReminderReport.php:306
 #: Reports/ReminderReport.php:387 Reports/TaxReport.php:365
@@ -347,22 +357,22 @@ msgstr ""
 msgid "Date"
 msgstr "Data"
 
-#: AutoPaymentEditor.php:829 ElectronicPaymentList.php:196 PledgeEditor.php:549
+#: AutoPaymentEditor.php:855 ElectronicPaymentList.php:214 PledgeEditor.php:549
 #: ReminderReport.php:41 SelectDelete.php:297
 #: sundayschool/SundaySchoolReports.php:222 queryparameters_qrp.php:18
 msgid "Fiscal Year"
 msgstr "Rok Podatkowy"
 
-#: AutoPaymentEditor.php:837
+#: AutoPaymentEditor.php:863
 msgid "Payment amount"
 msgstr "Kwota Wpłaty"
 
-#: AutoPaymentEditor.php:845
+#: AutoPaymentEditor.php:871
 msgid "Payment interval (months)"
 msgstr "Częstotliwość Wpłat (miesiące)"
 
-#: AutoPaymentEditor.php:853 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
-#: ElectronicPaymentList.php:200 FinancialReports.php:418
+#: AutoPaymentEditor.php:879 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:285
+#: ElectronicPaymentList.php:218 FinancialReports.php:418
 #: FindDepositSlip.php:48 Reports/AdvancedDeposit.php:305
 #: Reports/AdvancedDeposit.php:324 Reports/FamilyPledgeSummary.php:218
 #: Reports/PledgeSummary.php:220 Reports/ReminderReport.php:307
@@ -371,7 +381,7 @@ msgstr "Częstotliwość Wpłat (miesiące)"
 msgid "Fund"
 msgstr "Cel"
 
-#: AutoPaymentEditor.php:857 EcclesiaCRM/utils/OutputUtils.php:205
+#: AutoPaymentEditor.php:883 EcclesiaCRM/utils/OutputUtils.php:205
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
@@ -379,11 +389,11 @@ msgstr "Cel"
 msgid "None"
 msgstr "Żaden"
 
-#: AutoPaymentEditor.php:861
+#: AutoPaymentEditor.php:887
 msgid "inactive"
 msgstr "nieaktywne"
 
-#: AutoPaymentEditor.php:871 Checkin.php:548 Checkin.php:549 CSVExport.php:68
+#: AutoPaymentEditor.php:897 Checkin.php:548 Checkin.php:549 CSVExport.php:68
 #: CSVImport.php:207
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:800
@@ -393,7 +403,7 @@ msgstr "nieaktywne"
 msgid "First Name"
 msgstr "Imię"
 
-#: AutoPaymentEditor.php:879 CSVExport.php:57 CSVImport.php:209
+#: AutoPaymentEditor.php:905 CSVExport.php:57 CSVImport.php:209
 #: external/templates/registration/family-register-members.php:73
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:161
 #: PersonEditor.php:822 sundayschool/SundaySchoolDashboard.php:217
@@ -401,7 +411,7 @@ msgstr "Imię"
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: AutoPaymentEditor.php:903 CartToFamily.php:323 CSVExport.php:93
+#: AutoPaymentEditor.php:929 CartToFamily.php:323 CSVExport.php:93
 #: CSVImport.php:215 DirectoryReports.php:243
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:708
 #: PersonEditor.php:969 PersonEditor.php:1081 Register.php:44
@@ -409,7 +419,7 @@ msgstr "Nazwisko"
 msgid "City"
 msgstr "Miasto"
 
-#: AutoPaymentEditor.php:911 CartToFamily.php:328 CSVExport.php:98
+#: AutoPaymentEditor.php:937 CartToFamily.php:328 CSVExport.php:98
 #: CSVImport.php:216 DirectoryReports.php:247
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:715
 #: PersonEditor.php:975 PersonEditor.php:1109 Register.php:45
@@ -417,7 +427,7 @@ msgstr "Miasto"
 msgid "State"
 msgstr "Hrabstwo"
 
-#: AutoPaymentEditor.php:919 BackupDatabase.php:63 CartToFamily.php:343
+#: AutoPaymentEditor.php:945 BackupDatabase.php:63 CartToFamily.php:343
 #: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:251
 #: external/templates/registration/family-register.php:51
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:728
@@ -426,13 +436,13 @@ msgstr "Hrabstwo"
 msgid "Zip"
 msgstr "Kod pocztowy"
 
-#: AutoPaymentEditor.php:927 CartToFamily.php:351 CSVExport.php:113
+#: AutoPaymentEditor.php:953 CartToFamily.php:351 CSVExport.php:113
 #: CSVImport.php:218 FamilyEditor.php:738 PersonEditor.php:998
 #: PersonEditor.php:1173 Register.php:47
 msgid "Country"
 msgstr "Kraj"
 
-#: AutoPaymentEditor.php:935 DirectoryReports.php:255
+#: AutoPaymentEditor.php:961 DirectoryReports.php:255
 #: EcclesiaCRM/Reports/PDF_Directory.php:318
 #: EcclesiaCRM/Reports/PDF_Directory.php:392
 #: EcclesiaCRM/Reports/PDF_Directory.php:449
@@ -441,7 +451,7 @@ msgstr "Kraj"
 msgid "Phone"
 msgstr "Tel."
 
-#: AutoPaymentEditor.php:943 CartToFamily.php:392 CartView.php:322
+#: AutoPaymentEditor.php:969 CartToFamily.php:392 CartView.php:322
 #: CSVExport.php:133 CSVImport.php:222 EcclesiaCRM/MenuBar/MenuBar.php:313
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
@@ -462,46 +472,47 @@ msgstr "Tel."
 msgid "Email"
 msgstr "Email"
 
-#: AutoPaymentEditor.php:951 ElectronicPaymentList.php:209
-#: FinancialReports.php:343 FindDepositSlip.php:63 PledgeEditor.php:622
+#: AutoPaymentEditor.php:977 ElectronicPaymentList.php:227
+#: ElectronicPaymentList.php:264 FinancialReports.php:343
+#: FindDepositSlip.php:63 PledgeEditor.php:622
 msgid "Credit Card"
 msgstr "Numer Karty Płatniczej"
 
-#: AutoPaymentEditor.php:962
+#: AutoPaymentEditor.php:988
 #, fuzzy
 msgid "Vanco Credit Card Method"
 msgstr "Numer Karty Płatniczej"
 
-#: AutoPaymentEditor.php:974
+#: AutoPaymentEditor.php:999
 msgid "Expiration Month"
 msgstr "Data Ważności (miesiąć)"
 
-#: AutoPaymentEditor.php:982
+#: AutoPaymentEditor.php:1007
 msgid "Expiration Year"
 msgstr "Data Ważności (rok)"
 
-#: AutoPaymentEditor.php:990
+#: AutoPaymentEditor.php:1015
 msgid "Bank Name"
 msgstr "Nazwa Banku"
 
-#: AutoPaymentEditor.php:998
+#: AutoPaymentEditor.php:1023
 msgid "Bank Route Number"
 msgstr "Sort Code"
 
-#: AutoPaymentEditor.php:1006
+#: AutoPaymentEditor.php:1031
 msgid "Bank Account Number"
 msgstr "Numer Konta"
 
-#: AutoPaymentEditor.php:1017
+#: AutoPaymentEditor.php:1042
 #, fuzzy
 msgid "Vanco Bank Account Method"
 msgstr "Numer Konta"
 
-#: AutoPaymentEditor.php:1036
+#: AutoPaymentEditor.php:1060
 msgid "Store Private Data at Vanco"
 msgstr ""
 
-#: AutoPaymentEditor.php:1058 CanvassEditor.php:237 DepositSlipEditor.php:112
+#: AutoPaymentEditor.php:1082 CanvassEditor.php:237 DepositSlipEditor.php:112
 #: DonatedItemEditor.php:292 FamilyEditor.php:683 FamilyEditor.php:770
 #: FamilyEditor.php:830 FamilyEditor.php:905 FamilyEditor.php:925
 #: FamilyEditor.php:999 FamilyEditor.php:1198 FundRaiserEditor.php:141
@@ -513,15 +524,15 @@ msgstr ""
 msgid "Save"
 msgstr "Zapisz"
 
-#: AutoPaymentEditor.php:1061 BatchWinnerEntry.php:111 CanvassEditor.php:238
+#: AutoPaymentEditor.php:1085 BatchWinnerEntry.php:111 CanvassEditor.php:238
 #: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:282
 #: DonatedItemEditor.php:296 EventNames.php:259
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1202
-#: FamilyView.php:873 FinancialReports.php:80 FundRaiserEditor.php:142
+#: FamilyView.php:877 FinancialReports.php:80 FundRaiserEditor.php:142
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:134 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:96 NoteEditor.php:299
-#: PersonEditor.php:1579 PersonView.php:1337 PledgeEditor.php:729
+#: PersonEditor.php:1579 PersonView.php:1336 PledgeEditor.php:729
 #: PropertyEditor.php:189 PropertyTypeEditor.php:113 Register.php:56
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
@@ -1165,12 +1176,12 @@ msgstr "Wybierz Wydarzenie"
 msgid "Select event"
 msgstr "Wybierz Wydarzenie"
 
-#: Checkin.php:245 FamilyView.php:707 PersonView.php:1082
+#: Checkin.php:245 FamilyView.php:710 PersonView.php:1082
 #, fuzzy
 msgid "From"
 msgstr "Od:"
 
-#: Checkin.php:245 FamilyView.php:711 PersonView.php:1086
+#: Checkin.php:245 FamilyView.php:714 PersonView.php:1086
 #, fuzzy
 msgid "To"
 msgstr "Do:"
@@ -1256,11 +1267,11 @@ msgid "CheckOut"
 msgstr "Wypisz"
 
 #: Checkin.php:518 Checkin.php:559 Checkin.php:658 DepositSlipEditor.php:278
-#: EditEventAttendees.php:110 ElectronicPaymentList.php:218
-#: ElectronicPaymentList.php:283 EventNames.php:325 FamilyView.php:874
-#: FindDepositSlip.php:121 FundRaiserEditor.php:199 ListEvents.php:398
-#: PaddleNumList.php:55 PastoralCare.php:151 PastoralCare.php:160
-#: PersonView.php:1338
+#: EditEventAttendees.php:110 ElectronicPaymentList.php:211
+#: ElectronicPaymentList.php:255 ElectronicPaymentList.php:313
+#: EventNames.php:325 FamilyView.php:878 FindDepositSlip.php:121
+#: FundRaiserEditor.php:199 ListEvents.php:398 PaddleNumList.php:55
+#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1337
 msgid "Delete"
 msgstr "Skasuj"
 
@@ -1748,8 +1759,8 @@ msgstr "Datek (Pledged)"
 msgid "Return to Deposit Listing"
 msgstr "Lista Deposit"
 
-#: DepositSlipEditor.php:269 FamilyView.php:862 FindDepositSlip.php:111
-#: PersonView.php:1327
+#: DepositSlipEditor.php:269 FamilyView.php:866 FindDepositSlip.php:111
+#: PersonView.php:1326
 msgid "Confirm Delete"
 msgstr "Potwiedź Usunięcie"
 
@@ -4259,56 +4270,61 @@ msgstr "Zarządzanie Kopertami"
 msgid "View All Deposits"
 msgstr "Pokaż Wszystko"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:338
+#: EcclesiaCRM/MenuBar/MenuBar.php:338 ElectronicPaymentList.php:50
+#, fuzzy
+msgid "Electronic Payment Listing"
+msgstr "Szczegóły Płatności Elektronicznej"
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:339
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Deposit Report"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:339
+#: EcclesiaCRM/MenuBar/MenuBar.php:340
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Odcinek Deposit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:346 FundRaiserEditor.php:30
+#: EcclesiaCRM/MenuBar/MenuBar.php:347 FundRaiserEditor.php:30
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Lista Przedmiotów w Zbiórce"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:348
+#: EcclesiaCRM/MenuBar/MenuBar.php:349
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Wszystkie Cele"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:349
+#: EcclesiaCRM/MenuBar/MenuBar.php:350
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Utwórz nową Zbiórkę"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:350
+#: EcclesiaCRM/MenuBar/MenuBar.php:351
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "Edytuj Użytkownika"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:351
+#: EcclesiaCRM/MenuBar/MenuBar.php:352
 #, fuzzy
 msgid "View Buyers"
 msgstr "Kupujący"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:353
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:358
+#: EcclesiaCRM/MenuBar/MenuBar.php:359
 #, fuzzy
 msgid "Data/Reports"
 msgstr "Utwórz Raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:360
+#: EcclesiaCRM/MenuBar/MenuBar.php:361
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Menu Raportów"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361
+#: EcclesiaCRM/MenuBar/MenuBar.php:362
 #, fuzzy
 msgid "Query Menu"
 msgstr "Podgląd Zapytania"
@@ -4392,7 +4408,7 @@ msgstr "Od:"
 msgid "Memo"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:198
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:297 ElectronicPaymentList.php:216
 #: PledgeEditor.php:749 Reports/AdvancedDeposit.php:308
 #: Reports/AdvancedDeposit.php:317 Reports/AdvancedDeposit.php:326
 #: Reports/ReminderReport.php:308 Reports/ReminderReport.php:392
@@ -4488,7 +4504,7 @@ msgstr ""
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1173
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1172
 #, fuzzy
 msgid "Dav create file"
 msgstr "Utwórz plik (file)"
@@ -4498,11 +4514,11 @@ msgstr "Utwórz plik (file)"
 msgid "Dav create directory"
 msgstr "Utwórz Spis (Directory)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1175
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1174
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1174
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1173
 msgid "Dav move copy file"
 msgstr ""
 
@@ -4547,7 +4563,7 @@ msgid "Group Directory"
 msgstr "Katalog Grup"
 
 #: EcclesiaCRM/Reports/PDF_Label.php:122 Include/LabelFunctions.php:77
-#: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:86
+#: Reports/PDFLabel.php:785 Reports/PDFLabelSundaySchool.php:108
 #, fuzzy
 msgid "Tractor"
 msgstr "Katalog"
@@ -5032,27 +5048,29 @@ msgstr "Powrót do Odcinków Wpłaty"
 msgid "Fatal error in eGive API datastream: '"
 msgstr "Krytyczny problem w systemie eGive:"
 
-#: ElectronicPaymentList.php:32
-#, fuzzy
-msgid "Electronic Payment Listing"
-msgstr "Szczegóły Płatności Elektronicznej"
-
-#: ElectronicPaymentList.php:40
+#: ElectronicPaymentList.php:58
 #, fuzzy
 msgid "Delete automatic payment for"
 msgstr "Potwierdź Automatyczne Usunięcie płatności"
 
-#: ElectronicPaymentList.php:49
+#: ElectronicPaymentList.php:67
 #, fuzzy
 msgid "Clear account numbers for"
 msgstr "Numer Konta"
 
-#: ElectronicPaymentList.php:187
+#: ElectronicPaymentList.php:202
 #, fuzzy
 msgid "Add a New Electronic Payment Method"
 msgstr "Dodaj nową Automatyczną Płatność"
 
-#: ElectronicPaymentList.php:195 FamilyCustomFieldsEditor.php:334
+#: ElectronicPaymentList.php:210 ElectronicPaymentList.php:253
+#: EventNames.php:319 FamilyView.php:216 FindFundRaiser.php:234
+#: FindFundRaiser.php:242 ListEvents.php:362 PersonView.php:311
+#: SelectList.php:1134
+msgid "Edit"
+msgstr "Edytuj"
+
+#: ElectronicPaymentList.php:213 FamilyCustomFieldsEditor.php:334
 #: FamilyCustomFieldsEditor.php:454 GDPRListExport.php:62
 #: GroupPropsFormEditor.php:315 GroupPropsFormEditor.php:441 GroupView.php:416
 #: OptionManager.php:111 PersonCustomFieldsEditor.php:324
@@ -5060,54 +5078,65 @@ msgstr "Dodaj nową Automatyczną Płatność"
 msgid "Type"
 msgstr "Typ"
 
-#: ElectronicPaymentList.php:197
+#: ElectronicPaymentList.php:215
 #, fuzzy
 msgid "Next Date"
 msgstr "Następna Strona"
 
-#: ElectronicPaymentList.php:199
+#: ElectronicPaymentList.php:217
 #, fuzzy
 msgid "Interval"
 msgstr "Częstotliwość (miesiące)"
 
-#: ElectronicPaymentList.php:201 FindDepositSlip.php:62
+#: ElectronicPaymentList.php:219 FindDepositSlip.php:62
 msgid "Bank"
 msgstr "Bank"
 
-#: ElectronicPaymentList.php:202
+#: ElectronicPaymentList.php:220
 #, fuzzy
 msgid "Routing"
 msgstr "Lista Grup"
 
-#: ElectronicPaymentList.php:203
+#: ElectronicPaymentList.php:221
 #, fuzzy
 msgid "Account"
 msgstr "Kwota"
 
-#: ElectronicPaymentList.php:206
+#: ElectronicPaymentList.php:224
 msgid "Vanco ACH"
 msgstr ""
 
-#: ElectronicPaymentList.php:210 FamilyEditor.php:1022
+#: ElectronicPaymentList.php:228 FamilyEditor.php:1022
 #: queryparameters_qrp.php:11
 msgid "Month"
 msgstr "Miesiąc"
 
-#: ElectronicPaymentList.php:211 FamilyEditor.php:1024 Include/Functions.php:93
+#: ElectronicPaymentList.php:229 FamilyEditor.php:1024 Include/Functions.php:93
 #: queryparameters_qrp.php:20
 msgid "Year"
 msgstr "Rok"
 
-#: ElectronicPaymentList.php:214
+#: ElectronicPaymentList.php:232
 msgid "Vanco CC"
 msgstr ""
 
-#: ElectronicPaymentList.php:217 ElectronicPaymentList.php:282
-#: EventNames.php:319 FamilyView.php:216 FindFundRaiser.php:234
-#: FindFundRaiser.php:242 ListEvents.php:362 PersonView.php:311
-#: SelectList.php:1134
-msgid "Edit"
-msgstr "Edytuj"
+#: ElectronicPaymentList.php:262
+#, fuzzy
+msgid "Bank ACH"
+msgstr "Bank"
+
+#: ElectronicPaymentList.php:266 GroupEditor.php:234 GroupView.php:284
+msgid "Disabled"
+msgstr ""
+
+#: ElectronicPaymentList.php:307
+msgid "With checked"
+msgstr ""
+
+#: ElectronicPaymentList.php:314
+#, fuzzy
+msgid "Clear Account Numbers"
+msgstr "Numer Konta"
 
 #: email/Dashboard.php:25
 msgid "eMail Dashboard"
@@ -6034,7 +6063,7 @@ msgid "Assign a New Property"
 msgstr "Przypisz Nowe Właściowści"
 
 #: FamilyView.php:648 PaddleNumList.php:52 PersonView.php:975
-#: PersonView.php:1030 PersonView.php:1141
+#: PersonView.php:1030 PersonView.php:1140
 msgid "Select"
 msgstr "Zaznacz"
 
@@ -6049,87 +6078,87 @@ msgstr "Opcje Dodatkowe"
 msgid "Assign"
 msgstr "Przypisz"
 
-#: FamilyView.php:691 PersonView.php:1066
+#: FamilyView.php:694 PersonView.php:1066
 msgid "Add a new automatic payment"
 msgstr "Dodaj nową Automatyczną Płatność"
 
-#: FamilyView.php:702 PersonView.php:1077
+#: FamilyView.php:705 PersonView.php:1077
 msgid "Show Pledges"
 msgstr "Pokaż Datki"
 
-#: FamilyView.php:706 PersonView.php:1081
+#: FamilyView.php:709 PersonView.php:1081
 msgid "Show Payments"
 msgstr "Pokaż Płatności"
 
-#: FamilyView.php:731 PersonView.php:1105
+#: FamilyView.php:734 PersonView.php:1105
 msgid "Add a new pledge"
 msgstr "Dodaj nowy Datek"
 
-#: FamilyView.php:733 PersonView.php:1107
+#: FamilyView.php:736 PersonView.php:1107
 msgid "Add a new payment"
 msgstr "Dodaj nową Płatność"
 
-#: FamilyView.php:744 PersonView.php:1119
+#: FamilyView.php:744 PersonView.php:1115
 msgid " Canvass Entry"
 msgstr "Wpis Ankiety"
 
-#: FamilyView.php:866 PersonView.php:1331
+#: FamilyView.php:870 PersonView.php:1330
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:868 PersonView.php:1333
+#: FamilyView.php:872 PersonView.php:1332
 msgid "Do you want to proceed?"
 msgstr ""
 
-#: FamilyView.php:888
+#: FamilyView.php:892
 msgid "Request Family Info Verification"
 msgstr ""
 
-#: FamilyView.php:891
+#: FamilyView.php:895
 msgid "Select how do you want to request the family information to be verified"
 msgstr ""
 
-#: FamilyView.php:895
+#: FamilyView.php:899
 msgid ""
 "You are about to email copy of the family information in pdf to the "
 "following emails"
 msgstr ""
 
-#: FamilyView.php:912
+#: FamilyView.php:916
 #, fuzzy
 msgid "Online Verification"
 msgstr "Weryfikacja Adresu USA"
 
-#: FamilyView.php:917
+#: FamilyView.php:921
 #, fuzzy
 msgid "PDF Report"
 msgstr "Raport Podatkowy"
 
-#: FamilyView.php:919
+#: FamilyView.php:923
 msgid "Verified In Person"
 msgstr ""
 
-#: FamilyView.php:939 PersonView.php:1357
+#: FamilyView.php:943 PersonView.php:1356
 #, fuzzy
 msgid "Confirm Deactivation"
 msgstr "Potwiedź Usunięcie"
 
-#: FamilyView.php:939 PersonView.php:1357
+#: FamilyView.php:943 PersonView.php:1356
 msgid "Confirm Activation"
 msgstr ""
 
-#: FamilyView.php:941
+#: FamilyView.php:945
 #, fuzzy
 msgid "Please confirm deactivation of family"
 msgstr "Proszę powierdzić USUNIĘCIE"
 
-#: FamilyView.php:944
+#: FamilyView.php:948
 #, fuzzy
 msgid "Please confirm activation of family"
 msgstr "Proszę powierdzić USUNIĘCIE"
 
-#: FamilyView.php:997
+#: FamilyView.php:1001
 #, fuzzy
 msgid "Family Photo"
 msgstr "Edytor Rodziny"
@@ -6734,10 +6763,6 @@ msgstr "Ustawienia Dodatkowe dla Grupy"
 #: GroupEditor.php:229 GroupView.php:450
 msgid "Edit Group-Specific Properties Form"
 msgstr "Edytuj Ustwatawienia Dodatkowe dla Grupy"
-
-#: GroupEditor.php:234 GroupView.php:284
-msgid "Disabled"
-msgstr ""
 
 #: GroupEditor.php:235
 #, fuzzy
@@ -7489,7 +7514,7 @@ msgid "Font"
 msgstr "Czcionka"
 
 #: Include/LabelFunctions.php:58 Reports/PDFLabel.php:799
-#: Reports/PDFLabelSundaySchool.php:102 sundayschool/SundaySchoolLabel.php:129
+#: Reports/PDFLabelSundaySchool.php:124 sundayschool/SundaySchoolLabel.php:129
 #, fuzzy
 msgid "default"
 msgstr "Domyślne"
@@ -8090,7 +8115,7 @@ msgstr "Edytor Płatności:"
 msgid "You must enter text for this note"
 msgstr "Musisz podać Nazwę"
 
-#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1173
+#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1172
 #, fuzzy
 msgid "Create file"
 msgstr "Utwórz plik (file)"
@@ -8610,11 +8635,6 @@ msgstr "Powróć do Widoku Rodziny"
 msgid "Person Name"
 msgstr "Członkowie"
 
-#: PersonEditor.php:955 PledgeEditor.php:537
-#, fuzzy
-msgid "or"
-msgstr "Praca"
-
 #: PersonEditor.php:1344 PersonEditor.php:1348 PersonView.php:417
 msgid "Facebook"
 msgstr ""
@@ -8768,31 +8788,31 @@ msgstr "Nie przypisano zadań dla wolontariuszy"
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Przypisz Nowe Zadanie dla Wolontariusza"
 
-#: PersonView.php:1138
+#: PersonView.php:1137
 #, fuzzy
 msgid "Show"
 msgstr "Pokaż"
 
-#: PersonView.php:1142
+#: PersonView.php:1141
 #, fuzzy
 msgid "All type"
 msgstr "Wszystkie Dane"
 
-#: PersonView.php:1147
+#: PersonView.php:1146
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1175
+#: PersonView.php:1174
 #, fuzzy
 msgid "Update file"
 msgstr "Aktualizuj"
 
-#: PersonView.php:1359
+#: PersonView.php:1358
 #, fuzzy
 msgid "Please confirm deactivation of person"
 msgstr "Proszę powierdzić USUNIĘCIE"
 
-#: PersonView.php:1362
+#: PersonView.php:1361
 #, fuzzy
 msgid "Please confirm activation of person"
 msgstr "Proszę powierdzić USUNIĘCIE"
