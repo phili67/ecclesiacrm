@@ -34,11 +34,26 @@ $app->group('/payments', function () {
       return $AutoPayments->toJSON();
     });
     
+    $this->post('/info', function ($request, $response, $args) {  
+        $payments = (object) $request->getParsedBody();
+        
+        if ( isset ($payments->autID) )
+        {
+          $AutoPayments = AutoPaymentQuery::create()
+             ->leftJoinFamily()
+             ->findOneById($payments->autID);
+          
+          return $AutoPayments->toJSON();
+        }
+        
+        return json_encode(['success' => false]);
+    });
+    
     // this can be used only as an admin or in finance in pledgeEditor
     $this->post('/families',function($request,$response,$args) {          
       $autoPay = (object)$request->getParsedBody();
       
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isFinance())) {
+      if (!($_SESSION['user']->isFinance())) {
             return $response->withStatus(401);
       }
       
@@ -70,6 +85,10 @@ $app->group('/payments', function () {
     
     
     $this->post('/delete',function($request,$response,$args) {
+      if (!($_SESSION['user']->isFinance())) {
+            return $response->withStatus(401);
+      }
+
       $payments = (object) $request->getParsedBody();
       
       $AutoPayment = AutoPaymentQuery::create()
@@ -82,34 +101,56 @@ $app->group('/payments', function () {
            
       return json_encode(['status' => "OK"]);
     });
-
+    
+    $this->get('/delete/{authID:[0-9]+}',function($request,$response,$args) {
+      if (!($_SESSION['user']->isFinance())) {
+            return $response->withStatus(401);
+      }
+      
+      $AutoPayment = AutoPaymentQuery::create()
+           ->findOneById($args['authID']);
+           
+      if (!empty($AutoPayment)) {
+        $AutoPayment->delete();
+      }
+           
+      return json_encode(['status' => "OK"]);
+    });
     
     $this->post('/invalidate', function ($request, $response, $args) {
-        $payments = (object) $request->getParsedBody();
-        
-        foreach($payments->data as $payment) {  
-          $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
-          if (!empty($pledge)) {
-            $pledge->setPledgeorpayment('Pledge');
-            $pledge->save();
-          }
+      if (!($_SESSION['user']->isFinance())) {
+            return $response->withStatus(401);
+      }
+
+      $payments = (object) $request->getParsedBody();
+      
+      foreach($payments->data as $payment) {  
+        $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
+        if (!empty($pledge)) {
+          $pledge->setPledgeorpayment('Pledge');
+          $pledge->save();
         }
-           
-        return json_encode(['status' => "OK"]);
+      }
+         
+      return json_encode(['status' => "OK"]);
     });
     
     $this->post('/validate', function ($request, $response, $args) {
-        $payments = (object) $request->getParsedBody();
-        
-        foreach($payments->data as $payment) {  
-          $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
-          if (!empty($pledge)) {
-            $pledge->setPledgeorpayment('Payment');
-            $pledge->save();
-          }
+      if (!($_SESSION['user']->isFinance())) {
+            return $response->withStatus(401);
+      }
+
+      $payments = (object) $request->getParsedBody();
+      
+      foreach($payments->data as $payment) {  
+        $pledge = PledgeQuery::Create()->findOneById ($payment['Id']);
+        if (!empty($pledge)) {
+          $pledge->setPledgeorpayment('Payment');
+          $pledge->save();
         }
-           
-        return json_encode(['status' => "OK"]);
+      }
+         
+      return json_encode(['status' => "OK"]);
     });
     
     $this->post('/getchartsarrays', function ($request, $response, $args) {

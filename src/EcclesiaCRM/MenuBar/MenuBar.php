@@ -335,6 +335,7 @@ class MenuBar {
 
           $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
           $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Electronic Payements List"),"fa fa-circle-o","ElectronicPaymentList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
           $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
           $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
       
