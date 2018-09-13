@@ -24,6 +24,9 @@ use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutpuUtils;
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\PropertyQuery;
+
 
 function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
 {
@@ -34,8 +37,27 @@ function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,
 
     //print_r ($thisClassChildren);
     
+    
+    
     foreach ($thisClassChildren as $kid) {
-        $pdf->Add_PDF_Label_SundaySchool($sundayschoolName, $kid['LastName'], $kid['firstName'],$kid['sundayschoolClass'],$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
+        $assignedProperties = Record2propertyR2pQuery::Create()
+                            ->findByR2pRecordId($kid['kidId']);
+                            
+        $props = "";
+        if (!empty($assignedProperties)) {
+            foreach ($assignedProperties as $assproperty) {
+                $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
+                $props.= $property->getProName()."\n";
+            }
+                
+            //$props = chop($props, "\n");
+                    
+            if (strlen($props)>0) {
+                $props = " !!! ".$props;
+            }
+        }
+        
+        $pdf->Add_PDF_Label_SundaySchool($sundayschoolName, $kid['LastName'], $kid['firstName'],$kid['sundayschoolClass'],$props,$sFirstNameFontSize, $image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition);
     }
 } // end of function GenerateLabels
 

@@ -191,7 +191,7 @@ class PDF_Label extends ChurchInfoReport
     }
     
     // Print a label
-    public function Add_PDF_Label_SundaySchool($title, $LastName, $firstName, $group, $sFirstNameFontSize = 20,$image='../Images/scleft1.png', 
+    public function Add_PDF_Label_SundaySchool($title, $LastName, $firstName, $group, $props='', $sFirstNameFontSize = 20,$image='../Images/scleft1.png', 
                                                $title_red=0, $title_gren=0, $title_blue=0,
                                                $back_red=255, $back_gren=255, $back_blue=255,
                                                $sImagePosition='Left')
@@ -216,11 +216,15 @@ class PDF_Label extends ChurchInfoReport
         $this->SetFontSize ($sFirstNameFontSize);
         $this->SetTextColor (0,0,0);
         $this->SetXY($_PosX, $_PosY + $this->_Height/2 - $this->_Get_Height_Chars($sFirstNameFontSize));
-        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $firstName),0,0,'C');
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($firstName)),0,0,'C');
 
         $this->SetFontSize (12);
         $this->SetXY($_PosX, $_PosY + $this->_Height/4*3 - $this->_Get_Height_Chars(12));
-        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', $LastName),0,0,'C');
+        $this->Cell($this->_Width,10,iconv('UTF-8', 'ISO-8859-1', mb_strtoupper($LastName)),0,0,'C');
+        
+        $this->SetFontSize (4);
+        $this->SetXY($_PosX+($sImagePosition == 'Left')?8:0, $_PosY + $this->_Height - 7);
+        $this->MultiCell($this->_Width-10,2,iconv('UTF-8', 'ISO-8859-1', $props),0,($sImagePosition == 'Left')?'L':'R');
         
         $this->SetFontSize (8);
         $this->SetXY($_PosX, $_PosY + $this->_Height - 10);
