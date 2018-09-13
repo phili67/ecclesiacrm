@@ -19,6 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\DonationFundTableMap;
+use EcclesiaCRM\Utils\OutputUtils;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
@@ -258,17 +259,17 @@ foreach ($ormAutopayments as $payment) {
     <td>
     <?php
       if ($payment->getEnableBankDraft()) {
-          echo 'Bank ACH';
+          echo gettext('Bank ACH');
       } elseif ($payment->getEnableCreditCard()) {
-          echo 'Credit Card';
+          echo gettext('Credit Card');
       } else {
-          echo 'Disabled';
+          echo gettext('Disabled');
       } ?>
     </td>
 
     <td><?= MakeFYString($payment->getFyid()) ?></td>
-    <td><?= $payment->getNextPayDate()->format('Y-m-d') ?></td>
-    <td><?= $payment->getAmount() ?></td>
+    <td><?= $payment->getNextPayDate()->format(SystemConfig::getValue('sDateFormatLong')) ?></td>
+    <td><?= OutputUtils::number_localized($payment->getAmount()) ?></td>
     <td><?= $payment->getInterval() ?></td>
     <td><?= $payment->getFunName() ?></td>
     <td><?= $payment->getBankName() ?></td>
@@ -279,18 +280,18 @@ foreach ($ormAutopayments as $payment) {
   <?php 
       if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
   ?>
-    <td align="center" id="AccountVanco<?= $aut_ID ?>"><?= $payment->getAccountVanco() ?></td>
+    <td align="center" id="AccountVanco<?= $payment->getId() ?>"><?= $payment->getAccountVanco() ?></td>
   <?php
     } 
   ?>
-    <td id="CreditCard<?= $aut_ID ?>">
+    <td id="CreditCard<?= $payment->getId() ?>">
       <?= (strlen($payment->getCreditCard()) == 16)?'*************'.mb_substr($payment->getCreditCard(), 12, 4):'' ?>
     </td>
     <td><?= $payment->getExpMonth() ?></td>
     <td><?= $payment->getExpYear() ?></td>
     <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 ?>
-    <td align="center" id="CreditCardVanco<?= $aut_ID ?>"><?= $payment->getCreditCardVanco() ?></td>
+    <td align="center" id="CreditCardVanco<?= $payment->getId() ?>"><?= $payment->getCreditCardVanco() ?></td>
     <?php
       } 
     ?>
@@ -317,9 +318,9 @@ foreach ($ormAutopayments as $payment) {
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   $("#PaymentMethodTable").DataTable({
-       "language": {
-         "url": window.CRM.plugin.dataTable.language.url
-       },
-       responsive: true
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    responsive: true
   });
 </script>
