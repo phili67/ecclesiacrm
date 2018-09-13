@@ -423,7 +423,7 @@ $(document).ready(function () {
         title:i18next.t('Edit'),
         data:'Id',
         render: function(data, type, full, meta) {        
-          return '<a class="btn btn-success" href="AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'">'+i18next.t('Edit')+'</a>';
+          return '<a class="btn btn-success" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'">'+i18next.t('Edit')+'</a>';
         }
       },
       {
@@ -596,7 +596,7 @@ $(document).ready(function () {
         title:i18next.t('Edit'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="btn btn-success" href="PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'">'+i18next.t("Edit")+'</a>';
+          return '<a class="btn btn-success" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'">'+i18next.t("Edit")+'</a>';
         }
       },
       {
