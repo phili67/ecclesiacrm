@@ -674,18 +674,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                         </div>
                     </div>
                 </div>
-                <?php if ($_SESSION['user']->isFinanceEnabled()) {
-        ?>
+              <?php 
+                  if ($_SESSION['user']->isFinanceEnabled()) {
+              ?>
                 <div role="tab-pane fade" class="tab-pane" id="finance">
                     <div class="main-box clearfix">
                         <div class="main-box-body clearfix">
-                            <?php if ($ormAutoPayments->count() > 0) {
-            ?>
+                            <?php 
+                              if ($ormAutoPayments->count() > 0) {
+                            ?>
             
                                 <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
                                 <?php
-        } ?>
+                                  } 
+                                ?>
                             <p align="center">
                                 <a class="btn btn-primary"
                                    href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
@@ -733,21 +736,22 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                    href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                             </p>
 
-                            <?php
-    } ?>
-
-                            <?php if ($_SESSION['user']->isCanvasserEnabled()) {
-        ?>
-
+                          <?php 
+                            if ($_SESSION['user']->isCanvasserEnabled()) {
+                          ?>
                             <p align="center">
                                 <a class="btn btn-default"
                                    href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                             </p>
+                          <?php
+                            } 
+                          ?>
                         </div>
                     </div>
                 </div>
             <?php
-    } ?>
+              } 
+            ?>
                 <div role="tab-pane fade" class="tab-pane" id="notes">
           <ul class="timeline">
             <!-- note time label -->
