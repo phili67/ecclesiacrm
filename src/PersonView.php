@@ -1047,15 +1047,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             </div>
           </div>
         </div>
-        <?php if ($_SESSION['user']->isFinanceEnabled()) {
-        ?>
+      <?php 
+        if ($_SESSION['user']->isFinanceEnabled()) {
+      ?>
         <div role="tab-pane fade" class="tab-pane" id="finance">
             <div class="main-box clearfix">
                 <div class="main-box-body clearfix">
                     <?php 
                       if ($ormAutoPayments->count() > 0) {
-                    ?>
-    
+                    ?>    
                         <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 
                     <?php
@@ -1107,10 +1107,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                            href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                     </p>
 
-              <?php
-                } 
-              ?>
-
               <?php 
                 if ($_SESSION['user']->isCanvasserEnabled()) {
               ?>
@@ -1118,12 +1114,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <a class="btn btn-default"
                            href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                     </p>
+              <?php
+                } 
+              ?>
                 </div>
             </div>
         </div>
-    <?php
-      } 
-    ?>
+      <?php
+        } 
+      ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'notes')?"active":"" ?>" id="notes" >
           <div class="row filter-note-type">
               <div class="col-md-1" style="line-height:27px">
