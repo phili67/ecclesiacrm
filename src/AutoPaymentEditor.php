@@ -12,7 +12,6 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'bin/vancowebservices.php';
 
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -24,36 +23,46 @@ use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\DonationFund;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
-$iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
-$iAutID = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
+$iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
+$iAutID   = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
 
 //Get Family name
 if ($iFamily) {    
     $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
+    $fam_Name = $ormFamily->getName();
 } else {
     $fam_Name = 'TBD';
 }
 
-if ($ormFamily == null) {
-  Redirect($linkBack);
+if (!is_null($ormFamily)) {
+  $onePersonFamily = (count($ormFamily->getPeople()) == 1)?true:false;
+  
+  $fam_Address1  = $ormFamily->getAddress1();
+  $fam_Address2  = $ormFamily->getAddress2();
+  $fam_City      = $ormFamily->getCity();
+  $fam_State     = $ormFamily->getState();
+  $fam_Zip       = $ormFamily->getZip();
+  $fam_Country   = $ormFamily->getCountry();
+  $fam_HomePhone = $ormFamily->getHomePhone();
+  $fam_Email     = $ormFamily->getEmail();  
+} else {
+  $onePersonFamily = true;
 }
-
-$onePersonFamily = (count($ormFamily->getPeople()) == 1)?true:false;
 
 if ($iAutID <= 0) {  // Need to create the record so there is a place to store the Vanco payment handle
     $dNextPayDate = date('Y-m-d');
-    $tFirstName = '';
-    $tLastName = '';
-    $tAddress1 = $ormFamily->getAddress1();
-    $tAddress2 = $ormFamily->getAddress2();
-    $tCity = $ormFamily->getCity();
-    $tState = $ormFamily->getState();
-    $tZip = $ormFamily->getZip();
-    $tCountry = $ormFamily->getCountry();
-    $tPhone = $ormFamily->getHomePhone();
-    $tEmail = $ormFamily->getEmail();
-    $iInterval = 1;
-    $iFund = 1;
+    $tFirstName   = '';
+    $tLastName    = '';
+    $tAddress1    = $fam_Address1;
+    $tAddress2    = $fam_Address2;
+    $tCity        = $fam_City;
+    $tState       = $fam_State;
+    $tZip         = $fam_Zip;
+    $tCountry     = $fam_Country;
+    $tPhone       = $fam_HomePhone;
+    $tEmail       = $fam_Email;
+    $iInterval    = 1;
+    $iFund        = 1;
 
     $bEnableBankDraft = 0;
     $bEnableCreditCard = 0;
@@ -62,50 +71,56 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $FYID = CurrentFY();
     $iFYID = $FYID;
 
-    $tCreditCard = '';
+    $tCreditCard      = '';
     $tCreditCardVanco = '';
-    $tExpMonth = '';
-    $tExpYear = '';
-    $tBankName = '';
-    $tRoute = '';
-    $tAccount = '';
-    $tAccountVanco = '';
+    $tExpMonth        = '';
+    $tExpYear         = '';
+    $tBankName        = '';
+    $tRoute           = '';
+    $tAccount         = '';
+    $tAccountVanco    = '';
 
     $nAmount = 0;
     
-    $autoPayment = new AutoPayment();
+    if ($iFamily > 0) {
+      $autoPayment = new AutoPayment();
+       
+      if ($iFund == 0) {
+        $iFund = null;
+      }
     
-    $autoPayment->setFamilyid($iFamily);
-    $autoPayment->setEnableBankDraft($bEnableBankDraft);
-    $autoPayment->setEnableCreditCard($bEnableCreditCard);
-    $autoPayment->setNextPayDate($dNextPayDate);
-    $autoPayment->setFyid($iFYID);
-    $autoPayment->setAmount($nAmount);
-    $autoPayment->setInterval($iInterval);
-    $autoPayment->setFund($iFund);
-    $autoPayment->setFirstName($tFirstName);
-    $autoPayment->setLastName($tLastName);
-    $autoPayment->setAddress1($tAddress1);
-    $autoPayment->setAddress2($tAddress2);
-    $autoPayment->setCity($tCity);
-    $autoPayment->setState($tState);
-    $autoPayment->setZip($tZip);
-    $autoPayment->setCountry($tCountry);
-    $autoPayment->setPhone($tPhone);
-    $autoPayment->setEmail($tEmail);
-    $autoPayment->setCreditCard($tCreditCard);
-    $autoPayment->setExpMonth($tExpMonth);
-    $autoPayment->setExpYear($tExpYear);
-    $autoPayment->setBankName($tBankName);
-    $autoPayment->setRoute($tRoute);
-    $autoPayment->setAccount($tAccount);
-    $autoPayment->setSerial(1);
-    $autoPayment->setDateLastEdited(date('YmdHis'));
-    $autoPayment->getEditedby($_SESSION['user']->getPersonId());
+      $autoPayment->setFamilyid($iFamily);
+      $autoPayment->setEnableBankDraft($bEnableBankDraft);
+      $autoPayment->setEnableCreditCard($bEnableCreditCard);
+      $autoPayment->setNextPayDate($dNextPayDate);
+      $autoPayment->setFyid($iFYID);
+      $autoPayment->setAmount($nAmount);
+      $autoPayment->setInterval($iInterval);
+      $autoPayment->setFund($iFund);
+      $autoPayment->setFirstName($tFirstName);
+      $autoPayment->setLastName($tLastName);
+      $autoPayment->setAddress1($tAddress1);
+      $autoPayment->setAddress2($tAddress2);
+      $autoPayment->setCity($tCity);
+      $autoPayment->setState($tState);
+      $autoPayment->setZip($tZip);
+      $autoPayment->setCountry($tCountry);
+      $autoPayment->setPhone($tPhone);
+      $autoPayment->setEmail($tEmail);
+      $autoPayment->setCreditCard($tCreditCard);
+      $autoPayment->setExpMonth($tExpMonth);
+      $autoPayment->setExpYear($tExpYear);
+      $autoPayment->setBankName($tBankName);
+      $autoPayment->setRoute($tRoute);
+      $autoPayment->setAccount($tAccount);
+      $autoPayment->setSerial(1);
+      $autoPayment->setDateLastEdited(date('YmdHis'));
+      $autoPayment->getEditedby($_SESSION['user']->getPersonId());
     
-    $autoPayment->save();
+      $autoPayment->save();
     
-    $iAutID = $autoPayment->getId();
+      $iAutID = $autoPayment->getId();
+    }
 }
 
 $sPageTitle = gettext('Automatic payment configuration');
@@ -113,7 +128,11 @@ $sPageTitle = gettext('Automatic payment configuration');
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family']);
-
+    
+    if ($iFamily == 0) {
+      Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
+    }
+    
     $enableCode = InputUtils::LegacyFilterInput($_POST['EnableButton']);
     $bEnableBankDraft = ($enableCode == 1);
     if (!$bEnableBankDraft) {
@@ -130,32 +149,36 @@ if (isset($_POST['Submit'])) {
         $nAmount = 0;
     }
 
-    $iFYID = InputUtils::LegacyFilterInput($_POST['FYID']);
+    $iFYID     = InputUtils::LegacyFilterInput($_POST['FYID']);
 
-    $iInterval = InputUtils::LegacyFilterInput($_POST['Interval'], 'int');
-    $iFund = InputUtils::LegacyFilterInput($_POST['Fund'], 'int');
+    $iInterval = InputUtils::FilterInt($_POST['Interval']);
+    $iFund     = InputUtils::FilterInt($_POST['Fund']);
 
-    $tFirstName = InputUtils::LegacyFilterInput($_POST['FirstName']);
-    $tLastName = InputUtils::LegacyFilterInput($_POST['LastName']);
+    $tFirstName = InputUtils::FilterString($_POST['FirstName']);
+    $tLastName  = InputUtils::FilterString($_POST['LastName']);
 
-    $tAddress1 = InputUtils::LegacyFilterInput($_POST['Address1']);
-    $tAddress2 = InputUtils::LegacyFilterInput($_POST['Address2']);
-    $tCity = InputUtils::LegacyFilterInput($_POST['City']);
-    $tState = InputUtils::LegacyFilterInput($_POST['State']);
-    $tZip = InputUtils::LegacyFilterInput($_POST['Zip']);
-    $tCountry = InputUtils::LegacyFilterInput($_POST['Country']);
-    $tPhone = InputUtils::LegacyFilterInput($_POST['Phone']);
-    $tEmail = InputUtils::LegacyFilterInput($_POST['Email']);
+    $tAddress1 = InputUtils::FilterString($_POST['Address1']);
+    $tAddress2 = InputUtils::FilterString($_POST['Address2']);
+    $tCity     = InputUtils::FilterString($_POST['City']);
+    $tState    = InputUtils::FilterString($_POST['State']);
+    $tZip      = InputUtils::LegacyFilterInput($_POST['Zip']);
+    $tCountry  = InputUtils::FilterString($_POST['Country']);
+    $tPhone    = InputUtils::LegacyFilterInput($_POST['Phone']);
+    $tEmail    = InputUtils::LegacyFilterInput($_POST['Email']);
 
     $tCreditCard = InputUtils::LegacyFilterInput($_POST['CreditCard']);
     $tExpMonth = InputUtils::LegacyFilterInput($_POST['ExpMonth']);
     $tExpYear = InputUtils::LegacyFilterInput($_POST['ExpYear']);
 
-    $tBankName = InputUtils::LegacyFilterInput($_POST['BankName']);
-    $tRoute = InputUtils::LegacyFilterInput($_POST['Route']);
-    $tAccount = InputUtils::LegacyFilterInput($_POST['Account']);
+    $tBankName = InputUtils::FilterString($_POST['BankName']);
+    $tRoute    = InputUtils::LegacyFilterInput($_POST['Route']);
+    $tAccount  = InputUtils::LegacyFilterInput($_POST['Account']);
     
     $autoPayment = AutoPaymentQuery::Create()->findOneById($iAutID);
+    
+    if ($iFund == 0) {
+      $iFund = null;
+    }
     
     $autoPayment->setFamilyid($iFamily);
     $autoPayment->setEnableBankDraft($bEnableBankDraft);
@@ -190,17 +213,19 @@ if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($linkBack != '') {
           $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
-          $people = $ormFamily->getActivatedPeople();
-          if (!empty($people) && count($people) == 1) {
-             $personId = -1;
+          if (!is_null ($ormFamily)) {
+            $people = $ormFamily->getActivatedPeople();
+            if (!empty($people) && count($people) == 1) {
+               $personId = -1;
              
-             foreach ($people as $person) {
-               $personId = $person->getId();
-             }
+               foreach ($people as $person) {
+                 $personId = $person->getId();
+               }
              
-             if ($personId > 0) {
-                Redirect("PersonView.php?PersonID=".$personId);
-             }
+               if ($personId > 0) {
+                  Redirect("PersonView.php?PersonID=".$personId);
+               }
+            }
           }
           Redirect($linkBack);
         } else {
@@ -208,7 +233,7 @@ if (isset($_POST['Submit'])) {
             Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
         }
     }
-} else { // not submitting, just get ready to build the page
+} else if ($iAutID > 0) {// not submitting, just get ready to build the page
     $autoPayment = AutoPaymentQuery::Create()->findOneById($iAutID);
     
     $iFamily = $autoPayment->getFamilyid();
@@ -769,7 +794,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("For the") ?> : <?=  $ormFamily->getName() . " " . (($onePersonFamily == true)?gettext('Person'):gettext('Family')) ?></h3>
+    <h3 class="box-title"><?= gettext("For the").' '.(($onePersonFamily == true)?gettext('Person'):gettext('Family'))?> : <?=  $fam_Name ?></h3>
   </div>
   <div class="body-text">
     <form method="post"  style="padding:10px"
@@ -778,9 +803,10 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
           <div class="row">
             <div class="col-md-3">
-                <label><?= ($onePersonFamily == true)?gettext('Person'):gettext('Family') ?>:</label>
+                <label><?= gettext('Person').' '.gettext('or').' '.gettext('Family') ?>:</label>
             </div>
             <div class="col-md-4">
+                <div class="callout callout-danger"><?= gettext("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
                 <select name="Family" id="optionFamily" style="width:100%">
                    <option value="0" selected><?= gettext('Unassigned') ?></option>
                    <option value="0">-----------------------</option>
@@ -854,16 +880,16 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              </div>
              <div class="col-md-4">                            
                   <select name="Fund" class="form-control">
-                                    <option value="0"><?= gettext('None') ?></option>
-                                    <?php
-                                    foreach ($ormFunds as $fund) {
-                                        ?>
-                                        <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . gettext('inactive') . ')':'') ?> 
-                                        </option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
+                      <option value="0"><?= gettext('None') ?></option>
+                      <?php
+                      foreach ($ormFunds as $fund) {
+                          ?>
+                          <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . gettext('inactive') . ')':'') ?> 
+                          </option>
+                      <?php
+                      }
+                      ?>
+                  </select>
              </div>
           </div>
           <div class="row">
@@ -954,9 +980,9 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 <input type="text" id="CreditCard" name="CreditCard" value="<?= $tCreditCard ?>" class="form-control">
              </div>
           </div>
-                        <?php
-                        if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-                            ?>
+        <?php
+          if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
+        ?>
           <div class="row">
              <div class="col-md-3">
                   <label><?= gettext('Vanco Credit Card Method') ?></label>
@@ -965,10 +991,9 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                     <input type="text" id="CreditCardVanco" name="CreditCardVanco" value="<?= $tCreditCardVanco ?>" readonly class="form-control">
              </div>
           </div>
-                            <?php
-                        }
-                        ?>
-
+        <?php
+          }
+        ?>
           <div class="row">
              <div class="col-md-3">
                 <label><?= gettext('Expiration Month') ?></label>
@@ -1009,9 +1034,9 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                  <input type="text" id="Account" name="Account" value="<?= $tAccount ?>" class="form-control">
              </div>
           </div>
-                        <?php
-                        if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-                            ?>
+        <?php
+          if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
+        ?>
           <div class="row">
              <div class="col-md-3">
                   <label><?= gettext('Vanco Bank Account Method') ?></label>
@@ -1020,32 +1045,31 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                   <input type="text" id="AccountVanco" name="AccountVanco" value="<?= $tAccountVanco ?>" readonly class="form-control">
              </div>
           </div>
-                            <?php
-                        }
-                        ?>
+      <?php
+        }
+      ?>
 
-                        <?php
-                        if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
-                            ?>
+      <?php
+        if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
+      ?>
           <div class="row">
              <div class="col-md-12">
-                                    <?php
-                                    if ($iAutID > 0) {
-                                        ?>
-                                        <input type="button" id="PressToCreatePaymentMethod"
-                                               value="<?= _("Store Private Data at Vanco") ?>"
-                                               onclick="CreatePaymentMethod();"/>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <b>Save this record to enable storing private data at Vanco</b>
-                                        <?php
-                                    } ?>
+                <?php
+                  if ($iAutID > 0) {
+                ?>
+                  <input type="button" id="PressToCreatePaymentMethod" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethod();"/>
+                <?php
+                  } else {
+                ?>
+                  <b>Save this record to enable storing private data at Vanco</b>
+                <?php
+                  } 
+                ?>
              </div>
           </div>
-                            <?php
-                        }
-                        ?>
+      <?php
+        }
+      ?>
           <div class="row">
              <div class="col-md-12">
                &nbsp;
@@ -1059,11 +1083,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              </div>
              <div class="col-md-4"> 
                     <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel"
-                           onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
-    echo $linkBack;
-} else {
-    echo 'Menu.php';
-} ?>';">
+                           onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'Menu.php' ?>';">
              </div>
              <div class="col-md-4"> 
              </div>
@@ -1074,6 +1094,9 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 </div>
     
 <script>
+   var iFamily  = <?= (empty($iFamily)?0:$iFamily) ?>;
+   var iAutID   = <?= (empty($iAutID)?0:$iAutID) ?>;
+   
     $(document).ready(function() {
       var selectedItem = $("#optionFamily option:selected").val();
       
@@ -1082,12 +1105,71 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
   
   
       $('#optionFamily').change(function(data) {
-        if (this.value == -1) {
-          $('#optionFamily').attr('size', '2');    
-          $("#familyAdress").fadeIn(1000);
+        var famID = this.value;
+        
+        if (famID == 0) {
+           $('#Country').val('');
+           $('#State').val('');
+           $('#LastName').val('');
+           $('#Address1').val('');
+           $('#Address2').val('');
+           $('#City').val('');
+           $('#Zip').val('');
+           $('#Phone').val('');
+           $('#Email').val('');
+           $('#CreditCard').val('');
+           $('#ExpMonth').val('');
+           $('#ExpYear').val('');
+           $('#BankName').val('');
+           $('#Route').val('');
+           $('#Account').val('');
         }  else {
-          $('#optionFamily').attr('size', '8');
-          $("#familyAdress").fadeOut(100);
+          if (famID != iFamily) {
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'families/info',
+               data: JSON.stringify({"familyId":famID})
+            }).done(function(data) {
+               $('#Country').val(data.Country);
+               $('#State').val(data.State);
+               $('#LastName').val(data.Name);
+               $('#Address1').val(data.Address1);
+               $('#Address2').val(data.Address2);
+               $('#City').val(data.City);
+               $('#Zip').val(data.Zip);
+               $('#Phone').val(data.HomePhone);
+               $('#Email').val(data.Email);
+               $('#CreditCard').val('');
+               $('#ExpMonth').val('');
+               $('#ExpYear').val('');
+               $('#BankName').val('');
+               $('#Route').val('');
+               $('#Account').val('');
+            });
+          } else {
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'payments/info',
+               data: JSON.stringify({"autID":iAutID})
+            }).done(function(data) {
+               $('#Country').val(data.Country);
+               $('#State').val(data.State);
+               $('#FirstName').val(data.FirstName);
+               $('#LastName').val(data.LastName);
+               $('#Address1').val(data.Address1);
+               $('#Address2').val(data.Address2);
+               $('#City').val(data.City);
+               $('#Zip').val(data.Zip);
+               $('#Phone').val(data.HomePhone);
+               $('#Email').val(data.Email);
+               $('#CreditCard').val(data.CreditCard);
+               $('#ExpMonth').val(data.ExpMonth);
+               $('#ExpYear').val(data.ExpYear);
+               $('#BankName').val(data.BankName);
+               $('#Route').val(data.Route);
+               $('#Account').val(data.Account);
+            });
+          }
         }
       });
       $("#optionFamily").select2();
