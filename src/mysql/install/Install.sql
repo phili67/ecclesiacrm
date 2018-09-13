@@ -161,51 +161,6 @@ CREATE TABLE `version_ver` (
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=1 ;
 
 
-
---
--- Table structure for table `autopayment_aut`
---
-
-CREATE TABLE `autopayment_aut` (
-  `aut_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `aut_FamID` mediumint(9) unsigned NOT NULL default '0',
-  `aut_EnableBankDraft` tinyint(1) unsigned NOT NULL default '0',
-  `aut_EnableCreditCard` tinyint(1) unsigned NOT NULL default '0',
-  `aut_NextPayDate` date default NULL,
-  `aut_FYID` mediumint(9) NOT NULL default '9',
-  `aut_Amount` decimal(6,2) NOT NULL default '0.00',
-  `aut_Interval` tinyint(3) NOT NULL default '1',
-  `aut_Fund` mediumint(6) NOT NULL default '0',
-  `aut_FirstName` varchar(50) default NULL,
-  `aut_LastName` varchar(50) default NULL,
-  `aut_Address1` varchar(255) default NULL,
-  `aut_Address2` varchar(255) default NULL,
-  `aut_City` varchar(50) default NULL,
-  `aut_State` varchar(50) default NULL,
-  `aut_Zip` varchar(50) default NULL,
-  `aut_Country` varchar(50) default NULL,
-  `aut_Phone` varchar(30) default NULL,
-  `aut_Email` varchar(100) default NULL,
-  `aut_CreditCard` varchar(50) default NULL,
-  `aut_ExpMonth` varchar(2) default NULL,
-  `aut_ExpYear` varchar(4) default NULL,
-  `aut_BankName` varchar(50) default NULL,
-  `aut_Route` varchar(30) default NULL,
-  `aut_Account` varchar(30) default NULL,
-  `aut_DateLastEdited` datetime default NULL,
-  `aut_EditedBy` smallint(5) unsigned default '0',
-  `aut_Serial` mediumint(9) NOT NULL default '1',
-  `aut_CreditCardVanco` varchar(50) default NULL,
-  `aut_AccountVanco` varchar(50) default NULL,
-  PRIMARY KEY  (`aut_ID`),
-  UNIQUE KEY `aut_ID` (`aut_ID`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `autopayment_aut`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -1657,3 +1612,55 @@ CREATE TABLE `menu_links` (
     REFERENCES person_per(per_ID)
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Table structure for table `autopayment_aut`
+--
+
+CREATE TABLE `autopayment_aut` (
+  `aut_ID` mediumint(9) unsigned NOT NULL auto_increment,
+  `aut_FamID` mediumint(9) unsigned NOT NULL default '0',
+  `aut_EnableBankDraft` tinyint(1) unsigned NOT NULL default '0',
+  `aut_EnableCreditCard` tinyint(1) unsigned NOT NULL default '0',
+  `aut_NextPayDate` date default NULL,
+  `aut_FYID` mediumint(9) NOT NULL default '9',
+  `aut_Amount` decimal(6,2) NOT NULL default '0.00',
+  `aut_Interval` tinyint(3) NOT NULL default '1',
+  `aut_Fund` tinyint(3) default NULL,
+  `aut_FirstName` varchar(50) default NULL,
+  `aut_LastName` varchar(50) default NULL,
+  `aut_Address1` varchar(255) default NULL,
+  `aut_Address2` varchar(255) default NULL,
+  `aut_City` varchar(50) default NULL,
+  `aut_State` varchar(50) default NULL,
+  `aut_Zip` varchar(50) default NULL,
+  `aut_Country` varchar(50) default NULL,
+  `aut_Phone` varchar(30) default NULL,
+  `aut_Email` varchar(100) default NULL,
+  `aut_CreditCard` varchar(50) default NULL,
+  `aut_ExpMonth` varchar(2) default NULL,
+  `aut_ExpYear` varchar(4) default NULL,
+  `aut_BankName` varchar(50) default NULL,
+  `aut_Route` varchar(30) default NULL,
+  `aut_Account` varchar(30) default NULL,
+  `aut_DateLastEdited` datetime default NULL,
+  `aut_EditedBy` mediumint(9) unsigned NULL,
+  `aut_Serial` mediumint(9) NOT NULL default '1',
+  `aut_CreditCardVanco` varchar(50) default NULL,
+  `aut_AccountVanco` varchar(50) default NULL,
+  PRIMARY KEY  (`aut_ID`),
+  UNIQUE KEY `aut_ID` (`aut_ID`),
+  CONSTRAINT fk_aut_FamID
+    FOREIGN KEY (aut_FamID) REFERENCES family_fam(fam_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_aut_Fund
+    FOREIGN KEY (aut_Fund) REFERENCES donationfund_fun(fun_ID)
+    ON DELETE SET NULL,
+  CONSTRAINT fk_aut_EditedBy
+    FOREIGN KEY (aut_EditedBy) REFERENCES person_per(per_ID)
+    ON DELETE SET NULL
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `autopayment_aut`
+--
