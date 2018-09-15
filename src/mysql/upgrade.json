@@ -429,6 +429,7 @@
             "4.7.2"
         ],
         "scripts": [
+          "/mysql/upgrade/4.7.3-upgrade.php"
         ],
         "dbVersion": "4.7.3"
     }
