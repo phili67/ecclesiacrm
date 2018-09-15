@@ -307,7 +307,7 @@ foreach ($ormAutopayments as $payment) {
 <b><?= gettext("With checked") ?>:</b><br>
 <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     ?>
-<input type="button" class="btn" id="CreatePaymentMethodsForChecked" value="Store Private Data at Vanco" onclick="CreatePaymentMethodsForChecked();" />
+<input type="button" class="btn" id="CreatePaymentMethodsForChecked" value="<?= gettext("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
 <?php
 } ?>
 <input type="button" class="btn btn-warning" id="DeleteChecked" value="<?= gettext("Delete") ?>" onclick="DeleteChecked();" />
