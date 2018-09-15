@@ -43,11 +43,14 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
 }
 
 ?>
+
+<div class="callout callout-info"><?= gettext("Informations ! When you add some properties to a person they will be add to the badge.") ?></div>
+
 <div class="box">
       <div class="box-header with-border">
           <h3 class="box-title"><?= _('Generate Badges') ?></h3>
       </div>
-      <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFLabelSundaySchool.php" name="labelform">
+      <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadgeSundaySchool.php" name="labelform">
       <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
       <div class="box-body">
           <table class="table table-hover dt-responsive" id="cart-label-table" width="100%">
@@ -63,7 +66,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                    <?= gettext("Sunday School Name") ?>
                 </td>
                 <td>
-                  <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolName'] ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
+                  <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
                 </td>
              </tr>
              <tr>
@@ -74,7 +77,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                   <div class="input-group my-colorpicker-global my-colorpicker-title colorpicker-element" data-id="38,44">
                     <input id="checkBox" type="hidden" name="title-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
                     <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
-                    <div class="input-group-addon" style="border-left: 1">
+                    <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
                        <i style="background-color: rgb(26, 43, 94);"></i>
                     </div>
                   </div>
@@ -88,7 +91,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                   <div class="input-group my-colorpicker-global my-colorpicker-back colorpicker-element" data-id="38,44">
                     <input id="checkBox" type="hidden" name="backgroud-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
                     <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
-                    <div class="input-group-addon" style="border-left: 1">
+                    <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
                        <i style="background-color: rgb(26, 43, 94);"></i>
                     </div>
                   </div>
@@ -100,7 +103,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 </td>
                 <td>
                   <?php
-                      $image = (empty($_COOKIE["image"]))?'scleft1.png':$_COOKIE["image"];
+                      $image = (empty($_COOKIE["imageSC"]))?'scleft1.png':$_COOKIE["imageSC"];
                   ?>
                   <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
                 </td>
@@ -109,7 +112,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 <td>
                 </td>
                 <td>
-                   <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png and scleft2.png.") ?>)</b>
+                   <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png, scleft2.png and sccenter.jpg.") ?>)</b>
                 </td>
              </tr>
              <tr>
@@ -118,8 +121,9 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                 </td>
                 <td>
                    <select name="imagePosition" class="form-control input-sm">
-                     <option value="Left" <?= ($_COOKIE["imagePosition"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
-                     <option value="Right" <?= ($_COOKIE["imagePosition"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>
+                     <option value="Left" <?= ($_COOKIE["imagePositionSC"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
+                     <option value="Center" <?= ($_COOKIE["imagePositionSC"] == 'Center')?'selected':'' ?>><?= gettext('Center') ?></option>
+                     <option value="Right" <?= ($_COOKIE["imagePositionSC"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>
                   </select>
                 </td>
              </tr>
@@ -150,8 +154,8 @@ require '../Include/Footer.php';
 <link href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-    var back = "<?= (empty($_COOKIE["sBackgroudColor"]))?'#F99':$_COOKIE["sBackgroudColor"] ?>";
-    var title = "<?= (empty($_COOKIE["sTitleColor"]))?'#3A3':$_COOKIE["sTitleColor"] ?>";
+    var back = "<?= (empty($_COOKIE["sBackgroudColorSC"]))?'#F99':$_COOKIE["sBackgroudColorSC"] ?>";
+    var title = "<?= (empty($_COOKIE["sTitleColorSC"]))?'#3A3':$_COOKIE["sTitleColorSC"] ?>";
     
     $(".my-colorpicker-back").colorpicker({
       color:back,

@@ -161,6 +161,7 @@ class MenuBar {
           $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $ormAssignedProperty->getGroupId(),true,$menuItem);
           $menuItemItem->addLink("GroupEditor.php?GroupID=" . $ormAssignedProperty->getGroupId());
           $menuItemItem->addLink("GroupView.php?GroupID=" . $ormAssignedProperty->getGroupId());
+          $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $ormAssignedProperty->getGroupId());
       }
       
       // the non assigned group to a group property
