@@ -126,6 +126,7 @@ if (!Cart::HasPeople()) {
         } ?>
             <a href="Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app bg-aqua"><i
                         class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>      
+            <a class="btn btn-app bg-purple" href="CartToBadge.php" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Badges") ?></span></a>
         <?php
             if (Cart::CountPeople() != 0) {
 
