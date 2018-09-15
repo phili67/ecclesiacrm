@@ -20,18 +20,27 @@ function FontSelect($fieldname,$path='')
     $sFPDF_PATH = $path.'vendor/setasign/fpdf';
 
     $d = scandir($sFPDF_PATH.'/font/', SCANDIR_SORT_DESCENDING);
+    
     $fontnames = [];
     $family = ' ';
     foreach ($d as $entry) {
         $len = strlen($entry);
         if ($len > 3) {
-            if (strtoupper(mb_substr($entry, $len - 3)) == 'PHP') { // php files only
-                $filename = mb_substr($entry, 0, $len - 4);
-                if (mb_substr($filename, 0, strlen($family)) != $family) {
-                    $family = $filename;
-                }
-                $fontnames[] = FilenameToFontname($filename, $family);
-            }
+            $r = file_get_contents ($sFPDF_PATH.'/font/'.$entry);
+            $res = explode('$name = \'', $r);
+            $font = explode ("';",$res[1]);
+            
+            $font = $font[0];
+            
+            $font = str_replace ("-BoldOblique"," Bold Italic",$font);
+            $font = str_replace ("-BoldItalic"," Bold Italic",$font);
+            $font = str_replace ("-Bold"," Bold",$font);
+            $font = str_replace ("-Oblique"," Italic",$font);
+            $font = str_replace ("-Italic"," Italic",$font);
+            $font = str_replace ("-Roman","",$font);
+            $font = str_replace ("-"," ",$font);
+            
+            $fontnames[] = $font;
         }
     }
 
