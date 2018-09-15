@@ -415,7 +415,7 @@
         ],
         "dbVersion": "4.7.1"
     },
-    "current": {
+    "4.7.2": {
         "versions": [
             "4.7.1"
         ],
@@ -423,6 +423,13 @@
            "/mysql/upgrade/4.7.2-upgrade.sql"
         ],
         "dbVersion": "4.7.2"
+    },
+    "current": {
+        "versions": [
+            "4.7.2"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "4.7.3"
     }
-
 }
