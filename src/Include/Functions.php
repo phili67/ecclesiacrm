@@ -1092,23 +1092,6 @@ function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   }
 }
 
-function FilenameToFontname($filename, $family)
-{
-    if ($filename == $family) {
-        return ucfirst($family);
-    } else {
-        if (strlen($filename) - strlen($family) == 2) {
-            return ucfirst($family).gettext(' Bold Italic');
-        } else {
-            if (mb_substr($filename, strlen($filename) - 1) == 'i') {
-                return ucfirst($family).gettext(' Italic');
-            } else {
-                return ucfirst($family).gettext(' Bold');
-            }
-        }
-    }
-}
-
 function FontFromName($fontname)
 {
     $fontinfo = explode(' ', $fontname);
