@@ -10,13 +10,13 @@
 
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/LabelFunctions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\utils\LabelUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = _('View Your Cart');
@@ -79,8 +79,8 @@ if (!Cart::HasPeople()) {
 
     <!-- BEGIN CART FUNCTIONS -->
     <?php
-    if (Cart::CountPeople() > 0) {
-        ?>
+      if (Cart::CountPeople() > 0) {
+    ?>
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title"><?= _("Cart Functions") ?></h3>
@@ -237,63 +237,55 @@ if (!Cart::HasPeople()) {
                 <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-                <?php
-            } ?>
+            <?php
+            } 
+            ?>
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title"><?= _('Generate Labels') ?></h3>
                 </div>
                 <form method="get" action="Reports/PDFLabel.php" name="labelform">
-                <div class="box-body">
-                    <table class="table table-hover dt-responsive" id="cart-label-table" width="100%">
-                           <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                  <div class="box-body">
                       <?php
-                        LabelGroupSelect('groupbymode');
+                        LabelUtils::LabelGroupSelect('groupbymode');
                       ?>
-             
-                      <tr>
-                        <td>
-                           <?= _('Bulk Mail Presort') ?>
-                        </td>                           
-                        <td>
-                           <input name="bulkmailpresort" type="checkbox" onclick="codename()" id="BulkMailPresort" value="1" <?= (array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>><br>
-                        </td>
-                      </tr>
-                      <tr>
-                         <td><?= _('Quiet Presort') ?></td>
-                         <td>
-                           <!-- // This would be better with $_SESSION variable -->
-                           <!-- // instead of cookie ... (save $_SESSION in MySQL) -->
-                           <input <?= (array_key_exists('buildmailpresort', $_COOKIE) && !$_COOKIE['bulkmailpresort'])?'disabled ':'' ?> name="bulkmailquiet" type="checkbox" onclick="codename()" id="QuietBulkMail" value="1" <?= (array_key_exists('bulkmailquiet', $_COOKIE) && $_COOKIE['bulkmailquiet'] && array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>>
-                           <br>
-                         </td>
-                      </tr>
-                          <?php
-                          ToParentsOfCheckBox('toparents');
-                          LabelSelect('labeltype');
-                          FontSelect('labelfont');
-                          FontSizeSelect('labelfontsize');
-                          StartRowStartColumn();
-                          IgnoreIncompleteAddresses();
-                          LabelFileType(); 
-                          ?>
-                      </tbody>
-                    </table>
-                <div class="row">
-                  <div class="col-md-5"></div>
-                  <div class="col-md-4">
-                  <input type="submit" class="btn btn-primary" value="<?= _('Generate Labels') ?>" name="Submit">
+                      <div class="row">
+                        <div class="col-md-6">
+                            <?= _('Bulk Mail Presort') ?>
+                        </div>                           
+                        <div class="col-md-6">
+                            <input name="bulkmailpresort" type="checkbox" onclick="codename()" id="BulkMailPresort" value="1" <?= (array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>><br>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <?= _('Quiet Presort') ?>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- // This would be better with $_SESSION variable -->
+                            <!-- // instead of cookie ... (save $_SESSION in MySQL) -->
+                            <input <?= (array_key_exists('buildmailpresort', $_COOKIE) && !$_COOKIE['bulkmailpresort'])?'disabled ':'' ?> name="bulkmailquiet" type="checkbox" onclick="codename()" id="QuietBulkMail" value="1" <?= (array_key_exists('bulkmailquiet', $_COOKIE) && $_COOKIE['bulkmailquiet'] && array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>>
+                        </div>
+                      </div>
+                            <?php
+                              LabelUtils::ToParentsOfCheckBox('toparents');
+                              LabelUtils::LabelSelect('labeltype');
+                              LabelUtils::FontSelect('labelfont');
+                              LabelUtils::FontSizeSelect('labelfontsize');
+                              LabelUtils::StartRowStartColumn();
+                              LabelUtils::IgnoreIncompleteAddresses();
+                              LabelUtils::LabelFileType(); 
+                            ?>
                   </div>
-                </div>
-              </div>
-            </form>
+                  <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-4">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Generate Labels') ?>" name="Submit">
+                    </div>
+                  </div>
+                  <br>
+                </form>
             <!-- /.box-body -->
             </div>
 
@@ -314,7 +306,7 @@ if (!Cart::HasPeople()) {
             </div>
             <div class="box-body">
                 <table class="table table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
-                    <thead>
+                  <thead>
                     <tr>
                         <th><?= _('Name') ?></th>
                         <th><?= _('Address') ?></th>
@@ -323,9 +315,8 @@ if (!Cart::HasPeople()) {
                         <th><?= _('Classification') ?></th>
                         <th><?= _('Family Role') ?></th>
                     </tr>
-                    </thead>
-
-                    <tbody>
+                  </thead>
+                  <tbody>
                     <?php
                     $sEmailLink = '';
                     $iEmailNum = 0;

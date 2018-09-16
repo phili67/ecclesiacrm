@@ -68,7 +68,7 @@ function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,
 $iGroupId = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 
 // sunday school name
-$sundaySchoolName = InputUtils::LegacyFilterInput($_GET['sundaySchoolName'], 'char',255);
+$sundaySchoolName = InputUtils::FilterString($_GET['sundaySchoolName']);
 setcookie('sundaySchoolNameSC', $sundaySchoolName, time() + 60 * 60 * 24 * 90, '/');
 
 // background color
