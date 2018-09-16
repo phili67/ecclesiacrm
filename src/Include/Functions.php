@@ -1092,19 +1092,6 @@ function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   }
 }
 
-function FontFromName($fontname)
-{
-    $fontinfo = explode(' ', $fontname);
-    switch (count($fontinfo)) {
-    case 1:
-      return [$fontinfo[0], ''];
-    case 2:
-      return [$fontinfo[0], mb_substr($fontinfo[1], 0, 1)];
-    case 3:
-      return [$fontinfo[0], mb_substr($fontinfo[1], 0, 1).mb_substr($fontinfo[2], 0, 1)];
-  }
-}
-
 // Figure out the class ID for "Member", should be one (1) unless they have been playing with the
 // classification manager.
 function FindMemberClassID()

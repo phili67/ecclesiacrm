@@ -26,6 +26,7 @@ use EcclesiaCRM\Utils\OutpuUtils;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
@@ -113,7 +114,7 @@ setcookie('labeltypeSC', $sLabelType, time() + 60 * 60 * 24 * 90, '/');
 
 $pdf = new PDF_Badge($sLabelType, $startcol, $startrow);
 
-$sFontInfo = FontFromName($_GET['labelfont']);
+$sFontInfo = MiscUtils::FontFromName($_GET['labelfont']);
 setcookie('labelfontSC', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
 
 // set the Font Size for the FirstName

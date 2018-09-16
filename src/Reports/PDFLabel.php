@@ -26,6 +26,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {
@@ -712,7 +713,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
             }
 
             if ($bToParents && ($key == 'child')) {
-                $sName = "To the parents of:\n".$sName;
+                $sName = gettext("To the parents of").":\n".$sName;
             }
 
             SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
@@ -790,7 +791,7 @@ setcookie('labeltype', $sLabelType, time() + 60 * 60 * 24 * 90, '/');
 
 $pdf = new PDF_Label($sLabelType, $startcol, $startrow);
 
-$sFontInfo = FontFromName($_GET['labelfont']);
+$sFontInfo = MiscUtils::FontFromName($_GET['labelfont']);
 setcookie('labelfont', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
 $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
