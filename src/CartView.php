@@ -68,18 +68,16 @@ if (!Cart::HasPeople()) {
     $iNumPersons = Cart::CountPeople();
     $iNumFamilies = Cart::CountFamilies();
 
-    if ($iNumPersons > 16) {
+    /*if ($iNumPersons > 16) {
         ?>
         <form method="get" action="CartView.php#GenerateLabels">
         <input type="submit" class="btn" name="gotolabels"
         value="<?= _('Go To Labels') ?>">
         </form>
         <?php
-    } ?>
+    }*/ ?>
 
     <!-- BEGIN CART FUNCTIONS -->
-
-
     <?php
     if (Cart::CountPeople() > 0) {
         ?>
@@ -96,7 +94,7 @@ if (!Cart::HasPeople()) {
         }
         if ($_SESSION['user']->isAddRecordsEnabled()) {
             ?>
-            <a href="CartToFamily.php" class="btn btn-app"><i
+            <a href="<?= SystemURLs::getRootPath() ?>/CartToFamily.php" class="btn btn-app"><i
                         class="fa fa-users"></i><?= _('Empty Cart to Family') ?></a>
             <?php
         } ?>
@@ -106,27 +104,27 @@ if (!Cart::HasPeople()) {
         <?php
             if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
         ?>
-              <a href="MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
         <?php
             } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
         ?>
-              <a href="MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
         <?php
             } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
         ?>
-              <a href="MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>        
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>        
         <?php
             }
         ?>
         <?php if ($bExportCSV) {
             ?>
-                <a href="CSVExport.php?Source=cart" class="btn btn-app bg-green"><i
+                <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php?Source=cart" class="btn btn-app bg-green"><i
                             class="fa fa-file-excel-o"></i><?= _('CSV Export') ?></a>
                 <?php
         } ?>
-            <a href="Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app bg-aqua"><i
+            <a href="<?= SystemURLs::getRootPath() ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app bg-aqua"><i
                         class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>      
-            <a class="btn btn-app bg-purple" href="CartToBadge.php" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Badges") ?></span></a>
+            <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/CartToBadge.php" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Badges") ?></span></a>
         <?php
             if (Cart::CountPeople() != 0) {
 
@@ -212,7 +210,7 @@ if (!Cart::HasPeople()) {
                     <?php
                     }
                 } ?>
-                <a href="DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
+                <a href="<?= SystemURLs::getRootPath() ?>/DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
                             class="fa fa-book"></i><?= _('Create Directory From Cart') ?></a>
                             
              <?php   if ($_SESSION['user']->isAddRecordsEnabled()) {
@@ -371,7 +369,7 @@ if (!Cart::HasPeople()) {
                         <tr>
                             <td>
                                 <img src="<?= $thumbnail ?>" class="direct-chat-img initials-image">&nbsp
-                                <a href="PersonView.php?PersonID=<?= $person->getId() ?>">
+                                <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $person->getId() ?>">
                                     <?= FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 1) ?>
                                 </a>
                             </td>
