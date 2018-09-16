@@ -14,13 +14,14 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
 setcookie('labeltype', $sLabelFormat, time() + 60 * 60 * 24 * 90, '/');
 
 $pdf = new PDF_Label($sLabelFormat);
 
-$sFontInfo = FontFromName($_GET['labelfont']);
+$sFontInfo = MiscUtils::FontFromName($_GET['labelfont']);
 setcookie('labelfont', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
 $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');

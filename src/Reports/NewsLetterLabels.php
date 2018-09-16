@@ -15,6 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_NewsletterLabels;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
 $bRecipientNamingMethod = $_GET['recipientnamingmethod'];
@@ -23,7 +24,7 @@ setcookie('labeltype', $sLabelFormat, time() + 60 * 60 * 24 * 90, '/');
 // Instantiate the directory class and build the report.
 $pdf = new PDF_NewsletterLabels($sLabelFormat);
 
-$sFontInfo = FontFromName($_GET['labelfont']);
+$sFontInfo = MiscUtils::FontFromName($_GET['labelfont']);
 setcookie('labelfont', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
 $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
