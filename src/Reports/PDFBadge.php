@@ -41,13 +41,13 @@ function GenerateLabels(&$pdf, $mainTitle, $secondTitle, $thirdTitle,$sFirstName
 // Standard format
 
 // First Title
-$mainTitle = InputUtils::LegacyFilterInput($_GET['mainTitle'], 'char',255);
+$mainTitle = InputUtils::FilterString($_GET['mainTitle']);
 setcookie('mainTitle', $mainTitle, time() + 60 * 60 * 24 * 90, '/');
 
-$secondTitle = InputUtils::LegacyFilterInput($_GET['secondTitle'], 'char',255);
+$secondTitle = InputUtils::FilterString($_GET['secondTitle']);
 setcookie('secondTitle', $secondTitle, time() + 60 * 60 * 24 * 90, '/');
 
-$thirdTitle = InputUtils::LegacyFilterInput($_GET['thirdTitle'], 'char',255);
+$thirdTitle = InputUtils::FilterString($_GET['thirdTitle']);
 setcookie('thirdTitle', $thirdTitle, time() + 60 * 60 * 24 * 90, '/');
 
 // background color

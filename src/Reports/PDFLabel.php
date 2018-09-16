@@ -25,7 +25,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutpuUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {

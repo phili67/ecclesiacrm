@@ -12,7 +12,6 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/LabelFunctions.php';
 
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
@@ -20,6 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
+use EcclesiaCRM\utils\LabelUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Cart to Badges');
@@ -38,43 +38,35 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
       </div>
       <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform">
       <div class="box-body">
-          <table class="table table-hover dt-responsive" id="cart-label-table" width="100%">
-            <thead>
-          <tr>
-              <th></th>
-              <th></th>
-          </tr>
-          </thead>
-          <tbody>
-             <tr>
-                <td>
-                   <?= gettext("Title") ?>
-                </td>
-                <td>
-                  <input type="text" name="mainTitle" id="mainTitle" maxlength="255" size="3" value="<?= $_COOKIE['mainTitle'] ?>" class="form-control" placeholder="<?= gettext("Title") ?>">
-                </td>
-             </tr>
-             <tr>
-                <td>
-                   <?= gettext("Second Title") ?>
-                </td>
-                <td>
-                  <input type="text" name="secondTitle" id="secondTitle" maxlength="255" size="3" value="<?= $_COOKIE['secondTitle'] ?>" class="form-control" placeholder="<?= gettext("Second Title") ?>">
-                </td>
-             </tr>
-             <tr>
-                <td>
-                   <?= gettext("Third Title") ?>
-                </td>
-                <td>
-                  <input type="text" name="thirdTitle" id="thirdTitle" maxlength="255" size="3" value="<?= $_COOKIE['thirdTitle'] ?>" class="form-control" placeholder="<?= gettext("Third Title") ?>">
-                </td>
-             </tr>
-             <tr>
-                <td>
-                   <?= gettext('Title color') ?>
-                </td>
-                <td>
+          <div class="row">
+            <div class="col-md-6">
+              <?= gettext("Title") ?>
+            </div>
+            <div class="col-md-6">
+               <input type="text" name="mainTitle" id="mainTitle" maxlength="255" size="3" value="<?= $_COOKIE['mainTitle'] ?>" class="form-control" placeholder="<?= gettext("Title") ?>">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
+              <?= gettext("Second Title") ?>
+            </div>
+            <div class="col-md-6">
+               <input type="text" name="secondTitle" id="secondTitle" maxlength="255" size="3" value="<?= $_COOKIE['secondTitle'] ?>" class="form-control" placeholder="<?= gettext("Second Title") ?>">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
+                <?= gettext("Third Title") ?>
+            </div>
+            <div class="col-md-6">
+               <input type="text" name="thirdTitle" id="thirdTitle" maxlength="255" size="3" value="<?= $_COOKIE['thirdTitle'] ?>" class="form-control" placeholder="<?= gettext("Third Title") ?>">
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
+               <?= gettext('Title color') ?>
+            </div>
+            <div class="col-md-6">
                   <div class="input-group my-colorpicker-global my-colorpicker-title colorpicker-element" data-id="38,44">
                     <input id="checkBox" type="hidden" name="title-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
                     <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
@@ -82,13 +74,13 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
                        <i style="background-color: rgb(26, 43, 94);"></i>
                     </div>
                   </div>
-                </td>
-              </tr>
-             <tr>
-                <td>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
                    <?= gettext('BackGround color') ?>
-                </td>
-                <td>
+            </div>
+            <div class="col-md-6">
                   <div class="input-group my-colorpicker-global my-colorpicker-back colorpicker-element" data-id="38,44">
                     <input id="checkBox" type="hidden" name="backgroud-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
                     <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
@@ -96,46 +88,44 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
                        <i style="background-color: rgb(26, 43, 94);"></i>
                     </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
                    <?= gettext("Image") ?>
-                </td>
-                <td>
+            </div>
+            <div class="col-md-6">
                   <?php
                       $image = (empty($_COOKIE["image"]))?'scleft1.png':$_COOKIE["image"];
                   ?>
                   <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
-                </td>
-             </tr>
-             <tr>
-                <td>
-                </td>
-                <td>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
                    <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png, scleft2.png and sccenter.jpg.") ?>)</b>
-                </td>
-             </tr>
-             <tr>
-                <td>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-md-6">
                   <?= gettext("Image Position") ?>
-                </td>
-                <td>
+            </div>
+            <div class="col-md-6">
                    <select name="imagePosition" class="form-control input-sm">
                      <option value="Left" <?= ($_COOKIE["imagePosition"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
                      <option value="Center" <?= ($_COOKIE["imagePosition"] == 'Center')?'selected':'' ?>><?= gettext('Center') ?></option>
                      <option value="Right" <?= ($_COOKIE["imagePosition"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>
                   </select>
-                </td>
-             </tr>
-                <?php
-                LabelSelect('labeltype',gettext('Badge Type'));
-                FontSelect('labelfont');
-                FontSizeSelect('labelfontsize','('.gettext("default").' 24)');
-                StartRowStartColumn();
-                ?>
-            </tbody>
-          </table>
+            </div>
+          </div><br>
+              <?php
+                LabelUtils::LabelSelect('labeltype',gettext('Badge Type'));
+                LabelUtils::FontSelect('labelfont');
+                LabelUtils::FontSizeSelect('labelfontsize','('.gettext("default").' 24)');
+                LabelUtils::StartRowStartColumn();
+              ?>
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-4">
