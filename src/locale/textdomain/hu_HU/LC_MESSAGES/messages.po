@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 21:19+0200\n"
+"POT-Creation-Date: 2018-09-17 22:04+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -300,7 +300,7 @@ msgstr "Személy"
 #: members/404.php:16 PersonView.php:565 PledgeEditor.php:537
 #: PrintPastoralCare.php:262 PrintView.php:265 PropertyEditor.php:46
 #: PropertyList.php:30 PropertyTypeEditor.php:89 PropertyTypeList.php:119
-#: SelectList.php:1115 sundayschool/SundaySchoolClassView.php:248
+#: SelectList.php:1115 sundayschool/SundaySchoolClassView.php:253
 msgid "Family"
 msgstr "Család"
 
@@ -397,7 +397,7 @@ msgstr "tétlen"
 #: CSVImport.php:207
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:805
-#: PersonList.php:110 sundayschool/SundaySchoolClassView.php:247
+#: PersonList.php:110 sundayschool/SundaySchoolClassView.php:252
 #: sundayschool/SundaySchoolDashboard.php:216 UserList.php:89
 #, fuzzy
 msgid "First Name"
@@ -468,7 +468,7 @@ msgstr "Telefon"
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:253 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:258 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -1033,7 +1033,7 @@ msgstr "Add kosárba Family"
 #: PropertyTypeEditor.php:95 PropertyTypeList.php:54
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:216 Reports/FRBidSheets.php:88
-#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:248
+#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:253
 #: UserList.php:88 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
 #: queryparameteroptions_qpo.php:4
@@ -1098,7 +1098,7 @@ msgstr "(Használja a szövegdobozba a más országokban, mint az USA és Kanada
 #: PersonEditor.php:1223 PersonEditor.php:1227 PersonList.php:112
 #: PersonView.php:388 PrintPastoralCare.php:203 PrintView.php:206
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:255 queryparameteroptions_qpo.php:8
+#: sundayschool/SundaySchoolClassView.php:260 queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Otthoni telefon"
 
@@ -1379,8 +1379,8 @@ msgstr "Felhasználó Listing"
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
 #: sundayschool/SundaySchoolClassView.php:224
-#: sundayschool/SundaySchoolClassView.php:251
-#: sundayschool/SundaySchoolClassView.php:448 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:256
+#: sundayschool/SundaySchoolClassView.php:453 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Nemek"
 
@@ -1661,8 +1661,8 @@ msgid "Work / Other Email"
 msgstr "Munka / Egyéb Email"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:250
-#: sundayschool/SundaySchoolClassView.php:447
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:255
+#: sundayschool/SundaySchoolClassView.php:452
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Születési dátum"
@@ -2077,12 +2077,7 @@ msgstr "Mentés és hozzáadása"
 #: FamilyList.php:152 PersonList.php:156 PersonList.php:157 PersonList.php:158
 #: PersonList.php:159 PersonList.php:160 PersonList.php:161
 #: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
-#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:330
-#: sundayschool/SundaySchoolClassView.php:331
-#: sundayschool/SundaySchoolClassView.php:332
-#: sundayschool/SundaySchoolClassView.php:333
-#: sundayschool/SundaySchoolClassView.php:334
-#: sundayschool/SundaySchoolClassView.php:335
+#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:335
 #: sundayschool/SundaySchoolClassView.php:336
 #: sundayschool/SundaySchoolClassView.php:337
 #: sundayschool/SundaySchoolClassView.php:338
@@ -2090,6 +2085,11 @@ msgstr "Mentés és hozzáadása"
 #: sundayschool/SundaySchoolClassView.php:340
 #: sundayschool/SundaySchoolClassView.php:341
 #: sundayschool/SundaySchoolClassView.php:342
+#: sundayschool/SundaySchoolClassView.php:343
+#: sundayschool/SundaySchoolClassView.php:344
+#: sundayschool/SundaySchoolClassView.php:345
+#: sundayschool/SundaySchoolClassView.php:346
+#: sundayschool/SundaySchoolClassView.php:347
 #: sundayschool/SundaySchoolDashboard.php:247
 #: sundayschool/SundaySchoolDashboard.php:248
 #: sundayschool/SundaySchoolDashboard.php:249
@@ -2105,7 +2105,7 @@ msgstr "Magán"
 #: EcclesiaCRM/Service/TimelineService.php:189
 #: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1097
 #: Include/Functions.php:605 Include/Functions.php:618
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:278
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -4680,19 +4680,19 @@ msgstr "Extra Tanárok"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:277
+#: sundayschool/SundaySchoolClassView.php:282
 msgid "Boy"
 msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:280
+#: sundayschool/SundaySchoolClassView.php:285
 msgid "Girl"
 msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:238
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:243
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 #, fuzzy
@@ -5665,7 +5665,7 @@ msgid "Family Member"
 msgstr "Családtagok"
 
 #: external/templates/registration/family-register-members.php:94
-#: sundayschool/SundaySchoolClassView.php:254
+#: sundayschool/SundaySchoolClassView.php:259
 #, fuzzy
 msgid "Mobile"
 msgstr "Mobiltelefon"
@@ -5711,7 +5711,7 @@ msgid "Confirm"
 msgstr "Még"
 
 #: external/templates/verify/verify-family-info.php:32
-#: sundayschool/SundaySchoolClassView.php:256
+#: sundayschool/SundaySchoolClassView.php:261
 #: sundayschool/SundaySchoolDashboard.php:220
 #, fuzzy
 msgid "Home Address"
@@ -8992,7 +8992,7 @@ msgid "Printable View"
 msgstr "Nyomtatási nézet"
 
 #: PrintPastoralCare.php:344 PrintView.php:347 Reports/CanvassReports.php:239
-#: sundayschool/SundaySchoolClassView.php:252
+#: sundayschool/SundaySchoolClassView.php:257
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Age"
 msgstr "Életkor"
@@ -9965,7 +9965,7 @@ msgstr "Az összes megtekintése"
 msgid "Photo"
 msgstr "Fotók"
 
-#: SelectList.php:1138 sundayschool/SundaySchoolClassView.php:249
+#: SelectList.php:1138 sundayschool/SundaySchoolClassView.php:254
 msgid "Cart"
 msgstr "Kosár"
 
@@ -10085,7 +10085,7 @@ msgid "Add Teachers to Cart"
 msgstr "Add Csoport tagjai a kosárba"
 
 #: sundayschool/SundaySchoolClassView.php:182
-#: sundayschool/SundaySchoolClassView.php:423
+#: sundayschool/SundaySchoolClassView.php:428
 #, fuzzy
 msgid "Send Message"
 msgstr "Üzenet"
@@ -10104,70 +10104,74 @@ msgstr ""
 msgid "Birthdays by Month"
 msgstr "Születési dátuma"
 
-#: sundayschool/SundaySchoolClassView.php:242
+#: sundayschool/SundaySchoolClassView.php:236
+msgid "Click the chart or Donut parts to interact with the table below."
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:247
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:243
+#: sundayschool/SundaySchoolClassView.php:248
 msgid "Showing students with gender"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:257
-#, fuzzy
-msgid "Dad Name"
-msgstr "Alap neve"
-
-#: sundayschool/SundaySchoolClassView.php:258
-msgid "Dad Mobile"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:259
-#, fuzzy
-msgid "Dad Email"
-msgstr "Email"
-
-#: sundayschool/SundaySchoolClassView.php:260
-#, fuzzy
-msgid "Mom Name"
-msgstr "Felhasználói név"
-
-#: sundayschool/SundaySchoolClassView.php:261
-msgid "Mom Mobile"
 msgstr ""
 
 #: sundayschool/SundaySchoolClassView.php:262
 #, fuzzy
+msgid "Dad Name"
+msgstr "Alap neve"
+
+#: sundayschool/SundaySchoolClassView.php:263
+msgid "Dad Mobile"
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:264
+#, fuzzy
+msgid "Dad Email"
+msgstr "Email"
+
+#: sundayschool/SundaySchoolClassView.php:265
+#, fuzzy
+msgid "Mom Name"
+msgstr "Felhasználói név"
+
+#: sundayschool/SundaySchoolClassView.php:266
+msgid "Mom Mobile"
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:267
+#, fuzzy
 msgid "Mom Email"
 msgstr "Email"
 
-#: sundayschool/SundaySchoolClassView.php:385
+#: sundayschool/SundaySchoolClassView.php:390
 msgid "Compose New Message"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:390
+#: sundayschool/SundaySchoolClassView.php:395
 #, fuzzy
 msgid "Kids Emails"
 msgstr "Email"
 
-#: sundayschool/SundaySchoolClassView.php:395
+#: sundayschool/SundaySchoolClassView.php:400
 #, fuzzy
 msgid "Parents Emails"
 msgstr "Personal Email"
 
-#: sundayschool/SundaySchoolClassView.php:400
+#: sundayschool/SundaySchoolClassView.php:405
 #, fuzzy
 msgid "Teachers Emails"
 msgstr "Más E-mail"
 
-#: sundayschool/SundaySchoolClassView.php:410
+#: sundayschool/SundaySchoolClassView.php:415
 msgid "Attachment"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:413
+#: sundayschool/SundaySchoolClassView.php:418
 msgid "Max. 32MB"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:420
+#: sundayschool/SundaySchoolClassView.php:425
 #, fuzzy
 msgid "Discard"
 msgstr "Lemondás"
