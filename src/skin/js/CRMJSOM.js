@@ -395,7 +395,7 @@
           path:"cart/"
         }).done(function(data) {
           window.CRM.cart.updatePage(data.PeopleCart);
-          window.scrollTo(0, 0);
+          //window.scrollTo(0, 0);
           $("#iconCount").text(data.PeopleCart.length);
           
           // brodcaster
