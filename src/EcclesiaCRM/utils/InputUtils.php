@@ -3,6 +3,7 @@
 namespace EcclesiaCRM\Utils;
 
 use EcclesiaCRM\dto\SystemConfig;
+use \DateTime;
 
 class InputUtils {
   
@@ -72,8 +73,10 @@ class InputUtils {
     // Logel Philippe
     if (empty($sInput))
       return "";
-    else 
-      return date('Y-m-d', strtotime(str_replace("/","-",$sInput)));
+    else {
+      $date = DateTime::createFromFormat(SystemConfig::getValue('sDatePickerFormat'), $sInput);
+      return $date->format('Y-m-d');
+    }
   }
 
   // Sanitizes user input as a security measure
