@@ -244,7 +244,7 @@ require '../Include/Header.php';
     <table id="sundayschool" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
       <thead>
       <tr>
-        <th><?= gettext('FirstName') ?></th>
+        <th><?= gettext('First Name') ?></th>
         <th><?= gettext('Name') ?><br>(<?= gettext("Famille") ?>)</th>
         <th><?= gettext('Cart') ?></th>
         <th><?= gettext('Birth Date') ?></th>
