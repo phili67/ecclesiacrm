@@ -125,7 +125,7 @@ $aDefRecurType = array();
               $recur[] = gettext('Weekly on').' '.gettext($eventType->getDefRecurDOW().'s');
               break;
             case 'monthly':
-              $recur[] = gettext('Monthly on').' '.date(SystemConfig::getValue("sTimeEnglish")?'dS':'d', mktime(0, 0, 0, 1, $eventType->getDefRecurDOM(), 2000));
+              $recur[] = gettext('Monthly on').' '.date(SystemConfig::getValue("bTimeEnglish")?'dS':'d', mktime(0, 0, 0, 1, $eventType->getDefRecurDOM(), 2000));
               break;
             case 'yearly':
               $recur[] = gettext('Yearly on').' '.$eventType->getDefRecurDOY()->format(SystemConfig::getValue("sDateFormatNoYear"));
@@ -212,7 +212,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
                 <select name="newEvtRecurDOM" size="1" class='form-control pull-left' disabled>
                   <?php
                     for ($kk = 1; $kk <= 31; $kk++) {
-                        $DOM = date((SystemConfig::getValue("sTimeEnglish"))?'dS':'d', mktime(0, 0, 0, 1, $kk, 2000)); ?>
+                        $DOM = date((SystemConfig::getValue("bTimeEnglish"))?'dS':'d', mktime(0, 0, 0, 1, $kk, 2000)); ?>
                       <option class="SmallText" value=<?= $kk ?>><?= $DOM ?></option>
                       <?php
                     } ?>
