@@ -161,6 +161,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sFamCountry = '';
     if (array_key_exists('FamName', $_POST)) {
         $sFamName = InputUtils::FilterString($_POST['FamName']);
+        if ($sFamName == "") {
+          $sFamName = $sLastName;
+        }
     }
     if (array_key_exists('FamAddress1', $_POST)) {
         $sFamAddress1 = InputUtils::FilterString($_POST['FamAddress1']);
@@ -354,7 +357,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if ($iFamily == -1) {
             $family = new Family();
             
-            $family->setName($sLastName);
+            $family->setName($sFamName);
             $family->setAddress1($sFamAddress1);
             $family->setAddress2($sFamAddress2);
             $family->setCity($sFamCity);
@@ -740,13 +743,15 @@ if ($iFamily != 0) {
   $theFamily = FamilyQuery::Create()
                   ->findOneById($iFamily);
   
-  $sFamName  = $theFamily->getName();
-  $sAddress1 = $theFamily->getAddress1();
-  $sAddress2 = $theFamily->getAddress2();
-  $sCity     = $theFamily->getCity();
-  $sState    = $theFamily->getState();
-  $sCountry  = $theFamily->getCountry();
-  $sZip      = $theFamily->getZip();
+  if (!is_null($theFamily)) {
+    $sFamName  = $theFamily->getName();
+    $sAddress1 = $theFamily->getAddress1();
+    $sAddress2 = $theFamily->getAddress2();
+    $sCity     = $theFamily->getCity();
+    $sState    = $theFamily->getState();
+    $sCountry  = $theFamily->getCountry();
+    $sZip      = $theFamily->getZip();
+  }
 }
 
 require 'Include/Header.php';
@@ -954,6 +959,9 @@ require 'Include/Header.php';
                   <div class="col-md-6">
                     <label><?= gettext('Person Name') ?> <?= gettext('or') ?> <?= gettext('Family Name') ?>:</label>
                       <input type="text" id="FamName" name="FamName" value="<?= htmlentities(stripslashes($sFamName), ENT_NOQUOTES, 'UTF-8') ?>" size="50" maxlength="250"  class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <b><?= gettext('A person could have a different name as his family.<br>• In this case set the Family Name in this field.<br>• In the other case, leave this field blank.') ?></b>
                   </div>
                 </div>
                 <div class="row">
