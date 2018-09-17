@@ -244,7 +244,8 @@ require '../Include/Header.php';
     <table id="sundayschool" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
       <thead>
       <tr>
-        <th><?= gettext('Name') ?></th>
+        <th><?= gettext('FirstName') ?></th>
+        <th><?= gettext('Name') ?><br>(<?= gettext("Famille") ?>)</th>
         <th><?= gettext('Cart') ?></th>
         <th><?= gettext('Birth Date') ?></th>
         <th><?= gettext('Gender') ?></th>
@@ -284,9 +285,20 @@ require '../Include/Header.php';
 
           <tr>
           <td>
-            <img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $child['kidId'] ?>/thumbnail"
-                alt="User Image" class="user-image initials-image" width="30" height="30" />
-            <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['LastName'].', '.$child['firstName'] ?></a>
+            <table>
+              <tr>
+                <td style="min-width:55px">
+                  <img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $child['kidId'] ?>/thumbnail"
+                      alt="User Image" class="user-image initials-image" width="50" height="50" />
+                </td>
+                <td align="left">
+                  <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['firstName'] ?></a>
+                </dt>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <a href="<?= SystemURLs::getRootPath(); ?>/FamilyView.php?FamilyID=<?= $child['famID'] ?>"><?= $child['LastName'] ?></a>
           </td>
           <?php 
             if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {

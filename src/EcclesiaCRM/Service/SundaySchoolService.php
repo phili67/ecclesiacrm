@@ -173,7 +173,7 @@ class SundaySchoolService
                   kid.per_BirthDay birthDay,  kid.per_BirthMonth birthMonth, kid.per_BirthYear birthYear, 
                   kid.per_CellPhone mobilePhone, kid.per_Flags flags, 
                 
-                fam.fam_HomePhone homePhone,fam.fam_id,
+                fam.fam_HomePhone homePhone,fam.fam_id famID,
 
                 dad.per_ID dadId, dad.per_FirstName dadFirstName, dad.per_LastName dadLastName, 
                   dad.per_CellPhone dadCellPhone, dad.per_Email dadEmail,
