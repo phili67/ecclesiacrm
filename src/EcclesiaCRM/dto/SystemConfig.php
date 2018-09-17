@@ -127,7 +127,7 @@ class SystemConfig
         "sPhoneFormat" => new ConfigItem(100, "sPhoneFormat", "text", "(999) 999-9999"),
         "sPhoneFormatWithExt" => new ConfigItem(101, "sPhoneFormatWithExt", "text", "(999) 999-9999 x99999"),
         "sPhoneFormatCell" => new ConfigItem(111, "sPhoneFormatCell", "text", "(999) 999-9999"),
-        "sDateFormatLong" => new ConfigItem(102, "sDateFormatLong", "choice", "m/d/Y",gettext("For defining the date, per default : m/d/Y, In French : d/m/Y for example."),'','{"Choices":["Y-m-d","d/m/Y","m-d-Y","m/d/Y"]}'),
+        "sDateFormatLong" => new ConfigItem(102, "sDateFormatLong", "choice", "Y-m-d",gettext("For defining the date, per default : m/d/Y, In French : d/m/Y for example."),'','{"Choices":["Y-m-d","d/m/Y","m-d-Y","m/d/Y"]}'),
         "sTimeFormat" => new ConfigItem(112, "sTimeFormat", "text", "%l:%M %p",gettext("This part is important for the time Line date and time")),
         "bTimeEnglish" => new ConfigItem(1051, "bTimeEnglish", "boolean", "1",gettext("Set the time in English format or 24 hours.")),
         "sDateFormatNoYear" => new ConfigItem(103, "sDateFormatNoYear", "choice", "m/d",gettext("For defining the date, per default : m/d, In French : d/m for example."),'','{"Choices":["m/d","d/m","m-d","d-m"]}'),
