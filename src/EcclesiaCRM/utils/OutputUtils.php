@@ -546,7 +546,7 @@ class OutputUtils {
 function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
 { 
 
-    $sTimeEnglish = SystemConfig::getValue("sTimeEnglish");
+    $bTimeEnglish = SystemConfig::getValue("bTimeEnglish");
 
     for ($hour = $start; $hour <= $stop; $hour++) {
         if ($hour == '0') {
@@ -555,11 +555,11 @@ function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
         } elseif ($hour == '12') {
             $disphour = '12';
             $ampm = 'PM';
-        } elseif ($hour >= '13' && $hour <= '21' && $sTimeEnglish == true) {
+        } elseif ($hour >= '13' && $hour <= '21' && $bTimeEnglish == true) {
             $test = $hour - 12;
             $disphour = ' '.$test;
             $ampm = 'PM';
-        } elseif ($hour >= '22' && $hour <= '23' && $sTimeEnglish == true) {
+        } elseif ($hour >= '22' && $hour <= '23' && $bTimeEnglish == true) {
             $disphour = $hour - 12;
             $ampm = 'PM';
         } else {
@@ -567,7 +567,7 @@ function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
             $ampm = 'AM';
         }
         
-        if ($sTimeEnglish == false) {
+        if ($bTimeEnglish == false) {
             $ampm = "";
         }
 

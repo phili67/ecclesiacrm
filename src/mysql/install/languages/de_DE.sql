@@ -26,7 +26,7 @@ INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES
 (1033, 'sZeroGivers3', 'Falls Sie irgendwelche Fragen oder Korrekturen für diesen Bericht haben, können Sie unseren Kirche während der Öffnungszeiten unter dieser Telefonnummer erreichen.'),
 (1048, 'sConfirmSincerely', 'Herzlich danken'),
 (1049, 'sDear', 'Lieber (Liebe)'),
-(1051, 'sTimeEnglish', ''),
+(1051, 'bTimeEnglish', ''),
 (2050, 'bStateUnusefull', '0'),
 (2051, 'sCurrency', '€'),
 (2052, 'sUnsubscribeStart', 'Wenn Sie nicht länger diese E-Mails empfangen von'),
