@@ -389,7 +389,10 @@
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
           return;
         }
-
+        
+        if (window.CRM.showCart == false)// in this cas all the broadcast system is deactivated
+          return;
+        
         window.CRM.APIRequest({
           method: 'GET',
           path:"cart/"
@@ -398,7 +401,7 @@
           //window.scrollTo(0, 0);
           $("#iconCount").text(data.PeopleCart.length);
           
-          // brodcaster
+          // broadcaster
           $.event.trigger({
             type: "emptyCartMessage",
             cartSize: data.PeopleCart.length
@@ -468,7 +471,7 @@
       },
       'updatePage' : function (cartPeople){
       
-        // brodcaster
+        // broadcaster
         $.event.trigger({
             type: "updateCartMessage",
             people:cartPeople

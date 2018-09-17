@@ -300,17 +300,17 @@ require '../Include/Header.php';
           <td>
             <a href="<?= SystemURLs::getRootPath(); ?>/FamilyView.php?FamilyID=<?= $child['famID'] ?>"><?= $child['LastName'] ?></a>
           </td>
+          <td>
+            <a <?= ($_SESSION['user']->isShowCartEnabled())?'class="AddOneStudentToCart"':'' ?> data-cartpersonid="<?= $child['kidId'] ?>">
+              <span class="fa-stack">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-stack-1x fa-inverse <?= ($_SESSION['user']->isShowCartEnabled())?'fa-cart-plus':'fa-question' ?>"></i>
+              </span>
+            </a>
+          </td>
           <?php 
             if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {
           ?>
-            <td>
-              <a class="AddOneStudentToCart" data-cartpersonid="<?= $child['kidId'] ?>">
-                <span class="fa-stack">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i class="fa fa-stack-1x fa-inverse fa-cart-plus"></i>
-                </span>
-              </a>
-            </td>
             <td><?= $birthDate ?> </td>
             <td><?= $gender ?></td>
             <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
@@ -327,8 +327,6 @@ require '../Include/Header.php';
           <?php
             } else {
           ?>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
