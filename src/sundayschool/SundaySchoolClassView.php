@@ -140,11 +140,11 @@ require '../Include/Header.php';
   <?php
     if (Cart::StudentInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()){
   ?>
-    <a class="btn btn-app RemoveFromStudentGroupCart" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Students from Cart") ?></span></a>
+    <a class="btn btn-app RemoveStudentsFromGroupCart" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Students from Cart") ?></span></a>
   <?php 
     } else if ($_SESSION['user']->isShowCartEnabled()) {
    ?>
-    <a class="btn btn-app AddToStudentGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddToStudentGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Students to Cart") ?></span></a>    
+    <a class="btn btn-app AddStudentsToGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Students to Cart") ?></span></a>    
   <?php
     }
   ?>
@@ -240,11 +240,14 @@ require '../Include/Header.php';
   <!-- /.box-header -->
   <div class="box-body table-responsive">
     <h4 class="birthday-filter" style="display:none;"><?= gettext('Showing students with birthdays in') ?> : <span class="month"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
+    <h4 class="gender-filter" style="display:none;"><?= gettext('Showing students with gender') ?> : <span class="type"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
     <table id="sundayschool" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
       <thead>
       <tr>
         <th><?= gettext('Name') ?></th>
+        <th><?= gettext('Cart') ?></th>
         <th><?= gettext('Birth Date') ?></th>
+        <th><?= gettext('Gender') ?></th>
         <th><?= gettext('Age') ?></th>
         <th><?= gettext('Email') ?></th>
         <th><?= gettext('Mobile') ?></th>
@@ -264,18 +267,40 @@ require '../Include/Header.php';
       foreach ($thisClassChildren as $child) {
           $hideAge = $child['flags'] == 1 || $child['birthYear'] == '' || $child['birthYear'] == '0';
           $birthDate = OutputUtils::FormatBirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], '-', $child['flags']);
-          $birthDateDate = OutputUtils::BirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], $hideAge); ?>
+          $birthDateDate = OutputUtils::BirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], $hideAge); 
+          
+          $gender = gettext("Unknown");
+          
+          switch ($child['kidGender']) {
+            case 1:
+              $gender = gettext("Boy");
+              break;
+            case 2:
+              $gender = gettext("Girl");
+              break;
+          }
+          
+          ?>
 
           <tr>
           <td>
             <img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $child['kidId'] ?>/thumbnail"
                 alt="User Image" class="user-image initials-image" width="30" height="30" />
-            <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['firstName'].', '.$child['LastName'] ?></a>
+            <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['LastName'].', '.$child['firstName'] ?></a>
           </td>
           <?php 
             if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {
           ?>
-            <td><?= $birthDate ?> </td>          
+            <td>
+              <a class="AddOneStudentToCart" data-cartpersonid="<?= $child['kidId'] ?>">
+                <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-stack-1x fa-inverse fa-cart-plus"></i>
+                </span>
+              </a>
+            </td>
+            <td><?= $birthDate /*$birthDateDate->format(SystemConfig::getValue('sDateFormatLong'))*/ ?> </td>          
+            <td><?= $gender ?></td>
             <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
             <td><?= $child['kidEmail'] ?></td>
             <td><?= $child['mobilePhone'] ?></td>
@@ -290,6 +315,9 @@ require '../Include/Header.php';
           <?php
             } else {
           ?>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
+            <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
             <td><?= gettext("Private Data") ?></td>
@@ -401,142 +429,17 @@ function implodeUnique($array, $withQuotes)
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/flot/jquery.flot.categories.min.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  $(document).ready(function () {
-
-    var dataTable = $('.data-table').DataTable(window.CRM.plugin.dataTable);
-
-    // turn the element to select2 select style
-    $('.email-recepients-kids').select2({
-      placeholder: 'Enter recepients',
-      tags: [<?php implodeUnique($KidsEmails, true) ?>]
-    });
-    $('.email-recepients-teachers').select2({
-      placeholder: 'Enter recepients',
-      tags: [<?= implodeUnique($TeachersEmails, true) ?>]
-    });
-    $('.email-recepients-parents').select2({
-      placeholder: 'Enter recepients',
-      tags: [<?= implodeUnique($ParentsEmails, true) ?>]
-    });
-
-    var birthDateColumn = dataTable.column(':contains(<?= gettext("Birth Date") ?>)');
-
-    var hideBirthDayFilter = function() {
-      plot.unhighlight();
-      birthDateColumn
-        .search('')
-        .draw();
-
-      birthDayFilter.hide();
-    };
-
-    var birthDayFilter = $('.birthday-filter');
-    var birthDayMonth = birthDayFilter.find('.month');
-    birthDayFilter.find('i.fa-close')
-      .bind('click', hideBirthDayFilter);
-
-    $("#bar-chart").bind("plotclick", function (event, pos, item) {
-      plot.unhighlight();
-
-      if (!item) {
-        hideBirthDayFilter();
-        return;
-      }
-
-      var month = bar_data.data[item.dataIndex][0];
-
-      birthDateColumn
-        .search(month.substr(0, 7))
-        .draw();
-
-      birthDayMonth.text(month);
-      birthDayFilter.show();
-
-      plot.highlight(item.series, item.datapoint);
-    });
-  });
-
-  /*
-   * BAR CHART
-   * ---------
-   */
-
-  var bar_data = {
-    data: [
-      <?= $birthDayMonthChartJSON ?>
-    ],
-    color: "#3c8dbc"
-  };
-
- var plot = $.plot("#bar-chart", [bar_data], {
-    grid: {
-      borderWidth: 1,
-      borderColor: "#f3f3f3",
-      tickColor: "#f3f3f3",
-      hoverable:true,
-      clickable:true
-    },
-    series: {
-      bars: {
-        show: true,
-        barWidth: 0.5,
-        align: "center"
-      }
-    },
-    xaxis: {
-      mode: "categories",
-      tickLength: 0
-    },
-    yaxis: {
-      tickSize: 1
-    }
-  });
-
-  /* END BAR CHART */
-
-  /*
-   * DONUT CHART
-   * -----------
-   */
-
-  var donutData = [<?=$genderChartJSON ?>];
-
-  $.plot("#donut-chart", donutData, {
-    series: {
-      pie: {
-        show: true,
-        radius: 1,
-        innerRadius: 0.5,
-        label: {
-          show: true,
-          radius: 2 / 3,
-          formatter: labelFormatter,
-          threshold: 0.1
-        }
-
-      }
-    },
-    legend: {
-      show: false
-    }
-  });
-  /*
-   * END DONUT CHART
-   */
-  /*
-   * Custom Label formatter
-   * ----------------------
-   */
-  function labelFormatter(label, series) {
-    return "<div style='font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;'>"
-      + label
-      + "<br/>"
-      + Math.round(series.percent) + "%</div>";
-  }
-
+  var birthDayMonthChartJSON = [<?= $birthDayMonthChartJSON ?>];
+  var genderChartJSON        = [<?= $genderChartJSON ?>];
+  var KidsEmails             = [<?= implodeUnique($KidsEmails, true) ?>];
+  var TeachersEmails         = [<?= implodeUnique($TeachersEmails, true) ?>];
+  var ParentsEmails          = [<?= implodeUnique($ParentsEmails, true) ?>];
+  var birthDateColumnText    = '<?= gettext("Birth Date") ?>';
+  var genderColumnText       = '<?= gettext("Gender") ?>'; 
 </script>
+
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
+
 <?php
 require '../Include/Footer.php';
 ?>
-
-<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
