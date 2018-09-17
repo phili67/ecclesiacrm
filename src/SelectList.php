@@ -1303,9 +1303,9 @@ if (!isset($sPersonColumn5)) {
       ?>
       
       <span class="fa-stack">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
-              </span>
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-stack-1x fa-inverse <?= ($_SESSION['user']->isShowCartEnabled())?'fa-cart-plus':'fa-question' ?>"></i>
+      </span>
       <?php
         if ($_SESSION['user']->isShowCartEnabled()) {
       ?>
