@@ -33,8 +33,9 @@ $(document).ready(function () {
     $(document).on("updateCartMessage", updateLittleButtons);
     
     function updateLittleButtons(e) {
-        var cartPeople = e.people;
+      var cartPeople = e.people;
         
+      if (cartPeople != null) {
         personButtons = $("a[data-cartpersonid]");
         $(personButtons).each(function(index,personButton){
           personID = $(personButton).data("cartpersonid")
@@ -62,6 +63,8 @@ $(document).ready(function () {
             }
           }
         });
+      }
+      
     }
 
 });
