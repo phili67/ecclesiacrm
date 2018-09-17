@@ -22,6 +22,12 @@ use EcclesiaCRM\utils\LabelUtils;
 $sPageTitle = _('View Your Cart');
 require 'Include/Header.php'; ?>
 <?php
+
+if (!$_SESSION['user']->isShowCartEnabled()) {
+    Redirect('Menu.php');
+    exit;
+}
+
 // Confirmation message that people where added to Event from Cart
 if (!Cart::HasPeople()) {
     if (!array_key_exists('Message', $_GET)) {
