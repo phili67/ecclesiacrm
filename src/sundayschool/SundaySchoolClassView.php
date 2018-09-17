@@ -231,6 +231,11 @@ require '../Include/Header.php';
       <!-- /.box -->
     </div>
   </div>
+  <div class="box-body row">
+    <div class="col-lg-12 text-center">
+      <small><?= gettext("Click the chart or Donut parts to interact with the table below.") ?></small>
+    </div>
+  </div>
 </div>
 
 <div class="box box-primary">
