@@ -245,7 +245,7 @@ require '../Include/Header.php';
       <thead>
       <tr>
         <th><?= gettext('First Name') ?></th>
-        <th><?= gettext('Name') ?><br>(<?= gettext("Famille") ?>)</th>
+        <th><?= gettext('Name') ?><br>(<?= gettext("Family") ?>)</th>
         <th><?= gettext('Cart') ?></th>
         <th><?= gettext('Birth Date') ?></th>
         <th><?= gettext('Gender') ?></th>
