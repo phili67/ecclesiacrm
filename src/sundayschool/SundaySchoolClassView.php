@@ -311,7 +311,7 @@ require '../Include/Header.php';
                 </span>
               </a>
             </td>
-            <td><?= $birthDate /*$birthDateDate->format(SystemConfig::getValue('sDateFormatLong'))*/ ?> </td>          
+            <td><?= $birthDate ?> </td>
             <td><?= $gender ?></td>
             <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
             <td><?= $child['kidEmail'] ?></td>

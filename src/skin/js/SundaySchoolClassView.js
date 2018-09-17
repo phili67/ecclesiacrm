@@ -1,6 +1,10 @@
 $("document").ready(function(){
    // search for the dates
    $.fn.dataTable.moment = function ( format, locale ) {
+      format = format.replace(/-/g, " ");
+      format = format.replace(/\//g, " ");
+      format = format.replace("MM", "MMMM");
+
       var types = $.fn.dataTable.ext.type;
 
       // Add type detection
