@@ -1,4 +1,19 @@
 $("document").ready(function(){
+  /* Badge creation */
+  $(document).on("click","#studentbadge", function(){
+    var sundayGroupId = $(this).data("groupid");
+    window.CRM.APIRequest({
+      method: "GET",
+      path: "cart/"
+    }).done(function (data) {
+      if (data.PeopleCart.length > 0) {
+        location.href = window.CRM.root + '/sundayschool/SundaySchoolBadge.php?groupId='+sundayGroupId+'&cart=1';
+      } else {
+        location.href = window.CRM.root + '/sundayschool/SundaySchoolBadge.php?groupId='+sundayGroupId+'&cart=0';
+      }
+    });
+  });
+
   /* the search field*/
    $(".personSearch").select2({
     minimumInputLength: 2,
@@ -34,7 +49,7 @@ $("document").ready(function(){
       });
   });
   
-  /* the mebership deletion */
+  /* the membership deletion */
   $('body').on('click','.delete-person', function(){ 
     event.preventDefault();
     var thisLink = $(this);

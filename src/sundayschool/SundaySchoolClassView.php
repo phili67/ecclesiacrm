@@ -133,7 +133,7 @@ require '../Include/Header.php';
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
     
-    <a class="btn btn-app bg-purple" href="SundaySchoolBadge.php?groupId=<?= $iGroupId ?>" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Student Badges") ?></span></a>
+    <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Student Badges") ?></span></a>
   <?php 
     }
   ?>

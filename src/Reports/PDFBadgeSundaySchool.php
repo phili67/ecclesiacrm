@@ -29,18 +29,17 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
 
-function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
+function GenerateLabels(&$pdf, $iGroupId, $useCart=0, $sundayschoolName,$sFirstNameFontSize,$image, $title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition)
 {
     $sundaySchoolService = new SundaySchoolService();
 
     $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
     $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
 
-    //print_r ($thisClassChildren);
-    
-    
-    
     foreach ($thisClassChildren as $kid) {
+        if ( !($useCart == 0 || ($useCart==1 && in_array($kid['kidId'], $_SESSION['aPeopleCart'])) ) ) 
+          continue;
+        
         $assignedProperties = Record2propertyR2pQuery::Create()
                             ->findByR2pRecordId($kid['kidId']);
                             
@@ -67,6 +66,8 @@ function GenerateLabels(&$pdf, $iGroupId, $sundayschoolName,$sFirstNameFontSize,
 // Standard format
 
 $iGroupId = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
+$useCart = InputUtils::LegacyFilterInput($_GET['useCart'], 'int');
+
 
 // sunday school name
 $sundaySchoolName = InputUtils::FilterString($_GET['sundaySchoolName']);
@@ -136,7 +137,7 @@ if ($startcol > 1 || $startrow > 1) {
 // à gérer par la suite
 $image = '../Images/'.$sImage;
 
-$aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
+$aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $useCart, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 
