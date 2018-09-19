@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 22:04+0200\n"
+"POT-Creation-Date: 2018-09-19 18:58+0200\n"
 "Language: fr-ch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -278,7 +278,7 @@ msgstr "Personne"
 #: members/404.php:16 PersonView.php:565 PledgeEditor.php:537
 #: PrintPastoralCare.php:262 PrintView.php:265 PropertyEditor.php:46
 #: PropertyList.php:30 PropertyTypeEditor.php:89 PropertyTypeList.php:119
-#: SelectList.php:1115 sundayschool/SundaySchoolClassView.php:253
+#: SelectList.php:1115
 msgid "Family"
 msgstr "Famille"
 
@@ -374,8 +374,8 @@ msgstr "Inactif"
 #: CSVImport.php:207
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:805
-#: PersonList.php:110 sundayschool/SundaySchoolClassView.php:252
-#: sundayschool/SundaySchoolDashboard.php:216 UserList.php:89
+#: PersonList.php:110 sundayschool/SundaySchoolDashboard.php:216
+#: UserList.php:89
 msgid "First Name"
 msgstr "Prénom"
 
@@ -441,8 +441,7 @@ msgstr "Téléphone"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
-#: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:258 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:90 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -504,7 +503,7 @@ msgstr "Enregistrer"
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:134 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:96 NoteEditor.php:299
-#: PersonEditor.php:1587 PersonView.php:1336 PledgeEditor.php:729
+#: PersonEditor.php:1587 PersonView.php:1341 PledgeEditor.php:729
 #: PropertyEditor.php:189 PropertyTypeEditor.php:113 Register.php:56
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
@@ -1005,8 +1004,7 @@ msgstr "Ajouter le panier à la famille"
 #: PropertyTypeEditor.php:95 PropertyTypeList.php:54
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:216 Reports/FRBidSheets.php:88
-#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:253
-#: UserList.php:88 VolunteerOpportunityEditor.php:74
+#: SelectList.php:1043 UserList.php:88 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1070,7 +1068,7 @@ msgstr ""
 #: PersonEditor.php:1223 PersonEditor.php:1227 PersonList.php:112
 #: PersonView.php:388 PrintPastoralCare.php:203 PrintView.php:206
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:260 queryparameteroptions_qpo.php:8
+#: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Tél. Fixe"
 
@@ -1322,7 +1320,7 @@ msgstr "Confirmer"
 #: ElectronicPaymentList.php:255 ElectronicPaymentList.php:313
 #: EventNames.php:325 FamilyView.php:878 FindDepositSlip.php:121
 #: FundRaiserEditor.php:199 ListEvents.php:398 PaddleNumList.php:55
-#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1337
+#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1342
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -1333,9 +1331,8 @@ msgstr "Liste"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
-#: sundayschool/SundaySchoolClassView.php:224
-#: sundayschool/SundaySchoolClassView.php:256
-#: sundayschool/SundaySchoolClassView.php:453 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:230
+#: sundayschool/SundaySchoolClassView.php:371 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Sexe"
 
@@ -1596,8 +1593,7 @@ msgid "Work / Other Email"
 msgstr "Email professionnel ou autre"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:255
-#: sundayschool/SundaySchoolClassView.php:452
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:370
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Date de naissance"
@@ -1772,7 +1768,7 @@ msgid "Return to Deposit Listing"
 msgstr "Retour à la Liste des dépôts"
 
 #: DepositSlipEditor.php:269 FamilyView.php:866 FindDepositSlip.php:111
-#: PersonView.php:1326
+#: PersonView.php:1331
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
@@ -1989,20 +1985,7 @@ msgstr "Enregistrer et Ajouter"
 #: FamilyList.php:152 PersonList.php:156 PersonList.php:157 PersonList.php:158
 #: PersonList.php:159 PersonList.php:160 PersonList.php:161
 #: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
-#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:335
-#: sundayschool/SundaySchoolClassView.php:336
-#: sundayschool/SundaySchoolClassView.php:337
-#: sundayschool/SundaySchoolClassView.php:338
-#: sundayschool/SundaySchoolClassView.php:339
-#: sundayschool/SundaySchoolClassView.php:340
-#: sundayschool/SundaySchoolClassView.php:341
-#: sundayschool/SundaySchoolClassView.php:342
-#: sundayschool/SundaySchoolClassView.php:343
-#: sundayschool/SundaySchoolClassView.php:344
-#: sundayschool/SundaySchoolClassView.php:345
-#: sundayschool/SundaySchoolClassView.php:346
-#: sundayschool/SundaySchoolClassView.php:347
-#: sundayschool/SundaySchoolDashboard.php:247
+#: SelectList.php:1362 sundayschool/SundaySchoolDashboard.php:247
 #: sundayschool/SundaySchoolDashboard.php:248
 #: sundayschool/SundaySchoolDashboard.php:249
 msgid "Private Data"
@@ -2016,7 +1999,6 @@ msgstr "Donnée privée"
 #: EcclesiaCRM/Service/TimelineService.php:189
 #: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1097
 #: Include/Functions.php:605 Include/Functions.php:618
-#: sundayschool/SundaySchoolClassView.php:278
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -4498,7 +4480,7 @@ msgstr "le mot de passe de l'utilisateur système a été modifié par l'admin"
 msgid "system user login reset"
 msgstr "l'identifiant de l'utilisateur système a été réinitialisé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1172
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1175
 msgid "Dav create file"
 msgstr "Création fichier DAV"
 
@@ -4506,11 +4488,11 @@ msgstr "Création fichier DAV"
 msgid "Dav create directory"
 msgstr "Création dossier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1174
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1177
 msgid "Dav update file"
 msgstr "Mise à jour fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1173
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1176
 msgid "Dav move copy file"
 msgstr "Déplacement copie fichier DAV"
 
@@ -4571,19 +4553,17 @@ msgstr "Moniteurs"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:282
 msgid "Boy"
 msgstr "Garçon"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:285
 msgid "Girl"
 msgstr "Fille"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:243
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:249
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Students"
@@ -5502,7 +5482,6 @@ msgid "Family Member"
 msgstr "Membre de la Famille"
 
 #: external/templates/registration/family-register-members.php:94
-#: sundayschool/SundaySchoolClassView.php:259
 msgid "Mobile"
 msgstr "Téléphone portable"
 
@@ -5545,7 +5524,6 @@ msgid "Confirm"
 msgstr "Confirmer"
 
 #: external/templates/verify/verify-family-info.php:32
-#: sundayschool/SundaySchoolClassView.php:261
 #: sundayschool/SundaySchoolDashboard.php:220
 msgid "Home Address"
 msgstr "Adresse personnelle"
@@ -6041,14 +6019,14 @@ msgstr "Ajouter un nouveau paiement"
 msgid " Canvass Entry"
 msgstr " entrée/ajout de démarchage"
 
-#: FamilyView.php:870 PersonView.php:1330
+#: FamilyView.php:870 PersonView.php:1335
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 "Vous êtes sur le point de supprimer la photo de profil, cette opération est "
 "irréversible."
 
-#: FamilyView.php:872 PersonView.php:1332
+#: FamilyView.php:872 PersonView.php:1337
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
 
@@ -6082,11 +6060,11 @@ msgstr "Rapport PDF"
 msgid "Verified In Person"
 msgstr "Vérifier en personne"
 
-#: FamilyView.php:943 PersonView.php:1356
+#: FamilyView.php:943 PersonView.php:1361
 msgid "Confirm Deactivation"
 msgstr "Confirmer la désactivation"
 
-#: FamilyView.php:943 PersonView.php:1356
+#: FamilyView.php:943 PersonView.php:1361
 msgid "Confirm Activation"
 msgstr "Confirmer l'activation"
 
@@ -6972,7 +6950,8 @@ msgstr "Membres du Groupe:"
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
-#: GroupView.php:484 sundayschool/SundaySchoolDashboard.php:281
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:339
+#: sundayschool/SundaySchoolDashboard.php:281
 msgid "Add"
 msgstr "Ajouter"
 
@@ -7874,7 +7853,7 @@ msgstr "Éditeur de Document"
 msgid "You must enter text for this note"
 msgstr "Vous devez entrer un message pour cette note"
 
-#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1172
+#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1175
 msgid "Create file"
 msgstr "Création fichier"
 
@@ -8505,15 +8484,15 @@ msgstr "Tous les types"
 msgid "Shared documents"
 msgstr "Documents partagés"
 
-#: PersonView.php:1174
+#: PersonView.php:1177
 msgid "Update file"
 msgstr "Mise à jour fichier"
 
-#: PersonView.php:1358
+#: PersonView.php:1363
 msgid "Please confirm deactivation of person"
 msgstr "Veuillez confirmer la désactivation de la personne"
 
-#: PersonView.php:1361
+#: PersonView.php:1366
 msgid "Please confirm activation of person"
 msgstr "Veuillez confirmer l'activation de la personne"
 
@@ -8614,7 +8593,6 @@ msgid "Printable View"
 msgstr "Aperçu avant Impression"
 
 #: PrintPastoralCare.php:344 PrintView.php:347 Reports/CanvassReports.php:239
-#: sundayschool/SundaySchoolClassView.php:257
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Age"
 msgstr "Âge"
@@ -9532,7 +9510,7 @@ msgstr "Tout afficher"
 msgid "Photo"
 msgstr "Photo"
 
-#: SelectList.php:1138 sundayschool/SundaySchoolClassView.php:254
+#: SelectList.php:1138
 msgid "Cart"
 msgstr "Panier"
 
@@ -9642,86 +9620,76 @@ msgstr "Supprimer les Moniteurs du Panier"
 msgid "Add Teachers to Cart"
 msgstr "Ajouter les Moniteurs au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:182
-#: sundayschool/SundaySchoolClassView.php:428
+#: sundayschool/SundaySchoolClassView.php:187
+#: sundayschool/SundaySchoolClassView.php:323
 msgid "Send Message"
 msgstr "Envoyer un message"
 
-#: sundayschool/SundaySchoolClassView.php:184
+#: sundayschool/SundaySchoolClassView.php:189
 msgid "View Profile"
 msgstr "Voir le profil"
 
-#: sundayschool/SundaySchoolClassView.php:195
+#: sundayschool/SundaySchoolClassView.php:200
 msgid "Quick Status"
 msgstr "Statut rapide"
 
-#: sundayschool/SundaySchoolClassView.php:209
+#: sundayschool/SundaySchoolClassView.php:215
 msgid "Birthdays by Month"
 msgstr "Anniversaires par mois"
 
-#: sundayschool/SundaySchoolClassView.php:236
+#: sundayschool/SundaySchoolClassView.php:242
 msgid "Click the chart or Donut parts to interact with the table below."
-msgstr "Cliquer les parties du diagramme en bâtons ou circulaire pour interagir avec le tableau ci-dessous."
+msgstr ""
+"Cliquer les parties du diagramme en bâtons ou circulaire pour interagir avec "
+"le tableau ci-dessous."
 
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:253
 msgid "Showing students with birthdays in"
 msgstr "Afficher les étudiants dont l'anniversaire est en"
 
-#: sundayschool/SundaySchoolClassView.php:248
+#: sundayschool/SundaySchoolClassView.php:254
 msgid "Showing students with gender"
 msgstr "Afficher les étudiants dont le sexe est"
 
-#: sundayschool/SundaySchoolClassView.php:262
-msgid "Dad Name"
-msgstr "Nom du père"
-
-#: sundayschool/SundaySchoolClassView.php:263
-msgid "Dad Mobile"
-msgstr "Téléphone portable du père"
-
-#: sundayschool/SundaySchoolClassView.php:264
-msgid "Dad Email"
-msgstr "Email du père"
-
-#: sundayschool/SundaySchoolClassView.php:265
-msgid "Mom Name"
-msgstr "Nom de la mère"
-
-#: sundayschool/SundaySchoolClassView.php:266
-msgid "Mom Mobile"
-msgstr "Téléphone portable de la mère"
-
-#: sundayschool/SundaySchoolClassView.php:267
-msgid "Mom Email"
-msgstr "Email de la mère"
-
-#: sundayschool/SundaySchoolClassView.php:390
+#: sundayschool/SundaySchoolClassView.php:285
 msgid "Compose New Message"
 msgstr "Composer un nouveau message"
 
-#: sundayschool/SundaySchoolClassView.php:395
+#: sundayschool/SundaySchoolClassView.php:290
 msgid "Kids Emails"
 msgstr "Emails des enfants"
 
-#: sundayschool/SundaySchoolClassView.php:400
+#: sundayschool/SundaySchoolClassView.php:295
 msgid "Parents Emails"
 msgstr "Email des Parents"
 
-#: sundayschool/SundaySchoolClassView.php:405
+#: sundayschool/SundaySchoolClassView.php:300
 msgid "Teachers Emails"
 msgstr "Email des Moniteurs"
 
-#: sundayschool/SundaySchoolClassView.php:415
+#: sundayschool/SundaySchoolClassView.php:310
 msgid "Attachment"
 msgstr "Pièce jointe"
 
-#: sundayschool/SundaySchoolClassView.php:418
+#: sundayschool/SundaySchoolClassView.php:313
 msgid "Max. 32MB"
 msgstr "Maximum 32MB"
 
-#: sundayschool/SundaySchoolClassView.php:425
+#: sundayschool/SundaySchoolClassView.php:320
 msgid "Discard"
 msgstr "Rejeter"
+
+#: sundayschool/SundaySchoolClassView.php:334
+msgid "Add Members to Sunday Group"
+msgstr "Ajouter des membres à ce groupe"
+
+#: sundayschool/SundaySchoolClassView.php:345
+msgid "at the end, reload the page to see the results in the charts"
+msgstr "à la fin, recharger la page pour voir les changements au niveau des graphiques"
+
+#: sundayschool/SundaySchoolClassView.php:348
+msgid "Reload"
+msgstr "Recharger"
 
 #: sundayschool/SundaySchoolDashboard.php:39
 msgid "Sunday School Dashboard"
@@ -10936,24 +10904,6 @@ msgstr "Carte de crédit"
 
 msgid "CreditCard"
 msgstr "Carte de crédit"
-
-#~ msgid "Go To Labels"
-#~ msgstr "Aller à Étiquettes"
-
-#~ msgid " Bold Italic"
-#~ msgstr " Gras Italique"
-
-#~ msgid " Italic"
-#~ msgstr " Italique"
-
-#~ msgid " Bold"
-#~ msgstr " Gras"
-
-#~ msgid "Family Members:"
-#~ msgstr "Membres de la Famille:"
-
-#~ msgid "None State"
-#~ msgstr "Statut inconnu"
 
 #~ msgid ""
 #~ "Warning:  By deleting this field, you will irrevokably lose all family "

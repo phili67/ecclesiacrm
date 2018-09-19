@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 22:04+0200\n"
+"POT-Creation-Date: 2018-09-19 18:58+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -294,7 +294,7 @@ msgstr "Chỉnh sửa thành viên"
 #: members/404.php:16 PersonView.php:565 PledgeEditor.php:537
 #: PrintPastoralCare.php:262 PrintView.php:265 PropertyEditor.php:46
 #: PropertyList.php:30 PropertyTypeEditor.php:89 PropertyTypeList.php:119
-#: SelectList.php:1115 sundayschool/SundaySchoolClassView.php:253
+#: SelectList.php:1115
 msgid "Family"
 msgstr "Gia đình"
 
@@ -392,8 +392,8 @@ msgstr "Không hoạt động"
 #: CSVImport.php:207
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:805
-#: PersonList.php:110 sundayschool/SundaySchoolClassView.php:252
-#: sundayschool/SundaySchoolDashboard.php:216 UserList.php:89
+#: PersonList.php:110 sundayschool/SundaySchoolDashboard.php:216
+#: UserList.php:89
 #, fuzzy
 msgid "First Name"
 msgstr "Tên"
@@ -461,8 +461,7 @@ msgstr "Điện thoại"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
-#: sundayschool/SundaySchoolClassView.php:90
-#: sundayschool/SundaySchoolClassView.php:258 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:90 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "E-mail"
 
@@ -526,7 +525,7 @@ msgstr "Lưu lại"
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:134 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:96 NoteEditor.php:299
-#: PersonEditor.php:1587 PersonView.php:1336 PledgeEditor.php:729
+#: PersonEditor.php:1587 PersonView.php:1341 PledgeEditor.php:729
 #: PropertyEditor.php:189 PropertyTypeEditor.php:113 Register.php:56
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: SettingsUser.php:99 SettingsUser.php:159
@@ -1022,8 +1021,7 @@ msgstr "Thêm vào giỏ hàng rồi gửi đến Gia đình"
 #: PropertyTypeEditor.php:95 PropertyTypeList.php:54
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:216 Reports/FRBidSheets.php:88
-#: SelectList.php:1043 sundayschool/SundaySchoolClassView.php:253
-#: UserList.php:88 VolunteerOpportunityEditor.php:74
+#: SelectList.php:1043 UserList.php:88 VolunteerOpportunityEditor.php:74
 #: VolunteerOpportunityEditor.php:353 VolunteerOpportunityEditor.php:420
 #: queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1087,7 +1085,7 @@ msgstr "(Sử dụng hộp văn bản cho các quốc gia khác ngoài Mỹ và 
 #: PersonEditor.php:1223 PersonEditor.php:1227 PersonList.php:112
 #: PersonView.php:388 PrintPastoralCare.php:203 PrintView.php:206
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
-#: sundayschool/SundaySchoolClassView.php:260 queryparameteroptions_qpo.php:8
+#: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
 msgstr "Điện thoại nhà"
 
@@ -1363,7 +1361,7 @@ msgstr ""
 #: ElectronicPaymentList.php:255 ElectronicPaymentList.php:313
 #: EventNames.php:325 FamilyView.php:878 FindDepositSlip.php:121
 #: FundRaiserEditor.php:199 ListEvents.php:398 PaddleNumList.php:55
-#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1337
+#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1342
 msgid "Delete"
 msgstr "Xóa bỏ"
 
@@ -1374,9 +1372,8 @@ msgstr "Danh sách"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
-#: sundayschool/SundaySchoolClassView.php:224
-#: sundayschool/SundaySchoolClassView.php:256
-#: sundayschool/SundaySchoolClassView.php:453 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:230
+#: sundayschool/SundaySchoolClassView.php:371 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Giới tính"
 
@@ -1657,8 +1654,7 @@ msgid "Work / Other Email"
 msgstr "Email làm việc/khác"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:255
-#: sundayschool/SundaySchoolClassView.php:452
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:370
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Năm sinh"
@@ -1845,7 +1841,7 @@ msgid "Return to Deposit Listing"
 msgstr "Quay về sự kiện"
 
 #: DepositSlipEditor.php:269 FamilyView.php:866 FindDepositSlip.php:111
-#: PersonView.php:1326
+#: PersonView.php:1331
 #, fuzzy
 msgid "Confirm Delete"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
@@ -2075,20 +2071,7 @@ msgstr ""
 #: FamilyList.php:152 PersonList.php:156 PersonList.php:157 PersonList.php:158
 #: PersonList.php:159 PersonList.php:160 PersonList.php:161
 #: PrintPastoralCare.php:504 SelectList.php:1256 SelectList.php:1279
-#: SelectList.php:1362 sundayschool/SundaySchoolClassView.php:335
-#: sundayschool/SundaySchoolClassView.php:336
-#: sundayschool/SundaySchoolClassView.php:337
-#: sundayschool/SundaySchoolClassView.php:338
-#: sundayschool/SundaySchoolClassView.php:339
-#: sundayschool/SundaySchoolClassView.php:340
-#: sundayschool/SundaySchoolClassView.php:341
-#: sundayschool/SundaySchoolClassView.php:342
-#: sundayschool/SundaySchoolClassView.php:343
-#: sundayschool/SundaySchoolClassView.php:344
-#: sundayschool/SundaySchoolClassView.php:345
-#: sundayschool/SundaySchoolClassView.php:346
-#: sundayschool/SundaySchoolClassView.php:347
-#: sundayschool/SundaySchoolDashboard.php:247
+#: SelectList.php:1362 sundayschool/SundaySchoolDashboard.php:247
 #: sundayschool/SundaySchoolDashboard.php:248
 #: sundayschool/SundaySchoolDashboard.php:249
 #, fuzzy
@@ -2103,7 +2086,6 @@ msgstr "Giữ điều này riêng tư"
 #: EcclesiaCRM/Service/TimelineService.php:189
 #: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1097
 #: Include/Functions.php:605 Include/Functions.php:618
-#: sundayschool/SundaySchoolClassView.php:278
 msgid "Unknown"
 msgstr "Không rõ"
 
@@ -4567,7 +4549,7 @@ msgstr "mật khẩu thành viên đã được thay đổi bởi Admin"
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1172
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:543 PersonView.php:1175
 #, fuzzy
 msgid "Dav create file"
 msgstr "Tạo tập tin"
@@ -4576,11 +4558,11 @@ msgstr "Tạo tập tin"
 msgid "Dav create directory"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1174
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:553 PersonView.php:1177
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1173
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:558 PersonView.php:1176
 msgid "Dav move copy file"
 msgstr ""
 
@@ -4642,21 +4624,19 @@ msgstr "Giáo viên"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:282
 #, fuzzy
 msgid "Boy"
 msgstr "Nam"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:178
 #: sundayschool/SundaySchoolAttendeesExport.php:171
-#: sundayschool/SundaySchoolClassView.php:285
 #, fuzzy
 msgid "Girl"
 msgstr "Nữ"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:243
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:249
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Students"
@@ -5629,7 +5609,6 @@ msgid "Family Member"
 msgstr "Thành viên gia đình"
 
 #: external/templates/registration/family-register-members.php:94
-#: sundayschool/SundaySchoolClassView.php:259
 msgid "Mobile"
 msgstr "Di động"
 
@@ -5674,7 +5653,6 @@ msgid "Confirm"
 msgstr "Xác nhận"
 
 #: external/templates/verify/verify-family-info.php:32
-#: sundayschool/SundaySchoolClassView.php:261
 #: sundayschool/SundaySchoolDashboard.php:220
 #, fuzzy
 msgid "Home Address"
@@ -6196,12 +6174,12 @@ msgstr "Thêm sự kiện mới"
 msgid " Canvass Entry"
 msgstr ""
 
-#: FamilyView.php:870 PersonView.php:1330
+#: FamilyView.php:870 PersonView.php:1335
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:872 PersonView.php:1332
+#: FamilyView.php:872 PersonView.php:1337
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -6234,12 +6212,12 @@ msgstr "Báo cáo"
 msgid "Verified In Person"
 msgstr "Xem tất cả thành viên"
 
-#: FamilyView.php:943 PersonView.php:1356
+#: FamilyView.php:943 PersonView.php:1361
 #, fuzzy
 msgid "Confirm Deactivation"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
 
-#: FamilyView.php:943 PersonView.php:1356
+#: FamilyView.php:943 PersonView.php:1361
 msgid "Confirm Activation"
 msgstr ""
 
@@ -7186,7 +7164,8 @@ msgstr "Thành viên Ban/Mục vụ:"
 msgid "Manage Group Members"
 msgstr "Thành viên Ban/Mục vụ:"
 
-#: GroupView.php:484 sundayschool/SundaySchoolDashboard.php:281
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:339
+#: sundayschool/SundaySchoolDashboard.php:281
 #, fuzzy
 msgid "Add"
 msgstr "Địa chỉ"
@@ -8108,7 +8087,7 @@ msgstr "Chỉnh sửa ghi chú"
 msgid "You must enter text for this note"
 msgstr ""
 
-#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1172
+#: NoteEditor.php:107 NoteEditor.php:129 PersonView.php:1175
 #, fuzzy
 msgid "Create file"
 msgstr "Tạo tập tin"
@@ -8776,17 +8755,17 @@ msgstr "Tất cả thành viên"
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1174
+#: PersonView.php:1177
 #, fuzzy
 msgid "Update file"
 msgstr "Gia đình vừa cập nhật"
 
-#: PersonView.php:1358
+#: PersonView.php:1363
 #, fuzzy
 msgid "Please confirm deactivation of person"
 msgstr "Vui lòng chọn các ô xác nhận"
 
-#: PersonView.php:1361
+#: PersonView.php:1366
 #, fuzzy
 msgid "Please confirm activation of person"
 msgstr "Vui lòng chọn các ô xác nhận"
@@ -8896,7 +8875,6 @@ msgid "Printable View"
 msgstr "Xem bản in"
 
 #: PrintPastoralCare.php:344 PrintView.php:347 Reports/CanvassReports.php:239
-#: sundayschool/SundaySchoolClassView.php:257
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Age"
 msgstr "Tuổi"
@@ -9842,7 +9820,7 @@ msgstr "Xem tất cả"
 msgid "Photo"
 msgstr ""
 
-#: SelectList.php:1138 sundayschool/SundaySchoolClassView.php:254
+#: SelectList.php:1138
 msgid "Cart"
 msgstr "Giỏ hàng"
 
@@ -9963,96 +9941,79 @@ msgstr "Xóa khỏi giỏ"
 msgid "Add Teachers to Cart"
 msgstr "Thêm vào giỏ"
 
-#: sundayschool/SundaySchoolClassView.php:182
-#: sundayschool/SundaySchoolClassView.php:428
+#: sundayschool/SundaySchoolClassView.php:187
+#: sundayschool/SundaySchoolClassView.php:323
 #, fuzzy
 msgid "Send Message"
 msgstr "Tin nhắn"
 
-#: sundayschool/SundaySchoolClassView.php:184
+#: sundayschool/SundaySchoolClassView.php:189
 #, fuzzy
 msgid "View Profile"
 msgstr "Hồ sơ cá nhân"
 
-#: sundayschool/SundaySchoolClassView.php:195
+#: sundayschool/SundaySchoolClassView.php:200
 #, fuzzy
 msgid "Quick Status"
 msgstr "Cài đặt nhanh"
 
-#: sundayschool/SundaySchoolClassView.php:209
+#: sundayschool/SundaySchoolClassView.php:215
 msgid "Birthdays by Month"
 msgstr "Ngày sinh theo tháng"
 
-#: sundayschool/SundaySchoolClassView.php:236
+#: sundayschool/SundaySchoolClassView.php:242
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:247
+#: sundayschool/SundaySchoolClassView.php:253
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:248
+#: sundayschool/SundaySchoolClassView.php:254
 msgid "Showing students with gender"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:262
-#, fuzzy
-msgid "Dad Name"
-msgstr "Tên ngân hàng"
-
-#: sundayschool/SundaySchoolClassView.php:263
-#, fuzzy
-msgid "Dad Mobile"
-msgstr "Di động"
-
-#: sundayschool/SundaySchoolClassView.php:264
-#, fuzzy
-msgid "Dad Email"
-msgstr "E-mail"
-
-#: sundayschool/SundaySchoolClassView.php:265
-#, fuzzy
-msgid "Mom Name"
-msgstr "Tên thành viên"
-
-#: sundayschool/SundaySchoolClassView.php:266
-#, fuzzy
-msgid "Mom Mobile"
-msgstr "Di động"
-
-#: sundayschool/SundaySchoolClassView.php:267
-#, fuzzy
-msgid "Mom Email"
-msgstr "E-mail"
-
-#: sundayschool/SundaySchoolClassView.php:390
+#: sundayschool/SundaySchoolClassView.php:285
 msgid "Compose New Message"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:395
+#: sundayschool/SundaySchoolClassView.php:290
 #, fuzzy
 msgid "Kids Emails"
 msgstr "E-mail"
 
-#: sundayschool/SundaySchoolClassView.php:400
+#: sundayschool/SundaySchoolClassView.php:295
 #, fuzzy
 msgid "Parents Emails"
 msgstr "Email giáo viên"
 
-#: sundayschool/SundaySchoolClassView.php:405
+#: sundayschool/SundaySchoolClassView.php:300
 msgid "Teachers Emails"
 msgstr "Email giáo viên"
 
-#: sundayschool/SundaySchoolClassView.php:415
+#: sundayschool/SundaySchoolClassView.php:310
 msgid "Attachment"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:418
+#: sundayschool/SundaySchoolClassView.php:313
 msgid "Max. 32MB"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:425
+#: sundayschool/SundaySchoolClassView.php:320
 msgid "Discard"
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:334
+#, fuzzy
+msgid "Add Members to Sunday Group"
+msgstr "Thêm thành viên đã lựa chọn đến Ban/Mục vụ"
+
+#: sundayschool/SundaySchoolClassView.php:345
+msgid "at the end, reload the page to see the results in the charts"
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:348
+msgid "Reload"
 msgstr ""
 
 #: sundayschool/SundaySchoolDashboard.php:39
@@ -11315,6 +11276,30 @@ msgstr ""
 #, fuzzy
 msgid "CreditCard"
 msgstr "Thẻ tín dụng"
+
+#, fuzzy
+#~ msgid "Dad Name"
+#~ msgstr "Tên ngân hàng"
+
+#, fuzzy
+#~ msgid "Dad Mobile"
+#~ msgstr "Di động"
+
+#, fuzzy
+#~ msgid "Dad Email"
+#~ msgstr "E-mail"
+
+#, fuzzy
+#~ msgid "Mom Name"
+#~ msgstr "Tên thành viên"
+
+#, fuzzy
+#~ msgid "Mom Mobile"
+#~ msgstr "Di động"
+
+#, fuzzy
+#~ msgid "Mom Email"
+#~ msgstr "E-mail"
 
 #, fuzzy
 #~ msgid "Famille"

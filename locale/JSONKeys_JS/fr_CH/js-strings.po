@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-09-09T18:47:32.125Z\n"
+"POT-Creation-Date: 2018-09-19T16:23:40.882Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1010,6 +1010,57 @@ msgstr "Changer rôle"
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Confirmer la suppression du bénévolat"
 
+msgid "First name"
+msgstr "Prénom"
+
+msgid "Action"
+msgstr "Actions"
+
+msgid "Birth Date"
+msgstr "Date de naissance"
+
+msgid "Gender"
+msgstr "Sexe"
+
+msgid "Unknown"
+msgstr "Inconnu"
+
+msgid "Boy"
+msgstr "Garçon"
+
+msgid "Girl"
+msgstr "Fille"
+
+msgid "Age"
+msgstr "Âge"
+
+msgid "Mobile"
+msgstr "Téléphone Portable"
+
+msgid "Home Phone"
+msgstr "Téléphone Portable"
+
+msgid "Home Address"
+msgstr "Adresse personnelle"
+
+msgid "Dad Name"
+msgstr "Nom du père"
+
+msgid "Dad Mobile"
+msgstr "Portable du père"
+
+msgid "Dad Email"
+msgstr "Email du père"
+
+msgid "Mom Name"
+msgstr "Nom de la mère"
+
+msgid "Mom Mobile"
+msgstr "Portable de la mère"
+
+msgid "Mom Email"
+msgstr "Email Mère"
+
 msgid "Remove Students from Cart"
 msgstr "Supprimer les Etudiants du Panier"
 
@@ -1111,6 +1162,9 @@ msgstr "Réinitialisation Mot de Passe pour"
 
 msgid "success"
 msgstr "confirmé"
+
+#~ msgid "Cart"
+#~ msgstr "Panier"
 
 #~ msgid "Profile Name"
 #~ msgstr "Nom du profile"

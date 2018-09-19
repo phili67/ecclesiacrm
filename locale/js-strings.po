@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-17T20:08:36.373Z\n"
-"PO-Revision-Date: 2018-09-17T20:08:36.373Z\n"
+"POT-Creation-Date: 2018-09-19T19:04:12.289Z\n"
+"PO-Revision-Date: 2018-09-19T19:04:12.289Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -957,6 +957,57 @@ msgid "Change role"
 msgstr ""
 
 msgid "Confirm Delete volunteer Opportunity"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Birth Date"
+msgstr ""
+
+msgid "Gender"
+msgstr ""
+
+msgid "Unknown"
+msgstr ""
+
+msgid "Boy"
+msgstr ""
+
+msgid "Girl"
+msgstr ""
+
+msgid "Age"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Home Phone"
+msgstr ""
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Dad Name"
+msgstr ""
+
+msgid "Dad Mobile"
+msgstr ""
+
+msgid "Dad Email"
+msgstr ""
+
+msgid "Mom Name"
+msgstr ""
+
+msgid "Mom Mobile"
+msgstr ""
+
+msgid "Mom Email"
 msgstr ""
 
 msgid "Remove Students from Cart"
