@@ -65,6 +65,8 @@ require '../Include/Header.php';
 
 ?>
 
+<div class="callout callout-info"><?= gettext("Informations ! To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
+
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Sunday School Class Functions') ?></h3>
