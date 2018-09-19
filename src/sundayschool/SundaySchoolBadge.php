@@ -21,9 +21,11 @@ use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\utils\LabelUtils;
+use EcclesiaCRM\PersonQuery;
 
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
+$useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
 
 $group = GroupQuery::Create()->findOneById ($iGroupID);
 
@@ -46,12 +48,33 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
 
 <div class="callout callout-info"><?= gettext("Informations ! When you add some properties to a person they will be add to the badge.") ?></div>
 
+<?php
+   if (count($_SESSION['aPeopleCart']) == 0) {
+      $useCart = 0;
+   }
+      
+   if ($useCart == 1) {
+        $allPersons = "";
+      
+        foreach ($_SESSION['aPeopleCart'] as $personId) {
+          $person = PersonQuery::Create()->findOneById ($personId);
+          
+          $allPersons .= $person->getFullName().",";
+        }
+?>
+  <div class="callout callout-warning"><?= gettext("Informations ! You're about to create babges only for this people")." : <b>".$allPersons."</b> ".gettext("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
+<?php
+   }
+?>
+
+
 <div class="box">
       <div class="box-header with-border">
           <h3 class="box-title"><?= _('Generate Badges') ?></h3>
       </div>
       <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadgeSundaySchool.php" name="labelform">
       <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
+      <input id="useCart" name="useCart" type="hidden" value="<?= $useCart?>">
       <div class="box-body">
           <div class="row">
             <div class="col-md-6">
