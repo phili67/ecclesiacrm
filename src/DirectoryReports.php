@@ -233,27 +233,27 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                 </tr>
                 <tr>
                     <td><?= gettext('Church Name') ?></td>
-                    <td><input type="text" Name="sChurchName" value="<?= SystemConfig::getValue('sChurchName') ?>"></td>
+                    <td><input type="text" Name="sChurchName" value="<?= SystemConfig::getValue('sChurchName') ?>" class="form-control"></td>
                 </tr>
                 <tr>
                     <td><?= gettext('Address') ?></td>
-                    <td><input type="text" Name="sChurchAddress" value="<?= SystemConfig::getValue('sChurchAddress') ?>"></td>
+                    <td><input type="text" Name="sChurchAddress" value="<?= SystemConfig::getValue('sChurchAddress') ?>" class="form-control"></td>
                 </tr>
                 <tr>
                     <td><?= gettext('City') ?></td>
-                    <td><input type="text" Name="sChurchCity" value="<?= SystemConfig::getValue('sChurchCity') ?>"></td>
+                    <td><input type="text" Name="sChurchCity" value="<?= SystemConfig::getValue('sChurchCity') ?>" class="form-control"></td>
                 </tr>
                 <tr>
                     <td><?= gettext('State') ?></td>
-                    <td><input type="text" Name="sChurchState" value="<?= SystemConfig::getValue('sChurchState') ?>"></td>
+                    <td><input type="text" Name="sChurchState" value="<?= SystemConfig::getValue('sChurchState') ?>" class="form-control"></td>
                 </tr>
                 <tr>
                     <td><?= gettext('Zip') ?></td>
-                    <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>"></td>
+                    <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>" class="form-control"></td>
                 </tr>
                 <tr>
                     <td><?= gettext('Phone') ?></td>
-                    <td><input type="text" Name="sChurchPhone" value="<?= SystemConfig::getValue('sChurchPhone') ?>"></td>
+                    <td><input type="text" Name="sChurchPhone" value="<?= SystemConfig::getValue('sChurchPhone') ?>" class="form-control"><br></td>
                 </tr>
                 <tr>
                     <td><?= gettext('Disclaimer') ?></td>
