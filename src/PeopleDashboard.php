@@ -165,7 +165,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
   <!-- ./col -->
   <div class="col-lg-3 col-md-6 col-sm-6">
     <!-- small box -->
-    <div class="small-box bg-green">
+    <div class="small-box bg-purple">
       <div class="inner">
         <h3>
           <?= $personCount['personCount'] ?>
@@ -207,7 +207,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
   <!-- ./col -->
   <div class="col-lg-3 col-md-6 col-sm-6">
     <!-- small box -->
-    <div class="small-box bg-red">
+    <div class="small-box bg-maroon">
       <div class="inner">
         <h3>
           <?= $groupStats['groups'] - $groupStats['sundaySchoolClasses'] ?>

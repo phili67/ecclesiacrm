@@ -71,17 +71,23 @@ $aDirRoleSpouse = explode(',', SystemConfig::getValue('sDirRoleSpouse'));
 $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
 
 ?>
-<div class="table-responsive">
-<table class="table" align="center" class="table">
-<?php if (!array_key_exists('cartdir', $_GET)) {
-    ?>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Exclude Inactive Families') ?></td>
-        <td><input type="checkbox" Name="bExcludeInactive" value="1" checked></td>
-    </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Select classifications to include') ?></td>
-        <td class="TextColumn">
+<?php 
+   if (!array_key_exists('cartdir', $_GET)) {
+?>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Exclude Inactive Families') ?></b>
+   </div>
+   <div class="col-sm-7">
+      <input type="checkbox" Name="bExcludeInactive" value="1" checked>
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Select classifications to include') ?> </b>
+   </div>
+   <div class="col-sm-7">
             <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
             <select name="sDirClassifications[]" size="5" multiple>
             <option value="0"><?= gettext("Unassigned") ?></option>
@@ -93,11 +99,14 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                }
             ?>
             </select>
-        </td>
-    </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Group Membership') ?>:</td>
-        <td class="TextColumn">
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Group Membership') ?>:</b>
+   </div>
+   <div class="col-sm-7">
             <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
             <select name="GroupID[]" size="5" multiple>
               <?php
@@ -108,16 +117,19 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                 }
               ?>
             </select>
-        </td>
-    </tr>
+          
+   </div>
+</div>
 
 <?php
-}
+  }
 ?>
 
-    <tr>
-        <td class="LabelColumn"><?= gettext('Which role is the head of household?') ?></td>
-        <td class="TextColumn">
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Which role is the head of household?') ?></b>
+   </div>
+   <div class="col-sm-7">
             <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
             <select name="sDirRoleHead[]" size="5" multiple>
             <?php
@@ -128,11 +140,14 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                 }
             ?>
             </select>
-        </td>
-    </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Which role is the spouse?') ?></td>
-        <td class="TextColumn">
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Which role is the spouse?') ?></b>
+   </div>
+   <div class="col-sm-7">
             <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
             <select name="sDirRoleSpouse[]" size="5" multiple>
             <?php
@@ -143,11 +158,14 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                 }
             ?>
             </select>
-        </td>
-    </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Which role is a child?') ?></td>
-        <td class="TextColumn">
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Which role is a child?') ?></b>
+   </div>
+   <div class="col-sm-7">
             <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
             <select name="sDirRoleChild[]" size="5" multiple>
             <?php
@@ -158,11 +176,14 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
                 }
             ?>
             </select>
-        </td>
-    </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Information to Include') ?>:</td>
-        <td class="TextColumn">
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Information to Include') ?>:</b>
+   </div>
+   <div class="col-sm-7">
             <input type="checkbox" Name="bDirAddress" value="1" checked> <?= gettext('Address') ?><br>
             <input type="checkbox" Name="bDirWedding" value="1" checked> <?= gettext('Wedding Date') ?><br>
             <input type="checkbox" Name="bDirBirthday" value="1" checked> <?= gettext('Birthday') ?><br>
@@ -189,84 +210,94 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
              }
          }
         ?>
-        </td>
-    </tr>
-  <tr>
-   <td class="LabelColumn"><?= gettext('Number of Columns') ?>:</td>
-    <td class="TextColumn">
+          
+   </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Number of Columns') ?>:</b>
+   </div>
+   <div class="col-sm-7">
         <input type="radio" Name="NumCols" value=1>1 <?= gettext('col') ?><br>
         <input type="radio" Name="NumCols" value=2 checked>2 <?= gettext('cols') ?><br>
         <input type="radio" Name="NumCols" value=3>3 <?= gettext('cols') ?><br>
-  </td>
-  </tr>
-  <tr>
-   <td class="LabelColumn"><?= gettext('Paper Size') ?>:</td>
-    <td class="TextColumn">
+    </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Paper Size') ?>:</b>
+   </div>
+   <div class="col-sm-7">
         <input type="radio" name="PageSize" value="letter" checked>Letter (8.5x11)<br>
         <input type="radio" name="PageSize" value="legal">Legal (8.5x14)<br>
         <input type="radio" name="PageSize" value="a4">A4
-  </td>
-  </tr>
-  <tr>
-   <td class="LabelColumn"><?= gettext('Font Size') ?>:</td>
-    <td class="TextColumn">
+    </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+       <b><?= gettext('Font Size') ?>:</b>
+   </div>
+   <div class="col-sm-7">
     <table>
     <tr>
         <td><input type="radio" Name="FSize" value=6>6<br>
         <input type="radio" Name="FSize" value=8>8<br>
-        <input type="radio" Name="FSize" value=10 checked>10<br></td>
+        <input type="radio" Name="FSize" value=10 checked>10<br>  
 
         <td><input type="radio" Name="FSize" value=12>12<br>
         <input type="radio" Name="FSize" value=14>14<br>
-        <input type="radio" Name="FSize" value=16>16<br></td>
+        <input type="radio" Name="FSize" value=16>16<br>  
     </tr>
     </table>
-  </td>
-  </tr>
-    <tr>
-        <td class="LabelColumn"><?= gettext('Title page') ?>:</td>
-        <td class="TextColumn">
+    </div>
+</div>
+<br>
+<div class="row">
+   <div class="col-sm-5">
+      <b><?= gettext('Title page') ?>:</b>
+   </div>
+   <div class="col-sm-7">
             <table>
                 <tr>
-                    <td><?= gettext('Use Title Page') ?></td>
-                    <td><input type="checkbox" Name="bDirUseTitlePage" value="1"></td>
+                    <td><?= gettext('Use Title Page') ?>  
+                    <td><input type="checkbox" Name="bDirUseTitlePage" value="1">  
                 </tr>
                 <tr>
-                    <td><?= gettext('Church Name') ?></td>
-                    <td><input type="text" Name="sChurchName" value="<?= SystemConfig::getValue('sChurchName') ?>"></td>
+                    <td><?= gettext('Church Name') ?>  
+                    <td><input type="text" Name="sChurchName" value="<?= SystemConfig::getValue('sChurchName') ?>" class="form-control">  
                 </tr>
                 <tr>
-                    <td><?= gettext('Address') ?></td>
-                    <td><input type="text" Name="sChurchAddress" value="<?= SystemConfig::getValue('sChurchAddress') ?>"></td>
+                    <td><?= gettext('Address') ?>  
+                    <td><input type="text" Name="sChurchAddress" value="<?= SystemConfig::getValue('sChurchAddress') ?>" class="form-control">  
                 </tr>
                 <tr>
-                    <td><?= gettext('City') ?></td>
-                    <td><input type="text" Name="sChurchCity" value="<?= SystemConfig::getValue('sChurchCity') ?>"></td>
+                    <td><?= gettext('City') ?>  
+                    <td><input type="text" Name="sChurchCity" value="<?= SystemConfig::getValue('sChurchCity') ?>" class="form-control">  
                 </tr>
                 <tr>
-                    <td><?= gettext('State') ?></td>
-                    <td><input type="text" Name="sChurchState" value="<?= SystemConfig::getValue('sChurchState') ?>"></td>
+                    <td><?= gettext('State') ?>  
+                    <td><input type="text" Name="sChurchState" value="<?= SystemConfig::getValue('sChurchState') ?>" class="form-control">  
                 </tr>
                 <tr>
-                    <td><?= gettext('Zip') ?></td>
-                    <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>"></td>
+                    <td><?= gettext('Zip') ?>  
+                    <td><input type="text" Name="sChurchZip" value="<?= SystemConfig::getValue('sChurchZip') ?>" class="form-control">  
                 </tr>
                 <tr>
-                    <td><?= gettext('Phone') ?></td>
-                    <td><input type="text" Name="sChurchPhone" value="<?= SystemConfig::getValue('sChurchPhone') ?>"></td>
+                    <td><?= gettext('Phone') ?>  
+                    <td><input type="text" Name="sChurchPhone" value="<?= SystemConfig::getValue('sChurchPhone') ?>" class="form-control"><br>  
                 </tr>
                 <tr>
-                    <td><?= gettext('Disclaimer') ?></td>
-                    <td><textarea Name="sDirectoryDisclaimer" cols="35" rows="4"><?= SystemConfig::getValue('sDirectoryDisclaimer1').' '.SystemConfig::getValue('sDirectoryDisclaimer2') ?></textarea></td>
+                    <td><?= gettext('Disclaimer') ?>  
+                    <td><textarea Name="sDirectoryDisclaimer" cols="35" rows="4"><?= SystemConfig::getValue('sDirectoryDisclaimer1').' '.SystemConfig::getValue('sDirectoryDisclaimer2') ?></textarea>  
                 </tr>
 
             </table>
-        </td>
-    </tr>
-
-
-</table>
+    </div>
 </div>
+
 
 <?php 
   if (array_key_exists('cartdir', $_GET)) {
