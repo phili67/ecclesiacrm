@@ -62,7 +62,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
           $allPersons .= $person->getFullName().",";
         }
 ?>
-  <div class="callout callout-warning"><?= gettext("Informations ! You're about to create babges only from this people in the cart")." : <b>".$allPersons."</b> ".gettext("If you don't want to do this, empty the cart.") ?></div>
+  <div class="callout callout-warning"><?= gettext("Informations ! You're about to create babges only for this people")." : <b>".$allPersons."</b> ".gettext("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
 <?php
    }
 ?>
