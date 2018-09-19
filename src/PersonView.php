@@ -1158,6 +1158,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
             <!-- note item -->
             <?php 
+              $note_content = "";// this assume only the last note is visible
+              
               foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
                 $realNoteDir = $userDir;// per default the real dir
                 
@@ -1169,10 +1171,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   }
                 }
 
-                if ( $item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
+                if ( $note_content != $item['text'] // this assume only the last note is visible
+                 && ($item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Dav move copy file")) 
                  || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) 
-                 || $item['type'] != 'file') {      
+                 || $item['type'] != 'file') ) {
+                 
+                 $note_content = $item['text']; // this assume only the last note is visible
             ?>
               <li class="type-<?= $item['type'] ?><?= (isset($item['style2'])?" type-shared":"") ?>">
                 <!-- timeline icon -->
