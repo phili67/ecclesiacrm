@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 18:58+0200\n"
+"POT-Creation-Date: 2018-09-19 22:28+0200\n"
 "Language: fr-ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,7 +204,7 @@ msgstr "Ce rôle ne peut pas être attribué."
 #: api/routes/search.php:101 AutoPaymentEditor.php:913
 #: AutoPaymentEditor.php:921 CartToFamily.php:313 CartToFamily.php:318
 #: CartView.php:318 CSVExport.php:83 CSVExport.php:88 CSVImport.php:213
-#: CSVImport.php:214 DirectoryReports.php:166 DirectoryReports.php:239
+#: CSVImport.php:214 DirectoryReports.php:187 DirectoryReports.php:273
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:35 FamilyEditor.php:700
 #: FamilyEditor.php:704 FamilyList.php:102 FamilyView.php:227 GeoPage.php:361
@@ -294,7 +294,7 @@ msgstr ""
 "paiement automatique."
 
 #: AutoPaymentEditor.php:811 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
-#: CartView.php:56 CartView.php:67 CSVImport.php:269 DirectoryReports.php:87
+#: CartView.php:56 CartView.php:67 CSVImport.php:269 DirectoryReports.php:93
 #: DonatedItemEditor.php:185 DonatedItemEditor.php:236
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:169
 #: EcclesiaCRM/utils/OutputUtils.php:351 EcclesiaCRM/utils/OutputUtils.php:407
@@ -387,7 +387,7 @@ msgid "Last Name"
 msgstr "Nom"
 
 #: AutoPaymentEditor.php:929 CartToFamily.php:323 CSVExport.php:93
-#: CSVImport.php:215 DirectoryReports.php:243
+#: CSVImport.php:215 DirectoryReports.php:277
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:708
 #: PersonEditor.php:977 PersonEditor.php:1089 Register.php:44
 #: queryparameteroptions_qpo.php:7
@@ -395,7 +395,7 @@ msgid "City"
 msgstr "Ville"
 
 #: AutoPaymentEditor.php:937 CartToFamily.php:328 CSVExport.php:98
-#: CSVImport.php:216 DirectoryReports.php:247
+#: CSVImport.php:216 DirectoryReports.php:281
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:715
 #: PersonEditor.php:983 PersonEditor.php:1117 Register.php:45
 #: queryparameteroptions_qpo.php:6
@@ -403,7 +403,7 @@ msgid "State"
 msgstr "Etat"
 
 #: AutoPaymentEditor.php:945 BackupDatabase.php:63 CartToFamily.php:343
-#: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:251
+#: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:285
 #: external/templates/registration/family-register.php:51
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:728
 #: PersonEditor.php:996 PersonEditor.php:1151 Register.php:46
@@ -416,7 +416,7 @@ msgstr "Code postal"
 msgid "Country"
 msgstr "Pays"
 
-#: AutoPaymentEditor.php:961 DirectoryReports.php:255
+#: AutoPaymentEditor.php:961 DirectoryReports.php:289
 #: EcclesiaCRM/Reports/PDF_Directory.php:318
 #: EcclesiaCRM/Reports/PDF_Directory.php:392
 #: EcclesiaCRM/Reports/PDF_Directory.php:449
@@ -441,7 +441,7 @@ msgstr "Téléphone"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
-#: sundayschool/SundaySchoolClassView.php:90 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:92 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -496,7 +496,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 #: AutoPaymentEditor.php:1085 BatchWinnerEntry.php:111 CanvassEditor.php:238
-#: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:282
+#: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:313
 #: DonatedItemEditor.php:296 EventNames.php:259
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1202
 #: FamilyView.php:877 FinancialReports.php:80 FundRaiserEditor.php:142
@@ -903,8 +903,8 @@ msgstr "Pourquoi &quot;Pas intéressé&quot; ?"
 msgid "Cart to Badges"
 msgstr "Panier vers Badges"
 
-#: CartToBadge.php:37 CartToBadge.php:132 sundayschool/SundaySchoolBadge.php:51
-#: sundayschool/SundaySchoolBadge.php:131
+#: CartToBadge.php:37 CartToBadge.php:132 sundayschool/SundaySchoolBadge.php:73
+#: sundayschool/SundaySchoolBadge.php:154
 msgid "Generate Badges"
 msgstr "Générer des Badges"
 
@@ -922,29 +922,29 @@ msgstr "Second Titre"
 msgid "Third Title"
 msgstr "Troisième Titre"
 
-#: CartToBadge.php:67 sundayschool/SundaySchoolBadge.php:66
+#: CartToBadge.php:67 sundayschool/SundaySchoolBadge.php:89
 msgid "Title color"
 msgstr "Couleur du Titre"
 
-#: CartToBadge.php:72 CartToBadge.php:86 sundayschool/SundaySchoolBadge.php:71
-#: sundayschool/SundaySchoolBadge.php:85
+#: CartToBadge.php:72 CartToBadge.php:86 sundayschool/SundaySchoolBadge.php:94
+#: sundayschool/SundaySchoolBadge.php:108
 msgid "Chose your color"
 msgstr "Choisir la couleur"
 
-#: CartToBadge.php:81 sundayschool/SundaySchoolBadge.php:80
+#: CartToBadge.php:81 sundayschool/SundaySchoolBadge.php:103
 msgid "BackGround color"
 msgstr "Couleur du fond"
 
-#: CartToBadge.php:95 sundayschool/SundaySchoolBadge.php:94
+#: CartToBadge.php:95 sundayschool/SundaySchoolBadge.php:117
 msgid "Image"
 msgstr "Image"
 
-#: CartToBadge.php:101 sundayschool/SundaySchoolBadge.php:58
-#: sundayschool/SundaySchoolBadge.php:61 sundayschool/SundaySchoolBadge.php:100
+#: CartToBadge.php:101 sundayschool/SundaySchoolBadge.php:81
+#: sundayschool/SundaySchoolBadge.php:84 sundayschool/SundaySchoolBadge.php:123
 msgid "Sunday School Name"
 msgstr "Nom École du dimanche"
 
-#: CartToBadge.php:108 sundayschool/SundaySchoolBadge.php:107
+#: CartToBadge.php:108 sundayschool/SundaySchoolBadge.php:130
 msgid ""
 "Add your images to the CRM Images folder. By default scleft1.png, scleft2."
 "png and sccenter.jpg."
@@ -952,33 +952,33 @@ msgstr ""
 "Ajouter vos images dans le dossier Images du CRM. Par défaut scleft1.png, "
 "scleft2.png et sccenter.jpg."
 
-#: CartToBadge.php:113 sundayschool/SundaySchoolBadge.php:112
+#: CartToBadge.php:113 sundayschool/SundaySchoolBadge.php:135
 msgid "Image Position"
 msgstr "Position de l'image"
 
 #: CartToBadge.php:117 FamilyCustomFieldsEditor.php:422
 #: FamilyCustomFieldsEditor.php:506 PersonCustomFieldsEditor.php:413
-#: PersonCustomFieldsEditor.php:498 sundayschool/SundaySchoolBadge.php:116
+#: PersonCustomFieldsEditor.php:498 sundayschool/SundaySchoolBadge.php:139
 msgid "Left"
 msgstr "Gauche"
 
-#: CartToBadge.php:118 sundayschool/SundaySchoolBadge.php:117
+#: CartToBadge.php:118 sundayschool/SundaySchoolBadge.php:140
 msgid "Center"
 msgstr "Centrer"
 
 #: CartToBadge.php:119 FamilyCustomFieldsEditor.php:423
 #: FamilyCustomFieldsEditor.php:507 PersonCustomFieldsEditor.php:414
-#: PersonCustomFieldsEditor.php:499 sundayschool/SundaySchoolBadge.php:118
+#: PersonCustomFieldsEditor.php:499 sundayschool/SundaySchoolBadge.php:141
 msgid "Right"
 msgstr "Droite"
 
-#: CartToBadge.php:124 sundayschool/SundaySchoolBadge.php:123
+#: CartToBadge.php:124 sundayschool/SundaySchoolBadge.php:146
 msgid "Badge Type"
 msgstr "Type de Badge"
 
 #: CartToBadge.php:126 EcclesiaCRM/utils/LabelUtils.php:66
-#: Reports/PDFBadge.php:104 Reports/PDFBadgeSundaySchool.php:125
-#: Reports/PDFLabel.php:800 sundayschool/SundaySchoolBadge.php:125
+#: Reports/PDFBadge.php:104 Reports/PDFBadgeSundaySchool.php:126
+#: Reports/PDFLabel.php:800 sundayschool/SundaySchoolBadge.php:148
 msgid "default"
 msgstr "défaut"
 
@@ -1039,7 +1039,7 @@ msgstr "Si vous ajoutez une nouvelle famille, entrez les données ci-dessous."
 msgid "Family Name"
 msgstr "Nom de Famille"
 
-#: CartToFamily.php:289 CSVImport.php:226 DirectoryReports.php:167
+#: CartToFamily.php:289 CSVImport.php:226 DirectoryReports.php:188
 #: external/templates/verify/verify-family-info.php:41 FamilyEditor.php:840
 #: FamilyView.php:256
 msgid "Wedding Date"
@@ -1152,7 +1152,7 @@ msgid "Email Cart"
 msgstr "Envoyer un Email au panier"
 
 #: CartView.php:173 FamilyView.php:380 GroupView.php:196 PersonView.php:480
-#: sundayschool/SundaySchoolClassView.php:102
+#: sundayschool/SundaySchoolClassView.php:104
 msgid "Email (BCC)"
 msgstr "Email (CCI)"
 
@@ -1331,8 +1331,8 @@ msgstr "Liste"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
-#: sundayschool/SundaySchoolClassView.php:230
-#: sundayschool/SundaySchoolClassView.php:371 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:232
+#: sundayschool/SundaySchoolClassView.php:373 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Sexe"
 
@@ -1486,8 +1486,8 @@ msgid "People in Cart (filters ignored)"
 msgstr "Personnes dans le panier (filtres ignorés)"
 
 #: CSVExport.php:276 CSVExport.php:301 CSVExport.php:337
-#: DirectoryReports.php:85 DirectoryReports.php:101 DirectoryReports.php:121
-#: DirectoryReports.php:136 DirectoryReports.php:151 FinancialReports.php:337
+#: DirectoryReports.php:91 DirectoryReports.php:110 DirectoryReports.php:133
+#: DirectoryReports.php:151 DirectoryReports.php:169 FinancialReports.php:337
 msgid "Use Ctrl Key to select multiple"
 msgstr "Utiliser la touche Ctrl pour une sélection multiple"
 
@@ -1515,7 +1515,7 @@ msgstr "Homme"
 msgid "Female"
 msgstr "Femme"
 
-#: CSVExport.php:329 DirectoryReports.php:99
+#: CSVExport.php:329 DirectoryReports.php:107
 msgid "Group Membership"
 msgstr "Adhésion au Groupe"
 
@@ -1593,7 +1593,7 @@ msgid "Work / Other Email"
 msgstr "Email professionnel ou autre"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:370
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:372
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Date de naissance"
@@ -1801,27 +1801,27 @@ msgstr "Créer un Annuaire"
 msgid "Exclude Inactive Families"
 msgstr "Exclure les familles inactives"
 
-#: DirectoryReports.php:83
+#: DirectoryReports.php:88
 msgid "Select classifications to include"
 msgstr "Sélectionner les catégories à inclure"
 
-#: DirectoryReports.php:119
+#: DirectoryReports.php:130
 msgid "Which role is the head of household?"
 msgstr "Quel est le rôle du Représentant Famille?"
 
-#: DirectoryReports.php:134
+#: DirectoryReports.php:148
 msgid "Which role is the spouse?"
 msgstr "Quel est le rôle du conjoint?"
 
-#: DirectoryReports.php:149
+#: DirectoryReports.php:166
 msgid "Which role is a child?"
 msgstr "Quel est le rôle de l'enfant?"
 
-#: DirectoryReports.php:164
+#: DirectoryReports.php:184
 msgid "Information to Include"
 msgstr "Information à inclure"
 
-#: DirectoryReports.php:168 EcclesiaCRM/Service/CalendarService.php:41
+#: DirectoryReports.php:189 EcclesiaCRM/Service/CalendarService.php:41
 #: external/templates/verify/verify-family-info.php:87 FamilyView.php:421
 #: PersonView.php:753 Reports/ConfirmReportEmail.php:192
 #: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:185
@@ -1829,85 +1829,85 @@ msgstr "Information à inclure"
 msgid "Birthday"
 msgstr "Naissance"
 
-#: DirectoryReports.php:170
+#: DirectoryReports.php:191
 msgid "Family Home Phone"
 msgstr "Téléphone fixe de la famille"
 
-#: DirectoryReports.php:171
+#: DirectoryReports.php:192
 msgid "Family Work Phone"
 msgstr "Téléphone professionnel de la famille"
 
-#: DirectoryReports.php:172
+#: DirectoryReports.php:193
 msgid "Family Cell Phone"
 msgstr "Téléphone portable de la famille"
 
-#: DirectoryReports.php:173 external/templates/verify/verify-family-info.php:36
+#: DirectoryReports.php:194 external/templates/verify/verify-family-info.php:36
 #: Reports/ConfirmReportEmail.php:161 Reports/ConfirmReport.php:157
 msgid "Family Email"
 msgstr "Email de la famille"
 
-#: DirectoryReports.php:175
+#: DirectoryReports.php:196
 msgid "Personal Home Phone"
 msgstr "Téléphone fixe personnel"
 
-#: DirectoryReports.php:176
+#: DirectoryReports.php:197
 msgid "Personal Work Phone"
 msgstr "Téléphone professionnel personnel"
 
-#: DirectoryReports.php:177
+#: DirectoryReports.php:198
 msgid "Personal Cell Phone"
 msgstr "Téléphone portable personnel"
 
-#: DirectoryReports.php:178
+#: DirectoryReports.php:199
 msgid "Personal Email"
 msgstr "Email personnel"
 
-#: DirectoryReports.php:179
+#: DirectoryReports.php:200
 msgid "Personal Work/Other Email"
 msgstr "Email professionnel/ou autre:"
 
-#: DirectoryReports.php:180
+#: DirectoryReports.php:201
 msgid "Photos"
 msgstr "Photos"
 
-#: DirectoryReports.php:195
+#: DirectoryReports.php:219
 msgid "Number of Columns"
 msgstr "Nombre de colonnes"
 
-#: DirectoryReports.php:197
+#: DirectoryReports.php:222
 msgid "col"
 msgstr "col"
 
-#: DirectoryReports.php:198 DirectoryReports.php:199
+#: DirectoryReports.php:223 DirectoryReports.php:224
 msgid "cols"
 msgstr "cols"
 
-#: DirectoryReports.php:203
+#: DirectoryReports.php:230
 msgid "Paper Size"
 msgstr "Taille du papier"
 
-#: DirectoryReports.php:211 EcclesiaCRM/utils/LabelUtils.php:69
+#: DirectoryReports.php:241 EcclesiaCRM/utils/LabelUtils.php:69
 msgid "Font Size"
 msgstr "Taille de la police"
 
-#: DirectoryReports.php:227
+#: DirectoryReports.php:260
 msgid "Title page"
 msgstr "Titre de la page"
 
-#: DirectoryReports.php:231
+#: DirectoryReports.php:265
 msgid "Use Title Page"
 msgstr "Utiliser le Titre de la page"
 
-#: DirectoryReports.php:235 EcclesiaCRM/dto/SystemConfig.php:142
+#: DirectoryReports.php:269 EcclesiaCRM/dto/SystemConfig.php:142
 #: Register.php:41
 msgid "Church Name"
 msgstr "Nom Église"
 
-#: DirectoryReports.php:259
+#: DirectoryReports.php:293
 msgid "Disclaimer"
 msgstr "Avertissement"
 
-#: DirectoryReports.php:281
+#: DirectoryReports.php:312
 msgid "Create Directory"
 msgstr "Créer un annuaire"
 
@@ -4537,7 +4537,7 @@ msgid "Group Directory"
 msgstr "Annuaire du Groupe"
 
 #: EcclesiaCRM/Reports/PDF_Label.php:122 EcclesiaCRM/utils/LabelUtils.php:92
-#: Reports/PDFBadge.php:88 Reports/PDFBadgeSundaySchool.php:109
+#: Reports/PDFBadge.php:88 Reports/PDFBadgeSundaySchool.php:110
 #: Reports/PDFLabel.php:786
 msgid "Tractor"
 msgstr "Classique"
@@ -4545,7 +4545,7 @@ msgstr "Classique"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:100
 #: Reports/ClassAttendance.php:99 Reports/ClassAttendance.php:187
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:168
+#: sundayschool/SundaySchoolClassView.php:170
 #: sundayschool/SundaySchoolDashboard.php:94
 #: sundayschool/SundaySchoolDashboard.php:166
 msgid "Teachers"
@@ -4563,7 +4563,7 @@ msgstr "Fille"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:249
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:251
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Students"
@@ -4940,7 +4940,7 @@ msgid "Delele All Attendees"
 msgstr "Supprimer tous les participants"
 
 #: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:476
-#: ListEvents.php:477 sundayschool/SundaySchoolClassView.php:122
+#: ListEvents.php:477 sundayschool/SundaySchoolClassView.php:124
 msgid "Make Check-out"
 msgstr "Faire l'appel"
 
@@ -6950,7 +6950,7 @@ msgstr "Membres du Groupe:"
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
-#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:339
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:341
 #: sundayschool/SundaySchoolDashboard.php:281
 msgid "Add"
 msgstr "Ajouter"
@@ -9566,128 +9566,146 @@ msgstr ""
 msgid "Permission"
 msgstr "Permission"
 
-#: sundayschool/SundaySchoolBadge.php:37
+#: sundayschool/SundaySchoolBadge.php:39
 msgid "Sunday School Badge for"
 msgstr "Badge école du dimanche pour"
 
-#: sundayschool/SundaySchoolBadge.php:47
+#: sundayschool/SundaySchoolBadge.php:49
 msgid ""
 "Informations ! When you add some properties to a person they will be add to "
 "the badge."
 msgstr ""
-"Informations ! Quand vous ajoutez des propriétés à des personnes elles "
-"seront ajoutées au badge."
+"Informations ! Quand vous ajoutez des propriétés à une personne elles seront "
+"visibles sur le badge."
 
-#: sundayschool/SundaySchoolClassView.php:70
+#: sundayschool/SundaySchoolBadge.php:65
+msgid "Informations ! You're about to create babges only for this people"
+msgstr "Informations ! Vous êtes sur le point de créer des badges que pour ces étudiants"
+
+#: sundayschool/SundaySchoolBadge.php:65
+msgid ""
+"who are in the cart. If you don't want to do this, empty the cart, and "
+"reload the page."
+msgstr "qui sont dans le panier. Si vous voulez le faire pour tout le groupe, videz le panier et recharger la page."
+
+#: sundayschool/SundaySchoolClassView.php:68
+msgid ""
+"Informations ! To add students to this class, simply add them with the "
+"select field at the bottom of this page."
+msgstr "Informations ! Pour ajouter des étudiants à cette classe, aller en bas de page et utilisez le champ de texte de sélection."
+
+#: sundayschool/SundaySchoolClassView.php:72
 msgid "Sunday School Class Functions"
 msgstr "Fonctions de l&#39;école du dimanche"
 
-#: sundayschool/SundaySchoolClassView.php:93
-#: sundayschool/SundaySchoolClassView.php:105
+#: sundayschool/SundaySchoolClassView.php:95
+#: sundayschool/SundaySchoolClassView.php:107
 msgid "Toggle Dropdown"
 msgstr "Menu déroulant"
 
-#: sundayschool/SundaySchoolClassView.php:116
+#: sundayschool/SundaySchoolClassView.php:118
 msgid "Add Students"
 msgstr "Ajouter des étudiants"
 
-#: sundayschool/SundaySchoolClassView.php:118
+#: sundayschool/SundaySchoolClassView.php:120
 msgid "Edit this Class"
 msgstr "Editer la classe"
 
-#: sundayschool/SundaySchoolClassView.php:129
-#: sundayschool/SundaySchoolClassView.php:134
+#: sundayschool/SundaySchoolClassView.php:131
+#: sundayschool/SundaySchoolClassView.php:136
 msgid "Export Attendance"
 msgstr "Fichiers des présents"
 
-#: sundayschool/SundaySchoolClassView.php:136
+#: sundayschool/SundaySchoolClassView.php:138
 msgid "Student Badges"
 msgstr "Badges Etudiants"
 
-#: sundayschool/SundaySchoolClassView.php:143
+#: sundayschool/SundaySchoolClassView.php:145
 msgid "Remove Students from Cart"
 msgstr "Supprimer les Etudiants du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:147
+#: sundayschool/SundaySchoolClassView.php:149
 msgid "Add Students to Cart"
 msgstr "Ajouter les Etudiants au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:154
+#: sundayschool/SundaySchoolClassView.php:156
 msgid "Remove Teachers from Cart"
 msgstr "Supprimer les Moniteurs du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:158
+#: sundayschool/SundaySchoolClassView.php:160
 msgid "Add Teachers to Cart"
 msgstr "Ajouter les Moniteurs au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:187
-#: sundayschool/SundaySchoolClassView.php:323
+#: sundayschool/SundaySchoolClassView.php:189
+#: sundayschool/SundaySchoolClassView.php:325
 msgid "Send Message"
 msgstr "Envoyer un message"
 
-#: sundayschool/SundaySchoolClassView.php:189
+#: sundayschool/SundaySchoolClassView.php:191
 msgid "View Profile"
 msgstr "Voir le profil"
 
-#: sundayschool/SundaySchoolClassView.php:200
+#: sundayschool/SundaySchoolClassView.php:202
 msgid "Quick Status"
 msgstr "Statut rapide"
 
-#: sundayschool/SundaySchoolClassView.php:215
+#: sundayschool/SundaySchoolClassView.php:217
 msgid "Birthdays by Month"
 msgstr "Anniversaires par mois"
 
-#: sundayschool/SundaySchoolClassView.php:242
+#: sundayschool/SundaySchoolClassView.php:244
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Cliquer les parties du diagramme en bâtons ou circulaire pour interagir avec "
 "le tableau ci-dessous."
 
-#: sundayschool/SundaySchoolClassView.php:253
+#: sundayschool/SundaySchoolClassView.php:255
 msgid "Showing students with birthdays in"
 msgstr "Afficher les étudiants dont l'anniversaire est en"
 
-#: sundayschool/SundaySchoolClassView.php:254
+#: sundayschool/SundaySchoolClassView.php:256
 msgid "Showing students with gender"
 msgstr "Afficher les étudiants dont le sexe est"
 
-#: sundayschool/SundaySchoolClassView.php:285
+#: sundayschool/SundaySchoolClassView.php:287
 msgid "Compose New Message"
 msgstr "Composer un nouveau message"
 
-#: sundayschool/SundaySchoolClassView.php:290
+#: sundayschool/SundaySchoolClassView.php:292
 msgid "Kids Emails"
 msgstr "Emails des enfants"
 
-#: sundayschool/SundaySchoolClassView.php:295
+#: sundayschool/SundaySchoolClassView.php:297
 msgid "Parents Emails"
 msgstr "Email des Parents"
 
-#: sundayschool/SundaySchoolClassView.php:300
+#: sundayschool/SundaySchoolClassView.php:302
 msgid "Teachers Emails"
 msgstr "Email des Moniteurs"
 
-#: sundayschool/SundaySchoolClassView.php:310
+#: sundayschool/SundaySchoolClassView.php:312
 msgid "Attachment"
 msgstr "Pièce jointe"
 
-#: sundayschool/SundaySchoolClassView.php:313
+#: sundayschool/SundaySchoolClassView.php:315
 msgid "Max. 32MB"
 msgstr "Maximum 32MB"
 
-#: sundayschool/SundaySchoolClassView.php:320
+#: sundayschool/SundaySchoolClassView.php:322
 msgid "Discard"
 msgstr "Rejeter"
 
-#: sundayschool/SundaySchoolClassView.php:334
+#: sundayschool/SundaySchoolClassView.php:336
 msgid "Add Members to Sunday Group"
 msgstr "Ajouter des membres au groupe école du dimanche"
 
-#: sundayschool/SundaySchoolClassView.php:345
+#: sundayschool/SundaySchoolClassView.php:347
 msgid "at the end, reload the page to see the results in the charts"
-msgstr "à la fin, recharger la page pour voir les changements au niveau des graphiques"
+msgstr ""
+"à la fin, recharger la page pour voir les changements au niveau des "
+"graphiques"
 
-#: sundayschool/SundaySchoolClassView.php:348
+#: sundayschool/SundaySchoolClassView.php:350
 msgid "Reload"
 msgstr "Recharger"
 
