@@ -111,6 +111,9 @@ require __DIR__.'/routes/gdrp.php';
 // menulink route
 require __DIR__.'/routes/menulinks.php';
 
+// sundayschool route
+require __DIR__.'/routes/sundayschool.php';
+
 
 // Run app
 $app->run();
