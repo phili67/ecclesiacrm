@@ -1,4 +1,72 @@
 $("document").ready(function(){
+  /* the search field*/
+   $(".personSearch").select2({
+    minimumInputLength: 2,
+    language: window.CRM.shortLocale,
+    minimumInputLength: 2,
+    placeholder: " -- "+i18next.t("Person")+" -- ",
+    allowClear: true, // This is for clear get the clear button if wanted 
+    ajax: {
+      url: function (params) {
+        return window.CRM.root + "/api/persons/search/" + params.term;
+      },
+      dataType: 'json',
+      delay: 250,
+      data: function (params) {
+        return {
+          q: params.term, // search term
+          page: params.page
+        };
+      },
+      processResults: function (rdata, page) {
+        return {results: rdata};
+      },
+      cache: true
+    }
+  });
+
+  $(".personSearch").on("select2:select", function (e) {
+      window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:sundayGroupId},function(selection){
+        window.CRM.groups.addPerson(sundayGroupId, e.params.data.objid,selection.RoleID).done(function (data) {
+          $(".personSearch").val(null).trigger('change');
+          dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+        });
+      });
+  });
+  
+  /* the mebership deletion */
+  $('body').on('click','.delete-person', function(){ 
+    event.preventDefault();
+    var thisLink = $(this);
+    bootbox.confirm({
+        title:i18next.t("Delete this person?"),
+        message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
+        buttons: {
+            cancel: {
+                className: 'btn-primary',
+                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+            },
+            confirm: {
+                className: 'btn-danger',
+                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                $.ajax({
+                    type: 'DELETE',
+                    url: window.CRM.root + '/api/groups/'+sundayGroupId+'/removeperson/'+thisLink.data('person_id'),
+                    dataType: 'json',
+                    success: function (data, status, xmlHttpReq) {
+                      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+                    }
+                });
+            }
+        }
+    });
+  });
+
+  
    // search for the dates
    $.fn.dataTable.moment = function ( format, locale ) {
       format = format.replace(/-/g, " ");
@@ -20,21 +88,280 @@ $("document").ready(function(){
          console.log("d");
           return moment ( d, format, locale, true ).unix();
       };
-  };
-      
+  };      
   
   $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
+    
+  // the sundayschool table
+  var momentDateFormat = window.CRM.datePickerformat.toUpperCase();
+    momentDateFormat = momentDateFormat.replace("MM", "MMMM");
+    momentDateFormat = momentDateFormat.replace(/-/g, " ");
+    momentDateFormat = momentDateFormat.replace(/\//g, " ");
   
+
+   var dataTable = $("#sundayschoolTable").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/sundayschool/getallstudents/" + sundayGroupId,
+      type: 'POST',
+      contentType: "application/json",
+      dataSrc: "ClassroomStudents"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    pageLength: 100,
+    //order: [[ 0, "asc" ]],
+    columns: [
+      {
+        width: 'auto',
+        title:i18next.t('First name'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          return '<table>'
+              +'<tr>'
+              +'  <td style="min-width:55px">'
+              +'    <img src="'+window.CRM.root+'/api/persons/'+data+'/thumbnail"'
+              +'        alt="User Image" class="user-image initials-image" width="50" height="50" />'
+              +'  </td>'
+              +'  <td align="left">'
+              +'    <a href="'+window.CRM.root+'/PersonView.php?PersonID='+data+'">'+full.firstName+'</a>'
+              +'  </dt>'
+              +'</tr>'
+              +'</table>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Name'),
+        data:'famID',
+        render: function(data, type, full, meta) {
+          return '<a href="'+window.CRM.root+'/FamilyView.php?FamilyID='+data+'">'+full.LastName+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Action'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          return '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
+              +'<span class="fa-stack">'
+              +'  <i class="fa fa-square fa-stack-2x"></i>'
+              +'  <i class="fa fa-stack-1x fa-inverse '+(window.CRM.showCart?'fa-cart-plus':'fa-question')+'"></i>'
+              +'</span>'
+            +'</a>'
+            +'<a class="delete-person" data-person_name="'+full.firstName+' '+full.LastName+'" data-person_id="'+data+'" data-view="family">'
+            +'  <span class="fa-stack" style="color:red">'
+            +'    <i class="fa fa-square fa-stack-2x"></i>'
+            +'    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>'
+            +'  </span>'
+            +'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Birth Date'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+
+          var birthDate = full.birthYear+'-'+((full.birthMonth<10)?'0':'')+full.birthMonth+'-'+((full.birthDay<10)?'0':'')+full.birthDay+'T00:00:00';
+          var outPut = moment(birthDate).format(momentDateFormat);
+          
+          return outPut;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Gender'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          var gender = i18next.t("Unknown");
+          
+          switch (full.kidGender) {
+            case "1":
+              gender = i18next.t("Boy");
+              break;
+            case "2":
+              gender = i18next.t("Girl");
+              break;
+          }
+          
+          return gender;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Age'),
+        data:'flags',
+        render: function(data, type, full, meta) {
+          if (data == "0" || full.birthDay == '' || full.birthDay == '0') {// we are on the case of a show age
+            var realBirthDate = full.birthYear+'-'+((full.birthMonth<10)?'0':'')+full.birthMonth+'-'+((full.birthDay<10)?'0':'')+full.birthDay+'T00:00:00';
+            var birthDate = moment(realBirthDate);
+            var now = moment();
+            var ageDisplay = now.diff(birthDate, 'years');
+            if(ageDisplay < 1) {
+              ageDisplay = now.diff(birthDate, 'months') + " m";
+            }
+            if(ageDisplay) {
+              return ageDisplay;
+            }
+          }
+          return i18next.t("Private Data");
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Email'),
+        data:'kidEmail',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          return '<a href="mailto:'+data+'">'+data+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Mobile'),
+        data:'mobilePhone',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          return '<a href="tel:'+data+'">'+data+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Home Phone'),
+        data:'homePhone',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          return '<a href="tel:'+data+'">'+data+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Home Address'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          var address = full.Address1+' '+full.Address2+' '+full.city+' '+full.state+' '+full.zip;
+          
+          return '<a href="http://maps.google.com/?q='+address+'" target="_blank">'+address+'</a>';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Dad Name'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          
+          if (full.dadFirstName != null && full.dadLastName != null) {
+            return '<a href="'+window.CRM.root+'/PersonView.php?PersonID='+full.dadId+'">'+full.dadFirstName+' '+full.dadLastName+'</a>';
+          }
+          
+          return "";
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Dad Mobile'),
+        data:'dadCellPhone',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          
+          if (data != null) {
+            return '<a href="tel:'+data+'">'+data+'</a>';
+          }
+          
+          return '';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Dad Email'),
+        data:'dadEmail',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+
+          if (data != null) {
+            return '<a href="mailto:'+data+'">'+data+'</a>';
+          }
+          
+          return '';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Mom Name'),
+        data:'kidId',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+          
+          if (full.momFirstName != null && full.momLastName != null) {
+            return '<a href="'+window.CRM.root+'/PersonView.php?PersonID='+full.momId+'">'+full.momFirstName+' '+full.momLastName+'</a>';
+          }
+          
+          return '';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Mom Mobile'),
+        data:'momCellPhone',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+
+          if (data != null) {
+            return '<a href="tel:'+data+'">'+data+'</a>';
+          }
+          
+          return '';
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Mom Email'),
+        data:'momEmail',
+        render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+
+          if (data != null) {
+            return '<a href="mailto:'+data+'">'+data+'</a>';
+          }
+           
+          return '';
+        }
+      }
+    ],
+    responsive: true,
+    createdRow : function (row,data,index) {
+      $(row).addClass("menuLinksRow");
+    }
+  });
+
   
   // the chart donut code 
-    var dataTable = $('.data-table').DataTable({
-         "language": {
-           "url": window.CRM.plugin.dataTable.language.url
-         },
-         pageLength: 100,
-         responsive: true,
-         order: [[ 0, "asc" ]]
-       });
     
     // turn the element to select2 select style
     $('.email-recepients-kids').select2({
@@ -50,10 +377,11 @@ $("document").ready(function(){
       tags: ParentsEmails
     });
 
-    var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
-
     var hideBirthDayFilter = function() {
       plot.unhighlight();
+
+      var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
+
       birthDateColumn
         .search('')
         .draw();
@@ -77,6 +405,8 @@ $("document").ready(function(){
 
       var month = bar_data.data[item.dataIndex][0];
 
+      var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
+      
       birthDateColumn
         .search(month.substr(0, 7))
         .draw();
@@ -129,10 +459,11 @@ $("document").ready(function(){
    * -----------
    */
      
-  var genderColumn = dataTable.column(':contains('+genderColumnText+')');
-
   var hideGenderFilter = function() {
       plot.unhighlight();
+
+      var genderColumn = dataTable.column(':contains('+genderColumnText+')');
+
       genderColumn
         .search('')
         .draw();
@@ -189,6 +520,8 @@ $("document").ready(function(){
     
     var searchGender = gender.substr(0, gender.length-1);
     
+    var genderColumn = dataTable.column(':contains('+genderColumnText+')');
+
     genderColumn
         .search(searchGender)
         .draw();

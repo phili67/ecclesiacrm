@@ -111,9 +111,9 @@ require '../Include/Header.php';
       <?php
     }
     ?>
-    <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...-->
+    <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...
     <a class="btn btn-app" href="../GroupView.php?GroupID=<?= $iGroupId ?>"><i
-        class="fa fa-user-plus"></i><?= gettext('Add Students') ?> </a>
+        class="fa fa-user-plus"></i><?= gettext('Add Students') ?> </a>-->
 
   <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
   <?php 
@@ -166,6 +166,11 @@ require '../Include/Header.php';
 <div class="box box-success">
   <div class="box-header">
     <h3 class="box-title"><?= gettext('Teachers') ?></h3>
+
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div>
   </div>
   <!-- /.box-header -->
   <div class="box-body row">
@@ -196,6 +201,7 @@ require '../Include/Header.php';
 
     <div class="box-tools pull-right">
       <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
     </div>
   </div>
   <!-- /.box-header -->
@@ -246,118 +252,7 @@ require '../Include/Header.php';
   <div class="box-body table-responsive">
     <h4 class="birthday-filter" style="display:none;"><?= gettext('Showing students with birthdays in') ?> : <span class="month"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
     <h4 class="gender-filter" style="display:none;"><?= gettext('Showing students with gender') ?> : <span class="type"></span> <i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></h4>
-    <table id="sundayschool" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
-      <thead>
-      <tr>
-        <th><?= gettext('First Name') ?></th>
-        <th><?= gettext('Name') ?><br>(<?= gettext("Family") ?>)</th>
-        <th><?= gettext('Cart') ?></th>
-        <th><?= gettext('Birth Date') ?></th>
-        <th><?= gettext('Gender') ?></th>
-        <th><?= gettext('Age') ?></th>
-        <th><?= gettext('Email') ?></th>
-        <th><?= gettext('Mobile') ?></th>
-        <th><?= gettext('Home Phone') ?></th>
-        <th><?= gettext('Home Address') ?></th>
-        <th><?= gettext('Dad Name') ?></th>
-        <th><?= gettext('Dad Mobile') ?></th>
-        <th><?= gettext('Dad Email') ?></th>
-        <th><?= gettext('Mom Name') ?></th>
-        <th><?= gettext('Mom Mobile') ?></th>
-        <th><?= gettext('Mom Email') ?></th>
-      </tr>
-      </thead>
-      <tbody>
-      <?php
-
-      foreach ($thisClassChildren as $child) {
-          $hideAge = $child['flags'] == 1 || $child['birthYear'] == '' || $child['birthYear'] == '0';
-          $birthDate = OutputUtils::FormatBirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], '-', $child['flags']);
-          $birthDateDate = OutputUtils::BirthDate($child['birthYear'], $child['birthMonth'], $child['birthDay'], $hideAge); 
-          
-          $gender = gettext("Unknown");
-          
-          switch ($child['kidGender']) {
-            case 1:
-              $gender = gettext("Boy");
-              break;
-            case 2:
-              $gender = gettext("Girl");
-              break;
-          }
-          
-          ?>
-
-          <tr>
-          <td>
-            <table>
-              <tr>
-                <td style="min-width:55px">
-                  <img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $child['kidId'] ?>/thumbnail"
-                      alt="User Image" class="user-image initials-image" width="50" height="50" />
-                </td>
-                <td align="left">
-                  <a href="<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['kidId'] ?>"><?= $child['firstName'] ?></a>
-                </dt>
-              </tr>
-            </table>
-          </td>
-          <td>
-            <a href="<?= SystemURLs::getRootPath(); ?>/FamilyView.php?FamilyID=<?= $child['famID'] ?>"><?= $child['LastName'] ?></a>
-          </td>
-          <td>
-            <a <?= ($_SESSION['user']->isShowCartEnabled())?'class="AddOneStudentToCart"':'' ?> data-cartpersonid="<?= $child['kidId'] ?>">
-              <span class="fa-stack">
-                <i class="fa fa-square fa-stack-2x"></i>
-                <i class="fa fa-stack-1x fa-inverse <?= ($_SESSION['user']->isShowCartEnabled())?'fa-cart-plus':'fa-question' ?>"></i>
-              </span>
-            </a>
-          </td>
-          <?php 
-            if ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) ) {
-          ?>
-            <td><?= $birthDate ?> </td>
-            <td><?= $gender ?></td>
-            <td data-birth-date='<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>'></td>
-            <td><?= $child['kidEmail'] ?></td>
-            <td><?= $child['mobilePhone'] ?></td>
-            <td><?= $child['homePhone'] ?></td>
-            <td><?= $child['Address1'].' '.$child['Address2'].' '.$child['city'].' '.$child['state'].' '.$child['zip'] ?></td>
-            <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['dadId'] ?>'><?= $child['dadFirstName'].' '.$child['dadLastName'] ?></a></td>
-            <td><?= $child['dadCellPhone'] ?></td>
-            <td><?= $child['dadEmail'] ?></td>
-            <td><a href='<?= SystemURLs::getRootPath(); ?>/PersonView.php?PersonID=<?= $child['momId'] ?>'><?= $child['momFirstName'].' '.$child['momLastName'] ?></td>
-            <td><?= $child['momCellPhone'] ?></td>
-            <td><?= $child['momEmail'] ?></td>
-          <?php
-            } else {
-          ?>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-            <td><?= gettext("Private Data") ?></td>
-          <?php            
-            }
-          ?>
-          
-          </tr>
-          
-
-      <?php
-      }
-
-      ?>
-      </tbody>
-    </table>
+    <table id="sundayschoolTable" class="table table-striped table-bordered data-table" cellspacing="0" width="100%"> </table>
   </div>
 </div>
 
@@ -434,6 +329,29 @@ function implodeUnique($array, $withQuotes)
   <!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title"><?php echo gettext("Add Members to Sunday Group"); ?>:</h3>
+  </div>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-1">
+        <?= gettext("Add") ?>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
+      </div>
+      <div class="col-md-4">
+        <?= gettext("at the end, reload the page to see the results in the charts") ?>
+      </div>
+      <div class="col-md-4">
+        <a href="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="btn btn-success" role="button"><?= gettext("Reload") ?></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- FLOT CHARTS -->
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/flot/jquery.flot.min.js"></script>
 <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
@@ -450,7 +368,9 @@ function implodeUnique($array, $withQuotes)
   var TeachersEmails         = [<?= implodeUnique($TeachersEmails, true) ?>];
   var ParentsEmails          = [<?= implodeUnique($ParentsEmails, true) ?>];
   var birthDateColumnText    = '<?= gettext("Birth Date") ?>';
-  var genderColumnText       = '<?= gettext("Gender") ?>'; 
+  var genderColumnText       = '<?= gettext("Gender") ?>';
+  var sundayGroupId          = <?= $iGroupId ?>;
+  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId))?true:false ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
@@ -458,3 +378,5 @@ function implodeUnique($array, $withQuotes)
 <?php
 require '../Include/Footer.php';
 ?>
+
+
