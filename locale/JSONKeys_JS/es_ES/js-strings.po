@@ -1001,7 +1001,7 @@ msgid "Action"
 msgstr "Acciones"
 
 msgid "Birth Date"
-msgstr "Fecha de nacimiento"
+msgstr "Fecha de Nacimiento"
 
 msgid "Gender"
 msgstr "Género"
