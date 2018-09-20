@@ -20,6 +20,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyQuery;
 
 if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
@@ -66,6 +68,7 @@ class Family
                                  'role'    => 0,
                                  'phone'   => $Phone,
                                  'envelope'=> $Envelope, ];
+                                 
         if ($Wedding != '') {
             $this->WeddingDate = $Wedding;
         }
@@ -116,7 +119,7 @@ $sPageTitle = gettext('CSV Import');
 require 'Include/Header.php'; ?>
 
 <div class="box">
-<div class="box-header">
+<div class="box-header with-border">
    <h3 class="box-title"><?= gettext('Import Data')?></h3>
 </div>
 <div class="box-body">
@@ -128,6 +131,12 @@ $csvError = '';
 
 // Is the CSV file being uploaded?
 if (isset($_POST['UploadCSV'])) {
+    $generalCSVSeparator = ',';
+    
+    if (isset($_POST['sSeperator'])) {
+      $generalCSVSeparator = $_POST['sSeperator'];
+    }
+    
     // Check if a valid CSV file was actually uploaded
     if ($_FILES['CSVfile']['name'] == '') {
         $csvError = gettext('No file selected for upload.');
@@ -154,22 +163,26 @@ if (isset($_POST['UploadCSV'])) {
 
         // create the form?>
         <form method="post" action="CSVImport.php">
-
-        <?php
-        echo gettext('Total number of rows in the CSV file:').$iNumRows;
-        echo '<br><br>';
-        echo '<table class="table horizontal-scroll" id="importTable">';
-
+          <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
+        <?= gettext('Total number of rows in the CSV file:').$iNumRows ?>
+        <BR><BR>
+        <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
+      <?php
         // grab and display up to the first 8 lines of data in the CSV in a table
         $iRow = 0;
-        while (($aData = fgetcsv($pFile, 2048, ',')) && $iRow++ < 9) {
+        while (($aData = fgetcsv($pFile, 2048, $generalCSVSeparator)) && $iRow++ < 9) {
             $numCol = count($aData);
-
-            echo '<tr>';
+      ?>
+          <tr>
+      <?php
             for ($col = 0; $col < $numCol; $col++) {
-                echo '<td>'.$aData[$col].'&nbsp;</td>';
+      ?>
+            <td><?= (($iRow == 1)?'<b>':'').$aData[$col].(($iRow == 1)?'</b>':'') ?>&nbsp;</td>
+      <?php
             }
-            echo '</tr>';
+      ?>
+          </tr>
+      <?php
         }
 
         fclose($pFile);
@@ -201,7 +214,7 @@ if (isset($_POST['UploadCSV'])) {
         for ($col = 0; $col < $numCol; $col++) {
             ?>
             <td>
-            <select name="<?= 'col'.$col ?>" class="columns">
+            <select name="<?= 'col'.$col ?>" class="columns" class="form-control">
                 <option value="0"><?= gettext('Ignore this Field') ?></option>
                 <option value="1"><?= gettext('Title') ?></option>
                 <option value="2"><?= gettext('First Name') ?></option>
@@ -227,61 +240,111 @@ if (isset($_POST['UploadCSV'])) {
                 <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
             </select>
             </td>
-        <?php
-        }
+          <?php
+            }
+          ?>
+        </table>
+        <div class="row">
+          <div class="col-lg-3">
+            <input type="checkbox" value="1" name="IgnoreFirstRow"><?= gettext('Ignore first CSV row (to exclude a header)') ?>
+          </div>
+        </div>
 
-        echo '</table>'; ?>
         <BR>
-        <input type="checkbox" value="1" name="IgnoreFirstRow"><?= gettext('Ignore first CSV row (to exclude a header)') ?>
-        <BR><BR>
+
+        <div class="row">
+          <div class="col-lg-3">
+             <input type="checkbox" value="1" name="MakeFamilyRecords" checked="true">
+          </div>
+          <div class="col-lg-5">
+            <select name="MakeFamilyRecordsMode" class="form-control input-sm">
+                <option value="0"><?= gettext('Make Family records based on last name and address') ?></option>
+                <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
+            </select>
+          </div>
+        </div>
+
         <BR>
-        <input type="checkbox" value="1" name="MakeFamilyRecords" checked="true">
-        <select name="MakeFamilyRecordsMode">
-            <option value="0"><?= gettext('Make Family records based on last name and address') ?></option>
-            <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
-        </select>
 
-        <BR><BR>
-        <select name="FamilyMode">
-            <option value="0"><?= gettext('Patriarch') ?></option>
-            <option value="1"><?= gettext('Matriarch') ?></option>
-        </select>
-        <?= gettext('Family Type: used with Make Family records... option above') ?>
-        <BR><BR>
-        <select name="DateMode">
-            <option value="1">YYYY-MM-DD</option>
-            <option value="2">MM-DD-YYYY</option>
-            <option value="3">DD-MM-YYYY</option>
-        </select>
-        <?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>
-        <BR><BR>
-        <?php
-            $sCountry = SystemConfig::getValue('sDefaultCountry');
-        
-        echo CountryDropDown::getDropDown($sCountry);
-        
-        echo gettext('Default country if none specified otherwise');
+        <div class="row">
+          <div class="col-lg-3">
+            <select name="FamilyMode"  class="form-control input-sm">
+                <option value="0"><?= gettext('Patriarch') ?></option>
+                <option value="1"><?= gettext('Matriarch') ?></option>
+            </select>
+          </div>
+          <div class="col-lg-5">
+             <?= gettext('Family Type: used with Make Family records... option above') ?>
+          </div>
+        </div>
 
+        <BR>
+        
+        
+        <div class="row">
+          <div class="col-lg-3">
+              <select name="DateMode"  class="form-control input-sm">
+                  <option value="1">YYYY-MM-DD</option>
+                  <option value="2">MM-DD-YYYY</option>
+                  <option value="3">DD-MM-YYYY</option>
+                  <option value="4">YYYY/MM/DD</option>
+                  <option value="5">MM/DD/YYYY</option>
+                  <option value="6">DD/MM/YYYY</option>
+                  <option value="7">YYYY MM DD</option>
+                  <option value="8">MM DD YYYY</option>
+                  <option value="9">DD MM YYYY</option>
+              </select>
+          </div>
+          <div class="col-lg-5">
+            <?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>
+          </div>
+        </div>
+          
+        <BR>
+        
+        <div class="row">
+          <div class="col-lg-3">
+            <?php
+                $sCountry = SystemConfig::getValue('sDefaultCountry');    
+                echo CountryDropDown::getDropDown($sCountry);
+            ?>
+          </div>
+          <div class="col-lg-5">
+            <?= gettext('Default country if none specified otherwise') ?>
+          </div>
+        </div>
+
+      <?php
         $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL); ?>
-        <BR><BR>
-        <select name="Classification">
-            <option value="0"><?= gettext('Unassigned') ?></option>
-            <option value="0">-----------------------</option>
+        $rsClassifications = RunQuery($sSQL); 
+      ?>      
+        <BR>
+        
+        <div class="row">
+          <div class="col-lg-3">
+            <select name="Classification" class="form-control input-sm">
+               <option value="0"><?= gettext('Unassigned') ?></option>
+               <option value="0">-----------------------</option>
 
             <?php
-                while ($aRow = mysqli_fetch_array($rsClassifications)) {
-                    extract($aRow);
-                    echo '<option value="'.$lst_OptionID.'"';
-                    echo '>'.$lst_OptionName.'&nbsp;';
-                } ?>
-        </select>
-        <?= gettext('Classification') ?>
+              while ($aRow = mysqli_fetch_array($rsClassifications)) {
+                extract($aRow);
+            ?>
+                <option value="<?= $lst_OptionID ?>"><?= $lst_OptionName ?>&nbsp;
+            <?php
+              } 
+            ?>
+            </select>
+          </div>
+          <div class="col-lg-5">
+             <?= gettext('Classification') ?>
+          </div>
+        </div>
         <BR><BR>
         <input type="submit" class="btn btn-primary" value="<?= gettext('Perform Import') ?>" name="DoImport">
-        </form>
+      </form>
 
-        <?php
+  <?php
         $iStage = 2;
     }
 }
@@ -292,6 +355,12 @@ if (isset($_POST['DoImport'])) {
     $aFamColumnCustom = [];
     $bHasCustom = false;
     $bHasFamCustom = false;
+
+    $generalCSVSeparator = ',';
+    
+    if (isset($_POST['sSeperator'])) {
+      $generalCSVSeparator = $_POST['sSeperator'];
+    }
 
     $csvTempFile = 'import.csv';
     $system_temp = ini_get('session.save_path');
@@ -312,7 +381,7 @@ if (isset($_POST['DoImport'])) {
         $iDateMode = InputUtils::LegacyFilterInput($_POST['DateMode'], 'int');
 
         // Get the number of CSV columns for future reference
-        $aData = fgetcsv($pFile, 2048, ',');
+        $aData = fgetcsv($pFile, 2048, $generalCSVSeparator);
         $numCol = count($aData);
         if (!isset($_POST['IgnoreFirstRow'])) {
             rewind($pFile);
@@ -369,7 +438,7 @@ if (isset($_POST['DoImport'])) {
 
         $importCount = 0;
 
-        while ($aData = fgetcsv($pFile, 2048, ',')) {
+        while ($aData = fgetcsv($pFile, 2048, $generalCSVSeparator)) {
             $iBirthYear = 0;
             $iBirthMonth = 0;
             $iBirthDay = 0;
@@ -387,6 +456,8 @@ if (isset($_POST['DoImport'])) {
             $sSQLpersonFields = 'INSERT INTO person_per (';
             $sSQLpersonData = ' VALUES (';
             $sSQLcustom = 'UPDATE person_custom SET ';
+            
+            $aData[$col]." ".$col."<br>";
 
             // Build the person_per SQL first.
             // We do this in case we can get a country, which will allow phone number parsing later
@@ -436,11 +507,11 @@ if (isset($_POST['DoImport'])) {
                         // Gender.. check for multiple possible designations from input
                         case 6:
                             switch (strtolower($aData[$col])) {
-                                case 'male': case 'm': case 'boy': case 'man':
+                                case 'male': case 'm': case 'boy': case 'man':case 'm.':case 'm':case 'mr.':case 'mr':
                                     $sSQLpersonData .= '1, ';
                                       $iGender = 1;
                                     break;
-                                case 'female': case 'f': case 'girl': case 'woman':
+                                case 'female': case 'f': case 'girl': case 'woman':case 'mme.':case 'mlle.':case 'mme':case 'mlle':
                                     $sSQLpersonData .= '2, ';
                                       $iGender = 2;
                                     break;
@@ -475,6 +546,7 @@ if (isset($_POST['DoImport'])) {
                             $iBirthYear = $aDate[0];
                             $iBirthMonth = $aDate[1];
                             $iBirthDay = $aDate[2];
+                            
                             break;
 
                         // Membership date.. parse multiple date standards
@@ -550,7 +622,7 @@ if (isset($_POST['DoImport'])) {
             $sSQLpersonFields .= 'per_cls_ID, per_Country, per_DateEntered, per_EnteredBy';
             $sSQLpersonFields .= ')';
             $sSQLperson = $sSQLpersonFields.$sSQLpersonData;
-
+            
             RunQuery($sSQLperson);
 
             // Make a one-person family if requested
@@ -798,7 +870,9 @@ if (isset($_POST['DoImport'])) {
 
         $iStage = 3;
     } else {
-        echo gettext('ERROR: the uploaded CSV file no longer exists!');
+  ?>
+        <?=  gettext('ERROR: the uploaded CSV file no longer exists!') ?>
+  <?php
     }
 }
 
@@ -806,16 +880,25 @@ if (isset($_POST['DoImport'])) {
 $sClear = '';
 if (isset($_POST['Clear'])) {
     if (isset($_POST['chkClear'])) {
-        $sSQL = 'TRUNCATE `family_fam`;';
+        $sSQL = 'DELETE FROM `family_fam`;';
         RunQuery($sSQL);
-        $sSQL = 'TRUNCATE `person_per`;';
+        $sSQL = 'DELETE FROM `person_per`;';
         RunQuery($sSQL);
-        $sSQL = 'TRUNCATE `person_custom`;';
+        $sSQL = 'DELETE FROM `person_custom`;';
         RunQuery($sSQL);
-        $sSQL = 'TRUNCATE `family_custom`;';
+        $sSQL = 'DELETE FROM `family_custom`;';
+        RunQuery($sSQL);        
+        $sSQL = 'DELETE FROM `user_usr`;';
         RunQuery($sSQL);
-        $sSQL = "INSERT INTO person_per VALUES (1,NULL,'EcclesiaCRM',NULL,'Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,0000,NULL,0,0,0,0,NULL,NULL,'2004-08-25 18:00:00',0,0,NULL,0);";
+        
+        $sSQL = "INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES (1, NULL, 'EcclesiaCRM', NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0000, NULL, 0, 0, 0, 0, NULL, NULL, '2004-08-25 18:00:00', 1, 0, NULL, 0);";
         RunQuery($sSQL);
+        
+        $sSQL = "INSERT INTO `user_usr` (`usr_per_ID`, `usr_Password`, `usr_NeedPasswordChange`, `usr_LastLogin`, `usr_LoginCount`, `usr_FailedLogins`, `usr_AddRecords`, `usr_EditRecords`, `usr_DeleteRecords`, `usr_MenuOptions`, `usr_ManageGroups`, `usr_Finance`, `usr_Notes`, `usr_Admin`, `usr_SearchLimit`, `usr_style`, `usr_showPledges`, `usr_showPayments`, `usr_showSince`, `usr_defaultFY`, `usr_currentDeposit`, `usr_UserName`, `usr_EditSelf`, `usr_CalStart`, `usr_CalEnd`, `usr_CalNoSchool1`, `usr_CalNoSchool2`, `usr_CalNoSchool3`, `usr_CalNoSchool4`, `usr_CalNoSchool5`, `usr_CalNoSchool6`, `usr_CalNoSchool7`, `usr_CalNoSchool8`, `usr_SearchFamily`, `usr_Canvasser`) VALUES (1, '4bdf3fba58c956fc3991a1fde84929223f968e2853de596e49ae80a91499609b', 1, '2016-01-01 00:00:00', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 10, 'skin-red-light', 0, 0, '2016-01-01', 10, 0, 'Admin', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);";
+        RunQuery($sSQL);
+
+        Redirect('Logoff.php');
+        
         $sClear = gettext('Data Cleared Successfully!');
     } else {
         $sClear = gettext('Please select the confirmation checkbox');
@@ -824,50 +907,85 @@ if (isset($_POST['Clear'])) {
 
 if ($iStage == 1) {
     // Display the select file form?>
+  <form method="post" action="CSVImport.php" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-lg-12">
+        <?= gettext("<b>TIPs</b> :<br>• You can prepare your CSV file to have the Title and the Gender too,<br>• so add two columns with the same things like M. Mr (this should be an advice to define the gender of a person.") ?>.<br><br>
+        <?= gettext("Here's an example of CSV file, <b>please take care of the delimiter (',' or ';')</b>, and <u><b>don't use two times the same name at the bottom</b></u>") ?>.<br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=100%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
         <p style="color: red"> <?= $csvError ?></p>
-        <form method="post" action="CSVImport.php" enctype="multipart/form-data">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
         <input class="icTinyButton" type="file" name="CSVfile"><br/>
-        <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> "
-        name="UploadCSV">
-        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2">
+        <b><?= gettext("Select your CSV separator") ?></b>
+      </div>
+      <div class="col-lg-2">        
+        <select name="sSeperator" class="form-control input-sm">
+            <option value=",">,</option>
+            <option value=";">;</option>
+        </select>
+      </div>
+    </div>
+    <BR>
+    <div class="row">
+      <div class="col-lg-3">
+        <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> " name="UploadCSV">
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title"><?= gettext('Clear Data')?></h3>
+  </div>
+  <form method="post" action="CSVImport.php" enctype="multipart/form-data">
+    <div class="box-body">
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clearPersons"><?= gettext('Clear Persons and Families') ?></button>
+      <!-- Modal -->
+      <div class="modal fade" id="clearPersons" tabindex="-1" role="dialog" aria-labelledby="clearPersons" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="upload-Image-label"><?= gettext('Clear Persons and Families') ?></h4>
+                </div>
+              <div class="modal-body">
+                  <span style="color: red">
+                      <?= gettext('Warning!  Do not select this option if you plan to add to an existing database.<br/>') ?>
+                      <?= gettext('Use only if unsatisfied with initial import.  All person and member data will be destroyed!') ?><BR><BR>
+                  <span style="color:black"><?= gettext("I Understand")?> &nbsp;<input type="checkbox" name="chkClear"></span>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal"><?= gettext("Close") ?></button>
+                  <button name="Clear" type="submit" class="btn btn-danger"><?= gettext('Clear Persons and Families') ?></button>
+              </div>
+           </div>
         </div>
-        </div>
-        <div class="box">
-        <div class="box-header">
-        <h3 class="box-title"><?= gettext('Clear Data')?></h3>
-        </div>
-        <div class="box-body">
-        <form method="post" action="CSVImport.php" enctype="multipart/form-data">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clearPersons"><?= gettext('Clear Persons and Families') ?></button>
-        <!-- Modal -->
-        <div class="modal fade" id="clearPersons" tabindex="-1" role="dialog" aria-labelledby="clearPersons" aria-hidden="true">
-            <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="upload-Image-label"><?= gettext('Clear Persons and Families') ?></h4>
-                        </div>
-                        <div class="modal-body">
-                        <span style="color: red">
-                            <?php
-                            echo gettext('Warning!  Do not select this option if you plan to add to an existing database.<br/>');
-    echo gettext('Use only if unsatisfied with initial import.  All person and member data will be destroyed!'); ?><br><br>
-                            <span style="color:black"><?= gettext("I Understand")?> &nbsp;<input type="checkbox" name="chkClear"></span>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"><?= gettext("Close") ?></button>
-                            <button name="Clear" type="submit" class="btn btn-danger"><?= gettext('Clear Persons and Families') ?></button>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </p></form>
-    <?php
-    echo $sClear;
+    </div>
+  </form>
+  <?= $sClear ?>
+<?php
 }
 
 if ($iStage == 3) {
-    echo '<p class="MediumLargeText">'.gettext('Data import successful.').' '.$importCount.' '.gettext('persons were imported').'</p>';
+?>
+    <p class="MediumLargeText"><?= gettext('Data import successful.').' '.$importCount.' '.gettext('persons were imported') ?></p>
+<?php
 }
 
 // Returns a date array [year,month,day]
@@ -888,52 +1006,57 @@ function ParseDate($sDate, $iDateMode)
 
     switch ($iDateMode) {
         // International standard: YYYY-MM-DD
-        case 1:
-            // Remove separator if it exists
-            if (!is_numeric($cSeparator)) {
-                $sDate = str_replace($cSeparator, '', $sDate);
-            }
-             if (strlen($sDate) == 8) {
-                 $aDate[0] = mb_substr($sDate, 0, 4);
-                 $aDate[1] = mb_substr($sDate, 4, 2);
-                 $aDate[2] = mb_substr($sDate, 6, 2);
-             }
+        case 1:            
+            $date = DateTime::createFromFormat('Y-m-d', $sDate);
             break;
 
         // MM-DD-YYYY
         case 2:
-            // Remove separator if it exists and add leading 0s to m and d if needed
-            if ($cSeparator != '') {
-                $tmpDate = explode($cSeparator, $sDate);
-                $aDate[0] = strlen($tmpDate[2]) == 4 ? $tmpDate[2] : '0000';
-                $aDate[1] = strlen($tmpDate[0]) == 2 ? $tmpDate[0] : '0'.$tmpDate[0];
-                $aDate[2] = strlen($tmpDate[1]) == 2 ? $tmpDate[1] : '0'.$tmpDate[1];
-            } else {
-                if (strlen($sDate) == 8) {
-                    $aDate[0] = mb_substr($sDate, 4, 4);
-                    $aDate[1] = mb_substr($sDate, 0, 2);
-                    $aDate[2] = mb_substr($sDate, 2, 2);
-                }
-            }
+            $date = DateTime::createFromFormat('m-d-Y', $sDate);
             break;
 
         // DD-MM-YYYY
         case 3:
-            // Remove separator if it exists and add leading 0s to m and d if needed
-            if ($cSeparator != '') {
-                $tmpDate = explode($cSeparator, $sDate);
-                $aDate[0] = strlen($tmpDate[2]) == 4 ? $tmpDate[2] : '0000';
-                $aDate[1] = strlen($tmpDate[1]) == 2 ? $tmpDate[1] : '0'.$tmpDate[1];
-                $aDate[2] = strlen($tmpDate[0]) == 2 ? $tmpDate[0] : '0'.$tmpDate[0];
-            } else {
-                if (strlen($sDate) == 8) {
-                    $aDate[0] = mb_substr($sDate, 4, 4);
-                    $aDate[1] = mb_substr($sDate, 2, 2);
-                    $aDate[2] = mb_substr($sDate, 0, 2);
-                }
-            }
+            $date = DateTime::createFromFormat('d-m-Y', $sDate);
+            break;
+            
+        // International standard: YYYY/MM/DD
+        case 4:            
+            $date = DateTime::createFromFormat('Y/m/d', $sDate);
+            break;
+
+        // MM/DD/YYYY
+        case 5:
+            $date = DateTime::createFromFormat('m/d/Y', $sDate);
+            break;
+
+        // DD/MM/YYYY
+        case 6:
+            $date = DateTime::createFromFormat('d/m/Y', $sDate);
+            break;
+
+        // International standard: YYYY MM DD
+        case 7:            
+            $date = DateTime::createFromFormat('Y m d', $sDate);
+            break;
+
+        // MM/DD/YYYY
+        case 8:
+            $date = DateTime::createFromFormat('m d Y', $sDate);
+            break;
+
+        // DD/MM/YYYY
+        case 9:
+            $date = DateTime::createFromFormat('d m Y', $sDate);
             break;
     }
+
+    if ($date != FALSE) {
+      $aDate[0] = $date->format('Y');
+      $aDate[1] = $date->format('m');
+      $aDate[2] = $date->format('d');
+    }
+
     if ((0 + $aDate[0]) < 1901 || (0 + $aDate[0]) > 2155) {
         $aDate[0] = 'NULL';
     }

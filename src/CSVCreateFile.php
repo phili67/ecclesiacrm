@@ -270,7 +270,7 @@ if ($sFormat == 'addtocart') {
         $headerString .= '"'.InputUtils::translate_special_charset("Envelope Number").'"'.$delimiter;
     }
     if (!empty($_POST['MembershipDate'])) {
-        $headerString .= '"'.InputUtils::translate_special_charset("MembershipDate").'"'.$delimiter;
+        $headerString .= '"'.InputUtils::translate_special_charset("Membership Date").'"'.$delimiter;
     }
 
     if ($sFormat == 'default') {
