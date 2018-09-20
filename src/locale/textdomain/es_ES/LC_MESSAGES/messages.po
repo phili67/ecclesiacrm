@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 22:56+0200\n"
+"POT-Creation-Date: 2018-09-20 08:36+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -438,7 +438,7 @@ msgstr "Teléfono"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
-#: sundayschool/SundaySchoolClassView.php:92 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:98 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -895,8 +895,8 @@ msgstr "¿Por qué no esta Interesado?"
 msgid "Cart to Badges"
 msgstr "Carrito para insignias"
 
-#: CartToBadge.php:37 CartToBadge.php:132 sundayschool/SundaySchoolBadge.php:73
-#: sundayschool/SundaySchoolBadge.php:154
+#: CartToBadge.php:37 CartToBadge.php:132 sundayschool/SundaySchoolBadge.php:79
+#: sundayschool/SundaySchoolBadge.php:160
 msgid "Generate Badges"
 msgstr "Generar insignias"
 
@@ -914,29 +914,29 @@ msgstr "Segundo título"
 msgid "Third Title"
 msgstr "Tercer título "
 
-#: CartToBadge.php:67 sundayschool/SundaySchoolBadge.php:89
+#: CartToBadge.php:67 sundayschool/SundaySchoolBadge.php:95
 msgid "Title color"
 msgstr "Color de Título"
 
-#: CartToBadge.php:72 CartToBadge.php:86 sundayschool/SundaySchoolBadge.php:94
-#: sundayschool/SundaySchoolBadge.php:108
+#: CartToBadge.php:72 CartToBadge.php:86 sundayschool/SundaySchoolBadge.php:100
+#: sundayschool/SundaySchoolBadge.php:114
 msgid "Chose your color"
 msgstr "Seleccionó tu color"
 
-#: CartToBadge.php:81 sundayschool/SundaySchoolBadge.php:103
+#: CartToBadge.php:81 sundayschool/SundaySchoolBadge.php:109
 msgid "BackGround color"
 msgstr "Color de fondo"
 
-#: CartToBadge.php:95 sundayschool/SundaySchoolBadge.php:117
+#: CartToBadge.php:95 sundayschool/SundaySchoolBadge.php:123
 msgid "Image"
 msgstr "Imagen"
 
-#: CartToBadge.php:101 sundayschool/SundaySchoolBadge.php:81
-#: sundayschool/SundaySchoolBadge.php:84 sundayschool/SundaySchoolBadge.php:123
+#: CartToBadge.php:101 sundayschool/SundaySchoolBadge.php:87
+#: sundayschool/SundaySchoolBadge.php:90 sundayschool/SundaySchoolBadge.php:129
 msgid "Sunday School Name"
 msgstr "Escuela Dominical nombre"
 
-#: CartToBadge.php:108 sundayschool/SundaySchoolBadge.php:130
+#: CartToBadge.php:108 sundayschool/SundaySchoolBadge.php:136
 msgid ""
 "Add your images to the CRM Images folder. By default scleft1.png, scleft2."
 "png and sccenter.jpg."
@@ -944,33 +944,33 @@ msgstr ""
 "Añade tu imagen a la carpeta CRM de imágenes. Predeterminadamente, scleft1."
 "png, scleft2.png e sccenter.jpg."
 
-#: CartToBadge.php:113 sundayschool/SundaySchoolBadge.php:135
+#: CartToBadge.php:113 sundayschool/SundaySchoolBadge.php:141
 msgid "Image Position"
 msgstr "Posición de la imagen"
 
 #: CartToBadge.php:117 FamilyCustomFieldsEditor.php:422
 #: FamilyCustomFieldsEditor.php:506 PersonCustomFieldsEditor.php:413
-#: PersonCustomFieldsEditor.php:498 sundayschool/SundaySchoolBadge.php:139
+#: PersonCustomFieldsEditor.php:498 sundayschool/SundaySchoolBadge.php:145
 msgid "Left"
 msgstr "Izquierda"
 
-#: CartToBadge.php:118 sundayschool/SundaySchoolBadge.php:140
+#: CartToBadge.php:118 sundayschool/SundaySchoolBadge.php:146
 msgid "Center"
 msgstr "centro"
 
 #: CartToBadge.php:119 FamilyCustomFieldsEditor.php:423
 #: FamilyCustomFieldsEditor.php:507 PersonCustomFieldsEditor.php:414
-#: PersonCustomFieldsEditor.php:499 sundayschool/SundaySchoolBadge.php:141
+#: PersonCustomFieldsEditor.php:499 sundayschool/SundaySchoolBadge.php:147
 msgid "Right"
 msgstr "Derecha"
 
-#: CartToBadge.php:124 sundayschool/SundaySchoolBadge.php:146
+#: CartToBadge.php:124 sundayschool/SundaySchoolBadge.php:152
 msgid "Badge Type"
 msgstr "Tipo de insignia"
 
 #: CartToBadge.php:126 EcclesiaCRM/utils/LabelUtils.php:66
 #: Reports/PDFBadge.php:104 Reports/PDFBadgeSundaySchool.php:126
-#: Reports/PDFLabel.php:800 sundayschool/SundaySchoolBadge.php:148
+#: Reports/PDFLabel.php:800 sundayschool/SundaySchoolBadge.php:154
 msgid "default"
 msgstr "Por defecto"
 
@@ -1143,7 +1143,7 @@ msgid "Email Cart"
 msgstr "Enviar Carrito por Email"
 
 #: CartView.php:173 FamilyView.php:380 GroupView.php:196 PersonView.php:480
-#: sundayschool/SundaySchoolClassView.php:104
+#: sundayschool/SundaySchoolClassView.php:110
 msgid "Email (BCC)"
 msgstr "Email (BCC)"
 
@@ -1320,8 +1320,8 @@ msgstr "Listando"
 #: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
-#: sundayschool/SundaySchoolClassView.php:232
-#: sundayschool/SundaySchoolClassView.php:373 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:242
+#: sundayschool/SundaySchoolClassView.php:392 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Género"
 
@@ -1582,7 +1582,7 @@ msgid "Work / Other Email"
 msgstr "Trabajo / Otro Email"
 
 #: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:372
+#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:391
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Fecha de Nacimiento"
@@ -4523,7 +4523,7 @@ msgstr "Tractor"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:100
 #: Reports/ClassAttendance.php:99 Reports/ClassAttendance.php:187
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:170
+#: sundayschool/SundaySchoolClassView.php:176
 #: sundayschool/SundaySchoolDashboard.php:94
 #: sundayschool/SundaySchoolDashboard.php:166
 msgid "Teachers"
@@ -4541,7 +4541,7 @@ msgstr "Niñas"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:196
 #: Reports/ClassAttendance.php:175 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:251
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:265
 #: sundayschool/SundaySchoolDashboard.php:105
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Students"
@@ -4917,7 +4917,7 @@ msgid "Delele All Attendees"
 msgstr "Borrar Todas las Asistentes"
 
 #: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:476
-#: ListEvents.php:477 sundayschool/SundaySchoolClassView.php:124
+#: ListEvents.php:477 sundayschool/SundaySchoolClassView.php:130
 msgid "Make Check-out"
 msgstr "Hacer Check-out"
 
@@ -6901,7 +6901,7 @@ msgstr "Miembros del grupo:"
 msgid "Manage Group Members"
 msgstr "Gestionar Miembros del grupo"
 
-#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:341
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:358
 #: sundayschool/SundaySchoolDashboard.php:281
 msgid "Add"
 msgstr "Agregar"
@@ -7954,7 +7954,7 @@ msgid "Visible only in PersonView"
 msgstr "visible solo en  PersonView"
 
 #: OptionManager.php:467 OptionManager.php:471
-#: VolunteerOpportunityEditor.php:404
+#: sundayschool/SundaySchoolClassView.php:71 VolunteerOpportunityEditor.php:404
 msgid "Exit"
 msgstr "Salir"
 
@@ -9498,140 +9498,143 @@ msgstr ""
 msgid "Permission"
 msgstr "Permiso"
 
-#: sundayschool/SundaySchoolBadge.php:39
+#: sundayschool/SundaySchoolBadge.php:44
 msgid "Sunday School Badge for"
 msgstr "insignias de Escuelas Dominicales"
 
-#: sundayschool/SundaySchoolBadge.php:49
-msgid ""
-"Information ! When you add some properties to a person they will be add to "
-"the badge."
+#: sundayschool/SundaySchoolBadge.php:54
+msgid "When you add some properties to a person they will be add to the badge."
 msgstr ""
 
-#: sundayschool/SundaySchoolBadge.php:65
-msgid "Information ! You're about to create babges only for this people"
+#: sundayschool/SundaySchoolBadge.php:71
+msgid "You're about to create babges only for this people"
 msgstr ""
 
-#: sundayschool/SundaySchoolBadge.php:65
+#: sundayschool/SundaySchoolBadge.php:71
 msgid ""
 "who are in the cart. If you don't want to do this, empty the cart, and "
 "reload the page."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:68
+#: sundayschool/SundaySchoolClassView.php:70
 msgid ""
-"Information ! To add students to this class, simply add them with the select "
-"field at the bottom of this page."
+"To add students to this class, simply add them with the select field at the "
+"bottom of this page."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:72
+#: sundayschool/SundaySchoolClassView.php:71
+msgid ""
+"You're now in edition mode. To see the entire page again, click the button"
+msgstr ""
+
+#: sundayschool/SundaySchoolClassView.php:78
 msgid "Sunday School Class Functions"
 msgstr "Funciones de Clase de Escuela Dominical"
 
-#: sundayschool/SundaySchoolClassView.php:95
-#: sundayschool/SundaySchoolClassView.php:107
+#: sundayschool/SundaySchoolClassView.php:101
+#: sundayschool/SundaySchoolClassView.php:113
 msgid "Toggle Dropdown"
 msgstr "Cambiar Desplegable"
 
-#: sundayschool/SundaySchoolClassView.php:118
+#: sundayschool/SundaySchoolClassView.php:124
 msgid "Add Students"
 msgstr "Agregar Estudiantes"
 
-#: sundayschool/SundaySchoolClassView.php:120
+#: sundayschool/SundaySchoolClassView.php:126
 msgid "Edit this Class"
 msgstr "Editar esta Clase"
 
-#: sundayschool/SundaySchoolClassView.php:131
-#: sundayschool/SundaySchoolClassView.php:136
+#: sundayschool/SundaySchoolClassView.php:137
+#: sundayschool/SundaySchoolClassView.php:142
 msgid "Export Attendance"
 msgstr "Exportación del Asistencia"
 
-#: sundayschool/SundaySchoolClassView.php:138
+#: sundayschool/SundaySchoolClassView.php:144
 msgid "Student Badges"
 msgstr "Insignias los Estudiantes"
 
-#: sundayschool/SundaySchoolClassView.php:145
+#: sundayschool/SundaySchoolClassView.php:151
 msgid "Remove Students from Cart"
 msgstr "Remover estudiantes del carrito"
 
-#: sundayschool/SundaySchoolClassView.php:149
+#: sundayschool/SundaySchoolClassView.php:155
 msgid "Add Students to Cart"
 msgstr "Agregar Estudiantes al carrito"
 
-#: sundayschool/SundaySchoolClassView.php:156
+#: sundayschool/SundaySchoolClassView.php:162
 msgid "Remove Teachers from Cart"
 msgstr "Remover Profesores del carrito"
 
-#: sundayschool/SundaySchoolClassView.php:160
+#: sundayschool/SundaySchoolClassView.php:166
 msgid "Add Teachers to Cart"
 msgstr "Agregar Profesores al carrito"
 
-#: sundayschool/SundaySchoolClassView.php:189
-#: sundayschool/SundaySchoolClassView.php:325
+#: sundayschool/SundaySchoolClassView.php:195
+#: sundayschool/SundaySchoolClassView.php:339
 msgid "Send Message"
 msgstr "Enviar Mensaje"
 
-#: sundayschool/SundaySchoolClassView.php:191
+#: sundayschool/SundaySchoolClassView.php:197
 msgid "View Profile"
 msgstr "Ver Perfil"
 
-#: sundayschool/SundaySchoolClassView.php:202
+#: sundayschool/SundaySchoolClassView.php:212
 msgid "Quick Status"
 msgstr "Estado Rápido"
 
-#: sundayschool/SundaySchoolClassView.php:217
+#: sundayschool/SundaySchoolClassView.php:227
 msgid "Birthdays by Month"
 msgstr "Cumpleaños por Mes"
 
-#: sundayschool/SundaySchoolClassView.php:244
+#: sundayschool/SundaySchoolClassView.php:254
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:255
+#: sundayschool/SundaySchoolClassView.php:269
 msgid "Showing students with birthdays in"
 msgstr "Mostrando estudiantes con cumpleaños en"
 
-#: sundayschool/SundaySchoolClassView.php:256
+#: sundayschool/SundaySchoolClassView.php:270
 msgid "Showing students with gender"
 msgstr "Mostrando estudiantes con Género"
 
-#: sundayschool/SundaySchoolClassView.php:287
+#: sundayschool/SundaySchoolClassView.php:301
 msgid "Compose New Message"
 msgstr "Redactar Nuevo Mensaje"
 
-#: sundayschool/SundaySchoolClassView.php:292
+#: sundayschool/SundaySchoolClassView.php:306
 msgid "Kids Emails"
 msgstr "Emails de Niños"
 
-#: sundayschool/SundaySchoolClassView.php:297
+#: sundayschool/SundaySchoolClassView.php:311
 msgid "Parents Emails"
 msgstr "Emails de Padres"
 
-#: sundayschool/SundaySchoolClassView.php:302
+#: sundayschool/SundaySchoolClassView.php:316
 msgid "Teachers Emails"
 msgstr "Emails de Profesores"
 
-#: sundayschool/SundaySchoolClassView.php:312
+#: sundayschool/SundaySchoolClassView.php:326
 msgid "Attachment"
 msgstr "Adjunto"
 
-#: sundayschool/SundaySchoolClassView.php:315
+#: sundayschool/SundaySchoolClassView.php:329
 msgid "Max. 32MB"
 msgstr "Máx. 32MB"
 
-#: sundayschool/SundaySchoolClassView.php:322
+#: sundayschool/SundaySchoolClassView.php:336
 msgid "Discard"
 msgstr "Descartar"
 
-#: sundayschool/SundaySchoolClassView.php:336
+#: sundayschool/SundaySchoolClassView.php:353
 msgid "Add Members to Sunday Group"
 msgstr "Agregar Miembros al Escuela Dominical"
 
-#: sundayschool/SundaySchoolClassView.php:347
+#: sundayschool/SundaySchoolClassView.php:364
 msgid "at the end, reload the page to see the results in the charts"
 msgstr "Al final recargar la página a ver los resultados en los gráficos"
 
-#: sundayschool/SundaySchoolClassView.php:350
+#: sundayschool/SundaySchoolClassView.php:367
 msgid "Reload"
 msgstr "Recargar"
 
