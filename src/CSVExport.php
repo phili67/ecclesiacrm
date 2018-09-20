@@ -14,6 +14,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\SystemConfig;
 
 // If user does not have CSV Export permission, redirect to the menu.
 if (!$bExportCSV) {
@@ -243,7 +244,7 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <select name="Source">
+                <select name="Source" class="form-control input-sm">
                   <option value="filters"><?= gettext('Based on filters below..') ?></option>
                   <option value="cart" <?php if (array_key_exists('Source', $_GET) && $_GET['Source'] == 'cart') {
       echo 'selected';
@@ -264,7 +265,7 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <select name="Classification[]" size="5" multiple>
+                <select name="Classification[]" size="5" multiple class="form-control input-sm">
                   <?php
                   while ($aRow = mysqli_fetch_array($rsClassifications)) {
                       extract($aRow); ?>
@@ -289,7 +290,7 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <select name="FamilyRole[]" size="5" multiple>
+                <select name="FamilyRole[]" size="5" multiple class="form-control input-sm">
                   <?php
                   while ($aRow = mysqli_fetch_array($rsFamilyRoles)) {
                       extract($aRow); ?>
@@ -314,7 +315,7 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <select name="Gender">
+                <select name="Gender" class="form-control input-sm">
                   <option value="0"><?= gettext("Don't Filter") ?></option>
                   <option value="1"><?= gettext('Male') ?></option>
                   <option value="2"><?= gettext('Female') ?></option>
@@ -335,7 +336,7 @@ require 'Include/Header.php';
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
-                <select name="GroupID[]" size="5" multiple>
+                <select name="GroupID[]" size="5" multiple class="form-control input-sm">
                   <?php
                   while ($aRow = mysqli_fetch_array($rsGroups)) {
                       extract($aRow);
@@ -358,8 +359,14 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <?= gettext('From:') ?>&nbsp;</b></td><td><input id="MembershipDate1" class="date-picker" type="text" name="MembershipDate1" size="11" maxlength="10">
-                  <?= gettext('To:') ?>&nbsp;</b></td><td><input id="MembershipDate2" class="date-picker" type="text" name="MembershipDate2" size="11" maxlength="10" value="<?php echo date('Y-m-d'); ?>">
+                <table>
+                  <tr>
+                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><input id="MembershipDate1" class="date-picker form-control" type="text" name="MembershipDate1" size="11" maxlength="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><input id="MembershipDate2" class="date-picker form-control" type="text" name="MembershipDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
@@ -375,8 +382,14 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <b><?= gettext('From:') ?>&nbsp;</b><input type="text" name="BirthDate1" class="date-picker" size="11" maxlength="10" id="BirthdayDate1">
-                <b><?= gettext('To:') ?>&nbsp;</b><input type="text" name="BirthDate2" class="date-picker" size="11" maxlength="10" value="<?= date('Y-m-d') ?>"  id="BirthdayDate2">
+                <table>
+                  <tr>
+                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><input type="text" name="BirthDate1" class="date-picker  form-control" size="11" maxlength="10" id="BirthdayDate1" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><input type="text" name="BirthDate2" class="date-picker  form-control" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"  id="BirthdayDate2" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
@@ -392,8 +405,14 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <?= gettext('From:') ?>&nbsp;</b></td><td><input type="text" class="date-picker" name="AnniversaryDate1" size="11" maxlength="10" id="AnniversaryDate1">
-                  <?= gettext('To:') ?>&nbsp;</b></td><td><input type="text" class="date-picker" name="AnniversaryDate2" size="11" maxlength="10" value="<?php echo date('Y-m-d'); ?>" id="AnniversaryDate2">
+                <table>
+                  <tr>
+                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><input type="text" class="date-picker  form-control" name="AnniversaryDate1" size="11" maxlength="10" id="AnniversaryDate1" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><input type="text" class="date-picker  form-control" name="AnniversaryDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" id="AnniversaryDate2" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
@@ -409,8 +428,14 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <?= gettext('From:') ?>&nbsp;</b></td><td><input id="EnterDate1" type="text" name="EnterDate1" size="11" maxlength="10" class="date-picker">
-                  <?= gettext('To:') ?>&nbsp;</b></td><td><input id="EnterDate2" type="text" name="EnterDate2" size="11" maxlength="10" value="<?php echo date('Y-m-d'); ?>" class="date-picker">
+                <table>
+                  <tr>
+                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><input id="EnterDate1" type="text" name="EnterDate1" size="11" maxlength="10" class="date-picker  form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><input id="EnterDate2" type="text" name="EnterDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" class="date-picker  form-control"  placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
@@ -425,16 +450,21 @@ require 'Include/Header.php';
           <h3 class="box-title"><?= gettext('Output Method:') ?></h3>
         </div>
         <div class="box-body">
-          <select name="Format">
-            <option value="Default"><?= gettext('CSV Individual Records') ?></option>
-            <option value="Rollup"><?= gettext('CSV Combine Families') ?></option>
-            <option value="AddToCart"><?= gettext('Add Individuals to Cart') ?></option>
-          </select>
-
-          <label><?= gettext('Skip records with incomplete mail address') ?></label><input type="checkbox" name="SkipIncompleteAddr" value="1">
-
-          <input type="submit" class="btn" value=<?= '"'.gettext('Create File').'"' ?> name="Submit"></td>
-
+          <div class="row">
+            <div class="col-lg-3">
+              <select name="Format" class="form-control input-sm">
+                <option value="Default"><?= gettext('CSV Individual Records') ?></option>
+                <option value="Rollup"><?= gettext('CSV Combine Families') ?></option>
+                <option value="AddToCart"><?= gettext('Add Individuals to Cart') ?></option>
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <label><?= gettext('Skip records with incomplete mail address') ?></label><input type="checkbox" name="SkipIncompleteAddr" value="1">
+            </div>
+            <div class="col-lg-5">
+              <input type="submit" class="btn btn-primary" value=<?= '"'.gettext('Create File').'"' ?> name="Submit">
+            </div>
+          </div>
         </div>
       </div>
     </div>
