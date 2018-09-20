@@ -531,7 +531,7 @@ require 'Include/Header.php';
      // it should be better to write this part in the api/groups/members
       if ($_SESSION['user']->isSeePrivacyDataEnabled() 
         || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
-        || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeachForGroup($iGroupID))) {
+        || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupID))) {
          echo "true";
       } else {
          echo "false";
