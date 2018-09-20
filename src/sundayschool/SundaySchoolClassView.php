@@ -125,19 +125,19 @@ require '../Include/Header.php';
 
   <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
   <?php 
-  if ($_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId)) {
+  if ($_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled() || $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId)) {
   ?>
     <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>  
   <?php 
     }
   ?>
   <?php 
-  if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) && ($_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'])) ) {
+  if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId) && ($_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'])) ) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php
    }
-   if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
+   if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
     
@@ -204,7 +204,7 @@ require '../Include/Header.php';
 </div>
 
 <?php
-   if ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId)) {
+   if ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId)) {
 ?>
 
 <div class="box box-info quick-status">
@@ -391,7 +391,7 @@ function implodeUnique($array, $withQuotes)
   var birthDateColumnText    = '<?= gettext("Birth Date") ?>';
   var genderColumnText       = '<?= gettext("Gender") ?>';
   var sundayGroupId          = <?= $iGroupId ?>;
-  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId))?1:0 ?>;
+  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId))?1:0 ?>;
   var canDeleteMembers       = <?= $_SESSION['user']->isDeleteRecordsEnabled()?1:0 ?>;
 </script>
 

@@ -321,7 +321,7 @@ class User extends BaseUser
         return $this->getPerson()->getFullName();
     }
 
-    public function isSundayShoolTeachForGroup($iGroupID)
+    public function isSundayShoolTeacherForGroup($iGroupID)
     {
         if ($this->isAdmin() || $this->isAddRecords()) {
           return true;
