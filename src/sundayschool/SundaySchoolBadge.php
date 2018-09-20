@@ -24,6 +24,11 @@ use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\PersonQuery;
 
 
+if ( !($_SESSION['user']->isSundayShoolTeachForGroup() && $_SESSION['bExportSundaySchoolPDF']) ) {
+    Redirect('Menu.php');
+    exit;
+}
+
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
 
@@ -46,7 +51,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
 
 ?>
 
-<div class="callout callout-info"><?= gettext("Information ! When you add some properties to a person they will be add to the badge.") ?></div>
+<div class="callout callout-info"><?= gettext("When you add some properties to a person they will be add to the badge.") ?></div>
 
 <?php
    if (count($_SESSION['aPeopleCart']) == 0) {
@@ -62,7 +67,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
           $allPersons .= $person->getFullName().",";
         }
 ?>
-  <div class="callout callout-warning"><?= gettext("Information ! You're about to create babges only for this people")." : <b>".$allPersons."</b> ".gettext("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
+  <div class="callout callout-warning"><?= gettext("You're about to create babges only for this people")." : <b>".$allPersons."</b> ".gettext("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
 <?php
    }
 ?>
