@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-19 22:39+0200\n"
+"POT-Creation-Date: 2018-09-19 22:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9284,12 +9284,12 @@ msgstr ""
 
 #: sundayschool/SundaySchoolBadge.php:49
 msgid ""
-"Informations ! When you add some properties to a person they will be add to "
+"Information ! When you add some properties to a person they will be add to "
 "the badge."
 msgstr ""
 
 #: sundayschool/SundaySchoolBadge.php:65
-msgid "Informations ! You're about to create babges only for this people"
+msgid "Information ! You're about to create babges only for this people"
 msgstr ""
 
 #: sundayschool/SundaySchoolBadge.php:65
@@ -9300,8 +9300,8 @@ msgstr ""
 
 #: sundayschool/SundaySchoolClassView.php:68
 msgid ""
-"Informations ! To add students to this class, simply add them with the "
-"select field at the bottom of this page."
+"Information ! To add students to this class, simply add them with the select "
+"field at the bottom of this page."
 msgstr ""
 
 #: sundayschool/SundaySchoolClassView.php:72
