@@ -9476,10 +9476,9 @@ msgid "Sunday School Badge for"
 msgstr "Sonntagsschule Ausweis für"
 
 #: sundayschool/SundaySchoolBadge.php:54
-#, fuzzy
 msgid "When you add some properties to a person they will be add to the badge."
 msgstr ""
-"Infos ! Wenn Sie einige Eigenschaften zu einen person fügen, werden sie zu "
+"Wenn Sie einige Eigenschaften zu einen person fügen, werden sie zu "
 "der Ausweis hinzugefügt."
 
 #: sundayschool/SundaySchoolBadge.php:71
