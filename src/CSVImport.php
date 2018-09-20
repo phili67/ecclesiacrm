@@ -827,7 +827,7 @@ if ($iStage == 1) {
         <p style="color: red"> <?= $csvError ?></p>
         <form method="post" action="CSVImport.php" enctype="multipart/form-data">
         <input class="icTinyButton" type="file" name="CSVfile"><br/>
-        <input type="submit" class="btn" value=" <?= gettext('Upload CSV File') ?> "
+        <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> "
         name="UploadCSV">
         </form>
         </div>
@@ -852,10 +852,10 @@ if ($iStage == 1) {
                             <?php
                             echo gettext('Warning!  Do not select this option if you plan to add to an existing database.<br/>');
     echo gettext('Use only if unsatisfied with initial import.  All person and member data will be destroyed!'); ?><br><br>
-                            <span style="color:black">I Understand &nbsp;<input type="checkbox" name="chkClear"></span>
+                            <span style="color:black"><?= gettext("I Understand")?> &nbsp;<input type="checkbox" name="chkClear"></span>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><?= gettext("Close") ?></button>
                             <button name="Clear" type="submit" class="btn btn-danger"><?= gettext('Clear Persons and Families') ?></button>
                         </div>
                     </div>
