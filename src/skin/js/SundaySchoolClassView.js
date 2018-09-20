@@ -1,4 +1,31 @@
 $("document").ready(function(){
+  function edition_mode()
+  {
+    $(".edition-mode").fadeIn(300);
+    $('.quick-status').hide();
+    $('.teachers').hide();
+    $('.info').hide();
+    
+    var oSettings = dataTable.page.len(10).draw();
+    window.scrollTo(0, 0);
+
+  }
+  
+  function exit_edition_mode()
+  {
+    window.scrollTo(0, 0);
+    $('.edition-mode').hide();
+    
+    $(".info").fadeIn(300);
+    $('.quick-status').fadeIn(200);
+    $('.teachers').fadeIn(200);;
+    var oSettings = dataTable.page.len(100).draw();
+  }
+  
+  $(document).on("click",".exit-edition-mode", function(){
+    exit_edition_mode();
+  });
+  
   /* Badge creation */
   $(document).on("click","#studentbadge", function(){
     var sundayGroupId = $(this).data("groupid");
@@ -41,6 +68,8 @@ $("document").ready(function(){
   });
 
   $(".personSearch").on("select2:select", function (e) {
+      edition_mode ();
+      
       window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:sundayGroupId},function(selection){
         window.CRM.groups.addPerson(sundayGroupId, e.params.data.objid,selection.RoleID).done(function (data) {
           $(".personSearch").val(null).trigger('change');
@@ -51,6 +80,7 @@ $("document").ready(function(){
   
   /* the membership deletion */
   $('body').on('click','.delete-person', function(){ 
+    edition_mode ();
     event.preventDefault();
     var thisLink = $(this);
     bootbox.confirm({
@@ -158,18 +188,22 @@ $("document").ready(function(){
         title:i18next.t('Action'),
         data:'kidId',
         render: function(data, type, full, meta) {
-          return '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
+          var res = '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
               +'<span class="fa-stack">'
               +'  <i class="fa fa-square fa-stack-2x"></i>'
               +'  <i class="fa fa-stack-1x fa-inverse '+(window.CRM.showCart?'fa-cart-plus':'fa-question')+'"></i>'
               +'</span>'
-            +'</a>'
-            +'<a class="delete-person" data-person_name="'+full.firstName+' '+full.LastName+'" data-person_id="'+data+'" data-view="family">'
-            +'  <span class="fa-stack" style="color:red">'
-            +'    <i class="fa fa-square fa-stack-2x"></i>'
-            +'    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>'
-            +'  </span>'
-            +'</a>';
+              +'</a>';
+          if (canDeleteMembers) {
+              res += '<a class="delete-person" data-person_name="'+full.firstName+' '+full.LastName+'" data-person_id="'+data+'" data-view="family">'
+              +'  <span class="fa-stack" style="color:red">'
+              +'    <i class="fa fa-square fa-stack-2x"></i>'
+              +'    <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>'
+              +'  </span>'
+              +'</a>';
+          }
+          
+          return res;
         }
       },
       {
@@ -211,6 +245,10 @@ $("document").ready(function(){
         title:i18next.t('Age'),
         data:'flags',
         render: function(data, type, full, meta) {
+          if (!canSeePrivacyData) {
+            return i18next.t('Private Data');
+          }
+
           if (data == "0" || full.birthDay == '' || full.birthDay == '0') {// we are on the case of a show age
             var realBirthDate = full.birthYear+'-'+((full.birthMonth<10)?'0':'')+full.birthMonth+'-'+((full.birthDay<10)?'0':'')+full.birthDay+'T00:00:00';
             var birthDate = moment(realBirthDate);

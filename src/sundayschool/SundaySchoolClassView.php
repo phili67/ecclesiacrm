@@ -62,10 +62,16 @@ foreach ($rsTeachers as $teacher) {
 }
 
 require '../Include/Header.php';
-
 ?>
 
-<div class="callout callout-info"><?= gettext("Information ! To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
+<?php  
+  if ($_SESSION['user']->isAddRecords()) {
+?>
+  <div class="callout callout-info info"><?= gettext("To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
+  <div class="callout callout-warning edition-mode" style="display: none;"><?= gettext("You're now in edition mode. To see the entire page again, click the button") ?>   <button type="button" class="btn btn-default exit-edition-mode" data-widget="collapse"><?= gettext("Exit") ?></button></div>
+<?php
+  }
+?>
 
 <div class="box">
   <div class="box-header with-border">
@@ -126,12 +132,12 @@ require '../Include/Header.php';
     }
   ?>
   <?php 
-  if ($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'] ) {
+  if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) && ($_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'])) ) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php
    }
-   if ($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
+   if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
     
@@ -165,8 +171,8 @@ require '../Include/Header.php';
   </div>
 </div>
 
-<div class="box box-success">
-  <div class="box-header">
+<div class="box box-success teachers">
+  <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Teachers') ?></h3>
 
     <div class="box-tools pull-right">
@@ -197,8 +203,12 @@ require '../Include/Header.php';
   </div>
 </div>
 
-<div class="box box-info">
-  <div class="box-header">
+<?php
+   if ($_SESSION['user']->isSundayShoolTeachForGroup($iGroupId)) {
+?>
+
+<div class="box box-info quick-status">
+  <div class="box-header  with-border">
     <h3 class="box-title"><?= gettext('Quick Status') ?></h3>
 
     <div class="box-tools pull-right">
@@ -246,6 +256,10 @@ require '../Include/Header.php';
   </div>
 </div>
 
+<?php 
+  }
+?>
+
 <div class="box box-primary">
   <div class="box-header">
     <h3 class="box-title"><?= gettext('Students') ?></h3>
@@ -260,21 +274,21 @@ require '../Include/Header.php';
 
 <?php
 function implodeUnique($array, $withQuotes)
-      {
-          array_unique($array);
-          asort($array);
-          if (count($array) > 0) {
-              if ($withQuotes) {
-                  $string = implode("','", $array);
+{
+    array_unique($array);
+    asort($array);
+    if (count($array) > 0) {
+        if ($withQuotes) {
+            $string = implode("','", $array);
 
-                  return "'".$string."'";
-              } else {
-                  return implode(',', $array);
-              }
-          }
+            return "'".$string."'";
+        } else {
+            return implode(',', $array);
+        }
+    }
 
-          return '';
-      }
+    return '';
+}
 
 ?>
 
@@ -331,6 +345,9 @@ function implodeUnique($array, $withQuotes)
   <!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<?php  
+  if ($_SESSION['user']->isAddRecords()) {
+?>
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title"><?php echo gettext("Add Members to Sunday Group"); ?>:</h3>
@@ -352,7 +369,9 @@ function implodeUnique($array, $withQuotes)
     </div>
   </div>
 </div>
-
+<?php
+  }
+?>
 
 <!-- FLOT CHARTS -->
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/flot/jquery.flot.min.js"></script>
@@ -372,7 +391,8 @@ function implodeUnique($array, $withQuotes)
   var birthDateColumnText    = '<?= gettext("Birth Date") ?>';
   var genderColumnText       = '<?= gettext("Gender") ?>';
   var sundayGroupId          = <?= $iGroupId ?>;
-  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId))?true:false ?>;
+  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeachForGroup($iGroupId))?1:0 ?>;
+  var canDeleteMembers       = <?= $_SESSION['user']->isDeleteRecordsEnabled()?1:0 ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
