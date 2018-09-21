@@ -170,8 +170,14 @@ if (isset($_POST['UploadCSV'])) {
       <?php
         // grab and display up to the first 8 lines of data in the CSV in a table
         $iRow = 0;
+        $numCol = -10;
+        
         while (($aData = fgetcsv($pFile, 2048, $generalCSVSeparator)) && $iRow++ < 9) {
-            $numCol = count($aData);
+            $tempNumCol = count($aData);
+
+            if ($numCol < $tempNumCol) {
+              $numCol = $tempNumCol;
+            }
       ?>
           <tr>
       <?php
@@ -184,7 +190,7 @@ if (isset($_POST['UploadCSV'])) {
           </tr>
       <?php
         }
-
+  
         fclose($pFile);
 
         $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
@@ -209,7 +215,7 @@ if (isset($_POST['UploadCSV'])) {
                 $sFamCustomFieldList .= '<option value="f'.$fam_custom_Field.'">'.$fam_custom_Name."</option>\n";
             }
         }
-
+        
         // add select boxes for import destination mapping
         for ($col = 0; $col < $numCol; $col++) {
             ?>
