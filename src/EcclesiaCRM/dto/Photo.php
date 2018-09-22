@@ -43,6 +43,10 @@ class Photo {
     }
   }
   
+  public static function getValidExtensions() {
+      return Photo::$validExtensions;
+  }
+  
   private function photoHunt() {
     $baseName = SystemURLs::getImagesRoot() . "/" . $this->photoType . "/" . $this->id;
     $extensions = Photo::$validExtensions;

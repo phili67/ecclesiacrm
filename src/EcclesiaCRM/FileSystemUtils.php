@@ -2,6 +2,9 @@
 
 namespace EcclesiaCRM
 {
+
+  use EcclesiaCRM\Utils\LoggerUtils;
+
   class FileSystemUtils
   {
       public static function recursiveRemoveDirectory($directory, $retainParentFolderAndFiles=false)
@@ -37,6 +40,16 @@ namespace EcclesiaCRM
           } elseif (file_exists($src)) {
               copy($src, $dst);
           }
+      }
+      
+      public static function deleteFiles($path, $extArray)
+      {
+        foreach ($extArray as $ext) {
+            LoggerUtils::getAppLogger()->info('Deleting files: '. $path . "*." . $ext);
+            foreach (GLOB($path . "*." . $ext) as $filename) {
+                UNLINK($filename);
+            }
+        }
       }
   }
 }
