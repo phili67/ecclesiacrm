@@ -17,7 +17,7 @@ require 'Include/Header.php';
 
 echo '<div class="box box-body box-info">';
 
-$families = FamilyQuery::create()->filterByLongitude(0)->limit(250)->find();
+$families = FamilyQuery::create()->filterByLongitude(0)->limit(100)->find();
 
 echo '<h4>' . gettext('Families without Geo Info') . ": " . $families->count() .'</h4>';
 

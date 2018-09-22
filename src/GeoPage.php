@@ -10,8 +10,6 @@
  *
  *
  *  Copyright Contributors
-  *
-
  *
  ******************************************************************************/
 
@@ -95,7 +93,7 @@ $classifications = ListOptionQuery::create()
     ->find();
 
 unset($aClassificationName);
-$aClassificationName[0] = 'Unassigned';
+$aClassificationName[0] = gettext('Unassigned');
 foreach ($classifications as $classification) {
     $aClassificationName[intval($classification->getOptionId())] = $classification->getOptionName();
 }
@@ -107,7 +105,7 @@ $familyRoles = ListOptionQuery::create()
     ->find();
 
 unset($aFamilyRoleName);
-$aFamilyRoleName[0] = 'Unassigned';
+$aFamilyRoleName[0] = gettext('Unassigned');
 foreach ($familyRoles as $familyRole) {
     $aFamilyRoleName[intval($familyRole->getOptionId())] = $familyRole->getOptionName();
 }

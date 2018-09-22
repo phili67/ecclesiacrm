@@ -537,11 +537,11 @@ if (isset($_POST['DoImport'])) {
                         // Gender.. check for multiple possible designations from input
                         case 6:
                             switch (strtolower($aData[$col])) {
-                                case 'male': case 'm': case 'boy': case 'man':case 'm.':case 'm':case 'mr.':case 'mr':
+                                case '1':case 'male': case 'm': case 'boy': case 'man':case 'm.':case 'm':case 'mr.':case 'mr':
                                     $sSQLpersonData .= '1, ';
                                       $iGender = 1;
                                     break;
-                                case 'female': case 'f': case 'girl': case 'woman':case 'mme.':case 'mlle.':case 'mme':case 'mlle':
+                                case '2':case 'female': case 'f': case 'girl': case 'woman':case 'mme.':case 'mlle.':case 'mme':case 'mlle':
                                     $sSQLpersonData .= '2, ';
                                       $iGender = 2;
                                     break;
@@ -710,7 +710,9 @@ if (isset($_POST['DoImport'])) {
                                                      fam_CellPhone,
                                                      fam_Email,
                                                      fam_DateEntered,
-                                                     fam_EnteredBy)
+                                                     fam_EnteredBy,
+                                                     fam_Latitude,
+                                                     fam_Longitude)
                              VALUES (NULL, '.
                                      '"'.$per_LastName.'", '.
                                      '"'.$sAddress1.'", '.
@@ -724,7 +726,9 @@ if (isset($_POST['DoImport'])) {
                                      '"'.$per_CellPhone.'", '.
                                      '"'.$per_Email.'",'.
                                      '"'.date('YmdHis').'",'.
-                                     '"'.$_SESSION['user']->getPersonId().'");';
+                                     '"'.$_SESSION['user']->getPersonId().'", '.
+                                     '"0", '.
+                                     '"0");';
                     RunQuery($sSQL);
 
                     $sSQL = 'SELECT LAST_INSERT_ID()';
