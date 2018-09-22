@@ -54,8 +54,7 @@ if ($usr_role_id == null) {
 <!-- Default box -->
 <div class="box">
     <div class="box-header">
-        <a href="UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= gettext('New User') ?></a>
-        <a href="SettingsUser.php" class="btn btn-app"><i class="fa fa-wrench"></i><?= gettext('User Settings') ?></a>
+        <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= gettext('New User') ?></a>
     
       <div class="btn-group pull-right">
         <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Role to Selected User(s)") ?></a>
@@ -111,7 +110,7 @@ if ($usr_role_id == null) {
                         <?php 
                            if ( $user->getPersonId() != 1 || $user->getId() == $_SESSION['user']->getId() && $user->getPersonId() == 1) {
                         ?>
-                            <a href="UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
+                            <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
                             } else {
@@ -140,10 +139,10 @@ if ($usr_role_id == null) {
                         ?>
                       </td>
                     <td>
-                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
+                        <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
                     </td>
                     <td>
-                        <a href="PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
+                        <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
                     <td class="role<?=$user->getPersonId()?>">
                         <?php 
@@ -176,7 +175,7 @@ if ($usr_role_id == null) {
     } ?>
                     </td>
                     <td>
-                        <a href="UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
+                        <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php if ($user->getId() != $_SESSION['user']->getId() && !empty($user->getEmail())) {
         ?>
