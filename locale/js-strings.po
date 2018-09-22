@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-09-20T07:05:19.881Z\n"
-"PO-Revision-Date: 2018-09-20T07:05:19.881Z\n"
+"POT-Creation-Date: 2018-09-22T17:03:29.596Z\n"
+"PO-Revision-Date: 2018-09-22T17:03:29.596Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -343,6 +343,34 @@ msgid "Default Name Group"
 msgstr ""
 
 msgid "Yes"
+msgstr ""
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data "
+"will be destroyed!"
+msgstr ""
+
+msgid "I Understand"
+msgstr ""
+
+msgid "Clear Persons and Families"
+msgstr ""
+
+msgid "Data Cleared Successfully!"
+msgstr ""
+
+msgid "Duplicate values"
+msgstr ""
+
+msgid "You've selected two times the same name"
+msgstr ""
+
+msgid "for this field. Chose another one."
 msgstr ""
 
 msgid "Family"
