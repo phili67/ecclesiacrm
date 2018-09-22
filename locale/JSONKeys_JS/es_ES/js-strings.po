@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-09-19T16:23:40.882Z\n"
+"POT-Creation-Date: 2018-09-22T17:02:53.097Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -353,6 +353,38 @@ msgstr "Nombre de Grupo por Defecto"
 
 msgid "Yes"
 msgstr "Si"
+
+msgid ""
+"Warning! Do not select this option if you plan to add to an existing "
+"database.<br/>"
+msgstr ""
+"¡Advertencia! No seleccione esta opción si va a Agregar a una base de datos "
+"existente. <br/>"
+
+msgid ""
+"Use only if unsatisfied with initial import. All person and member data will "
+"be destroyed!"
+msgstr ""
+"Utilice únicamente si no está satisfecho con la importación inicial. Toda "
+"persona y datos de los miembros será destruida!"
+
+msgid "I Understand"
+msgstr "Entiendo "
+
+msgid "Clear Persons and Families"
+msgstr "borrar las personas y las familias"
+
+msgid "Data Cleared Successfully!"
+msgstr "Datos Limpiados exitosamente!"
+
+msgid "Duplicate values"
+msgstr "valores duplicados"
+
+msgid "You've selected two times the same name"
+msgstr "Has seleccionado dos veces a la misma"
+
+msgid "for this field. Chose another one."
+msgstr "para este campo. Eligió otro."
 
 msgid "Family"
 msgstr "Familia"
@@ -1146,6 +1178,20 @@ msgstr "Restablecer las contraseñas de"
 
 msgid "success"
 msgstr "Éxito"
+
+#~ msgid ""
+#~ "Warning!  Do not select this option if you plan to add to an existing "
+#~ "database.<br/>"
+#~ msgstr ""
+#~ "¡Advertencia! No seleccione esta opción si va a Agregar a una base de "
+#~ "datos existente. <br/>"
+
+#~ msgid ""
+#~ "Use only if unsatisfied with initial import.  All person and member data "
+#~ "will be destroyed!"
+#~ msgstr ""
+#~ "Utilice únicamente si no está satisfecho con la importación inicial. Toda "
+#~ "persona y datos de los miembros será destruida!"
 
 #, fuzzy
 #~ msgid "Cart"

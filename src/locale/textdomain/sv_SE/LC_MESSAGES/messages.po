@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-20 08:36+0200\n"
+"POT-Creation-Date: 2018-09-22 19:03+0200\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,8 +69,12 @@ msgstr "Korgen tömdes"
 msgid "Your cart has been successfully emptied"
 msgstr "Korgen tömdes"
 
-#: api/routes/database.php:25 RestoreDatabase.php:62
+#: api/routes/database.php:42 RestoreDatabase.php:62
 msgid "The selected file exceeds this servers maximum upload size of"
+msgstr ""
+
+#: api/routes/database.php:100
+msgid "The people and families has been cleared from the database."
 msgstr ""
 
 #: api/routes/families.php:218
@@ -84,14 +88,14 @@ msgid "Family Activated"
 msgstr "Denna inmatning krävs."
 
 #: api/routes/gdrp.php:46 CartView.php:338 CartView.php:358
-#: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:264
+#: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:267
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "Ja"
 
 #: api/routes/gdrp.php:46 CartView.php:351 CartView.php:360
-#: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:265
+#: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:268
 #: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
 msgid "No"
@@ -222,8 +226,8 @@ msgstr ""
 
 #: api/routes/search.php:101 AutoPaymentEditor.php:913
 #: AutoPaymentEditor.php:921 CartToFamily.php:313 CartToFamily.php:318
-#: CartView.php:318 CSVExport.php:83 CSVExport.php:88 CSVImport.php:213
-#: CSVImport.php:214 DirectoryReports.php:187 DirectoryReports.php:273
+#: CartView.php:318 CSVExport.php:84 CSVExport.php:89 CSVImport.php:232
+#: CSVImport.php:233 DirectoryReports.php:187 DirectoryReports.php:273
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:35 FamilyEditor.php:700
 #: FamilyEditor.php:704 FamilyList.php:102 FamilyView.php:227 GeoPage.php:361
@@ -315,10 +319,10 @@ msgid ""
 msgstr ""
 
 #: AutoPaymentEditor.php:811 BatchWinnerEntry.php:82 BatchWinnerEntry.php:94
-#: CartView.php:56 CartView.php:67 CSVImport.php:269 DirectoryReports.php:93
+#: CartView.php:56 CartView.php:67 CSVImport.php:356 DirectoryReports.php:93
 #: DonatedItemEditor.php:185 DonatedItemEditor.php:236
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:169
-#: EcclesiaCRM/utils/OutputUtils.php:351 EcclesiaCRM/utils/OutputUtils.php:407
+#: EcclesiaCRM/utils/OutputUtils.php:354 EcclesiaCRM/utils/OutputUtils.php:410
 #: eGive.php:340 FamilyEditor.php:1172 GroupEditor.php:103 GroupEditor.php:161
 #: GroupList.php:40 GroupView.php:53 Include/CountryDropDown.php:14
 #: Include/StateDropDown.php:17 MapUsingBing.php:186 MapUsingBing.php:232
@@ -381,7 +385,7 @@ msgstr "Betalningsinterval(månader)"
 msgid "Fund"
 msgstr "Fond"
 
-#: AutoPaymentEditor.php:883 EcclesiaCRM/utils/OutputUtils.php:205
+#: AutoPaymentEditor.php:883 EcclesiaCRM/utils/OutputUtils.php:208
 #: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
 #: EventNames.php:134 EventNames.php:188 GroupReports.php:65
 #: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
@@ -393,8 +397,8 @@ msgstr "Inga"
 msgid "inactive"
 msgstr "overksam"
 
-#: AutoPaymentEditor.php:897 Checkin.php:548 Checkin.php:549 CSVExport.php:68
-#: CSVImport.php:207
+#: AutoPaymentEditor.php:897 Checkin.php:548 Checkin.php:549 CSVExport.php:69
+#: CSVImport.php:226
 #: external/templates/registration/family-register-members.php:69
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:805
 #: PersonList.php:110 sundayschool/SundaySchoolDashboard.php:216
@@ -403,7 +407,7 @@ msgstr "overksam"
 msgid "First Name"
 msgstr "Tilltalsnamn"
 
-#: AutoPaymentEditor.php:905 CSVExport.php:57 CSVImport.php:209
+#: AutoPaymentEditor.php:905 CSVExport.php:58 CSVImport.php:228
 #: external/templates/registration/family-register-members.php:73
 #: external/templates/verify/enter-info.php:25 ManageEnvelopes.php:161
 #: PersonEditor.php:827 sundayschool/SundaySchoolDashboard.php:217
@@ -411,16 +415,16 @@ msgstr "Tilltalsnamn"
 msgid "Last Name"
 msgstr "Efternamn"
 
-#: AutoPaymentEditor.php:929 CartToFamily.php:323 CSVExport.php:93
-#: CSVImport.php:215 DirectoryReports.php:277
+#: AutoPaymentEditor.php:929 CartToFamily.php:323 CSVExport.php:94
+#: CSVImport.php:234 DirectoryReports.php:277
 #: external/templates/registration/family-register.php:41 FamilyEditor.php:708
 #: PersonEditor.php:977 PersonEditor.php:1089 Register.php:44
 #: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Stad"
 
-#: AutoPaymentEditor.php:937 CartToFamily.php:328 CSVExport.php:98
-#: CSVImport.php:216 DirectoryReports.php:281
+#: AutoPaymentEditor.php:937 CartToFamily.php:328 CSVExport.php:99
+#: CSVImport.php:235 DirectoryReports.php:281
 #: external/templates/registration/family-register.php:44 FamilyEditor.php:715
 #: PersonEditor.php:983 PersonEditor.php:1117 Register.php:45
 #: queryparameteroptions_qpo.php:6
@@ -428,7 +432,7 @@ msgid "State"
 msgstr "Län"
 
 #: AutoPaymentEditor.php:945 BackupDatabase.php:63 CartToFamily.php:343
-#: CSVExport.php:103 CSVImport.php:217 DirectoryReports.php:285
+#: CSVExport.php:104 CSVImport.php:236 DirectoryReports.php:285
 #: external/templates/registration/family-register.php:51
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:728
 #: PersonEditor.php:996 PersonEditor.php:1151 Register.php:46
@@ -436,8 +440,8 @@ msgstr "Län"
 msgid "Zip"
 msgstr "Postkod"
 
-#: AutoPaymentEditor.php:953 CartToFamily.php:351 CSVExport.php:113
-#: CSVImport.php:218 FamilyEditor.php:738 PersonEditor.php:1006
+#: AutoPaymentEditor.php:953 CartToFamily.php:351 CSVExport.php:114
+#: CSVImport.php:237 FamilyEditor.php:738 PersonEditor.php:1006
 #: PersonEditor.php:1181 Register.php:47
 msgid "Country"
 msgstr "Land"
@@ -452,7 +456,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: AutoPaymentEditor.php:969 CartToFamily.php:392 CartView.php:319
-#: CSVExport.php:133 CSVImport.php:222 EcclesiaCRM/MenuBar/MenuBar.php:314
+#: CSVExport.php:134 CSVImport.php:241 EcclesiaCRM/MenuBar/MenuBar.php:314
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 EditEventAttendees.php:71
@@ -659,7 +663,7 @@ msgstr "Ange Vinnare"
 msgid "Church Calendar"
 msgstr "Kyrkans namn"
 
-#: Calendar.php:63 CSVExport.php:232 FinancialReports.php:125
+#: Calendar.php:63 CSVExport.php:233 FinancialReports.php:125
 #: PastoralCare.php:116
 msgid "Filters"
 msgstr "Filtrar"
@@ -933,7 +937,7 @@ msgstr "Skapa etikett"
 msgid "Generate Badges"
 msgstr "Skapa etikett"
 
-#: CartToBadge.php:43 CartToBadge.php:46 CSVExport.php:63 CSVImport.php:206
+#: CartToBadge.php:43 CartToBadge.php:46 CSVExport.php:64 CSVImport.php:225
 #: DonatedItemEditor.php:207 FindFundRaiser.php:237 FundRaiserEditor.php:168
 #: FundRaiserEditor.php:194 GDPRListExport.php:60 PersonEditor.php:796
 msgid "Title"
@@ -1069,7 +1073,7 @@ msgstr "Om du läggar till in en ny familj, ange informationen nedan."
 msgid "Family Name"
 msgstr "Familj namn"
 
-#: CartToFamily.php:289 CSVImport.php:226 DirectoryReports.php:188
+#: CartToFamily.php:289 CSVImport.php:245 DirectoryReports.php:188
 #: external/templates/verify/verify-family-info.php:41 FamilyEditor.php:840
 #: FamilyView.php:256
 msgid "Wedding Date"
@@ -1088,7 +1092,7 @@ msgstr "Endast ny information nedan"
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Använd textrutan för alla ländar förutom USA och Kanada)"
 
-#: CartToFamily.php:362 CSVExport.php:118 CSVImport.php:219
+#: CartToFamily.php:362 CSVExport.php:119 CSVImport.php:238
 #: EditEventAttendees.php:72 EventAttendance.php:178
 #: external/templates/registration/family-register-done.php:30
 #: external/templates/registration/family-register.php:68
@@ -1103,13 +1107,13 @@ msgid "Home Phone"
 msgstr "Hemtelefon"
 
 #: CartToFamily.php:367 CartToFamily.php:377 CartToFamily.php:387
-#: EcclesiaCRM/utils/OutputUtils.php:397 FamilyEditor.php:782
+#: EcclesiaCRM/utils/OutputUtils.php:400 FamilyEditor.php:782
 #: FamilyEditor.php:792 FamilyEditor.php:802 PersonEditor.php:1240
 #: PersonEditor.php:1266 PersonEditor.php:1291
 msgid "Do not auto-format"
 msgstr "Autoformatera inte"
 
-#: CartToFamily.php:372 CSVExport.php:123 CSVImport.php:220
+#: CartToFamily.php:372 CSVExport.php:124 CSVImport.php:239
 #: external/templates/verify/verify-family-info.php:79 FamilyEditor.php:786
 #: FamilyView.php:275 GroupReports.php:146 PersonEditor.php:1248
 #: PersonEditor.php:1252 PersonView.php:402 PrintPastoralCare.php:208
@@ -1118,7 +1122,7 @@ msgstr "Autoformatera inte"
 msgid "Work Phone"
 msgstr "Arbetstelefon"
 
-#: CartToFamily.php:382 CSVExport.php:128 CSVImport.php:221
+#: CartToFamily.php:382 CSVExport.php:129 CSVImport.php:240
 #: external/templates/verify/verify-family-info.php:81 FamilyEditor.php:796
 #: FamilyView.php:282 PersonEditor.php:1275 PersonEditor.php:1279
 #: PersonView.php:382 PrintPastoralCare.php:213 PrintView.php:216
@@ -1165,7 +1169,7 @@ msgstr "Tom korgen till evenemang"
 msgid "Map Cart"
 msgstr "Kartlägga korgen"
 
-#: CartView.php:128 CSVExport.php:45
+#: CartView.php:128 CSVExport.php:46
 msgid "CSV Export"
 msgstr "CSV Export"
 
@@ -1235,14 +1239,14 @@ msgstr "Familjer"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: CartView.php:321 CSVExport.php:158 CSVExport.php:259 CSVImport.php:279
+#: CartView.php:321 CSVExport.php:159 CSVExport.php:260 CSVImport.php:370
 #: FamilyEditor.php:1025 FinancialReports.php:136 OptionManager.php:103
 #: PeopleDashboard.php:352 PersonEditor.php:1426 PrintPastoralCare.php:313
 #: PrintView.php:316 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Klassificering "
 
-#: CartView.php:322 CSVExport.php:163 CSVExport.php:284 OptionManager.php:96
+#: CartView.php:322 CSVExport.php:164 CSVExport.php:285 OptionManager.php:96
 #: PrintPastoralCare.php:273 PrintView.php:276 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
@@ -1374,7 +1378,7 @@ msgstr "Radera"
 msgid "Listing"
 msgstr "Användare lista"
 
-#: Checkin.php:550 CSVExport.php:309 CSVImport.php:211 FamilyEditor.php:1020
+#: Checkin.php:550 CSVExport.php:310 CSVImport.php:230 FamilyEditor.php:1020
 #: PersonEditor.php:787 PrintPastoralCare.php:242 PrintPastoralCare.php:342
 #: PrintView.php:245 PrintView.php:345
 #: sundayschool/SundaySchoolClassView.php:242
@@ -1467,95 +1471,95 @@ msgstr "Konvertera nästa"
 msgid "Convert All"
 msgstr "Konvertera alla"
 
-#: CSVExport.php:53
+#: CSVExport.php:54
 #, fuzzy
 msgid "Field Selection"
 msgstr "Välj roll"
 
-#: CSVExport.php:58
+#: CSVExport.php:59
 msgid "Required"
 msgstr "Obligatorisk "
 
-#: CSVExport.php:73 CSVImport.php:208 PersonEditor.php:816
+#: CSVExport.php:74 CSVImport.php:227 PersonEditor.php:816
 #, fuzzy
 msgid "Middle Name"
 msgstr "Andra förnamn"
 
-#: CSVExport.php:78 CSVImport.php:210 FamilyEditor.php:1019
+#: CSVExport.php:79 CSVImport.php:229 FamilyEditor.php:1019
 #: PersonEditor.php:838
 msgid "Suffix"
 msgstr "Ändelse"
 
-#: CSVExport.php:108
+#: CSVExport.php:109
 #, fuzzy
 msgid "Envelope"
 msgstr "Kuvert"
 
-#: CSVExport.php:138 EcclesiaCRM/Reports/PDF_Directory.php:406
+#: CSVExport.php:139 EcclesiaCRM/Reports/PDF_Directory.php:406
 #: EcclesiaCRM/Reports/PDF_Directory.php:463 PersonView.php:407
 #: Reports/DirectoryReport.php:302
 #, fuzzy
 msgid "Work/Other Email"
 msgstr "Arbete/Övriga Epost"
 
-#: CSVExport.php:143 CSVExport.php:353 CSVImport.php:225 PersonEditor.php:1441
+#: CSVExport.php:144 CSVExport.php:354 CSVImport.php:244 PersonEditor.php:1441
 #: PrintPastoralCare.php:308 PrintView.php:311
 #, fuzzy
 msgid "Membership Date"
 msgstr "Medemsdatumet"
 
-#: CSVExport.php:148
+#: CSVExport.php:149
 #, fuzzy
 msgid "Birth / Anniversary Date"
 msgstr "födelse / Bröllopsdatumet"
 
-#: CSVExport.php:153
+#: CSVExport.php:154
 #, fuzzy
 msgid "Age / Years Married"
 msgstr "Ålder / År gifte"
 
-#: CSVExport.php:166
+#: CSVExport.php:167
 #, fuzzy
 msgid "Depends whether using person or family output method"
 msgstr "beror på om du använder person eller familj metod"
 
-#: CSVExport.php:179
+#: CSVExport.php:180
 #, fuzzy
 msgid "Custom Field Selection"
 msgstr "Fritt anpassade fält"
 
-#: CSVExport.php:187
+#: CSVExport.php:188
 msgid "Custom Person Fields"
 msgstr "Fritt anpassade person fält"
 
-#: CSVExport.php:205
+#: CSVExport.php:206
 msgid "Custom Family Fields"
 msgstr "Fritt anpassade familj fält"
 
-#: CSVExport.php:238
+#: CSVExport.php:239
 #, fuzzy
 msgid "Records to export"
 msgstr "Poster att exportera"
 
-#: CSVExport.php:247
+#: CSVExport.php:248
 msgid "Based on filters below.."
 msgstr "Baserat på filtrar nedan.."
 
-#: CSVExport.php:250
+#: CSVExport.php:251
 msgid "People in Cart (filters ignored)"
 msgstr "Personer i korgen (filtrar förbigått)"
 
-#: CSVExport.php:276 CSVExport.php:301 CSVExport.php:337
+#: CSVExport.php:277 CSVExport.php:302 CSVExport.php:338
 #: DirectoryReports.php:91 DirectoryReports.php:110 DirectoryReports.php:133
 #: DirectoryReports.php:151 DirectoryReports.php:169 FinancialReports.php:337
 msgid "Use Ctrl Key to select multiple"
 msgstr "Använd Ctrl-tangenten för att välj fler än en"
 
-#: CSVExport.php:318
+#: CSVExport.php:319
 msgid "Don't Filter"
 msgstr "Filtrera inte"
 
-#: CSVExport.php:319
+#: CSVExport.php:320
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:26
 #: EcclesiaCRM/Service/DashboardService.php:63
 #: external/templates/registration/family-register-members.php:59
@@ -1565,7 +1569,7 @@ msgstr "Filtrera inte"
 msgid "Male"
 msgstr "Man"
 
-#: CSVExport.php:320
+#: CSVExport.php:321
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:29
 #: EcclesiaCRM/Service/DashboardService.php:66
 #: external/templates/registration/family-register-members.php:60
@@ -1575,177 +1579,253 @@ msgstr "Man"
 msgid "Female"
 msgstr "Kvinna"
 
-#: CSVExport.php:329 DirectoryReports.php:107
+#: CSVExport.php:330 DirectoryReports.php:107
 #, fuzzy
 msgid "Group Membership"
 msgstr "Gruppmedlemskap"
 
-#: CSVExport.php:361 CSVExport.php:378 CSVExport.php:395 CSVExport.php:412
+#: CSVExport.php:364 CSVExport.php:387 CSVExport.php:410 CSVExport.php:433
 msgid "From:"
 msgstr "Från:"
 
-#: CSVExport.php:362 CSVExport.php:379 CSVExport.php:396 CSVExport.php:413
+#: CSVExport.php:366 CSVExport.php:389 CSVExport.php:412 CSVExport.php:435
 msgid "To:"
 msgstr "Till:"
 
-#: CSVExport.php:370
+#: CSVExport.php:377
 #, fuzzy
 msgid "Birthday Date"
 msgstr "Födelsedatum"
 
-#: CSVExport.php:387
+#: CSVExport.php:400
 #, fuzzy
 msgid "Anniversary Date:"
 msgstr "Bröllopsdatum"
 
-#: CSVExport.php:404
+#: CSVExport.php:423
 #, fuzzy
 msgid "Date Entered:"
 msgstr "Angiven:"
 
-#: CSVExport.php:425
+#: CSVExport.php:450
 msgid "Output Method:"
 msgstr "Utmatningsmetod"
 
-#: CSVExport.php:429
+#: CSVExport.php:456
 msgid "CSV Individual Records"
 msgstr "CSV enskilda poster"
 
-#: CSVExport.php:430
+#: CSVExport.php:457
 msgid "CSV Combine Families"
 msgstr "CSV kombinera familjer"
 
-#: CSVExport.php:431
+#: CSVExport.php:458
 msgid "Add Individuals to Cart"
 msgstr "Lägg personer till korgen"
 
-#: CSVExport.php:434
+#: CSVExport.php:462
 msgid "Skip records with incomplete mail address"
 msgstr "Förbigå poster med okomplett post adress"
 
-#: CSVExport.php:436
+#: CSVExport.php:465
 msgid "Create File"
 msgstr "Skapa fil"
 
-#: CSVImport.php:115 Include/Footer.php:220
+#: CSVImport.php:118 Include/Footer.php:220
 #, fuzzy
 msgid "CSV Import"
 msgstr "CSV Export"
 
-#: CSVImport.php:120
+#: CSVImport.php:123
 #, fuzzy
 msgid "Import Data"
 msgstr "Sortera enligt:"
 
-#: CSVImport.php:133
+#: CSVImport.php:142
 msgid "No file selected for upload."
 msgstr "Inga fil valde för uppladdning."
 
-#: CSVImport.php:159
+#: CSVImport.php:167
 msgid "Total number of rows in the CSV file:"
 msgstr "Antal rader i CSV fil:"
 
-#: CSVImport.php:205
+#: CSVImport.php:224
 msgid "Ignore this Field"
 msgstr "Förbigå denna fält"
 
-#: CSVImport.php:212
+#: CSVImport.php:231
 msgid "Donation Envelope"
 msgstr "Insamlingskuvert"
 
-#: CSVImport.php:223 PersonEditor.php:1328 PrintPastoralCare.php:303
+#: CSVImport.php:242 PersonEditor.php:1328 PrintPastoralCare.php:303
 #: PrintView.php:306
 msgid "Work / Other Email"
 msgstr "Arbets- / Övriga epost"
 
-#: CSVImport.php:224 PersonView.php:366 PrintPastoralCare.php:257
+#: CSVImport.php:243 PersonView.php:366 PrintPastoralCare.php:257
 #: PrintView.php:260 sundayschool/SundaySchoolClassView.php:391
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr "Födelsedatum"
 
-#: CSVImport.php:235
+#: CSVImport.php:255
+msgid "Scroll right to see the other columns"
+msgstr ""
+
+#: CSVImport.php:256
+msgid "Check the right <b>Date format</b> and to chose it below !!!!!"
+msgstr ""
+
+#: CSVImport.php:257
+msgid "<b>IMPORTANT !</b> Associate the <b>gender</b> to a column."
+msgstr ""
+
+#: CSVImport.php:263
+msgid "Important Options"
+msgstr ""
+
+#: CSVImport.php:268
 msgid "Ignore first CSV row (to exclude a header)"
 msgstr "Förbigå den första CSV rad (för att skippa headern)"
 
-#: CSVImport.php:240
+#: CSVImport.php:280
 msgid "Make Family records based on last name and address"
 msgstr "Gör familj poster baserat på efternamn och adress"
 
-#: CSVImport.php:246
-msgid "Patriarch"
-msgstr "Patriark"
+#: CSVImport.php:305
+#, fuzzy
+msgid "Date Format"
+msgstr "Filformat:"
 
-#: CSVImport.php:247
-msgid "Matriarch"
-msgstr "Matriark"
-
-#: CSVImport.php:249
-msgid "Family Type: used with Make Family records... option above"
-msgstr "Familjtyp: använd med Gör famlij poster... val ovan"
-
-#: CSVImport.php:256
+#: CSVImport.php:305
 msgid "NOTE: Separators (dashes, etc.) or lack thereof do not matter"
 msgstr "OBS: Avskiljare (strek, osv.) eller saknaden därav är betydelselös"
 
-#: CSVImport.php:263
+#: CSVImport.php:311
+#, fuzzy
+msgid "Not usefull options"
+msgstr "Standard val"
+
+#: CSVImport.php:320
+msgid "Patriarch"
+msgstr "Patriark"
+
+#: CSVImport.php:321
+msgid "Matriarch"
+msgstr "Matriark"
+
+#: CSVImport.php:325
+msgid "Family Type: used with Make Family records... option above"
+msgstr "Familjtyp: använd med Gör famlij poster... val ovan"
+
+#: CSVImport.php:341
 msgid "Default country if none specified otherwise"
 msgstr "Förinställd land om ingen annan angiven"
 
-#: CSVImport.php:281
+#: CSVImport.php:374
 msgid "Perform Import"
 msgstr "Gör importeringen"
 
-#: CSVImport.php:634 CSVImport.php:707
+#: CSVImport.php:740 CSVImport.php:813
 #, fuzzy
 msgid "Imported"
 msgstr "Importera eGive"
 
-#: CSVImport.php:801
+#: CSVImport.php:908
 msgid "ERROR: the uploaded CSV file no longer exists!"
 msgstr "FEL: uppladdade CSV filen finns inte!"
 
-#: CSVImport.php:819
-msgid "Data Cleared Successfully!"
-msgstr "Informationen rensade!"
+#: CSVImport.php:918
+msgid "Steps to import users"
+msgstr ""
 
-#: CSVImport.php:821
-msgid "Please select the confirmation checkbox"
-msgstr "Välj bekräftelse kryss"
+#: CSVImport.php:921
+msgid "Your CSV file should be prepared like"
+msgstr ""
 
-#: CSVImport.php:830
+#: CSVImport.php:924
+msgid ""
+"So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in "
+"the second one."
+msgstr ""
+
+#: CSVImport.php:927
+msgid "Don't forget the <b>gender</b> and the <b>title</b>"
+msgstr ""
+
+#: CSVImport.php:928
+msgid ""
+"You can format your columns in Excel LibreOffice Calc and <b>duplicate the "
+"Title column and rename the label header to gender</b>"
+msgstr ""
+
+#: CSVImport.php:929
+msgid ""
+"The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for "
+"a women, girl, female</b> ..."
+msgstr ""
+
+#: CSVImport.php:932
+msgid "Prepare your CRM and add enough custom Person Fields, to do this click"
+msgstr ""
+
+#: CSVImport.php:932 MapUsingBing.php:161 MapUsingGoogle.php:153
+#: MapUsingLeaflet.php:152
+#, fuzzy
+msgid "here"
+msgstr "Där "
+
+#: CSVImport.php:935
+msgid ""
+"All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or "
+"7/1/2018"
+msgstr ""
+
+#: CSVImport.php:942
+msgid "The next step should be, if not select the other CSV seperator"
+msgstr ""
+
+#: CSVImport.php:948 CSVImport.php:986
 msgid "Upload CSV File"
 msgstr "Ladda upp CSV Fil"
 
-#: CSVImport.php:837
+#: CSVImport.php:954
+msgid ""
+"<b>DON'T FORGET</b> \n"
+"              <br>• your CSV file must have a <b>Title</b> header name "
+"column (with M. Mr. Mlle. etc ...),\n"
+"              <br>• and a <b>gender</b> header name column (with 1 for a "
+"men, 2 for a women)"
+msgstr ""
+
+#: CSVImport.php:959
+msgid "Select <b>NOW</b> your <b>CSV separator</b>"
+msgstr ""
+
+#: CSVImport.php:970
+msgid ""
+"• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</"
+"b> ......... "
+msgstr ""
+
+#: CSVImport.php:973
+msgid "This is proposed in the next step, read carefully your table."
+msgstr ""
+
+#: CSVImport.php:994
 #, fuzzy
 msgid "Clear Data"
 msgstr "Alla poster"
 
-#: CSVImport.php:841 CSVImport.php:848 CSVImport.php:859
+#: CSVImport.php:997
 msgid "Clear Persons and Families"
 msgstr "Rensa personer och familjer"
 
-#: CSVImport.php:853
-msgid ""
-"Warning!  Do not select this option if you plan to add to an existing "
-"database.<br/>"
-msgstr ""
-"Varning!  Välj inte detta om du ska lägga till en befintlig databas.<br/>"
-
-#: CSVImport.php:854
-msgid ""
-"Use only if unsatisfied with initial import.  All person and member data "
-"will be destroyed!"
-msgstr ""
-"Använd endast om du är missnöjd med den initialla importen.  Alla personer "
-"och medlemer infomration raderas!"
-
-#: CSVImport.php:870
+#: CSVImport.php:1004
 msgid "Data import successful."
 msgstr "Importering lyckades."
 
-#: CSVImport.php:870
+#: CSVImport.php:1004
 msgid "persons were imported"
 msgstr "personer importerade"
 
@@ -2086,7 +2166,7 @@ msgstr "Privat"
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/TimelineService.php:189
-#: EcclesiaCRM/utils/OutputUtils.php:266 FamilyEditor.php:1097
+#: EcclesiaCRM/utils/OutputUtils.php:269 FamilyEditor.php:1097
 #: Include/Functions.php:605 Include/Functions.php:618
 msgid "Unknown"
 msgstr "Okänd"
@@ -5010,35 +5090,35 @@ msgstr "Klassificering "
 msgid "Classic File"
 msgstr "Ta bort filtrar"
 
-#: EcclesiaCRM/utils/OutputUtils.php:248
+#: EcclesiaCRM/utils/OutputUtils.php:251
 msgid "Invalid Editor ID!"
 msgstr "Ogiltig redigerings ID"
 
-#: EcclesiaCRM/utils/OutputUtils.php:303
+#: EcclesiaCRM/utils/OutputUtils.php:306
 msgid "Select Season"
 msgstr "Välj säsong"
 
-#: EcclesiaCRM/utils/OutputUtils.php:308
+#: EcclesiaCRM/utils/OutputUtils.php:311
 msgid "Winter"
 msgstr "Vinter"
 
-#: EcclesiaCRM/utils/OutputUtils.php:313
+#: EcclesiaCRM/utils/OutputUtils.php:316
 msgid "Spring"
 msgstr "Vår"
 
-#: EcclesiaCRM/utils/OutputUtils.php:318
+#: EcclesiaCRM/utils/OutputUtils.php:321
 msgid "Summer"
 msgstr "Sommer"
 
-#: EcclesiaCRM/utils/OutputUtils.php:323
+#: EcclesiaCRM/utils/OutputUtils.php:326
 msgid "Fall"
 msgstr "Höst"
 
-#: EcclesiaCRM/utils/OutputUtils.php:366
+#: EcclesiaCRM/utils/OutputUtils.php:369
 msgid "This custom field isn't configured correctly"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:424
+#: EcclesiaCRM/utils/OutputUtils.php:427
 msgid "Error: Invalid Editor ID!"
 msgstr "Fel: Ogiltig redigerings ID"
 
@@ -7959,11 +8039,6 @@ msgstr "Underhålla egenskaper och klassificeringer"
 #: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 msgid "Clik"
 msgstr ""
-
-#: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
-#, fuzzy
-msgid "here"
-msgstr "Där "
 
 #: MapUsingBing.php:161 MapUsingGoogle.php:153 MapUsingLeaflet.php:152
 #: Menu.php:113 Menu.php:136
@@ -11485,6 +11560,25 @@ msgstr ""
 #, fuzzy
 msgid "CreditCard"
 msgstr "Kreditkort"
+
+#~ msgid "Data Cleared Successfully!"
+#~ msgstr "Informationen rensade!"
+
+#~ msgid "Please select the confirmation checkbox"
+#~ msgstr "Välj bekräftelse kryss"
+
+#~ msgid ""
+#~ "Warning!  Do not select this option if you plan to add to an existing "
+#~ "database.<br/>"
+#~ msgstr ""
+#~ "Varning!  Välj inte detta om du ska lägga till en befintlig databas.<br/>"
+
+#~ msgid ""
+#~ "Use only if unsatisfied with initial import.  All person and member data "
+#~ "will be destroyed!"
+#~ msgstr ""
+#~ "Använd endast om du är missnöjd med den initialla importen.  Alla "
+#~ "personer och medlemer infomration raderas!"
 
 #, fuzzy
 #~ msgid "Dad Name"
