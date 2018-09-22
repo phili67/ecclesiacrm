@@ -541,7 +541,7 @@ if ($sFormat == 'addtocart') {
                                     if ($type_ID == 11) {
                                         $custom_Special = $sCountry;
                                     }
-                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special,false),$sCSVExportCharset);
+                                    $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special,false,true),$sCSVExportCharset);
                                 }
                             }
                         }
@@ -564,7 +564,7 @@ if ($sFormat == 'addtocart') {
                                 if ($type_ID == 11) {
                                     $fam_custom_Special = $sCountry;
                                 }
-                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special,false),$sCSVExportCharset);
+                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special,false,true),$sCSVExportCharset);
                             }
                         }
                     }
@@ -588,7 +588,7 @@ if ($sFormat == 'addtocart') {
                                 if ($type_ID == 11) {
                                     $fam_custom_Special = $sCountry;
                                 }
-                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special,false),$sCSVExportCharset);
+                                $sString .= '"'.$delimiter.'"'.InputUtils::translate_special_charset(OutputUtils::displayCustomField($type_ID, trim($aFamCustomData[$fam_custom_Field]), $fam_custom_Special,false,true),$sCSVExportCharset);
                             }
                         }
                     }

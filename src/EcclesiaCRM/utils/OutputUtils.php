@@ -154,7 +154,7 @@ class OutputUtils {
   //
   // Formats the data for a custom field for display-only uses
   //
-  public static function displayCustomField($type, $data, $special,$with_link=true)
+  public static function displayCustomField($type, $data, $special,$with_link=true,$cvs_create=false)
   {
       global $cnInfoCentral;
 
@@ -170,6 +170,9 @@ class OutputUtils {
 
       // Handler for date fields
       case 2:
+        if ($cvs_create) {
+          return $data;
+        }
         return OutputUtils::change_date_for_place_holder($data);
         break;
       // Handler for text fields, years, seasons, numbers

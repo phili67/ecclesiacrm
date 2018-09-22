@@ -118,7 +118,7 @@ class Family
 $sPageTitle = gettext('CSV Import');
 require 'Include/Header.php'; ?>
 
-<div class="box">
+<div class="box import-users" style="display: box;">
 <div class="box-header with-border">
    <h3 class="box-title"><?= gettext('Import Data')?></h3>
 </div>
@@ -164,14 +164,20 @@ if (isset($_POST['UploadCSV'])) {
         // create the form?>
         <form method="post" action="CSVImport.php">
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
-        <?= gettext('Total number of rows in the CSV file:').$iNumRows ?>
-        <BR><BR>
+        <label><?= gettext('Total number of rows in the CSV file:').$iNumRows ?></label>
+        <BR>
         <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
       <?php
         // grab and display up to the first 8 lines of data in the CSV in a table
         $iRow = 0;
+        $numCol = -10;
+        
         while (($aData = fgetcsv($pFile, 2048, $generalCSVSeparator)) && $iRow++ < 9) {
-            $numCol = count($aData);
+            $tempNumCol = count($aData);
+
+            if ($numCol < $tempNumCol) {
+              $numCol = $tempNumCol;
+            }
       ?>
           <tr>
       <?php
@@ -184,7 +190,7 @@ if (isset($_POST['UploadCSV'])) {
           </tr>
       <?php
         }
-
+  
         fclose($pFile);
 
         $sSQL = 'SELECT * FROM person_custom_master ORDER BY custom_Order';
@@ -209,12 +215,12 @@ if (isset($_POST['UploadCSV'])) {
                 $sFamCustomFieldList .= '<option value="f'.$fam_custom_Field.'">'.$fam_custom_Name."</option>\n";
             }
         }
-
+        
         // add select boxes for import destination mapping
         for ($col = 0; $col < $numCol; $col++) {
             ?>
             <td>
-            <select name="<?= 'col'.$col ?>" class="columns" class="form-control">
+            <select name="<?= 'col'.$col ?>" class="columns" class="form-control" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
                 <option value="0"><?= gettext('Ignore this Field') ?></option>
                 <option value="1"><?= gettext('Title') ?></option>
                 <option value="2"><?= gettext('First Name') ?></option>
@@ -244,19 +250,32 @@ if (isset($_POST['UploadCSV'])) {
             }
           ?>
         </table>
+        <div class="row" style="margin-top:-10px">
+          <div class="col-lg-12">
+            <span style="color:blue;float:right"><?= gettext("Scroll right to see the other columns") ?></span>
+            <span style="color:red;float:left">• <?= gettext("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
+            <span style="color:red;float:left">• <?= gettext("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
+            </ul>
+          </div>
+        </div>
         <div class="row">
-          <div class="col-lg-3">
-            <input type="checkbox" value="1" name="IgnoreFirstRow"><?= gettext('Ignore first CSV row (to exclude a header)') ?>
+          <div class="col-lg-10">
+            <h3  class="box-title"><?= gettext("Important Options") ?></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10">
+            <input type="checkbox" value="1" name="IgnoreFirstRow"> <?= gettext('Ignore first CSV row (to exclude a header)') ?>
           </div>
         </div>
 
         <BR>
 
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-1" style="width:10px">
              <input type="checkbox" value="1" name="MakeFamilyRecords" checked="true">
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-3">
             <select name="MakeFamilyRecordsMode" class="form-control input-sm">
                 <option value="0"><?= gettext('Make Family records based on last name and address') ?></option>
                 <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
@@ -267,23 +286,10 @@ if (isset($_POST['UploadCSV'])) {
         <BR>
 
         <div class="row">
-          <div class="col-lg-3">
-            <select name="FamilyMode"  class="form-control input-sm">
-                <option value="0"><?= gettext('Patriarch') ?></option>
-                <option value="1"><?= gettext('Matriarch') ?></option>
-            </select>
+          <div class="col-lg-1" style="width:10px">
           </div>
-          <div class="col-lg-5">
-             <?= gettext('Family Type: used with Make Family records... option above') ?>
-          </div>
-        </div>
-
-        <BR>
-        
-        
-        <div class="row">
           <div class="col-lg-3">
-              <select name="DateMode"  class="form-control input-sm">
+              <select name="DateMode"  class="form-control input-sm" style="color:red">
                   <option value="1">YYYY-MM-DD</option>
                   <option value="2">MM-DD-YYYY</option>
                   <option value="3">DD-MM-YYYY</option>
@@ -296,13 +302,35 @@ if (isset($_POST['UploadCSV'])) {
               </select>
           </div>
           <div class="col-lg-5">
-            <?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>
+            <span style="color:red"><b><?= gettext("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-10">
+            <h3  class="box-title"><?= gettext("Not usefull options") ?></h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-1" style="width:10px">
+          </div>
+          <div class="col-lg-3">
+            <select name="FamilyMode"  class="form-control input-sm">
+                <option value="0"><?= gettext('Patriarch') ?></option>
+                <option value="1"><?= gettext('Matriarch') ?></option>
+            </select>
+          </div>
+          <div class="col-lg-5">
+             <?= gettext('Family Type: used with Make Family records... option above') ?>
           </div>
         </div>
           
         <BR>
         
         <div class="row">
+          <div class="col-lg-1" style="width:10px">
+          </div>
           <div class="col-lg-3">
             <?php
                 $sCountry = SystemConfig::getValue('sDefaultCountry');    
@@ -321,6 +349,8 @@ if (isset($_POST['UploadCSV'])) {
         <BR>
         
         <div class="row">
+          <div class="col-lg-1" style="width:10px">
+          </div>
           <div class="col-lg-3">
             <select name="Classification" class="form-control input-sm">
                <option value="0"><?= gettext('Unassigned') ?></option>
@@ -876,109 +906,92 @@ if (isset($_POST['DoImport'])) {
     }
 }
 
-// clear person and families if not happy with previous import.
-$sClear = '';
-if (isset($_POST['Clear'])) {
-    if (isset($_POST['chkClear'])) {
-        $sSQL = 'DELETE FROM `family_fam`;';
-        RunQuery($sSQL);
-        $sSQL = 'DELETE FROM `person_per`;';
-        RunQuery($sSQL);
-        $sSQL = 'DELETE FROM `person_custom`;';
-        RunQuery($sSQL);
-        $sSQL = 'DELETE FROM `family_custom`;';
-        RunQuery($sSQL);        
-        $sSQL = 'DELETE FROM `user_usr`;';
-        RunQuery($sSQL);
-        
-        $sSQL = "INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES (1, NULL, 'EcclesiaCRM', NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0000, NULL, 0, 0, 0, 0, NULL, NULL, '2004-08-25 18:00:00', 1, 0, NULL, 0);";
-        RunQuery($sSQL);
-        
-        $sSQL = "INSERT INTO `user_usr` (`usr_per_ID`, `usr_Password`, `usr_NeedPasswordChange`, `usr_LastLogin`, `usr_LoginCount`, `usr_FailedLogins`, `usr_AddRecords`, `usr_EditRecords`, `usr_DeleteRecords`, `usr_MenuOptions`, `usr_ManageGroups`, `usr_Finance`, `usr_Notes`, `usr_Admin`, `usr_SearchLimit`, `usr_style`, `usr_showPledges`, `usr_showPayments`, `usr_showSince`, `usr_defaultFY`, `usr_currentDeposit`, `usr_UserName`, `usr_EditSelf`, `usr_CalStart`, `usr_CalEnd`, `usr_CalNoSchool1`, `usr_CalNoSchool2`, `usr_CalNoSchool3`, `usr_CalNoSchool4`, `usr_CalNoSchool5`, `usr_CalNoSchool6`, `usr_CalNoSchool7`, `usr_CalNoSchool8`, `usr_SearchFamily`, `usr_Canvasser`) VALUES (1, '4bdf3fba58c956fc3991a1fde84929223f968e2853de596e49ae80a91499609b', 1, '2016-01-01 00:00:00', 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 10, 'skin-red-light', 0, 0, '2016-01-01', 10, 0, 'Admin', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0);";
-        RunQuery($sSQL);
-
-        Redirect('Logoff.php');
-        
-        $sClear = gettext('Data Cleared Successfully!');
-    } else {
-        $sClear = gettext('Please select the confirmation checkbox');
-    }
-}
-
 if ($iStage == 1) {
     // Display the select file form?>
-  <form method="post" action="CSVImport.php" enctype="multipart/form-data">
-    <div class="row">
-      <div class="col-lg-12">
-        <?= gettext("<b>TIPs</b> :<br>• You can prepare your CSV file to have the Title and the Gender too,<br>• so add two columns with the same things like M. Mr (this should be an advice to define the gender of a person.") ?>.<br><br>
-        <?= gettext("Here's an example of CSV file, <b>please take care of the delimiter (',' or ';')</b>, and <u><b>don't use two times the same name at the bottom</b></u>") ?>.<br>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=100%>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <p style="color: red"> <?= $csvError ?></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <input class="icTinyButton" type="file" name="CSVfile"><br/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-2">
-        <b><?= gettext("Select your CSV separator") ?></b>
-      </div>
-      <div class="col-lg-2">        
-        <select name="sSeperator" class="form-control input-sm">
-            <option value=",">,</option>
-            <option value=";">;</option>
-        </select>
-      </div>
-    </div>
-    <BR>
-    <div class="row">
-      <div class="col-lg-3">
-        <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> " name="UploadCSV">
-      </div>
-    </div>
-  </form>
-</div>
+      <form method="post" action="CSVImport.php" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-lg-12">      
+            <h2><?= gettext("Steps to import users") ?></h2>
+            <ul>
+              <li>
+                 <?= gettext("Your CSV file should be prepared like") ?> : <br>             
+                 - <b>Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State ....</b><br>
+                 - or : <b>Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State ....</b><br>             
+                 <?= gettext("So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in the second one.") ?><br>
+              </li>
+              <li>
+                <?= gettext("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>
+                <?= gettext("You can format your columns in Excel LibreOffice Calc and <b>duplicate the Title column and rename the label header to gender</b>") ?>.<br>
+                <?= gettext("The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for a women, girl, female</b> ...") ?>
+              </li>
+              <li>
+                 <?= gettext("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php"><?= gettext("here") ?></a></b><br>
+              </li>
+              <li>
+                 <p style="color: red"><?= gettext("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
+              </li>
+            </ul>        
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <h3><?= gettext("The next step should be, if not select the other CSV seperator") ?></h3>
+            <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=50%>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <h3><?= gettext("Upload CSV File") ?></h3>
+            <p style="color: red"> <?= $csvError ?></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="callout callout-info"><?= gettext("<b>DON'T FORGET</b> 
+              <br>• your CSV file must have a <b>Title</b> header name column (with M. Mr. Mlle. etc ...),
+              <br>• and a <b>gender</b> header name column (with 1 for a men, 2 for a women)") ?>
+              <div class="row">
+                <div class="col-lg-3">
+                  • <?= gettext("Select <b>NOW</b> your <b>CSV separator</b>") ?>
+                </div>
+                <div class="col-lg-2">        
+                  <select name="sSeperator" class="form-control input-sm">
+                      <option value=",">,</option>
+                      <option value=";">;</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-5">        
+                  <?= gettext("• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</b> ......... ") ?>
+                </div>
+                <div class="col-lg-4">                        
+                  <span style="color: red"><?= gettext("This is proposed in the next step, read carefully your table.") ?></span>
+                </div>
+             </div>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <input class="icTinyButton" type="file" name="CSVfile"><br/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> " name="UploadCSV">
+          </div>
+        </div>
+      </form>
+   </div>
 </div>
 <div class="box">
   <div class="box-header">
     <h3 class="box-title"><?= gettext('Clear Data')?></h3>
   </div>
-  <form method="post" action="CSVImport.php" enctype="multipart/form-data">
-    <div class="box-body">
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clearPersons"><?= gettext('Clear Persons and Families') ?></button>
-      <!-- Modal -->
-      <div class="modal fade" id="clearPersons" tabindex="-1" role="dialog" aria-labelledby="clearPersons" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="upload-Image-label"><?= gettext('Clear Persons and Families') ?></h4>
-                </div>
-              <div class="modal-body">
-                  <span style="color: red">
-                      <?= gettext('Warning!  Do not select this option if you plan to add to an existing database.<br/>') ?>
-                      <?= gettext('Use only if unsatisfied with initial import.  All person and member data will be destroyed!') ?><BR><BR>
-                  <span style="color:black"><?= gettext("I Understand")?> &nbsp;<input type="checkbox" name="chkClear"></span>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-dismiss="modal"><?= gettext("Close") ?></button>
-                  <button name="Clear" type="submit" class="btn btn-danger"><?= gettext('Clear Persons and Families') ?></button>
-              </div>
-           </div>
-        </div>
-    </div>
-  </form>
-  <?= $sClear ?>
+  <div class="box-body">
+    <button type="button" class="btn btn-danger" id="clear-people"><?= gettext('Clear Persons and Families') ?></button>
+    <span id="import-success" style="color:green"></label>
 <?php
 }
 
@@ -1095,7 +1108,7 @@ function GetAge($Month, $Day, $Year)
     }
 }
 ?>
-</div>
+  </div>
 </div>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -1104,6 +1117,7 @@ function GetAge($Month, $Day, $Year)
   });
 </script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/CSVImport.js" ></script>
 <?php
 require 'Include/Footer.php';
 ?>
