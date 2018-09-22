@@ -23,7 +23,8 @@ $("document").ready(function(){
   }
   
   $(document).on("click",".exit-edition-mode", function(){
-    exit_edition_mode();
+    //exit_edition_mode();// this for futur dev, we've to update the charts
+    location.reload();
   });
   
   /* Badge creation */
