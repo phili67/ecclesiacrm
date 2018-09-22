@@ -19,6 +19,7 @@ require '../../Include/Config.php';*/
   $logger->info("Add the forgotten part");
   
   unlink(SystemURLs::getDocumentRoot()."/Include/LabelFunctions.php");
+  unlink(SystemURLs::getDocumentRoot()."/SettingsUser.php");
     
   $logger->info("End Add the forgotten part");
 ?>
