@@ -4,7 +4,7 @@
  *  filename    : UserPasswordChange.php
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker
- *  			  Copyright 2004-2012 Michael Wilt
+ *          Copyright 2004-2012 Michael Wilt
  *
  ******************************************************************************/
 
@@ -182,11 +182,16 @@ if ($_SESSION['bNeedPasswordChange']) {
         <!-- general form elements -->
         <div class="box box-primary">
             <div class="box-header with-border">
-                <?php if (!$bAdminOtherUser) {
-        echo '<p>'.gettext('Enter your current password, then your new password twice.  Passwords must be at least').' '.SystemConfig::getValue('iMinPasswordLength').' '.gettext('characters in length.').'</p>';
-    } else {
-        echo '<p>'.gettext('Enter a new password for this user.').'</p>';
-    }
+                <?php 
+                  if (!$bAdminOtherUser) {
+                ?>
+                    <h3 class="box-title"><?= gettext('Enter your current password, then your new password twice.  Passwords must be at least').' '.SystemConfig::getValue('iMinPasswordLength').' '.gettext('characters in length.') ?></h3>
+                <?php
+                  } else {
+                ?>
+                    <h3 class="box-title"><?= gettext('Enter a new password for this user.') ?></h3>
+                <?php
+                  }
                 ?>
             </div>
             <!-- /.box-header -->
