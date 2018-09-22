@@ -24,7 +24,7 @@ use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\PersonQuery;
 
 
-if ( !($_SESSION['user']->isSundayShoolTeacherForGroup() && $_SESSION['bExportSundaySchoolPDF']) ) {
+if ( !($_SESSION['user']->isSundayShoolTeacherForGroup() || $_SESSION['bExportSundaySchoolPDF']) ) {
     Redirect('Menu.php');
     exit;
 }
