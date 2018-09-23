@@ -89,7 +89,8 @@ $("document").ready(function(){
     //edition_mode ();
     window.CRM.APIRequest({
       method: "POST",
-      path:'groups/' + sundayGroupId + '/addperson/'+ e.params.data.objid
+      path:'groups/' + sundayGroupId + '/addperson/'+ e.params.data.objid,
+      data: JSON.stringify({"RoleID":2})// only a student
     }).done(function (data) {
       dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
       updateGraphs();
