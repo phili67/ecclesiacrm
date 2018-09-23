@@ -8,7 +8,6 @@ $("document").ready(function(){
     
     var oSettings = dataTable.page.len(10).draw();
     window.scrollTo(0, 0);
-
   }
   
   function exit_edition_mode()
@@ -22,9 +21,27 @@ $("document").ready(function(){
     var oSettings = dataTable.page.len(100).draw();
   }
   
+  function updateGraphs()
+  {
+    
+    window.CRM.APIRequest({
+      method: "POST",
+      path: "sundayschool/getAllGendersForDonut/" + sundayGroupId
+    }).done(function (donutData) {
+      drawDonut (donutData);
+    });
+    
+    window.CRM.APIRequest({
+      method: "POST",
+      path: "sundayschool/getAllStudentsForChart/" + sundayGroupId
+    }).done(function (birthDayMonthChart) {
+      draw_Chart (birthDayMonthChart);
+    });
+  }
+  
   $(document).on("click",".exit-edition-mode", function(){
-    //exit_edition_mode();// this for futur dev, we've to update the charts
-    location.reload();
+    exit_edition_mode();// this for futur dev, we've to update the charts
+    updateGraphs();
   });
   
   /* Badge creation */
@@ -69,46 +86,28 @@ $("document").ready(function(){
   });
 
   $(".personSearch").on("select2:select", function (e) {
-      edition_mode ();
-      
-      window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Role,GroupID:sundayGroupId},function(selection){
-        window.CRM.groups.addPerson(sundayGroupId, e.params.data.objid,selection.RoleID).done(function (data) {
-          $(".personSearch").val(null).trigger('change');
-          dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
-        });
-      });
+    //edition_mode ();
+    window.CRM.APIRequest({
+      method: "POST",
+      path:'groups/' + sundayGroupId + '/addperson/'+ e.params.data.objid
+    }).done(function (data) {
+      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+      updateGraphs();
+    });
   });
   
   /* the membership deletion */
   $('body').on('click','.delete-person', function(){ 
-    edition_mode ();
+    //edition_mode ();
     event.preventDefault();
     var thisLink = $(this);
-    bootbox.confirm({
-        title:i18next.t("Delete this person?"),
-        message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
-        buttons: {
-            cancel: {
-                className: 'btn-primary',
-                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
-            },
-            confirm: {
-                className: 'btn-danger',
-                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
-            }
-        },
-        callback: function (result) {
-            if(result) {
-                $.ajax({
-                    type: 'DELETE',
-                    url: window.CRM.root + '/api/groups/'+sundayGroupId+'/removeperson/'+thisLink.data('person_id'),
-                    dataType: 'json',
-                    success: function (data, status, xmlHttpReq) {
-                      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
-                    }
-                });
-            }
-        }
+    
+    window.CRM.APIRequest({
+      method: "DELETE",
+      path: 'groups/' + sundayGroupId + '/removeperson/' + thisLink.data('person_id'),
+    }).done(function (data) {
+      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+      updateGraphs();
     });
   });
 
@@ -432,7 +431,7 @@ $("document").ready(function(){
     });
 
     var hideBirthDayFilter = function() {
-      plot.unhighlight();
+      window.CRM.plot.unhighlight();
 
       var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
 
@@ -450,14 +449,14 @@ $("document").ready(function(){
       .bind('click', hideBirthDayFilter);
 
     $("#bar-chart").bind("plotclick", function (event, pos, item) {
-      plot.unhighlight();
+      window.CRM.plot.unhighlight();
 
       if (!item) {
         hideBirthDayFilter();
         return;
       }
 
-      var month = bar_data.data[item.dataIndex][0];
+      var month = window.CRM.bar_data.data[item.dataIndex][0];
 
       var birthDateColumn = dataTable.column(':contains('+birthDateColumnText+')');
       
@@ -468,7 +467,7 @@ $("document").ready(function(){
       birthDayMonth.text(month);
       birthDayFilter.show();
 
-      plot.highlight(item.series, item.datapoint);
+      window.CRM.plot.highlight(item.series, item.datapoint);
     });
 
 
@@ -476,35 +475,38 @@ $("document").ready(function(){
    * BAR CHART
    * ---------
    */
+  function draw_Chart(birthDayMonthChart) {
+    window.CRM.bar_data = {
+      data: birthDayMonthChart,
+      color: "#3c8dbc"
+    };
 
-  var bar_data = {
-    data: birthDayMonthChartJSON,
-    color: "#3c8dbc"
-  };
-
- var plot = $.plot("#bar-chart", [bar_data], {
-    grid: {
-      borderWidth: 1,
-      borderColor: "#f3f3f3",
-      tickColor: "#f3f3f3",
-      hoverable:true,
-      clickable:true
-    },
-    series: {
-      bars: {
-        show: true,
-        barWidth: 0.5,
-        align: "center"
+   window.CRM.plot = $.plot("#bar-chart", [window.CRM.bar_data], {
+      grid: {
+        borderWidth: 1,
+        borderColor: "#f3f3f3",
+        tickColor: "#f3f3f3",
+        hoverable:true,
+        clickable:true
+      },
+      series: {
+        bars: {
+          show: true,
+          barWidth: 0.5,
+          align: "center"
+        }
+      },
+      xaxis: {
+        mode: "categories",
+        tickLength: 0
+      },
+      yaxis: {
+        tickSize: 1
       }
-    },
-    xaxis: {
-      mode: "categories",
-      tickLength: 0
-    },
-    yaxis: {
-      tickSize: 1
-    }
-  });
+    });
+  }
+  
+  draw_Chart(birthDayMonthChartJSON);
 
   /* END BAR CHART */
 
@@ -514,7 +516,7 @@ $("document").ready(function(){
    */
      
   var hideGenderFilter = function() {
-      plot.unhighlight();
+      window.CRM.plot.unhighlight();
 
       var genderColumn = dataTable.column(':contains('+genderColumnText+')');
 
@@ -524,6 +526,32 @@ $("document").ready(function(){
 
       genderFilter.hide();
   };
+  
+  function drawDonut (donutData) {
+    $.plot("#donut-chart", donutData, {
+      series: {
+        pie: {
+          show: true,
+          radius: 1,
+          innerRadius: 0.5,
+          label: {
+            show: true,
+            radius: 2 / 3,
+            formatter: labelFormatter,
+            threshold: 0.1
+          }
+
+        }
+      },
+      grid: {
+          hoverable: true,
+          clickable: true
+      },
+      legend: {
+        show: false
+      }
+    });
+  }
 
 
   var genderFilter = $('.gender-filter');
@@ -533,32 +561,10 @@ $("document").ready(function(){
       .bind('click', hideGenderFilter);
 
 
-  var donutData = genderChartJSON;
   var placeholder = $("#donut-chart");
 
-  $.plot("#donut-chart", donutData, {
-    series: {
-      pie: {
-        show: true,
-        radius: 1,
-        innerRadius: 0.5,
-        label: {
-          show: true,
-          radius: 2 / 3,
-          formatter: labelFormatter,
-          threshold: 0.1
-        }
-
-      }
-    },
-    grid: {
-        hoverable: true,
-        clickable: true
-    },
-    legend: {
-      show: false
-    }
-  });
+  // now we draw the donut
+  drawDonut (genderChartJSON);
   
   placeholder.bind("plotclick", function(event, pos, obj) {
 
