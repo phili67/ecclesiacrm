@@ -65,7 +65,7 @@ $("document").ready(function(){
     language: window.CRM.shortLocale,
     minimumInputLength: 2,
     placeholder: " -- "+i18next.t("Person")+" -- ",
-    //allowClear: true, // This is for clear get the clear button if wanted 
+    allowClear: true, // This is for clear get the clear button if wanted 
     ajax: {
       url: function (params) {
         return window.CRM.root + "/api/persons/search/" + params.term;
