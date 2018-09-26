@@ -10,9 +10,9 @@
 ******************************************************************************/
 
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\dto\Cart;
 
-
-// Routes sharedocument
+// Routes sundayschool
 
 $app->group('/sundayschool', function () {
   
@@ -21,7 +21,18 @@ $app->group('/sundayschool', function () {
     
     $thisClassChildren = $sundaySchoolService->getKidsFullDetails($args['groupId']);
     
-    echo "{\"ClassroomStudents\":".json_encode($thisClassChildren)."}";
+    $result = [];
+    foreach ($thisClassChildren as $children) {
+      if (Cart::PersonInCart($children['kidId'])) {
+        $children['inCart']=1;
+      } else {
+        $children['inCart']=0;
+      }
+  
+      $result[] = $children;
+    }
+    
+    echo "{\"ClassroomStudents\":".json_encode($result)."}";
   });
   
   $this->post('/getAllGendersForDonut/{groupId:[0-9]+}',function($request,$response,$args) {
@@ -38,20 +49,13 @@ $app->group('/sundayschool', function () {
     $sundaySchoolService = new SundaySchoolService();
     
     $birthDayMonthChartArray = [];
-		foreach ($sundaySchoolService->getKidsBirthdayMonth($args['groupId']) as $birthDayMonth => $kidsCount) {
-		    $res[0] = gettext($birthDayMonth);
-		    $res[1] = $kidsCount;
-		    
-				$birthDayMonthChartArray[] = $res;
-		}
+    foreach ($sundaySchoolService->getKidsBirthdayMonth($args['groupId']) as $birthDayMonth => $kidsCount) {
+        $res[0] = gettext($birthDayMonth);
+        $res[1] = $kidsCount;
+        
+        $birthDayMonthChartArray[] = $res;
+    }
     
     return  $response->withJson($birthDayMonthChartArray);
-    
-    /*$birthDayMonthChartArray = "";
-		/*foreach ($sundaySchoolService->getKidsBirthdayMonth($args['groupId']) as $birthDayMonth => $kidsCount) {
-				$birthDayMonthChartArray .= "['".gettext($birthDayMonth)."',".$kidsCount."].";
-		}*/
-
-    //return  $response->withJson(["cocuou"=>"toto"]);
   });
 });

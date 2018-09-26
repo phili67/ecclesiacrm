@@ -1,7 +1,5 @@
 $("document").ready(function(){
-  window.CRM.timerCartCall = null;
-  window.CRM.timerCartCallFirstTime = true;
-  
+
   function edition_mode()
   {
     $(".edition-mode").fadeIn(300);
@@ -227,12 +225,24 @@ $("document").ready(function(){
         title:i18next.t('Action'),
         data:'kidId',
         render: function(data, type, full, meta) {
-          var res = '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
+          var res = '';
+          
+          if (full.inCart == 0) {
+             res += '<a '+(window.CRM.showCart?'class="AddOneStudentToCart"':'')+' data-cartpersonid="'+data+'">'
               +'<span class="fa-stack">'
               +'  <i class="fa fa-square fa-stack-2x"></i>'
               +'  <i class="fa fa-stack-1x fa-inverse '+(window.CRM.showCart?'fa-cart-plus':'fa-question')+'"></i>'
               +'</span>'
               +'</a>';
+          } else {
+              res += '<a '+(window.CRM.showCart?'class="RemoveOneStudentFromCart"':'')+' data-cartpersonid="'+data+'">'
+                +'<span class="fa-stack">'
+                +'  <i class="fa fa-square fa-stack-2x"></i>'
+                +'  <i class="fa fa-stack-1x fa-inverse '+(window.CRM.showCart?'fa-remove':'fa-question')+'"></i>'
+                +'</span>'
+              '</a>';
+          }
+          
           if (canDeleteMembers) {
               res += '<a class="delete-person" data-person_name="'+full.firstName+' '+full.LastName+'" data-person_id="'+data+'" data-view="family">'
               +'  <span class="fa-stack" style="color:red">'
@@ -449,21 +459,10 @@ $("document").ready(function(){
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
-    },
-    "drawCallback": function(settings, json) {
-      if (window.CRM.timerCartCallFirstTime == true) {
-        window.CRM.timerCartCall = window.setInterval(timerCart, 1000);
-        window.CRM.timerCartCallFirstTime = false;
-      }
     }
   });
   
-  function timerCart() {
-    // this will check or not the cart icons for each users
-    window.CRM.cart.refresh();
-  }
 
-  
   // the chart donut code 
     
     // turn the element to select2 select style
@@ -769,10 +768,6 @@ $("document").ready(function(){
     // newMessage event handler
     function updateButtons(e) {
       var cartPeople = e.people;
-      
-      // we stop the timer
-      window.clearInterval(window.CRM.timerCartCall);
-      window.CRM.timerCartCall = null;
       
       if (cartPeople != null) {
         personButtons = $("a[data-cartpersonid]");
