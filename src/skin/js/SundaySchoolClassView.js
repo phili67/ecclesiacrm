@@ -1,4 +1,7 @@
 $("document").ready(function(){
+  window.CRM.timerCartCall = null;
+  window.CRM.timerCartCallFirstTime = true;
+  
   function edition_mode()
   {
     $(".edition-mode").fadeIn(300);
@@ -19,6 +22,12 @@ $("document").ready(function(){
     $('.quick-status').fadeIn(200);
     $('.teachers').fadeIn(200);;
     var oSettings = dataTable.page.len(100).draw();
+    
+    var _val = $("#editionMode").is(':checked') ? 'checked' : 'unchecked';
+    
+    if (_val == 'checked'){
+      $("#editionMode").bootstrapToggle('off');
+    };
   }
   
   function updateGraphs()
@@ -38,6 +47,16 @@ $("document").ready(function(){
       draw_Chart (birthDayMonthChart);
     });
   }
+  
+  $("#editionMode").on('change',function () {
+     var _val = $(this).is(':checked') ? 'checked' : 'unchecked';
+     
+     if (_val == 'checked'){
+       edition_mode()
+     } else { 
+       exit_edition_mode();
+     }
+  });
   
   $(document).on("click",".exit-edition-mode", function(){
     exit_edition_mode();// this for futur dev, we've to update the charts
@@ -103,13 +122,32 @@ $("document").ready(function(){
     event.preventDefault();
     var thisLink = $(this);
     
-    window.CRM.APIRequest({
-      method: "DELETE",
-      path: 'groups/' + sundayGroupId + '/removeperson/' + thisLink.data('person_id'),
-    }).done(function (data) {
-      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
-      updateGraphs();
+    bootbox.confirm({
+        title:i18next.t("Delete this person?"),
+        message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
+        buttons: {
+            cancel: {
+                className: 'btn-default',
+                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+            },
+            confirm: {
+                className: 'btn-primary',
+                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
+            }
+        },
+        callback: function (result) {
+          if(result) {
+            window.CRM.APIRequest({
+              method: "DELETE",
+              path: 'groups/' + sundayGroupId + '/removeperson/' + thisLink.data('person_id'),
+            }).done(function (data) {
+              dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+              updateGraphs();
+            });
+          }
+        }
     });
+    
   });
 
   
@@ -411,8 +449,19 @@ $("document").ready(function(){
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
+    },
+    "drawCallback": function(settings, json) {
+      if (window.CRM.timerCartCallFirstTime == true) {
+        window.CRM.timerCartCall = window.setInterval(timerCart, 1000);
+        window.CRM.timerCartCallFirstTime = false;
+      }
     }
   });
+  
+  function timerCart() {
+    // this will check or not the cart icons for each users
+    window.CRM.cart.refresh();
+  }
 
   
   // the chart donut code 
@@ -720,6 +769,10 @@ $("document").ready(function(){
     // newMessage event handler
     function updateButtons(e) {
       var cartPeople = e.people;
+      
+      // we stop the timer
+      window.clearInterval(window.CRM.timerCartCall);
+      window.CRM.timerCartCall = null;
       
       if (cartPeople != null) {
         personButtons = $("a[data-cartpersonid]");
