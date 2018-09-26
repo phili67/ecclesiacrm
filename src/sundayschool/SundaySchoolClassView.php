@@ -261,8 +261,11 @@ require '../Include/Header.php';
 ?>
 
 <div class="box box-primary">
-  <div class="box-header">
+  <div class="box-header with-border">
     <h3 class="box-title"><?= gettext('Students') ?></h3>
+    <div style="float:right">
+      <label><?= gettext("Edition Mode") ?> <input data-size="mini" id="editionMode" type="checkbox" data-toggle="toggle" data-on="<?= gettext("On") ?>" data-off="<?= gettext("Off") ?>">
+    </div>
   </div>
   <!-- /.box-header -->
   <div class="box-body table-responsive">
@@ -359,12 +362,6 @@ function implodeUnique($array, $withQuotes)
       </div>
       <div class="col-md-3">
         <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
-      </div>
-      <div class="col-md-4">
-        <?= gettext("at the end, reload the page to see the results in the charts") ?>
-      </div>
-      <div class="col-md-4">
-        <a href="<?php echo $_SERVER["REQUEST_URI"]; ?>" class="btn btn-success" role="button"><?= gettext("Reload") ?></a>
       </div>
     </div>
   </div>
