@@ -147,8 +147,8 @@ function Header_modals()
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title"><?= gettext('Issue Report done!') ?></h4>
                 </div>
-                <div class="modal-body"><h2><?= _("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
-                <a href="" target="_blank" id="issueSubmitSuccesLink"><?= _("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
+                <div class="modal-body"><h2><?= gettext("Successfully submitted Issue") ?> <span id="issueSubmitSucces"></span></h2>
+                <a href="" target="_blank" id="issueSubmitSuccesLink"><?= gettext("View Issue on GitHub")." : #" ?> <span id="issueSubmitSuccesLinkText"></span></a>
                 <div class="modal-footer">
                           <button type="button" class="btn btn-primary" id="submitIssueDone"><?= gettext('OK') ?></button>
                 </div>

@@ -233,7 +233,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                                 if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
                                     $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
                                     $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
-                                    echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
+                                    echo OutputUtils::number_localized($sDistance) . " " . gettext(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . gettext($sDirection) . " " . gettext(" of church<br>");
                                 }
                           } else {
                                 $bHideLatLon = true;
@@ -400,7 +400,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 <?php if ($bOkToEdit && $_SESSION['user']->isAdmin()) {
                     ?>
                     <button class="btn btn-app bg-orange" id="activateDeactivate">
-                        <i class="fa <?= (empty($fam_DateDeactivated) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($fam_DateDeactivated) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
+                        <i class="fa <?= (empty($fam_DateDeactivated) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($fam_DateDeactivated) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Family')); ?>
                     </button>
                     <?php
                 } ?>

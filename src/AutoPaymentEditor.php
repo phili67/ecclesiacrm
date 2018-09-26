@@ -829,15 +829,15 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
             <div class="col-md-9">
                <input type="radio" Name="EnableButton" value="1" id="EnableBankDraft"<?php if ($bEnableBankDraft) {
                                         echo ' checked';
-                                    } ?>> <?= _("Bank Draft ") ?>
+                                    } ?>> <?= gettext("Bank Draft ") ?>
                <input type="radio" Name="EnableButton" value="2"
                                        id="EnableCreditCard" <?php if ($bEnableCreditCard) {
                                         echo ' checked';
-                                    } ?>> <?= _("Credit Card ") ?>
+                                    } ?>> <?= gettext("Credit Card ") ?>
                <input type="radio" Name="EnableButton" value="3"
                                        id="Disable" <?php if ((!$bEnableBankDraft) && (!$bEnableCreditCard)) {
                                         echo ' checked';
-                                    } ?>> <?= _("Disable ") ?>
+                                    } ?>> <?= gettext("Disable ") ?>
               </div>  
            </div>                   
            <div class="row">
@@ -1057,7 +1057,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 <?php
                   if ($iAutID > 0) {
                 ?>
-                  <input type="button" id="PressToCreatePaymentMethod" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethod();"/>
+                  <input type="button" id="PressToCreatePaymentMethod" value="<?= gettext("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethod();"/>
                 <?php
                   } else {
                 ?>

@@ -549,7 +549,7 @@ foreach ($allMonths as $mVal) {
               <?= $aEventEndDateTime[$row] ?>
             </td>
             <td style="color:<?= $aEventStatus[$row]?"red":"green" ?>;text-align:center">
-              <?= ($aEventStatus[$row] != 0 ? _('No') : _('Yes')) ?>
+              <?= ($aEventStatus[$row] != 0 ? gettext('No') : gettext('Yes')) ?>
             </td>
 
           </tr>

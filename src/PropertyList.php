@@ -23,19 +23,19 @@ $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
 //Based on the type, set the TypeName
 switch ($sType) {
     case 'p':
-        $sTypeName = _('Person');
+        $sTypeName = gettext('Person');
         break;
 
     case 'f':
-        $sTypeName = _('Family');
+        $sTypeName = gettext('Family');
         break;
 
     case 'g':
-        $sTypeName = _('Group');
+        $sTypeName = gettext('Group');
         break;
 
     case 'm':
-        $sTypeName = _('Menu');
+        $sTypeName = gettext('Menu');
         break;
 
     default:
@@ -45,7 +45,7 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' : '._('Property List');
+$sPageTitle = $sTypeName.' : '.gettext('Property List');
 
 //Get the properties
 $ormProperties = PropertyQuery::Create()
@@ -65,7 +65,7 @@ require 'Include/Header.php'; ?>
    if ($_SESSION['user']->isMenuOptionsEnabled()) {
     //Display the new property link
 ?>
-    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?Type=<?=$sType?>"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?Type=<?=$sType?>"><?= gettext('Add a New') ?> <?= $sTypeName?> <?= gettext('Property') ?></a></p>
 <?php
 }
 
@@ -78,13 +78,13 @@ require 'Include/Header.php'; ?>
 <?php
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-    <td valign="top"><?= _('Action') ?></td>
+    <td valign="top"><?= gettext('Action') ?></td>
 <?php
 }
 ?>
-<th valign="top"><?= _('Name') ?></th>
-<th valign="top"><?= _('A')?> <?= $sTypeName ?> <?= _('with this Property...') ?></b></th>
-<th valign="top"><?= _('Prompt') ?></th>
+<th valign="top"><?= gettext('Name') ?></th>
+<th valign="top"><?= gettext('A')?> <?= $sTypeName ?> <?= gettext('with this Property...') ?></b></th>
+<th valign="top"><?= gettext('Prompt') ?></th>
 </tr>
 </thead>
 <tbody>
@@ -102,7 +102,7 @@ foreach ($ormProperties as $ormProperty) {
 
         //Write the header row
 ?>
-        <tr class="RowColorA"><td><b><?= _($ormProperty->getPropertyType()->getPrtName()) ?></b></td><td></td><td></td>
+        <tr class="RowColorA"><td><b><?= gettext($ormProperty->getPropertyType()->getPrtName()) ?></b></td><td></td><td></td>
 
 <?php
     if ($_SESSION['user']->isMenuOptionsEnabled()) {

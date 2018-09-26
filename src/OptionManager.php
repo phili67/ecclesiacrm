@@ -91,43 +91,43 @@ switch ($mode) {
 switch ($mode) {
     case 'famroles':
         //It don't work for postuguese because in it adjective come after noum
-        $noun = _('Role');
+        $noun = gettext('Role');
         //In the same way, the plural isn't only add s
-        $adjplusname = _('Family Role');
-        $adjplusnameplural = _('Family Roles');
-        $sPageTitle = _('Family Roles Editor');
+        $adjplusname = gettext('Family Role');
+        $adjplusnameplural = gettext('Family Roles');
+        $sPageTitle = gettext('Family Roles Editor');
         $listID = 2;
         $embedded = false;
         break;
     case 'classes':
-        $noun = _('Classification');
-        $adjplusname = _('Person Classification');
-        $adjplusnameplural = _('Person Classifications');
-        $sPageTitle = _('Person Classifications Editor');
+        $noun = gettext('Classification');
+        $adjplusname = gettext('Person Classification');
+        $adjplusnameplural = gettext('Person Classifications');
+        $sPageTitle = gettext('Person Classifications Editor');
         $listID = 1;
         $embedded = false;
         break;
     case 'grptypes':
-        $noun = _('Type');
-        $adjplusname = _('Group Type');
-        $adjplusnameplural = _('Group Types');
-        $sPageTitle = _('Group Types Editor');
+        $noun = gettext('Type');
+        $adjplusname = gettext('Group Type');
+        $adjplusnameplural = gettext('Group Types');
+        $sPageTitle = gettext('Group Types Editor');
         $listID = 3;
         $embedded = false;
         break;
     case 'securitygrp':
-        $noun = _('Group');
-        $adjplusname = _('Security Group');
-        $adjplusnameplural = _('Security Groups');
-        $sPageTitle = _('Security Groups Editor');
+        $noun = gettext('Group');
+        $adjplusname = gettext('Security Group');
+        $adjplusnameplural = gettext('Security Groups');
+        $sPageTitle = gettext('Security Groups Editor');
         $listID = 5;
         $embedded = false;
         break;
     case 'grproles':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
-        $noun = _('Role');
-        $adjplusname = _('Group Member Role');
-        $adjplusnameplural = _('Group Member Roles');
-        $sPageTitle = _('Group Member Roles Editor');
+        $noun = gettext('Role');
+        $adjplusname = gettext('Group Member Role');
+        $adjplusnameplural = gettext('Group Member Roles');
+        $sPageTitle = gettext('Group Member Roles Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
 
@@ -141,10 +141,10 @@ switch ($mode) {
         
         break;
     case 'custom':
-        $noun = _('Option');
-        $adjplusname = _('Person Custom List Option');
-        $adjplusnameplural = _('Person Custom List Options');
-        $sPageTitle = _('Person Custom List Options Editor');
+        $noun = gettext('Option');
+        $adjplusname = gettext('Person Custom List Option');
+        $adjplusnameplural = gettext('Person Custom List Options');
+        $sPageTitle = gettext('Person Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
         
@@ -157,10 +157,10 @@ switch ($mode) {
 
         break;
     case 'groupcustom':
-        $noun = _('Option');
-        $adjplusname = _('Custom List Option');
-        $adjplusnameplural = _('Custom List Options');
-        $sPageTitle = _('Custom List Options Editor');
+        $noun = gettext('Option');
+        $adjplusname = gettext('Custom List Option');
+        $adjplusnameplural = gettext('Custom List Options');
+        $sPageTitle = gettext('Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
         
@@ -173,10 +173,10 @@ switch ($mode) {
         
         break;
     case 'famcustom':
-        $noun = _('Option');
-        $adjplusname = _('Family Custom List Option');
-        $adjplusnameplural = _('Family Custom List Options');
-        $sPageTitle = _('Family Custom List Options Editor');
+        $noun = gettext('Option');
+        $adjplusname = gettext('Family Custom List Option');
+        $adjplusnameplural = gettext('Family Custom List Options');
+        $sPageTitle = gettext('Family Custom List Options Editor');
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         $embedded = true;
 
@@ -329,13 +329,13 @@ $sRowClass = 'RowColorA';
 if ($embedded) {
     include 'Include/Header-Minimal.php';
 } else {    //It don't work for postuguese because in it adjective come after noum
-    //$sPageTitle = $adj . ' ' . $noun . "s "._("Editor");
+    //$sPageTitle = $adj . ' ' . $noun . "s ".gettext("Editor");
     include 'Include/Header.php';
 }
 
 ?>
 
-<div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
+<div class="callout callout-danger"><?= gettext('Warning: Removing will reset all assignments for all persons with the assignment!') ?></div>
 
 <div class="box">
     <div class="box-body">
@@ -349,11 +349,11 @@ if ($bErrorFlag) {
 <?php
     if ($bDuplicateFound) {
 ?>
-        <br><?= _('Error: Duplicate').' '.$adjplusnameplural.' '._('are not allowed.') ?>
+        <br><?= gettext('Error: Duplicate').' '.$adjplusnameplural.' '.gettext('are not allowed.') ?>
 <?php
     }
 ?>
-        <br><?= _('Invalid fields or selections. Changes not saved! Please correct and try again!')?></span><br><br>
+        <br><?= gettext('Invalid fields or selections. Changes not saved! Please correct and try again!')?></span><br><br>
 <?php
 }
 ?>
@@ -370,7 +370,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
             if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {
             ?>
-                <?= _('Default').' '?>
+                <?= gettext('Default').' '?>
             <?php
             } 
             ?>
@@ -415,18 +415,18 @@ for ($row = 1; $row <= $numRows; $row++) {
 
             if ($aNameErrors[$row] == 1) {
             ?>
-                <span style="color: red;"><BR><?= _('You must enter a name') ?> </span>
+                <span style="color: red;"><BR><?= gettext('You must enter a name') ?> </span>
             <?php
             } elseif ($aNameErrors[$row] == 2) {
             ?>
-                <span style="color: red;"><BR><?= _('Duplicate name found.') ?> </span>
+                <span style="color: red;"><BR><?= gettext('Duplicate name found.') ?> </span>
             <?php
             } ?>
         </td>
         <?php
         if ($mode == 'grproles') {
         ?>
-            <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
+            <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= gettext('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
         <?php
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
@@ -437,7 +437,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             <td></td>
             <td>&nbsp;</td>
             <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>" <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
-            <?= _("Visible only in PersonView") ?></td>
+            <?= gettext("Visible only in PersonView") ?></td>
           <?php
           } else {
           ?>
@@ -445,7 +445,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             <td><img src="/skin/icons/markers/<?= $icon->getUrl() ?>" border="0" height="25"></td>
             <td>&nbsp;</td>
             <td align="left"><input type="checkbox" class="checkOnlyPersonView" data-ID="<?= $listID ?>" data-optionID="<?= $aIDs[$row] ?>"  <?= ($icon != null && $icon->getOnlyVisiblePersonView())?"checked":"" ?> />
-            <?= _("Visible only in PersonView") ?></td>
+            <?= gettext("Visible only in PersonView") ?></td>
           <?php
           }
         }
@@ -459,16 +459,16 @@ for ($row = 1; $row <= $numRows; $row++) {
 
 </table>
   <br/>
-    <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
+    <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
 
 
     <?php if ($mode == 'groupcustom' || $mode == 'custom' || $mode == 'famcustom') {
             ?>
-        <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
+        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
     <?php
         } elseif ($mode != 'grproles') {
             ?>
-        <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?= 'Menu.php' ?>';">
+        <input type="button" class="btn btn-default" value="<?= gettext('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?= 'Menu.php' ?>';">
     <?php
         } ?>
     </div>
@@ -476,12 +476,12 @@ for ($row = 1; $row <= $numRows; $row++) {
 
 <div class="box box-primary">
     <div class="box-body">
-<?=  _('Name for New').' '.$noun ?>:&nbsp;
+<?=  gettext('Name for New').' '.$noun ?>:&nbsp;
 <span class="SmallText">
     <input class="form-control form-control input-md" type="text" name="newFieldName" size="30" maxlength="40">
 </span>
 <p>  </p>
-<input type="submit" class="btn btn-success" value="<?= _('Add New').' '.$adjplusname ?>" Name="AddField">
+<input type="submit" class="btn btn-success" value="<?= gettext('Add New').' '.$adjplusname ?>" Name="AddField">
 <?php
     if ($iNewNameError > 0) {
 ?>
@@ -489,11 +489,11 @@ for ($row = 1; $row <= $numRows; $row++) {
       <?php
         if ($iNewNameError == 1) {
       ?>
-            <?= _('Error: You must enter a name') ?>
+            <?= gettext('Error: You must enter a name') ?>
       <?php
         } else {
       ?>        
-            <?= _('Error: A ').$noun._(' by that name already exists.') ?>
+            <?= gettext('Error: A ').$noun.gettext(' by that name already exists.') ?>
       <?php
         }
       ?>

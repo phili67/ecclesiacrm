@@ -356,7 +356,7 @@ class Deposit extends BaseDeposit
         $thisReport->curY += $thisReport->depositSummaryParameters->summary->intervalY;
 
         $thisReport->pdf->SetXY($thisReport->curX + $thisReport->depositSummaryParameters->summary->MemoX, $thisReport->curY);
-        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(_("Deposit total")));
+        $thisReport->pdf->Write(8, OutputUtils::translate_text_fpdf(gettext("Deposit total")));
 
         $grandTotalStr = OutputUtils::money_localized($this->getTotalAmount());
         $thisReport->pdf->PrintRightJustified($thisReport->curX + $thisReport->depositSummaryParameters->summary->AmountX, $thisReport->curY, $grandTotalStr);

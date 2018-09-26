@@ -15,6 +15,8 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
+
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\UserRoleQuery;
@@ -34,7 +36,7 @@ $rsUsers = UserQuery::create()
            ->find();
 
 // Set the page title and include HTML header
-$sPageTitle = _("System Users Listing");
+$sPageTitle = gettext("System Users Listing");
 require 'Include/Header.php';
 
 // we search all the available roles
@@ -73,7 +75,7 @@ if ($usr_role_id == null) {
         </ul>
       </div>
       <div class="pull-right" style="margin-right:15px;margin-top:10px">
-        <h4><?= _("Apply Roles") ?></h4>
+        <h4><?= gettext("Apply Roles") ?></h4>
       </div>
     </div>
 </div>
@@ -202,7 +204,7 @@ if ($usr_role_id == null) {
             </tbody>
         </table>
         
-        <input type="checkbox" class="check_all"> <?= _("Check all") ?>
+        <input type="checkbox" class="check_all"> <?= gettext("Check all") ?>
     </div>
     <!-- /.box-body -->
 </div>

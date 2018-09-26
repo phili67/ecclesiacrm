@@ -513,7 +513,7 @@ if ($iMode == 1) {
     $rsGroupTypes = RunQuery($sSQLtemp);
 ?>
        <p align="center" class="MediumText"><?= gettext('Show people <b>not</b> in this group type:') ?>
-        <select name="type" onchange="this.form.submit()">
+        <select name="type" onchange="this.form.submit()" class="form-control-min_width input-sm">
    <?php     
     while ($aRow = mysqli_fetch_array($rsGroupTypes)) {
         extract($aRow);
@@ -1098,7 +1098,7 @@ if (!isset($sPersonColumn5)) {
   }
 
   ?>
-  <select class="form-control input-sm" name="PersonColumn3" onchange="this.form.submit()">';
+  <select class="form-control-min_width input-sm" name="PersonColumn3" onchange="this.form.submit()">';
       <?php
       $aPersonCol3 = ['Classification', 'Family Role', 'Gender'];
       foreach ($aPersonCol3 as $s) {
@@ -1115,7 +1115,7 @@ if (!isset($sPersonColumn5)) {
      <a class="btn btn-<?= ($sSort == "family")?"info active":"default" ?> btn-sm " href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?=$iGroupTypeMissing ?>&amp;Sort=family&amp;Filter=<?= $sFilter ?>"><?= gettext('Family') ?></a>
   </th>
   <th>
-   <select class="form-control input-sm" name="PersonColumn5" onchange="this.form.submit()">
+   <select class="form-control-min_width input-sm" name="PersonColumn5" onchange="this.form.submit()">
     <?php
     $aPersonCol5 = ['Home Phone', 'Work Phone', 'Mobile Phone', 'Zip Code'];
     foreach ($aPersonCol5 as $s) {

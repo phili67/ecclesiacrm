@@ -25,7 +25,7 @@ if (!$_SESSION['user']->isAdmin()) {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = _("General Settings");
+$sPageTitle = gettext("General Settings");
 
 // Save Settings
 if (isset($_POST['save'])) {

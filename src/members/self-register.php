@@ -21,7 +21,7 @@ use EcclesiaCRM\dto\SystemURLs;
     <div class="col-lg-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title"><?= _("Families") ?></h3>
+                <h3 class="box-title"><?= gettext("Families") ?></h3>
             </div>
             <div class="box-body">
                 <table id="families" class="table table-striped table-bordered table-responsive data-table">

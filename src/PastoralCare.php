@@ -93,7 +93,7 @@ require 'Include/Header.php';
       ?>
     </ul>
   </div>
-  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
+  <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
   
   <div class="btn-group pull-right">
     <a class="btn btn-app filterByPastor" data-personid="<?= $_SESSION['user']->getPerson()->getId() ?>"><i class="fa fa-sticky-note"></i><?= $_SESSION['user']->getPerson()->getFullName()  ?></a>
@@ -102,7 +102,7 @@ require 'Include/Header.php';
        <span class="sr-only">Menu déroulant</span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li> <a class="filterByPastorAll"><?= _("Everyone") ?></a></li>
+      <li> <a class="filterByPastorAll"><?= gettext("Everyone") ?></a></li>
       <?php
          foreach ($ormPastors as $ormPastor) {
       ?>
@@ -113,7 +113,7 @@ require 'Include/Header.php';
     </ul>
   </div>
   <div class="pull-right" style="margin-right:15px;margin-top:10px">
-    <h4><?= _("Filters") ?></h4>
+    <h4><?= gettext("Filters") ?></h4>
   </div>
 </div>
 
