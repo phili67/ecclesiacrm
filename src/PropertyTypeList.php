@@ -18,7 +18,7 @@ use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\dto\SystemURLs;
 
 // Set the page title
-$sPageTitle = _('Property Type List');
+$sPageTitle = gettext('Property Type List');
 
 $ormPropertyTypes = PropertyTypeQuery::Create()
   ->leftJoinProperty()
@@ -35,7 +35,7 @@ require 'Include/Header.php';
 <?php //Display the new property link
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= _('Add a New Property Type') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= gettext('Add a New Property Type') ?></a></p>
 <?php
 }
 
@@ -47,13 +47,13 @@ if ($_SESSION['user']->isMenuOptionsEnabled()) {
 <?php
 if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
-   <th><?= _('Action') ?></th>
+   <th><?= gettext('Action') ?></th>
 <?php
 }
 ?>
-   <th><?= _('Name') ?></th>
-   <th><?= _('Class') ?></th>
-   <th><?= _('Description') ?></th>
+   <th><?= gettext('Name') ?></th>
+   <th><?= gettext('Class') ?></th>
+   <th><?= gettext('Description') ?></th>
 </tr>
 </thead>
 </tbody>
@@ -101,12 +101,12 @@ foreach ($ormPropertyTypes as $ormPropertyType)
     }
   }
 ?>
-    <td><?= _($ormPropertyType->getPrtName()) ?></td>
+    <td><?= gettext($ormPropertyType->getPrtName()) ?></td>
     <td>
 <?php
   if ($ormPropertyType->getPrtName() == 'Menu') {
 ?>
-    <?= _('Sunday School Sub Menu') ?></td>
+    <?= gettext('Sunday School Sub Menu') ?></td>
 <?php
    if ($_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
@@ -116,10 +116,10 @@ foreach ($ormPropertyTypes as $ormPropertyType)
 ?>
 <?php
   } else {
-      switch ($ormPropertyType->getPrtClass()) { case 'p': echo _('Person'); break; case 'f': echo _('Family'); break; case 'g': echo _('Group'); break;}
+      switch ($ormPropertyType->getPrtClass()) { case 'p': echo gettext('Person'); break; case 'f': echo gettext('Family'); break; case 'g': echo gettext('Group'); break;}
 ?>
       </td>
-      <td><?= _($ormPropertyType->getPrtDescription()) ?></td>
+      <td><?= gettext($ormPropertyType->getPrtDescription()) ?></td>
 <?php
   }
 ?>

@@ -19,7 +19,7 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\LabelUtils;
 
 // Set the page title and include HTML header
-$sPageTitle = _('View Your Cart');
+$sPageTitle = gettext('View Your Cart');
 require 'Include/Header.php'; ?>
 <?php
 
@@ -32,7 +32,7 @@ if (!$_SESSION['user']->isShowCartEnabled()) {
 if (!Cart::HasPeople()) {
     if (!array_key_exists('Message', $_GET)) {
         ?>
-             <p class="text-center callout callout-warning"><?= _('You have no items in your cart.') ?> </p>
+             <p class="text-center callout callout-warning"><?= gettext('You have no items in your cart.') ?> </p>
         <?php
     } else {
         switch ($_GET['Message']) {
@@ -42,7 +42,7 @@ if (!Cart::HasPeople()) {
             }
     }
     ?>
-    <p align="center"><input type="button" name="Exit" class="btn btn-primary" value="<?= _('Back to Menu') ?>" onclick="javascript:document.location='Menu.php';"></p>
+    <p align="center"><input type="button" name="Exit" class="btn btn-primary" value="<?= gettext('Back to Menu') ?>" onclick="javascript:document.location='Menu.php';"></p>
     </div>
 <?php
 } else {
@@ -53,7 +53,7 @@ if (!Cart::HasPeople()) {
               ->findById(1);
     
     unset($aClassificationName);
-    $aClassificationName[0] = _('Unassigned');
+    $aClassificationName[0] = gettext('Unassigned');
     foreach ($ormClassifications as $ormClassification) {
       $aClassificationName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
     }
@@ -64,7 +64,7 @@ if (!Cart::HasPeople()) {
               ->findById(2);
     
     unset($aFamilyRoleName);
-    $aFamilyRoleName[0] = _('Unassigned');
+    $aFamilyRoleName[0] = gettext('Unassigned');
     foreach ($ormClassifications as $ormClassification) {
       $aFamilyRoleName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
     }
@@ -78,7 +78,7 @@ if (!Cart::HasPeople()) {
         ?>
         <form method="get" action="CartView.php#GenerateLabels">
         <input type="submit" class="btn" name="gotolabels"
-        value="<?= _('Go To Labels') ?>">
+        value="<?= gettext('Go To Labels') ?>">
         </form>
         <?php
     }*/ ?>
@@ -89,47 +89,47 @@ if (!Cart::HasPeople()) {
     ?>
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title"><?= _("Cart Functions") ?></h3>
+            <h3 class="box-title"><?= gettext("Cart Functions") ?></h3>
         </div>
         <div class="box-body">
-            <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= _('Empty Cart') ?></a>
+            <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= gettext('Empty Cart') ?></a>
             <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
             ?>
-                <a id="emptyCartToGroup" class="btn btn-app"><i class="fa fa-object-ungroup"></i><?= _('Empty Cart to Group') ?></a>
+                <a id="emptyCartToGroup" class="btn btn-app"><i class="fa fa-object-ungroup"></i><?= gettext('Empty Cart to Group') ?></a>
             <?php
         }
         if ($_SESSION['user']->isAddRecordsEnabled()) {
             ?>
             <a href="<?= SystemURLs::getRootPath() ?>/CartToFamily.php" class="btn btn-app"><i
-                        class="fa fa-users"></i><?= _('Empty Cart to Family') ?></a>
+                        class="fa fa-users"></i><?= gettext('Empty Cart to Family') ?></a>
             <?php
         } ?>
             <a href="#" id="emptyCartToEvent" class="btn btn-app"><i
-                class="fa fa-ticket"></i><?= _('Empty Cart to Event') ?></a>
+                class="fa fa-ticket"></i><?= gettext('Empty Cart to Event') ?></a>
 
         <?php
             if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
         ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>
         <?php
             } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
         ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>
         <?php
             } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
         ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>        
+              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= gettext('Map Cart') ?></a>        
         <?php
             }
         ?>
         <?php if ($bExportCSV) {
             ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php?Source=cart" class="btn btn-app bg-green"><i
-                            class="fa fa-file-excel-o"></i><?= _('CSV Export') ?></a>
+                            class="fa fa-file-excel-o"></i><?= gettext('CSV Export') ?></a>
                 <?php
         } ?>
             <a href="<?= SystemURLs::getRootPath() ?>/Reports/NameTags.php?labeltype=74536&labelfont=times&labelfontsize=36" class="btn btn-app bg-aqua"><i
-                        class="fa fa-file-pdf-o"></i><?= _('Name Tags') ?></a>      
+                        class="fa fa-file-pdf-o"></i><?= gettext('Name Tags') ?></a>      
             <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/CartToBadge.php" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= gettext("Badges") ?></span></a>
         <?php
             if (Cart::CountPeople() != 0) {
@@ -169,8 +169,8 @@ if (!Cart::HasPeople()) {
                     if ($bEmailMailto) { // Does user have permission to email groups
                         // Display link
                     ?>
-                        <a href="mailto:<?= $sEmailLink?>" class="btn btn-app"><i class='fa fa-send-o'></i><?= _('Email Cart') ?></a>
-                        <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+                        <a href="mailto:<?= $sEmailLink?>" class="btn btn-app"><i class='fa fa-send-o'></i><?= gettext('Email Cart') ?></a>
+                        <a href="mailto:?bcc=<?= $sEmailLink ?>" class="btn btn-app"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
                     <?php
                     }
                 }
@@ -202,27 +202,27 @@ if (!Cart::HasPeople()) {
                     ?>
                     &nbsp;
                     <div class="btn-group">
-                      <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= _("Text Cart") ?></a>
+                      <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= gettext("Text Cart") ?></a>
                       <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
-                             <li> <a href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= _("Copy Paste the Texts") ?></a></li>
+                             <li> <a href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i> <?= gettext("Copy Paste the Texts") ?></a></li>
                              <script nonce="<?= SystemURLs::getCSPNonce() ?>">function allPhonesCommaD() {prompt("Press CTRL + C to copy all group members\' phone numbers", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
-                             <li> <a href="sms:<?= str_replace(' ', '',mb_substr($sPhoneLinkSMS, 0, -2)) ?>"><i class="fa fa-mobile-phone"></i><?= _("Text Cart") ?></li>
+                             <li> <a href="sms:<?= str_replace(' ', '',mb_substr($sPhoneLinkSMS, 0, -2)) ?>"><i class="fa fa-mobile-phone"></i><?= gettext("Text Cart") ?></li>
                           </ul>
                     </div>
                     <?php
                     }
                 } ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
-                            class="fa fa-book"></i><?= _('Create Directory From Cart') ?></a>
+                            class="fa fa-book"></i><?= gettext('Create Directory From Cart') ?></a>
                             
              <?php   if ($_SESSION['user']->isAddRecordsEnabled()) {
             ?>
                 <a href="#" id="deleteCart" class="btn btn-app bg-red"><i
-                            class="fa fa-trash"></i><?= _('Delete Persons From Cart and CRM') ?></a>
+                            class="fa fa-trash"></i><?= gettext('Delete Persons From Cart and CRM') ?></a>
                 <?php
             } ?>
 
@@ -249,7 +249,7 @@ if (!Cart::HasPeople()) {
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= _('Generate Labels') ?></h3>
+                    <h3 class="box-title"><?= gettext('Generate Labels') ?></h3>
                 </div>
                 <form method="get" action="Reports/PDFLabel.php" name="labelform">
                   <div class="box-body">
@@ -258,7 +258,7 @@ if (!Cart::HasPeople()) {
                       ?>
                       <div class="row">
                         <div class="col-md-6">
-                            <?= _('Bulk Mail Presort') ?>
+                            <?= gettext('Bulk Mail Presort') ?>
                         </div>                           
                         <div class="col-md-6">
                             <input name="bulkmailpresort" type="checkbox" onclick="codename()" id="BulkMailPresort" value="1" <?= (array_key_exists('buildmailpresort', $_COOKIE) && $_COOKIE['bulkmailpresort'])?'checked':'' ?>><br>
@@ -266,7 +266,7 @@ if (!Cart::HasPeople()) {
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                          <?= _('Quiet Presort') ?>
+                          <?= gettext('Quiet Presort') ?>
                         </div>
                         <div class="col-md-6">
                             <!-- // This would be better with $_SESSION variable -->
@@ -287,7 +287,7 @@ if (!Cart::HasPeople()) {
                   <div class="row">
                     <div class="col-md-5"></div>
                     <div class="col-md-4">
-                    <input type="submit" class="btn btn-primary" value="<?= _('Generate Labels') ?>" name="Submit">
+                    <input type="submit" class="btn btn-primary" value="<?= gettext('Generate Labels') ?>" name="Submit">
                     </div>
                   </div>
                   <br>
@@ -307,19 +307,19 @@ if (!Cart::HasPeople()) {
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">
-                    <?= _('Your cart contains') . ' ' . $iNumPersons . ' ' . _('persons from') . ' ' . $iNumFamilies . ' ' . _('families') ?>
+                    <?= gettext('Your cart contains') . ' ' . $iNumPersons . ' ' . gettext('persons from') . ' ' . $iNumFamilies . ' ' . gettext('families') ?>
                     .</h3>
             </div>
             <div class="box-body">
                 <table class="table table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
                   <thead>
                     <tr>
-                        <th><?= _('Name') ?></th>
-                        <th><?= _('Address') ?></th>
-                        <th><?= _('Email') ?></th>
-                        <th><?= _('Remove') ?></th>
-                        <th><?= _('Classification') ?></th>
-                        <th><?= _('Family Role') ?></th>
+                        <th><?= gettext('Name') ?></th>
+                        <th><?= gettext('Address') ?></th>
+                        <th><?= gettext('Email') ?></th>
+                        <th><?= gettext('Remove') ?></th>
+                        <th><?= gettext('Classification') ?></th>
+                        <th><?= gettext('Family Role') ?></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -335,7 +335,7 @@ if (!Cart::HasPeople()) {
                         }
 
                         if (strlen($sEmail)) {
-                            $sValidEmail = _('Yes');
+                            $sValidEmail = gettext('Yes');
                             if (!stristr($sEmailLink, $sEmail)) {
                                 $email_array[] = $sEmail;
 
@@ -348,16 +348,16 @@ if (!Cart::HasPeople()) {
                                 }
                             }
                         } else {
-                            $sValidEmail = _('No');
+                            $sValidEmail = gettext('No');
                         }
 
                         $sAddress1 = SelectWhichInfo($person->getAddress1(), !is_null($person->getFamily())?$person->getFamily()->getAddress1():null, false);
                         $sAddress2 = SelectWhichInfo($person->getAddress2(), !is_null($person->getFamily())?$person->getFamily()->getAddress2():null, false);
 
                         if (strlen($sAddress1) > 0 || strlen($sAddress2) > 0) {
-                            $sValidAddy = _('Yes');
+                            $sValidAddy = gettext('Yes');
                         } else {
-                            $sValidAddy = _('No');
+                            $sValidAddy = gettext('No');
                         }
 
                         $personName = $person->getFirstName() . ' ' . $person->getLastName();
@@ -372,7 +372,7 @@ if (!Cart::HasPeople()) {
                             </td>
                             <td><?= $sValidAddy ?></td>
                             <td><?= $sValidEmail ?></td>
-                            <td><a class="RemoveFromPeopleCart btn btn-danger" data-personid="<?= $person->getId() ?>"><?= _('Remove') ?></a>
+                            <td><a class="RemoveFromPeopleCart btn btn-danger" data-personid="<?= $person->getId() ?>"><?= gettext('Remove') ?></a>
                             </td>
                             <td><?= $aClassificationName[$person->getClsId()] ?></td>
                             <td><?= $aFamilyRoleName[$person->getFmrId()] ?></td>

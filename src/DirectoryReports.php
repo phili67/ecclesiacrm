@@ -94,7 +94,7 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
             <?php
                foreach ($ormClassifications as $rsClassification) {
             ?>
-                  <option value="<?= $rsClassification->getOptionId()?>" <?= (in_array($rsClassification->getOptionId(), $aDefaultClasses))?' selected':''?>><?= _($rsClassification->getOptionName()) ?></option>
+                  <option value="<?= $rsClassification->getOptionId()?>" <?= (in_array($rsClassification->getOptionId(), $aDefaultClasses))?' selected':''?>><?= gettext($rsClassification->getOptionName()) ?></option>
             <?php
                }
             ?>
@@ -135,7 +135,7 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
             <?php
                 foreach ($ormFamilyRoles as $ormFamilyRole) {
             ?>
-                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleHead))?' selected':'' ?>> <?= _($ormFamilyRole->getOptionName()) ?></option>
+                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleHead))?' selected':'' ?>> <?= gettext($ormFamilyRole->getOptionName()) ?></option>
             <?php
                 }
             ?>
@@ -153,7 +153,7 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
             <?php
                 foreach ($ormFamilyRoles as $ormFamilyRole) {
             ?>
-                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleSpouse))?' selected':'' ?>><?= _($ormFamilyRole->getOptionName()) ?></option>
+                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleSpouse))?' selected':'' ?>><?= gettext($ormFamilyRole->getOptionName()) ?></option>
             <?php
                 }
             ?>
@@ -171,7 +171,7 @@ $aDirRoleChild = explode(',', SystemConfig::getValue('sDirRoleChild'));
             <?php
                 foreach ($ormFamilyRoles as $ormFamilyRole) {
             ?>
-                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleChild))?' selected':'' ?>><?= _($ormFamilyRole->getOptionName()) ?></option>
+                    <option value="<?= $ormFamilyRole->getOptionId() ?>" <?= (in_array($ormFamilyRole->getOptionId(), $aDirRoleChild))?' selected':'' ?>><?= gettext($ormFamilyRole->getOptionName()) ?></option>
             <?php
                 }
             ?>

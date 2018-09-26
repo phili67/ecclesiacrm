@@ -41,7 +41,7 @@ function system_failure($message, $header = 'Setup failure')
 {
     require 'Include/HeaderNotLoggedIn.php'; ?>
     <div class='container'>
-        <h3>EcclesiaCRM – <?= _($header) ?></h3>
+        <h3>EcclesiaCRM – <?= gettext($header) ?></h3>
         <div class='alert alert-danger text-center' style='margin-top: 20px;'>
             <?= gettext($message) ?>
         </div>

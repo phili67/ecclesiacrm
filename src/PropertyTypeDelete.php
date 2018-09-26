@@ -25,7 +25,7 @@ if (!$_SESSION['user']->isMenuOptionsEnabled()) {
 }
 
 //Set the page title
-$sPageTitle = _('Property Type Delete Confirmation');
+$sPageTitle = gettext('Property Type Delete Confirmation');
 
 //Get the PersonID from the querystring
 $iPropertyTypeID = InputUtils::LegacyFilterInput($_GET['PropertyTypeID'], 'int');
@@ -60,19 +60,19 @@ require 'Include/Header.php';
 if (isset($_GET['Warn'])) {
     ?>
   <p align="center" class="LargeError">
-    <?= '<b>'._('Warning').': </b>'._('This property type is still being used by at least one property.').'<BR>'._('If you delete this type, you will also remove all properties using').'<BR>'._('it and lose any corresponding property assignments.'); ?>
+    <?= '<b>'.gettext('Warning').': </b>'.gettext('This property type is still being used by at least one property.').'<BR>'.gettext('If you delete this type, you will also remove all properties using').'<BR>'.gettext('it and lose any corresponding property assignments.'); ?>
   </p>
 <?php
 } ?>
 
 <p align="center" class="MediumLargeText">
-  <?= _('Please confirm deletion of this Property Type') ?>: <b><?= _($propType->getPrtName()) ?></b>
+  <?= gettext('Please confirm deletion of this Property Type') ?>: <b><?= gettext($propType->getPrtName()) ?></b>
 </p>
 
 <p align="center">
-  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= _('Yes, delete this record') ?></a>
+  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeDelete.php?Confirmed=Yes&PropertyTypeID=<?php echo $iPropertyTypeID ?>" class="btn btn-danger"><?= gettext('Yes, delete this record') ?></a>
   &nbsp;&nbsp;
-  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= _('No, cancel this deletion') ?></a>
+  <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php?Type=<?= $sType ?>" class="btn btn-primary"><?= gettext('No, cancel this deletion') ?></a>
 
 </p>
 

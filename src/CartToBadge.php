@@ -34,7 +34,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
 
 <div class="box">
       <div class="box-header with-border">
-          <h3 class="box-title"><?= _('Generate Badges') ?></h3>
+          <h3 class="box-title"><?= gettext('Generate Badges') ?></h3>
       </div>
       <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform">
       <div class="box-body">
@@ -129,7 +129,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-4">
-        <input type="submit" class="btn btn-primary" value="<?= _('Generate Badges') ?>" name="Submit">
+        <input type="submit" class="btn btn-primary" value="<?= gettext('Generate Badges') ?>" name="Submit">
         </div>
       </div>
     </div>
