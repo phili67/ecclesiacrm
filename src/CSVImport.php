@@ -7,7 +7,8 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2003 Chris Gebhardt
-  *
+ *  Copyright 2018 Philippe Logel
+ *
  ******************************************************************************/
 
 // Include the function library
@@ -22,6 +23,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\dto\Cart;
 
 if (!$_SESSION['user']->isAdmin()) {
     Redirect('Menu.php');
@@ -164,7 +166,7 @@ if (isset($_POST['UploadCSV'])) {
         // create the form?>
         <form method="post" action="CSVImport.php">
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
-        <label><?= gettext('Total number of rows in the CSV file:').$iNumRows ?></label>
+        <label><?= gettext('Total number of rows in the CSV file:') ?></label> <b><?= $iNumRows ?></b>
         <BR>
         <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
       <?php
@@ -264,8 +266,8 @@ if (isset($_POST['UploadCSV'])) {
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-10">
-            <input type="checkbox" value="1" name="IgnoreFirstRow"> <?= gettext('Ignore first CSV row (to exclude a header)') ?>
+          <div class="col-lg-10" style="color:green">
+            <input type="checkbox" value="1" name="IgnoreFirstRow"> &nbsp;&nbsp;&nbsp;&nbsp; <?= gettext('Ignore first CSV row (to exclude a header)') ?>
           </div>
         </div>
 
@@ -305,6 +307,15 @@ if (isset($_POST['UploadCSV'])) {
             <span style="color:red"><b><?= gettext("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
           </div>
         </div>
+        
+        <br>
+        
+        <div class="row">
+          <div class="col-lg-10" style="color:green">
+            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= gettext('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
+          </div>
+        </div>
+
 
         <div class="row">
           <div class="col-lg-10">
@@ -409,6 +420,7 @@ if (isset($_POST['DoImport'])) {
         $sDefaultCountry = InputUtils::LegacyFilterInput($_POST['Country']);
         $iClassID = InputUtils::LegacyFilterInput($_POST['Classification'], 'int');
         $iDateMode = InputUtils::LegacyFilterInput($_POST['DateMode'], 'int');
+        $iPutInCart = InputUtils::LegacyFilterInput($_POST['PutInCart'], 'int');
 
         // Get the number of CSV columns for future reference
         $aData = fgetcsv($pFile, 2048, $generalCSVSeparator);
@@ -808,6 +820,11 @@ if (isset($_POST['DoImport'])) {
             $sSQL = 'SELECT MAX(per_ID) AS iPersonID FROM person_per';
             $rsPersonID = RunQuery($sSQL);
             extract(mysqli_fetch_array($rsPersonID));
+            
+            if ($iPutInCart == 1) {
+              Cart::AddPerson($iPersonID);
+            }
+            
             $note = new Note();
             $note->setPerId($iPersonID);
             $note->setText(gettext('Imported'));
