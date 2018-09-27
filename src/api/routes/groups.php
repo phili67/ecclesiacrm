@@ -223,8 +223,8 @@ $app->group('/groups', function () {
             ->findByGroupId($groupID);
         
             
-        // we loop to find the information in the family to add adresses etc ...
-        foreach ($members as $member)
+        // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically        
+        /*foreach ($members as $member)
         {
           $p = $member->getPerson();
           $fam = $p->getFamily();   
@@ -239,7 +239,7 @@ $app->group('/groups', function () {
             $p->setState($fam->getState());
             $p->setZip($fam->getZip());    
           }      
-        }
+        }*/
         
         echo $members->toJSON();
     });

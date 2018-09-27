@@ -230,7 +230,7 @@ $("document").ready(function(){
                         data: JSON.stringify({"groupID":GroupID,"groupRoleID":RoleID})
                         }).done(function(data) {
                           window.CRM.cart.refresh();
-                          location.href = window.CRM.root + 'GroupView.php?GroupID='+GroupID;
+                          location.href = window.CRM.root + '/GroupView.php?GroupID='+GroupID;
                       });
                       
                       return true
@@ -255,7 +255,7 @@ $("document").ready(function(){
                         data: JSON.stringify({'groupName':newGroupName}),                      // stringify the object we created earlier, and add it to the data payload
                       }).done(function (data) {                               //yippie, we got something good back from the server
                           window.CRM.cart.refresh();
-                          location.href = window.CRM.root + 'GroupView.php?GroupID='+data.Id;
+                          location.href = window.CRM.root + '/GroupView.php?GroupID='+data.Id;
                       });
                       
                       return true;
