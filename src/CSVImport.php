@@ -131,8 +131,12 @@ require 'Include/Header.php'; ?>
 $iStage = 1;
 $csvError = '';
 
+if (isset($_POST['iSelectedValues'])) {
+  $iSelectedValues = $_POST['iSelectedValues'];
+}
+
 // Is the CSV file being uploaded?
-if (isset($_POST['UploadCSV'])) {
+if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
     $generalCSVSeparator = ',';
     
     if (isset($_POST['sSeperator'])) {
@@ -140,7 +144,7 @@ if (isset($_POST['UploadCSV'])) {
     }
     
     // Check if a valid CSV file was actually uploaded
-    if ($_FILES['CSVfile']['name'] == '') {
+    if ($_FILES['CSVfile']['name'] == '' && !isset($_POST['iSelectedValues'])) {
         $csvError = gettext('No file selected for upload.');
     }
 
@@ -166,6 +170,8 @@ if (isset($_POST['UploadCSV'])) {
         // create the form?>
         <form method="post" action="CSVImport.php">
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
+          <input type="hidden" name="iSelectedValues" value="0" id="selectedValues">
+
         <label><?= gettext('Total number of rows in the CSV file:') ?></label> <b><?= $iNumRows ?></b>
         <BR>
         <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
@@ -252,6 +258,17 @@ if (isset($_POST['UploadCSV'])) {
             }
           ?>
         </table>
+        <?php        
+          if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
+        ?>
+            <div class="callout callout-danger">
+              <?= gettext("An error occure when you import the CSV file. You've to select values above in the select fields.") ?>
+            </div>
+            <br>
+             
+        <?php
+          }
+        ?>
         <div class="row" style="margin-top:-10px">
           <div class="col-lg-12">
             <span style="color:blue;float:right"><?= gettext("Scroll right to see the other columns") ?></span>
@@ -310,6 +327,8 @@ if (isset($_POST['UploadCSV'])) {
         
         <br>
         
+        <input type="hidden" name="selectedValues" value="0">
+
         <div class="row">
           <div class="col-lg-10" style="color:green">
             <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= gettext('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
@@ -390,8 +409,9 @@ if (isset($_POST['UploadCSV'])) {
     }
 }
 
+
 // Has the import form been submitted yet?
-if (isset($_POST['DoImport'])) {
+if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
     $aColumnCustom = [];
     $aFamColumnCustom = [];
     $bHasCustom = false;

@@ -97,5 +97,8 @@ function clearPeopleTables(Request $request, Response $response, array $p_args)
     NoteQuery::create()->filterByPerId($curUserId, Criteria::NOT_EQUAL)->delete($connection);
     $logger->info("Notes deleted");
     
+    // we empty the cart, to reset all
+    $_SESSION['aPeopleCart'] = [];
+    
     return $response->withJson(['success' => true, 'msg' => gettext('The people and families has been cleared from the database.')]);
 }
