@@ -10,7 +10,7 @@
  *
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
+ *                This code can't be incorporated in another software without any authorizaion
  *
  ******************************************************************************/
 
@@ -63,20 +63,28 @@ $eventTypes = EventTypesQuery::Create()
                    <h3 class="box-title"><?= gettext("Filters") ?></h3>
                </div>
                <div class="row" style="padding:5px">
-                 <div class="col-sm-4">  
-                    <label><?= gettext("By Types") ?></label>
-                 </div>
-                 <div class="col-sm-8">  
-                   <select type="text" id="EventTypeFilter" value="0" class="form-control input-sm" size=1>
-                     <option value='0' ><?= gettext("All") ?></option>
-                       <?php
-                         foreach ($eventTypes as $eventType) {
-                         ?>
-                            <option value="<?= $eventType->getID() ?>"><?= $eventType->getName() ?></option>
-                        <?php
-                         }
-                       ?>
-                   </select>
+                 <div class="col-sm-12">
+                   <div class="fc-event-container fc-day-grid-event" style="background-color:#f39c12;border-color:#f19a10;color: white;line-height:33px">
+                    <table width=100%>
+                      <tr>
+                        <td>
+                          <center><?= gettext("By Types") ?></center>
+                        </td>
+                        <td>
+                           <select type="text" id="EventTypeFilter" value="0" class="form-control input-sm" size=1>
+                             <option value='0' ><?= gettext("All") ?></option>
+                               <?php
+                                 foreach ($eventTypes as $eventType) {
+                                 ?>
+                                    <option value="<?= $eventType->getID() ?>"><?= $eventType->getName() ?></option>
+                                <?php
+                                 }
+                               ?>
+                           </select>
+                       </td>
+                      </tr>
+                     </table>
+                   </div>
                 </div>
                </div>
                <div class="row" style="padding-bottom:5px">
@@ -85,13 +93,13 @@ $eventTypes = EventTypesQuery::Create()
                    <table width=100%>
                    <tr>
                      <td align="center">
-                       <input data-size="mini" id="isWithLimit" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Limit") ?>" data-off="<?= gettext("No Limit") ?>"><br/> 
+                       <input data-size="mini" id="isWithLimit" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Limit") ?>" data-off="<?= gettext("No Limit") ?>" data-onstyle="info"><br/> 
                      </td>
                      <td align="center">
                        <?php 
                          if ($_SESSION['user']->isSeePrivacyDataEnabled()) { 
                         ?>
-                       <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Birthdate") ?>" data-off="<?= gettext("Birthdate") ?>">
+                       <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Birthdate") ?>" data-off="<?= gettext("Birthdate") ?>" data-onstyle="danger">
                        <?php 
                          } 
                         ?>
@@ -108,7 +116,8 @@ $eventTypes = EventTypesQuery::Create()
                     </tr>
                    </table>
                   </div>
-               </div>       
+                  
+               </div>
             </div>
             <div class="box box-info">
                <div class="box-header with-border">

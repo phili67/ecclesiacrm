@@ -225,10 +225,10 @@ class CalendarService
         $event = [];
         switch ($type) {
           case 'birthday':
-            $event['backgroundColor'] = '#f56954';
+            $event['backgroundColor'] = '#dd4b39';
             break;
           case 'anniversary':
-            $event['backgroundColor'] = '#0000ff';
+            $event['backgroundColor'] = '#3c8dbc';
             break;
           default:
             $event['backgroundColor'] = '#eeeeee';
