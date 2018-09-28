@@ -450,13 +450,20 @@
         ],
         "dbVersion": "4.7.5"
     },
-    "current": {
+    "4.7.6": {
         "versions": [
             "4.7.5"
         ],
         "scripts": [
         ],
         "dbVersion": "4.7.6"
+    },
+    "current": {
+        "versions": [
+            "4.7.6"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "4.7.7"
     }
-
 }
