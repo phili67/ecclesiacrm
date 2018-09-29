@@ -262,7 +262,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
         ?>
             <div class="callout callout-danger">
-              <?= gettext("An error occure when you import the CSV file. You've to select values above in the select fields.") ?>
+              <?= gettext("An error occurs when you import the CSV file. You've to select values above in the select fields.") ?>
             </div>
             <br>
              

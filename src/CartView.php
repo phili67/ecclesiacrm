@@ -287,7 +287,7 @@ if (!Cart::HasPeople()) {
                   <div class="row">
                     <div class="col-md-5"></div>
                     <div class="col-md-4">
-                    <input type="submit" class="btn btn-primary" value="<?= gettext('Generate Labels') ?>" name="Submit">
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-primary" value="<?= gettext('Generate Labels') ?>" name="Submit">
                     </div>
                   </div>
                   <br>
