@@ -863,7 +863,7 @@ if ($sFileType == 'PDF') {
     }
     
 
-    $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf("Greeting").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Name").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Address").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("City").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("State").'"'.$delimiter.'"'.OutputUtils::translate_text_fpdf("Zip").'"'."\n";
+    $sCSVOutput .= '"'.InputUtils::translate_special_charset(gettext("Greeting"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Name"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Address"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("City"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("State"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Zip"),$sCSVExportCharset).'"'."\n";
 
     while (list($i, $sLT) = each($aLabelList)) {
         if ($iBulkCode) {
@@ -872,22 +872,22 @@ if ($sFileType == 'PDF') {
 
         $iNewline = (strpos($sLT['Name'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '""'.$delimiter.'"'.OutputUtils::translate_text_fpdf($sLT['Name']).'"'.$delimiter;
+            $sCSVOutput .= '""'.$delimiter.'"'.InputUtils::translate_special_charset($sLT['Name'],$sCSVExportCharset).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Name'], 0, $iNewline)).'"'.$delimiter.
-                            '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Name'], $iNewline + 1)).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], 0, $iNewline),$sCSVExportCharset).'"'.$delimiter.
+                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], $iNewline + 1),$sCSVExportCharset).'"'.$delimiter;
         }
 
         $iNewline = (strpos($sLT['Address'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf($sLT['Address']).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['Address'],$sCSVExportCharset).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Address'], 0, $iNewline)).'"'.$delimiter.
-                            '"'.OutputUtils::translate_text_fpdf(mb_substr($sLT['Address'], $iNewline + 1)).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], 0, $iNewline),$sCSVExportCharset).'"'.$delimiter.
+                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], $iNewline + 1),$sCSVExportCharset).'"'.$delimiter;
         }
 
-        $sCSVOutput .= '"'.OutputUtils::translate_text_fpdf($sLT['City']).'"'.$delimiter.
-                        '"'.OutputUtils::translate_text_fpdf($sLT['State']).'"'.$delimiter.
+        $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['City'],$sCSVExportCharset).'"'.$delimiter.
+                        '"'.InputUtils::translate_special_charset($sLT['State'],$sCSVExportCharset).'"'.$delimiter.
                         '"'.$sLT['Zip'].'"'."\n";
     }
 
@@ -897,6 +897,7 @@ if ($sFileType == 'PDF') {
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
+    
     
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
     if ($sCSVExportCharset == "UTF-8") {
