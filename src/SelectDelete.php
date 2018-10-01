@@ -57,7 +57,9 @@ $numberPersons = 0;
 
 if ( !is_null ($family->getPeople()) ) {
   $numberPersons = $family->getPeople()->count();
-  $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
+  if (PersonQuery::Create()->findOneByFamId($iFamilyID)) {
+    $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
+  }
 }
 
 $DonationMessage = '';
