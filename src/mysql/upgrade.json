@@ -464,6 +464,6 @@
         ],
         "scripts": [
         ],
-        "dbVersion": "4.7.7"
+        "dbVersion": "4.8.0"
     }
 }
