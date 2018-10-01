@@ -569,7 +569,6 @@ $app->group('/events', function () {
               if ($key == 'freqEvents') {
                 foreach ($value as $sevent) {
                   if ($sevent['RECURRENCE-ID'] == (new \DateTime($input->reccurenceID))->format('Y-m-d H:i:s')) {
-                
                     $old_RECURRENCE_ID = $sevent['RECURRENCE-ID'];
                     $old_SUMMARY       = $sevent['SUMMARY'];
                     $old_DESCRIPTION   = $sevent['DESCRIPTION'];
@@ -617,7 +616,7 @@ $app->group('/events', function () {
             
               return $response->withJson(["status" => "success"]);
             } else {
-              return $response->withJson(["status" => "success"]);
+              return $response->withJson(["status" => "failed"]);
             }
           } 
 
@@ -669,7 +668,6 @@ $app->group('/events', function () {
                 if ($key == 'freqEvents') {
                   foreach ($value as $sevent) {
                     if ($sevent['RECURRENCE-ID'] == (new \DateTime($input->reccurenceID))->format('Y-m-d H:i:s')) {
-                
                       $old_RECURRENCE_ID = $sevent['RECURRENCE-ID'];
                       $old_SUMMARY       = $sevent['SUMMARY'];
                       $old_DESCRIPTION   = $sevent['DESCRIPTION'];
@@ -717,7 +715,7 @@ $app->group('/events', function () {
             
                 return $response->withJson(["status" => "success"]);
               } else {
-                return $response->withJson(["status" => "success"]);
+                return $response->withJson(["status" => "failed"]);
               }
           }
         } else {
