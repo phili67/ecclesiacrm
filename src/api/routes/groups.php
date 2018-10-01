@@ -224,13 +224,19 @@ $app->group('/groups', function () {
         
             
         // we loop to find the information in the family to add adresses etc ... this is now unusefull, the address is created automatically        
-        /*foreach ($members as $member)
+        foreach ($members as $member)
         {
           $p = $member->getPerson();
           $fam = $p->getFamily();   
       
           // Philippe Logel : this is usefull when a person don't have a family : ie not an address
-          if (!empty($fam))
+          if (!is_null($fam) 
+            && !is_null($fam->getAddress1()) 
+            && !is_null($fam->getAddress2())
+            && !is_null($fam->getCity())
+            && !is_null($fam->getState())
+            && !is_null($fam->getZip())
+            )
           {
             $p->setAddress1 ($fam->getAddress1());
             $p->setAddress2 ($fam->getAddress2());
@@ -239,7 +245,7 @@ $app->group('/groups', function () {
             $p->setState($fam->getState());
             $p->setZip($fam->getZip());    
           }      
-        }*/
+        }
         
         echo $members->toJSON();
     });
