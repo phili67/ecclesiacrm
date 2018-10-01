@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: EcclesiaCRM\n"
-"Language: en\n"
+"Language: en-gb\n"
 
 #: AutoPaymentEditor.php:918 CSVExport.php:105 CSVImport.php:219
 #: CartToFamily.php:249 DirectoryReports.php:253 FamilyEditor.php:678
@@ -13,14 +13,13 @@ msgstr ""
 #: external/templates/registration/family-register.php:44
 #: queryparameteroptions_qpo.php:6
 msgid "State"
-msgstr "County"
+msgstr "Country"
 
 #: AutoPaymentEditor.php:924 BackupDatabase.php:63 CSVExport.php:110
 #: CSVImport.php:220 CartToFamily.php:261 DirectoryReports.php:257
 #: FamilyEditor.php:688 PersonEditor.php:905 Register.php:46
 #: external/templates/registration/family-register.php:51
 #: external/templates/verify/enter-info.php:29
-#, fuzzy
 msgid "Zip"
 msgstr "Postcode"
 
@@ -50,11 +49,10 @@ msgstr "Autumn"
 
 #: Reports/ConfirmReport.php:130 Reports/ConfirmReportEmail.php:134
 msgid "City, State, Zip"
-msgstr "City, Postcode"
+msgstr "City, Country, Postcode"
 
 #: FamilyList.php:47 GroupReports.php:126 Reports/CanvassReports.php:241
 #: Reports/ConfirmReportEmail.php:192 Reports/ConfirmReportEmail.php:210
-#, fuzzy
 msgid "Cell Phone"
 msgstr "Mobile Phone"
 

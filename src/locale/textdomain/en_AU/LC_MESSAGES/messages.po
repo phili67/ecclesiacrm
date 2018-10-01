@@ -111,7 +111,6 @@ msgstr "Country"
 #: FamilyEditor.php:688 PersonEditor.php:905 Register.php:46
 #: external/templates/registration/family-register.php:51
 #: external/templates/verify/enter-info.php:29
-#, fuzzy
 msgid "Zip"
 msgstr "Postcode"
 
