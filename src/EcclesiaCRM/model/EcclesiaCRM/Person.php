@@ -4,6 +4,8 @@ namespace EcclesiaCRM;
 
 use EcclesiaCRM\Base\Person as BasePerson;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Base\FamilyQuery as BaseFamilyQuery;
+use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Photo;
 use Propel\Runtime\Connection\ConnectionInterface;
@@ -48,7 +50,7 @@ class Person extends BasePerson implements iPhoto
       }
 
       $user = UserQuery::create()->findPk($this->getId(), $con);
-      if (!is_null($user)) {
+      if (!empty($user)) {
           $user->delete($con);
       }
 
@@ -58,6 +60,31 @@ class Person extends BasePerson implements iPhoto
 
       return parent::preDelete($con);
     }
+    
+    public function postDelete(ConnectionInterface $con = null)
+    {
+      $family = null;
+      $ret = null;
+      
+      if ($this->getFamId() > 0) {// a one person family is deleted with the family too : assume family is only the address
+        $family = \EcclesiaCRM\FamilyQuery::Create()->filterById($this->getFamId())->findOne();
+      }
+
+      if (is_callable('parent::postDelete')) {
+          $ret  = parent::postDelete($con);
+                       
+          $pledges = \EcclesiaCRM\PledgeQuery::Create()->filterByFamId($this->getFamId())->find($con);
+
+          if ( !empty($family) && $family->getPeople()->count() == 0 && $pledges->count() == 0 ) {
+              // a one person family is deleted with the family too : assume family is only the address
+              // Attention : a family can contain payments, so the payments are deleted with the data constraints
+              $family->delete($con);
+          }
+      }
+
+      return $ret;
+    }
+
     
     public function isDeactivated()
     {

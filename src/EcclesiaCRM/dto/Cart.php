@@ -242,7 +242,7 @@ class Cart
                 ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
                 ->findOneById($personID);              
               
-        if (empty($user)) {// it's only a person, we cand delete.
+        if (empty($user)) {// it's only a person, we can delete.
           $person->delete();
           
           unset($personsID[$key]);          
