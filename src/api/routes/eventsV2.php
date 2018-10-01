@@ -452,7 +452,7 @@ $app->group('/events', function () {
         return $response->withJson(["status" => "success"]);
 
      } 
-     else if ($input->evntAction == 'moveEvent')
+     else if (!strcmp($input->evntAction,'moveEvent'))
      {
      
         $pdo = Propel::getConnection();         
@@ -556,13 +556,68 @@ $app->group('/events', function () {
             return $response->withJson(["status" => "success"]);
  
           } else {
-          
-            $newVcal = $calendarBackend->modifyVCalendar ($vcalendar,$input->reccurenceID,$input->start,$input->end);
+            // new code : first we have to exclude the date
+            // we've to search the dates
+            $old_RECURRENCE_ID = '';
+            $old_SUMMARY       = '';
+            $old_LOCATION      = '';
+            $old_UID           = '';
             
-            $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $newVcal->serialize());
+            $returnValues = $calendarBackend->extractCalendarData($event['calendardata']);
             
-            return $response->withJson(["status" => "success"]);
+            foreach ($returnValues as $key => $value) {
+              if ($key == 'freqEvents') {
+                foreach ($value as $sevent) {
+                  if ($sevent['RECURRENCE-ID'] == (new \DateTime($input->reccurenceID))->format('Y-m-d H:i:s')) {
+                    $old_RECURRENCE_ID = $sevent['RECURRENCE-ID'];
+                    $old_SUMMARY       = $sevent['SUMMARY'];
+                    $old_DESCRIPTION   = $sevent['DESCRIPTION'];
+                    $old_LOCATION      = $sevent['DESCRIPTION'];
+                    $old_UID           = $sevent['UID'];
+                    break;
+                  }
+                }
+              }
+            }
             
+            if (!empty($old_UID)) {
+              // only in the case we've found something
+              // the location
+              $coordinates = "";
+              $location = '';
+        
+              if (isset($input->location)) {
+                $location = str_replace("\n"," ",$old_LOCATION);
+                $latLng = GeoUtils::getLatLong($old_LOCATION);
+                if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+                   $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+                }
+              }
+            
+              $new_vevent = [
+                'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+                'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+                'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                'DESCRIPTION' => $old_DESCRIPTION,
+                'SUMMARY' => $old_SUMMARY,
+                'LOCATION' => $old_LOCATION,
+                'UID' => $old_UID,
+                'SEQUENCE' => '0',
+                'RECURRENCE-ID' => (new \DateTime($input->reccurenceID))->format('Ymd\THis'),
+                'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+                "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
+                //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
+              ];
+            
+              $vcalendar->add('VEVENT',$new_vevent);
+            
+              $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+            
+              return $response->withJson(["status" => "success"]);
+            } else {
+              return $response->withJson(["status" => "failed"]);
+            }
           } 
 
         } else {
@@ -600,15 +655,69 @@ $app->group('/events', function () {
          
              return $response->withJson(["status" => "success"]);
            } else {
-             $newVcal = $calendarBackend->modifyVCalendar ($vcalendar,$input->reccurenceID,$input->start,$input->end);
-             
-             $newVcal->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
+              // new code : first we have to exclude the date
+              // we've to search the dates
+              $old_RECURRENCE_ID = '';
+              $old_SUMMARY       = '';
+              $old_LOCATION      = '';
+              $old_UID           = '';
             
-             $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $newVcal->serialize());
+              $returnValues = $calendarBackend->extractCalendarData($event['calendardata']);
             
-            return $response->withJson(["status" => "success"]);
-           }
-
+              foreach ($returnValues as $key => $value) {
+                if ($key == 'freqEvents') {
+                  foreach ($value as $sevent) {
+                    if ($sevent['RECURRENCE-ID'] == (new \DateTime($input->reccurenceID))->format('Y-m-d H:i:s')) {
+                      $old_RECURRENCE_ID = $sevent['RECURRENCE-ID'];
+                      $old_SUMMARY       = $sevent['SUMMARY'];
+                      $old_DESCRIPTION   = $sevent['DESCRIPTION'];
+                      $old_LOCATION      = $sevent['DESCRIPTION'];
+                      $old_UID           = $sevent['UID'];
+                      break;
+                    }
+                  }
+                }
+              }
+            
+              if (!empty($old_UID)) {
+                // only in the case we've found something
+                // the location
+                $coordinates = "";
+                $location = '';
+        
+                if (isset($input->location)) {
+                  $location = str_replace("\n"," ",$old_LOCATION);
+                  $latLng = GeoUtils::getLatLong($old_LOCATION);
+                  if(!empty( $latLng['Latitude']) && !empty($latLng['Longitude'])) {
+                     $coordinates  = $latLng['Latitude'].' commaGMAP '.$latLng['Longitude'];
+                  }
+                }
+            
+                $new_vevent = [
+                  'DTSTAMP' => (new \DateTime('Now'))->format('Ymd\THis'),
+                  'DTSTART' => (new \DateTime($input->start))->format('Ymd\THis'),
+                  'DTEND' => (new \DateTime($input->end))->format('Ymd\THis'),
+                  'LAST-MODIFIED' => (new \DateTime('Now'))->format('Ymd\THis'),
+                  'DESCRIPTION' => $old_DESCRIPTION,
+                  'SUMMARY' => $old_SUMMARY,
+                  'LOCATION' => $old_LOCATION,
+                  'UID' => $old_UID,
+                  'SEQUENCE' => '0',
+                  'RECURRENCE-ID' => (new \DateTime($input->reccurenceID))->format('Ymd\THis'),
+                  'X-APPLE-TRAVEL-ADVISORY-BEHAVIOR' => 'AUTOMATIC',
+                  "X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-RADIUS=49.91307587029686;X-TITLE=\"".$location."\"" => "geo:".$coordinates
+                  //'X-APPLE-STRUCTURED-LOCATION;VALUE=URI;X-APPLE-MAPKIT-HANDLE=CAESvAEaEglnaQKg5U5IQBFCfLuA8gIfQCJdCgZGcmFuY2USAkZSGgZBbHNhY2UqCEJhcy1SaGluMglCaXNjaGhlaW06BTY3ODAwUhJSdWUgUm9iZXJ0IEtpZWZmZXJaATFiFDEgUnVlIFJvYmVydCBLaWVmZmVyKhQxIFJ1ZSBSb2JlcnQgS2llZmZlcjIUMSBSdWUgUm9iZXJ0IEtpZWZmZXIyDzY3ODAwIEJpc2NoaGVpbTIGRnJhbmNlODlAAA==;X-APPLE-RADIUS=70.58736571013601;X-TITLE="1 Rue Robert Kieffer\nBischheim, France":geo' => '48.616383,7.752878'
+                ];
+            
+                $vcalendar->add('VEVENT',$new_vevent);
+            
+                $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
+            
+                return $response->withJson(["status" => "success"]);
+              } else {
+                return $response->withJson(["status" => "failed"]);
+              }
+          }
         } else {
 
           $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
