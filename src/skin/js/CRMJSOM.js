@@ -140,6 +140,7 @@
                   {
                     callback(data);
                     window.CRM.cart.refresh();
+                    window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
                   }
                   else
                   {
@@ -375,6 +376,12 @@
               callback(data);
             }
             
+        });
+      },
+      'updateLocalePage' : function () {
+        // broadcaster
+        $.event.trigger({
+            type: "updateLocalePageMessage"
         });
       },
       'refresh' : function () {

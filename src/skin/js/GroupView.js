@@ -751,6 +751,16 @@ function initDataTable() {
       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  
     }
 
-// end manager
+    // end manager
+
+
+    // listener : when the delete member is invocated
+    $(document).on("updateLocalePageMessage", updateLocaleSCPage);
+    
+    // newMessage event handler
+    function updateLocaleSCPage(e) {
+      window.CRM.DataTableGroupView.ajax.reload();
+    }
+
 
 }

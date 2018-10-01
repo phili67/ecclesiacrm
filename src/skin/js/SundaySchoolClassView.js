@@ -1099,4 +1099,14 @@ $("document").ready(function(){
 
        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
     });
+    
+    
+    // listener : when the delete member is invocated
+    $(document).on("updateLocalePageMessage", updateLocaleSCPage);
+    
+    // newMessage event handler
+    function updateLocaleSCPage(e) {
+      dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
+      updateGraphs();
+    }
 });
