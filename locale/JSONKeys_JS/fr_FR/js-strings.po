@@ -864,7 +864,7 @@ msgid "Zip Code"
 msgstr "Code postal"
 
 msgid "Cell Phone"
-msgstr "Cell Phone"
+msgstr "Téléphone portable"
 
 msgid "Email"
 msgstr "Email"
@@ -879,7 +879,7 @@ msgid "Members to another group"
 msgstr "Membres dans un autre groupe"
 
 msgid "Members to cart"
-msgstr "Membre(s) vers un autre groupe"
+msgstr "Membre(s) au panier"
 
 msgid "Move"
 msgstr "Déplacer"
