@@ -175,8 +175,9 @@ $app->group('/calendar', function () {
             $root = SystemURLs::getRootPath()."/";
           }
           
-          $message = "<p><label>".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
-          $message .= "<p><label>".gettext("This address can be used only with a CalDav server.");
+          $message = "<p><label>".gettext("This address can be used only with a CalDav server.")." ".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $message .= "<p><label>".gettext("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
+          $message .= "<p><label>".gettext("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">".gettext("General Settings/Integration")."</a>.";
           
           $title = $calendar->getDisplayname();
           
