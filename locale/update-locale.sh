@@ -36,6 +36,7 @@ for row in $(cat "../src/locale/locales.json" | jq -r '.[] | @base64'); do
    echo "Merge '${lang}'"
 
    if [ "${lang}" == "en_US" ] || [ "${lang}" == "en_GB" ] || [ "${lang}" == "en_CA" ] || [ "${lang}" == "en_AU" ] ; then
+     msgfmt -o "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.mo" "../src/locale/textdomain/${lang}/LC_MESSAGES/messages.po"
      continue
    fi
 
