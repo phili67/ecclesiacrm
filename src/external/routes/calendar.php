@@ -14,7 +14,7 @@ $app->group('/calendar', function () {
      $this->get('/events/{userID}/{uri}', function ($request, $response, $args) {
         if (!EcclesiaCRM\dto\SystemConfig::getBooleanValue("bEnableExternalCalendarAPI"))
         {
-          throw new \Exception(gettext("External Calendar API is disabled")  , 400);
+          return $response->withStatus(404);
         }
 
         $params = $request->getQueryParams();
@@ -41,14 +41,9 @@ $app->group('/calendar', function () {
               $vcalendar = VObject\Reader::read($res['calendardata']);
               
               $data .= $vcalendar->VEVENT->serialize();
-            }            
+            }
           }
         }
-        
-        header("Content-type:text/calendar");
-        header('Content-Disposition: inline; filename=calendar.ics');
-        Header('Content-Length: '.strlen(data));
-        Header('Connection: close');
         
         echo "BEGIN:VCALENDAR\n";
         echo "VERSION:2.0\n";
