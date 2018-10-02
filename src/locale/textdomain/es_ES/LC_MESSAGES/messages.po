@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 20:39+0200\n"
+"POT-Creation-Date: 2018-10-02 19:09+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,12 +29,24 @@ msgid "POST to cart requires a EventID"
 msgstr "POST al carrito requiere un EventID"
 
 #: api/routes/calendarV2.php:178
+msgid "This address can be used only with a CalDav server."
+msgstr "Su dirección sólo será usada con un CalDav servidor "
+
+#: api/routes/calendarV2.php:178
 msgid "For thunderbird the URL is"
 msgstr "Para thunderbird la URL se"
 
 #: api/routes/calendarV2.php:179
-msgid "This address can be used only with a CalDav server."
-msgstr "Su dirección sólo será usada con un CalDav servidor "
+msgid "For a share calendar (only in read mode)"
+msgstr "Per compartir un calendario (sólo en modo lectura)"
+
+#: api/routes/calendarV2.php:180
+msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
+msgstr "Tienes que activar Ajustes \"bEnableExternalCalendarAPI\" en"
+
+#: api/routes/calendarV2.php:180
+msgid "General Settings/Integration"
+msgstr "Ajustes Generales/Integración"
 
 #: api/routes/cart.php:46
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
@@ -5454,10 +5466,6 @@ msgstr "Crear Evento"
 #: EventNames.php:349
 msgid "Add Event Type"
 msgstr "Agregar Tipo de Evento"
-
-#: external/routes/calendar.php:12
-msgid "External Calendar API is disabled"
-msgstr "API de calendario externo está deshabilitado"
 
 #: external/routes/password.php:65
 msgid "Unable to reset password"
@@ -10913,6 +10921,9 @@ msgstr "TARJETACRÉDITO"
 
 msgid "CreditCard"
 msgstr "Tarjeta Crédito"
+
+#~ msgid "External Calendar API is disabled"
+#~ msgstr "API de calendario externo está deshabilitado"
 
 #~ msgid "Default User Settings"
 #~ msgstr "Ajustes del Usuario por Defecto"

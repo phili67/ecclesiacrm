@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 20:44+0200\n"
+"POT-Creation-Date: 2018-10-02 19:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,11 +36,23 @@ msgid "POST to cart requires a EventID"
 msgstr ""
 
 #: api/routes/calendarV2.php:178
+msgid "This address can be used only with a CalDav server."
+msgstr ""
+
+#: api/routes/calendarV2.php:178
 msgid "For thunderbird the URL is"
 msgstr ""
 
 #: api/routes/calendarV2.php:179
-msgid "This address can be used only with a CalDav server."
+msgid "For a share calendar (only in read mode)"
+msgstr ""
+
+#: api/routes/calendarV2.php:180
+msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
+msgstr ""
+
+#: api/routes/calendarV2.php:180
+msgid "General Settings/Integration"
 msgstr ""
 
 #: api/routes/cart.php:46
@@ -5325,10 +5337,6 @@ msgstr ""
 
 #: EventNames.php:349
 msgid "Add Event Type"
-msgstr ""
-
-#: external/routes/calendar.php:12
-msgid "External Calendar API is disabled"
 msgstr ""
 
 #: external/routes/password.php:65
