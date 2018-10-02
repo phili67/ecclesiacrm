@@ -1,33 +1,36 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: EcclesiaCRM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-01 20:39+0200\n"
+"Language: en-gb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
-"Project-Id-Version: EcclesiaCRM\n"
-"Language: en-gb\n"
 
-#: AutoPaymentEditor.php:918 CSVExport.php:105 CSVImport.php:219
-#: CartToFamily.php:249 DirectoryReports.php:253 FamilyEditor.php:678
-#: PersonEditor.php:882 Register.php:45
-#: external/templates/registration/family-register.php:44
-#: queryparameteroptions_qpo.php:6
+#: AutoPaymentEditor.php:937 CartToFamily.php:328 CSVExport.php:99
+#: CSVImport.php:243 DirectoryReports.php:281
+#: external/templates/registration/family-register.php:44 FamilyEditor.php:715
+#: PersonEditor.php:983 PersonEditor.php:1117 Register.php:45
+#: Reports/PDFLabel.php:866 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Country"
 
-#: AutoPaymentEditor.php:924 BackupDatabase.php:63 CSVExport.php:110
-#: CSVImport.php:220 CartToFamily.php:261 DirectoryReports.php:257
-#: FamilyEditor.php:688 PersonEditor.php:905 Register.php:46
+#: AutoPaymentEditor.php:945 BackupDatabase.php:68 CartToFamily.php:343
+#: CSVExport.php:104 CSVImport.php:244 DirectoryReports.php:285
 #: external/templates/registration/family-register.php:51
-#: external/templates/verify/enter-info.php:29
+#: external/templates/verify/enter-info.php:29 FamilyEditor.php:728
+#: PersonEditor.php:996 PersonEditor.php:1151 Register.php:46
+#: Reports/PDFLabel.php:866
 msgid "Zip"
 msgstr "Postcode"
 
-#: CartToFamily.php:256
+#: CartToFamily.php:338
 msgid "(Use the textbox for countries other than US and Canada)"
 msgstr "(Use the textbox for countries other than the UK)"
 
-#: DirectoryReports.php:177
+#: DirectoryReports.php:193
 msgid "Family Cell Phone"
 msgstr "Family Mobile"
 
@@ -35,31 +38,31 @@ msgstr "Family Mobile"
 msgid "Personal Cell Phone"
 msgstr "Personal Mobile"
 
-#: FinancialReports.php:261 PledgeEditor.php:576 PledgeEditor.php:614
+#: FinancialReports.php:341 PledgeEditor.php:610 PledgeEditor.php:644
 msgid "Check"
 msgstr "Cheque"
 
-#: PledgeEditor.php:668
+#: PledgeEditor.php:703
 msgid "Scan check"
 msgstr "Scan cheque"
 
-#: Include/Functions.php:941
+#: EcclesiaCRM/utils/OutputUtils.php:326
 msgid "Fall"
 msgstr "Autumn"
 
-#: Reports/ConfirmReport.php:130 Reports/ConfirmReportEmail.php:134
+#: Reports/ConfirmReportEmail.php:135 Reports/ConfirmReport.php:131
 msgid "City, State, Zip"
 msgstr "City, Country, Postcode"
 
-#: FamilyList.php:47 GroupReports.php:126 Reports/CanvassReports.php:241
-#: Reports/ConfirmReportEmail.php:192 Reports/ConfirmReportEmail.php:210
+#: FamilyList.php:104 GroupReports.php:147 PersonList.php:113
+#: Reports/CanvassReports.php:241 Reports/ConfirmReportEmail.php:193
+#: Reports/ConfirmReportEmail.php:211
 msgid "Cell Phone"
 msgstr "Mobile Phone"
 
-#: EcclesiaCRM/Reports/PDF_Directory.php:318
-#: EcclesiaCRM/Reports/PDF_Directory.php:394
-#: EcclesiaCRM/Reports/PDF_Directory.php:451 Reports/DirectoryReport.php:291
-#: Reports/GroupReport.php:129
+#: EcclesiaCRM/Reports/PDF_Directory.php:324
+#: EcclesiaCRM/Reports/PDF_Directory.php:400
+#: EcclesiaCRM/Reports/PDF_Directory.php:457 Reports/DirectoryReport.php:296
+#: Reports/GroupReport.php:130
 msgid "Cell"
 msgstr "Mobile"
-

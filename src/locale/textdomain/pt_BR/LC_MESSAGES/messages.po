@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-01 20:39+0200\n"
+"POT-Creation-Date: 2018-10-02 19:09+0200\n"
 "Language: pt-br\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,12 +33,25 @@ msgstr ""
 "Colocar no carriho requer um array de Pessoas, ID de Famílias ou ID de Grupos"
 
 #: api/routes/calendarV2.php:178
+msgid "This address can be used only with a CalDav server."
+msgstr ""
+
+#: api/routes/calendarV2.php:178
 msgid "For thunderbird the URL is"
 msgstr ""
 
 #: api/routes/calendarV2.php:179
-msgid "This address can be used only with a CalDav server."
+msgid "For a share calendar (only in read mode)"
 msgstr ""
+
+#: api/routes/calendarV2.php:180
+msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
+msgstr ""
+
+#: api/routes/calendarV2.php:180
+#, fuzzy
+msgid "General Settings/Integration"
+msgstr "Editar Configurações Gerais"
 
 #: api/routes/cart.php:46
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
@@ -5619,10 +5632,6 @@ msgstr "Criar Evento"
 #: EventNames.php:349
 msgid "Add Event Type"
 msgstr "Adicionar tipo de evento"
-
-#: external/routes/calendar.php:12
-msgid "External Calendar API is disabled"
-msgstr "API de Calendário Externo está desabilitada."
 
 #: external/routes/password.php:65
 msgid "Unable to reset password"
@@ -11382,6 +11391,9 @@ msgstr ""
 #, fuzzy
 msgid "CreditCard"
 msgstr "Cartão de crédito"
+
+#~ msgid "External Calendar API is disabled"
+#~ msgstr "API de Calendário Externo está desabilitada."
 
 #~ msgid "Default User Settings"
 #~ msgstr " Configurações padrão de usuários"
