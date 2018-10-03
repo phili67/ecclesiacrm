@@ -170,7 +170,8 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 
                              $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
                                           'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];     
+                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                          'EVENT' => $componentSubObject->serialize()];
                                           
                                           
                              $subEvent = array_merge($subEvent,$extras);
@@ -189,7 +190,8 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                              
                              $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
                                           'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s')];
+                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                          'EVENT' => $componentSubObject->serialize()];
                            }
                            
                            if ( isset($subEvent['RECURRENCE-ID']) && !array_search($subEvent['RECURRENCE-ID'],$freqEvents) || !isset($subEvent['RECURRENCE-ID']) ) {
@@ -285,8 +287,18 @@ class CalDavPDO extends SabreCalDavBase\PDO {
             $stmt->execute([$instanceId]);
 
         }
-
-
+    }
+    
+    function searchAndDeleteOneEvent ($vcalendar,$reccurenceID) {
+      $i=0;
+    
+      foreach ($vcalendar->VEVENT as $sevent) {
+        if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($reccurenceID))->format('Ymd\THis')) {
+          $vcalendar->remove($vcalendar->VEVENT[$i]);
+          break;
+        }
+        $i++;
+      }
     }
     
     

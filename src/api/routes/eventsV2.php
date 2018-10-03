@@ -556,7 +556,7 @@ $app->group('/events', function () {
             return $response->withJson(["status" => "success"]);
  
           } else {
-            // new code : first we have to exclude the date
+            // new code : 
             // we've to search the dates
             $old_RECURRENCE_ID = '';
             $old_SUMMARY       = '';
@@ -574,6 +574,9 @@ $app->group('/events', function () {
                     $old_DESCRIPTION   = $sevent['DESCRIPTION'];
                     $old_LOCATION      = $sevent['DESCRIPTION'];
                     $old_UID           = $sevent['UID'];
+                    
+                    // we have to delete the last occurence
+                    $calendarBackend->searchAndDeleteOneEvent ($vcalendar,$old_RECURRENCE_ID);
                     break;
                   }
                 }
@@ -581,6 +584,9 @@ $app->group('/events', function () {
             }
             
             if (!empty($old_UID)) {
+              //first we have to exclude the date
+              //$vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
+              
               // only in the case we've found something
               // the location
               $coordinates = "";
@@ -673,6 +679,9 @@ $app->group('/events', function () {
                       $old_DESCRIPTION   = $sevent['DESCRIPTION'];
                       $old_LOCATION      = $sevent['DESCRIPTION'];
                       $old_UID           = $sevent['UID'];
+                      
+                      // we have to delete the last occurence
+                      $calendarBackend->searchAndDeleteOneEvent ($vcalendar,$old_RECURRENCE_ID);
                       break;
                     }
                   }
@@ -763,15 +772,7 @@ $app->group('/events', function () {
 
             $vcalendar = VObject\Reader::read($event['calendardata']);
           
-            $i=0;
-          
-            foreach ($vcalendar->VEVENT as $sevent) {
-              if ($sevent->{'RECURRENCE-ID'} == (new \DateTime($input->reccurenceID))->format('Ymd\THis')) {
-                $vcalendar->remove($vcalendar->VEVENT[$i]);
-                break;
-              }
-              $i++;
-            }
+            $calendarBackend->searchAndDeleteOneEvent ($vcalendar,$input->reccurenceID);
           
             $vcalendar->VEVENT->add('EXDATE', (new \DateTime($input->reccurenceID))->format('Ymd\THis'));
             $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
