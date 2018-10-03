@@ -36,11 +36,14 @@ $app->group('/calendar', function () {
             foreach ($events as $event) {
               $res = $calendarBackend->getCalendarObject($calendar['id'],$event['uri']);
       
-              $returnValues = $calendarBackend->extractCalendarData($res['calendardata']);
-              
               $vcalendar = VObject\Reader::read($res['calendardata']);
               
-              $data .= $vcalendar->VEVENT->serialize();
+              // we expand the recurence events
+              $newVCalendar = $vcalendar->expand(new DateTime('2000-01-01'), new DateTime('2032-12-31'));
+              
+              foreach ($vcalendar->VEVENT as $sevent) {
+                $data .= $sevent->serialize();
+              }
             }
           }
         }
