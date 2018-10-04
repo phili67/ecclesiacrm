@@ -3,7 +3,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incoprorated in another software without authorization
 //  updated : 2018/05/13
 //
 
@@ -109,7 +109,7 @@ $app->group('/calendar', function () {
         
         $return = [];
 
-        if ( isset ($params->calIDs) &&  isset ($params->desc)) { 
+        if ( isset ($params->calIDs) &&  isset ($params->desc) && $_SESSION['user']->isAdmin() ) { // only an admin can change the calendarinstance description
           $calIDs = explode(",",$params->calIDs);
           
           $calendarInstance = CalendarinstancesQuery::Create()->findOneById( $calIDs[1] );
@@ -221,7 +221,9 @@ $app->group('/calendar', function () {
           
           $message = "<p><label>".gettext("This address can be used only with a CalDav server.")." ".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
           $message .= "<p><label>".gettext("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
-          $message .= "<p><label>".gettext("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">".gettext("General Settings/Integration")."</a>.";
+          if ($_SESSION['user']->isAdmin()) {
+            $message .= "<p><label>".gettext("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">".gettext("General Settings/Integration")."</a>.";
+          }
           
           $title = $calendar->getDisplayname();
           
