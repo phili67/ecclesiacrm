@@ -919,14 +919,6 @@ SQL;
         $stmt->execute([$calendarData, time(), $extraData['title'], $extraData['description'], $extraData['location'], $extraData['freqlastOccurence'], $extraData['etag'], $extraData['size'], $extraData['componentType'], $extraData['firstOccurence'], $extraData['lastOccurence'], $extraData['uid'], $calendarId, $objectUri]);
         
         // quand le calendrier est mis à jour on gère la bonne date et la bonne heure
-        //error_log("La date est = ".$extraData['firstOccurence']."\n\n", 3, "/var/log/mes-erreurs.log");
-        //error_log("Le blob = ".$calendarData."\n\n", 3, "/var/log/mes-erreurs.log");
-        
-        /*foreach ($extraData as $key => $val) {
-           error_log("Key = ".$key." val = ".$val."\n\n", 3, "/var/log/mes-erreurs.log");
-        }*/
-        
-
         $this->addChange($calendarId, $objectUri, 2);
 
         return '"' . $extraData['etag'] . '"';
