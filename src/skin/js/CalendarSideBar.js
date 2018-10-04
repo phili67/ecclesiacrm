@@ -1,7 +1,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incoprorated in another software without authorization
 //
 //  Updated     : 2018/05/13
 //
@@ -56,7 +56,7 @@
   
   $("#add-reservation-calendar").click('focus', function (e) {
       bootbox.confirm({
-          title:i18next.t("Set Calendar Name"),
+          title:i18next.t("Set Resource Name"),
           message:'<table width=100%>'
                   +'<tr>'
                     +'<td>'
@@ -68,7 +68,7 @@
                   +'</tr>'
                   +'<tr>'
                     +'<td>'
-                    +i18next.t("Select a type")+':'
+                    +i18next.t("Select a resource type")+':'
                     +'</td>'
                     +'<td>'
                     + '<select class="form-control input-sm" id="typeCalendar" name="typeCalendar">'
@@ -588,7 +588,7 @@
           }
         };
     
-        if (type == "personal" || type == "reservation") {
+        if (type == "personal" || type == "reservation"  && data.isAdmin == true) {
           allButtons = $.extend(allButtons,buttonDelete,buttonManage,buttonOk);
         } else if (type == "group" && data.isAdmin == true) {
           allButtons = $.extend(allButtons,buttonManage,buttonOk);
@@ -707,7 +707,7 @@
      var id      = $(this).data("id");
 
      bootbox.confirm({
-          title:i18next.t("Calendar Info") + ' ' + i18next.t("for") + ' : ' + title,
+          title:i18next.t("Resource Info for") + ' : ' + title,
           message:'<table width=100%>'
                   +'<tr>'
                     +'<td>'
@@ -736,7 +736,11 @@
                     path: 'calendar/setDescription',
                     data: JSON.stringify({"calIDs":id,"desc":desc})
                   }).done(function(data) {
-                     addReservationCalendars();
+                     if (data.status == "success") {
+                       addReservationCalendars();
+                     } else {
+                       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Only administrator have the right to change the Resource description"));
+                     }
                   });
               }
           }
