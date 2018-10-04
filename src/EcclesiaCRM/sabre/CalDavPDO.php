@@ -3,7 +3,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incorporated in another software without any authorizaion
 //
 //  Updated : 2018/06/23
 //
@@ -242,6 +242,144 @@ class CalDavPDO extends SabreCalDavBase\PDO {
       //}
     }
     
+    function getFullCalendar ($calendarId) {
+       if (!is_array($calendarId)) {
+            throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
+        }
+        
+        list($calendarId, $instanceId) = $calendarId;
+        
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->calendarInstancesTableName . ' WHERE calendarid = ? AND id = ?');
+        $stmt->execute([$calendarId,$instanceId]);
+        
+        $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$row) return null;
+        
+        return [
+            'id'           => $row['id'],
+            'uri'          => $row['uri'],
+            'lastmodified' => (int)$row['lastmodified'],
+            'etag'         => '"' . $row['etag'] . '"',
+            'size'         => (int)$row['size'],
+            'calendardata' => $row['calendardata'],
+            'description'  => $row['description'],
+            'present'      => $row['present'],
+            'visible'      => $row['visible'],
+            'grpid'        => $row['grpid'],
+            'cal_type'     => $row['cal_type']
+         ];
+    }
+        
+    /**
+     * Updates the list of shares.
+     *
+     * @param mixed $calendarId
+     * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
+     * @return void
+     */
+    function updateInvites($calendarId, array $sharees) {
+
+        if (!is_array($calendarId)) {
+            throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
+        }
+        $currentInvites = $this->getInvites($calendarId);
+        list($calendarId, $instanceId) = $calendarId;
+
+        $removeStmt = $this->pdo->prepare("DELETE FROM " . $this->calendarInstancesTableName . " WHERE calendarid = ? AND share_href = ? AND access IN (2,3)");
+        $updateStmt = $this->pdo->prepare("UPDATE " . $this->calendarInstancesTableName . " SET access = ?, share_displayname = ?, share_invitestatus = ? WHERE calendarid = ? AND share_href = ?");
+
+        $insertStmt = $this->pdo->prepare('
+INSERT INTO ' . $this->calendarInstancesTableName . '
+    (
+        calendarid,
+        principaluri,
+        access,
+        displayname,
+        grpid,
+        cal_type,
+        uri,
+        description,
+        calendarorder,
+        calendarcolor,
+        timezone,
+        transparent,
+        share_href,
+        share_displayname,
+        share_invitestatus
+    )
+    SELECT
+        ?,
+        ?,
+        ?,
+        displayname,
+        grpid,
+        cal_type,
+        ?,
+        description,
+        calendarorder,
+        calendarcolor,
+        timezone,
+        1,
+        ?,
+        ?,
+        ?
+    FROM ' . $this->calendarInstancesTableName . ' WHERE id = ?');
+
+        foreach ($sharees as $sharee) {
+
+            if ($sharee->access === \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS) {
+                // if access was set no NOACCESS, it means access for an
+                // existing sharee was removed.
+                $removeStmt->execute([$calendarId, $sharee->href]);
+                continue;
+            }
+
+            if (is_null($sharee->principal)) {
+                // If the server could not determine the principal automatically,
+                // we will mark the invite status as invalid.
+                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_INVALID;
+            } else {
+                // Because sabre/dav does not yet have an invitation system,
+                // every invite is automatically accepted for now.
+                $sharee->inviteStatus = \Sabre\DAV\Sharing\Plugin::INVITE_ACCEPTED;
+            }
+
+            foreach ($currentInvites as $oldSharee) {
+
+                if ($oldSharee->href === $sharee->href) {
+                    // This is an update
+                    $sharee->properties = array_merge(
+                        $oldSharee->properties,
+                        $sharee->properties
+                    );
+                    $updateStmt->execute([
+                        $sharee->access,
+                        isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
+                        $sharee->inviteStatus ?: $oldSharee->inviteStatus,
+                        $calendarId,
+                        $sharee->href
+                    ]);
+                    continue 2;
+                }
+
+            }
+            // If we got here, it means it was a new sharee
+            $insertStmt->execute([
+                $calendarId,
+                $sharee->principal,
+                $sharee->access,
+                \Sabre\DAV\UUIDUtil::getUUID(),
+                $sharee->href,
+                isset($sharee->properties['{DAV:}displayname']) ? $sharee->properties['{DAV:}displayname'] : null,
+                $sharee->inviteStatus ?: \Sabre\DAV\Sharing\Plugin::INVITE_NORESPONSE,
+                $instanceId
+            ]);
+
+        }
+
+    }
+    
     /**
      * Delete a calendar and all it's objects
      *
@@ -324,9 +462,10 @@ class CalDavPDO extends SabreCalDavBase\PDO {
      * ACL will automatically be put in read-only mode.
      *
      * @param string $principalUri
+     * @param bool   $all (for all the calendar : order by type)
      * @return array
      */
-     function getCalendarsForUser($principalUri) {
+     function getCalendarsForUser($principalUri,$all=false) {
 
         $fields = array_values($this->propertyMap);
         $fields[] = 'calendarid';
@@ -336,9 +475,17 @@ class CalDavPDO extends SabreCalDavBase\PDO {
         $fields[] = 'principaluri';
         $fields[] = 'transparent';
         $fields[] = 'access';
-        $fields[] = 'visible';
         $fields[] = 'present';
+        $fields[] = 'visible';
         $fields[] = 'grpid';
+        $fields[] = 'cal_type';
+        $fields[] = 'description';
+        
+        $ordering = 'displayname';//'calendarorder';
+        
+        if ($all) {// this is usefull for the calendar popup in the EventEditor window
+          $ordering = 'cal_type';  
+        }
 
         // Making fields a comma-delimited list
         $fields = implode(', ', $fields);
@@ -346,7 +493,7 @@ class CalDavPDO extends SabreCalDavBase\PDO {
 SELECT {$this->calendarInstancesTableName}.id as id, $fields FROM {$this->calendarInstancesTableName}
     LEFT JOIN {$this->calendarTableName} ON
         {$this->calendarInstancesTableName}.calendarid = {$this->calendarTableName}.id
-WHERE principaluri = ? ORDER BY calendarorder ASC
+WHERE principaluri = ? ORDER BY $ordering ASC
 SQL
         );
         $stmt->execute([$principalUri]);
@@ -371,6 +518,8 @@ SQL
                 'present'                                                            =>  $row['present'],
                 'visible'                                                            =>  $row['visible'],
                 'grpid'                                                              =>  $row['grpid'],
+                'cal_type'                                                           =>  $row['cal_type'],
+                'description'                                                        =>  $row['description'],
             ];
 
             $calendar['share-access'] = (int)$row['access'];
@@ -609,6 +758,79 @@ SQL;
         
         return $row['grpid'];
     }
+    
+   /**
+     * Creates a new calendar for a principal.
+     *
+     * If the creation was a success, an id must be returned that can be used
+     * to reference this calendar in other methods, such as updateCalendar.
+     *
+     * @param string $principalUri
+     * @param string $calendarUri
+     * @param array $properties
+     * @param int : 1 = personal, 2 = room, 3 = computer, 4 = video
+     * @return string
+     */
+    function createCalendar($principalUri, $calendarUri, array $properties,$cal_type=1,$desc=null) {
+
+        $fieldNames = [
+            'principaluri',
+            'uri',
+            'transparent',
+            'cal_type',
+            'description',
+            'calendarid',
+        ];
+        $values = [
+            ':principaluri' => $principalUri,
+            ':uri'          => $calendarUri,
+            ':transparent'  => 0,
+            ':cal_type'     => $cal_type,
+            ':description'  => $desc,
+        ];
+
+
+        $sccs = '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set';
+        if (!isset($properties[$sccs])) {
+            // Default value
+            $components = 'VEVENT,VTODO';
+        } else {
+            if (!($properties[$sccs] instanceof CalDAV\Xml\Property\SupportedCalendarComponentSet)) {
+                throw new DAV\Exception('The ' . $sccs . ' property must be of type: \Sabre\CalDAV\Xml\Property\SupportedCalendarComponentSet');
+            }
+            $components = implode(',', $properties[$sccs]->getValue());
+        }
+        $transp = '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-calendar-transp';
+        if (isset($properties[$transp])) {
+            $values[':transparent'] = $properties[$transp]->getValue() === 'transparent' ? 1 : 0;
+        }
+        $stmt = $this->pdo->prepare("INSERT INTO " . $this->calendarTableName . " (synctoken, components) VALUES (1, ?)");
+        $stmt->execute([$components]);
+
+        $calendarId = $this->pdo->lastInsertId(
+            $this->calendarTableName . '_id_seq'
+        );
+
+        $values[':calendarid'] = $calendarId;
+
+        foreach ($this->propertyMap as $xmlName => $dbName) {
+            if (isset($properties[$xmlName])) {
+
+                $values[':' . $dbName] = $properties[$xmlName];
+                $fieldNames[] = $dbName;
+            }
+        }
+        
+        $stmt = $this->pdo->prepare("INSERT INTO " . $this->calendarInstancesTableName . " (" . implode(', ', $fieldNames) . ") VALUES (" . implode(', ', array_keys($values)) . ")");
+
+        $stmt->execute($values);
+
+        return [
+            $calendarId,
+            $this->pdo->lastInsertId($this->calendarInstancesTableName . '_id_seq')
+        ];
+
+    }    
     
     /**
      * Creates a new calendar object.
@@ -866,7 +1088,7 @@ SQL;
     }
     
     
-        /**
+   /**
      * Searches through all of a users calendars and calendar objects to find
      * an object with a specific UID.
      *

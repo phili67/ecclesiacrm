@@ -104,6 +104,43 @@ $app->group('/calendar', function () {
         return $response->withJson(['status' => "failed"]);
     });
     
+    $this->post('/setDescription', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+        
+        $return = [];
+
+        if ( isset ($params->calIDs) &&  isset ($params->desc)) { 
+          $calIDs = explode(",",$params->calIDs);
+          
+          $calendarInstance = CalendarinstancesQuery::Create()->findOneById( $calIDs[1] );
+          
+          $calendarInstance->setDescription($params->desc);
+          
+          $calendarInstance->save();
+
+          // we'll connect to sabre
+          /*$pdo = Propel::getConnection();         
+      
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid( $calIDs[0] );
+        
+          // Updating the calendar
+          $propPatch = new PropPatch([
+            '{DAV:}description' => $params->desc
+          ]);
+        
+          $calendarBackend->updateCalendar($calIDs, $propPatch);
+       
+          $result = $propPatch->commit();*/
+            
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
     
     $this->post('/getallforuser', function ($request, $response, $args) {  
         $params = (object)$request->getParsedBody();
@@ -120,7 +157,8 @@ $app->group('/calendar', function () {
           $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
           // get all the calendars for the current user
-          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",$params->allCalendars);
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),($params->type == 'all')?true:false);
+
 
           foreach ($calendars as $calendar) {
             $values['calendarName']       = $calendar['{DAV:}displayname'];
@@ -129,16 +167,22 @@ $app->group('/calendar', function () {
             $values['calendarUri']        = $calendar['uri'];
             $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fa fa-pencil"></i>&nbsp;':'';
           
-            $id                           = $calendar['id'];            
+            $id                           = $calendar['id'];
             $values['calendarID']         = $id[0].",".$id[1];
             $values['present']            = $calendar['present'];
             $values['visible']            = ($calendar['visible'] == "1")?true:false;
-            $values['type']               = ($calendar['grpid'] != "0")?'group':'personal';
+            $values['type']               = ($calendar['grpid'] > 0)?'group':'personal';
             $values['grpid']              = $calendar['grpid'];
+            $values['calType']            = $calendar['cal_type'];
+            $values['desc']               = ($calendar['description'] == null)?gettext("None"):$calendar['description'];
 
-            if ($values['calendarShareAccess'] >= 2 && $values['grpid'] == 0) {
-              $values['type']               = 'share';
-            } 
+            if ($calendar['cal_type'] > 1) {
+              $values['type'] = 'reservation';
+            }
+            
+            if ($values['calendarShareAccess'] >= 2 && $values['grpid'] == 0 && $calendar['cal_type'] == 1) {
+              $values['type'] = 'share';
+            }
             
             if ( ($params->onlyvisible == true && $calendar['visible'] && $calendar['present'] ) // when a calendar is only visible
               || $params->onlyvisible == false  && $calendar['present'] 
@@ -272,6 +316,34 @@ $app->group('/calendar', function () {
         return $response->withJson(['status' => "failed"]);
     });
     
+    $this->post('/newReservation', function ($request, $response, $args) {  
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->title) && isset ($params->type) && isset ($params->desc) ) {
+          // we'll connect to sabre
+          $pdo = Propel::getConnection();
+        
+          // We set the BackEnd for sabre Backends
+          $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+          
+          // we create the uuid name
+          $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+          
+          // get all the calendars for the current user
+
+          $returnID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+            '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
+            '{DAV:}displayname'                                               => $params->title,
+            '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
+          ],$params->type,$params->desc);  
+                
+          return $response->withJson(['status' => "success"]);
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+    });
+    
+    
     $this->post('/modifyname', function ($request, $response, $args) {  
         $params = (object)$request->getParsedBody();
          
@@ -379,7 +451,7 @@ $app->group('/calendar', function () {
         
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-          
+            
             // Add a new invite
             $calendarBackend->updateInvites(
               $calendarId,
