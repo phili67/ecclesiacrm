@@ -662,7 +662,7 @@
     var name   = $(this).text();
     
     bootbox.prompt({
-      title: i18next.t("Modify Reservation Name"),
+      title: i18next.t("Modify Resource Name"),
       inputType: 'text',
       value:name,
       callback: function (title) {
