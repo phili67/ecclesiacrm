@@ -154,7 +154,7 @@ $eventTypes = EventTypesQuery::Create()
                       <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
-                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= gettext("Resources") ?> 
+                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= gettext("Resources").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>

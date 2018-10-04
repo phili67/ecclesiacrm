@@ -5,7 +5,7 @@
  *  last change : 2018-05-04
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
+ *                This code can't be incorporated in another software without authorization
  *
  ******************************************************************************/
  
@@ -150,11 +150,12 @@ class CalendarService
             $icon .= '<i class="fa fa-user"></i>';
           }
           
-          if ($calendar['cal_type'] == 2) {
+          // we test the resources
+          if ($calendar['cal_type'] == 2) {// room
             $icon .= ' <i class="fa fa-building"></i>&nbsp';
-          } else if ($calendar['cal_type'] == 3) {
+          } else if ($calendar['cal_type'] == 3) {// computer
             $icon .= ' <i class="fa fa-windows"></i>&nbsp;';
-          } else if ($calendar['cal_type'] == 4) {
+          } else if ($calendar['cal_type'] == 4) {// video
             $icon .= ' <i class="fa fa-video-camera"></i>&nbsp;';
           }
           
