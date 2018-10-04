@@ -34,6 +34,7 @@
     <column name="share_displayname" phpName="ShareDisplayname" type="VARCHAR" size="100"/>
     <column name="share_invitestatus" phpName="ShareInvitestatus" type="BOOLEAN" size="1" required="true" defaultValue="2"/>
     <column name="grpid" phpName="GroupId" type="SMALLINT" size="9" required="false" defaultValue="0"/>
+    <column name="cal_type" phpName="Type" type="TINYINT" size="2" required="true" defaultValue="1" description=" 1 = personal, Reservation : 2 = room, 3 = computer, 4 = video"/>
     <unique name="principaluri">
       <unique-column name="principaluri"/>
       <unique-column name="uri"/>

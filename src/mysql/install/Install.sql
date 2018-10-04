@@ -31,6 +31,7 @@ CREATE TABLE calendarinstances (
     share_displayname VARCHAR(100),
     share_invitestatus TINYINT(1) NOT NULL DEFAULT '2' COMMENT '1 = noresponse, 2 = accepted, 3 = declined, 4 = invalid',
     grpid mediumint(9) NOT NULL DEFAULT '0',
+    cal_type TINYINT(2) NOT NULL DEFAULT '1' COMMENT '1 = personal, 2 = room, 3 = computer, 4 = video',
     UNIQUE(principaluri, uri),
     UNIQUE(calendarid, principaluri),
     UNIQUE(calendarid, share_href)
