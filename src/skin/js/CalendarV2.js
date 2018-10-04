@@ -35,13 +35,13 @@ $(document).ready(function () {
     },
     eventDrop: function(event, delta, revertFunc) {
       if (event.type == 'birthday' || event.type == 'anniversary') {
-        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
         $('#calendar').fullCalendar( 'refetchEvents' );
         return false;
       }
       
       if (event.writeable == false) {
-        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
         $('#calendar').fullCalendar( 'refetchEvents' );
         return;
       }
@@ -139,7 +139,7 @@ $(document).ready(function () {
   },
   eventClick: function(calEvent, jsEvent, view) {
     if (calEvent.writeable == false) {
-        window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
         
         return;
     }
@@ -320,7 +320,7 @@ $(document).ready(function () {
   },
   eventResize: function(event, delta, revertFunc) {
     if (event.writeable == false || event.type == 'birthday' || event.type == 'anniversary') {
-      window.CRM.DisplayAlert("Error","This event isn't modifiable !!!");
+      window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
       $('#calendar').fullCalendar( 'refetchEvents' );
       return;
     }
@@ -465,7 +465,7 @@ select: function(start, end) {
        modal.modal("show");
        
     } else {
-       window.CRM.DisplayAlert("Error","To add an event, You have to create a calendar or activate one first.");
+       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
     }
   });
 },
@@ -541,7 +541,7 @@ events: function(start, end, timezone, callback) {
 
         box.show();
       } else {
-        var box = window.CRM.DisplayAlert("Event added","Event was added successfully.");
+        var box = window.CRM.DisplayAlert(i18next.t("Event added"),i18next.t("Event was added successfully."));
 
         setTimeout(function() {
           // be careful not to call box.hide() here, which will invoke jQuery's hide method

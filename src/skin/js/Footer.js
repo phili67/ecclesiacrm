@@ -311,7 +311,7 @@ $(document).on("click", "#deleteCart", function (e) {
 
     if (data.status == "failure")
     {
-      var box = window.CRM.DisplayAlert("Error text",data.message);
+      var box = window.CRM.DisplayAlert(i18next.t("Error text"),data.message);
       
       setTimeout(function() {
         // be careful not to call box.hide() here, which will invoke jQuery's hide method
