@@ -101,7 +101,7 @@ $(document).ready(function () {
              message = "Attendees unvalidated successfully.";
            }
          
-           /*var box = window.CRM.DisplayAlert("Attendance",message);
+           /*var box = window.CRM.DisplayAlert(i18next.t("Attendance"),message);
 
            setTimeout(function() {
             // be careful not to call box.hide() here, which will invoke jQuery's hide method

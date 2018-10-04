@@ -35,8 +35,8 @@
     
     window.CRM.DisplayAlert = function(title,message,callback) {
       return bootbox.alert({
-        title:  i18next.t(title),
-        message:i18next.t(message)
+        title:  title,
+        message:message
       });
     }
     

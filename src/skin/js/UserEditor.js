@@ -52,7 +52,7 @@ function addRolesToMainDropdown()
         
         $("#personSelect").on("select2:select", function (event) {
           if ($(this).find(':selected').data('email') == '') {
-            window.CRM.DisplayAlert("Error","The user must have an email address.");
+            window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("The user must have an email address."));
             $("#personSelect").val('').trigger("change");
           }
         });

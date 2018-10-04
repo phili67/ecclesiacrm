@@ -888,7 +888,7 @@ require 'Include/Header.php';
   
   $("#PledgeOrPaymentSelect").change(function(){
     if (dep_Closed) {
-      window.CRM.DisplayAlert ("Warning !!!","Deposit closed");
+      window.CRM.DisplayAlert (i18next.t("Warning !!!"),i18next.t("Deposit closed"));
       var sel = $("#PledgeOrPaymentSelect");
       sel.data("prev",sel.val());
       return false;
