@@ -146,9 +146,17 @@ class CalendarService
           
           if ($calendar['share-access'] == 2 || $calendar['share-access'] == 3) {
             $icon .= '<i class="fa  fa-share"></i>';
-          } else if ($calendar['share-access'] == 1 && $groupID == 0) {
+          } else if ($calendar['share-access'] == 1 && $groupID == 0 && $calendar['cal_type'] == 1) {
             $icon .= '<i class="fa fa-user"></i>';
-          }          
+          }
+          
+          if ($calendar['cal_type'] == 2) {
+            $icon .= ' <i class="fa fa-building"></i>&nbsp';
+          } else if ($calendar['cal_type'] == 3) {
+            $icon .= ' <i class="fa fa-windows"></i>&nbsp;';
+          } else if ($calendar['cal_type'] == 4) {
+            $icon .= ' <i class="fa fa-video-camera"></i>&nbsp;';
+          }
           
           if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the calendars are present or not
             continue;

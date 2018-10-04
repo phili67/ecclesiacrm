@@ -46,12 +46,72 @@
             method: 'POST',
             path: 'calendar/new',
             data: JSON.stringify({"title":title})
-          }).done(function(data) {             
+          }).done(function(data) {
              addPersonalCalendars();
           });
         }
       }
     });
+  });
+  
+  $("#add-reservation-calendar").click('focus', function (e) {
+      bootbox.confirm({
+          title:i18next.t("Set Calendar Name"),
+          message:'<table width=100%>'
+                  +'<tr>'
+                    +'<td>'
+                    +i18next.t("Name")+':'
+                    +'</td>'
+                    +'<td>'
+                    +' <input class="bootbox-input bootbox-input-text form-control" type="text" id="textCalendar"><br>'
+                    +'</td>'
+                  +'</tr>'
+                  +'<tr>'
+                    +'<td>'
+                    +i18next.t("Select a type")+':'
+                    +'</td>'
+                    +'<td>'
+                    + '<select class="form-control input-sm" id="typeCalendar" name="typeCalendar">'
+                    +   '<option value="2">'+i18next.t("Room")+'</option>'
+                    +   '<option value="3">'+i18next.t("Computer")+'</option>'
+                    +   '<option value="4">'+i18next.t("Video")+'</option>'
+                    + '</select>'
+                    +'</td>'
+                  +'</tr>'
+                  +'<tr>'
+                    +'<td>'
+                    +i18next.t("Description")+':'
+                    +'</td>'
+                    +'<td>'
+                    +' <input class="bootbox-input bootbox-input-text form-control" type="text" id="descCalendar"><br>'
+                    +'</td>'
+                  +'</tr>'
+                +'</table>',
+          buttons: {
+              cancel: {
+                  label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+              },
+              confirm: {
+                  label: '<i class="fa fa-check"></i> ' + i18next.t("OK"),
+                  className: 'btn-primary'
+              }
+          },
+          callback: function (result) {
+             var title  = $("#textCalendar").val();
+             var type   = $("#typeCalendar").val();
+             var desc   = $("#descCalendar").val();
+
+              if(result) {
+                  window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/newReservation',
+                    data: JSON.stringify({"title":title,"type":type,"desc":desc})
+                  }).done(function(data) {
+                     addReservationCalendars();
+                  });
+              }
+          }
+      });  
   });
   
 // to add PresenceShare
@@ -189,6 +249,9 @@
            case 'personal':
              addPersonalCalendars();
              break;
+           case 'reservation':
+             addReservationCalendars();
+             break;
            case 'group':
              addGroupCalendars();
              break;
@@ -212,9 +275,14 @@
     createPresenceManager ('group');
   });
   
+  $("#manage-all-reservation").click('focus', function (e) {
+    createPresenceManager ('reservation');
+  });
+
   $("#manage-all-shared").click('focus', function (e) {
     createPresenceManager ('share');
   });
+
   
   // the add people to calendar
   
@@ -485,7 +553,11 @@
                           path: 'calendar/delete',
                           data: JSON.stringify({"calIDs":calIDs})
                      }).done(function(data) { 
-                       addPersonalCalendars(calIDs);
+                       if (type == "personal") {
+                         addPersonalCalendars();
+                       } else if (type == "reservation") {
+                         addReservationCalendars();
+                       }
                        $('#calendar').fullCalendar( 'refetchEvents' );   
                      });
                   }
@@ -516,7 +588,7 @@
           }
         };
     
-        if (type == "personal") {
+        if (type == "personal" || type == "reservation") {
           allButtons = $.extend(allButtons,buttonDelete,buttonManage,buttonOk);
         } else if (type == "group" && data.isAdmin == true) {
           allButtons = $.extend(allButtons,buttonManage,buttonOk);
@@ -536,7 +608,7 @@
     
   });
   
-  
+//  
 // end off add people to calendar
 //
 
@@ -555,7 +627,7 @@
             method: 'POST',
             path: 'calendar/modifyname',
             data: JSON.stringify({"title":title,"calIDs":calIDs})
-          }).done(function(data) {             
+          }).done(function(data) {
              addPersonalCalendars();
           });
         }
@@ -585,6 +657,27 @@
     });     
   }); 
   
+  $('body').on('click','.editReservationName', function(){ 
+    var calIDs = $(this).data("id");
+    var name   = $(this).text();
+    
+    bootbox.prompt({
+      title: i18next.t("Modify Reservation Name"),
+      inputType: 'text',
+      value:name,
+      callback: function (title) {
+        if (title !== null && title != '') {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/modifyname',
+            data: JSON.stringify({"calIDs":calIDs,"title":title})
+          }).done(function(data) {             
+             addReservationCalendars();
+          });
+        }
+      }
+    });     
+  }); 
 
   $('body').on('click','.editShareName', function(){ 
     var calIDs = $(this).data("id");
@@ -605,9 +698,50 @@
           });
         }
       }
-    });      
+    });
   }); 
   
+  $('body').on('click','#reservation-info', function(){ 
+     var title   = $(this).data("title");
+     var content = $(this).data("content");
+     var id      = $(this).data("id");
+
+     bootbox.confirm({
+          title:i18next.t("Calendar Info") + ' ' + i18next.t("for") + ' : ' + title,
+          message:'<table width=100%>'
+                  +'<tr>'
+                    +'<td>'
+                    + i18next.t("Description") + ':'
+                    +'</td>'
+                    +'<td>'
+                    +' <input class="bootbox-input bootbox-input-text form-control" type="text" id="descCalendar" value="'+content+'"><br>'
+                    +'</td>'
+                  +'</tr>'
+                +'</table>',
+          buttons: {
+              cancel: {
+                  label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
+              },
+              confirm: {
+                  label: '<i class="fa fa-check"></i> ' + i18next.t("OK"),
+                  className: 'btn-primary'
+              }
+          },
+          callback: function (result) {
+             var desc   = $("#descCalendar").val();
+
+              if(result) {
+                  window.CRM.APIRequest({
+                    method: 'POST',
+                    path: 'calendar/setDescription',
+                    data: JSON.stringify({"calIDs":id,"desc":desc})
+                  }).done(function(data) {
+                     addReservationCalendars();
+                  });
+              }
+          }
+      }); 
+  });
 
   function addPersonalCalendars()
   {
@@ -632,7 +766,6 @@
     });  
   }
 
-
   function addGroupCalendars()
   {
     $('#group-list').empty();
@@ -656,6 +789,40 @@
       }      
     });  
   }
+    
+  function addReservationCalendars()
+  {
+    $('#reservation-list').empty();
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'calendar/getallforuser',
+      data: JSON.stringify({"type":"reservation","onlyvisible":false,"allCalendars":false})
+    }).done(function(data) {    
+      var len = data.length;
+      
+      for (i=0; i<len; ++i) {
+        var icon = '';
+        
+        if (data[i].calType == 2) {
+          icon = '&nbsp;<i class="fa fa-building"></i>&nbsp';
+        } else if (data[i].calType == 3) {
+          icon = '&nbsp;<i class="fa fa-windows"></i>&nbsp;';
+        } else if (data[i].calType == 4) {
+          icon = '&nbsp;<i class="fa fa-video-camera"></i>&nbsp;';
+        }
+        
+        $('#reservation-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+'<i class="fa pull-right fa-info-circle" data-title="'+data[i].calendarName+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        
+        $(".my-colorpicker1"+i).colorpicker({
+          color:data[i].calendarColor,          
+          inline:false,
+          horizontal:true,
+          right:true
+        });
+      }      
+    });  
+  }
   
   function addShareCalendars()
   {
@@ -669,7 +836,17 @@
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        var icon = '';
+        
+        if (data[i].calType == 2) {
+          icon = '&nbsp<i class="fa fa-building"></i>&nbsp';
+        } else if (data[i].calType == 3) {
+          icon = '&nbsp<i class="fa fa-windows"></i>&nbsp;';
+        } else if (data[i].calType == 4) {
+          icon = '&nbsp<i class="fa fa-video-camera"></i>&nbsp;';
+        }
+        
+        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
@@ -696,6 +873,7 @@
   });
   
   // Add all the calendars
-  addPersonalCalendars();  
+  addPersonalCalendars();
   addGroupCalendars();
+  addReservationCalendars();
   addShareCalendars();
