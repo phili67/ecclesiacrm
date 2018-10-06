@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-09-22T17:02:53.097Z\n"
+"POT-Creation-Date: 2018-10-04T15:23:37.819Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,6 +10,33 @@ msgstr ""
 
 msgid "Set Calendar Name"
 msgstr "Stellen Kalendername"
+
+msgid "Set Resource Name"
+msgstr "Stellen Resourcename"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Select a resource type"
+msgstr "Wähle Sie ein Ressource typ"
+
+msgid "Room"
+msgstr "Zimmer"
+
+msgid "Computer"
+msgstr "Computer"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "OK"
+msgstr "Ok"
 
 msgid "Include/Exclude your Calendars in the SideBar"
 msgstr "Einschließen/Ausschließen Ihren Kalender im SideBar"
@@ -100,11 +127,26 @@ msgstr "Kalendar Name Bearbeiten"
 msgid "Modify Group Name"
 msgstr "Gruppe Name Bearbeiten"
 
+msgid "Modify Resource Name"
+msgstr "Ressource Name Bearbeiten"
+
 msgid "Modify Share Name"
 msgstr "Freigabenamen Bearbeiten"
 
+msgid "Resource Info for"
+msgstr "Resource Info für"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr "Nur Administratoren haben das Recht der Ressourcenbeschreibung zu ändern."
+
 msgid "Actualize"
 msgstr "Aktualisieren."
+
+msgid "This event isn't modifiable !!!"
+msgstr "Dieses Ereignis kann nicht geändert werden !!!"
 
 msgid "Move Event"
 msgstr "Ereignis verschieben"
@@ -114,9 +156,6 @@ msgstr "Sind Sie ganz sicher zu dieser Änderung ?"
 
 msgid "will be dropped."
 msgstr "werden abgelegt."
-
-msgid "Cancel"
-msgstr "Abbrechen"
 
 msgid "Confirm"
 msgstr "Bestätigen"
@@ -180,6 +219,9 @@ msgstr "Resize -Ereignis"
 msgid "You're about to resize all the events. Would you like to :"
 msgstr "Sie sind gleich um die Größe aller Ereignisse festzulegen"
 
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr "Zum Hinzufügen eines Ereignisses, Sie haben ein Kalendar zu erstellen oder ein zu aktivieren."
+
 msgid "Event added"
 msgstr "Ereignissen hinzugefügt"
 
@@ -190,11 +232,17 @@ msgstr ""
 "Ereignis wurde erfolgreich hinzugefügt. Möchten Sie Die Anwesenheit machen "
 "oder  Teilnehmer hinzufügen?"
 
+msgid "Event was added successfully."
+msgstr "Ereignis wurde erfolgreich hinzugefügt."
+
 msgid "Present"
 msgstr "Anwesend"
 
 msgid "Absent"
 msgstr "Abwesend"
+
+msgid "Attendance"
+msgstr "Anwesenheiten"
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor Vorlagenerstellung"
@@ -231,9 +279,6 @@ msgstr "Wählen Sie der Vorlage aus, die Sie löschen möchten"
 
 msgid "Are you sure to delete this template? This can't be undone."
 msgstr "Möchten Sie diese Vorlage wirklich löschen?"
-
-msgid "OK"
-msgstr "Ok"
 
 msgid "Replace actual content"
 msgstr "Platzhalter Ersetzen"
@@ -375,6 +420,9 @@ msgstr "Personen und Familien löschen"
 
 msgid "Data Cleared Successfully!"
 msgstr "Daten erfolgreich geleert!"
+
+msgid "success"
+msgstr "Erfolg"
 
 msgid "Duplicate values"
 msgstr "Doppelte Werte"
@@ -547,9 +595,6 @@ msgstr ""
 "Einige Familien wurden Spenden zugewiesen und darf erst gelöscht werden wenn "
 "diese Spenden einer anderen Familie zugwiesen werden."
 
-msgid "Name"
-msgstr "Name"
-
 msgid "Value"
 msgstr "Wert"
 
@@ -685,9 +730,6 @@ msgstr "Gruppe Name"
 msgid "Add Cart to Group"
 msgstr "Korb zur Gruppe hinzufügen"
 
-msgid "Error"
-msgstr "Error"
-
 msgid "You have to select one group and a group role if you want"
 msgstr "Sie müssen eine Gruppe und ein Gruppe Rolle wählen, wenn Sie möchten"
 
@@ -699,9 +741,6 @@ msgstr "ID"
 
 msgid "Actions"
 msgstr "Aktionen"
-
-msgid "Description"
-msgstr "Beschreibung"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1120,6 +1159,9 @@ msgstr "Extra Studenten"
 msgid "export with photos"
 msgstr "Exportieren mit Photos"
 
+msgid "The user must have an email address."
+msgstr "Der Benutzer muss eine E-Mail-Adresse haben."
+
 msgid "Role management"
 msgstr "Profil Rolle"
 
@@ -1179,8 +1221,9 @@ msgstr "Bestätigen das Zurücksetzen des Kennwort für diesen Benutzer"
 msgid "Password reset for"
 msgstr "Kennwortzurücksetzung für"
 
-msgid "success"
-msgstr "Erfolg"
+#, fuzzy
+#~ msgid "Modify Reservation Name"
+#~ msgstr "Gruppe Name Bearbeiten"
 
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "

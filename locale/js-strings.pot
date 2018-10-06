@@ -5,10 +5,37 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-02T17:16:07.290Z\n"
-"PO-Revision-Date: 2018-10-02T17:16:07.290Z\n"
+"POT-Creation-Date: 2018-10-05T16:35:40.301Z\n"
+"PO-Revision-Date: 2018-10-05T16:35:40.301Z\n"
 
 msgid "Set Calendar Name"
+msgstr ""
+
+msgid "Set Resource Name"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Select a resource type"
+msgstr ""
+
+msgid "Room"
+msgstr ""
+
+msgid "Computer"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "OK"
 msgstr ""
 
 msgid "Include/Exclude your Calendars in the SideBar"
@@ -100,10 +127,25 @@ msgstr ""
 msgid "Modify Group Name"
 msgstr ""
 
+msgid "Modify Resource Name"
+msgstr ""
+
 msgid "Modify Share Name"
 msgstr ""
 
+msgid "Resource Info for"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Only administrators have the right to change the Resource description"
+msgstr ""
+
 msgid "Actualize"
+msgstr ""
+
+msgid "This event isn't modifiable !!!"
 msgstr ""
 
 msgid "Move Event"
@@ -113,9 +155,6 @@ msgid "Are you sure about this change?"
 msgstr ""
 
 msgid "will be dropped."
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Confirm"
@@ -176,6 +215,9 @@ msgstr ""
 msgid "You're about to resize all the events. Would you like to :"
 msgstr ""
 
+msgid "To add an event, You have to create a calendar or activate one first."
+msgstr ""
+
 msgid "Event added"
 msgstr ""
 
@@ -184,10 +226,16 @@ msgid ""
 "add attendees ?"
 msgstr ""
 
+msgid "Event was added successfully."
+msgstr ""
+
 msgid "Present"
 msgstr ""
 
 msgid "Absent"
+msgstr ""
+
+msgid "Attendance"
 msgstr ""
 
 msgid "CKEditor Template Creation"
@@ -224,9 +272,6 @@ msgid "Delete the template you select"
 msgstr ""
 
 msgid "Are you sure to delete this template? This can't be undone."
-msgstr ""
-
-msgid "OK"
 msgstr ""
 
 msgid "Replace actual content"
@@ -362,6 +407,9 @@ msgid "Clear Persons and Families"
 msgstr ""
 
 msgid "Data Cleared Successfully!"
+msgstr ""
+
+msgid "success"
 msgstr ""
 
 msgid "Duplicate values"
@@ -531,9 +579,6 @@ msgid ""
 "family."
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Value"
 msgstr ""
 
@@ -669,9 +714,6 @@ msgstr ""
 msgid "Add Cart to Group"
 msgstr ""
 
-msgid "Error"
-msgstr ""
-
 msgid "You have to select one group and a group role if you want"
 msgstr ""
 
@@ -682,9 +724,6 @@ msgid "ID"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
-
-msgid "Description"
 msgstr ""
 
 msgid ""
@@ -1073,6 +1112,9 @@ msgstr ""
 msgid "export with photos"
 msgstr ""
 
+msgid "The user must have an email address."
+msgstr ""
+
 msgid "Role management"
 msgstr ""
 
@@ -1126,7 +1168,4 @@ msgid "Please confirm the password reset of this user"
 msgstr ""
 
 msgid "Password reset for"
-msgstr ""
-
-msgid "success"
 msgstr ""

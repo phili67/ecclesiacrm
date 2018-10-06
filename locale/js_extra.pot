@@ -59,6 +59,9 @@ msgstr ""
 msgid "group"
 msgstr ""
 
+msgid "Group"
+msgstr ""
+
 msgid "note"
 msgstr ""
 

@@ -57,6 +57,9 @@ msgid "photo"
 msgstr "Fotografía"
 
 msgid "group"
+msgstr "grupo"
+
+msgid "Group"
 msgstr "Grupo"
 
 msgid "note"
