@@ -17,7 +17,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 $app->group('/properties', function() {
 
     $this->post('/persons/assign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
  
@@ -79,7 +79,7 @@ $app->group('/properties', function() {
     
     
     $this->delete('/persons/unassign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
         
@@ -116,7 +116,7 @@ $app->group('/properties', function() {
     });
     
     $this->post('/families/assign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
  
@@ -164,7 +164,7 @@ $app->group('/properties', function() {
     
     
     $this->delete('/families/unassign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
         
@@ -187,7 +187,7 @@ $app->group('/properties', function() {
     });
     
     $this->post('/groups/assign', function($request, $response, $args) {
-        if ( !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
+        if ( !($_SESSION['user']->isMenuOptionsEnabled() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(401);
         }
  
@@ -235,7 +235,7 @@ $app->group('/properties', function() {
     
     
     $this->delete('/groups/unassign', function($request, $response, $args) {
-        if ( !($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
+        if ( !($_SESSION['user']->isMenuOptionsEnabled() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['bManageGroups']) ) {
             return $response->withStatus(401);
         }
         
@@ -258,7 +258,7 @@ $app->group('/properties', function() {
     });
     
     $this->post('/sundayschoolmenu/assign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
  
@@ -296,7 +296,7 @@ $app->group('/properties', function() {
     });
     
     $this->post('/sundayschoolmenu/unassign', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
         }
  

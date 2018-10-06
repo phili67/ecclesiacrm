@@ -739,7 +739,7 @@
                      if (data.status == "success") {
                        addReservationCalendars();
                      } else {
-                       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Only administrator have the right to change the Resource description"));
+                       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Only administrators have the right to change the Resource description"));
                      }
                   });
               }

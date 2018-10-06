@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 19:09+0200\n"
+"POT-Creation-Date: 2018-10-04 20:18+0200\n"
 "Language: fr-CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,24 +29,33 @@ msgid "POST to cart requires a EventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: api/routes/calendarV2.php:178
+#: api/routes/calendarV2.php:177 AutoPaymentEditor.php:883
+#: EcclesiaCRM/utils/OutputUtils.php:208 EditEventTypes.php:117
+#: EditEventTypes.php:129 EventNames.php:122 EventNames.php:134
+#: EventNames.php:188 GroupReports.php:65 GroupReports.php:163
+#: PersonToGroup.php:65 PrintPastoralCare.php:511
+#: sundayschool/SundaySchoolReports.php:207
+msgid "None"
+msgstr "Aucun"
+
+#: api/routes/calendarV2.php:222
 msgid "This address can be used only with a CalDav server."
 msgstr ""
 "Cette adresse ne peut être utilisée que si le serveur est compatible CalDav."
 
-#: api/routes/calendarV2.php:178
+#: api/routes/calendarV2.php:222
 msgid "For thunderbird the URL is"
 msgstr "Pour Thunderbird l'URL est"
 
-#: api/routes/calendarV2.php:179
+#: api/routes/calendarV2.php:223
 msgid "For a share calendar (only in read mode)"
 msgstr "Pour un calendrier partagé (en lecture seule)"
 
-#: api/routes/calendarV2.php:180
+#: api/routes/calendarV2.php:225
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "Vous devez activer le réglage \"bEnableExternalCalendarAPI\" dans"
 
-#: api/routes/calendarV2.php:180
+#: api/routes/calendarV2.php:225
 msgid "General Settings/Integration"
 msgstr "Réglages Généraux/Intégration"
 
@@ -148,7 +157,7 @@ msgstr "Personnes"
 msgid "Families"
 msgstr "Familles"
 
-#: api/routes/people.php:191 api/routes/search.php:187 Calendar.php:157
+#: api/routes/people.php:191 api/routes/search.php:187 Calendar.php:189
 #: EcclesiaCRM/MenuBar/MenuBar.php:54
 #: external/templates/verify/verify-family-info.php:108 Menu.php:438
 #: PeopleDashboard.php:217
@@ -375,14 +384,6 @@ msgstr "Intervalle de paiement (mois)"
 #: SelectDelete.php:298
 msgid "Fund"
 msgstr "Fonds"
-
-#: AutoPaymentEditor.php:883 EcclesiaCRM/utils/OutputUtils.php:208
-#: EditEventTypes.php:117 EditEventTypes.php:129 EventNames.php:122
-#: EventNames.php:134 EventNames.php:188 GroupReports.php:65
-#: GroupReports.php:163 PersonToGroup.php:65 PrintPastoralCare.php:511
-#: sundayschool/SundaySchoolReports.php:207
-msgid "None"
-msgstr "Aucun"
 
 #: AutoPaymentEditor.php:887
 msgid "inactive"
@@ -695,21 +696,33 @@ msgstr "Exclure/Inclure calendriers"
 msgid "Add New Calendar"
 msgstr "Ajouter Nouveau Calendrier"
 
-#: Calendar.php:157 Calendar.php:182
+#: Calendar.php:157
+msgid "Resources"
+msgstr "Ressources"
+
+#: Calendar.php:157 Calendar.php:189 Calendar.php:214
 msgid "Shared"
 msgstr "Partagés"
 
 #: Calendar.php:162
+msgid "Exclude/include Resource"
+msgstr "Exclure/inclure Ressource"
+
+#: Calendar.php:166
+msgid "Add New Resource Calendar"
+msgstr "Ajouter Nouveau Calendrier Ressource"
+
+#: Calendar.php:194
 msgid "Exclude/include Groups. To add a Group Calendar, Add a new group."
 msgstr ""
 "Exlure/inclure des Groupes. Pour ajouter un nouveau Calendrier, Ajouter un "
 "nouveau groupe"
 
-#: Calendar.php:182
+#: Calendar.php:214
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: Calendar.php:187
+#: Calendar.php:219
 msgid "Exclude/include the Shared"
 msgstr "Exclure/inclure les calendriers partagés"
 
