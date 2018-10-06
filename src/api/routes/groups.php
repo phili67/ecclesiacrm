@@ -23,7 +23,7 @@ use EcclesiaCRM\Service\GroupService;
 
 $app->group('/groups', function () {
     $this->get('/', function () {
-        echo GroupQuery::create()->find()->toJSON();
+        echo GroupQuery::create()->groupByName()->find()->toJSON();
     });
     
     $this->post('/groupproperties/{groupID:[0-9]+}', function ($request, $response, $args) {
@@ -344,7 +344,7 @@ $app->group('/groups', function () {
     $this->get('/{groupID:[0-9]+}/roles', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $group = GroupQuery::create()->findOneById($groupID);
-        $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->find();
+        $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
         echo $roles->toJSON();
     });
     $this->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {
