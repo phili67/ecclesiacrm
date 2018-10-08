@@ -351,66 +351,6 @@ INSERT INTO `eventcountnames_evctnm` (`evctnm_countid`, `evctnm_eventtypeid`, `e
 
 
 --
--- Dumping data for table `person_custom_master`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `person_per`
---
-
-CREATE TABLE `person_per` (
-  `per_ID` mediumint(9) unsigned NOT NULL auto_increment,
-  `per_Title` varchar(50) default NULL,
-  `per_FirstName` varchar(50) default NULL,
-  `per_MiddleName` varchar(50) default NULL,
-  `per_LastName` varchar(50) default NULL,
-  `per_Suffix` varchar(50) default NULL,
-  `per_Address1` varchar(50) default NULL,
-  `per_Address2` varchar(50) default NULL,
-  `per_City` varchar(50) default NULL,
-  `per_State` varchar(50) default NULL,
-  `per_Zip` varchar(50) default NULL,
-  `per_Country` varchar(50) default NULL,
-  `per_HomePhone` varchar(30) default NULL,
-  `per_WorkPhone` varchar(30) default NULL,
-  `per_CellPhone` varchar(30) default NULL,
-  `per_Email` varchar(50) default NULL,
-  `per_WorkEmail` varchar(50) default NULL,
-  `per_BirthMonth` tinyint(3) unsigned NOT NULL default '0',
-  `per_BirthDay` tinyint(3) unsigned NOT NULL default '0',
-  `per_BirthYear` year(4) default NULL,
-  `per_MembershipDate` date default NULL,
-  `per_Gender` tinyint(1) unsigned NOT NULL default '0',
-  `per_fmr_ID` tinyint(3) unsigned NOT NULL default '0',
-  `per_cls_ID` tinyint(3) unsigned NOT NULL default '0',
-  `per_fam_ID` smallint(5) unsigned NOT NULL default '0',
-  `per_Envelope` smallint(5) unsigned default NULL,
-  `per_DateLastEdited` datetime default NULL,
-  `per_DateEntered` datetime NOT NULL,
-  `per_EnteredBy` smallint(5)  NOT NULL default '0',
-  `per_EditedBy` smallint(5) unsigned default '0',
-  `per_FriendDate` date default NULL,
-  `per_Flags` mediumint(9) NOT NULL default '0',
-  `per_FacebookID` bigint(20) unsigned default NULL,
-  `per_Twitter` varchar(50) default NULL,
-  `per_LinkedIn` varchar(50) default NULL,
-  `per_DateDeactivated` datetime default NULL,
-  PRIMARY KEY  (`per_ID`),
-  KEY `per_ID` (`per_ID`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `person_per`
---
-
-INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES
-  (1, NULL, 'EcclesiaCRM', NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0000, NULL, 0, 0, 0, 0, NULL, NULL, '2004-08-25 18:00:00', 1, 0, NULL, 0);
-
--- --------------------------------------------------------
---
 -- Dumping data for table `eventcounts_evtcnt`
 --
 
@@ -443,11 +383,9 @@ CREATE TABLE `events_event` (
   `event_size` int(11) UNSIGNED NOT NULL,
   `event_componenttype` varbinary(8) DEFAULT NULL,
   `event_uid` varbinary(200) DEFAULT NULL,
-  `event_owner` mediumint(9) unsigned NULL COMMENT 'owner of a resource calendar',
-  PRIMARY KEY  (`event_id`),
-  UNIQUE(event_calendarid, event_uri),
-  INDEX calendarid_time (event_calendarid),
-  CONSTRAINT fk_event_owner FOREIGN KEY (event_owner) REFERENCES person_per(per_ID) ON DELETE SET NULL
+    PRIMARY KEY  (`event_id`),
+    UNIQUE(event_calendarid, event_uri),
+    INDEX calendarid_time (event_calendarid)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1;
 
 
@@ -816,6 +754,67 @@ CREATE TABLE `person_custom_master` (
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+--
+-- Dumping data for table `person_custom_master`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `person_per`
+--
+
+CREATE TABLE `person_per` (
+  `per_ID` mediumint(9) unsigned NOT NULL auto_increment,
+  `per_Title` varchar(50) default NULL,
+  `per_FirstName` varchar(50) default NULL,
+  `per_MiddleName` varchar(50) default NULL,
+  `per_LastName` varchar(50) default NULL,
+  `per_Suffix` varchar(50) default NULL,
+  `per_Address1` varchar(50) default NULL,
+  `per_Address2` varchar(50) default NULL,
+  `per_City` varchar(50) default NULL,
+  `per_State` varchar(50) default NULL,
+  `per_Zip` varchar(50) default NULL,
+  `per_Country` varchar(50) default NULL,
+  `per_HomePhone` varchar(30) default NULL,
+  `per_WorkPhone` varchar(30) default NULL,
+  `per_CellPhone` varchar(30) default NULL,
+  `per_Email` varchar(50) default NULL,
+  `per_WorkEmail` varchar(50) default NULL,
+  `per_BirthMonth` tinyint(3) unsigned NOT NULL default '0',
+  `per_BirthDay` tinyint(3) unsigned NOT NULL default '0',
+  `per_BirthYear` year(4) default NULL,
+  `per_MembershipDate` date default NULL,
+  `per_Gender` tinyint(1) unsigned NOT NULL default '0',
+  `per_fmr_ID` tinyint(3) unsigned NOT NULL default '0',
+  `per_cls_ID` tinyint(3) unsigned NOT NULL default '0',
+  `per_fam_ID` smallint(5) unsigned NOT NULL default '0',
+  `per_Envelope` smallint(5) unsigned default NULL,
+  `per_DateLastEdited` datetime default NULL,
+  `per_DateEntered` datetime NOT NULL,
+  `per_EnteredBy` smallint(5)  NOT NULL default '0',
+  `per_EditedBy` smallint(5) unsigned default '0',
+  `per_FriendDate` date default NULL,
+  `per_Flags` mediumint(9) NOT NULL default '0',
+  `per_FacebookID` bigint(20) unsigned default NULL,
+  `per_Twitter` varchar(50) default NULL,
+  `per_LinkedIn` varchar(50) default NULL,
+  `per_DateDeactivated` datetime default NULL,
+  PRIMARY KEY  (`per_ID`),
+  KEY `per_ID` (`per_ID`)
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `person_per`
+--
+
+INSERT INTO `person_per` (`per_ID`, `per_Title`, `per_FirstName`, `per_MiddleName`, `per_LastName`, `per_Suffix`, `per_Address1`, `per_Address2`, `per_City`, `per_State`, `per_Zip`, `per_Country`, `per_HomePhone`, `per_WorkPhone`, `per_CellPhone`, `per_Email`, `per_WorkEmail`, `per_BirthMonth`, `per_BirthDay`, `per_BirthYear`, `per_MembershipDate`, `per_Gender`, `per_fmr_ID`, `per_cls_ID`, `per_fam_ID`, `per_Envelope`, `per_DateLastEdited`, `per_DateEntered`, `per_EnteredBy`, `per_EditedBy`, `per_FriendDate`, `per_Flags`) VALUES
+  (1, NULL, 'EcclesiaCRM', NULL, 'Admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0000, NULL, 0, 0, 0, 0, NULL, NULL, '2004-08-25 18:00:00', 1, 0, NULL, 0);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `pledge_plg`
