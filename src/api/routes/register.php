@@ -40,4 +40,4 @@ $app->group('/register', function () {
 
         return $response->withJson(['status'=>'success']);
     });
-});
+})->add($jwt);

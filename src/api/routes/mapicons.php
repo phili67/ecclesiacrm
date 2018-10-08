@@ -85,6 +85,4 @@ $app->group('/mapicons', function () {
     
     return $response->withJson(['status' => "failed"]);
   });
-  
-
-});
+})->add($jwt);

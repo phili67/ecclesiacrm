@@ -323,4 +323,4 @@ $app->group('/properties', function() {
 
         return $response->withJson(['success' => true, 'msg' => gettext('The menu is successfully unassigned.')]);
     });
-});
+})->add($jwt);

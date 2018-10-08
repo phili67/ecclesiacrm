@@ -25,4 +25,4 @@ $app->group('/systemupgrade', function () {
         echo json_encode(["Upgrade" => $isUpdateRequired,"latestVersion" => $_SESSION['latestVersion'], "installedVersion" => $_SESSION['sSoftwareInstalledVersion']]);
     });
     
-});
+})->add($jwt);
