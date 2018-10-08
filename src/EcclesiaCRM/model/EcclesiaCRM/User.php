@@ -146,6 +146,13 @@ class User extends BaseUser
       }
     }
     
+    public function getUserName()
+    {
+      $userName = parent::getUserName();
+      
+      return strtolower($userName);
+    }
+    
     public function createHomeDir()
     {
        try {

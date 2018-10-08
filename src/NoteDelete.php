@@ -60,6 +60,8 @@ if (isset($_GET['Confirmed'])) {
       $target_delete_file = $user->getUserRootDir()."/".$note->getText();
 
       unlink($target_delete_file);
+      
+      $sReroute.= "&edrive=true";
     }
     
     if (!empty($notes) ) {

@@ -1,5 +1,89 @@
 $(document).ready(function () {
 
+  $(".change-folder").click (function () {
+    var personID = $(this).data("personid");
+    var folder   = $(this).data("folder");
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'users/changeFolder',
+      data: JSON.stringify({"personID": personID,"folder" : folder})
+    }).done(function(data) {
+      if (data && data.success) {
+        location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+      }
+    });
+  });
+  
+  $(".new-folder").click (function () {
+    var personID = $(this).data("personid");
+    
+    bootbox.prompt(i18next.t("Set your Folder name"), function(result){ 
+      if (result != '') {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'users/newFolder',
+          data: JSON.stringify({"personID": personID,"folder" : result})
+        }).done(function(data) {
+          if (data && data.success) {
+            location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+          }
+        });
+      }
+    });
+  });
+  
+  $(".delete-folder").click (function () {
+    var personID = $(this).data("personid");
+    var folder   = $(this).data("folder");
+    
+    bootbox.confirm({
+      title  : i18next.t("You're about to remove a folder and it's content"),
+      message: i18next.t("This can't be undone !!!!"),
+      buttons: {
+        confirm: {
+          label: i18next.t('Yes'),
+            className: 'btn-success'
+        },
+        cancel: {
+          label: i18next.t('No'),
+          className: 'btn-danger'
+        }
+      },
+      callback: function (result)
+      {
+        if (result)
+        {
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'users/deleteFolder',
+            data: JSON.stringify({"personID": personID,"folder" : folder})
+          }).done(function(data) {
+            if (data && data.success) {
+              location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+            }
+          });
+        }
+      }
+    });
+    
+  });
+  
+
+  $(".folder-back").click (function () {
+    var personID = $(this).data("personid");
+
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'users/folderBack',
+      data: JSON.stringify({"personID": personID})
+    }).done(function(data) {
+      if (data && data.success) {
+        location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+      }
+    });
+  });
+
   $("#deletePhoto").click (function () {
     $.ajax({
     type: "POST",
@@ -425,7 +509,7 @@ $(document).ready(function () {
     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
   });
   
-  $("#filter-timeline").change(function() {
+  $(".filter-timeline").change(function() {
        switch ($(this).val()) {
          case 'shared':
            $(".type-file").hide();
@@ -434,18 +518,22 @@ $(document).ready(function () {
            $(".icon-note").hide();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            $(".type-shared").show();
            $(".icon-shared").show();      
            break;
          case 'file':
-           $(".type-shared").hide();
-           $(".icon-shared").hide();       
            $(".type-file").show();
            $(".icon-file").show();       
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-note").hide();
            $(".icon-note").hide();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            break;
          case 'note':
            $(".type-shared").hide();
@@ -456,6 +544,20 @@ $(document).ready(function () {
            $(".icon-note").show();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
+           break;
+         case 'audio':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
+           $(".type-file").hide();
+           $(".icon-file").hide();       
+           $(".type-note").hide();
+           $(".icon-note").hide();       
+           $(".type-audio").show();
+           $(".icon-audio").show();       
+           $(".type-video").hide();
+           $(".icon-video").hide();       
            break;
          case 'video':
            $(".type-shared").hide();
@@ -464,6 +566,8 @@ $(document).ready(function () {
            $(".icon-file").hide();       
            $(".type-note").hide();
            $(".icon-note").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            $(".type-video").show();
            $(".icon-video").show();       
            break;
@@ -476,6 +580,8 @@ $(document).ready(function () {
            $(".icon-note").show();       
            $(".type-video").show();
            $(".icon-video").show();       
+           $(".type-audio").show();
+           $(".icon-audio").show();       
            break;
        }
        

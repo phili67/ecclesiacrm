@@ -23,6 +23,13 @@ use EcclesiaCRM\Utils\MiscUtils;
 
 $iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
 
+$uploadEDrive = false;
+
+if (isset($_GET['uploadEDrive'])) {
+  $uploadEDrive = true;
+  $sNoteType = 'file';
+}
+
 if (isset($_GET['PersonID'])) {
    $iFamily = PersonQuery::Create()->findOneById($_GET['PersonID'])->getFamId();
 } else if (isset($_GET['FamilyID'])) {
@@ -38,13 +45,19 @@ if (!($_SESSION['user']->isNotesEnabled() || $_GET['PersonID'] == $_SESSION['use
     exit;
 }
 
-//Set the page title
-$sPageTitle = gettext('Document Editor');
-
 if (isset($_GET['PersonID'])) {
     $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 } else {
     $iPersonID = 0;
+}
+
+//Set the page title
+$user = UserQuery::create()->findOneByPersonId($iPersonID);
+
+if ($sNoteType == 'file' && !is_null ($user) ) {
+  $sPageTitle = gettext('Cloud Upload')." ".gettext("in"). " : " . $user->getCurrentpath();
+} else {
+  $sPageTitle = gettext('Document Editor');
 }
 
 if (isset($_GET['FamilyID'])) {
@@ -56,6 +69,11 @@ if (isset($_GET['FamilyID'])) {
 //To which page do we send the user if they cancel?
 if ($iPersonID > 0) {
     $sBackPage = 'PersonView.php?PersonID='.$iPersonID;
+    if ($uploadEDrive) {
+      $sBackPage.='&edrive=true';
+    } else {
+      $sBackPage.='&documents=true';
+    }
 } else {
     $sBackPage = 'FamilyView.php?FamilyID='.$iFamilyID;
 }
@@ -88,10 +106,10 @@ if (isset($_POST['Submit'])) {
     //Were there any errors?
     if (!$bErrorFlag) {
       if (!empty($_FILES["noteInputFile"]["name"]) || isset($_POST['noteType']) && $_POST['noteType'] == 'file') {
-        $user = UserQuery::create()->findOneByPersonId($iPersonID);    
+        $user = UserQuery::create()->findOneByPersonId($iPersonID);
         
         $target_dir = $user->getHomedir();
-        $target_file = $target_dir . "/".basename($_FILES["noteInputFile"]["name"]);
+        $target_file = $target_dir . $user->getCurrentpath() . basename($_FILES["noteInputFile"]["name"]);
       
         if (move_uploaded_file($_FILES['noteInputFile']['tmp_name'], $target_file)) {
           //Are we adding or editing?
@@ -101,7 +119,7 @@ if (isset($_POST['Submit'])) {
             $note->setFamId($iFamilyID);
             $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
-            $note->setText(str_replace($_SESSION['user']->getUserRootDir()."/","",$target_file));
+            $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
             $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));
@@ -112,7 +130,7 @@ if (isset($_POST['Submit'])) {
             $note = NoteQuery::create()->findPk($iNoteID);
             $notes = NoteQuery::Create ()->filterByText ($note->getText())->findByPerId($note->getPerId());
             
-            $target_delete_file = $_SESSION['user']->getUserRootDir()."/".$note->getText();
+            $target_delete_file = $user->getUserRootDir() . $user->getCurrentpath().$note->getText();
    
             unlink($target_delete_file);
             
@@ -123,7 +141,7 @@ if (isset($_POST['Submit'])) {
             $note->setFamId($iFamilyID);
             $note->setTitle($_POST['noteTitle']);
             $note->setPrivate($bPrivate);
-            $note->setText(str_replace($_SESSION['user']->getUserRootDir()."/","",$target_file));
+            $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
             $note->setEntered($_SESSION['user']->getPersonId());
             $note->setInfo(gettext('Create file'));
@@ -140,7 +158,7 @@ if (isset($_POST['Submit'])) {
           $note->save();
         }    
         
-        Redirect($sBackPage);
+        Redirect($sBackPage.'&edrive=true');
       }
 
 
@@ -222,21 +240,14 @@ if (isset($_POST['Submit'])) {
 require 'Include/Header.php';
 
 ?>
-
-<style>
-    
-    
-    
-
-</style>
 <form method="post"<?= SystemURLs::getRootPath() ?>/NoteEditor.php" enctype="multipart/form-data">
   
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">
-        <label><?= gettext("Document Title") ?></label> 
+        <label><?= ($sNoteType == 'file')?gettext("File Info"):gettext("Document Title") ?></label> 
       </h3>
-      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= gettext("Set your document title") ?>"  required="">
+      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= ($sNoteType == 'file')?gettext("Set your File Info"):gettext("Set your document title") ?>"  required="">
     </div>
     <div class="box-body">
       <div class="row" <?= (!empty($sNoteType))?"":'style="display: none;"' ?>>
@@ -255,8 +266,9 @@ require 'Include/Header.php';
             <select name="noteType" class="form-control input-sm" id="selectType">
               <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= MiscUtils::noteType("note") ?></option>
               <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= MiscUtils::noteType("video") ?></option>
+              <option value="audio" <?= ($sNoteType == "audio")?'selected="selected"':"" ?>><?= MiscUtils::noteType("audio") ?></option>
               <?php 
-                if ($iFamilyID == 0) { 
+                if ($iFamilyID == 0 && $uploadEDrive == true) { 
               ?>
                 <option value="file" <?= ($sNoteType == "file")?'selected="selected"':"" ?>><?= MiscUtils::noteType("file") ?></option>
               <?php 
@@ -294,7 +306,7 @@ require 'Include/Header.php';
     </div>
   </div>
   <p align="center">
-    <input type="submit" class="btn btn-success" name="Submit" value="<?= gettext('Save') ?>">
+    <input type="submit" class="btn btn-success" name="Submit" value="<?= ($uploadEDrive == true)?gettext("Upload"):gettext('Save') ?>">
     &nbsp;
     <input type="submit" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>" formnovalidate>
   </p>
