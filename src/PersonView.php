@@ -1417,7 +1417,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                  
                  $note_content = $item['text']; // this assume only the last note is visible
                  
-                 if ( !MiscUtils::isRealFile ("/".$temp_realNoteDir."/".$item['text'],$temp_currentNoteDir) ) {
+                 if ( !MiscUtils::isRealFile (SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$item['text'],$temp_currentNoteDir) ) {
                    continue;
                  }
                  
