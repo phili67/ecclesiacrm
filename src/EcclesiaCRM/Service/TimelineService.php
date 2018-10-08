@@ -107,6 +107,7 @@ class TimelineService
         
         $timeline = [];
         $personQuery = NoteQuery::create()
+            ->orderByTitle()
             ->filterByPerId($personID);
             
         if ($noteTypes != null) {

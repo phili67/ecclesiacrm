@@ -27,12 +27,44 @@ class MiscUtils {
     } 
     return rmdir($dir); 
   } 
+
+/**
+ * return true when the path in the basePath is a real file
+ * @param string $path string $basePath
+ */  
+  public static function getDirectoriesInPath($dir) {
+    $files = glob( ".".$dir . "*", GLOB_ONLYDIR );
+    
+    return $files;
+  }
+
+/**
+ * return true when the path in the basePath is a real file
+ * @param string $path string $basePath
+ */  
+  public static function isRealFile ($path,$basePath) {
+    $test = str_replace($basePath, "", $path);
+    
+    $res = strstr( $test, "/");
+    
+    if ( strlen($res) > 0 ) {
+      return false;
+    }
+    
+    return true;
+  }
+  
+  public static function getRealDirectory ($path,$basePath) {
+    return str_replace(".".$basePath, "", $path);
+  }
+  
+
   
   public static function embedFiles ($path) {
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = "<a href=\"".$path."\"><i class=\"fa fa-file-o\"></i> \"".$filename."\"</a><br>";    
+    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";    
     
     switch (strtolower($extension)) {
       case "jpg":
