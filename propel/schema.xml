@@ -818,6 +818,8 @@
 
     <table name="user_usr" idMethod="native" phpName="User" description="This contains the login information and specific settings for each EcclesiaCRM user">
         <column name="usr_per_ID" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+        <column name="usr_HomeDir" phpName="Homedir" type="VARCHAR" size="500"/>
+        <column name="usr_CurrentPath" phpName="Currentpath" type="VARCHAR" size="1500" required="true" defaultValue="/"/>
         <column name="usr_role_id" phpName="RoleId" type="SMALLINT" size="11" sqlType="mediumint(11) unsigned"/>
         <column name="usr_Password" phpName="Password" type="VARCHAR" size="500" required="true" defaultValue=""/>
         <column name="usr_NeedPasswordChange" phpName="NeedPasswordChange" type="BOOLEAN" size="1" sqlType="tinyint(3) unsigned" required="true" defaultValue="1"/>
@@ -861,7 +863,6 @@
         <column name="usr_Canvasser" phpName="Canvasser" type="BOOLEAN" size="1" required="true" defaultValue="0"/>
         <column name="usr_ShowCart" phpName="ShowCart" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ShowMap" phpName="ShowMap" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
-        <column name="usr_HomeDir" phpName="Homedir" type="VARCHAR" size="500"/>
         <index name="usr_per_ID">
             <index-column name="usr_per_ID"/>
         </index>
