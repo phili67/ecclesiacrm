@@ -38,7 +38,7 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['user']->isAdmin()) {
+<?php if ( $_SESSION['user']->isAdmin() || $personId > 0 && $personId == $_SESSION['user']->getPersonId() ) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= gettext("Add Custom Menu Link") ?></button></p>
 <?php 
