@@ -266,6 +266,7 @@ require 'Include/Header.php';
             <select name="noteType" class="form-control input-sm" id="selectType">
               <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= MiscUtils::noteType("note") ?></option>
               <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= MiscUtils::noteType("video") ?></option>
+              <option value="audio" <?= ($sNoteType == "audio")?'selected="selected"':"" ?>><?= MiscUtils::noteType("audio") ?></option>
               <?php 
                 if ($iFamilyID == 0 && $uploadEDrive == true) { 
               ?>

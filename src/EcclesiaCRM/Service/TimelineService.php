@@ -77,7 +77,7 @@ class TimelineService
     
     public function getNotesForFamily($familyID)
     {
-        $timeline = $this->notesForFamily($familyID, ['note','video']);
+        $timeline = $this->notesForFamily($familyID, ['note','video','audio']);
 
         return $this->sortTimeline($timeline);
     }
@@ -163,7 +163,7 @@ class TimelineService
 
     public function getNotesForPerson($personID)
     {
-        $timeline = $this->notesForPerson($personID, ['note','video','file']);
+        $timeline = $this->notesForPerson($personID, ['note','video','audio','file']);
 
         return $this->sortTimeline($timeline);
     }
@@ -251,6 +251,13 @@ class TimelineService
                 break;
             case 'photo':
                 $item['style'] = 'fa-camera bg-green';
+                break;
+            case 'audio':
+                $item['slim'] = true;
+                $item['style'] = 'fa-music bg-purple';
+                $item['editLink'] = $editLink;
+                $item['deleteLink'] = $deleteLink;
+                $item['currentUserName'] = $currentUserName;
                 break;
             case 'video':
                 $item['slim'] = true;

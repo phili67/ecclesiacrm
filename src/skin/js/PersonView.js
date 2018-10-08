@@ -518,6 +518,8 @@ $(document).ready(function () {
            $(".icon-note").hide();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            $(".type-shared").show();
            $(".icon-shared").show();      
            break;
@@ -530,6 +532,8 @@ $(document).ready(function () {
            $(".icon-note").hide();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            break;
          case 'note':
            $(".type-shared").hide();
@@ -540,6 +544,20 @@ $(document).ready(function () {
            $(".icon-note").show();       
            $(".type-video").hide();
            $(".icon-video").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
+           break;
+         case 'audio':
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
+           $(".type-file").hide();
+           $(".icon-file").hide();       
+           $(".type-note").hide();
+           $(".icon-note").hide();       
+           $(".type-audio").show();
+           $(".icon-audio").show();       
+           $(".type-video").hide();
+           $(".icon-video").hide();       
            break;
          case 'video':
            $(".type-shared").hide();
@@ -548,6 +566,8 @@ $(document).ready(function () {
            $(".icon-file").hide();       
            $(".type-note").hide();
            $(".icon-note").hide();       
+           $(".type-audio").hide();
+           $(".icon-audio").hide();       
            $(".type-video").show();
            $(".icon-video").show();       
            break;
@@ -560,6 +580,8 @@ $(document).ready(function () {
            $(".icon-note").show();       
            $(".type-video").show();
            $(".icon-video").show();       
+           $(".type-audio").show();
+           $(".icon-audio").show();       
            break;
        }
        

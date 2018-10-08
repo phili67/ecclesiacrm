@@ -144,6 +144,9 @@ class MiscUtils {
       case 'file':
         $type = gettext("Classic File");
         break;
+      case 'audio':
+        $type = gettext("Classic Audio");
+        break;
     }
     
     return $type;

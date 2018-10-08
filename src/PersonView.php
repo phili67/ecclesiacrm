@@ -1162,6 +1162,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                             <option value="all"><?= gettext("All type") ?></option>
                             <option value="note"><?= MiscUtils::noteType("note") ?></option>
                             <option value="video"><?= MiscUtils::noteType("video") ?></option>
+                            <option value="audio"><?= MiscUtils::noteType("audio") ?></option>
                             <option disabled="disabled">_____________________________</option>
                             <option value="shared"><?= gettext("Shared documents") ?></option>
                         </select>
