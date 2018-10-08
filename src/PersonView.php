@@ -1158,7 +1158,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <labe><?= gettext("Show") ?> : </label>
                     </td>
                     <td>
-                        <select name="PropertyId" id="filter-timeline" class="form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
+                        <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
                             <option value="all"><?= gettext("All type") ?></option>
                             <option value="note"><?= MiscUtils::noteType("note") ?></option>
                             <option value="video"><?= MiscUtils::noteType("video") ?></option>
@@ -1340,7 +1340,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <labe><?= gettext("Show") ?> : </label>
                     </td>
                     <td>
-                        <select name="PropertyId" id="filter-timeline" class="form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
+                        <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
                             <option value="all"><?= gettext("All type") ?></option>
                             <option value="file"><?= MiscUtils::noteType("file") ?></option>
                             <option disabled="disabled">_____________________________</option>
@@ -1365,6 +1365,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       </a>
                     <?php 
                       }
+                      
+                      if (  $user->getCurrentpath() != "/") {
                     ?>
                       <a href="#" class="folder-back" data-personid="<?= $iPersonID ?>">
                         <span class="fa-stack">
@@ -1372,6 +1374,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                             <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
+                    <?php
+                      }
+                    ?>
                     </td>
                   </tr>
                 </table>
@@ -1551,7 +1556,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
 
                   <h3 class="timeline-header">
-                      <?= gettext("Change directory to") ?> : <a data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="change-folder" data-personid="<?= $iPersonID ?>"> <?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?></a>
+                      <?= gettext("Change directory to") ?> : <a href="#" data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="change-folder" data-personid="<?= $iPersonID ?>"> <?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?></a>
                   </h3>
                   <div class="timeline-body">
                       <?= gettext("It's a Folder") ?>

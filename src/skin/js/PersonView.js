@@ -39,7 +39,7 @@ $(document).ready(function () {
     
     bootbox.confirm({
       title  : i18next.t("You're about to remove a folder and it's content"),
-      message: i18next.t("This can be undone !!!!"),
+      message: i18next.t("This can't be undone !!!!"),
       buttons: {
         confirm: {
           label: i18next.t('Yes'),
@@ -509,7 +509,7 @@ $(document).ready(function () {
     $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
   });
   
-  $("#filter-timeline").change(function() {
+  $(".filter-timeline").change(function() {
        switch ($(this).val()) {
          case 'shared':
            $(".type-file").hide();
@@ -522,10 +522,10 @@ $(document).ready(function () {
            $(".icon-shared").show();      
            break;
          case 'file':
-           $(".type-shared").hide();
-           $(".icon-shared").hide();       
            $(".type-file").show();
            $(".icon-file").show();       
+           $(".type-shared").hide();
+           $(".icon-shared").hide();       
            $(".type-note").hide();
            $(".icon-note").hide();       
            $(".type-video").hide();
