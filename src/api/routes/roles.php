@@ -47,8 +47,5 @@ $app->group('/roles', function () {
         }
         
         
-    });
-    
-    
-    
-});
+    });    
+})->add($jwt);

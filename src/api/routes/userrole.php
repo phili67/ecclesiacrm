@@ -113,4 +113,4 @@ $app->group('/userrole', function () {
         }
         return $response->withJson(['status' => "success"]);
     });
-});
+})->add($jwt);

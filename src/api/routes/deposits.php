@@ -107,4 +107,4 @@ $app->group('/deposits', function () {
         return $response->withJSON($Pledges);
         
     });
-});
+})->add($jwt);

@@ -282,4 +282,4 @@ $app->group('/users', function () {
             return $response->withStatus(404);
         }
     });
-});
+})->add($jwt);

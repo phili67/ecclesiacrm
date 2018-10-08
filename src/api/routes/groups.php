@@ -408,4 +408,4 @@ $app->group('/groups', function () {
             return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid export value']);
         }
     });
-});
+})->add($jwt);

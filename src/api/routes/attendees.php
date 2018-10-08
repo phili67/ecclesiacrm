@@ -310,4 +310,4 @@ $app->group('/attendees', function () {
         }
         return $response->withJson(['status' => "success"]);
     });
-});
+})->add($jwt);
