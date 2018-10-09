@@ -58,9 +58,9 @@ class MiscUtils {
     return str_replace(".".$basePath, "", $path);
   }
   
-
-  
   public static function embedFiles ($path) {
+    $uuid = MiscUtils::gen_uuid();
+
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
@@ -70,7 +70,9 @@ class MiscUtils {
       case "jpg":
       case "jpeg":
       case "png":
-        $res .= "<img src=\"".$path."\" style=\"width: 500px\"/>";
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= '<img src="'.$path.'" style="width: 500px"/>';
+        $res .= "</div>";
         break;
       case "txt":
       case "ps1":
@@ -80,43 +82,55 @@ class MiscUtils {
       case "js":
       case "mm":
       case "vcf":
-        $uuid = MiscUtils::gen_uuid();
-        
         $content = file_get_contents( dirname(__FILE__)."/../..".$path );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
         $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">'.$content.'</div>';
         break;
       case "pdf":
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 500px;height:500px\">";
         $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
         $res .= "</object>";
+        $res .= "</div>";
         break;
       case "mp3":
       case "m4a":
       case "oga":
       case "wav":
-        $res .= " type : $extension<br><audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= " type : $extension<br>";
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "</div>";
         break;
       case  "mp4":
-        $res .= "type : $extension<br><video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "type : $extension<br>";
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= "<video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
         $res .= "<source src=\"".$path."\" type=\"video/mp4\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
+        $res .= "</div>";
         break;
       case  "ogg":
-        $res .= "type : $extension<br><video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "type : $extension<br>";
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= "<video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
         $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
+        $res .= "</div>";
         break;
       case "mov":
-        $res .= "type : $extension<br><video src=\"".$path."\"\n";
+        $res .= "type : $extension<br>";
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= "<video src=\"".$path."\"\n";
         $res .= "     controls\n";
         $res .= "     autoplay\n";
         $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
+        $res .= "</div>";
         break;        
     }
     
