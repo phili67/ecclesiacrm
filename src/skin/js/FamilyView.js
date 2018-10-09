@@ -1,6 +1,77 @@
 $(document).ready(function () {
-  
-  window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
+
+  $("#activateDeactivate").click(function () {
+    console.log("click activateDeactivate");
+    popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t("Confirm Activation") );
+    if (window.CRM.currentActive == true) {
+      popupMessage = i18next.t("Please confirm deactivation of family") + ': ' + window.CRM.fam_Name;
+    } else {
+      popupMessage = i18next.t("Please confirm activation of family") + ': ' + window.CRM.fam_Name + "<br>";
+    }
+
+    bootbox.confirm({
+      title: popupTitle,
+      message: '<p style="color: red">' + popupMessage + '</p>',
+      callback: function (result) {
+        if (result) {
+          $.ajax({
+            method: "POST",
+            url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/activate/" + !window.CRM.currentActive,
+            dataType: "json",
+            encode: true
+          }).done(function (data) {
+            if (data.success == true)
+              window.location.href = window.CRM.root + "/FamilyView.php?FamilyID=" + window.CRM.currentFamily;
+            });
+          }
+        }
+      });
+    });
+
+    $("#deletePhoto").click(function () {
+      $.ajax({
+        type: "POST",
+        url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo",
+        encode: true,
+        dataType: 'json',
+        data: {
+          "_METHOD": "DELETE"
+        }
+      }).done(function (data) {
+        location.reload();
+      });
+    });
+
+    window.CRM.photoUploader = $("#photoUploader").PhotoUploader({
+      url: window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo",
+      maxPhotoSize: window.CRM.maxUploadSize,
+      photoHeight: window.CRM.iPhotoHeight,
+      photoWidth: window.CRM.iPhotoWidth,
+      done: function (e) {
+        location.reload();
+      }
+    });
+
+    contentExists(window.CRM.root + "/api/families/" + window.CRM.currentFamily + "/photo", function (success) {
+      if (success) {
+        $("#view-larger-image-btn").removeClass('hide');
+
+        $("#view-larger-image-btn").click(function () {
+          bootbox.alert({
+            title: i18next.t("Family Photo"),
+            message: '<img class="img-rounded img-responsive center-block" src="' + window.CRM.root + '/api/families/' + window.CRM.currentFamily + '/photo" />',
+            backdrop: true
+          });
+        });
+      }
+    });
+    
+    $(".input-family-properties").select2({ 
+        language: window.CRM.shortLocale
+    });
+      
+        
+    window.CRM.dataPropertiesTable = $("#assigned-properties-table").DataTable({
       ajax:{
         url: window.CRM.root + "/api/families/familyproperties/"+window.CRM.currentFamily,
         type: 'POST',
