@@ -283,7 +283,7 @@ $app->group('/events', function () {
       {
         // new way to manage events
         // we get the PDO for the Sabre connection from the Propel connection
-        $pdo = Propel::getConnection();         
+        $pdo = Propel::getConnection();
         
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
@@ -296,11 +296,11 @@ $app->group('/events', function () {
         
         // We move to propel, to find the calendar
         $calendarId = $calIDs[0];
-        $Id         = $calIDs[1];          
-        $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+        $Id         = $calIDs[1];
+        $calendar   = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
         
-        $coordinates = "";        
-        $location = '';
+        $coordinates = "";
+        $location    = '';
         
         if (isset($input->location)) {
           $location = str_replace("\n"," ",$input->location);
@@ -311,7 +311,7 @@ $app->group('/events', function () {
         }
 
         // we remove to Sabre 
-        if (!empty($input->recurrenceValid)) {        
+        if (!empty($input->recurrenceValid)) {
         
           $vevent = [
             'CREATED'=> (new \DateTime('Now'))->format('Ymd\THis'),
@@ -455,13 +455,12 @@ $app->group('/events', function () {
      else if (!strcmp($input->evntAction,'moveEvent'))
      {
      
-        $pdo = Propel::getConnection();         
+        $pdo = Propel::getConnection();
         
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
         
         $event = $calendarBackend->getCalendarObjectById($input->calendarID,$input->eventID);
-        
           
         $vcalendar = VObject\Reader::read($event['calendardata']);
         
