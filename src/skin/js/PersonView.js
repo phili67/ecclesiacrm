@@ -1,5 +1,35 @@
 $(document).ready(function () {
+   $("#activateDeactivate").click(function () {
+      console.log("click activateDeactivate");
+      popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
+      if (window.CRM.currentActive == true) {
+          popupMessage = i18next.t("Please confirm deactivation of person") + ': ' + window.CRM.personFullName;
+      }
+      else {
+          popupMessage = i18next.t("Please confirm activation of person") + ': ' + window.CRM.personFullName;
+      }
 
+      bootbox.confirm({
+          title: popupTitle,
+          message: '<p style="color: red">' + popupMessage + '</p>',
+          callback: function (result) {
+              if (result) {
+                  $.ajax({
+                      method: "POST",
+                      url: window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/activate/" + !window.CRM.currentActive,
+                      dataType: "json",
+                      encode: true
+                  }).done(function (data) {
+                    if (data.success == true) {
+                        window.location.href = window.CRM.root + "/PersonView.php?PersonID=" + window.CRM.currentPersonID;
+                    }
+                  });
+              }
+          }
+      });
+  });
+    
+  // Cloud management
   $(".change-folder").click (function () {
     var personID = $(this).data("personid");
     var folder   = $(this).data("folder");
@@ -83,6 +113,8 @@ $(document).ready(function () {
       }
     });
   });
+  
+  // end of cloud management
 
   $("#deletePhoto").click (function () {
     $.ajax({
@@ -609,7 +641,7 @@ $(document).ready(function () {
             promptBox
                 .addClass('form-group')
                 .append(
-                    $('<label></label>').html(pro_prompt)
+                    $('<label style="color:white"></label>').html(pro_prompt)
                 )
                 .append(
                     $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)

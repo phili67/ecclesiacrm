@@ -49,11 +49,7 @@ use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 
 
-$timelineService = new TimelineService();
-$mailchimp = new MailChimpService();
-
 // Set the page title and include HTML header
-
 $sPageTitle = gettext('Person Profile');
 require 'Include/Header.php';
 
@@ -61,6 +57,16 @@ require 'Include/Header.php';
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 $user = UserQuery::Create()->findPk($iPersonID);
+
+// we get the TimelineService
+$maxMainTimeLineItems = 20; // max number
+
+$timelineService           = new TimelineService();
+$timelineServiceItems      = $timelineService->getForPerson($iPersonID);
+$timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
+
+$mailchimp = new MailChimpService();
+
 
 $userName       = '';
 $userDir        = '';
@@ -73,7 +79,7 @@ if (!is_null($user)) {
   $userName    = $user->getUserName();
   $currentpath = $user->getCurrentpath();
   
-  $currentNoteDir = "/".$realNoteDir."/".$userName;
+  $currentNoteDir =  SystemURLs::getRootPath()."/".$realNoteDir."/".$userName;
                     
   $directories = MiscUtils::getDirectoriesInPath($currentNoteDir.$currentpath);
 }
@@ -606,8 +612,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         <?php
           if (count($person->getOtherFamilyMembers()) == 0 && $_SESSION['user']->isFinanceEnabled()) {
         ?>
-            <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><?= gettext("Automatic Payments") ?></a></li>
-            <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><?= gettext("Pledges and Payments") ?></a></li>
+            <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= gettext("Automatic Payments") ?></a></li>
+            <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= gettext("Pledges and Payments") ?></a></li>
         <?php
             if (empty($activeTab)) {
               $activeTab = 'finance';
@@ -618,12 +624,12 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
             if ($bDocuments) $activeTab = 'notes';
         ?>
-        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-book"></i> <?= gettext("Documents") ?></a></li>
+        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
         <?php
           }
         ?>
         <?php
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
+          if ( !is_null($user) && ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) ) {
             if ($bEDrive) $activeTab = 'edrive';
         ?>        
         <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= gettext("EDrive") ?></a></li>
@@ -671,8 +677,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <!-- /.timeline-label -->        
                 
             <!-- timeline item -->
-            <?php 
-              foreach ($timelineService->getForPerson($iPersonID) as $item) {
+            <?php
+              $countMainTimeLine    = 0;  // number of items in the MainTimeLines
+
+              foreach ($timelineServiceItems as $item) {
+                 $countMainTimeLine++;
+                 
+                 if ($countMainTimeLine > $maxMainTimeLineItems) break;// we break after 20 $items
             ?>
               <li>
                 <!-- timeline icon -->
@@ -703,18 +714,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   </span>
                   
                   <h3 class="timeline-header">
-                    <?php if (in_array('headerlink', $item)) {
-            ?>
+                    <?php 
+                      if (in_array('headerlink', $item)) {
+                    ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                     <?php
-        } else {
-            ?>
+                      } else {
+                    ?>
                       <?= $item['header'] ?>
                     <?php
-        } ?>
+                      } 
+                    ?>
                   </h3>
 
-                  <div class="timeline-body">                     
+                  <div class="timeline-body">
                      <?php 
                        if ($item['type'] != 'file') { 
                      ?>
@@ -1171,7 +1184,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                     ?>
                     <td>
-                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true">
+                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>">
                         <span class="fa-stack" data-personid="<?= $iPersonID ?>">
                             <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                             <i class="fa fa-file-o fa-stack-1x fa-inverse"></i>
@@ -1195,7 +1208,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <?php 
               $note_content = "";// this assume only the last note is visible
               
-              foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
+              foreach ($timelineNotesServiceItems as $item) {
                 if ( $note_content != $item['text'] // this assume only the last note is visible
                  && $item['type'] != 'file' ) {
                  
@@ -1259,7 +1272,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
                     <?php 
                       if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
-                                            ?>
+                    ?>
                       <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
                     <?php
                       } else {
@@ -1349,7 +1362,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         </select>
                     </td>
                     <td>
-                      <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>">
+                      <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
                         <span class="fa-stack">
                             <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                             <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
@@ -1359,7 +1372,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                     ?>
                       <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&uploadEDrive=true">
-                        <span class="fa-stack" data-personid="<?= $iPersonID ?>">
+                        <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
                             <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                             <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                         </span>
@@ -1367,9 +1380,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     <?php 
                       }
                       
-                      if (  $user->getCurrentpath() != "/") {
+                      if ( !is_null ($user) && $user->getCurrentpath() != "/") {
                     ?>
-                      <a href="#" class="folder-back" data-personid="<?= $iPersonID ?>">
+                      <a href="#" class="folder-back" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>">
                         <span class="fa-stack">
                             <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
                             <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
@@ -1384,7 +1397,13 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               </div>
               <div class="col-md-4" style="line-height:27px">
                 <span  class="float-left">
+                <?php 
+                  if ( !is_null ($user) && $user->getCurrentpath() != "/") {
+                ?>
                   <?= gettext("Path")." : ".$user->getCurrentpath() ?>
+                <?php
+                  }
+                ?>
                 </span>
               </div>
           </div>
@@ -1399,7 +1418,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               $note_content = "";// this assume only the last note is visible
               $elts = 0;
               
-              foreach ($timelineService->getNotesForPerson($iPersonID) as $item) {
+              foreach ($timelineNotesServiceItems as $item) {
                 $temp_realNoteDir    = $realNoteDir;
                 $temp_userName       = $userName;
                 $temp_currentpath    = $currentpath;
@@ -1488,11 +1507,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     <?php 
                       if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
                     ?>
-                      <a href="<?= $item['headerlink'] ?>"><?= $item['header'] ?></a>
+                      <?= $item['header'] ?>
                     <?php
                       } else {
                     ?>
-                      <?= $item['header'] ?>
+                      <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $item['sharePersonID'] ?>"><?= $item['header'] ?></a>
                     <?php
                       } 
                     ?>
@@ -1616,39 +1635,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
   window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
-
-  
-  $(document).ready(function () {
-    $("#activateDeactivate").click(function () {
-      console.log("click activateDeactivate");
-      popupTitle = (window.CRM.currentActive == true ? "<?= gettext('Confirm Deactivation') ?>" : "<?= gettext('Confirm Activation') ?>" );
-      if (window.CRM.currentActive == true) {
-          popupMessage = "<?= gettext('Please confirm deactivation of person') . ': ' . $person->getFullName() ?>";
-      }
-      else {
-          popupMessage = "<?= gettext('Please confirm activation of person') . ': ' . $person->getFullName()  ?>";
-      }
-
-      bootbox.confirm({
-          title: popupTitle,
-          message: '<p style="color: red">' + popupMessage + '</p>',
-          callback: function (result) {
-              if (result) {
-                  $.ajax({
-                      method: "POST",
-                      url: window.CRM.root + "/api/persons/" + window.CRM.currentPersonID + "/activate/" + !window.CRM.currentActive,
-                      dataType: "json",
-                      encode: true
-                  }).done(function (data) {
-                    if (data.success == true) {
-                        window.location.href = window.CRM.root + "/PersonView.php?PersonID=" + window.CRM.currentPersonID;
-                    }
-                  });
-              }
-          }
-      });
-    });
-  });
+  window.CRM.personFullName  = "<?= $person->getFullName() ?>";
 </script>
 
 <?php require 'Include/Footer.php' ?>

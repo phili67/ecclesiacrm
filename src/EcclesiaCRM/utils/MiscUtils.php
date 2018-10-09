@@ -72,6 +72,21 @@ class MiscUtils {
       case "png":
         $res .= "<img src=\"".$path."\" style=\"width: 500px\"/>";
         break;
+      case "txt":
+      case "ps1":
+      case "c":
+      case "cpp":
+      case "php":
+      case "js":
+      case "mm":
+      case "vcf":
+        $uuid = MiscUtils::gen_uuid();
+        
+        $content = file_get_contents( dirname(__FILE__)."/../..".$path );
+        $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
+        
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">'.$content.'</div>';
+        break;
       case "pdf":
         $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 500px;height:500px\">";
         $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
@@ -81,7 +96,7 @@ class MiscUtils {
       case "m4a":
       case "oga":
       case "wav":
-        $res .= " type : $extension<br><audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";        
+        $res .= " type : $extension<br><audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";
         break;
       case  "mp4":
         $res .= "type : $extension<br><video width=\"320\" height=\"240\" controls  preload=\"none\">\n";

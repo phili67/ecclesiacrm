@@ -272,7 +272,7 @@ class TimelineService
                 $item['id'] = $id;
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;
-                $item['currentUserName'] = $currentUserName;                
+                $item['currentUserName'] = $currentUserName;
                 break;
             case 'group':
                 $item['style'] = 'fa-users bg-gray';
