@@ -872,7 +872,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   foreach ($ormAssignedGroups as $ormAssignedGroup) {
               ?>
                   <div class="col-md-4">
-                    <p><br/></p>
                     <!-- Info box -->
                     <div class="box box-info">
                       <div class="box-header">
@@ -1044,7 +1043,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     //Was anything returned?
      ?>
-      <br>
       <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
         <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
       </div>

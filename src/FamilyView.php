@@ -994,10 +994,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
   var dataT = 0;
   var dataPaymentTable = 0;
   var pledgePaymentTable = 0;
-  
-  $(document).ready(function () {
-
-  });
 </script>
 
 <?php require "Include/Footer.php" ?>
