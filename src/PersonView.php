@@ -1320,8 +1320,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 <table width=400px>
                   <tr>
                     <td>
-                      <span class="time-line-head-yellow">
-                        <?= date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+                      <span class="time-line-head-red">
+                        <?= gettext("All Files") ?>
                       </span>
                     </td>
                     <td style="vertical-align: middle;">
@@ -1428,41 +1428,54 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
  
                 <div class="timeline-item">
                   <span class="time">
+                    <b>
+                     <?php 
+                      if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
+                    ?>
+                      <?= $item['header'] ?>
+                    <?php
+                      } else {
+                    ?>
+                      <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $item['sharePersonID'] ?>"><?= $item['header'] ?></a>
+                    <?php
+                      } 
+                    ?>
+                    </b>
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
-                     <?php 
-                     
+                    <?php 
                      if ( $item['slim'] && !isset($item['currentUserName']) ) {
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
                         <a href="<?= $item['deleteLink'] ?>">
-                              <span class="fa-stack">
-                                <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                                <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
-                              </span>
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                            <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
+                          </span>
                         </a>
                       <?php
                         }
                         if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
                         <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>">
-                            <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
-                            <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
+                          <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
+                          <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
                         </span>
-                      <?php
+                    <?php
                         }
-                      } ?>
+                      } 
+                    ?>
                      </span>
 
 
-                 <?php
+                <?php
                   if (isset($item['style2']) ) {
-                 ?>
+                ?>
                    <i class="fa <?= $item['style2'] ?> share-type-2"></i>
                 <?php
                   }
                 ?>
-                  <h3 class="timeline-header">
+                  <h3 class="timeline-header"  style="margin-left:-15px;margin-top:-5px">
                     <?php
                      if (isset($item['currentUserName'])) {
                     ?>
@@ -1477,20 +1490,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       } 
                     ?>
                   </h3>
-
-                  <div class="timeline-body">
-                    <?php 
-                      if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
-                    ?>
-                      <?= $item['header'] ?>
-                    <?php
-                      } else {
-                    ?>
-                      <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $item['sharePersonID'] ?>"><?= $item['header'] ?></a>
-                    <?php
-                      } 
-                    ?>
-                  </div>
 
                   <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                                             ?>
@@ -1548,6 +1547,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
  
                 <div class="timeline-item">
                   <span class="time">
+                    <?= gettext("Delete Folder") ?>
                     <a data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="delete-folder" data-personid="<?= $iPersonID ?>">
                       <span class="fa-stack">
                         <i class="fa fa-square fa-stack-2x" style="color:red"></i>
@@ -1557,12 +1557,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   </span>
 
 
-                  <h3 class="timeline-header">
-                      <?= gettext("Change directory to") ?> : <a href="#" data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="change-folder" data-personid="<?= $iPersonID ?>"> <?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?></a>
+                  <h3 class="timeline-header" style="margin-left:-15px;margin-top:-5px">
+                    <a href="#" data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="change-folder" data-personid="<?= $iPersonID ?>"> <?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?></a>
                   </h3>
-                  <div class="timeline-body">
-                      <?= gettext("It's a Folder") ?>
-                  </div>
                 </div>
               </li>            
             <?php
