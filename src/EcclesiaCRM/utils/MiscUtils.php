@@ -58,13 +58,74 @@ class MiscUtils {
     return str_replace(".".$basePath, "", $path);
   }
   
+  public static function FileIcon ($path)
+  {
+    $filename = basename($path);
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    
+    $icon = "fa-file-o bg-blue";
+    
+    switch (strtolower($extension)) {
+      case "doc":
+      case "docx":
+      case "odt":
+        $icon = 'fa-file-word-o bg-blue';
+        break;
+      case "xls":
+      case "xlsx":
+      case "ods":
+        $icon = ' fa-file-excel-o bg-green';
+        break;
+      case "xls":
+      case "xlsx":
+      case "ods":
+        $icon = ' fa-file-powerpoint-o bg-red';
+        break;
+      case "jpg":
+      case "jpeg":
+      case "png":
+        $icon = 'fa-file-photo-o bg-aqua';
+        break;
+      case "txt":
+      case "ps1":
+      case "c":
+      case "cpp":
+      case "php":
+      case "js":
+      case "mm":
+      case "vcf":
+        $icon = 'fa-file-code-o';
+        break;
+      case "pdf":
+        $icon = 'fa-file-pdf-o  bg-red';
+        break;
+      case "mp3":
+      case "m4a":
+      case "oga":
+      case "wav":
+        $icon = 'fa-file-sound-o  bg-green';
+        break;
+      case  "mp4":
+        $icon = 'fa-file-video-o  bg-blue';
+        break;
+      case  "ogg":
+        $icon = 'fa-file-video-o   bg-blue';
+        break;
+      case "mov":
+        $icon = 'fa-file-video-o  bg-blue';
+        break;        
+    }
+    
+    return $icon;
+  }
+  
   public static function embedFiles ($path) {
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";    
+    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
     
     switch (strtolower($extension)) {
       case "jpg":

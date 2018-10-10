@@ -64,10 +64,12 @@ $maxMainTimeLineItems = 20; // max number
 $timelineService           = new TimelineService();
 $timelineServiceItems      = $timelineService->getForPerson($iPersonID);
 $timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
+$timelineFilesServiceItems = $timelineService->getFilesForPerson($iPersonID);
 
+// we get the MailChimp Service
 $mailchimp = new MailChimpService();
 
-
+// person informations
 $userName       = '';
 $userDir        = '';
 $Currentpath    = '';
@@ -251,6 +253,8 @@ if ($per_Envelope > 0) {
 
 $iTableSpacerWidth = 10;
 
+$isMailChimpActive = $mailchimp->isActive();
+
 $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId()) ||
     ($_SESSION['user']->isEditSelfEnabled() && $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())
@@ -290,20 +294,22 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <?php endif; ?>
         </div>
         <h3 class="profile-username text-center">
-            <?php if ($person->isMale()) {
-    ?>
-                <i class="fa fa-male"></i>
-            <?php
-} elseif ($person->isFemale()) {
-        ?>
-                <i class="fa fa-female"></i>
-            <?php
-    } ?>
-          <?= $person->getFullName() ?></h3>
+      <?php 
+        if ($person->isMale()) {
+      ?>
+          <i class="fa fa-male"></i>
+      <?php
+        } elseif ($person->isFemale()) {
+      ?>
+          <i class="fa fa-female"></i>
+      <?php
+        } 
+      ?>
+      <?= $person->getFullName() ?></h3>
 
-<?php
-   if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isEditRecordsEnabled() ) {
-?>
+      <?php
+         if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isEditRecordsEnabled() ) {
+      ?>
         <p class="text-muted text-center">
             <?= empty($sFamRole) ? gettext('Undefined') : gettext($sFamRole); ?>
             &nbsp;
@@ -312,10 +318,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 <i class="fa fa-pencil"></i>
             </a>
         </p>
-<?php
-  }
-?>
-
+      <?php
+        }
+      ?>
         <p class="text-muted text-center">
         
           <?php
@@ -325,16 +330,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           <?php
             }
           ?>
-            <?= gettext($sClassName);
-    if ($per_MembershipDate) {
-        echo "<br>".gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false);
-    } ?>
-        </p>
-        <?php if ($bOkToEdit) {
+        <?= gettext($sClassName);
+          if ($per_MembershipDate) {
         ?>
-          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $per_ID ?>" class="btn btn-primary btn-block"><b><?php echo gettext('Edit'); ?></b></a>
+              <br><?= gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false) ?>
         <?php
-    } ?>
+          } 
+        ?>
+        </p>
+      <?php 
+        if ($bOkToEdit) {
+      ?>
+          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $per_ID ?>" class="btn btn-primary btn-block"><b><?php echo gettext('Edit'); ?></b></a>
+      <?php
+        } 
+      ?>
       </div>
       <!-- /.box-body -->
     </div>
@@ -356,9 +366,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             if (count($person->getOtherFamilyMembers()) > 0) {
         ?>
           <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
-              <?php
+            <?php
               if ($fam_ID != '') {
-                  ?>
+            ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $fam_ID ?>"><?= $fam_Name ?> </a>
                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $fam_ID ?>" class="table-link">
                   <span class="fa-stack">
@@ -366,115 +376,131 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
-              <?php
+            <?php
               } else {
-                  echo gettext('(No assigned family)');
-              } ?>
+            ?>
+                <?= gettext('(No assigned family)') ?>
+            <?php
+              } 
+            ?>
             </span>
         </li>
-        <?php
+      <?php
         }
-        ?>
-            <?php if (!empty($formattedMailingAddress)) {
-                  ?>
-          <li><i class="fa-li fa fa-home"></i><?php echo gettext('Address'); ?>: <span>
-            <a href="http://maps.google.com/?q=<?= $plaintextMailingAddress ?>" target="_blank">
-              <?= $formattedMailingAddress ?>
-            </a>
-            </span></li>
+      
+        if (!empty($formattedMailingAddress)) {
+      ?>
+          <li><i class="fa-li fa fa-home"></i><?php echo gettext('Address'); ?>: 
+            <span>
+              <a href="http://maps.google.com/?q=<?= $plaintextMailingAddress ?>" target="_blank">
+                <?= $formattedMailingAddress ?>
+              </a>
+            </span>
+          </li>
+      <?php
+        }
+        
+        if ($dBirthDate) {
+      ?>
+          <li>
+            <i class="fa-li fa fa-calendar"></i><?= gettext('Birth Date') ?>:
+            <span><?= $dBirthDate ?></span>
+          <?php 
+            if (!$person->hideAge()) {
+          ?>
+            (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?=FormatAgeSuffix($person->getBirthDate(), $per_Flags) ?>)
           <?php
-              }
-    if ($dBirthDate) {
-        ?>
-            <li>
-              <i class="fa-li fa fa-calendar"></i><?= gettext('Birth Date') ?>:
-              <span><?= $dBirthDate ?></span>
-              <?php if (!$person->hideAge()) {
-            ?>
-              (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?=FormatAgeSuffix($person->getBirthDate(), $per_Flags) ?>)
-              <?php
-        } ?>
-            </li>
-          <?php
+            } 
+          ?>
+          </li>
+  <?php
     }
-    if (!SystemConfig::getValue('bHideFriendDate') && $per_FriendDate != '') { /* Friend Date can be hidden - General Settings */ ?>
-            <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($per_FriendDate, false) ?></span></li>
-          <?php
+    if (!SystemConfig::getValue('bHideFriendDate') && $per_FriendDate != '') { /* Friend Date can be hidden - General Settings */ 
+  ?>
+          <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($per_FriendDate, false) ?></span></li>
+  <?php
     }
+    
     if ($sCellPhone) {
-        ?>
-            <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
-            <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
-          <?php
+  ?>
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
+  <?php
     }
+    
     if ($sHomePhone) {
-        ?>
-            <li><i class="fa-li fa fa-phone"></i><?= gettext('Home Phone') ?>: <span><a href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
-            <?php
+  ?>
+          <li><i class="fa-li fa fa-phone"></i><?= gettext('Home Phone') ?>: <span><a href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
+  <?php
     }
+    
     if ($sEmail != '') {
+  ?>
+          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
+        <?php 
+          if ($isMailChimpActive) {
         ?>
-            <li><i class="fa-li fa fa-envelope"></i><?= gettext('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
-            <?php if ($mailchimp->isActive()) {
-            ?>
-              <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($sEmail); ?></span></li>
-            <?php
-        }
+          <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($sEmail); ?></span></li>
+        <?php
+          }
     }
+    
     if ($sWorkPhone) {
-        ?>
-            <li><i class="fa-li fa fa-phone"></i><?= gettext('Work Phone') ?>: <span><a href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
-          <?php
-    } ?>
-          <?php if ($per_WorkEmail != '') {
-        ?>
-            <li><i class="fa-li fa fa-envelope"></i><?= gettext('Work/Other Email') ?>: <span><a href="mailto:<?= $per_WorkEmail ?>"><?= $per_WorkEmail ?></a></span></li>
-            <?php if ($mailchimp->isActive()) {
-            ?>
-              <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($per_WorkEmail); ?></span></li>
-              <?php
+  ?>
+          <li><i class="fa-li fa fa-phone"></i><?= gettext('Work Phone') ?>: <span><a href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
+  <?php
+    } 
+   
+    if ($per_WorkEmail != '') {
+  ?>
+          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Work/Other Email') ?>: <span><a href="mailto:<?= $per_WorkEmail ?>"><?= $per_WorkEmail ?></a></span></li>
+  <?php 
+     if ($isMailChimpActive) {
+  ?>
+        <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($per_WorkEmail); ?></span></li>
+  <?php
         }
     }
 
     if ($per_FacebookID > 0) {
-        ?>
-              <li><i class="fa-li fa fa-facebook-official"></i><?= gettext('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($per_FacebookID) ?>"><?= gettext('Facebook') ?></a></span></li>
-          <?php
+  ?>
+        <li><i class="fa-li fa fa-facebook-official"></i><?= gettext('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($per_FacebookID) ?>"><?= gettext('Facebook') ?></a></span></li>
+  <?php
     }
 
     if (strlen($per_Twitter) > 0) {
-        ?>
-              <li><i class="fa-li fa fa-twitter"></i><?= gettext('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($per_Twitter) ?>"><?= gettext('Twitter') ?></a></span></li>
-          <?php
+  ?>
+        <li><i class="fa-li fa fa-twitter"></i><?= gettext('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($per_Twitter) ?>"><?= gettext('Twitter') ?></a></span></li>
+  <?php
     }
 
     if (strlen($per_LinkedIn) > 0) {
-        ?>
-              <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($per_LinkedIn) ?>"><?= gettext('LinkedIn') ?></a></span></li>
-          <?php
+  ?>
+        <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($per_LinkedIn) ?>"><?= gettext('LinkedIn') ?></a></span></li>
+  <?php
     }
     
-    } // end of $can_see_privatedata
+  } // end of $can_see_privatedata
 
     // Display the right-side custom fields
-    foreach ($ormCustomFields as $rowCustomField) {
-        if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-          $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
-          if ($currentData != '') {
-              if ($rowCustomField->getTypeId() == 11) {
-                 $custom_Special = $sPhoneCountry;
-              } else {
-                 $custom_Special = $rowCustomField->getCustomSpecial();
-              }
+  foreach ($ormCustomFields as $rowCustomField) {
+    if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
+      $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
+        if ($currentData != '') {
+          if ($rowCustomField->getTypeId() == 11) {
+            $custom_Special = $sPhoneCountry;
+          } else {
+            $custom_Special = $rowCustomField->getCustomSpecial();
+          }
               
-              echo '<li><i class="fa-li '.(($rowCustomField->getTypeId() == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$rowCustomField->getCustomName().': <span>';
+          echo '<li><i class="fa-li '.(($rowCustomField->getTypeId() == 11)?'fa fa-phone':'fa fa-tag').'"></i>'.$rowCustomField->getCustomName().': <span>';
               $temp_string=nl2br(OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $custom_Special));
               echo $temp_string;
               echo '</span></li>';
           }
         }    
     }
-    ?>
+?>
         </ul>
       </div>
     </div>
@@ -505,22 +531,23 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php
        }
       ?>
-      <?php if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled()) {
-        ?>
-              <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
-              <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
-              <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
-            <?php
-       } ?>
-      <?php if ($_SESSION['user']->isPastoralCareEnabled()) {
-        ?>
+      <?php 
+        if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled()) {
+      ?>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+      <?php
+       } 
+      
+       if ($_SESSION['user']->isPastoralCareEnabled()) {
+      ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
-        <?php
-         }
-        ?>
-    <?php
-    if ($_SESSION['user']->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
-       if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
+      <?php
+       }
+
+       if ($_SESSION['user']->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
+         if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
     ?>        
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
     <?php
@@ -529,36 +556,35 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= gettext("Delete this Record") ?></a>
     <?php
       }
-    ?>
-      <?php
     }
     if ($_SESSION['user']->isManageGroupsEnabled()) {
-        ?>
+  ?>
         <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= gettext("Assign New Group") ?></a>
-      <?php
+  <?php
     }
+
     if ($_SESSION['user']->isAdmin()) {
         if (!$person->isUser()) {
-            ?>
+  ?>
           <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= gettext('Make User') ?></a>
-        <?php
+      <?php
         } else {
-            ?>
+      ?>
           <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= gettext('Edit User') ?></a>
-        <?php
+      <?php
         }
-    } ?>
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>
-      
+    } 
+?>
+      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>      
     <?php 
       if ($bOkToEdit && $_SESSION['user']->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
     ?>
         <button class="btn btn-app bg-orange" id="activateDeactivate">
             <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . " " .gettext(' this Person')); ?>
         </button>
-      <?php
-        } 
-      ?>
+    <?php
+      } 
+    ?>
     </div>
   </div>
   
@@ -651,9 +677,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <td>
                   <span class="time-line-head-red">
                     <?php 
-                    $now = new DateTime('');
+                      $now = new DateTime('');
                       echo $now->format(SystemConfig::getValue('sDateFormatLong'))
-                       ?>
+                    ?>
                   </span>
                   </td>
                   <td style="vertical-align: middle;">
@@ -678,7 +704,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 
             <!-- timeline item -->
             <?php
-              $countMainTimeLine    = 0;  // number of items in the MainTimeLines
+              $countMainTimeLine = 0;  // number of items in the MainTimeLines
 
               foreach ($timelineServiceItems as $item) {
                  $countMainTimeLine++;
@@ -691,26 +717,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
                 <div class="timeline-item">
                   <span class="time">
-                  <?php if ($item['slim']) {
-                  ?>
-                  <?php if ($item['editLink'] != '') {
-                ?>
-                        <!--<a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn-xs btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>-->
-                      <?php
-            }
-            if ($item['deleteLink'] != '') {
-                ?>
-                        <!--<a href="<?= $item['deleteLink'] ?>">
-                          <button type="button" class="btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                        </a>-->
-                      <?php
-            } ?>
-            
-            &nbsp;
-            <?php } ?>
-                  <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
+                    <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                   </span>
                   
                   <h3 class="timeline-header">
@@ -740,35 +747,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         } 
                       ?>
                   </div>
-                  <?php if (!$item['slim']) {
-                  ?>
-                  <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
-            ?>
-                    <div class="timeline-footer">
-                      <?php if ($item['editLink'] != '') {
-                ?>
-                        <!--<a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>-->
-                      <?php
-            }
-            if ($item['deleteLink'] != '') {
-                ?>
-                        <!--<a href="<?= $item['deleteLink'] ?>">
-                          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                        </a>-->
-                      <?php
-            } ?>
-                    </div>
-                  <?php
-        } ?>
-        
-        <?php 
-        } ?>
                 </div>
               </li>
             <?php
-    } ?>
+              } 
+            ?>
             <!-- END timeline item -->
           </ul>
         </div>
@@ -776,9 +759,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           }
         ?>
         <div role="tab-pane fade <?= ($activeTab == 'family')?"active":"" ?>" class="tab-pane" id="family">
-
-          <?php if ($person->getFamId() != '') {
-        ?>
+      <?php 
+        if ($person->getFamId() != '') {
+      ?>
           <table class="table user-list table-hover">
             <thead>
             <tr>
@@ -790,15 +773,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($person->getOtherFamilyMembers() as $familyMember) {
-            $tmpPersonId = $familyMember->getId(); ?>
+            <?php 
+              foreach ($person->getOtherFamilyMembers() as $familyMember) {
+              $tmpPersonId = $familyMember->getId(); 
+            ?>
               <tr>
                 <td>
-
-                 <img style="width:40px; height:40px;display:inline-block" src = "<?= $sRootPath.'/api/persons/'.$familyMember->getId().'/thumbnail' ?>" class="initials-image profile-user-img img-responsive img-circle no-border">
+                  <img style="width:40px; height:40px;display:inline-block" src = "<?= $sRootPath.'/api/persons/'.$familyMember->getId().'/thumbnail' ?>" class="initials-image profile-user-img img-responsive img-circle no-border">
                   <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $tmpPersonId ?>" class="user-link"><?= $familyMember->getFullName() ?> </a>
-
-
                 </td>
                 <td class="text-center">
                   <?= $familyMember->getFamilyRoleName() ?>
@@ -807,12 +789,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <?= OutputUtils::FormatBirthDate($familyMember->getBirthYear(), $familyMember->getBirthMonth(), $familyMember->getBirthDay(), '-', $familyMember->getFlags()); ?>
                 </td>
                 <td>
-                  <?php $tmpEmail = $familyMember->getEmail();
-            if ($tmpEmail != '') {
-                ?>
-                    <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
-                  <?php
-            } ?>
+              <?php 
+                $tmpEmail = $familyMember->getEmail();
+                
+                if ($tmpEmail != '') {
+              ?>
+                  <a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a>
+              <?php
+                } 
+              ?>
                 </td>
                 <td style="width: 20%;">
                   <?php
@@ -826,9 +811,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   </a>
                   <?php 
                     }
+                 
+                    if ($bOkToEdit) {
                   ?>
-                  <?php if ($bOkToEdit) {
-                ?>
                     <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $tmpPersonId ?>">
                       <span class="fa-stack"  style="color:green">
                         <i class="fa fa-square fa-stack-2x"></i>
@@ -841,36 +826,39 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                       </span>
                     </a>
-                  <?php
-            } ?>
+                <?php
+                 } 
+                ?>
                 </td>
               </tr>
             <?php
-        } ?>
+             } 
+            ?>
             </tbody>
           </table>
-          <?php
-    } ?>
+        <?php
+          } 
+        ?>
         </div>
         <div role="tab-pane fade <?= ($activeTab == 'group')?"active":"" ?>" class="tab-pane" id="groups">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
-              <?php
+            <?php
               //Was anything returned?
               if ($ormAssignedGroups->count() == 0) {
-                  ?>
+            ?>
                 <br>
                 <div class="alert alert-warning">
                   <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No group assignments.') ?></span>
                 </div>
-              <?php
+            <?php
               } else {
-              ?>
+            ?>
                   <div class="row">
-              <?php
+            <?php
                   // Loop through the rows
                   foreach ($ormAssignedGroups as $ormAssignedGroup) {
-              ?>
+            ?>
                   <div class="col-md-4">
                     <!-- Info box -->
                     <div class="box box-info">
@@ -887,17 +875,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                           // Get the special properties for this group only for the group                          
                           $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
                       ?>
-
                           <div class="box-body">
                           
                           <label><?= gettext("Group Informations") ?></label><br>
                       <?php
                           foreach ($ormPropLists as $ormPropList) {
-                              if ($ormPropList->getTypeId() == 11) {
-                                $prop_Special = $sPhoneCountry;
-                              }
+                            if ($ormPropList->getTypeId() == 11) {
+                              $prop_Special = $sPhoneCountry;
+                            }
                       ?>
-                              <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
+                            <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
                       <?php
                           }
 
@@ -907,7 +894,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                           $rsPersonProps = RunQuery($sSQL);
                           $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
                           
-                          ?>
+                      ?>
                           <br>
                           <label><?= gettext("Person Informations") ?></label><br>
                           
@@ -922,14 +909,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                                   <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?><br/>
                           <?php
                               }
-                          }
+                            }
                           
-                          if ($ormPropLists->count()>0) {
+                            if ($ormPropLists->count()>0) {
                       ?>
                       
-                        <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
+                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
                       <?php
-                          }
+                            }
                       ?>
 
                         </div><!-- /.box-body -->
@@ -1034,118 +1021,110 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'finance')?"active":"" ?>" id="volunteer">
           <div class="main-box clearfix">
             <div class="main-box-body clearfix">
-              <?php
+          <?php
 
-              //Initialize row shading
-              $sRowClass = 'RowColorA';
+            //Initialize row shading
+            $sRowClass = 'RowColorA';
 
-    $sAssignedVolunteerOpps = ',';
+            $sAssignedVolunteerOpps = ',';
 
-    //Was anything returned?
-     ?>
-      <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
-        <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
-      </div>
+           //Was anything returned?
+           ?>
+              <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
+                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
+              </div>
         
-      <div id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0)?'style="display: none;"':''?>>
-         <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%"></table>
-      </div>
+              <div id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0)?'style="display: none;"':''?>>
+                 <table class="table table-condensed dt-responsive" id="assigned-volunteer-opps-table" width="100%"></table>
+              </div>
 
-                <?php if ($_SESSION['user']->isEditRecordsEnabled() && $ormVolunteerOpps->count()): ?>
+              <?php 
+                if ($_SESSION['user']->isEditRecordsEnabled() && $ormVolunteerOpps->count()) { 
+              ?>
                 <div class="alert alert-info">
-                    <div>
-                        <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
+                  <div>
+                    <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
 
-                        <div class="row">
-                            <div class="form-group col-xs-12 col-md-7">
-                                <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple
-                                    class="form-control select2" style="width:100%" data-placeholder="<?= gettext("Select") ?>...">
-                                    <?php
-                                    foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
-                                        //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                        if (strlen(strstr($sAssignedVolunteerOpps, ','.$vol_ID.',')) == 0) {
-                                            echo '<option value="'.$ormVolunteerOpp->getId().'">'.$ormVolunteerOpp->getName().'</option>';
-                                        }
-                                    } ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-xs-12 col-md-7">
-                                <input type="submit" value="<?= gettext('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary VolunteerOpportunityAssign">
-                            </div>
-                        </div>
+                    <div class="row">
+                    <div class="form-group col-xs-12 col-md-7">
+                      <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple class="form-control select2" style="width:100%" data-placeholder="<?= gettext("Select") ?>...">
+                      <?php
+                        foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
+                            //If the property doesn't already exist for this Person, write the <OPTION> tag
+                            if (strlen(strstr($sAssignedVolunteerOpps, ','.$vol_ID.',')) == 0) {
+                      ?>
+                          <option value="<?= $ormVolunteerOpp->getId() ?>"><?= $ormVolunteerOpp->getName() ?></option>
+                      <?php
+                            }
+                        } 
+                      ?>
+                        </select>
+                      </div>
+                      <div class="form-group col-xs-12 col-md-7">
+                          <input type="submit" value="<?= gettext('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary VolunteerOpportunityAssign">
+                      </div>
                     </div>
                 </div>
-                <?php endif; ?>
-            </div>
+              </div>
+            <?php 
+              } 
+            ?>
           </div>
         </div>
+      </div>
       <?php 
         if ($_SESSION['user']->isFinanceEnabled()) {
       ?>
-        <div role="tab-pane fade" class="tab-pane" id="finance">
-            <div class="main-box clearfix">
-                <div class="main-box-body clearfix">
-                    <?php 
-                      if ($ormAutoPayments->count() > 0) {
-                    ?>    
-                        <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-
-                    <?php
-                      } 
-                    ?>
-                    <p align="center">
-                        <a class="btn btn-primary"
-                           href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
-                    </p>
-                </div>
-            </div>
+       <div role="tab-pane fade" class="tab-pane" id="finance">
+          <div class="main-box clearfix">
+              <div class="main-box-body clearfix">
+              <?php 
+                if ($ormAutoPayments->count() > 0) {
+              ?>    
+                  <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+              <?php
+                } 
+              ?>
+                  <p align="center">
+                      <a class="btn btn-primary"
+                         href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                  </p>
+              </div>
+          </div>
         </div>
         <div role="tab-pane fade" class="tab-pane" id="pledges">
-            <div class="main-box clearfix">
-                <div class="main-box-body clearfix">
-                        <input type="checkbox" name="ShowPledges" id="ShowPledges"
-                               value="1" <?php if ($_SESSION['sshowPledges']) {
-                              echo " checked";
-                          } ?>><?= gettext("Show Pledges") ?>
-                                                  <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                                                         value="1" <?php if ($_SESSION['sshowPayments']) {
-                              echo " checked";
-                          } ?>><?= gettext("Show Payments") ?>
-                          <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
-                          <input type="text" Name="Min" id="Min"
-                               value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
-                               
-                        <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
-                        
-                        <input type="text" Name="Max" id="Max"
-                               value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+          <div class="main-box clearfix">
+              <div class="main-box-body clearfix">
+                  <input type="checkbox" name="ShowPledges" id="ShowPledges" value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= gettext("Show Pledges") ?>
+                  <input type="checkbox" name="ShowPayments" id="ShowPayments" value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
+                  <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                  <input type="text" Name="Min" id="Min" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">                       
+                  <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
+                  <input type="text" Name="Max" id="Max" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
                 <?php
                   $tog = 0;
 
                   if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
-
                 ?>
-
                   <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
-
                 <?php
                   } // if bShowPledges
                 ?>
                     
-                    <p align="center">
-                        <a class="btn btn-primary"
-                           href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
-                        <a class="btn btn-default"
-                           href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
-                    </p>
+                  <p align="center">
+                      <a class="btn btn-primary"
+                         href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                      <a class="btn btn-default"
+                         href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                  </p>
 
               <?php 
                 if ($_SESSION['user']->isCanvasserEnabled()) {
               ?>
-                    <p align="center">
-                        <a class="btn btn-default"
-                           href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
-                    </p>
+                  <p align="center">
+                      <a class="btn btn-default"
+                         href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                  </p>
               <?php
                 } 
               ?>
@@ -1198,8 +1177,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           </div>
           <ul class="timeline time-line-note">
             <!-- note time label -->
-            <li class="time-label">
-            </li>
+            <li class="time-label"></li>
             <!-- /.note-label -->
 
             <!-- note item -->
@@ -1223,41 +1201,37 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                      
                      if ( $item['slim'] && !isset($item['currentUserName']) ) {
-                       if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file') ) {
-                        
-                          /*if ((isset($item['sharePersonID']) && $item['shareRights'] == 2 && $item['type'] != 'file'))*/ {
+                       if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
-                            <a href="<?= $item['editLink'] ?>">
-                              <span class="fa-stack">
-                                <i class="fa fa-square fa-stack-2x"></i>
-                                <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
-                              </span>
-                            </a>
+                      <a href="<?= $item['editLink'] ?>">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
                       <?php
-                          }
                         }
                         
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
-                        <a href="<?= $item['deleteLink'] ?>">
-                              <span class="fa-stack">
-                                <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                                <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
-                              </span>
-                        </a>
+                      <a href="<?= $item['deleteLink'] ?>">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                          <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
+                        </span>
+                      </a>
                       <?php
                         }
                         if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
                       ?>
                         <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>">
-                            <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
-                            <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
+                          <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
+                          <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
                         </span>
                       <?php
                         }
                       } ?>
-                     </span>
-
+                    </span>
 
                  <?php
                   if (isset($item['style2']) ) {
@@ -1265,7 +1239,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                    <i class="fa <?= $item['style2'] ?> share-type-2"></i>
                 <?php
                   }
-                 ?>
+                ?>
                   <h3 class="timeline-header">
 
                     <?php 
@@ -1282,59 +1256,61 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   </h3>
 
                   <div class="timeline-body">
-                    <?php
+                  <?php
                      if (isset($item['currentUserName'])) {
-                      ?>
+                  ?>
                           <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
-                      <?php
-                        }
-                      if ($item['type'] != 'file') { 
-                     ?>
+                  <?php
+                     }
+                    
+                     if ($item['type'] != 'file') { 
+                  ?>
                       <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
-                     <?php 
-                        } 
-                      ?>
-
+                      
+                  <?php 
+                      } 
+                  ?>
                   </div>
 
-                  <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
-                                            ?>
+                  <?php 
+                    if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
+                  ?>
                     <div class="timeline-footer">
-                    <?php if (!$item['slim']) {
-                    ?>
-                      <?php if ($item['editLink'] != '') {
-                                                ?>
+                  <?php 
+                    if (!$item['slim']) {
+                      if ($item['editLink'] != '') {
+                  ?>
                         <a href="<?= $item['editLink'] ?>">
                           <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
-                      <?php
-                        }
+                  <?php
+                      }
                             
-                        if ($item['deleteLink'] != '') {
-                      ?>
+                      if ($item['deleteLink'] != '') {
+                  ?>
                         <a href="<?= $item['deleteLink'] ?>">
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
-                      <?php
+                  <?php
                         }
                          
                         if (!isset($item['sharePersonID']) ) {
-                      ?>
+                  ?>
                         <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
                         ?> shareNote"><i class="fa fa-share-square-o"></i></button>
-                      <?php
+                  <?php
                         }
-                      ?>
+                  ?>
                     </div>
                   <?php
-                    } ?>
-                  <?php
+                    }
                   } ?>
                 </div>
               </li>
             <?php
                 }
-              } ?>
+              } 
+            ?>
             <!-- END timeline item -->
           </ul>
         </div>
@@ -1345,25 +1321,25 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <tr>
                     <td>
                       <span class="time-line-head-yellow">
-                        <?php echo date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
+                        <?= date_create()->format(SystemConfig::getValue('sDateFormatLong')) ?>
                       </span>
                     </td>
                     <td style="vertical-align: middle;">
-                        <labe><?= gettext("Show") ?> : </label>
+                      <labe><?= gettext("Show") ?> : </label>
                     </td>
                     <td>
-                        <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
-                            <option value="all"><?= gettext("All type") ?></option>
-                            <option value="file"><?= MiscUtils::noteType("file") ?></option>
-                            <option disabled="disabled">_____________________________</option>
-                            <option value="shared"><?= gettext("Shared documents") ?></option>
-                        </select>
+                      <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
+                        <option value="all"><?= gettext("All type") ?></option>
+                        <option value="file"><?= MiscUtils::noteType("file") ?></option>
+                        <option disabled="disabled">_____________________________</option>
+                        <option value="shared"><?= gettext("Shared documents") ?></option>
+                      </select>
                     </td>
                     <td>
                       <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
                         <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
-                            <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
+                          <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
                     <?php 
@@ -1371,8 +1347,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     ?>
                       <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&uploadEDrive=true">
                         <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
-                            <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                            <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-square fa-stack-2x" style="color:green"></i>
+                          <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
                     <?php 
@@ -1416,7 +1392,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               $note_content = "";// this assume only the last note is visible
               $elts = 0;
               
-              foreach ($timelineNotesServiceItems as $item) {
+              foreach ($timelineFilesServiceItems as $item) {
                 $temp_realNoteDir    = $realNoteDir;
                 $temp_userName       = $userName;
                 $temp_currentpath    = $currentpath;
@@ -1485,20 +1461,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                    <i class="fa <?= $item['style2'] ?> share-type-2"></i>
                 <?php
                   }
-                 ?>
+                ?>
                   <h3 class="timeline-header">
                     <?php
                      if (isset($item['currentUserName'])) {
-                      ?>
+                    ?>
                           <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
-                      <?php
-                        }
+                    <?php
+                      }
+                      
                       if ($item['type'] == 'file') { 
-                      ?>
-                       <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$item['text']) ?>
-                      <?php 
-                        } 
-                      ?>
+                    ?>
+                        <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$item['text']) ?>
+                    <?php 
+                      } 
+                    ?>
                   </h3>
 
                   <div class="timeline-body">
@@ -1518,16 +1495,18 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
                                             ?>
                     <div class="timeline-footer">
-                    <?php if (!$item['slim']) {
+                    <?php 
+                      if (!$item['slim']) {
                     ?>
-                      <?php if ($item['editLink'] != '') {
-                                                ?>
+                      <?php 
+                        if ($item['editLink'] != '') {
+                      ?>
                         <a href="<?= $item['editLink'] ?>">
                           <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
                       <?php
                         }
-                            
+                        
                         if ($item['deleteLink'] != '') {
                       ?>
                         <a href="<?= $item['deleteLink'] ?>">
@@ -1538,23 +1517,28 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                          
                         if (!isset($item['sharePersonID']) ) {
                       ?>
-                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
-                        ?> shareNote"><i class="fa fa-share-square-o"></i></button>
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" ?> shareNote"><i class="fa fa-share-square-o"></i></button>
                       <?php
                         }
                       ?>
                     </div>
                   <?php
-                    } ?>
-                  <?php
+                    } 
                   } ?>
                 </div>
               </li>
             <?php
                 }
               } 
-              
+
               if (count($directories) > 0) {
+            ?>
+            
+            <li class="time-label">
+              <span class="bg-red"><?= gettext("Folders") ?></span>
+            </li>
+            
+            <?php
                 foreach ($directories as $dir) {
                   $elts++;
             ?>
@@ -1564,12 +1548,12 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
  
                 <div class="timeline-item">
                   <span class="time">
-                        <a data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="delete-folder" data-personid="<?= $iPersonID ?>">
-                              <span class="fa-stack">
-                                <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                                <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                              </span>
-                        </a>
+                    <a data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="delete-folder" data-personid="<?= $iPersonID ?>">
+                      <span class="fa-stack">
+                        <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                      </span>
+                    </a>
                   </span>
 
 

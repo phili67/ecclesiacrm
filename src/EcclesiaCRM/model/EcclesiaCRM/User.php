@@ -551,7 +551,7 @@ class User extends BaseUser
                 break;    
             case "dav-create-directory":
                 $note->setText(str_replace("home/","",$info));
-                $note->setType('file');
+                $note->setType('folder');
                 $note->setInfo(gettext('Dav create directory'));
                 break;                           
             case "dav-update-file":
