@@ -58,21 +58,90 @@ class MiscUtils {
     return str_replace(".".$basePath, "", $path);
   }
   
+  public static function FileIcon ($path)
+  {
+    $filename = basename($path);
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    
+    $icon = "fa-file-o bg-blue";
+    
+    switch (strtolower($extension)) {
+      case "doc":
+      case "docx":
+      case "odt":
+        $icon = 'fa-file-word-o bg-blue';
+        break;
+      case "xls":
+      case "xlsx":
+      case "ods":
+        $icon = ' fa-file-excel-o bg-green';
+        break;
+      case "xls":
+      case "xlsx":
+      case "ods":
+        $icon = ' fa-file-powerpoint-o bg-red';
+        break;
+      case "jpg":
+      case "jpeg":
+      case "png":
+        $icon = 'fa-file-photo-o bg-aqua';
+        break;
+      case "txt":
+      case "ps1":
+      case "c":
+      case "cpp":
+      case "php":
+      case "js":
+      case "mm":
+      case "vcf":
+        $icon = 'fa-file-code-o';
+        break;
+      case "pdf":
+        $icon = 'fa-file-pdf-o  bg-red';
+        break;
+      case "mp3":
+      case "m4a":
+      case "oga":
+      case "wav":
+        $icon = 'fa-file-sound-o  bg-green';
+        break;
+      case  "mp4":
+        $icon = 'fa-file-video-o  bg-blue';
+        break;
+      case  "ogg":
+        $icon = 'fa-file-video-o   bg-blue';
+        break;
+      case "mov":
+        $icon = 'fa-file-video-o  bg-blue';
+        break;        
+    }
+    
+    return $icon;
+  }
+  
   public static function embedFiles ($path) {
+    $isexpandable = true;
+    
     $uuid = MiscUtils::gen_uuid();
 
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";    
+    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
+    
+    if (!$isexpandable) return;
     
     switch (strtolower($extension)) {
       case "jpg":
       case "jpeg":
       case "png":
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
         $res .= '<img src="'.$path.'" style="width: 500px"/>';
-        $res .= "</div>";
+        if ($isexpandable) {
+          $res .= "</div>";
+        }
         break;
       case "txt":
       case "ps1":
@@ -85,23 +154,37 @@ class MiscUtils {
         $content = file_get_contents( dirname(__FILE__)."/../..".$path );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">'.$content.'</div>';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
+        $res .= $content;
+        if ($isexpandable) {
+          $res .= '</div>';
+        }
         break;
       case "pdf":
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
         $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 500px;height:500px\">";
         $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
         $res .= "</object>";
-        $res .= "</div>";
+        if ($isexpandable) {
+          $res .= "</div>";
+        }
         break;
       case "mp3":
       case "m4a":
       case "oga":
       case "wav":
         $res .= " type : $extension<br>";
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
         $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";
-        $res .= "</div>";
+        if ($isexpandable) {
+          $res .= "</div>";
+        }
         break;
       case  "mp4":
         $res .= "type : $extension<br>";
@@ -114,23 +197,31 @@ class MiscUtils {
         break;
       case  "ogg":
         $res .= "type : $extension<br>";
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
         $res .= "<video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
         $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
-        $res .= "</div>";
+        if ($isexpandable) {
+          $res .= "</div>";
+        }
         break;
       case "mov":
         $res .= "type : $extension<br>";
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        if ($isexpandable) {
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        }
         $res .= "<video src=\"".$path."\"\n";
         $res .= "     controls\n";
         $res .= "     autoplay\n";
         $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
-        $res .= "</div>";
+        if ($isexpandable) {
+          $res .= "</div>";
+        }
         break;        
     }
     

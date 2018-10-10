@@ -10,6 +10,7 @@ use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\MiscUtils;
 use \Datetime;
 
 require_once 'Include/Functions.php';
@@ -163,7 +164,14 @@ class TimelineService
 
     public function getNotesForPerson($personID)
     {
-        $timeline = $this->notesForPerson($personID, ['note','video','audio','file']);
+        $timeline = $this->notesForPerson($personID, ['note','video','audio']);
+
+        return $this->sortTimeline($timeline);
+    }
+    
+    public function getFilesForPerson($personID)
+    {
+        $timeline = $this->notesForPerson($personID, ['folder','file']);
 
         return $this->sortTimeline($timeline);
     }
@@ -266,9 +274,16 @@ class TimelineService
                 $item['deleteLink'] = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
                 break;
+            case 'folder':
+                $item['slim'] = true;
+                $item['style'] = 'fa-folder-o bg-yellow';
+                $item['editLink'] = $editLink;
+                $item['deleteLink'] = $deleteLink;
+                $item['currentUserName'] = $currentUserName;
+                break;
             case 'file':
                 $item['slim'] = true;
-                $item['style'] = ' fa-file-o bg-aqua';
+                $item['style'] = MiscUtils::FileIcon($text);
                 $item['id'] = $id;
                 $item['editLink'] = $editLink;
                 $item['deleteLink'] = $deleteLink;

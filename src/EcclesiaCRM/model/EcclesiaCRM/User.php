@@ -545,27 +545,35 @@ class User extends BaseUser
                 $note->setText(gettext('system user login reset'));
                 break;
             case "dav-create-file":
-                $note->setText(str_replace("home/","",$info));
+                $note->setText(substr($info, 4));
                 $note->setType('file');
                 $note->setInfo(gettext('Dav create file'));
                 break;    
             case "dav-create-directory":
-                $note->setText(str_replace("home/","",$info));
-                $note->setType('file');
+                $note->setText(substr($info, 4));
+                $note->setType('folder');
                 $note->setInfo(gettext('Dav create directory'));
                 break;                           
             case "dav-update-file":
-                $note->setText(str_replace("home/","",$info));
+                $note->setText(substr($info, 4));
                 $note->setType('file');
                 $note->setInfo(gettext('Dav update file'));
                 break;
             case "dav-move-copy-file":
-                $note->setText(str_replace("home/","",$info));
-                $note->setType('file');
+                $note->setText(substr($info, 4));
+
+                $path = dirname(__FILE__).'/../../../'.$this->getUserRootDir().substr($info, 4);
+                
+                if (!pathinfo($path, PATHINFO_EXTENSION)) {// we are with a directory
+                  $note->setType('folder');
+                } else {
+                  $note->setType('file');
+                }
                 $note->setInfo(gettext('Dav move copy file'));
+
                 break;            
             case "dav-delete-file":
-                $note->setText(str_replace("home/","",$info));
+                $note->setText(substr($info, 4));
                 $note->setType('file');
                 $note->setInfo(gettext('Dav delete file'));
                 break;
@@ -626,7 +634,7 @@ class User extends BaseUser
     
     public function deleteTimeLineNote($type,$info = null)
     {
-      $notes = NoteQuery::Create ()->filterByPerId ($this->getPersonId())->findByText (str_replace("home/","",$info));
+      $notes = NoteQuery::Create ()->filterByPerId ($this->getPersonId())->findByText (substr($info, 4));
       
       if (!empty($notes)) {
         $notes->delete();
