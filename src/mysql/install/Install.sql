@@ -752,6 +752,7 @@ CREATE TABLE `person_custom_master` (
   `custom_Side` enum('left','right') NOT NULL default 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
   `type_ID` tinyint(4) NOT NULL default '0',
+  `custom_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 

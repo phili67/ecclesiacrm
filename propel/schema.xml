@@ -171,6 +171,7 @@
         <column name="custom_Special" phpName="CustomSpecial" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned"/>
         <column name="custom_Side" phpName="CustomSide" type="CHAR" sqlType="enum('left','right')" required="true" defaultValue="left"/>
         <column name="custom_FieldSec" phpName="CustomFieldSec" type="TINYINT" required="true"/>
+        <column name="custom_comment" phpName="CustomComment" type="LONGVARCHAR" required="true" description="for GDPR"/>
         <column name="type_ID" phpName="TypeId" type="TINYINT" required="true" defaultValue="0"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
