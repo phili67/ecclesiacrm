@@ -184,9 +184,15 @@ $app->group('/calendar', function () {
               $values['type'] = 'share';
             }
             
-            if ( ($params->onlyvisible == true && $calendar['visible'] && $calendar['present'] ) // when a calendar is only visible
-              || $params->onlyvisible == false  && $calendar['present'] 
-              || $params->allCalendars) {
+            if ( 
+                ( 
+                  ($params->onlyvisible == true && $calendar['visible'] && $calendar['present'] ) // when a calendar is only visible
+                    || $params->onlyvisible == false  && $calendar['present'] 
+                    || $params->allCalendars 
+                  ) 
+                  && ($params->type == $values['type'] || $params->type == 'all')
+               )
+              {
                 array_push($return, $values);
             }
           }
