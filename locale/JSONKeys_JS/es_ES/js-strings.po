@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-05T05:50:31.350Z\n"
+"POT-Creation-Date: 2018-10-09T19:09:45.868Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -599,6 +599,21 @@ msgstr ""
 "No todas las familias Se suprimieron : Algunos de ellos tienen datos e no se "
 "pueden borrar"
 
+msgid "Confirm Deactivation"
+msgstr "Confirme Desactivación"
+
+msgid "Confirm Activation"
+msgstr "Confirme Activación"
+
+msgid "Please confirm deactivation of family"
+msgstr "Por favor confirme desactivación de familia"
+
+msgid "Please confirm activation of family"
+msgstr "Por favor confirme desactivación de familia"
+
+msgid "Family Photo"
+msgstr "Foto de Familia"
+
 msgid "Value"
 msgstr "Valor"
 
@@ -1046,6 +1061,18 @@ msgid ""
 msgstr ""
 "No todas las personas Se suprimieron : Algunos de ellos tienen datos e no se "
 "pueden borrar"
+
+msgid "Please confirm deactivation of person"
+msgstr "Por favor confirme desactivación de persona"
+
+msgid "Please confirm activation of person"
+msgstr "Por favor confirme activación de persona"
+
+msgid "Set your Folder name"
+msgstr "Configura los nombres de las carpetas"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Estás a punto de borrar una carpeta e su contenido "
 
 msgid "Photo"
 msgstr "Fotografía"
