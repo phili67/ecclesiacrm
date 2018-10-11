@@ -493,7 +493,7 @@ INSERT INTO ' . $this->calendarInstancesTableName . '
 SELECT {$this->calendarInstancesTableName}.id as id, $fields FROM {$this->calendarInstancesTableName}
     LEFT JOIN {$this->calendarTableName} ON
         {$this->calendarInstancesTableName}.calendarid = {$this->calendarTableName}.id
-WHERE principaluri = ? ORDER BY $ordering ASC
+WHERE principaluri = ? ORDER BY cal_type ASC,$ordering ASC
 SQL
         );
         $stmt->execute([$principalUri]);
