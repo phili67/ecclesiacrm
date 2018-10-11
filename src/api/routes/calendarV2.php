@@ -169,7 +169,7 @@ $app->group('/calendar', function () {
           
             $id                           = $calendar['id'];
             $values['calendarID']         = $id[0].",".$id[1];
-            $values['present']            = $calendar['present'];
+            $values['present']            = ($calendar['present'] == "1")?true:false;
             $values['visible']            = ($calendar['visible'] == "1")?true:false;
             $values['type']               = ($calendar['grpid'] > 0)?'group':'personal';
             $values['grpid']              = $calendar['grpid'];
@@ -187,11 +187,7 @@ $app->group('/calendar', function () {
             if ( ($params->onlyvisible == true && $calendar['visible'] && $calendar['present'] ) // when a calendar is only visible
               || $params->onlyvisible == false  && $calendar['present'] 
               || $params->allCalendars) {
-              if ($params->type == $values['type'] || $params->type == 'all') {
                 array_push($return, $values);
-              } else if ($params->type == $values['type'] || $params->type == 'all') {
-                array_push($return, $values);
-              }
             }
           }
         }
