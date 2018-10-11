@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-05T16:35:40.301Z\n"
-"PO-Revision-Date: 2018-10-05T16:35:40.301Z\n"
+"POT-Creation-Date: 2018-10-10T21:37:36.000Z\n"
+"PO-Revision-Date: 2018-10-10T21:37:36.000Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -579,6 +579,21 @@ msgid ""
 "family."
 msgstr ""
 
+msgid "Confirm Deactivation"
+msgstr ""
+
+msgid "Confirm Activation"
+msgstr ""
+
+msgid "Please confirm deactivation of family"
+msgstr ""
+
+msgid "Please confirm activation of family"
+msgstr ""
+
+msgid "Family Photo"
+msgstr ""
+
 msgid "Value"
 msgstr ""
 
@@ -1003,6 +1018,18 @@ msgid ""
 "Not all the persons were DELETED : Some of them have records of donations "
 "and may NOT be deleted until these donations are associated with another "
 "family."
+msgstr ""
+
+msgid "Please confirm deactivation of person"
+msgstr ""
+
+msgid "Please confirm activation of person"
+msgstr ""
+
+msgid "Set your Folder name"
+msgstr ""
+
+msgid "You're about to remove a folder and it's content"
 msgstr ""
 
 msgid "Photo"

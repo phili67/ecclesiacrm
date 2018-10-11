@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-05T05:50:31.350Z\n"
+"POT-Creation-Date: 2018-10-09T19:09:45.868Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,6 +610,21 @@ msgstr ""
 "enregistrements ou des donations et ne doivent être détruite tant qu'un "
 "transfert de données ne soit effectué à une autre famille."
 
+msgid "Confirm Deactivation"
+msgstr "Confirmer la désactivation"
+
+msgid "Confirm Activation"
+msgstr "Confirmer l'activation"
+
+msgid "Please confirm deactivation of family"
+msgstr "Veuillez confirmer la désactivation de la famille"
+
+msgid "Please confirm activation of family"
+msgstr "Veuillez confirmer l'activation de la famille"
+
+msgid "Family Photo"
+msgstr "Photo de Famille"
+
 msgid "Value"
 msgstr "Valeur"
 
@@ -1061,6 +1076,19 @@ msgstr ""
 "Toutes les personnes n'ont pas été supprimées : Certaines ont des "
 "enregistrements ou des donations et ne doivent être détruite tant qu'un "
 "transfert de données ne soit effectué à une autre famille."
+
+msgid "Please confirm deactivation of person"
+msgstr "Veuillez confirmer la désactivation de la personne"
+
+msgid "Please confirm activation of person"
+msgstr "Veuillez confirmer l'activation de la personne"
+
+msgid "Set your Folder name"
+msgstr "Sélectionner un nom de dossier"
+
+msgid "You're about to remove a folder and it's content"
+msgstr ""
+"Vous êtes sur le point de supprimer un dossier et son contenu"
 
 msgid "Photo"
 msgstr "Photo"
