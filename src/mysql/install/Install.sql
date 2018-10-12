@@ -1560,7 +1560,7 @@ CREATE TABLE pastoral_care_type (
     `pst_cr_tp_title` varchar(255) NOT NULL default '',
     `pst_cr_tp_desc` varchar(255) NOT NULL default '',
     `pst_cr_tp_visible` BOOLEAN NOT NULL default 0,
-    `custom_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+    `pst_cr_tp_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
     PRIMARY KEY(pst_cr_tp_id)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
