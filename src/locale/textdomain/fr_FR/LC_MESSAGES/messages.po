@@ -6603,7 +6603,7 @@ msgstr "RGPD Structure de données"
 
 #: GDPRDataStructure.php:50
 msgid "To validate each text fields, use the tab or enter key !!!"
-msgstr "Pour valider chaque champ de text, utiliser la touche tabulation ou la touche Entrée du clavier !!!"
+msgstr "Pour valider chaque champ de texte, utiliser la touche tabulation ou la touche Entrée du clavier !!!"
 
 #: GDPRDataStructure.php:57
 msgid ""
