@@ -10,6 +10,7 @@ use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\PersonCustomMasterQuery;
 
 $app->group('/gdrp', function () {
 
@@ -47,6 +48,28 @@ $app->group('/gdrp', function () {
       }
       
       return $response->withJson(["Notes" => $res]);
+  });
+
+  $this->post('/setComment', function ($request, $response, $args) {
+      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+        return $response->withStatus(401);
+      }
+
+      $input = (object)$request->getParsedBody();
+      
+      if ( isset ($input->person_custom_id) && isset ($input->comment) )
+      {
+        $personCM = PersonCustomMasterQuery::Create()->findOneById($input->person_custom_id);
+         
+        if ( !is_null ($personCM) ) {
+          $personCM->setCustomComment($input->comment);
+          $personCM->save();
+        }
+         
+        return $response->withJson(['status' => "success"]);
+      }
+      
+      return $response->withJson(['status' => "failed"]);
   });
 
   $this->post('/removeperson', function ($request, $response, $args) {
