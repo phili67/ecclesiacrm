@@ -12,7 +12,7 @@ $app->group('/public/data', function () {
     $this->get('/countries/', 'getCountries');
     $this->get('/countries/{countryCode}/states', 'getStates');
     $this->get('/countries/{countryCode}/states/', 'getStates');
-})->add($jwt);
+});
 
 
 function getCountries(Request $request, Response $response, array $args ) {

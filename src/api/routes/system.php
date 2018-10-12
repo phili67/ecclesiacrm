@@ -14,4 +14,4 @@ $app->group('/system', function () {
           $log  = json_encode($input, JSON_PRETTY_PRINT);
           $this->Logger->warn($log);
   });
-})->add($jwt);
+});

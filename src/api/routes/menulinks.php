@@ -208,4 +208,4 @@ $app->group('/menulinks', function () {
     
     return $response->withJson(['success' => false]);
   });  
-})->add($jwt);
+});

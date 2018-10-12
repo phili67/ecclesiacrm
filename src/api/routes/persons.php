@@ -329,4 +329,5 @@ $app->group('/persons', function () {
       
       return $response->withJson(['success' => false]);
     });
-})->add($jwt);
+
+});

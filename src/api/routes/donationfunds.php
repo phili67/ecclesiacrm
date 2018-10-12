@@ -55,4 +55,4 @@ $app->group('/donationfunds', function () {
     return json_encode(['status' => "OK"]); 
   });
 
-})->add($jwt);
+});

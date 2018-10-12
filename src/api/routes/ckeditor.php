@@ -121,4 +121,4 @@ CKEDITOR.addTemplates( 'default',
       return $response->withJson(['status' => 'failed']);
     });
 
-})->add($jwt);
+});

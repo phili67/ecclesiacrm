@@ -58,4 +58,4 @@ $app->group('/sundayschool', function () {
     
     return  $response->withJson($birthDayMonthChartArray);
   });
-})->add($jwt);
+});
