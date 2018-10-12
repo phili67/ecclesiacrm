@@ -194,4 +194,4 @@ $app->group('/pastoralcare', function () {
     
     return $response->withJson(['status' => "failed"]);
   });
-})->add($jwt);
+});

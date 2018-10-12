@@ -358,4 +358,4 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     }
     
     return $response->withJson(array_filter($resultsArray));
-})->add($jwt);
+});

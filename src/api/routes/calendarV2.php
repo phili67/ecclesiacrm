@@ -667,4 +667,4 @@ $app->group('/calendar', function () {
         return $response->withJson(['status' => "failed"]);
     });
     
-})->add($jwt);
+});

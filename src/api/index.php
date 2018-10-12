@@ -25,7 +25,7 @@ $app = new App($container);
 
 $app->add(new VersionMiddleware());
 
-$jwt = new JwtAuthentication([
+$app->add(new JwtAuthentication([
     "secret" => TokenQuery::Create()->findOneByType("secret")->getToken(),
     "path" => "/api",
     "algorithm" => ["HS256"],
@@ -36,7 +36,7 @@ $jwt = new JwtAuthentication([
             ->withHeader("Content-Type", "application/json")
             ->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
     }
-]);
+]));
 
 // Set up
 require __DIR__.'/dependencies.php';

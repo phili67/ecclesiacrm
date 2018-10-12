@@ -196,4 +196,4 @@ $app->group('/payments', function () {
         $this->FinancialService->deletePayment($groupKey);
         echo json_encode(['status' => 'ok']);
     });
-})->add($jwt);
+});

@@ -52,7 +52,7 @@ $app->group('/database', function () {
     });
     
     $this->delete('/people/clear', 'clearPeopleTables');
-})->add($jwt);
+});
 
 function clearPeopleTables(Request $request, Response $response, array $p_args)
 {

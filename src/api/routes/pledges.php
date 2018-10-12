@@ -63,4 +63,4 @@ $app->group('/pledges', function () {
           
       return json_encode(['status' => "OK"]);
     });
-})->add($jwt);
+});

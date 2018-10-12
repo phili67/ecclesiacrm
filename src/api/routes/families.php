@@ -333,4 +333,4 @@ $app->group('/families', function () {
       return $response->withJson(['success' => false]);
     });
 
-})->add($jwt);
+});

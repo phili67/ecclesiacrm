@@ -7,7 +7,7 @@ use EcclesiaCRM\Utils\GeoUtils;
 $app->group('/geocoder', function () {
     $this->post('/address', 'getGeoLocals');
     $this->post('/address/', 'getGeoLocals');
-})->add($jwt);
+});
 
 
 /**

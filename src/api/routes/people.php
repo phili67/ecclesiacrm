@@ -199,4 +199,5 @@ $app->group('/people', function () {
     
       return $response->withJson(array_filter($resultsArray));
   });
-})->add($jwt);
+  
+});
