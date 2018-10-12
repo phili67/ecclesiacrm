@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-10T21:37:36.000Z\n"
-"PO-Revision-Date: 2018-10-10T21:37:36.000Z\n"
+"POT-Creation-Date: 2018-10-12T21:18:14.000Z\n"
+"PO-Revision-Date: 2018-10-12T21:18:14.000Z\n"
 
 msgid "Set Calendar Name"
 msgstr ""
@@ -750,6 +750,9 @@ msgid "Fund Editor"
 msgstr ""
 
 msgid "Add Fund"
+msgstr ""
+
+msgid "Your operation completed successfully."
 msgstr ""
 
 msgid "Full Name"

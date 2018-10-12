@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 23:37+0200\n"
+"POT-Creation-Date: 2018-10-12 23:13+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,23 +37,23 @@ msgstr ""
 msgid "None"
 msgstr "无"
 
-#: api/routes/calendarV2.php:222
+#: api/routes/calendarV2.php:224
 msgid "This address can be used only with a CalDav server."
 msgstr ""
 
-#: api/routes/calendarV2.php:222
+#: api/routes/calendarV2.php:224
 msgid "For thunderbird the URL is"
 msgstr ""
 
-#: api/routes/calendarV2.php:223
+#: api/routes/calendarV2.php:225
 msgid "For a share calendar (only in read mode)"
 msgstr ""
 
-#: api/routes/calendarV2.php:225
+#: api/routes/calendarV2.php:227
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr ""
 
-#: api/routes/calendarV2.php:225
+#: api/routes/calendarV2.php:227
 #, fuzzy
 msgid "General Settings/Integration"
 msgstr "其他设置"
@@ -109,14 +109,14 @@ msgstr "此值是必需的。"
 msgid "Family Activated"
 msgstr "此值是必需的。"
 
-#: api/routes/gdrp.php:46 CartView.php:338 CartView.php:358
+#: api/routes/gdrp.php:50 CartView.php:338 CartView.php:358
 #: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:267
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:229
 msgid "Yes"
 msgstr "是"
 
-#: api/routes/gdrp.php:46 CartView.php:351 CartView.php:360
+#: api/routes/gdrp.php:50 CartView.php:351 CartView.php:360
 #: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:268
 #: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
 #: Reports/ConfirmReport.php:231
@@ -154,13 +154,13 @@ msgid "Checks"
 msgstr "查"
 
 #: api/routes/people.php:67 api/routes/people.php:115 api/routes/search.php:61
-#: EcclesiaCRM/MenuBar/MenuBar.php:291
+#: EcclesiaCRM/MenuBar/MenuBar.php:292
 #, fuzzy
 msgid "Persons"
 msgstr "人"
 
 #: api/routes/people.php:154 api/routes/search.php:148
-#: EcclesiaCRM/MenuBar/MenuBar.php:268 EcclesiaCRM/MenuBar/MenuBar.php:296
+#: EcclesiaCRM/MenuBar/MenuBar.php:269 EcclesiaCRM/MenuBar/MenuBar.php:297
 #: members/online-pending-verify.php:24 members/self-register.php:24
 #: members/self-verify-updates.php:24 Menu.php:381 PeopleDashboard.php:154
 #: sundayschool/SundaySchoolDashboard.php:117
@@ -272,8 +272,8 @@ msgstr "存款"
 msgid "Payments"
 msgstr "所有付款"
 
-#: api/routes/search.php:349 Menu.php:324 PersonView.php:545
-#: PrintPastoralCare.php:495 UserEditor.php:674
+#: api/routes/search.php:349 GDPRDataStructure.php:136 Menu.php:324
+#: PersonView.php:545 PrintPastoralCare.php:495 UserEditor.php:674
 msgid "Pastoral Care"
 msgstr ""
 
@@ -313,9 +313,9 @@ msgstr "自动付款配置"
 msgid "For the"
 msgstr "的"
 
-#: AutoPaymentEditor.php:797 AutoPaymentEditor.php:806 Include/Footer.php:78
-#: PledgeEditor.php:537 PropertyEditor.php:43 PropertyList.php:26
-#: PropertyTypeEditor.php:88 PropertyTypeList.php:119
+#: AutoPaymentEditor.php:797 AutoPaymentEditor.php:806 GDPRDataStructure.php:80
+#: Include/Footer.php:78 PledgeEditor.php:537 PropertyEditor.php:43
+#: PropertyList.php:26 PropertyTypeEditor.php:88 PropertyTypeList.php:119
 msgid "Person"
 msgstr "人"
 
@@ -323,11 +323,11 @@ msgstr "人"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:212
 #: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:239 FinancialReports.php:419 Include/Footer.php:56
-#: members/404.php:16 PersonView.php:610 PledgeEditor.php:537
-#: PrintPastoralCare.php:262 PrintView.php:265 PropertyEditor.php:46
-#: PropertyList.php:30 PropertyTypeEditor.php:89 PropertyTypeList.php:119
-#: SelectList.php:1115
+#: FamilyView.php:239 FinancialReports.php:419 GDPRDataStructure.php:109
+#: Include/Footer.php:56 members/404.php:16 PersonView.php:610
+#: PledgeEditor.php:537 PrintPastoralCare.php:262 PrintView.php:265
+#: PropertyEditor.php:46 PropertyList.php:30 PropertyTypeEditor.php:89
+#: PropertyTypeList.php:119 SelectList.php:1115
 msgid "Family"
 msgstr "家庭"
 
@@ -473,7 +473,7 @@ msgid "Phone"
 msgstr "电话"
 
 #: AutoPaymentEditor.php:969 CartToFamily.php:392 CartView.php:319
-#: CSVExport.php:134 CSVImport.php:249 EcclesiaCRM/MenuBar/MenuBar.php:315
+#: CSVExport.php:134 CSVImport.php:249 EcclesiaCRM/MenuBar/MenuBar.php:316
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 EditEventAttendees.php:71
@@ -1981,7 +1981,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:32 EcclesiaCRM/MenuBar/MenuBar.php:288
+#: DirectoryReports.php:32 EcclesiaCRM/MenuBar/MenuBar.php:289
 msgid "Directory reports"
 msgstr "目录报告"
 
@@ -4324,7 +4324,7 @@ msgid "Sunday School"
 msgstr "无主日学​​"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:145 EcclesiaCRM/MenuBar/MenuBar.php:209
-#: EcclesiaCRM/MenuBar/MenuBar.php:236 EcclesiaCRM/MenuBar/MenuBar.php:270
+#: EcclesiaCRM/MenuBar/MenuBar.php:236 EcclesiaCRM/MenuBar/MenuBar.php:271
 #: Include/Header.php:195
 msgid "Dashboard"
 msgstr ""
@@ -4370,155 +4370,159 @@ msgstr "评论"
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:237 EcclesiaCRM/MenuBar/MenuBar.php:294
+#: EcclesiaCRM/MenuBar/MenuBar.php:237
+msgid "Data Structure"
+msgstr ""
+
+#: EcclesiaCRM/MenuBar/MenuBar.php:238 EcclesiaCRM/MenuBar/MenuBar.php:295
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "，CSV联合家庭"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:238 EcclesiaCRM/MenuBar/MenuBar.php:299
+#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/MenuBar/MenuBar.php:300
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "，CSV联合家庭"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:245
+#: EcclesiaCRM/MenuBar/MenuBar.php:246
 #, fuzzy
 msgid "Events"
 msgstr "事件描述"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:251 ListEvents.php:345 MapUsingBing.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:252 ListEvents.php:345 MapUsingBing.php:192
 #: MapUsingBing.php:238 MapUsingGoogle.php:188 MapUsingGoogle.php:233
 #: MapUsingLeaflet.php:184 MapUsingLeaflet.php:230
 #, fuzzy
 msgid "Calendar"
 msgstr "日历年份"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:253 EcclesiaCRM/MenuBar/MenuBar.php:255
-#: EcclesiaCRM/MenuBar/MenuBar.php:257 EcclesiaCRM/MenuBar/MenuBar.php:280
-#: EcclesiaCRM/MenuBar/MenuBar.php:282 EcclesiaCRM/MenuBar/MenuBar.php:284
+#: EcclesiaCRM/MenuBar/MenuBar.php:254 EcclesiaCRM/MenuBar/MenuBar.php:256
+#: EcclesiaCRM/MenuBar/MenuBar.php:258 EcclesiaCRM/MenuBar/MenuBar.php:281
+#: EcclesiaCRM/MenuBar/MenuBar.php:283 EcclesiaCRM/MenuBar/MenuBar.php:285
 #: MapUsingBing.php:43 MapUsingGoogle.php:36 MapUsingLeaflet.php:43
 #, fuzzy
 msgid "View on Map"
 msgstr "查看你的购物车"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:260
+#: EcclesiaCRM/MenuBar/MenuBar.php:261
 #, fuzzy
 msgid "List Church Events"
 msgstr "列出所有教会活动"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:261
+#: EcclesiaCRM/MenuBar/MenuBar.php:262
 #, fuzzy
 msgid "List Event Types"
 msgstr "编辑事件类型"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:262
+#: EcclesiaCRM/MenuBar/MenuBar.php:263
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:268 Menu.php:400 PeopleDashboard.php:175
+#: EcclesiaCRM/MenuBar/MenuBar.php:269 Menu.php:400 PeopleDashboard.php:175
 msgid "People"
 msgstr "人"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:277
+#: EcclesiaCRM/MenuBar/MenuBar.php:278
 #, fuzzy
 msgid "View All Persons"
 msgstr "查看全部"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:292 PersonList.php:84
+#: EcclesiaCRM/MenuBar/MenuBar.php:293 PersonList.php:84
 #, fuzzy
 msgid "Add New Person"
 msgstr "添加新事件"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:294
 #, fuzzy
 msgid "View Active Persons"
 msgstr "查看全部"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:298
 #, fuzzy
 msgid "Add New Family"
 msgstr "添加新字段"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:298
+#: EcclesiaCRM/MenuBar/MenuBar.php:299
 #, fuzzy
 msgid "View Active Families"
 msgstr "，CSV联合家庭"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:321 FinancialReports.php:417
+#: EcclesiaCRM/MenuBar/MenuBar.php:322 FinancialReports.php:417
 #: Reports/AdvancedDeposit.php:259 Reports/AdvancedDeposit.php:379
 #: Reports/AdvancedDeposit.php:410 Reports/AdvancedDeposit.php:422
 #: Reports/AdvancedDeposit.php:513
 msgid "Deposit"
 msgstr "存款"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:335
+#: EcclesiaCRM/MenuBar/MenuBar.php:336
 #, fuzzy
 msgid "Current"
 msgstr "电流的作用"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:338 ManageEnvelopes.php:20
+#: EcclesiaCRM/MenuBar/MenuBar.php:339 ManageEnvelopes.php:20
 msgid "Envelope Manager"
 msgstr "信封经理"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:339
+#: EcclesiaCRM/MenuBar/MenuBar.php:340
 #, fuzzy
 msgid "View All Deposits"
 msgstr "查看全部"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:340 ElectronicPaymentList.php:50
+#: EcclesiaCRM/MenuBar/MenuBar.php:341 ElectronicPaymentList.php:50
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "电子交易详情"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:341
+#: EcclesiaCRM/MenuBar/MenuBar.php:342
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "存款报告"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:342
+#: EcclesiaCRM/MenuBar/MenuBar.php:343
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "存款单"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:349 FundRaiserEditor.php:30
+#: EcclesiaCRM/MenuBar/MenuBar.php:350 FundRaiserEditor.php:30
 #, fuzzy
 msgid "Fundraiser"
 msgstr "筹款上市"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:351
+#: EcclesiaCRM/MenuBar/MenuBar.php:352
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "所有基金"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:353
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "创建新的筹款奖"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:353
+#: EcclesiaCRM/MenuBar/MenuBar.php:354
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "编辑用户"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:354
+#: EcclesiaCRM/MenuBar/MenuBar.php:355
 #, fuzzy
 msgid "View Buyers"
 msgstr "买方"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:355
+#: EcclesiaCRM/MenuBar/MenuBar.php:356
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361
+#: EcclesiaCRM/MenuBar/MenuBar.php:362
 #, fuzzy
 msgid "Data/Reports"
 msgstr "创建报告"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:363
+#: EcclesiaCRM/MenuBar/MenuBar.php:364
 #, fuzzy
 msgid "Reports Menu"
 msgstr "报告菜单"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:365
 #, fuzzy
 msgid "Query Menu"
 msgstr "查询视图"
@@ -5330,10 +5334,11 @@ msgid "Edit"
 msgstr "编辑"
 
 #: ElectronicPaymentList.php:213 FamilyCustomFieldsEditor.php:334
-#: FamilyCustomFieldsEditor.php:454 GDPRListExport.php:62
-#: GroupPropsFormEditor.php:315 GroupPropsFormEditor.php:441 GroupView.php:416
-#: OptionManager.php:111 PersonCustomFieldsEditor.php:324
-#: PersonCustomFieldsEditor.php:449 PropertyEditor.php:153 SelectDelete.php:297
+#: FamilyCustomFieldsEditor.php:454 GDPRDataStructure.php:66
+#: GDPRListExport.php:62 GroupPropsFormEditor.php:315
+#: GroupPropsFormEditor.php:441 GroupView.php:416 OptionManager.php:111
+#: PersonCustomFieldsEditor.php:324 PersonCustomFieldsEditor.php:449
+#: PropertyEditor.php:153 SelectDelete.php:297
 msgid "Type"
 msgstr "类型"
 
@@ -6776,6 +6781,48 @@ msgstr ""
 msgid "GDPR Person status"
 msgstr "人上市"
 
+#: GDPRDataStructure.php:23
+msgid "GDPR Data Structure"
+msgstr ""
+
+#: GDPRDataStructure.php:50
+msgid "To validate each text fields, use the tab or enter key !!!"
+msgstr ""
+
+#: GDPRDataStructure.php:57
+msgid ""
+"Informations about the Data Structure for Persons, Families and Pastoral "
+"Cares"
+msgstr ""
+
+#: GDPRDataStructure.php:64
+#, fuzzy
+msgid "Informations"
+msgstr "小组的报告"
+
+#: GDPRDataStructure.php:65 MenuLinksList.php:34
+#, fuzzy
+msgid "For"
+msgstr "工作"
+
+#: GDPRDataStructure.php:67 PledgeEditor.php:757 SelectDelete.php:304
+msgid "Comment"
+msgstr "评论"
+
+#: GDPRDataStructure.php:95
+#, fuzzy
+msgid "Custom Person"
+msgstr "自定义联系人字段"
+
+#: GDPRDataStructure.php:124
+#, fuzzy
+msgid "Custom Family"
+msgstr "自定义家庭领域"
+
+#: GDPRDataStructure.php:137 Include/Functions.php:91
+msgid "Text Field (100 char)"
+msgstr "文本字段（100字符）"
+
 #: GDPRListExport.php:59
 #, fuzzy
 msgid "Full Name"
@@ -7469,12 +7516,9 @@ msgstr "真/假"
 msgid "Text Field (50 char)"
 msgstr "文本字段（50字符）"
 
-#: Include/Functions.php:91
-msgid "Text Field (100 char)"
-msgstr "文本字段（100字符）"
-
 #: Include/Functions.php:92
-msgid "Text Field (long)"
+#, fuzzy
+msgid "Text Field (Long)"
 msgstr "文本字段（长）"
 
 #: Include/Functions.php:94
@@ -8107,11 +8151,6 @@ msgstr "验证"
 #, fuzzy
 msgid "Custom Menus List"
 msgstr "自定义联系人字段编辑器"
-
-#: MenuLinksList.php:34
-#, fuzzy
-msgid "For"
-msgstr "工作"
 
 #: MenuLinksList.php:43
 #, fuzzy
@@ -9099,10 +9138,6 @@ msgstr "基金名称"
 #: PledgeEditor.php:753
 msgid "Non-deductible amount"
 msgstr "不可税前抵扣的金额"
-
-#: PledgeEditor.php:757 SelectDelete.php:304
-msgid "Comment"
-msgstr "评论"
 
 #: PrintPastoralCare.php:129 PrintView.php:127
 msgid "Printable View"
