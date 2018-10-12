@@ -158,5 +158,7 @@ $app->group('/gdrp', function () {
       
       return $response->withJson(['status' => "failed"]);
   });
-})->add($jwt);
+  
+  
+});
 

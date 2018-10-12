@@ -191,4 +191,4 @@ $app->group('/cart', function () {
 
     });
 
-})->add($jwt);
+});

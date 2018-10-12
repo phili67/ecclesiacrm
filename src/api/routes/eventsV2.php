@@ -985,4 +985,4 @@ $app->group('/events', function () {
         return $response->withJson(["status" => "success"]);
       }
   });
-})->add($jwt);
+});

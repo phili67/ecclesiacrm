@@ -58,4 +58,4 @@ $app->group('/kiosks', function () {
         return $response->write(json_encode($accept));
     });
 
-})->add($jwt);
+});
