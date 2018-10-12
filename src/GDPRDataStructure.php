@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\ListOptionQuery;
 

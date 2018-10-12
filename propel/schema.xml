@@ -228,6 +228,7 @@
         <column name="fam_custom_Side" phpName="CustomSide" type="CHAR" sqlType="enum('left','right')" required="true"
                 defaultValue="left"/>
         <column name="fam_custom_FieldSec" phpName="CustomFieldSec" type="TINYINT" required="true" defaultValue="1"/>
+        <column name="fam_custom_comment" phpName="FamCustomComment" type="LONGVARCHAR" required="true" description="For GDPR"/>
         <column name="type_ID" phpName="TypeId" type="TINYINT" required="true" defaultValue="0"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
