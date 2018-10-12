@@ -10,6 +10,10 @@ use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
+use EcclesiaCRM\GdprInfoQuery;
+use EcclesiaCRM\PastoralCareTypeQuery;
 
 $app->group('/gdrp', function () {
 
@@ -47,6 +51,66 @@ $app->group('/gdrp', function () {
       }
       
       return $response->withJson(["Notes" => $res]);
+  });
+
+  $this->post('/setComment', function ($request, $response, $args) {
+      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+        return $response->withStatus(401);
+      }
+
+      $input = (object)$request->getParsedBody();
+      
+      if ( isset ($input->custom_id) && isset ($input->comment) && isset ($input->type) )
+      {
+        if ($input->type == 'person') {
+          $person = GdprInfoQuery::Create()->findOneById($input->custom_id);
+         
+          if ( !is_null ($person) ) {
+            $person->setComment($input->comment);
+            $person->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'personCustom') {
+          $personCM = PersonCustomMasterQuery::Create()->findOneById($input->custom_id);
+         
+          if ( !is_null ($personCM) ) {
+            $personCM->setCustomComment($input->comment);
+            $personCM->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'family') {
+          $family = GdprInfoQuery::Create()->findOneById($input->custom_id);
+         
+          if ( !is_null ($family) ) {
+            $family->setComment($input->comment);
+            $family->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'familyCustom') {
+          $familyCM = FamilyCustomMasterQuery::Create()->findOneById($input->custom_id);
+         
+          if ( !is_null ($familyCM) ) {
+            $familyCM->setCustomComment($input->comment);
+            $familyCM->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'pastoralCare') {
+          $pastoralCare = PastoralCareTypeQuery::Create()->findOneById($input->custom_id);
+         
+          if ( !is_null ($pastoralCare) ) {
+            $pastoralCare->setComment($input->comment);
+            $pastoralCare->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        }
+      }
+      
+      return $response->withJson(['status' => "failed"]);
   });
 
   $this->post('/removeperson', function ($request, $response, $args) {
@@ -158,7 +222,4 @@ $app->group('/gdrp', function () {
       
       return $response->withJson(['status' => "failed"]);
   });
-  
-  
 });
-
