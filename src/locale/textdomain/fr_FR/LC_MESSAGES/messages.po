@@ -4334,7 +4334,7 @@ msgstr "EDrive"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:237
 msgid "Data Structure"
-msgstr "Structire de données"
+msgstr "Structure de données"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:238 EcclesiaCRM/MenuBar/MenuBar.php:295
 msgid "View Inactive Persons"
