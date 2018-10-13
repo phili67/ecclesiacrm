@@ -199,9 +199,9 @@ class CalendarService
                   $fEvnt = true;              
                 } elseif ($key == 'freqEvents' && $fEvnt == true) { // we are in front of a recurrence event !!!
                   foreach ($value as $freqValue) {
-                    $title        = $freqValue['SUMMARY'];
-                    $start        = $freqValue['DTSTART'];
-                    $end          = $freqValue['DTEND'];
+                    $title          = $freqValue['SUMMARY'];
+                    $start          = $freqValue['DTSTART'];
+                    $end            = $freqValue['DTEND'];
                     $reccurenceID   = $freqValue['RECURRENCE-ID'];
                   
                     $event = $this->createCalendarItem('event',$icon,
@@ -243,10 +243,11 @@ class CalendarService
             $event['backgroundColor'] = '#eeeeee';
         }
         
-        $event['title'] = $title;
-        $event['start'] = $start;
-        $event['icon'] = $icon;        
-        $event['type'] = $type;
+        $event['title']     = $title;
+        $event['start']     = $start;
+        $event['origStart'] = $start;
+        $event['icon']      = $icon;
+        $event['type']      = $type;
         
         if ($end != '') {
             $event['end'] = $end;
@@ -259,16 +260,16 @@ class CalendarService
         }
 
         if ($type == 'event') {
-          $event['eventID'] = $eventID;
+          $event['eventID']     = $eventID;
           $event['eventTypeID'] = $eventTypeID;
-          $event['groupID'] = $groupID;
-          $event['Desc'] = $desc;
-          $event['Text'] = $text;   
-          $event['recurrent'] = $recurrent;
-          $event['writeable'] = $writeable;
-          $event['location']  = $location;
-          $event['longitude'] = $longitude;
-          $event['latitude']  = $latitude;
+          $event['groupID']     = $groupID;
+          $event['Desc']        = $desc;
+          $event['Text']        = $text;   
+          $event['recurrent']   = $recurrent;
+          $event['writeable']   = $writeable;
+          $event['location']    = $location;
+          $event['longitude']   = $longitude;
+          $event['latitude']    = $latitude;
           
           if ($calendarid != null) {
             $event['calendarID'] = $calendarid;//[$calendarid[0],$calendarid[1]];//$calendarid;   
