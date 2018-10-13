@@ -17,9 +17,9 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/LabelFunctions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\LabelUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Letters and Mailing Labels');
@@ -57,11 +57,11 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
             <div class="table-responsive">
 
           <table class="table" cellpadding="3" align="left">
-<?php
-LabelSelect('labeltype');
-FontSelect('labelfont');
-FontSizeSelect('labelfontsize');
-?>
+            <?php
+              LabelUtils::LabelSelect('labeltype');
+              LabelUtils::FontSelect('labelfont');
+              LabelUtils::FontSizeSelect('labelfontsize');
+            ?>
             <tr>
               <td class="LabelColumn"><?= gettext("Recipient Naming Method")?>:</td>
               <td class="TextColumn">
@@ -75,10 +75,10 @@ FontSizeSelect('labelfontsize');
           </table>
             </div>
             <div>
-              <input type="submit" class="btn btn-default" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
-              <input type="submit" class="btn btn-default" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
-              <input type="submit" class="btn btn-default" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
-              <input type="submit" class="btn btn-default" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
+              <input type="submit" class="btn btn-success" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
+              <input type="submit" class="btn btn-primary" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
+              <input type="submit" class="btn btn-primary" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
+              <input type="submit" class="btn btn-primary" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
               <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
             </div>
         </form>
