@@ -475,7 +475,7 @@
         ],
         "dbVersion": "4.9.0"
     },
-    "current": {
+    "4.9.1": {
         "versions": [
             "4.9.0"
         ],
@@ -483,5 +483,13 @@
             "/mysql/upgrade/4.9.1-upgrade.sql"
         ],
         "dbVersion": "4.9.1"
+    },
+    "current": {
+        "versions": [
+            "4.9.1"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "4.9.2"
     }
 }
