@@ -1025,7 +1025,9 @@ require 'Include/Header.php';
         </div><!-- /.box-header -->
         <div class="box-body">
            <div id="personAddress">
-            <?php if (!SystemConfig::getValue('bHidePersonAddress')) { /* Person Address can be hidden - General Settings */ ?>
+            <?php 
+              if (!SystemConfig::getValue('bHidePersonAddress')) { // Person Address can be hidden - General Settings : dead code now
+            ?>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-md-4">

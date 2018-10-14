@@ -854,118 +854,136 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <?php
               } else {
             ?>
-                  <div class="row">
             <?php
                   // Loop through the rows
+                  $i = 1;
                   foreach ($ormAssignedGroups as $ormAssignedGroup) {
+                    if ($i%3 == 0) {
             ?>
-                  <div class="col-md-4">
-                    <!-- Info box -->
-                    <div class="box box-info">
-                      <div class="box-header">
-                        <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
+                  <div class="row">
+            <?php
+                    }
+            ?>
+                    <div class="col-md-4">
+                      <!-- Info box -->
+                      <div class="box box-info">
+                        <div class="box-header">
+                          <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
 
-                        <div class="box-tools pull-right">
-                          <div class="label bg-aqua"><?= gettext($ormAssignedGroup->getRoleName()) ?></div>
+                          <div class="box-tools pull-right">
+                            <div class="label bg-aqua"><?= gettext($ormAssignedGroup->getRoleName()) ?></div>
+                          </div>
                         </div>
-                      </div>
-                      <?php
-                        // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
-                        if ($ormAssignedGroup->getHasSpecialProps()) {
-                          // Get the special properties for this group only for the group                          
-                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
-                      ?>
-                          <div class="box-body">
-                          
-                          <label><?= gettext("Group Informations") ?></label><br>
-                      <?php
-                          foreach ($ormPropLists as $ormPropList) {
-                            if ($ormPropList->getTypeId() == 11) {
-                              $prop_Special = $sPhoneCountry;
-                            }
-                      ?>
-                            <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?><br/>
-                      <?php
-                          }
+                        <div class="box-footer" style="width:275px">
+                            <?php 
+                              if ($_SESSION['user']->isManageGroupsEnabled()) {
+                            ?>
+                             <code>
+                              <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-default"><?= gettext('Action') ?></button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                  <span class="caret"></span>
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= gettext('Change Role') ?></a></li>
+                                  <?php 
+                                    if ($grp_hasSpecialProps) {
+                                  ?>
+                                    <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= gettext('Update Properties') ?></a></li>
+                                  <?php
+                                    } 
+                                  ?>
+                                </ul>
+                              </div>
+                              <div class="btn-group">
+                                 <button data-groupid="<?= $ormAssignedGroup->getGroupID() ?>" data-groupname="<?= $ormAssignedGroup->getGroupName() ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
+                              </div>
+                          </code>
+                        <?php
+                          } 
+                        ?>
+                        </div>
 
-                          $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                        <?php
+                          // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
+                          if ( $ormAssignedGroup->getHasSpecialProps() ) {
+                            // Get the special properties for this group only for the group
+                            $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('false')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                        ?>
+
+                        <div class="box-body">
+
+                        <?php  
+                            if ( $ormPropLists->count() > 0 ) {
+                        ?>
                           
-                          $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
-                          $rsPersonProps = RunQuery($sSQL);
-                          $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
-                          
-                      ?>
-                          <br>
-                          <label><?= gettext("Person Informations") ?></label><br>
-                          
-                          <?php
-                            foreach ($ormPropLists as $ormPropList) {
-                              $currentData = trim($aPersonProps[$ormPropList->getField()]);
-                              if (strlen($currentData) > 0) {
-                                  if ($type_ID == 11) {
-                                      $prop_Special = $sPhoneCountry;
-                                  }
-                          ?>
-                                  <strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?><br/>
-                          <?php
+                            <h4><?= gettext("Group Informations") ?></h4>
+                            <ul>
+                        <?php
+                              foreach ($ormPropLists as $ormPropList) {
+                                if ($ormPropList->getTypeId() == 11) {
+                                  $prop_Special = $sPhoneCountry;
+                                }  
+                        ?>
+                                <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?></li>
+                        <?php
                               }
+                        ?>
+                            </ul>
+                        <?php
                             }
-                          
-                            if ($ormPropLists->count()>0) {
-                      ?>
-                      
-                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
-                      <?php
-                            }
-                      ?>
 
-                        </div><!-- /.box-body -->
-                      <?php
-                        } 
-                      ?>
+                            $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                          
+                            $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
+                            $rsPersonProps = RunQuery($sSQL);
+                            $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
+                             
+                            if ( $ormPropLists->count() > 0 ) {
+                        ?>
+                            <h4><?= gettext("Person Informations") ?></h4>
+                            <ul>
+                            <?php
+                              foreach ($ormPropLists as $ormPropList) {
+                                $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                                if (strlen($currentData) > 0) {
+                                    if ($type_ID == 11) {
+                                        $prop_Special = $sPhoneCountry;
+                                    }
+                            ?>
+                                    <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?></li>
+                            <?php
+                                }
+                              }
+                          
+                        ?>
+                            </ul>
+                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
+                        <?php
+                            }
+                        ?>
+
+                          </div><!-- /.box-body -->
+                        <?php
+                          } 
+                        ?>
                       
-                      <div class="box-footer" style="width:275px">
-                          <?php 
-                            if ($_SESSION['user']->isManageGroupsEnabled()) {
-                          ?>
-                           <code>
-                            <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-default"><?= gettext('Action') ?></button>
-                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                              </button>
-                              <ul class="dropdown-menu" role="menu">
-                                <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= gettext('Change Role') ?></a></li>
-                                <?php 
-                                  if ($grp_hasSpecialProps) {
-                                ?>
-                                  <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= gettext('Update Properties') ?></a></li>
-                                <?php
-                                  } 
-                                ?>
-                              </ul>
-                            </div>
-                            <div class="btn-group">
-                               <button data-groupid="<?= $ormAssignedGroup->getGroupID() ?>" data-groupname="<?= $ormAssignedGroup->getGroupName() ?>" type="button" class="btn btn-danger groupRemove" data-toggle="dropdown"><i class="fa fa-trash-o"></i></button>
-                            </div>
-                        </code>
-                      <?php
-                        } 
-                      ?>
+                        <!-- /.box-footer-->
                       </div>
-                      <!-- /.box-footer-->
+                      <!-- /.box -->
                     </div>
-                    <!-- /.box -->
-                  </div>
                 <?php
                   // NOTE: this method is crude.  Need to replace this with use of an array.
                   $sAssignedGroups .= $ormAssignedGroup->getGroupID().',';
+                    if ($i%3 == 0) {
+            ?>
+                  </div>
+            <?php
+                    }
+                    $i++;
                   }
-                ?>
-                </div>
-           <?php
               }
            ?>
             </div>
