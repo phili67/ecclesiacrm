@@ -29,14 +29,26 @@ class MiscUtils {
   } 
 
 /**
- * return true when the path in the basePath is a real file
+ * return all the directories in
  * @param string $path string $basePath
  */  
   public static function getDirectoriesInPath($dir) {
-    $files = glob( ".".$dir . "*", GLOB_ONLYDIR );
+    $dirs = glob( ".".$dir . "*", GLOB_ONLYDIR );
+    
+    return $dirs;
+  }
+  
+/**
+ * return all the directories in
+ * @param string $path string $basePath
+ */  
+  public static function getImagesInPath($dir) {
+    $files = glob($dir."/*.{jpg,gif,png,html,htm,php,ini}", GLOB_BRACE);
     
     return $files;
   }
+  
+  
 
 /**
  * return true when the path in the basePath is a real file

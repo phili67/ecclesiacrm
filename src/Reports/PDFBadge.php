@@ -39,51 +39,71 @@ function GenerateLabels(&$pdf, $mainTitle, $secondTitle, $thirdTitle,$sFirstName
 
 // Main body of PHP file begins here
 
+if ( !empty($_FILES["stickerBadgeInputFile"]["name"]) ) {
+  $sImage = basename($_FILES["stickerBadgeInputFile"]["name"]);
+  
+  $target_file = '../Images/background/' . basename($_FILES["stickerBadgeInputFile"]["name"]);
+  
+  $file_type = $_FILES['stickerBadgeInputFile']['type']; //returns the mimetype
+  
+  $allowed = array("image/jpeg", "image/gif", "image/png");
+  if(in_array($file_type, $allowed)) {
+    if (move_uploaded_file($_FILES['stickerBadgeInputFile']['tmp_name'], $target_file)) {
+    }
+    
+    setcookie('imageSC', $sImage , time() + 60 * 60 * 24 * 90, '/');
+  
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+  }
+  exit;
+}
+
+
 // Standard format
 
 // First Title
-$mainTitle = InputUtils::FilterString($_GET['mainTitle']);
+$mainTitle = InputUtils::FilterString($_POST['mainTitle']);
 setcookie('mainTitle', $mainTitle, time() + 60 * 60 * 24 * 90, '/');
 
-$secondTitle = InputUtils::FilterString($_GET['secondTitle']);
+$secondTitle = InputUtils::FilterString($_POST['secondTitle']);
 setcookie('secondTitle', $secondTitle, time() + 60 * 60 * 24 * 90, '/');
 
-$thirdTitle = InputUtils::FilterString($_GET['thirdTitle']);
+$thirdTitle = InputUtils::FilterString($_POST['thirdTitle']);
 setcookie('thirdTitle', $thirdTitle, time() + 60 * 60 * 24 * 90, '/');
 
 // background color
-$sBackgroudColor = InputUtils::LegacyFilterInput($_GET['backgroud-color'], 'char',255);
+$sBackgroudColor = InputUtils::LegacyFilterInput($_POST['backgroud-color'], 'char',255);
 setcookie('sBackgroudColor', $sBackgroudColor, time() + 60 * 60 * 24 * 90, '/');
 
 // image
-$sImage = InputUtils::LegacyFilterInput($_GET['image'], 'char',255);
+$sImage = InputUtils::LegacyFilterInput($_POST['image'], 'char',255);
 setcookie('image', $sImage, time() + 60 * 60 * 24 * 90, '/');
 
-$sImagePosition = InputUtils::LegacyFilterInput($_GET['imagePosition'], 'char',255);
+$sImagePosition = InputUtils::LegacyFilterInput($_POST['imagePosition'], 'char',255);
 setcookie('imagePosition', $sImagePosition, time() + 60 * 60 * 24 * 90, '/');
 
 // transform the hex color in RGB
 list($back_red, $back_gren, $back_blue) = sscanf($sBackgroudColor, "#%02x%02x%02x");
 
 // title color
-$sTitleColor = InputUtils::LegacyFilterInput($_GET['title-color'], 'char',255);
+$sTitleColor = InputUtils::LegacyFilterInput($_POST['title-color'], 'char',255);
 
 setcookie('sTitleColor', $sTitleColor, time() + 60 * 60 * 24 * 90, '/');
 
 // transform the hex color in RGB
 list($title_red, $title_gren, $title_blue) = sscanf($sTitleColor, "#%02x%02x%02x");
 
-$startcol = InputUtils::LegacyFilterInput($_GET['startcol'], 'int');
+$startcol = InputUtils::LegacyFilterInput($_POST['startcol'], 'int');
 if ($startcol < 1) {
     $startcol = 1;
 }
 
-$startrow = InputUtils::LegacyFilterInput($_GET['startrow'], 'int');
+$startrow = InputUtils::LegacyFilterInput($_POST['startrow'], 'int');
 if ($startrow < 1) {
     $startrow = 1;
 }
 
-$sLabelType = InputUtils::LegacyFilterInput($_GET['labeltype'], 'char', 10);
+$sLabelType = InputUtils::LegacyFilterInput($_POST['labeltype'], 'char', 10);
 
 if ($sLabelType == gettext('Tractor') ) {
   $sLabelType = 'Tractor';
@@ -93,11 +113,11 @@ setcookie('labeltype', $sLabelType, time() + 60 * 60 * 24 * 90, '/');
 
 $pdf = new PDF_Badge($sLabelType, $startcol, $startrow);
 
-$sFontInfo = MiscUtils::FontFromName($_GET['labelfont']);
-setcookie('labelfont', $_GET['labelfont'], time() + 60 * 60 * 24 * 90, '/');
+$sFontInfo = MiscUtils::FontFromName($_POST['labelfont']);
+setcookie('labelfont', $_POST['labelfont'], time() + 60 * 60 * 24 * 90, '/');
 
 // set the Font Size for the FirstName
-$sFontSize = $_GET['labelfontsize'];
+$sFontSize = $_POST['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
 $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
 
@@ -113,7 +133,7 @@ if ($startcol > 1 || $startrow > 1) {
 }
 
 // à gérer par la suite
-$image = '../Images/'.$sImage;
+$image = '../Images/background/'.$sImage;
 
 $aLabelList = unserialize(GenerateLabels($pdf, $mainTitle, $secondTitle, $thirdTitle,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
 

@@ -14,4 +14,16 @@ $app->group('/system', function () {
           $log  = json_encode($input, JSON_PRETTY_PRINT);
           $this->Logger->warn($log);
   });
+  
+  $this->post('/deletefile', function ($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+         
+        if ( isset ($params->name) && isset($params->path) ) {
+          if (unlink(SystemURLs::getDocumentRoot().$params->path.$params->name)) {
+            return $response->withJson(['status' => "success"]);
+          }
+        }
+        
+        return $response->withJson(['status' => "failed"]);
+  });  
 });
