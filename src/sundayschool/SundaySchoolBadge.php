@@ -22,12 +22,15 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Utils\MiscUtils;
 
+$imgs = MiscUtils::getImagesInPath ('../Images/background');
 
 if ( !($_SESSION['user']->isSundayShoolTeacherForGroup() || $_SESSION['bExportSundaySchoolPDF']) ) {
     Redirect('Menu.php');
     exit;
 }
+
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
@@ -78,82 +81,104 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
       <div class="box-header with-border">
           <h3 class="box-title"><?= gettext('Generate Badges') ?></h3>
       </div>
-      <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadgeSundaySchool.php" name="labelform">
+      <form method="post" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadgeSundaySchool.php" name="labelform" enctype="multipart/form-data">
       <input id="groupId" name="groupId" type="hidden" value="<?= $iGroupID?>">
       <input id="useCart" name="useCart" type="hidden" value="<?= $useCart?>">
       <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-                   <?= gettext("Sunday School Name") ?>
+              <?= gettext("Sunday School Name") ?>
             </div>
-            <div class="col-md-6">                  
+            <div class="col-md-6">
                <input type="text" name="sundaySchoolName" id="sundaySchoolName" maxlength="255" size="3" value="<?= $_COOKIE['sundaySchoolNameSC'] ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
             </div>
           </div><br>
           <div class="row">
-            <div class="col-md-6">                  
-                   <?= gettext('Title color') ?>
+            <div class="col-md-6">
+              <?= gettext('Title color') ?>
             </div>
-            <div class="col-md-6">                  
-                  <div class="input-group my-colorpicker-global my-colorpicker-title colorpicker-element" data-id="38,44">
-                    <input id="checkBox" type="hidden" name="title-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
-                    <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
-                    <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
-                       <i style="background-color: rgb(26, 43, 94);"></i>
-                    </div>
-                  </div>
-            </div>
-          </div><br>
-          <div class="row">
-            <div class="col-md-6">                  
-                   <?= gettext('BackGround color') ?>
-            </div>
-            <div class="col-md-6">                  
-                  <div class="input-group my-colorpicker-global my-colorpicker-back colorpicker-element" data-id="38,44">
-                    <input id="checkBox" type="hidden" name="backgroud-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
-                    <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
-                    <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
-                       <i style="background-color: rgb(26, 43, 94);"></i>
-                    </div>
-                  </div>
+            <div class="col-md-6">
+              <div class="input-group my-colorpicker-global my-colorpicker-title colorpicker-element" data-id="38,44">
+                <input id="checkBox" type="hidden" name="title-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
+                <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
+                <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
+                   <i style="background-color: rgb(26, 43, 94);"></i>
+                </div>
+              </div>
             </div>
           </div><br>
           <div class="row">
-            <div class="col-md-6">                  
-                   <?= gettext("Image") ?>
+            <div class="col-md-6">
+              <?= gettext('BackGround color') ?>
             </div>
-            <div class="col-md-6">                  
-                  <?php
-                      $image = (empty($_COOKIE["imageSC"]))?'scleft1.png':$_COOKIE["imageSC"];
-                  ?>
-                  <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
-            </div>
-          </div><br>
-          <div class="row">
-            <div class="col-md-6">                  
-            </div>
-            <div class="col-md-6">                  
-                   <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png, scleft2.png and sccenter.jpg.") ?>)</b>
+            <div class="col-md-6">
+              <div class="input-group my-colorpicker-global my-colorpicker-back colorpicker-element" data-id="38,44">
+                <input id="checkBox" type="hidden" name="backgroud-color" class="check-calendar" data-id="38,44" checked="" value="#1a2b5e">&nbsp;
+                <span class="editCalendarName" data-id="38,44"><?= gettext('Chose your color') ?>:</span>
+                <div class="input-group-addon" style="border-left: 1px;background-color:lightgray">
+                   <i style="background-color: rgb(26, 43, 94);"></i>
+                </div>
+              </div>
             </div>
           </div><br>
           <div class="row">
-            <div class="col-md-6">                  
-                  <?= gettext("Image Position") ?>
+            <div class="col-md-6">
+              <?= gettext("Image") ?>
             </div>
-            <div class="col-md-6">                  
-                   <select name="imagePosition" class="form-control input-sm">
-                     <option value="Left" <?= ($_COOKIE["imagePositionSC"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
-                     <option value="Center" <?= ($_COOKIE["imagePositionSC"] == 'Center')?'selected':'' ?>><?= gettext('Center') ?></option>
-                     <option value="Right" <?= ($_COOKIE["imagePositionSC"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>
-                  </select>
+            <div class="col-md-6">
+              <?php
+                $image = (empty($_COOKIE["imageSC"]))?'scleft1.png':$_COOKIE["imageSC"];
+              ?>
+              <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
             </div>
-          </div><br>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+              
+                (<b><?= gettext("Pictures in the Image folder: ") ?></b>
                 <?php
+                  foreach ($imgs as $img) {
+                    $name = str_replace("../Images/background/","",$img);
+                    echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+                  }
+                ?>
+                )
+              
+            </div>
+          </div><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <?= gettext("Upload") ?>
+            </div>
+            <div class="col-md-6">
+              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile">
+              <?= gettext("Upload your file")?>.
+              <input type="submit" class="btn btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
+            </div>
+          </div><br>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <?= gettext("Image Position") ?>
+            </div>
+            <div class="col-md-6">
+              <select name="imagePosition" class="form-control input-sm">
+                 <option value="Left" <?= ($_COOKIE["imagePositionSC"] == 'Left')?'selected':'' ?>><?= gettext('Left') ?></option>
+                 <option value="Center" <?= ($_COOKIE["imagePositionSC"] == 'Center')?'selected':'' ?>><?= gettext('Center') ?></option>
+                 <option value="Right" <?= ($_COOKIE["imagePositionSC"] == 'Right')?'selected':'' ?>><?= gettext('Right') ?></option>
+              </select>
+            </div>
+          </div><br>
+              <?php
                 LabelUtils::LabelSelect('labeltype',gettext('Badge Type'));
                 LabelUtils::FontSelect('labelfont');
                 LabelUtils::FontSizeSelect('labelfontsize','('.gettext("default").' 24)');
                 LabelUtils::StartRowStartColumn();
-                ?>
+              ?>
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-4">
@@ -188,6 +213,24 @@ require '../Include/Footer.php';
       inline:false,
       horizontal:true,
       right:true
+    });
+    
+    $(".delete-file").click(function () {
+      var name = $(this).data("name");
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'system/deletefile',
+        data: JSON.stringify({"name": name, "path" : '/Images/background/'})
+      }).done(function(data) {
+        location.reload();
+      });
+    });
+    
+    $(".add-file").click(function () {
+      var name = $(this).data("name");
+      
+      $("#image").val(name);
     });
 
 </script>

@@ -20,6 +20,10 @@ use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\utils\LabelUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+
+$imgs = MiscUtils::getImagesInPath ('Images/background');
+
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Cart to Badges');
@@ -36,7 +40,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
       <div class="box-header with-border">
           <h3 class="box-title"><?= gettext('Generate Badges') ?></h3>
       </div>
-      <form method="get" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform">
+      <form method="post" action="<?= SystemURLs::getRootPath() ?>/Reports/PDFBadge.php" name="labelform"  enctype="multipart/form-data">
       <div class="box-body">
           <div class="row">
             <div class="col-md-6">
@@ -78,7 +82,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
           </div><br>
           <div class="row">
             <div class="col-md-6">
-                   <?= gettext('BackGround color') ?>
+              <?= gettext('BackGround color') ?>
             </div>
             <div class="col-md-6">
                   <div class="input-group my-colorpicker-global my-colorpicker-back colorpicker-element" data-id="38,44">
@@ -105,9 +109,30 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
             <div class="col-md-6">
             </div>
             <div class="col-md-6">
-                   <b>(<?= gettext("Add your images to the CRM Images folder. By default scleft1.png, scleft2.png and sccenter.jpg.") ?>)</b>
+              
+                (<b><?= gettext("Pictures in the Image folder: ") ?></b>
+                <?php
+                  foreach ($imgs as $img) {
+                    $name = str_replace("Images/background/","",$img);
+                    echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
+                  }
+                ?>
+                )
+              
             </div>
           </div><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <?= gettext("Upload") ?>
+            </div>
+            <div class="col-md-6">
+              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile">
+              <?= gettext("Upload your file")?>.
+              <input type="submit" class="btn btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
+            </div>
+          </div><br>
+          
           <div class="row">
             <div class="col-md-6">
                   <?= gettext("Image Position") ?>
@@ -160,6 +185,24 @@ require 'Include/Footer.php';
       inline:false,
       horizontal:true,
       right:true
+    });
+    
+    $(".delete-file").click(function () {
+      var name = $(this).data("name");
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'system/deletefile',
+        data: JSON.stringify({"name": name, "path" : '/Images/background/'})
+      }).done(function(data) {
+        location.reload();
+      });
+    });
+
+    $(".add-file").click(function () {
+      var name = $(this).data("name");
+      
+      $("#image").val(name);
     });
 
 </script>
