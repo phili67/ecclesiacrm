@@ -26,13 +26,14 @@ use EcclesiaCRM\Utils\MiscUtils;
 
 $imgs = MiscUtils::getImagesInPath ('../Images/background');
 
-if ( !($_SESSION['user']->isSundayShoolTeacherForGroup() || $_SESSION['bExportSundaySchoolPDF']) ) {
-    Redirect('Menu.php');
-    exit;
-}
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
+
+if ( !($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupID) || $_SESSION['bExportSundaySchoolPDF']) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 $group = GroupQuery::Create()->findOneById ($iGroupID);
 
