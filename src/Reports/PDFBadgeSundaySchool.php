@@ -71,15 +71,22 @@ if ( !empty($_FILES["stickerBadgeInputFile"]["name"]) ) {
   
   $file_type = $_FILES['stickerBadgeInputFile']['type']; //returns the mimetype
 
-  $allowed = array("image/jpeg", "image/gif", "image/png");
+  $allowed = array("image/jpeg", "image/png");
   if(in_array($file_type, $allowed)) {
     if (move_uploaded_file($_FILES['stickerBadgeInputFile']['tmp_name'], $target_file)) {
     }
     
     setcookie('imageSC', $sImage , time() + 60 * 60 * 24 * 90, '/');
   
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    $page = str_replace("&typeProblem=1","",$_SERVER['HTTP_REFERER']);
+
+    header('Location: ' . $page);
+    
+    exit;
   }
+  
+  header('Location: ' . $_SERVER['HTTP_REFERER'] . "&typeProblem=1");
+
   exit;
 }
 
