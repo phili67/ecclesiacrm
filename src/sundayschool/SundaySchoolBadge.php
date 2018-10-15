@@ -31,7 +31,6 @@ if ( !($_SESSION['user']->isSundayShoolTeacherForGroup() || $_SESSION['bExportSu
     exit;
 }
 
-
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
 
@@ -74,6 +73,18 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
   <div class="callout callout-warning"><?= gettext("You're about to create babges only for this people")." : <b>".$allPersons."</b> ".gettext("who are in the cart. If you don't want to do this, empty the cart, and reload the page.") ?></div>
 <?php
    }
+   
+   if (isset($_GET['typeProblem'])) {
+?>
+
+  <div class="alert alert-danger">
+      <i class="fa fa-ban"></i>
+      <?= gettext("Only PNG and JPEG files are managed actually !!") ?>
+  </div>
+
+<?php
+  }
+
 ?>
 
 
@@ -121,6 +132,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
               </div>
             </div>
           </div><br>
+          
           <div class="row">
             <div class="col-md-6">
               <?= gettext("Image") ?>
@@ -144,6 +156,10 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
                     $name = str_replace("../Images/background/","",$img);
                     echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
                   }
+                  
+                  if (count($imgs) == 0) {
+                    echo gettext("None");
+                  }
                 ?>
                 )
               
@@ -154,10 +170,11 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
             <div class="col-md-6">
               <?= gettext("Upload") ?>
             </div>
-            <div class="col-md-6">
-              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile">
-              <?= gettext("Upload your file")?>.
-              <input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
+            <div class="col-md-3">
+              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile" style="margin-top:3px">
+            </div>
+            <div class="col-md-3">
+              <?= gettext("and")?> &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
             </div>
           </div><br>
           

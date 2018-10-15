@@ -34,6 +34,15 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
    exit;
 }
 
+if (isset($_GET['typeProblem'])) {
+?>
+<div class="alert alert-danger">
+    <i class="fa fa-ban"></i>
+    <?= gettext("Only PNG and JPEG are managed actually !!") ?>
+</div>
+
+<?php
+}
 ?>
 
 <div class="box">
@@ -104,7 +113,8 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
                   ?>
                   <input type="text" name="image" id="image" maxlength="255" size="3" value="<?= $image ?>" class="form-control" placeholder="<?= gettext("Sunday School Name") ?>">
             </div>
-          </div><br>
+          </div>
+          
           <div class="row">
             <div class="col-md-6">
             </div>
@@ -116,6 +126,10 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
                     $name = str_replace("Images/background/","",$img);
                     echo  '<a href="#" class="add-file" data-name="'. $name .'">'.$name . '</a>  <a class="delete-file" data-name="'. $name .'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
                   }
+                  
+                  if (count($imgs) == 0) {
+                    echo gettext("None");
+                  }
                 ?>
                 )
               
@@ -126,10 +140,11 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
             <div class="col-md-6">
               <?= gettext("Upload") ?>
             </div>
-            <div class="col-md-6">
-              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile">
-              <?= gettext("Upload your file")?>.
-              <input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
+            <div class="col-md-3">
+              <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile" style="margin-top:3px">
+            </div>
+            <div class="col-md-3">
+              <?= gettext("and")?> &nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
             </div>
           </div><br>
           
