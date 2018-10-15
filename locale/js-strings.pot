@@ -5,8 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2018-10-13T04:18:19.010Z\n"
-"PO-Revision-Date: 2018-10-13T04:18:19.010Z\n"
+"POT-Creation-Date: 2018-10-15T06:47:08.697Z\n"
+"PO-Revision-Date: 2018-10-15T06:47:08.697Z\n"
+
+msgid "Are you sure, you want to delete this image ?"
+msgstr ""
 
 msgid "Set Calendar Name"
 msgstr ""
