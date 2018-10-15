@@ -24,9 +24,6 @@ use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
-$imgs = MiscUtils::getImagesInPath ('../Images/background');
-
-
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
 
@@ -34,6 +31,8 @@ if ( !($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupID) || $_SESSION['
     Redirect('Menu.php');
     exit;
 }
+
+$imgs = MiscUtils::getImagesInPath ('../Images/background');
 
 $group = GroupQuery::Create()->findOneById ($iGroupID);
 
