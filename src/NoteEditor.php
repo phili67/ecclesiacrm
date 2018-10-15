@@ -240,7 +240,7 @@ if (isset($_POST['Submit'])) {
 require 'Include/Header.php';
 
 ?>
-<form method="post"<?= SystemURLs::getRootPath() ?>/NoteEditor.php" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
   
   <div class="box box-primary">
     <div class="box-header with-border">
