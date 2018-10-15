@@ -484,12 +484,20 @@
         ],
         "dbVersion": "4.9.1"
     },
-    "current": {
+    "4.9.2": {
         "versions": [
             "4.9.1"
         ],
         "scripts": [
         ],
         "dbVersion": "4.9.2"
+    },
+    "current": {
+        "versions": [
+            "4.9.2"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "4.9.3"
     }
 }
