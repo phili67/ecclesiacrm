@@ -129,7 +129,7 @@ if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
             <div class="col-md-6">
               <input type="file" id="stickerBadgeInputFile" name="stickerBadgeInputFile">
               <?= gettext("Upload your file")?>.
-              <input type="submit" class="btn btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
+              <input type="submit" class="btn btn-xs btn-success" name="SubmitUpload" value="<?= gettext("Upload") ?>">
             </div>
           </div><br>
           
@@ -172,43 +172,6 @@ require 'Include/Footer.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     var back = "<?= (empty($_COOKIE["sBackgroudColor"]))?'#F99':$_COOKIE["sBackgroudColor"] ?>";
     var title = "<?= (empty($_COOKIE["sTitleColor"]))?'#3A3':$_COOKIE["sTitleColor"] ?>";
-    
-    $(".my-colorpicker-back").colorpicker({
-      color:back,
-      inline:false,
-      horizontal:true,
-      right:true
-    });
-    
-    $(".my-colorpicker-title").colorpicker({
-      color:title,
-      inline:false,
-      horizontal:true,
-      right:true
-    });
-    
-    $(".delete-file").click(function () {
-      var name = $(this).data("name");
-      
-      bootbox.confirm(i18next.t("Are you sure, you want to delete this image ?"), function(result){
-        if (result) {
-          window.CRM.APIRequest({
-            method: 'POST',
-            path: 'system/deletefile',
-            data: JSON.stringify({"name": name, "path" : '/Images/background/'})
-          }).done(function(data) {
-            location.reload();
-          });
-        }
-      });
-    });
-
-    $(".add-file").click(function () {
-      var name = $(this).data("name");
-      
-      $("#image").val(name);
-    });
-
 </script>
 
-
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/BadgeSticker.js"></script>
