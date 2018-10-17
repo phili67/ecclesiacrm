@@ -193,7 +193,15 @@ class TimelineService
      */
     public function noteToTimelineItem($dbNote,$sharePerson=null,$shareRights = 0,$shareEditLink = null)
     {
-        $item = null;
+        $item     = null;
+        $userName = null;
+        $person = PersonQuery::create()->findPk($dbNote->getPerId());
+        
+        
+        if (!is_null($person)) {
+          $userName = $person->getFullName();
+        }
+        
         if ($this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId())) {
             $displayEditedBy = gettext('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
@@ -203,7 +211,7 @@ class TimelineService
             } else {
                 $editor = PersonQuery::create()->findPk($dbNote->getDisplayEditedBy());
                 if ($editor != null) {
-                    $displayEditedBy = $editor->getFullName();
+                  $displayEditedBy = $editor->getFullName();
                 }
             }
             
@@ -237,18 +245,19 @@ class TimelineService
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
                 $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
-                $sharePerson,$shareRights,$currentUserName);
+                $sharePerson,$shareRights,$currentUserName,$userName);
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null)
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null)
     {
         $item['id'] = $id;
         $item['slim'] = false;
         $item['type'] = $type;
         $item['isShared'] = $isShared;
+        $item['userName'] = $userName;
         
         switch ($type) {
             case 'create':

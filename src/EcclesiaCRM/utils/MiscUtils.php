@@ -49,6 +49,51 @@ class MiscUtils {
   }
   
   
+  
+/** 
+* Converts bytes into human readable file size. 
+* 
+* @param string $bytes 
+* @return string human readable file size (2,87 Мб)
+* @author Mogilev Arseny 
+*/ 
+public static function FileSizeConvert($bytes)
+{
+    $bytes = floatval($bytes);
+        $arBytes = array(
+            0 => array(
+                "UNIT" => "TB",
+                "VALUE" => pow(1024, 4)
+            ),
+            1 => array(
+                "UNIT" => "GB",
+                "VALUE" => pow(1024, 3)
+            ),
+            2 => array(
+                "UNIT" => "MB",
+                "VALUE" => pow(1024, 2)
+            ),
+            3 => array(
+                "UNIT" => "KB",
+                "VALUE" => 1024
+            ),
+            4 => array(
+                "UNIT" => "B",
+                "VALUE" => 1
+            ),
+        );
+
+    foreach($arBytes as $arItem)
+    {
+        if($bytes >= $arItem["VALUE"])
+        {
+            $result = $bytes / $arItem["VALUE"];
+            $result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+            break;
+        }
+    }
+    return $result;
+}
 
 /**
  * return true when the path in the basePath is a real file
@@ -106,7 +151,7 @@ class MiscUtils {
       case "js":
       case "mm":
       case "vcf":
-        $icon = 'fa-file-code-o';
+        $icon = 'fa-file-code-o bg-white';
         break;
       case "pdf":
         $icon = 'fa-file-pdf-o  bg-red';

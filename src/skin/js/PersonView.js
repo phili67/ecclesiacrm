@@ -30,7 +30,8 @@ $(document).ready(function () {
   });
     
   // Cloud management
-  $(".change-folder").click (function () {
+  $(document).on('click','.change-folder',function () {
+  //$(".change-folder").click (function () {
     var personID = $(this).data("personid");
     var folder   = $(this).data("folder");
     
@@ -40,7 +41,9 @@ $(document).ready(function () {
       data: JSON.stringify({"personID": personID,"folder" : folder})
     }).done(function(data) {
       if (data && data.success) {
-        location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+        window.CRM.dataEDriveTable.ajax.reload();
+        setTimeout(function(){installDragAndDrop();}, 3000);
+        //location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
       }
     });
   });
@@ -109,7 +112,9 @@ $(document).ready(function () {
       data: JSON.stringify({"personID": personID})
     }).done(function(data) {
       if (data && data.success) {
-        location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
+        window.CRM.dataEDriveTable.ajax.reload();
+        setTimeout(function(){installDragAndDrop();}, 3000);
+        //location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
       }
     });
   });
@@ -1369,3 +1374,5 @@ $(document).ready(function () {
     
     applyFilter();
 });
+
+

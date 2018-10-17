@@ -39,6 +39,43 @@ $app->group('/users', function () {
         }
     });
     
+    $this->post('/filemanager/{personID:[0-9]+}', function ($request, $response, $args) {
+      $user = UserQuery::create()->findPk($args['personID']);
+      
+      $realNoteDir = $userDir = $user->getUserRootDir();
+      $userName    = $user->getUserName();
+      $currentpath = $user->getCurrentpath();
+  
+      $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
+      
+      $result = [];
+      $files = array_diff(scandir($currentNoteDir), array('.','..','.DS_Store','._.DS_Store'));
+      foreach ($files as $file) {
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+        
+        $item['name'] = $file;
+        $item['date'] = date(SystemConfig::getValue("sDateFormatLong"),filemtime($currentNoteDir."/".$file));
+        $item['type'] = $extension;
+        $item['size'] = MiscUtils::FileSizeConvert(filesize($currentNoteDir."/".$file));
+        $item['icon'] = MiscUtils::FileIcon ($file);
+        
+        $item['dir']  = false;
+        if (is_dir("$currentNoteDir/$file")) {
+          $item['name'] = "/".$file;
+          $item['dir']  = true;
+          $item['icon'] = 'fa-folder-o bg-yellow';
+          $item['type'] = gettext("Folder");
+        }
+        
+        $item['icon'] = "<span class='fa-stack'>\n  <i class='fa fa-square fa-stack-2x'></i>\n  <i class='fa " . $item['icon'] . " fa-stack-1x fa-inverse'></i>\n</span>";
+        
+        $result[] = $item;
+      } 
+      
+    
+      echo "{\"files\":".json_encode($result)."}";
+    });
+
     $this->post('/changeFolder', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();
         
@@ -83,7 +120,7 @@ $app->group('/users', function () {
               
               $user->save();
 
-              return $response->withJson(['success' => true]);
+              return $response->withJson(['success' => true, "coucou" => $currentPath]);
           }
         }
         
