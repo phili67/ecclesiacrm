@@ -114,6 +114,8 @@ require __DIR__.'/routes/menulinks.php';
 // sundayschool route
 require __DIR__.'/routes/sundayschool.php';
 
+// routes for the fileManage
+require __DIR__.'/routes/filemanager.php';
 
 // Run app
 $app->run();

@@ -1334,67 +1334,60 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <?= gettext("All Files") ?>
                       </span>
                     </td>
-                    <td>
-                    </td>
                   </tr>
                 </table>
-              </div>
-              <div class="col-md-4" style="line-height:27px">
-                <span  class="float-left">
-                <?php 
-                  if ( !is_null ($user) && $user->getCurrentpath() != "/") {
-                ?>
-                  <?= gettext("Path")." : ".$user->getCurrentpath() ?>
-                <?php
-                  }
-                ?>
-                </span>
               </div>
           </div>
           <br>
           <br>
           <div class="row">
               <div class="col-md-12">
+                <?php 
+                  if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
+                ?>
+                  <a href="#" id="uploadFile">
+                    <span class="fa-stack fa-2x" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                      <i class="fa fa-square fa-stack-2x" style="color:green"></i>
+                      <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                <?php 
+                  }
+                ?>
+
                 <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                <span class="fa-stack">
+                <span class="fa-stack fa-2x">
                   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                   <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
-                <a href="#" id="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                <span class="fa-stack">
+
+                <a href="#" class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
+                <span class="fa-stack fa-2x">
                   <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
 
-                    <?php 
-                      if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
-                    ?>
-                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&uploadEDrive=true">
-                        <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
-                          <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                          <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    <?php 
-                      }
-                      
-                      if ( !is_null ($user) && $user->getCurrentpath() != "/") {
-                    ?>
-                      <a href="#" class="folder-back" id="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>">
-                        <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
-                            <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    <?php
-                      }
-                    ?>
-                <button type="button" disabled id="deleteSelectedRows" class="btn btn-xs btn-danger"><?= gettext("Delete") ?></button>
+                <a href="#" class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
+                  <span class="fa-stack fa-2x">
+                    <i class="fa fa-square fa-stack-2x" style="color:purple"></i>
+                    <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <button type="button" disabled id="deleteSelectedRows" class="btn btn-danger"><?= gettext("Delete") ?></button>
                 <div class="btn-group">
-                  <button type="button" disabled id="addSelectedToUpFolder" class="btn btn-xs btn-success"><?= gettext("Add lines") ?></button>
-                  <button type="button" disabled id="buttonDropdown" class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" disabled id="addSelectedToUpFolder" class="btn btn-success"><?= gettext("Add lines") ?></button>
+                  <button type="button" disabled id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <span class="caret"></span>
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
@@ -1404,14 +1397,15 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   </ul>
                 </div>
               </div>
-              <br>
-              <br>
           </div>
+          <hr/>
           <div class="row">
               <div class="col-md-12">
-                <table class="table table-condensed dt-responsive" id="edrive-table" width="100%"></table>
+                <span  class="float-left" id="currentPath">
+                  <?= !is_null($user)?MiscUtils::pathToPathWithIcons($user->getCurrentpath()):"" ?>
+                </span>
               </div>
-          </div>
+            </div>
         </div>
       </div>
     </div>
@@ -1453,7 +1447,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
 
-
 <?php require 'Include/Footer.php' ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -1465,11 +1458,12 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.personFullName  = "<?= $person->getFullName() ?>";
   
   // EDrive
-  var selected = [];// the selected row
+  var selected     = [];// the selected rows
+  var uploadWindow = null;
   
   window.CRM.dataEDriveTable = $("#edrive-table").DataTable({
     ajax:{
-      url: window.CRM.root + "/api/users/filemanager/"+window.CRM.currentPersonID,
+      url: window.CRM.root + "/api/filemanager/"+window.CRM.currentPersonID,
       type: 'POST',
       contentType: "application/json",
       dataSrc: "files"
@@ -1477,35 +1471,40 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
-    searching: false,
+    searching: true,
     select: true,
     columns: [
       {
-        width: 'auto',
+        width: '10%',
         title:i18next.t('Icon'),
         data:'icon',
         render: function(data, type, full, meta) {
           if (!full.dir) {
-            return '<span class="drag" id="'+ full.name +'">'+data+'</span>';
+            return '<span class="drag" id="'+ full.name +'" type="file">'+data+'</span>';
           } else {
-            return '<a href="#" class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="'+ full.name +'">'+data+'</span>';
+            return '<a href="#" class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="'+ full.name +'" type="folder">' + data + '</span>';
           }
         }
       },
       {
-        width: 'auto',
+        width: '50%',
         title:i18next.t('Name'),
         data:'name',
         render: function(data, type, full, meta) {
           if (full.dir) {
-            return '<a href="#" class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + data + '">'+data+'</a>';
+            var fileName = data.substring(1);
+            
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly style="color:black;border:0px;background: transparent;width: 100%;">';//'<a href="' + full.path + '">' + data + '</a>';
           } else {
-            return data;
+            var fileName = data;
+            fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
+            
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly style="color:black;border:0px;background: transparent;width: 100%;">';//'<a href="' + full.path + '">' + data + '</a>';
           }
         }
       },
       {
-        width: 'auto',
+        width: '15%',
         title:i18next.t('Modification Date'),
         data:'date',
         render: function(data, type, full, meta) {
@@ -1513,7 +1512,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
       },
       {
-        width: 'auto',
+        width: '10%',
         title:i18next.t('Type'),
         data:'type',
         render: function(data, type, full, meta) {
@@ -1521,7 +1520,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
       },
       {
-        width: 'auto',
+        width: '10%',
         title:i18next.t('Size'),
         data:'size',
         render: function(data, type, full, meta) {
@@ -1532,6 +1531,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("edriveRow");
+      //$(row).attr('id', data.id)
+      $(row).attr('id', data.name)
     },
     "rowCallback": function( row, data ) {
         if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
@@ -1543,68 +1544,309 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     }
   });
   
-  $('#trash-drop').droppable({
+var oldTextField = null;
 
-    drop : function(event,ui){
-      var name = $(ui.draggable).attr('id');
+$("body").on('dblclick', '.fileName', function(e) {
+  if (oldTextField != null) {
+      $(oldTextField).css("background", "transparent");
+      $(oldTextField).prop('readonly', true);
+  }
+  
+  $(this).css("background", "white");
+  
+  oldTextField = this;
+  $(this).prop('readonly', false);
+});
+
+$("body").on('keypress', '.fileName', function(e) {
+  var key  = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+  var val  = $(this).val();
+  var name = $(this).data("name");
+  var type = $(this).data("type");
+  
+  switch (key) {
+    case 13:// return
+      break;
+    case 27:// ESC
+      var fileName = name;
       
-      alert('On peut faire un delete'); // cette alerte s'exécutera une fois le bloc déposé
+      if ( type == 'file') {
+        fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
+      } else {
+        fileName = fileName.substring(1);
+      }
+      
+      $(this).prop('readonly', true);
+      $(this).css("background", "transparent");
+      $(this).val(fileName);
+      oldTextField = null;
+      break;
+  }
+});
+  
+ $('#edrive-table tbody').on('click', 'tr', function () {
+    //var id = this.id;
+    var id = $(this).attr('id');
+    var index = $.inArray(id, selected);
+    
+    if ( index === -1 ) {
+        selected.push( id );
+    } else {
+        selected.splice( index, 1 );
     }
 
+    $(this).toggleClass('selected');
+    
+    var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+    
+    $("#deleteSelectedRows").prop('disabled', !(selectedRows));
+    $("#deleteSelectedRows").text(i18next.t("Remove")+" (" + selectedRows + ") "+i18next.t("Lines"));
+    $("#buttonDropdown").prop('disabled', !(selectedRows));
+    $("#addSelectedToFolder").prop('disabled', !(selectedRows));
+    $("#addSelectedToFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
+    $("#addSelectedToUpFolder").prop('disabled', !(selectedRows));
+    $("#addSelectedToUpFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to Up Folder"));
+    $("#moveSelectedToFolder").prop('disabled', !(selectedRows));
+    $("#moveSelectedToFolder").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
   });
 
-  $('#folder-back-drop').droppable({
 
+  $('.trash-drop').droppable({
     drop : function(event,ui){
-      var name = $(ui.draggable).attr('id');
+      var len = selected.length;
       
-      alert('On peut remonter d\'un cran'); // cette alerte s'exécutera une fois le bloc déposé
+      if (len > 1) {
+        for (i=0;i<len;i++) {
+          var res = selected[i];
+          // we delete all the selected lines
+        }
+      
+        return;
+      }
+      
+      var name = $(ui.draggable).attr('id');
+      var type = $(ui.draggable).attr('type');
+      
+      if (type == 'folder') {
+        bootbox.confirm({
+          title  : i18next.t("You're about to remove a folder and it's content"),
+          message: i18next.t("This can't be undone !!!!"),
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/deleteFolder',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : name})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                }
+              });
+            }
+          }
+        });
+      } else {// in the case of a file
+        bootbox.confirm({
+          title  : i18next.t("You're about to remove a file"),
+          message: i18next.t("This can't be undone !!!!"),
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/deleteFile',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"file" : name})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                }
+              });
+            }
+          }
+        });
+      }
     }
-
   });
   
+  $('.folder-back-drop').droppable({
+
+    drop : function(event,ui){
+      var name = $(ui.draggable).attr('id');
+      
+      alert('On droppe dans le retour'); // cette alerte s'exécutera une fois le bloc déposé
+    }
+
+  });  
+
   function installDragAndDrop()
   {
-        $('.drag').draggable({
-           revert : true
-        });
+    $('.drag').draggable({
+       revert : true
+    });
 
-        $('.drop').droppable({
-
-          drop : function(event,ui){
-            var name = $(ui.draggable).attr('id');
-            var folderName = $(event.target).attr('id');
-            
-            alert('Action terminée !'); // cette alerte s'exécutera une fois le bloc déposé
+    $('.drop').droppable({
+      drop : function(event,ui){
+        var name = $(ui.draggable).attr('id');
+        var folderName = $(event.target).attr('id');
+        
+        alert('Drop Folder !'); // cette alerte s'exécutera une fois le bloc déposé
+      }
+    });
+  }
+  
+  $(document).on('dblclick','.change-folder',function () {
+  //$(".change-folder").click (function () {
+    var personID = $(this).data("personid");
+    var folder   = $(this).data("folder");
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'filemanager/changeFolder',
+      data: JSON.stringify({"personID": personID,"folder" : folder})
+    }).done(function(data) {
+      if (data && data.success) {
+        selected.length = 0;// no more selected files
+        window.CRM.dataEDriveTable.ajax.reload();
+        setTimeout(function(){installDragAndDrop();}, 3000);
+        $(".folder-back-drop").show();
+        $("#currentPath").html(data.currentPath);
+      }
+    });
+  });
+  
+  $(".new-folder").click (function () {
+    var personID = $(this).data("personid");
+    
+    bootbox.prompt(i18next.t("Set your Folder name"), function(result){ 
+      if (result != '') {
+         window.CRM.APIRequest({
+          method: 'POST',
+          path: 'filemanager/newFolder',
+          data: JSON.stringify({"personID": personID,"folder" : result})
+        }).done(function(data) {
+          if (data && data.success) {
+            window.CRM.dataEDriveTable.ajax.reload();
+            setTimeout(function(){installDragAndDrop();}, 3000);
           }
-
         });
+      }
+    });
+  });
+
+  $(".folder-back-drop").click (function () {
+    var personID = $(this).data("personid");
+
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'filemanager/folderBack',
+      data: JSON.stringify({"personID": personID})
+    }).done(function(data) {
+      if (data && data.success) {
+        selected.length = 0;// no more selected files
+        window.CRM.dataEDriveTable.ajax.reload();
+        setTimeout(function(){installDragAndDrop();}, 3000);
+        
+        if (data.isHomeFolder) {
+          $(".folder-back-drop").hide();
+        } else {
+          $(".folder-back-drop").show();
+        }
+        
+        $("#currentPath").html(data.currentPath);
+      }
+    });
+  });
+  
+  
+  function BootboxContentUploadFile(){
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Upload your File")+'</h3>'
+       + '<div>'
+            +'<div class="row div-title">'
+            +'  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
+            +'     <p align="center" >'
+            +'       <label for="noteInputFile">'+i18next.t("File input")+" : " + '</label>'
+            +'       <input type="file" id="noteInputFile" name="noteInputFile">'
+            +'       '
+            +'       '+i18next.t('Upload your file')
+            +'       <input type="submit" class="btn btn-success" name="Submit" value="'+ i18next.t("Upload") + '">'
+            +'     </p>'
+            +'  </form>'
+            +'</div>'
+       +'</div>';
+          
+      var object = $('<div/>').html(frm_str).contents();
+
+      return object
   }
 
-   $('#edrive-table tbody').on('click', 'tr', function () {
-        var id = this.id;
-        var index = $.inArray(id, selected);
-        
-        //installDragAndDrop();
-        
-        if ( index === -1 ) {
-            selected.push( id );
-        } else {
-            selected.splice( index, 1 );
-        }
- 
-        $(this).toggleClass('selected');
-        
-        var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-        
-        $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-        $("#deleteSelectedRows").text(i18next.t("Remove")+" (" + selectedRows + ") "+i18next.t("Lines"));
-        $("#buttonDropdown").prop('disabled', !(selectedRows));
-        $("#addSelectedToFolder").prop('disabled', !(selectedRows));
-        $("#addSelectedToFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
-        $("#addSelectedToUpFolder").prop('disabled', !(selectedRows));
-        $("#addSelectedToUpFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to Up Folder"));
-        $("#moveSelectedToFolder").prop('disabled', !(selectedRows));
-        $("#moveSelectedToFolder").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
+  function CreateUploadFileWindow()
+  {
+     var modal = bootbox.dialog({
+       message: BootboxContentUploadFile(),
+       buttons: [
+        {
+         label: i18next.t("Cancel"),
+         className: "btn btn-default",
+         callback: function() {
+           modal.modal("hide");
+           return true;
+         }
+        },
+       ],
+       show: false,
+       onEscape: function() {
+          modal.modal("hide");
+       }
+     });
+     
+     return modal;
+  }
+  
+  $(document).on('submit','#formId',function (e) {
+    $.ajax( {
+      url: window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID,
+      type: 'POST',
+      data: new FormData( this ),
+      processData: false,
+      contentType: false
+    }).done(function (data) {
+      uploadWindow.modal("hide");
+      window.CRM.dataEDriveTable.ajax.reload();
+      setTimeout(function(){installDragAndDrop();}, 3000);
     });
+    e.preventDefault();
+  });  
+
+  $("#uploadFile").click (function () {
+    uploadWindow = CreateUploadFileWindow();
+    
+    uploadWindow.modal("show");
+  });
+  
+  // end of EDrive management
 </script>

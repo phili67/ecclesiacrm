@@ -27,6 +27,35 @@ class MiscUtils {
     } 
     return rmdir($dir); 
   } 
+  
+  public static function pathToPathWithIcons ($path) {
+    $items = explode('/', $path);
+    
+    $res = "";
+    $len = count($items);
+    
+    $first = true;
+    for ($i=0;$i<$len;$i++) {
+      if ($first == true) {
+        $res = "<i class='fa fa-home text-aqua'></i> ".gettext("Home");
+        
+        if ($len > 2) {
+           $res .= " <i class='fa fa-caret-right'></i>";
+        }
+        $first = false;
+      }
+      
+      if (!empty ($items[$i]) ){
+        $res .= "&nbsp;&nbsp;<i class='fa fa-folder text-yellow'></i> ".$items[$i];
+        
+        if ($i != $len-2) {
+          $res .= "&nbsp;&nbsp;<i class='fa fa-caret-right'></i>";
+        }
+      }
+    }
+    
+    return $res;
+  }
 
 /**
  * return all the directories in
@@ -120,28 +149,26 @@ public static function FileSizeConvert($bytes)
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $icon = "fa-file-o bg-blue";
-    
     switch (strtolower($extension)) {
       case "doc":
       case "docx":
       case "odt":
-        $icon = 'fa-file-word-o bg-blue';
+        $icon = 'fa-file-word-o text-blue ';
         break;
       case "xls":
       case "xlsx":
       case "ods":
-        $icon = ' fa-file-excel-o bg-green';
+        $icon = ' fa-file-excel-o text-olive';
         break;
       case "xls":
       case "xlsx":
       case "ods":
-        $icon = ' fa-file-powerpoint-o bg-red';
+        $icon = ' fa-file-powerpoint-o text-red';
         break;
       case "jpg":
       case "jpeg":
       case "png":
-        $icon = 'fa-file-photo-o bg-aqua';
+        $icon = 'fa-file-photo-o text-teal';
         break;
       case "txt":
       case "ps1":
@@ -151,29 +178,32 @@ public static function FileSizeConvert($bytes)
       case "js":
       case "mm":
       case "vcf":
-        $icon = 'fa-file-code-o bg-white';
+        $icon = 'fa-file-code-o text-black';
         break;
       case "pdf":
-        $icon = 'fa-file-pdf-o  bg-red';
+        $icon = 'fa-file-pdf-o  text-red';
         break;
       case "mp3":
       case "m4a":
       case "oga":
       case "wav":
-        $icon = 'fa-file-sound-o  bg-green';
+        $icon = 'fa-file-sound-o  text-green';
         break;
       case  "mp4":
-        $icon = 'fa-file-video-o  bg-blue';
+        $icon = 'fa-file-video-o  text-blue';
         break;
       case  "ogg":
-        $icon = 'fa-file-video-o   bg-blue';
+        $icon = 'fa-file-video-o   text-blue';
         break;
       case "mov":
-        $icon = 'fa-file-video-o  bg-blue';
+        $icon = 'fa-file-video-o  text-blue';
+        break;
+      default:
+        $icon = "fa-file-o text-blue";
         break;        
     }
     
-    return $icon;
+    return $icon." bg-gray-light";
   }
   
   public static function embedFiles ($path) {

@@ -28,98 +28,6 @@ $(document).ready(function () {
           }
       });
   });
-    
-  // Cloud management
-  $(document).on('click','.change-folder',function () {
-  //$(".change-folder").click (function () {
-    var personID = $(this).data("personid");
-    var folder   = $(this).data("folder");
-    
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'users/changeFolder',
-      data: JSON.stringify({"personID": personID,"folder" : folder})
-    }).done(function(data) {
-      if (data && data.success) {
-        window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, 3000);
-        //location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
-      }
-    });
-  });
-  
-  $(".new-folder").click (function () {
-    var personID = $(this).data("personid");
-    
-    bootbox.prompt(i18next.t("Set your Folder name"), function(result){ 
-      if (result != '') {
-         window.CRM.APIRequest({
-          method: 'POST',
-          path: 'users/newFolder',
-          data: JSON.stringify({"personID": personID,"folder" : result})
-        }).done(function(data) {
-          if (data && data.success) {
-            location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
-          }
-        });
-      }
-    });
-  });
-  
-  $(".delete-folder").click (function () {
-    var personID = $(this).data("personid");
-    var folder   = $(this).data("folder");
-    
-    bootbox.confirm({
-      title  : i18next.t("You're about to remove a folder and it's content"),
-      message: i18next.t("This can't be undone !!!!"),
-      buttons: {
-        confirm: {
-          label: i18next.t('Yes'),
-            className: 'btn-success'
-        },
-        cancel: {
-          label: i18next.t('No'),
-          className: 'btn-danger'
-        }
-      },
-      callback: function (result)
-      {
-        if (result)
-        {
-          window.CRM.APIRequest({
-            method: 'POST',
-            path: 'users/deleteFolder',
-            data: JSON.stringify({"personID": personID,"folder" : folder})
-          }).done(function(data) {
-            if (data && data.success) {
-              location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
-            }
-          });
-        }
-      }
-    });
-    
-  });
-  
-
-  $(".folder-back").click (function () {
-    var personID = $(this).data("personid");
-
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'users/folderBack',
-      data: JSON.stringify({"personID": personID})
-    }).done(function(data) {
-      if (data && data.success) {
-        window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, 3000);
-        //location.href = window.CRM.root + '/PersonView.php?PersonID='+window.CRM.currentPersonID+'&edrive=true';
-      }
-    });
-  });
-  
-  // end of cloud management
 
   $("#deletePhoto").click (function () {
     $.ajax({
@@ -1333,7 +1241,8 @@ $(document).ready(function () {
   /* Custom filtering function which will search data in column four between two values */
    $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
-        if (settings.nTable.id == "automaticPaymentsTable" || settings.nTable.id == "assigned-properties-table" || settings.nTable.id == "assigned-volunteer-opps-table") {
+        if (settings.nTable.id == "automaticPaymentsTable" || settings.nTable.id == "assigned-properties-table" 
+          || settings.nTable.id == "assigned-volunteer-opps-table" || settings.nTable.id == "edrive-table") {
           return true;
         }
         
