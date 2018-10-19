@@ -64,7 +64,6 @@ $maxMainTimeLineItems = 20; // max number
 $timelineService           = new TimelineService();
 $timelineServiceItems      = $timelineService->getForPerson($iPersonID);
 $timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
-$timelineFilesServiceItems = $timelineService->getFilesForPerson($iPersonID);
 
 // we get the MailChimp Service
 $mailchimp = new MailChimpService();
@@ -1346,7 +1345,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                 ?>
                   <a href="#" id="uploadFile">
-                    <span class="fa-stack fa-2x" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                    <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
                       <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                       <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                     </span>
@@ -1355,23 +1354,23 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   }
                 ?>
 
-                <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                <span class="fa-stack fa-2x">
+                <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
+                <span class="fa-stack">
                   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                   <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
 
-                <a href="#" class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
-                <span class="fa-stack fa-2x">
-                  <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
+                <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
+                <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
 
-                <a href="#" class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
-                  <span class="fa-stack fa-2x">
-                    <i class="fa fa-square fa-stack-2x" style="color:purple"></i>
+                <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
                     <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
@@ -1475,14 +1474,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     select: true,
     columns: [
       {
-        width: '10%',
+        width: '5%',
         title:i18next.t('Icon'),
         data:'icon',
         render: function(data, type, full, meta) {
           if (!full.dir) {
             return '<span class="drag" id="'+ full.name +'" type="file">'+data+'</span>';
           } else {
-            return '<a href="#" class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="'+ full.name +'" type="folder">' + data + '</span>';
+            return '<a class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="'+ full.name +'" type="folder">' + data + '</span>';
           }
         }
       },
@@ -1494,13 +1493,35 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           if (full.dir) {
             var fileName = data.substring(1);
             
-            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly style="color:black;border:0px;background: transparent;width: 100%;">';//'<a href="' + full.path + '">' + data + '</a>';
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly style="color:black;border:0px;background: transparent;width: 100%;">';
           } else {
             var fileName = data;
             fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
             
-            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly style="color:black;border:0px;background: transparent;width: 100%;">';//'<a href="' + full.path + '">' + data + '</a>';
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly style="color:black;border:0px;background: transparent;width: 100%;">';
           }
+        }
+      },
+      {
+        width: '5%',
+        title:i18next.t('Actions'),
+        data:'id',
+        render: function(data, type, full, meta) {
+          if (!full.dir) {
+            var ret = '<a href="'+full.path+'" class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + data + '">'
+                     + '<span class="fa-stack">'
+                     + '   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>'
+                     + '   <i class="fa fa-eye fa-stack-1x fa-inverse"></i>'
+                     + '</span>'
+                     + '</a>'
+                     + '<span class="fa-stack shareFile" data-id="'+data+'" data-shared="'+full.isShared+'">'
+                     + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
+                     + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
+                     + '</span>';
+            return ret;
+          }
+          
+          return '';
         }
       },
       {
@@ -1560,15 +1581,25 @@ $("body").on('dblclick', '.fileName', function(e) {
 
 $("body").on('keypress', '.fileName', function(e) {
   var key  = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
-  var val  = $(this).val();
-  var name = $(this).data("name");
+  var newName  = $(this).val();
+  var oldName = $(this).data("name");
   var type = $(this).data("type");
   
   switch (key) {
     case 13:// return
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'filemanager/rename',
+        data: JSON.stringify({"personID": window.CRM.currentPersonID,"oldName" : oldName, "newName" : newName, "type" : type})
+      }).done(function(data) {
+        if (data && data.success) {
+          window.CRM.dataEDriveTable.ajax.reload();
+          setTimeout(function(){installDragAndDrop();}, 3000);
+        }
+      });
       break;
     case 27:// ESC
-      var fileName = name;
+      var fileName = oldName;
       
       if ( type == 'file') {
         fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
@@ -1621,7 +1652,7 @@ $("body").on('keypress', '.fileName', function(e) {
           // we delete all the selected lines
         }
       
-        return;
+        //return;
       }
       
       var name = $(ui.draggable).attr('id');
@@ -1826,7 +1857,7 @@ $("body").on('keypress', '.fileName', function(e) {
      
      return modal;
   }
-  
+    
   $(document).on('submit','#formId',function (e) {
     $.ajax( {
       url: window.CRM.root + "/api/filemanager/uploadFile/" + window.CRM.currentPersonID,
@@ -1846,6 +1877,277 @@ $("body").on('keypress', '.fileName', function(e) {
     uploadWindow = CreateUploadFileWindow();
     
     uploadWindow.modal("show");
+  });
+  
+  
+  // the share files
+  function BootboxContentShareFiles(){
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your Document")+'</h3>'
+       + '<div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4">'
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
+              +'</div>'
+              +'<div class="col-md-8">'
+              +'<select size="6" style="width:100%" id="select-share-persons" multiple>'
+              +'</select>'
+             +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
+                    +'style="width:100%" data-placeholder="text to place">'
+                    +'<option value="0">'+i18next.t("Select your rights")+" [👀  ]"+i18next.t("or")+"[👀 ✐]"+' -- </option>'
+                    +'<option value="1">'+i18next.t("[👀  ]")+' -- '+i18next.t("[R ]")+'</option>'
+                    +'<option value="2">'+i18next.t("[👀 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<input id="sendEmail" type="checkbox">'
+              +'</div>'
+            +'</div>'            
+            +'<div class="row div-title">'
+              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
+              +'<div class="col-md-8">'
+                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
+                    +'style="width:100%">'
+                +'</select>'
+              +'</div>'
+            +'</div>'
+          +'</div>';
+          
+          var object = $('<div/>').html(frm_str).contents();
+
+        return object
+  }
+  
+// notes management
+  function addPersonsFromNotes(noteId)
+  {
+      $('#select-share-persons').find('option').remove();
+      
+      window.CRM.APIRequest({
+            method: 'POST',
+            path: 'sharedocument/getallperson',
+            data: JSON.stringify({"noteId": noteId})
+      }).done(function(data) {    
+        var elt = document.getElementById("select-share-persons");
+        var len = data.length;
+      
+        for (i=0; i<len; ++i) {
+          var option = document.createElement("option");
+          // there is a groups.type in function of the new plan of schema
+          option.text = data[i].name;
+          //option.title = data[i].type;        
+          option.value = data[i].id;
+        
+          elt.appendChild(option);
+        }
+      });  
+      
+      //addProfilesToMainDropdown();
+  }
+
+  function openShareFilesWindow (event) {
+    var noteId = event.currentTarget.dataset.id;
+    var isShared = event.currentTarget.dataset.shared;
+    
+    var button = $(this); //Assuming first tab is selected by default
+        
+    var modal = bootbox.dialog({
+       message: BootboxContentShareFiles(),
+       buttons: [
+        {
+         label: i18next.t("Delete"),
+         className: "btn btn-warning",
+         callback: function() {                        
+            bootbox.confirm(i18next.t("Are you sure ? You're about to delete this Person ?"), function(result){ 
+              if (result) {
+                $('#select-share-persons :selected').each(function(i, sel){ 
+                  var personID = $(sel).val();
+                  
+                  window.CRM.APIRequest({
+                     method: 'POST',
+                     path: 'sharedocument/deleteperson',
+                     data: JSON.stringify({"noteId":noteId,"personID": personID})
+                  }).done(function(data) {
+                    $("#select-share-persons option[value='"+personID+"']").remove(); 
+                    
+                    if (data.count == 0) {
+                      $(button).addClass("btn-default");
+                      $(button).removeClass("btn-success");
+                    }
+                    
+                    $("#person-group-Id").val("").trigger("change");
+                  });
+                });
+              }
+            });
+            return false;
+         }
+        },
+        {
+         label: i18next.t("Stop sharing"),
+         className: "btn btn-danger",
+         callback: function() {
+          bootbox.confirm(i18next.t("Are you sure ? You are about to stop sharing your document ?"), function(result){ 
+            if (result) {
+              window.CRM.APIRequest({
+                 method: 'POST',
+                 path: 'sharedocument/cleardocument',
+                 data: JSON.stringify({"noteId":noteId})
+              }).done(function(data) {
+                addPersonsFromNotes(noteId);
+                $(button).addClass("btn-default");
+                $(button).removeClass("btn-success");
+                modal.modal("hide");
+                window.CRM.dataEDriveTable.ajax.reload();
+                setTimeout(function(){installDragAndDrop();}, 3000);
+              });
+            }
+          });
+          return false;
+         }
+        },
+        {
+         label: i18next.t("Ok"),
+         className: "btn btn-primary",
+         callback: function() {
+           modal.modal("hide");
+           window.CRM.dataEDriveTable.ajax.reload();
+           setTimeout(function(){installDragAndDrop();}, 3000);
+           return true;
+         }
+        },
+       ],
+       show: false,
+       onEscape: function() {
+          modal.modal("hide");
+          window.CRM.dataEDriveTable.ajax.reload();
+          setTimeout(function(){installDragAndDrop();}, 3000);
+       }
+     });
+     
+     $("#person-group-Id").select2({ 
+        language: window.CRM.shortLocale,
+        minimumInputLength: 2,
+        placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
+        allowClear: true, // This is for clear get the clear button if wanted 
+        ajax: {
+            url: function (params){
+              return window.CRM.root + "/api/people/search/" + params.term;
+            },
+            dataType: 'json',
+            delay: 250,
+            data: "",
+            processResults: function (data, params) {
+              return {results: data};
+            },
+            cache: true
+        }
+      });
+      
+     $("#person-group-rights").change(function() {
+       var rightAccess = $(this).val();
+       var deferreds = [];
+       var i = 0;
+       
+       $('#select-share-persons :selected').each(function(i, sel){ 
+          var personID = $(sel).val();
+          var str = $(sel).text();
+          
+          deferreds.push(          
+            window.CRM.APIRequest({
+               method: 'POST',
+               path: 'sharedocument/setrights',
+               data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
+            }).done(function(data) {
+              if (rightAccess == 1) {
+                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
+              } else {
+                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
+              }
+            
+              var elt = [personID,res];
+              deferreds[i++] = elt;
+            })
+          );
+          
+        });
+        
+        $.when.apply($, deferreds).done(function(data) {
+         // all images are now prefetched
+         //addPersonsFromNotes(noteId);
+         
+         deferreds.forEach(function(element) {
+           $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
+         }); 
+         
+         $("#person-group-rights option:first").attr('selected','selected');
+        });
+     });
+     
+     $("#select-share-persons").change(function() {
+       $("#person-group-rights").val(0);
+     });
+          
+      
+     $("#person-group-Id").on("select2:select",function (e) { 
+       var notification = ($("#sendEmail").is(':checked'))?1:0;
+       
+       if (e.params.data.personID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addperson',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        } else if (e.params.data.groupID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addgroup',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        } else if (e.params.data.familyID !== undefined) {
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'sharedocument/addfamily',
+                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
+           }).done(function(data) { 
+             addPersonsFromNotes(noteId);
+             $(button).addClass("btn-success");
+             $(button).removeClass("btn-default");
+           });
+        }
+     });
+     
+     addPersonsFromNotes(noteId);
+     modal.modal('show');
+     
+    // this will ensure that image and table can be focused
+    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+  }
+  
+  var isOpened = false;
+  
+  $(document).on('click','.shareFile',function (event) {
+    if (!isOpened) {
+      openShareFilesWindow (event);
+      isOpened = true;
+    } else {
+      isOpened = false;
+    }
   });
   
   // end of EDrive management

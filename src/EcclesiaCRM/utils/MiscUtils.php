@@ -46,7 +46,7 @@ class MiscUtils {
       }
       
       if (!empty ($items[$i]) ){
-        $res .= "&nbsp;&nbsp;<i class='fa fa-folder text-yellow'></i> ".$items[$i];
+        $res .= "&nbsp;&nbsp;<i class='fa fa-folder-o text-yellow'></i> ".$items[$i];
         
         if ($i != $len-2) {
           $res .= "&nbsp;&nbsp;<i class='fa fa-caret-right'></i>";
@@ -178,6 +178,12 @@ public static function FileSizeConvert($bytes)
       case "js":
       case "mm":
       case "vcf":
+      case "py":
+      case "mm":
+      case "swift":
+      case "sh":
+      case "ru":
+      case "asp":
         $icon = 'fa-file-code-o text-black';
         break;
       case "pdf":
