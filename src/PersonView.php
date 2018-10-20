@@ -1925,7 +1925,7 @@ $("body").on('keypress', '.fileName', function(e) {
         return object
   }
   
-// notes management
+// Share Files management
   function addPersonsFromNotes(noteId)
   {
       $('#select-share-persons').find('option').remove();

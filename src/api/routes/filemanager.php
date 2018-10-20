@@ -40,6 +40,7 @@ $app->group('/filemanager', function () {
         $note = NoteQuery::Create()->findOneByText($userName.$currentpath.$file);
         
         $item['isShared'] = 0;
+        $item['id']       = 0;
         
         if (!is_null($note)) {
           $item['id']         = $note->getId();
