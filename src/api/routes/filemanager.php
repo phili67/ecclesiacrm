@@ -41,18 +41,20 @@ $app->group('/filemanager', function () {
         
         $item['isShared'] = 0;
         $item['id']       = 0;
+        $item['perID']    = 0;
         
         if (!is_null($note)) {
           $item['id']         = $note->getId();
           $item['isShared']   = $note->isShared();
+          $item['perID']      = $note->getPerId();
         }
         
-        $item['name'] = $file;
-        $item['date'] = date(SystemConfig::getValue("sDateFormatLong"),filemtime($currentNoteDir."/".$file));
-        $item['type'] = $extension;
-        $item['size'] = MiscUtils::FileSizeConvert(filesize($currentNoteDir."/".$file));
-        $item['icon'] = MiscUtils::FileIcon ($file);
-        $item['path'] = $realNoteDir."/".$userName.$currentpath."/".$file;
+        $item['name']  = $file;
+        $item['date']  = date(SystemConfig::getValue("sDateFormatLong"),filemtime($currentNoteDir."/".$file));
+        $item['type']  = $extension;
+        $item['size']  = MiscUtils::FileSizeConvert(filesize($currentNoteDir."/".$file));
+        $item['icon']  = MiscUtils::FileIcon ($file);
+        $item['path']  = $userName.$currentpath.$file;
         
         $item['dir']  = false;
         if (is_dir("$currentNoteDir/$file")) {
@@ -68,6 +70,39 @@ $app->group('/filemanager', function () {
       }      
     
       echo "{\"files\":".json_encode($result)."}";
+    });
+    
+    $this->get('/getFile/{personID:[0-9]+}/[{path:.*}]', function ($request, $res, $args) {
+          $user = UserQuery::create()->findPk($args['personID']);
+          $name = $request->getAttribute('path');
+          
+          
+          if ( !is_null($user) ) {
+            $realNoteDir = $userDir = $user->getUserRootDir();
+            $userName    = $user->getUserName();
+            $currentpath = $user->getCurrentpath();
+  
+            $searchLikeString = $name.'%';
+            $note = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->findOne();
+            
+            if ( !is_null($note) && ( $note->isShared() > 0 || $_SESSION['user']->isAdmin() ) ) {
+              $file = dirname(__FILE__)."/../../".$realNoteDir."/".$name;
+          
+              $response = $res->withHeader('Content-Description', 'File Transfer')
+                 ->withHeader('Content-Type', 'application/octet-stream')
+                 ->withHeader('Content-Disposition', 'attachment;filename="'.basename($file).'"')
+                 ->withHeader('Expires', '0')
+                 ->withHeader('Cache-Control', 'must-revalidate')
+                 ->withHeader('Pragma', 'public')
+                 ->withHeader('Content-Length', filesize($file));
+
+              readfile($file);
+          
+              return $response;
+            }
+          }
+          
+          return $res->withStatus(404); 
     });
 
     $this->post('/changeFolder', function ($request, $response, $args) {
@@ -121,7 +156,7 @@ $app->group('/filemanager', function () {
         return $response->withJson(['success' => false]);
     });
     
-    $this->post('/deleteFolder', function ($request, $response, $args) {
+    $this->post('/deleteOneFolder', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();
         
         if (isset ($params->personID) && isset ($params->folder) ) {
@@ -150,7 +185,7 @@ $app->group('/filemanager', function () {
         return $response->withJson(['success' => false]);
     });
 
-    $this->post('/deleteFile', function ($request, $response, $args) {
+    $this->post('/deleteOneFile', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();
         
         if (isset ($params->personID) && isset ($params->file) ) {
@@ -323,7 +358,7 @@ $app->group('/filemanager', function () {
               $note->setTitle($params->folder);
               $note->setPrivate(1);
               $note->setText($userName.$currentpath.$params->folder);
-              $note->setType('file');
+              $note->setType('folder');
               $note->setEntered($_SESSION['user']->getPersonId());
               $note->setInfo(gettext('New Folder'));
         
@@ -368,9 +403,9 @@ $app->group('/filemanager', function () {
                 $note->setTitle($fileName);
                 $note->setPrivate(1);
                 $note->setText($userName . $currentpath . $params->newName.(!empty($extension)?".".$extension:""));
-                $note->setType('file');
+                $note->setType($params->type);
                 $note->setEntered($_SESSION['user']->getPersonId());
-                $note->setInfo(gettext('Rename file'));
+                $note->setInfo(($params->type == 'file')?gettext("Rename file"):gettext("Rename folder"));
           
                 $note->save();
                 

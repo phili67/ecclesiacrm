@@ -135,7 +135,7 @@ class TimelineService
             ->findBySharePerId($personID);
         
         // we only share the file from other users 
-        $noteTypes[] = 'file';
+        //$noteTypes[] = 'file';
             
         foreach ($personShareQuery as $dbNoteShare) {
           if (in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
@@ -198,7 +198,8 @@ class TimelineService
     {
         $item     = null;
         $userName = null;
-        $person = PersonQuery::create()->findPk($dbNote->getPerId());
+        $perID    = $dbNote->getPerId();
+        $person   = PersonQuery::create()->findPk($dbNote->getPerId());
         
         
         if (!is_null($person)) {
@@ -248,19 +249,20 @@ class TimelineService
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
                 $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
-                $sharePerson,$shareRights,$currentUserName,$userName);
+                $sharePerson,$shareRights,$currentUserName,$userName,$perID);
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null)
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null,$perID = 0)
     {
-        $item['id'] = $id;
-        $item['slim'] = false;
-        $item['type'] = $type;
+        $item['id']       = $id;
+        $item['slim']     = false;
+        $item['type']     = $type;
         $item['isShared'] = $isShared;
         $item['userName'] = $userName;
+        $item['perID']    = $perID;
         
         switch ($type) {
             case 'create':
