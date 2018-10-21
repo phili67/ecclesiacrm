@@ -11,6 +11,21 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
+function reArrayFiles(&$file_post) {
+
+    $file_ary = array();
+    $file_count = count($file_post['name']);
+    $file_keys = array_keys($file_post);
+
+    for ($i=0; $i<$file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file_post[$key][$i];
+        }
+    }
+
+    return $file_ary;
+}
+
 
 $app->group('/filemanager', function () {
     
@@ -284,24 +299,30 @@ $app->group('/filemanager', function () {
                 
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
-                  $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+                  $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
-                    $notes->delete();
+                    foreach ($notes as $note) {
+                      // we have to change all the files
+                      $fileName = basename($note->getText());
+                      
+                      if ($params->folder == '/..') {
+                        $dirname = dirname($currentpath);
+                      } else {
+                        $dirname = $currentpath.substr($params->folder,1);
+                      }
+                      
+                      if ($params->type == 'file') {
+                        $note->setText($dirname."/".$fileName);
+                      } else {
+                        // in the case of a folder
+                        $note->setText($dirname."/".$fileName);
+                      }
+                      
+                      $note->setEntered($_SESSION['user']->getPersonId());
+                      $note->save();
+                    }
                   }
-
-                  // now we create the note
-                  $note = new Note();
-                  $note->setPerId($params->personID);
-                  $note->setFamId(0);
-                  $note->setTitle($params->folder);
-                  $note->setPrivate(1);
-                  $note->setText($userName.$currentpath.substr($params->folder,1).$file);
-                  $note->setType('file');
-                  $note->setEntered($_SESSION['user']->getPersonId());
-                  $note->setInfo(gettext('Move folder'));
-        
-                  $note->save();
                 }
               } else {
                 $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
@@ -309,24 +330,30 @@ $app->group('/filemanager', function () {
                 
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
-                  $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+                  $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText ($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
-                    $notes->delete();
+                    foreach ($notes as $note) {
+                      // we have to change all the files
+                      $fileName = basename($note->getText());
+                      
+                      if ($params->folder == '/..') {
+                        $dirname = $userName.dirname($currentpath);
+                      } else {
+                        $dirname = $userName.$currentpath.substr($params->folder,1)."/";
+                      }
+                      
+                      if ($params->type == 'file') {
+                        $note->setText($dirname.$fileName);
+                      } else {
+                        // in the case of a folder
+                        $note->setText($dirname.$fileName);
+                      }
+                      
+                      $note->setEntered($_SESSION['user']->getPersonId());
+                      $note->save();
+                    }
                   }
-
-                  // now we create the note
-                  $note = new Note();
-                  $note->setPerId($params->personID);
-                  $note->setFamId(0);
-                  $note->setTitle($params->folder);
-                  $note->setPrivate(1);
-                  $note->setText($userName.$currentpath.substr($params->folder,1)."/".$file);
-                  $note->setType('file');
-                  $note->setEntered($_SESSION['user']->getPersonId());
-                  $note->setInfo(gettext('Move file'));
-        
-                  $note->save();
                 }
               }
             }
@@ -390,24 +417,23 @@ $app->group('/filemanager', function () {
               
               if (rename($oldName, $newName)) {
                 $searchLikeString = $userName.$currentpath.$params->oldName.'%';
-                $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+                $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                 if ( $notes->count() > 0 ) {
-                  $notes->delete();
+                  foreach ($notes as $note) {
+                    // we have to change all the files
+                    $oldName = $note->getText();
+                    if ($params->type == 'file') {
+                      $note->setText($userName.$currentpath.$params->newName.".".$extension);
+                    } else {
+                      // in the case of a folder
+                      $note->setText($userName.$currentpath.$params->newName);
+                    }
+                    
+                    $note->setEntered($_SESSION['user']->getPersonId());
+                    $note->save();
+                  }
                 }
-              
-                // now we create the note
-                $note = new Note();
-                $note->setPerId($params->personID);
-                $note->setFamId(0);
-                $note->setTitle($fileName);
-                $note->setPrivate(1);
-                $note->setText($userName . $currentpath . $params->newName.(!empty($extension)?".".$extension:""));
-                $note->setType($params->type);
-                $note->setEntered($_SESSION['user']->getPersonId());
-                $note->setInfo(($params->type == 'file')?gettext("Rename file"):gettext("Rename folder"));
-          
-                $note->save();
                 
                 return $response->withJson(['success' => true]);
               }
@@ -431,26 +457,31 @@ $app->group('/filemanager', function () {
         
         $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
         
-        $fileName = basename($_FILES["noteInputFile"]["name"]);
+        $file_ary = reArrayFiles($_FILES['noteInputFile']);
+        
+        foreach ($file_ary as $file) {
+        
+          $fileName = basename($file["name"]);
 
-        $target_file = $currentNoteDir . $fileName;
+          $target_file = $currentNoteDir . $fileName;
 
-        if (move_uploaded_file($_FILES['noteInputFile']['tmp_name'], $target_file)) {
+          if (move_uploaded_file($file['tmp_name'], $target_file)) {
           
-          // now we create the note
-          $note = new Note();
-          $note->setPerId($args['personID']);
-          $note->setFamId(0);
-          $note->setTitle($fileName);
-          $note->setPrivate(1);
-          $note->setText($userName . $currentpath . $fileName);
-          $note->setType('file');
-          $note->setEntered($_SESSION['user']->getPersonId());
-          $note->setInfo(gettext('Create file'));
+            // now we create the note
+            $note = new Note();
+            $note->setPerId($args['personID']);
+            $note->setFamId(0);
+            $note->setTitle($fileName);
+            $note->setPrivate(1);
+            $note->setText($userName . $currentpath . $fileName);
+            $note->setType('file');
+            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setInfo(gettext('Create file'));
           
-          $note->save();
+            $note->save();
           
-          return $response->withJson(['success' => "success"]);
+            //return $response->withJson(['success' => "success"]);
+          }
         }
 
         return $response->withJson(['success' => "failed"]);

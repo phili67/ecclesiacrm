@@ -613,7 +613,7 @@ $("body").on('keypress', '.fileName', function(e) {
             +'  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
             +'     <p align="center" >'
             +'       <label for="noteInputFile">'+i18next.t("File input")+" : " + '</label>'
-            +'       <input type="file" id="noteInputFile" name="noteInputFile">'
+            +'       <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>'
             +'       '
             +'       '+i18next.t('Upload your file')
             +'       <input type="submit" class="btn btn-success" name="Submit" value="'+ i18next.t("Upload") + '">'
