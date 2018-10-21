@@ -103,6 +103,13 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        ter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/jquery-ui-touch-punch/*'],
+                        dest: 'src/skin/external/jquery-ui-touch-punch/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/leaflet/dist/',
                         src: ['**/*'],
                         dest: 'src/skin/external/leaflet/'

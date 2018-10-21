@@ -179,6 +179,130 @@ $app->group('/filemanager', function () {
         return $response->withJson(['success' => false]);
     });
     
+    $this->post('/deleteFiles', function ($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+        
+        if (isset ($params->personID) && isset ($params->files) ) {
+   
+          $user = UserQuery::create()->findPk($params->personID);
+          if (!is_null($user)) {
+              $realNoteDir = $userDir = $user->getUserRootDir();
+              $userName    = $user->getUserName();
+              $currentpath = $user->getCurrentpath();
+              
+              foreach ($params->files as $file) {
+                if ($file[0] == '/') {
+                  // we're in a case of a folder
+                  $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+                  
+                  if (MiscUtils::delTree($currentNoteDir)) {
+                    $searchLikeString = $userName.$currentpath.$params->file.'%';
+                    $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              
+                    if ( $notes->count() > 0 ) {
+                      $notes->delete();
+                    }
+                  }
+                } else {
+                  // in the case of a file
+                  $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+                  
+                  if (unlink ($currentNoteDir)) {
+                      $searchLikeString = $userName.$currentpath.$params->file.'%';
+                      $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              
+                      if ( $notes->count() > 0 ) {
+                        $notes->delete();
+                      }
+                  }
+                }
+              }
+
+              return $response->withJson(['success' => true]);
+          }
+        }
+        
+        return $response->withJson(['success' => false]);
+    });
+
+
+    $this->post('/movefiles', function ($request, $response, $args) {
+        $params = (object)$request->getParsedBody();
+        
+        if (isset ($params->personID) && isset ($params->folder) && isset ($params->files) ) {
+          $user = UserQuery::create()->findPk($params->personID);
+          
+          if (!is_null($user)) {
+            $realNoteDir = $userDir = $user->getUserRootDir();
+            $userName    = $user->getUserName();
+            $currentpath = $user->getCurrentpath();
+              
+            $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->files;
+            
+            foreach ($params->files as $file) {
+              if ($file[0] == '/') {
+                // we're in a case of a folder
+                $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+                $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
+                
+                mkdir($newDest, 0755, true);
+                
+                if (rename($currentDest,$newDest)) {
+                  $searchLikeString = $userName.$currentpath.$file.'%';
+                  $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              
+                  if ( $notes->count() > 0 ) {
+                    $notes->delete();
+                  }
+
+                  // now we create the note
+                  $note = new Note();
+                  $note->setPerId($params->personID);
+                  $note->setFamId(0);
+                  $note->setTitle($params->folder);
+                  $note->setPrivate(1);
+                  $note->setText($userName.$currentpath.substr($params->folder,1).$file);
+                  $note->setType('file');
+                  $note->setEntered($_SESSION['user']->getPersonId());
+                  $note->setInfo(gettext('Move folder'));
+        
+                  $note->save();
+                }
+              } else {
+                $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+                $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1)."/".$file;
+                
+                if (rename($currentDest,$newDest)) {
+                  $searchLikeString = $userName.$currentpath.$file.'%';
+                  $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              
+                  if ( $notes->count() > 0 ) {
+                    $notes->delete();
+                  }
+
+                  // now we create the note
+                  $note = new Note();
+                  $note->setPerId($params->personID);
+                  $note->setFamId(0);
+                  $note->setTitle($params->folder);
+                  $note->setPrivate(1);
+                  $note->setText($userName.$currentpath.substr($params->folder,1)."/".$file);
+                  $note->setType('file');
+                  $note->setEntered($_SESSION['user']->getPersonId());
+                  $note->setInfo(gettext('Move file'));
+        
+                  $note->save();
+                }
+              }
+            }
+           
+            return $response->withJson(['success' => true]);
+          }
+        }
+        
+        return $response->withJson(['success' => false]);
+    });
+    
     $this->post('/newFolder', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();
         
@@ -201,7 +325,7 @@ $app->group('/filemanager', function () {
               $note->setText($userName.$currentpath.$params->folder);
               $note->setType('file');
               $note->setEntered($_SESSION['user']->getPersonId());
-              $note->setInfo(gettext('Create file'));
+              $note->setInfo(gettext('New Folder'));
         
               $note->save();
               
@@ -243,10 +367,10 @@ $app->group('/filemanager', function () {
                 $note->setFamId(0);
                 $note->setTitle($fileName);
                 $note->setPrivate(1);
-                $note->setText($userName . $currentpath . $params->newName.".".$extension);
+                $note->setText($userName . $currentpath . $params->newName.(!empty($extension)?".".$extension:""));
                 $note->setType('file');
                 $note->setEntered($_SESSION['user']->getPersonId());
-                $note->setInfo(gettext('Create file'));
+                $note->setInfo(gettext('Rename file'));
           
                 $note->save();
                 

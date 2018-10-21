@@ -1381,22 +1381,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
               </div>
           </div>
-          <div class="row">
-              <div class="col-md-12">
-                <button type="button" disabled id="deleteSelectedRows" class="btn btn-danger"><?= gettext("Delete") ?></button>
-                <div class="btn-group">
-                  <button type="button" disabled id="addSelectedToUpFolder" class="btn btn-success"><?= gettext("Add lines") ?></button>
-                  <button type="button" disabled id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a id="addSelectedToFolder" disabled="">Ajouter  (1) Membres dans un autre groupe</a></li>
-                    <li><a id="moveSelectedToFolder" disabled="">Déplacer  (1) Membres dans un autre groupe</a></li>
-                  </ul>
-                </div>
-              </div>
-          </div>
           <hr/>
           <div class="row">
               <div class="col-md-12">
@@ -1441,12 +1425,18 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     </div>
   </div>
 </div>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
 
 <?php require 'Include/Footer.php' ?>
+
+<!-- Drag and drop -->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<!-- !Drag and Drop -->
+
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = <?= $iPersonID ?>;
@@ -1459,6 +1449,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   // EDrive
   var selected     = [];// the selected rows
   var uploadWindow = null;
+  var oldTextField = null;
+
   
   window.CRM.dataEDriveTable = $("#edrive-table").DataTable({
     ajax:{
@@ -1553,7 +1545,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     createdRow : function (row,data,index) {
       $(row).addClass("edriveRow");
       //$(row).attr('id', data.id)
-      $(row).attr('id', data.name)
+      $(row).attr('id', data.name);
     },
     "rowCallback": function( row, data ) {
         if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
@@ -1565,18 +1557,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     }
   });
   
-var oldTextField = null;
-
 $("body").on('dblclick', '.fileName', function(e) {
   if (oldTextField != null) {
       $(oldTextField).css("background", "transparent");
-      $(oldTextField).prop('readonly', true);
+      $(oldTextField).attr('readonly');
   }
   
   $(this).css("background", "white");
+  $(this).removeAttr('readonly');
   
   oldTextField = this;
-  $(this).prop('readonly', false);
 });
 
 $("body").on('keypress', '.fileName', function(e) {
@@ -1607,7 +1597,7 @@ $("body").on('keypress', '.fileName', function(e) {
         fileName = fileName.substring(1);
       }
       
-      $(this).prop('readonly', true);
+      $(this).attr('readonly');
       $(this).css("background", "transparent");
       $(this).val(fileName);
       oldTextField = null;
@@ -1630,29 +1620,87 @@ $("body").on('keypress', '.fileName', function(e) {
     
     var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
     
-    $("#deleteSelectedRows").prop('disabled', !(selectedRows));
-    $("#deleteSelectedRows").text(i18next.t("Remove")+" (" + selectedRows + ") "+i18next.t("Lines"));
-    $("#buttonDropdown").prop('disabled', !(selectedRows));
-    $("#addSelectedToFolder").prop('disabled', !(selectedRows));
-    $("#addSelectedToFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
-    $("#addSelectedToUpFolder").prop('disabled', !(selectedRows));
-    $("#addSelectedToUpFolder").html(i18next.t("Add")+"  (" + selectedRows + ") "+i18next.t("Lines to Up Folder"));
-    $("#moveSelectedToFolder").prop('disabled', !(selectedRows));
-    $("#moveSelectedToFolder").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Lines to another folder"));
-  });
+    if (selectedRows == 0) {
+      selected.length = 0;// no lines
+    }
+ });
 
+  $('.trash-drop').click (function () {
+      if (selected.length) {
+        bootbox.confirm({
+          title  : i18next.t("You're about to remove a folder and it's content"),
+          message: i18next.t("This can't be undone !!!!"),
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/deleteFiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  selected.length=0;
+                }
+              });
+            }
+          }
+        });
+      } else {
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to select at least one line !!!"));
+      }
+  });
 
   $('.trash-drop').droppable({
     drop : function(event,ui){
       var len = selected.length;
       
       if (len > 1) {
-        for (i=0;i<len;i++) {
-          var res = selected[i];
-          // we delete all the selected lines
-        }
-      
-        //return;
+        bootbox.confirm({
+          title  : i18next.t("You're about to remove a folder and it's content"),
+          message: i18next.t("This can't be undone !!!!"),
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/deleteFiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  selected.length=0;
+                }
+              });
+            }
+          }
+        });
+        
+        return;
       }
       
       var name = $(ui.draggable).attr('id');
@@ -1678,8 +1726,8 @@ $("body").on('keypress', '.fileName', function(e) {
             {
               window.CRM.APIRequest({
                 method: 'POST',
-                path: 'filemanager/deleteFolder',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : name})
+                path: 'filemanager/deleteFiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
@@ -1709,8 +1757,8 @@ $("body").on('keypress', '.fileName', function(e) {
             {
               window.CRM.APIRequest({
                 method: 'POST',
-                path: 'filemanager/deleteFile',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"file" : name})
+                path: 'filemanager/deleteFiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
@@ -1728,8 +1776,73 @@ $("body").on('keypress', '.fileName', function(e) {
 
     drop : function(event,ui){
       var name = $(ui.draggable).attr('id');
+      var folderName = '/..';
       
-      alert('On droppe dans le retour'); // cette alerte s'exécutera une fois le bloc déposé
+      if (selected.length > 0) {// Drag in a folder
+        bootbox.confirm({
+          title  : i18next.t("Move files and folders"),
+          message: i18next.t("You're about to move the files and the folder in ")+":"+folderName,
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/movefiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  selected.length = 0;// no lines
+                }
+              });
+            }
+          }
+        });
+      } else {
+        bootbox.confirm({
+          title  : i18next.t("Move file or folder"),
+          message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
+          buttons: {
+            confirm: {
+              label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+              label: i18next.t('No'),
+              className: 'btn-danger'
+            }
+          },
+          callback: function (result)
+          {
+            if (result)
+            {
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'filemanager/movefiles',
+                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+              }).done(function(data) {
+                if (data && data.success) {
+                  window.CRM.dataEDriveTable.ajax.reload();
+                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  selected.length = 0;// no lines
+                }
+              });
+            }
+          }
+        });
+      }
     }
 
   });  
@@ -1745,12 +1858,76 @@ $("body").on('keypress', '.fileName', function(e) {
         var name = $(ui.draggable).attr('id');
         var folderName = $(event.target).attr('id');
         
-        alert('Drop Folder !'); // cette alerte s'exécutera une fois le bloc déposé
+        if (selected.length > 0) {// Drag in a folder
+          bootbox.confirm({
+            title  : i18next.t("Move files and folders"),
+            message: i18next.t("You're about to move the files and the folder in ")+":"+folderName,
+            buttons: {
+              confirm: {
+                label: i18next.t('Yes'),
+                  className: 'btn-success'
+              },
+              cancel: {
+                label: i18next.t('No'),
+                className: 'btn-danger'
+              }
+            },
+            callback: function (result)
+            {
+              if (result)
+              {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'filemanager/movefiles',
+                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+                }).done(function(data) {
+                  if (data && data.success) {
+                    window.CRM.dataEDriveTable.ajax.reload();
+                    setTimeout(function(){installDragAndDrop();}, 3000);
+                    selected.length = 0;// no lines
+                  }
+                });
+              }
+            }
+          });
+        } else {
+          bootbox.confirm({
+            title  : i18next.t("Move file or folder"),
+            message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
+            buttons: {
+              confirm: {
+                label: i18next.t('Yes'),
+                  className: 'btn-success'
+              },
+              cancel: {
+                label: i18next.t('No'),
+                className: 'btn-danger'
+              }
+            },
+            callback: function (result)
+            {
+              if (result)
+              {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'filemanager/movefiles',
+                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+                }).done(function(data) {
+                  if (data && data.success) {
+                    window.CRM.dataEDriveTable.ajax.reload();
+                    setTimeout(function(){installDragAndDrop();}, 3000);
+                    selected.length = 0;// no lines
+                  }
+                });
+              }
+            }
+          });
+        }
       }
     });
   }
   
-  $(document).on('dblclick','.change-folder',function () {
+  $(document).on('click','.change-folder',function () {
   //$(".change-folder").click (function () {
     var personID = $(this).data("personid");
     var folder   = $(this).data("folder");
@@ -1882,7 +2059,7 @@ $("body").on('keypress', '.fileName', function(e) {
   
   // the share files
   function BootboxContentShareFiles(){
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your Document")+'</h3>'
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your File")+'</h3>'
        + '<div>'
             +'<div class="row div-title">'
               +'<div class="col-md-4">'
@@ -2140,7 +2317,7 @@ $("body").on('keypress', '.fileName', function(e) {
   }
   
   var isOpened = false;
-  
+
   $(document).on('click','.shareFile',function (event) {
     if (!isOpened) {
       openShareFilesWindow (event);
