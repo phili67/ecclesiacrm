@@ -376,7 +376,7 @@ $("body").on('keypress', '.fileName', function(e) {
       if (selected.length > 0) {// Drag in a folder
         bootbox.confirm({
           title  : i18next.t("Move files and folders"),
-          message: i18next.t("You're about to move the files and the folder in ")+":"+folderName,
+          message: i18next.t("You're about to move the files and the folders in ")+":"+folderName,
           buttons: {
             confirm: {
               label: i18next.t('Yes'),
@@ -607,15 +607,15 @@ $("body").on('keypress', '.fileName', function(e) {
   
   
   function BootboxContentUploadFile(){
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Upload your File")+'</h3>'
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Upload your Files")+'</h3>'
        + '<div>'
             +'<div class="row div-title">'
             +'  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
             +'     <p align="center" >'
-            +'       <label for="noteInputFile">'+i18next.t("File input")+" : " + '</label>'
+            +'       <label for="noteInputFile">'+i18next.t("Files input")+" : " + '</label>'
             +'       <input type="file" id="noteInputFile" name="noteInputFile[]" multiple>'
             +'       '
-            +'       '+i18next.t('Upload your file')
+            +'       '+i18next.t('Upload your files')
             +'       <input type="submit" class="btn btn-success" name="Submit" value="'+ i18next.t("Upload") + '">'
             +'     </p>'
             +'  </form>'

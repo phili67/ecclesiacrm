@@ -421,8 +421,11 @@ $app->group('/filemanager', function () {
               $newName = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->newName.(($params->type == 'file')?".".$extension:"");
               
               if (rename($oldName, $newName)) {
-                $searchLikeString = $userName.$currentpath.$params->oldName.'%';
-                $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
+                $searchLikeString = $userName.$currentpath.$params->oldName;
+                
+                $oldDir = $searchLikeString = str_replace("//","/",$searchLikeString);
+                
+                $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString.'%', Criteria::LIKE)->find();
               
                 if ( $notes->count() > 0 ) {
                   foreach ($notes as $note) {
@@ -432,7 +435,10 @@ $app->group('/filemanager', function () {
                       $note->setText($userName.$currentpath.$params->newName.".".$extension);
                     } else {
                       // in the case of a folder
-                      $note->setText($userName.$currentpath.$params->newName);
+                      $newDir = $userName.$currentpath.$params->newName;
+                      $newDir = str_replace ("//","/",$newDir);
+
+                      $note->setText(str_replace($oldDir,$newDir,$oldName));
                     }
                     
                     $note->setEntered($_SESSION['user']->getPersonId());
