@@ -718,7 +718,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <span class="time">
                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                   </span>
-                  
+                  <?php
+                    if (isset($item['style2']) ) {
+                  ?>
+                   <i class="fa <?= $item['style2'] ?> share-type-2"></i>
+                  <?php
+                    }
+                  ?>
+                
                   <h3 class="timeline-header">
                     <?php 
                       if (in_array('headerlink', $item)) {
@@ -732,6 +739,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       } 
                     ?>
                   </h3>
+                  
 
                   <div class="timeline-body">
                      <?php 
@@ -1202,7 +1210,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               $note_content = "";// this assume only the last note is visible
               
               foreach ($timelineNotesServiceItems as $item) {
-                if ( $note_content != $item['text'] ) {// this assume only the last note is visible
+                if ( $note_content != $item['text'] && $item['type'] != 'file') {// this assume only the last note is visible
                  
                  $note_content = $item['text']; // this assume only the last note is visible
             ?>

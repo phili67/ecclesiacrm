@@ -135,7 +135,7 @@ class TimelineService
             ->findBySharePerId($personID);
         
         // we only share the file from other users 
-        //$noteTypes[] = 'file';
+        $noteTypes[] = 'file';
             
         foreach ($personShareQuery as $dbNoteShare) {
           if (in_array($dbNoteShare->getNote()->getType(), $noteTypes)) {
