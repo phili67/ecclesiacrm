@@ -1,6 +1,6 @@
 {
   "name": "EcclesiaCRM",
-  "version": "4.9.2",
+  "version": "4.9.3",
   "description": "EcclesiaCRM4 Software",
   "repository": {
     "type": "git",
@@ -40,14 +40,15 @@
     "ckeditor": "4.7.3",
     "font-awesome": "4.7.0",
     "fullcalendar": "3.0.1",
-    "grunt-git": "^1.0.7",
+    "grunt-git": "^1.0.10",
     "grunt-http": "^2.2.0",
     "i18next": "8.2.1",
-    "i18next-extract-gettext": "^3.2.0",
+    "i18next-extract-gettext": "^3.2.1",
     "i18next-xhr-backend": "1.4.1",
     "initial-js": "0.3.4",
     "jquery-photo-uploader": "1.0.13",
     "jquery-steps": "1.1.0",
+    "jquery-ui-touch-punch": "^0.2.3",
     "jquery-validation": "1.16.0",
     "leaflet": "1.3.1"
   },

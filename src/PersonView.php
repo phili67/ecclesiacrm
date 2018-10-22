@@ -64,7 +64,6 @@ $maxMainTimeLineItems = 20; // max number
 $timelineService           = new TimelineService();
 $timelineServiceItems      = $timelineService->getForPerson($iPersonID);
 $timelineNotesServiceItems = $timelineService->getNotesForPerson($iPersonID);
-$timelineFilesServiceItems = $timelineService->getFilesForPerson($iPersonID);
 
 // we get the MailChimp Service
 $mailchimp = new MailChimpService();
@@ -719,7 +718,14 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   <span class="time">
                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                   </span>
-                  
+                  <?php
+                    if (isset($item['style2']) ) {
+                  ?>
+                   <i class="fa <?= $item['style2'] ?> share-type-2"></i>
+                  <?php
+                    }
+                  ?>
+                
                   <h3 class="timeline-header">
                     <?php 
                       if (in_array('headerlink', $item)) {
@@ -733,6 +739,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       } 
                     ?>
                   </h3>
+                  
 
                   <div class="timeline-body">
                      <?php 
@@ -742,7 +749,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/".$realNoteDir."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").'<a href="'.SystemURLs::getRootPath().'/api/filemanager/getFile/'.$item['perID']."/".$item['text'].'"><i class="fa '.$item['style2'].'share-type-2"></i> "'.gettext("click to download").'"</a>' ?></pre>
                       <?php 
                         } 
                       ?>
@@ -1203,8 +1210,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               $note_content = "";// this assume only the last note is visible
               
               foreach ($timelineNotesServiceItems as $item) {
-                if ( $note_content != $item['text'] // this assume only the last note is visible
-                 && $item['type'] != 'file' ) {
+                if ( $note_content != $item['text'] && $item['type'] != 'file') {// this assume only the last note is visible
                  
                  $note_content = $item['text']; // this assume only the last note is visible
             ?>
@@ -1218,7 +1224,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       &nbsp;
                      <?php 
                      
-                     if ( $item['slim'] && !isset($item['currentUserName']) ) {
+                     if ( $item['slim'] && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
                       <a href="<?= $item['editLink'] ?>">
@@ -1229,8 +1235,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       </a>
                       <?php
                         }
-                        
-                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
+                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                       ?>
                       <a href="<?= $item['deleteLink'] ?>">
                         <span class="fa-stack">
@@ -1240,7 +1245,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       </a>
                       <?php
                         }
-                        if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
+                        if (!isset($item['sharePersonID']) && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                       ?>
                         <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>">
                           <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
@@ -1279,15 +1284,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   ?>
                           <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
                   <?php
-                     }
-                    
-                     if ($item['type'] != 'file') { 
+                     }                    
                   ?>
                       <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
-                      
-                  <?php 
-                      } 
-                  ?>
                   </div>
 
                   <?php 
@@ -1342,251 +1341,62 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <?= gettext("All Files") ?>
                       </span>
                     </td>
-                    <td style="vertical-align: middle;">
-                      <labe><?= gettext("Show") ?> : </label>
-                    </td>
-                    <td>
-                      <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
-                        <option value="all"><?= gettext("All type") ?></option>
-                        <option value="file"><?= MiscUtils::noteType("file") ?></option>
-                        <option disabled="disabled">_____________________________</option>
-                        <option value="shared"><?= gettext("Shared documents") ?></option>
-                      </select>
-                    </td>
-                    <td>
-                      <a href="#" class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
-                          <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    <?php 
-                      if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
-                    ?>
-                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&uploadEDrive=true">
-                        <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
-                          <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                          <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    <?php 
-                      }
-                      
-                      if ( !is_null ($user) && $user->getCurrentpath() != "/") {
-                    ?>
-                      <a href="#" class="folder-back" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>">
-                        <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
-                            <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    <?php
-                      }
-                    ?>
-                    </td>
                   </tr>
                 </table>
               </div>
-              <div class="col-md-4" style="line-height:27px">
-                <span  class="float-left">
+          </div>
+          <br>
+          <br>
+          <div class="row">
+              <div class="col-md-12">
                 <?php 
-                  if ( !is_null ($user) && $user->getCurrentpath() != "/") {
+                  if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                 ?>
-                  <?= gettext("Path")." : ".$user->getCurrentpath() ?>
-                <?php
+                  <a href="#" id="uploadFile">
+                    <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                      <i class="fa fa-square fa-stack-2x" style="color:green"></i>
+                      <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                <?php 
                   }
                 ?>
+
+                <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
+                <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
+                  <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                 </span>
+                </a>
+
+                <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
+                <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                </span>
+                </a>
+
+                <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
+                  <span class="fa-stack">
+                    <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
+                    <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
               </div>
           </div>
-          <ul class="timeline time-line-note">
-            <!-- note time label -->
-            <li class="time-label">
-            </li>
-            <!-- /.note-label -->
-
-            <!-- note item -->
-            <?php 
-              $note_content = "";// this assume only the last note is visible
-              $elts = 0;
-              
-              foreach ($timelineFilesServiceItems as $item) {
-                $temp_realNoteDir    = $realNoteDir;
-                $temp_userName       = $userName;
-                $temp_currentpath    = $currentpath;
-                
-                if (isset($item['sharePersonID'])) {// in the cas of a share document
-                  $shareUser = UserQuery::Create()->findPk($item['sharePersonID']);
-                  
-                  if (!is_null($shareUser)) {
-                    $temp_realNoteDir    = $shareUser->getUserRootDir();
-                    $temp_userName       = $shareUser->getUserName();
-                    $temp_currentpath    = $shareUser->getCurrentpath();
-                  }
-                }
-                
-                $temp_currentNoteDir = SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$temp_userName.$temp_currentpath;
-                    
-                if ( $note_content != $item['text'] // this assume only the last note is visible
-                 && ($item['type'] == 'file' && ( $item['info'] == gettext("Create file") || $item['info'] == gettext("Dav create file")) 
-                 || $item['type'] == 'file' && ( $item['info'] == gettext("Dav move copy file")) 
-                 || $item['type'] == 'file' && ( $item['info'] == gettext("Update file") || $item['info'] == gettext("Dav update file")) ) ) {
-                 
-                 $note_content = $item['text']; // this assume only the last note is visible
-                 
-                 if ( !MiscUtils::isRealFile (SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$item['text'],$temp_currentNoteDir) ) {
-                   continue;
-                 }
-                 
-                 $elts++;
-            ?>
-              <li class="type-<?= $item['type'] ?><?= (isset($item['style2'])?" type-shared":"") ?>">
-                <!-- timeline icon -->
-                <i class="fa <?= $item['style'] ?> icon-<?= $item['type'] ?><?= (isset($item['style2'])?" icon-shared":"") ?>" ></i>
- 
-                <div class="timeline-item">
-                  <span class="time">
-                    <b>
-                     <?php 
-                      if (in_array('headerlink', $item) && !isset($item['sharePersonID'])) {
-                    ?>
-                      <?= $item['header'] ?>
-                    <?php
-                      } else {
-                    ?>
-                      <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $item['sharePersonID'] ?>"><?= $item['header'] ?></a>
-                    <?php
-                      } 
-                    ?>
-                    </b>
-                     <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
-                      &nbsp;
-                    <?php 
-                     if ( $item['slim'] && !isset($item['currentUserName']) ) {
-                        if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
-                      ?>
-                        <a href="<?= $item['deleteLink'] ?>">
-                          <span class="fa-stack">
-                            <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                            <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
-                          </span>
-                        </a>
-                      <?php
-                        }
-                        if (!isset($item['sharePersonID']) && !isset($item['currentUserName']) ) {
-                      ?>
-                        <span class="fa-stack shareNote" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>">
-                          <i class="fa fa-square fa-stack-2x" style="color:<?= $item['isShared']?"green":"#777" ?>"></i>
-                          <i class="fa fa-share-square-o fa-stack-1x fa-inverse" ></i>
-                        </span>
-                    <?php
-                        }
-                      } 
-                    ?>
-                     </span>
-
-
-                <?php
-                  if (isset($item['style2']) ) {
-                ?>
-                   <i class="fa <?= $item['style2'] ?> share-type-2"></i>
-                <?php
-                  }
-                ?>
-                  <h3 class="timeline-header"  style="margin-left:-15px;margin-top:-5px">
-                    <?php
-                     if (isset($item['currentUserName'])) {
-                    ?>
-                          <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
-                    <?php
-                      }
-                      
-                      if ($item['type'] == 'file') { 
-                    ?>
-                        <?= MiscUtils::embedFiles(SystemURLs::getRootPath()."/".$temp_realNoteDir."/".$item['text']) ?>
-                    <?php 
-                      } 
-                    ?>
-                  </h3>
-
-                  <?php if (($_SESSION['user']->isNotesEnabled()) && ($item['editLink'] != '' || $item['deleteLink'] != '')) {
-                                            ?>
-                    <div class="timeline-footer">
-                    <?php 
-                      if (!$item['slim']) {
-                    ?>
-                      <?php 
-                        if ($item['editLink'] != '') {
-                      ?>
-                        <a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
-                        </a>
-                      <?php
-                        }
-                        
-                        if ($item['deleteLink'] != '') {
-                      ?>
-                        <a href="<?= $item['deleteLink'] ?>">
-                          <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                        </a>
-                      <?php
-                        }
-                         
-                        if (!isset($item['sharePersonID']) ) {
-                      ?>
-                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" ?> shareNote"><i class="fa fa-share-square-o"></i></button>
-                      <?php
-                        }
-                      ?>
-                    </div>
-                  <?php
-                    } 
-                  } ?>
-                </div>
-              </li>
-            <?php
-                }
-              } 
-
-              if (count($directories) > 0) {
-            ?>
-            
-            <li class="time-label">
-              <span class="bg-red"><?= gettext("Folders") ?></span>
-            </li>
-            
-            <?php
-                foreach ($directories as $dir) {
-                  $elts++;
-            ?>
-              <li class="type-file">
-                <!-- timeline icon -->
-                <i class="fa fa-folder-o bg-yellow icon-file"></i>
- 
-                <div class="timeline-item">
-                  <span class="time">
-                    <?= gettext("Delete Folder") ?>
-                    <a data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="delete-folder" data-personid="<?= $iPersonID ?>">
-                      <span class="fa-stack">
-                        <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  </span>
-
-
-                  <h3 class="timeline-header" style="margin-left:-15px;margin-top:-5px">
-                    <a href="#" data-folder="<?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?>" class="change-folder" data-personid="<?= $iPersonID ?>"> <?= MiscUtils::getRealDirectory($dir,$currentNoteDir) ?></a>
-                  </h3>
-                </div>
-              </li>            
-            <?php
-                }
-              }
-            ?>
-            <!-- END timeline item -->
-          </ul>
-          <label style="margin-top:-20px;margin-left:30px"><?= ($elts == 0)?gettext("Folder empty"):'' ?></label>
+          <div class="row">
+              <div class="col-md-12">
+                <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
+              </div>
+          </div>
+          <hr/>
+          <div class="row">
+              <div class="col-md-12">
+                <span  class="float-left" id="currentPath">
+                  <?= !is_null($user)?MiscUtils::pathToPathWithIcons($user->getCurrentpath()):"" ?>
+                </span>
+              </div>
+            </div>
         </div>
       </div>
     </div>
@@ -1623,9 +1433,17 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     </div>
   </div>
 </div>
+
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
+
+<!-- Drag and drop -->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+<!-- !Drag and Drop -->
+
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = <?= $iPersonID ?>;
   window.CRM.currentFamily   = <?= $iFamilyID ?>;
@@ -1636,3 +1454,4 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 </script>
 
 <?php require 'Include/Footer.php' ?>
+

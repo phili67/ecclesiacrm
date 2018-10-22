@@ -11,8 +11,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\Note;
-use EcclesiaCRM\NoteQuery;
-use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
@@ -38,117 +36,7 @@ $app->group('/users', function () {
             return $response->withStatus(404);
         }
     });
-    
-    $this->post('/changeFolder', function ($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
         
-        if (isset ($params->personID) && isset ($params->folder) ) {
-   
-          $user = UserQuery::create()->findPk($params->personID);
-          if (!is_null($user)) {
-              $user->setCurrentpath($params->folder."/");
-              $user->save();
-
-              return $response->withJson(['success' => true]);
-          }
-        }
-        
-        return $response->withJson(['success' => false]);
-    });
-    
-    $this->post('/folderBack', function ($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-        
-        if (isset ($params->personID) ) {
-   
-          $user = UserQuery::create()->findPk($params->personID);
-          if (!is_null($user)) {
-              $currentPath = $user->getCurrentpath();
-              
-              $len = strlen($currentPath);
-              
-              for ($i=$len-2;$i>0;$i--) {
-                if ($currentPath[$i] == "/") {
-                  break;
-                }
-              }
-              
-              $currentPath = substr($currentPath,0,$i+1);
-              
-              if ($currentPath == '') {
-                $currentPath = "/";
-              }
-              
-              $user->setCurrentpath($currentPath);
-              
-              $user->save();
-
-              return $response->withJson(['success' => true]);
-          }
-        }
-        
-        return $response->withJson(['success' => false]);
-    });
-    
-    $this->post('/deleteFolder', function ($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-        
-        if (isset ($params->personID) && isset ($params->folder) ) {
-   
-          $user = UserQuery::create()->findPk($params->personID);
-          if (!is_null($user)) {
-              $realNoteDir = $userDir = $user->getUserRootDir();
-              $userName    = $user->getUserName();
-              $currentpath = $user->getCurrentpath();
-  
-              $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$params->folder;
-              
-              if (strpos($userName.$currentpath,$userName.$params->folder) > 0) {
-                $user->setCurrentpath("/");
-                $user->save();
-              }
-              
-              $searchLikeString = $userName.$params->folder.'%';              
-              $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
-              
-              if ( $notes->count() > 0 ) {
-                $notes->delete();
-              }
-                    
-              $ret = MiscUtils::delTree($currentNoteDir);
-
-              return $response->withJson(['success' => $searchLikeString]);
-          }
-        }
-        
-        return $response->withJson(['success' => false]);
-    });
-    
-    $this->post('/newFolder', function ($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-        
-        if (isset ($params->personID) && isset ($params->folder) ) {
-   
-          $user = UserQuery::create()->findPk($params->personID);
-          if (!is_null($user)) {
-              $realNoteDir = $userDir = $user->getUserRootDir();
-              $userName    = $user->getUserName();
-              $currentpath = $user->getCurrentpath();
-              
-              $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
-              
-              mkdir($currentNoteDir, 0755, true);
-
-              return $response->withJson(['success' => $currentNoteDir]);
-          }
-        }
-        
-        return $response->withJson(['success' => false]);
-    });
-    
-    
-    
-    
      $this->post('/applyrole', function ($request, $response, $args) {
         if (!$_SESSION['user']->isAdmin()) {
             return $response->withStatus(401);
