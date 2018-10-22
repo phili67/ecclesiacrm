@@ -367,15 +367,12 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 
 
-<!--Google Map Scripts -->
-<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
-
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
   
   window.CRM.churchloc = {
       lat: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLatitude()) ?>,
-      lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};            
+      lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
 
@@ -389,6 +386,9 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
 ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
@@ -397,4 +397,3 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 <?php
   }
 ?>
-

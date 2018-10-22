@@ -758,9 +758,6 @@ foreach ($allMonths as $mVal) {
   </a>
 </div>
 
-<!--Google Map Scripts -->
-<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
-
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
@@ -772,6 +769,9 @@ foreach ($allMonths as $mVal) {
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
 ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {

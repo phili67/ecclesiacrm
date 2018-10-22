@@ -252,9 +252,6 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 <link href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
 
-<!--Google Map Scripts -->
-<script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
-
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.isModifiable  = true;
@@ -277,6 +274,9 @@ $eventTypes = EventTypesQuery::Create()
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
 ?>
+    <!--Google Map Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
+
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
@@ -285,6 +285,3 @@ $eventTypes = EventTypesQuery::Create()
 <?php
   }
 ?>
-
-
-
