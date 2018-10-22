@@ -292,31 +292,37 @@ $app->group('/filemanager', function () {
             foreach ($params->files as $file) {
               if ($file[0] == '/') {
                 // we're in a case of a folder
+                // $file is a folder here
                 $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
                 $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
                 
                 mkdir($newDest, 0755, true);
                 
                 if (rename($currentDest,$newDest)) {
-                  $searchLikeString = $userName.$currentpath.$file.'%';
+                  $searchLikeString = $userName.$currentpath.substr($file,1).'%';
                   $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
+                    if ($params->folder == '/..') {
+                        // we're goaing back
+                        $dropDir = $userName.dirname($currentpath)."/";
+                    } else {
+                        // the new currentPath
+                        $dropDir = $userName.$currentpath.substr($params->folder,1)."/";
+                    }
+
+                    $dropDir = str_replace("//","/",$dropDir);
+
                     foreach ($notes as $note) {
-                      // we have to change all the files
-                      $fileName = basename($note->getText());
+                      // we have to change all the files and the folders
+                      $rest = str_replace($userName.$currentpath,"",$note->getText());
                       
-                      if ($params->folder == '/..') {
-                        $dirname = dirname($currentpath);
-                      } else {
-                        $dirname = $currentpath.substr($params->folder,1);
-                      }
+                      $note->setText($dropDir.$rest);
                       
-                      if ($params->type == 'file') {
-                        $note->setText($dirname."/".$fileName);
+                      if ($note->getType() == 'folder') {
+                        $note->setInfo(gettext('Folder modification'));
                       } else {
-                        // in the case of a folder
-                        $note->setText($dirname."/".$fileName);
+                        $note->setInfo(gettext('File modification'));
                       }
                       
                       $note->setEntered($_SESSION['user']->getPersonId());
@@ -333,23 +339,22 @@ $app->group('/filemanager', function () {
                   $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText ($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
+                    // we have to change all the files
+                    if ($params->folder == '/..') {
+                        // we're going back
+                        $dropDir = $userName.dirname($currentpath)."/";
+                    } else {
+                        // the new currentPath
+                        $dropDir = $userName.$currentpath.substr($params->folder,1)."/";
+                    }
+                    
+                    $dropDir = str_replace("//","/",$dropDir);
+                      
                     foreach ($notes as $note) {
-                      // we have to change all the files
-                      $fileName = basename($note->getText());
-                      
-                      if ($params->folder == '/..') {
-                        $dirname = $userName.dirname($currentpath);
-                      } else {
-                        $dirname = $userName.$currentpath.substr($params->folder,1)."/";
-                      }
-                      
-                      if ($params->type == 'file') {
-                        $note->setText($dirname.$fileName);
-                      } else {
-                        // in the case of a folder
-                        $note->setText($dirname.$fileName);
-                      }
-                      
+                      $rest = str_replace($userName.$currentpath,"",$note->getText());
+
+                      $note->setText($dropDir.$rest);
+                      $note->setInfo(gettext('File modification'));
                       $note->setEntered($_SESSION['user']->getPersonId());
                       $note->save();
                     }

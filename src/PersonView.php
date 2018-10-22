@@ -749,7 +749,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"")."<a href=\"".SystemURLs::getRootPath()."/api/filemanager/getFile/".$item['perID']."/".$item['text']."\"><i class=\"fa fa-file-o\"></i> \"".$item['text']."\"</a>" ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").'<a href="'.SystemURLs::getRootPath().'/api/filemanager/getFile/'.$item['perID']."/".$item['text'].'"><i class="fa '.$item['style2'].'share-type-2"></i> "'.gettext("click to download").'"</a>' ?></pre>
                       <?php 
                         } 
                       ?>

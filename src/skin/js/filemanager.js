@@ -139,7 +139,7 @@ $("body").on('click', '.fileName', function(e) {
             }).done(function(data) {
               if (data && data.success) {
                 window.CRM.dataEDriveTable.ajax.reload();
-                setTimeout(function(){installDragAndDrop();}, 3000);
+                setTimeout(function(){installDragAndDrop();}, 1000);
               }
             });
           }
@@ -944,5 +944,3 @@ $("body").on('keypress', '.fileName', function(e) {
   
   // end of EDrive management
 });
-
-
