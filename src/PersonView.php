@@ -1353,7 +1353,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                   if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                 ?>
                   <a href="#" id="uploadFile">
-                    <span class="fa-stack" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                    <span class="fa-stack fa-special-icon" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
                       <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                       <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                     </span>
@@ -1363,21 +1363,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                 ?>
 
                 <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                <span class="fa-stack">
+                <span class="fa-stack fa-special-icon">
                   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                   <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
 
                 <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
-                <span class="fa-stack">
+                <span class="fa-stack fa-special-icon">
                   <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                   <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                 </span>
                 </a>
 
                 <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
-                  <span class="fa-stack">
+                  <span class="fa-stack fa-special-icon">
                     <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
                     <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                   </span>
@@ -1451,6 +1451,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
   window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
   window.CRM.personFullName  = "<?= $person->getFullName() ?>";
+  
+  if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+      (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
+    $( ".fa-special-icon" ).addClass( "fa-2x" );
+  }
 </script>
 
 <?php require 'Include/Footer.php' ?>

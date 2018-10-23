@@ -139,7 +139,7 @@ $("body").on('click', '.fileName', function(e) {
             }).done(function(data) {
               if (data && data.success) {
                 window.CRM.dataEDriveTable.ajax.reload();
-                setTimeout(function(){installDragAndDrop();}, 1000);
+                setTimeout(function(){installDragAndDrop();}, 500);
               }
             });
           }
@@ -179,7 +179,7 @@ $("body").on('keypress', '.fileName', function(e) {
       }).done(function(data) {
         if (data && data.success) {
           window.CRM.dataEDriveTable.ajax.reload();
-          setTimeout(function(){installDragAndDrop();}, 3000);
+          setTimeout(function(){installDragAndDrop();}, 500);
         }
       });
       break;
@@ -246,7 +246,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                   selected.length=0;
                 }
               });
@@ -287,7 +287,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                   selected.length=0;
                 }
               });
@@ -326,7 +326,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                 }
               });
             }
@@ -357,7 +357,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                 }
               });
             }
@@ -398,7 +398,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                   selected.length = 0;// no lines
                 }
               });
@@ -430,7 +430,7 @@ $("body").on('keypress', '.fileName', function(e) {
               }).done(function(data) {
                 if (data && data.success) {
                   window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, 3000);
+                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                   selected.length = 0;// no lines
                 }
               });
@@ -478,7 +478,7 @@ $("body").on('keypress', '.fileName', function(e) {
                 }).done(function(data) {
                   if (data && data.success) {
                     window.CRM.dataEDriveTable.ajax.reload();
-                    setTimeout(function(){installDragAndDrop();}, 3000);
+                    setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                     selected.length = 0;// no lines
                   }
                 });
@@ -510,7 +510,7 @@ $("body").on('keypress', '.fileName', function(e) {
                 }).done(function(data) {
                   if (data && data.success) {
                     window.CRM.dataEDriveTable.ajax.reload();
-                    setTimeout(function(){installDragAndDrop();}, 3000);
+                    setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
                     selected.length = 0;// no lines
                   }
                 });
@@ -531,7 +531,7 @@ $("body").on('keypress', '.fileName', function(e) {
       if (data && data.success) {
         selected.length = 0;// no more selected files
         window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, 3000);
+        setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
         $(".folder-back-drop").show();
         $("#currentPath").html(data.currentPath);
       }
@@ -574,7 +574,7 @@ $("body").on('keypress', '.fileName', function(e) {
         }).done(function(data) {
           if (data && data.success) {
             window.CRM.dataEDriveTable.ajax.reload();
-            setTimeout(function(){installDragAndDrop();}, 3000);
+            setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
           }
         });
       }
@@ -592,7 +592,7 @@ $("body").on('keypress', '.fileName', function(e) {
       if (data && data.success) {
         selected.length = 0;// no more selected files
         window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, 3000);
+        setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
         
         if (data.isHomeFolder) {
           $(".folder-back-drop").hide();
@@ -660,7 +660,7 @@ $("body").on('keypress', '.fileName', function(e) {
     }).done(function (data) {
       uploadWindow.modal("hide");
       window.CRM.dataEDriveTable.ajax.reload();
-      setTimeout(function(){installDragAndDrop();}, 3000);
+      setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
     });
     e.preventDefault();
   });  
