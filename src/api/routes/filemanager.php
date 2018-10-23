@@ -6,6 +6,7 @@
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\User;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -139,6 +140,32 @@ $app->group('/filemanager', function () {
           
           return $res->withStatus(404); 
     });
+    
+    $this->get('/getPreview/{personID:[0-9]+}/[{path:.*}]', function ($request, $res, $args) {
+          $user = UserQuery::create()->findPk($args['personID']);
+          $name = $request->getAttribute('path');
+
+          if ( !is_null($user) ) {
+             return MiscUtils::simpleEmbedFiles($name);
+          }
+    });
+    
+    $this->post('/getPreview', function ($request, $response, $args) {
+          $params = (object)$request->getParsedBody();
+
+          if (isset ($params->personID) && isset ($params->name) ) {
+            $user = UserQuery::create()->findPk($params->personID);
+            if (!is_null($user)) {
+               $userName    = $user->getUserName();
+               $currentPath = $user->getCurrentpath();
+               
+               return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name)] );
+            }
+          }
+          
+          return $res->withStatus(404); 
+    });
+
 
     $this->post('/changeFolder', function ($request, $response, $args) {
         $params = (object)$request->getParsedBody();

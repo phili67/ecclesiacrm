@@ -12,6 +12,7 @@ use Sabre\VObject;
 use EcclesiaCRM\MyVCalendar;
 use Sabre\DAV\PropPatch;
 use Sabre\DAVACL;
+use EcclesiaCRM\Utils\OutputUtils;
 
 class MiscUtils {
   
@@ -117,7 +118,8 @@ public static function FileSizeConvert($bytes)
         if($bytes >= $arItem["VALUE"])
         {
             $result = $bytes / $arItem["VALUE"];
-            $result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+            //$result = str_replace(".", "," , strval(round($result, 2)))." ".$arItem["UNIT"];
+            $result = OutputUtils::number_localized($result)." ".$arItem["UNIT"];
             break;
         }
     }
@@ -212,6 +214,72 @@ public static function FileSizeConvert($bytes)
     return $icon." bg-gray-light";
   }
   
+  public static function simpleEmbedFiles ($path,$realPath=nil) {
+    $uuid = MiscUtils::gen_uuid();
+
+    $filename = basename($path);
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
+    
+    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
+    
+    switch (strtolower($extension)) {
+      case "jpg":
+      case "jpeg":
+      case "png":
+        $res .= '<img src="'.$path.'" style="width: 100%"/>';
+        break;
+      case "txt":
+      case "ps1":
+      case "c":
+      case "cpp":
+      case "php":
+      case "js":
+      case "mm":
+      case "vcf":
+        $content = file_get_contents( dirname(__FILE__)."/../..".$path );
+        $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
+        
+        $res .= $content;
+        break;
+      case "pdf":
+        $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
+        $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
+        $res .= "</object>";
+        break;
+      case "mp3":
+      case "m4a":
+      case "oga":
+      case "wav":
+        $res .= " type : $extension<br>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        break;
+      case  "mp4":
+        $res .= "type : $extension<br>";
+        $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "<source src=\"".$path."\" type=\"video/mp4\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;
+      case  "ogg":
+        $res .= "type : $extension<br>";
+        $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"none\">\n";
+        $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;
+      case "mov":
+        $res .= "type : $extension<br>";
+        $res .= "<video src=\"".$path."\"\n";
+        $res .= "     controls\n";
+        $res .= "     autoplay\n";
+        $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
+        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= "</video>";
+        break;
+    }
+    
+    return $res;
+  }
   public static function embedFiles ($path) {
     $isexpandable = true;
     

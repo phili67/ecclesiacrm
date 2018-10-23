@@ -1385,8 +1385,12 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               </div>
           </div>
           <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-9">
                 <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
+              </div>
+              <div class="col-md-3">
+                 <label><?= gettext("Preview") ?></label><br>
+                 <span class="preview"></span>
               </div>
           </div>
           <hr/>
