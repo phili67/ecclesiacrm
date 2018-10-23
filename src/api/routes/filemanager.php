@@ -26,6 +26,25 @@ function reArrayFiles(&$file_post) {
     return $file_ary;
 }
 
+function numberOfFiles ($personID) {
+  $user = UserQuery::create()->findPk($personID);
+  
+  if (is_null($user)) {// in the case the user is null
+    return 0;
+  }
+  
+  $realNoteDir = $userDir = $user->getUserRootDir();
+  $userName    = $user->getUserName();
+  $currentpath = $user->getCurrentpath();
+
+  $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
+  
+  $result = [];
+  $files = array_diff(scandir($currentNoteDir), array('.','..','.DS_Store','._.DS_Store'));
+  
+  return count($files);
+}
+
 
 $app->group('/filemanager', function () {
     
@@ -130,7 +149,7 @@ $app->group('/filemanager', function () {
               $user->setCurrentpath($user->getCurrentpath().substr($params->folder, 1)."/");
               $user->save();
 
-              return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath())]);
+              return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()),"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -164,7 +183,7 @@ $app->group('/filemanager', function () {
               
               $user->save();
 
-              return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath=="/")?true:false]);
+              return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath=="/")?true:false,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -193,7 +212,7 @@ $app->group('/filemanager', function () {
                     
               $ret = MiscUtils::delTree($currentNoteDir);
 
-              return $response->withJson(['success' => $searchLikeString]);
+              return $response->withJson(['success' => $ret,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -222,7 +241,7 @@ $app->group('/filemanager', function () {
                     
               $ret = unlink ($currentNoteDir);
 
-              return $response->withJson(['success' => $ret,"file" => $searchLikeString]);
+              return $response->withJson(['success' => $ret,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -268,7 +287,7 @@ $app->group('/filemanager', function () {
                 }
               }
 
-              return $response->withJson(['success' => true]);
+              return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -363,7 +382,7 @@ $app->group('/filemanager', function () {
               }
             }
            
-            return $response->withJson(['success' => true]);
+            return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -490,11 +509,9 @@ $app->group('/filemanager', function () {
             $note->setInfo(gettext('Create file'));
           
             $note->save();
-          
-            //return $response->withJson(['success' => "success"]);
           }
         }
 
-        return $response->withJson(['success' => "failed"]);
+        return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($args['personID'])]);
     });
 });
