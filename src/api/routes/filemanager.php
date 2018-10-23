@@ -117,6 +117,7 @@ $app->group('/filemanager', function () {
             $currentpath = $user->getCurrentpath();
   
             $searchLikeString = $name.'%';
+            $searchLikeString = str_replace("//","/",$searchLikeString);
             $note = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->findOne();
             
             if ( !is_null($note) && ( $note->isShared() > 0 || $_SESSION['user']->isAdmin() ) ) {
@@ -204,6 +205,7 @@ $app->group('/filemanager', function () {
               $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
               
               $searchLikeString = $userName.$currentpath.substr($params->folder,1).'%';
+              $searchLikeString = str_replace("//","/",$searchLikeString);
               $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
               
               if ( $notes->count() > 0 ) {
@@ -233,6 +235,7 @@ $app->group('/filemanager', function () {
               $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->file;
               
               $searchLikeString = $userName.$currentpath.$params->file.'%';
+              $searchLikeString = str_replace("//","/",$searchLikeString);
               $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
               
               if ( $notes->count() > 0 ) {
@@ -265,7 +268,8 @@ $app->group('/filemanager', function () {
                   $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
                   
                   if (MiscUtils::delTree($currentNoteDir)) {
-                    $searchLikeString = $userName.$currentpath.$params->file.'%';
+                    $searchLikeString = $userName.$currentpath.$file.'%';
+                    $searchLikeString = str_replace("//","/",$searchLikeString);
                     $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                     if ( $notes->count() > 0 ) {
@@ -277,7 +281,8 @@ $app->group('/filemanager', function () {
                   $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
                   
                   if (unlink ($currentNoteDir)) {
-                      $searchLikeString = $userName.$currentpath.$params->file.'%';
+                      $searchLikeString = $userName.$currentpath.$file.'%';
+                      $searchLikeString = str_replace("//","/",$searchLikeString);
                       $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                       if ( $notes->count() > 0 ) {
@@ -319,6 +324,7 @@ $app->group('/filemanager', function () {
                 
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.substr($file,1).'%';
+                  $searchLikeString = str_replace("//","/",$searchLikeString);
                   $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
@@ -355,6 +361,7 @@ $app->group('/filemanager', function () {
                 
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
+                  $searchLikeString = str_replace("//","/",$searchLikeString);
                   $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText ($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {
@@ -417,7 +424,7 @@ $app->group('/filemanager', function () {
               
               mkdir($currentNoteDir, 0755, true);
 
-              return $response->withJson(['success' => $currentNoteDir]);
+              return $response->withJson(['success' => $currentNoteDir,"numberOfFiles" => numberOfFiles ($params->personID)]);
           }
         }
         
@@ -465,7 +472,7 @@ $app->group('/filemanager', function () {
                   }
                 }
                 
-                return $response->withJson(['success' => true]);
+                return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($params->personID)]);
               }
           }
         }
