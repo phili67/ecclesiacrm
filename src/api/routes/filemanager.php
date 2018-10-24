@@ -1,6 +1,6 @@
 <?php
 
-// copyright 2018 Philippe Logel All rights reserved nor MIT licence
+// copyright 2018 Philippe Logel All rights reserved not MIT licence
 
 // Users APIs
 use EcclesiaCRM\UserQuery;
