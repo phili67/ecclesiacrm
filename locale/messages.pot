@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 09:44+0200\n"
+"POT-Creation-Date: 2018-10-24 16:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,6 +109,39 @@ msgstr ""
 msgid "Family Activated"
 msgstr ""
 
+#: api/routes/filemanager.php:99 EcclesiaCRM/utils/MiscUtils.php:223
+msgid "Folder"
+msgstr ""
+
+#: api/routes/filemanager.php:354 api/routes/filemanager.php:453
+msgid "A Folder"
+msgstr ""
+
+#: api/routes/filemanager.php:354 api/routes/filemanager.php:398
+#: api/routes/filemanager.php:453
+msgid "already exists at this place."
+msgstr ""
+
+#: api/routes/filemanager.php:383
+msgid "Folder modification"
+msgstr ""
+
+#: api/routes/filemanager.php:385 api/routes/filemanager.php:423
+msgid "File modification"
+msgstr ""
+
+#: api/routes/filemanager.php:398
+msgid "A File"
+msgstr ""
+
+#: api/routes/filemanager.php:465
+msgid "New Folder"
+msgstr ""
+
+#: api/routes/filemanager.php:560 NoteEditor.php:125 NoteEditor.php:147
+msgid "Create file"
+msgstr ""
+
 #: api/routes/gdrp.php:50 CartView.php:338 CartView.php:358
 #: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:267
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
@@ -168,11 +201,11 @@ msgstr ""
 msgid "Groups"
 msgstr ""
 
-#: api/routes/persons.php:153 api/routes/users.php:230
+#: api/routes/persons.php:153 api/routes/users.php:118
 msgid "Person Deactivated"
 msgstr ""
 
-#: api/routes/persons.php:155 api/routes/users.php:232
+#: api/routes/persons.php:155 api/routes/users.php:120
 msgid "Person Activated"
 msgstr ""
 
@@ -239,9 +272,10 @@ msgstr ""
 #: FamilyEditor.php:704 FamilyList.php:102 FamilyView.php:256 GeoPage.php:359
 #: GroupReports.php:144 Menu.php:523 Menu.php:552 PersonEditor.php:969
 #: PersonEditor.php:973 PersonEditor.php:1043 PersonEditor.php:1067
-#: PersonList.php:111 PersonView.php:393 Register.php:43
-#: Reports/ConfirmReportEmail.php:125 Reports/ConfirmReportEmail.php:130
-#: Reports/PDFLabel.php:866
+#: PersonList.php:111 PersonView.php:392
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:393
+#: Register.php:43 Reports/ConfirmReportEmail.php:125
+#: Reports/ConfirmReportEmail.php:130 Reports/PDFLabel.php:866
 msgid "Address"
 msgstr ""
 
@@ -255,7 +289,9 @@ msgid "Payments"
 msgstr ""
 
 #: api/routes/search.php:349 GDPRDataStructure.php:136 Menu.php:324
-#: PersonView.php:545 PrintPastoralCare.php:495 UserEditor.php:674
+#: PersonView.php:544 PrintPastoralCare.php:495
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:545
+#: UserEditor.php:674
 msgid "Pastoral Care"
 msgstr ""
 
@@ -304,8 +340,9 @@ msgstr ""
 #: ElectronicPaymentList.php:212
 #: external/templates/registration/family-register-done.php:28
 #: FamilyView.php:239 FinancialReports.php:419 GDPRDataStructure.php:109
-#: Include/Footer.php:56 members/404.php:16 PersonView.php:610
+#: Include/Footer.php:56 members/404.php:16 PersonView.php:609
 #: PledgeEditor.php:537 PrintPastoralCare.php:262 PrintView.php:265
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:610
 #: PropertyEditor.php:46 PropertyList.php:30 PropertyTypeEditor.php:89
 #: PropertyTypeList.php:119 SelectList.php:1115
 msgid "Family"
@@ -457,12 +494,16 @@ msgstr ""
 #: external/templates/verify/verify-family-info.php:83 FamilyEditor.php:808
 #: FamilyView.php:329 FamilyView.php:335 FamilyView.php:422 FamilyView.php:465
 #: GroupReports.php:148 PersonEditor.php:1304 PersonEditor.php:1308
-#: PersonView.php:439 PersonView.php:529 PersonView.php:771
-#: PrintPastoralCare.php:298 PrintView.php:301 Reports/CanvassReports.php:242
-#: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
-#: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
-#: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
-#: sundayschool/SundaySchoolClassView.php:98 queryparameteroptions_qpo.php:13
+#: PersonView.php:438 PersonView.php:528 PersonView.php:778
+#: PrintPastoralCare.php:298 PrintView.php:301
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:439
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:529
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:771
+#: Reports/CanvassReports.php:242 Reports/ConfirmReportEmail.php:191
+#: Reports/ConfirmReportEmail.php:209 Reports/ConfirmReport.php:184
+#: Reports/ConfirmReport.php:203 Reports/DirectoryReport.php:299
+#: Reports/GroupReport.php:134 sundayschool/SundaySchoolClassView.php:98
+#: queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr ""
 
@@ -524,7 +565,8 @@ msgstr ""
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:134 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:98 NoteEditor.php:311
-#: PersonEditor.php:1589 PersonView.php:1620 PledgeEditor.php:729
+#: PersonEditor.php:1589 PersonView.php:1434 PledgeEditor.php:729
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1431
 #: PropertyEditor.php:189 PropertyTypeEditor.php:113 Register.php:56
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: sundayschool/SundaySchoolDashboard.php:279
@@ -1072,7 +1114,8 @@ msgstr ""
 #: external/templates/verify/verify-family-info.php:77 FamilyEditor.php:776
 #: FamilyList.php:103 FamilyView.php:307 GroupReports.php:145
 #: PersonEditor.php:1225 PersonEditor.php:1229 PersonList.php:112
-#: PersonView.php:433 PrintPastoralCare.php:203 PrintView.php:206
+#: PersonView.php:432 PrintPastoralCare.php:203 PrintView.php:206
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:433
 #: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1088,16 +1131,18 @@ msgstr ""
 #: CartToFamily.php:372 CSVExport.php:124 CSVImport.php:247
 #: external/templates/verify/verify-family-info.php:79 FamilyEditor.php:786
 #: FamilyView.php:313 GroupReports.php:146 PersonEditor.php:1250
-#: PersonEditor.php:1254 PersonView.php:450 PrintPastoralCare.php:208
-#: PrintView.php:211 Reports/ConfirmReportEmail.php:238
-#: Reports/ConfirmReport.php:241
+#: PersonEditor.php:1254 PersonView.php:449 PrintPastoralCare.php:208
+#: PrintView.php:211
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:450
+#: Reports/ConfirmReportEmail.php:238 Reports/ConfirmReport.php:241
 msgid "Work Phone"
 msgstr ""
 
 #: CartToFamily.php:382 CSVExport.php:129 CSVImport.php:248
 #: external/templates/verify/verify-family-info.php:81 FamilyEditor.php:796
 #: FamilyView.php:320 PersonEditor.php:1277 PersonEditor.php:1281
-#: PersonView.php:426 PrintPastoralCare.php:213 PrintView.php:216
+#: PersonView.php:425 PrintPastoralCare.php:213 PrintView.php:216
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:426
 msgid "Mobile Phone"
 msgstr ""
 
@@ -1157,7 +1202,8 @@ msgstr ""
 msgid "Email Cart"
 msgstr ""
 
-#: CartView.php:173 FamilyView.php:423 GroupView.php:196 PersonView.php:530
+#: CartView.php:173 FamilyView.php:423 GroupView.php:196 PersonView.php:529
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:530
 #: sundayschool/SundaySchoolClassView.php:110
 msgid "Email (BCC)"
 msgstr ""
@@ -1239,11 +1285,13 @@ msgstr ""
 msgid "Select event"
 msgstr ""
 
-#: Checkin.php:245 FamilyView.php:761 PersonView.php:1118
+#: Checkin.php:245 FamilyView.php:761 PersonView.php:1125
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1118
 msgid "From"
 msgstr ""
 
-#: Checkin.php:245 FamilyView.php:763 PersonView.php:1120
+#: Checkin.php:245 FamilyView.php:763 PersonView.php:1127
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1120
 msgid "To"
 msgstr ""
 
@@ -1324,7 +1372,9 @@ msgstr ""
 #: ElectronicPaymentList.php:255 ElectronicPaymentList.php:313
 #: EventNames.php:325 FamilyView.php:926 FindDepositSlip.php:121
 #: FundRaiserEditor.php:199 ListEvents.php:398 PaddleNumList.php:55
-#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1621
+#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1372
+#: PersonView.php:1435
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1432
 msgid "Delete"
 msgstr ""
 
@@ -1357,8 +1407,9 @@ msgid "Checked Out By"
 msgstr ""
 
 #: Checkin.php:555 DepositSlipEditor.php:188 EditEventAttendees.php:73
-#: EventNames.php:295 ListEvents.php:342 PersonView.php:884 PropertyList.php:81
-#: PropertyTypeList.php:50
+#: EventNames.php:295 ListEvents.php:342 PersonView.php:891
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:884
+#: PropertyList.php:81 PropertyTypeList.php:50
 msgid "Action"
 msgstr ""
 
@@ -1390,7 +1441,8 @@ msgstr ""
 msgid "Return to Events"
 msgstr ""
 
-#: Checkin.php:801 Include/Functions.php:1105 PersonView.php:336
+#: Checkin.php:801 Include/Functions.php:1105 PersonView.php:335
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:336
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
 #: SelectDelete.php:361 queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -1404,7 +1456,8 @@ msgstr ""
 msgid "family"
 msgstr ""
 
-#: Checkin.php:805 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:382
+#: Checkin.php:805 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:381
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:382
 msgid "(No assigned family)"
 msgstr ""
 
@@ -1442,7 +1495,8 @@ msgid "Envelope"
 msgstr ""
 
 #: CSVExport.php:139 EcclesiaCRM/Reports/PDF_Directory.php:406
-#: EcclesiaCRM/Reports/PDF_Directory.php:463 PersonView.php:456
+#: EcclesiaCRM/Reports/PDF_Directory.php:463 PersonView.php:455
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:456
 #: Reports/DirectoryReport.php:302
 msgid "Work/Other Email"
 msgstr ""
@@ -1595,8 +1649,10 @@ msgstr ""
 msgid "Work / Other Email"
 msgstr ""
 
-#: CSVImport.php:251 PersonView.php:406 PrintPastoralCare.php:257
-#: PrintView.php:260 sundayschool/SundaySchoolClassView.php:388
+#: CSVImport.php:251 PersonView.php:405 PrintPastoralCare.php:257
+#: PrintView.php:260
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:406
+#: sundayschool/SundaySchoolClassView.php:388
 #: sundayschool/SundaySchoolDashboard.php:218
 msgid "Birth Date"
 msgstr ""
@@ -1853,7 +1909,8 @@ msgid "Return to Deposit Listing"
 msgstr ""
 
 #: DepositSlipEditor.php:269 FamilyView.php:918 FindDepositSlip.php:111
-#: PersonView.php:1610
+#: PersonView.php:1424
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1421
 msgid "Confirm Delete"
 msgstr ""
 
@@ -1907,9 +1964,10 @@ msgstr ""
 
 #: DirectoryReports.php:189 EcclesiaCRM/Service/CalendarService.php:41
 #: external/templates/verify/verify-family-info.php:87 FamilyView.php:464
-#: PersonView.php:770 Reports/ConfirmReportEmail.php:192
-#: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:185
-#: Reports/ConfirmReport.php:204
+#: PersonView.php:777
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:770
+#: Reports/ConfirmReportEmail.php:192 Reports/ConfirmReportEmail.php:210
+#: Reports/ConfirmReport.php:185 Reports/ConfirmReport.php:204
 msgid "Birthday"
 msgstr ""
 
@@ -2080,7 +2138,7 @@ msgstr ""
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:502
 #: EcclesiaCRM/Service/DashboardService.php:60
 #: EcclesiaCRM/Service/DashboardService.php:74
-#: EcclesiaCRM/Service/TimelineService.php:198
+#: EcclesiaCRM/Service/TimelineService.php:210
 #: EcclesiaCRM/utils/OutputUtils.php:269 FamilyEditor.php:1097
 #: Include/Functions.php:605 Include/Functions.php:618
 msgid "Unknown"
@@ -4160,26 +4218,30 @@ msgstr ""
 msgid "Private Space"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/utils/MiscUtils.php:41
 #: external/templates/registration/family-register-members.php:95
 msgid "Home"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:222 Include/Header.php:122
-#: PersonView.php:538
+#: PersonView.php:537
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:538
 msgid "Change Password"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:223 Include/Header.php:124
-#: PersonView.php:537
+#: PersonView.php:536
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:537
 msgid "Change Settings"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:224 FamilyView.php:571 PersonView.php:653
+#: EcclesiaCRM/MenuBar/MenuBar.php:224 FamilyView.php:571 PersonView.php:652
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:653
 msgid "Documents"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:225 PersonView.php:661
+#: EcclesiaCRM/MenuBar/MenuBar.php:225 PersonView.php:660
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:661
 msgid "EDrive"
 msgstr ""
 
@@ -4478,7 +4540,7 @@ msgstr ""
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:550 PersonView.php:1431
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:550
 msgid "Dav create file"
 msgstr ""
 
@@ -4486,11 +4548,11 @@ msgstr ""
 msgid "Dav create directory"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:560 PersonView.php:1433
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:560
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:572 PersonView.php:1432
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:572
 msgid "Dav move copy file"
 msgstr ""
 
@@ -4622,27 +4684,27 @@ msgid ""
 "bEnableExternalBackupTarget setting."
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:200
+#: EcclesiaCRM/Service/TimelineService.php:212
 msgid "Self Registration"
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:202
+#: EcclesiaCRM/Service/TimelineService.php:214
 msgid "Self Verification"
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:228
+#: EcclesiaCRM/Service/TimelineService.php:240
 msgid "This document is opened by"
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:228
+#: EcclesiaCRM/Service/TimelineService.php:240
 msgid "Minutes left"
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:238 PrintView.php:509
+#: EcclesiaCRM/Service/TimelineService.php:250 PrintView.php:509
 msgid "by"
 msgstr ""
 
-#: EcclesiaCRM/Service/TimelineService.php:322
+#: EcclesiaCRM/Service/TimelineService.php:336
 msgid "Shared by"
 msgstr ""
 
@@ -4850,39 +4912,45 @@ msgstr ""
 msgid "File Type"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:142
+#: EcclesiaCRM/utils/MiscUtils.php:223 EcclesiaCRM/utils/MiscUtils.php:302
 msgid "File"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:151 EcclesiaCRM/utils/MiscUtils.php:170
-#: EcclesiaCRM/utils/MiscUtils.php:179 EcclesiaCRM/utils/MiscUtils.php:194
-#: EcclesiaCRM/utils/MiscUtils.php:203 EcclesiaCRM/utils/MiscUtils.php:213
-#: EcclesiaCRM/utils/MiscUtils.php:226
-msgid "Expand"
+#: EcclesiaCRM/utils/MiscUtils.php:249
+msgid "You've to use a PDF viewer or download the file here "
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:196
+#: EcclesiaCRM/utils/MiscUtils.php:256 EcclesiaCRM/utils/MiscUtils.php:261
+#: EcclesiaCRM/utils/MiscUtils.php:265 EcclesiaCRM/utils/MiscUtils.php:356
 msgid "Your browser does not support the audio element."
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:206 EcclesiaCRM/utils/MiscUtils.php:217
-#: EcclesiaCRM/utils/MiscUtils.php:232
+#: EcclesiaCRM/utils/MiscUtils.php:271 EcclesiaCRM/utils/MiscUtils.php:278
+#: EcclesiaCRM/utils/MiscUtils.php:287 EcclesiaCRM/utils/MiscUtils.php:366
+#: EcclesiaCRM/utils/MiscUtils.php:377 EcclesiaCRM/utils/MiscUtils.php:392
 msgid "Your browser does not support the video tag."
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:271
+#: EcclesiaCRM/utils/MiscUtils.php:311 EcclesiaCRM/utils/MiscUtils.php:330
+#: EcclesiaCRM/utils/MiscUtils.php:339 EcclesiaCRM/utils/MiscUtils.php:354
+#: EcclesiaCRM/utils/MiscUtils.php:363 EcclesiaCRM/utils/MiscUtils.php:373
+#: EcclesiaCRM/utils/MiscUtils.php:386
+msgid "Expand"
+msgstr ""
+
+#: EcclesiaCRM/utils/MiscUtils.php:431
 msgid "Classic Document"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:274
+#: EcclesiaCRM/utils/MiscUtils.php:434
 msgid "Classic Video"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:277
+#: EcclesiaCRM/utils/MiscUtils.php:437
 msgid "Classic File"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:280
+#: EcclesiaCRM/utils/MiscUtils.php:440
 msgid "Classic Audio"
 msgstr ""
 
@@ -5053,7 +5121,8 @@ msgstr ""
 
 #: ElectronicPaymentList.php:210 ElectronicPaymentList.php:253
 #: EventNames.php:319 FamilyView.php:244 FindFundRaiser.php:234
-#: FindFundRaiser.php:242 ListEvents.php:362 PersonView.php:344
+#: FindFundRaiser.php:242 ListEvents.php:362 PersonView.php:343
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:344
 #: SelectList.php:1134
 msgid "Edit"
 msgstr ""
@@ -5461,8 +5530,10 @@ msgid "Register"
 msgstr ""
 
 #: external/templates/registration/family-register-members.php:20
-#: FamilyEditor.php:997 FamilyView.php:462 PersonView.php:768
-#: PrintPastoralCare.php:338 PrintView.php:341 SelectDelete.php:361
+#: FamilyEditor.php:997 FamilyView.php:462 PersonView.php:775
+#: PrintPastoralCare.php:338 PrintView.php:341
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:768
+#: SelectDelete.php:361
 msgid "Family Members"
 msgstr ""
 
@@ -5745,8 +5816,9 @@ msgid "Last"
 msgstr ""
 
 #: FamilyEditor.php:1021 FamilyView.php:463 OptionManager.php:94
-#: OptionManager.php:127 PersonView.php:769 PrintPastoralCare.php:343
+#: OptionManager.php:127 PersonView.php:776 PrintPastoralCare.php:343
 #: PrintPastoralCare.php:397 PrintView.php:346 PrintView.php:404
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:769
 #: Reports/CanvassReports.php:238 Reports/GroupReport.php:103
 msgid "Role"
 msgstr ""
@@ -5863,15 +5935,18 @@ msgstr ""
 msgid " This Family is Deactivated"
 msgstr ""
 
-#: FamilyView.php:222 PersonView.php:283
+#: FamilyView.php:222 PersonView.php:282
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:283
 msgid "View Photo"
 msgstr ""
 
-#: FamilyView.php:226 PersonView.php:286
+#: FamilyView.php:226 PersonView.php:285
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:286
 msgid "Upload Photo"
 msgstr ""
 
-#: FamilyView.php:230 PersonView.php:289
+#: FamilyView.php:230 PersonView.php:288
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:289
 msgid "Delete Photo"
 msgstr ""
 
@@ -5883,19 +5958,23 @@ msgstr ""
 msgid "Latitude/Longitude"
 msgstr ""
 
-#: FamilyView.php:322 PersonView.php:427
+#: FamilyView.php:322 PersonView.php:426
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:427
 msgid "Text Message"
 msgstr ""
 
-#: FamilyView.php:323 PersonView.php:427
+#: FamilyView.php:323 PersonView.php:426
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:427
 msgid "EcclesiaCRM text message"
 msgstr ""
 
-#: FamilyView.php:373 GroupView.php:117 PersonView.php:517
+#: FamilyView.php:373 GroupView.php:117 PersonView.php:516
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:517
 msgid "Remove from Cart"
 msgstr ""
 
-#: FamilyView.php:377 GroupView.php:121 PersonView.php:521
+#: FamilyView.php:377 GroupView.php:121 PersonView.php:520
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:521
 msgid "Add to Cart"
 msgstr ""
 
@@ -5923,11 +6002,13 @@ msgstr ""
 msgid "Add a Document"
 msgstr ""
 
-#: FamilyView.php:446 PersonView.php:583
+#: FamilyView.php:446 PersonView.php:582
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:583
 msgid "Deactivate"
 msgstr ""
 
-#: FamilyView.php:446 PersonView.php:583
+#: FamilyView.php:446 PersonView.php:582
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:583
 msgid "Activate"
 msgstr ""
 
@@ -5935,72 +6016,93 @@ msgstr ""
 msgid " this Family"
 msgstr ""
 
-#: FamilyView.php:561 PersonView.php:603
+#: FamilyView.php:561 PersonView.php:602
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:603
 msgid "Timeline"
 msgstr ""
 
-#: FamilyView.php:562 GroupView.php:343 GroupView.php:401 PersonView.php:630
+#: FamilyView.php:562 GroupView.php:343 GroupView.php:401 PersonView.php:629
 #: PrintPastoralCare.php:453 PrintView.php:460
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:630
 msgid "Assigned Properties"
 msgstr ""
 
-#: FamilyView.php:566 PersonView.php:641
+#: FamilyView.php:566 PersonView.php:640
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:641
 msgid "Automatic Payments"
 msgstr ""
 
-#: FamilyView.php:567 PersonView.php:642
+#: FamilyView.php:567 PersonView.php:641
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:642
 msgid "Pledges and Payments"
 msgstr ""
 
-#: FamilyView.php:702 GroupView.php:356 PersonView.php:1009
+#: FamilyView.php:702 GroupView.php:356 PersonView.php:1016
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1009
 msgid "Assign a New Property"
 msgstr ""
 
-#: FamilyView.php:707 PaddleNumList.php:52 PersonView.php:1013
-#: PersonView.php:1068 PersonView.php:1169 PersonView.php:1349
+#: FamilyView.php:707 PaddleNumList.php:52 PersonView.php:1020
+#: PersonView.php:1075 PersonView.php:1176
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1013
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1068
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1169
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1341
 msgid "Select"
 msgstr ""
 
-#: FamilyView.php:708 GroupView.php:361 PersonView.php:1014 QueryView.php:317
-#: QueryView.php:334
+#: FamilyView.php:708 GroupView.php:361 PersonView.php:1021
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1014
+#: QueryView.php:317 QueryView.php:334
 msgid "select an option"
 msgstr ""
 
-#: FamilyView.php:723 GroupEditor.php:177 GroupView.php:377 PersonView.php:1030
-#: PersonView.php:1082 SelectList.php:1146
+#: FamilyView.php:723 GroupEditor.php:177 GroupView.php:377 PersonView.php:1037
+#: PersonView.php:1089
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1030
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1082
+#: SelectList.php:1146
 msgid "Assign"
 msgstr ""
 
-#: FamilyView.php:749 PersonView.php:1108
+#: FamilyView.php:749 PersonView.php:1115
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1108
 msgid "Add a new automatic payment"
 msgstr ""
 
-#: FamilyView.php:758 PersonView.php:1116
+#: FamilyView.php:758 PersonView.php:1123
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1116
 msgid "Show Pledges"
 msgstr ""
 
-#: FamilyView.php:760 PersonView.php:1117
+#: FamilyView.php:760 PersonView.php:1124
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1117
 msgid "Show Payments"
 msgstr ""
 
-#: FamilyView.php:777 PersonView.php:1134
+#: FamilyView.php:777 PersonView.php:1141
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1134
 msgid "Add a new pledge"
 msgstr ""
 
-#: FamilyView.php:779 PersonView.php:1136
+#: FamilyView.php:779 PersonView.php:1143
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1136
 msgid "Add a new payment"
 msgstr ""
 
-#: FamilyView.php:787 PersonView.php:1144
+#: FamilyView.php:787 PersonView.php:1151
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1144
 msgid " Canvass Entry"
 msgstr ""
 
-#: FamilyView.php:921 PersonView.php:1614
+#: FamilyView.php:921 PersonView.php:1428
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1425
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:922 PersonView.php:1616
+#: FamilyView.php:922 PersonView.php:1430
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1427
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -6390,7 +6492,8 @@ msgstr ""
 msgid "GDPR Dashboard"
 msgstr ""
 
-#: GDPRDashboard.php:46 PastoralCare.php:96 PersonView.php:539
+#: GDPRDashboard.php:46 PastoralCare.php:96 PersonView.php:538
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:539
 msgid "Printable Page"
 msgstr ""
 
@@ -6726,6 +6829,7 @@ msgid "Show in"
 msgstr ""
 
 #: GroupPropsFormEditor.php:319 PersonView.php:53
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:53
 msgid "Person Profile"
 msgstr ""
 
@@ -7010,7 +7114,8 @@ msgstr ""
 msgid "Property Types"
 msgstr ""
 
-#: Include/Footer.php:135 PersonView.php:631
+#: Include/Footer.php:135 PersonView.php:630
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:631
 msgid "Volunteer Opportunities"
 msgstr ""
 
@@ -7783,10 +7888,6 @@ msgstr ""
 msgid "You must enter text for this note"
 msgstr ""
 
-#: NoteEditor.php:125 NoteEditor.php:147 PersonView.php:1431
-msgid "Create file"
-msgstr ""
-
 #: NoteEditor.php:248
 msgid "File Info"
 msgstr ""
@@ -8193,7 +8294,8 @@ msgstr ""
 msgid "Red text"
 msgstr ""
 
-#: PersonEditor.php:765 PersonView.php:508
+#: PersonEditor.php:765 PersonView.php:507
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:508
 msgid "indicates items inherited from the associated family record."
 msgstr ""
 
@@ -8260,15 +8362,18 @@ msgid ""
 "blank."
 msgstr ""
 
-#: PersonEditor.php:1354 PersonEditor.php:1358 PersonView.php:467
+#: PersonEditor.php:1354 PersonEditor.php:1358 PersonView.php:466
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:467
 msgid "Facebook"
 msgstr ""
 
-#: PersonEditor.php:1380 PersonView.php:473
+#: PersonEditor.php:1380 PersonView.php:472
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:473
 msgid "Twitter"
 msgstr ""
 
-#: PersonEditor.php:1398 PersonView.php:479
+#: PersonEditor.php:1398 PersonView.php:478
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:479
 msgid "LinkedIn"
 msgstr ""
 
@@ -8276,7 +8381,8 @@ msgstr ""
 msgid "Membership Info"
 msgstr ""
 
-#: PersonEditor.php:1465 PersonView.php:420
+#: PersonEditor.php:1465 PersonView.php:419
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:420
 msgid "Friend Date"
 msgstr ""
 
@@ -8306,144 +8412,167 @@ msgstr ""
 msgid "Add to Group"
 msgstr ""
 
-#: PersonView.php:251
+#: PersonView.php:250
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:251
 msgid "Not assigned"
 msgstr ""
 
-#: PersonView.php:268
+#: PersonView.php:267
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:268
 msgid "This Person is Deactivated"
 msgstr ""
 
-#: PersonView.php:314 UserList.php:157
+#: PersonView.php:313
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:314
+#: UserList.php:157
 msgid "Undefined"
 msgstr ""
 
-#: PersonView.php:336
+#: PersonView.php:335
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:336
 msgid " Since:"
 msgstr ""
 
-#: PersonView.php:359
+#: PersonView.php:358
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:359
 msgid "About Me"
 msgstr ""
 
-#: PersonView.php:368
+#: PersonView.php:367
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:368
 msgid "Family:"
 msgstr ""
 
-#: PersonView.php:552 PersonView.php:556
+#: PersonView.php:551 PersonView.php:555
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:552
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:556
 msgid "Delete this Record"
 msgstr ""
 
-#: PersonView.php:562
+#: PersonView.php:561
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:562
 msgid "Assign New Group"
 msgstr ""
 
-#: PersonView.php:569
+#: PersonView.php:568
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:569
 msgid "Make User"
 msgstr ""
 
-#: PersonView.php:573
+#: PersonView.php:572
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:573
 msgid "Edit User"
 msgstr ""
 
-#: PersonView.php:578
+#: PersonView.php:577
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:578
 msgid "List Members"
 msgstr ""
 
-#: PersonView.php:583
+#: PersonView.php:582
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:583
 msgid " this Person"
 msgstr ""
 
-#: PersonView.php:620 PrintPastoralCare.php:381 PrintView.php:388
+#: PersonView.php:619 PrintPastoralCare.php:381 PrintView.php:388
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:620
 msgid "Assigned Groups"
 msgstr ""
 
-#: PersonView.php:852 PrintPastoralCare.php:392 PrintView.php:399
+#: PersonView.php:752
+msgid "click to download"
+msgstr ""
+
+#: PersonView.php:859 PrintPastoralCare.php:392 PrintView.php:399
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:852
 msgid "No group assignments."
 msgstr ""
 
-#: PersonView.php:890
+#: PersonView.php:897
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:890
 msgid "Change Role"
 msgstr ""
 
-#: PersonView.php:894
+#: PersonView.php:901
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:894
 msgid "Update Properties"
 msgstr ""
 
-#: PersonView.php:922
+#: PersonView.php:929
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:922
 msgid "Group Informations"
 msgstr ""
 
-#: PersonView.php:946
+#: PersonView.php:953
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:946
 msgid "Person Informations"
 msgstr ""
 
-#: PersonView.php:963
+#: PersonView.php:970
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:963
 msgid "Modify Specific Properties"
 msgstr ""
 
-#: PersonView.php:996 PrintPastoralCare.php:464 PrintView.php:471
+#: PersonView.php:1003 PrintPastoralCare.php:464 PrintView.php:471
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:996
 msgid "No property assignments."
 msgstr ""
 
-#: PersonView.php:1052
+#: PersonView.php:1059
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1052
 msgid "No volunteer opportunity assignments."
 msgstr ""
 
-#: PersonView.php:1064
+#: PersonView.php:1071
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1064
 msgid "Assign a New Volunteer Opportunity"
 msgstr ""
 
-#: PersonView.php:1166 PersonView.php:1346
+#: PersonView.php:1173
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1166
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1338
 msgid "Show"
 msgstr ""
 
-#: PersonView.php:1170 PersonView.php:1350
+#: PersonView.php:1177
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1170
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1342
 msgid "All type"
 msgstr ""
 
-#: PersonView.php:1175 PersonView.php:1353
+#: PersonView.php:1182
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1175
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1345
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1182
+#: PersonView.php:1189
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1182
 msgid "Create a document"
 msgstr ""
 
-#: PersonView.php:1342
+#: PersonView.php:1341
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1334
 msgid "All Files"
 msgstr ""
 
-#: PersonView.php:1357
-msgid "Create a Folder"
-msgstr ""
-
-#: PersonView.php:1367
+#: PersonView.php:1356
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1359
 msgid "Upload a file in EDrive"
 msgstr ""
 
-#: PersonView.php:1377
+#: PersonView.php:1365
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1349
+msgid "Create a Folder"
+msgstr ""
+
+#: PersonView.php:1379
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1369
 msgid "Up One Level"
 msgstr ""
 
-#: PersonView.php:1395
-msgid "Path"
-msgstr ""
-
-#: PersonView.php:1433
-msgid "Update file"
-msgstr ""
-
-#: PersonView.php:1555
-msgid "Folders"
-msgstr ""
-
-#: PersonView.php:1568
-msgid "Delete Folder"
-msgstr ""
-
-#: PersonView.php:1589
-msgid "Folder empty"
+#: PersonView.php:1392
+msgid "Preview"
 msgstr ""
 
 #: PledgeEditor.php:471
@@ -8563,6 +8692,10 @@ msgstr ""
 
 #: PrintView.php:509
 msgid "Last Edited"
+msgstr ""
+
+#: private/userdir/38E9F979-FC72-4072-A796-CCA07FF51B1B/plogel2/PersonView.php:1387
+msgid "Path"
 msgstr ""
 
 #: PropertyDelete.php:23

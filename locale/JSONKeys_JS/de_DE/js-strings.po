@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-15T06:02:29.892Z\n"
+"POT-Creation-Date: 2018-10-24T13:19:27.619Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -709,6 +709,57 @@ msgstr "Zusagen"
 msgid "Payment"
 msgstr "Zahlungen"
 
+msgid "Icon"
+msgstr "Symbol"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Modification Date"
+msgstr "Änderungsdatum"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Set a File/Folder name"
+msgstr "Setzen Sie Datei/Ordner-Namen"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Sie haben vor, ein Heft und der Heft-Inhalt zu entfernen, "
+
+msgid "This can't be undone !!!!"
+msgstr "Es kann nicht rückgängig gemacht werden !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Bitte mindestens eine Zeile auswählen !!!"
+
+msgid "You're about to remove a file"
+msgstr "Sie sind im Begriff, eine Datei zu entfernen."
+
+msgid "Set your Folder name"
+msgstr "Setzen Sie Ihren Heft-Namen"
+
+msgid "Upload your Files"
+msgstr "Laden Sie Ihre Dateien"
+
+msgid "Files input"
+msgstr "Dateieingabe"
+
+msgid "Upload your files"
+msgstr "Dateien Hochladen"
+
+msgid "Upload"
+msgstr "Hochladen"
+
+msgid "Share your File"
+msgstr "Freigeben Ihre Datei"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Wollen Sie das aktuelle Profil tatsächlich löschen?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Soll diese Gemeinsam wirklich beendet werden?"
+
 msgid "Deposit ID"
 msgstr "Zahlungen ID"
 
@@ -759,9 +810,6 @@ msgstr "Sie müssen ein Gruppe Name auswählen"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "Actions"
-msgstr "Aktionen"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1011,9 +1059,6 @@ msgstr ""
 "Durch das, werden dieses Klassifizierungen für alle zugehörigen Personen "
 "gelöscht"
 
-msgid "This can't be undone !!!!"
-msgstr "Es kann nicht rückgängig gemacht werden !!!!"
-
 msgid "Map Icon GoogleMap"
 msgstr "Icon auf der Google Karte"
 
@@ -1079,12 +1124,6 @@ msgstr "Bitte bestätige die Person Deaktivierung"
 msgid "Please confirm activation of person"
 msgstr "Bitte bestätige die Person Aktivierung"
 
-msgid "Set your Folder name"
-msgstr "Setzen Sie Ihren Heft-Namen"
-
-msgid "You're about to remove a folder and it's content"
-msgstr "Sie haben vor, ein Heft und der Heft-Inhalt zu entfernen, "
-
 msgid "Photo"
 msgstr "Photo"
 
@@ -1093,12 +1132,6 @@ msgstr "Soll dieses Person wirklich von seine Mitgliedschaft entfernt werden"
 
 msgid "Share your Document"
 msgstr "Dokumente freizugeben"
-
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Wollen Sie das aktuelle Profil tatsächlich löschen?"
-
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Soll diese Gemeinsam wirklich beendet werden?"
 
 msgid "Change role"
 msgstr "Rolle ändern"
@@ -1256,10 +1289,6 @@ msgstr "Bestätigen das Zurücksetzen des Kennwort für diesen Benutzer"
 
 msgid "Password reset for"
 msgstr "Kennwortzurücksetzung für"
-
-#, fuzzy
-#~ msgid "Modify Reservation Name"
-#~ msgstr "Gruppe Name Bearbeiten"
 
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-15T06:02:29.892Z\n"
+"POT-Creation-Date: 2018-10-24T13:19:27.619Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -721,6 +721,57 @@ msgstr "Engagé"
 msgid "Payment"
 msgstr "Paiement"
 
+msgid "Icon"
+msgstr "Icône"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Modification Date"
+msgstr "Date de modifcation"
+
+msgid "Size"
+msgstr "Taille"
+
+msgid "Set a File/Folder name"
+msgstr "Sélectionner un nom de Fichier/dossier"
+
+msgid "You're about to remove a folder and it's content"
+msgstr "Vous êtes sur le point de supprimer un dossier et son contenu"
+
+msgid "This can't be undone !!!!"
+msgstr "Cette action ne pourra pas être annulé !!!!"
+
+msgid "You've to select at least one line !!!"
+msgstr "Vous devez sélectionner au moins une ligne !!!"
+
+msgid "You're about to remove a file"
+msgstr "Vous êtes sur le point de supprimer un fichier"
+
+msgid "Set your Folder name"
+msgstr "Sélectionner un nom de dossier"
+
+msgid "Upload your Files"
+msgstr "Télécharger vos fichiers"
+
+msgid "Files input"
+msgstr "Fichiers d'entrées"
+
+msgid "Upload your files"
+msgstr "Télécharger vos fichiers"
+
+msgid "Upload"
+msgstr "Télécharger"
+
+msgid "Share your File"
+msgstr "Partager votre fichier"
+
+msgid "Are you sure ? You're about to delete this Person ?"
+msgstr "Êtes vous sûr de vouloir supprimer cette Personne ?"
+
+msgid "Are you sure ? You are about to stop sharing your document ?"
+msgstr "Êtes-vous sûr de vouloir arrêter le partage du document ?"
+
 msgid "Deposit ID"
 msgstr "ID du dépôt"
 
@@ -771,9 +822,6 @@ msgstr "Saisissez un un nom de groupe"
 
 msgid "ID"
 msgstr "ID"
-
-msgid "Actions"
-msgstr "Actions"
 
 msgid ""
 "If you delete the fund, <u><b>you'll lose all the connected datas.</b></"
@@ -1021,9 +1069,6 @@ msgid ""
 "This will also delete this Classification for all the associated persons."
 msgstr "Cela supprimera la classification pour toutes les personnes associées."
 
-msgid "This can't be undone !!!!"
-msgstr "Cette action ne pourra pas être annulé !!!!"
-
 msgid "Map Icon GoogleMap"
 msgstr "Icône carte GoogleMap"
 
@@ -1089,12 +1134,6 @@ msgstr "Veuillez confirmer la désactivation de la personne"
 msgid "Please confirm activation of person"
 msgstr "Veuillez confirmer l'activation de la personne"
 
-msgid "Set your Folder name"
-msgstr "Sélectionner un nom de dossier"
-
-msgid "You're about to remove a folder and it's content"
-msgstr "Vous êtes sur le point de supprimer un dossier et son contenu"
-
 msgid "Photo"
 msgstr "Photo"
 
@@ -1103,12 +1142,6 @@ msgstr "Êtes-vous sûr de vouloir supprimer appartenance de ce membre de "
 
 msgid "Share your Document"
 msgstr "Partager Votre document"
-
-msgid "Are you sure ? You're about to delete this Person ?"
-msgstr "Êtes vous sûr de vouloir supprimer cette Personne ?"
-
-msgid "Are you sure ? You are about to stop sharing your document ?"
-msgstr "Êtes-vous sûr de vouloir arrêter le partage du document ?"
 
 msgid "Change role"
 msgstr "Changer rôle"
@@ -1268,9 +1301,6 @@ msgstr ""
 
 msgid "Password reset for"
 msgstr "Réinitialisation Mot de Passe pour"
-
-#~ msgid "Modify Reservation Name"
-#~ msgstr "Modifier nom du Groupe"
 
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "
