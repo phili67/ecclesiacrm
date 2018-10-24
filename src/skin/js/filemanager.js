@@ -118,28 +118,54 @@ $(document).ready(function () {
   });
 
   
- $('#edrive-table tbody').on('click', 'td', function () {
-    var id    = $(this).parent().attr('id');
-    var col  = window.CRM.dataEDriveTable.cell( this ).index().column;
-    
-    if ( !(col == 0 || col == 2) ) {
-      var index = $.inArray(id, selected);
-    
-      if ( index === -1 ) {
-          selected.push( id );
-      } else {
-          selected.splice( index, 1 );
-      }
-
-      $(this).parent().toggleClass('selected');
-    
-      var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-    
-      if (selectedRows == 0) {
-        selected.length = 0;// no lines
-      }
+ $('#edrive-table tbody').on('click', 'td', function (e) {
+ 
+  var id    = $(this).parent().attr('id');
+  var col  = window.CRM.dataEDriveTable.cell( this ).index().column;
+  
+  if ( !(col == 2) ) {
+    if (!e.shiftKey) {
+      selected.length = 0;// no lines
+      $('#edrive-table tbody tr').removeClass('selected');
     }
- });
+    
+    var index = $.inArray(id, selected);
+  
+    if ( index === -1 ) {
+        selected.push( id );
+    } else {
+        selected.splice( index, 1 );
+    }
+
+    $(this).parent().toggleClass('selected');
+  
+    var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+  
+    if (selectedRows == 0) {
+      selected.length = 0;// no lines
+    }
+    
+    if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+      (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) && selectedRows == 1) {
+     
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'filemanager/getPreview',
+        data: JSON.stringify({"personID": window.CRM.currentPersonID,"name" : id})
+      }).done(function(data) {
+        if (data && data.success) {
+          $('.filmanager-left').removeClass( "col-md-12" ).addClass( "col-md-9" );
+          $('.filmanager-right').show();
+          $('.preview').html(data.path);
+        }
+      });
+    } else {
+      $('.preview').html('');
+    }
+  }
+  
+});
+  
 
 $("body").on('click', '.fileName', function(e) {
     if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
@@ -205,22 +231,13 @@ $("body").on('dblclick', '.fileName', function(e) {
 });
 
 $("body").on('click', '.drag-file', function(e) {
-    if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
-      (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
-       
-      var name = $(this).attr('id');
-      
-      window.CRM.APIRequest({
-        method: 'POST',
-        path: 'filemanager/getPreview',
-        data: JSON.stringify({"personID": window.CRM.currentPersonID,"name" : name})
-      }).done(function(data) {
-        if (data && data.success) {
-          $('.preview').html(data.path);
-        }
-      });
-    }
 });
+
+$("body").on('click', '.close-file-preview', function(e) {
+  $('.filmanager-left').removeClass( "col-md-9" ).addClass( "col-md-12" );
+  $('.filmanager-right').hide();
+});
+
 
 $("body").on('keypress', '.fileName', function(e) {
   var key  = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;

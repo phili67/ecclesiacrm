@@ -236,43 +236,53 @@ public static function FileSizeConvert($bytes)
       case "js":
       case "mm":
       case "vcf":
-        $content = file_get_contents( dirname(__FILE__)."/../..".$path );
+        $content = file_get_contents( dirname(__FILE__)."/../..".$realPath );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
+        $res .= '<div style="overflow: auto; width:100%; height:240px;border:1px;border-style: solid;border-color: lightgray;">';
         $res .= $content;
+        $res .= '</div>';
         break;
       case "pdf":
-        $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
-        $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
+        $res .= "<object data=\"".$realPath."\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
+        $res .= "<embed src=\"".$realPath."\" type=\"application/pdf\" />\n";
+        $res .= "<p>".gettext("You've to use a PDF viewer or download the file here ").': <a href="'.$realPath.'">télécharger le fichier.</a></p>';
         $res .= "</object>";
         break;
       case "mp3":
-      case "m4a":
+        $res .= " type : $extension<br>";
+        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\" type=\"audio/mp3\">".gettext("Your browser does not support the audio element.")."</audio>";
+        //$res .= "<audio><source src=\"".$realPath."\" type=\"audio/mpeg\"><p>".gettext("Your browser does not support the audio element.")."</p></source></audio>";
+        break;
       case "oga":
       case "wav":
         $res .= " type : $extension<br>";
-        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        break;
+      case "m4a":
+        $res .= " type : $extension<br>";
+        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
         break;
       case  "mp4":
         $res .= "type : $extension<br>";
-        $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"none\">\n";
-        $res .= "<source src=\"".$path."\" type=\"video/mp4\">\n";
+        $res .= "<video width=\"100%\" controls  preload=\"auto\">\n";
+        $res .= "<source src=\"".$realPath."\" type=\"video/mp4\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;
       case  "ogg":
         $res .= "type : $extension<br>";
-        $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"none\">\n";
-        $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
+        $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"auto\">\n";
+        $res .= "<source src=\"".$realPath."\" type=\"video/ogg\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;
       case "mov":
         $res .= "type : $extension<br>";
-        $res .= "<video src=\"".$path."\"\n";
+        $res .= "<video src=\"".$realPath."\"\n";
         $res .= "     controls\n";
         $res .= "     autoplay\n";
-        $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
+        $res .= "     height=\"270\" width=\"100%\"  preload=\"none\">\n";
         $res .= gettext("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;

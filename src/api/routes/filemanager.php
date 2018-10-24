@@ -140,15 +140,7 @@ $app->group('/filemanager', function () {
           
           return $res->withStatus(404); 
     });
-    
-    $this->get('/getPreview/{personID:[0-9]+}/[{path:.*}]', function ($request, $res, $args) {
-          $user = UserQuery::create()->findPk($args['personID']);
-          $name = $request->getAttribute('path');
 
-          if ( !is_null($user) ) {
-             return MiscUtils::simpleEmbedFiles($name);
-          }
-    });
     
     $this->post('/getPreview', function ($request, $response, $args) {
           $params = (object)$request->getParsedBody();
@@ -156,10 +148,21 @@ $app->group('/filemanager', function () {
           if (isset ($params->personID) && isset ($params->name) ) {
             $user = UserQuery::create()->findPk($params->personID);
             if (!is_null($user)) {
-               $userName    = $user->getUserName();
-               $currentPath = $user->getCurrentpath();
-               
-               return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name)] );
+              $userName    = $user->getUserName();
+              $currentPath = $user->getCurrentpath();
+              $extension   = pathinfo($params->name, PATHINFO_EXTENSION);
+            
+              if ( !( 
+                      strtolower($extension) == 'mp4'  || strtolower($extension) == 'mov' || strtolower($extension) == 'ogg' || strtolower($extension) == 'm4a' 
+                   || strtolower($extension) == 'txt'  || strtolower($extension) == 'ps1' || strtolower($extension) == 'c' || strtolower($extension) == 'cpp' 
+                   || strtolower($extension) == 'php'  || strtolower($extension) == 'js' || strtolower($extension) == 'mm' || strtolower($extension) == 'vcf' 
+                   || strtolower($extension) == 'pdf'  || strtolower($extension) == 'mp3'
+                 ) ) {
+                 return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name)] );
+              } else {
+                 $realNoteDir = $userDir = $user->getUserRootDir();
+                 return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name  ,  SystemURLs::getRootPath()."/".$user->getUserRootDir()."/".$userName.$currentPath.$params->name)] );
+              }
             }
           }
           
