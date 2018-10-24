@@ -236,6 +236,8 @@ public static function FileSizeConvert($bytes)
       case "js":
       case "mm":
       case "vcf":
+      case "py":
+      case "ru":
         $content = file_get_contents( dirname(__FILE__)."/../..".$realPath );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
