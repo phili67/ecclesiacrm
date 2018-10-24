@@ -350,6 +350,11 @@ $app->group('/filemanager', function () {
                 $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
                 $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
                 
+                if (is_dir($newDest)) {
+                  return $response->withJson(['success' => false,"message" => gettext("A Folder")." \"".substr($file,1)."\" ".gettext("already exists at this place.")]);
+                  break;
+                }
+
                 mkdir($newDest, 0755, true);
                 
                 if (rename($currentDest,$newDest)) {
@@ -388,6 +393,11 @@ $app->group('/filemanager', function () {
               } else {
                 $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
                 $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1)."/".$file;
+                
+                if (file_exists($newDest)) {
+                  return $response->withJson(['success' => false,"message" => gettext ("A File")." \"".$file."\" ".gettext ("already exists at this place.")]);
+                  break;
+                }
                 
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
@@ -439,6 +449,10 @@ $app->group('/filemanager', function () {
               
               $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
               
+              if (is_dir($currentNoteDir)) {
+                return $response->withJson(['success' => false,"message" => gettext("A Folder")." \"".$params->folder."\" ".gettext("already exists at this place.")]);
+              }
+
               // now we create the note
               $note = new Note();
               $note->setPerId($params->personID);

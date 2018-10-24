@@ -230,9 +230,6 @@ $("body").on('dblclick', '.fileName', function(e) {
     }
 });
 
-$("body").on('click', '.drag-file', function(e) {
-});
-
 $("body").on('click', '.close-file-preview', function(e) {
   $('.filmanager-left').removeClass( "col-md-9" ).addClass( "col-md-12" );
   $('.filmanager-right').hide();
@@ -436,71 +433,35 @@ $("body").on('keypress', '.fileName', function(e) {
       var folderName = '/..';
       
       if (selected.length > 0) {// Drag in a folder
-        /*bootbox.confirm({
-          title  : i18next.t("Move files and folders"),
-          message: i18next.t("You're about to move the files and the folders in ")+":"+folderName,
-          buttons: {
-            confirm: {
-              label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-              label: i18next.t('No'),
-              className: 'btn-danger'
-            }
-          },
-          callback: function (result)
-          {
-            if (result)
-            {*/
-              window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/movefiles',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
-              }).done(function(data) {
-                if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
-                  });
-                }
-              });
-            /*}
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'filemanager/movefiles',
+          data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+        }).done(function(data) {
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
-        });*/
+          
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
+        });
       } else {
-        /*bootbox.confirm({
-          title  : i18next.t("Move file or folder"),
-          message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
-          buttons: {
-            confirm: {
-              label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-              label: i18next.t('No'),
-              className: 'btn-danger'
-            }
-          },
-          callback: function (result)
-          {
-            if (result)
-            {*/
-              window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/movefiles',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
-              }).done(function(data) {
-                if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
-                  });
-                }
-              });
-            /*}
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'filemanager/movefiles',
+          data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+        }).done(function(data) {
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
-        });*/
+          
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
+        });
       }
     }
 
@@ -518,71 +479,35 @@ $("body").on('keypress', '.fileName', function(e) {
         var folderName = $(event.target).attr('id');
         
         if (selected.length > 0) {// Drag in a folder
-          /*bootbox.confirm({
-            title  : i18next.t("Move files and folders"),
-            message: i18next.t("You're about to move the files and the folder in ")+":"+folderName,
-            buttons: {
-              confirm: {
-                label: i18next.t('Yes'),
-                  className: 'btn-success'
-              },
-              cancel: {
-                label: i18next.t('No'),
-                className: 'btn-danger'
-              }
-            },
-            callback: function (result)
-            {
-              if (result)
-              {*/
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'filemanager/movefiles',
-                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
-                }).done(function(data) {
-                  if (data && data.success) {
-                    window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                      installDragAndDrop();
-                      selected.length=0;
-                    });
-                  }
-                });
-              /*}
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/movefiles',
+            data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+          }).done(function(data) {
+            if (data && !data.success) {
+              window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
-          });*/
+          
+            window.CRM.dataEDriveTable.ajax.reload(function(json) {
+              installDragAndDrop();
+              selected.length=0;
+            });
+          });
         } else {
-          /*bootbox.confirm({
-            title  : i18next.t("Move file or folder"),
-            message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
-            buttons: {
-              confirm: {
-                label: i18next.t('Yes'),
-                  className: 'btn-success'
-              },
-              cancel: {
-                label: i18next.t('No'),
-                className: 'btn-danger'
-              }
-            },
-            callback: function (result)
-            {
-              if (result)
-              {*/
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'filemanager/movefiles',
-                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
-                }).done(function(data) {
-                  if (data && data.success) {
-                    window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                      installDragAndDrop();
-                      selected.length=0;
-                    });
-                  }
-                });
-              /*}
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/movefiles',
+            data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+          }).done(function(data) {
+            if (data && !data.success) {
+              window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
-          });*/
+          
+            window.CRM.dataEDriveTable.ajax.reload(function(json) {
+              installDragAndDrop();
+              selected.length=0;
+            });
+          });
         }
       }
     });
@@ -639,11 +564,14 @@ $("body").on('keypress', '.fileName', function(e) {
           path: 'filemanager/newFolder',
           data: JSON.stringify({"personID": personID,"folder" : result})
         }).done(function(data) {
-          if (data && data.success) {
-            window.CRM.dataEDriveTable.ajax.reload(function(json) {
-              installDragAndDrop();
-            });
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
+        
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
         });
       }
     });

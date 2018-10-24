@@ -220,7 +220,7 @@ public static function FileSizeConvert($bytes)
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
+    $res = ($extension == "")?(gettext("Folder")." : ".$filename):(gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>");
     
     switch (strtolower($extension)) {
       case "jpg":
@@ -251,13 +251,14 @@ public static function FileSizeConvert($bytes)
         break;
       case "mp3":
         $res .= " type : $extension<br>";
-        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\" type=\"audio/mp3\">".gettext("Your browser does not support the audio element.")."</audio>";
-        //$res .= "<audio><source src=\"".$realPath."\" type=\"audio/mpeg\"><p>".gettext("Your browser does not support the audio element.")."</p></source></audio>";
+        //$res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\" type=\"audio/mp3\">".gettext("Your browser does not support the audio element.")."</audio>";
+        //$res .= "<audio><source src=\"".$path."\" type=\"audio/mpeg\"><p>".gettext("Your browser does not support the audio element.")."</p></source></audio>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
         break;
       case "oga":
       case "wav":
         $res .= " type : $extension<br>";
-        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
         break;
       case "m4a":
         $res .= " type : $extension<br>";
