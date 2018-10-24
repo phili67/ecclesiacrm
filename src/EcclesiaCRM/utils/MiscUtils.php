@@ -186,6 +186,7 @@ public static function FileSizeConvert($bytes)
       case "sh":
       case "ru":
       case "asp":
+      case "m":
         $icon = 'fa-file-code-o text-black';
         break;
       case "pdf":
@@ -238,6 +239,7 @@ public static function FileSizeConvert($bytes)
       case "vcf":
       case "py":
       case "ru":
+      case "m":
         $content = file_get_contents( dirname(__FILE__)."/../..".$realPath );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
@@ -325,6 +327,9 @@ public static function FileSizeConvert($bytes)
       case "js":
       case "mm":
       case "vcf":
+      case "py":
+      case "ru":
+      case "m":
         $content = file_get_contents( dirname(__FILE__)."/../..".$path );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
