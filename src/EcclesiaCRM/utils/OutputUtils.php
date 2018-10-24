@@ -42,7 +42,7 @@ class OutputUtils {
 
       switch ($sMode) {
       case 'money':
-        return ($currency_vis?$currency:'').' '.number_format($iNumber, 2, $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        return ($currency_vis?$currency:'').' '.number_format($iNumber, 2, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
         break;
 
       case 'intmoney':
@@ -51,7 +51,7 @@ class OutputUtils {
 
       case 'float':
         $iDecimals = 2; // need to calculate # decimals in original number
-        return number_format($iNumber, $iDecimals, $aLocaleInfo['mon_decimal_point'], $aLocaleInfo['mon_thousands_sep']);
+        return number_format($iNumber, $iDecimals, $aLocaleInfo['decimal_point'], $aLocaleInfo['mon_thousands_sep']);
         break;
 
       case 'integer':

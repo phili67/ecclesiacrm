@@ -25,7 +25,7 @@ $(document).ready(function () {
         data:'icon',
         render: function(data, type, full, meta) {
           if (!full.dir) {
-            return '<span class="drag" id="' + full.name + '" type="file">' + data + '</span>';
+            return '<span class="drag drag-file" id="' + full.name + '" type="file" data-path="' + full.path + '" data-perid="' + full.perID + '">' + data + '</span>';
           } else {
             return '<a class="change-folder" data-personid="' + window.CRM.currentPersonID + '" data-folder="' + full.name + '"><span class="drag drop" id="'+ full.name +'" type="folder">' + data + '</span>';
           }
@@ -35,6 +35,7 @@ $(document).ready(function () {
         width: '50%',
         title:i18next.t('Name'),
         data:'name',
+        type : 'column-name',
         render: function(data, type, full, meta) {
           if (full.dir) {
             var fileName = data.substring(1);
@@ -54,16 +55,20 @@ $(document).ready(function () {
         data:'id',
         render: function(data, type, full, meta) {
           if (!full.dir) {
-            var ret = '<a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '">'
-                     + '<span class="fa-stack">'
-                     + '   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>'
-                     + '   <i class="fa fa-eye fa-stack-1x fa-inverse"></i>'
-                     + '</span>'
-                     + '</a>'
-                     + '<span class="fa-stack shareFile" data-id="'+data+'" data-shared="'+full.isShared+'">'
-                     + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
-                     + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
-                     + '</span>';
+            var ret = '';
+            
+            ret  += '<a href="' + window.CRM.root + '/api/filemanager/getFile/' + full.perID + '/' + full.path + '">'
+                 + '<span class="fa-stack">'
+                 + '   <i class="fa fa-square fa-stack-2x" style="color:blue"></i>'
+                 + '   <i class="fa fa-download fa-stack-1x fa-inverse"></i>'
+                 + '</span>'
+                 + '</a>';
+
+            ret  += '<span class="fa-stack shareFile" data-id="'+data+'" data-shared="'+full.isShared+'">'
+                 + '   <i class="fa fa-square fa-stack-2x" style="color:'+((full.isShared)?'green':'#777')+'"></i>'
+                 + '   <i class="fa fa-share-square-o fa-stack-1x fa-inverse"></i>'
+                 + '</span>';
+                 
             return ret;
           }
           
@@ -90,6 +95,7 @@ $(document).ready(function () {
         width: '10%',
         title:i18next.t('Size'),
         data:'size',
+        type : 'file-size',
         render: function(data, type, full, meta) {
           return data
         }
@@ -112,6 +118,55 @@ $(document).ready(function () {
   });
 
   
+ $('#edrive-table tbody').on('click', 'td', function (e) {
+ 
+  var id    = $(this).parent().attr('id');
+  var col  = window.CRM.dataEDriveTable.cell( this ).index().column;
+  
+  if ( !(col == 2) ) {
+    if (!e.shiftKey) {
+      selected.length = 0;// no lines
+      $('#edrive-table tbody tr').removeClass('selected');
+    }
+    
+    var index = $.inArray(id, selected);
+  
+    if ( index === -1 ) {
+        selected.push( id );
+    } else {
+        selected.splice( index, 1 );
+    }
+
+    $(this).parent().toggleClass('selected');
+  
+    var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
+  
+    if (selectedRows == 0) {
+      selected.length = 0;// no lines
+    }
+    
+    if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+      (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) && selectedRows == 1) {
+     
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'filemanager/getPreview',
+        data: JSON.stringify({"personID": window.CRM.currentPersonID,"name" : id})
+      }).done(function(data) {
+        if (data && data.success) {
+          $('.filmanager-left').removeClass( "col-md-12" ).addClass( "col-md-9" );
+          $('.filmanager-right').show();
+          $('.preview').html(data.path);
+        }
+      });
+    } else {
+      $('.preview').html('');
+    }
+  }
+  
+});
+  
+
 $("body").on('click', '.fileName', function(e) {
     if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
@@ -138,13 +193,24 @@ $("body").on('click', '.fileName', function(e) {
               data: JSON.stringify({"personID": window.CRM.currentPersonID,"oldName" : oldName, "newName" : result, "type" : type})
             }).done(function(data) {
               if (data && data.success) {
-                window.CRM.dataEDriveTable.ajax.reload();
-                setTimeout(function(){installDragAndDrop();}, 500);
+                window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                 installDragAndDrop();
+                });
               }
             });
           }
         }
       });
+    }
+});
+
+$("body").on('dblclick', '.drag-file', function(e) {
+    if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+      (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
+      var perID = $(this).data("perid");
+      var path  = $(this).data("path");
+      
+      window.location.href  = window.CRM.root + '/api/filemanager/getFile/' + perID + '/' + path;
     }
 });
   
@@ -164,6 +230,12 @@ $("body").on('dblclick', '.fileName', function(e) {
     }
 });
 
+$("body").on('click', '.close-file-preview', function(e) {
+  $('.filmanager-left').removeClass( "col-md-9" ).addClass( "col-md-12" );
+  $('.filmanager-right').hide();
+});
+
+
 $("body").on('keypress', '.fileName', function(e) {
   var key  = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
   var newName  = $(this).val();
@@ -178,8 +250,9 @@ $("body").on('keypress', '.fileName', function(e) {
         data: JSON.stringify({"personID": window.CRM.currentPersonID,"oldName" : oldName, "newName" : newName, "type" : type})
       }).done(function(data) {
         if (data && data.success) {
-          window.CRM.dataEDriveTable.ajax.reload();
-          setTimeout(function(){installDragAndDrop();}, 500);
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+          });
         }
       });
       break;
@@ -200,26 +273,6 @@ $("body").on('keypress', '.fileName', function(e) {
   }
 });
   
- $('#edrive-table tbody').on('click', 'tr', function () {
-    //var id = this.id;
-    var id = $(this).attr('id');
-    var index = $.inArray(id, selected);
-    
-    if ( index === -1 ) {
-        selected.push( id );
-    } else {
-        selected.splice( index, 1 );
-    }
-
-    $(this).toggleClass('selected');
-    
-    var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data().length;
-    
-    if (selectedRows == 0) {
-      selected.length = 0;// no lines
-    }
- });
-
   $('.trash-drop').click (function () {
       if (selected.length) {
         bootbox.confirm({
@@ -245,9 +298,10 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                  selected.length=0;
+                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                    installDragAndDrop();
+                    selected.length=0;
+                  });
                 }
               });
             }
@@ -286,9 +340,10 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                  selected.length=0;
+                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                    installDragAndDrop();
+                    selected.length=0;
+                  });
                 }
               });
             }
@@ -325,8 +380,10 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
+                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                    installDragAndDrop();
+                    selected.length=0;
+                  });
                 }
               });
             }
@@ -356,8 +413,10 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
+                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                    installDragAndDrop();
+                    selected.length=0;
+                  });
                 }
               });
             }
@@ -374,68 +433,34 @@ $("body").on('keypress', '.fileName', function(e) {
       var folderName = '/..';
       
       if (selected.length > 0) {// Drag in a folder
-        bootbox.confirm({
-          title  : i18next.t("Move files and folders"),
-          message: i18next.t("You're about to move the files and the folders in ")+":"+folderName,
-          buttons: {
-            confirm: {
-              label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-              label: i18next.t('No'),
-              className: 'btn-danger'
-            }
-          },
-          callback: function (result)
-          {
-            if (result)
-            {
-              window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/movefiles',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
-              }).done(function(data) {
-                if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                  selected.length = 0;// no lines
-                }
-              });
-            }
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'filemanager/movefiles',
+          data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+        }).done(function(data) {
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
+          
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
         });
       } else {
-        bootbox.confirm({
-          title  : i18next.t("Move file or folder"),
-          message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
-          buttons: {
-            confirm: {
-              label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-              label: i18next.t('No'),
-              className: 'btn-danger'
-            }
-          },
-          callback: function (result)
-          {
-            if (result)
-            {
-              window.CRM.APIRequest({
-                method: 'POST',
-                path: 'filemanager/movefiles',
-                data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
-              }).done(function(data) {
-                if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload();
-                  setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                  selected.length = 0;// no lines
-                }
-              });
-            }
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'filemanager/movefiles',
+          data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+        }).done(function(data) {
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
+          
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
         });
       }
     }
@@ -454,68 +479,34 @@ $("body").on('keypress', '.fileName', function(e) {
         var folderName = $(event.target).attr('id');
         
         if (selected.length > 0) {// Drag in a folder
-          bootbox.confirm({
-            title  : i18next.t("Move files and folders"),
-            message: i18next.t("You're about to move the files and the folder in ")+":"+folderName,
-            buttons: {
-              confirm: {
-                label: i18next.t('Yes'),
-                  className: 'btn-success'
-              },
-              cancel: {
-                label: i18next.t('No'),
-                className: 'btn-danger'
-              }
-            },
-            callback: function (result)
-            {
-              if (result)
-              {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'filemanager/movefiles',
-                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
-                }).done(function(data) {
-                  if (data && data.success) {
-                    window.CRM.dataEDriveTable.ajax.reload();
-                    setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                    selected.length = 0;// no lines
-                  }
-                });
-              }
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/movefiles',
+            data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":selected})
+          }).done(function(data) {
+            if (data && !data.success) {
+              window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
+          
+            window.CRM.dataEDriveTable.ajax.reload(function(json) {
+              installDragAndDrop();
+              selected.length=0;
+            });
           });
         } else {
-          bootbox.confirm({
-            title  : i18next.t("Move file or folder"),
-            message: i18next.t("You're about to move a file or a folder in ")+":"+folderName,
-            buttons: {
-              confirm: {
-                label: i18next.t('Yes'),
-                  className: 'btn-success'
-              },
-              cancel: {
-                label: i18next.t('No'),
-                className: 'btn-danger'
-              }
-            },
-            callback: function (result)
-            {
-              if (result)
-              {
-                window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'filemanager/movefiles',
-                  data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
-                }).done(function(data) {
-                  if (data && data.success) {
-                    window.CRM.dataEDriveTable.ajax.reload();
-                    setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-                    selected.length = 0;// no lines
-                  }
-                });
-              }
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'filemanager/movefiles',
+            data: JSON.stringify({"personID": window.CRM.currentPersonID,"folder" : folderName,"files":[name]})
+          }).done(function(data) {
+            if (data && !data.success) {
+              window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
+          
+            window.CRM.dataEDriveTable.ajax.reload(function(json) {
+              installDragAndDrop();
+              selected.length=0;
+            });
           });
         }
       }
@@ -529,11 +520,12 @@ $("body").on('keypress', '.fileName', function(e) {
       data: JSON.stringify({"personID": personID,"folder" : folder})
     }).done(function(data) {
       if (data && data.success) {
-        selected.length = 0;// no more selected files
-        window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
-        $(".folder-back-drop").show();
-        $("#currentPath").html(data.currentPath);
+        window.CRM.dataEDriveTable.ajax.reload(function(json) {
+          installDragAndDrop();
+          $(".folder-back-drop").show();
+          $("#currentPath").html(data.currentPath);
+          selected.length = 0;// no more selected files
+        });
       }
     });
   }
@@ -572,10 +564,14 @@ $("body").on('keypress', '.fileName', function(e) {
           path: 'filemanager/newFolder',
           data: JSON.stringify({"personID": personID,"folder" : result})
         }).done(function(data) {
-          if (data && data.success) {
-            window.CRM.dataEDriveTable.ajax.reload();
-            setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
+          if (data && !data.success) {
+            window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
+        
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            installDragAndDrop();
+            selected.length=0;
+          });
         });
       }
     });
@@ -590,17 +586,17 @@ $("body").on('keypress', '.fileName', function(e) {
       data: JSON.stringify({"personID": personID})
     }).done(function(data) {
       if (data && data.success) {
-        selected.length = 0;// no more selected files
-        window.CRM.dataEDriveTable.ajax.reload();
-        setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
+        window.CRM.dataEDriveTable.ajax.reload(function(json) {
+          installDragAndDrop();
+          if (data.isHomeFolder) {
+            $(".folder-back-drop").hide();
+          } else {
+            $(".folder-back-drop").show();
+          }
         
-        if (data.isHomeFolder) {
-          $(".folder-back-drop").hide();
-        } else {
-          $(".folder-back-drop").show();
-        }
+          $("#currentPath").html(data.currentPath);
+        });
         
-        $("#currentPath").html(data.currentPath);
       }
     });
   });
@@ -658,9 +654,10 @@ $("body").on('keypress', '.fileName', function(e) {
       processData: false,
       contentType: false
     }).done(function (data) {
-      uploadWindow.modal("hide");
-      window.CRM.dataEDriveTable.ajax.reload();
-      setTimeout(function(){installDragAndDrop();}, data.numberOfFiles*10+500);
+      window.CRM.dataEDriveTable.ajax.reload(function(json) {
+        installDragAndDrop();
+        uploadWindow.modal("hide");
+      });
     });
     e.preventDefault();
   });  
@@ -797,8 +794,9 @@ $("body").on('keypress', '.fileName', function(e) {
                 $(button).addClass("btn-default");
                 $(button).removeClass("btn-success");
                 modal.modal("hide");
-                window.CRM.dataEDriveTable.ajax.reload();
-                setTimeout(function(){installDragAndDrop();}, 3000);
+                window.CRM.dataEDriveTable.ajax.reload(function(json) {
+                  installDragAndDrop();
+                });
               });
             }
           });
@@ -809,18 +807,20 @@ $("body").on('keypress', '.fileName', function(e) {
          label: i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
-           modal.modal("hide");
-           window.CRM.dataEDriveTable.ajax.reload();
-           setTimeout(function(){installDragAndDrop();}, 3000);
-           return true;
+            window.CRM.dataEDriveTable.ajax.reload(function(json) {
+              modal.modal("hide");
+              installDragAndDrop();
+            });
+            return true;
          }
         },
        ],
        show: false,
        onEscape: function() {
-          modal.modal("hide");
-          window.CRM.dataEDriveTable.ajax.reload();
-          setTimeout(function(){installDragAndDrop();}, 3000);
+          window.CRM.dataEDriveTable.ajax.reload(function(json) {
+            modal.modal("hide");
+            installDragAndDrop();
+          });
        }
      });
      
@@ -941,6 +941,47 @@ $("body").on('keypress', '.fileName', function(e) {
       isOpened = false;
     }
   });
+
+    $.fn.dataTable.moment = function ( format, locale ) {
+        var types = $.fn.dataTable.ext.type;
+
+        // Add type detection
+        types.detect.unshift( function ( d ) {
+            // Removed true as the last parameter of the following moment
+            return moment( d, format, locale ).isValid() ?
+                'moment-'+format :
+            null;
+        } );
+
+        // Add sorting method - use an integer for the sorting
+        types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+           console.log("d");
+            return moment ( d, format, locale, true ).unix();
+        };
+      };
+
+$.fn.dataTable.ext.type.order['column-name-pre'] = function  ( data )
+{
+  var val = $(data).data("name");
   
+  return val;
+}  
+
+$.fn.dataTable.ext.type.order['file-size-pre'] = function ( data ) {
+    var units = data.replace( /[\d\.\,\ ]/g, '' ).toLowerCase();
+    var multiplier = 1;
+ 
+    if ( units === 'kb' ) {
+        multiplier = 1000;
+    }
+    else if ( units === 'mb' ) {
+        multiplier = 1000000;
+    }
+    else if ( units === 'gb' ) {
+        multiplier = 1000000000;
+    }
+ 
+    return parseFloat( data ) * multiplier;
+};
   // end of EDrive management
 });
