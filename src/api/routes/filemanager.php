@@ -155,8 +155,9 @@ $app->group('/filemanager', function () {
               if ( !( 
                       strtolower($extension) == 'mp4'  || strtolower($extension) == 'mov' || strtolower($extension) == 'ogg' || strtolower($extension) == 'm4a' 
                    || strtolower($extension) == 'txt'  || strtolower($extension) == 'ps1' || strtolower($extension) == 'c' || strtolower($extension) == 'cpp' 
-                   || strtolower($extension) == 'php'  || strtolower($extension) == 'js' || strtolower($extension) == 'mm' || strtolower($extension) == 'vcf' 
-                   || strtolower($extension) == 'pdf'  || strtolower($extension) == 'mp3'
+                   || strtolower($extension) == 'php'  || strtolower($extension) == 'js'  || strtolower($extension) == 'mm' || strtolower($extension) == 'vcf' 
+                   || strtolower($extension) == 'pdf'  || strtolower($extension) == 'mp3' || strtolower($extension) == 'py' || strtolower($extension) == 'ru'
+                   || strtolower($extension) == 'm'
                  ) ) {
                  return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name)] );
               } else {
