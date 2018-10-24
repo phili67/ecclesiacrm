@@ -145,7 +145,6 @@ class TimelineService
              }
           }
         }
-        
 
         return $timeline;
     }
@@ -206,7 +205,7 @@ class TimelineService
           $userName = $person->getFullName();
         }
         
-        if ($this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId())) {
+        if ( $this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
             $displayEditedBy = gettext('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
                 $displayEditedBy = gettext('Self Registration');
