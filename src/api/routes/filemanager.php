@@ -72,7 +72,7 @@ $app->group('/filemanager', function () {
         
         $extension = pathinfo($file, PATHINFO_EXTENSION);
         
-        $note = NoteQuery::Create()->findOneByText($userName.$currentpath.$file);
+        $note = NoteQuery::Create()->filterByPerId ($args['personID'])->findOneByText($userName.$currentpath.$file);
         
         $item['isShared'] = 0;
         $item['id']       = 0;
@@ -111,7 +111,6 @@ $app->group('/filemanager', function () {
           $user = UserQuery::create()->findPk($args['personID']);
           $name = $request->getAttribute('path');
           
-          
           if ( !is_null($user) ) {
             $realNoteDir = $userDir = $user->getUserRootDir();
             $userName    = $user->getUserName();
@@ -119,9 +118,10 @@ $app->group('/filemanager', function () {
   
             $searchLikeString = $name.'%';
             $searchLikeString = str_replace("//","/",$searchLikeString);
-            $note = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->findOne();
             
-            if ( !is_null($note) && ( $note->isShared() > 0 || $_SESSION['user']->isAdmin() ) ) {
+            $note = NoteQuery::Create()->filterByPerId ($args['personID'])->filterByText($searchLikeString, Criteria::LIKE)->findOne();
+            
+            if ( !is_null($note) && ( $note->isShared() > 0 || $_SESSION['user']->isAdmin() || $_SESSION['user']->getPersonId() == $args['personID'] ) ) {
               $file = dirname(__FILE__)."/../../".$realNoteDir."/".$name;
           
               $response = $res->withHeader('Content-Description', 'File Transfer')
@@ -237,7 +237,7 @@ $app->group('/filemanager', function () {
               
               $searchLikeString = $userName.$currentpath.substr($params->folder,1).'%';
               $searchLikeString = str_replace("//","/",$searchLikeString);
-              $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
               if ( $notes->count() > 0 ) {
                 $notes->delete();
@@ -267,7 +267,7 @@ $app->group('/filemanager', function () {
               
               $searchLikeString = $userName.$currentpath.$params->file.'%';
               $searchLikeString = str_replace("//","/",$searchLikeString);
-              $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+              $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
               if ( $notes->count() > 0 ) {
                 $notes->delete();
@@ -301,7 +301,8 @@ $app->group('/filemanager', function () {
                   if (MiscUtils::delTree($currentNoteDir)) {
                     $searchLikeString = $userName.$currentpath.$file.'%';
                     $searchLikeString = str_replace("//","/",$searchLikeString);
-                    $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+                    
+                    $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                     if ( $notes->count() > 0 ) {
                       $notes->delete();
@@ -314,7 +315,8 @@ $app->group('/filemanager', function () {
                   if (unlink ($currentNoteDir)) {
                       $searchLikeString = $userName.$currentpath.$file.'%';
                       $searchLikeString = str_replace("//","/",$searchLikeString);
-                      $notes = NoteQuery::Create()->filterByText($searchLikeString, Criteria::LIKE)->find();
+                      
+                      $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                       if ( $notes->count() > 0 ) {
                         $notes->delete();
@@ -361,6 +363,7 @@ $app->group('/filemanager', function () {
                 if (rename($currentDest,$newDest)) {
                   $searchLikeString = $userName.$currentpath.substr($file,1).'%';
                   $searchLikeString = str_replace("//","/",$searchLikeString);
+                  
                   $notes = NoteQuery::Create()->filterByPerId ($params->personID)->filterByText($searchLikeString, Criteria::LIKE)->find();
               
                   if ( $notes->count() > 0 ) {

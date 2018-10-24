@@ -71,6 +71,6 @@ class Note extends BaseNote
 
     public function isVisable($personId)
     {
-        return !$this->isPrivate() || $this->getPrivate() == $personId;
+        return !$this->isPrivate() || $this->getPerId() == $personId;
     }
 }
