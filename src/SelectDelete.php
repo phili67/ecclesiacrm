@@ -39,6 +39,11 @@ $sMode = 'family';
 if (!empty($_GET['FamilyID'])) {
     $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
 }
+
+if (!empty($_GET['PersonID'])) {
+    $iPersonId = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
+}
+
 if (!empty($_GET['DonationFamilyID'])) {
     $iDonationFamilyID = InputUtils::LegacyFilterInput($_GET['DonationFamilyID'], 'int');
 }
@@ -51,11 +56,13 @@ if (isset($_GET['CancelFamily'])) {
     exit;
 }
 
-$family = FamilyQuery::Create()->findOneById($iFamilyID);
-
 $numberPersons = 0;
 
-if ( !is_null ($family->getPeople()) ) {
+if ( $sMode == 'person' ) {
+  $person    = PersonQuery::Create()->findOneById($iPersonId);
+  $iFamilyID = $person->getFamId();
+} else {
+  $family = FamilyQuery::Create()->findOneById($iFamilyID);
   $numberPersons = $family->getPeople()->count();
   if (PersonQuery::Create()->findOneByFamId($iFamilyID)) {
     $iPersonId = PersonQuery::Create()->findOneByFamId($iFamilyID)->getId();
@@ -172,7 +179,7 @@ require 'Include/Header.php';
         $bIsDonor = ($ormDonations->count() > 0);
 
         if ($bIsDonor && !$_SESSION['user']->isFinanceEnabled()) {
-            // Donations from Family. Current user not authorized for Finance            
+            // Donations from Family. Current user not authorized for Finance
             if ($numberPersons > 1) {
         ?>
               <p class="LargeText">
@@ -186,7 +193,7 @@ require 'Include/Header.php';
               <p class="LargeText">
                  <?= gettext('Sorry, there are records of donations from this Person. This Person may not be deleted.') ?>
                  <br><br>
-                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=' . $iPersonId . '"><?= gettext('Return to Person View') ?></a>
+                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?=  $iPersonId ?>"><?= gettext('Return to Person View') ?></a>
               </p>
         <?php
             }
@@ -210,7 +217,7 @@ require 'Include/Header.php';
           <form name=SelectFamily method=get action=SelectDelete.php>
             <div class="ShadedBox">
                <div class="LightShadedBox">
-                 <strong><?= (($numberPersons > 1)?gettext('Family Name'):gettext('Person Name')) ?> : <?= $theFamily->getName() ?></strong>
+                 <strong><?= (!is_null ($theFamily)?gettext('Family Name'):gettext('Person Name')) ?> : <?= $theFamily->getName() ?></strong>
                </div>
                <p>
                  <?= gettext('Please select another person or family with whom to associate these donations:') ?>
@@ -252,7 +259,7 @@ require 'Include/Header.php';
                         echo ', ' . $aHead[$family->getId()];
                     }
                     if ($family->getId() == $iFamilyID) {
-                        echo ' -- ' . (($numberPersons > 1)?gettext('CURRENT FAMILY WITH DONATIONS'):gettext('CURRENT PERSON WITH DONATIONS'));
+                        echo ' -- ' . (!is_null ($theFamily)?gettext('CURRENT FAMILY WITH DONATIONS'):gettext('CURRENT PERSON WITH DONATIONS'));
                     } else {
                         echo ' ' . FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState());
                     }
@@ -261,7 +268,7 @@ require 'Include/Header.php';
                 </select>
                 <br><br>
           <?php
-            if ($numberPersons > 1) {
+            if (!is_null ($theFamily)) {
           ?>
               <input type="submit" class="btn btn-primary" name="CancelFamily" value="<?= gettext("Cancel and Return to Family View") ?>"> &nbsp; &nbsp;
               <input type="submit" class="btn btn-danger" name="MoveDonations" value="<?= gettext("Move Donations to Selected Family") ?>">
@@ -347,22 +354,22 @@ require 'Include/Header.php';
         ?>
             <?= $DonationMessage ?>
             <p class='callout callout-warning'>
-              <b><?= (($numberPersons > 1)?gettext('Please confirm deletion of this family record:'):gettext('Please confirm deletion of this Person record:')) ?></b>
+              <b><?= (!is_null ($theFamily)?gettext('Please confirm deletion of this family record:'):gettext('Please confirm deletion of this Person record:')) ?></b>
               <br/>
-              <?= (($numberPersons > 1)?gettext('Note: This will also delete all Notes associated with this Family record.'):gettext('Note: This will also delete all Notes associated with this Person record.')) ?>
+              <?= (!is_null ($theFamily)?gettext('Note: This will also delete all Notes associated with this Family record.'):gettext('Note: This will also delete all Notes associated with this Person record.')) ?>
               <?= gettext('(this action cannot be undone)') ?>
             </p>
             <div>
-               <strong><?= (($numberPersons > 1)?gettext('Family Name'):gettext('Person Name')) ?>:</strong>
-               &nbsp;<?= $theFamily->getName() ?>
+               <strong><?= (!is_null ($theFamily)?gettext('Family Name'):gettext('Person Name')) ?>:</strong>
+               &nbsp;<?= (!is_null ($theFamily)?$theFamily->getName():$person->getFirstName()." ".$person->getLastName()) ?>
             </div>
             <br/>
             <div>
-              <strong><?= (($numberPersons > 1)?gettext('Family Members'):gettext('Member')) ?>:</strong>
+              <strong><?= ((!is_null ($theFamily) || $numberPersons > 1)?gettext('Family Members'):gettext('Member')) ?>:</strong>
               <ul>
               <?php
                 //List Family Members
-                $persons = PersonQuery::create()->findByFamId ($iFamilyID);              
+                $persons = PersonQuery::create()->findByFamId ($iFamilyID);
                 foreach ($persons as $person) {
               ?>
                   <li><?= $person->getFirstName() ?> <?= $person->getLastName() ?></li>
@@ -372,7 +379,7 @@ require 'Include/Header.php';
               </ul>
             </div>
           <?php
-            if ($numberPersons > 1) {
+            if (!is_null ($theFamily)) {
           ?>
               <p class="text-center">
                 <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?Confirmed=Yes&FamilyID=<?= $iFamilyID ?>"><?= gettext('Delete Family Record ONLY') ?></a>
@@ -404,5 +411,3 @@ $(document).ready(function () {
 </script>
 
 <?php require 'Include/Footer.php' ?>
-
-
