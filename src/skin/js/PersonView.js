@@ -752,7 +752,7 @@ $(document).ready(function () {
     
     // newMessage event handler
     function updateButtons(e) {
-      if (e.cartSize == 0) {
+      if (e.cartPeople.length == 0) {
         $("#AddPersonToCart").addClass("AddOneToPeopleCart");
         $("#AddPersonToCart").removeClass("RemoveOneFromPeopleCart");
         $('i',"#AddPersonToCart").removeClass("fa-remove");

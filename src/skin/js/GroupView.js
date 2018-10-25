@@ -534,7 +534,7 @@ function initDataTable() {
     
     // newMessage event handler
     function updateButtons(e) {
-      if (e.cartSize == 0) {
+      if (e.cartPeople.length == 0) {
         $("#AddToGroupCart").addClass("AddToGroupCart");
         $("#AddToGroupCart").removeClass("RemoveFromGroupCart");
         $('i',"#AddToGroupCart").removeClass("fa-remove");

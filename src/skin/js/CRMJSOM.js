@@ -411,7 +411,7 @@
           // broadcaster
           $.event.trigger({
             type: "emptyCartMessage",
-            cartSize: data.PeopleCart.length
+            cartPeople: data.PeopleCart
           });
         
           var cartDropdownMenu;

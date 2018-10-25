@@ -371,7 +371,9 @@ $(document).ready(function () {
     
     // newMessage event handler
     function updateButtons(e) {
-      if (e.cartSize == 0) {
+      var cartPeople = e.cartPeople;
+      
+      if (cartPeople.length == 0) {
         $("#AddToFamilyCart").addClass("AddToFamilyCart");
         $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
         $('i',"#AddToFamilyCart").removeClass("fa-remove");
@@ -381,13 +383,33 @@ $(document).ready(function () {
           $(text).text(i18next.t("Add to Cart"));
         }
       } else {
-        $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
-        $("#AddToFamilyCart").removeClass("AddToFamilyCart");
-        $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
-        $('i',"#AddToFamilyCart").addClass("fa-remove");
-        text = $("#AddToFamilyCart").find("span.cartActionDescription")
-        if(text){
-          $(text).text(i18next.t("Remove from Cart"));
+        var peopleInCart = false;
+        var personButtons = $("a[data-cartpersonid]");
+        $(personButtons).each(function(index,personButton){
+          personID = $(personButton).data("cartpersonid")
+          if (cartPeople.includes(personID)) {
+            peopleInCart = true;
+          }
+        });
+        
+        if (peopleInCart) {
+          $("#AddToFamilyCart").addClass("RemoveFromFamilyCart");
+          $("#AddToFamilyCart").removeClass("AddToFamilyCart");
+          $('i',"#AddToFamilyCart").removeClass("fa-cart-plus");
+          $('i',"#AddToFamilyCart").addClass("fa-remove");
+          text = $("#AddToFamilyCart").find("span.cartActionDescription")
+          if(text){
+            $(text).text(i18next.t("Remove from Cart"));
+          }
+        } else {
+          $("#AddToFamilyCart").addClass("AddToFamilyCart");
+          $("#AddToFamilyCart").removeClass("RemoveFromFamilyCart");
+          $('i',"#AddToFamilyCart").removeClass("fa-remove");
+          $('i',"#AddToFamilyCart").addClass("fa-cart-plus");
+          text = $("#AddToFamilyCart").find("span.cartActionDescription")
+          if(text){
+            $(text).text(i18next.t("Add to Cart"));
+          }
         }
       }
     }  

@@ -805,7 +805,7 @@ $("document").ready(function(){
     
     // newMessage event handler
     function emptyButtons(e) {
-      if (e.cartSize == 0) {
+      if (e.cartPeople.length == 0) {
         $("#AddToTeacherGroupCart").addClass("AddToTeacherGroupCart");
         $("#AddToTeacherGroupCart").removeClass("RemoveFromTeacherGroupCart");
         $('i',"#AddToTeacherGroupCart").removeClass("fa-remove");
