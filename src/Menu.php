@@ -479,7 +479,7 @@ if ($_SESSION['user']->isPastoralCareEnabled()) {
 </div><!-- /.row -->
 
 <?php
-if ($depositData) { // If the user has Finance permissions, then let's display the deposit line chart
+if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If the user has Finance permissions, then let's display the deposit line chart
 ?>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -635,8 +635,10 @@ if ($depositData) { // If the user has Finance permissions, then let's display t
 
 <!-- this page specific inline scripts -->
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+
 <?php
-if ($depositData) { // If the user has Finance permissions, then let's display the deposit line chart
+  if (SystemConfig::getBooleanValue('bEnabledFinance')) {
+    if ($depositData) { // If the user has Finance permissions, then let's display the deposit line chart
 ?>
     //---------------
     //- LINE CHART  -
@@ -667,7 +669,8 @@ if ($depositData) { // If the user has Finance permissions, then let's display t
 
   });
 <?php
-                        }  //END IF block for Finance permissions to include JS for Deposit Chart
+    }  //END IF block for Finance permissions to include JS for Deposit Chart
+  } // END of bEnabledFinance
 ?>
 </script>
 
