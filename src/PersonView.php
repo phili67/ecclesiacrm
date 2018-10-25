@@ -827,10 +827,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                       </span>
                     </a>
-                    <a href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?mode=person&PersonID=<?= $tmpPersonId ?>">
+                    <a class="delete-person" data-person_name="<?= $familyMember->getFullName() ?>" data-person_id="<?= $tmpPersonId ?>" data-view="family">
                       <span class="fa-stack" style="color:red">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
                       </span>
                     </a>
                 <?php
@@ -1463,4 +1463,3 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 </script>
 
 <?php require 'Include/Footer.php' ?>
-
