@@ -14,6 +14,8 @@ use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\GdprInfoQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
+use EcclesiaCRM\PropertyQuery;
+
 
 $app->group('/gdrp', function () {
 
@@ -72,11 +74,20 @@ $app->group('/gdrp', function () {
          
           return $response->withJson(['status' => "success"]);
         } else if ($input->type == 'personCustom') {
-          $personCM = PersonCustomMasterQuery::Create()->findOneById($input->custom_id);
+          $personCM = PropertyQuery::Create()->filterByProClass('p')->find();
          
           if ( !is_null ($personCM) ) {
             $personCM->setCustomComment($input->comment);
             $personCM->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'personProperty') {
+          $personProp = PropertyQuery::Create()->filterByProClass('p')->findOneByProId($input->custom_id);
+         
+          if ( !is_null ($personProp) ) {
+            $personProp->setProComment($input->comment);
+            $personProp->save();
           }
          
           return $response->withJson(['status' => "success"]);
@@ -104,6 +115,15 @@ $app->group('/gdrp', function () {
           if ( !is_null ($pastoralCare) ) {
             $pastoralCare->setComment($input->comment);
             $pastoralCare->save();
+          }
+         
+          return $response->withJson(['status' => "success"]);
+        } else if ($input->type == 'familyProperty') {
+          $personProp = PropertyQuery::Create()->filterByProClass('f')->findOneByProId($input->custom_id);
+         
+          if ( !is_null ($personProp) ) {
+            $personProp->setProComment($input->comment);
+            $personProp->save();
           }
          
           return $response->withJson(['status' => "success"]);
