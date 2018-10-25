@@ -1040,6 +1040,7 @@
         <column name="pro_Name" phpName="ProName" type="VARCHAR" size="200" required="true" defaultValue="0"/>
         <column name="pro_Description" phpName="ProDescription" type="LONGVARCHAR" required="true"/>
         <column name="pro_Prompt" phpName="ProPrompt" type="VARCHAR" size="255"/>
+        <column name="pro_Comment" phpName="ProComment" type="LONGVARCHAR" required="true" description="for GDPR"/>
         <foreign-key foreignTable="propertytype_prt">
             <reference local="pro_prt_ID" foreign="prt_ID"/>
         </foreign-key>
