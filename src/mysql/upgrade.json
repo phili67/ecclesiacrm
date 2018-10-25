@@ -492,12 +492,21 @@
         ],
         "dbVersion": "4.9.2"
     },
-    "current": {
+    "5.0.0": {
         "versions": [
             "4.9.2"
         ],
         "scripts": [
         ],
         "dbVersion": "5.0.0"
+    },
+    "current": {
+        "versions": [
+            "5.0.0"
+        ],
+        "scripts": [
+            "/mysql/upgrade/5.0.1-upgrade.sql"
+        ],
+        "dbVersion": "5.0.1"
     }
 }

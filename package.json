@@ -1,7 +1,7 @@
 {
   "name": "EcclesiaCRM",
-  "version": "5.0.0",
-  "description": "EcclesiaCRM4 Software",
+  "version": "5.0.1",
+  "description": "EcclesiaCRM5 Software",
   "repository": {
     "type": "git",
     "url": "https://github.com/phili67/ecclesiacrm.git"
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/phili67/ecclesiacrm/issues"
   },
-  "homepage": "http://www.ecclesiacrm.com",
+  "homepage": "https://www.ecclesiacrm.com",
   "devDependencies": {
     "grunt": "1.0.1",
     "grunt-confirm": "^1.0.7",

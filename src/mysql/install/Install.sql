@@ -1695,7 +1695,6 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 ('Person', 'Birth Month', '12', ''),
 ('Person', 'Birth Day', '12', ''),
 ('Person', 'Birth Year', '6', ''),
-('Person', 'Suffix', '3', ''),
 ('Person', 'Hide Age', '3', ''),
 ('Person', 'Role', '12', ''),
 ('Person', 'Home Phone', '3', ''),
@@ -1705,7 +1704,6 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 ('Person', 'Work / Other Email', '3', ''),
 ('Person', 'Facebook ID', '3', ''),
 ('Person', 'Twitter', '3', ''),
-('Person', 'LinkedIn', '3', ''),
 ('Person', 'LinkedIn', '3', ''),
 ('Person', 'Classification', '12', ''),
 ('Person', 'Membership Date','2',''),
@@ -1724,9 +1722,7 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 ('Family', 'Email', '3', ''),
 ('Family', 'Send Newsletter', '1', ''),
 ('Family', 'Wedding Date', '2', ''),
-('Family', 'Wedding Date', '2', ''),
 ('Family', 'Ok To Canvass', '2', '');
-
 --
 -- Dumping data for table `gdpr_infos`
 --
