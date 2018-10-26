@@ -698,29 +698,6 @@ CREATE TABLE `person2group2role_p2g2r` (
   KEY `p2g2r_per_ID` (`p2g2r_per_ID`,`p2g2r_grp_ID`,`p2g2r_rle_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
---
--- Dumping data for table `person2group2role_p2g2r`
---
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `person2volunteeropp_p2vo`
---
-
-CREATE TABLE `person2volunteeropp_p2vo` (
-  `p2vo_ID` mediumint(9) NOT NULL auto_increment,
-  `p2vo_per_ID` mediumint(9) default NULL,
-  `p2vo_vol_ID` mediumint(9) default NULL,
-  PRIMARY KEY  (`p2vo_ID`),
-  UNIQUE KEY `p2vo_ID` (`p2vo_ID`)
-) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `person2volunteeropp_p2vo`
---
-
 
 -- --------------------------------------------------------
 
@@ -1212,7 +1189,8 @@ CREATE TABLE userrole_usrrol (
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`, `usrrol_global`, `usrrol_permissions`, `usrrol_value`) VALUES
 (1, 'User Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:1;QueryMenu:1;MainDashboard:1;SeePrivacyData:1;MailChimp:1;GdrpDpo:1;PastoralCare:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:TRUE;bExportSundaySchoolPDF:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;sCSVExportDelemiter:TRUE;sCSVExportCharset:TRUE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bExportSundaySchoolCSV:1;bExportSundaySchoolPDF:1;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1'),
-(2, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;QueryMenu:0;MainDashboard:0;SeePrivacyData:0;MailChimp:0;GdrpDpo:0;PastoralCare:0;Style:skin-yellow-light', 'bEmailMailto:FALSE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:FALSE;bExportSundaySchoolPDF:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;sCSVExportDelemiter:FALSE;sCSVExportCharset:FALSE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:;sMailtoDelimiter:,;bExportSundaySchoolCSV:;bExportSundaySchoolPDF:;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1');
+(2, 'User Min', 'AddRecords:0;EditRecords:0;DeleteRecords:0;ShowCart:0;ShowMap:0;MenuOptions:0;ManageGroups:0;Finance:0;Notes:0;EditSelf:1;Canvasser:0;Admin:0;QueryMenu:0;MainDashboard:0;SeePrivacyData:0;MailChimp:0;GdrpDpo:0;PastoralCare:0;Style:skin-yellow-light', 'bEmailMailto:FALSE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:FALSE;bExportSundaySchoolPDF:FALSE;bCreateDirectory:FALSE;bExportCSV:FALSE;bUSAddressVerification:FALSE;bShowTooltip:TRUE;sCSVExportDelemiter:FALSE;sCSVExportCharset:FALSE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:;sMailtoDelimiter:,;bExportSundaySchoolCSV:;bExportSundaySchoolPDF:;bCreateDirectory:;bExportCSV:;bUSAddressVerification:;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1'),
+(3, 'User Max but not Admin', 'AddRecords:1;EditRecords:1;DeleteRecords:1;ShowCart:1;ShowMap:1;MenuOptions:1;ManageGroups:1;Finance:1;Notes:1;EditSelf:1;Canvasser:1;Admin:0;QueryMenu:1;MainDashboard:1;SeePrivacyData:1;MailChimp:1;GdrpDpo:1;PastoralCare:1;Style:skin-red-light', 'bEmailMailto:TRUE;sMailtoDelimiter:TRUE;bExportSundaySchoolCSV:TRUE;bExportSundaySchoolPDF:TRUE;bCreateDirectory:TRUE;bExportCSV:TRUE;bUSAddressVerification:TRUE;bShowTooltip:TRUE;sCSVExportDelemiter:TRUE;sCSVExportCharset:TRUE;bSidebarExpandOnHover:TRUE;bSidebarCollapse:TRUE', 'bEmailMailto:1;sMailtoDelimiter:,;bExportSundaySchoolCSV:1;bExportSundaySchoolPDF:1;bCreateDirectory:1;bExportCSV:1;bUSAddressVerification:1;bShowTooltip:1;sCSVExportDelemiter:,;sCSVExportCharset:UTF-8;bSidebarExpandOnHover:1;bSidebarCollapse:1');
 
 
 -- --------------------------------------------------------
@@ -1301,7 +1279,7 @@ VALUES
 --
 
 CREATE TABLE `volunteeropportunity_vol` (
-  `vol_ID` int(3) NOT NULL auto_increment,
+  `vol_ID` mediumint(9) unsigned NOT NULL auto_increment,
   `vol_Order` int(3) NOT NULL default '0',
   `vol_Active` enum('true','false') NOT NULL default 'true',
   `vol_Name` varchar(30) default NULL,
@@ -1314,6 +1292,34 @@ CREATE TABLE `volunteeropportunity_vol` (
 -- Dumping data for table `volunteeropportunity_vol`
 --
 
+--
+-- Dumping data for table `person2group2role_p2g2r`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `person2volunteeropp_p2vo`
+--
+
+CREATE TABLE `person2volunteeropp_p2vo` (
+  `p2vo_ID` mediumint(9) NOT NULL auto_increment,
+  `p2vo_per_ID` mediumint(9) unsigned NOT NULL,
+  `p2vo_vol_ID` mediumint(9) unsigned NOT NULL,
+  PRIMARY KEY  (`p2vo_ID`),
+  UNIQUE KEY `p2vo_ID` (`p2vo_ID`),
+  CONSTRAINT fk_p2vo_per_ID
+    FOREIGN KEY (p2vo_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE,
+  CONSTRAINT fk_p2vo_vol_ID
+    FOREIGN KEY (p2vo_vol_ID) REFERENCES volunteeropportunity_vol(vol_ID)
+    ON DELETE CASCADE
+) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `person2volunteeropp_p2vo`
+--
 
 --
 -- Fundraiser support added 4/11/2009 Michael Wilt
@@ -1685,7 +1691,7 @@ CREATE TABLE `gdpr_infos` (
   PRIMARY KEY  (`gdpr_info_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-
+-- the default value for the CRM : family and person DN Tables
 INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`, `gdpr_info_comment`) VALUES 
 ('Person', 'Gender', '3', ''),
 ('Person', 'Title', '3', ''),

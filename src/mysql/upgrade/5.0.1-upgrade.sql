@@ -24,3 +24,34 @@ UPDATE `query_qry` SET qry_Type_ID = '4' WHERE qry_ID = 31;
 UPDATE `query_qry` SET qry_Type_ID = '4' WHERE qry_ID = 32;
 UPDATE `query_type` SET qry_type_Category = 'Pledges and Payments' WHERE qry_type_id = 4;
 
+
+-- adding data constraint to person2volunteeropp_p2vo
+
+-- First we clean person2volunteeropp_p2vo in case of lost datas
+DELETE FROM `person2volunteeropp_p2vo` WHERE `p2vo_ID` IN (
+select * 
+From
+(
+SELECT t1. p2vo_ID
+FROM person2volunteeropp_p2vo t1
+    LEFT JOIN volunteeropportunity_vol t2 ON t1.p2vo_vol_ID = t2. vol_ID
+WHERE t2. vol_ID IS NULL
+)
+AS tmp
+);
+
+-- now we upgrade the schema
+ALTER TABLE `person2volunteeropp_p2vo`  MODIFY p2vo_vol_ID mediumint(9) unsigned NOT NULL;
+ALTER TABLE `volunteeropportunity_vol` MODIFY vol_ID mediumint(9) unsigned NOT NULL auto_increment;
+
+ALTER TABLE `person2volunteeropp_p2vo`
+ADD   CONSTRAINT fk_p2vo_vol_ID
+    FOREIGN KEY (p2vo_vol_ID) REFERENCES volunteeropportunity_vol(vol_ID)
+    ON DELETE CASCADE;
+
+ALTER TABLE `person2volunteeropp_p2vo`  MODIFY p2vo_per_ID mediumint(9) unsigned NOT NULL;
+
+ALTER TABLE `person2volunteeropp_p2vo`
+ADD   CONSTRAINT fk_p2vo_per_ID
+    FOREIGN KEY (p2vo_per_ID) REFERENCES person_per(per_ID)
+    ON DELETE CASCADE;
