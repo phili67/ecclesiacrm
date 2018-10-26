@@ -157,9 +157,16 @@ public static function FileSizeConvert($bytes)
       case "odt":
         $icon = 'fa-file-word-o text-blue ';
         break;
+      case "ics":
+        $icon = 'fa-calendar-o text-red';
+        break;
+      case "sql":
+        $icon = 'fa-database text-red';
+        break;
       case "xls":
       case "xlsx":
       case "ods":
+      case "csv":
         $icon = ' fa-file-excel-o text-olive';
         break;
       case "xls":
@@ -187,6 +194,9 @@ public static function FileSizeConvert($bytes)
       case "ru":
       case "asp":
       case "m":
+      case "vbs":
+      case "admx":
+      case "adml":
         $icon = 'fa-file-code-o text-black';
         break;
       case "pdf":
@@ -240,6 +250,12 @@ public static function FileSizeConvert($bytes)
       case "py":
       case "ru":
       case "m":
+      case "vbs":
+      case "admx":
+      case "adml":
+      case "ics":
+      case "csv":
+      case "sql":
         $content = file_get_contents( dirname(__FILE__)."/../..".$realPath );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
@@ -328,8 +344,18 @@ public static function FileSizeConvert($bytes)
       case "mm":
       case "vcf":
       case "py":
+      case "mm":
+      case "swift":
+      case "sh":
       case "ru":
+      case "asp":
       case "m":
+      case "vbs":
+      case "admx":
+      case "adml":
+      case "ics":
+      case "csv":
+      case "sql":
         $content = file_get_contents( dirname(__FILE__)."/../..".$path );
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         

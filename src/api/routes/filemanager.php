@@ -157,8 +157,9 @@ $app->group('/filemanager', function () {
                    || strtolower($extension) == 'txt'  || strtolower($extension) == 'ps1' || strtolower($extension) == 'c' || strtolower($extension) == 'cpp' 
                    || strtolower($extension) == 'php'  || strtolower($extension) == 'js'  || strtolower($extension) == 'mm' || strtolower($extension) == 'vcf' 
                    || strtolower($extension) == 'pdf'  || strtolower($extension) == 'mp3' || strtolower($extension) == 'py' || strtolower($extension) == 'ru'
-                   || strtolower($extension) == 'm'
-                 ) ) {
+                   || strtolower($extension) == 'm'    || strtolower($extension) == 'vbs' || strtolower($extension) == 'admx' || strtolower($extension) == 'adml'
+                   || strtolower($extension) == 'ics'  || strtolower($extension) == 'csv' || strtolower($extension) == 'sql'
+                    ) ) {
                  return $response->withJson( ['success' => true,'path' => MiscUtils::simpleEmbedFiles(SystemURLs::getRootPath()."/api/filemanager/getFile/".$params->personID."/".$userName.$currentPath.$params->name)] );
               } else {
                  $realNoteDir = $userDir = $user->getUserRootDir();
