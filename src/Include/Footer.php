@@ -15,8 +15,6 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 
 
-$isAdmin = $_SESSION['user']->isMenuOptionsEnabled();
-
 ?>
 </section><!-- /.content -->
 
