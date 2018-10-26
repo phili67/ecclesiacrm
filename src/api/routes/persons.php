@@ -241,7 +241,7 @@ $app->group('/persons', function () {
     });
     
     $this->post('/deletefield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isAdmin()) {
+      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
       
@@ -287,7 +287,7 @@ $app->group('/persons', function () {
     });
 
     $this->post('/upactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isAdmin()) {
+      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 
@@ -309,7 +309,7 @@ $app->group('/persons', function () {
     });
     
     $this->post('/downactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isAdmin()) {
+      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 

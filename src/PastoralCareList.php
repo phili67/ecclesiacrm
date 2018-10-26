@@ -16,7 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
-if ( !($_SESSION['user']->isAdmin()) ) {
+if ( !($_SESSION['user']->isAdmin()) ) {// only an admin can change this settings, if a pastoral is deleted all the notes will be deleted too...
   Redirect('Menu.php');
   exit;
 }

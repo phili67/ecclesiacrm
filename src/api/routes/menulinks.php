@@ -24,7 +24,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 $app->group('/menulinks', function () {
 
   $this->post('/{userId:[0-9]+}', function ($request, $response, $args) {
-    if ($args['userId'] == 0 && !$_SESSION['user']->isAdmin()) {
+    if ($args['userId'] == 0 && !$_SESSION['user']->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
     }
     

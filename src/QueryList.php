@@ -15,6 +15,11 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 
+if ( !( $_SESSION['user']->isShowMenuQueryEnabled() ) ) {
+    Redirect('Menu.php');
+    exit;
+}
+
 //Set the page title
 $sPageTitle = gettext('Query Listing');
 
@@ -31,7 +36,9 @@ require 'Include/Header.php';
         <p class="text-right">
             <?php
                 if ($_SESSION['user']->isAdmin()) {
-                    echo '<a href="QuerySQL.php" class="text-red">'.gettext('Run a Free-Text Query').'</a>';
+            ?>
+              <a href="QuerySQL.php" class="text-red"><?= gettext('Run a Free-Text Query') ?></a>
+            <?php
                 }
             ?>
         </p>
