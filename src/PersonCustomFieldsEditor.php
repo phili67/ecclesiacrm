@@ -23,7 +23,7 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 
 
 // Security: user must be administrator to use this page
-if (!$_SESSION['user']->isAdmin()) {
+if (!$_SESSION['user']->isMenuOptionsEnabled()) {
     Redirect('Menu.php');
     exit;
 }

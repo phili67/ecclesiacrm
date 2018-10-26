@@ -15,7 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 
 
-$isAdmin = $_SESSION['user']->isAdmin();
+$isAdmin = $_SESSION['user']->isMenuOptionsEnabled();
 
 ?>
 </section><!-- /.content -->
@@ -65,7 +65,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                         <i class="fa fa-cog"></i> <?= gettext('Family Properties') ?>
                     </a>
                 </li>
-                <?php if ($isAdmin) {
+                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
     ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
@@ -87,7 +87,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                         <i class="fa fa-cog"></i> <?= gettext('People Properties') ?>
                     </a>
                 </li>
-                <?php if ($isAdmin) {
+                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
@@ -128,7 +128,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                         <i class="fa fa-cog"></i> <?= gettext('Property Types') ?>
                     </a>
                 </li>
-                <?php if ($isAdmin) {
+                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/VolunteerOpportunityEditor.php">
@@ -137,7 +137,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-                <?php if ($isAdmin && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+                <?php if ($_SESSION['user']->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
@@ -146,7 +146,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-                <?php if ($isAdmin) {
+                <?php if ($_SESSION['user']->isPastoralCareEnabled()) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
@@ -155,7 +155,7 @@ $isAdmin = $_SESSION['user']->isAdmin();
                     </li>
                     <?php
     } ?>
-                <?php if ($isAdmin && SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
+                <?php if ($_SESSION['user']->isMenuOptionsEnabled() && SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
         ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
@@ -171,31 +171,39 @@ $isAdmin = $_SESSION['user']->isAdmin();
         </div>
         <div id="control-sidebar-settings-tab" class="tab-pane">
             <div><h4 class="control-sidebar-heading"><?= gettext('System Settings') ?></h4>
-                <?php if ($isAdmin) {
-        ?>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
-                                <i class="menu-icon fa fa-gears bg-red"></i>
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('Edit General Settings') ?></h4>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= SystemURLs::getRootPath() ?>/UserList.php">
-                                <i class="menu-icon fa fa-user-secret bg-gray"></i>
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('System Users') ?></h4>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <hr/>
-                    <?php
-    } ?>
                 <ul class="control-sidebar-menu">
-                    <?php if ($isAdmin) {
+                  <?php 
+                  if ($_SESSION['user']->isAdmin()) {
+                  ?>
+                    <li>
+                        <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
+                            <i class="menu-icon fa fa-gears bg-red"></i>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading"><?= gettext('Edit General Settings') ?></h4>
+                            </div>
+                        </a>
+                    </li>
+                  <?php
+                   } 
+                  ?>
+                  <?php 
+                  if ($_SESSION['user']->isAdmin()) {
+                  ?>
+                    <li>
+                        <a href="<?= SystemURLs::getRootPath() ?>/UserList.php">
+                            <i class="menu-icon fa fa-user-secret bg-gray"></i>
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading"><?= gettext('System Users') ?></h4>
+                            </div>
+                        </a>
+                    </li>
+                  <?php
+                  } 
+                  ?>
+                </ul>
+                <hr/>
+                <ul class="control-sidebar-menu">
+                    <?php if ($_SESSION['user']->isAdmin()) {
         ?>
                         <li>
                             <a href="<?= SystemURLs::getRootPath() ?>/RestoreDatabase.php">
@@ -231,8 +239,12 @@ $isAdmin = $_SESSION['user']->isAdmin();
                         </li>
                         <?php
     } else {
-        echo gettext('Please contact your admin to change the system settings.');
+    ?>
+        <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
+    <?php
     } ?>
+                    <?php if ($_SESSION['user']->isAdmin()) {
+        ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
                             <i class="menu-icon fa fa-download bg-green"></i>
@@ -241,6 +253,8 @@ $isAdmin = $_SESSION['user']->isAdmin();
                             </div>
                         </a>
                     </li>
+<?php
+    } ?>                    
                 </ul>
             </div>
         </div>

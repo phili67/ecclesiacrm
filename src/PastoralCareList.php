@@ -16,7 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
-if ( !($_SESSION['user']->isAdmin()) ) {
+if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
   Redirect('Menu.php');
   exit;
 }
@@ -28,7 +28,7 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['user']->isAdmin()) {
+<?php if ($_SESSION['user']->isPastoralCareEnabled()) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-pastoral-care"><?= gettext("Add a New Pastoral Care Type") ?></button></p>
 <?php 

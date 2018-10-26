@@ -458,6 +458,11 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isSeePrivacyData();
     }
+    
+    public function isShowMenuQueryEnabled()
+    {
+        return $this->isAdmin() || $this->isShowMenuQuery();
+    }
 
     public function updatePassword($password)
     {

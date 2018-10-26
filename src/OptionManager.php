@@ -76,7 +76,7 @@ switch ($mode) {
     case 'custom':
     case 'famcustom':
     case 'securitygrp':
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
             Redirect('Menu.php');
             exit;
         }

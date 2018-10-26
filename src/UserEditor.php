@@ -154,6 +154,12 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $Admin = 0;
         }
         
+        if (isset($_POST['QueryMenu'])) {
+            $QueryMenu = 1;
+        } else {
+            $QueryMenu = 0;
+        }
+        
         if (isset($_POST['PastoralCare'])) {
             $PastoralCare = 1;
         } else {
@@ -226,6 +232,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setNotes($Notes);
                     
                     $user->setAdmin($Admin);
+                    $user->setShowMenuQuery($QueryMenu);
                     $user->setStyle($Style);
                     //$user->setDefaultFY($usr_defaultFY);
                     $user->setUserName($sUserName);
@@ -275,6 +282,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setFinance($Finance);
                     $user->setNotes($Notes);                    
                     $user->setAdmin($Admin);
+                    $user->setShowMenuQuery($QueryMenu);
                     $user->setStyle($Style);
                     $user->setUserName($sUserName);                    
                     $user->setEditSelf($EditSelf);
@@ -340,6 +348,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_Finance = 0;
             $usr_Notes = 0;
             $usr_Admin = 0;
+            $usr_showMenuQuery = 0;
             $usr_EditSelf = 1;
             $usr_Canvasser = 0;
             $usr_Style = 'skin-blue-light';
@@ -365,6 +374,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_Finance = 0;
         $usr_Notes = 0;
         $usr_Admin = 0;
+        $usr_showMenuQuery = 0;
         $usr_EditSelf = 1;
         $usr_Canvasser = 0;
         $sUserName = '';
@@ -640,6 +650,13 @@ if ($usr_role_id == null) {
                         <td><input type="checkbox" class="global_settings" name="Admin" value="1"<?php if ($usr_Admin) {
                         echo ' checked';
                     } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
+                    </tr>
+
+                    <tr>
+                        <td><?= gettext('Query Menu') ?>:</td>
+                        <td><input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?php if ($usr_showMenuQuery) {
+                        echo ' checked';
+                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Allow to manage the query menu)') ?></span></td>
                     </tr>
                     
                     <tr>

@@ -22,7 +22,7 @@ if (isset($_GET['personId'])) {
   $personId = InputUtils::LegacyFilterInput($_GET['personId']);
 }
 
-if ( !($_SESSION['user']->isAdmin() || $personId > 0 && $personId == $_SESSION['user']->getPersonId())) {
+if ( !($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId == $_SESSION['user']->getPersonId())) {
   Redirect('Menu.php');
   exit;
 }

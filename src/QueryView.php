@@ -16,6 +16,11 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 
+// Security
+if ( !( $_SESSION['user']->isShowMenuQueryEnabled() ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 //Set the page title
 $sPageTitle = gettext('Query View');

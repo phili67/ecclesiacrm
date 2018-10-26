@@ -16,7 +16,7 @@ use EcclesiaCRM\Utils\InputUtils;
 // For now ... require $bAdmin
 // Future ... $bManageVol
 
-if (!$_SESSION['user']->isAdmin()) {
+if (!$_SESSION['user']->isMenuOptionsEnabled()) {
     Redirect('Menu.php');
     exit;
 }
