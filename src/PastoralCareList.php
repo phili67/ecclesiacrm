@@ -16,7 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
-if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
+if ( !($_SESSION['user']->isAdmin()) ) {// only an admin can change this settings, if a pastoral is deleted all the notes will be deleted too...
   Redirect('Menu.php');
   exit;
 }
@@ -28,7 +28,7 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['user']->isPastoralCareEnabled()) {
+<?php if ($_SESSION['user']->isAdmin()) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-pastoral-care"><?= gettext("Add a New Pastoral Care Type") ?></button></p>
 <?php 
