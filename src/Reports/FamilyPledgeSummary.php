@@ -17,7 +17,7 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
 
 // Security
-if (!$_SESSION['user']->isFinanceEnabled()) {
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     Redirect('Menu.php');
     exit;
 }

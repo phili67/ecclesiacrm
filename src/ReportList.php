@@ -18,8 +18,13 @@ use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\EventTypesTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\dto\SystemConfig;
 
-
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 //Set the page title
 $sPageTitle = gettext('Report Menu');

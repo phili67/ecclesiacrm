@@ -20,7 +20,7 @@ use EcclesiaCRM\dto\SystemConfig;
 $sPageTitle = gettext('Envelope Manager');
 
 // Security: User must have finance permission to use this form
-if (!$_SESSION['user']->isFinanceEnabled()) {
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     Redirect('Menu.php');
     exit;
 }

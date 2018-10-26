@@ -12,8 +12,10 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\SystemConfig;
 
-if (!$_SESSION['user']->isFinanceEnabled() && !$_SESSION['user']->isAdmin()) {
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     Redirect('Menu.php');
     exit;
 }

@@ -23,6 +23,11 @@ use EcclesiaCRM\AutoPayment;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\FamilyQuery;
 
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 if (SystemConfig::getValue('bUseScannedChecks')) { // Instantiate the MICR class
     $micrObj = new MICRReader();

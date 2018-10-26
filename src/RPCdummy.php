@@ -4,6 +4,13 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 $mode = $_GET['mode'];
 $data = InputUtils::LegacyFilterInput($_GET['data'], 'int');

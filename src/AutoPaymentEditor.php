@@ -211,7 +211,9 @@ if (isset($_POST['Submit'])) {
 
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
-        if ($linkBack != '') {
+        if ($linkBack == "ElectronicPaymentList.php") {
+          Redirect($linkBack);
+        } else if ($linkBack != '') {
           $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
           if (!is_null ($ormFamily)) {
             $people = $ormFamily->getActivatedPeople();

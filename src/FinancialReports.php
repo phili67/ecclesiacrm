@@ -17,7 +17,7 @@ use EcclesiaCRM\dto\SystemURLs;
 
 
 // Security
-if (!$_SESSION['user']->isFinanceEnabled()) {
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     Redirect('Menu.php');
     exit;
 }

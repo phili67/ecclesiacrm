@@ -23,6 +23,12 @@ $iDepositSlipID = 0;
 $thisDeposit = 0;
 $dep_Closed = false;
 
+// Security: User must have finance permission or be the one who created this deposit
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
+    exit;
+}
+
 if (array_key_exists('DepositSlipID', $_GET)) {
     $iDepositSlipID = InputUtils::LegacyFilterInput($_GET['DepositSlipID'], 'int');
 }
@@ -48,7 +54,7 @@ if ($iDepositSlipID) {
     }
 
     // Security: User must have finance permission or be the one who created this deposit
-    if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->getPersonId() == $thisDeposit->getEnteredby())) {
+    if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->getPersonId() == $thisDeposit->getEnteredby()) && SystemConfig::getBooleanValue('bEnabledFinance')) {
         Redirect('Menu.php');
         exit;
     }

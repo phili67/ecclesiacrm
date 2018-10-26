@@ -16,6 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 
+
 //Set the page title
 $sPageTitle = gettext('Query View');
 
@@ -24,7 +25,7 @@ $iQueryID = InputUtils::LegacyFilterInput($_GET['QueryID'], 'int');
 
 $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 
-if (!$_SESSION['user']->isFinanceEnabled() && in_array($iQueryID, $aFinanceQueries)) {
+if ( !($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries) ) {
     Redirect('Menu.php');
     exit;
 }

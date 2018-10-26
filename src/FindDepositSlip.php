@@ -14,6 +14,13 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\dto\SystemConfig;
+
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 $iDepositSlipID = $_SESSION['iCurrentDeposit'];
 
