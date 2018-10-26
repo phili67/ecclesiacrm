@@ -16,6 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 
+
 //Set the page title
 $sPageTitle = gettext('Query View');
 
