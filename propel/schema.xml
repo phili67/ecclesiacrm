@@ -910,7 +910,7 @@
     </table>
 
     <table name="volunteeropportunity_vol" idMethod="native" phpName="VolunteerOpportunity" description="This contains the names and descriptions of volunteer opportunities">
-        <column name="vol_ID" phpName="Id" type="INTEGER" size="3" primaryKey="true" autoIncrement="true" required="true"/>
+        <column name="vol_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="vol_Order" phpName="Order" type="INTEGER" size="3" required="true" defaultValue="0"/>
         <column name="vol_Active" phpName="Active" type="CHAR" sqlType="enum('true','false')" required="true" defaultValue="true"/>
         <column name="vol_Name" phpName="Name" type="VARCHAR" size="30"/>
@@ -1091,6 +1091,18 @@
         <column name="p2vo_ID" phpName="Id" type="SMALLINT" size="9" primaryKey="true" autoIncrement="true" required="true"/>
         <column name="p2vo_per_ID" phpName="PersonId" type="SMALLINT" size="9"/>
         <column name="p2vo_vol_ID" phpName="VolunteerOpportunityId" type="SMALLINT" size="9"/>
+        <foreign-key foreignTable="person_per" name="fk_p2vo_per_ID" onDelete="CASCADE">
+          <reference local="p2vo_per_ID" foreign="per_ID"/>
+        </foreign-key>
+        <foreign-key foreignTable="volunteeropportunity_vol" name="fk_p2vo_vol_ID" onDelete="CASCADE">
+          <reference local="p2vo_vol_ID" foreign="vol_ID"/>
+        </foreign-key>
+        <index name="fk_p2vo_vol_ID">
+          <index-column name="p2vo_vol_ID"/>
+        </index>
+        <index name="fk_p2vo_per_ID">
+          <index-column name="p2vo_per_ID"/>
+        </index>
         <unique name="p2vo_ID">
             <unique-column name="p2vo_ID"/>
         </unique>
