@@ -59,7 +59,7 @@ $app->group('/menulinks', function () {
         $position = "none";
       }
       
-      $res .= $new_elt."\"place\":\"".$position."\"},";
+      $res .= $new_elt."\"place\":\"".$position."\",\"realplace\":\"".$place."\"},";
     }
     
     echo "{\"MenuLinks\":[".substr($res, 0, -1)."]}"; 
@@ -153,7 +153,7 @@ $app->group('/menulinks', function () {
         $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId($input->PersonID);
       }
     
-      $place = 0;
+      $place = 1;
     
       foreach ($menuLinks as $menuLink) {// get the last Order !!!
          $place = $menuLink->getOrder()+1;
@@ -183,8 +183,7 @@ $app->group('/menulinks', function () {
   $this->post('/set', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->URI) 
-      && isset ($input->MenuLinkId) && isset ($input->Name) ){
+    if (isset ($input->URI) && isset ($input->MenuLinkId) && isset ($input->Name) ){
       
       $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
       
