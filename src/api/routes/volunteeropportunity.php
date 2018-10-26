@@ -63,7 +63,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/delete', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->id) ){
+    if ( isset ($input->id) && $_SESSION['user']->isAdmin() ){
       $vo = VolunteerOpportunityQuery::Create()->findOneById($input->id);
       $place = $vo->getOrder();
       
@@ -93,7 +93,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/upaction', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->id) && isset ($input->place) ){
+    if ( isset ($input->id) && isset ($input->place) && $_SESSION['user']->isAdmin() ){
       // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
       $firstVO = VolunteerOpportunityQuery::Create()->findOneByOrder($input->place - 1);
       $firstVO->setOrder($input->place)->save();
@@ -110,7 +110,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/downaction', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->id) && isset ($input->place) ){
+    if ( isset ($input->id) && isset ($input->place) && $_SESSION['user']->isAdmin()  ){
       // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
       $firstVO = VolunteerOpportunityQuery::Create()->findOneByOrder($input->place + 1);
       $firstVO->setOrder($input->place)->save();
@@ -128,7 +128,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/create', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->Name) && isset ($input->desc) && isset ($input->state) ){
+    if ( isset ($input->Name) && isset ($input->desc) && isset ($input->state) && $_SESSION['user']->isAdmin()  ){
       $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByOrder(Criteria::DESC)->find();
     
       $place = 1;
@@ -157,7 +157,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/set', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->id) && isset ($input->Name) && isset ($input->desc) && isset ($input->state) ){
+    if (isset ($input->id) && isset ($input->Name) && isset ($input->desc) && isset ($input->state) && $_SESSION['user']->isAdmin()  ){
       
       $vo = VolunteerOpportunityQuery::Create()->findOneById($input->id);
       
@@ -176,7 +176,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/edit', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->id) ){
+    if (isset ($input->id) && $_SESSION['user']->isAdmin() ){
       return VolunteerOpportunityQuery::Create()->findOneById($input->id)->toJSON();
     }   
     
