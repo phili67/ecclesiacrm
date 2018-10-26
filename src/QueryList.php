@@ -13,13 +13,15 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemConfig;
+
 //Set the page title
 $sPageTitle = gettext('Query Listing');
 
 $sSQL = 'SELECT * FROM query_qry LEFT JOIN query_type ON query_qry.qry_Type_ID = query_type.qry_type_id ORDER BY query_qry.qry_Type_ID, query_qry.qry_Name';
 $rsQueries = RunQuery($sSQL);
 
-$aFinanceQueries = explode(',', $aFinanceQueries);
+$aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 
 require 'Include/Header.php';
 
@@ -39,38 +41,46 @@ require 'Include/Header.php';
                 $query_type = 0;
                 $first_time = true;
                 $open_ul = false;
+                $count = 0;
                 
                 while ($aRow = mysqli_fetch_array($rsQueries)) {?>            
                 <?php
                     extract($aRow);
                     
                     if ($qry_Type_ID != $query_type) {
-                      if ($first_time == false) { ?>
+                      if ($first_time == false) {
+                        if ($count == 0) {
+                ?>
+                        <li><?= gettext("Forbidden") ?>
+                <?php
+                        }
+                        $count = 0;
+                ?>
                         </ul></li>
-                      <?php
+                <?php
                       }
-                      ?>
+                ?>
                       <li><b><?= mb_convert_case(gettext($qry_type_Category), MB_CASE_UPPER, "UTF-8") ?></b><br>
                       <ul>
                       <?php
                       $query_type = $qry_Type_ID;
                       $first_time = false;
                     }
+
+                    // Filter out finance-related queries if the user doesn't have finance permissions
+                    if ($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') && in_array($qry_ID, $aFinanceQueries) || !in_array($qry_ID, $aFinanceQueries)) {
+                        // Display the query name and description
                     ?>
                     <li>
-                    <?php
-                    // Filter out finance-related queries if the user doesn't have finance permissions
-                    if ($_SESSION['user']->isFinanceEnabled() || !in_array($qry_ID, $aFinanceQueries)) {
-                        // Display the query name and description
-                        ?>
                         <a href="QueryView.php?QueryID=<?= $qry_ID ?>"><?= gettext($qry_Name) ?></a>:
                         <br>
                         <?= gettext($qry_Description) ?>
-                    <?php
-                    }
-                    ?>
                     </li>
-            <?php } ?>
+                <?php
+                        $count++;
+                    }
+                } 
+                ?>
         </ul>
     </div>
     

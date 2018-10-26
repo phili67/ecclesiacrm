@@ -20,10 +20,11 @@ require "../Include/ReportFunctions.php";
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
-//Security
-if (!$_SESSION['user']->isFinanceEnabled()) {
-    Redirect("Menu.php");
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    Redirect('Menu.php');
     exit;
 }
 

@@ -431,7 +431,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ($_SESSION['user']->isFinanceEnabled()) {
+            if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
             
@@ -487,7 +487,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ($_SESSION['user']->isFinanceEnabled()) {
+            if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
             

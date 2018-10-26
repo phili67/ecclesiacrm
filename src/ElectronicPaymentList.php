@@ -23,7 +23,8 @@ use EcclesiaCRM\Utils\OutputUtils;
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['user']->isAdmin()) {
+// Security
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     Redirect('Menu.php');
     exit;
 }

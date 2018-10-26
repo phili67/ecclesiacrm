@@ -561,7 +561,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext("Timeline") ?></a></li>
           <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext("Assigned Properties") ?></a></li>
         <?php 
-          if ($_SESSION['user']->isFinanceEnabled()) {
+          if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
         ?>
           <li role="presentation"><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= gettext("Automatic Payments") ?></a></li>
           <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= gettext("Pledges and Payments") ?></a></li>
