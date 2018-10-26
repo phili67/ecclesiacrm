@@ -505,7 +505,8 @@
             "5.0.0"
         ],
         "scripts": [
-            "/mysql/upgrade/5.0.1-upgrade.sql"
+            "/mysql/upgrade/5.0.1-upgrade.sql",
+            "/mysql/upgrade/5.0.1-upgrade.php"
         ],
         "dbVersion": "5.0.1"
     }
