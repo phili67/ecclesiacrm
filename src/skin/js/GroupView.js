@@ -203,7 +203,7 @@ $(document).ready(function () {
             promptBox
                 .addClass('form-group')
                 .append(
-                    $('<label></label>').html(pro_prompt)
+                    $('<label style="color:white"></label>').html(pro_prompt)
                 )
                 .append(
                     $('<textarea rows="3" class="form-control property-value" name="PropertyValue"></textarea>').val(pro_value)
