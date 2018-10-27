@@ -21,7 +21,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
     Redirect('Menu.php');
     exit;
 }
@@ -35,7 +35,7 @@ $year = $today['year'];
 require 'Include/Header.php';
 ?>
   <!-- ./col -->
-  <?php if ($_SESSION['user']->isFinanceEnabled()) {
+  <?php if ($_SESSION['user']->isFinanceEnabled() || SystemConfig::getBooleanValue('bEnabledFinance') ) {
     ?>
 <div class="row">
     <div class="col-lg-12">
@@ -61,7 +61,7 @@ require 'Include/Header.php';
 }
 
 //Conditionally Display the Event Reports, only if there are actually events in the database.  Otherwise, Don't render the Event reports section.
-
+if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
 $ormOpps = EventTypesQuery::Create()
                   ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
                   ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
@@ -89,6 +89,7 @@ $ormOpps = EventTypesQuery::Create()
     </div>
     <?php
   }
+}
   ?>
 </div>
 

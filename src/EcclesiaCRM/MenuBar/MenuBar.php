@@ -361,7 +361,7 @@ class MenuBar {
       // the menu report
       $menu = new Menu (gettext("Data/Reports"),"fa fa-file-pdf-o","#",$_SESSION['user']->isShowMenuQueryEnabled());
 
-        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-circle-o","ReportList.php",$_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance'),$menu);
+        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-circle-o","ReportList.php",$_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'),$menu);
         $menuItem = new Menu (gettext("Query Menu"),"fa fa-circle-o","QueryList.php",$_SESSION['user']->isShowMenuQueryEnabled(),$menu);
 
       if ($_SESSION['user']->isShowMenuQueryEnabled()) {
