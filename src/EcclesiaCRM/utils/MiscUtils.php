@@ -234,6 +234,12 @@ public static function FileSizeConvert($bytes)
     $res = ($extension == "")?(gettext("Folder")." : ".$filename):(gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>");
     
     switch (strtolower($extension)) {
+      /*case "doc":
+      case "docx":
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load($path);
+        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
+        $htmlWriter->save('test1doc.html');
+        break;*/
       case "jpg":
       case "jpeg":
       case "png":
@@ -461,7 +467,7 @@ public static function FileSizeConvert($bytes)
     
     switch ($notetype) {
       case 'note':
-        $type = gettext("Classic Document");
+        $type = gettext("Classic Note");
         break;
       case 'video':
         $type = gettext("Classic Video");
