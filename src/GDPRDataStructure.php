@@ -53,6 +53,14 @@ require 'Include/Header.php';
 
 ?>
 
+<div class="box box-primary box-body">
+  <div class="row ">
+      <div class="col-sm-2" style="vertical-align: middle;">
+         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GDPRDataStructureExport.php"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+      </div>
+    </div>
+</div>
+
   <div class="alert alert-info">
     <i class="fa fa-info-circle"></i>
     <?= gettext("To validate each text fields, use the tab or enter key !!!") ?>
