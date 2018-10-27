@@ -51,6 +51,9 @@ use EcclesiaCRM\Service\SystemService;
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-settings-other-tab">
+      <?php 
+        if ($_SESSION['user']->isMenuOptionsEnabled()) {
+      ?>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Family') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
@@ -63,15 +66,11 @@ use EcclesiaCRM\Service\SystemService;
                         <i class="fa fa-cog"></i> <?= gettext('Family Properties') ?>
                     </a>
                 </li>
-                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
-    ?>
-                    <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
-                            <i class="fa fa-cog"></i> <?= gettext('Edit Custom Family Fields') ?>
-                        </a>
-                    </li>
-                    <?php
-} ?>
+                <li>
+                    <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
+                        <i class="fa fa-cog"></i> <?= gettext('Edit Custom Family Fields') ?>
+                    </a>
+                </li>
             </ul>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Person') ?></h4>
             <ul class="control-sidebar-menu">
@@ -85,25 +84,26 @@ use EcclesiaCRM\Service\SystemService;
                         <i class="fa fa-cog"></i> <?= gettext('People Properties') ?>
                     </a>
                 </li>
-                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
-        ?>
-                    <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
-                            <i class="fa fa-cog"></i> <?= gettext('Edit Custom Person Fields') ?>
-                        </a>
-                    </li>
-                    <?php
-    } ?>
+                <li>
+                    <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
+                        <i class="fa fa-cog"></i> <?= gettext('Edit Custom Person Fields') ?>
+                    </a>
+                </li>
             </ul>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Group') ?></h4>
             <ul class="control-sidebar-menu">
+          <?php
+             if ($_SESSION['user']->isManageGroupsEnabled()) {
+          ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=g">
                         <i class="fa fa-cog"></i> <?= gettext('Group Properties') ?>
                     </a>
                 </li>
           <?php
-             if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+             }
+
+             if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || $_SESSION['user']->isManageGroupsEnabled() ) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
@@ -112,12 +112,17 @@ use EcclesiaCRM\Service\SystemService;
                 </li>
           <?php
              }
+
+             if ($_SESSION['user']->isManageGroupsEnabled()) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
                         <i class="fa fa-cog"></i> <?= gettext('Edit Group Types') ?>
                     </a>
                 </li>
+          <?php
+             }
+          ?>
             </ul>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Other') ?></h4>
             <ul class="control-sidebar-menu">
@@ -126,47 +131,62 @@ use EcclesiaCRM\Service\SystemService;
                         <i class="fa fa-cog"></i> <?= gettext('Property Types') ?>
                     </a>
                 </li>
-                <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
-        ?>
+              <?php
+                if ($_SESSION['user']->isCanvasserEnabled()) {
+              ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/VolunteerOpportunityEditor.php">
                             <i class="fa fa-cog"></i> <?= gettext('Volunteer Opportunities') ?>
                         </a>
                     </li>
-                    <?php
-    } ?>
-                <?php if ($_SESSION['user']->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
-        ?>
+              <?php
+                } 
+              
+                if ($_SESSION['user']->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+              ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
                             <i class="fa fa-cog"></i> <?= gettext('Edit Donation Funds') ?>
                         </a>
                     </li>
-                    <?php
-    } ?>
-                <?php if ($_SESSION['user']->isPastoralCareEnabled()) {
-        ?>
+              <?php
+                 } 
+                
+                 if ($_SESSION['user']->isPastoralCareEnabled()) {
+              ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
                             <i class="fa fa-cog"></i> <?= gettext("Pastoral Care Type") ?>
                         </a>
                     </li>
-                    <?php
-    } ?>
-                <?php if ($_SESSION['user']->isMenuOptionsEnabled() && SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
-        ?>
+              <?php
+                }
+                
+                if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
+              ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
                             <i class="fa fa-cog"></i> <?= gettext("Global Custom Menus") ?>
                         </a>
                     </li>
-                    <?php
-    } ?>
+              <?php
+                } 
+              ?>
             </ul>
-
+         
             <!-- /.control-sidebar-menu -->
 
+      <?php
+        } else {
+      ?>
+           <ul>
+               <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
+           </ul>
+      <?php
+        }
+      ?>
         </div>
+
         <div id="control-sidebar-settings-tab" class="tab-pane">
             <div><h4 class="control-sidebar-heading"><?= gettext('System Settings') ?></h4>
                 <ul class="control-sidebar-menu">
@@ -201,8 +221,9 @@ use EcclesiaCRM\Service\SystemService;
                 </ul>
                 <hr/>
                 <ul class="control-sidebar-menu">
-                    <?php if ($_SESSION['user']->isAdmin()) {
-        ?>
+                  <?php 
+                    if ($_SESSION['user']->isAdmin()) {
+                  ?>
                         <li>
                             <a href="<?= SystemURLs::getRootPath() ?>/RestoreDatabase.php">
                                 <i class="menu-icon fa fa-database bg-yellow-gradient"></i>
@@ -235,14 +256,15 @@ use EcclesiaCRM\Service\SystemService;
                                 </div>
                             </a>
                         </li>
-                        <?php
-    } else {
-    ?>
-        <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
-    <?php
-    } ?>
-                    <?php if ($_SESSION['user']->isAdmin()) {
-        ?>
+                  <?php
+                    } else {
+                  ?>
+                        <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
+                  <?php
+                    } 
+                    
+                    if ($_SESSION['user']->isAdmin()) {
+                  ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
                             <i class="menu-icon fa fa-download bg-green"></i>
@@ -251,8 +273,9 @@ use EcclesiaCRM\Service\SystemService;
                             </div>
                         </a>
                     </li>
-<?php
-    } ?>                    
+                  <?php
+                    } 
+                  ?>
                 </ul>
             </div>
         </div>

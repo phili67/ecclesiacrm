@@ -17,7 +17,7 @@ use EcclesiaCRM\dto\SystemURLs;
 // For now ... require $bAdmin
 // Future ... $bManageVol
 
-if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+if ( !( $_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isCanvasserEnabled() ) ) {
     Redirect('Menu.php');
     exit;
 }
@@ -28,12 +28,15 @@ $sPageTitle = gettext('Volunteer Opportunity Editor');
 require 'Include/Header.php';
 ?>
 
-<?php if ($_SESSION['user']->isAdmin()) {
+<?php if ($_SESSION['user']->isCanvasserEnabled()) {// only an admin can modify the options
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-volunteer-opportunity"><?= gettext("Add Volunteer Opportunity") ?></button></p>
 <?php 
+} else {
+?>
+    <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Only an admin can modify or delete this records.') ?></div>
+<?php
 }
-
 ?>
 <div class="box box-body">
 

@@ -258,7 +258,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
     ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId()) ||
     ($_SESSION['user']->isEditSelfEnabled() && $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())
     );
-
 ?>
 
 <?php if (!empty($person->getDateDeactivated())) {

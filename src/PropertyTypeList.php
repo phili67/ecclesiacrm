@@ -27,25 +27,37 @@ $ormPropertyTypes = PropertyTypeQuery::Create()
   ->groupByPrtName()
   ->find();
 
+if ( !( $_SESSION['user']->isMenuOptionsEnabled() ) ) {
+    Redirect('Menu.php');
+    exit;
+}
 
 require 'Include/Header.php';
-?>
-<div class="box box-body">
-    <div class="table-responsive">
-<?php //Display the new property link
-if ($_SESSION['user']->isMenuOptionsEnabled()) {
+
+//Display the new property link
+if ( $_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
     <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= gettext('Add a New Property Type') ?></a></p>
 <?php
+} else {
+?>
+    <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Only an admin can modify or delete this records.') ?></div>
+<?php
 }
+?>
 
+<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Be carefull not to delete this properties, all the persons, families and groups will be affected by this choice.') ?></div>
+
+<div class="box box-body">
+    <div class="table-responsive">
+<?php
 //Start the table
 ?>
 <table class="table table-hover dt-responsive dataTable no-footer dtr-inline" id="property-listing-table" style="width:100%">
 <thead>
 <tr>
 <?php
-if ($_SESSION['user']->isMenuOptionsEnabled()) {
+if ( $_SESSION['user']->isMenuOptionsEnabled()) {
 ?>
    <th><?= gettext('Action') ?></th>
 <?php
