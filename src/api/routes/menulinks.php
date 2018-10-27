@@ -68,7 +68,7 @@ $app->group('/menulinks', function () {
   $this->post('/delete', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset ($input->MenuLinkId) && $_SESSION['user']->isAdmin() ){
+    if ( isset ($input->MenuLinkId) && $_SESSION['user']->isMenuOptionsEnabled() ){
       $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
       $place = $menuLink->getOrder();
       
@@ -99,7 +99,7 @@ $app->group('/menulinks', function () {
   $this->post('/upaction', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && $_SESSION['user']->isAdmin() ){
+    if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && $_SESSION['user']->isMenuOptionsEnabled() ){
       if ($input->PersonID == 0) {
         $personID = null;
       } else {
@@ -122,7 +122,7 @@ $app->group('/menulinks', function () {
   $this->post('/downaction', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && $_SESSION['user']->isAdmin() ){
+    if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && $_SESSION['user']->isMenuOptionsEnabled() ){
             if ($input->PersonID == 0) {
         $personID = null;
       } else {
@@ -146,7 +146,7 @@ $app->group('/menulinks', function () {
   $this->post('/create', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->PersonID) && isset ($input->Name) && isset ($input->URI) && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->PersonID) && isset ($input->Name) && isset ($input->URI) && $_SESSION['user']->isMenuOptionsEnabled() ){
       if ($input->PersonID == 0) {
         $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::DESC)->findByPersonId(null);
       } else {
@@ -183,7 +183,7 @@ $app->group('/menulinks', function () {
   $this->post('/set', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->URI) && isset ($input->MenuLinkId) && isset ($input->Name) && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->URI) && isset ($input->MenuLinkId) && isset ($input->Name) && $_SESSION['user']->isMenuOptionsEnabled() ){
       
       $menuLink = MenuLinkQuery::Create()->findOneById($input->MenuLinkId);
       
@@ -201,7 +201,7 @@ $app->group('/menulinks', function () {
   $this->post('/edit', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->MenuLinkId) && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->MenuLinkId) && $_SESSION['user']->isMenuOptionsEnabled() ){
       return MenuLinkQuery::Create()->findOneById($input->MenuLinkId)->toJSON();
     }   
     

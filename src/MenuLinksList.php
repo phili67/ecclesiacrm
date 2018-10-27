@@ -36,7 +36,7 @@ if ($personId > 0) {// we are in the case of Personal Links
 
 require 'Include/Header.php';
 
-if ($_SESSION['user']->isAdmin() || $personId > 0 && $personId == $_SESSION['user']->getPersonId() ) {
+if ($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId == $_SESSION['user']->getPersonId() ) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= gettext("Add Custom Menu Link") ?></button></p>
 <?php 
