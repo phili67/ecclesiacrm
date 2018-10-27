@@ -98,6 +98,23 @@ $(document).ready(function () {
     columns: [
       {
         width: 'auto',
+        title:i18next.t('Actions'),
+        data:'ProId',
+        render: function(data, type, full, meta) {
+          var ret = '';
+          if (full.ProPrompt != '') {
+            ret += '<a href="" class="edit-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
+          } else {
+            ret += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+          }
+            
+          ret += '<a href="" class="remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
+          
+          return ret;
+        }
+      },
+      {
+        width: 'auto',
         title:i18next.t('Name'),
         data:'ProName',
         render: function(data, type, full, meta) {
@@ -110,26 +127,6 @@ $(document).ready(function () {
         data:'R2pValue',
         render: function(data, type, full, meta) {
           return data;
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Edit'),
-        data:'ProId',
-        render: function(data, type, full, meta) {
-          if (full.ProPrompt != '') {       
-            return '<a class="btn btn-success edit-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
-          }
-          
-          return "";
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
-        data:'ProId',
-        render: function(data, type, full, meta) {
-          return '<a class="btn btn-danger remove-property-btn" data-person_id="'+window.CRM.currentPersonID+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
         }
       }
     ],
@@ -846,6 +843,14 @@ $(document).ready(function () {
     columns: [
       {
         width: 'auto',
+        title:i18next.t('Actions'),
+        data:'Id',
+        render: function(data, type, full, meta) {
+          return '<a href="#" class="delete-volunteerOpportunityId" data-volunteerOpportunityId="'+full.Id+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
+        }
+      },
+      {
+        width: 'auto',
         title:i18next.t('Name'),
         data:'Name',
         render: function(data, type, full, meta) {
@@ -860,15 +865,6 @@ $(document).ready(function () {
           var fmt = window.CRM.datePickerformat.toUpperCase();
           
           return data;
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Remove'),
-        data:'Id',
-        render: function(data, type, full, meta) {
-          return '<a class="SmallText btn btn-danger delete-volunteerOpportunityId" href="#" data-volunteerOpportunityId="'+full.Id+'">' + i18next.t('Remove')+ '</a>';
-          //return '<a class="SmallText btn btn-danger" href="' + window.CRM.root +'/PersonView.php?PersonID='+window.CRM.currentPersonID+'&RemoveVO='+full.Id+'">' + i18next.t('Remove')+ '</a>';
         }
       },
     ],
@@ -993,18 +989,11 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('Edit'),
-        data:'Id',
-        render: function(data, type, full, meta) {        
-          return '<a class="btn btn-success" href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t('Edit')+'</a>';
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
+        title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<button class="btn btn-danger delete-payment" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+          return '<a href="' + window.CRM.root +'/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
+                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -1164,26 +1153,21 @@ $(document).ready(function () {
           return i18next.t(data);
         }
       },
+      
       {
         width: 'auto',
-        title:i18next.t('Edit'),
+        title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="btn btn-success" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'">'+i18next.t("Edit")+'</a>';
+          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=PersonView.php?PersonID='+window.CRM.currentPersonID+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+          
+          if (full.Closed != "1") {
+            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          }
+          
+          return ret;
         }
       },      
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
-        data:'Id',
-        render: function(data, type, full, meta) {
-          if (full.Closed == "1") {
-            return '<button class="btn btn-danger" data-id="'+data+'" disabled>'+i18next.t('Delete')+'</button>';
-          } else {
-            return '<button class="btn btn-danger delete-pledge" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
-          }
-        }
-      },
       {
         width: 'auto',
         title:i18next.t('Date Updated'),

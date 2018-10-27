@@ -85,10 +85,14 @@ $(document).ready(function () {
       columns: [
         {
           width: 'auto',
-          title:i18next.t('Name'),
-          data:'ProName',
+          title:i18next.t('Edit'),
+          data:'ProId',
           render: function(data, type, full, meta) {
-            return i18next.t(data);
+            if (full.ProPrompt != '') {       
+              return '<a href="#" class="edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></a>';
+            }
+          
+            return "";
           }
         },
         {
@@ -101,22 +105,18 @@ $(document).ready(function () {
         },
         {
           width: 'auto',
-          title:i18next.t('Edit'),
+          title:i18next.t('Action'),
           data:'ProId',
           render: function(data, type, full, meta) {
-            if (full.ProPrompt != '') {       
-              return '<a class="btn btn-success edit-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
-            }
-          
-            return "";
+            return '<a href="#" class="remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></a>';
           }
         },
         {
           width: 'auto',
-          title:i18next.t('Delete'),
-          data:'ProId',
+          title:i18next.t('Name'),
+          data:'ProName',
           render: function(data, type, full, meta) {
-            return '<a class="btn btn-danger remove-property-btn" data-family_id="'+window.CRM.currentFamily+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
+            return i18next.t(data);
           }
         }
       ],
@@ -513,18 +513,11 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('Edit'),
-        data:'Id',
-        render: function(data, type, full, meta) {        
-          return '<a class="btn btn-success" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'">'+i18next.t('Edit')+'</a>';
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
+        title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<button class="btn btn-danger delete-payment" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+          return '<a class="" href="' + window.CRM.root + '/AutoPaymentEditor.php?AutID='+data+'&FamilyID='+full.Familyid+'&linkBack=FamilyView.php?FamilyID='+full.Familyid+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>'
+                +'&nbsp;&nbsp;&nbsp;<a class="delete-payment" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
         }
       },
       {
@@ -686,22 +679,15 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('Edit'),
+        title:i18next.t('Action'),
         data:'Id',
         render: function(data, type, full, meta) {
-          return '<a class="btn btn-success" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'">'+i18next.t("Edit")+'</a>';
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
-        data:'Id',
-        render: function(data, type, full, meta) {
-          if (full.Closed == "1") {
-            return '<button class="btn btn-danger" data-id="'+data+'" disabled>'+i18next.t('Delete')+'</button>';
-          } else {
-            return '<button class="btn btn-danger delete-pledge" data-id="'+data+'">'+i18next.t('Delete')+'</button>';
+          var ret = '<a class="" href="' + window.CRM.root + '/PledgeEditor.php?GroupKey='+full.Groupkey+'&amp;linkBack=FamilyView.php?FamilyID='+full.FamId+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+          if (full.Closed != "1") {
+            ret += '&nbsp;&nbsp;&nbsp;<a class="delete-pledge" data-id="'+data+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
           }
+          
+          return ret;
         }
       },
       {
