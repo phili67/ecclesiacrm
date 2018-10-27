@@ -7,7 +7,9 @@ CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
     
   config.toolbarGroups = [
-    { name: 'document', groups: [ 'document', 'applyTemplates','manageTemplates','saveTemplates'] },//'source',
+    { name: 'document', groups: [ 'document'] },//'source',
+    { name: 'export', groups: [ 'export', 'saveAsWordFile' ] },
+    { name: 'template', groups: [ 'document', 'applyTemplates','manageTemplates','saveTemplates'] },//'source',
     { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
     { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
     { name: 'forms', groups: [ 'forms' ] },
@@ -19,8 +21,7 @@ CKEDITOR.editorConfig = function( config ) {
     '/',
     { name: 'styles', groups: [ 'styles' ] },
     { name: 'colors', groups: [ 'colors' ] },
-    { name: 'tools', groups: [ 'tools' ] },
-    { name: 'others', groups: [ 'others' ] }
+    { name: 'tools', groups: [ 'tools' ] }
   ];
 
   config.plugins =

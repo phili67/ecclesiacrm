@@ -44,7 +44,8 @@
         "nexmo/client": "1.4.0",
         "slim/http-cache": "^0.4.0",
         "sabre/dav": "~3.2.0",
-        "tuupola/slim-jwt-auth": "^2.4"
+        "tuupola/slim-jwt-auth": "^2.4",
+        "phpoffice/phpword": "v0.14.*"
     },
     "autoload": {
         "classmap": [
