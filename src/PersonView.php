@@ -652,7 +652,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
             if ($bDocuments) $activeTab = 'notes';
         ?>
-        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
+        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Notes") ?></a></li>
         <?php
           }
         ?>
@@ -1189,7 +1189,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
                     ?>
                     <td>
-                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>">
+                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a note") ?>">
                         <span class="fa-stack" data-personid="<?= $iPersonID ?>">
                             <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                             <i class="fa fa-file-o fa-stack-1x fa-inverse"></i>

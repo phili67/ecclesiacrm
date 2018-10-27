@@ -568,7 +568,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           <?php
             } 
           ?>
-          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
+          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= gettext("Notes") ?></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
