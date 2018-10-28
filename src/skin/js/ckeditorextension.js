@@ -95,6 +95,10 @@
                         id: 'nameID',
                         label: i18next.t("Word file name"),
                         validate: CKEDITOR.dialog.validate.notEmpty( i18next.t("Explanation field cannot be empty.") )
+                    },
+                    {
+                        type : 'html',
+                        html : '<div id="myDiv">'+i18next.t("The file will be uploaded to your EDrive<br><small>This part is for test only <b>(Beta)</b>.</small>")+'</div>'
                     }
                 ]
             }
