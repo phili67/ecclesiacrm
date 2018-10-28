@@ -77,6 +77,48 @@
         }    
       };
     });
+    
+    CKEDITOR.dialog.add( 'saveAsWordFileDialog', function ( editor ) {
+      return {
+          title: i18next.t('Save as Word file in EDrive'),
+          minWidth: 400,
+          minHeight: 100,
+
+          contents: [
+            {
+                id: 'tab-basic',
+                label: 'Basic Settings',
+                elements: [
+                    {
+                        type: 'text',
+                        className : 'name_ckeditor_custom_save',
+                        id: 'nameID',
+                        label: i18next.t("Word file name"),
+                        validate: CKEDITOR.dialog.validate.notEmpty( i18next.t("Explanation field cannot be empty.") )
+                    },
+                    {
+                        type : 'html',
+                        html : '<div id="myDiv">'+i18next.t("The file will be uploaded to your EDrive<br><small>This part is for test only <b>(Beta)</b>.</small>")+'</div>'
+                    }
+                ]
+            }
+        ],
+        onOk: function() {
+          var dialog = this;
+        
+          var  title = $('.name_ckeditor_custom_save :input').val();
+          var  text = editor.getData();
+        
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'ckeditor/saveAsWordFile',
+            data: JSON.stringify({"personID":window.CRM.iPersonId,"title":title,"text":text})
+          }).done(function(data) {
+            alert (i18next.t('Your document is saved in your EDrive'));
+          }); 
+        }    
+      };
+    });
   
     CKEDITOR.dialog.add("templatesDialog", function(c) {
         var currentTemplateID    = 0;
@@ -240,7 +282,7 @@
                   onClick: function() {
                     var r = confirm(i18next.t("Are you sure to delete this template? This can't be undone."));
               
-                    if (r == true && currentTemplateID > 0) {                
+                    if (r == true && currentTemplateID > 0) {
                       window.CRM.APIRequest({
                         method: 'POST',
                         path: 'ckeditor/deletetemplate',
@@ -258,7 +300,7 @@
                   className : 'cke_dialog_ui_button_ok',
                   title: i18next.t("Delete the template you select"),
                   onClick: function() {
-                    CKEDITOR.dialog.getCurrent().hide();                    
+                    CKEDITOR.dialog.getCurrent().hide();
                   }
               }
             ]
@@ -386,27 +428,35 @@
     editor.addCommand( 'saveTemplates', new CKEDITOR.dialogCommand( 'saveDialog' ) );
     editor.addCommand( 'manageTemplates', new CKEDITOR.dialogCommand( 'templatesDialog' ) );
     editor.addCommand( 'applyTemplates', new CKEDITOR.dialogCommand( 'templatesApplyDialog' ) );
+    editor.addCommand( 'saveAsWordFile', new CKEDITOR.dialogCommand( 'saveAsWordFileDialog' ) );
     
 
-    editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command
+    editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command to the template group
       label: i18next.t("Manage templates"),
       command: 'manageTemplates',
-      toolbar: 'document',
+      toolbar: 'template',
       icon: window.CRM.root+'/skin/external/ckeditor/plugins/newpage/icons/hidpi/newpage.png'
     });
 
-    editor.ui.addButton('SaveTemplateButton', { // add new button and bind our command
+    editor.ui.addButton('SaveTemplateButton', { // add new button and bind our command to the template group
       label: i18next.t("Save templates"),
       command: 'saveTemplates',
-      toolbar: 'document',
+      toolbar: 'template',
       icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
     });
     
-    editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command
+    editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command to the template group
       label: i18next.t("Apply templates"),
       command: 'applyTemplates',
-      toolbar: 'document',
+      toolbar: 'template',
       icon: window.CRM.root+'/skin/external/ckeditor/plugins/templates/icons/hidpi/templates.png'
+    });
+
+    editor.ui.addButton('SaveAsWordFileButton', { // add new button and bind our command to the export group
+      label: i18next.t("Save As Word File in EDrive"),
+      command: 'saveAsWordFile',
+      toolbar: 'export',
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
     });
   }
   

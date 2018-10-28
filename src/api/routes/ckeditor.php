@@ -13,6 +13,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\CKEditorTemplatesQuery;
 use EcclesiaCRM\CKEditorTemplates;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Note;
 
 $app->group('/ckeditor', function () {
     // search person by Name
@@ -120,5 +122,47 @@ CKEDITOR.addTemplates( 'default',
       
       return $response->withJson(['status' => 'failed']);
     });
+    
+    $this->post('/saveAsWordFile', function ($request, $res, $args) {
+      $input = (object)$request->getParsedBody();
+      
+      if ( isset ($input->personID) && isset ($input->title) && isset ($input->text) ) {
+        $user = UserQuery::create()->findPk($input->personID);
+          
+        if ( !is_null($user) ) {
+            $realNoteDir = $userDir = $user->getUserRootDir();
+            $userName    = $user->getUserName();
+            $currentpath = $user->getCurrentpath();
+            
+            $pw = new \PhpOffice\PhpWord\PhpWord();
+
+            // [THE HTML] 
+            $section = $pw->addSection();
+            \PhpOffice\PhpWord\Shared\Html::addHtml($section, $input->text, false, false);
+
+            // [SAVE FILE ON THE SERVER]
+            $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
+            $pw->save($tmpFile, "Word2007");
+            
+            // now we create the note
+            $note = new Note();
+            $note->setPerId($input->personID);
+            $note->setFamId(0);
+            $note->setTitle($fileName);
+            $note->setPrivate(1);
+            $note->setText($userName . $currentpath . $input->title.".docx");
+            $note->setType('file');
+            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setInfo(gettext('Create file'));
+          
+            $note->save();
+    
+            return $res->withJson(['success' => $tmpFile ]);
+        }
+      }
+      
+      return $res->withJson(['success' => false]);
+    });
+    
 
 });

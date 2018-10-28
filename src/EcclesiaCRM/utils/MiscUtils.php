@@ -236,9 +236,16 @@ public static function FileSizeConvert($bytes)
     switch (strtolower($extension)) {
       /*case "doc":
       case "docx":
-        $phpWord = \PhpOffice\PhpWord\IOFactory::load($path);
-        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
-        $htmlWriter->save('test1doc.html');
+        $writers = array('Word2007' => 'docx', 'ODText' => 'odt', 'RTF' => 'rtf', 'HTML' => 'html', 'PDF' => 'pdf');
+
+        // Read contents
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load(dirname(__FILE__)."/../..".$realPath);
+
+        // Save file
+        //$res .=  $phpWord;
+        ob_start();
+        //echo write($phpWord, 'php://output', $writers);
+        $res .= ob_end_clean();
         break;*/
       case "jpg":
       case "jpeg":
