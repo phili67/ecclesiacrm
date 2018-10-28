@@ -25,6 +25,27 @@ if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('
     exit;
 }
 
+if (isset($_POST['Classification'])) {
+    $iClassification = $_POST['Classification'];
+    $_SESSION['classification'] = $iClassification;
+} elseif (isset($_SESSION['classification'])) {
+    $iClassification = $_SESSION['classification'];
+} else {
+    $iClassification = 0;
+}
+
+if (isset($_POST['SortBy'])) {
+    $sSortBy = $_POST['SortBy'];
+} else {
+    $sSortBy = 'name';
+}
+
+if (isset($_POST['AssignStartNum'])) {
+    $iAssignStartNum = $_POST['AssignStartNum'];
+} else {
+    $iAssignStartNum = 1;
+}
+
 $envelopesToWrite = [];
 // get the array of envelopes of interest, indexed by family id
 $envelopesByFamID = getEnvelopes($iClassification);
@@ -49,27 +70,6 @@ if (isset($_POST['Confirm'])) {
         $dSQL = "UPDATE family_fam SET fam_Envelope='".$envelope."' WHERE fam_ID='".$fam_ID."'";
         RunQuery($dSQL);
     }
-}
-
-if (isset($_POST['Classification'])) {
-    $iClassification = $_POST['Classification'];
-    $_SESSION['classification'] = $iClassification;
-} elseif (isset($_SESSION['classification'])) {
-    $iClassification = $_SESSION['classification'];
-} else {
-    $iClassification = 0;
-}
-
-if (isset($_POST['SortBy'])) {
-    $sSortBy = $_POST['SortBy'];
-} else {
-    $sSortBy = 'name';
-}
-
-if (isset($_POST['AssignStartNum'])) {
-    $iAssignStartNum = $_POST['AssignStartNum'];
-} else {
-    $iAssignStartNum = 1;
 }
 
 //Get Classifications for the drop-down
@@ -109,12 +109,10 @@ if (isset($_POST['PrintReport'])) {
     }
 }
 
-    ?>
-
-
+?>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEnvelopesModal"><?= gettext('Update Family Records') ?></button>
-<button type="submit" class="btn" name="PrintReport"><i class="fa fa-print"></i></button>
+<button type="submit" class="btn btn-success" name="PrintReport"><i class="fa fa-print"></i></button>
 
 <br><br>
 
@@ -137,24 +135,24 @@ if (isset($_POST['PrintReport'])) {
     </div>
 </div>
 
-<table class="table">
-<thead>
-<tr>
-    <th>
-    <b><?= gettext('Family Select')?></b> <?= gettext('with at least one:'); ?>
-        <select name="Classification">
-        <option value="0"><?= gettext('All') ?></option>
+<div class="row">
+   <div class="col-md-2">
+      <b><?= gettext('Family Select')?></b> <?= gettext('with at least one:'); ?>
+   </div>
+   <div class="col-md-1">
+        <select class="form-control" name="Classification">
+          <option value="0"><?= gettext('All') ?></option>
         <?php
-        foreach ($classification as $lst_OptionID => $lst_OptionName) {
-            echo '<option value="'.$lst_OptionID.'"';
-            if ($iClassification == $lst_OptionID) {
-                echo ' selected';
-            }
-            echo '>'.$lst_OptionName.'&nbsp;';
-        }
+          foreach ($classification as $lst_OptionID => $lst_OptionName) {
+        ?>
+          <option value="<?= $lst_OptionID ?>" <?= ($iClassification == $lst_OptionID)?' selected':"" ?>><?= $lst_OptionName ?>&nbsp;
+        <?php
+          }
         ?>
         </select>
-        <input type="submit" class="btn" value="<?= gettext('Sort by') ?>" name="Sort">
+   </div>
+   <div class="col-md-3">
+        <input type="submit" class="btn btn-default" value="<?= gettext('Sort by') ?>" name="Sort">
         <input type="radio" Name="SortBy" value="name"
         <?php if ($sSortBy == 'name') {
             echo ' checked';
@@ -163,20 +161,22 @@ if (isset($_POST['PrintReport'])) {
         <?php if ($sSortBy == 'envelope') {
             echo ' checked';
         } ?>><?= gettext('Envelope Number') ?>
-    </th>
-    <th>
+    </div>
+   <div class="col-md-2">
         <b>Envelope</b>
-        <input type="submit" class="btn" value="<?= gettext('Zero') ?>"
+        <input type="submit" class="btn  btn-default" value="<?= gettext('Zero') ?>"
                  name="ZeroAll">
-        <input type="submit" class="btn" value="<?= gettext('Assign starting at #') ?>"
+   </div>
+   <div class="col-md-2">
+        <input type="submit" class="btn btn-default" value="<?= gettext('Assign starting at #') ?>"
                  name="AssignAllFamilies">
-        <input type="text" name="AssignStartNum" value="<?= $iAssignStartNum ?>" maxlength="5">
-    </th>
-</tr>
-</thead>
-
+   </div>
+   <div class="col-md-2">
+        <input type="text" class="form-control" name="AssignStartNum" value="<?= $iAssignStartNum ?>">
+    </div>
+</div>
+<hr/>
 <?php
-
 if ($sSortBy == 'envelope') {
     asort($envelopesByFamID);
     $arrayToLoop = $envelopesByFamID;
@@ -192,21 +192,27 @@ foreach ($arrayToLoop as $fam_ID => $value) {
         $fam_Data = $value;
         $envelope = $envelopesByFamID[$fam_ID];
     }
-    echo '<tr>';
-    echo '<td>'.$fam_Data.'&nbsp;</td>';
+?>
+<div class="row">
+   <div class="col-md-6"><?= $fam_Data ?>&nbsp;</div>
+<?php
     if ($envelope and $duplicateEnvelopeHash and array_key_exists($envelope, $duplicateEnvelopeHash)) {
-        $tdTag = "<td bgcolor='red'>";
+        $tdTag = '<div class="col-md-4" style="color:red">';
     } else {
         $duplicateEnvelopeHash[$envelope] = $fam_ID;
-        $tdTag = '<td>';
+        $tdTag = '<div class="col-md-4">';
     }
-    echo $tdTag; ?><class="TextColumn">
-    <input type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
-    </td></tr>
+    echo $tdTag; 
+?>
+    <input class="form-control" type="text" name="EnvelopeID_<?= $fam_ID ?>" value="<?= $envelope ?>" maxlength="10">
+  </div>
+</div>
+<br>
     <?php
 }
 ?>
-</table><br>
+</div>
+<br>
 </form>
 </div>
 
