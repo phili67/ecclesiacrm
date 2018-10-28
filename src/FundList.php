@@ -22,6 +22,8 @@ $sPageTitle = gettext('Donation Fund Editor');
 
 require 'Include/Header.php'; ?>
 
+<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Be carefull ! By deleting Fund type, the recorded datas for pledges or payments will be lost.') ?></div>
+
 <div class="box box-body">
 
 <?php if ($_SESSION['user']->isMenuOptionsEnabled()) {

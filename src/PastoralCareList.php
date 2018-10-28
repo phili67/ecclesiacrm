@@ -16,7 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 
-if ( !($_SESSION['user']->isMenuOptionsEnabled()) ) {// only an admin can change this settings, if a pastoral is deleted all the notes will be deleted too...
+if ( !($_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isPastoralCareEnabled() ) ) {// only an admin can change this settings, if a pastoral is deleted all the notes will be deleted too...
   Redirect('Menu.php');
   exit;
 }
@@ -26,8 +26,10 @@ $sPageTitle = gettext("Pastoral Care Type Editor");
 
 require 'Include/Header.php';
 
-if ($_SESSION['user']->isAdmin()) {
+if ($_SESSION['user']->isPastoralCareEnabled()) {
 ?>
+    <div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Be carefull ! By deleting pastoral care type, the recorded datas for each persons will be lost.') ?></div>
+
     <p align="center"><button class="btn btn-primary" id="add-new-pastoral-care"><?= gettext("Add a New Pastoral Care Type") ?></button></p>
 <?php 
 }else {
@@ -36,6 +38,7 @@ if ($_SESSION['user']->isAdmin()) {
 <?php
 }
 ?>
+
 
 <div class="box box-body">
 

@@ -62,7 +62,7 @@ $(document).ready(function () {
         title:i18next.t('Activ'),
         data:'Active',
         render: function(data, type, full, meta) {
-          return (data)?i18next.t('true'):i18next.t('false');
+          return (data == "true")?i18next.t('Yes'):i18next.t('No');
         }
       }      
     ],

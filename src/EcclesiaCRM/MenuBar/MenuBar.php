@@ -221,7 +221,7 @@ class MenuBar {
         $menuItem = new Menu (gettext("Home"),"fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
         $menuItem = new Menu (gettext("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);
         $menuItem = new Menu (gettext("Change Settings"),"fa fa-gear","SettingsIndividual.php",true,$menu);
-        $menuItem = new Menu (gettext("Documents"),"fa fa fa-files-o","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
+        $menuItem = new Menu (gettext("Notes"),"fa fa fa-files-o","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
         $menuItem = new Menu (gettext("EDrive"),"fa fa-cloud","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&edrive=true",true,$menu);
         
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
