@@ -25,13 +25,17 @@ use EcclesiaCRM\PersonQuery;
 $app->group('/pastoralcare', function () {
 
   $this->post('/', function ($request, $response, $args) {    
-      return PastoralCareTypeQuery::Create()->find()->toJSON();
+    if ( !( $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ) ) {
+      return $response->withStatus(401);
+    }
+
+    return PastoralCareTypeQuery::Create()->find()->toJSON();
   });
   
-  $this->post('/deletetype', function ($request, $response, $args) {    
+  $this->post('/deletetype', function ($request, $response, $args) {
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->pastoralCareTypeId) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->pastoralCareTypeId) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
         
       if ($pstCareType != null) {
@@ -49,7 +53,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/createtype', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->Visible) && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCareType = new PastoralCareType();
       
       $pstCareType->setVisible($input->Visible);
@@ -69,7 +73,7 @@ $app->group('/pastoralcare', function () {
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->pastoralCareTypeId) && isset ($input->Visible) 
-      && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+      && isset ($input->Title) && isset ($input->Description) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCareType = PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId);
       
       $pstCareType->setVisible($input->Visible);
@@ -87,7 +91,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/edittype', function ($request, $response, $args) {    
     $input = (object)$request->getParsedBody();
     
-    if (isset ($input->pastoralCareTypeId)  && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->pastoralCareTypeId)  && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       return PastoralCareTypeQuery::Create()->findOneById($input->pastoralCareTypeId)->toJSON();
     }   
     
@@ -99,7 +103,7 @@ $app->group('/pastoralcare', function () {
      
     if (isset ($input->typeID)  && isset ($input->personID) && isset ($input->currentPastorId) 
       && isset ($input->visibilityStatus) && isset ($input->noteText)
-      && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+      && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCare = new PastoralCare();
       
       $pstCare->setTypeId($input->typeID);
@@ -131,7 +135,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/delete', function ($request, $response, $args) {
      $input = (object)$request->getParsedBody();
      
-    if (isset ($input->ID)  && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->ID)  && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
               
       if ($pstCare != null) {
@@ -148,7 +152,7 @@ $app->group('/pastoralcare', function () {
   $this->post('/getinfo', function ($request, $response, $args) {
     $input = (object)$request->getParsedBody();
      
-    if (isset ($input->ID) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+    if (isset ($input->ID) && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
       
       $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
@@ -166,7 +170,7 @@ $app->group('/pastoralcare', function () {
     if (isset ($input->ID) && isset ($input->typeID)  && isset ($input->personID) 
       && isset ($input->currentPastorId) 
       && isset ($input->visibilityStatus) && isset ($input->noteText)
-      && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isAdmin() ){
+      && $_SESSION['user']->isPastoralCareEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ){
       $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
             
       $pstCare->setTypeId($input->typeID);

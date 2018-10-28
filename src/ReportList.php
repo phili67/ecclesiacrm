@@ -35,8 +35,9 @@ $year = $today['year'];
 require 'Include/Header.php';
 ?>
   <!-- ./col -->
-  <?php if ($_SESSION['user']->isFinanceEnabled() || SystemConfig::getBooleanValue('bEnabledFinance') ) {
-    ?>
+<?php 
+    if ($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+?>
 <div class="row">
     <div class="col-lg-12">
       <div class="box">
@@ -62,7 +63,7 @@ require 'Include/Header.php';
 
 //Conditionally Display the Event Reports, only if there are actually events in the database.  Otherwise, Don't render the Event reports section.
 if ( SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
-$ormOpps = EventTypesQuery::Create()
+  $ormOpps = EventTypesQuery::Create()
                   ->addJoin(EventTypesTableMap::COL_TYPE_ID, EventTableMap::COL_EVENT_TYPE,Criteria::RIGHT_JOIN)
                   ->setDistinct(EventTypesTableMap::COL_TYPE_ID)
                   ->orderById()

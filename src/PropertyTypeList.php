@@ -46,7 +46,7 @@ if ( $_SESSION['user']->isMenuOptionsEnabled()) {
 }
 ?>
 
-<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Be carefull not to delete this properties, all the persons, families and groups will be affected by this choice.') ?></div>
+<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>   <?= gettext('Be carefull ! By deleting properties, all persons, families and groups will be affected.') ?></div>
 
 <div class="box box-body">
     <div class="table-responsive">

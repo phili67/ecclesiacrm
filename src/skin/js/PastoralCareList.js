@@ -47,7 +47,7 @@ $(document).ready(function () {
         title:i18next.t('Visible'),
         data:'Visible',
         render: function(data, type, full, meta) {
-          return i18next.t((data)?"true":"false");
+          return (data==true)?i18next.t("Yes"):i18next.t("No");
         }
       }
     ],

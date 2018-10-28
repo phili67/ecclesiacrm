@@ -23,8 +23,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 $app->group('/volunteeropportunity', function () {
 
   $this->post('/', function ($request, $response, $args) {
-    if ( !( $_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ) ) {
-            return $response->withStatus(401);
+    if ( !( $_SESSION['user']->isCanvasserEnabled() && $_SESSION['user']->isMenuOptionsEnabled() ) ) {
+      return $response->withStatus(401);
     }
     
     $volunteerOpportunities = VolunteerOpportunityQuery::Create()->orderByOrder(Criteria::ASC)->find();

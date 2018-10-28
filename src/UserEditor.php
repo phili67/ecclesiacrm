@@ -627,7 +627,7 @@ if ($usr_role_id == null) {
                     </tr>
 
                     <tr>
-                        <td><?= gettext('View, Add and Edit Documents') ?>:</td>
+                        <td><?= gettext('View, Add and Edit Notes') ?>:</td>
                         <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?php if ($usr_Notes) {
                         echo ' checked';
                     } ?>></td>

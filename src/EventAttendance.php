@@ -13,6 +13,13 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemConfig;
+
+
+if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
+  Redirect('Menu.php');
+  exit;
+}
 use EcclesiaCRM\Utils\OutputUtils;
 
 if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !empty($_POST['Event'])) {
