@@ -322,7 +322,6 @@ $dNoSchool8 = OutputUtils::change_date_for_place_holder($dNoSchool6);
 require '../Include/Footer.php';
 ?>
 
-<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
 <?php 
   if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
 ?> 
