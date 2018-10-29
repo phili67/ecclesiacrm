@@ -1334,7 +1334,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             <!-- END timeline item -->
           </ul>
         </div>
-        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive')?"active":"" ?>" id="edrive" >
+        <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive')?"active":"" ?>" id="edrive">
           <div class="row filter-note-type" style="line-height:54px">
               <div class="col-md-8" style="line-height:27px">
                 <table width=400px>
@@ -1343,6 +1343,40 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       <span class="time-line-head-red">
                         <?= gettext("All Files") ?>
                       </span>
+                      &nbsp;&nbsp;&nbsp;
+                      <?php 
+                        if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
+                      ?>
+                        <a href="#" id="uploadFile">
+                          <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                            <i class="fa fa-square fa-stack-2x" style="color:green"></i>
+                            <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </a>
+                      <?php 
+                        }
+                      ?>
+
+                      <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
+                      <span class="fa-stack fa-special-icon drag-elements">
+                        <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
+                        <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
+                      </span>
+                      </a>
+
+                      <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
+                      <span class="fa-stack fa-special-icon drag-elements">
+                        <i class="fa fa-square fa-stack-2x" style="color:red"></i>
+                        <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+                      </span>
+                      </a>
+
+                      <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
+                        <span class="fa-stack fa-special-icon drag-elements">
+                          <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
+                          <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
                     </td>
                   </tr>
                 </table>
@@ -1350,43 +1384,6 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           </div>
           <br>
           <br>
-          <div class="row">
-              <div class="col-md-12">
-                <?php 
-                  if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
-                ?>
-                  <a href="#" id="uploadFile">
-                    <span class="fa-stack fa-special-icon" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
-                      <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                      <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
-                    </span>
-                  </a>
-                <?php 
-                  }
-                ?>
-
-                <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
-                <span class="fa-stack fa-special-icon">
-                  <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
-                  <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
-                </span>
-                </a>
-
-                <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
-                <span class="fa-stack fa-special-icon">
-                  <i class="fa fa-square fa-stack-2x" style="color:red"></i>
-                  <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
-                </span>
-                </a>
-
-                <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
-                  <span class="fa-stack fa-special-icon">
-                    <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
-                    <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </div>
-          </div>
           <div class="row">
               <div class="col-md-12 filmanager-left">
                 <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
