@@ -46,22 +46,15 @@ $(document).ready(function () {
       },
       {
         width: 'auto',
-        title:i18next.t('Edit'),
-        data:'ProId',
-        render: function(data, type, full, meta) {        
-          if (full.ProPrompt != '') {       
-            return '<a class="btn btn-success edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Edit Value')+'</a>';
-          }
-          
-          return '';
-        }
-      },
-      {
-        width: 'auto',
-        title:i18next.t('Delete'),
+        title:i18next.t('Action'),
         data:'ProId',
         render: function(data, type, full, meta) {
-          return '<a class="btn btn-danger remove-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'">'+i18next.t('Remove')+'</a>';
+          var ret = '';
+          if (full.ProPrompt != '') {       
+            ret += '<a class="edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
+          }
+
+          return ret+'<a class="remove-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
         }
       }
     ],
