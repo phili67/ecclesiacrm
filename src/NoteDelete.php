@@ -20,7 +20,7 @@ use EcclesiaCRM\UserQuery;
 
 
 //Set the page title
-$sPageTitle = gettext('Document Delete Confirmation');
+$sPageTitle = gettext('Note Delete Confirmation');
 
 //Get the NoteID from the querystring
 $iNoteID = InputUtils::LegacyFilterInput($_GET['NoteID'], 'int');
@@ -78,7 +78,7 @@ require 'Include/Header.php';
 <div class="box box-warning">
     <div class="box-header with-border">
       <h3 class="box-title">
-        <label><?= gettext('Please confirm deletion of this document') ?> : <?= ($note->getType() == 'file')?$note->getText():$note->getTitle() ?></label> 
+        <label><?= gettext('Please confirm deletion of this note') ?> : <?= ($note->getType() == 'file')?$note->getText():$note->getTitle() ?></label> 
       </h3>
     </div>
   <div class="box-body">

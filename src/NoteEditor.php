@@ -57,7 +57,7 @@ $user = UserQuery::create()->findOneByPersonId($iPersonID);
 if ($sNoteType == 'file' && !is_null ($user) ) {
   $sPageTitle = gettext('Cloud Upload')." ".gettext("in"). " : " . $user->getCurrentpath();
 } else {
-  $sPageTitle = gettext('Document Editor');
+  $sPageTitle = gettext('Note Editor');
 }
 
 if (isset($_GET['FamilyID'])) {
@@ -245,22 +245,22 @@ require 'Include/Header.php';
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">
-        <label><?= ($sNoteType == 'file')?gettext("File Info"):gettext("Document Title") ?></label> 
+        <label><?= ($sNoteType == 'file')?gettext("File Info"):gettext("Note Title") ?></label> 
       </h3>
-      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= ($sNoteType == 'file')?gettext("Set your File Info"):gettext("Set your document title") ?>"  required="">
+      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= ($sNoteType == 'file')?gettext("Set your File Info"):gettext("Set your Note title") ?>"  required="">
     </div>
     <div class="box-body">
       <div class="row" <?= (!empty($sNoteType))?"":'style="display: none;"' ?>>
           <div class="col-lg-3"></div>
           <div class="col-lg-6">
-            <center><label><?= gettext("Your document type is") ?> : "<?= MiscUtils::noteType($sNoteType) ?>"</label></center>
+            <center><label><?= gettext("Your Note type is") ?> : "<?= MiscUtils::noteType($sNoteType) ?>"</label></center>
           </div>
           <div class="col-lg-3"></div>
       </div>
       <div class="row" <?= (empty($sNoteType))?"":'style="display: none;"' ?>>
           <div class="col-lg-3"></div>
           <div class="col-lg-3">
-            <label><?= gettext("Choose your Document Type") ?> : </label>
+            <label><?= gettext("Choose your Note Type") ?> : </label>
           </div>
           <div class="col-lg-3">
             <select name="noteType" class="form-control input-sm" id="selectType">
