@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-24T13:19:27.619Z\n"
+"POT-Creation-Date: 2018-10-29T09:33:20.022Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -268,6 +268,22 @@ msgstr "Champs explicatif ne peuvent être vide"
 msgid "Template Description"
 msgstr "Description du modèle"
 
+msgid "Save as Word file in EDrive"
+msgstr "Enregistrer sous format Word dans EDrive"
+
+msgid "Word file name"
+msgstr "Nom du fichier Word"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr ""
+"Ce fichier sera télécharger dans EDrive<br><small>Cette partie est en "
+"<b>Beta</b> testing</small>"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Votre note est enregistrée dans vitre EDrive"
+
 msgid "(No templates defined)"
 msgstr "(Aucun modèle disponible)"
 
@@ -305,6 +321,9 @@ msgstr "Enregistrer Modèles"
 
 msgid "Apply templates"
 msgstr "Appliquer Modèles"
+
+msgid "Save As Word File in EDrive"
+msgstr "Enregistrer dans EDrive sous format Word"
 
 msgid "Error making API Call to"
 msgstr "Erreur de communication de l'API avec"
@@ -631,11 +650,8 @@ msgstr "Photo de Famille"
 msgid "Value"
 msgstr "Valeur"
 
-msgid "Edit Value"
-msgstr "Editer Valeur"
-
-msgid "Remove"
-msgstr "Supprimer"
+msgid "Action"
+msgstr "Actions"
 
 msgid "Are you sure you want to unassign this property?"
 msgstr "Êtes vous sûr de vouloir retirer cette propriété ?"
@@ -979,6 +995,9 @@ msgstr "Téléphone portable"
 msgid "Email"
 msgstr "Email"
 
+msgid "Remove"
+msgstr "Supprimer"
+
 msgid "Members from group"
 msgstr "Membre(s) du groupe"
 
@@ -1034,11 +1053,11 @@ msgid "Do you want to delete this person? This cannot be undone."
 msgstr ""
 "Voulez-vous supprimer cette personne ? Cette action ne pourra être annulée."
 
-msgid "Uri"
-msgstr "Url"
-
 msgid "Place"
 msgstr "Position"
+
+msgid "Uri"
+msgstr "Url"
 
 msgid "URI"
 msgstr "URL"
@@ -1151,9 +1170,6 @@ msgstr "Confirmer la suppression du bénévolat"
 
 msgid "First name"
 msgstr "Prénom"
-
-msgid "Action"
-msgstr "Actions"
 
 msgid "Birth Date"
 msgstr "Date de naissance"
@@ -1302,6 +1318,15 @@ msgstr ""
 msgid "Password reset for"
 msgstr "Réinitialisation Mot de Passe pour"
 
+msgid "Activ"
+msgstr "Actif"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Ajouter une nouvelle opportunité de bénévolat"
+
+#~ msgid "Edit Value"
+#~ msgstr "Editer Valeur"
+
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "
 #~ "database.<br/>"
@@ -1318,9 +1343,6 @@ msgstr "Réinitialisation Mot de Passe pour"
 
 #~ msgid "Cart"
 #~ msgstr "Panier"
-
-#~ msgid "Profile Name"
-#~ msgstr "Nom du profile"
 
 #~ msgid "Are you sure, you want to delete this Person ?"
 #~ msgstr "Êtes-vous sûr de supprimer cette personne dur partage ?"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-24T14:29:45.414Z\n"
+"POT-Creation-Date: 2018-10-29T09:33:20.022Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -263,6 +263,22 @@ msgstr "Campo de explanation no puede estar vacío."
 msgid "Template Description"
 msgstr "Descripción del Modelos"
 
+msgid "Save as Word file in EDrive"
+msgstr "Guardar como archivo Word"
+
+msgid "Word file name"
+msgstr "Nombre del fichero Word"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr "The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+
+
+msgid "Your note is saved in your EDrive"
+msgstr "nota guardada en tu EDrive"
+
 msgid "(No templates defined)"
 msgstr "(No Modelos definido)"
 
@@ -298,6 +314,9 @@ msgstr "Guardar el modelo"
 
 msgid "Apply templates"
 msgstr "Apply Modelo"
+
+msgid "Save As Word File in EDrive"
+msgstr "Guardar como archivo Word"
 
 msgid "Error making API Call to"
 msgstr "Error making API Call to"
@@ -620,11 +639,8 @@ msgstr "Foto de Familia"
 msgid "Value"
 msgstr "Valor"
 
-msgid "Edit Value"
-msgstr "Editar valor"
-
-msgid "Remove"
-msgstr "Remover"
+msgid "Action"
+msgstr "Acciones"
 
 msgid "Are you sure you want to unassign this property?"
 msgstr "¿Está seguro de que desea desasignar esta propiedad?"
@@ -746,7 +762,6 @@ msgstr "Subir tus ficheros"
 msgid "Files input"
 msgstr "Ficheros de entrada"
 
-#, fuzzy
 msgid "Upload your files"
 msgstr "Subir tus ficheros"
 
@@ -968,6 +983,9 @@ msgstr "Teléfono Celular"
 msgid "Email"
 msgstr "Email"
 
+msgid "Remove"
+msgstr "Remover"
+
 msgid "Members from group"
 msgstr "Miembros del Grupo"
 
@@ -1022,11 +1040,11 @@ msgstr "clasificación esta persona?"
 msgid "Do you want to delete this person? This cannot be undone."
 msgstr "Desea eliminar a esta persona? Esto no puede deshacerse."
 
-msgid "Uri"
-msgstr "Url"
-
 msgid "Place"
 msgstr "Posición"
+
+msgid "Uri"
+msgstr "Url"
 
 msgid "URI"
 msgstr "URL"
@@ -1137,9 +1155,6 @@ msgstr "Confirmar el Borrado del Oportunidade de Voluntariado"
 
 msgid "First name"
 msgstr "Primer nombre"
-
-msgid "Action"
-msgstr "Acciones"
 
 msgid "Birth Date"
 msgstr "Fecha de Nacimiento"
@@ -1288,6 +1303,16 @@ msgstr "Por favor confirme la renovación de contraseña de este usuario"
 msgid "Password reset for"
 msgstr "Restablecer las contraseñas de"
 
+msgid "Activ"
+msgstr "Activo"
+
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Añadir una Oportunidade de Voluntariado"
+
+#~ msgid "Edit Value"
+#~ msgstr "Editar valor"
+
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "
 #~ "database.<br/>"
@@ -1305,6 +1330,3 @@ msgstr "Restablecer las contraseñas de"
 #, fuzzy
 #~ msgid "Cart"
 #~ msgstr "Mapa del Carrito "
-
-#~ msgid "Profile Name"
-#~ msgstr "Perfil Nombre"

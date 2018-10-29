@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-24T13:19:27.619Z\n"
+"POT-Creation-Date: 2018-10-29T09:33:20.022Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -262,6 +262,20 @@ msgstr "Feld für Erläuterung kann nicht leer sein."
 msgid "Template Description"
 msgstr "Vorlagen Beschreibung"
 
+msgid "Save as Word file in EDrive"
+msgstr "Speichern unter Word im EDrives"
+
+msgid "Word file name"
+msgstr "Word Datei Name"
+
+msgid ""
+"The file will be uploaded to your EDrive<br><small>This part is for test "
+"only <b>(Beta)</b>.</small>"
+msgstr "Die Datei wird automatisch zu EDrive hochgeladen<br><small><b>Beta</b> Testing.</small>"
+
+msgid "Your note is saved in your EDrive"
+msgstr "Ihre Hinweise ist im EDrive gespeichert"
+
 msgid "(No templates defined)"
 msgstr "(Kein Anmerkungsvorlagen)"
 
@@ -297,6 +311,9 @@ msgstr "Vorlagen speichern"
 
 msgid "Apply templates"
 msgstr "Vorlagen Weisen"
+
+msgid "Save As Word File in EDrive"
+msgstr "Speichern unter Word im EDrives"
 
 msgid "Error making API Call to"
 msgstr "Error making API call to"
@@ -619,11 +636,8 @@ msgstr "Familienfoto"
 msgid "Value"
 msgstr "Wert"
 
-msgid "Edit Value"
-msgstr "Wert bearbeiten"
-
-msgid "Remove"
-msgstr "Entfernen"
+msgid "Action"
+msgstr "Aktionen"
 
 msgid "Are you sure you want to unassign this property?"
 msgstr "Sind Sie sicher, dass Sie diese Eigenschaft Löschen möchten ?"
@@ -966,6 +980,9 @@ msgstr "Mobiltel."
 msgid "Email"
 msgstr "Email"
 
+msgid "Remove"
+msgstr "Entfernen"
+
 msgid "Members from group"
 msgstr "Mitglieder des Gruppe"
 
@@ -1021,11 +1038,11 @@ msgstr ""
 "Wollen Sie diese Person löschen ?  Dieser Vorgang kann nicht rückgängig "
 "gemacht werden."
 
-msgid "Uri"
-msgstr "Url"
-
 msgid "Place"
 msgstr "Position"
+
+msgid "Uri"
+msgstr "Url"
 
 msgid "URI"
 msgstr "URL"
@@ -1137,13 +1154,10 @@ msgid "Change role"
 msgstr "Rolle ändern"
 
 msgid "Confirm Delete volunteer Opportunity"
-msgstr "Löschen Freiwillige bestätigen"
+msgstr "Löschen Freiwillige Gelegenheit"
 
 msgid "First name"
 msgstr "Vorname "
-
-msgid "Action"
-msgstr "Aktionen"
 
 msgid "Birth Date"
 msgstr "Geburtstag"
@@ -1289,6 +1303,15 @@ msgstr "Bestätigen das Zurücksetzen des Kennwort für diesen Benutzer"
 
 msgid "Password reset for"
 msgstr "Kennwortzurücksetzung für"
+
+msgid "Activ"
+msgstr "Aktiv"
+
+msgid "Add New Volunteer Opportunity"
+msgstr "Hinzuzufügen zu Freiwillige Gelegenheit"
+
+#~ msgid "Edit Value"
+#~ msgstr "Wert bearbeiten"
 
 #~ msgid ""
 #~ "Warning!  Do not select this option if you plan to add to an existing "
