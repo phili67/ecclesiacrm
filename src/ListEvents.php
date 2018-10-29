@@ -336,7 +336,7 @@ foreach ($allMonths as $mVal) {
       <h3 class='box-title'><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).' '.gettext('for').'  '.gettext(date('F', mktime(0, 0, 0, $mVal, 1, $currYear))) ?></h3>
     </div>
     <div class='box-body'>
-  <table class="table table-striped table-bordered data-table"  id="eventsTable" style="width:100%">
+  <table class="table table-striped table-bordered data-table eventsTable" style="width:100%">
     <thead>
       <tr class="TableHeader">
         <th><?= gettext("Action") ?></th>
@@ -359,9 +359,9 @@ foreach ($allMonths as $mVal) {
                <table class='table-responsive'>
                 <tr>
                   <td>
-                    <button title="<?= gettext('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="btn btn-default btn-sm <?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
+                    <a title="<?= gettext('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="<?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
                         <i class='fa fa-pencil'></i>
-                    </button>
+                    </a>
                   </td>
                   <td>
                     <?php 
@@ -395,7 +395,7 @@ foreach ($allMonths as $mVal) {
                     ?>                  
                       <input type="hidden" name="EID" value="<?= $aEventID[$row] ?>">
                       <input type="hidden" name="Action" value="Delete">
-                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="btn btn-danger btn-sm <?= !($aEventRights[$row])?"disabled":"" ?>">
+                      <button type="submit" name="Action" title="<?=gettext('Delete') ?>" data-tooltip value="Delete" class="<?= !($aEventRights[$row])?"disabled":"" ?>" style="background:none;border:0px;color:red">
                         <i class='fa fa-trash'></i>
                       </button>
                     <?php 
