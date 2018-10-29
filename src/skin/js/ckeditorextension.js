@@ -114,7 +114,7 @@
             path: 'ckeditor/saveAsWordFile',
             data: JSON.stringify({"personID":window.CRM.iPersonId,"title":title,"text":text})
           }).done(function(data) {
-            alert (i18next.t('Your document is saved in your EDrive'));
+            alert (i18next.t('Your note is saved in your EDrive'));
           }); 
         }    
       };
