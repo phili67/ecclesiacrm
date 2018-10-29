@@ -40,12 +40,12 @@ $(document).ready(function () {
           if (full.dir) {
             var fileName = data.substring(1);
             
-            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly style="color:black;border:0px;background: transparent;width: 100%;">';
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="folder" readonly>';
           } else {
             var fileName = data;
             fileName = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
             
-            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly style="color:black;border:0px;background: transparent;width: 100%;">';
+            return '<input type="text" value="' + fileName + '" class="fileName" data-name="' + data + '" data-type="file" readonly>';
           }
         }
       },
@@ -470,7 +470,10 @@ $("body").on('keypress', '.fileName', function(e) {
   function installDragAndDrop()
   {
     $('.drag').draggable({
-       revert : true
+       helper: 'clone',
+       appendTo: 'body',
+       zIndex: 1100
+       //revert : true
     });
 
     $('.drop').droppable({
