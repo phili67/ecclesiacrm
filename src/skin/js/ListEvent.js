@@ -94,7 +94,7 @@ $('#add-event').click('focus', function (e) {
     $.fn.dataTable.moment(window.CRM.datePickerformat.toUpperCase(),window.CRM.shortLocale);
 
     
-    $("#eventsTable").DataTable({
+    $(".eventsTable").DataTable({
        "language": {
          "url": window.CRM.plugin.dataTable.language.url
        },
