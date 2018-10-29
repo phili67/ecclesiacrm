@@ -336,7 +336,7 @@ require 'Include/Header.php';
                     <td><?= gettext($fundName) ?></td>
                     <td><?= MakeFYString($plg_FYID) ?></td>
                     <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?></td>
-                    <td><?= $plg_amount ?></td>
+                    <td><?= OutputUtils::money_localized($plg_amount) ?></td>
                     <td><?= gettext($plg_schedule) ?></td>
                     <td><?= gettext($plg_method) ?></td>
                     <td><?= $plg_comment ?></td>
