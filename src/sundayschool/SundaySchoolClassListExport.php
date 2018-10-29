@@ -4,7 +4,7 @@
 *  filename    : sundayschol/SundaySchoolClassListExport.php
 *  last change : 2017-11-03 Philippe Logel
 *  description : Creates a csv for a Sunday School Class List
-
+*
 ******************************************************************************/
 require '../Include/Config.php';
 require '../Include/Functions.php';
@@ -41,20 +41,20 @@ if ($sCSVExportCharset == "UTF-8") {
 
 
 fputcsv($out, [InputUtils::translate_special_charset("Class",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Role",$sCSVExportCharset),
-  InputUtils::translate_special_charset("First Name",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Last Name",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Birth Date",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Mobile",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Home Phone",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Home Address",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Dad Name",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Dad Mobile",$sCSVExportCharset) ,
-  InputUtils::translate_special_charset("Dad Email",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Mom Name",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Mom Mobile",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Mom Email",$sCSVExportCharset),
-  InputUtils::translate_special_charset("Properties",$sCSVExportCharset) ], $delimiter);
+  InputUtils::translate_special_charset(gettext("Role"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("First Name"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Last Name"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Birth Date"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Mobile"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Home Phone"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Home Address"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Dad Name"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Dad Mobile"),$sCSVExportCharset) ,
+  InputUtils::translate_special_charset(gettext("Dad Email"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Mom Name"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Mom Mobile"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Mom Email"),$sCSVExportCharset),
+  InputUtils::translate_special_charset(gettext("Properties"),$sCSVExportCharset) ], $delimiter);
 
 // only the unday groups
 $groups = GroupQuery::create()
