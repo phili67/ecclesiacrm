@@ -17,6 +17,8 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Emails\CalendarEmail;
+
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -469,7 +471,11 @@ $app->group('/calendar', function () {
                   ])
               ]
             );
-        
+            
+            if ($params->notification) {
+              $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+              $email->send();
+            }
         
             $result = $calendarBackend->getInvites($calendarId); 
                 
@@ -518,7 +524,12 @@ $app->group('/calendar', function () {
                 ]
               );
               
-            }        
+            }
+            
+            if ($params->notification) {
+              $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+              $email->send();
+            }
         
             $result = $calendarBackend->getInvites($calendarId);
                 
@@ -569,7 +580,12 @@ $app->group('/calendar', function () {
                 ]
               );
               
-            }        
+              if ($params->notification) {
+                $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+                $email->send();
+              }
+              
+            }
         
           }
           

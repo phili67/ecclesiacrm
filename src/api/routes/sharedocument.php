@@ -66,11 +66,11 @@ $app->group('/sharedocument', function () {
           
           $noteShare->save();
           
-          if (isset ($params->notification)) {
+          if (isset ($params->notification)  && $params->notification) {
             $user = UserQuery::Create()->findOneByPersonId($params->personID);
           
             if ( !empty($user) ){
-              $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the document tab."));
+              $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
               $email->send();
             }
           }
@@ -98,11 +98,11 @@ $app->group('/sharedocument', function () {
           
               $noteShare->save();
               
-              if (isset ($params->notification)) {
+              if (isset ($params->notification)  && $params->notification) {
                 $user = UserQuery::Create()->findOneByPersonId($member->getId());
           
                 if ( !empty($user) ){
-                  $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the document tab."));
+                  $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
                   $email->send();
                 }
               }
@@ -132,11 +132,11 @@ $app->group('/sharedocument', function () {
           
               $noteShare->save();
               
-              if (isset ($params->notification)) {
+              if (isset ($params->notification) && $params->notification) {
                 $user = UserQuery::Create()->findOneByPersonId($member->getPersonId());
           
                 if ( !empty($user) ){
-                  $email = new DocumentEmail($user, gettext("You can view it in your account, in the document tab."));
+                  $email = new DocumentEmail($user, gettext("You can visualize it in your account, in the time Line or the notes tab."));
                   $email->send();
                 }
               }
