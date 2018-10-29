@@ -649,11 +649,19 @@ $app->group('/events', function () {
           
         $vcalendar = VObject\Reader::read($event['calendardata']);
         
-        if ( isset($input->allEvents) && isset($input->reccurenceID) ) {
-           if ( $input->allEvents == true ) { // we'll move all the events
+        if ( isset($input->allEvents) && isset($input->reccurenceID) && isset($input->start) && isset($input->end) ) {
+           if ( $input->allEvents == true ) { // we'll resize all the events
            
-              $vcalendar->VEVENT->DTSTART = (new \DateTime($input->start))->format('Ymd\THis');
-              $vcalendar->VEVENT->DTEND = (new \DateTime($input->end))->format('Ymd\THis');
+              $oldStart = new \DateTime ($vcalendar->VEVENT->DTSTART->getDateTime()->format('Y-m-d H:i:s'));
+              $oldEnd   = new \DateTime ($vcalendar->VEVENT->DTEND->getDateTime()->format('Y-m-d H:i:s'));
+            
+              $newSubStart = new \DateTime($input->start);
+              $newSubEnd   = new \DateTime($input->end);
+
+              $interval    = $newSubStart->diff($newSubEnd);
+
+              $vcalendar->VEVENT->DTSTART = ($oldStart)->format('Ymd\THis');
+              $vcalendar->VEVENT->DTEND   = ($oldStart->add($interval))->format('Ymd\THis');
               $vcalendar->VEVENT->{'LAST-MODIFIED'} = (new \DateTime('Now'))->format('Ymd\THis');
   
               $calendarBackend->updateCalendarObject($input->calendarID, $event['uri'], $vcalendar->serialize());
