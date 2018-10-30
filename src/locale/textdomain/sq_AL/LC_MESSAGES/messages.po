@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-29 17:35+0100\n"
+"POT-Creation-Date: 2018-10-30 12:24+0100\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,14 +159,14 @@ msgstr "Roli i ri"
 #: api/routes/gdrp.php:52 CartView.php:338 CartView.php:358
 #: EcclesiaCRM/utils/OutputUtils.php:165 EcclesiaCRM/utils/OutputUtils.php:267
 #: FinancialReports.php:405 GDPRListExport.php:82 ListEvents.php:552
-#: Reports/ConfirmReport.php:229
+#: Reports/ConfirmReport.php:234
 msgid "Yes"
 msgstr "Po"
 
 #: api/routes/gdrp.php:52 CartView.php:351 CartView.php:360
 #: EcclesiaCRM/utils/OutputUtils.php:167 EcclesiaCRM/utils/OutputUtils.php:268
 #: FinancialReports.php:406 GDPRListExport.php:82 ListEvents.php:552
-#: Reports/ConfirmReport.php:231
+#: Reports/ConfirmReport.php:236
 msgid "No"
 msgstr "Jo"
 
@@ -531,7 +531,7 @@ msgstr "Telefon"
 #: PersonView.php:437 PersonView.php:527 PersonView.php:781
 #: PrintPastoralCare.php:298 PrintView.php:301 Reports/CanvassReports.php:242
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
-#: Reports/ConfirmReport.php:184 Reports/ConfirmReport.php:203
+#: Reports/ConfirmReport.php:189 Reports/ConfirmReport.php:208
 #: Reports/DirectoryReport.php:299 Reports/GroupReport.php:134
 #: sundayschool/SundaySchoolClassView.php:98 queryparameteroptions_qpo.php:13
 msgid "Email"
@@ -597,7 +597,7 @@ msgstr "Ruaj"
 #: GroupPropsEditor.php:168 GroupReports.php:100 GroupReports.php:172
 #: LettersAndLabels.php:82 ManageEnvelopes.php:132 MemberRoleChange.php:118
 #: MemberRoleChange.php:120 NoteDelete.php:98 NoteEditor.php:311
-#: PersonEditor.php:1589 PersonView.php:1437 PledgeEditor.php:734
+#: PersonEditor.php:1589 PersonView.php:1434 PledgeEditor.php:734
 #: PropertyEditor.php:189 PropertyTypeEditor.php:113 Register.php:56
 #: ReminderReport.php:51 SettingsIndividual.php:118 SettingsIndividual.php:167
 #: sundayschool/SundaySchoolDashboard.php:279
@@ -1161,7 +1161,7 @@ msgstr ""
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:58
 #: external/templates/registration/family-register.php:31 FamilyEditor.php:690
 #: LettersAndLabels.php:70 Menu.php:522 Menu.php:551 PersonEditor.php:960
-#: Reports/ConfirmReportEmail.php:120 Reports/ConfirmReport.php:116
+#: Reports/ConfirmReportEmail.php:120 Reports/ConfirmReport.php:121
 #: SelectDelete.php:220 SelectDelete.php:363
 msgid "Family Name"
 msgstr "Emri Family"
@@ -1193,7 +1193,7 @@ msgstr "(Përdorni textbox për vendet tjetër se në SHBA dhe Kanada)"
 #: FamilyList.php:103 FamilyView.php:307 GroupReports.php:145
 #: PersonEditor.php:1225 PersonEditor.php:1229 PersonList.php:112
 #: PersonView.php:431 PrintPastoralCare.php:203 PrintView.php:206
-#: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:136
+#: Reports/ConfirmReportEmail.php:140 Reports/ConfirmReport.php:141
 #: sundayschool/SundaySchoolClassListExport.php:49
 #: queryparameteroptions_qpo.php:8
 msgid "Home Phone"
@@ -1211,7 +1211,7 @@ msgstr "Mos auto-format"
 #: FamilyView.php:313 GroupReports.php:146 PersonEditor.php:1250
 #: PersonEditor.php:1254 PersonView.php:448 PrintPastoralCare.php:208
 #: PrintView.php:211 Reports/ConfirmReportEmail.php:238
-#: Reports/ConfirmReport.php:241
+#: Reports/ConfirmReport.php:246
 msgid "Work Phone"
 msgstr "Puna Phone"
 
@@ -1461,8 +1461,8 @@ msgstr "Checkout"
 #: ElectronicPaymentList.php:256 ElectronicPaymentList.php:314
 #: EventNames.php:325 FamilyView.php:926 FindDepositSlip.php:128
 #: FundRaiserEditor.php:199 ListEvents.php:398 PaddleNumList.php:55
-#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1375
-#: PersonView.php:1438
+#: PastoralCare.php:151 PastoralCare.php:160 PersonView.php:1367
+#: PersonView.php:1435
 msgid "Delete"
 msgstr "Fshiji"
 
@@ -2022,7 +2022,7 @@ msgid "Return to Deposit Listing"
 msgstr "Depozita Listing"
 
 #: DepositSlipEditor.php:275 FamilyView.php:918 FindDepositSlip.php:118
-#: PersonView.php:1427
+#: PersonView.php:1424
 msgid "Confirm Delete"
 msgstr "Konfirmo Fshij"
 
@@ -2079,8 +2079,8 @@ msgstr "Informacione të përfshijnë"
 #: DirectoryReports.php:189 EcclesiaCRM/Service/CalendarService.php:41
 #: external/templates/verify/verify-family-info.php:87 FamilyView.php:464
 #: PersonView.php:780 Reports/ConfirmReportEmail.php:192
-#: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:185
-#: Reports/ConfirmReport.php:204
+#: Reports/ConfirmReportEmail.php:210 Reports/ConfirmReport.php:190
+#: Reports/ConfirmReport.php:209
 msgid "Birthday"
 msgstr "Ditëlindje"
 
@@ -2097,7 +2097,7 @@ msgid "Family Cell Phone"
 msgstr "Cell Phone Family"
 
 #: DirectoryReports.php:194 external/templates/verify/verify-family-info.php:36
-#: Reports/ConfirmReportEmail.php:161 Reports/ConfirmReport.php:157
+#: Reports/ConfirmReportEmail.php:161 Reports/ConfirmReport.php:162
 msgid "Family Email"
 msgstr "Familja Email"
 
@@ -4734,53 +4734,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:532
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:535
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:535
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:538
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:538
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:541
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:541
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:544
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:544
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:547
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:547
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:550
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:550
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:553
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:555
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:558
 #, fuzzy
 msgid "Dav create file"
 msgstr "Krijo Skedar"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:560
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:563
 #, fuzzy
 msgid "Dav create directory"
 msgstr "Krijo Directory"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:565
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:568
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:577
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:580
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:583
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:586
 msgid "Dav delete file"
 msgstr ""
 
@@ -5837,8 +5837,8 @@ msgid "Mobile"
 msgstr "Mobile Phone"
 
 #: external/templates/registration/family-register-members.php:120
-#: PersonEditor.php:902 Reports/ConfirmReport.php:186
-#: Reports/ConfirmReport.php:205
+#: PersonEditor.php:902 Reports/ConfirmReport.php:191
+#: Reports/ConfirmReport.php:210
 msgid "Hide Age"
 msgstr "Hide Mosha"
 
@@ -5884,7 +5884,7 @@ msgstr "Adresa"
 
 #: external/templates/verify/verify-family-info.php:46 FamilyEditor.php:818
 #: FamilyView.php:283 Reports/ConfirmReportEmail.php:145
-#: Reports/ConfirmReport.php:141
+#: Reports/ConfirmReport.php:146
 msgid "Send Newsletter"
 msgstr "Dërgo lajme me email"
 
@@ -6395,12 +6395,12 @@ msgstr "Shto një pagesë të re"
 msgid " Canvass Entry"
 msgstr " Diskutoj Hyrja"
 
-#: FamilyView.php:921 PersonView.php:1431
+#: FamilyView.php:921 PersonView.php:1428
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:922 PersonView.php:1433
+#: FamilyView.php:922 PersonView.php:1430
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -7921,12 +7921,12 @@ msgid "Confirm data letter"
 msgstr "Konfirmo letër të të dhënave"
 
 #: LettersAndLabels.php:80
-#, fuzzy
-msgid "Confirm data Email"
+msgid "Confirm data labels"
 msgstr "Konfirmo etiketat të dhënave"
 
 #: LettersAndLabels.php:81
-msgid "Confirm data labels"
+#, fuzzy
+msgid "Confirm data Email"
 msgstr "Konfirmo etiketat të dhënave"
 
 #: ListEvents.php:60 ListEvents.php:64
@@ -9081,21 +9081,21 @@ msgstr "Krijo Skedar"
 msgid "All Files"
 msgstr "Të gjitha Familjet"
 
-#: PersonView.php:1359
+#: PersonView.php:1351
 #, fuzzy
 msgid "Upload a file in EDrive"
 msgstr "Ngarkoni CSV dokumentit"
 
-#: PersonView.php:1368
+#: PersonView.php:1360
 #, fuzzy
 msgid "Create a Folder"
 msgstr "Krijo Skedar"
 
-#: PersonView.php:1382
+#: PersonView.php:1374
 msgid "Up One Level"
 msgstr ""
 
-#: PersonView.php:1395
+#: PersonView.php:1392
 #, fuzzy
 msgid "Preview"
 msgstr "Faqja e kaluar"
@@ -9617,8 +9617,8 @@ msgid "Pledge status"
 msgstr "Zotimi Editor"
 
 #: Reports/CanvassReports.php:237 Reports/ConfirmReportEmail.php:189
-#: Reports/ConfirmReportEmail.php:207 Reports/ConfirmReport.php:182
-#: Reports/ConfirmReport.php:201
+#: Reports/ConfirmReportEmail.php:207 Reports/ConfirmReport.php:187
+#: Reports/ConfirmReport.php:206
 msgid "M/F"
 msgstr "M / F"
 
@@ -9657,46 +9657,46 @@ msgstr "Ndërlidhje"
 msgid "All Members"
 msgstr "Anëtarët"
 
-#: Reports/ConfirmReportEmail.php:135 Reports/ConfirmReport.php:131
+#: Reports/ConfirmReportEmail.php:135 Reports/ConfirmReport.php:136
 msgid "City, State, Zip"
 msgstr "Qyteti, Shteti, Zip"
 
-#: Reports/ConfirmReportEmail.php:155 Reports/ConfirmReport.php:151
+#: Reports/ConfirmReportEmail.php:155 Reports/ConfirmReport.php:156
 #, fuzzy
 msgid "Anniversary Date"
 msgstr "Anniversary Data"
 
 #: Reports/ConfirmReportEmail.php:188 Reports/ConfirmReportEmail.php:206
-#: Reports/ConfirmReport.php:181 Reports/ConfirmReport.php:200
+#: Reports/ConfirmReport.php:186 Reports/ConfirmReport.php:205
 msgid "Member Name"
 msgstr "Anëtar Emri"
 
 #: Reports/ConfirmReportEmail.php:190 Reports/ConfirmReportEmail.php:208
-#: Reports/ConfirmReport.php:183 Reports/ConfirmReport.php:202
+#: Reports/ConfirmReport.php:188 Reports/ConfirmReport.php:207
 msgid "Adult/Child"
 msgstr "Adult / Fëmija"
 
 #: Reports/ConfirmReportEmail.php:194 Reports/ConfirmReportEmail.php:212
-#: Reports/ConfirmReport.php:188 Reports/ConfirmReport.php:207
+#: Reports/ConfirmReport.php:193 Reports/ConfirmReport.php:212
 msgid "Member/Friend"
 msgstr "Anëtar / Shoqëri"
 
-#: Reports/ConfirmReport.php:121
+#: Reports/ConfirmReport.php:126
 #, fuzzy
 msgid "Address 1"
 msgstr "Adresa"
 
-#: Reports/ConfirmReport.php:126
+#: Reports/ConfirmReport.php:131
 #, fuzzy
 msgid "Address 2"
 msgstr "Adresa"
 
-#: Reports/ConfirmReport.php:187 Reports/ConfirmReport.php:206
+#: Reports/ConfirmReport.php:192 Reports/ConfirmReport.php:211
 #, fuzzy
 msgid "Cell phone"
 msgstr "Celular"
 
-#: Reports/ConfirmReport.php:313
+#: Reports/ConfirmReport.php:319
 #, fuzzy
 msgid "Assigned groups for"
 msgstr "Grupet caktuar"
