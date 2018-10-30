@@ -500,7 +500,7 @@
         ],
         "dbVersion": "5.0.0"
     },
-    "current": {
+    "5.1.0": {
         "versions": [
             "5.0.0"
         ],
@@ -509,5 +509,14 @@
             "/mysql/upgrade/5.1.0-upgrade.php"
         ],
         "dbVersion": "5.1.0"
+    },
+    "current": {
+        "versions": [
+            "5.1.0"
+        ],
+        "scripts": [
+            "/mysql/upgrade/5.2.0-upgrade.sql"
+        ],
+        "dbVersion": "5.2.0"
     }
 }
