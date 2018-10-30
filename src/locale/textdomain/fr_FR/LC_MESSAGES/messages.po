@@ -4842,7 +4842,7 @@ msgstr ""
 
 #: EcclesiaCRM/Service/TimelineService.php:211
 msgid "Self Registration"
-msgstr "Enregistrement automatique"
+msgstr "Auto-inscription"
 
 #: EcclesiaCRM/Service/TimelineService.php:213
 msgid "Self Verification"
@@ -7695,7 +7695,7 @@ msgstr "Rapports de la Personne"
 
 #: LettersAndLabels.php:66
 msgid "Recipient Naming Method"
-msgstr "Méthode pour les noms des déstinateurs"
+msgstr "Méthode pour le Nom du destinataire"
 
 #: LettersAndLabels.php:69
 msgid "Salutation Utility"
@@ -7703,7 +7703,7 @@ msgstr "Utilitaire de salutation"
 
 #: LettersAndLabels.php:78
 msgid "Newsletter labels"
-msgstr "Etiquettes de la lettre de nouvelles"
+msgstr "Etiquettes pour la Newsletter"
 
 #: LettersAndLabels.php:79
 msgid "Confirm data letter"
@@ -7973,7 +7973,7 @@ msgstr "retourner au Tableau de bord des membres"
 
 #: members/online-pending-verify.php:13 PeopleDashboard.php:290
 msgid "Pending Self Verify"
-msgstr "En attente de vérification automatique"
+msgstr "En attente pour auto-vérification"
 
 #: members/self-register.php:13
 msgid "Families Self Registration"
@@ -7981,7 +7981,7 @@ msgstr "Enregistrement des Familles automatique"
 
 #: members/self-verify-updates.php:13
 msgid "Self Verify"
-msgstr "Vérification automatique"
+msgstr "Auto-vérification"
 
 #: MenuLinksList.php:31
 msgid "Custom Menus List"
@@ -8453,7 +8453,7 @@ msgstr "Mise à jour automatique"
 
 #: PeopleDashboard.php:280
 msgid "Self Register"
-msgstr "Enregistrement automatique"
+msgstr "Auto-inscription"
 
 #: PeopleDashboard.php:282
 msgid "List families that were created via self registration."
@@ -8461,15 +8461,15 @@ msgstr "Lister les familles enregistrées automatiquement."
 
 #: PeopleDashboard.php:286
 msgid "Self Verify Updates"
-msgstr "Verifications des Mise à jour automatique"
+msgstr "Mises à jour Auto-vérifications"
 
 #: PeopleDashboard.php:286
 msgid "Families who commented via self verify links"
-msgstr "Familles qui ont commentés via le lien de vérification automatique"
+msgstr "Familles qui ont commentés via le lien Auto-vérification"
 
 #: PeopleDashboard.php:290
 msgid "Families with valid self verify links"
-msgstr "Familles avec des liens valide de vérification automatique"
+msgstr "Familles avec des liens valides Auto-vérification"
 
 #: PeopleDashboard.php:313
 msgid "Role / Gender"
