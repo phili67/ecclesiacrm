@@ -256,8 +256,11 @@ class User extends BaseUser
             case 'GdrpDpo':
                $this->setGdrpDpo($res[1]);
                break;
+            case 'QueryMenu':
+               $this->setShowMenuQuery($res[1]);
+               break;
             case 'PastoralCare':
-               $this->setPastoralCare($res[1]);
+               $this->setShowMenuQuery($res[1]);
                break;
             case 'Style':
                $this->setStyle($res[1]);
