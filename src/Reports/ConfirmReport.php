@@ -69,6 +69,11 @@ class PDF_ConfirmReport extends ChurchInfoReport
     }
 }
 
+if (!$bCreateDirectory) {
+    Redirect('Menu.php');
+    exit;
+}
+
 // Instantiate the directory class and build the report.
 $pdf = new PDF_ConfirmReport();
 $filename = 'ConfirmReport'.date(SystemConfig::getValue("sDateFilenameFormat")).'.pdf';
@@ -161,9 +166,9 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     $curY += SystemConfig::getValue('incrementY');
 
     $sSQL = 'SELECT *, cls.lst_OptionName AS sClassName, fmr.lst_OptionName AS sFamRole FROM person_per 
-				LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-				LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
-				WHERE per_fam_ID = '.$fam_ID.' ORDER BY per_fmr_ID';
+        LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
+        LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
+        WHERE per_fam_ID = '.$fam_ID.' ORDER BY per_fmr_ID';
     $rsFamilyMembers = RunQuery($sSQL);
 
     $XName = 10;
@@ -177,17 +182,17 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     $XWorkPhone = 155;
     $XRight = 208;
 
-    $pdf->SetFont('Times', 'B', 10);
+    $pdf->SetFont('Times', 'B', 8);
     $pdf->WriteAtCell($XName, $curY, $XGender - $XName, gettext('Member Name'));
     $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, gettext('M/F'));
     $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, gettext('Adult/Child'));
     $pdf->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, gettext('Email'));
     $pdf->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, gettext('Birthday'));
-    $pdf->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, gettext('Hide Age'));
-    $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, gettext('Cell phone'));
+    $pdf->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, substr(gettext('Hide Age'),0,5));
+    $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(gettext('Cell phone'),0,13).".");
     $pdf->WriteAtCell($XClassification, $curY, $XRight - $XClassification, gettext('Member/Friend'));
     $pdf->SetFont('Times', '', 10);
-    $curY += 3 * SystemConfig::getValue('incrementY');
+    $curY += SystemConfig::getValue('incrementY');
 
     $numFamilyMembers = 0;
     while ($aMember = mysqli_fetch_array($rsFamilyMembers)) {
@@ -196,22 +201,22 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         // Make sure the person data will display with adequate room for the trailer and group information
         if (($curY + $numCustomFields * SystemConfig::getValue('incrementY')) > 260) {
             $curY = $pdf->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country);
-            $pdf->SetFont('Times', 'B', 10);
+            $pdf->SetFont('Times', 'B', 8);
             $pdf->WriteAtCell($XName, $curY, $XGender - $XName, gettext('Member Name'));
             $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, gettext('M/F'));
             $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, gettext('Adult/Child'));
             $pdf->WriteAtCell($XEmail, $curY, $XBirthday - $XEmail, gettext('Email'));
             $pdf->WriteAtCell($XBirthday, $curY, $XHideAge - $XBirthday, gettext('Birthday'));
-            $pdf->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, gettext('Hide Age'));
-            $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, gettext('Cell phone'));
+            $pdf->WriteAtCell($XHideAge, $curY, $XCellPhone - $XHideAge, substr(gettext('Hide Age'),0,5));
+            $pdf->WriteAtCell($XCellPhone, $curY, $XClassification - $XCellPhone, substr(gettext('Cell phone'),0,15).".");
             $pdf->WriteAtCell($XClassification, $curY, $XRight - $XClassification, gettext('Member/Friend'));
             $pdf->SetFont('Times', '', 10);
             $curY += SystemConfig::getValue('incrementY');
         }
         $iPersonID = $per_ID;
-        $pdf->SetFont('Times', 'B', 10);
+        $pdf->SetFont('Times', 'B', 8);
         $pdf->WriteAtCell($XName, $curY, $XGender - $XName, $per_FirstName.' '.$per_MiddleName.' '.$per_LastName);
-        $pdf->SetFont('Times', '', 10);
+        $pdf->SetFont('Times', '', 8);
         $genderStr = ($per_Gender == 1 ? 'M' : 'F');
         $pdf->WriteAtCell($XGender, $curY, $XRole - $XGender, $genderStr);
         $pdf->WriteAtCell($XRole, $curY, $XEmail - $XRole, $sFamRole);
@@ -266,6 +271,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
                 extract($rowCustomField);
                 if ($sCustomFieldName[$custom_Order - 1]) {
                     $currentFieldData = trim($aCustomData[$custom_Field]);
+                    $currentFieldData = OutputUtils::displayCustomField($type_ID, trim($aCustomData[$custom_Field]), $custom_Special, false);
 
                     $OutStr = $sCustomFieldName[$custom_Order - 1].' : '.$currentFieldData.'    ';
                     $pdf->WriteAtCell($xInc, $curY, $xSize, $sCustomFieldName[$custom_Order - 1]);
@@ -303,11 +309,11 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
         // Get the Groups this Person is assigned to
         $sSQL = 'SELECT grp_ID, grp_Name, grp_hasSpecialProps, role.lst_OptionName AS roleName
-				FROM group_grp
-				LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-				LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-				WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$per_ID.'
-				ORDER BY grp_Name';
+        FROM group_grp
+        LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
+        LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
+        WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$per_ID.'
+        ORDER BY grp_Name';
         $rsAssignedGroups = RunQuery($sSQL);
         if (mysqli_num_rows($rsAssignedGroups) > 0) {
             $groupStr = gettext("Assigned groups for")." ".$per_FirstName.' '.$per_LastName.': ';

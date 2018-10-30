@@ -77,8 +77,8 @@ if (isset($_POST['SubmitNewsLetter']) || isset($_POST['SubmitConfirmReport']) ||
             <div>
               <input type="submit" class="btn btn-success" name="SubmitNewsLetter" value="<?= gettext('Newsletter labels') ?>">
               <input type="submit" class="btn btn-primary" name="SubmitConfirmReport" value="<?= gettext('Confirm data letter') ?>">
-              <input type="submit" class="btn btn-primary" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
               <input type="submit" class="btn btn-primary" name="SubmitConfirmLabels" value="<?= gettext('Confirm data labels') ?>">
+              <input type="submit" class="btn btn-primary" name="SubmitConfirmReportEmail" value="<?= gettext('Confirm data Email') ?>">
               <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
             </div>
         </form>
