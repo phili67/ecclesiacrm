@@ -271,7 +271,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           } 
         ?>
       <?php 
-        if (!$bHideLatLon) { /* Lat/Lon can be hidden - General Settings */ ?>
+        if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
           <li><i class="fa-li fa fa-compass"></i><?= gettext("Latitude/Longitude") ?>
               <span><?= $fam_Latitude . " / " . $fam_Longitude ?></span>
           </li>
