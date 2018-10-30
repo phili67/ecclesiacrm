@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore" nameSpace="EcclesiaCRM">
 
+  <table name="addressbookchanges" idMethod="native" phpName="Addressbookchanges">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)" required="true"/>
+    <column name="synctoken" phpName="SyncToken" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="addressbookid" phpName="AddressbookId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="operation" phpName="Operation" type="BOOLEAN" size="1" required="true"/>
+    <index name="addressbookid_synctoken">
+      <index-column name="addressbookid"/>
+      <index-column name="synctoken"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+
+  <table name="addressbooks" idMethod="native" phpName="Addressbooks">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="principaluri" phpName="PrincipalUri" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
+    <column name="displayname" phpName="DisplayName" type="VARCHAR" size="255"/>
+    <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR"/>
+    <column name="synctoken" phpName="Synctoken" type="INTEGER" sqlType="int(11) unsigned" required="true" defaultValue="1"/>
+    <unique name="principaluri">
+      <unique-column name="principaluri" size="100"/>
+      <unique-column name="uri" size="100"/>
+    </unique>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+
   <table name="calendarchanges" idMethod="native" phpName="Calendarchanges" description="Calendar management">
     <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
     <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)" required="true"/>
@@ -82,6 +113,19 @@
     </vendor>
   </table>
 
+
+  <table name="cards" idMethod="native" phpName="Cards">
+    <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="addressbookid" phpName="Addressbookid" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="carddata" phpName="Carddata" type="VARBINARY"/>
+    <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)"/>
+    <column name="lastmodified" phpName="Lastmodified" type="INTEGER" sqlType="int(11) unsigned"/>
+    <column name="etag" phpName="Etag" type="VARCHAR" size="32" sqlType="varbinary(32)"/>
+    <column name="size" phpName="Size" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
 
     <table name="version_ver" idMethod="native" phpName="Version" description="History of all version upgrades applied to this database">
         <column name="ver_ID" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true"
