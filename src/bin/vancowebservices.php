@@ -222,9 +222,22 @@ class VancoTools
         return rtrim(strtr(base64_encode($string), '+/', '-_'));
     }
 
-    public function encrypt($data, $key)
+    public function encrypt_old($data, $key)
     {
         return mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB);
+    }
+    
+    public function encrypt($data, $key, $method = 'AES-128-CBC')
+    {
+        $ivSize = openssl_cipher_iv_length($method);
+        $iv = openssl_random_pseudo_bytes($ivSize);
+
+        $encrypted = openssl_encrypt($data, $method, $key, OPENSSL_RAW_DATA, $iv);
+    
+        // For storage/transmission, we simply concatenate the IV and cipher text
+        $encrypted = base64_encode($iv . $encrypted);
+
+        return $encrypted;
     }
 
     public function pad_msg($data)
@@ -252,9 +265,19 @@ class VancoTools
         return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
     }
 
-    public function decrypt($data, $key)
+    public function decrypt_old($data, $key)
     {
         return mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_ECB);
+    }
+
+    public function decrypt($data, $key, $method = 'AES-128-CBC')
+    {
+        $data = base64_decode($data);
+        $ivSize = openssl_cipher_iv_length($method);
+        $iv = substr($data, 0, $ivSize);
+        $data = openssl_decrypt(substr($data, $ivSize), $method, $key, OPENSSL_RAW_DATA, $iv);
+
+        return $data;
     }
 
     //Function to generate a unique requestid for the request.
@@ -266,7 +289,7 @@ class VancoTools
           Parameters:  None
           Returns:     String value to be used as a request ID. Value will be date/time with a random 4 digit number appended
           */
-        //		date_default_timezone_set('America/Chicago');
+        //    date_default_timezone_set('America/Chicago');
         $currenttime = date('YmdHis');
         $randomnumber = rand(0, 9999);
 
