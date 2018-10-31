@@ -7,7 +7,6 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\ListOptionQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupManagerPerson;
@@ -18,7 +17,11 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\GroupService;
 
+use Sabre\CardDAV;
+use Sabre\DAV;
 
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 
 $app->group('/groups', function () {
@@ -312,8 +315,18 @@ $app->group('/groups', function () {
             ->joinWithPerson()
             ->filterByPersonId($input->PersonID)
             ->findByGroupId($GroupID);
+            
+        // we get the PDO for the Sabre connection from the Propel connection
+        $pdo = Propel::getConnection();
+        
+        // We set the BackEnd for sabre Backends
+        $carddavBackend = new \Sabre\CardDAV\Backend\PDO($pdo->getWrappedConnection());
+        
+        $uuid = strtoupper(\Sabre\DAV\UUIDUtil::getUUID());
+        
         echo $members->toJSON();
     });
+    
     $this->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $userID = $args['userID'];
@@ -323,6 +336,7 @@ $app->group('/groups', function () {
         $membership->save();
         echo $membership->toJSON();
     });
+    
     $this->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $roleID = $args['roleID'];
@@ -341,22 +355,26 @@ $app->group('/groups', function () {
         }
         echo json_encode(['success' => false]);
     });
+    
     $this->get('/{groupID:[0-9]+}/roles', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $group = GroupQuery::create()->findOneById($groupID);
         $roles = EcclesiaCRM\ListOptionQuery::create()->filterById($group->getRoleListId())->orderByOptionName()->find();
         echo $roles->toJSON();
     });
+    
     $this->delete('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $roleID = $args['roleID'];
         echo json_encode($this->GroupService->deleteGroupRole($groupID, $roleID));
     });
+    
     $this->post('/{groupID:[0-9]+}/roles', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $roleName = $request->getParsedBody()['roleName'];
         echo $this->GroupService->addGroupRole($groupID, $roleName);
     });
+    
     $this->post('/{groupID:[0-9]+}/defaultRole', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $roleID = $request->getParsedBody()['roleID'];
@@ -365,6 +383,7 @@ $app->group('/groups', function () {
         $group->save();
         echo json_encode(['success' => true]);
     });
+    
     $this->post('/{groupID:[0-9]+}/setGroupSpecificPropertyStatus', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $input = $request->getParsedBody();
@@ -376,6 +395,7 @@ $app->group('/groups', function () {
             echo json_encode(['status' => 'group specific properties disabled']);
         }
     });
+    
     $this->post('/{groupID:[0-9]+}/settings/active/{value}', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $flag = $args['value'];
@@ -392,6 +412,7 @@ $app->group('/groups', function () {
             return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid status value']);
         }
     });
+    
     $this->post('/{groupID:[0-9]+}/settings/email/export/{value}', function ($request, $response, $args) {
         $groupID = $args['groupID'];
         $flag = $args['value'];
