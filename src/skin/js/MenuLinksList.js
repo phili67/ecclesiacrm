@@ -6,6 +6,7 @@ $(document).ready(function () {
       contentType: "application/json",
       dataSrc: "MenuLinks"
     },
+    bSort : false,
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
