@@ -89,7 +89,7 @@ class LabelUtils {
 
     public function LabelSelect($fieldname,$title='')
     {
-        $labels = [gettext('Tractor'), 'Badge', '5160', '5161', '5162', '5163', '5164', '8600', 'L7163'];
+        $labels = [gettext('Tractor') => gettext('Tractor'), 'Badge A4' => 'Badge (65 mm x 37 mm) A4', '5160' => '5160', '5161' => '5161', '5162' => '5162', '5163' => '5163', '5164' => '5164', '8600' => '8600', 'C32019' => 'C32019 (85 mm x 54 mm) A4'];
     
         if (empty($title)) {
           $title = gettext('Label Type');
@@ -101,13 +101,13 @@ class LabelUtils {
           <div class="col-md-6">
             <select name="<?= $fieldname ?>" class="form-control input-sm">
             <?php
-              foreach ($labels as $l) {
+              foreach ($labels as $l => $name) {
                   $sel = '';
                   if (array_key_exists($fieldname, $_COOKIE) && $_COOKIE[$fieldname] == $l) {
                       $sel = ' selected';
                   }
                 ?>
-                  <option value="<?= $l ?>" <?= $sel ?>><?= gettext("$l") ?></option>
+                  <option value="<?= $l ?>" <?= $sel ?>><?= gettext("$name") ?></option>
             <?php
               }
             ?>
