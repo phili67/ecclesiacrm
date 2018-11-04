@@ -516,200 +516,231 @@ if ($usr_role_id == null) {
 <form method="post" action="UserEditor.php">
 
 <input id="roleID" name="roleID" type="hidden" value="<?= $usr_role_id ?>">
+<input type="hidden" name="Action" value="<?= $sAction ?>">
+<input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
+<input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
+
+<?php
+  // Are we adding?
+  if ($bShowPersonSelect) {
+  //Yes, so display the people drop-down
+?>
+<div class="box">
+    <div class="box-body">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+             <?= gettext('Person to Make User') ?>:
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3">
+              <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
+                  <?php
+                  // Loop through all the people
+                  while ($aRow = mysqli_fetch_array($rsPeople)) {
+                      extract($aRow); ?>
+                      <option value="<?= $per_ID ?>"<?= ($per_ID == $iPersonID)?' selected':'' ?> data-email="<?= $per_Email ?>"><?= $per_LastName . ', ' . $per_FirstName ?></option>
+                      <?php
+                  } ?>
+              </select>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2">
+            <?= gettext('Login Name') ?>:
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32">
+          </div>
+        </div>
+    </div>
+</div>
+<?php
+  }
+?>
 
 <div class="box">
     <div class="box-body">
         <div class="callout callout-info">
             <?= gettext('Note: Changes will not take effect until next logon.') ?>
         </div>
-            <input type="hidden" name="Action" value="<?= $sAction ?>">
-            <input type="hidden" name="NewUser" value="<?= $vNewUser ?>">
-            <div class="table-responsive">
-                <input type="hidden" name="PersonID" value="<?= $iPersonID ?>">
-                <table class="table table-hover data-person data-table no-footer dtr-inline" style="width:100%" id="table1">
-                  <thead>
-                    <?php
+      <table class="table table-hover data-person data-table1 no-footer dtr-inline" style="width:100%" id="table1">
+        <thead>
+          <?php
 
-                    // Are we adding?
-                    if ($bShowPersonSelect) {
-                        //Yes, so display the people drop-down
-                        ?>
-                            <th><?= gettext('Person to Make User') ?>:</th>
-                            <th>
-                                <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
-                                    <?php
-                                    // Loop through all the people
-                                    while ($aRow = mysqli_fetch_array($rsPeople)) {
-                                        extract($aRow); ?>
-                                        <option value="<?= $per_ID ?>"<?= ($per_ID == $iPersonID)?' selected':'' ?> data-email="<?= $per_Email ?>"><?= $per_LastName . ', ' . $per_FirstName ?></option>
-                                        <?php
-                                    } ?>
-                                </select>
-                            </th>
-                        <?php
-                    } else { // No, just display the user name?>
-                            <th><?= gettext('User') ?>:</th>
-                            <th><?= $sUser ?></th>
-                        <?php
-                    } ?>
-                    </thead>
-                    <tbody>
-                    <?php if ($sErrorText != '') {
-                        ?>
-                        <tr>
-                            <td>
-                                <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                        <?php
-                    } ?>
-                    <tr>
-                        <td><?= gettext('Login Name') ?>:</td>
-                        <td><input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
-                    </tr>
+          // Are we adding?
+          if ($bShowPersonSelect) {
+              //Yes, so display the people drop-down
+              ?>
+                  <th></th>
+                  <th></th>
+              <?php
+          } else { // No, just display the user name?>
+                  <th><?= gettext('User') ?>:</th>
+                  <th><?= $sUser ?></th>
+              <?php
+          } ?>
+          </thead>
+          <tbody>
+          <?php if ($sErrorText != '') {
+              ?>
+              <tr>
+                  <td>
+                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
+                  </td>
+                  <td>
+                  </td>
+              </tr>
+              <?php
+          } ?>
+          
+          <?php
+          // Are we adding?
+          if (!$bShowPersonSelect) {
+              //Yes, so display the people drop-down
+          ?>
+          <tr>
+              <td><?= gettext('Login Name') ?>:</td>
+              <td><input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
+          </tr>
+          <?php
+            }
+          ?>
+          <tr>
+              <td><?= gettext('Add Records') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Add Records') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Edit Records') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?php if ($usr_EditRecords) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Edit Records') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?php if ($usr_EditRecords) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Delete Records') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
+          
+          <tr>
+              <td><?= gettext('Show Cart') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
+          
+          <tr>
+              <td><?= gettext('Show Map') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Delete Records') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><?= gettext('Show Cart') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><?= gettext('Show Map') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Manage Properties and Classifications') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?php if ($usr_MenuOptions) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Manage Properties and Classifications') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?php if ($usr_MenuOptions) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Manage Groups and Roles') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?php if ($usr_ManageGroups) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Manage Groups and Roles') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?php if ($usr_ManageGroups) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Manage Donations and Finance') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?php if ($usr_Finance) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Manage Donations and Finance') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?php if ($usr_Finance) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('View, Add and Edit Notes') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?php if ($usr_Notes) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('View, Add and Edit Notes') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?php if ($usr_Notes) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Edit Self') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="EditSelf" value="1"<?php if ($usr_EditSelf) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('(Edit own family only.)') ?></span></td>
+          </tr>
+          <tr>
+              <td><?= gettext('Canvasser') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="Canvasser" value="1"<?php if ($usr_Canvasser) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('(Canvass volunteer.)') ?></span></td>
+          </tr>
+          <tr>
+              <td><?= gettext('Admin') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="Admin" value="1"<?php if ($usr_Admin) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Edit Self') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="EditSelf" value="1"<?php if ($usr_EditSelf) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Edit own family only.)') ?></span></td>
-                    </tr>
-                    <tr>
-                        <td><?= gettext('Canvasser') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="Canvasser" value="1"<?php if ($usr_Canvasser) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Canvass volunteer.)') ?></span></td>
-                    </tr>
-                    <tr>
-                        <td><?= gettext('Admin') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="Admin" value="1"<?php if ($usr_Admin) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Grants all privileges.)') ?></span></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Query Menu') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?php if ($usr_showMenuQuery) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('(Allow to manage the query menu)') ?></span></td>
+          </tr>
+          
+          <tr>
+              <td><?= gettext('Main Dashboard') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('(Main Dashboard and the birthdates in the calendar are visible.)') ?></span></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Query Menu') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?php if ($usr_showMenuQuery) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Allow to manage the query menu)') ?></span></td>
-                    </tr>
-                    
-                    <tr>
-                        <td><?= gettext('Main Dashboard') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('(Main Dashboard and the birthdates in the calendar are visible.)') ?></span></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('See Privacy Data') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?php if ($usr_SeePrivacyData) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow user to see member privacy data, e.g. Birth Year, Age.') ?></span></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('See Privacy Data') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?php if ($usr_SeePrivacyData) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow user to see member privacy data, e.g. Birth Year, Age.') ?></span></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('MailChimp') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow a user to use MailChimp tool') ?></span></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('MailChimp') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('Allow a user to use MailChimp tool') ?></span></td>
-                    </tr>
+          <tr>
+              <td><?= gettext("GRPD Data Protection Officer") ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?php if ($usr_GDRP_DPO) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText"><?= gettext('General Data Protection Regulation in UE') ?></span></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext("GRPD Data Protection Officer") ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?php if ($usr_GDRP_DPO) {
-                        echo ' checked';
-                    } ?>>&nbsp;<span class="SmallText"><?= gettext('General Data Protection Regulation in UE') ?></span></td>
-                    </tr>
+          <tr>
+              <td><?= gettext('Pastoral Care') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
+              echo ' checked';
+          } ?>></td>
+          </tr>
 
-                    <tr>
-                        <td><?= gettext('Pastoral Care') ?>:</td>
-                        <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
-                        echo ' checked';
-                    } ?>></td>
-                    </tr>
-
-                    <tr>
-                        <td><?= gettext('Style') ?>:</td>
-                        <td class="TextColumnWithBottomBorder"><select class="form-control input-sm global_settings" name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <br>
-                <div class="row">
-                    <div class="col-md-2">
-                    </div>
-                    <div class="col-md-6">
-                       <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="save">&nbsp;
-                       <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location='UserList.php';">
-                    </div>
-                </div>
-            </div>
+          <tr>
+              <td><?= gettext('Style') ?>:</td>
+              <td class="TextColumnWithBottomBorder"><select class="form-control input-sm global_settings" name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="row">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-6">
+             <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="save">&nbsp;
+             <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location='UserList.php';">
+          </div>
+      </div>
     </div>
     <!-- /.box-body -->
 </div>
@@ -718,9 +749,9 @@ if ($usr_role_id == null) {
 <div class="box">
     <div class="box-body box-danger">
         <div
-            class="callout callout-info"><?= gettext('Set Permission True to give this user the ability to change their current value.') ?></div>
-        <div class="table-responsive">
-            <table class="table table-hover data-person data-table no-footer dtr-inline" style="width:100%" >
+            class="callout callout-info"><?= gettext('Set Permission True to give this user the ability to change their current value.') ?>
+        </div>
+            <table class="table table-hover data-person data-table2 no-footer dtr-inline" style="width:100%" >
               <thead>
                 <tr>
                     <th><?= gettext('Permission') ?></h3></th>
@@ -816,7 +847,6 @@ if ($usr_role_id == null) {
                     <input type="submit" class="btn btn-default" name="cancel" value="<?= gettext('Cancel') ?>">
                 </div>
             </div>
-        </div>
     </div>
     <!-- /.box-body -->
 </div>
