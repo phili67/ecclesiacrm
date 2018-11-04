@@ -57,7 +57,7 @@ function addRolesToMainDropdown()
           }
         });
         
-        $(".data-table").DataTable({
+        $(".data-table1").DataTable({
           "language": {
             "url": window.CRM.plugin.dataTable.language.url
           },
@@ -68,6 +68,16 @@ function addRolesToMainDropdown()
           responsive: true
         });
         
+        $(".data-table2").DataTable({
+          "language": {
+            "url": window.CRM.plugin.dataTable.language.url
+          },
+          pageLength: 100,
+          info: false,
+          bSort : false,
+          searching: false, paging: false,
+          responsive: true
+        });
         
         function BootboxContent(){
           var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Role management")+'</h3>'
