@@ -106,17 +106,18 @@ $app->group('/calendar', function () {
         return $response->withJson(['status' => "failed"]);
     });
     
-    $this->post('/setDescription', function ($request, $response, $args) {  
+    $this->post('/setDescriptionType', function ($request, $response, $args) {  
         $params = (object)$request->getParsedBody();
         
         $return = [];
 
-        if ( isset ($params->calIDs) &&  isset ($params->desc) && $_SESSION['user']->isAdmin() ) { // only an admin can change the calendarinstance description
+        if ( isset ($params->calIDs) && isset ($params->desc) && isset ($params->type) && $_SESSION['user']->isAdmin() ) { // only an admin can change the calendarinstance description
           $calIDs = explode(",",$params->calIDs);
           
           $calendarInstance = CalendarinstancesQuery::Create()->findOneById( $calIDs[1] );
           
           $calendarInstance->setDescription($params->desc);
+          $calendarInstance->setType($params->type);
           
           $calendarInstance->save();
 
