@@ -9,6 +9,7 @@ $(document).ready(function () {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
+    bSort : false,
     columns: [
       {
         width: 'auto',
