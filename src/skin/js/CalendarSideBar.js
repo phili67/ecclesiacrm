@@ -705,10 +705,24 @@
      var title   = $(this).data("title");
      var content = $(this).data("content");
      var id      = $(this).data("id");
+     var calType = $(this).data("caltype");
 
      bootbox.confirm({
           title:i18next.t("Resource Info for") + ' : ' + title,
           message:'<table width=100%>'
+                  +'<tr>'
+                    +'<td>'
+                    +i18next.t("Select a resource type")+':'
+                    +'</td>'
+                    +'<td>'
+                    + '<select class="form-control input-sm" id="typeCalendar" name="typeCalendar">'
+                    +   '<option value="2"'+((calType == 2)?' selected':'')+'>'+i18next.t("Room")+'</option>'
+                    +   '<option value="3"'+((calType == 3)?' selected':'')+'>'+i18next.t("Computer")+'</option>'
+                    +   '<option value="4"'+((calType == 4)?' selected':'')+'>'+i18next.t("Video")+'</option>'
+                    + '</select>'
+                    + '<br>'
+                    +'</td>'
+                  +'</tr>'
                   +'<tr>'
                     +'<td>'
                     + i18next.t("Description") + ':'
@@ -729,12 +743,13 @@
           },
           callback: function (result) {
              var desc   = $("#descCalendar").val();
+             var type   = Number($("#typeCalendar").val());
 
               if(result) {
                   window.CRM.APIRequest({
                     method: 'POST',
-                    path: 'calendar/setDescription',
-                    data: JSON.stringify({"calIDs":id,"desc":desc})
+                    path: 'calendar/setDescriptionType',
+                    data: JSON.stringify({"calIDs":id,"desc":desc,"type":type})
                   }).done(function(data) {
                      if (data.status == "success") {
                        addReservationCalendars();
@@ -816,7 +831,7 @@
           icon = '&nbsp;<i class="fa fa-video-camera"></i>&nbsp;';
         }
         
-        $('#reservation-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+'<i class="fa pull-right fa-info-circle" data-title="'+data[i].calendarName+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#reservation-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+'<i class="fa pull-right fa-info-circle" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,          
