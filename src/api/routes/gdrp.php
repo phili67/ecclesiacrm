@@ -74,7 +74,7 @@ $app->group('/gdrp', function () {
          
           return $response->withJson(['status' => "success"]);
         } else if ($input->type == 'personCustom') {
-          $personCM = PropertyQuery::Create()->filterByProClass('p')->find();
+          $personCM = PersonCustomMasterQuery::Create()->findOneById($input->custom_id);
          
           if ( !is_null ($personCM) ) {
             $personCM->setCustomComment($input->comment);
