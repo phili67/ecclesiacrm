@@ -65,10 +65,10 @@ $iType = 0;
 
 //Was the form submitted?
 if (isset($_POST['Submit'])) {
-    $sName = InputUtils::LegacyFilterInput($_POST['Name']);
-    $sDescription = InputUtils::LegacyFilterInput($_POST['Description']);
-    $iClass = InputUtils::LegacyFilterInput($_POST['Class'], 'int');
-    $sPrompt = InputUtils::LegacyFilterInput($_POST['Prompt']);
+    $sName        = InputUtils::FilterString($_POST['Name']);
+    $sDescription = InputUtils::FilterString($_POST['Description']);
+    $iClass       = InputUtils::FilterInt($_POST['Class'], 'int');
+    $sPrompt      = InputUtils::FilterString($_POST['Prompt']);
 
     //Did they enter a name?
     if (strlen($sName) < 1) {
