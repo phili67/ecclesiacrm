@@ -161,7 +161,9 @@ if ($startcol > 1 || $startrow > 1) {
 }
 
 // à gérer par la suite
-$image = '../Images/background/'.$sImage;
+if ($sImage != '') {
+  $image = '../Images/background/'.$sImage;
+}
 
 $aLabelList = unserialize(GenerateLabels($pdf, $iGroupId, $useCart, $sundaySchoolName,$sFontSize,$image,$title_red, $title_gren, $title_blue, $back_red, $back_gren, $back_blue,$sImagePosition));
 
