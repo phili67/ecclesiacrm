@@ -65,6 +65,7 @@ $authBackend->setRealm('EcclesiaCRM_DAV');
 $principalBackend = new PrincipalPDO($pdo);
 $carddavBackend   = new Sabre\CardDAV\Backend\PDO($pdo);
 
+
 // Directory structure
 $tree = [
     new Sabre\CalDAV\Principal\Collection($principalBackend),
