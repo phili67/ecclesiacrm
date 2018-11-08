@@ -89,7 +89,7 @@ class LabelUtils {
 
     public function LabelSelect($fieldname,$title='')
     {
-        $labels = [gettext('Tractor') => gettext('Tractor'), 'Badge A4' => 'Badge (65 mm x 37 mm) A4', '5160' => '5160', '5161' => '5161', '5162' => '5162', '5163' => '5163', '5164' => '5164', '8600' => '8600', 'C32019' => 'C32019 (85 mm x 54 mm) A4'];
+        $labels = [gettext('Tractor') => gettext('Tractor'), 'Badge' => 'Badge (65 mm x 37 mm) A4', '3670' => '3670 (64 mm x 34 mm) A4', '5160' => '5160', '5161' => '5161', '5162' => '5162', '5163' => '5163', '5164' => '5164', '8600' => '8600', 'C32019' => 'C32019 (85 mm x 54 mm) A4'];
     
         if (empty($title)) {
           $title = gettext('Label Type');
