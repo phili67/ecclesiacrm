@@ -151,9 +151,9 @@ class PDF_Attendance extends ChurchInfoReport
 
       $this->SetLineWidth(0.25);
       for ($row = $pRowStart; $row < $pRowEnd; $row++) {
-        $this->SetFont('Times', 'B', $fontTitleNormal-1);
-        $this->WriteAt($nameX, $y + (($with_img==true)?3:1)-2, $lastNameList[$row]);
-        $this->WriteAt($nameX, $y + (($with_img==true)?3:1)+2, $firstNameList[$row]);
+        $this->SetFont('Times', 'B', ($with_img)?$fontTitleNormal-1:$fontTitleNormal-3);
+        $this->WriteAt($nameX, $y + (($with_img==true)?3:2)-2, $lastNameList[$row]);
+        $this->WriteAt($nameX, $y + (($with_img==true)?3:0)+2, $firstNameList[$row]);
         $this->SetFont('Times', 'B', $fontTitleNormal);
             
         if($with_img == true) 

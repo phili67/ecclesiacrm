@@ -24,15 +24,15 @@ use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
-$aGrp = explode(',', $iGroupID);
-$nGrps = count($aGrp);
+$aGrp     = explode(',', $iGroupID);
+$nGrps    = count($aGrp);
 //echo $iGroupID;
 
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
 
 $tFirstSunday = InputUtils::LegacyFilterInput($_GET['FirstSunday']);
-$tLastSunday = InputUtils::LegacyFilterInput($_GET['LastSunday']);
-$tAllRoles = InputUtils::LegacyFilterInput($_GET['AllRoles'], 'int');
+$tLastSunday  = InputUtils::LegacyFilterInput($_GET['LastSunday']);
+$tAllRoles    = InputUtils::LegacyFilterInput($_GET['AllRoles'], 'int');
 $withPictures = InputUtils::LegacyFilterInput($_GET['withPictures'], 'int');
 
 //echo "all roles ={$tAllRoles}";
@@ -50,7 +50,7 @@ $iExtraStudents = InputUtils::LegacyFilterInputArr($_GET, 'ExtraStudents', 'int'
 $iExtraTeachers = InputUtils::LegacyFilterInputArr($_GET, 'ExtraTeachers', 'int');
 
 $dFirstSunday = strtotime($tFirstSunday);
-$dLastSunday = strtotime($tLastSunday);
+$dLastSunday  = strtotime($tLastSunday);
 
 $dNoSchool1 = strtotime($tNoSchool1);
 $dNoSchool2 = strtotime($tNoSchool2);
@@ -63,7 +63,7 @@ $dNoSchool8 = strtotime($tNoSchool8);
 
 // Reformat the dates to get standardized text representation
 $tFirstSunday = date('Y-m-d', $dFirstSunday);
-$tLastSunday = date('Y-m-d', $dLastSunday);
+$tLastSunday  = date('Y-m-d', $dLastSunday);
 
 $tNoSchool1 = date('Y-m-d', $dNoSchool1);
 $tNoSchool2 = date('Y-m-d', $dNoSchool2);
@@ -173,9 +173,9 @@ for ($i = 0; $i < $nGrps; $i++) {
         }
 
         $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, gettext('Students'), $iExtraStudents,
-                                   $tFirstSunday, $tLastSunday,
-                                   $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                                 $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $aStudentsIMG, $withPictures);
+                                  $tFirstSunday, $tLastSunday,
+                                  $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
+                                  $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $aStudentsIMG, $withPictures);
         
         
         // we start a new page
@@ -185,9 +185,9 @@ for ($i = 0; $i < $nGrps; $i++) {
                                                                         
         $y = $yTeachers;
         $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aTeachers, gettext('Teachers'), $iExtraTeachers,
-                                                                    $tFirstSunday, $tLastSunday,
-                                                                    $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                                                    $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, '', $aTeachersIMG, $withPictures);
+                                     $tFirstSunday, $tLastSunday,
+                                     $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
+                                     $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, '', $aTeachersIMG, $withPictures);
     } else {
         //
         // print all roles on the attendance sheet
