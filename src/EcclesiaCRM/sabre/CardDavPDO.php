@@ -147,7 +147,7 @@ INSERT INTO ' . $this->addressBookShareObjectTableName . '
         access,
         displayname,
         description,
-        share_href
+        href
     )');
 
         foreach ($sharees as $sharee) {
