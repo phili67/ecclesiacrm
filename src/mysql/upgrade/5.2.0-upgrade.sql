@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS addressbookshare (
     displayname VARCHAR(255),
     description TEXT,
     href VARBINARY(100),
-    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = read, 2 = readwrite',
+    access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
     UNIQUE(principaluri(100), uri(100)),
     UNIQUE(addressbooksid, principaluri)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
