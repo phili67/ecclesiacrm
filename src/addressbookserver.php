@@ -25,6 +25,7 @@ use Propel\Runtime\Propel;
 
 use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
+use EcclesiaCRM\MyPDO\CardDavPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -63,7 +64,7 @@ $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
 $principalBackend = new PrincipalPDO($pdo);
-$carddavBackend   = new Sabre\CardDAV\Backend\PDO($pdo);
+$carddavBackend   = new CardDavPDO($pdo);
 
 
 // Directory structure
