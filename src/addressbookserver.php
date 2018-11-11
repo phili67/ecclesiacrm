@@ -29,7 +29,12 @@ use EcclesiaCRM\MyPDO\CardDavPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\RedirectUtils;
 
+if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
+  RedirectUtils::Redirect('members/404.php?type=Dav');
+  return;
+}
 
 //*****************
 // settings
@@ -84,16 +89,19 @@ $server->addPlugin($authPlugin);
 $aclPlugin = new Sabre\DAVACL\Plugin();
 $server->addPlugin($aclPlugin);
 
-// Support for html frontend : normally this had to be removed
-$browser = new Sabre\DAV\Browser\Plugin();
-$server->addPlugin($browser);
-
 // the VCF export
 $vcfPlugin = new \Sabre\CardDAV\VCFExportPlugin();
 $server->addPlugin($vcfPlugin);
 
 // add the carDav
 $server->addPlugin(new Sabre\CardDAV\Plugin());
+
+// Support for html frontend : normally this had to be removed
+if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
+  $browser = new Sabre\DAV\Browser\Plugin();
+  $server->addPlugin($browser);
+}
+
 
 // And off we go!*/
 $server->exec();

@@ -28,7 +28,12 @@ use EcclesiaCRM\MyPDO\PrincipalPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\RedirectUtils;
 
+if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
+  RedirectUtils::Redirect('members/404.php?type=Dav');
+  return;
+}
 
 //*****************
 // settings
@@ -108,13 +113,16 @@ $server->addPlugin(new Sabre\DAV\Sync\Plugin());
 $server->addPlugin(new Sabre\DAV\Sharing\Plugin());
 $server->addPlugin(new Sabre\CalDAV\SharingPlugin());
 
-// Support for html frontend
-$browser = new Sabre\DAV\Browser\Plugin();
-$server->addPlugin($browser);
-
 // the ICS export
 $icsPlugin = new \Sabre\CalDAV\ICSExportPlugin();
 $server->addPlugin($icsPlugin);
+
+// Support for html frontend
+if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
+  $browser = new Sabre\DAV\Browser\Plugin();
+  $server->addPlugin($browser);
+}
+
 
 // And off we go!*/
 $server->exec();

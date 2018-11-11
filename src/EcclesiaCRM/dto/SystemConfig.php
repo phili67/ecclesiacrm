@@ -252,7 +252,9 @@ class SystemConfig
         "bEnabledFinance" => new ConfigItem(2072, "bEnabledFinance", "boolean", "1", gettext("Enable Finance menu")),
         "bEnabledEvents" => new ConfigItem(2073, "bEnabledEvents", "boolean", "1", gettext("Enable Events menu.")),
         "bEnabledFundraiser" => new ConfigItem(2075, "bEnabledFundraiser", "boolean", "1", gettext("Enable Fundraiser menu.")),
-        "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", gettext("Enable Email menu."))
+        "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", gettext("Enable Email menu.")),
+        "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", gettext("Enable WebDav, CardDav and CalDav support.")),
+        "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "1", gettext("Enable WebDav, CardDav and CalDav support.")),
       );
   }
 
@@ -272,7 +274,7 @@ class SystemConfig
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       gettext('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
       gettext('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
-      gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
+      gettext('Integration')  => ["sMailChimpApiKey","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
     );
