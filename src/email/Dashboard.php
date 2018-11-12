@@ -33,14 +33,20 @@ require '../Include/Header.php';
         <h3 class="box-title"><?= gettext('Email Export') ?></h3>
       </div>
       <div class="box-body">
-        <?= gettext('You can import the generated CSV file to external email system.') ?>:
-            For MailChimp see <a href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"
+        <?= gettext('You can import the generated CSV file to external email system.') ?>
+            <?= _("For MailChimp see") ?> <a href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"
                                    target="_blank"><?= gettext('import subscribers to a list.') ?></a>
         <br/><br/>
 
-        <p class="text-center">
+        <p>
           <a class="btn btn-app" href="MemberEmailExport.php">
             <i class="fa fa-file-o"></i> <?= gettext('Generate') ?>
+          </a>
+          <a href="<?= SystemURLs::getRootPath() ?>/email/DuplicateEmails.php" class="btn btn-app">
+            <i class="fa fa-exclamation-triangle"></i> <?= gettext("Find Duplicate Emails") ?>
+          </a>
+          <a href="<?= SystemURLs::getRootPath() ?>/email/NotInMailChimpEmails.php" class="btn btn-app">
+            <i class="fa fa-bell-slash"></i><?= gettext("Families Without Emails") ?>
           </a>
         </p>
       </div>

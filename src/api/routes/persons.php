@@ -24,7 +24,9 @@ use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\SystemURLs;
 
 
 $app->group('/persons', function () {
@@ -348,5 +350,64 @@ $app->group('/persons', function () {
       
       return $response->withJson(['success' => false]);
     });
-
+    
+/**
+ * A method that review dup emails in the db and returns families and people where that email is used.
+ */
+ 
+ $this->get('/duplicate/emails', function ($request, $response, $args) {
+    $connection = Propel::getConnection();
+    $dupEmailsSQL = "SELECT email, total FROM email_count where total > 1";
+    $statement = $connection->prepare($dupEmailsSQL);
+    $statement->execute();
+    $dupEmails = $statement->fetchAll();
+    $emails = [];
+    foreach ($dupEmails as $dbEmail) {
+        $email = $dbEmail['email'];
+        $dbPeople = PersonQuery::create()->filterByEmail($email)->_or()->filterByWorkEmail($email)->find();
+        $people = [];
+        foreach ($dbPeople as $person) {
+            array_push($people, ["id" => $person->getId(), "name" => $person->getFullName()]);
+        }
+        $families = [];
+        $dbFamilies = FamilyQuery::create()->findByEmail($email);
+        foreach ($dbFamilies as $family) {
+            array_push($families, ["id" => $family->getId(), "name" => $family->getName()]);
+        }
+        array_push($emails, [
+            "email" => $email,
+            "people" => $people,
+            "families" => $families
+        ]);
+    }
+    return $response->withJson(["emails" => $emails]);
+  });
+  
+  
+/**
+ * A method that review dup emails in the db and returns families and people where that email is used.
+ */
+ 
+ $this->get('/NotInMailChimp/emails', function ($request, $response, $args) {    
+    $mailchimp = new MailChimpService();
+    if (!$mailchimp->isActive())
+    {
+      return $response->withRedirect(SystemURLs::getRootPath() . "/email/Dashboard.php");
+    }
+    $People = PersonQuery::create()
+            ->filterByEmail(null, Criteria::NOT_EQUAL)
+            ->orderByDateLastEdited(Criteria::DESC)
+            ->find();
+    
+    $missingEmailInMailChimp = array();
+    foreach($People as $Person)
+    {
+        $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
+        if ($mailchimpList == '') {
+           array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$Person->getId().'">'. $Person->getFullName() . '</a>']);
+        }
+    }
+     
+    return $response->withJson(["emails" => $missingEmailInMailChimp]);
+  });
 });
