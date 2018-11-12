@@ -24,7 +24,7 @@ use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\ListOptionQuery;
-
+use EcclesiaCRM\dto\Cart;
 
 
 $app->group('/persons', function () {
@@ -230,7 +230,7 @@ $app->group('/persons', function () {
     });
 
     $this->post('/{personId:[0-9]+}/addToCart', function ($request, $response, $args) {
-        AddToPeopleCart($args['personId']);
+        Cart::AddPerson($args['personId']);
     });
 
     /**

@@ -18,6 +18,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\dto\Cart;
 
 $delimiter = $sCSVExportDelemiter;
 
@@ -197,7 +198,7 @@ if ($sFormat == 'addtocart') {
     $rsLabelsToWrite = RunQuery($sSQL);
     while ($aRow = mysqli_fetch_array($rsLabelsToWrite)) {
         extract($aRow);
-        AddToPeopleCart($per_ID);
+        Cart::AddPerson($per_ID);
     }
     Redirect('CartView.php');
 } else {
