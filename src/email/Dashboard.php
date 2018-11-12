@@ -29,7 +29,7 @@ require '../Include/Header.php';
 <div class="row">
   <div class="col-lg-12">
     <div class="box">
-      <div class="box-header">
+      <div class="box-header   with-border">
         <h3 class="box-title"><?= gettext('Email Export') ?></h3>
       </div>
       <div class="box-body">
@@ -46,7 +46,7 @@ require '../Include/Header.php';
             <i class="fa fa-exclamation-triangle"></i> <?= gettext("Find Duplicate Emails") ?>
           </a>
           <a href="<?= SystemURLs::getRootPath() ?>/email/NotInMailChimpEmails.php" class="btn btn-app">
-            <i class="fa fa-bell-slash"></i><?= gettext("Families Without Emails") ?>
+            <i class="fa fa-bell-slash"></i><?= gettext("Families Without NewsLetters") ?>
           </a>
         </p>
       </div>
@@ -57,42 +57,30 @@ require '../Include/Header.php';
 <?php if ($mailchimp->isActive()) {
     $mcLists = $mailchimp->getLists(); ?>
   <div class="row">
-    <?php foreach ($mcLists as $list) {
-        ?>
+    <?php 
+      foreach ($mcLists as $list) {
+    ?>
       <div class="col-lg-12">
         <div class="box">
-          <div class="box-header">
-            <h3 class="box-title"><?= gettext('List') ?>: <?= $list['name'] ?></h3>
+          <div class="box-header   with-border">
+            <h3 class="box-title"><?= gettext('Mailing List') ?>: <?= $list['name'] ?></h3>
           </div>
           <div class="box-body">
-            <?php
-            echo "<table width='300px'>";
-        echo '<tr><td><b>'.gettext('Members:').'</b> </td><td>'.$list['stats']['member_count'].'</td></tr>';
-        echo '<tr><td><b>'.gettext('Campaigns:').'</b> </td><td>'.$list['stats']['campaign_count'].'</td></tr>';
-        echo '<tr><td><b>'.gettext('Unsubscribed count:').'</b> </td><td>'.$list['stats']['unsubscribe_count'].'</td></tr>';
-        echo '<tr><td><b>'.gettext('Unsubscribed count since last send:').'</b> </td><td>'.$list['stats']['unsubscribe_count_since_send'].'</td></tr>';
-        echo '<tr><td><b>'.gettext('Cleaned count:').'</b> </td><td>'.$list['stats']['cleaned_count'].'</td></tr>';
-        echo '<tr><td><b>'.gettext('Cleaned count since last send:').'</b> </td><td>'.$list['stats']['cleaned_count_since_send'].'</td></tr>';
-        echo '</table>'; ?>
+             <table width='300px'>
+                <tr><td><b><?= gettext('Members:') ?></b> </td><td><?= $list['stats']['member_count'] ?></td></tr>
+                <tr><td><b><?= gettext('Campaigns:') ?></b> </td><td><?= $list['stats']['campaign_count'] ?></td></tr>
+                <tr><td><b><?= gettext('Unsubscribed count:') ?></b> </td><td><?= $list['stats']['unsubscribe_count'] ?></td></tr>
+                <tr><td><b><?= gettext('Unsubscribed count since last send:') ?></b> </td><td><?= $list['stats']['unsubscribe_count_since_send'] ?></td></tr>
+                <tr><td><b><?= gettext('Cleaned count:') ?></b> </td><td><?= $list['stats']['cleaned_count'] ?></td></tr>
+                <tr><td><b><?= gettext('Cleaned count since last send:') ?></b> </td><td><?= $list['stats']['cleaned_count_since_send']?> </td></tr>
+              </table>
           </div>
         </div>
       </div>
     <?php
-    } ?>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">MailChimp</h3>
-        </div>
-        <div class="box-body">
-          <ul>
-            <li><a href="MailChimpMissingReport.php"><?= gettext('Missing emails report') ?> </a> (slow)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+      } 
+    ?>
+    <br>
   </div>
 <?php
 } else {

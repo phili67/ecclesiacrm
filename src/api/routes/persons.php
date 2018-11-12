@@ -404,7 +404,7 @@ $app->group('/persons', function () {
     {
         $mailchimpList = $mailchimp->isEmailInMailChimp($Person->getEmail());
         if ($mailchimpList == '') {
-           array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$Person->getId().'">'. $Person->getFullName() . '</a>']);
+           array_push($missingEmailInMailChimp, ["id" => $Person->getId(), "url" => '<a href="'.SystemURLs::getRootPath().'/PersonView.php?PersonID='.$Person->getId().'">'. $Person->getFullName() . '</a>', "email" => $Person->getEmail()]);
         }
     }
      
