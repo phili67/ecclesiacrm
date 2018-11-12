@@ -22,6 +22,9 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\PropertyQuery;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
 $aGrp     = explode(',', $iGroupID);
@@ -119,7 +122,7 @@ for ($i = 0; $i < $nGrps; $i++) {
             $family = $person->getFamily();
                         
             $homePhone = "";
-            if (!empty(family)) {
+            if (!empty($family)) {
                 $homePhone = $family->getHomePhone();
         
         
@@ -137,20 +140,91 @@ for ($i = 0; $i < $nGrps; $i++) {
             $lst_OptionName = $groupRole->getOptionName();
                             
             if ($lst_OptionName == 'Teacher') {
-                $aTeachers[$iTeacherCnt] = $person; // Make an array of teachers while we're here
-                if (!$bFirstTeacher) {
-                    $teacherString .= ', ';
-                }
-                $teacherString .= $person->getFullName();
-                $bFirstTeacher = false;
-                
-                $person->getPhoto()->createThumbnail();
-                $aTeachersIMG[$iTeacherCnt++] = str_replace(SystemURLs::getDocumentRoot(), "", $person->getPhoto()->getThumbnailURI());
-            } elseif ($lst_OptionName == 'Student') {
-                $aStudents[$iStudentCnt] = $person;
+              $lineDates = [];
+            
+              $person = $groupRoleMembership->getPerson();
+        
+              $assignedProperties = Record2propertyR2pQuery::Create()
+                          ->findByR2pRecordId($person->getId());
 
-                $person->getPhoto()->createThumbnail();
-                $aStudentsIMG[$iStudentCnt++] = $person->getPhoto()->getThumbnailURI();
+              $props = "";
+              foreach ($assignedProperties as $assproperty) {
+                $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
+                $props.= $property->getProName().", ";
+              }
+            
+              $family = $person->getFamily();
+        
+              $homePhone = "";
+              if (!empty($family)) {
+                  $homePhone = $family->getHomePhone();
+  
+                  if (empty($homePhone)) {
+                      $homePhone = $family->getCellPhone();
+                  }
+      
+                  if (empty($homePhone)) {
+                      $homePhone = $family->getWorkPhone();
+                  }
+              }
+            
+              $lineArr['firstName'] = $person->getFirstName();
+              $lineArr['lastName']  = $person->getLastName();
+              $lineArr['fullName']  = $person->getFullName();
+              $lineArr['birthDate'] = '';
+              $lineArr['gender']    = '';
+              $lineArr['age']       = '';
+              $lineArr['homePhone'] = '';
+              $lineArr['groupName'] = '';
+              $lineArr['props']     = '';
+              $lineArr['photos']    = $person->getPhoto()->getThumbnailURI();
+  
+              $lineArr = array_merge($lineArr,$lineDates);
+  
+              $aTeachers[] = $lineArr;
+            } elseif ($lst_OptionName == 'Student') {
+              $lineDates = [];
+            
+              $person = $groupRoleMembership->getPerson();
+        
+              $assignedProperties = Record2propertyR2pQuery::Create()
+                          ->findByR2pRecordId($person->getId());
+
+              $props = "";
+              foreach ($assignedProperties as $assproperty) {
+                $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
+                $props.= $property->getProName().", ";
+              }
+            
+              $family = $person->getFamily();
+        
+              $homePhone = "";
+              if (!empty($family)) {
+                  $homePhone = $family->getHomePhone();
+  
+                  if (empty($homePhone)) {
+                      $homePhone = $family->getCellPhone();
+                  }
+      
+                  if (empty($homePhone)) {
+                      $homePhone = $family->getWorkPhone();
+                  }
+              }
+            
+              $lineArr['firstName'] = $person->getFirstName();
+              $lineArr['lastName']  = $person->getLastName();
+              $lineArr['fullName']  = $person->getFullName();
+              $lineArr['birthDate'] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
+              $lineArr['gender']    = ($person->getGender() == 1)?gettext("Boy"):gettext("Girl");
+              $lineArr['age']       = $person->getAge(false);
+              $lineArr['homePhone'] = $homePhone;
+              $lineArr['groupName'] = $group->getName();
+              $lineArr['props']     = $props;
+              $lineArr['photos']    = $person->getPhoto()->getThumbnailURI();
+  
+              $lineArr = array_merge($lineArr,$lineDates);
+  
+              $aStudents[] = $lineArr;
             } elseif ($lst_OptionName == gettext('Liaison')) {
                 $liaisonString .= gettext('Liaison').':'.$person->getFullName().' '.$pdf->StripPhone($homePhone).' ';
             }
@@ -173,9 +247,9 @@ for ($i = 0; $i < $nGrps; $i++) {
         }
 
         $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, gettext('Students'), $iExtraStudents,
-                                  $tFirstSunday, $tLastSunday,
-                                  $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                  $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $aStudentsIMG, $withPictures);
+                                          $tFirstSunday, $tLastSunday,
+                                          $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
+                                          $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $withPictures);
         
         
         // we start a new page
@@ -187,20 +261,59 @@ for ($i = 0; $i < $nGrps; $i++) {
         $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aTeachers, gettext('Teachers'), $iExtraTeachers,
                                      $tFirstSunday, $tLastSunday,
                                      $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                     $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, '', $aTeachersIMG, $withPictures);
+                                     $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, '', $withPictures);
     } else {
         //
         // print all roles on the attendance sheet
         //
         $iStudentCnt = 0;
                         
-        unset($aStudents);
+        $aStudents = [];
                         
         foreach ($groupRoleMemberships as $groupRoleMembership) {
+            $lineDates = [];
+            
             $person = $groupRoleMembership->getPerson();
         
-            $aStudents[$iStudentCnt] = $groupRoleMembership->getPerson();
-            $aStudentsIMG[$iStudentCnt++] = $person->getPhoto()->getThumbnailURI();
+            $assignedProperties = Record2propertyR2pQuery::Create()
+                        ->findByR2pRecordId($person->getId());
+
+            $props = "";
+            foreach ($assignedProperties as $assproperty) {
+              $property = PropertyQuery::Create()->findOneByProId ($assproperty->getR2pProId());
+              $props.= $property->getProName().", ";
+            }
+            
+            $family = $person->getFamily();
+        
+            $homePhone = "";
+            if (!empty($family)) {
+                $homePhone = $family->getHomePhone();
+  
+                if (empty($homePhone)) {
+                    $homePhone = $family->getCellPhone();
+                }
+      
+                if (empty($homePhone)) {
+                    $homePhone = $family->getWorkPhone();
+                }
+            }
+            
+            $lineArr['firstName'] = $person->getFirstName();
+            $lineArr['lastName']  = $person->getLastName();
+            $lineArr['fullName']  = $person->getFullName();
+            $lineArr['birthDate'] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
+            $lineArr['gender']    = ($person->getGender() == 1)?gettext("Boy"):gettext("Girl");
+            $lineArr['age']       = $person->getAge(false);
+            $lineArr['homePhone'] = $homePhone;
+            $lineArr['groupName'] = $group->getName();
+            $lineArr['props']     = $props;
+            $lineArr['photos']    = $person->getPhoto()->getThumbnailURI();
+  
+            $lineArr = array_merge($lineArr,$lineDates);
+  
+            $aStudents[] = $lineArr;
+
         }
 
         $pdf->SetFont('Times', 'B', 12);
@@ -208,9 +321,9 @@ for ($i = 0; $i < $nGrps; $i++) {
         $y = $yTeachers;
 
         $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, gettext('All Members'), $iExtraStudents+$iExtraTeachers,
-                                                                             $tFirstSunday, $tLastSunday,
-                                                                             $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                                                             $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $aStudentsIMG, $withPictures);
+                                          $tFirstSunday, $tLastSunday,
+                                          $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
+                                          $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $withPictures);
     }
 }
         
