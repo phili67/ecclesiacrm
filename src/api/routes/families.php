@@ -25,6 +25,8 @@ use EcclesiaCRM\Map\Record2propertyR2pTableMap;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
+use EcclesiaCRM\Service\MailChimpService;
+
 
 
 $app->group('/families', function () {
@@ -46,6 +48,23 @@ $app->group('/families', function () {
       return $ormAssignedProperties->toJSON();
     });
         
+    $this->post('/isMailChimpActive', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->familyId) && isset ($input->email)){
+      
+        // we get the MailChimp Service
+        $mailchimp = new MailChimpService();
+        $family = FamilyQuery::create()->findPk($input->familyId);
+        
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+          return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+        }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
     $this->get('/{familyId:[0-9]+}', function ($request, $response, $args) {
         $family = FamilyQuery::create()->findPk($args['familyId']);
         return $response->withJSON($family->toJSON());

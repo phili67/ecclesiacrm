@@ -1,5 +1,53 @@
 $(document).ready(function () {
-   $("#activateDeactivate").click(function () {
+// mailChimp management
+  if (window.CRM.normalMail != undefined) {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'persons/isMailChimpActive',
+      data: JSON.stringify({"personId": window.CRM.currentPersonID,"email" : window.CRM.normalMail})
+    }).done(function(data) {
+      if (data.success) {
+        if (data.isIncludedInMailing) {
+          $("#NewsLetterSend").css('color','green');
+          $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
+          $("#mailChimpUserNormal").text(data.mailingList);
+        } else {
+          $("#NewsLetterSend").css('color','red');
+          $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+          $("#mailChimpUserNormal").text(i18next.t("None"));
+        }
+      } else {
+        $("#NewsLetterSend").css('color','red');
+        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+      }
+    });
+  }
+  
+  if (window.CRM.workMail != undefined) {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'persons/isMailChimpActive',
+      data: JSON.stringify({"personId": window.CRM.currentPersonID,"email" : window.CRM.workMail})
+    }).done(function(data) {
+      if (data.success) {
+        if (data.isIncludedInMailing) {
+          $("#NewsLetterSend").css('color','green');
+          $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
+          $("#mailChimpUserWork").text(data.mailingList);
+        } else {
+          $("#NewsLetterSend").css('color','red');
+          $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+          $("#mailChimpUserWork").text(i18next.t("None"));
+        }
+      } else {
+        $("#NewsLetterSend").css('color','red');
+        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+      }
+    });
+  }
+  // end mailChimp management
+  
+  $("#activateDeactivate").click(function () {
       console.log("click activateDeactivate");
       popupTitle = (window.CRM.currentActive == true ? i18next.t("Confirm Deactivation") : i18next.t('Confirm Activation'));
       if (window.CRM.currentActive == true) {

@@ -22,7 +22,9 @@ use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\ListOptionQuery;
+
 
 
 $app->group('/persons', function () {
@@ -88,6 +90,23 @@ $app->group('/persons', function () {
       return $response->withJson(['success' => false]);
     });
     
+    $this->post('/isMailChimpActive', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->personId) && isset ($input->email)){
+      
+        // we get the MailChimp Service
+        $mailchimp = new MailChimpService();
+        $person = PersonQuery::create()->findPk($input->personId);
+        
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+          return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getFamily()->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+        }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
     $this->post('/volunteers/add', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
     
