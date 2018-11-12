@@ -242,6 +242,7 @@ ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), true);
 $sCellPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy),
 ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
 $sEmail = SelectWhichInfo($per_Email, $fam_Email, true);
+
 $sUnformattedEmail = SelectWhichInfo($per_Email, $fam_Email, false);
 
 if ($per_Envelope > 0) {
@@ -432,13 +433,20 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   <?php
     }
     
+    if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
+      ?>
+          <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
+            <span id="NewsLetterSend"></span>
+          </li>
+      <?php
+        }
     if ($sEmail != '') {
   ?>
           <li><i class="fa-li fa fa-envelope"></i><?= gettext('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
         <?php 
           if ($isMailChimpActive) {
         ?>
-          <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($sEmail); ?></span></li>
+          <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserNormal"></span></li>
         <?php
           }
     }
@@ -455,7 +463,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   <?php 
      if ($isMailChimpActive) {
   ?>
-        <li><i class="fa-li fa fa-send"></i>MailChimp: <span><?= $mailchimp->isEmailInMailChimp($per_WorkEmail); ?></span></li>
+        <li><i class="fa-li fa fa-send"></i>MailChimp: <span id="mailChimpUserWork"></span></li>
   <?php
         }
     }
@@ -1455,6 +1463,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
   window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
   window.CRM.personFullName  = "<?= $person->getFullName() ?>";
+  window.CRM.normalMail      = "<?= $sEmail ?>";
+  window.CRM.workMail        = "<?= $per_WorkEmail ?>";
   
   if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {

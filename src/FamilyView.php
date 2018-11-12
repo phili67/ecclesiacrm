@@ -281,9 +281,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
         if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
       ?>
           <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
-            <span style="color:<?= ($fam_SendNewsLetter == "TRUE" ? "green" : "red") ?>">
-              <i class="fa fa-<?= ($fam_SendNewsLetter == "TRUE" ? "check" : "times") ?>"></i>
-            </span>
+            <span id="NewsLetterSend"></span>
           </li>
       <?php
         }
@@ -332,8 +330,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
         <?php 
           if ($mailchimp->isActive()) {
         ?>
-          <li><i class="fa-li fa fa-send"></i><?= gettext("Email") ?>:
-            <span><?= $mailchimp->isEmailInMailChimp($fam_Email) ?></span>
+          <li><i class="fa-li fa fa-send"></i><?= gettext("MailChimp") ?>:
+            <span id="mailChimpUserNormal"></span>
           </li>
         <?php
           }
@@ -989,7 +987,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
   window.CRM.currentActive = <?= (empty($fam_DateDeactivated) ? 'true' : 'false') ?>;
   window.CRM.fam_Name      = "<?= $fam_Name ?>";
   window.CRM.iPhotoHeight  = <?= SystemConfig::getValue("iPhotoHeight") ?>;
-  window.CRM.iPhotoWidth  = <?= SystemConfig::getValue("iPhotoWidth") ?>;
+  window.CRM.iPhotoWidth   = <?= SystemConfig::getValue("iPhotoWidth") ?>;
+  window.CRM.familyMail    = "<?= $fam_Email ?>";
+
   
   var dataT = 0;
   var dataPaymentTable = 0;
