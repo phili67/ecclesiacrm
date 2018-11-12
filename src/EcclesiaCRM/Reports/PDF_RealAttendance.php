@@ -56,14 +56,14 @@ class PDF_RealAttendance extends PDF_Attendance
         // we will construct the labels
         $labelArr = [];
         $labelArr['firstName'] = OutputUtils::translate_text_fpdf("First Name");
-        $labelArr['lastName'] = OutputUtils::translate_text_fpdf("Last Name");
+        $labelArr['lastName']  = OutputUtils::translate_text_fpdf("Last Name");
         $labelArr['birthDate'] = OutputUtils::translate_text_fpdf("Birth Date");
-        $labelArr['gender'] = OutputUtils::translate_text_fpdf("Gender");
-        $labelArr['age'] = OutputUtils::translate_text_fpdf("Age");
+        $labelArr['gender']    = OutputUtils::translate_text_fpdf("Gender");
+        $labelArr['age']       = OutputUtils::translate_text_fpdf("Age");
         $labelArr['homePhone'] = OutputUtils::translate_text_fpdf("Phone");
         $labelArr['groupName'] = OutputUtils::translate_text_fpdf("Group");
-        $labelArr['props'] = OutputUtils::translate_text_fpdf("Notes");
-        $labelArr['stats'] = OutputUtils::translate_text_fpdf("Stats");
+        $labelArr['props']     = OutputUtils::translate_text_fpdf("Notes");
+        $labelArr['stats']     = OutputUtils::translate_text_fpdf("Stats");
         
         $nbrGroup = count($this->groupIDs);
         
@@ -93,8 +93,10 @@ class PDF_RealAttendance extends PDF_Attendance
           //  uset($aStudents);
           //Get the data on this group
           $group = GroupQuery::Create()->findOneById($iGroupID);
-
-          $reportHeader = str_pad($group->getName(), 95).$FYString;
+          
+          if ( !is_null($group) ) {
+            $reportHeader = str_pad($group->getName(), 95).$FYString;
+          }
 
           // Build the teacher string- first teachers, then the liaison
           $teacherString = gettext('Teachers').': ';

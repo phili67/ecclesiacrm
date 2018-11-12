@@ -40,18 +40,18 @@ class PDF_Attendance extends ChurchInfoReport
         $this->AddPage();
     }
 
-    public function DrawAttendanceCalendar($nameX, $yTop, $aNames, $tTitle, $extraLines,
+    public function DrawAttendanceCalendar($nameX, $yTop, $persons, $tTitle, $extraLines,
                                     $tFirstSunday, $tLastSunday,
                                     $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
-                                    $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $rptHeader,$imgs,$with_img)
+                                    $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $rptHeader,$with_img)
     {
         $startMonthX = 60;
         $dayWid = 7;
         
-        if ($with_img)
+        //if ($with_img)
           $yIncrement = 10; // normaly 6
-        else
-          $yIncrement = 6;
+        /*else
+          $yIncrement = 6;*/
         
         $yTitle = 20;
         $yTeachers = $yTitle + $yIncrement;
@@ -60,14 +60,14 @@ class PDF_Attendance extends ChurchInfoReport
         $numMembers = 0;
         $aNameCount = 0;
         
-        $MaxLinesPerPage = -5*$yIncrement+66; // 36  lines for a yIncrement of 6, 16 lines for a yIncrement of 10, y=-5x+66
+        $MaxLinesPerPage = -3.75*$yIncrement+58.5; // 36  lines for a yIncrement of 6, 21 lines for a yIncrement of 10, y=-3.75x+58.5
         
         $fontTitleTitle = 16;
         
-        if ($with_img)
+        //if ($with_img)
           $fontTitleNormal = 11;
-        else
-          $fontTitleNormal = 10;
+        /*else
+          $fontTitleNormal = 10;*/
 
         $aNoSchoolX = [];
         $noSchoolCnt = 0;
@@ -80,36 +80,41 @@ class PDF_Attendance extends ChurchInfoReport
 // First cull the input names array to remove duplicates, then extend the array to include the requested
 // number of blank lines
 //
-        $prevThisName = '';
+        $prevThisPerson = '';
         $aNameCount = 0;
-        for ($row = 0; $row < count($aNames); $row++) {
-            $person = $aNames[$row];
-            $thisName = ($person->getFullName());
+        for ($row = 0; $row < count($persons); $row++) {
+            $person = $persons[$row];
+            $thisPerson = $person['fullName'];
             //$thisName = $person->getLastName()."\n".$person->getFirstName()." ".$person->getMiddleName();
             
              // Special handling for person listed twice- only show once in the Attendance Calendar
              // This happens when a child is listed in two different families (parents divorced and
              // both active in the church)
-            if ($thisName != $prevThisName) {
-                $NameList[$aNameCount] = $thisName;
-                $lastNameList[$aNameCount] = $person->getLastName();
-                $firstNameList[$aNameCount] = $person->getFirstName()." ".$person->getMiddleName();
-                $imgList[$aNameCount++] = $imgs[$row];
-              //      echo "adding {$thisName} to NameList at {$aNameCount}\n\r";
+            if ($thisPerson != $prevThisName) {
+                $PersonList[$aNameCount]      = $thisPerson;
+                $lastPersonList[$aNameCount]  = $person['lastName'];
+                $firstPersonList[$aNameCount] = $person['firstName']." ".$person['middleName'];
+                $imgList[$aNameCount]         = $person['photos'];
+                $homePhoneList[$aNameCount]   = $person['homePhone'];
+                $birthDateList[$aNameCount]   = $person['birthDate'];
+                $genderDateList[$aNameCount]  = $person['gender'];
+                $ageList[$aNameCount]         = $person['age'];
+                $propList[$aNameCount++]      = $person['props'];
+              //      echo "adding {$thisName} to PersonList at {$aNameCount}\n\r";
             }
-            $prevThisName = $thisName;
+            $prevThisPerson = $thisPerson;
         }
 //
 // add extra blank lines to the array
 //
     for ($i = 0; $i < $extraLines; $i++) {
-        $NameList[$aNameCount] = '   ';
-        $lastNameList[$aNameCount] = '   ';
-        $firstNameList[$aNameCount] = '   ';
-        $imgList[$aNameCount++] = '';
+        $PersonList[$aNameCount]      = '   ';
+        $lastPersonList[$aNameCount]  = '   ';
+        $firstPersonList[$aNameCount] = '   ';
+        $imgList[$aNameCount++]       = '';
     }
 
-    $numMembers = count($NameList);
+    $numMembers = count($PersonList);
     $nPages = ceil($numMembers / $MaxLinesPerPage);
   
   
@@ -151,11 +156,40 @@ class PDF_Attendance extends ChurchInfoReport
 
       $this->SetLineWidth(0.25);
       for ($row = $pRowStart; $row < $pRowEnd; $row++) {
-        $this->SetFont('Times', 'B', ($with_img)?$fontTitleNormal-1:$fontTitleNormal-3);
-        $this->WriteAt($nameX, $y + (($with_img==true)?3:2)-2, $lastNameList[$row]);
-        $this->WriteAt($nameX, $y + (($with_img==true)?3:0)+2, $firstNameList[$row]);
+        $this->SetFont('Times', 'B', $fontTitleNormal-1);
+        $this->WriteAt($nameX, $y + 1, $lastPersonList[$row]);
+        $this->WriteAt($nameX, $y + 5, $firstPersonList[$row]);
         $this->SetFont('Times', 'B', $fontTitleNormal);
-            
+        
+        // we draw the gender
+        $this->SetFont('Times', 'B', $fontTitleNormal-3);
+        if ($genderDateList[$row] != '') {
+          $this->WriteAt($nameX+24, $y+0.75, "(".substr($genderDateList[$row],0,1).")");
+        }
+        $this->SetFont('Times', '', $fontTitleNormal);
+        
+        // the phone number
+        $this->SetFont('Times', '', $fontTitleNormal-5);
+        $this->WriteAt($nameX+28.25, $y + 0.75, $homePhoneList[$row]);
+        $this->SetFont('Times', '', $fontTitleNormal);
+        
+        // the birthDate
+        $this->SetFont('Times', '', $fontTitleNormal-4);
+        if ($birthDateList[$row] != '')
+          $this->WriteAt($nameX+24, $y + 3.5, "(".$birthDateList[$row].")");
+        $this->SetFont('Times', '', $fontTitleNormal);
+        
+        // the Age 
+        $this->SetFont('Times', '', $fontTitleNormal-2);
+        $this->WriteAt($nameX-(($with_img == true)?14.5:5), $y + 2.5, $ageList[$row]);
+        $this->SetFont('Times', '', $fontTitleNormal);
+
+        $this->SetFont('Times', '', $fontTitleNormal-6);
+        if ($propList[$row] != '') {
+          $this->WriteAt($nameX+24, $y + 6, $propList[$row]);
+        }
+        $this->SetFont('Times', '', $fontTitleNormal);
+
         if($with_img == true) 
         {
           //$this->SetLineWidth(0.5);
@@ -170,7 +204,7 @@ class PDF_Attendance extends ChurchInfoReport
           $this->Line($nameX-$yIncrement,$y,$nameX,$y+$yIncrement);
 
 
-          if ($NameList[$row] != '   ' && strlen($imgList[$row]) > 5 && file_exists($imgList[$row]))
+          if ($PersonList[$row] != '   ' && strlen($imgList[$row]) > 5 && file_exists($imgList[$row]))
           {
             list($width, $height) = getimagesize($imgList[$row]);
             $factor = $yIncrement/$height;
@@ -349,7 +383,7 @@ class PDF_Attendance extends ChurchInfoReport
         $numMembers = 0;
         $aNameCount = 0;
         
-        $MaxLinesPerPage = -5*$yIncrement+66; // 36  lines for a yIncrement of 6, 16 lines for a yIncrement of 10, y=-5x+66
+        $MaxLinesPerPage = -3.75*$yIncrement+58.5; // 36  lines for a yIncrement of 6, 21 lines for a yIncrement of 10, y=-3.75x+58.5
         
         $fontTitleTitle = 16;
         
@@ -379,7 +413,7 @@ class PDF_Attendance extends ChurchInfoReport
              // both active in the church)
             if ($thisName != $prevThisName) {
                 $realList[$aNameCount++] = $aNames[$row];                
-              //      echo "adding {$thisName} to NameList at {$aNameCount}\n\r";
+              //      echo "adding {$thisName} to realList at {$aNameCount}\n\r";
             }
             $prevThisName = $thisName;
         }
@@ -549,7 +583,7 @@ class PDF_Attendance extends ChurchInfoReport
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'props':
-              $this->SetFont('Times', '', $fontTitleNormal-4);
+              $this->SetFont('Times', '', $fontTitleNormal-6);
               if ($value != OutputUtils::translate_text_fpdf("Notes")) {
                 $this->WriteAt($nameX+24, $y + 6, $value);
               }
@@ -557,7 +591,7 @@ class PDF_Attendance extends ChurchInfoReport
               break;    
             case 'age':
               $this->SetFont('Times', '', $fontTitleNormal-2);
-              $this->WriteAt($nameX+46, $y + 2.5, $value);
+              $this->WriteAt($nameX-(($with_img == true)?14.5:5), $y + 2.5, $value);
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
             case 'stats':
@@ -663,8 +697,10 @@ class PDF_Attendance extends ChurchInfoReport
       $this->Line($nameX, $yMonths, $rightEdgeX, $yMonths);
       $this->Line($nameX, $yMonths + 2 * $yIncrement, $rightEdgeX, $yMonths + 2 * $yIncrement);
       $yBottom = $yMonths + (($numMembers + $extraLines + 2) * $yIncrement);
-      $this->Line($nameX, $yBottom, $rightEdgeX, $yBottom);
-      $this->Line($nameX, $yBottom + $yIncrement, $rightEdgeX, $yBottom + $yIncrement);
+      
+      // this part is unusefull
+      //$this->Line($nameX, $yBottom, $rightEdgeX, $yBottom);
+      //$this->Line($nameX, $yBottom + $yIncrement, $rightEdgeX, $yBottom + $yIncrement);
   //
   //  add in horizontal lines between names
   //
