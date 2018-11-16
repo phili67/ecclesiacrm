@@ -58,6 +58,7 @@ class AppIntegrityService
       'PHP XML'                                   => extension_loaded('xml'),
       'PHP EXIF'                                  => extension_loaded('exif'),
       'PHP iconv'                                 => extension_loaded('iconv'),
+      'Open SSL'                                  => extension_loaded('openssl'),
       //'Mcrypt'                                    => extension_loaded('mcrypt'),
       'Mod Rewrite'                               => AppIntegrityService::hasModRewrite('mod_rewrite'),
       'GD Library for image manipulation'         => (extension_loaded('gd') && function_exists('gd_info')),
