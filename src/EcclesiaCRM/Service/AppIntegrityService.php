@@ -46,6 +46,18 @@ class AppIntegrityService
 
   }
 
+  private static function testPrivateWriteable()
+  {
+    return is_writable(SystemURLs::getDocumentRoot().'/private/') && 
+            is_writable(SystemURLs::getDocumentRoot().'/private/userdir');
+
+  }
+
+  private static function testDataWriteable()
+  {
+    return is_writable(SystemURLs::getDocumentRoot().'/data/');
+  }
+  
   public static function getApplicationPrerequisites()
   {
     $prerequisites = array(
@@ -66,7 +78,9 @@ class AppIntegrityService
       'cURL'                                      => function_exists('curl_version'),
       'locale gettext'                            => function_exists('bindtextdomain'),
       'Include/Config file is writeable'          => is_writable(SystemURLs::getDocumentRoot().'/Include/') || is_writable(SystemURLs::getDocumentRoot().'/Include/Config.php'),
-      'Images directory is writeable'             => AppIntegrityService::testImagesWriteable()
+      'Images directory is writeable'             => AppIntegrityService::testImagesWriteable(),
+      'private directory is writeable (DAV)'      => AppIntegrityService::testPrivateWriteable(),
+      'data directory is writeable (DAV)'         => AppIntegrityService::testDataWriteable()
     );
     return $prerequisites;
   }
