@@ -195,9 +195,10 @@ class MailChimpService
       $allCampaigns = $this->getCampaigns();
       $mcLists      = $_SESSION['MailChimpLists'];
       
+      // we add the campaign in the cache
       $allCampaigns[] = $camp;
-      
-  
+
+      // now we loop on the lists to upgrade de campaign count
       $i = 0;
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
@@ -211,13 +212,13 @@ class MailChimpService
                 array(
                    "list_id" => $list_id
                 ), 
-                "type" => "regular", 
-                "settings" => array(
+                "type"         => "regular", 
+                "settings"     => array(
                 "subject_line" => "Subject", 
-                "title" => "Essai 456", 
-                "reply_to" => "test@gmail.com", 
-                "from_name" => "Test", 
-                //"folder_id" => "8888969b77"
+                "title"        => "Essai 456", 
+                "reply_to"     => "test@gmail.com", 
+                "from_name"    => "Test", 
+                //"folder_id"    => "8888969b77"
                 )
               );
               
