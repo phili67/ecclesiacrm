@@ -338,7 +338,7 @@ require '../../Include/Footer.php';
                   data: JSON.stringify({"list_id":list_ID})
             }).done(function(data) { 
                if (data.success) {
-                 window.location.href = window.CRM.root + "/email/Dashboard.php";
+                 window.location.href = window.CRM.root + "/email/MailChimp/Dashboard.php";
                } else if (data.error) {
                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }

@@ -57,58 +57,104 @@ require '../../Include/Header.php';
   </div>
 </div>
 
-<?php if ($mailchimp->isActive()) {
-    $mcLists = $mailchimp->getLists(); ?>
-  <div class="row">
-    <?php 
-      foreach ($mcLists as $list) {
-    ?>
-      <div class="col-lg-12">
-        <div class="box">
-          <div class="box-header   with-border">
-            <h3 class="box-title"><?= gettext('MailChimp List') ?>: <?= $list['name'] ?></h3> <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/ManageList.php?list_id=<?= $list['id'] ?>"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>
-          </div>
-          <div class="box-body">
-             <table width='300px'>
-                <tr><td><b><?= gettext('Members:') ?></b> </td><td><?= $list['stats']['member_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Campaigns:') ?></b> </td><td><?= $list['stats']['campaign_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Unsubscribed count:') ?></b> </td><td><?= $list['stats']['unsubscribe_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Unsubscribed count since last send:') ?></b> </td><td><?= $list['stats']['unsubscribe_count_since_send'] ?></td></tr>
-                <tr><td><b><?= gettext('Cleaned count:') ?></b> </td><td><?= $list['stats']['cleaned_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Cleaned count since last send:') ?></b> </td><td><?= $list['stats']['cleaned_count_since_send']?> </td></tr>
-              </table>
-          </div>
-        </div>
-      </div>
-    <?php
-      } 
-    ?>
-    <br>
-  </div>
-<?php
-} else {
-?>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="box box-body">
-        <div class="alert alert-danger alert-dismissible">
-          <h4><i class="fa fa-ban"></i> MailChimp <?= gettext('is not configured') ?></h4>
-          <?= gettext('Please update the') ?> MailChimp <?= gettext('API key in Setting->') ?><a href="../../SystemSettings.php"><?= gettext('Edit General Settings') ?></a>,
-          <?= gettext('then update') ?> sMailChimpApiKey. <?= gettext('For more info see our ') ?><a href="<?= SystemURLs::getSupportURL() ?>"> MailChimp <?= gettext('support docs.') ?></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<div id="container"></div>
 
 <?php
-}
 require '../../Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  function BootboxContent(){  
+ window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
+ 
+ function render_container ()
+ {
+   if (window.CRM.mailchimpIsActive) {
+      window.CRM.APIRequest({
+        method: 'GET',
+        path: 'mailchimp/lists'
+      }).done(function(data) {
+        var len = data.MailChimpLists.length;
     
+        // we empty first the container
+        $("#container").html( i18next.t("Loading resources ...") );
+      
+        // now we empty the menubar lists
+        var lists_menu = $(".lists_class_menu").parent();
+        var real_listMenu = $( lists_menu ).find (".treeview-menu");
+      
+        real_listMenu.html("");
+    
+        var listViews  = "";
+        var listItems  = "";
+    
+        for (i=0;i<len;i++) {
+          var list = data.MailChimpLists[i];
+      
+          listViews += '<div class="box">'
+          +'    <div class="box-header   with-border">'
+          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>'
+          +'    </div>'
+          +'    <div class="box-body">'
+          +'      <div class="row" style="100%">'
+          +'        <div class="col-lg-5">'
+          +'          <table width="300px">'
+          +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
+          +'          </table>'
+          +'        </div>'
+          +'        <div class="col-lg-3">'
+          +'           <b>' + i18next.t('Campaigns') + '</b><br>';
+          
+          var lenCampaigns = data.MailChimpCampaigns[i].length;
+
+          listViews += '          <table width="300px">';
+
+          for (j=0;j<lenCampaigns;j++) {
+            listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title + '</td></tr>';
+          }
+          
+          if (lenCampaigns == 0) {
+            listViews += '<tr><td>&nbsp;&nbsp;0 ' + i18next.t('Campaign') + '</td></tr>';
+          }
+
+          listViews += '          </table>';
+          
+          listViews += '        </div>'
+          +'      </div>'
+          +'    </div>'
+          +'  </div>';
+        
+          listItems += '<li><a href="' + window.CRM.root + '/email/MailChimp/ManageList.php?list_id=' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+        }
+    
+        $("#container").html(listViews);
+        real_listMenu.html(listItems);
+      });
+    } else {
+      var container = '<div class="row">'
+        +'<div class="col-lg-12">'
+        +'  <div class="box box-body">'
+        +'    <div class="alert alert-danger alert-dismissible">'
+        +'      <h4><i class="fa fa-ban"></i> MailChimp ' + i18next.t('is not configured') + '</h4>'
+        +'      ' + i18next.t('Please update the') + ' MailChimp ' + i18next.t('API key in Setting->') + '<a href="../../SystemSettings.php">' + i18next.t('Edit General Settings') + '</a>,'
+        +'      ' + i18next.t('then update') + ' sMailChimpApiKey. ' + i18next.t('For more info see our ') + '<a href="<?= SystemURLs::getSupportURL() ?>"> MailChimp +' + i18next.t('support docs.') + '</a>'
+        +'    </div>'
+        +'  </div>'
+        +'</div>'
+        +'</div>';
+        
+      $("#container").html(container);
+    }
+  }
+  
+  render_container();
+  
+  function BootboxContent(){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("List Creation")+'</h3><form id="some-form">'
        + '<div>'
             +'<div class="row div-title">'
@@ -187,7 +233,8 @@ require '../../Include/Footer.php';
                     data: JSON.stringify({"ListTitle": ListTitle,"Subject" : Subject, "PermissionReminder":PermReminder,"ArchiveBars":ArchiveBars,"Status":Status})
                   }).done(function(data) {
                     if (data.success) {
-                       location.reload();
+                       render_container();
+                       modal.modal("hide");
                     } else if (data.error) {
                       window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                     }

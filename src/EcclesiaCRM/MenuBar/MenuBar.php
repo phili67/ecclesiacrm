@@ -326,7 +326,7 @@ class MenuBar {
             $menuItem->addLink("email/MailChimp/DuplicateEmails.php");
             $menuItem->addLink("email/MailChimp/NotInMailChimpEmails.php");
             
-            $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain);
+            $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu");
 
             foreach ($mcLists as $list) {
               $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem);
@@ -335,7 +335,7 @@ class MenuBar {
               
               foreach ($campaigns as $campaign) {
                 //$menuItemItemItem = new Menu ($campaign['settings']['title'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
-                $menuItemItemItem->addLink("email/MailChimp/Campaign.php?campaignId=".$$campaign['id']);
+                $menuItemItemItem->addLink("email/MailChimp/Campaign.php?campaignId=".$campaign['id']);
               }
             }
           }
