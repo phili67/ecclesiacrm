@@ -27,7 +27,7 @@ use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
-
+use EcclesiaCRM\Service\MailChimpService;
 
 
 class MenuBar {
@@ -315,11 +315,29 @@ class MenuBar {
       if (SystemConfig::getBooleanValue("bEnabledEmail")) {
         $menu = new Menu (gettext("Email"),"fa fa-envelope","#",true);
           
-          $menuItem = new Menu (gettext("eMail MailChimp"),"fa fa-circle-o","email/Dashboard.php",$_SESSION['user']->isMailChimpEnabled(),$menu);
-          $menuItem->addLink("email/ManageList.php");
-          $menuItem->addLink("email/DuplicateEmails.php");
-          $menuItem->addLink("email/NotInMailChimpEmails.php");
-          
+          $mailchimp = new MailChimpService();
+
+          if ($mailchimp->isActive()) {
+            $mcLists = $mailchimp->getLists();
+
+            $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",$_SESSION['user']->isMailChimpEnabled(),$menu);
+
+            $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","email/MailChimp/Dashboard.php",$_SESSION['user']->isMailChimpEnabled(),$menuMain);
+            $menuItem->addLink("email/MailChimp/DuplicateEmails.php");
+            $menuItem->addLink("email/MailChimp/NotInMailChimpEmails.php");
+            
+            $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain);
+
+            foreach ($mcLists as $list) {
+              $menuItemItemItem = new Menu ($list['name'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem);
+              $campaigns = $mailchimp->getCampaignsForList($list['id']);
+              
+              foreach ($campaigns as $campaign) {
+                //$menuItemItemItem = new Menu ($campaign['settings']['title'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
+                $menuItemItemItem->addLink("email/MailChimp/Campaign.php?campaignId=".$$campaign['id']);
+              }
+            }
+          }
         $this->addMenu($menu);
       }
       
