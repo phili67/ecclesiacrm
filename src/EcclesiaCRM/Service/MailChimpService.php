@@ -39,22 +39,6 @@ class MailChimpService
     {
         return $this->isActive; 
     }
-    public  function getListMembersFromListId ($list_id) {
-      $mcLists = $this->getLists();
-      
-      $i = 0;
-      foreach ($mcLists as $list) {
-        if ($list['id'] == $list_id) {
-          if (is_null ($list['members'])) {
-            return [];
-          }
-          return array_values($list['members']);
-        }
-        $i++;
-      }
-      
-      return [];
-    }
     private function getListsFromCache(){
       if (!isset($_SESSION['MailChimpLists']) ){// the second part can be used to force update
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
@@ -107,6 +91,37 @@ class MailChimpService
         } catch (\Exception $e) {
             return $e;
         }
+    }
+    public function getLists()
+    {
+        if (!$this->isActive) {
+          return 'Mailchimp is not active';
+        }
+        try {
+            $result = $this->getListsFromCache();
+            
+            return $result;
+        } catch (\Mailchimp_Invalid_ApiKey $e) {
+            return 'Invalid ApiKey';
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    public  function getListMembersFromListId ($list_id) {
+      $mcLists = $this->getLists();
+      
+      $i = 0;
+      foreach ($mcLists as $list) {
+        if ($list['id'] == $list_id) {
+          if (is_null ($list['members'])) {
+            return [];
+          }
+          return array_values($list['members']);
+        }
+        $i++;
+      }
+      
+      return [];
     }
     public function createList ($name, $subject, $PermissionReminder, $ArchiveBars, $Status)
     {
@@ -199,6 +214,35 @@ class MailChimpService
         }
         
         return $result;
+    }
+    public function getCampaigns()
+    {
+        if (!$this->isActive) {
+          return 'Mailchimp is not active';
+        }
+        try {
+            $result = $this->getCampaignsFromCache();
+            
+            return $result;
+        } catch (\Mailchimp_Invalid_ApiKey $e) {
+            return 'Invalid ApiKey';
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    
+    public function getCampaignsFromListId($list_id) {
+      $campaigns = $this->getCampaigns();
+      
+      $res = [];
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['recipients']['list_id'] == $list_id) {
+          $res[] = $campaign;
+        }
+      }
+      
+      return $res;
     }
     private function create_Campaign ($list_id,$camp) {      
       // we add the campaign in the cache
@@ -312,7 +356,11 @@ class MailChimpService
             if ($memb['email_address'] != $email) {
               $newMembers[] = $memb;
             } else {
-              $_SESSION['MailChimpLists'][$i]['stats']['member_count']--;
+              if ($_SESSION['MailChimpLists'][$i]['stats']['member_count'] > 0) {
+                $_SESSION['MailChimpLists'][$i]['stats']['member_count']--;
+              } else {
+                $_SESSION['MailChimpLists'][$i]['stats']['member_count'] = 0;
+              }
             }
           }
           break;
@@ -323,19 +371,7 @@ class MailChimpService
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
     }
     
-    public function deleteAllSubscribers ($list_id) {
-      $members = $this->getListMembersFromListId ($list_id);
-      
-      $res = [];
-      
-      foreach ($members as $member) {
-        $res[] = $this->deleteUser($list_id,$member['email_address']);
-      }
-      
-      return $res;
-    }
-    
-    public function deleteUser($list_id,$email){
+    public function deleteMember($list_id,$email){
         $subscriber_hash = $this->myMailchimp->subscriberHash($email);
         
         $result = $this->myMailchimp->delete("lists/$list_id/members/$subscriber_hash"); 
@@ -346,6 +382,19 @@ class MailChimpService
         
         return $result;
     }
+
+    public function deleteAllMembers ($list_id) {
+      $members = $this->getListMembersFromListId ($list_id);
+      
+      $res = [];
+      
+      foreach ($members as $member) {
+        $res[] = $this->deleteMember($list_id,$member['email_address']);
+      }
+      
+      return $res;
+    }
+    
     private function update_list_member ($list_id,$member,$status) {
       $mcLists = $_SESSION['MailChimpLists'];
       
@@ -388,49 +437,5 @@ class MailChimpService
         }
         
         return $result;
-    }
-    public function getLists()
-    {
-        if (!$this->isActive) {
-          return 'Mailchimp is not active';
-        }
-        try {
-            $result = $this->getListsFromCache();
-            
-            return $result;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-    public function getCampaigns()
-    {
-        if (!$this->isActive) {
-          return 'Mailchimp is not active';
-        }
-        try {
-            $result = $this->getCampaignsFromCache();
-            
-            return $result;
-        } catch (\Mailchimp_Invalid_ApiKey $e) {
-            return 'Invalid ApiKey';
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
-    
-    public function getCampaignsForList($list_id) {
-      $campaigns = $this->getCampaigns();
-      
-      $res = [];
-      
-      foreach ($campaigns as $campaign) {
-        if ($campaign['recipients']['list_id'] == $list_id) {
-          $res[] = $campaign;
-        }
-      }
-      
-      return $res;
     }
 }

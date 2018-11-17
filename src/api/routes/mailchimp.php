@@ -43,7 +43,7 @@ $app->group('/mailchimp', function () {
          $mailchimp = new MailChimpService();
       
          if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-           $res = $mailchimp->deleteAllSubscribers($input->list_id);
+           $res = $mailchimp->deleteAllMembers($input->list_id);
            
            if ( !array_key_exists ('title',$res) ) {
              return $response->withJson(['success' => true, "result" => $res]);
@@ -126,7 +126,7 @@ $app->group('/mailchimp', function () {
         // we get the MailChimp Service
         $mailchimp = new MailChimpService();
         
-        $res = $mailchimp->deleteUser($input->list_id,$input->email);
+        $res = $mailchimp->deleteMember($input->list_id,$input->email);
         
         if ( !array_key_exists ('title',$res) ) {
           return $response->withJson(['success' => true, "result" => $res]);

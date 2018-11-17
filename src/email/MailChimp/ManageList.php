@@ -28,7 +28,7 @@ $list_id = $_GET['list_id'];
 
 $mailchimp = new MailChimpService();
 
-$campaigns = $mailchimp->getCampaignsForList($list_id);
+$campaigns = $mailchimp->getCampaignsFromListId($list_id);
 //print_r ($campaigns);
 
 //Set the page title
@@ -50,7 +50,7 @@ require '../../Include/Header.php';
           <a href="#" class="btn btn-app" id="CreateCampaign" data-listid="<?= $list_id ?>">
             <i class="fa fa-list-alt"></i><?= gettext("Create a Campaign") ?>
           </a>
-          <a href="#" id="deleteAllMembers " class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
+          <a href="#" id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash-o"></i><?= gettext("Delete All Subscribers") ?>
           </a>
           <a href="#" id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
@@ -348,7 +348,7 @@ require '../../Include/Footer.php';
       });
     });
     
-    $(document).on("click","#deleteAllMembers", function(){
+    $(document).on("click","#deleteAllSubScribers", function(){
       var list_id = $(this).data("listid");
       
       bootbox.confirm({

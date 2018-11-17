@@ -22,7 +22,7 @@ if (!($_SESSION['user']->isMailChimpEnabled())) {
 $mailchimp = new MailChimpService();
 
 //Set the page title
-$sPageTitle = gettext('eMail Dashboard');
+$sPageTitle = gettext('MailChimp Dashboard');
 
 require '../../Include/Header.php';
 
@@ -32,7 +32,7 @@ require '../../Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= gettext('Email Export') ?></h3>
+        <h3 class="box-title"><?= gettext('MailChimp Management') ?></h3>
       </div>
       <div class="box-body">
         <p>
@@ -66,7 +66,7 @@ require '../../Include/Header.php';
       <div class="col-lg-12">
         <div class="box">
           <div class="box-header   with-border">
-            <h3 class="box-title"><?= gettext('MailChimp List') ?>: <?= $list['name'] ?></h3> <a href="<?= SystemURLs::getRootPath() ?>/email/ManageList.php?list_id=<?= $list['id'] ?>"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>
+            <h3 class="box-title"><?= gettext('MailChimp List') ?>: <?= $list['name'] ?></h3> <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/ManageList.php?list_id=<?= $list['id'] ?>"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>
           </div>
           <div class="box-body">
              <table width='300px'>
