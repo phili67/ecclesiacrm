@@ -16,18 +16,46 @@ $app->group('/mailchimp', function () {
     });
     
     $this->post('/createlist', function ($request, $response, $args) {
-      $mailchimp = new MailChimpService();
+    
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->ListTitle) && isset ($input->Subject) && isset ($input->PermissionReminder) && isset ($input->ArchiveBars) && isset ($input->Status) ){
+        $mailchimp = new MailChimpService();
       
-      if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-         $res = $mailchimp->createList();
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
+           $res = $mailchimp->createList($input->ListTitle, $input->Subject, $input->PermissionReminder, $input->ArchiveBars, $input->Status);
          
-         if (! isset($res['title']) ) {
-           return $response->withJson(['success' => true, "result" => $res]);
+           if ( !array_key_exists ('title',$res) ) {
+             return $response->withJson(['success' => true, "result" => $res]);
+           } else {
+             return $response->withJson(['success' => false, "error" => $res]);
+           }
+        }
+      }
+      
+      return $response->withJson(['success' => false,"res" => $res]);
+    });
+    
+    $this->post('/deleteallsubscribers', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->list_id) ){
+         $mailchimp = new MailChimpService();
+      
+         if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
+           $res = $mailchimp->deleteAllSubscribers($input->list_id);
+           
+           if ( !array_key_exists ('title',$res) ) {
+             return $response->withJson(['success' => true, "result" => $res]);
+           } else {
+             return $response->withJson(['success' => false, "error" => $res]);
+           }
          }
       }
       
       return $response->withJson(['success' => false]);
     });
+    
 
     $this->post('/deletelist', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
@@ -38,8 +66,10 @@ $app->group('/mailchimp', function () {
          if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
            $res = $mailchimp->deleteList($input->list_id);
            
-           if (! isset($res['title']) ) {
+           if ( !array_key_exists ('title',$res) ) {
              return $response->withJson(['success' => true, "result" => $res]);
+           } else {
+             return $response->withJson(['success' => false, "error" => $res]);
            }
          }
       }
@@ -50,14 +80,16 @@ $app->group('/mailchimp', function () {
     $this->post('/createcampaign', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
     
-      if ( isset ($input->list_id) ){
+      if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) ){
          $mailchimp = new MailChimpService();
       
          if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-           $res = $mailchimp->createCampaign($input->list_id);
+           $res = $mailchimp->createCampaign($input->list_id, $input->subject, $input->title, $input->htmlBody);
            
-           if (! isset($res['title']) ) {
+           if ( !array_key_exists ('title',$res) ) {
              return $response->withJson(['success' => true, "result" => $res]);
+           } else {
+             return $response->withJson(['success' => false, "error" => $res]);
            }
          }
       }
@@ -66,25 +98,6 @@ $app->group('/mailchimp', function () {
     });
     
     
-    $this->post('/addperson', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-    
-      if ( isset ($input->personID) && isset ($input->list_id) ){
-      
-        // we get the MailChimp Service
-        $mailchimp = new MailChimpService();
-        $person = PersonQuery::create()->findPk($input->personID);
-        
-        if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->isEmailInMailChimp($person->getEmail()) == ''*/ ) {
-          $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),'subscribed');
-          
-          return $response->withJson(['success' => true, "result" => $res]);
-        }
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-
     $this->post('/status', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
     
@@ -95,7 +108,11 @@ $app->group('/mailchimp', function () {
         
         $res = $mailchimp->updateMember($input->list_id,"","",$input->email,$input->status);
         
-        return $response->withJson(['success' => true, "returnValue" => $res]);
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
       }
       
       return $response->withJson(['success' => false]);
@@ -111,7 +128,34 @@ $app->group('/mailchimp', function () {
         
         $res = $mailchimp->deleteUser($input->list_id,$input->email);
         
-        return $response->withJson(['success' => true, "returnValue" => $res]);
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
+    $this->post('/addperson', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->personID) && isset ($input->list_id) ){
+      
+        // we get the MailChimp Service
+        $mailchimp = new MailChimpService();
+        $person = PersonQuery::create()->findPk($input->personID);
+        
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->isEmailInMailChimp($person->getEmail()) == ''*/ ) {
+          $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),'subscribed');
+          
+          if ( !array_key_exists ('title',$res) ) {
+            return $response->withJson(['success' => true, "result" => $res]);
+          } else {
+             return $response->withJson(['success' => false, "error" => $res]);
+          }
+        }
       }
       
       return $response->withJson(['success' => false]);

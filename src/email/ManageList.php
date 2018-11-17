@@ -28,8 +28,8 @@ $list_id = $_GET['list_id'];
 
 $mailchimp = new MailChimpService();
 
-$campaigns = $mailchimp->getCampaigns();
-//print_r (count($campaigns));
+$campaigns = $mailchimp->getCampaignsForList($list_id);
+//print_r ($campaigns);
 
 //Set the page title
 $sPageTitle = gettext('Manage List');
@@ -50,7 +50,10 @@ require '../Include/Header.php';
           <a href="#" class="btn btn-app" id="CreateCampaign" data-listid="<?= $list_id ?>">
             <i class="fa fa-list-alt"></i><?= gettext("Create a Campaign") ?>
           </a>
-          <a href="#" id="deleteList" class="btn btn-app" data-listid="<?= $list_id ?>">
+          <a href="#" id="deleteAllMembers " class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
+            <i class="fa fa-trash-o"></i><?= gettext("Delete All Subscribers") ?>
+          </a>
+          <a href="#" id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= gettext("Delete") ?>
           </a>
         </p>
@@ -125,7 +128,10 @@ require '../Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-var list_ID = "<?= $list_id ?>";
+  var list_ID = "<?= $list_id ?>";
+
+// this is to place in the js file
+    var editor = null;
 
     $(".person-group-Id-Share").select2({ 
         language: window.CRM.shortLocale,
@@ -158,6 +164,8 @@ var list_ID = "<?= $list_id ?>";
            }).done(function(data) { 
              if (data.success) {
                location.reload();
+             } else if (data.error) {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
            });
         } else if (e.params.data.groupID !== undefined) {
@@ -168,6 +176,8 @@ var list_ID = "<?= $list_id ?>";
            }).done(function(data) {
              if (data.success) {
                location.reload();
+             } else if (data.error) {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
            });
         } else if (e.params.data.familyID !== undefined) {
@@ -178,6 +188,8 @@ var list_ID = "<?= $list_id ?>";
            }).done(function(data) { 
              if (data.success) {
                location.reload();
+             } else if (data.error) {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
            });
         }
@@ -307,15 +319,15 @@ var list_ID = "<?= $list_id ?>";
       var list_id = $(this).data("listid");
       
       bootbox.confirm({
-        message: "This is a confirm with custom button text and color! Do you like it?",
+        message: i18next.t("Do you really want to delete this mailing list ?"),
         buttons: {
             confirm: {
-                label: 'Yes',
-                className: 'btn-success'
+                label: i18next.t('Yes'),
+                className: 'btn-danger'
             },
             cancel: {
-                label: 'No',
-                className: 'btn-danger'
+                label: i18next.t('No'),
+                className: 'btn-primary'
             }
         },
         callback: function (result) {
@@ -327,6 +339,8 @@ var list_ID = "<?= $list_id ?>";
             }).done(function(data) { 
                if (data.success) {
                  window.location.href = window.CRM.root + "/email/Dashboard.php";
+               } else if (data.error) {
+                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }
             });
           }
@@ -334,26 +348,26 @@ var list_ID = "<?= $list_id ?>";
       });
     });
     
-    $(document).on("click","#CreateCampaign", function(){
+    $(document).on("click","#deleteAllMembers", function(){
       var list_id = $(this).data("listid");
       
       bootbox.confirm({
-        message: "This is a confirm with custom button text and color! Do you like it?",
+        message: i18next.t("Are you sure you want to delete all the subscribers"),
         buttons: {
             confirm: {
-                label: 'Yes',
-                className: 'btn-success'
+                label: i18next.t('Yes'),
+                className: 'btn-danger'
             },
             cancel: {
-                label: 'No',
-                className: 'btn-danger'
+                label: i18next.t('No'),
+                className: 'btn-primary'
             }
         },
         callback: function (result) {
           if (result) {
             window.CRM.APIRequest({
                   method: 'POST',
-                  path: 'mailchimp/createcampaign',
+                  path: 'mailchimp/deleteallsubscribers',
                   data: JSON.stringify({"list_id":list_ID})
             }).done(function(data) { 
                if (data.success) {
@@ -364,9 +378,115 @@ var list_ID = "<?= $list_id ?>";
         }
       });
     });
-    
-    
 
+  function BootboxContent(){  
+    
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("MailChimp Campaign Creation")+'</h3><form id="some-form">'
+       + '<div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Campaign Title') + ":</div>"
+              +'<div class="col-md-9">'
+                +"<input type='text' id='CampaignTitle' placeholder='" + i18next.t("Your Campaign Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+              +'</div>'
+            +'</div>'
+            +'<div class="row div-title">'
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Subject') + ":</div>"
+              +'<div class="col-md-9">'
+                +"<input type='text' id='Subject' placeholder='" + i18next.t("Your Subject") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+              +'</div>'
+            +'</div>'
+            +'<div class="row  eventNotes">'
+              +'<div class="col-md-12" style="padding-left:0px;padding-right:2px;">'
+                  +'<textarea name="CampaignText" cols="80" class="form-control input-sm campaignNotes" id="campaignNotes"  width="100%" style="margin-top:-58px;width: 100%;height: 4em;"></textarea></div>'
+              +'</div>'
+            +'</div>'
+          +'</div>'
+       + '</form>';
+
+        var object = $('<div/>').html(frm_str).contents();
+
+        return object
+    }
+    function createCampaignEditorWindow ()
+    {
+      
+      var modal = bootbox.dialog({
+         message: BootboxContent(),
+         buttons: [
+          {
+           label: i18next.t("Close"),
+           className: "btn btn-default",
+           callback: function() {
+              console.log("just do something on close");
+           }
+          },
+          {
+           label: i18next.t("Save"),
+           className: "btn btn-primary",
+           callback: function() {
+              var campaignTitle =  $('form #CampaignTitle').val();
+              
+              if (campaignTitle) {
+                  var Subject      = $('form #Subject').val();
+                  var htmlBody     = CKEDITOR.instances['campaignNotes'].getData();//$('form #campaignNotes').val();
+
+                  window.CRM.APIRequest({
+                        method: 'POST',
+                        path: 'mailchimp/createcampaign',
+                        data: JSON.stringify({"list_id":list_ID, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
+                  }).done(function(data) { 
+                     if (data.success) {
+                       location.reload();
+                     }
+                  });
+
+                  return add;  
+              } else {
+                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Campaign Title for your eMail Campaign"));
+                
+                  return false;
+              }    
+            }
+          }
+         ],
+         show: false/*,
+         onEscape: function() {
+            modal.modal("hide");
+         }*/
+       });
+       
+       // this will ensure that image and table can be focused
+       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
+              
+       return modal;
+    }
+  
+  
+  $(document).on("click","#CreateCampaign", function(){
+    if (editor != null) {
+      editor.destroy(false);
+      editor = null;              
+    }
+    
+    var modal = createCampaignEditorWindow();
+    
+    // this will create the toolbar for the textarea
+     if (editor == null) {
+       editor = CKEDITOR.replace('campaignNotes',{
+        customConfig: window.CRM.root+'/skin/js/ckeditor/campaign_editor_config.js',
+        language : window.CRM.lang,
+        width : '100%'
+       });
+   
+       add_ckeditor_buttons(editor);
+     }
+    
+    modal.modal("show");
+  }); 
   
 </script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+
 

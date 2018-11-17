@@ -312,8 +312,14 @@ class MenuBar {
       
       
       // the Email
-      if ($_SESSION['user']->isMailChimpEnabled() && SystemConfig::getBooleanValue("bEnabledEmail")) {
-        $menu = new Menu (gettext("Email"),"fa fa-envelope","email/Dashboard.php",true);
+      if (SystemConfig::getBooleanValue("bEnabledEmail")) {
+        $menu = new Menu (gettext("Email"),"fa fa-envelope","#",true);
+          
+          $menuItem = new Menu (gettext("eMail MailChimp"),"fa fa-circle-o","email/Dashboard.php",$_SESSION['user']->isMailChimpEnabled(),$menu);
+          $menuItem->addLink("email/ManageList.php");
+          $menuItem->addLink("email/DuplicateEmails.php");
+          $menuItem->addLink("email/NotInMailChimpEmails.php");
+          
         $this->addMenu($menu);
       }
       
