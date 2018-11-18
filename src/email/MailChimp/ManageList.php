@@ -71,20 +71,7 @@ require '../../Include/Header.php';
         //print_r($list);
     ?>
       <div class="col-lg-12">
-        <div class="box">
-          <div class="box-header   with-border">
-            <h3 class="box-title"><?= gettext('Mailing List') ?>: <?= $list['name'] ?></h3> 
-          </div>
-          <div class="box-body">
-             <table width='300px'>
-                <tr><td><b><?= gettext('Members:') ?></b> </td><td><?= $list['stats']['member_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Campaigns:') ?></b> </td><td><?= $list['stats']['campaign_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Unsubscribed count:') ?></b> </td><td><?= $list['stats']['unsubscribe_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Unsubscribed count since last send:') ?></b> </td><td><?= $list['stats']['unsubscribe_count_since_send'] ?></td></tr>
-                <tr><td><b><?= gettext('Cleaned count:') ?></b> </td><td><?= $list['stats']['cleaned_count'] ?></td></tr>
-                <tr><td><b><?= gettext('Cleaned count since last send:') ?></b> </td><td><?= $list['stats']['cleaned_count_since_send']?> </td></tr>
-              </table>
-          </div>
+        <div class="box" id="container">
         </div>
       </div>
       <div class="col-lg-12">
@@ -121,16 +108,78 @@ require '../../Include/Header.php';
     </div>
   </div>
 
-
 <?php
 }
 require '../../Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  var list_ID = "<?= $list_id ?>";
+  window.CRM.list_ID = "<?= $list_id ?>";
+  window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
 
 // this is to place in the js file
+ function render_container ()
+ {
+   if (window.CRM.mailchimpIsActive) {
+      window.CRM.APIRequest({
+        method: 'GET',
+        path: 'mailchimp/list/' + window.CRM.list_ID
+      }).done(function(data) {
+        // we empty first the container
+        $("#container").html( i18next.t("Loading resources ...") );
+      
+        var listItems  = "";
+    
+        var list = data.MailChimpList;
+      
+        var  listView = '<div class="box-header   with-border">'
+          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>'
+          +'    </div>'
+          +'    <div class="box-body">'
+          +'      <div class="row" style="100%">'
+          +'        <div class="col-lg-5">'
+          +'          <table width="300px">'
+          +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
+          +'            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
+          +'          </table>'
+          +'        </div>'
+          +'        <div class="col-lg-3">'
+          +'           <b>' + i18next.t('Campaigns') + '</b><br>';
+          
+          var lenCampaigns = data.MailChimpCampaign.length;
+
+          listView += '          <table width="300px">';
+
+          for (j=0;j<lenCampaigns;j++) {
+            listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
+          }
+          
+          if (lenCampaigns == 0) {
+            listView += '<tr><td>&nbsp;&nbsp;0 ' + i18next.t('Campaign') + '</td></tr>';
+          }
+
+          listView += '          </table>';
+          
+          listView += '        </div>'
+          +'      </div>'
+          +'    </div>';
+        
+          listItems += '<li><a href="' + window.CRM.root + '/email/MailChimp/ManageList.php?list_id=' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+    
+        $("#container").html(listView);
+      });
+    }
+  }
+  
+  render_container();
+// end of container
+
+
     var editor = null;
 
     $(".person-group-Id-Share").select2({ 
@@ -163,7 +212,8 @@ require '../../Include/Footer.php';
                 data: JSON.stringify({"list_id":list_id ,"personID": e.params.data.personID})
            }).done(function(data) { 
              if (data.success) {
-               location.reload();
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
@@ -175,7 +225,8 @@ require '../../Include/Footer.php';
                 data: JSON.stringify({"list_id":list_id ,"groupID": e.params.data.groupID})
            }).done(function(data) {
              if (data.success) {
-               location.reload();
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
@@ -187,17 +238,19 @@ require '../../Include/Footer.php';
                 data: JSON.stringify({"list_id":list_id ,"familyID": e.params.data.familyID})
            }).done(function(data) { 
              if (data.success) {
-               location.reload();
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
              }
            });
         }
      });
-     
+
+// the DataTable     
   window.CRM.dataListTable = $("#memberListTable").DataTable({
     ajax:{
-      url: window.CRM.root + "/api/mailchimp/listmembers/" + list_ID,
+      url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
       type: 'GET',
       contentType: "application/json",
       dataSrc: "MailChimpMembers"
@@ -274,10 +327,10 @@ require '../../Include/Footer.php';
           window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/status',
-                data: JSON.stringify({"list_id":list_ID ,"status": status,"email": email})
+                data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
           }).done(function(data) { 
              if (data.success) {
-               location.reload();
+               window.CRM.dataListTable.ajax.reload();
              }
           });
         }
@@ -304,10 +357,11 @@ require '../../Include/Footer.php';
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/suppress',
-                  data: JSON.stringify({"list_id":list_ID ,"email": email})
+                  data: JSON.stringify({"list_id":window.CRM.list_ID ,"email": email})
             }).done(function(data) { 
                if (data.success) {
-                 location.reload();
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
                }
             });
           }
@@ -335,7 +389,7 @@ require '../../Include/Footer.php';
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/deletelist',
-                  data: JSON.stringify({"list_id":list_ID})
+                  data: JSON.stringify({"list_id":window.CRM.list_ID})
             }).done(function(data) { 
                if (data.success) {
                  window.location.href = window.CRM.root + "/email/MailChimp/Dashboard.php";
@@ -368,10 +422,11 @@ require '../../Include/Footer.php';
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/deleteallsubscribers',
-                  data: JSON.stringify({"list_id":list_ID})
+                  data: JSON.stringify({"list_id":window.CRM.list_ID})
             }).done(function(data) { 
                if (data.success) {
-                 location.reload();
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
                }
             });
           }
@@ -433,14 +488,12 @@ require '../../Include/Footer.php';
                   window.CRM.APIRequest({
                         method: 'POST',
                         path: 'mailchimp/createcampaign',
-                        data: JSON.stringify({"list_id":list_ID, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
+                        data: JSON.stringify({"list_id":window.CRM.list_ID, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
                   }).done(function(data) { 
                      if (data.success) {
-                       location.reload();
+                       render_container();
                      }
                   });
-
-                  return add;  
               } else {
                   window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Campaign Title for your eMail Campaign"));
                 

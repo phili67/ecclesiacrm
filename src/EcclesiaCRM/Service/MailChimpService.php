@@ -107,6 +107,19 @@ class MailChimpService
             return $e->getMessage();
         }
     }
+    public  function getListFromListId ($list_id) {
+      $mcLists = $this->getLists();
+      
+      $i = 0;
+      foreach ($mcLists as $list) {
+        if ($list['id'] == $list_id) {
+          return $list;
+        }
+        $i++;
+      }
+      
+      return nil;
+    }
     public  function getListMembersFromListId ($list_id) {
       $mcLists = $this->getLists();
       

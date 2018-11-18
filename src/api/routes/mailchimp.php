@@ -9,6 +9,15 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 $app->group('/mailchimp', function () {
+    $this->get('/list/{listID}',function($request,$response,$args) {
+      $mailchimp = new MailChimpService();
+      
+      $list      = $mailchimp->getListFromListId ($args['listID']);
+      $campaign  = $mailchimp->getCampaignsFromListId($args['listID']);
+      
+      return $response->withJSON(['MailChimpList' => $list,'MailChimpCampaign' => $campaign]);
+    });
+
     $this->get('/lists',function($request,$response,$args) {
       $mailchimp = new MailChimpService();
       
