@@ -30,6 +30,9 @@
  *
  ******************************************************************************/
   
+  // we add the special extraPlugin
+  CKEDITOR.plugins.addExternal('dropdownmenumanager',window.CRM.root+'/skin/js/ckeditorExtraPlugin/dropdownmenumanager/', 'plugin.js');
+
   function add_ckeditor_buttons(editor)
   {
     CKEDITOR.dialog.add( 'saveDialog', function ( editor ) {
@@ -305,7 +308,7 @@
               }
             ]
         }
-    })
+    });
     
     CKEDITOR.dialog.add("templatesApplyDialog", function(c) {
         function r(a, b) {
@@ -423,7 +426,75 @@
                 this._.element.removeListener("keydown", k)
             }
         }
-    })
+    });
+    
+    CKEDITOR.dialog.add("options1Command", function(c) {
+      alert('options1Command')
+    });
+
+    editor.addCommand( 'optionFNAME', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|FNAME|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionLNAME', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|LNAME|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionEmail', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|EMAIL|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionPhone', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|PHONE|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionAddress', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|ADDRESS|*' );
+        }
+    });
+
+    editor.addCommand( 'optionListName', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|LIST:NAME|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionListCompany', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|LIST:COMPANY|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionListUnsub', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|UNSUB|*' );
+        }
+    });
+    
+    editor.addCommand( 'optionListAddressVcard', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|LIST:ADDRESS_VCARD|*' );
+        }
+    });
+    
   
     editor.addCommand( 'saveTemplates', new CKEDITOR.dialogCommand( 'saveDialog' ) );
     editor.addCommand( 'manageTemplates', new CKEDITOR.dialogCommand( 'templatesDialog' ) );
@@ -431,6 +502,7 @@
     editor.addCommand( 'saveAsWordFile', new CKEDITOR.dialogCommand( 'saveAsWordFileDialog' ) );
     
 
+    // create the templates command
     editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command to the template group
       label: i18next.t("Manage templates"),
       command: 'manageTemplates',
@@ -457,6 +529,13 @@
       command: 'saveAsWordFile',
       toolbar: 'export',
       icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
+    });
+    
+    //  create the MathJax command
+    editor.ui.addButton('mathjax',{
+      label: 'Add Math Formula',
+      command: 'mathjax',
+      icon: CKEDITOR.plugins.getPath('mathjax') + 'edu_mathematics.png'
     });
   }
   

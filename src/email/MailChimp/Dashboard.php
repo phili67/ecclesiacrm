@@ -154,6 +154,7 @@ require '../../Include/Footer.php';
   
   render_container();
   
+  // the List Creator
   function BootboxContent(){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("List Creation")+'</h3><form id="some-form">'
        + '<div>'
@@ -202,6 +203,7 @@ require '../../Include/Footer.php';
 
         return object
     }
+    
     function createListEditorWindow ()
     {
       
@@ -260,12 +262,11 @@ require '../../Include/Footer.php';
               
        return modal;
     }
+    
+    
   $(document).on("click","#CreateList", function(){
     var modal = createListEditorWindow();
     
     modal.modal("show");
   });  
-
-
-
 </script>

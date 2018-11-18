@@ -11,7 +11,7 @@ use EcclesiaCRM\dto\SystemConfig;
 
 $csp = array(
     "default-src 'self'",
-    "script-src 'self' 'unsafe-eval' 'unsafe-inline' sidecar.gitter.im browser-update.org maps.googleapis.com www.bing.com  dev.virtualearth.net t.ssl.ak.dynamic.tiles.virtualearth.net", /*'nonce-".SystemURLs::getCSPNonce()."' // replacement of : 'unsafe-inline' */
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline' sidecar.gitter.im browser-update.org maps.googleapis.com www.bing.com  dev.virtualearth.net t.ssl.ak.dynamic.tiles.virtualearth.net cdnjs.cloudflare.com", /*'nonce-".SystemURLs::getCSPNonce()."' // replacement of : 'unsafe-inline' */
     "object-src 'none'",
     "style-src 'self' 'unsafe-inline' fonts.googleapis.com www.bing.com",
     "img-src 'self' www.google.com d maps.gstatic.com maps.googleapis.com a.tile.openstreetmap.org b.tile.openstreetmap.org c.tile.openstreetmap.org www.bing.com t.ssl.ak.dynamic.tiles.virtualearth.net data:",

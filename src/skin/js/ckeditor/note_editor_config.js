@@ -6,23 +6,58 @@
 CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
     
-  config.toolbarGroups = [
-    { name: 'document', groups: [ 'document'] },//'source',
-    { name: 'export', groups: [ 'export', 'saveAsWordFile' ] },
-    { name: 'template', groups: [ 'document', 'applyTemplates','manageTemplates','saveTemplates'] },//'source',
-    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-    { name: 'forms', groups: [ 'forms' ] },
+  config.dropdownmenumanager = {
+    'mergeTagsMailChimp': {
+      items: [
+        {
+          name: 'fName',
+          label: 'First Name',
+          command: 'optionFNAME',
+          order: 1
+        },
+        {
+          name: 'LName',
+          label: 'Last Name',
+          command: 'optionLNAME',
+          order: 2
+        },
+        {
+          name: 'Email',
+          label: 'Email',
+          command: 'optionEMail',
+          order: 3
+        },
+      ],
+      label: {
+        text: 'Widgets',
+        width: 45,
+        visible:true //default value
+      },
+      iconPath:'/images/widgetIcon.png',
+      //toolbar: 'tools' // to specify toolbar group for button
+    },
+  };
+
+  config.toolbar = [
+    { name: 'document', items: [ 'Preview', 'Print', '-' /*, 'mergeTagsMailChimp'*/ ] },
+    { name: 'export', items: [ 'export', 'SaveAsWordFileButton' ] },
+    { name: 'template', items: [ 'document', 'ApplyTemplateButton','ManageTemplateButton','SaveTemplateButton'] },//'source',
+    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll'] },
+    //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
     '/',
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-    { name: 'links', groups: [ 'links','iframe' ] },
-    { name: 'insert', groups: [ 'insert' ] },
+    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe','-', 'mathjax' ] },
     '/',
-    { name: 'styles', groups: [ 'styles' ] },
-    { name: 'colors', groups: [ 'colors' ] },
-    { name: 'tools', groups: [ 'tools' ] }
+    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+    { name: 'about', items: [ 'About' ] }
   ];
+   
+  config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
     'about,' +
@@ -65,5 +100,7 @@ CKEDITOR.editorConfig = function( config ) {
     'tableselection,' +
     'tabletools,' +
     'undo,' +
-    'wysiwygarea';
+    'wysiwygarea,' +
+    'mathjax,' +
+    'dropdownmenumanager';
 };
