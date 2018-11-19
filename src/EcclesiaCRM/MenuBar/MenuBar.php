@@ -329,7 +329,7 @@ class MenuBar {
             $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu");
 
             foreach ($mcLists as $list) {
-              $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem);
+              $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem,"listName".$list['id']);
 
               $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
               

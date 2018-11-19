@@ -36,9 +36,9 @@ require '../../Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <a href="#" class="btn btn-app" id="CreateList">
+          <button class="btn btn-app" id="CreateList">
             <i class="fa fa-list-alt"></i><?= gettext("Create a Mailing list") ?>
-          </a>
+          </button>
           <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/MemberEmailExport.php">
             <i class="fa fa fa-table"></i> <?= gettext('Generate CSV') ?>
           </a>
@@ -86,19 +86,20 @@ require '../../Include/Footer.php';
     
         var listViews  = "";
         var listItems  = "";
-    
+
         for (i=0;i<len;i++) {
           var list = data.MailChimpLists[i];
       
           listViews += '<div class="box">'
           +'    <div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>'
+          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
           +'        <div class="col-lg-5">'
-          +'          <table width="300px">'
+          +'          <table width="350px">'
           +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'

@@ -15,7 +15,7 @@ $app->group('/mailchimp', function () {
       $list      = $mailchimp->getListFromListId ($args['listID']);
       $campaign  = $mailchimp->getCampaignsFromListId($args['listID']);
       
-      return $response->withJSON(['MailChimpList' => $list,'MailChimpCampaign' => $campaign]);
+      return $response->withJSON(['MailChimpList' => $list,'MailChimpCampaign' => $campaign,'membersCount' => count($mailchimp->getListMembersFromListId($args['listID']))]);
     });
 
     $this->get('/lists',function($request,$response,$args) {
@@ -59,6 +59,26 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false,"res" => $res]);
     });
     
+    $this->post('/modifylist', function ($request, $response, $args) {
+      $input = (object)$request->getParsedBody();
+    
+      if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) ){
+         $mailchimp = new MailChimpService();
+      
+         if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
+           $res = $mailchimp->changeListName($input->list_id, $input->name, $input->subject);
+           
+           if ( !array_key_exists ('title',$res) ) {
+             return $response->withJson(['success' => true, "result" => $res]);
+           } else {
+             return $response->withJson(['success' => false, "error" => $res]);
+           }
+         }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
     $this->post('/deleteallsubscribers', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
     

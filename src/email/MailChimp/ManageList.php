@@ -47,15 +47,15 @@ require '../../Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <a href="#" class="btn btn-app" id="CreateCampaign" data-listid="<?= $list_id ?>">
+          <button class="btn btn-app" id="CreateCampaign" data-listid="<?= $list_id ?>">
             <i class="fa fa-list-alt"></i><?= gettext("Create a Campaign") ?>
-          </a>
-          <a href="#" id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
+          </button>
+          <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash-o"></i><?= gettext("Delete All Subscribers") ?>
-          </a>
-          <a href="#" id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
+          </button>
+          <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= gettext("Delete") ?>
-          </a>
+          </button>
         </p>
       </div>
     </div>
@@ -125,6 +125,14 @@ require '../../Include/Footer.php';
         method: 'GET',
         path: 'mailchimp/list/' + window.CRM.list_ID
       }).done(function(data) {
+        // we set correctly the buttons
+        if (data.membersCount == 0) {
+          $("#CreateCampaign").prop("disabled",true);
+          $("#deleteAllSubScribers").prop("disabled",true);
+        } else {
+          $("#CreateCampaign").prop("disabled",false);
+          $("#deleteAllSubScribers").prop("disabled",false);
+        }
         // we empty first the container
         $("#container").html( i18next.t("Loading resources ...") );
       
@@ -133,13 +141,14 @@ require '../../Include/Footer.php';
         var list = data.MailChimpList;
       
         var  listView = '<div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '"><i class="fa pull-right fa-gear" style="font-size: 1.2em"></i></a>'
+          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3><button class="btn btn-xs btn-primary" id="modifyList" style="float:right" data-name="' + list.name + '" data-subject="' + list.campaign_defaults.subject + '">' + i18next.t('Modify Properties') + '</button>'
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
-          +'        <div class="col-lg-5">'
-          +'          <table width="300px">'
+          +'        <div class="col-lg-6">'
+          +'          <table width="350px">'
           +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
@@ -536,6 +545,33 @@ require '../../Include/Footer.php';
     
     modal.modal("show");
   }); 
+  
+  $(document).on("click","#modifyList", function(){
+    var name    = $(this).data('name');
+    var subject = $(this).data('subject');
+    
+    bootbox.confirm('<form id="infos" action="#">'
+      + i18next.t('List Name') + ':<input type="text" class="form-control" id="list_name" value="' + name +'"/><br/>'
+      + i18next.t('Subject') + ':<input type="text" class="form-control" id="list_subject" value="' + subject + '"/>'
+      + '</form>', function(result) {
+          if(result) {
+            name    = $("#list_name").val();
+            subject = $("#list_subject").val();
+            
+            window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'mailchimp/modifylist',
+                  data: JSON.stringify({"list_id":window.CRM.list_ID, "name" : name, "subject":subject})
+            }).done(function(data) { 
+               if (data.success) {
+                 render_container();
+                 $( '.listName' + window.CRM.list_ID ).html('<i class="fa fa-circle-o"></i>' + name );
+               }
+            });
+            
+          }
+    });
+  });
   
 </script>
 

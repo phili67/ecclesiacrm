@@ -127,14 +127,18 @@ class MailChimpService
       foreach ($mcLists as $list) {
         if ($list['id'] == $list_id) {
           if (is_null ($list['members'])) {
-            return [];
+            // in the case the list is no more in the cache
+            $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+
+            return array_values($listmembers);
           }
           return array_values($list['members']);
         }
         $i++;
       }
       
-      return [];
+      
+      return $listmembers;
     }
     public function createList ($name, $subject, $PermissionReminder, $ArchiveBars, $Status)
     {
@@ -242,6 +246,30 @@ class MailChimpService
         } catch (\Exception $e) {
             return $e->getMessage();
         }
+    }
+    
+    public function changeLists ($new_list) {
+      $lists = $this->getListsFromCache();
+      
+      $res = [];
+      
+      foreach ($lists as $list) {
+        if ($list['id'] == $new_list['id']) {
+          $list['name'] = $new_list['name'];
+          $list['campaign_defaults']['subject'] = $new_list['campaign_defaults']['subject'];
+        }
+        $res[] = $list;
+      }
+      
+      $_SESSION['MailChimpLists'] = $res;
+    }
+    
+    public function changeListName ($list_id,$name,$subject) {
+      $new_list = $this->myMailchimp->patch("lists/$list_id",["name" => $name,"campaign_defaults" => array("subject" => $subject)]);
+      
+      $this->changeLists ($new_list);
+      
+      return $new_list;
     }
     
     public function getCampaignsFromListId($list_id) {
