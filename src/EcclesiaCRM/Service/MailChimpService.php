@@ -299,7 +299,7 @@ class MailChimpService
 
         $campaignID = $result['id'];// we get the campaign ID
       
-        $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
+        $resultContent = $this->setCampaignContent ($campaignID, $htmlBody);
       
         $this->create_Campaign($list_id,$result);
       }
@@ -309,6 +309,7 @@ class MailChimpService
     private function delete_Campaign ($campaignID) {
       // todo : in all list delete the campaigns
     }
+
     public function deleteCampaign ($campaignID) {
       
       $result = $this->myMailchimp->delete("campaigns/$campaignID");
@@ -319,6 +320,20 @@ class MailChimpService
       
       return $result;
     }
+
+    public function setCampaignContent ($campaignID,$htmlBody) {
+      $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
+      
+      return $resultContent;
+    }
+
+    public function getCampaignContent ($campaignID) {
+      $result = $this->myMailchimp->get("campaigns/$campaignID/content");
+      
+      return $result;
+    }
+    
+    
     public function sendCampaign ($campaignID) {
       
       $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send"); 

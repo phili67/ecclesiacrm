@@ -120,6 +120,23 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false]);
     });
     
+    $this->get('/campaign/{campaignID}/content', function ($request, $response, $args) {
+      $mailchimp = new MailChimpService();
+      
+      $campaignContent = $mailchimp->getCampaignContent ($args['campaignID']);
+      
+      // Be careFull this can change with a new MailChimp api
+      $realContent = explode("            <center>\n                <br/>\n                <br/>\n",$campaignContent['html'])[0];
+      
+      if ( !empty($campaignContent['html']) ) {
+        return $response->withJson(['success' => true,'content' => $realContent]);
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+    
+    
+    
     
     $this->post('/status', function ($request, $response, $args) {
       $input = (object)$request->getParsedBody();
