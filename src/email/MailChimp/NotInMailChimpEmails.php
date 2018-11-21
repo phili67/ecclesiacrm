@@ -9,8 +9,8 @@
  ******************************************************************************/
 
 //Include the function library
-require '../Include/Config.php';
-require '../Include/Functions.php';
+require '../../Include/Config.php';
+require '../../Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
@@ -19,7 +19,7 @@ use EcclesiaCRM\dto\SystemURLs;
 //Set the page title
 $sPageTitle = gettext('Families Without NewsLetter');
 
-require '../Include/Header.php'; ?>
+require '../../Include/Header.php'; ?>
 
 <div class="box box-body">
 <div class="box-header  with-border">
@@ -32,5 +32,5 @@ require '../Include/Header.php'; ?>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/NotInMailChimpEmails.js" ></script>
 
 <?php
-require '../Include/Footer.php';
+require '../../Include/Footer.php';
 ?>

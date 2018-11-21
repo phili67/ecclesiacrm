@@ -272,6 +272,22 @@ class MailChimpService
       return $new_list;
     }
     
+    public function getCampaignFromId($campaignId) {
+      $campaigns = $this->getCampaigns();
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['id'] == $campaignId) {
+          /*$content = $this->getCampaignContent ($campaignId);
+
+          // Be careFull this can change with a new MailChimp api
+          $realContent = explode("            <center>\n                <br/>\n                <br/>\n",$content['html'])[0];
+
+          $campaign['content'] = $realContent;*/
+          return $campaign;
+        }
+      }
+    }
+    
     public function getCampaignsFromListId($list_id) {
       $campaigns = $this->getCampaigns();
       
@@ -307,16 +323,17 @@ class MailChimpService
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
 
-      $data = array("recipients" => 
-                array(
+      $data = array(
+                "recipients" => 
+                  array(
                    "list_id" => $list_id
-                ), 
+                  ), 
                 "type"         => "regular", 
                 "settings"     => array(
-                "subject_line" => $subject, 
-                "title"        => $title, 
-                "reply_to"     => $from_email, 
-                "from_name"    => $from_name, 
+                  "subject_line" => $subject, 
+                  "title"        => $title, 
+                  "reply_to"     => $from_email, 
+                  "from_name"    => $from_name, 
                 //"folder_id"    => "8888969b77"
                 )
               );
@@ -353,6 +370,36 @@ class MailChimpService
       $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
       
       return $resultContent;
+    }
+    
+    private function set_Campaign_MailSubject ($campaignID,$subject) {
+      $campaigns = $_SESSION['MailChimpCampaigns'];
+      
+      $res = [];
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['id'] == $campaignID) {
+          $campaign['settings']['subject_line'] = $subject;
+        }
+        $res[] = $campaign;
+      }
+        
+      $_SESSION['MailChimpCampaigns'] = $res;
+    }
+    
+    public function setCampaignMailSubject ($campaignID,$subject) {
+      $data = array(
+                "settings"     => array(
+                  "subject_line" => $subject)
+              );
+              
+      $result = $this->myMailchimp->patch("campaigns/$campaignID", $data);
+
+      if ( !array_key_exists ('title',$result) ) {
+        $this->set_Campaign_MailSubject ($campaignID,$subject);
+      }
+              
+      return $result;
     }
 
     public function getCampaignContent ($campaignID) {

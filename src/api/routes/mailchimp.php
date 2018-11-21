@@ -10,6 +10,10 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 
 $app->group('/mailchimp', function () {
     $this->get('/list/{listID}',function($request,$response,$args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $mailchimp = new MailChimpService();
       
       $list      = $mailchimp->getListFromListId ($args['listID']);
@@ -33,6 +37,10 @@ $app->group('/mailchimp', function () {
     });
 
     $this->get('/listmembers/{listID}',function($request,$response,$args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $mailchimp = new MailChimpService();
       
       return $response->withJSON(['MailChimpMembers' => $mailchimp->getListMembersFromListId($args['listID'])]);
@@ -40,6 +48,10 @@ $app->group('/mailchimp', function () {
     
     $this->post('/createlist', function ($request, $response, $args) {
     
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->ListTitle) && isset ($input->Subject) && isset ($input->PermissionReminder) && isset ($input->ArchiveBars) && isset ($input->Status) ){
@@ -60,6 +72,10 @@ $app->group('/mailchimp', function () {
     });
     
     $this->post('/modifylist', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) ){
@@ -80,6 +96,10 @@ $app->group('/mailchimp', function () {
     });
 
     $this->post('/deleteallsubscribers', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->list_id) ){
@@ -101,6 +121,10 @@ $app->group('/mailchimp', function () {
     
 
     $this->post('/deletelist', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->list_id) ){
@@ -121,6 +145,10 @@ $app->group('/mailchimp', function () {
     });
     
     $this->post('/createcampaign', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) ){
@@ -140,7 +168,52 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false]);
     });
     
+    $this->get('/campaign/{campaignID}/actions/send', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+      $mailchimp = new MailChimpService();
+      
+      $res = $mailchimp->sendCampaign ($args['campaignID']);
+      
+      if ( !array_key_exists ('title',$res) ) {
+        return $response->withJson(['success' => true,'content' => $realContent]);
+      } else {
+        return $response->withJson(['success' => false, "error" => $res]);
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+
+    $this->post('/campaign/actions/save', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+      
+      $input = (object)$request->getParsedBody();
+      
+      if ( isset ($input->campaign_id) && isset ($input->subject) && isset ($input->content) ){
+        $mailchimp = new MailChimpService();
+      
+        $res1 = $mailchimp->setCampaignContent ($input->campaign_id,$input->content);
+        $res2 = $mailchimp->setCampaignMailSubject ($input->campaign_id,$input->subject);
+      
+        if ( !array_key_exists ('title',$res1) && !array_key_exists ('title',$res2) ) {
+          return $response->withJson(['success' => true,'content' => $res1,'subject' => $res2]);
+        } else {
+          return $response->withJson(['success' => false, "error1" => $res1, "error2" => $res2]);
+        }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });
+    
+    
     $this->get('/campaign/{campaignID}/content', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $mailchimp = new MailChimpService();
       
       $campaignContent = $mailchimp->getCampaignContent ($args['campaignID']);
@@ -159,6 +232,10 @@ $app->group('/mailchimp', function () {
     
     
     $this->post('/status', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->status) && isset ($input->list_id) && isset ($input->email) ){
@@ -179,6 +256,10 @@ $app->group('/mailchimp', function () {
     });
     
     $this->post('/suppress', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->list_id) && isset ($input->email) ){
@@ -199,6 +280,10 @@ $app->group('/mailchimp', function () {
     });
 
     $this->post('/addperson', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->personID) && isset ($input->list_id) ){
@@ -222,6 +307,10 @@ $app->group('/mailchimp', function () {
     });
 
     $this->post('/addfamily', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->familyID) && isset ($input->list_id) ){
@@ -247,6 +336,10 @@ $app->group('/mailchimp', function () {
     });
 
     $this->post('/addgroup', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+
       $input = (object)$request->getParsedBody();
     
       if ( isset ($input->groupID) && isset ($input->list_id) ){

@@ -62,12 +62,12 @@ require '../../Include/Header.php';
   </div>
 </div>
 
-<?php if ($mailchimp->isActive()) {
-    $mcLists = $mailchimp->getLists(); ?>
+<?php 
+  if ($mailchimp->isActive()) {
+?>
   <div class="row">
     <?php 
-      foreach ($mcLists as $list) {
-        if ($list['id'] == $list_id) {
+      $list = $mailchimp->getListFromListId($list_id);
         //print_r($list);
     ?>
       <div class="col-lg-12">
@@ -86,11 +86,6 @@ require '../../Include/Header.php';
           </div>
         </div>
       </div>
-    <?php
-          break;
-        }
-      } 
-    ?>
     <br>
   </div>
 <?php
@@ -118,13 +113,24 @@ require '../../Include/Footer.php';
   window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
 
 // this is to place in the js file
+
+ var dialogLoading = null;
+
+ function dialogLoadingFunction (message) {
+    dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
+ }
+ 
  function render_container ()
  {
-   if (window.CRM.mailchimpIsActive) {
+   if (window.CRM.mailchimpIsActive) {     
       window.CRM.APIRequest({
         method: 'GET',
         path: 'mailchimp/list/' + window.CRM.list_ID
       }).done(function(data) {
+        if (dialogLoading != null) {
+          dialogLoading.modal('hide');
+        }
+        
         // we set correctly the buttons
         if (data.membersCount == 0) {
           $("#CreateCampaign").prop("disabled",true);
@@ -134,7 +140,7 @@ require '../../Include/Footer.php';
           $("#deleteAllSubScribers").prop("disabled",false);
         }
         // we empty first the container
-        $("#container").html( i18next.t("Loading resources ...") );
+        $("#container").html( i18next.t( i18next.t("Loading resources ...")) );
       
         var listItems  = "";
     
@@ -150,7 +156,7 @@ require '../../Include/Footer.php';
           +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
           +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
-          +'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
+          //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
           +'            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
           +'            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
@@ -165,7 +171,11 @@ require '../../Include/Footer.php';
           listView += '          <table width="300px">';
 
           for (j=0;j<lenCampaigns;j++) {
-            listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
+            if (data.membersCount == 0) {
+              listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
+            } else {
+              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title + '</a></td></tr>';
+            }
           }
           
           if (lenCampaigns == 0) {
@@ -213,6 +223,8 @@ require '../../Include/Footer.php';
 
      $(".person-group-Id-Share").on("select2:select",function (e) { 
        var list_id=$(this).data("listid");
+       
+       dialogLoadingFunction ( i18next.t("Loading subscribers") );
        
        if (e.params.data.personID !== undefined) {
            window.CRM.APIRequest({
@@ -428,6 +440,8 @@ require '../../Include/Footer.php';
         },
         callback: function (result) {
           if (result) {
+            dialogLoadingFunction( i18next.t('Deleting all subscribers...') );
+            
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/deleteallsubscribers',
@@ -454,9 +468,9 @@ require '../../Include/Footer.php';
               +'</div>'
             +'</div>'
             +'<div class="row div-title">'
-              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Subject') + ":</div>"
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Mail Subject') + ":</div>"
               +'<div class="col-md-9">'
-                +"<input type='text' id='Subject' placeholder='" + i18next.t("Your Subject") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                +"<input type='text' id='Subject' placeholder='" + i18next.t("Your Mail Subject") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
             +'<div class="row  eventNotes">'
@@ -577,5 +591,3 @@ require '../../Include/Footer.php';
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
-
-
