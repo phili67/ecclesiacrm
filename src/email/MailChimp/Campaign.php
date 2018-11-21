@@ -29,30 +29,31 @@ $campaign_Id = $_GET['campaignId'];
 $mailchimp = new MailChimpService();
 
 $campaign = $mailchimp->getCampaignFromId($campaign_Id);
+//print_r ($campaign);
+
 
 //Set the page title
-$sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title'];
+$sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title']." <b>("._($campaign['status']).")</b>";
 
 require '../../Include/Header.php';
 
-//print_r ($mailchimp->getListMembersFromListId($list_id));
 ?>
 
 <div class="row">
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3>
+        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/en/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
       </div>
       <div class="box-body">
         <p>
           <button class="btn btn-app bg-blue" id="saveCampaign" data-listid="<?= $list_id ?>">
             <i class="fa fa-list-alt"></i><?= _("Save Campaign") ?>
           </button>
-          <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
+          <button id="deleteCampaign" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= _("Delete") ?>
           </button>
-          <button id="deleteList" class="btn btn-app align-right bg-green" data-listid="<?= $list_id ?>">
+          <button id="sendCampaign" class="btn btn-app align-right bg-green" data-listid="<?= $list_id ?>">
             <i class="fa fa-send-o"></i><?= _("Send") ?>
           </button>
         </p>
@@ -88,6 +89,7 @@ require '../../Include/Footer.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.campaign_Id = "<?= $campaign_Id ?>";
   window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
+  window.CRM.list_Id = "<?= $campaign['recipients']['list_id'] ?>";
 
 
   $(document).ready(function () {
@@ -124,37 +126,38 @@ require '../../Include/Footer.php';
         method: 'POST',
         path: 'mailchimp/campaign/actions/save',
         data: JSON.stringify({"campaign_id" : window.CRM.campaign_Id,"subject" : subject, "content" : content})
-      }).done(function(data) { 
-         if (data.success == false && data.error) {
+      }).done(function(data) {
+         if (data.success == true) {
+           window.CRM.DisplayAlert(i18next.t("Campaign"),i18next.t("saved successfully"));
+         } else if (data.success == false && data.error) {
            window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
          }
       });
     });
 
-    $(document).on("click",".delete-member", function(){
+    $(document).on("click","#sendCampaign", function(){
       
       bootbox.confirm({
-        message: "This is a confirm with custom button text and color! Do you like it?",
+        message: i18next.t("You're about to send your campaign! Are you sure ?"),
         buttons: {
             confirm: {
-                label: 'Yes',
+                label: i18next.t('Yes'),
                 className: 'btn-success'
             },
             cancel: {
-                label: 'No',
-                className: 'btn-danger'
+                label: i18next.t('No'),
+                className: 'btn-default'
             }
         },
         callback: function (result) {
           if (result) {
             window.CRM.APIRequest({
                   method: 'POST',
-                  path: 'mailchimp/suppress',
-                  data: JSON.stringify({"list_id":window.CRM.list_ID ,"email": email})
+                  path: 'mailchimp/campaign/actions/send',
+                  data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
             }).done(function(data) { 
                if (data.success) {
-                 window.CRM.dataListTable.ajax.reload();
-                 render_container();
+                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
                }
             });
           }

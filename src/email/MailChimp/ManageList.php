@@ -43,7 +43,7 @@ require '../../Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= gettext('Manage Mailing List') ?></h3>
+        <h3 class="box-title"><?= gettext('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/en/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
       </div>
       <div class="box-body">
         <p>
@@ -174,7 +174,7 @@ require '../../Include/Footer.php';
             if (data.membersCount == 0) {
               listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
             } else {
-              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title + '</a></td></tr>';
+              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b>(' + data.MailChimpCampaign[j].status + ')</b>  </td></tr>';
             }
           }
           

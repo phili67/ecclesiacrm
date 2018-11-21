@@ -23,7 +23,7 @@ require '../../Include/Header.php'; ?>
 
 <div class="box box-body">
 <div class="box-header  with-border">
-  <h3 class="box-title"><?= _("Families Without NewsLetter")?></h3>
+  <h3 class="box-title"><?= _("Families Without NewsLetter")?></h3><div style="float:right"><a href="https://mailchimp.com/en/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
 </div>
 <table class="table table-striped table-bordered" id="familiesWithoutEmailTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 

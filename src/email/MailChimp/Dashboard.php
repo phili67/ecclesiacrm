@@ -32,7 +32,7 @@ require '../../Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= gettext('MailChimp Management') ?></h3>
+        <h3 class="box-title"><?= gettext('MailChimp Management') ?></h3><div style="float:right"><a href="https://mailchimp.com/en/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
       </div>
       <div class="box-body">
         <p>
@@ -116,7 +116,7 @@ require '../../Include/Footer.php';
           listViews += '          <table width="300px">';
 
           for (j=0;j<lenCampaigns;j++) {
-            listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title + '</td></tr>';
+            listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b>(' + data.MailChimpCampaigns[i][j].status + ')</b>  </td></tr>';
           }
           
           if (lenCampaigns == 0) {

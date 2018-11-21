@@ -168,18 +168,24 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false]);
     });
     
-    $this->get('/campaign/{campaignID}/actions/send', function ($request, $response, $args) {
+    $this->post('/campaign/actions/send', function ($request, $response, $args) {
       if (!$_SESSION['user']->isMailChimpEnabled()) {
         return $response->withStatus(404);
       }
-      $mailchimp = new MailChimpService();
       
-      $res = $mailchimp->sendCampaign ($args['campaignID']);
+      $input = (object)$request->getParsedBody();
       
-      if ( !array_key_exists ('title',$res) ) {
-        return $response->withJson(['success' => true,'content' => $realContent]);
-      } else {
-        return $response->withJson(['success' => false, "error" => $res]);
+      if ( isset ($input->campaign_id) ){
+      
+        $mailchimp = new MailChimpService();
+      
+        $res = $mailchimp->sendCampaign ($input->campaign_id);
+      
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true,'content' => $realContent]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
       }
       
       return $response->withJson(['success' => false]);
