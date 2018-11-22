@@ -1,7 +1,7 @@
 <?php
 
-require '../Include/Config.php';
-require '../Include/Functions.php';
+require '../../Include/Config.php';
+require '../../Include/Functions.php';
 
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\GroupQuery;

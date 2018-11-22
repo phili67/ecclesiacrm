@@ -27,7 +27,7 @@ use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
-
+use EcclesiaCRM\Service\MailChimpService;
 
 
 class MenuBar {
@@ -312,8 +312,33 @@ class MenuBar {
       
       
       // the Email
-      if ($_SESSION['user']->isMailChimpEnabled() && SystemConfig::getBooleanValue("bEnabledEmail")) {
-        $menu = new Menu (gettext("Email"),"fa fa-envelope","email/Dashboard.php",true);
+      if (SystemConfig::getBooleanValue("bEnabledEmail")) {
+        $menu = new Menu (gettext("Email"),"fa fa-envelope","#",true);
+          
+          $mailchimp = new MailChimpService();
+
+          if ($mailchimp->isActive()) {
+            $mcLists = $mailchimp->getLists();
+
+            $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",$_SESSION['user']->isMailChimpEnabled(),$menu);
+
+            $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","email/MailChimp/Dashboard.php",$_SESSION['user']->isMailChimpEnabled(),$menuMain);
+            $menuItem->addLink("email/MailChimp/DuplicateEmails.php");
+            $menuItem->addLink("email/MailChimp/NotInMailChimpEmails.php");
+            
+            $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu");
+
+            foreach ($mcLists as $list) {
+              $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem,"listName".$list['id']);
+
+              $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
+              
+              foreach ($campaigns as $campaign) {
+                //$menuItemItemItem = new Menu ($campaign['settings']['title'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
+                $menuItemItemItem->addLink("email/MailChimp/Campaign.php?campaignId=".$campaign['id']);
+              }
+            }
+          }
         $this->addMenu($menu);
       }
       

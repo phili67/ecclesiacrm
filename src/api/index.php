@@ -120,5 +120,8 @@ require __DIR__.'/routes/filemanager.php';
 // routes for the fileManage
 require __DIR__.'/routes/volunteeropportunity.php';
 
+// routes for the fileManage
+require __DIR__.'/routes/mailchimp.php';
+
 // Run app
 $app->run();

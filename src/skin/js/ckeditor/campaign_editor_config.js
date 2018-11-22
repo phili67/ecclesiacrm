@@ -11,25 +11,61 @@ CKEDITOR.editorConfig = function( config ) {
       items: [
         {
           name: 'fName',
-          label: 'First Name',
+          label: i18next.t('First Name'),
           command: 'optionFNAME',
           order: 1
         },
         {
-          name: 'LName',
-          label: 'Last Name',
+          name: 'lName',
+          label: i18next.t('Last Name'),
           command: 'optionLNAME',
           order: 2
         },
         {
           name: 'Email',
-          label: 'Email',
-          command: 'optionEMail',
+          label: i18next.t('Email'),
+          command: 'optionEmail',
           order: 3
         },
+        {
+          name: 'Phone',
+          label: i18next.t('Phone'),
+          command: 'optionPhone',
+          order: 4
+        },
+        {
+          name: 'Address',
+          label: i18next.t('Address'),
+          command: 'optionAddress',
+          order: 5
+        },
+        {
+          name: 'ListName',
+          label: i18next.t('List') + ' : ' + i18next.t('Name'),
+          command: 'optionListName',
+          order: 6
+        },
+        {
+          name: 'ListCompany',
+          label: i18next.t('List') +' : '+i18next.t('Company'),
+          command: 'optionListCompany',
+          order: 7
+        },
+        {
+          name: 'ListUnsub',
+          label: i18next.t('List') +' : ' + i18next.t('Unsub'),
+          command: 'optionListUnsub',
+          order: 8
+        },
+        {
+          name: 'ListVCard',
+          label: i18next.t('List') + ' : ' + i18next.t('VCard'),
+          command: 'optionListAddressVcard',
+          order: 8
+        }
       ],
       label: {
-        text: 'Widgets',
+        text: i18next.t('Merge Tags'),
         width: 45,
         visible:true //default value
       },
@@ -39,7 +75,7 @@ CKEDITOR.editorConfig = function( config ) {
   };
 
   config.toolbar = [
-    { name: 'document', items: [ 'Preview', 'Print', '-' /*, 'mergeTagsMailChimp'*/ ] },
+    { name: 'document', items: [ 'Preview', 'Print', '-' , 'mergeTagsMailChimp' ] },
     { name: 'export', items: [ 'export', 'SaveAsWordFileButton' ] },
     { name: 'template', items: [ 'document', 'ApplyTemplateButton','ManageTemplateButton','SaveTemplateButton'] },//'source',
     { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
