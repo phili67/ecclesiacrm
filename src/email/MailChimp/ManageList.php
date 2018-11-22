@@ -29,7 +29,6 @@ $list_id = $_GET['list_id'];
 $mailchimp = new MailChimpService();
 
 $campaigns = $mailchimp->getCampaignsFromListId($list_id);
-//print_r ($campaigns);
 
 //Set the page title
 $sPageTitle = gettext('Manage List');
@@ -153,7 +152,7 @@ require '../../Include/Footer.php';
           +'      <div class="row" style="100%">'
           +'        <div class="col-lg-6">'
           +'          <table width="350px">'
-          +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td><b>' + i18next.t('List Details') + '</b> </td><td></td></tr>'
           +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
           //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -345,6 +344,8 @@ require '../../Include/Footer.php';
             }
         ],
         callback: function (status) {
+          dialogLoadingFunction ( i18next.t("Changing status ...") );
+          
           window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/status',
@@ -352,6 +353,7 @@ require '../../Include/Footer.php';
           }).done(function(data) { 
              if (data.success) {
                window.CRM.dataListTable.ajax.reload();
+               render_container();
              }
           });
         }
@@ -507,10 +509,13 @@ require '../../Include/Footer.php';
               if (campaignTitle) {
                   var Subject      = $('form #Subject').val();
                   var htmlBody     = CKEDITOR.instances['campaignNotes'].getData();//$('form #campaignNotes').val();
+                  
+                  
+                  dialogLoadingFunction ( i18next.t("Adding Campaign ...") );
 
                   window.CRM.APIRequest({
                         method: 'POST',
-                        path: 'mailchimp/createcampaign',
+                        path: 'mailchimp/campaign/actions/create',
                         data: JSON.stringify({"list_id":window.CRM.list_ID, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
                   }).done(function(data) { 
                      if (data.success) {

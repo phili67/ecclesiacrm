@@ -129,6 +129,10 @@ class MailChimpService
           if (is_null ($list['members'])) {
             // in the case the list is no more in the cache
             $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+            
+            if (count($listmembers[0]) == 0) {
+              return [];
+            }
 
             return array_values($listmembers);
           }
@@ -221,7 +225,22 @@ class MailChimpService
         }
         
         $_SESSION['MailChimpLists'] = $res;
+        
+        // we delete all campaign binded to the list
+        $campaigns = $_SESSION['MailChimpCampaigns'];
+
+        $camps = [];
+        foreach ($campaigns as $campaign) {
+          if ($campaign['recipients']['list_id'] != $list_id) {
+            $camps[] = $campaign;
+          } else {
+            $this->deleteCampaign ($campaign['id']);
+          }
+        }
+        
+        $_SESSION['MailChimpCampaigns'] = $camps;
     }
+
     public function deleteList ($list_id) {
         $result = $this->myMailchimp->delete("lists/$list_id");
         
@@ -232,6 +251,7 @@ class MailChimpService
         
         return $result;
     }
+
     public function getCampaigns()
     {
         if (!$this->isActive) {
@@ -352,7 +372,17 @@ class MailChimpService
       return [$result,$resultContent,"campaigns/$campaignID/content"];
     }
     private function delete_Campaign ($campaignID) {
-      // todo : in all list delete the campaigns
+      $campaigns = $_SESSION['MailChimpCampaigns'];
+      
+      $res = [];
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['id'] != $campaignID) {
+          $res[] = $campaign;
+        }
+      }
+        
+      $_SESSION['MailChimpCampaigns'] = $res;
     }
 
     public function deleteCampaign ($campaignID) {
@@ -360,7 +390,7 @@ class MailChimpService
       $result = $this->myMailchimp->delete("campaigns/$campaignID");
       
       if ( !array_key_exists ('title',$result) ) {
-        $this->delete_Campaign (delete_Campaign);
+        $this->delete_Campaign ($campaignID);
       }
       
       return $result;
@@ -525,7 +555,17 @@ class MailChimpService
           $j = 0;
           foreach ($_SESSION['MailChimpLists'][$i]['members'] as $memb) {
             if ($memb['email_address'] == $member) {
+              $old_status = $_SESSION['MailChimpLists'][$i]['members'][$j]['status'];
+              
               $_SESSION['MailChimpLists'][$i]['members'][$j]['status'] = $status;
+              
+              if ($status == 'subscribed' && $old_status != $status) {
+                $_SESSION['MailChimpLists'][$i]['stats']['member_count']++;
+                $_SESSION['MailChimpLists'][$i]['stats']['unsubscribe_count']--;
+              } else if ($status == 'unsubscribed' && $old_status != $status) {
+                $_SESSION['MailChimpLists'][$i]['stats']['member_count']--;
+                $_SESSION['MailChimpLists'][$i]['stats']['unsubscribe_count']++;
+              }
               break;
             }
             $j++;

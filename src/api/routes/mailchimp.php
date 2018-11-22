@@ -144,7 +144,7 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false]);
     });
     
-    $this->post('/createcampaign', function ($request, $response, $args) {
+    $this->post('/campaign/actions/create', function ($request, $response, $args) {
       if (!$_SESSION['user']->isMailChimpEnabled()) {
         return $response->withStatus(404);
       }
@@ -168,6 +168,30 @@ $app->group('/mailchimp', function () {
       return $response->withJson(['success' => false]);
     });
     
+    
+
+    $this->post('/campaign/actions/delete', function ($request, $response, $args) {
+      if (!$_SESSION['user']->isMailChimpEnabled()) {
+        return $response->withStatus(404);
+      }
+      
+      $input = (object)$request->getParsedBody();
+      
+      if ( isset ($input->campaign_id) ){
+      
+        $mailchimp = new MailChimpService();
+      
+        $res = $mailchimp->deleteCampaign ($input->campaign_id);
+      
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true,'content' => $res]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
+      }
+      
+      return $response->withJson(['success' => false]);
+    });    
     $this->post('/campaign/actions/send', function ($request, $response, $args) {
       if (!$_SESSION['user']->isMailChimpEnabled()) {
         return $response->withStatus(404);

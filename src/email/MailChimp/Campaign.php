@@ -45,13 +45,13 @@ require '../../Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <button class="btn btn-app bg-blue" id="saveCampaign" data-listid="<?= $list_id ?>">
+          <button class="btn btn-app bg-blue" id="saveCampaign" data-listid="<?= $list_id ?>" <?= (($campaign['status'] == "sent")?'disabled':'') ?>>
             <i class="fa fa-list-alt"></i><?= _("Save Campaign") ?>
           </button>
           <button id="deleteCampaign" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= _("Delete") ?>
           </button>
-          <button id="sendCampaign" class="btn btn-app align-right bg-green" data-listid="<?= $list_id ?>">
+          <button id="sendCampaign" class="btn btn-app align-right bg-green" data-listid="<?= $list_id ?>" <?= (($campaign['status'] == "sent")?'disabled':'') ?>>
             <i class="fa fa-send-o"></i><?= _("Send") ?>
           </button>
         </p>
@@ -163,7 +163,40 @@ require '../../Include/Footer.php';
           }
         }
       });
+    });
+    
+    $(document).on("click","#deleteCampaign", function(){
+      
+      bootbox.confirm({
+        message: i18next.t("You're about to delete your campaign! Are you sure ?"),
+        buttons: {
+            confirm: {
+                label: i18next.t('Yes'),
+                className: 'btn-success'
+            },
+            cancel: {
+                label: i18next.t('No'),
+                className: 'btn-default'
+            }
+        },
+        callback: function (result) {
+          if (result) {
+            window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'mailchimp/campaign/actions/delete',
+                  data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
+            }).done(function(data) { 
+               if (data.success) {
+                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
+               } else if (data.success == false && data.error) {
+                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+               }
+            });
+          }
+        }
+      });
     });    
+      
 
 });  
 </script>
