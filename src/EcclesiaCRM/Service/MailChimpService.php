@@ -1,4 +1,5 @@
 <?php
+// copyright Philippe Logel not MIT
 namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\dto\SystemConfig;
