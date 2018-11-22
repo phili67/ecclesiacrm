@@ -427,11 +427,51 @@
             }
         }
     });
+      
+    editor.addCommand( 'saveTemplates', new CKEDITOR.dialogCommand( 'saveDialog' ) );
+    editor.addCommand( 'manageTemplates', new CKEDITOR.dialogCommand( 'templatesDialog' ) );
+    editor.addCommand( 'applyTemplates', new CKEDITOR.dialogCommand( 'templatesApplyDialog' ) );
+    editor.addCommand( 'saveAsWordFile', new CKEDITOR.dialogCommand( 'saveAsWordFileDialog' ) );
     
-    CKEDITOR.dialog.add("options1Command", function(c) {
-      alert('options1Command')
+
+    // create the templates command
+    editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command to the template group
+      label: i18next.t("Manage templates"),
+      command: 'manageTemplates',
+      toolbar: 'template',
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/newpage/icons/hidpi/newpage.png'
     });
 
+    editor.ui.addButton('SaveTemplateButton', { // add new button and bind our command to the template group
+      label: i18next.t("Save templates"),
+      command: 'saveTemplates',
+      toolbar: 'template',
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
+    });
+    
+    editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command to the template group
+      label: i18next.t("Apply templates"),
+      command: 'applyTemplates',
+      toolbar: 'template',
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/templates/icons/hidpi/templates.png'
+    });
+
+    editor.ui.addButton('SaveAsWordFileButton', { // add new button and bind our command to the export group
+      label: i18next.t("Save As Word File in EDrive"),
+      command: 'saveAsWordFile',
+      toolbar: 'export',
+      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
+    });
+    
+    //  create the MathJax command
+    editor.ui.addButton('mathjax',{
+      label: 'Add Math Formula',
+      command: 'mathjax',
+      icon: CKEDITOR.plugins.getPath('mathjax') + 'edu_mathematics.png'
+    });
+  }
+  
+  function add_ckeditor_buttons_merge_tag_mailchimp (editor) {
     editor.addCommand( 'optionFNAME', {
         exec: function( editor ) {
             var now = new Date();
@@ -494,48 +534,4 @@
             editor.insertHtml( '*|LIST:ADDRESS_VCARD|*' );
         }
     });
-    
-  
-    editor.addCommand( 'saveTemplates', new CKEDITOR.dialogCommand( 'saveDialog' ) );
-    editor.addCommand( 'manageTemplates', new CKEDITOR.dialogCommand( 'templatesDialog' ) );
-    editor.addCommand( 'applyTemplates', new CKEDITOR.dialogCommand( 'templatesApplyDialog' ) );
-    editor.addCommand( 'saveAsWordFile', new CKEDITOR.dialogCommand( 'saveAsWordFileDialog' ) );
-    
-
-    // create the templates command
-    editor.ui.addButton('ManageTemplateButton', { // add new button and bind our command to the template group
-      label: i18next.t("Manage templates"),
-      command: 'manageTemplates',
-      toolbar: 'template',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/newpage/icons/hidpi/newpage.png'
-    });
-
-    editor.ui.addButton('SaveTemplateButton', { // add new button and bind our command to the template group
-      label: i18next.t("Save templates"),
-      command: 'saveTemplates',
-      toolbar: 'template',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
-    });
-    
-    editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command to the template group
-      label: i18next.t("Apply templates"),
-      command: 'applyTemplates',
-      toolbar: 'template',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/templates/icons/hidpi/templates.png'
-    });
-
-    editor.ui.addButton('SaveAsWordFileButton', { // add new button and bind our command to the export group
-      label: i18next.t("Save As Word File in EDrive"),
-      command: 'saveAsWordFile',
-      toolbar: 'export',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
-    });
-    
-    //  create the MathJax command
-    editor.ui.addButton('mathjax',{
-      label: 'Add Math Formula',
-      command: 'mathjax',
-      icon: CKEDITOR.plugins.getPath('mathjax') + 'edu_mathematics.png'
-    });
   }
-  

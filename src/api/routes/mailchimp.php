@@ -1,6 +1,7 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
+
 // Routes
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;

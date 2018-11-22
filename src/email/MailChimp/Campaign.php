@@ -13,6 +13,7 @@ require '../../Include/Functions.php';
 
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 
 if (!($_SESSION['user']->isMailChimpEnabled())) {
     Redirect('Menu.php');
@@ -41,7 +42,7 @@ require '../../Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/en/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
+        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/<?= substr(SystemConfig::getValue('sLanguage'),0,2) ?>/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
       </div>
       <div class="box-body">
         <p>
@@ -85,121 +86,11 @@ require '../../Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  window.CRM.campaign_Id = "<?= $campaign_Id ?>";
+  window.CRM.campaign_Id       = "<?= $campaign_Id ?>";
   window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
-  window.CRM.list_Id = "<?= $campaign['recipients']['list_id'] ?>";
-
-
-  $(document).ready(function () {
-    var editor = null;
-  
-  
-    // this will create the toolbar for the textarea
-    if (editor == null) {
-       editor = CKEDITOR.replace('campaignContent',{
-        customConfig: window.CRM.root+'/skin/js/ckeditor/campaign_editor_config.js',
-        language : window.CRM.lang,
-        width : '100%'
-       });
-   
-       add_ckeditor_buttons(editor);
-    }
-    
-    window.CRM.APIRequest({
-          method: 'GET',
-          path: 'mailchimp/campaign/'+ window.CRM.campaign_Id +'/content'
-    }).done(function(data) { 
-       if (data.success) {
-         editor.setData(data.content);
-       } else if (data.error) {
-         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-       }
-    });
-    
-    $(document).on("click","#saveCampaign", function(){
-      var subject = $("#CampaignSubject").val();
-      var content = CKEDITOR.instances['campaignContent'].getData();
-      
-      window.CRM.APIRequest({
-        method: 'POST',
-        path: 'mailchimp/campaign/actions/save',
-        data: JSON.stringify({"campaign_id" : window.CRM.campaign_Id,"subject" : subject, "content" : content})
-      }).done(function(data) {
-         if (data.success == true) {
-           window.CRM.DisplayAlert(i18next.t("Campaign"),i18next.t("saved successfully"));
-         } else if (data.success == false && data.error) {
-           window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-         }
-      });
-    });
-
-    $(document).on("click","#sendCampaign", function(){
-      
-      bootbox.confirm({
-        message: i18next.t("You're about to send your campaign! Are you sure ?"),
-        buttons: {
-            confirm: {
-                label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-                label: i18next.t('No'),
-                className: 'btn-default'
-            }
-        },
-        callback: function (result) {
-          if (result) {
-            window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'mailchimp/campaign/actions/send',
-                  data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
-            }).done(function(data) { 
-               if (data.success) {
-                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
-               } else if (data.success == false && data.error) {
-                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-               }
-            });
-          }
-        }
-      });
-    });
-    
-    $(document).on("click","#deleteCampaign", function(){
-      
-      bootbox.confirm({
-        message: i18next.t("You're about to delete your campaign! Are you sure ?"),
-        buttons: {
-            confirm: {
-                label: i18next.t('Yes'),
-                className: 'btn-success'
-            },
-            cancel: {
-                label: i18next.t('No'),
-                className: 'btn-default'
-            }
-        },
-        callback: function (result) {
-          if (result) {
-            window.CRM.APIRequest({
-                  method: 'POST',
-                  path: 'mailchimp/campaign/actions/delete',
-                  data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
-            }).done(function(data) { 
-               if (data.success) {
-                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
-               } else if (data.success == false && data.error) {
-                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-               }
-            });
-          }
-        }
-      });
-    });    
-      
-
-});  
+  window.CRM.list_Id           = "<?= $campaign['recipients']['list_id'] ?>";
 </script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/email/MailChimp/Campaign.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
