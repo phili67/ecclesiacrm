@@ -174,7 +174,7 @@ require '../../Include/Footer.php';
             if (data.membersCount == 0) {
               listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
             } else {
-              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + data.MailChimpCampaign[j].status + ')</span></b>  </td></tr>';
+              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
             }
           }
           
