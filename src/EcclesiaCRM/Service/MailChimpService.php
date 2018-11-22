@@ -408,10 +408,28 @@ class MailChimpService
       return $result;
     }
     
+    private function send_Campaign ($campaignID) {
+      $campaigns = $_SESSION['MailChimpCampaigns'];
+      
+      $res = [];
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['id'] == $campaignID) {
+          $campaign['status'] = 'sent';
+        }
+        $res[] = $campaign;
+      }
+        
+      $_SESSION['MailChimpCampaigns'] = $res;
+    }
     
     public function sendCampaign ($campaignID) {
       
-      $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send"); 
+      $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
+      
+      if ( !array_key_exists ('title',$result) ) {
+        $this->send_Campaign ($campaignID);
+      }
       
       return $result;
     }

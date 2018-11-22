@@ -29,11 +29,9 @@ $campaign_Id = $_GET['campaignId'];
 $mailchimp = new MailChimpService();
 
 $campaign = $mailchimp->getCampaignFromId($campaign_Id);
-//print_r ($campaign);
-
 
 //Set the page title
-$sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title']." <b>("._($campaign['status']).")</b>";
+$sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray')."\">("._($campaign['status']).")</span></b>";
 
 require '../../Include/Header.php';
 
@@ -158,6 +156,8 @@ require '../../Include/Footer.php';
             }).done(function(data) { 
                if (data.success) {
                  window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
+               } else if (data.success == false && data.error) {
+                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }
             });
           }

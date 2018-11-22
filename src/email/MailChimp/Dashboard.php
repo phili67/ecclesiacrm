@@ -116,7 +116,7 @@ require '../../Include/Footer.php';
           listViews += '          <table width="300px">';
 
           for (j=0;j<lenCampaigns;j++) {
-            listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b>(' + data.MailChimpCampaigns[i][j].status + ')</b>  </td></tr>';
+            listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][j].status == 'sent')?'green':'gray') + '">(' + data.MailChimpCampaigns[i][j].status + ')</span></b>  </td></tr>';
           }
           
           if (lenCampaigns == 0) {
