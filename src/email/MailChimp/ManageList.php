@@ -35,8 +35,6 @@ $campaigns = $mailchimp->getCampaignsFromListId($list_id);
 $sPageTitle = gettext('Manage List');
 
 require '../../Include/Header.php';
-
-//print_r ($mailchimp->getListMembersFromListId($list_id));
 ?>
 
 <div class="row">
@@ -68,7 +66,6 @@ require '../../Include/Header.php';
   <div class="row">
     <?php 
       $list = $mailchimp->getListFromListId($list_id);
-        //print_r($list);
     ?>
       <div class="col-lg-12">
         <div class="box" id="container">

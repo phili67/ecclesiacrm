@@ -27,7 +27,6 @@ $sPageTitle = gettext('MailChimp Dashboard');
 
 require '../../Include/Header.php';
 
-//print_r ($_SESSION['MailChimpLists']);
 ?>
 <div class="row">
   <div class="col-lg-12">
