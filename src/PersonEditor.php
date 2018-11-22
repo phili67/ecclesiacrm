@@ -159,6 +159,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $sFamZip = '';
     $sFamState = '';
     $sFamCountry = '';
+    $bSendNewsLetter = isset($_POST['SendNewsLetter']);
+
+    if ($bSendNewsLetter) {
+      $bSendNewsLetterString = "TRUE";
+    } else {
+      $bSendNewsLetterString = "FALSE";
+    }
     if (array_key_exists('FamName', $_POST)) {
         $sFamName = InputUtils::FilterString($_POST['FamName']);
         if ($sFamName == "") {
@@ -370,6 +377,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
             $family->setEnteredBy($_SESSION['user']->getPersonId());
+            $family->setSendNewsletter($bSendNewsLetterString);
             
             $family->save();
             
@@ -394,6 +402,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->setEmail($sEmail);
               $family->setDateEntered(date('YmdHis'));
               $family->setEnteredBy($_SESSION['user']->getPersonId());
+              $family->setSendNewsletter($bSendNewsLetterString);
             
               $family->save();
             }
@@ -689,6 +698,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iClassification = '0';
         $iViewAgeFlag = 0;
         $sPhoneCountry = '';
+        $bSendNewsLetter = 'TRUE';
 
         $iFacebookID = 0;
         $sTwitter = '';
@@ -744,13 +754,14 @@ if ($iFamily != 0) {
                   ->findOneById($iFamily);
   
   if (!is_null($theFamily)) {
-    $sFamName  = $theFamily->getName();
-    $sAddress1 = $theFamily->getAddress1();
-    $sAddress2 = $theFamily->getAddress2();
-    $sCity     = $theFamily->getCity();
-    $sState    = $theFamily->getState();
-    $sCountry  = $theFamily->getCountry();
-    $sZip      = $theFamily->getZip();
+    $sFamName        = $theFamily->getName();
+    $sAddress1       = $theFamily->getAddress1();
+    $sAddress2       = $theFamily->getAddress2();
+    $sCity           = $theFamily->getCity();
+    $sState          = $theFamily->getState();
+    $sCountry        = $theFamily->getCountry();
+    $sZip            = $theFamily->getZip();
+    $bSendNewsLetter = ($theFamily->getSendNewsletter() == 'TRUE');
   }
 }
 
@@ -1008,6 +1019,14 @@ require 'Include/Header.php';
                       $countriesDDF = new CountryDropDown();     
                       echo $countriesDDF->getDropDown($sCountry, "FamCountry");
                     ?>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-2">
+                    <label><?= gettext('Send Newsletter') ?>:</label>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?> style="margin-top:10px">
                   </div>
                 </div>
               </div>
