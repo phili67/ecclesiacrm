@@ -115,12 +115,12 @@ $(document).ready(function () {
   
     $(".person-group-Id-Share").select2({ 
         language: window.CRM.shortLocale,
-        minimumInputLength: 2,
+        minimumInputLength: 1,
         placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
         allowClear: true, // This is for clear get the clear button if wanted 
         ajax: {
             url: function (params){
-              return window.CRM.root + "/api/people/search/" + params.term;
+              return window.CRM.root + "/api/mailchimp/search/" + params.term;
             },
             dataType: 'json',
             delay: 250,
@@ -136,9 +136,9 @@ $(document).ready(function () {
      $(".person-group-Id-Share").on("select2:select",function (e) { 
        var list_id=$(this).data("listid");
        
-       dialogLoadingFunction ( i18next.t("Loading subscriber(s)") );
-       
        if (e.params.data.personID !== undefined) {
+           dialogLoadingFunction ( i18next.t("Loading subscriber") );
+       
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addperson',
@@ -153,6 +153,8 @@ $(document).ready(function () {
              }
            });
         } else if (e.params.data.groupID !== undefined) {
+           dialogLoadingFunction ( i18next.t("Loading subscribers from Group") );
+       
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addgroup',
@@ -167,6 +169,8 @@ $(document).ready(function () {
              }
            });
         } else if (e.params.data.familyID !== undefined) {
+           dialogLoadingFunction ( i18next.t("Loading subscribers from family") );
+       
            window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/addfamily',
@@ -180,7 +184,40 @@ $(document).ready(function () {
                 closeDialogLoadingFunction();
              }
            });
+        } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 1) {
+           dialogLoadingFunction ( i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !") );
+
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/addallpersons',
+                data: JSON.stringify({"list_id":list_id})
+           }).done(function(data) { 
+             if (data.success) {
+                window.CRM.dataListTable.ajax.reload();
+                render_container();
+             } else if (data.error) {
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+                closeDialogLoadingFunction();
+             }
+           });
+        } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 2) {
+           dialogLoadingFunction ( i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") );
+
+           window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/addallnewsletterpersons',
+                data: JSON.stringify({"list_id":list_id})
+           }).done(function(data) { 
+             if (data.success) {
+                window.CRM.dataListTable.ajax.reload();
+                render_container();
+             } else if (data.error) {
+                //window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+                closeDialogLoadingFunction();
+             }
+           });
         }
+        
      });
 
 // the DataTable     
