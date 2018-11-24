@@ -197,7 +197,8 @@ $(document).ready(function () {
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                closeDialogLoadingFunction();
+                window.CRM.dataListTable.ajax.reload();
+                render_container();
              }
            });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 2) {
@@ -213,7 +214,8 @@ $(document).ready(function () {
                 render_container();
              } else if (data.error) {
                 //window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                closeDialogLoadingFunction();
+                window.CRM.dataListTable.ajax.reload();
+                render_container();
              }
            });
         }
