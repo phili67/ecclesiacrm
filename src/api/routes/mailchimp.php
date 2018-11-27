@@ -45,6 +45,8 @@ $app->group('/mailchimp', function () {
     $this->post('/addperson', 'addPerson');
     $this->post('/addfamily', 'addFamily');
     $this->post('/addgroup', 'addGroup');
+
+    $this->post('/testConnection', 'testEmailConnectionMVC');
 });
 
 function searchList ($request,$response,$args) {
@@ -680,7 +682,7 @@ function testEmailConnectionMVC(Request $request, Response $response, array $arg
         $mailer->Host = SystemConfig::getValue("sSMTPHost");
         if (SystemConfig::getBooleanValue("bSMTPAuth")) {
             $mailer->SMTPAuth = true;
-            echo "SMTP Auth Used </br>";
+            $result = "<b>SMTP Auth Used</b></br></br>";
             $mailer->Username = SystemConfig::getValue("sSMTPUser");
             $mailer->Password = SystemConfig::getValue("sSMTPPass");
         }
@@ -694,11 +696,12 @@ function testEmailConnectionMVC(Request $request, Response $response, array $arg
         $message = gettext("SMTP Host is not setup, please visit the settings page");
     }
     
-    if (empty($message)) {        
-        return $response->withJson(['success' => true,"result" => $mailer->send()]);
+    if (empty($message)) {  
+        ob_start();      
+        $mailer->send();
+        $result .= ob_get_clean();
+        return $response->withJson(['success' => true,"result" => $result]);
     } else {
         return $response->withJson(['success' => false,"error" => $message]);
-
-        echo $message;
     } 
 }
