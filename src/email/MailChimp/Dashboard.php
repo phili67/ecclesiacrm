@@ -48,6 +48,9 @@ require '../../Include/Header.php';
           <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/NotInMailChimpEmails.php" class="btn btn-app">
             <i class="fa fa-bell-slash"></i><?= gettext("Families Without NewsLetters") ?>
           </a>
+          <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/Debug.php" class="btn btn-app">
+            <i class="fa fa-stethoscope"></i><?= gettext("Debug") ?>
+          </a>
         </p>
         <?= gettext('You can import the generated CSV file to external email system.') ?>
             <?= _("For MailChimp see") ?> <a href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"

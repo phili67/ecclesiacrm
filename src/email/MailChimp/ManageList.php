@@ -71,6 +71,11 @@ require '../../Include/Header.php';
         <div class="box" id="container">
         </div>
       </div>
+  </div>
+  
+  <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> <?= _("To add all the newsletter users, type NewLetter in the search field, to add all members of the CRM, use '*'") ?></div>
+  
+  <div class="row">  
       <div class="col-lg-12">
         <div class="box">
           <div class="box-header with-border">
@@ -78,7 +83,6 @@ require '../../Include/Header.php';
           </div>
           <div class="box-body">
               <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-              
               <select name="person-group-Id-Share" class="person-group-Id-Share" class="form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
           </div>
         </div>
