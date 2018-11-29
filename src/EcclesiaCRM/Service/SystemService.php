@@ -522,4 +522,12 @@ class SystemService
       $factor = floor((strlen($bytes) - 1) / 3);
       return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
     }
+    
+    static public function getCopyrightDate()
+     {
+         $composerFile = file_get_contents(SystemURLs::getDocumentRoot() . '/composer.json');
+         $composerJson = json_decode($composerFile, true);
+         $version = new \DateTime(composerJson['date']);
+         return $version->format("Y");
+     }
 }
