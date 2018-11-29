@@ -17,6 +17,7 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'others', groups: [ 'others' ] }
   ];
   
+  config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
     'undo,' +
@@ -35,5 +36,6 @@ CKEDITOR.editorConfig = function( config ) {
     'tableselection,' +
     'smiley,' +
     'maximize,' +
+    'mathjax,' +
     'wysiwygarea';
 };
