@@ -299,21 +299,23 @@ $(document).ready(function () {
             }
         ],
         callback: function (status) {
-          dialogLoadingFunction ( i18next.t("Changing status ...") );
+          if (status) {
+            dialogLoadingFunction ( i18next.t("Changing status ...") );
           
-          window.CRM.APIRequest({
-                method: 'POST',
-                path: 'mailchimp/status',
-                data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
-          }).done(function(data) { 
-             if (data.success) {
-               window.CRM.dataListTable.ajax.reload();
-               render_container();
-             } else if (data.success ==  false && data.error) {
-                closeDialogLoadingFunction();
-                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-             }
-          });
+            window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'mailchimp/status',
+                  data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
+            }).done(function(data) { 
+               if (data.success) {
+                 window.CRM.dataListTable.ajax.reload();
+                 render_container();
+               } else if (data.success ==  false && data.error) {
+                  closeDialogLoadingFunction();
+                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+               }
+            });
+          }
         }
       });
     });
