@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     window.CRM.APIRequest({
       method: 'POST',
       path: 'mailchimp/testConnection'
@@ -10,5 +9,4 @@ $(document).ready(function () {
         $("#mailTest").html(data.error);
       }
     });
-
 });
