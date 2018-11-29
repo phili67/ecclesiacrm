@@ -1,10 +1,12 @@
 $(document).ready(function () {
-
     window.CRM.APIRequest({
       method: 'POST',
       path: 'mailchimp/testConnection'
     }).done(function(data) { 
-      $("#mailTest").html(data.result);
+      if (data.error == undefined) {
+        $("#mailTest").html(data.result);
+      } else {
+        $("#mailTest").html(data.error);
+      }
     });
-
 });
