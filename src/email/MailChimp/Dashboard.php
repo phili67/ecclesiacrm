@@ -36,7 +36,7 @@ require '../../Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <button class="btn btn-app" id="CreateList">
+          <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive())?'':'disabled' ?>>
             <i class="fa fa-list-alt"></i><?= gettext("Create a Mailing list") ?>
           </button>
           <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/MemberEmailExport.php">

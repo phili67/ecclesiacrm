@@ -271,7 +271,7 @@ $(document).ready(function () {
         title:i18next.t('Email Marketing'),
         data:'status',
         render: function(data, type, full, meta) {
-          return data;
+          return i18next.t(data);
         }
       }
     ],
