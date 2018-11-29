@@ -15,7 +15,10 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 
-if (!($_SESSION['user']->isMailChimpEnabled())) {
+
+$mailchimp = new MailChimpService();
+
+if ( !($_SESSION['user']->isMailChimpEnabled() && $mailchimp->isActive()) ) {
     Redirect('Menu.php');
     exit;
 }
@@ -26,8 +29,6 @@ if ( !isset($_GET['campaignId']) ) {
 }
 
 $campaign_Id = $_GET['campaignId'];
-
-$mailchimp = new MailChimpService();
 
 $campaign = $mailchimp->getCampaignFromId($campaign_Id);
 
