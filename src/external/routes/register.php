@@ -77,7 +77,7 @@ $app->group('/register', function () {
 
                 $birthday = $body['memberBirthday-' . $x];
                 if (!empty($birthday)) {
-                    $birthdayDate = \DateTime::createFromFormat('m/d/Y', $birthday);
+                    $birthdayDate = \DateTime::createFromFormat(SystemConfig::getValue('sDatePickerFormat'), $birthday);
                     $person->setBirthDay($birthdayDate->format('d'));
                     $person->setBirthMonth($birthdayDate->format('m'));
                     $person->setBirthYear($birthdayDate->format('Y'));
