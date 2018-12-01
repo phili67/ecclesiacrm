@@ -117,6 +117,17 @@ foreach ($ormNextFamilies as $nextFamily) {
 
 $iCurrentUserFamID = $_SESSION['user']->getPerson()->getFamId();
 
+//Get the information for this family
+$sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, a.per_ID AS EnteredId,
+      b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName, b.per_ID AS EditedId
+    FROM family_fam
+    LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
+    LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
+    WHERE fam_ID = " . $iFamilyID;
+    
+$rsFamily = RunQuery($sSQL);
+extract(mysqli_fetch_array($rsFamily));
+
 // Get the lists of custom person fields
 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
