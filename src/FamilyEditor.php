@@ -13,8 +13,6 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 require 'Include/CanvassUtilities.php';
-require 'Include/CountryDropDown.php';
-require 'Include/StateDropDown.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
@@ -32,6 +30,8 @@ use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustom;
 use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
 
 
 //Set the page title
