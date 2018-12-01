@@ -453,96 +453,98 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 ?>
     <div class="col-lg-9 col-md-9 col-sm-9">
       <div class="box box-success box-body">
-        <div class="box-body table-responsive clearfix">
-          <table class="table user-list table-hover data-person" width="100%">
-            <thead>
-              <tr>
-                <th><span><?= gettext("Family Members") ?></span></th>
-                <th class="text-center"><span><?= gettext("Role") ?></span></th>
-                <th><span><?= gettext("Birthday") ?></span></th>
-                <th><span><?= gettext("Email") ?></span></th>
-                <th></th>
-                </tr>
-              </thead>
-            <tbody>
-          <?php 
-            foreach ($family->getActivatedPeople() as $person) {
-          ?>
-              <tr>
-                <td>
-                  <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
-                                         width="40" height="40"
-                                         class="initials-image img-circle"/>
-                  <a href="<?= $person->getViewURI() ?>"
-                      class="user-link"><?= $person->getFullName() ?> </a>
-                </td>
-                <td class="text-center">
-              <?php
-                $famRole = $person->getFamilyRoleName();
-                $labelColor = 'label-default';
-                if ($famRole == gettext('Head of Household')) {
-                } elseif ($famRole == gettext('Spouse')) {
-                    $labelColor = 'label-info';
-                } elseif ($famRole == gettext('Child')) {
-                    $labelColor = 'label-warning';
-                } 
-              ?>
-                  <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
-                </td>
-                <td>
-                  <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
-                      $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
-                </td>
-                <td>
-              <?php $tmpEmail = $person->getEmail();
-                      if ($tmpEmail != "") {
-                        array_push($sFamilyEmails, $tmpEmail); 
-                    ?>
-                        <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
-                    <?php
-                      } 
-                    ?>
-                </td>
-                <td style="width: 20%;">
-                  <?php
-                    if ($_SESSION['user']->isShowCartEnabled()) {
+        <table class="table user-list table-hover data-person" width="100%">
+          <thead>
+            <tr>
+              <th><span><?= gettext("Family Members") ?></span></th>
+              <th class="text-center"><span><?= gettext("Role") ?></span></th>
+              <th><span><?= gettext("Classification") ?></span></th>
+              <th><span><?= gettext("Birthday") ?></span></th>
+              <th><span><?= gettext("Email") ?></span></th>
+              <th></th>
+              </tr>
+            </thead>
+          <tbody>
+        <?php 
+          foreach ($family->getActivatedPeople() as $person) {
+        ?>
+            <tr>
+              <td>
+                <img src="<?= SystemURLs::getRootPath() ?>/api/persons/<?= $person->getId() ?>/thumbnail"
+                                       width="40" height="40"
+                                       class="initials-image img-circle"/>
+                <a href="<?= $person->getViewURI() ?>"
+                    class="user-link"><?= $person->getFullName() ?> </a>
+              </td>
+              <td class="text-center">
+            <?php
+              $famRole = $person->getFamilyRoleName();
+              $labelColor = 'label-default';
+              if ($famRole == gettext('Head of Household')) {
+              } elseif ($famRole == gettext('Spouse')) {
+                  $labelColor = 'label-info';
+              } elseif ($famRole == gettext('Child')) {
+                  $labelColor = 'label-warning';
+              } 
+            ?>
+                <span class='label <?= $labelColor ?>'> <?= $famRole ?></span>
+              </td>
+              <td>
+                  <?= $person->getClassification() ? $person->getClassification()->getOptionName() : "" ?>
+              </td>
+              <td>
+                <?= OutputUtils::FormatBirthDate($person->getBirthYear(),
+                    $person->getBirthMonth(), $person->getBirthDay(), "-", $person->getFlags()) ?>
+              </td>
+              <td>
+            <?php $tmpEmail = $person->getEmail();
+                    if ($tmpEmail != "") {
+                      array_push($sFamilyEmails, $tmpEmail); 
                   ?>
-                    <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
-                      <span class="fa-stack">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                  <?php
-                    }
-                  ?>
-                  <?php 
-                    if ($bOkToEdit) {
-                  ?>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
-                      <span class="fa-stack"  style="color:green">
-                        <i class="fa fa-square fa-stack-2x"></i>
-                        <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
-                    <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
-                           data-person_id="<?= $person->getId() ?>" data-view="family">
-                      <span class="fa-stack"  style="color:red">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                      </span>
-                    </a>
+                      <a href="#"><a href="mailto:<?= $tmpEmail ?>"><?= $tmpEmail ?></a></a>
                   <?php
                     } 
                   ?>
-                </td>
-              </tr>
-            <?php
-              } 
-            ?>
-            </tbody>
-          </table>
-        </div>
+              </td>
+              <td style="width: 20%;">
+                <?php
+                  if ($_SESSION['user']->isShowCartEnabled()) {
+                ?>
+                  <a class="AddToPeopleCart" data-cartpersonid="<?= $person->getId() ?>">
+                    <span class="fa-stack">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa fa-cart-plus fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                <?php
+                  }
+                ?>
+                <?php 
+                  if ($bOkToEdit) {
+                ?>
+                  <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="table-link">
+                    <span class="fa-stack"  style="color:green">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                  <a class="delete-person" data-person_name="<?= $person->getFullName() ?>"
+                         data-person_id="<?= $person->getId() ?>" data-view="family">
+                    <span class="fa-stack"  style="color:red">
+                        <i class="fa fa-square fa-stack-2x"></i>
+                        <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                <?php
+                  } 
+                ?>
+              </td>
+            </tr>
+          <?php
+            } 
+          ?>
+          </tbody>
+        </table>
       </div>
     </div>
 <?php
