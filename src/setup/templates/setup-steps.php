@@ -2,9 +2,8 @@
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
-
-require '../Include/CountryDropDown.php';
-require '../Include/StateDropDown.php';
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
 
 function getSupportedLocales()
 {
@@ -202,6 +201,15 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="sChurchZipHelp" required>
                 <small id="sChurchZipHelp" class="form-text text-muted"></small>
             </div>
+
+<!--            <div class="form-group">
+                <label for="sChurchState">Church State</label>
+                    <?php
+                        $statesDDF = new StateDropDown();     
+                        echo $statesDDF->getDropDown("","sChurchState");
+                    ?>
+                <small id="sChurchStateHelp" class="form-text text-muted"></small>
+            </div>-->
 
             <div class="form-group">
                 <label for="sChurchCountry">Church Country</label>
