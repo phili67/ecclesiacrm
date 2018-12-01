@@ -1,4 +1,6 @@
 <?php
+  namespace EcclesiaCRM\dto;
+
   use EcclesiaCRM\data\States;
 
   class StateDropDown extends States
