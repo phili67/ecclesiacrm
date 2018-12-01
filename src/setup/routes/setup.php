@@ -71,8 +71,9 @@ $app->group('/', function () {
 (1005, 'sChurchCity', '".$connection->real_escape_string($setupDate['sChurchCity'])."'),
 (1007, 'sChurchZip', '".$connection->real_escape_string($setupDate['sChurchZip'])."'),
 (1008, 'sChurchPhone', '".$connection->real_escape_string($setupDate['sChurchPhone'])."'),
-(1009, 'sChurchEmail', '".$connection->real_escape_string($setupDate['sChurchEmail'])."'),
-(1047, 'sChurchCountry', '".$connection->real_escape_string($setupDate['sChurchCountry'])."'),
+(1009, 'sChurchEmail', '".$connection->real_escape_string($setupDate['sChurchEmail'])."'),"
+//(1006, 'sChurchState', '".$connection->real_escape_string($setupDate['sChurchState'])."'),
+."(1047, 'sChurchCountry', '".$connection->real_escape_string($setupDate['sChurchCountry'])."'),
 (1025, 'sConfirmSigner', '".$connection->real_escape_string($setupDate['sConfirmSigner'])."'),
 (2013, 'sChurchWebSite', '".$connection->real_escape_string($setupDate['sChurchWebSite'])."'),
 (1016, 'sReminderSigner', '".$connection->real_escape_string($setupDate['sReminderSigner'])."'),
