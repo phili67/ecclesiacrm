@@ -2,6 +2,8 @@
 use EcclesiaCRM\data\Countries;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext("Family Registration");
@@ -41,26 +43,24 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
               <input name="familyCity" class="form-control" placeholder="<?= gettext('City') ?>" required value="<?= SystemConfig::getValue('sDefaultCity') ?>">
             </div>
             <div class="col-lg-6">
-              <input name="familyState" class="form-control" placeholder="<?= gettext('State') ?>" required value="<?= SystemConfig::getValue('sDefaultState') ?>">
+              <!--<input name="familyState" class="form-control" placeholder="<?= gettext('State') ?>" required value="<?= SystemConfig::getValue('sDefaultState') ?>">-->
+              <?php                          
+                  $statesDDF = new StateDropDown();
+                  echo $statesDDF->getDropDown(SystemConfig::getValue('sDefaultState'),"familyState");
+              ?>
             </div>
           </div>
         </div>
         <div class="form-group has-feedback">
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
               <input name="familyZip" class="form-control" placeholder="<?= gettext('Zip') ?>" required>
             </div>
-            <div class="col-lg-9">
-                <select id="familyCountry" name="familyCountry" class="form-control select2">
-                    <?php foreach (Countries::getNames() as $county) {
-    ?>
-                    <option value="<?= $county ?>" <?php if (SystemConfig::getValue('sDefaultCountry') == $county) {
-        echo 'selected';
-    } ?>><?= gettext($county) ?>
-                        <?php
-} ?>
-                </select>
-
+            <div class="col-lg-8">
+                <?php
+                      $countriesDDF = new CountryDropDown();     
+                      echo $countriesDDF->getDropDown(SystemConfig::getValue('sDefaultCountry'), "familyCountry");
+                ?>
             </div>
           </div>
         </div>
@@ -104,7 +104,8 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
   </div>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
         $(document).ready(function() {
-            $("#familyCountry").select2();
+            $("#familycountry-input").select2();
+            $("#familystate-input").select2();
             $("[data-mask]").inputmask();
         });
     </script>
