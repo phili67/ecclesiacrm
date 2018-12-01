@@ -117,17 +117,6 @@ foreach ($ormNextFamilies as $nextFamily) {
 
 $iCurrentUserFamID = $_SESSION['user']->getPerson()->getFamId();
 
-//Get the information for this family
-$sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, a.per_ID AS EnteredId,
-      b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName, b.per_ID AS EditedId
-    FROM family_fam
-    LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
-    LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
-    WHERE fam_ID = " . $iFamilyID;
-    
-$rsFamily = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsFamily));
-
 // Get the lists of custom person fields
 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
@@ -190,9 +179,9 @@ $ormClassifications = ListOptionQuery::Create()
 $iTableSpacerWidth = 10;
 
 // Format the phone numbers
-$sHomePhone = ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy);
-$sWorkPhone = ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy);
-$sCellPhone = ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy);
+$sHomePhone = ExpandPhoneNumber($family->getHomePhone(), $family->getCountry(), $dummy);
+$sWorkPhone = ExpandPhoneNumber($family->getWorkPhone(), $family->getCountry(), $dummy);
+$sCellPhone = ExpandPhoneNumber($family->getCellPhone(), $family->getCountry(), $dummy);
 
 $sFamilyEmails = array();
 
@@ -200,7 +189,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 
 ?>
 
-<?php if (!empty($fam_DateDeactivated)) {
+<?php if (!empty($family->getDateDeactivated())) {
     ?>
     <div class="alert alert-warning">
         <strong><?= gettext(" This Family is Deactivated") ?> </strong>
@@ -236,11 +225,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           } 
         ?>
         </div>
-        <h3 class="profile-username text-center"><?= gettext('Family') . ': ' . $fam_Name ?></h3>
+        <h3 class="profile-username text-center"><?= gettext('Family') . ': ' . $family->getName() ?></h3>
       <?php 
         if ($bOkToEdit) {
       ?>
-        <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $fam_ID ?>"
+        <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
            class="btn btn-primary btn-block"><b><?= gettext("Edit") ?></b></a>
       <?php
         } 
@@ -260,10 +249,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           </span><br>
 
         <?php 
-          if ($fam_Latitude && $fam_Longitude) {
+          if ($family->getLatitude() && $family->getLongitude()) {
             if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
-              $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
-              $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $fam_Latitude, $fam_Longitude);
+              $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
+              $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
               echo OutputUtils::number_localized($sDistance) . " " . gettext(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . gettext($sDirection) . " " . gettext(" of church<br>");
             }
           } else {
@@ -273,7 +262,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
       <?php 
         if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
           <li><i class="fa-li fa fa-compass"></i><?= gettext("Latitude/Longitude") ?>
-              <span><?= $fam_Latitude . " / " . $fam_Longitude ?></span>
+              <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
           </li>
       <?php
         }
@@ -285,18 +274,18 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
           </li>
       <?php
         }
-        if (!SystemConfig::getValue("bHideWeddingDate") && $fam_WeddingDate != "") { /* Wedding Date can be hidden - General Settings */ 
+        if (!SystemConfig::getValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */ 
       ?>
           <li>
             <i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
-            <span><?= OutputUtils::FormatDate($fam_WeddingDate, false) ?></span>
+            <span><?= OutputUtils::FormatDate($family->getWeddingdate()->format('Y-m-d'), false) ?></span>
           </li>
       <?php
         }
         if (SystemConfig::getValue("bUseDonationEnvelopes")) {
       ?>
           <li><i class="fa-li fa fa-phone"></i><?= gettext("Envelope Number") ?>
-              <span><?= $fam_Envelope ?></span>
+              <span><?= $family->getEnvelope() ?></span>
           </li>
       <?php
         }
@@ -322,10 +311,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
 
       <?php
         }
-        if ($fam_Email != "") {
+        if ($family->getEmail() != "") {
       ?>
           <li><i class="fa-li fa fa-envelope"></i><?= gettext("Email") ?>:
-            <a href="mailto:<?= $fam_Email ?>"><span><?= $fam_Email ?></span></a>
+            <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
           </li>
         <?php 
           if ($mailchimp->isActive()) {
@@ -441,7 +430,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
       <?php if ($bOkToEdit && $_SESSION['user']->isAdmin()) {
           ?>
           <button class="btn btn-app bg-orange" id="activateDeactivate">
-              <i class="fa <?= (empty($fam_DateDeactivated) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($fam_DateDeactivated) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Family')); ?>
+              <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Family')); ?>
           </button>
           <?php
       } ?>
@@ -746,7 +735,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
             ?>
                 <p align="center">
                   <a class="btn btn-primary"
-                      href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                      href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
                 </p>
               </div>
             </div>
@@ -774,9 +763,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                             
                   <p align="center">
                     <a class="btn btn-primary"
-                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
                     <a class="btn btn-default"
-                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                   </p>
 
                 <?php 
@@ -784,7 +773,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
                 ?>
                   <p align="center">
                     <a class="btn btn-default"
-                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                   </p>
                 <?php
                   } 
@@ -986,11 +975,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
   
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentFamily = <?= $iFamilyID ?>;
-  window.CRM.currentActive = <?= (empty($fam_DateDeactivated) ? 'true' : 'false') ?>;
-  window.CRM.fam_Name      = "<?= $fam_Name ?>";
+  window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
+  window.CRM.fam_Name      = "<?= $family->getName() ?>";
   window.CRM.iPhotoHeight  = <?= SystemConfig::getValue("iPhotoHeight") ?>;
   window.CRM.iPhotoWidth   = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-  window.CRM.familyMail    = "<?= $fam_Email ?>";
+  window.CRM.familyMail    = "<?= $family->getEmail() ?>";
 
   
   var dataT = 0;

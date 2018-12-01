@@ -11,6 +11,7 @@ use EcclesiaCRM\dto\Photo;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 
