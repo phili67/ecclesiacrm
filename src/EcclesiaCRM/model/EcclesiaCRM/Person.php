@@ -11,6 +11,7 @@ use EcclesiaCRM\dto\Photo;
 use Propel\Runtime\Connection\ConnectionInterface;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 
@@ -184,6 +185,26 @@ class Person extends BasePerson implements iPhoto
         }
 
         return $roleName;
+    }
+    
+    public function getClassification()
+    {
+      $classification = null;
+      $clsId = $this->getClsId();
+      if (!empty($clsId)) {
+        $classification = ListOptionQuery::create()->filterById(1)->filterByOptionId($clsId)->findOne();
+      }
+      return $classification;
+    }
+    
+    public function getClassificationName()
+    {
+      $classificationName = '';
+      $classification = $this->getClassification();
+      if (!is_null($classification)) {
+        $classificationName = $classification->getOptionName();
+      }
+      return $classificationName;
     }
 
     public function postInsert(ConnectionInterface $con = null)

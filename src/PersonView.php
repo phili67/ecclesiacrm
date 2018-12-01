@@ -205,7 +205,7 @@ $ormProperties = PropertyQuery::Create()
                   ->find();
 
               
-$dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
+$dBirthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', $person->getFlags());
 
 $sFamilyInfoBegin = '<span style="color: red;">';
 $sFamilyInfoEnd = '</span>';
@@ -213,40 +213,40 @@ $sFamilyInfoEnd = '</span>';
 // Assign the values locally, after selecting whether to display the family or person information
 
 //Get an unformatted mailing address to pass as a parameter to a google maps search
-SelectWhichAddress($Address1, $Address2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
-$sCity = SelectWhichInfo($per_City, $fam_City, false);
-$sState = SelectWhichInfo($per_State, $fam_State, false);
-$sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
-$sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $person->getFamily()->getAddress1(), $person->getFamily()->getAddress2(), false);
+$sCity = SelectWhichInfo($person->getCity(), $person->getFamily()->getCity(), false);
+$sState = SelectWhichInfo($person->getState(), $person->getFamily()->getState(), false);
+$sZip = SelectWhichInfo($person->getZip(), $person->getFamily()->getZip(), false);
+$sCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
 $plaintextMailingAddress = $person->getAddress();
 
 //Get a formatted mailing address to use as display to the user.
-SelectWhichAddress($Address1, $Address2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, true);
-$sCity = SelectWhichInfo($per_City, $fam_City, true);
-$sState = SelectWhichInfo($per_State, $fam_State, true);
-$sZip = SelectWhichInfo($per_Zip, $fam_Zip, true);
-$sCountry = SelectWhichInfo($per_Country, $fam_Country, true);
+SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $person->getFamily()->getAddress1(), $person->getFamily()->getAddress2(), true);
+$sCity = SelectWhichInfo($person->getCity(), $person->getFamily()->getCity(), true);
+$sState = SelectWhichInfo($person->getState(), $person->getFamily()->getState(), true);
+$sZip = SelectWhichInfo($person->getZip(), $person->getFamily()->getZip(), true);
+$sCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), true);
 $formattedMailingAddress = $person->getAddress();
 
-$sPhoneCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-$sHomePhone = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
-$sHomePhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
-$sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), true);
-$sWorkPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
-$sCellPhone = SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), true);
-$sCellPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy),
-ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
-$sEmail = SelectWhichInfo($per_Email, $fam_Email, true);
+$sPhoneCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
+$sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getHomePhone(), $person->getFamily()->getCountry(), $dummy), true);
+$sHomePhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getHomePhone(), $person->getFamily()->getCountry(), $dummy), false);
+$sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), true);
+$sWorkPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), false);
+$sCellPhone = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), true);
+$sCellPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), false);
+$sEmail = SelectWhichInfo($person->getEmail(), $person->getFamily()->getEmail(), true);
 
-$sUnformattedEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+$sUnformattedEmail = SelectWhichInfo($person->getEmail(), $person->getFamily()->getEmail(), false);
 
-if ($per_Envelope > 0) {
-    $sEnvelope = $per_Envelope;
+if ($person->getEnvelope() > 0) {
+    $sEnvelope = $person->getEnvelope();
 } else {
     $sEnvelope = gettext('Not assigned');
 }
@@ -256,8 +256,8 @@ $iTableSpacerWidth = 10;
 $isMailChimpActive = $mailchimp->isActive();
 
 $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
-    ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId()) ||
-    ($_SESSION['user']->isEditSelfEnabled() && $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())
+    ($_SESSION['user']->isEditSelfEnabled() && $person->getId() == $_SESSION['user']->getPersonId()) ||
+    ($_SESSION['user']->isEditSelfEnabled() && $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())
     );
 ?>
 
@@ -307,10 +307,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?= $person->getFullName() ?></h3>
 
       <?php
-         if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isEditRecordsEnabled() ) {
+         if ($person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isEditRecordsEnabled() ) {
       ?>
         <p class="text-muted text-center">
-            <?= empty($sFamRole) ? gettext('Undefined') : gettext($sFamRole); ?>
+            <?= empty($person->getFamilyRoleName()) ? gettext('Undefined') : gettext($person->getFamilyRoleName()); ?>
             &nbsp;
             <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>" data-family_role="<?= $person->getFamilyRoleName() ?>"
             data-family_role_id="<?= $person->getFmrId() ?>"  class="btn btn-primary btn-xs">
@@ -330,9 +330,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
             }
           ?>
         <?= gettext($sClassName);
-          if ($per_MembershipDate) {
+          if ($person->getMembershipDate()) {
         ?>
-              <br><?= gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($per_MembershipDate, false) ?>
+              <br><?= gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
         <?php
           } 
         ?>
@@ -340,7 +340,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <?php 
         if ($bOkToEdit) {
       ?>
-          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $per_ID ?>" class="btn btn-primary btn-block"><b><?php echo gettext('Edit'); ?></b></a>
+          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="btn btn-primary btn-block"><b><?php echo gettext('Edit'); ?></b></a>
       <?php
         } 
       ?>
@@ -351,7 +351,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
 
     <!-- About Me Box -->
     <?php 
-      $can_see_privatedata = ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isEditRecordsEnabled())?true:false;
+      $can_see_privatedata = ($person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId()  || $_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isEditRecordsEnabled())?true:false;
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -366,10 +366,10 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         ?>
           <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
             <?php
-              if ($fam_ID != '') {
+              if ($person->getFamily()->getId() != '') {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $fam_ID ?>"><?= $fam_Name ?> </a>
-                <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $fam_ID ?>" class="table-link">
+                <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $person->getFamily()->getId() ?>"><?= $person->getFamily()->getName() ?> </a>
+                <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>" class="table-link">
                   <span class="fa-stack">
                     <i class="fa fa-square fa-stack-2x"></i>
                     <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -407,16 +407,16 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           <?php 
             if (!$person->hideAge()) {
           ?>
-            (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?=FormatAgeSuffix($person->getBirthDate(), $per_Flags) ?>)
+            (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?=FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
           <?php
             } 
           ?>
           </li>
   <?php
     }
-    if (!SystemConfig::getValue('bHideFriendDate') && $per_FriendDate != '') { /* Friend Date can be hidden - General Settings */ 
+    if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */ 
   ?>
-          <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($per_FriendDate, false) ?></span></li>
+          <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span></li>
   <?php
     }
     
@@ -457,9 +457,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   <?php
     } 
    
-    if ($per_WorkEmail != '') {
+    if ($person->getWorkEmail() != '') {
   ?>
-          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Work/Other Email') ?>: <span><a href="mailto:<?= $per_WorkEmail ?>"><?= $per_WorkEmail ?></a></span></li>
+          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Work/Other Email') ?>: <span><a href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span></li>
   <?php 
      if ($isMailChimpActive) {
   ?>
@@ -468,21 +468,21 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
     }
 
-    if ($per_FacebookID > 0) {
+    if ($person->getFacebookID() > 0) {
   ?>
-        <li><i class="fa-li fa fa-facebook-official"></i><?= gettext('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($per_FacebookID) ?>"><?= gettext('Facebook') ?></a></span></li>
+        <li><i class="fa-li fa fa-facebook-official"></i><?= gettext('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= gettext('Facebook') ?></a></span></li>
   <?php
     }
 
-    if (strlen($per_Twitter) > 0) {
+    if (strlen($person->getTwitter()) > 0) {
   ?>
-        <li><i class="fa-li fa fa-twitter"></i><?= gettext('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($per_Twitter) ?>"><?= gettext('Twitter') ?></a></span></li>
+        <li><i class="fa-li fa fa-twitter"></i><?= gettext('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= gettext('Twitter') ?></a></span></li>
   <?php
     }
 
-    if (strlen($per_LinkedIn) > 0) {
+    if (strlen($person->getLinkedIn()) > 0) {
   ?>
-        <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($per_LinkedIn) ?>"><?= gettext('LinkedIn') ?></a></span></li>
+        <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= gettext('LinkedIn') ?></a></span></li>
   <?php
     }
     
@@ -530,7 +530,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       ?>
       
       <?php       
-       if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
+       if ( $_SESSION['bEmailMailto'] && $person->getId() != $_SESSION['user']->getPersonId() ) {
       ?>
         <a class="btn btn-app" href="mailto:<?= urlencode($sEmail) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
         <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($sEmail) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
@@ -538,8 +538,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
        }
       ?>
       <?php 
-        if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled()) {
-          if ($per_ID == $_SESSION['user']->getPersonId()) {
+        if ($person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled()) {
+          if ($person->getId() == $_SESSION['user']->getPersonId()) {
       ?>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
@@ -599,7 +599,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   </div>
   
   <?php 
-    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled() )) {
+    if ($_SESSION['user']->isManageGroupsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() || $_SESSION['user']->isSeePrivacyDataEnabled() )) {
   ?>
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="nav-tabs-custom">
@@ -607,7 +607,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <ul class="nav nav-tabs" role="tablist">
         <?php 
           $activeTab = "";
-          if ( ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled()) ) {
+          if ( ($person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
           <li role="presentation" <?= (!$bDocuments && !$bEDrive)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
@@ -615,7 +615,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           }
         ?>
         <?php
-          if ($per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  count($person->getOtherFamilyMembers()) > 0 && $_SESSION['user']->isEditRecordsEnabled() ) {
+          if ($person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  count($person->getOtherFamilyMembers()) > 0 && $_SESSION['user']->isEditRecordsEnabled() ) {
         ?>
         <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= gettext('Family') ?></a></li>
         <?php
@@ -625,7 +625,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
         ?>
         <?php
-          if ( $_SESSION['user']->isManageGroupsEnabled() || $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ) {
+          if ( $_SESSION['user']->isManageGroupsEnabled() || $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ) {
         ?>
         <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><i class="fa fa-group"></i> <?= gettext('Assigned Groups') ?></a></li>
         <?php
@@ -635,7 +635,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         }
         ?>
         <?php
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isEditRecordsEnabled() ) {
+          if ( $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isEditRecordsEnabled() ) {
         ?>
         <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
         <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= gettext('Volunteer Opportunities') ?></a></li>
@@ -657,7 +657,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           } 
         ?>
         <?php
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
+          if ( $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) {
             if ($bDocuments) $activeTab = 'notes';
         ?>
         <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Notes") ?></a></li>
@@ -665,7 +665,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
           }
         ?>
         <?php
-          if ( !is_null($user) && ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) ) {
+          if ( !is_null($user) && ( $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isNotesEnabled() ) ) {
             if ($bEDrive) $activeTab = 'edrive';
         ?>        
         <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= gettext("EDrive") ?></a></li>
@@ -677,7 +677,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
       <!-- Tab panes -->
       <div class="tab-content">
         <?php 
-          if ( $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled() ) {
+          if ( $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId() ||  $_SESSION['user']->isSeePrivacyDataEnabled() ) {
         ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'timeline')?"active":"" ?>" id="timeline">
           <div class="row filter-note-type">
@@ -1123,7 +1123,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               ?>
                   <p align="center">
                       <a class="btn btn-primary"
-                         href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                         href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
                   </p>
               </div>
           </div>
@@ -1149,9 +1149,9 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                     
                   <p align="center">
                       <a class="btn btn-primary"
-                         href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
                       <a class="btn btn-default"
-                         href="PledgeEditor.php?FamilyID=<?= $fam_ID ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                   </p>
 
               <?php 
@@ -1159,7 +1159,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
               ?>
                   <p align="center">
                       <a class="btn btn-default"
-                         href="CanvassEditor.php?FamilyID=<?= $fam_ID ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                         href="CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
                   </p>
               <?php
                 } 
@@ -1194,7 +1194,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                         </select>
                     </td>
                     <?php 
-                      if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
+                      if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())) {
                     ?>
                     <td>
                       <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a note") ?>">
@@ -1353,7 +1353,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                       </span>
                       &nbsp;&nbsp;&nbsp;
                       <?php 
-                        if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $per_ID == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId())) {
+                        if ($_SESSION['user']->isNotesEnabled() || ($_SESSION['user']->isEditSelfEnabled() && $person->getId() == $_SESSION['user']->getPersonId() || $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())) {
                       ?>
                         <a href="#" id="uploadFile">
                           <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
@@ -1464,7 +1464,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
   window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;
   window.CRM.personFullName  = "<?= $person->getFullName() ?>";
   window.CRM.normalMail      = "<?= $sEmail ?>";
-  window.CRM.workMail        = "<?= $per_WorkEmail ?>";
+  window.CRM.workMail        = "<?= $person->getWorkEmail() ?>";
   
   if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {
