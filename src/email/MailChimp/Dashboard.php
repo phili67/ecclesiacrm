@@ -46,7 +46,7 @@ require '../../Include/Header.php';
             <i class="fa fa-exclamation-triangle"></i> <?= gettext("Find Duplicate Emails") ?>
           </a>
           <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/NotInMailChimpEmails.php" class="btn btn-app">
-            <i class="fa fa-bell-slash"></i><?= gettext("Families Without NewsLetters") ?>
+            <i class="fa fa-bell-slash"></i><?= gettext("Families Not In MailChimp") ?>
           </a>
           <a href="<?= SystemURLs::getRootPath() ?>/email/MailChimp/Debug.php" class="btn btn-app">
             <i class="fa fa-stethoscope"></i><?= gettext("Debug") ?>
