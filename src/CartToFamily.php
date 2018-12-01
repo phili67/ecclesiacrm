@@ -14,8 +14,6 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/CountryDropDown.php';
-require 'Include/StateDropDown.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
@@ -26,6 +24,9 @@ use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
+
 
 
 // Security: User must have add records permission

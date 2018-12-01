@@ -12,8 +12,6 @@
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/CountryDropDown.php';
-require 'Include/StateDropDown.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
@@ -31,6 +29,9 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
+
 
 //Set the page title
 $sPageTitle = gettext('Person Editor');
