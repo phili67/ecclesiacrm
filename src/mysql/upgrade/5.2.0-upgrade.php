@@ -17,6 +17,9 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/email/Dashboard.php");
   unlink(SystemURLs::getDocumentRoot()."/email/MailChimpMissingReport.php");
   unlink(SystemURLs::getDocumentRoot()."/email/MemberEmailExport.php");
+
+  unlink(SystemURLs::getDocumentRoot()."/Include/StateDropDown.php");
+  unlink(SystemURLs::getDocumentRoot()."/Include/CountryDropDown.php");
   
   $logger->info("End Delete the old unuseful files");
   
