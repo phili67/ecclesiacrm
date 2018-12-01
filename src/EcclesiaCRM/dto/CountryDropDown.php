@@ -1,4 +1,6 @@
 <?php
+namespace EcclesiaCRM\dto;
+
 use EcclesiaCRM\data\Countries;
 
 class CountryDropDown extends Countries
