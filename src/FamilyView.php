@@ -13,6 +13,7 @@
 require "Include/Config.php";
 require "Include/Functions.php";
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -27,6 +28,7 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -117,26 +119,19 @@ foreach ($ormNextFamilies as $nextFamily) {
 
 $iCurrentUserFamID = $_SESSION['user']->getPerson()->getFamId();
 
-//Get the information for this family
-$sSQL = "SELECT *, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, a.per_ID AS EnteredId,
-      b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName, b.per_ID AS EditedId
-    FROM family_fam
-    LEFT JOIN person_per a ON fam_EnteredBy = a.per_ID
-    LEFT JOIN person_per b ON fam_EditedBy = b.per_ID
-    WHERE fam_ID = " . $iFamilyID;
-    
-$rsFamily = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsFamily));
-
 // Get the lists of custom person fields
 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
 
 // Get the custom field data for this person.
-$sSQL = "SELECT * FROM family_custom WHERE fam_ID = " . $iFamilyID;
-$rsFamCustomData = RunQuery($sSQL);
-$aFamCustomData = mysqli_fetch_array($rsFamCustomData, MYSQLI_BOTH);
+$connection = Propel::getConnection();
+$sSQL = "SELECT * FROM `family_custom` where fam_ID=" . $iFamilyID;
+
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+$aFamCustomData = $statement->fetch( PDO::FETCH_ASSOC );//fetchAll();//
+
 
 $family = FamilyQuery::create()->findPk($iFamilyID);
 
@@ -344,6 +339,8 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
       $currentData = trim($aFamCustomData[$rowCustomField->getCustomField()]);
       
+      if ( empty($currentData) ) continue;
+      
       if ($rowCustomField->getTypeId() == 11) {
         $fam_custom_Special = $sPhoneCountry;
       } else {
@@ -352,7 +349,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
     ?>
           <li><i class="fa-li fa fa-tag"></i>
             <?= $rowCustomField->getCustomName() ?>: 
-            <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $rowCustomField->getCustomSpecial())  ?>
+            <span><?= OutputUtils::displayCustomField($rowCustomField->getTypeId(), $currentData, $fam_custom_Special)  ?>
             </span>
           </li>
     <?php
@@ -409,7 +406,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->i
         } 
       ?>
       <?php       
-       if ( $_SESSION['bEmailMailto'] && $per_ID != $_SESSION['user']->getPersonId() ) {
+       if ( $_SESSION['bEmailMailto'] && $family->containsMember($_SESSION['user']->getPersonId()) ) {
           $emails = "";
           foreach ($family->getActivatedPeople() as $person) {
             $emails .= $person->getEmail().$sMailtoDelimiter;
