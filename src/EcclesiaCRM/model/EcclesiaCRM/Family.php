@@ -192,6 +192,15 @@ class Family extends BaseFamily implements iPhoto
     return $foundPeople;
   }
 
+  public function containsMember($person_id) {
+    foreach ($this->getPeople() as $person) {
+      if ($person->getId() == $person_id) {
+          return true;
+      }
+    }
+    return false;
+  }
+
   public function getEmails() {
     $emails = array();
     foreach ($this->getPeople() as $person) {
