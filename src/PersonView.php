@@ -16,6 +16,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PropertyQuery;
@@ -103,6 +104,8 @@ if (array_key_exists('edrive', $_GET)) {
 }
 
 // Get this person's data
+$connection = Propel::getConnection();
+
 $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') AS sClassName, clsicon.lst_ic_lst_url as sClassIcon, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName, b.per_ID AS EnteredId,
         b.Per_LastName AS EnteredLastName, c.per_FirstName AS EditedFirstName, c.per_LastName AS EditedLastName, c.per_ID AS EditedId
       FROM person_per a
@@ -113,8 +116,13 @@ $sSQL = "SELECT a.*, family_fam.*, COALESCE(cls.lst_OptionName , 'Unassigned') A
       LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
       LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
       WHERE a.per_ID = ".$iPersonID;
-$rsPerson = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsPerson));
+
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+$res = $statement->fetch( PDO::FETCH_ASSOC );
+
+extract($res);
+
 
 $person = PersonQuery::create()->findPk($iPersonID);
 
@@ -173,9 +181,11 @@ $ormCustomFields = PersonCustomMasterQuery::Create()
                      ->find();
                      
 // Get the custom field data for this person.
-$sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$iPersonID;
-$rsCustomData = RunQuery($sSQL);
-$aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
+$sSQL = 'SELECT * FROM `person_custom` WHERE per_ID = '.$iPersonID;
+
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+$aCustomData = $statement->fetch( PDO::FETCH_BOTH );
 
 // Get the Groups this Person is assigned to
 $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
@@ -956,9 +966,11 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
                             $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
                           
                             $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
-                            $rsPersonProps = RunQuery($sSQL);
-                            $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
-                             
+                            
+                            $statement = $connection->prepare($sSQL);
+                            $statement->execute();
+                            $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );
+
                             if ( $ormPropLists->count() > 0 ) {
                         ?>
                             <h4><?= gettext("Person Informations") ?></h4>
