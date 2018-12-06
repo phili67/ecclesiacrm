@@ -560,15 +560,40 @@ function addallpersons(Request $request, Response $response, array $args) {
         ->_or()->filterByWorkEmail(null, Criteria::NOT_EQUAL)
         ->find();
 
-      $resError = [];  
-      foreach ($persons as $person) {
-        $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),'subscribed');
+      $resError = [];
       
-        if ( array_key_exists ('title',$res) ) {
-          $resError[] = $res;
-        }
+      $allUsers = [];
+      foreach ($persons as $person) {
+        $data = array(
+            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
+            "email_address" => $person->getEmail(),
+            "status"        => "subscribed",
+            "merge_fields"  => array(                
+                    'FNAME' => $person->getFirstName(),
+                    'LNAME' => $person->getLastName(),
+            )
+        );
+
+        $json_data = json_encode($data);
+        
+        $allUsers[] = array(
+            "method" => "POST",
+            "path" => "/lists/" . $input->list_id . "/members/",
+            "body" => $json_data
+        );
+        
       }
       
+      $array = array(
+        "operations" => $allUsers
+      );
+      
+      $res = $mailchimp->sendAllMembers($array);
+      
+      if ( array_key_exists ('title',$res) ) {
+        $resError[] = $res;
+      }
+
       if ( count($resError) > 0) {
         return $response->withJson(['success' => false, "error" => $resError]);
       } else {

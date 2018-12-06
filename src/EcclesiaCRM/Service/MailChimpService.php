@@ -66,6 +66,22 @@ class MailChimpService
       }
       return $_SESSION['MailChimpCampaigns'];
     }
+    private function restoreCache () {
+      $_SESSION['MailChimpLists']     = [];
+      $_SESSION['MailChimpCampaigns'] = [];
+      
+      LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
+        $lists = $this->myMailchimp->get("lists")['lists'];
+        foreach($lists as &$list) {
+          $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+          $list['members'] = $listmembers['members'];
+        }
+        $_SESSION['MailChimpLists'] = $lists;
+        
+      LoggerUtils::getAppLogger()->info("Updating MailChimp Campaigns Cache");
+        $campaigns = $this->myMailchimp->get("campaigns")['campaigns'];
+        $_SESSION['MailChimpCampaigns'] = $campaigns;
+    }
     public function isEmailInMailChimp($email)
     {
         if (!$this->isActive) {
@@ -475,6 +491,13 @@ class MailChimpService
         }
         $i++;
       }
+    }    
+    public function sendAllMembers ($array) {
+      $res = $this->myMailchimp->post("batches",$array);
+      
+      $this->restoreCache();
+      
+      return $res;
     }
     public function postMember($list_id,$id,$first_name,$last_name,$mail,$status)
     {
