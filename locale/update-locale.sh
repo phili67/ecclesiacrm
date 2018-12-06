@@ -7,7 +7,13 @@ cd src
 find . -iname '*.php' | sort | grep -v ./vendor | xargs xgettext --from-code=UTF-8 -o ../locale/messages.pot -L PHP
 
 # Extract JS Terms
-i18next-extract-gettext --files=skin/js/*.js --output=../locale/js-strings.pot
+i18next-extract-gettext --files=skin/js/*.js --output=../locale/js-strings1.pot
+i18next-extract-gettext --files=skin/js/email/MailChimp/*.js --output=../locale/js-strings2.pot
+i18next-extract-gettext --files=skin/js/ckeditor/*.js --output=../locale/js-strings3.pot
+
+msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot -o ../locale/js-strings.pot
+
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot
 
 cd ../locale
 

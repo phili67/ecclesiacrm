@@ -123,3 +123,15 @@ msgid ""
 msgstr ""
 "Some families haven't any \"head of household\" role name defined or there's "
 "any activated members in this families:"
+
+msgid "send"
+msgstr ""
+
+msgid "save"
+msgstr ""
+
+msgid "subscribed"
+msgstr ""
+
+msgid "unsubscribed"
+msgstr ""

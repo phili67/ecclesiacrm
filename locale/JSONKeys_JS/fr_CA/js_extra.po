@@ -123,3 +123,15 @@ msgid ""
 msgstr ""
 "Certaine familles n'ont pas de nom de rôle \"Représentant Famille\" ou il "
 "n'y a pas de membres activés dans ces familles :"
+
+msgid "send"
+msgstr "envoyée"
+
+msgid "save"
+msgstr "enregistrée"
+
+msgid "subscribed"
+msgstr "abonné"
+
+msgid "unsubscribed"
+msgstr "désabonné"
