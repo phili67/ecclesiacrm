@@ -66,3 +66,15 @@ msgstr ""
 
 msgid "CreditCard"
 msgstr ""
+
+msgid "unsubscribed"
+msgstr ""
+
+msgid "subscribed"
+msgstr ""
+
+msgid "send"
+msgstr ""
+
+msgid "save"
+msgstr ""
