@@ -222,38 +222,50 @@ $sFamilyInfoEnd = '</span>';
 
 // Assign the values locally, after selecting whether to display the family or person information
 
+if ( !is_null ($person->getFamily()) ) {
+  $famAddress1      = $person->getFamily()->getAddress1();
+  $famAddress2      = $person->getFamily()->getAddress2();
+  $famCity          = $person->getFamily()->getCity();
+  $famSate          = $person->getFamily()->getState();
+  $famZip           = $person->getFamily()->getZip();
+  $famCountry       = $person->getFamily()->getCountry();
+  $famHompePhone    = $person->getFamily()->getHomePhone();
+  $famWorkPhone     = $person->getFamily()->getWorkPhone();
+  $famCellPhone     = $person->getFamily()->getCellPhone();
+  $famEmail         = $person->getFamily()->getEmail();
+}
+
 //Get an unformatted mailing address to pass as a parameter to a google maps search
-SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $person->getFamily()->getAddress1(), $person->getFamily()->getAddress2(), false);
-$sCity = SelectWhichInfo($person->getCity(), $person->getFamily()->getCity(), false);
-$sState = SelectWhichInfo($person->getState(), $person->getFamily()->getState(), false);
-$sZip = SelectWhichInfo($person->getZip(), $person->getFamily()->getZip(), false);
-$sCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
+SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
+$sCity = SelectWhichInfo($person->getCity(), $famCity, false);
+$sState = SelectWhichInfo($person->getState(), $famSate, false);
+$sZip = SelectWhichInfo($person->getZip(), $famZip, false);
+$sCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
 $plaintextMailingAddress = $person->getAddress();
 
 //Get a formatted mailing address to use as display to the user.
-SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $person->getFamily()->getAddress1(), $person->getFamily()->getAddress2(), true);
-$sCity = SelectWhichInfo($person->getCity(), $person->getFamily()->getCity(), true);
-$sState = SelectWhichInfo($person->getState(), $person->getFamily()->getState(), true);
-$sZip = SelectWhichInfo($person->getZip(), $person->getFamily()->getZip(), true);
-$sCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), true);
+SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
+$sCity = SelectWhichInfo($person->getCity(), $famCity, true);
+$sState = SelectWhichInfo($person->getState(), $famSate, true);
+$sZip = SelectWhichInfo($person->getZip(), $famZip, true);
+$sCountry = SelectWhichInfo($person->getCountry(), $famCountry, true);
 $formattedMailingAddress = $person->getAddress();
 
-$sPhoneCountry = SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
+$sPhoneCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
 $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getHomePhone(), $person->getFamily()->getCountry(), $dummy), true);
+ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
 $sHomePhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getHomePhone(), $person->getFamily()->getCountry(), $dummy), false);
+ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
 $sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), true);
+ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
 $sWorkPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), false);
+ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
 $sCellPhone = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), true);
+ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
 $sCellPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($person->getFamily()->getWorkPhone(), $person->getFamily()->getCountry(), $dummy), false);
-$sEmail = SelectWhichInfo($person->getEmail(), $person->getFamily()->getEmail(), true);
-
-$sUnformattedEmail = SelectWhichInfo($person->getEmail(), $person->getFamily()->getEmail(), false);
+ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
+$sEmail = SelectWhichInfo($person->getEmail(), $famEmail, true);
+$sUnformattedEmail = SelectWhichInfo($person->getEmail(), $famEmail, false);
 
 if ($person->getEnvelope() > 0) {
     $sEnvelope = $person->getEnvelope();
@@ -376,7 +388,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         ?>
           <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
             <?php
-              if ($person->getFamily()->getId() != '') {
+              if (!is_null ($person->getFamily()) && $person->getFamily()->getId() != '') {
             ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $person->getFamily()->getId() ?>"><?= $person->getFamily()->getName() ?> </a>
                 <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>" class="table-link">
@@ -1121,7 +1133,7 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         </div>
       </div>
       <?php 
-        if ($_SESSION['user']->isFinanceEnabled()) {
+        if ($_SESSION['user']->isFinanceEnabled() && !is_null ($person->getFamily()) ) {
       ?>
        <div role="tab-pane fade" class="tab-pane" id="finance">
           <div class="main-box clearfix">
