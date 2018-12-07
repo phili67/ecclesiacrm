@@ -403,7 +403,8 @@
             "4.6.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.7.0-upgrade.sql"
+          "/mysql/upgrade/4.7.0-upgrade.sql",
+          "/mysql/upgrade/5.2.0-upgrade.php"
         ],
         "dbVersion": "4.7.0"
     },
