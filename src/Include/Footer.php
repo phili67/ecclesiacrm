@@ -29,7 +29,7 @@ use EcclesiaCRM\Service\SystemService;
 </footer>
 
 <!-- The Right Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
+<aside class="control-sidebar control-sidebar-light">
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li class="active">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true">
