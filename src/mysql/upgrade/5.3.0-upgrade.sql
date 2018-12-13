@@ -1,3 +1,6 @@
+--
+-- a calendar could be shared to another user
+--
 CREATE TABLE IF NOT EXISTS addressbookshare (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     addressbooksid INTEGER UNSIGNED NOT NULL  DEFAULT '0',
