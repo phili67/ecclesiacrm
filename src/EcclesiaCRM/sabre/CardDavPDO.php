@@ -100,6 +100,48 @@ SQL
         return $addressBooks;
     }
 
+    /**
+     * Creates a new address book
+     *
+     * @param string $principalUri
+     * @param string $url Just the 'basename' of the url.
+     * @param array $properties
+     * @return int Last insert id
+     */
+    function createAddressBook($principalUri, $url, array $properties, $group=-1) {
+
+        $values = [
+            'displayname'  => null,
+            'description'  => null,
+            'principaluri' => $principalUri,
+            'uri'          => $url,
+            'groupId'      => $group,
+        ];
+
+        foreach ($properties as $property => $newValue) {
+
+            switch ($property) {
+                case '{DAV:}displayname' :
+                    $values['displayname'] = $newValue;
+                    break;
+                case '{' . CardDAV\Plugin::NS_CARDDAV . '}addressbook-description' :
+                    $values['description'] = $newValue;
+                    break;
+                default :
+                    throw new DAV\Exception\BadRequest('Unknown property: ' . $property);
+            }
+
+        }
+
+        $query = 'INSERT INTO ' . $this->addressBooksTableName . ' (uri, displayname, description, principaluri, synctoken, groupId) VALUES (:uri, :displayname, :description, :principaluri, 1, :groupId)';
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute($values);
+        return $this->pdo->lastInsertId(
+            $this->addressBooksTableName . '_id_seq'
+        );
+
+    }
+    
    /**
      * Deletes an entire addressbook and all its contents
      *
