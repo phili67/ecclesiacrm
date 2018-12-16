@@ -5,7 +5,7 @@
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
 //                This code can't be incorporated in another software without any authorizaion
 //
-//  Updated : 2018/06/23
+//  Updated : 2018/12/16
 //
 
 namespace EcclesiaCRM\MyPDO;
@@ -27,6 +27,31 @@ class CardDavPDO extends SabreCardDavBase\PDO {
         parent::__construct($pdo);
         
         $this->addressBookShareObjectTableName = 'addressbookshare';
+    }
+
+    /**
+     * Returns a specific card.
+     *
+     * The same set of properties must be returned as with getCards. The only
+     * exception is that 'carddata' is absolutely required.
+     *
+     * If the card does not exist, you must return false.
+     *
+     * @param mixed $addressBookId
+     * @param string $cardUri
+     * @return array
+     */
+    function getAddressBookForGroup($groupId) {
+
+        $stmt = $this->pdo->prepare('SELECT id FROM ' . $this->addressBooksTableName . ' WHERE groupId = ?');
+        $stmt->execute([$groupId]);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) return false;
+
+        return $result['id'];
+
     }
 
     /**
@@ -324,9 +349,9 @@ SQL;
      * @param string $cardData
      * @return string|null
      */
-    function createCard($addressBookId, $cardUri, $cardData) {
+    function createCard($addressBookId, $cardUri, $cardData,$personId=-1) {
 
-        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->cardsTableName . ' (carddata, uri, lastmodified, addressbookid, size, etag) VALUES (?, ?, ?, ?, ?, ?)');
+        $stmt = $this->pdo->prepare('INSERT INTO ' . $this->cardsTableName . ' (carddata, uri, lastmodified, addressbookid, size, etag, personId) VALUES (?, ?, ?, ?, ?, ?, ?)');
 
         $etag = md5($cardData);
 
@@ -337,11 +362,39 @@ SQL;
             $addressBookId,
             strlen($cardData),
             $etag,
+            $personId,
         ]);
 
         $this->addChange($addressBookId, $cardUri, 1);
 
         return '"' . $etag . '"';
+
+    }
+
+    /**
+     * Returns a specific card.
+     *
+     * The same set of properties must be returned as with getCards. The only
+     * exception is that 'carddata' is absolutely required.
+     *
+     * If the card does not exist, you must return false.
+     *
+     * @param mixed $addressBookId
+     * @param string $personId
+     * @return array
+     */
+    function getCardForPerson($addressBookId, $personId) {
+
+        $stmt = $this->pdo->prepare('SELECT id, carddata, uri, lastmodified, etag, size, personId FROM ' . $this->cardsTableName . ' WHERE addressbookid = ? AND personId = ? LIMIT 1');
+        $stmt->execute([$addressBookId, $personId]);
+
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$result) return false;
+
+        $result['etag'] = '"' . $result['etag'] . '"';
+        $result['lastmodified'] = (int)$result['lastmodified'];
+        return $result;
 
     }
 
@@ -407,5 +460,24 @@ SQL;
         return $stmt->rowCount() === 1;
 
     }
+    
+    /**
+     * Deletes a card
+     *
+     * @param mixed $addressBookId
+     * @param string $cardUri
+     * @return bool
+     */
+    function deleteCardForPerson($addressBookId, $personId) {
+
+        $stmt = $this->pdo->prepare('DELETE FROM ' . $this->cardsTableName . ' WHERE addressbookid = ? AND personId = ?');
+        $stmt->execute([$addressBookId, $personId]);
+
+        $this->addChange($addressBookId, $personId, 3);
+
+        return $stmt->rowCount() === 1;
+
+    }
+
 
 }

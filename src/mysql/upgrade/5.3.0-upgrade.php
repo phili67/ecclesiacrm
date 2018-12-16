@@ -86,7 +86,7 @@ FN:'.$person->getFirstName().' '.$person->getLastName();
 UID:".\Sabre\DAV\UUIDUtil::getUUID().'
 END:VCARD';
         
-        $carddavBackend->createCard($addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card);
+        $carddavBackend->createCard($addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
       }
   }
 
