@@ -17,10 +17,11 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Security: User must have property and classification editing permission
 if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -50,7 +51,7 @@ if (isset($_GET['Confirmed'])) {
       $properties->delete();
     }
 
-    Redirect('PropertyTypeList.php');
+    RedirectUtils::Redirect('PropertyTypeList.php');
 }
 
 $propType = PropertyTypeQuery::Create()->findOneByPrtId($iPropertyTypeID);

@@ -13,9 +13,10 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\utils\RedirectUtils;
 
 if (!SystemService::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
-    Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }
 

@@ -6,11 +6,12 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\AppIntegrityService;
+use EcclesiaCRM\utils\RedirectUtils;
 
 //Set the page title
 $sPageTitle = gettext('Integrity Check Results');
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('index.php');
+    RedirectUtils::Redirect('index.php');
     exit;
 }
 require 'Include/Header.php';

@@ -21,6 +21,7 @@ use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\DonationFund;
+use EcclesiaCRM\Utils\RedirectUtils;
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
@@ -130,7 +131,7 @@ if (isset($_POST['Submit'])) {
     $iFamily = InputUtils::LegacyFilterInput($_POST['Family']);
     
     if ($iFamily == 0) {
-      Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
+      RedirectUtils::Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
     }
     
     $enableCode = InputUtils::LegacyFilterInput($_POST['EnableButton']);
@@ -212,7 +213,7 @@ if (isset($_POST['Submit'])) {
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($linkBack == "ElectronicPaymentList.php") {
-          Redirect($linkBack);
+          RedirectUtils::Redirect($linkBack);
         } else if ($linkBack != '') {
           $ormFamily = FamilyQuery::Create()->findOneById($iFamily);
           if (!is_null ($ormFamily)) {
@@ -225,14 +226,14 @@ if (isset($_POST['Submit'])) {
                }
              
                if ($personId > 0) {
-                  Redirect("PersonView.php?PersonID=".$personId);
+                  RedirectUtils::Redirect("PersonView.php?PersonID=".$personId);
                }
             }
           }
-          Redirect($linkBack);
+          RedirectUtils::Redirect($linkBack);
         } else {
             //Send to the view of this pledge
-            Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
+            RedirectUtils::Redirect('AutoPaymentEditor.php?AutID=' . $iAutID . '&FamilyID=' . $iFamily . '&linkBack=', $linkBack);
         }
     }
 } else if ($iAutID > 0) {// not submitting, just get ready to build the page

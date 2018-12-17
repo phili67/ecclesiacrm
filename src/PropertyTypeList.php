@@ -16,6 +16,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Set the page title
 $sPageTitle = gettext('Property Type List');
@@ -28,7 +29,7 @@ $ormPropertyTypes = PropertyTypeQuery::Create()
   ->find();
 
 if ( !( $_SESSION['user']->isMenuOptionsEnabled() ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

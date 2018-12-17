@@ -14,6 +14,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\GroupManagerPersonQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Get the Group, Property, and Action from the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
@@ -28,7 +29,7 @@ if (!empty($manager)) {
 
 // Security: user must be allowed to edit records to use this page.
 if ( !($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -44,7 +45,7 @@ extract(mysqli_fetch_array($rsGroupInfo));
 
 // Abort if user tries to load with group having no special properties.
 if ($grp_hasSpecialProps == false) {
-    Redirect('GroupView.php?GroupID='.$iGroupID);
+    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
 }
 
 switch ($sAction) {
@@ -96,10 +97,10 @@ switch ($sAction) {
 
     // If no valid action was specified, abort and return to the GroupView
     default:
-        Redirect('GroupView.php?GroupID='.$iGroupID);
+        RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
         break;
 }
 
 // Reload the Form Editor page
-Redirect('GroupPropsFormEditor.php?GroupID='.$iGroupID);
+RedirectUtils::Redirect('GroupPropsFormEditor.php?GroupID='.$iGroupID);
 exit;

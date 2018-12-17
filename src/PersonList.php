@@ -8,6 +8,8 @@ use EcclesiaCRM\PledgeQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 $sMode = 'Active';
 // Filter received user input as needed
@@ -17,7 +19,7 @@ if (isset($_GET['mode'])) {
 
 if (strtolower($sMode) == 'gdrp') {
   if (!$_SESSION['user']->isGdrpDpoEnabled()) {
-    Redirect("Menu.php");
+    RedirectUtils::Redirect("Menu.php");
     exit;
   }
 
@@ -35,7 +37,7 @@ if (strtolower($sMode) == 'gdrp') {
             
 } else if (strtolower($sMode) == 'inactive') {
   if (!$_SESSION['user']->isEditRecordsEnabled()) {
-    Redirect("Menu.php");
+    RedirectUtils::Redirect("Menu.php");
     exit;
   }
 
@@ -61,7 +63,7 @@ if (strtolower($sMode) == 'gdrp') {
   }
 } else {
   if (!$_SESSION['user']->isEditRecordsEnabled()) {
-    Redirect("Menu.php");
+    RedirectUtils::Redirect("Menu.php");
     exit;
   }
 

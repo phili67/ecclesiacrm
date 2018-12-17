@@ -13,6 +13,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 $iPaddleNumID = InputUtils::LegacyFilterInputArr($_GET, 'PaddleNumID', 'int');
 $linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
@@ -94,13 +96,13 @@ if (isset($_POST['PaddleNumSubmit']) || isset($_POST['PaddleNumSubmitAndAdd']) |
     }
 
     if (isset($_POST['PaddleNumSubmit'])) {
-        Redirect('PaddleNumEditor.php?PaddleNumID='.$iPaddleNumID.'&linkBack='.$linkBack);
+        RedirectUtils::Redirect('PaddleNumEditor.php?PaddleNumID='.$iPaddleNumID.'&linkBack='.$linkBack);
     } elseif (isset($_POST['PaddleNumSubmitAndAdd'])) {
         //Reload to editor to add another record
-        Redirect("PaddleNumEditor.php?CurrentFundraiser=$iCurrentFundraiser&linkBack=", $linkBack);
+        RedirectUtils::Redirect("PaddleNumEditor.php?CurrentFundraiser=$iCurrentFundraiser&linkBack=", $linkBack);
     } elseif (isset($_POST['GenerateStatement'])) {
         //Jump straight to generating the statement report
-        Redirect("Reports/FundRaiserStatement.php?PaddleNumID=$iPaddleNumID");
+        RedirectUtils::Redirect("Reports/FundRaiserStatement.php?PaddleNumID=$iPaddleNumID");
     }
 } else {
 

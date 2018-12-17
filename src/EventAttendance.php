@@ -14,10 +14,11 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 use EcclesiaCRM\Utils\OutputUtils;

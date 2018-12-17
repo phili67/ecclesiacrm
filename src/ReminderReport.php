@@ -13,10 +13,12 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 if (!$_SESSION['user']->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -28,7 +30,7 @@ require 'Include/Header.php';
 if (isset($_POST['Submit'])) {
     $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');
     $_SESSION['idefaultFY'] = $iFYID;
-    Redirect('Reports/ReminderReport.php?FYID='.$_SESSION['idefaultFY']);
+    RedirectUtils::Redirect('Reports/ReminderReport.php?FYID='.$_SESSION['idefaultFY']);
 } else {
     $iFYID = $_SESSION['idefaultFY'];
 }

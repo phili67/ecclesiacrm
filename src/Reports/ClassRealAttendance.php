@@ -13,10 +13,11 @@ require '../Include/Functions.php';
 
 use EcclesiaCRM\Reports\PDF_RealAttendance;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 //Security
 if (!isset($_SESSION['user'])) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

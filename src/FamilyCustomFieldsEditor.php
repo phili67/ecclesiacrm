@@ -25,10 +25,11 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Security: user must be administrator to use this page
 if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

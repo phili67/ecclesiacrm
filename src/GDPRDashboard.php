@@ -22,7 +22,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
-
+use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\NoteQuery;
 
 // Set the page title and include HTML header
@@ -30,7 +30,7 @@ $sPageTitle = gettext('GDPR Dashboard');
 require 'Include/Header.php';
 
 if (!($_SESSION['user']->isGdrpDpoEnabled())) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
       

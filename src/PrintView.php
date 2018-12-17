@@ -20,13 +20,14 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 if ( !($_SESSION['user']->isEditRecordsEnabled() ||
     ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ) ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 
@@ -137,7 +138,7 @@ require 'Include/Header-Short.php';
 $personSheet = PersonQuery::create()->findPk($per_ID);
 
 if ($personSheet->getDateDeactivated() != null) {
-  Redirect('members/404.php?type=Person');
+  RedirectUtils::Redirect('members/404.php?type=Person');
 }    
 
 

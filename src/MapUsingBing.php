@@ -22,6 +22,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Map\ListOptionIconTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 use EcclesiaCRM\EventQuery;
 
@@ -110,7 +111,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
        $currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
             
        if ($currentUserBelongToGroup == 0) {
-          Redirect('Menu.php');
+          RedirectUtils::Redirect('Menu.php');
        }
 
         //Get all the members of this group
@@ -128,7 +129,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         }
     } else {
       if ( !($_SESSION['user']->isShowMapEnabled()) ) {
-          Redirect('Menu.php');
+          RedirectUtils::Redirect('Menu.php');
       }
        
       //Map all the families

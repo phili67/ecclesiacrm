@@ -28,6 +28,7 @@ use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $mode = trim($_GET['mode']);
 
@@ -38,7 +39,7 @@ switch ($mode) {
     case 'famroles':
     case 'classes':
         if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
@@ -68,7 +69,7 @@ switch ($mode) {
         }
 
         if (!($_SESSION['user']->isManageGroupsEnabled() || !empty($manager) ) ) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
@@ -77,13 +78,13 @@ switch ($mode) {
     case 'famcustom':
     case 'securitygrp':
         if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
 
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 
@@ -135,7 +136,7 @@ switch ($mode) {
         if (!is_null($ormGroupList) ) {
            $iDefaultRole = $ormGroupList->getDefaultRole();
         } else {
-          Redirect('Menu.php');
+          RedirectUtils::Redirect('Menu.php');
           exit;
         }
         
@@ -151,7 +152,7 @@ switch ($mode) {
         $per_cus = PersonCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
         
         if ($per_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
 
@@ -167,7 +168,7 @@ switch ($mode) {
         $group_cus = GroupPropMasterQuery::Create()->filterByTypeId(12)->findBySpecial($listID);
 
         if ($group_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
         
@@ -183,13 +184,13 @@ switch ($mode) {
         $fam_cus = FamilyCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
                 
         if ($fam_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
         
         break;
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 

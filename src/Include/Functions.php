@@ -17,6 +17,7 @@ use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $personService = new PersonService();
 $systemService = new SystemService();
@@ -29,14 +30,14 @@ $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     // Basic security: If the UserID isn't set (no session), redirect to the login page
     if (!isset($_SESSION['user'])) {
-        Redirect('Login.php');
+        RedirectUtils::Redirect('Login.php');
         exit;
     }
 
     // Check for login timeout.  If login has expired, redirect to login page
     if (SystemConfig::getValue('iSessionTimeout') > 0) {
         if ((time() - $_SESSION['tLastOperation']) > SystemConfig::getValue('iSessionTimeout')) {
-            Redirect('Login.php');
+            RedirectUtils::Redirect('Login.php');
             exit;
         } else {
             if ($_SESSION['lastPage'] != $_SERVER['PHP_SELF']) {
@@ -48,7 +49,7 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
 
     // If this user needs to change password, send to that page
     if ($_SESSION['bNeedPasswordChange'] && !isset($bNoPasswordRedirect)) {
-        Redirect('UserPasswordChange.php?PersonID='.$_SESSION['user']->getPersonId());
+        RedirectUtils::Redirect('UserPasswordChange.php?PersonID='.$_SESSION['user']->getPersonId());
         exit;
     }
 

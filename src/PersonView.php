@@ -48,6 +48,7 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 // Set the page title and include HTML header
@@ -127,7 +128,7 @@ extract($res);
 $person = PersonQuery::create()->findPk($iPersonID);
 
 if (empty($person)) {
-    Redirect('members/404.php?type=Person');
+    RedirectUtils::Redirect('members/404.php?type=Person');
     exit;
 }
 
@@ -137,11 +138,11 @@ if ($person->getDateDeactivated() != null) {
     
     if ( $new_time > $person->getDateDeactivated() ) {
       if ( !$_SESSION['user']->isGdrpDpoEnabled() ) {
-        Redirect('members/404.php?type=Person');
+        RedirectUtils::Redirect('members/404.php?type=Person');
         exit;
       }
     } else if (!$_SESSION['user']->isEditRecordsEnabled()){
-      Redirect('members/404.php?type=Person');
+      RedirectUtils::Redirect('members/404.php?type=Person');
       exit;
     }
 }

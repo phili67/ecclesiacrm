@@ -41,6 +41,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 $EventID = 0;
@@ -101,11 +102,11 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
 
   /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
-    //Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
+    //RedirectUtils::Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
-    //Redirect('GroupView.php?GroupID='.$event->getGroupId());
-    Redirect('Calendar.php');
+    //RedirectUtils::Redirect('GroupView.php?GroupID='.$event->getGroupId());
+    RedirectUtils::Redirect('Calendar.php');
     exit;
   }
 }
@@ -154,7 +155,7 @@ if ($searchEventInActivEvent != null) {
         ->Where('type_id='.$event->getType())
         ->find();
 } else if ($activeEvents->count() == 0 && is_null($event) ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

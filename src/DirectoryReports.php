@@ -20,11 +20,12 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 // Check for Create Directory user permission.
 if (!$bCreateDirectory) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

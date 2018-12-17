@@ -27,9 +27,10 @@ use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\utils\RedirectUtils;
 
 if ( !$_SESSION['user']->isAdmin() ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
 }
 
 $sPageTitle = gettext('Edit Event Types');
@@ -84,7 +85,7 @@ if (isset($_POST['Action'])) {
       }
             
       $_POST = array();
-      Redirect('EventNames.php'); // clear POST
+      RedirectUtils::Redirect('EventNames.php'); // clear POST
       break;
     }
 }

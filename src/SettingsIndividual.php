@@ -17,6 +17,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 $iPersonID = $_SESSION['user']->getPersonId();
 
@@ -79,7 +81,7 @@ if (isset($_POST['save'])) {
         next($type);
     }
     
-    Redirect('SettingsIndividual.php');// to reflect the tooltip change, we have to refresh the page
+    RedirectUtils::Redirect('SettingsIndividual.php');// to reflect the tooltip change, we have to refresh the page
 }
 
 // Set the page title and include HTML header

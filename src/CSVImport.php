@@ -24,10 +24,11 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 /**

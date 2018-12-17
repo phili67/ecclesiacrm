@@ -16,6 +16,8 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 //Get the type to display
 $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
@@ -39,7 +41,7 @@ switch ($sType) {
         break;
 
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
         break;
 }

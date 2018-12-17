@@ -15,6 +15,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 $personId = 0;
 
@@ -23,7 +25,7 @@ if (isset($_GET['personId'])) {
 }
 
 if ( !($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId == $_SESSION['user']->getPersonId())) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

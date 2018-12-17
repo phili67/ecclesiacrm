@@ -19,6 +19,8 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 
 $iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
@@ -41,7 +43,7 @@ if (isset($_GET['PersonID'])) {
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
 if (!($_SESSION['user']->isNotesEnabled() || $_GET['PersonID'] == $_SESSION['user']->getPersonId() || $iCurrentFamID == $iFamily)) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -158,7 +160,7 @@ if (isset($_POST['Submit'])) {
           $note->save();
         }    
         
-        Redirect($sBackPage.'&edrive=true');
+        RedirectUtils::Redirect($sBackPage.'&edrive=true');
       }
 
 
@@ -192,7 +194,7 @@ if (isset($_POST['Submit'])) {
       }
 
       //Send them back to whereever they came from
-      Redirect($sBackPage);
+      RedirectUtils::Redirect($sBackPage);
     }
 } else if ( isset($_POST['Cancel']) ) {
   if (isset($_POST['NoteID'])) {
@@ -208,7 +210,7 @@ if (isset($_POST['Submit'])) {
      }
   }
   
-  Redirect($sBackPage);
+  RedirectUtils::Redirect($sBackPage);
 } else {
     //Are we adding or editing?
     if (isset($_GET['NoteID'])) {
