@@ -101,7 +101,7 @@ $app->group('/persons', function () {
         $mailchimp = new MailChimpService();
         $person = PersonQuery::create()->findPk($input->personId);
         
-        if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() && !is_null ($person->getFamily()) ) {
           return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getFamily()->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
         }
       }
