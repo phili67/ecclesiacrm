@@ -262,11 +262,17 @@ require 'Include/Header.php';
         <button class="btn btn-primary" type="button">
             <?= gettext('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
         </button>
+        <?php 
+          if ($_SESSION['user']->isAdmin()) { 
+        ?>
         <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
             <?= gettext('Address Book') ?> <span class="badge">
             <i class="fa fa-book" aria-hidden="true"></i>
             </span>
         </a>
+        <?php 
+          } 
+        ?>
       </center>
     </div>
 </div>
