@@ -59,7 +59,7 @@ class GroupService
       // We set the BackEnd for sabre Backends
       $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
       
-      $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID);
+      $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID)['id'];
       
       $carddavBackend->deleteCardForPerson($addressbookId,$personID);
     }

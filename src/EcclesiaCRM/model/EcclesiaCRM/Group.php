@@ -54,9 +54,10 @@ class Group extends BaseGroup
       $personId = $l->getPersonId();
       $person   = $l->getPerson();
 
-      $addressbookId = $carddavBackend->getAddressBookForGroup ($groupId);
+      $addressbook = $carddavBackend->getAddressBookForGroup ($groupId);
       
-      if ( !$carddavBackend->getCardForPerson($addressBookId, $personId) ) {
+      if ( $addressbook == false && !$carddavBackend->getCardForPerson($addressbook['id'], $personId) ) {
+        // we've checked that we'll insert only one card per user
       
         // now we'll create all the cards
         $card = 'BEGIN:VCARD

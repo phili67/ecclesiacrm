@@ -28,6 +28,30 @@ class CardDavPDO extends SabreCardDavBase\PDO {
         
         $this->addressBookShareObjectTableName = 'addressbookshare';
     }
+    
+    /**
+     * Merges all vcard objects, and builds one big vcf export
+     *
+     * @param array $nodes
+     * @return string
+     */
+    function generateVCFForAddressBook($addressBookId) {
+    
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->cardsTableName . ' WHERE addressbookid = ?');
+        $stmt->execute([$addressBookId]);
+
+        $output = "";
+        
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            
+            $output .= $row['carddata']."\n";
+
+        }
+        
+        return $output;
+
+    }
+
 
     /**
      * Returns a specific card.
@@ -43,14 +67,14 @@ class CardDavPDO extends SabreCardDavBase\PDO {
      */
     function getAddressBookForGroup($groupId) {
 
-        $stmt = $this->pdo->prepare('SELECT id FROM ' . $this->addressBooksTableName . ' WHERE groupId = ?');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->addressBooksTableName . ' WHERE groupId = ?');
         $stmt->execute([$groupId]);
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (!$result) return false;
 
-        return $result['id'];
+        return $result;
 
     }
 
@@ -384,8 +408,8 @@ SQL;
      * @return array
      */
     function getCardForPerson($addressBookId, $personId) {
-
-        $stmt = $this->pdo->prepare('SELECT id, carddata, uri, lastmodified, etag, size, personId FROM ' . $this->cardsTableName . ' WHERE addressbookid = ? AND personId = ? LIMIT 1');
+        
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->cardsTableName . ' WHERE addressbookid = ? AND personId = ? LIMIT 1');
         $stmt->execute([$addressBookId, $personId]);
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
