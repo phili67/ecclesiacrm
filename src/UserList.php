@@ -22,11 +22,13 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

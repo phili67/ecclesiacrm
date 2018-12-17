@@ -19,6 +19,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $delimiter = $sCSVExportDelemiter;
 
@@ -200,7 +201,7 @@ if ($sFormat == 'addtocart') {
         extract($aRow);
         Cart::AddPerson($per_ID);
     }
-    Redirect('CartView.php');
+    RedirectUtils::Redirect('CartView.php');
 } else {
     // Build the complete SQL statement
 

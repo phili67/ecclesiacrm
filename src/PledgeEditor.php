@@ -22,10 +22,11 @@ use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Security
 if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -107,7 +108,7 @@ if ($sGroupKey) {
 
         // Security: User must have Finance permission or be the one who entered this record originally
         if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->getPersonId() == $aRow['plg_EditedBy'])) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
     }
@@ -405,14 +406,14 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
         if (isset($_POST['PledgeSubmit'])) {
             // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
             if ($linkBack != '') {
-                Redirect($linkBack);
+                RedirectUtils::Redirect($linkBack);
             } else {
                 //Send to the view of this pledge
-                Redirect('PledgeEditor.php?PledgeOrPayment='.$PledgeOrPayment.'&GroupKey='.$sGroupKey.'&linkBack=', $linkBack);
+                RedirectUtils::Redirect('PledgeEditor.php?PledgeOrPayment='.$PledgeOrPayment.'&GroupKey='.$sGroupKey.'&linkBack=', $linkBack);
             }
         } elseif (isset($_POST['PledgeSubmitAndAdd'])) {
             //Reload to editor to add another record
-            Redirect("PledgeEditor.php?CurrentDeposit=$iCurrentDeposit&PledgeOrPayment=".$PledgeOrPayment.'&linkBack=', $linkBack);
+            RedirectUtils::Redirect("PledgeEditor.php?CurrentDeposit=$iCurrentDeposit&PledgeOrPayment=".$PledgeOrPayment.'&linkBack=', $linkBack);
         }
     } // end if !$bErrorFlag
 } elseif (isset($_POST['MatchFamily']) || isset($_POST['MatchEnvelope']) || isset($_POST['SetDefaultCheck'])) {

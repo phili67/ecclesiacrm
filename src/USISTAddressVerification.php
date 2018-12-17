@@ -16,6 +16,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ISTAddressLookup;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 function XMLparseIST($xmlstr, $xmlfield)
 {
@@ -38,7 +40,7 @@ function XMLparseIST($xmlstr, $xmlfield)
 
 // If user is not admin, redirect to the menu.
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

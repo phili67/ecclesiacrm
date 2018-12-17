@@ -22,11 +22,12 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 // Security: User must have Manage Groups permission
 if (!$_SESSION['user']->isManageGroupsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -37,7 +38,7 @@ $groupService = new GroupService();
 if (array_key_exists('GroupID', $_GET)) {
     $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 } else {
-    Redirect('GroupList.php');
+    RedirectUtils::Redirect('GroupList.php');
 }
 
 $thisGroup = GroupQuery::create()->findOneById($iGroupID);   //get this group from the group service.

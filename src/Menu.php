@@ -30,6 +30,8 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\Map\PastoralCareTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -49,7 +51,7 @@ $updatedMembers = $dashboardService->getUpdatedMembers(12);
 $latestMembers = $dashboardService->getLatestMembers(12);
 
 if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isMainDashboardEnabled() || $_SESSION['user']->isPastoralCareEnabled())) {
-   Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
+   RedirectUtils::Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
    exit;
 }
 

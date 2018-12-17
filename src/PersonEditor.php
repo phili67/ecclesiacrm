@@ -31,6 +31,7 @@ use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 //Set the page title
@@ -54,12 +55,12 @@ if ($iPersonID > 0) {
         ->findOneById($iPersonID);
         
     if (empty($person)) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit();
     }
     
     if ($person->getDateDeactivated() != null && !$_SESSION['user']->isGdrpDpoEnabled()) {
-      Redirect('members/404.php?type=Person');
+      RedirectUtils::Redirect('members/404.php?type=Person');
     }
     
     if (!(
@@ -68,11 +69,11 @@ if ($iPersonID > 0) {
         ($_SESSION['user']->isEditSelfEnabled() && $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())
     )
     ) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
 } elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -573,13 +574,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // Check for redirection to another page after saving information: (ie. PersonEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($sPreviousPage != '') {
             $sPreviousPage = str_replace(';', '&', $sPreviousPage);
-            Redirect($sPreviousPage.$iPersonID);
+            RedirectUtils::Redirect($sPreviousPage.$iPersonID);
         } elseif (isset($_POST['PersonSubmit'])) {
             //Send to the view of this person
-            Redirect('PersonView.php?PersonID='.$iPersonID);
+            RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
         } else {
             //Reload to editor to add another record
-            Redirect('PersonEditor.php');
+            RedirectUtils::Redirect('PersonEditor.php');
         }
     }
 

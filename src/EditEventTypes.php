@@ -26,6 +26,7 @@ use EcclesiaCRM\EventTypes;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 if (!$_SESSION['user']->isAdmin()) {
@@ -97,7 +98,7 @@ $eventType = EventTypesQuery::Create()
                 ->findOneById($tyid);
                 
 if (empty($eventType)) {
-  Redirect('EventNames.php'); // clear POST
+  RedirectUtils::Redirect('EventNames.php'); // clear POST
 }
 
 $aTypeID = $eventType->getId();

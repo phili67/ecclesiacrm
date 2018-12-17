@@ -15,10 +15,12 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security
 if ( !( $_SESSION['user']->isShowMenuQueryEnabled() ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -31,7 +33,7 @@ $iQueryID = InputUtils::LegacyFilterInput($_GET['QueryID'], 'int');
 $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 
 if ( !($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) && in_array($iQueryID, $aFinanceQueries) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

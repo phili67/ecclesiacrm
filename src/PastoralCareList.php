@@ -15,9 +15,10 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
 
 if ( !($_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isPastoralCareEnabled() ) ) {// only an admin can change this settings, if a pastoral is deleted all the notes will be deleted too...
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

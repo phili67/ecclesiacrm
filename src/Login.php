@@ -26,9 +26,11 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Token;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 if (!SystemService::isDBCurrent()) {
-    Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }
 
@@ -159,7 +161,7 @@ if (isset($_POST['User'])) {
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
         
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
 } elseif (isset($_GET['username'])) {

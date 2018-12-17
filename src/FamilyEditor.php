@@ -32,6 +32,7 @@ use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 //Set the page title
@@ -48,7 +49,7 @@ if (array_key_exists('FamilyID', $_GET)) {
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
 if ($iFamilyID > 0) {
     if (!($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && ($iFamilyID == $_SESSION['user']->getPerson()->getFamId())))) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
     
@@ -56,15 +57,15 @@ if ($iFamilyID > 0) {
         ->findOneById($iFamilyID);
         
     if (empty($family)) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
     
     if ($family->getDateDeactivated() != null  && !$_SESSION['user']->isGdrpDpoEnabled() ) {
-      Redirect('members/404.php');
+      RedirectUtils::Redirect('members/404.php');
     }    
 } elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -534,10 +535,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         //Which submit button did they press?
         if (isset($_POST['FamilySubmit'])) {
             //Send to the view of this person
-            Redirect('FamilyView.php?FamilyID='.$iFamilyID);
+            RedirectUtils::Redirect('FamilyView.php?FamilyID='.$iFamilyID);
         } else {
             //Reload to editor to add another record
-            Redirect('FamilyEditor.php');
+            RedirectUtils::Redirect('FamilyEditor.php');
         }
     }
 } else {

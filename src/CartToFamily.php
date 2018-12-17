@@ -26,12 +26,12 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
-
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 // Security: User must have add records permission
 if (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -177,7 +177,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
           $_SESSION['aPeopleCart'] = [];
         }
 
-        Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
+        RedirectUtils::Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
     }
 }
 

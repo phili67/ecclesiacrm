@@ -23,9 +23,11 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\utils\RedirectUtils;
+
 // Security
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

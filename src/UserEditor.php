@@ -29,11 +29,13 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -80,10 +82,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
     if (strlen($sUserName) < 3) {
         if ($NewUser == false) {
             //Report error for current user creation
-            Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
+            RedirectUtils::Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
         } else {
             //Report error for new user creation
-            Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
+            RedirectUtils::Redirect('UserEditor.php?NewPersonID=' . $iPersonID . '&ErrorText='.gettext("Login must be a least 3 characters!"));
         }
     } else {
        
@@ -253,7 +255,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $email->send();
                 } else {
                     // Set the error text for duplicate when new user
-                    Redirect('UserEditor.php?NewPersonID=' . $PersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
+                    RedirectUtils::Redirect('UserEditor.php?NewPersonID=' . $PersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
                 }
             } else {
                 if ($undupCount == 0) {
@@ -302,7 +304,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $email->send();                  
                 } else {
                     // Set the error text for duplicate when currently existing
-                    Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
+                    RedirectUtils::Redirect('UserEditor.php?PersonID=' . $iPersonID . '&ErrorText=' . gettext("Login already in use, please select a different login!"));
                 }
             }
         }
@@ -466,7 +468,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         next($type);
     }
 
-    Redirect('UserList.php');
+    RedirectUtils::Redirect('UserList.php');
     exit;
 }
 

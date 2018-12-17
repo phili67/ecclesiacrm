@@ -17,10 +17,11 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Directory;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Check for Create Directory user permission.
 if (!$bCreateDirectory) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

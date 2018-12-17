@@ -17,6 +17,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\LabelUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('View Your Cart');
@@ -24,7 +25,7 @@ require 'Include/Header.php'; ?>
 <?php
 
 if (!$_SESSION['user']->isShowCartEnabled()) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

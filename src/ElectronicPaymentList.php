@@ -20,12 +20,14 @@ use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
 // Security
 if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

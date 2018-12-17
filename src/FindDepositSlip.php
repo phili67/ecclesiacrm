@@ -15,10 +15,12 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security
 if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -29,7 +31,7 @@ $sPageTitle = gettext('Deposit Listing');
 
 // Security: User must have finance permission to use this form
 if (!$_SESSION['user']->isFinanceEnabled()) {
-    Redirect('index.php');
+    RedirectUtils::Redirect('index.php');
     exit;
 }
 

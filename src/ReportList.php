@@ -19,10 +19,12 @@ use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\EventTypesTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // Security
 if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

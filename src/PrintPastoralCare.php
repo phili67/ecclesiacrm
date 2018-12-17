@@ -18,12 +18,13 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
 if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

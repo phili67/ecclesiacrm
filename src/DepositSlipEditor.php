@@ -18,6 +18,7 @@ use EcclesiaCRM\utils\InputUtils;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\MiscUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $iDepositSlipID = 0;
 $thisDeposit = 0;
@@ -25,7 +26,7 @@ $dep_Closed = false;
 
 // Security: User must have finance permission or be the one who created this deposit
 if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -55,11 +56,11 @@ if ($iDepositSlipID) {
 
     // Security: User must have finance permission or be the one who created this deposit
     if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->getPersonId() == $thisDeposit->getEnteredby()) && SystemConfig::getBooleanValue('bEnabledFinance')) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
 } else {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
 }
 
 

@@ -18,9 +18,11 @@ use EcclesiaCRM\GdprInfoQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 if (!($_SESSION['user']->isGdrpDpoEnabled())) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

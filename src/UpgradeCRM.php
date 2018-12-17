@@ -8,12 +8,13 @@ require_once 'Include/Header-function.php';
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Upgrade EcclesiaCRM');
 
 if (!$_SESSION['user']->isAdmin()) {
-    Redirect('index.php');
+    RedirectUtils::Redirect('index.php');
     exit;
 }
 

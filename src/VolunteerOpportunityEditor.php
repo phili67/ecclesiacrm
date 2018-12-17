@@ -12,13 +12,14 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Security: User must have proper permission
 // For now ... require $bAdmin
 // Future ... $bManageVol
 
 if ( !( $_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isCanvasserEnabled() ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -39,8 +40,7 @@ require 'Include/Header.php';
 }
 ?>
 <div class="box box-body">
-
-<table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+  <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/VolunteerOpportunity.js" ></script>

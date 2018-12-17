@@ -14,9 +14,10 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
 
 if ( !( $_SESSION['user']->isShowMenuQueryEnabled() ) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

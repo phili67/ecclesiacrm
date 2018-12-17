@@ -15,6 +15,7 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 class PDF_ConfirmReport extends ChurchInfoReport
 {
@@ -70,7 +71,7 @@ class PDF_ConfirmReport extends ChurchInfoReport
 }
 
 if (!$bCreateDirectory) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

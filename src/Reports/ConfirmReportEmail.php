@@ -23,6 +23,7 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 class EmailPDF_ConfirmReport extends ChurchInfoReport
 {
@@ -348,7 +349,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 }
 
 if ($_GET['familyId']) {
-    Redirect('FamilyView.php?FamilyID='.$_GET['familyId'].'&PDFEmailed='.$familyEmailSent);
+    RedirectUtils::Redirect('FamilyView.php?FamilyID='.$_GET['familyId'].'&PDFEmailed='.$familyEmailSent);
 } else {
-    Redirect('FamilyList.php?AllPDFsEmailed='.$familiesEmailed);
+    RedirectUtils::Redirect('FamilyList.php?AllPDFsEmailed='.$familiesEmailed);
 }

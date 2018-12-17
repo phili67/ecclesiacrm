@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $iFundRaiserID = $_SESSION['iCurrentFundraiser'];
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
@@ -42,4 +43,4 @@ for ($i = 0; $i < $iCount; $i++) {
     $ret = RunQuery($sSQL);
     $letterNum += 1;
 }
-Redirect("FundRaiserEditor.php?FundRaiserID=$iFundRaiserID");
+RedirectUtils::Redirect("FundRaiserEditor.php?FundRaiserID=$iFundRaiserID");

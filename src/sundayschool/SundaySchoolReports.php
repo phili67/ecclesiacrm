@@ -20,6 +20,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 // Get all the sunday school classes
 $groups = GroupQuery::create()
@@ -32,7 +33,7 @@ $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
 if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
-   Redirect('Menu.php');
+   RedirectUtils::Redirect('Menu.php');
    exit;
 }
 
@@ -82,9 +83,9 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
     $currentUser->save();
 
     if ($bAtLeastOneGroup && isset($_POST['SubmitPhotoBook']) && $aGrpID != 0) {
-        Redirect('Reports/PhotoBook.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
+        RedirectUtils::Redirect('Reports/PhotoBook.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitClassList']) && $aGrpID != 0) {
-        Redirect('Reports/ClassList.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
+        RedirectUtils::Redirect('Reports/ClassList.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitClassAttendance']) && $aGrpID != 0) {
         $toStr = 'Reports/ClassAttendance.php?';
         //        $toStr .= "GroupID=" . $iGroupID;
@@ -124,7 +125,7 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
         if ($iExtraTeachers) {
             $toStr .= '&ExtraTeachers='.$iExtraTeachers;
         }
-        Redirect($toStr);
+        RedirectUtils::Redirect($toStr);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitRealClassAttendance']) && $aGrpID != 0) {
         $toStr = 'Reports/ClassRealAttendance.php?';
         //        $toStr .= "GroupID=" . $iGroupID;
@@ -135,7 +136,7 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
         $toStr .= '&withPictures='.$withPictures;
         $toStr .= '&ExtraStudents='.($iExtraStudents+$iExtraTeachers);
 
-        Redirect($toStr);
+        RedirectUtils::Redirect($toStr);
     } elseif (!$bAtLeastOneGroup || $aGrpID == 0) {
         echo "<p class=\"alert alert-danger\"><span class=\"fa fa-exclamation-triangle\"> ".gettext('At least one group must be selected to make class lists or attendance sheets.')."</span></p>";
     }

@@ -22,6 +22,7 @@ use EcclesiaCRM\PastoralCareType;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\utils\RedirectUtils;
 
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
@@ -29,7 +30,7 @@ $currentPersonID = InputUtils::LegacyFilterInput($_GET['PersonID']);
 $iWhyCameID = InputUtils::LegacyFilterInput($_GET['WhyCameID']);
 
 if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

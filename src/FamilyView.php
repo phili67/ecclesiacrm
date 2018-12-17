@@ -32,8 +32,7 @@ use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-
-
+use EcclesiaCRM\utils\RedirectUtils;
 
 //Set the page title
 $sPageTitle = gettext("Family View");
@@ -63,7 +62,7 @@ if ($_SESSION['user']->isDeleteRecordsEnabled() && !empty($_POST['FID']) && !emp
         $family->activate();
     }
     $family->save();
-    Redirect("FamilyView.php?FamilyID=" . $_POST['FID']);
+    RedirectUtils::Redirect("FamilyView.php?FamilyID=" . $_POST['FID']);
     exit;
 }
 
@@ -77,7 +76,7 @@ $persons = PersonQuery::Create()->findByFamId($iFamilyID);
 if ( !is_null ($persons) && $persons->count() == 1 ) {
     $person = PersonQuery::Create()->findOneByFamId($iFamilyID);
     
-    Redirect("PersonView.php?PersonID=" . $person->getId());
+    RedirectUtils::Redirect("PersonView.php?PersonID=" . $person->getId());
 }
 
 $ormNextFamilies = PersonQuery::Create ()
@@ -136,7 +135,7 @@ $aFamCustomData = $statement->fetch( PDO::FETCH_ASSOC );//fetchAll();//
 $family = FamilyQuery::create()->findPk($iFamilyID);
 
 if (empty($family)) {
-    Redirect('members/404.php');
+    RedirectUtils::Redirect('members/404.php');
     exit;
 }
 
@@ -147,11 +146,11 @@ if ($family->getDateDeactivated() != null) {
     
     if ( $new_time > $family->getDateDeactivated() ) {
       if ( !$_SESSION['user']->isGdrpDpoEnabled() ) {
-        Redirect('members/404.php?type=Person');
+        RedirectUtils::Redirect('members/404.php?type=Person');
         exit;
       }
     } else if (!$_SESSION['user']->isEditRecordsEnabled()){
-      Redirect('members/404.php?type=Person');
+      RedirectUtils::Redirect('members/404.php?type=Person');
       exit;
     }
 }
