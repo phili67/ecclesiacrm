@@ -1,6 +1,7 @@
 <?php
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 if (file_exists('Include/Config.php')) {
     require_once 'Include/Config.php';
@@ -26,7 +27,7 @@ function endsWith($haystack, $needle)
     return $needle === '' || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
 }
 
-$hasSession = isset($_SESSION['user']);
+$hasSession = isset(SessionUser::getUser());
 $redirectTo = ($hasSession) ? '/menu' : '/login';
 
 // Get the current request path and convert it into a magic filename

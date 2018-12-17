@@ -18,6 +18,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Directory;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Check for Create Directory user permission.
 if (!$bCreateDirectory) {
@@ -139,7 +140,7 @@ if (!empty($_POST['GroupID'])) {
 }
 
 //Exclude inactive families
-if ($bExcludeInactive && $_SESSION['user']->isGdrpDpoEnabled()) {// only DPO can print all the directory
+if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DPO can print all the directory
     $sWhereExt .= ' AND fam_DateDeactivated is null';
 }
 
@@ -148,7 +149,7 @@ if (array_key_exists('cartdir', $_POST)) {
 }
 
 //Exclude inactive families RGPD
-if ($bExcludeInactive && $_SESSION['user']->isGdrpDpoEnabled()) {// only DPO can print all the directory
+if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DPO can print all the directory
     $sWhereExt .= ' AND per_DateDeactivated is null';
 }
 

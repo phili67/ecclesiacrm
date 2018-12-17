@@ -23,9 +23,10 @@ use EcclesiaCRM\AutoPayment;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -107,7 +108,7 @@ if ($sGroupKey) {
         $fund2PlgIds[$oneFundID] = $onePlgID;
 
         // Security: User must have Finance permission or be the one who entered this record originally
-        if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->getPersonId() == $aRow['plg_EditedBy'])) {
+        if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $aRow['plg_EditedBy'])) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -364,7 +365,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
             if ($fund2PlgIds && array_key_exists($fun_id, $fund2PlgIds)) {
                 if ($nAmount[$fun_id] > 0) {
                     $sSQL = "UPDATE pledge_plg SET plg_PledgeOrPayment = '".$PledgeOrPayment."' ,plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
-                    $sSQL .= ", plg_DateLastEdited = '".date('YmdHis')."', plg_EditedBy = ".$_SESSION['user']->getPersonId().", plg_CheckNo = '".$iCheckNo."', plg_scanString = '".$tScanString."', plg_aut_ID='".$iAutID."', plg_NonDeductible='".$nNonDeductible[$fun_id]."' WHERE plg_plgID='".$fund2PlgIds[$fun_id]."'";
+                    $sSQL .= ", plg_DateLastEdited = '".date('YmdHis')."', plg_EditedBy = ".SessionUser::getUser()->getPersonId().", plg_CheckNo = '".$iCheckNo."', plg_scanString = '".$tScanString."', plg_aut_ID='".$iAutID."', plg_NonDeductible='".$nNonDeductible[$fun_id]."' WHERE plg_plgID='".$fund2PlgIds[$fun_id]."'";
                 } else { // delete that record
                     $sSQL = 'DELETE FROM pledge_plg WHERE plg_plgID ='.$fund2PlgIds[$fun_id];
                 }
@@ -396,7 +397,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
                 
                 $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_scanString, plg_aut_ID, plg_NonDeductible, plg_GroupKey)
       VALUES ('".$iFamily."','".$iFYID."','".$dDate."','".$nAmount[$fun_id]."','".$iSchedule."','".$iMethod."','".$sComment[$fun_id]."'";
-                $sSQL .= ",'".date('YmdHis')."',".$_SESSION['user']->getPersonId().",'".$PledgeOrPayment."',".$fun_id.','.$iCurrentDeposit.','.$iCheckNo.",'".$tScanString."','".$iAutID."','".$nNonDeductible[$fun_id]."','".$sGroupKey."')";
+                $sSQL .= ",'".date('YmdHis')."',".SessionUser::getUser()->getPersonId().",'".$PledgeOrPayment."',".$fun_id.','.$iCurrentDeposit.','.$iCheckNo.",'".$tScanString."','".$iAutID."','".$nNonDeductible[$fun_id]."','".$sGroupKey."')";
             }
             if (isset($sSQL)) {
                 RunQuery($sSQL);
@@ -467,7 +468,7 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
 // Set Current Deposit setting for user
 if ($iCurrentDeposit) {
     /* @var $currentUser \EcclesiaCRM\User */
-    $currentUser = $_SESSION['user'];
+    $currentUser = SessionUser::getUser();
     $currentUser->setCurrentDeposit($iCurrentDeposit);
     $currentUser->save();
 }
@@ -726,7 +727,7 @@ require 'Include/Header.php';
     <?php if (!$dep_Closed) {
         ?>
         <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PledgeSubmit">
-        <?php if ($_SESSION['user']->isAddRecordsEnabled()) {
+        <?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
             echo '<input type="submit" class="btn btn-info" value="'.gettext('Save and Add').'" name="PledgeSubmitAndAdd">';
         } ?>
           <?php

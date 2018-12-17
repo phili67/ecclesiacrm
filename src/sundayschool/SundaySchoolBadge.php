@@ -24,12 +24,13 @@ use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 $useCart = InputUtils::LegacyFilterInput($_GET['cart'], 'int');
 
-if ( !($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupID) || $_SESSION['bExportSundaySchoolPDF']) ) {
+if ( !(SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupID) || $_SESSION['bExportSundaySchoolPDF']) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -48,7 +49,7 @@ $groups = GroupQuery::create()
 $sPageTitle = gettext('Sunday School Badge for').' : '.$group->getName();
 require '../Include/Header.php';
 
-if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
+if (!(SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
    RedirectUtils::Redirect('Menu.php');
    exit;
 }

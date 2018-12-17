@@ -199,14 +199,6 @@ function RedirectURL($sRelativeURL)
     }
 }
 
-// Convert a relative URL into an absolute URL and redirect the browser there.
-function Redirect($sRelativeURL)
-{
-    $sRedirectURL = RedirectURL($sRelativeURL);
-    header('Location: '.$sRedirectURL);
-    exit;
-}
-
 // Returns the current fiscal year
 function CurrentFY()
 {
