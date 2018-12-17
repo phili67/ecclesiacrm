@@ -18,6 +18,21 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\GroupService;
 
+use Sabre\CalDAV;
+use Sabre\CardDAV;
+use Sabre\DAV;
+use Sabre\DAV\Exception\Forbidden;
+use Sabre\DAV\Sharing;
+use Sabre\DAV\Xml\Element\Sharee;
+use Sabre\VObject;
+use EcclesiaCRM\MyVCalendar;
+use Sabre\DAV\PropPatch;
+use Sabre\DAVACL;
+
+use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\MyPDO\CardDavPDO;
+use EcclesiaCRM\MyPDO\PrincipalPDO;
+use Propel\Runtime\Propel;
 
 
 
@@ -42,6 +57,38 @@ $app->group('/groups', function () {
                             ->findByR2pRecordId($args['groupID']);
 
       return $ormAssignedProperties->toJSON();
+    });
+    
+    $this->get('/addressbook/extract/{groupId:[0-9]+}', function ($request, $response, $args) {
+      // we get the group
+      $group = GroupQuery::create()->findOneById ($args['groupId']);
+      
+      // we'll connect to sabre to create the group
+      $pdo = Propel::getConnection();
+        
+      // We set the BackEnd for sabre Backends
+      $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
+      
+      $addressbook = $carddavBackend->getAddressBookForGroup ($args['groupId']);
+      
+      $filename = $group->getName().".vcf";
+      
+      $output = $carddavBackend->generateVCFForAddressBook($addressbook['id']);
+      $size = strlen($output);
+
+      $response = $this->response
+                ->withHeader('Content-Type', 'application/octet-stream')
+                ->withHeader('Content-Disposition', 'attachment; filename="' . $filename . '"')
+                ->withHeader('Pragma', 'no-cache')
+                ->withHeader('Content-Length',$size)
+                ->withHeader('Content-Transfer-Encoding', 'binary')
+                ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+                ->withHeader('Expires', '0');
+                
+
+      $response->getBody()->write($output);
+
+      return $response;
     });
     
     $this->get('/search/{query}', function ($request, $response, $args) {

@@ -15,6 +15,14 @@ use EcclesiaCRM\Auth\BasicAuth;
 use EcclesiaCRM\PersonalServer\EcclesiaCRMServer;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\RedirectUtils;
+
+if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
+  RedirectUtils::Redirect('members/404.php?type=Dav');
+  return;
+}
+
 
 //Mapping PHP errors to exceptions
 // problem with the webdav constant
@@ -56,7 +64,9 @@ $server->addPlugin($lockPlugin);
 
 // This ensures that we get a pretty index in the browser, but it is
 // optional.
-$server->addPlugin(new DAV\Browser\Plugin());
+if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
+  $server->addPlugin(new DAV\Browser\Plugin());
+}
 
 //
 // All we need to do now, is to fire up the server

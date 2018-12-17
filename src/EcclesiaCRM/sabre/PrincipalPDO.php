@@ -9,6 +9,7 @@ namespace EcclesiaCRM\MyPDO;
 
 use Sabre\DAVACL;
 use Sabre\DAV;
+use Sabre\CardDAV;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 
 use Sabre\CalDAV\Backend as SabreBase;
@@ -21,6 +22,7 @@ use Sabre\CalDAV\Backend as SabreBase;
 //
 
 use Sabre\DAVACL\PrincipalBackend as SabrePrincipalBase;
+use Sabre\CardDAV\Backend         as SabreCardDAVBase;
 
 class PrincipalPDO extends SabrePrincipalBase\PDO {        
 
@@ -57,7 +59,13 @@ class PrincipalPDO extends SabrePrincipalBase\PDO {
         // 
         // we have to delete the CarDav too !!!!
         // Attention !!!
-
+        $carddavBackend  = new \Sabre\CardDAV\Backend\PDO($this->pdo);
+        
+        $addressbooks = $carddavBackend->getAddressBooksForUser($uri);
+        
+        foreach ($addressbooks as $addressbook) {
+           $carddavBackend->deleteAddressBook($addressbook['id']);
+        }
     }
     
     

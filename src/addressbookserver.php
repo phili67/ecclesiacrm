@@ -13,6 +13,7 @@
 
 use Sabre\DAV;
 use Sabre\DAV\Auth;
+use Sabre\CardDAV;
 
 // Include the function library
 // Very important this constant !!!!
@@ -23,8 +24,8 @@ require dirname(__FILE__).'/Include/Config.php';
 use Propel\Runtime\Propel;
 
 use EcclesiaCRM\Auth\BasicAuth;
-use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
+use EcclesiaCRM\MyPDO\CardDavPDO;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
@@ -67,19 +68,19 @@ set_error_handler("exception_error_handler");*/
 $authBackend = new BasicAuth();
 $authBackend->setRealm('EcclesiaCRM_DAV');
 
-$calendarBackend = new CalDavPDO($pdo);
 $principalBackend = new PrincipalPDO($pdo);
+$carddavBackend   = new CardDavPDO($pdo);
 
 
 // Directory structure
 $tree = [
     new Sabre\CalDAV\Principal\Collection($principalBackend),
-    new Sabre\CalDAV\CalendarRoot($principalBackend, $calendarBackend),
+    new Sabre\CardDAV\AddressBookRoot($principalBackend, $carddavBackend),
 ];
 
 $server = new Sabre\DAV\Server($tree);
 
-$server->setBaseUri(SystemURLs::getRootPath().'/calendarserver.php');
+$server->setBaseUri(SystemURLs::getRootPath().'/addressbookserver.php');
 
 // Server Plugins 
 $authPlugin = new Auth\Plugin($authBackend);
@@ -88,36 +89,14 @@ $server->addPlugin($authPlugin);
 $aclPlugin = new Sabre\DAVACL\Plugin();
 $server->addPlugin($aclPlugin);
 
-// CalDAV support 
-$caldavPlugin = new Sabre\CalDAV\Plugin();
-$server->addPlugin($caldavPlugin);
+// the VCF export
+$vcfPlugin = new \Sabre\CardDAV\VCFExportPlugin();
+$server->addPlugin($vcfPlugin);
 
-// Calendar subscription support 
-$server->addPlugin(
-    new Sabre\CalDAV\Subscriptions\Plugin()
-);
+// add the carDav
+$server->addPlugin(new Sabre\CardDAV\Plugin());
 
-// Calendar scheduling support 
-$server->addPlugin(
-    new Sabre\CalDAV\Schedule\Plugin()
-);
-
-$server->addPlugin(
-    new Sabre\CalDAV\Schedule\IMipPlugin('philippe.logel@imathgeo.com')
-);
-
-// WebDAV-Sync plugin 
-$server->addPlugin(new Sabre\DAV\Sync\Plugin());
-
-// CalDAV Sharing support 
-$server->addPlugin(new Sabre\DAV\Sharing\Plugin());
-$server->addPlugin(new Sabre\CalDAV\SharingPlugin());
-
-// the ICS export
-$icsPlugin = new \Sabre\CalDAV\ICSExportPlugin();
-$server->addPlugin($icsPlugin);
-
-// Support for html frontend
+// Support for html frontend : normally this had to be removed
 if (SystemConfig::getBooleanValue('bEnabledDavWebBrowser') ) {
   $browser = new Sabre\DAV\Browser\Plugin();
   $server->addPlugin($browser);
