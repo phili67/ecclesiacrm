@@ -1133,53 +1133,62 @@ $bOkToEdit = ($_SESSION['user']->isEditRecordsEnabled() ||
         </div>
       </div>
       <?php 
-        if ($_SESSION['user']->isFinanceEnabled() && !is_null ($person->getFamily()) ) {
+        if ($_SESSION['user']->isFinanceEnabled() ) {
       ?>
        <div role="tab-pane fade" class="tab-pane" id="finance">
           <div class="main-box clearfix">
               <div class="main-box-body clearfix">
               <?php 
-                if ($ormAutoPayments->count() > 0) {
+                if ($ormAutoPayments->count() > 0 && !is_null ($person->getFamily())) {
               ?>    
                   <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-              <?php
-                } 
-              ?>
                   <p align="center">
                       <a class="btn btn-primary"
                          href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
                   </p>
+              <?php
+                } else {
+              ?>
+                <?= _("You must set an address for this person") ?>
+              <?php
+                }
+              ?>
               </div>
           </div>
         </div>
         <div role="tab-pane fade" class="tab-pane" id="pledges">
           <div class="main-box clearfix">
               <div class="main-box-body clearfix">
+                <?php
+                  $tog = 0;
+
+                  if ( ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) && !is_null ($person->getFamily())) {
+                ?>
                   <input type="checkbox" name="ShowPledges" id="ShowPledges" value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= gettext("Show Pledges") ?>
                   <input type="checkbox" name="ShowPayments" id="ShowPayments" value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
                   <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
                   <input type="text" Name="Min" id="Min" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">                       
                   <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
                   <input type="text" Name="Max" id="Max" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
-                <?php
-                  $tog = 0;
 
-                  if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {
-                ?>
                   <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
-                <?php
-                  } // if bShowPledges
-                ?>
-                    
                   <p align="center">
                       <a class="btn btn-primary"
                          href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
                       <a class="btn btn-default"
                          href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
                   </p>
+                <?php
+                  } else {
+                ?>
+                   <?= _("You must set an address for this person") ?>
+                <?php
+                  }
+                ?>
+                    
 
               <?php 
-                if ($_SESSION['user']->isCanvasserEnabled()) {
+                if ($_SESSION['user']->isCanvasserEnabled()  && !is_null ($person->getFamily())) {
               ?>
                   <p align="center">
                       <a class="btn btn-default"
