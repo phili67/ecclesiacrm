@@ -63,7 +63,7 @@ require '../Include/Header.php';
       }
     ?>
     <?php 
-      if ($_SESSION['bExportCSV'] || $_SESSION['bExportSundaySchoolCSV'] || SessionUser::getUser()->isAdmin()) { 
+      if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) { 
     ?>
      <a href="SundaySchoolClassListExport.php" class="btn btn-app"
        title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i

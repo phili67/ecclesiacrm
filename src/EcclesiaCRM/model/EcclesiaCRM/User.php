@@ -15,7 +15,6 @@ use EcclesiaCRM\PrincipalsQuery;
 use EcclesiaCRM\Principals;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserConfigQuery;
-use EcclesiaCRM\SessionUser;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\DAV\Sharing;
@@ -489,47 +488,47 @@ class User extends BaseUser
     
     public function isEmailEnabled()
     {
-        return $this->isEnabledSecurity('bEmailMailto');
+        return $this->getUserConfigString('bEmailMailto');
     }
     
     public function isExportSundaySchoolCSVEnabled()
     {
-        return $this->isEnabledSecurity('bExportSundaySchoolCSV');
+        return $this->getUserConfigString('bExportSundaySchoolCSV');
     }
     
     public function isExportSundaySchoolPDFEnabled()
     {
-        return $this->isEnabledSecurity('bExportSundaySchoolPDF');
+        return $this->getUserConfigString('bExportSundaySchoolPDF');
     }
     
     public function isCreateDirectoryEnabled()
     {
-        return $this->isEnabledSecurity('bCreateDirectory');
+        return $this->getUserConfigString('bCreateDirectory');
     }
 
-    public function isCSVExport()
+    public function isCSVExportEnabled()
     {
-        return $this->isEnabledSecurity('bExportCSV');
+        return $this->getUserConfigString('bExportCSV');
     }
 
     public function isUSAddressVerificationEnabled()
     {
-        return $this->isEnabledSecurity('bUSAddressVerification');
+        return $this->getUserConfigString('bUSAddressVerification');
     }
     
     public function isShowTooltipEnabled()
     {
-        return $this->isEnabledSecurity('bShowTooltip');
+        return $this->getUserConfigString('bShowTooltip');
     }
     
     public function isSidebarExpandOnHoverEnabled()
     {
-        return $this->isEnabledSecurity('bSidebarExpandOnHover');
+        return $this->getUserConfigString('bSidebarExpandOnHover');
     }
     
     public function isSidebarCollapseEnabled()
     {
-        return $this->isEnabledSecurity('bSidebarCollapse');
+        return $this->getUserConfigString('bSidebarCollapse');
     }
 
     public function isLocked()
@@ -571,7 +570,7 @@ class User extends BaseUser
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered((is_null($info))?SessionUser::getUser()->getPersonId():$this->getPersonId());
+        $note->setEntered((is_null($info))?$_SESSION['user']->getPersonId():$this->getPersonId());
         $note->setType('user');
 
         switch ($type) {

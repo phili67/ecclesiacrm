@@ -91,7 +91,7 @@ require '../Include/Header.php';
     }
     $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-    if ($bEmailMailto) { // Does user have permission to email groups
+    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
       // Display link
       ?>
       <div class="btn-group">
@@ -133,7 +133,7 @@ require '../Include/Header.php';
     }
   ?>
   <?php 
-  if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && ($_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'])) ) {
+  if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) ) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php

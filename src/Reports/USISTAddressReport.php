@@ -15,9 +15,10 @@ require '../Include/ReportFunctions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_AddressReport;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // If user does not have permission redirect to the menu.
-if (!SystemConfig::getValue('bUSAddressVerification')) {
+if (!SessionUser::getUser()->isUSAddressVerificationEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

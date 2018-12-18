@@ -328,7 +328,7 @@ use EcclesiaCRM\SessionUser;
     //Enable sidebar expand on hover effect for sidebar mini
     //This option is forced to true if both the fixed layout and sidebar mini
     //are used together
-    sidebarExpandOnHover: <?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
+    sidebarExpandOnHover: <?= (SessionUser::getUser()->isSidebarExpandOnHoverEnabled())?"true":"false" ?>,
     //BoxRefresh Plugin
     enableBoxRefresh: true,
     //Bootstrap.js tooltip

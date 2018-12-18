@@ -19,7 +19,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 
 
 // If user does not have CSV Export permission, redirect to the menu.
-if (!$bExportCSV) {
+if (!SessionUser::getUser()->isCSVExportEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

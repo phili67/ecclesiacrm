@@ -376,6 +376,20 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       ?>
 
       <?php
+       if ( SessionUser::getUser()->isEmailEnabled() ) {
+          $emails = "";
+          foreach ($family->getActivatedPeople() as $person) {
+            $emails .= $person->getEmail().$sMailtoDelimiter;
+          }
+          
+           $emails = mb_substr($emails, 0, -1)
+      ?>
+          <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
+          <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+      <?php
+       }
+      ?>
+      <?php
         if (SessionUser::getUser()->isAdmin()) {
       ?>
       <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
@@ -405,20 +419,6 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
       <?php
         } 
-      ?>
-      <?php       
-       if ( $_SESSION['bEmailMailto'] && $family->containsMember(SessionUser::getUser()->getPersonId()) ) {
-          $emails = "";
-          foreach ($family->getActivatedPeople() as $person) {
-            $emails .= $person->getEmail().$sMailtoDelimiter;
-          }
-          
-           $emails = mb_substr($emails, 0, -1)
-      ?>
-          <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
-          <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
-      <?php
-       }
       ?>
       <?php 
          if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
