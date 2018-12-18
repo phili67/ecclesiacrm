@@ -16,13 +16,14 @@ require 'Include/CanvassUtilities.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
 $sPageTitle = gettext('Canvass Automation');
 
 // Security: User must have canvasser permission to use this form
-if (!$_SESSION['user']->isCanvasserEnabled()) {
+if (!SessionUser::getUser()->isCanvasserEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

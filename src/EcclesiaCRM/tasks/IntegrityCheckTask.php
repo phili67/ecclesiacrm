@@ -3,6 +3,7 @@
 namespace EcclesiaCRM\Tasks;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 
 class IntegrityCheckTask implements iTask
@@ -18,7 +19,7 @@ class IntegrityCheckTask implements iTask
 
   public function isActive()
   {
-    return $_SESSION['user']->isAdmin() && ($this->integrityCheckData == null || $this->integrityCheckData->status == 'failure');
+    return SessionUser::getUser()->isAdmin() && ($this->integrityCheckData == null || $this->integrityCheckData->status == 'failure');
   }
 
   public function isAdmin()

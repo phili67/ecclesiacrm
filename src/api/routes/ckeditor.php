@@ -15,6 +15,7 @@ use EcclesiaCRM\CKEditorTemplatesQuery;
 use EcclesiaCRM\CKEditorTemplates;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Note;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/ckeditor', function () {
     // search person by Name
@@ -152,7 +153,7 @@ CKEDITOR.addTemplates( 'default',
             $note->setPrivate(1);
             $note->setText($userName . $currentpath . $input->title.".docx");
             $note->setType('file');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setInfo(gettext('Create file'));
           
             $note->save();

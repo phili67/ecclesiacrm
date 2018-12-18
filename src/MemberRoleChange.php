@@ -14,10 +14,11 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must have Manage Groups & Roles permission
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
+if (!SessionUser::getUser()->isManageGroupsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

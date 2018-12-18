@@ -6,10 +6,11 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -35,7 +36,7 @@ switch ($mode) {
 
   case Envelope2Address:
     // Security check
-    if (!$_SESSION['user']->isFinanceEnabled()) {
+    if (!SessionUser::getUser()->isFinanceEnabled()) {
         exit;
     }
 

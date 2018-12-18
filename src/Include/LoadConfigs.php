@@ -35,6 +35,7 @@ use Monolog\Logger;
 use Propel\Runtime\Connection\ConnectionManagerSingle;
 use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\SessionUser;
 
 
 function system_failure($message, $header = 'Setup failure')
@@ -161,11 +162,11 @@ $ormLogger->pushHandler(new StreamHandler(LoggerUtils::buildLogFilePath("orm"), 
 $serviceContainer->setLogger('defaultLogger', $ormLogger);
 
 
-if (isset($_SESSION['user'])) {      // Not set on Login.php
+if (!is_null(SessionUser::getUser())) {      // Not set on Login.php
     // Load user variables from user config table.
     // **************************************************
     $sSQL = 'SELECT ucfg_name, ucfg_value AS value '
-        ."FROM userconfig_ucfg WHERE ucfg_per_ID='".$_SESSION['user']->getPersonId()."'";
+        ."FROM userconfig_ucfg WHERE ucfg_per_ID='".SessionUser::getUser()->getPersonId()."'";
     $rsConfig = mysqli_query($cnInfoCentral, $sSQL);     // Can't use RunQuery -- not defined yet
     if ($rsConfig) {
         while (list($ucfg_name, $value) = mysqli_fetch_row($rsConfig)) {

@@ -18,9 +18,10 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security
-if (!$_SESSION['user']->isAdmin()) {
+if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

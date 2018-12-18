@@ -26,6 +26,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\SessionUser;
 
 $iTenThousand = 10000;  // Constant used to offset negative choices in drop down lists
 
@@ -118,7 +119,7 @@ $_SESSION['bSearchFamily'] = ($sMode != 'person');
 
 if (array_key_exists('Number', $_GET)) {
     $_SESSION['SearchLimit'] = InputUtils::LegacyFilterInput($_GET['Number'], 'int');
-    $tmpUser = UserQuery::create()->findPk($_SESSION['user']->getPersonId());
+    $tmpUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
     $tmpUser->setSearchLimit($_SESSION['SearchLimit']);
     $tmpUser->save();
 }
@@ -493,7 +494,7 @@ require 'Include/Header.php';
 
 
 <?php 
-  if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
+  if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
 ?>
 <div class="box box-primary">
     <div class="box-header  with-border">
@@ -730,7 +731,7 @@ if ($iMode == 1) {
         <input type="button" class="btn btn-info btn-sm" value="<?= gettext('Clear Filters') ?>" onclick="javascript:document.location='SelectList.php?mode=<?= $sMode ?>&amp;Sort=<?= $sSort ?>&amp;type=<?= $iGroupTypeMissing ?>'"><BR><BR>
 
         <?php
-        if ( $_SESSION['user']->isShowCartEnabled() ) {
+        if ( SessionUser::getUser()->isShowCartEnabled() ) {
         ?>
         <a id="AddAllToCart" class="btn btn-primary btn-sm" ><?= gettext('Add All to Cart') ?></a>
         <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm" value="<?= gettext('Intersect with Cart') ?>">&nbsp;
@@ -1130,7 +1131,7 @@ if (!isset($sPersonColumn5)) {
   </th>
   <th>
   <?php
-  if ($_SESSION['user']->isEditRecordsEnabled()) {
+  if (SessionUser::getUser()->isEditRecordsEnabled()) {
       echo gettext('Edit');
   }
   ?>
@@ -1245,7 +1246,7 @@ if (!isset($sPersonColumn5)) {
 
       echo '<td>';
     
-      if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
+      if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
     
         if ($fam_Name != '') {
             echo '<a href="FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
@@ -1257,7 +1258,7 @@ if (!isset($sPersonColumn5)) {
       }
     
       echo '<td>';
-      if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
+      if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
         // Phone number or zip code
         if ($sPersonColumn5 == 'Home Phone') {
             echo SelectWhichInfo(ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy),
@@ -1281,7 +1282,7 @@ if (!isset($sPersonColumn5)) {
       ?>
     </td>
       <td>
-    <?php if ($_SESSION['user']->isEditRecordsEnabled()) {
+    <?php if (SessionUser::getUser()->isEditRecordsEnabled()) {
           ?>
       <a href="PersonEditor.php?PersonID=<?= $per_ID ?>">
           <span class="fa-stack">
@@ -1295,7 +1296,7 @@ if (!isset($sPersonColumn5)) {
     <td>
     <?php 
       if (!isset($_SESSION['aPeopleCart']) || !in_array($per_ID, $_SESSION['aPeopleCart'], false)) {
-        if ($_SESSION['user']->isShowCartEnabled()) {
+        if (SessionUser::getUser()->isShowCartEnabled()) {
     ?>
         <a class="AddToPeopleCart" data-cartpersonid="<?= $per_ID ?>">
       <?php
@@ -1304,10 +1305,10 @@ if (!isset($sPersonColumn5)) {
       
       <span class="fa-stack">
           <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-stack-1x fa-inverse <?= ($_SESSION['user']->isShowCartEnabled())?'fa-cart-plus':'fa-question' ?>"></i>
+          <i class="fa fa-stack-1x fa-inverse <?= (SessionUser::getUser()->isShowCartEnabled())?'fa-cart-plus':'fa-question' ?>"></i>
       </span>
       <?php
-        if ($_SESSION['user']->isShowCartEnabled()) {
+        if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
           </a>
       <?php
@@ -1318,7 +1319,7 @@ if (!isset($sPersonColumn5)) {
       } else {
           ?>
       <?php
-        if ($_SESSION['user']->isShowCartEnabled()) {
+        if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
       <a class="RemoveFromPeopleCart" data-cartpersonid="<?= $per_ID ?>">
       <?php
@@ -1329,7 +1330,7 @@ if (!isset($sPersonColumn5)) {
                   <i class="fa fa-remove fa-stack-1x fa-inverse"></i>
               </span>
       <?php
-        if ($_SESSION['user']->isShowCartEnabled()) {
+        if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
           </a>
       <?php
@@ -1341,7 +1342,7 @@ if (!isset($sPersonColumn5)) {
     ?>
     <td>
   <?php
-   if($_SESSION['user']->isSeePrivacyDataEnabled()) {
+   if(SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       if ($iMode == 1) {
     ?>
             <a href="PrintView.php?PersonID=<?= $per_ID ?>">

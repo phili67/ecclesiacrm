@@ -20,12 +20,13 @@ use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get the Group from the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
-$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
   
 $is_group_manager = false;
 
@@ -34,7 +35,7 @@ if (!empty($manager)) {
 }
 
 // Security: user must be allowed to edit records to use this page.
-if ( !($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
+if ( !(SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

@@ -21,12 +21,13 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
-if ( !($_SESSION['user']->isEditRecordsEnabled() ||
-    ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ) ) {
+if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
+    (SessionUser::getUser()->isEditSelfEnabled() && $iPersonID == SessionUser::getUser()->getPersonId()) ) ) {
   RedirectUtils::Redirect('Menu.php');
   exit;
 }
@@ -63,7 +64,7 @@ $sSQL = $sSQL.'FROM note_nte ';
 $sSQL = $sSQL.'LEFT JOIN person_per a ON nte_EnteredBy = a.per_ID ';
 $sSQL = $sSQL.'LEFT JOIN person_per b ON nte_EditedBy = b.per_ID ';
 $sSQL = $sSQL.'WHERE nte_per_ID = '.$iPersonID.' ';
-$sSQL = $sSQL.'AND (nte_Private = 0 OR nte_Private = '.$_SESSION['user']->getPersonId().')';
+$sSQL = $sSQL.'AND (nte_Private = 0 OR nte_Private = '.SessionUser::getUser()->getPersonId().')';
 $rsNotes = RunQuery($sSQL);
 
 // Get the Groups this Person is assigned to
@@ -497,7 +498,7 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
     echo '</table>';
 }
 
-if ($_SESSION['user']->isNotesEnabled()) {
+if (SessionUser::getUser()->isNotesEnabled()) {
     echo '<p><b>'.gettext('Notes:').'</b></p>';
 
     // Loop through all the notes

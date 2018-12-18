@@ -19,11 +19,13 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 
-if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
+if ( !(SessionUser::getUser()->isPastoralCareEnabled()) ) {
   RedirectUtils::Redirect('Menu.php');
   exit;
 }
@@ -65,7 +67,7 @@ $sSQL = $sSQL.'FROM note_nte ';
 $sSQL = $sSQL.'LEFT JOIN person_per a ON nte_EnteredBy = a.per_ID ';
 $sSQL = $sSQL.'LEFT JOIN person_per b ON nte_EditedBy = b.per_ID ';
 $sSQL = $sSQL.'WHERE nte_per_ID = '.$iPersonID.' ';
-$sSQL = $sSQL.'AND (nte_Private = 0 OR nte_Private = '.$_SESSION['user']->getPersonId().')';
+$sSQL = $sSQL.'AND (nte_Private = 0 OR nte_Private = '.SessionUser::getUser()->getPersonId().')';
 $rsNotes = RunQuery($sSQL);
 
 // Get the Groups this Person is assigned to
@@ -490,9 +492,9 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
     echo '</table>';
 }
 
-$currentPastorId = $_SESSION['user']->getPerson()->getID();
+$currentPastorId = SessionUser::getUser()->getPerson()->getID();
 
-if ($_SESSION['user']->isPastoralCareEnabled()) {
+if (SessionUser::getUser()->isPastoralCareEnabled()) {
   echo '<br><br><p style="text-transform: uppercase;font-size:24px"><b>'.gettext('Pastoral Care').'</b></p>';
   
   if ($ormPastoralCares->count() > 0) {

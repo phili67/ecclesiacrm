@@ -11,6 +11,7 @@ use EcclesiaCRM\EventAttend;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\SessionUser;
 
 
 class Cart
@@ -234,7 +235,7 @@ class Cart
   public static function DeletePersonArray(&$personsID)
   {
     foreach ($personsID as $key => $personID) {
-      if ($_SESSION['user']->getId() != $personID && $personID != 1) {
+      if (SessionUser::getUser()->getId() != $personID && $personID != 1) {
         $user = UserQuery::create()
               ->findOneByPersonId($personID);
 
@@ -334,7 +335,7 @@ class Cart
             $eventAttent = new EventAttend();
         
             $eventAttent->setEventId($eventID);
-            $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
             $eventAttent->setCheckinDate(date("Y-m-d H:i:s"));
             $eventAttent->setPersonId($_SESSION['aPeopleCart'][$element['key']]);
             $eventAttent->save();

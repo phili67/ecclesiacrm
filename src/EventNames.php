@@ -28,8 +28,9 @@ use EcclesiaCRM\EventCountName;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
-if ( !$_SESSION['user']->isAdmin() ) {
+if ( !SessionUser::getUser()->isAdmin() ) {
     RedirectUtils::Redirect('Menu.php');
 }
 

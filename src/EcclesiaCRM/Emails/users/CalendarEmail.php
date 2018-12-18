@@ -6,6 +6,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\User;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
 
 class CalendarEmail extends BaseUserEmail
 {
@@ -44,7 +45,7 @@ class CalendarEmail extends BaseUserEmail
             "churchCRMURL" => SystemURLs::getURL(),
             "dear" => SystemConfig::getValue('sDear'),
             "confirmSincerely" => SystemConfig::getValue('sConfirmSincerely'),
-            "confirmSigner" => $_SESSION['user']->getPerson()->getFullName(),
+            "confirmSigner" => SessionUser::getUser()->getPerson()->getFullName(),
             "unsubscribeStart" => SystemConfig::getValue('sUnsubscribeStart'),
             "unsubscribeEnd" => SystemConfig::getValue('sUnsubscribeEnd'),
         ];

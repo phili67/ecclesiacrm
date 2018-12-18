@@ -14,9 +14,10 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Reports\PDF_RealAttendance;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 //Security
-if (!isset($_SESSION['user'])) {
+if (is_null(SessionUser::getUser())) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

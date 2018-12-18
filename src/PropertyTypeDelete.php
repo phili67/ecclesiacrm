@@ -18,9 +18,10 @@ use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have property and classification editing permission
-if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

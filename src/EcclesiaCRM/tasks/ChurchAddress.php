@@ -3,11 +3,12 @@
 namespace EcclesiaCRM\Tasks;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 class ChurchAddress implements iTask
 {
   public function isActive(){
-    return $_SESSION['user']->isAdmin() && empty(SystemConfig::getValue('sChurchAddress'));
+    return SessionUser::getUser()->isAdmin() && empty(SystemConfig::getValue('sChurchAddress'));
   }
   public function isAdmin(){
     return true;

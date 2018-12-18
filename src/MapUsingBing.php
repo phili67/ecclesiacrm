@@ -23,6 +23,7 @@ use EcclesiaCRM\Map\ListOptionIconTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\EventQuery;
 
@@ -79,7 +80,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
     $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
     // get all the calendars for the current user
     
-    $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",false);
+    $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
     
     $eventsArr = [];
     
@@ -108,7 +109,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
     if ($iGroupID > 0) {
        // security test
-       $currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+       $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
             
        if ($currentUserBelongToGroup == 0) {
           RedirectUtils::Redirect('Menu.php');
@@ -128,7 +129,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
             ->find();
         }
     } else {
-      if ( !($_SESSION['user']->isShowMapEnabled()) ) {
+      if ( !(SessionUser::getUser()->isShowMapEnabled()) ) {
           RedirectUtils::Redirect('Menu.php');
       }
        

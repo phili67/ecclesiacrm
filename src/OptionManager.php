@@ -29,6 +29,7 @@ use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 $mode = trim($_GET['mode']);
 
@@ -38,7 +39,7 @@ $listID = 0;
 switch ($mode) {
     case 'famroles':
     case 'classes':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -65,10 +66,10 @@ switch ($mode) {
         }
          
         if ($iGroupID > 0) {
-          $manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+          $manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
         }
 
-        if (!($_SESSION['user']->isManageGroupsEnabled() || !empty($manager) ) ) {
+        if (!(SessionUser::getUser()->isManageGroupsEnabled() || !empty($manager) ) ) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -77,7 +78,7 @@ switch ($mode) {
     case 'custom':
     case 'famcustom':
     case 'securitygrp':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }

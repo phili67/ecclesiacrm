@@ -5,6 +5,7 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\dto\SystemConfig;
 use \DrewM\MailChimp\MailChimp;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\SessionUser;
 
 class ListEmailFilter {
   private $email;
@@ -163,8 +164,8 @@ class MailChimpService
       $marketing_permissions = SystemConfig::getBooleanValue('bGDPR'); //Whether or not the list has marketing permissions (eg. GDPR) enabled.
       
       // contact
-      $from_name             = $_SESSION['user']->getPerson()->getFullName();
-      $from_email            = ( !empty ( $_SESSION['user']->getPerson()->getEmail() ) )?$_SESSION['user']->getPerson()->getEmail():$_SESSION['user']->getPerson()->getWorkEmail();
+      $from_name             = SessionUser::getUser()->getPerson()->getFullName();
+      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
@@ -338,8 +339,8 @@ class MailChimpService
       }
     }
     public function createCampaign ($list_id, $subject, $title, $htmlBody) {
-      $from_name             = $_SESSION['user']->getPerson()->getFullName();
-      $from_email            = ( !empty ( $_SESSION['user']->getPerson()->getEmail() ) )?$_SESSION['user']->getPerson()->getEmail():$_SESSION['user']->getPerson()->getWorkEmail();
+      $from_name             = SessionUser::getUser()->getPerson()->getFullName();
+      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }

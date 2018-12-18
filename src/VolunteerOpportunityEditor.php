@@ -13,12 +13,13 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have proper permission
 // For now ... require $bAdmin
 // Future ... $bManageVol
 
-if ( !( $_SESSION['user']->isMenuOptionsEnabled() && $_SESSION['user']->isCanvasserEnabled() ) ) {
+if ( !( SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled() ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -29,7 +30,7 @@ $sPageTitle = gettext('Volunteer Opportunity Editor');
 require 'Include/Header.php';
 ?>
 
-<?php if ($_SESSION['user']->isCanvasserEnabled()) {// only an admin can modify the options
+<?php if (SessionUser::getUser()->isCanvasserEnabled()) {// only an admin can modify the options
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-volunteer-opportunity"><?= gettext("Add Volunteer Opportunity") ?></button></p>
 <?php 

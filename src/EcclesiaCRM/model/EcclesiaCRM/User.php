@@ -15,6 +15,7 @@ use EcclesiaCRM\PrincipalsQuery;
 use EcclesiaCRM\Principals;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\SessionUser;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\DAV\Sharing;
@@ -527,7 +528,7 @@ class User extends BaseUser
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered((is_null($info))?$_SESSION['user']->getPersonId():$this->getPersonId());
+        $note->setEntered((is_null($info))?SessionUser::getUser()->getPersonId():$this->getPersonId());
         $note->setType('user');
 
         switch ($type) {

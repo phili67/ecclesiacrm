@@ -10,6 +10,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 // Set the page title
 $sPageTitle = gettext('People Dashboard');
@@ -115,7 +116,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     <br/>
     <a href="FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= gettext('All Families') ?></a>
     <?php
-      if ($_SESSION['user']->isShowMapEnabled()) {
+      if (SessionUser::getUser()->isShowMapEnabled()) {
     ?>
       <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= gettext('Family Geographic') ?></a>
     <?php

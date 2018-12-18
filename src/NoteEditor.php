@@ -20,10 +20,10 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
-
-$iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
+$iCurrentFamID = SessionUser::getUser()->getPerson()->getFamId();
 
 $uploadEDrive = false;
 
@@ -42,7 +42,7 @@ if (isset($_GET['PersonID'])) {
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!($_SESSION['user']->isNotesEnabled() || $_GET['PersonID'] == $_SESSION['user']->getPersonId() || $iCurrentFamID == $iFamily)) {
+if (!(SessionUser::getUser()->isNotesEnabled() || $_GET['PersonID'] == SessionUser::getUser()->getPersonId() || $iCurrentFamID == $iFamily)) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -123,7 +123,7 @@ if (isset($_POST['Submit'])) {
             $note->setPrivate($bPrivate);
             $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setInfo(gettext('Create file'));
             
             $note->save();
@@ -145,7 +145,7 @@ if (isset($_POST['Submit'])) {
             $note->setPrivate($bPrivate);
             $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setInfo(gettext('Create file'));
             
             $note->save();          }
@@ -173,7 +173,7 @@ if (isset($_POST['Submit'])) {
           $note->setTitle($_POST['noteTitle']);
           $note->setText($sNoteText);
           $note->setType($_POST['noteType']);
-          $note->setEntered($_SESSION['user']->getPersonId());
+          $note->setEntered(SessionUser::getUser()->getPersonId());
 
           $note->setCurrentEditedBy(0);
           $note->setCurrentEditedDate(NULL);          
@@ -183,7 +183,7 @@ if (isset($_POST['Submit'])) {
           $note->setPrivate($bPrivate);
           $note->setText($sNoteText);
           $note->setDateLastEdited(new DateTime());
-          $note->setEditedBy($_SESSION['user']->getPersonId());
+          $note->setEditedBy(SessionUser::getUser()->getPersonId());
           $note->setType($_POST['noteType']);
           $note->setTitle($_POST['noteTitle']);
           

@@ -19,9 +19,10 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have property and classification editing permission
-if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

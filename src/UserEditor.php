@@ -30,11 +30,12 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must be an Admin to access this page.
 // Otherwise re-direct to the main menu.
-if (!$_SESSION['user']->isAdmin()) {
+if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

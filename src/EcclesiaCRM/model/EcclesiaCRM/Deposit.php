@@ -15,6 +15,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\utils\MiscUtils;
+use EcclesiaCRM\SessionUser;
 
 use DateTime;
 use DateTimeZone;
@@ -541,7 +542,7 @@ class Deposit extends BaseDeposit
             $pledge->setFyid($autoPayement->getFyid());
             $pledge->setComment("");
             $pledge->setScanstring("");
-            $pledge->setEditedby($_SESSION['user']->getId());
+            $pledge->setEditedby(SessionUser::getUser()->getId());
             $pledge->setFundid($fund->getId());
 
             $sGroupKey = $autoPayement->getId()."|0|".$autoPayement->getFamilyid()."|".$fund->getId()."|".$date->format('Y-m-d');

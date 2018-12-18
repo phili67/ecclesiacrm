@@ -23,6 +23,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\SessionUser;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('Church Calendar');
@@ -97,7 +98,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['user']->isSeePrivacyDataEnabled()) { 
+                         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) { 
                         ?>
                        <input data-size="mini" id="isBirthdateActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Birthdate") ?>" data-off="<?= gettext("Birthdate") ?>" data-onstyle="danger">
                        <?php 
@@ -106,7 +107,7 @@ $eventTypes = EventTypesQuery::Create()
                      </td>
                      <td align="center">
                        <?php 
-                         if ($_SESSION['user']->isSeePrivacyDataEnabled()) { 
+                         if (SessionUser::getUser()->isSeePrivacyDataEnabled()) { 
                         ?>
                        <input data-size="mini" id="isAnniversaryActive" type="checkbox" checked data-toggle="toggle" data-on="<?= gettext("Wedding") ?>" data-off="<?= gettext("Wedding") ?>">
                        <?php 
@@ -154,14 +155,14 @@ $eventTypes = EventTypesQuery::Create()
                       <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
-                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= gettext("Resources").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
+                            <i class="fa fa-building"></i>&nbsp;<i class="fa fa-windows"></i>&nbsp;<i class="fa fa-video-camera"></i>&nbsp;<?= gettext("Resources").(!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" class="collapsed" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>
                          </a>
                          <i class="fa pull-right fa-gear" data-toggle="tooltip" data-placement="left" data-original-title="<?= gettext("Exclude/include Resource") ?>" style="font-size: 1em" style="color:gray;margin-right:10px;" id="manage-all-reservation"></i>&nbsp;
                          <?php
-                           if ($_SESSION['user']->isAdmin()) {
+                           if (SessionUser::getUser()->isAdmin()) {
                          ?>
                          <i class="fa pull-right fa-plus" data-toggle="tooltip" data-placement="left" data-original-title="<?= gettext("Add New Resource Calendar") ?>" style="font-size: 1em" style="color:gray;margin-right:10px;" id="add-reservation-calendar"></i>&nbsp;
                          <?php
@@ -186,7 +187,7 @@ $eventTypes = EventTypesQuery::Create()
                     <div class="panel-heading">
                        <h1 class="panel-title" style="line-height:0.6;font-size: 1em">
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
-                            <i class="fa fa-users"></i><?= !($_SESSION['user']->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= gettext("Groups").(!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
+                            <i class="fa fa-users"></i><?= !(SessionUser::getUser()->isManageGroupsEnabled())?'&nbsp;<i class="fa  fa-share"></i>&nbsp;':"&nbsp;"?><?= gettext("Groups").(!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())?"  (".gettext("Shared").")":"") ?> 
                          </a>
                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" class="" style="width:100%">
                             <i class="fa pull-right fa-chevron-down" style="font-size: 0.6em"></i>

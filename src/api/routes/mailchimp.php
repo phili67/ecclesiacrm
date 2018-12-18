@@ -17,6 +17,8 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
+
 
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -201,7 +203,7 @@ function searchList ($request,$response,$args) {
 }
 
 function oneList (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -228,7 +230,7 @@ function lists(Request $request, Response $response, array $args) {
 }
 
 function listmembers (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -239,7 +241,7 @@ function listmembers (Request $request, Response $response, array $args) {
 
 function createList (Request $request, Response $response, array $args) {
 
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -263,7 +265,7 @@ function createList (Request $request, Response $response, array $args) {
 }
 
 function modifyList (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -287,7 +289,7 @@ function modifyList (Request $request, Response $response, array $args) {
 }
 
 function deleteallsubscribers(Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -311,7 +313,7 @@ function deleteallsubscribers(Request $request, Response $response, array $args)
 }
 
 function deleteList (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -335,7 +337,7 @@ function deleteList (Request $request, Response $response, array $args) {
 }
 
 function campaignCreate (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -359,7 +361,7 @@ function campaignCreate (Request $request, Response $response, array $args) {
 }
 
 function campaignDelete (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
   
@@ -382,7 +384,7 @@ function campaignDelete (Request $request, Response $response, array $args) {
 }
 
 function campaignSend (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
   
@@ -405,7 +407,7 @@ function campaignSend (Request $request, Response $response, array $args) {
 }
 
 function campaignSave (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
   
@@ -428,7 +430,7 @@ function campaignSave (Request $request, Response $response, array $args) {
 }
 
 function campaignContent (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -447,7 +449,7 @@ function campaignContent (Request $request, Response $response, array $args) {
 }
     
 function statusList (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -471,7 +473,7 @@ function statusList (Request $request, Response $response, array $args) {
 }
     
 function suppress (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -495,7 +497,7 @@ function suppress (Request $request, Response $response, array $args) {
 }
 
 function addallnewsletterpersons (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -543,7 +545,7 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
 }
 
 function addallpersons(Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -582,7 +584,7 @@ function addallpersons(Request $request, Response $response, array $args) {
 }
 
 function addPerson(Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -609,7 +611,7 @@ function addPerson(Request $request, Response $response, array $args) {
 }
 
 function addFamily (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 
@@ -638,7 +640,7 @@ function addFamily (Request $request, Response $response, array $args) {
 }
 
 function addGroup (Request $request, Response $response, array $args) {
-  if (!$_SESSION['user']->isMailChimpEnabled()) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
   }
 

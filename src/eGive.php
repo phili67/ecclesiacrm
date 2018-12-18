@@ -14,9 +14,10 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -230,7 +231,7 @@ if (isset($_POST['ApiGet'])) {
         $doUpdate = $_POST['MissingEgive_Set_'.$nameWithUnderscores];
         if ($famID) {
             if ($doUpdate) {
-                $sSQL = "INSERT INTO egive_egv (egv_egiveID, egv_famID, egv_DateEntered, egv_EnteredBy) VALUES ('".$egiveID."','".$famID."','".date('YmdHis')."','".$_SESSION['user']->getPersonId()."');";
+                $sSQL = "INSERT INTO egive_egv (egv_egiveID, egv_famID, egv_DateEntered, egv_EnteredBy) VALUES ('".$egiveID."','".$famID."','".date('YmdHis')."','".SessionUser::getUser()->getPersonId()."');";
                 RunQuery($sSQL);
             }
 
@@ -286,7 +287,7 @@ function updateDB($famID, $transId, $date, $name, $amount, $fundId, $comment, $f
     if ($eGiveExisting && array_key_exists($keyExisting, $eGiveExisting)) {
         ++$importNoChange;
     } elseif ($famID) { //  insert a new record
-        $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_NonDeductible, plg_GroupKey) VALUES ('".$famID."','".$iFYID."','".$date."','".$amount."','".$frequency."','EGIVE','".$comment."','".date('YmdHis')."',".$_SESSION['user']->getPersonId().",'Payment',".$fundId.",'".$iDepositSlipID."','".$transId."','0','".$groupKey."')";
+        $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_NonDeductible, plg_GroupKey) VALUES ('".$famID."','".$iFYID."','".$date."','".$amount."','".$frequency."','EGIVE','".$comment."','".date('YmdHis')."',".SessionUser::getUser()->getPersonId().",'Payment',".$fundId.",'".$iDepositSlipID."','".$transId."','0','".$groupKey."')";
         ++$importCreated;
         RunQuery($sSQL);
     }

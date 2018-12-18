@@ -2,6 +2,7 @@
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\SessionUser;
 use LogicException;
 
 
@@ -22,7 +23,7 @@ $app->group('/roles', function () {
         
         $per_fam_ID = PersonQuery::Create()->findOneById($personId)->getFamId();
         
-        if ( !($_SESSION['user']->isEditRecordsEnabled() || $personId == $_SESSION['user']->getPersonId() || $per_fam_ID == $_SESSION['user']->getPerson()->getFamId() ) ) {
+        if ( !(SessionUser::getUser()->isEditRecordsEnabled() || $personId == SessionUser::getUser()->getPersonId() || $per_fam_ID == SessionUser::getUser()->getPerson()->getFamId() ) ) {
             return $response->withStatus(401);
         }
         

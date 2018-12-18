@@ -17,6 +17,7 @@ use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\GroupService;
+use EcclesiaCRM\SessionUser;
 
 use Sabre\CalDAV;
 use Sabre\CardDAV;
@@ -320,7 +321,7 @@ $app->group('/groups', function () {
                 $note = new Note();
                 $note->setText(gettext("Deleted from group"). ": " . $group->getName());
                 $note->setType("group");
-                $note->setEntered($_SESSION['user']->getPersonId());
+                $note->setEntered(SessionUser::getUser()->getPersonId());
                 $note->setPerId($person->getId());
                 $note->save();
             }
@@ -352,7 +353,7 @@ $app->group('/groups', function () {
         $note = new Note();
         $note->setText(gettext("Added to group"). ": " . $group->getName());
         $note->setType("group");
-        $note->setEntered($_SESSION['user']->getPersonId());
+        $note->setEntered(SessionUser::getUser()->getPersonId());
         $note->setPerId($person->getId());
         $note->save();
         $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()

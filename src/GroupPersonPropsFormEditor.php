@@ -20,6 +20,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get the Group from the querystring
@@ -29,7 +30,7 @@ $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 $person = PersonQuery::Create()->findOneById($iPersonID);
 
 // Security: user must be allowed to edit records to use this page.
-if ( !( $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->getPersonId() == $iPersonID ) ) {
+if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

@@ -15,9 +15,10 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
-if (!($_SESSION['user']->isMailChimpEnabled())) {
+if (!(SessionUser::getUser()->isMailChimpEnabled())) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
