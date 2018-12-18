@@ -15,6 +15,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 // Routes search
 
@@ -195,7 +196,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     }
     
     
-    if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) 
+    if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) 
     {
         //Deposits Search
         if (SystemConfig::getBooleanValue("bSearchIncludeDeposits")) 
@@ -310,7 +311,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         }
         
         //Search PastoralCare
-        if ($_SESSION['user']->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
+        if (SessionUser::getUser()->isPastoralCareEnabled() && SystemConfig::getBooleanValue("bSearchIncludePastoralCare")) {
           try {
             $searchLikeString = '%'.$query.'%';
             $cares = PastoralCareQuery::Create()
@@ -324,10 +325,10 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                      ->orderByDate(Criteria::DESC)
                      ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"));
                      
-            if ($_SESSION['user']->isAdmin()) {
+            if (SessionUser::getUser()->isAdmin()) {
               $cares->find();
             } else {
-              $cares->findByPastorId($_SESSION['user']->getPerson()->getId());
+              $cares->findByPastorId(SessionUser::getUser()->getPerson()->getId());
             }
                    
             if (!is_null($cares)) {

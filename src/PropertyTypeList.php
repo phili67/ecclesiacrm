@@ -17,6 +17,7 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Set the page title
 $sPageTitle = gettext('Property Type List');
@@ -28,7 +29,7 @@ $ormPropertyTypes = PropertyTypeQuery::Create()
   ->groupByPrtName()
   ->find();
 
-if ( !( $_SESSION['user']->isMenuOptionsEnabled() ) ) {
+if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -36,7 +37,7 @@ if ( !( $_SESSION['user']->isMenuOptionsEnabled() ) ) {
 require 'Include/Header.php';
 
 //Display the new property link
-if ( $_SESSION['user']->isMenuOptionsEnabled()) {
+if ( SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
     <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= gettext('Add a New Property Type') ?></a></p>
 <?php
@@ -58,7 +59,7 @@ if ( $_SESSION['user']->isMenuOptionsEnabled()) {
 <thead>
 <tr>
 <?php
-if ( $_SESSION['user']->isMenuOptionsEnabled()) {
+if ( SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
    <th><?= gettext('Action') ?></th>
 <?php
@@ -93,7 +94,7 @@ foreach ($ormPropertyTypes as $ormPropertyType)
    <td></td>
 <?php
     } else {
-      if ($_SESSION['user']->isMenuOptionsEnabled()) {
+      if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?> 
      <td>
        <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php?PropertyTypeID=<?= $ormPropertyType->getPrtId() ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
@@ -121,7 +122,7 @@ foreach ($ormPropertyTypes as $ormPropertyType)
 ?>
     <?= gettext('Sunday School Sub Menu') ?></td>
 <?php
-   if ($_SESSION['user']->isMenuOptionsEnabled()) {
+   if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
     <td></td>
 <?php

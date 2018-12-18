@@ -25,9 +25,10 @@ use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
-if (!$_SESSION['user']->isAdmin()) {
+if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -680,7 +681,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
 
             // Finish up the person_per SQL..
             $sSQLpersonData .= $iClassID.",'".addslashes($sCountry)."',";
-            $sSQLpersonData .= "'".date('YmdHis')."',".$_SESSION['user']->getPersonId();
+            $sSQLpersonData .= "'".date('YmdHis')."',".SessionUser::getUser()->getPersonId();
             $sSQLpersonData .= ')';
 
             $sSQLpersonFields .= 'per_cls_ID, per_Country, per_DateEntered, per_EnteredBy';
@@ -760,7 +761,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                                      '"'.$per_CellPhone.'", '.
                                      '"'.$per_Email.'",'.
                                      '"'.date('YmdHis').'",'.
-                                     '"'.$_SESSION['user']->getPersonId().'", '.
+                                     '"'.SessionUser::getUser()->getPersonId().'", '.
                                      '"0", '.
                                      '"0");';
                     RunQuery($sSQL);
@@ -773,7 +774,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $note->setFamId($famid);
                     $note->setText(gettext('Imported'));
                     $note->setType('create');
-                    $note->setEntered($_SESSION['user']->getPersonId());
+                    $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
                     $sSQL = "INSERT INTO `family_custom` (`fam_ID`) VALUES ('".$famid."')";
                     RunQuery($sSQL);
@@ -851,7 +852,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             $note->setPerId($iPersonID);
             $note->setText(gettext('Imported'));
             $note->setType('create');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
             if ($bHasCustom) {
                 $sSQL = "INSERT INTO `person_custom` (`per_ID`) VALUES ('".$iPersonID."')";

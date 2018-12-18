@@ -13,14 +13,16 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['user']->isAdmin()) {
+if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

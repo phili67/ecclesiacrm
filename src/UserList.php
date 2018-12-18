@@ -23,11 +23,12 @@ use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must be an Admin to access this page.
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['user']->isAdmin()) {
+if (!SessionUser::getUser()->isAdmin()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -103,7 +104,7 @@ if ($usr_role_id == null) {
                 <tr>
                     <td>
                       <?php 
-                         if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
+                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
                       ?>
                         <input type="checkbox" class="checkbox_users checkbox_user<?= $user->getPersonId()?>" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
                       <?php
@@ -112,7 +113,7 @@ if ($usr_role_id == null) {
                     </td>
                     <td>
                         <?php 
-                           if ( $user->getPersonId() != 1 || $user->getId() == $_SESSION['user']->getId() && $user->getPersonId() == 1) {
+                           if ( $user->getPersonId() != 1 || $user->getId() == SessionUser::getUser()->getId() && $user->getPersonId() == 1) {
                         ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
@@ -134,7 +135,7 @@ if ($usr_role_id == null) {
                            }
                           ?>
                         <?php 
-                          if ( $user->getId() != $_SESSION['user']->getId() && $user->getPersonId() != 1 ) {
+                          if ( $user->getId() != SessionUser::getUser()->getId() && $user->getPersonId() != 1 ) {
                         ?>
                             <a onclick="deleteUser(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -181,7 +182,7 @@ if ($usr_role_id == null) {
                     <td>
                         <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                        <?php if ($user->getId() != $_SESSION['user']->getId() && !empty($user->getEmail())) {
+                        <?php if ($user->getId() != SessionUser::getUser()->getId() && !empty($user->getEmail())) {
         ?>
                             <a onclick="resetUserPassword(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
                                 class="fa fa-send-o" aria-hidden="true"></i></a>
@@ -190,7 +191,7 @@ if ($usr_role_id == null) {
                     </td>
                     <td  align="center">
                     <?php 
-                        if ( $user->getPersonId() != 1 && $user->getId() != $_SESSION['user']->getId()) {
+                        if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
                     ?>
                     
                           <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getPerson()->getDateDeactivated() == null)?'green':'red'?>" data-userid="<?= $user->getId()?>">

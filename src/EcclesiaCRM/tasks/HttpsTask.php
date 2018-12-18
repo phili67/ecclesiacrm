@@ -3,11 +3,12 @@
 namespace EcclesiaCRM\Tasks;
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 class HttpsTask implements iTask
 {
   public function isActive(){
-    return $_SESSION['user']->isAdmin() && !isset($_SERVER['HTTPS']);
+    return SessionUser::getUser()->isAdmin() && !isset($_SERVER['HTTPS']);
   }
   public function isAdmin(){
     return true;

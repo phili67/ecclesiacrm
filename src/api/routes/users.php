@@ -12,12 +12,13 @@ use EcclesiaCRM\Person;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\Note;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 
 $app->group('/users', function () {
 
     $this->post('/{userId:[0-9]+}/password/reset', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         $user = UserQuery::create()->findPk($args['userId']);
@@ -38,7 +39,7 @@ $app->group('/users', function () {
     });
         
      $this->post('/applyrole', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         
@@ -60,7 +61,7 @@ $app->group('/users', function () {
     
     
     $this->post('/webdavKey', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         
@@ -78,7 +79,7 @@ $app->group('/users', function () {
     });
     
     $this->post('/lockunlock', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         
@@ -120,7 +121,7 @@ $app->group('/users', function () {
                 $note->setText(gettext('Person Activated'));
             }
             $note->setType('edit');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
 
             return $response->withJson(['success' => true]);
@@ -132,7 +133,7 @@ $app->group('/users', function () {
     
 
     $this->post('/{userId:[0-9]+}/login/reset', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         $user = UserQuery::create()->findPk($args['userId']);
@@ -151,7 +152,7 @@ $app->group('/users', function () {
     });
 
     $this->delete('/{userId:[0-9]+}', function ($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         $user = UserQuery::create()->findPk($args['userId']);

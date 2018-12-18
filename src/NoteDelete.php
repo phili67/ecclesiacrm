@@ -18,6 +18,7 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
@@ -41,11 +42,11 @@ elseif ($note->getFamId() > 0) {
     $sReroute = 'FamilyView.php?FamilyID='.$note->getFamId();
 }
 
-$iCurrentFamID = $_SESSION['user']->getPerson()->getFamId();
+$iCurrentFamID = SessionUser::getUser()->getPerson()->getFamId();
 
 // Security: User must have Notes permission
 // Otherwise, re-direct them to the main menu.
-if (!($_SESSION['user']->isNotesEnabled() || $note->getPerId() == $_SESSION['user']->getPersonId() || $note->getFamId() == $iCurrentFamID)) {
+if (!(SessionUser::getUser()->isNotesEnabled() || $note->getPerId() == SessionUser::getUser()->getPersonId() || $note->getFamId() == $iCurrentFamID)) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

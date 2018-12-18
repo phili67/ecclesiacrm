@@ -18,6 +18,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Emails\CalendarEmail;
+use EcclesiaCRM\SessionUser;
 
 
 use Sabre\CalDAV;
@@ -54,7 +55,7 @@ $app->group('/calendar', function () {
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
         // get all the calendars for the current user present or not
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",true);
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",true);
 
         $return = [];
 
@@ -111,7 +112,7 @@ $app->group('/calendar', function () {
         
         $return = [];
 
-        if ( isset ($params->calIDs) && isset ($params->desc) && isset ($params->type) && $_SESSION['user']->isAdmin() ) { // only an admin can change the calendarinstance description
+        if ( isset ($params->calIDs) && isset ($params->desc) && isset ($params->type) && SessionUser::getUser()->isAdmin() ) { // only an admin can change the calendarinstance description
           $calIDs = explode(",",$params->calIDs);
           
           $calendarInstance = CalendarinstancesQuery::Create()->findOneById( $calIDs[1] );
@@ -160,7 +161,7 @@ $app->group('/calendar', function () {
           $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
 
           // get all the calendars for the current user
-          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),($params->type == 'all')?true:false);
+          $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),($params->type == 'all')?true:false);
 
 
           foreach ($calendars as $calendar) {
@@ -226,13 +227,13 @@ $app->group('/calendar', function () {
           
           $message = "<p><label>".gettext("This address can be used only with a CalDav server.")." ".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
           $message .= "<p><label>".gettext("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
-          if ($_SESSION['user']->isAdmin()) {
+          if (SessionUser::getUser()->isAdmin()) {
             $message .= "<p><label>".gettext("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">".gettext("General Settings/Integration")."</a>.";
           }
           
           $title = $calendar->getDisplayname();
           
-          $isAdmin = ($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())?true:false;
+          $isAdmin = (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())?true:false;
         
           return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin]);
         }
@@ -311,7 +312,7 @@ $app->group('/calendar', function () {
           
           // get all the calendars for the current user
 
-          $returnID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+          $returnID = $calendarBackend->createCalendar('principals/'.strtolower(SessionUser::getUser()->getUserName()), $uuid, [
             '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
             '{DAV:}displayname'                                               => $params->title,
             '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
@@ -338,7 +339,7 @@ $app->group('/calendar', function () {
           
           // get all the calendars for the current user
 
-          $returnID = $calendarBackend->createCalendar('principals/'.strtolower($_SESSION['user']->getUserName()), $uuid, [
+          $returnID = $calendarBackend->createCalendar('principals/'.strtolower(SessionUser::getUser()->getUserName()), $uuid, [
             '{urn:ietf:params:xml:ns:caldav}supported-calendar-component-set' => new CalDAV\Xml\Property\SupportedCalendarComponentSet(['VEVENT']),
             '{DAV:}displayname'                                               => $params->title,
             '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp'         => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),

@@ -19,6 +19,7 @@ use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get the Order, ID, Mode, and Action from the querystring
@@ -33,7 +34,7 @@ $mode = trim($_GET['mode']);
 switch ($mode) {
     case 'famroles':
     case 'classes':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -41,7 +42,7 @@ switch ($mode) {
 
     case 'grptypes':
     case 'grproles':
-        if (!$_SESSION['user']->isManageGroupsEnabled()) {
+        if (!SessionUser::getUser()->isManageGroupsEnabled()) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -49,7 +50,7 @@ switch ($mode) {
 
     case 'custom':
     case 'famcustom':
-    if (!$_SESSION['user']->isAdmin()) {
+    if (!SessionUser::getUser()->isAdmin()) {
         RedirectUtils::Redirect('Menu.php');
         exit;
     }

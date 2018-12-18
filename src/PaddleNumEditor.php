@@ -14,6 +14,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 $iPaddleNumID = InputUtils::LegacyFilterInputArr($_GET, 'PaddleNumID', 'int');
@@ -147,7 +148,7 @@ require 'Include/Header.php';
 		<td align="center">
 			<input type="submit" class="btn" value="<?= gettext('Save') ?>" name="PaddleNumSubmit">
 			<input type="submit" class="btn" value="<?= gettext('Generate Statement') ?>" name="GenerateStatement">
-			<?php if ($_SESSION['user']->isAddRecordsEnabled()) {
+			<?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
     echo '<input type="submit" class="btn" value="'.gettext('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
 } ?>
 			<input type="button" class="btn" value="<?= gettext('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {

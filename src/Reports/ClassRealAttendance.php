@@ -17,7 +17,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 //Security
-if (!isset(SessionUser::getUser())) {
+if (is_null(SessionUser::getUser())) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

@@ -23,10 +23,11 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Property;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must have Manage Groups permission
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
+if (!SessionUser::getUser()->isManageGroupsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -128,7 +129,7 @@ require 'Include/Header.php';
                 <?php
                    //Get all the Menu properties from the group ID
 
-                  if ($_SESSION['user']->isManageGroupsEnabled()) {
+                  if (SessionUser::getUser()->isManageGroupsEnabled()) {
                         //Get the Properties assigned to this Group
                         $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
                                 FROM record2property_r2p

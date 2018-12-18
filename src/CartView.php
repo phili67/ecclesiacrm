@@ -18,13 +18,14 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('View Your Cart');
 require 'Include/Header.php'; ?>
 <?php
 
-if (!$_SESSION['user']->isShowCartEnabled()) {
+if (!SessionUser::getUser()->isShowCartEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -94,12 +95,12 @@ if (!Cart::HasPeople()) {
         </div>
         <div class="box-body">
             <a href="#" id="emptyCart" class="btn btn-app emptyCart"><i class="fa fa-eraser"></i><?= gettext('Empty Cart') ?></a>
-            <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
+            <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
             ?>
                 <a id="emptyCartToGroup" class="btn btn-app"><i class="fa fa-object-ungroup"></i><?= gettext('Empty Cart to Group') ?></a>
             <?php
         }
-        if ($_SESSION['user']->isAddRecordsEnabled()) {
+        if (SessionUser::getUser()->isAddRecordsEnabled()) {
             ?>
             <a href="<?= SystemURLs::getRootPath() ?>/CartToFamily.php" class="btn btn-app"><i
                         class="fa fa-users"></i><?= gettext('Empty Cart to Family') ?></a>
@@ -220,7 +221,7 @@ if (!Cart::HasPeople()) {
                 <a href="<?= SystemURLs::getRootPath() ?>/DirectoryReports.php?cartdir=Cart+Directory" class="btn btn-app"><i
                             class="fa fa-book"></i><?= gettext('Create Directory From Cart') ?></a>
                             
-             <?php   if ($_SESSION['user']->isAddRecordsEnabled()) {
+             <?php   if (SessionUser::getUser()->isAddRecordsEnabled()) {
             ?>
                 <a href="#" id="deleteCart" class="btn btn-app bg-red"><i
                             class="fa fa-trash"></i><?= gettext('Delete Persons From Cart and CRM') ?></a>

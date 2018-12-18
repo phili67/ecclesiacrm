@@ -17,9 +17,10 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['user']->isEditRecordsEnabled()) {
+if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

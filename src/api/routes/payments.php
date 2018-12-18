@@ -6,6 +6,7 @@ use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\utils\MiscUtils;
 use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/payments', function () {
     $this->get('/', function ($request, $response, $args) {
@@ -53,7 +54,7 @@ $app->group('/payments', function () {
     $this->post('/families',function($request,$response,$args) {          
       $autoPay = (object)$request->getParsedBody();
       
-      if (!($_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
       
@@ -85,7 +86,7 @@ $app->group('/payments', function () {
     
     
     $this->post('/delete',function($request,$response,$args) {
-      if (!($_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
 
@@ -103,7 +104,7 @@ $app->group('/payments', function () {
     });
     
     $this->get('/delete/{authID:[0-9]+}',function($request,$response,$args) {
-      if (!($_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
       
@@ -118,7 +119,7 @@ $app->group('/payments', function () {
     });
     
     $this->post('/invalidate', function ($request, $response, $args) {
-      if (!($_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
 
@@ -136,7 +137,7 @@ $app->group('/payments', function () {
     });
     
     $this->post('/validate', function ($request, $response, $args) {
-      if (!($_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
 

@@ -18,9 +18,11 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 $personService = new PersonService();
 $systemService = new SystemService();
+
 $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 
 //
@@ -29,7 +31,7 @@ $_SESSION['sSoftwareInstalledVersion'] = SystemService::getInstalledVersion();
 
 if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     // Basic security: If the UserID isn't set (no session), redirect to the login page
-    if (!isset($_SESSION['user'])) {
+    if (is_null(SessionUser::getUser())) {
         RedirectUtils::Redirect('Login.php');
         exit;
     }
@@ -49,7 +51,7 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
 
     // If this user needs to change password, send to that page
     if ($_SESSION['bNeedPasswordChange'] && !isset($bNoPasswordRedirect)) {
-        RedirectUtils::Redirect('UserPasswordChange.php?PersonID='.$_SESSION['user']->getPersonId());
+        RedirectUtils::Redirect('UserPasswordChange.php?PersonID='.SessionUser::getUser()->getPersonId());
         exit;
     }
 
@@ -500,7 +502,7 @@ function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
 
 function FormatAge($Month, $Day, $Year, $Flags)
 {
-    if (($Flags & 1)) { //||!$_SESSION['user']->isSeePrivacyDataEnabled()
+    if (($Flags & 1)) { //||!SessionUser::getUser()->isSeePrivacyDataEnabled()
         return;
     }
 
@@ -1285,8 +1287,8 @@ function requireUserGroupMembership($allowedRoles = null)
     if (!$allowedRoles) {
         throw new Exception('Role(s) must be defined for the function which you are trying to access.  End users should never see this error unless something went horribly wrong.');
     }
-    if ($_SESSION[$allowedRoles] || $_SESSION['user']->isAdmin() || $_SESSION['user']->isAddRecordsEnabled()) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
-        // new $_SESSION['user']->isAddRecordsEnabled() : Philippe Logel
+    if ($_SESSION[$allowedRoles] || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isAddRecordsEnabled()) {  //most of the time the API endpoint will specify a single permitted role, or the user is an admin
+        // new SessionUser::getUser()->isAddRecordsEnabled() : Philippe Logel
         return true;
     } elseif (is_array($allowedRoles)) {  //sometimes we might have an array of allowed roles.
         foreach ($allowedRoles as $role) {

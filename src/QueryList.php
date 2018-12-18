@@ -15,8 +15,9 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
-if ( !( $_SESSION['user']->isShowMenuQueryEnabled() ) ) {
+if ( !( SessionUser::getUser()->isShowMenuQueryEnabled() ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -36,7 +37,7 @@ require 'Include/Header.php';
     <div class="box-body">
         <p class="text-right">
             <?php
-                if ($_SESSION['user']->isAdmin()) {
+                if (SessionUser::getUser()->isAdmin()) {
             ?>
               <a href="QuerySQL.php" class="text-red"><?= gettext('Run a Free-Text Query') ?></a>
             <?php
@@ -76,7 +77,7 @@ require 'Include/Header.php';
                     }
 
                     // Filter out finance-related queries if the user doesn't have finance permissions
-                    if ($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') && in_array($qry_ID, $aFinanceQueries) || !in_array($qry_ID, $aFinanceQueries)) {
+                    if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') && in_array($qry_ID, $aFinanceQueries) || !in_array($qry_ID, $aFinanceQueries)) {
                         // Display the query name and description
                     ?>
                     <li>

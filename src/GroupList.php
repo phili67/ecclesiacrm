@@ -22,6 +22,7 @@ require 'Include/Header.php';
 
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 
@@ -57,7 +58,7 @@ $rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();
 <table class="table table-striped table-bordered data-table" id="groupsTable" style="width:100%">
 </table>
 <?php
-if ($_SESSION['user']->isManageGroupsEnabled()) {
+if (SessionUser::getUser()->isManageGroupsEnabled()) {
       ?>
 
 

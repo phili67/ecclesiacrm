@@ -24,11 +24,12 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must have Delete records permission
 // Otherwise, re-direct them to the main menu.
-if (!$_SESSION['user']->isDeleteRecordsEnabled()) {
+if (!SessionUser::getUser()->isDeleteRecordsEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -74,7 +75,7 @@ if ( $sMode == 'person' ) {
 $DonationMessage = '';
 
 // Move Donations from 1 family to another
-if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
+if (SessionUser::getUser()->isFinanceEnabled() && isset($_GET['MoveDonations']) && $iFamilyID && $iDonationFamilyID && $iFamilyID != $iDonationFamilyID) {
     $today = date('Y-m-d');
     
     $pledges = PledgeQuery::Create()->findByFamId($iFamilyID);
@@ -82,7 +83,7 @@ if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $i
     foreach ($pledges as $pledge) {
       $pledge->setFamId ($iDonationFamilyID);
       $pledge->setDatelastedited ($today);
-      $pledge->setEditedby ($_SESSION['user']->getPersonId());
+      $pledge->setEditedby (SessionUser::getUser()->getPersonId());
       $pledge->save();
     }
     
@@ -91,7 +92,7 @@ if ($_SESSION['user']->isFinanceEnabled() && isset($_GET['MoveDonations']) && $i
     foreach ($egives as $egive) {
       $egive->setFamId ($iDonationFamilyID);
       $egive->setDateLastEdited ($today);
-      $egive->setEditedby ($_SESSION['user']->getPersonId());
+      $egive->setEditedby (SessionUser::getUser()->getPersonId());
       $egive->save();
     }
     
@@ -180,7 +181,7 @@ require 'Include/Header.php';
         
         $bIsDonor = ($ormDonations->count() > 0);
 
-        if ($bIsDonor && !$_SESSION['user']->isFinanceEnabled()) {
+        if ($bIsDonor && !SessionUser::getUser()->isFinanceEnabled()) {
             // Donations from Family. Current user not authorized for Finance
             if ($numberPersons > 1) {
         ?>
@@ -199,7 +200,7 @@ require 'Include/Header.php';
               </p>
         <?php
             }
-        } elseif ($bIsDonor && $_SESSION['user']->isFinanceEnabled()) {
+        } elseif ($bIsDonor && SessionUser::getUser()->isFinanceEnabled()) {
             // Donations from Family. Current user authorized for Finance.
             // Select another family to move donations to.
             if ($numberPersons > 1) {

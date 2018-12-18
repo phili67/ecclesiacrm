@@ -11,6 +11,7 @@ use EcclesiaCRM\Utils\GeoUtils;
 use DateTime;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\SessionUser;
 
 /**
  * Skeleton subclass for representing a row from the 'family_fam' table.
@@ -239,11 +240,11 @@ class Family extends BaseFamily implements iPhoto
                 break;
             case "verify":
                 $note->setText(gettext('Family Data Verified'));
-                $note->setEnteredBy($_SESSION['user']->getPersonId());
+                $note->setEnteredBy(SessionUser::getUser()->getPersonId());
                 break;
             case "verify-link":
               $note->setText(gettext('Verification email sent'));
-              $note->setEnteredBy($_SESSION['user']->getPersonId());
+              $note->setEnteredBy(SessionUser::getUser()->getPersonId());
               break;
         }
 
@@ -257,7 +258,7 @@ class Family extends BaseFamily implements iPhoto
       $foundPeople = [];
       
       foreach ($this->getPeople() as $person) {
-        if (empty($person->getDateDeactivated()) || $_SESSION['user']->isGdrpDpoEnabled()) {
+        if (empty($person->getDateDeactivated()) || SessionUser::getUser()->isGdrpDpoEnabled()) {
           array_push($foundPeople, $person);
         }
       }
@@ -315,13 +316,13 @@ class Family extends BaseFamily implements iPhoto
 
     public function deletePhoto()
     {
-      if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit ) {
         if ( $this->getPhoto()->delete() )
         {
           $note = new Note();
           $note->setText(gettext("Profile Image Deleted"));
           $note->setType("photo");
-          $note->setEntered($_SESSION['user']->getPersonId());
+          $note->setEntered(SessionUser::getUser()->getPersonId());
           $note->setPerId($this->getId());
           $note->save();
           return true;
@@ -330,11 +331,11 @@ class Family extends BaseFamily implements iPhoto
       return false;
     }
     public function setImageFromBase64($base64) {
-      if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit ) {
+      if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit ) {
         $note = new Note();
         $note->setText(gettext("Profile Image uploaded"));
         $note->setType("photo");
-        $note->setEntered($_SESSION['user']->getPersonId());
+        $note->setEntered(SessionUser::getUser()->getPersonId());
         $this->getPhoto()->setImageFromBase64($base64);
         $note->setFamId($this->getId());
         $note->save();

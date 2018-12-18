@@ -1,6 +1,7 @@
 <?php
 
 namespace EcclesiaCRM\Emails;
+use EcclesiaCRM\SessionUser;
 
 
 class UpdateAccountEmail extends BaseUserEmail
@@ -27,7 +28,7 @@ class UpdateAccountEmail extends BaseUserEmail
     {
         $parentTokens = parent::getTokens();
         $myTokens = ["password" => $this->password,
-            "confirmSigner" => $_SESSION['user']->getPerson()->getFullName(),
+            "confirmSigner" => SessionUser::getUser()->getPerson()->getFullName(),
             "passwordText" => gettext('New Password')];
         return array_merge($parentTokens, $myTokens);
     }

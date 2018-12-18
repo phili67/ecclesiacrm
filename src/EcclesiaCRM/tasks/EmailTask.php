@@ -4,12 +4,13 @@ namespace EcclesiaCRM\Tasks;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 class EmailTask implements iTask
 {
   public function isActive()
   {
-    return $_SESSION['user']->isAdmin() && empty(SystemConfig::hasValidMailServerSettings());
+    return SessionUser::getUser()->isAdmin() && empty(SystemConfig::hasValidMailServerSettings());
   }
 
   public function isAdmin()

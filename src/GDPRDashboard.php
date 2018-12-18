@@ -24,12 +24,13 @@ use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\NoteQuery;
+use EcclesiaCRM\SessionUser;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('GDPR Dashboard');
 require 'Include/Header.php';
 
-if (!($_SESSION['user']->isGdrpDpoEnabled())) {
+if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
   RedirectUtils::Redirect('Menu.php');
   exit;
 }

@@ -21,6 +21,7 @@ use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\CalendarinstancesTableMap;
 use EcclesiaCRM\Map\PrincipalsTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 
 use Sabre\CalDAV;
@@ -49,8 +50,8 @@ class MenuEventsCount
         $activeEvents = EventQuery::create()
             ->addJoin(EventTableMap::COL_EVENT_CALENDARID, CalendarinstancesTableMap::COL_CALENDARID,Criteria::RIGHT_JOIN) // we have to filter only the user calendars
             ->addJoin(CalendarinstancesTableMap::COL_PRINCIPALURI, PrincipalsTableMap::COL_URI,Criteria::RIGHT_JOIN)       // so we have to retrieve the principal user
-            ->where("event_start <= '".$start_date ."' AND event_end >= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") // the large events 
-            ->_or()->where("event_start>='".$start_date."' AND event_end <= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'") // the events of the day
+            ->where("event_start <= '".$start_date ."' AND event_end >= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower(SessionUser::getUser()->getUserName())."'") // the large events 
+            ->_or()->where("event_start>='".$start_date."' AND event_end <= '".$end_date."'"." AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower(SessionUser::getUser()->getUserName())."'") // the events of the day
             ->find();
         return  $activeEvents;
     }
@@ -72,7 +73,7 @@ class MenuEventsCount
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
     
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",false);
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
         
         $count = 0;
         

@@ -14,6 +14,7 @@ use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\SessionUser;
 
 use DateTime;
 
@@ -343,12 +344,12 @@ class Person extends BasePerson implements iPhoto
 
     public function deletePhoto()
     {
-        if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit) {
+        if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit) {
             if ($this->getPhoto()->delete()) {
                 $note = new Note();
                 $note->setText(gettext("Profile Image Deleted"));
                 $note->setType("photo");
-                $note->setEntered($_SESSION['user']->getPersonId());
+                $note->setEntered(SessionUser::getUser()->getPersonId());
                 $note->setPerId($this->getId());
                 $note->save();
                 return true;
@@ -368,11 +369,11 @@ class Person extends BasePerson implements iPhoto
 
     public function setImageFromBase64($base64)
     {
-        if ($_SESSION['user']->isAddRecordsEnabled() || $bOkToEdit) {
+        if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit) {
             $note = new Note();
             $note->setText(gettext("Profile Image uploaded"));
             $note->setType("photo");
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $this->getPhoto()->setImageFromBase64($base64);
             $note->setPerId($this->getId());
             $note->save();

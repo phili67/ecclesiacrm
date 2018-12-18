@@ -10,6 +10,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\MICRReader;
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\SessionUser;
 
 class FinancialService
 {
@@ -294,7 +295,7 @@ class FinancialService
     public function setDeposit($depositType, $depositComment, $depositDate, $iDepositSlipID = null, $depositClosed = false)
     {
         if ($iDepositSlipID) {
-            $sSQL = "UPDATE deposit_dep SET dep_Date = '".$depositDate."', dep_Comment = '".$depositComment."', dep_EnteredBy = ".$_SESSION['user']->getPersonId().', dep_Closed = '.intval($depositClosed).' WHERE dep_ID = '.$iDepositSlipID.';';
+            $sSQL = "UPDATE deposit_dep SET dep_Date = '".$depositDate."', dep_Comment = '".$depositComment."', dep_EnteredBy = ".SessionUser::getUser()->getPersonId().', dep_Closed = '.intval($depositClosed).' WHERE dep_ID = '.$iDepositSlipID.';';
             $bGetKeyBack = false;
             if ($depositClosed && ($depositType == 'CreditCard' || $depositType == 'BankDraft')) {
                 // Delete any failed transactions on this deposit slip now that it is closing
@@ -304,7 +305,7 @@ class FinancialService
             RunQuery($sSQL);
         } else {
             $sSQL = "INSERT INTO deposit_dep (dep_Date, dep_Comment, dep_EnteredBy,  dep_Type)
-            VALUES ('".$depositDate."','".$depositComment."',".$_SESSION['user']->getPersonId().",'".$depositType."')";
+            VALUES ('".$depositDate."','".$depositComment."',".SessionUser::getUser()->getPersonId().",'".$depositType."')";
             RunQuery($sSQL);
             $sSQL = 'SELECT MAX(dep_ID) AS iDepositSlipID FROM deposit_dep';
             $rsDepositSlipID = RunQuery($sSQL);
@@ -586,7 +587,7 @@ class FinancialService
           $payment->iMethod."','".
           $Fund->Comment."','".
           date('YmdHis')."',".
-          $_SESSION['user']->getPersonId().",'".
+          SessionUser::getUser()->getPersonId().",'".
           $payment->type."',".
           $Fund->FundID.','.
           $payment->DepositID.','.

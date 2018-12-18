@@ -9,6 +9,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $sMode = 'Active';
 // Filter received user input as needed
@@ -17,7 +19,7 @@ if (isset($_GET['mode'])) {
 }
 
 if (strtolower($sMode) == 'gdrp') {
-  if (!$_SESSION['user']->isGdrpDpoEnabled()) {
+  if (!SessionUser::getUser()->isGdrpDpoEnabled()) {
     RedirectUtils::Redirect("Menu.php");
     exit;
   }
@@ -31,7 +33,7 @@ if (strtolower($sMode) == 'gdrp') {
         ->find();
             
 } else if (strtolower($sMode) == 'inactive') {
-  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+  if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect("Menu.php");
     exit;
   }
@@ -53,7 +55,7 @@ if (strtolower($sMode) == 'gdrp') {
               ->find();
   }
 } else {
-  if (!$_SESSION['user']->isEditRecordsEnabled()) {
+  if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect("Menu.php");
     exit;
   }
@@ -70,7 +72,7 @@ $sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Family List');
 require 'Include/Header.php'; ?>
 
 <?php
-  if ($_SESSION['user']->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' ) {
+  if (SessionUser::getUser()->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' ) {
 ?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="FamilyEditor.php"> <span class="fa fa-plus"
@@ -134,7 +136,7 @@ require 'Include/Header.php'; ?>
                         </span>
                     </a><?= $family->getName() ?></td>
                 <?php    
-                if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
+                if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                 ?>
                   <td> <?= $family->getAddress() ?></td>
                   <td><?= $family->getHomePhone() ?></td>

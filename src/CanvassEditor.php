@@ -14,9 +14,10 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have canvasser permission to use this form
-if (!$_SESSION['user']->isCanvasserEnabled()) {
+if (!SessionUser::getUser()->isCanvasserEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
@@ -127,7 +128,7 @@ if (isset($_POST['Submit'])) {
         $tWhyNotInterested = $can_WhyNotInterested;
     } else {
         // Set some default values
-        $iCanvasser = $_SESSION['user']->getPersonId();
+        $iCanvasser = SessionUser::getUser()->getPersonId();
         $dDate = date('Y-m-d');
 
         $dDate = '';
