@@ -544,7 +544,6 @@ class User extends BaseUser
         return $password;
     }
 
-
     public static function randomPassword()
     {
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
