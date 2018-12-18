@@ -554,7 +554,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
       ?>
       
       <?php       
-       if ( $_SESSION['bEmailMailto'] && $person->getId() != SessionUser::getUser()->getPersonId() ) {
+       if ( SessionUser::getUser()->isEmailEnabled() ) {
       ?>
         <a class="btn btn-app" href="mailto:<?= urlencode($sEmail) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
         <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($sEmail) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>

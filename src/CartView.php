@@ -124,7 +124,7 @@ if (!Cart::HasPeople()) {
         <?php
             }
         ?>
-        <?php if ($bExportCSV) {
+        <?php if (SessionUser::getUser()->isCSVExportEnabled()) {
             ?>
                 <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php?Source=cart" class="btn btn-app bg-green"><i
                             class="fa fa-file-excel-o"></i><?= gettext('CSV Export') ?></a>
@@ -168,7 +168,7 @@ if (!Cart::HasPeople()) {
                     
                     $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-                    if ($bEmailMailto) { // Does user have permission to email groups
+                    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                         // Display link
                     ?>
                         <a href="mailto:<?= $sEmailLink?>" class="btn btn-app"><i class='fa fa-send-o'></i><?= gettext('Email Cart') ?></a>
@@ -200,7 +200,7 @@ if (!Cart::HasPeople()) {
                     }
                 }
                 if ($sPhoneLink) {
-                    if ($bEmailMailto) { // Does user have permission to email groups
+                    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
                     ?>
                     &nbsp;
                     <div class="btn-group">

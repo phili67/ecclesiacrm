@@ -16,6 +16,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 class PDF_ConfirmReport extends ChurchInfoReport
 {
@@ -70,7 +71,7 @@ class PDF_ConfirmReport extends ChurchInfoReport
     }
 }
 
-if (!$bCreateDirectory) {
+if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

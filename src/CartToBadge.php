@@ -32,7 +32,7 @@ $imgs = MiscUtils::getImagesInPath ('Images/background');
 $sPageTitle = gettext('Cart to Badges');
 require 'Include/Header.php';
 
-if (!(SessionUser::getUser()->isAdmin() || $_SESSION['bCreateDirectory'] )) {
+if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() )) {
    RedirectUtils::Redirect('Menu.php');
    exit;
 }

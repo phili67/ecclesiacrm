@@ -20,7 +20,6 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-
 $iPersonID = SessionUser::getUser()->getPersonId();
 
 // Save Settings
@@ -67,6 +66,7 @@ if (isset($_POST['save'])) {
                 $sSQL = "INSERT INTO userconfig_ucfg VALUES ($iPersonID, $id, "
                 ."'$ucfg_name', '$ucfg_value', '$ucfg_type', '$ucfg_tooltip', "
                 ."$ucfg_permission, ' ')";
+                
                 $rsResult = RunQuery($sSQL);
             } else {
                 echo '<BR> Error: Software BUG 3216';
@@ -78,6 +78,7 @@ if (isset($_POST['save'])) {
         $sSQL = 'UPDATE userconfig_ucfg '
         ."SET ucfg_value='$value' "
         ."WHERE ucfg_id=$id AND ucfg_per_id=$iPersonID ";
+
         $rsUpdate = RunQuery($sSQL);
         next($type);
     }

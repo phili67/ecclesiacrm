@@ -31,7 +31,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-if ( !( $_SESSION['bExportCSV'] || SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolCSV'] ) ) {
+if ( !( SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

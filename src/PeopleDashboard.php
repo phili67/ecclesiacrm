@@ -86,7 +86,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
             $sEmailLink .= $sMailtoDelimiter.SystemConfig::getValue('sToEmailAddress');
         }
         $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
-       if ($bEmailMailto) { // Does user have permission to email groups
+       if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
       // Display link
        ?>
         <div class="btn-group">
@@ -245,7 +245,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         <br>
         <?php echo gettext('Report on group and roles selected (it may be a multi-page PDF).'); ?>
         </p>
-        <?php if ($bCreateDirectory) {
+        <?php if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
          ?>
           <p><a class="MediumText"
                 href="DirectoryReports.php"><?= gettext('People Directory') ?></a><br><?= gettext('Printable directory of all people, grouped by family where assigned') ?>
@@ -256,7 +256,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         <br><?php echo gettext('Generate letters and mailing labels.'); ?>
         </p>
         <?php
-        if ($bUSAddressVerification) {
+        if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
             echo '<p>';
             echo '<a class="MediumText" href="USISTAddressVerification.php">';
             echo gettext('US Address Verification Report')."</a><br>\n";
