@@ -486,7 +486,51 @@ class User extends BaseUser
     {
         return hash('sha256', $password . $this->getPersonId());
     }
+    
+    public function isEmailEnabled()
+    {
+        return $this->isEnabledSecurity('bEmailMailto');
+    }
+    
+    public function isExportSundaySchoolCSVEnabled()
+    {
+        return $this->isEnabledSecurity('bExportSundaySchoolCSV');
+    }
+    
+    public function isExportSundaySchoolPDFEnabled()
+    {
+        return $this->isEnabledSecurity('bExportSundaySchoolPDF');
+    }
+    
+    public function isCreateDirectoryEnabled()
+    {
+        return $this->isEnabledSecurity('bCreateDirectory');
+    }
 
+    public function isCSVExport()
+    {
+        return $this->isEnabledSecurity('bExportCSV');
+    }
+
+    public function isUSAddressVerificationEnabled()
+    {
+        return $this->isEnabledSecurity('bUSAddressVerification');
+    }
+    
+    public function isShowTooltipEnabled()
+    {
+        return $this->isEnabledSecurity('bShowTooltip');
+    }
+    
+    public function isSidebarExpandOnHoverEnabled()
+    {
+        return $this->isEnabledSecurity('bSidebarExpandOnHover');
+    }
+    
+    public function isSidebarCollapseEnabled()
+    {
+        return $this->isEnabledSecurity('bSidebarCollapse');
+    }
 
     public function isLocked()
     {
@@ -500,7 +544,6 @@ class User extends BaseUser
         $this->setFailedLogins(0);
         return $password;
     }
-
 
     public static function randomPassword()
     {
@@ -669,5 +712,25 @@ class User extends BaseUser
         $newNote->setCurrentEditedBy(0);
         $newNote->save();
       }      
-    }    
+    }
+    
+    public function isEnabledSecurity($securityConfigName){
+        if ($this->isAdmin()) {
+            return true;
+        }
+        foreach ($this->getUserConfigs() as $userConfig) {
+            if ($userConfig->getName() == $securityConfigName) {
+                return $userConfig->getPermission() == "TRUE";
+            }
+        }
+        return false;
+    }
+    
+    public function getUserConfigString($userConfigName) {
+      foreach ($this->getUserConfigs() as $userConfig) {
+        if ($userConfig->getName() == $userConfigName) {
+          return $userConfig->getValue();
+        }
+      }
+    }   
 }
