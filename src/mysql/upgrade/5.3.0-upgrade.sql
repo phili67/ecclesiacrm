@@ -26,3 +26,4 @@ CREATE TABLE IF NOT EXISTS addressbookshare (
 --
 
 ALTER TABLE `user_usr` ADD `usr_IsDeactivated` tinyint(1) DEFAULT '0';
+

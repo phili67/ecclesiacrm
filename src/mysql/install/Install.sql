@@ -1316,6 +1316,7 @@ CREATE TABLE `user_usr` (
     ON DELETE SET NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
+
 --
 -- Dumping data for table `user_usr`
 --

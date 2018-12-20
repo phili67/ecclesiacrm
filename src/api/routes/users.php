@@ -98,6 +98,7 @@ $app->group('/users', function () {
             } else {
                 $user->setIsDeactivated(false);
             }
+            
             $user->save();
         
             //Create a note to record the status change

@@ -477,6 +477,7 @@ class User extends BaseUser
       if ($this->getIsDeactivated()) {
         return false;
       }
+      
         
       return $this->getPassword() == $this->hashPassword($password);
     }

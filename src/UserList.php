@@ -193,7 +193,6 @@ if ($usr_role_id == null) {
                     <?php 
                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
                     ?>
-                    
                           <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
                              <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
                           </a>
