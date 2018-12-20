@@ -941,6 +941,7 @@
         <column name="usr_Canvasser" phpName="Canvasser" type="BOOLEAN" size="1" required="true" defaultValue="0"/>
         <column name="usr_ShowCart" phpName="ShowCart" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ShowMap" phpName="ShowMap" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
+        <column name="usr_IsDeactivated" phpName="IsDeactivated" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <index name="usr_per_ID">
             <index-column name="usr_per_ID"/>
         </index>
@@ -963,7 +964,6 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
-
 
     <table name="userconfig_ucfg" idMethod="native" phpName="UserConfig">
         <column name="ucfg_per_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true"/>

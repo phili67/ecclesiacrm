@@ -20,3 +20,10 @@ CREATE TABLE IF NOT EXISTS addressbookshare (
     UNIQUE(addressbooksid, principaluri),
     CONSTRAINT fk_addressbooksid FOREIGN KEY (addressbooksid) REFERENCES addressbooks(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- 
+-- update the user_usr code
+--
+
+ALTER TABLE `user_usr` ADD `usr_IsDeactivated` tinyint(1) DEFAULT '0';
+

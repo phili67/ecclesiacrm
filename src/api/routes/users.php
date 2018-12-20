@@ -89,36 +89,25 @@ $app->group('/users', function () {
         
           $user = UserQuery::create()->findPk($params->userID);
           
-          if (!is_null($user) && $user->getPersonId() != 1) {
-            $person = $user->getPerson();
-            
-            $newStatus = (empty($person->getDateDeactivated()) ? true : false);
+          if (!is_null($user) && $user->getPersonId() != 1) {            
+            $newStatus = (empty($user->getIsDeactivated()) ? true : false);
 
             //update only if the value is different
             if ($newStatus) {
-                $person->setDateDeactivated(date('YmdHis'));
+                $user->setIsDeactivated(true);
             } else {
-                $person->setDateDeactivated(Null);
+                $user->setIsDeactivated(false);
             }
-            $person->save();
+            
+            $user->save();
         
-            // a one person family is deactivated too
-            if ($person->getFamily()->getPeople()->count() == 1) {
-              if ($newStatus) {
-                  $person->getFamily()->setDateDeactivated(date('YmdHis'));
-              } else {
-                  $person->getFamily()->setDateDeactivated(Null);
-              }
-              $person->getFamily()->save();
-            }
-
             //Create a note to record the status change
             $note = new Note();
-            $note->setPerId($personId);
+            $note->setPerId($user->getPersonId());
             if ($newStatus == 'false') {
-                $note->setText(gettext('Person Deactivated'));
+                $note->setText(gettext('User Deactivated'));
             } else {
-                $note->setText(gettext('Person Activated'));
+                $note->setText(gettext('User Activated'));
             }
             $note->setType('edit');
             $note->setEntered(SessionUser::getUser()->getPersonId());

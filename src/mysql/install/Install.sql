@@ -1291,6 +1291,7 @@ CREATE TABLE `user_usr` (
   `usr_currentDeposit` mediumint(9) NOT NULL default '0',
   `usr_UserName` varchar(50) default NULL,
   `usr_webDavKey` VARCHAR(255) default NULL,
+  `usr_IsDeactivated` tinyint(1) DEFAULT '0',
   `usr_EditSelf` tinyint(1) unsigned NOT NULL default '0',
   `usr_CalStart` date default NULL,
   `usr_CalEnd` date default NULL,
@@ -1314,6 +1315,7 @@ CREATE TABLE `user_usr` (
     FOREIGN KEY (usr_role_id) REFERENCES userrole_usrrol(usrrol_id)
     ON DELETE SET NULL
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 
 --
 -- Dumping data for table `user_usr`
