@@ -194,8 +194,8 @@ if ($usr_role_id == null) {
                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
                     ?>
                     
-                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getPerson()->getDateDeactivated() == null)?'green':'red'?>" data-userid="<?= $user->getId()?>">
-                             <i class="fa <?= ($user->getPerson()->getDateDeactivated() == null)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
+                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
+                             <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
                           </a>
                     <?php
                          }
