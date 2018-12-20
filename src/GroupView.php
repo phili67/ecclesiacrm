@@ -267,8 +267,9 @@ require 'Include/Header.php';
           if (SessionUser::getUser()->isAdmin()) { 
         ?>
         <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
-            <?= gettext('Address Book') ?> <span class="badge">
-            <i class="fa fa-book" aria-hidden="true"></i>
+            <?= gettext('Address Book') ?> 
+            <span class="badge">
+              <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
             </span>
         </a>
         <?php 
