@@ -72,7 +72,7 @@ class User extends BaseUser
         foreach ($calendars as $calendar) {
           $shares = $calendarBackend->getInvites($calendar['id']); 
           
-          if ($calendar['grpid'] > 0) {// only Group Calendar are purged
+          if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {// only Group Calendar are purged
             foreach ($shares as $share) {
                 if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
                   $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
@@ -95,14 +95,12 @@ class User extends BaseUser
         
         if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
           // we have to add the groupCalendars
-          $userAdmin = UserQuery::Create()->findOneByPersonId (1);
-          
           $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
           
           foreach ($calendars as $calendar) {
             // we'll connect to sabre
             // Add a new invite
-            if ($calendar['grpid'] > 0) {
+            if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {
               $calendarBackend->updateInvites(
                 $calendar['id'],
                 [
