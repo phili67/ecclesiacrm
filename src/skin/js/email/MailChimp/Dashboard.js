@@ -6,6 +6,8 @@ $(document).ready(function () {
           method: 'GET',
           path: 'mailchimp/lists'
         }).done(function(data) {
+          if (data.MailChimpLists == null) return;
+          
           var len = data.MailChimpLists.length;
     
           // we empty first the container
