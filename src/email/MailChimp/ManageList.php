@@ -76,7 +76,17 @@ require '../../Include/Header.php';
       </div>
   </div>
   
-  <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> <?= _("To add all the newsletter users, type NewLetter in the search field, to add all members of the CRM, use '*'") ?></div>
+  <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
+    <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?><br><br>
+    <ul>
+      <li>
+        <?= _("The max numbers of members can be modified in the \"System Settings\" -> \"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount ") ?><br>
+      </li>
+      <li>
+        <?= _("Increase this value is unstable with MailChimp API.") ?>
+      </li>
+    </ul>
+  </div>
   
   <div class="row">  
       <div class="col-lg-12">

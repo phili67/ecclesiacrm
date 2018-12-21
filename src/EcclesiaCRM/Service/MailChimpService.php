@@ -48,7 +48,7 @@ class MailChimpService
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
-          $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
           $list['members'] = $listmembers['members'];
         }
         $_SESSION['MailChimpLists'] = $lists;
@@ -140,7 +140,7 @@ class MailChimpService
         if ($list['id'] == $list_id) {
           if (is_null ($list['members'])) {
             // in the case the list is no more in the cache
-            $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+            $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
             
             if (count($listmembers[0]) == 0) {
               return [];
@@ -486,6 +486,13 @@ class MailChimpService
         }
         $i++;
       }
+    }    
+    public function sendAllMembers ($array) {
+      $res = $this->myMailchimp->post("batches",$array);
+      
+      $this->restoreCache();
+      
+      return $res;
     }
     public function postMember($list_id,$id,$first_name,$last_name,$mail,$status)
     {
@@ -532,6 +539,10 @@ class MailChimpService
       }
       
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
+    }
+    
+    public function getMembersFromList ($list_id,$count=500) {
+      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]); 
     }
     
     public function deleteMember($list_id,$email){
