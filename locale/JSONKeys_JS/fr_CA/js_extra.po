@@ -135,3 +135,6 @@ msgstr "abonné"
 
 msgid "unsubscribed"
 msgstr "désabonné"
+
+msgid "sent"
+msgstr "envoyée"
