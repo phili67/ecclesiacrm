@@ -185,7 +185,7 @@ $(document).ready(function () {
              }
            });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 1) {
-           dialogLoadingFunction ( i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !") );
+           dialogLoadingFunction ( i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !")+'<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
 
            window.CRM.APIRequest({
                 method: 'POST',
@@ -202,7 +202,7 @@ $(document).ready(function () {
              }
            });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 2) {
-           dialogLoadingFunction ( i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") );
+           dialogLoadingFunction ( i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") + '<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
 
            window.CRM.APIRequest({
                 method: 'POST',
@@ -337,7 +337,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            dialogLoadingFunction( i18next.t('Deleting Subscriber...') );
+            dialogLoadingFunction( i18next.t('Deleting Subscribers...')+'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/suppress',
