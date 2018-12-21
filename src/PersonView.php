@@ -457,7 +457,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
   <?php
     }
     
-    if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
+    if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
       ?>
           <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>

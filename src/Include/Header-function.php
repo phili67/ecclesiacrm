@@ -177,7 +177,7 @@ function Header_body_scripts()
             maxUploadSize: "<?= $systemService->getMaxUploadFileSize(true) ?>",
             maxUploadSizeBytes: "<?= $systemService->getMaxUploadFileSize(false) ?>",
             datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",
-            timeEnglish:<?= (SystemConfig::getValue("bTimeEnglish"))?"true":"false" ?>,
+            timeEnglish:<?= (SystemConfig::getBooleanValue("bTimeEnglish"))?"true":"false" ?>,
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:<?= (SessionUser::getUser()->isShowTooltipEnabled())?"true":"false" ?>,
             showCart:<?= (SessionUser::getUser()->isShowCartEnabled())?"true":"false" ?>,
