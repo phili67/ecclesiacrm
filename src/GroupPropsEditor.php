@@ -16,10 +16,12 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: user must be allowed to edit records to use this page.
-if (!$_SESSION['user']->isEditRecordsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isEditRecordsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -100,7 +102,7 @@ if (isset($_POST['GroupPropSubmit'])) {
         RunQuery($sSQL);
 
         // Return to the Person View
-        Redirect('PersonView.php?PersonID='.$iPersonID);
+        RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
     }
 } else {
     // First Pass

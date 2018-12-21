@@ -72,7 +72,7 @@ class User extends BaseUser
         foreach ($calendars as $calendar) {
           $shares = $calendarBackend->getInvites($calendar['id']); 
           
-          if ($calendar['grpid'] > 0) {// only Group Calendar are purged
+          if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {// only Group Calendar are purged
             foreach ($shares as $share) {
                 if ($share->principal == 'principals/'.strtolower($this->getUserName())) {
                   $share->access = \Sabre\DAV\Sharing\Plugin::ACCESS_NOACCESS;
@@ -95,14 +95,12 @@ class User extends BaseUser
         
         if ( $this->isManageGroupsEnabled() && $userAdmin->getPersonID() != $this->getPersonID()) {// an admin can't change itself and is ever tge main group manager
           // we have to add the groupCalendars
-          $userAdmin = UserQuery::Create()->findOneByPersonId (1);
-          
           $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($userAdmin->getUserName()),"displayname",true);
           
           foreach ($calendars as $calendar) {
             // we'll connect to sabre
             // Add a new invite
-            if ($calendar['grpid'] > 0) {
+            if ($calendar['grpid'] > 0 || $calendar['cal_type'] > 1) {
               $calendarBackend->updateInvites(
                 $calendar['id'],
                 [
@@ -474,9 +472,10 @@ class User extends BaseUser
 
     public function isPasswordValid($password)
     {
-      if ($this->getPerson()->getDateDeactivated() != null) {
+      if ($this->getIsDeactivated()) {
         return false;
       }
+      
         
       return $this->getPassword() == $this->hashPassword($password);
     }
@@ -485,7 +484,51 @@ class User extends BaseUser
     {
         return hash('sha256', $password . $this->getPersonId());
     }
+    
+    public function isEmailEnabled()
+    {
+        return $this->getUserConfigString('bEmailMailto');
+    }
+    
+    public function isExportSundaySchoolCSVEnabled()
+    {
+        return $this->getUserConfigString('bExportSundaySchoolCSV');
+    }
+    
+    public function isExportSundaySchoolPDFEnabled()
+    {
+        return $this->getUserConfigString('bExportSundaySchoolPDF');
+    }
+    
+    public function isCreateDirectoryEnabled()
+    {
+        return $this->getUserConfigString('bCreateDirectory');
+    }
 
+    public function isCSVExportEnabled()
+    {
+        return $this->getUserConfigString('bExportCSV');
+    }
+
+    public function isUSAddressVerificationEnabled()
+    {
+        return $this->getUserConfigString('bUSAddressVerification');
+    }
+    
+    public function isShowTooltipEnabled()
+    {
+        return $this->getUserConfigString('bShowTooltip');
+    }
+    
+    public function isSidebarExpandOnHoverEnabled()
+    {
+        return $this->getUserConfigString('bSidebarExpandOnHover');
+    }
+    
+    public function isSidebarCollapseEnabled()
+    {
+        return $this->getUserConfigString('bSidebarCollapse');
+    }
 
     public function isLocked()
     {
@@ -499,7 +542,6 @@ class User extends BaseUser
         $this->setFailedLogins(0);
         return $password;
     }
-
 
     public static function randomPassword()
     {
@@ -668,5 +710,25 @@ class User extends BaseUser
         $newNote->setCurrentEditedBy(0);
         $newNote->save();
       }      
-    }    
+    }
+    
+    public function isEnabledSecurity($securityConfigName){
+        if ($this->isAdmin()) {
+            return true;
+        }
+        foreach ($this->getUserConfigs() as $userConfig) {
+            if ($userConfig->getName() == $securityConfigName) {
+                return $userConfig->getPermission() == "TRUE";
+            }
+        }
+        return false;
+    }
+    
+    public function getUserConfigString($userConfigName) {
+      foreach ($this->getUserConfigs() as $userConfig) {
+        if ($userConfig->getName() == $userConfigName) {
+          return $userConfig->getValue();
+        }
+      }
+    }   
 }

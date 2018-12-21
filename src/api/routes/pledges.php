@@ -7,11 +7,12 @@ use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\AutoPaymentQuery;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/pledges', function () {
   
     $this->post('/detail',function($request,$response,$args) {// only in DepositSlipEditor    
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isFinance())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isFinance())) {
             return $response->withStatus(401);
       }
       

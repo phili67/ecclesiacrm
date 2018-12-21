@@ -5,11 +5,12 @@
 use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/userrole', function () {
   
     $this->post('/add',function($request,$response,$args) {
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -42,7 +43,7 @@ $app->group('/userrole', function () {
     });
     
     $this->post('/get',function($request,$response,$args) {
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -65,7 +66,7 @@ $app->group('/userrole', function () {
     });
     
     $this->post('/rename',function($request,$response,$args) {
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -86,7 +87,7 @@ $app->group('/userrole', function () {
 
     
     $this->post('/getall',function($request,$response,$args) {
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -96,7 +97,7 @@ $app->group('/userrole', function () {
     });
     
     $this->post('/delete',function($request,$response,$args) {
-      if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+      if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 

@@ -16,6 +16,9 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 //Get the type to display
 $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
@@ -39,7 +42,7 @@ switch ($sType) {
         break;
 
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
         break;
 }
@@ -62,7 +65,7 @@ require 'Include/Header.php'; ?>
 <div class="box box-body">
 
 <?php 
-   if ($_SESSION['user']->isMenuOptionsEnabled()) {
+   if (SessionUser::getUser()->isMenuOptionsEnabled()) {
     //Display the new property link
 ?>
     <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?Type=<?=$sType?>"><?= gettext('Add a New') ?> <?= $sTypeName?> <?= gettext('Property') ?></a></p>
@@ -76,7 +79,7 @@ require 'Include/Header.php'; ?>
 <thead>
 <tr>
 <?php
-if ($_SESSION['user']->isMenuOptionsEnabled()) {
+if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
     <td valign="top"><?= gettext('Action') ?></td>
 <?php
@@ -105,7 +108,7 @@ foreach ($ormProperties as $ormProperty) {
         <tr class="RowColorA"><td><b><?= gettext($ormProperty->getPropertyType()->getPrtName()) ?></b></td><td></td><td></td>
 
 <?php
-    if ($_SESSION['user']->isMenuOptionsEnabled()) {
+    if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>        
         <td></td>
 <?php 
@@ -123,7 +126,7 @@ foreach ($ormProperties as $ormProperty) {
 
     <tr class="<?= $sRowClass ?>">
 <?php
-    if ($_SESSION['user']->isMenuOptionsEnabled()) {
+    if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
       <td valign="top">
         <a href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?PropertyID=<?= $ormProperty->getProId() ?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>

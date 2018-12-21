@@ -19,7 +19,8 @@ use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
-
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get the Group from the querystring
@@ -29,8 +30,8 @@ $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
 $person = PersonQuery::Create()->findOneById($iPersonID);
 
 // Security: user must be allowed to edit records to use this page.
-if ( !( $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->getPersonId() == $iPersonID ) ) {
-    Redirect('Menu.php');
+if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -42,7 +43,7 @@ extract(mysqli_fetch_array($rsGroupInfo));
 
 // Abort if user tries to load with group having no special properties.
 if ($grp_hasSpecialProps == false) {
-    Redirect('GroupView.php?GroupID='.$iGroupID);
+    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
 }
 
 $sPageTitle = gettext('Group-Specific Properties Form Editor:').'  : "'.$grp_Name.'" '.gettext("for")." : ".$person->getFullName();

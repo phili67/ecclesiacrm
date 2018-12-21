@@ -15,10 +15,12 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 // If user does not have CSV Export permission, redirect to the menu.
-if (!$bExportCSV) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isCSVExportEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

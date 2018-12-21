@@ -11,6 +11,7 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\SessionUser;
 use \Datetime;
 
 require_once 'Include/Functions.php';
@@ -22,7 +23,7 @@ class TimelineService
 
     public function __construct()
     {
-        $this->currentUser = $_SESSION['user'];
+        $this->currentUser = SessionUser::getUser();
     }
 
     public function getForFamily($familyID)

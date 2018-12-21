@@ -27,6 +27,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 
 $app->group('/persons', function () {
@@ -101,7 +102,7 @@ $app->group('/persons', function () {
         $mailchimp = new MailChimpService();
         $person = PersonQuery::create()->findPk($input->personId);
         
-        if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+        if ( !is_null ($mailchimp) && $mailchimp->isActive() && !is_null ($person->getFamily()) ) {
           return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getFamily()->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
         }
       }
@@ -176,7 +177,7 @@ $app->group('/persons', function () {
                 $note->setText(gettext('Person Activated'));
             }
             $note->setType('edit');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
         }
         return $response->withJson(['success' => true]);
@@ -242,7 +243,7 @@ $app->group('/persons', function () {
         /**
          * @var \EcclesiaCRM\User $sessionUser
          */
-        $sessionUser = $_SESSION['user'];
+        $sessionUser = SessionUser::getUser();
         if (!$sessionUser->isDeleteRecordsEnabled()) {
             return $response->withStatus(401);
         }
@@ -262,7 +263,7 @@ $app->group('/persons', function () {
     });
     
     $this->post('/deletefield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
       
@@ -308,7 +309,7 @@ $app->group('/persons', function () {
     });
 
     $this->post('/upactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 
@@ -330,7 +331,7 @@ $app->group('/persons', function () {
     });
     
     $this->post('/downactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 

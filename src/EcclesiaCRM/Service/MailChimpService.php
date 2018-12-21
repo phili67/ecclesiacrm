@@ -5,6 +5,7 @@ namespace EcclesiaCRM\Service;
 use EcclesiaCRM\dto\SystemConfig;
 use \DrewM\MailChimp\MailChimp;
 use EcclesiaCRM\Utils\LoggerUtils;
+use EcclesiaCRM\SessionUser;
 
 class ListEmailFilter {
   private $email;
@@ -35,6 +36,7 @@ class MailChimpService
         if (!empty(SystemConfig::getValue('sMailChimpApiKey'))) {
             $this->isActive = true;
             $this->myMailchimp = new MailChimp(SystemConfig::getValue('sMailChimpApiKey'));
+            $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
         }
     }
     public function isActive()
@@ -67,21 +69,13 @@ class MailChimpService
       }
       return $_SESSION['MailChimpCampaigns'];
     }
-    private function restoreCache () {
-      $_SESSION['MailChimpLists']     = [];
-      $_SESSION['MailChimpCampaigns'] = [];
-      
-      LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
-        $lists = $this->myMailchimp->get("lists")['lists'];
-        foreach($lists as &$list) {
-          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
-          $list['members'] = $listmembers['members'];
-        }
-        $_SESSION['MailChimpLists'] = $lists;
+    public function getConnectionStatus()
+    {
+      if ( !isset ($connection_status) && !empty(SystemConfig::getValue('sMailChimpApiKey')) ) {
+        $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
+      }
         
-      LoggerUtils::getAppLogger()->info("Updating MailChimp Campaigns Cache");
-        $campaigns = $this->myMailchimp->get("campaigns")['campaigns'];
-        $_SESSION['MailChimpCampaigns'] = $campaigns;
+      return $_SESSION['MailChimpConnectionStatus'];
     }
     public function isEmailInMailChimp($email)
     {
@@ -180,8 +174,8 @@ class MailChimpService
       $marketing_permissions = SystemConfig::getBooleanValue('bGDPR'); //Whether or not the list has marketing permissions (eg. GDPR) enabled.
       
       // contact
-      $from_name             = $_SESSION['user']->getPerson()->getFullName();
-      $from_email            = ( !empty ( $_SESSION['user']->getPerson()->getEmail() ) )?$_SESSION['user']->getPerson()->getEmail():$_SESSION['user']->getPerson()->getWorkEmail();
+      $from_name             = SessionUser::getUser()->getPerson()->getFullName();
+      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
@@ -355,8 +349,8 @@ class MailChimpService
       }
     }
     public function createCampaign ($list_id, $subject, $title, $htmlBody) {
-      $from_name             = $_SESSION['user']->getPerson()->getFullName();
-      $from_email            = ( !empty ( $_SESSION['user']->getPerson()->getEmail() ) )?$_SESSION['user']->getPerson()->getEmail():$_SESSION['user']->getPerson()->getWorkEmail();
+      $from_name             = SessionUser::getUser()->getPerson()->getFullName();
+      $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }

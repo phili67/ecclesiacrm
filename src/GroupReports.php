@@ -18,6 +18,8 @@ require 'Include/Functions.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get all the groups
@@ -41,10 +43,10 @@ require 'Include/Header.php';
 
 <?php 
   if (!isset($_POST['GroupID'])) {
-    $currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+    $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
     
     if ($currentUserBelongToGroup == 0) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
     }
 ?>
     

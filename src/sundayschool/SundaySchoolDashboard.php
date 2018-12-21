@@ -6,6 +6,7 @@ use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\SessionUser;
 
 $dashboardService = new DashboardService();
 $sundaySchoolService = new SundaySchoolService();
@@ -45,7 +46,7 @@ require '../Include/Header.php';
     <h3 class="box-title"><?= gettext('Functions') ?></h3>
   </div>
   <div class="box-body">
-    <?php if ($_SESSION['user']->isManageGroupsEnabled()) {
+    <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
     ?>
       <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
           class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
@@ -53,7 +54,7 @@ require '../Include/Header.php';
       } 
     ?>
     <?php 
-      if ($_SESSION['bExportSundaySchoolPDF'] || $_SESSION['user']->isAdmin()) { 
+      if ($_SESSION['bExportSundaySchoolPDF'] || SessionUser::getUser()->isAdmin()) { 
     ?>  
      <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
@@ -62,7 +63,7 @@ require '../Include/Header.php';
       }
     ?>
     <?php 
-      if ($_SESSION['bExportCSV'] || $_SESSION['bExportSundaySchoolCSV'] || $_SESSION['user']->isAdmin()) { 
+      if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) { 
     ?>
      <a href="SundaySchoolClassListExport.php" class="btn btn-app"
        title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
@@ -238,7 +239,7 @@ require '../Include/Header.php';
           echo '  </span></a></td>';
           echo '<td>'.$firstName.'</td>';
           echo '<td>'.$LastName.'</td>';
-          if ($_SESSION['user']->isSeePrivacyDataEnabled()) {          
+          if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {          
             echo '<td>'.$birthDate.'</td>';
             echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
             echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';
@@ -256,7 +257,7 @@ require '../Include/Header.php';
     </table>
   </div>
 </div>
-<?php if ($_SESSION['user']->isManageGroupsEnabled()) {
+<?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
   <div class="modal fade" id="add-class" tabindex="-1" role="dialog" aria-labelledby="add-class-label"
        aria-hidden="true">

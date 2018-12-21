@@ -32,6 +32,8 @@ use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
@@ -47,8 +49,8 @@ if (array_key_exists('FamilyID', $_GET)) {
 // Security: User must have Add or Edit Records permission to use this form in those manners
 // Clean error handling: (such as somebody typing an incorrect URL ?PersonID= manually)
 if ($iFamilyID > 0) {
-    if (!($_SESSION['user']->isEditRecordsEnabled() || ($_SESSION['user']->isEditSelfEnabled() && ($iFamilyID == $_SESSION['user']->getPerson()->getFamId())))) {
-        Redirect('Menu.php');
+    if (!(SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())))) {
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
     
@@ -56,15 +58,15 @@ if ($iFamilyID > 0) {
         ->findOneById($iFamilyID);
         
     if (empty($family)) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
     
-    if ($family->getDateDeactivated() != null  && !$_SESSION['user']->isGdrpDpoEnabled() ) {
-      Redirect('members/404.php');
+    if ($family->getDateDeactivated() != null  && !SessionUser::getUser()->isGdrpDpoEnabled() ) {
+      RedirectUtils::Redirect('members/404.php');
     }    
-} elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+} elseif (!SessionUser::getUser()->isAddRecordsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -184,7 +186,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $nEnvelope = "0";
     }
 
-    if ($_SESSION['user']->isCanvasserEnabled()) { // Only take modifications to this field if the current user is a canvasser
+    if (SessionUser::getUser()->isCanvasserEnabled()) { // Only take modifications to this field if the current user is a canvasser
         $bOkToCanvass = isset($_POST['OkToCanvass']);
         $iCanvasser = 0;
         if (array_key_exists('Canvasser', $_POST)) {
@@ -333,10 +335,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                 $family->setWeddingdate($dWeddingDate);
             }
             $family->setDateEntered(new DateTime());
-            $family->setEnteredBy($_SESSION['user']->getPersonId());
+            $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             $family->setSendNewsletter($bSendNewsLetterString);
             
-            if ($_SESSION['user']->isCanvasserEnabled()) {
+            if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
                 $family->setCanvasser($iCanvasser);
             }
@@ -367,14 +369,14 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                 $family->setWeddingdate($dWeddingDate);
             }
             $family->setDateEntered(new DateTime());
-            $family->setEnteredBy($_SESSION['user']->getPersonId());
+            $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             
             $family->setDateLastEdited(new DateTime());
-            $family->setEditedBy($_SESSION['user']->getPersonId());
+            $family->setEditedBy(SessionUser::getUser()->getPersonId());
             
             $family->setSendNewsletter($bSendNewsLetterString);
             
-            if ($_SESSION['user']->isCanvasserEnabled()) {
+            if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
                 $family->setCanvasser($iCanvasser);
             }
@@ -428,7 +430,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $person->setFamId($iFamilyID);
                     $person->setFmrId($aRoles[$iCount]);
                     $person->setDateEntered(date('YmdHis'));
-                    $person->setEnteredBy($_SESSION['user']->getPersonId());
+                    $person->setEnteredBy(SessionUser::getUser()->getPersonId());
                     $person->setGender($aGenders[$iCount]);
                     $person->setBirthDay($aBirthDays[$iCount]);
                     $person->setBirthMonth($aBirthMonths[$iCount]);
@@ -442,7 +444,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $note->setPerId($dbPersonId);
                     $note->setText(gettext('Created via Family'));
                     $note->setType('create');
-                    $note->setEntered($_SESSION['user']->getPersonId());
+                    $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
                     
                     $personCustom = new PersonCustom();
@@ -494,7 +496,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $person->setBirthYear($aBirthYears[$iCount]);
                     $person->setClsId($aClassification[$iCount]);
                     $person->setDateEntered(date('YmdHis'));
-                    $person->setEnteredBy($_SESSION['user']->getPersonId());
+                    $person->setEnteredBy(SessionUser::getUser()->getPersonId());
                     $person->save();
                     //RunQuery("UNLOCK TABLES");
 
@@ -502,7 +504,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $note->setPerId($aPersonIDs[$iCount]);
                     $note->setText(gettext('Updated via Family'));
                     $note->setType('edit');
-                    $note->setEntered($_SESSION['user']->getPersonId());
+                    $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
                 }
             }
@@ -534,10 +536,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         //Which submit button did they press?
         if (isset($_POST['FamilySubmit'])) {
             //Send to the view of this person
-            Redirect('FamilyView.php?FamilyID='.$iFamilyID);
+            RedirectUtils::Redirect('FamilyView.php?FamilyID='.$iFamilyID);
         } else {
             //Reload to editor to add another record
-            Redirect('FamilyEditor.php');
+            RedirectUtils::Redirect('FamilyEditor.php');
         }
     }
 } else {
@@ -847,7 +849,7 @@ require 'Include/Header.php';
       <?php
               } /* Wedding date can be hidden - General Settings */ ?>
       <div class="row">
-        <?php if ($_SESSION['user']->isCanvasserEnabled()) { // Only show this field if the current user is a canvasser?>
+        <?php if (SessionUser::getUser()->isCanvasserEnabled()) { // Only show this field if the current user is a canvasser?>
           <div class="form-group col-md-4">
             <label><?= gettext('Ok To Canvass') ?>: </label><br/>
             <input type="checkbox" Name="OkToCanvass" value="1" <?= ($bOkToCanvass)?' checked ':'' ?>>
@@ -1149,7 +1151,7 @@ require 'Include/Header.php';
         </select>
       </td>
       <td class="TextColumnFam">
-      <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || $_SESSION['user']->isSeePrivacyDataEnabled()) {
+      <?php  if (!array_key_exists($iCount, $aperFlags) || !$aperFlags[$iCount] || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                     $UpdateBirthYear = 1; ?>
         <input class="form-control input-md" name="BirthYear<?= $iCount ?>" type="text" value="<?= $aBirthYears[$iCount] ?>" size="4" maxlength="4">
         <?php 
@@ -1196,7 +1198,7 @@ require 'Include/Header.php';
     echo '<input type="hidden" Name="UpdateBirthYear" value="'.$UpdateBirthYear.'">';
 
     echo '<input type="submit" class="btn btn-primary" value="'.gettext('Save').'" Name="FamilySubmit"> ';
-    if ($_SESSION['user']->isAddRecordsEnabled()) {
+    if (SessionUser::getUser()->isAddRecordsEnabled()) {
         echo ' <input type="submit" class="btn btn-info" value="'.gettext('Save and Add').'" name="FamilySubmitAndAdd"> ';
     }
     echo ' <input type="button" class="btn" value="'.gettext('Cancel').'" Name="FamilyCancel"';

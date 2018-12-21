@@ -15,12 +15,13 @@ use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\GdprInfoQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\SessionUser;
 
 
 $app->group('/gdrp', function () {
 
   $this->post('/', function ($request, $response, $args) {    
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
       
@@ -56,7 +57,7 @@ $app->group('/gdrp', function () {
   });
 
   $this->post('/setComment', function ($request, $response, $args) {
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
 
@@ -134,7 +135,7 @@ $app->group('/gdrp', function () {
   });
 
   $this->post('/removeperson', function ($request, $response, $args) {
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
 
@@ -155,7 +156,7 @@ $app->group('/gdrp', function () {
   });
   
   $this->post('/removeallpersons', function ($request, $response, $args) {
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
   
@@ -191,7 +192,7 @@ $app->group('/gdrp', function () {
   });
   
   $this->post('/removefamily', function ($request, $response, $args) {
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
 
@@ -212,7 +213,7 @@ $app->group('/gdrp', function () {
   });
   
   $this->post('/removeallfamilies', function ($request, $response, $args) {
-      if ( !($_SESSION['user']->isGdrpDpoEnabled()) ) {
+      if ( !(SessionUser::getUser()->isGdrpDpoEnabled()) ) {
         return $response->withStatus(401);
       }
   

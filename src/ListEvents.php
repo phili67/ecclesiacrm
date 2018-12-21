@@ -30,6 +30,7 @@ use EcclesiaCRM\Map\PrincipalsTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
 
 use Sabre\CalDAV;
 use Sabre\DAV;
@@ -228,8 +229,8 @@ foreach ($allMonths as $mVal) {
     
     $onlyUser = "";
     
-    if (!($_SESSION['user']->isAdmin())) {
-      $onlyUser = " AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower($_SESSION['user']->getUserName())."'";
+    if (!(SessionUser::getUser()->isAdmin())) {
+      $onlyUser = " AND ".PrincipalsTableMap::COL_URI."='principals/".strtolower(SessionUser::getUser()->getUserName())."'";
     }
       
     if ($eType == 'All') {
@@ -279,7 +280,7 @@ foreach ($allMonths as $mVal) {
         // get the list of attend-counts that exists in event_attend for this        
         $aEventID[$row] = $event->getId();
         
-        if ( $_SESSION['user']->isAdmin() ) {
+        if ( SessionUser::getUser()->isAdmin() ) {
           $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b><br>".gettext("login").":<b>".str_replace("principals/","",$event->getLogin())."</b>";
         } else {
           $aLogin[$row] = gettext("Name").":"."<b>".$event->getCalendarName()."</b>";
@@ -292,7 +293,7 @@ foreach ($allMonths as $mVal) {
         $aEventStartDateTime[$row] = $event->getStart()->format(SystemConfig::getValue('sDateFormatLong'));//.' H:i:s');
         $aEventEndDateTime[$row] = $event->getEnd()->format(SystemConfig::getValue('sDateFormatLong'));//.' H:i:s');
         $aEventStatus[$row] = $event->getInactive();
-        if (!($_SESSION['user']->isAdmin())) {
+        if (!(SessionUser::getUser()->isAdmin())) {
           $aEventRights[$row] = ($event->getRights() == 1 || $event->getRights() == 3)?true:false;
         } else {
           $aEventRights[$row] = true;

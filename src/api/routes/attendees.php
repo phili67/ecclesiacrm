@@ -15,6 +15,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\SessionUser;
 
 
 use EcclesiaCRM\CalendarinstancesQuery;
@@ -36,7 +37,7 @@ use Propel\Runtime\Propel;
 $app->group('/attendees', function () {
 
   $this->post('/checkoutstudent', function ($request, $response, $args) {
-    /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+    /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }*/
 
@@ -52,7 +53,7 @@ $app->group('/attendees', function () {
         $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
         
         if ($eventAttent) {
-              $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+              $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
               if ($cartPayload->checked) {
                 $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
               } else {
@@ -63,7 +64,7 @@ $app->group('/attendees', function () {
           try {
               $eventAttent = new EventAttend();        
               $eventAttent->setEventId($event->getID());
-              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+              $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
               $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
               $eventAttent->setPersonId($child['kidId']);
               $eventAttent->save();
@@ -76,13 +77,13 @@ $app->group('/attendees', function () {
       {
         throw new \Exception(gettext("POST to cart requires a personID and an eventID"),500);
       }
-      $person = PersonQuery::Create()->findOneById($_SESSION['user']->getPersonId());
+      $person = PersonQuery::Create()->findOneById(SessionUser::getUser()->getPersonId());
       
       return $response->withJson(['status' => "success","name" => $person->getFullName(),"date" => OutputUtils::FormatDate($date->format('Y-m-d H:i:s'),1)]);
   });
 
   $this->post('/student', function ($request, $response, $args) {
-    /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+    /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }*/
 
@@ -171,7 +172,7 @@ $app->group('/attendees', function () {
               try {
                 $eventAttent = new EventAttend();        
                 $eventAttent->setEventId($event->getID());
-                $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
                 $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
                 $eventAttent->setPersonId($child['kidId']);
               
@@ -179,7 +180,7 @@ $app->group('/attendees', function () {
                   $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
                 }
                 if (SystemConfig::getValue("bCheckedAttendeesCurrentUser")) {
-                  $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+                  $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
                 }              
                 $eventAttent->save();
               } catch (\Exception $ex) {
@@ -204,7 +205,7 @@ $app->group('/attendees', function () {
   });
 
   $this->post('/delete', function ($request, $response, $args) {
-    if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+    if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
         return $response->withStatus(401);
     }
 
@@ -225,7 +226,7 @@ $app->group('/attendees', function () {
   });
   
     $this->post('/deleteAll', function ($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -247,7 +248,7 @@ $app->group('/attendees', function () {
     });
     
     $this->post('/checkAll', function ($request, $response, $args) {
-        /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }*/
 
@@ -264,9 +265,9 @@ $app->group('/attendees', function () {
           $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
           foreach ($eventAttents as $eventAttent) {
-            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
         
-            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
             $eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
             $eventAttent->save();
           }
@@ -279,7 +280,7 @@ $app->group('/attendees', function () {
     });
     
      $this->post('/uncheckAll', function ($request, $response, $args) {
-        /*if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        /*if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }*/
 
@@ -296,9 +297,9 @@ $app->group('/attendees', function () {
           $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
 
           foreach ($eventAttents as $eventAttent) {
-            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
         
-            $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());
             //$eventAttent->setCheckoutDate($date->format('Y-m-d H:i:s'));
             $eventAttent->setCheckoutDate(NULL);
             $eventAttent->save();

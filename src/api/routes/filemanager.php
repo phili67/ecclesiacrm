@@ -11,6 +11,8 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
+
 
 function reArrayFiles(&$file_post) {
 
@@ -121,7 +123,7 @@ $app->group('/filemanager', function () {
             
             $note = NoteQuery::Create()->filterByPerId ($args['personID'])->filterByText($searchLikeString, Criteria::LIKE)->findOne();
             
-            if ( !is_null($note) && ( $note->isShared() > 0 || $_SESSION['user']->isAdmin() || $_SESSION['user']->getPersonId() == $args['personID'] ) ) {
+            if ( !is_null($note) && ( $note->isShared() > 0 || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->getPersonId() == $args['personID'] ) ) {
               $file = dirname(__FILE__)."/../../".$realNoteDir."/".$name;
           
               $response = $res->withHeader('Content-Description', 'File Transfer')
@@ -390,7 +392,7 @@ $app->group('/filemanager', function () {
                         $note->setInfo(gettext('File modification'));
                       }
                       
-                      $note->setEntered($_SESSION['user']->getPersonId());
+                      $note->setEntered(SessionUser::getUser()->getPersonId());
                       $note->save();
                     }
                   }
@@ -426,7 +428,7 @@ $app->group('/filemanager', function () {
 
                       $note->setText($dropDir.$rest);
                       $note->setInfo(gettext('File modification'));
-                      $note->setEntered($_SESSION['user']->getPersonId());
+                      $note->setEntered(SessionUser::getUser()->getPersonId());
                       $note->save();
                     }
                   }
@@ -466,7 +468,7 @@ $app->group('/filemanager', function () {
               $note->setPrivate(1);
               $note->setText($userName.$currentpath.$params->folder);
               $note->setType('folder');
-              $note->setEntered($_SESSION['user']->getPersonId());
+              $note->setEntered(SessionUser::getUser()->getPersonId());
               $note->setInfo(gettext('New Folder'));
         
               $note->save();
@@ -516,7 +518,7 @@ $app->group('/filemanager', function () {
                       $note->setText(str_replace($oldDir,$newDir,$oldName));
                     }
                     
-                    $note->setEntered($_SESSION['user']->getPersonId());
+                    $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
                   }
                 }
@@ -561,7 +563,7 @@ $app->group('/filemanager', function () {
             $note->setPrivate(1);
             $note->setText($userName . $currentpath . $fileName);
             $note->setType('file');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->setInfo(gettext('Create file'));
           
             $note->save();

@@ -14,6 +14,7 @@ use PharData;
 use Propel\Runtime\Propel;
 use PDO;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\SessionUser;
 
 require SystemURLs::getDocumentRoot() . '/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php';
 
@@ -28,7 +29,7 @@ class SystemService
     public function isSessionStillValid ()
     {
       // Basic security: If the UserID isn't set (no session), redirect to the login page
-      if (!isset($_SESSION['user'])) {
+      if (is_null(SessionUser::getUser())) {
         return false; // we have to return to the login page
       }
 

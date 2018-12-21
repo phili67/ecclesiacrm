@@ -10,6 +10,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\SessionUser;
 
 $sundaySchoolService = new SundaySchoolService();
 
@@ -65,7 +66,7 @@ require '../Include/Header.php';
 ?>
 
 <?php  
-  if ($_SESSION['user']->isAddRecords()) {
+  if (SessionUser::getUser()->isAddRecords()) {
 ?>
   <div class="callout callout-info info"><?= gettext("To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
   <div class="callout callout-warning edition-mode" style="display: none;"><?= gettext("You're now in edition mode. To see the entire page again, click the button") ?>   <button type="button" class="btn btn-default exit-edition-mode" data-widget="collapse"><?= gettext("Exit") ?></button></div>
@@ -90,7 +91,7 @@ require '../Include/Header.php';
     }
     $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-    if ($bEmailMailto) { // Does user have permission to email groups
+    if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
       // Display link
       ?>
       <div class="btn-group">
@@ -125,19 +126,19 @@ require '../Include/Header.php';
 
   <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Class") ?></a>
   <?php 
-  if ($_SESSION['user']->isDeleteRecordsEnabled() || $_SESSION['user']->isAddRecordsEnabled() || $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId)) {
+  if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
   ?>
     <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= gettext('Make Check-out') ?></span></a>  
   <?php 
     }
   ?>
   <?php 
-  if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId) && ($_SESSION['bExportSundaySchoolCSV'] || $_SESSION['bExportCSV'])) ) {
+  if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) ) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php
    }
-   if ($_SESSION['user']->isAdmin() || ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
+   if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
     
@@ -146,22 +147,22 @@ require '../Include/Header.php';
     }
   ?>
   <?php
-    if (Cart::StudentInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()){
+    if (Cart::StudentInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()){
   ?>
     <a class="btn btn-app RemoveStudentsFromGroupCart" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Students from Cart") ?></span></a>
   <?php 
-    } else if ($_SESSION['user']->isShowCartEnabled()) {
+    } else if (SessionUser::getUser()->isShowCartEnabled()) {
    ?>
     <a class="btn btn-app AddStudentsToGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Students to Cart") ?></span></a>    
   <?php
     }
   ?>
   <?php
-    if (Cart::TeacherInCart($iGroupId) && $_SESSION['user']->isShowCartEnabled()) {
+    if (Cart::TeacherInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
   ?>
     <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove Teachers from Cart") ?></span></a>    
   <?php 
-    } else if ($_SESSION['user']->isShowCartEnabled()) {
+    } else if (SessionUser::getUser()->isShowCartEnabled()) {
   ?>
     <a class="btn btn-app AddToTeacherGroupCart <?= (count($rsTeachers) == 0)?"disabled":"" ?>" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add Teachers to Cart") ?></span></a>
   <?php 
@@ -204,7 +205,7 @@ require '../Include/Header.php';
 </div>
 
 <?php
-   if ($_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId)) {
+   if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
 ?>
 
 <div class="box box-info quick-status">
@@ -349,7 +350,7 @@ function implodeUnique($array, $withQuotes)
 </div><!-- /.modal -->
 
 <?php  
-  if ($_SESSION['user']->isAddRecords()) {
+  if (SessionUser::getUser()->isAddRecords()) {
 ?>
 <div class="box">
   <div class="box-header with-border">
@@ -388,8 +389,8 @@ function implodeUnique($array, $withQuotes)
   var birthDateColumnText    = '<?= gettext("Birth Date") ?>';
   var genderColumnText       = '<?= gettext("Gender") ?>';
   var sundayGroupId          = <?= $iGroupId ?>;
-  var canSeePrivacyData      = <?= ($_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupId))?1:0 ?>;
-  var canDeleteMembers       = <?= $_SESSION['user']->isDeleteRecordsEnabled()?1:0 ?>;
+  var canSeePrivacyData      = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId))?1:0 ?>;
+  var canDeleteMembers       = <?= SessionUser::getUser()->isDeleteRecordsEnabled()?1:0 ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>

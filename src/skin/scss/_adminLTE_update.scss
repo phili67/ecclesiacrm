@@ -476,6 +476,11 @@ background: repeating-linear-gradient(0deg,rgba(48,48,48,0.95),rgba(28,28,28,0.9
 background-repeat: repeat-y;
 }
 
+.control-sidebar-light, .control-sidebar-light+.control-sidebar-bg {
+background: rgba(249, 250, 252, 0.97);
+border-left: 1px solid #d2d6de;
+}
+
 /* special alert */
 .alert-birthday {
 background-color:#a6d58c ;

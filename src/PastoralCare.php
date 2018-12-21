@@ -22,18 +22,20 @@ use EcclesiaCRM\PastoralCareType;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\Map\PastoralCareTableMap;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $currentPersonID = InputUtils::LegacyFilterInput($_GET['PersonID']);
 $iWhyCameID = InputUtils::LegacyFilterInput($_GET['WhyCameID']);
 
-if ( !($_SESSION['user']->isPastoralCareEnabled()) ) {
-  Redirect('Menu.php');
+if ( !(SessionUser::getUser()->isPastoralCareEnabled()) ) {
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 
-$currentPastorId = $_SESSION['user']->getPerson()->getID();
+$currentPastorId = SessionUser::getUser()->getPerson()->getID();
 
 $ormPastoralCares = PastoralCareQuery::Create()
                       ->orderByDate(Propel\Runtime\ActiveQuery\Criteria::DESC)
@@ -96,7 +98,7 @@ require 'Include/Header.php';
   <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintPastoralCare.php?PersonID=<?= $currentPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
   
   <div class="btn-group pull-right">
-    <a class="btn btn-app filterByPastor" data-personid="<?= $_SESSION['user']->getPerson()->getId() ?>"><i class="fa fa-sticky-note"></i><?= $_SESSION['user']->getPerson()->getFullName()  ?></a>
+    <a class="btn btn-app filterByPastor" data-personid="<?= SessionUser::getUser()->getPerson()->getId() ?>"><i class="fa fa-sticky-note"></i><?= SessionUser::getUser()->getPerson()->getFullName()  ?></a>
     <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
        <span class="caret"></span>
        <span class="sr-only">Menu déroulant</span>
@@ -145,7 +147,7 @@ require 'Include/Header.php';
       </div>
       <div class="timeline-footer">
       <?php 
-        if ($_SESSION['user']->isAdmin() || $ormPastoralCare->getPastorId() == $currentPastorId) { 
+        if (SessionUser::getUser()->isAdmin() || $ormPastoralCare->getPastorId() == $currentPastorId) { 
       ?>
         <a class="btn btn-primary btn-xs modify-pastoral" data-id="<?= $ormPastoralCare->getId() ?>"><?= gettext("Modify") ?></a>
         <a class="btn btn-danger btn-xs delete-pastoral" data-id="<?= $ormPastoralCare->getId() ?>"><?= gettext("Delete") ?></a>

@@ -26,6 +26,7 @@ use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\SessionUser;
 
 
 
@@ -239,7 +240,7 @@ $app->group('/families', function () {
                 $note->setText(gettext('Family Activated'));
             }
             $note->setType('edit');
-            $note->setEntered($_SESSION['user']->getPersonId());
+            $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
         }
         return $response->withJson(['success' => true]);
@@ -263,7 +264,7 @@ $app->group('/families', function () {
     });
     
     $this->post('/deletefield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
       
@@ -309,7 +310,7 @@ $app->group('/families', function () {
     });
     
     $this->post('/upactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 
@@ -331,7 +332,7 @@ $app->group('/families', function () {
     });
     
     $this->post('/downactionfield', function ($request, $response, $args) {
-      if (!$_SESSION['user']->isMenuOptionsEnabled()) {
+      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
           return $response->withStatus(404);
       }
 

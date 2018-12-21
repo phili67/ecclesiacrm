@@ -2,7 +2,7 @@
 
 namespace EcclesiaCRM\Tasks;
 use EcclesiaCRM\dto\SystemURLs;
-
+use EcclesiaCRM\SessionUser;
 
 
 class LatestReleaseTask implements iTask
@@ -28,7 +28,7 @@ class LatestReleaseTask implements iTask
 
   public function getLink()
   {
-    if ($_SESSION['user']->isAdmin()) {
+    if (SessionUser::getUser()->isAdmin()) {
       return SystemURLs::getRootPath() . '/UpgradeCRM.php';
     } else {
       return 'https://github.com/EcclesiaCRM/CRM/releases/latest';

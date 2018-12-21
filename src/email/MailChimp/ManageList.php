@@ -14,16 +14,19 @@ require '../../Include/Functions.php';
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $mailchimp = new MailChimpService();
 
-if ( !($_SESSION['user']->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-    Redirect('Menu.php');
+if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
 if ( !isset($_GET['list_id']) ) {
-    Redirect('Menu.php');
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

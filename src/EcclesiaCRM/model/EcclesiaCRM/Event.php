@@ -5,6 +5,7 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\Base\Event as BaseEvent;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 /**
  * Skeleton subclass for representing a row from the 'events_event' table.
@@ -68,7 +69,7 @@ class Event extends BaseEvent
   
   public function getEventURI()
   {
-    if($_SESSION['user']->isAdmin())
+    if(SessionUser::getUser()->isAdmin())
       return SystemURLs::getRootPath()."/EventEditor.php?calendarAction=".$this->getID();
     else 
       return '';

@@ -17,12 +17,15 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $groupService = new GroupService();
 
 // Security: User must have Manage Groups & Roles permission
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isManageGroupsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -37,7 +40,7 @@ if (isset($_POST['Submit'])) {
     $sPreviousQuery = strip_tags($_POST['prevquery']);
     $groupService->addUserToGroup($iGroupID, $iPersonID, $iGroupRole);
 
-    Redirect("SelectList.php?$sPreviousQuery");
+    RedirectUtils::Redirect("SelectList.php?$sPreviousQuery");
 } else {
     $sPreviousQuery = strip_tags(rawurldecode($_GET['prevquery']));
 }

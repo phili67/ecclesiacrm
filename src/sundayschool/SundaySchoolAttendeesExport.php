@@ -28,10 +28,11 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
-
-if ( !( $_SESSION['bExportCSV'] || $_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolCSV'] ) ) {
-    Redirect('Menu.php');
+if ( !( SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
   

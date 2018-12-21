@@ -31,6 +31,7 @@ use Sabre\DAVACL;
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
+use EcclesiaCRM\SessionUser;
 
 class CalendarService
 {
@@ -59,7 +60,7 @@ class CalendarService
         $firstYear = $startDate->format('Y');
         
         
-        if ($_SESSION['user']->isSeePrivacyDataEnabled()) {
+        if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
           $peopleWithBirthDays = PersonQuery::create()
             ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
             ->JoinWithFamily();
@@ -124,7 +125,7 @@ class CalendarService
         $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
         // get all the calendars for the current user
         
-        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower($_SESSION['user']->getUserName()),"displayname",false);
+        $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
         
         foreach ($calendars as $calendar) {
           $calendarName        = $calendar['{DAV:}displayname'];

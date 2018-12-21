@@ -12,10 +12,12 @@ require '../../Include/Config.php';
 require '../../Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
-if (!($_SESSION['user']->isMailChimpEnabled())) {
-    Redirect('Menu.php');
+if (!(SessionUser::getUser()->isMailChimpEnabled())) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

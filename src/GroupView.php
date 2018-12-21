@@ -36,13 +36,14 @@ use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 // check if the user belongs to the group
-$currentUserBelongToGroup = $_SESSION['user']->belongsToGroup($iGroupID);
+$currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
     
 //Get the data on this group
 $thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
@@ -52,7 +53,7 @@ $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId()
 
 $sGroupType = gettext('Unassigned');
 
-$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
   
 $is_group_manager = false;
 
@@ -60,7 +61,7 @@ if (!empty($manager)) {
   $is_group_manager = true;
   $_SESSION['bManageGroups'] = true;
 } else  {
-  $_SESSION['bManageGroups'] = $_SESSION['user']->isManageGroupsEnabled();
+  $_SESSION['bManageGroups'] = SessionUser::getUser()->isManageGroupsEnabled();
 }
        
 //Get the group's type name
@@ -93,7 +94,7 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <?php 
-      if ($_SESSION['user']->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
+      if (SessionUser::getUser()->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
         if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     ?>
         <a class="btn btn-app" href="MapUsingLeaflet.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
@@ -112,18 +113,18 @@ require 'Include/Header.php';
     ?>
 
     <?php
-      if (Cart::GroupInCart($iGroupID) && $_SESSION['user']->isShowCartEnabled()) {
+      if (Cart::GroupInCart($iGroupID) && SessionUser::getUser()->isShowCartEnabled()) {
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
     <?php
-      } else if ($_SESSION['user']->isShowCartEnabled()){
+      } else if (SessionUser::getUser()->isShowCartEnabled()){
     ?>
        <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
     <?php
      }
     ?>
     <?php
-      if ( $_SESSION['user']->isManageGroupsEnabled() ) {
+      if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
     ?>
         <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Group") ?></a>
         <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= gettext("Delete this Group") ?></button>
@@ -178,7 +179,7 @@ require 'Include/Header.php';
         }
         $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
-        if ($bEmailMailto) { // Does user have permission to email groups
+        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
         // Display link
         ?>
         <div class="btn-group">
@@ -234,7 +235,7 @@ require 'Include/Header.php';
         }
     }
     if ($sPhoneLink) {
-        if ($bEmailMailto) { // Does user have permission to email groups
+        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
             // Display link
             echo '<a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i>'.gettext('Text Group').'</a>';
             echo '<script nonce="'. SystemURLs::getCSPNonce() .'">function allPhonesCommaD() {prompt("'.gettext("Press CTRL + C to copy all group members\' phone numbers").'", "'.mb_substr($sPhoneLink, 0, -2).'")};</script>';
@@ -262,12 +263,24 @@ require 'Include/Header.php';
         <button class="btn btn-primary" type="button">
             <?= gettext('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
         </button>
+        <?php 
+          if (SessionUser::getUser()->isAdmin()) { 
+        ?>
+        <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
+            <?= gettext('Address Book') ?> 
+            <span class="badge">
+              <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
+            </span>
+        </a>
+        <?php 
+          } 
+        ?>
       </center>
     </div>
 </div>
 
 <?php 
-   if ( $_SESSION['user']->isManageGroupsEnabled() ) { 
+   if ( SessionUser::getUser()->isManageGroupsEnabled() ) { 
 ?>
 
 <div class="row">
@@ -349,7 +362,7 @@ require 'Include/Header.php';
                 <?php
                 //}
 
-                if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true ) {
+                if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true ) {
                 ?>
                     <div class="alert alert-info">
                       <div>
@@ -422,7 +435,7 @@ require 'Include/Header.php';
                 
                       foreach ($ormPropList as $prop) {
                           $sRowClass = AlternateRowStyle($sRowClass);
-                          if ( $_SESSION['user']->isSeePrivacyDataEnabled() || $_SESSION['user']->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
+                          if ( SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                           ?>
                         <tr class="<?= $sRowClass ?>">
                           <!--<td><?= $aPropTypes[$prop->getTypeId()] ?></td>-->
@@ -445,7 +458,7 @@ require 'Include/Header.php';
               ?>
           
               <?php
-                 if ($thisGroup->getHasSpecialProps() && ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
+                 if ($thisGroup->getHasSpecialProps() && (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
               ?>
                   <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
               <?php
@@ -472,7 +485,7 @@ require 'Include/Header.php';
 </div>
 
 <?php 
-   if ($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) { 
+   if (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) { 
 ?>
 <div class="box">
   <div class="box-header with-border">
@@ -490,7 +503,7 @@ require 'Include/Header.php';
         <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
       </div>
       <?php 
-        if ($_SESSION['user']->isManageGroupsEnabled()) { 
+        if (SessionUser::getUser()->isManageGroupsEnabled()) { 
       ?>
       <div class="col-md-4">
         <div class="btn-group">
@@ -529,9 +542,9 @@ require 'Include/Header.php';
   
   var isShowable  = <?php
      // it should be better to write this part in the api/groups/members
-      if ($_SESSION['user']->isSeePrivacyDataEnabled() 
-        || (!$thisGroup->isSundaySchool() && $_SESSION['user']->belongsToGroup($iGroupID)) 
-        || ($thisGroup->isSundaySchool() && $_SESSION['user']->isSundayShoolTeacherForGroup($iGroupID))) {
+      if (SessionUser::getUser()->isSeePrivacyDataEnabled() 
+        || (!$thisGroup->isSundaySchool() && SessionUser::getUser()->belongsToGroup($iGroupID)) 
+        || ($thisGroup->isSundaySchool() && SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupID))) {
          echo "true";
       } else {
          echo "false";

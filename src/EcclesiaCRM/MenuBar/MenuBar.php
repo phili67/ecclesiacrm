@@ -28,6 +28,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
 use EcclesiaCRM\Service\MailChimpService;
+use EcclesiaCRM\SessionUser;
 
 
 class MenuBar {
@@ -53,7 +54,7 @@ class MenuBar {
       // the assigned Groups
       $menu = new Menu (gettext("Groups"),"fa fa-tag","#",true);
       
-      $menuItem = new Menu (gettext("List Groups"),"fa fa-circle-o","GroupList.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+      $menuItem = new Menu (gettext("List Groups"),"fa fa-circle-o","GroupList.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
       
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3)
@@ -203,10 +204,10 @@ class MenuBar {
     
     private function addPersonMenuLinks($mainmenu)
     {
-      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId($_SESSION['user']->getPersonId());
+      $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(SessionUser::getUser()->getPersonId());
       
       $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu);
-      $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".$_SESSION['user']->getPersonId(),true,$menuItem);
+      $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".SessionUser::getUser()->getPersonId(),true,$menuItem);
       
       foreach ($menuLinks as $menuLink) {
           $menuItemItem1 = new Menu ($menuLink->getName(),"fa fa-angle-double-right",$menuLink->getUri(),true,$menuItem);
@@ -218,11 +219,11 @@ class MenuBar {
       // home Area
       $menu = new Menu (gettext("Private Space"),"fa fa-home","",true);
 
-        $menuItem = new Menu (gettext("Home"),"fa fa-user","PersonView.php?PersonID=".$_SESSION['user']->getPersonId(),true,$menu);
+        $menuItem = new Menu (gettext("Home"),"fa fa-user","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId(),true,$menu);
         $menuItem = new Menu (gettext("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);
         $menuItem = new Menu (gettext("Change Settings"),"fa fa-gear","SettingsIndividual.php",true,$menu);
-        $menuItem = new Menu (gettext("Notes"),"fa fa fa-files-o","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&documents=true",true,$menu);
-        $menuItem = new Menu (gettext("EDrive"),"fa fa-cloud","PersonView.php?PersonID=".$_SESSION['user']->getPersonId()."&edrive=true",true,$menu);
+        $menuItem = new Menu (gettext("Notes"),"fa fa fa-files-o","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId()."&documents=true",true,$menu);
+        $menuItem = new Menu (gettext("EDrive"),"fa fa-cloud","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId()."&edrive=true",true,$menu);
         
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
            $this->addPersonMenuLinks($menu);
@@ -230,7 +231,7 @@ class MenuBar {
 
       $this->addMenu($menu);
       
-      if ($_SESSION['user']->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
+      if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
         // the GDPR Menu
         $menu = new Menu (gettext("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
           $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPRDashboard.php",true,$menu);
@@ -259,7 +260,7 @@ class MenuBar {
           }
 
           $menuItem = new Menu (gettext("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
-          $menuItem = new Menu (gettext("List Event Types"),"fa fa-circle-o","EventNames.php",$_SESSION['user']->isAdmin(),$menu);
+          $menuItem = new Menu (gettext("List Event Types"),"fa fa-circle-o","EventNames.php",SessionUser::getUser()->isAdmin(),$menu);
           $menuItem = new Menu (gettext("Check-in and Check-out"),"fa fa-circle-o","Checkin.php",true,$menu);
       
         $this->addMenu($menu);
@@ -268,7 +269,7 @@ class MenuBar {
       // the People menu
       $menu = new Menu (gettext("People")." & ".gettext("Families"),"fa fa-users","#",true);
       
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",$_SESSION['user']->isAddRecordsEnabled(),$menu);
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
         $menuItem->addLink("MapUsingLeaflet.php?GroupID=-1");
         $menuItem->addLink("MapUsingGoogle.php?GroupID=-1");
         $menuItem->addLink("MapUsingBing.php?GroupID=-1");
@@ -276,7 +277,7 @@ class MenuBar {
         $menuItem->addLink("UpdateAllLatLon.php");
         
         $menuItem = new Menu (gettext("View All Persons"),"fa fa-circle-o","SelectList.php?mode=person",true,$menu);
-        if ($_SESSION['user']->isShowMapEnabled()) {
+        if (SessionUser::getUser()->isShowMapEnabled()) {
           if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
             $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php?GroupID=-1",true,$menu);
           } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
@@ -288,14 +289,14 @@ class MenuBar {
         
         $menuItem = new Menu (gettext("Directory reports"),"fa fa-circle-o","DirectoryReports.php",true,$menu);
         
-        if ($_SESSION['user']->isEditRecordsEnabled()) {
+        if (SessionUser::getUser()->isEditRecordsEnabled()) {
           $menuItem = new Menu (gettext("Persons"),"fa fa-angle-double-right","#",true,$menu);
-            $menuItemItem = new Menu (gettext("Add New Person"),"fa fa-circle-o","PersonEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+            $menuItemItem = new Menu (gettext("Add New Person"),"fa fa-circle-o","PersonEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);
             $menuItemItem = new Menu (gettext("View Active Persons"),"fa fa-circle-o","PersonList.php",true,$menuItem);
             $menuItemItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=inactive",true,$menuItem);
         
           $menuItem = new Menu (gettext("Families"),"fa fa-angle-double-right","#",true,$menu);
-            $menuItemItem = new Menu (gettext("Add New Family"),"fa fa-circle-o","FamilyEditor.php",$_SESSION['user']->isAddRecordsEnabled(),$menuItem);
+            $menuItemItem = new Menu (gettext("Add New Family"),"fa fa-circle-o","FamilyEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);
             $menuItemItem = new Menu (gettext("View Active Families"),"fa fa-circle-o","FamilyList.php",true,$menuItem);
             $menuItemItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=inactive",true,$menuItem);
         }
@@ -317,9 +318,9 @@ class MenuBar {
           
         $mailchimp = new MailChimpService();
 
-        $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",$_SESSION['user']->isMailChimpEnabled(),$menu);
+        $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",SessionUser::getUser()->isMailChimpEnabled(),$menu);
 
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","email/MailChimp/Dashboard.php",$_SESSION['user']->isMailChimpEnabled(),$menuMain);
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","email/MailChimp/Dashboard.php",SessionUser::getUser()->isMailChimpEnabled(),$menuMain);
         $menuItem->addLink("email/MailChimp/DuplicateEmails.php");
         $menuItem->addLink("email/MailChimp/NotInMailChimpEmails.php");
         
@@ -344,8 +345,8 @@ class MenuBar {
       }
       
       // The deposit
-      if (SystemConfig::getBooleanValue("bEnabledFinance") && $_SESSION['user']->isFinanceEnabled()) {
-        $menu = new Menu (gettext("Deposit"),"fa fa-bank","#",$_SESSION['user']->isFinanceEnabled());
+      if (SystemConfig::getBooleanValue("bEnabledFinance") && SessionUser::getUser()->isFinanceEnabled()) {
+        $menu = new Menu (gettext("Deposit"),"fa fa-bank","#",SessionUser::getUser()->isFinanceEnabled());
           // add the badges
           $deposit = DepositQuery::Create()->findOneById($_SESSION['iCurrentDeposit']);
           $deposits = DepositQuery::Create()->find();
@@ -362,35 +363,35 @@ class MenuBar {
             $menu->addBadge('badge pull-right bg-blue current-deposit','',gettext("Current")." : ".$_SESSION['iCurrentDeposit'],$_SESSION['iCurrentDeposit']);
           }
 
-          $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Electronic Payment Listing"),"fa fa-circle-o","ElectronicPaymentList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],$_SESSION['user']->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
+          $menuItem = new Menu (gettext("Envelope Manager"),"fa fa-circle-o","ManageEnvelopes.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View All Deposits"),"fa fa-circle-o","FindDepositSlip.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Electronic Payment Listing"),"fa fa-circle-o","ElectronicPaymentList.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Deposit Reports"),"fa fa-circle-o","FinancialReports.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Edit Deposit Slip").' : <small class="badge pull-right bg-blue current-deposit-item"> #'.$_SESSION['iCurrentDeposit'].'</small>',"fa fa-circle-o","DepositSlipEditor.php?DepositSlipID=".$_SESSION['iCurrentDeposit'],SessionUser::getUser()->isFinanceEnabled(),$menu,"deposit-current-deposit-item");
       
         $this->addMenu($menu);
       }
       
       // the menu Fundraisers
       if (SystemConfig::getBooleanValue("bEnabledFundraiser")) {
-        $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",$_SESSION['user']->isFinanceEnabled());
+        $menu = new Menu (gettext("Fundraiser"),"fa fa-money","#",SessionUser::getUser()->isFinanceEnabled());
 
-          $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-circle-o","FindFundRaiser.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php?FundRaiserID=-1",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("View Buyers"),"fa fa-circle-o","PaddleNumList.php",$_SESSION['user']->isFinanceEnabled(),$menu);
-          $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-circle-o","AddDonors.php",$_SESSION['user']->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View All Fundraisers"),"fa fa-circle-o","FindFundRaiser.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Create New Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php?FundRaiserID=-1",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Edit Fundraiser"),"fa fa-circle-o","FundRaiserEditor.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("View Buyers"),"fa fa-circle-o","PaddleNumList.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
+          $menuItem = new Menu (gettext("Add Donors to Buyer List"),"fa fa-circle-o","AddDonors.php",SessionUser::getUser()->isFinanceEnabled(),$menu);
 
         $this->addMenu($menu);
       }
       
       // the menu report
-      $menu = new Menu (gettext("Data/Reports"),"fa fa-file-pdf-o","#",$_SESSION['user']->isShowMenuQueryEnabled());
+      $menu = new Menu (gettext("Data/Reports"),"fa fa-file-pdf-o","#",SessionUser::getUser()->isShowMenuQueryEnabled());
 
-        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-circle-o","ReportList.php",$_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'),$menu);
-        $menuItem = new Menu (gettext("Query Menu"),"fa fa-circle-o","QueryList.php",$_SESSION['user']->isShowMenuQueryEnabled(),$menu);
+        $menuItem = new Menu (gettext("Reports Menu"),"fa fa-circle-o","ReportList.php",SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool'),$menu);
+        $menuItem = new Menu (gettext("Query Menu"),"fa fa-circle-o","QueryList.php",SessionUser::getUser()->isShowMenuQueryEnabled(),$menu);
 
-      if ($_SESSION['user']->isShowMenuQueryEnabled()) {
+      if (SessionUser::getUser()->isShowMenuQueryEnabled()) {
         $this->addMenu($menu);
       }
       

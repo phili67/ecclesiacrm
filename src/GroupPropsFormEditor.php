@@ -19,13 +19,14 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Get the Group from the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
-$manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+$manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
   
 $is_group_manager = false;
 
@@ -34,8 +35,8 @@ if (!empty($manager)) {
 }
 
 // Security: user must be allowed to edit records to use this page.
-if ( !($_SESSION['user']->isManageGroupsEnabled() || $is_group_manager == true) ) {
-    Redirect('Menu.php');
+if ( !(SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -47,7 +48,7 @@ extract(mysqli_fetch_array($rsGroupInfo));
 
 // Abort if user tries to load with group having no special properties.
 if ($grp_hasSpecialProps == false) {
-    Redirect('GroupView.php?GroupID='.$iGroupID);
+    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
 }
 
 $sPageTitle = gettext('Group-Specific Properties Form Editor:').'  : '.$grp_Name;

@@ -18,6 +18,9 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Get the Order, ID, Mode, and Action from the querystring
 if (array_key_exists('Order', $_GET)) {
@@ -31,29 +34,29 @@ $mode = trim($_GET['mode']);
 switch ($mode) {
     case 'famroles':
     case 'classes':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-            Redirect('Menu.php');
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
 
     case 'grptypes':
     case 'grproles':
-        if (!$_SESSION['user']->isManageGroupsEnabled()) {
-            Redirect('Menu.php');
+        if (!SessionUser::getUser()->isManageGroupsEnabled()) {
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
 
     case 'custom':
     case 'famcustom':
-    if (!$_SESSION['user']->isAdmin()) {
-        Redirect('Menu.php');
+    if (!SessionUser::getUser()->isAdmin()) {
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
         break;
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 
@@ -84,7 +87,7 @@ switch ($mode) {
         
         $ormGroupList = GroupQuery::Create()->findByRoleListId($listID);
         if ($ormGroupList->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
 
@@ -186,10 +189,10 @@ switch ($sAction) {
 
     // If no valid action was specified, abort
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 
 // Reload the option manager page
-Redirect("OptionManager.php?mode=$mode&ListID=$listID");
+RedirectUtils::Redirect("OptionManager.php?mode=$mode&ListID=$listID");
 exit;

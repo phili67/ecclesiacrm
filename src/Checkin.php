@@ -41,6 +41,8 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 $EventID = 0;
@@ -94,18 +96,18 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
             ->find();
             
   foreach ($eventAttents as $eventAttent) {
-    $eventAttent->setCheckoutId ($_SESSION['user']->getPersonId());    
+    $eventAttent->setCheckoutId (SessionUser::getUser()->getPersonId());    
     
     $eventAttent->save();
   }
 
   /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
-    //Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
+    //RedirectUtils::Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
-    //Redirect('GroupView.php?GroupID='.$event->getGroupId());
-    Redirect('Calendar.php');
+    //RedirectUtils::Redirect('GroupView.php?GroupID='.$event->getGroupId());
+    RedirectUtils::Redirect('Calendar.php');
     exit;
   }
 }
@@ -154,7 +156,7 @@ if ($searchEventInActivEvent != null) {
         ->Where('type_id='.$event->getType())
         ->find();
 } else if ($activeEvents->count() == 0 && is_null($event) ) {
-  Redirect('Menu.php');
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 
@@ -482,7 +484,7 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
                             </div>
                             <?php
                             if (isset($_POST['CheckOutBtn'])) {
-                                $person = PersonQuery::Create()->findOneById($_SESSION['user']->getPersonId());
+                                $person = PersonQuery::Create()->findOneById(SessionUser::getUser()->getPersonId());
                                 ?>
                                 <div class="col-sm-4 col-xs-6">
                                     <div class="form-group">

@@ -13,6 +13,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 $linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
 $iFundRaiserID = InputUtils::LegacyFilterInputArr($_GET, 'FundRaiserID');
@@ -58,11 +60,11 @@ if (isset($_POST['FundRaiserSubmit'])) {
         // New deposit slip
         if ($iFundRaiserID <= 0) {
             $sSQL = 'INSERT INTO fundraiser_fr (fr_date, fr_title, fr_description, fr_EnteredBy, fr_EnteredDate) VALUES ('.
-            "'".$dDate."','".$sTitle."','".$sDescription."',".$_SESSION['user']->getPersonId().",'".date('YmdHis')."')";
+            "'".$dDate."','".$sTitle."','".$sDescription."',".SessionUser::getUser()->getPersonId().",'".date('YmdHis')."')";
             $bGetKeyBack = true;
             // Existing record (update)
         } else {
-            $sSQL = "UPDATE fundraiser_fr SET fr_date = '".$dDate."', fr_title = '".$sTitle."', fr_description = '".$sDescription."', fr_EnteredBy = ".$_SESSION['user']->getPersonId().", fr_EnteredDate='".date('YmdHis')."' WHERE fr_ID = ".$iFundRaiserID.';';
+            $sSQL = "UPDATE fundraiser_fr SET fr_date = '".$dDate."', fr_title = '".$sTitle."', fr_description = '".$sDescription."', fr_EnteredBy = ".SessionUser::getUser()->getPersonId().", fr_EnteredDate='".date('YmdHis')."' WHERE fr_ID = ".$iFundRaiserID.';';
             $bGetKeyBack = false;
         }
         //Execute the SQL
@@ -78,10 +80,10 @@ if (isset($_POST['FundRaiserSubmit'])) {
 
         if (isset($_POST['FundRaiserSubmit'])) {
             if ($linkBack != '') {
-                Redirect($linkBack);
+                RedirectUtils::Redirect($linkBack);
             } else {
                 //Send to the view of this FundRaiser
-                Redirect('FundRaiserEditor.php?linkBack='.$linkBack.'&FundRaiserID='.$iFundRaiserID);
+                RedirectUtils::Redirect('FundRaiserEditor.php?linkBack='.$linkBack.'&FundRaiserID='.$iFundRaiserID);
             }
         }
     }

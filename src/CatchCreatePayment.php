@@ -5,6 +5,7 @@ require 'Include/Functions.php';
 require 'Include/VancoConfig.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\SessionUser;
 
 // set into the Vanco interface by AutoPaymentEditor.php
 $iVancoAutID = InputUtils::LegacyFilterInputArr($_POST, 'customerid', 'int');
@@ -57,7 +58,7 @@ $sSQL .= ", aut_AccountVanco=\"$sVancoPaymentBankDraft\"";
 $sSQL .= ", aut_ExpMonth=\"$sVancoExpMonth\"";
 $sSQL .= ", aut_ExpYear=\"$sVancoExpYear\"";
 $sSQL .= ', aut_DateLastEdited="'.date('YmdHis').'"';
-$sSQL .= ', aut_EditedBy='.$_SESSION['user']->getPersonId();
+$sSQL .= ', aut_EditedBy='.SessionUser::getUser()->getPersonId();
 $sSQL .= " WHERE aut_ID=$iVancoAutID";
 
 $resultArr = [];

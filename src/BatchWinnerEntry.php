@@ -13,6 +13,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+
 
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iCurrentFundraiser = InputUtils::LegacyFilterInput($_GET['CurrentFundraiser']);
@@ -44,7 +46,7 @@ if (isset($_POST['EnterWinners'])) {
             RunQuery($sSQL);
         }
     }
-    Redirect($linkBack);
+    RedirectUtils::Redirect($linkBack);
 }
 
 // Get Items for the drop-down

@@ -8,6 +8,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
+use EcclesiaCRM\SessionUser;
 
 ?>
 <html>
@@ -16,7 +17,7 @@ use EcclesiaCRM\dto\ChurchMetaData;
 </header>
 <body>
 <?php
-if ($_SESSION['user']->isAdmin()) {
+if (SessionUser::getUser()->isAdmin()) {
     $mail = new \PHPMailer();
     $mail->IsSMTP();
     $mail->CharSet = 'UTF-8';

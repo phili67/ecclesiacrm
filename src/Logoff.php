@@ -4,8 +4,10 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
-if (!isset($_SESSION['user'])) {
+if (is_null(SessionUser::getUser())) {
     if (!isset($_SESSION['sshowPledges']) || ($_SESSION['sshowPledges'] == '')) {
         $_SESSION['sshowPledges'] = 0;
     }
@@ -16,7 +18,7 @@ if (!isset($_SESSION['user'])) {
         $_SESSION['bSearchFamily'] = 0;
     }
 
-    $currentUser = UserQuery::create()->findPk($_SESSION['user']->getPersonId());
+    $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
     $currentUser->setShowPledges($_SESSION['sshowPledges']);
     $currentUser->setShowPayments($_SESSION['sshowPayments']);
     $currentUser->setShowSince($_SESSION['sshowSince']);
@@ -31,5 +33,5 @@ $_COOKIE = [];
 $_SESSION = [];
 session_destroy();
 
-Redirect('Login.php');
+RedirectUtils::Redirect('Login.php');
 exit;

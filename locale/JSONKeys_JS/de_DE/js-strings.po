@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2018-10-29T09:33:20.022Z\n"
+"POT-Creation-Date: 2018-11-28T13:49:43.454Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -271,7 +271,9 @@ msgstr "Word Datei Name"
 msgid ""
 "The file will be uploaded to your EDrive<br><small>This part is for test "
 "only <b>(Beta)</b>.</small>"
-msgstr "Die Datei wird automatisch zu EDrive hochgeladen<br><small><b>Beta</b> Testing.</small>"
+msgstr ""
+"Die Datei wird automatisch zu EDrive hochgeladen<br><small><b>Beta</b> "
+"Testing.</small>"
 
 msgid "Your note is saved in your EDrive"
 msgstr "Ihre Hinweise ist im EDrive gespeichert"
@@ -1309,6 +1311,203 @@ msgstr "Aktiv"
 
 msgid "Add New Volunteer Opportunity"
 msgstr "Hinzuzufügen zu Freiwillige Gelegenheit"
+
+msgid "Campaign"
+msgstr "Kampagne"
+
+msgid "saved successfully"
+msgstr "erfolgreich gespeichert"
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr "Sie sind im Begriff, eine Kampagne zu senden ! Sind sie sicher?"
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr "Sie sind im Begriff, eine Kampagne zu löschen ! Sind sie sicher?"
+
+msgid "Loading resources ..."
+msgstr "Ressourcen werden geladen..."
+
+msgid "MailChimp List"
+msgstr "MailChimp Liste"
+
+msgid "Subject"
+msgstr "Betreff"
+
+msgid "Members:"
+msgstr "Mitglieder:"
+
+msgid "Campaigns:"
+msgstr "Kampagnen:"
+
+msgid "Unsubscribed count:"
+msgstr "Abgemeldet Anzahl:"
+
+msgid "Unsubscribed count since last send:"
+msgstr "Abgemeldet seit letztem senden Anzahl:"
+
+msgid "Cleaned count:"
+msgstr "leergeräumt Anzahl:"
+
+msgid "Cleaned count since last send:"
+msgstr "leergeräumt seit letztem senden Anzahl:"
+
+msgid "Campaigns"
+msgstr "Kampagnen"
+
+msgid "is not configured"
+msgstr "is not configured"
+
+msgid "Please update the"
+msgstr "Bitte aktualisieren Sie die"
+
+msgid "API key in Setting->"
+msgstr "API key bei der Festlegung->"
+
+msgid "Edit General Settings"
+msgstr "allgemeine Einstellungen Ändern"
+
+
+msgid "then update"
+msgstr "dans Aktualisieren"
+
+msgid "For more info see our "
+msgstr "Weitere Informationen finden Sie in"
+
+msgid "support docs."
+msgstr "Support Dokumenten"
+
+msgid "List Creation"
+msgstr "Listenerstellung"
+
+msgid "List Title"
+msgstr "Liste Titel"
+
+msgid "Your List Title"
+msgstr "Ihre Liste Titel"
+
+msgid "Your Subject"
+msgstr "E-Mail-Betreff"
+
+msgid "Permission Reminder"
+msgstr "Berechtigung Erinnerung"
+
+msgid "Archive Bars"
+msgstr "Archive Bars"
+
+msgid "Private"
+msgstr "Privat"
+
+msgid "Public"
+msgstr "Öffentlich"
+
+msgid "People"
+msgstr "Menschen"
+
+msgid "Families"
+msgstr "Familien"
+
+msgid "Modify Properties"
+msgstr "Eigenschaften Bearbeiten"
+
+msgid "List Details"
+msgstr "Details der Liste  "
+
+msgid "Loading subscriber"
+msgstr "Abonnenten Laden"
+
+msgid "Loading subscribers from Group"
+msgstr "Grupper Subskribenten Laden"
+
+msgid "Loading subscribers from family"
+msgstr "Familien Subskribenten Laden"
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr "Alle Personen von EcclesiaCRM Laden<br>das könnte dauern !"
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr "Alle Newsletter Subskribenten von EcclesiaCRM Laden<br>das könnte dauern !"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Last Name"
+msgstr "Nachname "
+
+msgid "Email Marketing"
+msgstr "E-mail Marketing"
+
+msgid "Select status for : "
+msgstr "Status Stellen für :"
+
+msgid "Subscribed"
+msgstr "Abonnierte"
+
+msgid "Unsubscribed"
+msgstr "Abgemeldet"
+
+msgid "Changing status ..."
+msgstr "Veränderungsstatus ..."
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr "Sie sind im Begriff, eine Teilnehmer zu löschen ! Sind sie sicher?"
+
+
+msgid "Deleting Subscriber..."
+msgstr "Teilnehmers Löschen ..."
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr "Soll diese mailing liste wirklich gelöscht werden?"
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr "Soll alle Subskribenten wirklich gelöscht werden?"
+
+msgid "Deleting all subscribers..."
+msgstr "Löschen Alle Subskribenten ..."
+
+msgid "MailChimp Campaign Creation"
+msgstr "MailChimp Kampagne Erstellung"
+
+msgid "Campaign Title"
+msgstr "Kampagne Titel"
+
+msgid "Your Campaign Title"
+msgstr "Ihrem Kampagne Titel"
+
+msgid "Mail Subject"
+msgstr "Betreffzeile"
+
+msgid "Your Mail Subject"
+msgstr "Ihrer Betreffzeile"
+
+msgid "Adding Campaign ..."
+msgstr "Kampagne hinzufügen ... "
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+"Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
+
+msgid "List Name"
+msgstr "Mailingliste Name"
+
+msgid "Phone"
+msgstr "Phone."
+
+msgid "List"
+msgstr "Mailingliste"
+
+msgid "Company"
+msgstr "Firma"
+
+msgid "Unsub"
+msgstr "Abmelden"
+
+msgid "VCard"
+msgstr "VCard"
+
+msgid "Merge Tags"
+msgstr "Tags zusammenzuführen"
 
 #~ msgid "Edit Value"
 #~ msgstr "Wert bearbeiten"

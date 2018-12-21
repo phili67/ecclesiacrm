@@ -253,7 +253,9 @@ class SystemConfig
         "bEnabledEvents" => new ConfigItem(2073, "bEnabledEvents", "boolean", "1", gettext("Enable Events menu.")),
         "bEnabledFundraiser" => new ConfigItem(2075, "bEnabledFundraiser", "boolean", "1", gettext("Enable Fundraiser menu.")),
         "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", gettext("Enable Email menu.")),
-        "iMailChimpApiMaxMembersCount" => new ConfigItem(2077, "iMailChimpApiMaxMembersCount", "number", "500", gettext("Max count of members in a MailChimp List."))
+        "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", gettext("Enable WebDav, CardDav and CalDav support.")),
+        "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", gettext("Enable WebDav, CardDav and CalDav support.")),
+        "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", gettext("Max count of members in a MailChimp List."))
       );
   }
 
@@ -273,7 +275,7 @@ class SystemConfig
       gettext('Backup')  => ["sLastBackupTimeStamp","bEnableExternalBackupTarget","sExternalBackupType","sExternalBackupAutoInterval","sExternalBackupEndpoint","sExternalBackupUsername","sExternalBackupPassword"],
       gettext('Localization')  => ["sLanguage","bStateUnusefull","sDistanceUnit","sPhoneFormat","sPhoneFormatWithExt","sPhoneFormatCell","bTimeEnglish","sDateFormatLong","sTimeFormat","sDateFormatNoYear","sDateFormatShort","sDateTimeFormat","sDateFilenameFormat","sDatePickerFormat","sDatePickerPlaceHolder"],
       gettext('GDPR')  => ["bGDPR","sGdprDpoSigner","sGdprDpoSignerEmail","iGdprExpirationDate"],
-      gettext('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnableExternalCalendarAPI"],
+      gettext('Integration')  => ["sMailChimpApiKey","iMailChimpApiMaxMembersCount","sGoogleTrackingID","bEnableGravatarPhotos","bEnableGooglePhotos","iRemotePhotoCacheDuration","sNexmoAPIKey","sNexmoAPISecret","sNexmoFromNumber","sOLPURL","sOLPUserName","sOLPPassword","bEnabledDav", "bEnabledDavWebBrowser", "bEnableExternalCalendarAPI"],
       gettext('Users Specific Schedule Tasks')  => ["bEventsOnDashboardPresence","iEventsOnDashboardPresenceTimeOut","iDasbhoardServiceIntervalTime"],
       gettext('Sundayschool Attendance')  => ["bCheckedAttendees","bCheckedAttendeesCurrentUser"]
     );

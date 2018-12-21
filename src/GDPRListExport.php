@@ -19,9 +19,12 @@ use EcclesiaCRM\Map\NoteTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
-if (!($_SESSION['user']->isGdrpDpoEnabled())) {
-  Redirect('Menu.php');
+
+if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

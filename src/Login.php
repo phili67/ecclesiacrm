@@ -26,12 +26,13 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Token;
+use EcclesiaCRM\utils\RedirectUtils;
+
 
 if (!SystemService::isDBCurrent()) {
-    Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }
-
 
 // Get the UserID out of user name submitted in form results
 if (isset($_POST['User'])) {
@@ -44,6 +45,9 @@ if (isset($_POST['User'])) {
     } // Block the login if a maximum login failure count has been reached
     elseif ($currentUser->isLocked()) {
         $sErrorText = gettext('Too many failed logins: your account has been locked.  Please contact an administrator.');
+    } // test if the account has been deactivated
+    elseif ($currentUser->getIsDeactivated()) {
+        $sErrorText = gettext('This account has been deactiveted by an administrator.');
     } // Does the password match?
     elseif (!$currentUser->isPasswordValid($_POST['Password'])) {
         // Increment the FailedLogins
@@ -104,16 +108,16 @@ if (isset($_POST['User'])) {
         $_SESSION['bGdrpDpo'] = $currentUser->isGdrpDpoEnabled();         //ok
         $_SESSION['bMainDashboard'] = $currentUser->isMainDashboardEnabled(); // ok
         $_SESSION['bSeePrivacyData'] = $currentUser->isSeePrivacyDataEnabled(); // ok
-        $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();
-        $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();
-        $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();
-        $_SESSION['bMenuOptions'] = $currentUser->isMenuOptionsEnabled();
-        $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();  //ok
+        $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();// ok
+        $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();//ok
+        $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();//ok
+        $_SESSION['bMenuOptions'] = $currentUser->isMenuOptionsEnabled(); // ok
+        $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();  // usefull in GroupView and in Properties
         $_SESSION['bFinance'] = $currentUser->isFinanceEnabled();            //ok
-        $_SESSION['bNotes'] = $currentUser->isNotesEnabled();
-        $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();
-        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();
-        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();
+        $_SESSION['bNotes'] = $currentUser->isNotesEnabled(); //ok
+        $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();//ok
+        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();//ok
+        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();//ok
         $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
         
         // Set the FailedLogins
@@ -159,7 +163,7 @@ if (isset($_POST['User'])) {
         $_SESSION['isUpdateRequired'] = NotificationService::isUpdateRequired();
         
         $_SESSION['isSoftwareUpdateTestPassed'] = false;
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
 } elseif (isset($_GET['username'])) {

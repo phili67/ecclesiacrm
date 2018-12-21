@@ -21,6 +21,9 @@ use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
 use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $imgs = MiscUtils::getImagesInPath ('Images/background');
 
@@ -29,8 +32,8 @@ $imgs = MiscUtils::getImagesInPath ('Images/background');
 $sPageTitle = gettext('Cart to Badges');
 require 'Include/Header.php';
 
-if (!($_SESSION['user']->isAdmin() || $_SESSION['bCreateDirectory'] )) {
-   Redirect('Menu.php');
+if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isCreateDirectoryEnabled() )) {
+   RedirectUtils::Redirect('Menu.php');
    exit;
 }
 

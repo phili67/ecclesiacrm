@@ -12,6 +12,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
 
 $iPaddleNumID = InputUtils::LegacyFilterInput($_GET['PaddleNumID'], 'int');
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack'], 'string');
@@ -20,4 +21,4 @@ $iFundRaiserID = $_SESSION['iCurrentFundraiser'];
 
 $sSQL = "DELETE FROM paddlenum_pn WHERE pn_id=$iPaddleNumID AND pn_fr_id=$iFundRaiserID";
 RunQuery($sSQL);
-redirect($linkBack);
+RedirectUtils::Redirect($linkBack);

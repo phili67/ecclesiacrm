@@ -13,6 +13,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 $iFundRaiserID = $_SESSION['iCurrentFundraiser'];
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
@@ -36,10 +38,10 @@ $letterNum = ord('a');
 for ($i = 0; $i < $iCount; $i++) {
     $sSQL = 'INSERT INTO donateditem_di (di_item,di_FR_ID,di_donor_ID,di_multibuy,di_title,di_description,di_sellprice,di_estprice,di_minimum,di_materialvalue,di_EnteredBy,di_EnteredDate,di_picture)';
     $sSQL .= "SELECT '".$startItem.chr($letterNum)."',di_FR_ID,di_donor_ID,di_multibuy,di_title,di_description,di_sellprice,di_estprice,di_minimum,di_materialvalue,";
-    $sSQL .= $_SESSION['user']->getPersonId().",'".date('YmdHis')."',";
+    $sSQL .= SessionUser::getUser()->getPersonId().",'".date('YmdHis')."',";
     $sSQL .= 'di_picture';
     $sSQL .= " FROM donateditem_di WHERE di_ID=$iDonatedItemID";
     $ret = RunQuery($sSQL);
     $letterNum += 1;
 }
-Redirect("FundRaiserEditor.php?FundRaiserID=$iFundRaiserID");
+RedirectUtils::Redirect("FundRaiserEditor.php?FundRaiserID=$iFundRaiserID");

@@ -19,12 +19,15 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GdprInfoQuery;
 use EcclesiaCRM\PastoralCareTypeQuery;
 use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Set the page title and include HTML header
 $sPageTitle = gettext('GDPR Data Structure');
 
-if (!($_SESSION['user']->isGdrpDpoEnabled())) {
-  Redirect('Menu.php');
+if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 

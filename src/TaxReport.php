@@ -5,10 +5,6 @@
  *  last change : 2003-09-03
  *  description : form to invoke tax letter generation
  *
-
-
-
-
  *
  ******************************************************************************/
 
@@ -17,10 +13,13 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
-if (!$_SESSION['user']->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isAdmin() && SystemConfig::getValue('bCSVAdminOnly')) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -31,7 +30,7 @@ require 'Include/Header.php';
 // Is this the second pass?
 if (isset($_POST['Submit'])) {
     $iYear = InputUtils::LegacyFilterInput($_POST['Year'], 'int');
-    Redirect('Reports/TaxReport.php?Year='.$iYear);
+    RedirectUtils::Redirect('Reports/TaxReport.php?Year='.$iYear);
 } else {
     $iYear = date('Y') - 1;
 }

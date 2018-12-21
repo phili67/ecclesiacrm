@@ -14,10 +14,12 @@ require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_AddressReport;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // If user does not have permission redirect to the menu.
-if (!SystemConfig::getValue('bUSAddressVerification')) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isUSAddressVerificationEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -30,7 +32,7 @@ if ($_POST['MismatchReport']) {
     $sWhere = "WHERE fam_Country NOT IN ('United States') ";
     $sMissing = 'Unable to perform lookup for non-US address';
 } else {
-    Redirect('USISTAddressVerification.php');
+    RedirectUtils::Redirect('USISTAddressVerification.php');
 }
 
 // Instantiate the class and build the report.

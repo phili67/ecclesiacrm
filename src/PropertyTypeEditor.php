@@ -13,10 +13,12 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have property and classification editing permission
-if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -58,7 +60,7 @@ if (isset($_POST['Submit'])) {
         RunQuery($sSQL);
 
         //Route back to the list
-        Redirect('PropertyTypeList.php');
+        RedirectUtils::Redirect('PropertyTypeList.php');
     }
 } elseif ($iPropertyTypeID > 0) {
     //Get the data on this property

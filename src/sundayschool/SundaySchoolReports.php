@@ -20,6 +20,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\OutputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Get all the sunday school classes
 $groups = GroupQuery::create()
@@ -31,8 +33,8 @@ $groups = GroupQuery::create()
 $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
-if (!($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
-   Redirect('Menu.php');
+if (!(SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
+   RedirectUtils::Redirect('Menu.php');
    exit;
 }
 
@@ -68,7 +70,7 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
     $allroles = InputUtils::LegacyFilterInput($_POST['allroles']);
     $withPictures = InputUtils::LegacyFilterInput($_POST['withPictures']);
     
-    $currentUser = UserQuery::create()->findPk($_SESSION['user']->getPersonId());
+    $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
     $currentUser->setCalStart($dFirstSunday);
     $currentUser->setCalEnd($dLastSunday);
     $currentUser->setCalNoSchool1($dNoSchool1);
@@ -82,9 +84,9 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
     $currentUser->save();
 
     if ($bAtLeastOneGroup && isset($_POST['SubmitPhotoBook']) && $aGrpID != 0) {
-        Redirect('Reports/PhotoBook.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
+        RedirectUtils::Redirect('Reports/PhotoBook.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitClassList']) && $aGrpID != 0) {
-        Redirect('Reports/ClassList.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
+        RedirectUtils::Redirect('Reports/ClassList.php?GroupID='.$aGrpID.'&FYID='.$iFYID.'&FirstSunday='.$dFirstSunday.'&LastSunday='.$dLastSunday.'&AllRoles='.$allroles.'&pictures='.$withPictures);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitClassAttendance']) && $aGrpID != 0) {
         $toStr = 'Reports/ClassAttendance.php?';
         //        $toStr .= "GroupID=" . $iGroupID;
@@ -124,7 +126,7 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
         if ($iExtraTeachers) {
             $toStr .= '&ExtraTeachers='.$iExtraTeachers;
         }
-        Redirect($toStr);
+        RedirectUtils::Redirect($toStr);
     } elseif ($bAtLeastOneGroup && isset($_POST['SubmitRealClassAttendance']) && $aGrpID != 0) {
         $toStr = 'Reports/ClassRealAttendance.php?';
         //        $toStr .= "GroupID=" . $iGroupID;
@@ -135,14 +137,14 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
         $toStr .= '&withPictures='.$withPictures;
         $toStr .= '&ExtraStudents='.($iExtraStudents+$iExtraTeachers);
 
-        Redirect($toStr);
+        RedirectUtils::Redirect($toStr);
     } elseif (!$bAtLeastOneGroup || $aGrpID == 0) {
         echo "<p class=\"alert alert-danger\"><span class=\"fa fa-exclamation-triangle\"> ".gettext('At least one group must be selected to make class lists or attendance sheets.')."</span></p>";
     }
 } else {
     $iFYID = $_SESSION['idefaultFY'];
     $iGroupID = 0;
-    $currentUser = UserQuery::create()->findPk($_SESSION['user']->getPersonId());
+    $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
     
     if ($currentUser->getCalStart() != null) {
         $dFirstSunday = $currentUser->getCalStart()->format('Y-m-d');
@@ -293,7 +295,7 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
         <tr>
           <td width="75%">
       <?php 
-        if ($_SESSION['user']->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
+        if (SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
       ?>
          <div class="row">
               <div class="col-md-3">
@@ -329,7 +331,7 @@ require '../Include/Footer.php';
 ?>
 
 <?php 
-  if ($_SESSION['user']->isAdmin() || $bExportSundaySchoolPDF ) {
+  if (SessionUser::getUser()->isAdmin() || $bExportSundaySchoolPDF ) {
 ?> 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolReports.js" ></script>
 <?php

@@ -13,10 +13,12 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have canvasser permission to use this form
-if (!$_SESSION['user']->isCanvasserEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isCanvasserEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -102,9 +104,9 @@ if (isset($_POST['Submit'])) {
     if (isset($_POST['Submit'])) {
         // Check for redirection to another page after saving information: (ie. PledgeEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($linkBack != '') {
-            Redirect($linkBack);
+            RedirectUtils::Redirect($linkBack);
         } else {
-            Redirect('CanvassEditor.php?FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack=', $linkBack);
+            RedirectUtils::Redirect('CanvassEditor.php?FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack=', $linkBack);
         }
     }
 } else {
@@ -126,7 +128,7 @@ if (isset($_POST['Submit'])) {
         $tWhyNotInterested = $can_WhyNotInterested;
     } else {
         // Set some default values
-        $iCanvasser = $_SESSION['user']->getPersonId();
+        $iCanvasser = SessionUser::getUser()->getPersonId();
         $dDate = date('Y-m-d');
 
         $dDate = '';

@@ -4,6 +4,12 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\PersonQuery;
 
+use Sabre\CardDAV;
+use Sabre\DAV;
+
+use EcclesiaCRM\MyPDO\CardDavPDO;
+use Propel\Runtime\Propel;
+
 class GroupService
 {
 
@@ -45,6 +51,17 @@ class GroupService
             $sSQL = 'UPDATE person_custom SET '.$aRow['custom_Field'].' = NULL WHERE '.$aRow['custom_Field'].' = '.$personID;
             RunQuery($sSQL);
         }
+        
+      // we'll connect to sabre to create the group
+      // we'll delete the card from the member
+      $pdo = Propel::getConnection();
+        
+      // We set the BackEnd for sabre Backends
+      $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
+      
+      $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID)['id'];
+      
+      $carddavBackend->deleteCardForPerson($addressbookId,$personID);
     }
 
     /**

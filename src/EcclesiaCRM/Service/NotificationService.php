@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Service;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
 
 class NotificationService
 {
@@ -38,7 +39,7 @@ class NotificationService
       {
         if($message->targetVersion == $_SESSION['sSoftwareInstalledVersion'])
         {
-          if (! $message->adminOnly ||  $_SESSION['user']->isAdmin())
+          if (! $message->adminOnly ||  SessionUser::getUser()->isAdmin())
           {
             array_push($notifications, $message);
           }

@@ -13,10 +13,13 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Security: User must have Manage Groups & Roles permission
-if (!$_SESSION['user']->isManageGroupsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isManageGroupsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -44,9 +47,9 @@ if (isset($_POST['Submit'])) {
 
     //Reroute back to the proper location
     if ($iReturn) {
-        Redirect('GroupView.php?GroupID='.$iGroupID);
+        RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
     } else {
-        Redirect('PersonView.php?PersonID='.$iPersonID);
+        RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
     }
 }
 

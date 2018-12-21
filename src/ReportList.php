@@ -19,10 +19,13 @@ use EcclesiaCRM\Map\EventTableMap;
 use EcclesiaCRM\Map\EventTypesTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
-    Redirect('Menu.php');
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') || SystemConfig::getBooleanValue('bEnabledSundaySchool') ) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -36,7 +39,7 @@ require 'Include/Header.php';
 ?>
   <!-- ./col -->
 <?php 
-    if ($_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+    if (SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
 ?>
 <div class="row">
     <div class="col-lg-12">
@@ -49,7 +52,7 @@ require 'Include/Header.php';
             <a class="MediumText" href="FinancialReports.php">
           </p>
           <?php
-          if ($_SESSION['user']->isAdmin()) {
+          if (SessionUser::getUser()->isAdmin()) {
               echo '<p>';
               echo '<a class="MediumText" href="CanvassAutomation.php">';
               echo gettext('Canvass Automation').'</a><br>';

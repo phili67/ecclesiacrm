@@ -18,7 +18,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\NotificationService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserConfigQuery;
-
+use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\MenuBar\MenuBar;
 
 function Header_system_notifications()
@@ -179,16 +179,16 @@ function Header_body_scripts()
             datePickerformat:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>",
             timeEnglish:<?= (SystemConfig::getValue("bTimeEnglish"))?"true":"false" ?>,
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
-            showTooltip:<?= ($_SESSION['bShowTooltip'])?"true":"false" ?>,
-            showCart:<?= ($_SESSION['user']->isShowCartEnabled())?"true":"false" ?>,
-            bSidebarExpandOnHover:<?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
-            bSidebarCollapse:<?= ($_SESSION['bSidebarCollapse'])?"true":"false" ?>,
+            showTooltip:<?= (SessionUser::getUser()->isShowTooltipEnabled())?"true":"false" ?>,
+            showCart:<?= (SessionUser::getUser()->isShowCartEnabled())?"true":"false" ?>,
+            bSidebarExpandOnHover:<?= (SessionUser::getUser()->isSidebarExpandOnHoverEnabled())?"true":"false" ?>,
+            bSidebarCollapse:<?= (SessionUser::getUser()->isSidebarCollapseEnabled())?"true":"false" ?>,
             sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
             iLittleMapZoom:<?= SystemConfig::getValue('iLittleMapZoom')?>,
             sNominatimLink:"<?= SystemConfig::getValue('sNominatimLink')?>",
-            iPersonId:<?= $_SESSION['user']->getPersonId() ?>,
+            iPersonId:<?= SessionUser::getUser()->getPersonId() ?>,
             sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",
             sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,
             sChurchCountry:"<?= SystemConfig::getValue('sChurchCountry') ?>",

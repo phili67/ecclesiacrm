@@ -17,6 +17,9 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Emails\PasswordChangeEmail;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $bAdminOtherUser = false;
 $bAdminOther = false;
@@ -25,13 +28,13 @@ $sOldPasswordError = false;
 $sNewPasswordError = false;
 
 // Get the PersonID out of the querystring if they are an admin user; otherwise, use session.
-if ($_SESSION['user']->isAdmin() && isset($_GET['PersonID'])) {
+if (SessionUser::getUser()->isAdmin() && isset($_GET['PersonID'])) {
     $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-    if ($iPersonID != $_SESSION['user']->getPersonId()) {
+    if ($iPersonID != SessionUser::getUser()->getPersonId()) {
         $bAdminOtherUser = true;
     }
 } else {
-    $iPersonID = $_SESSION['user']->getPersonId();
+    $iPersonID = SessionUser::getUser()->getPersonId();
 }
 
 // Was the form submitted?
@@ -79,9 +82,9 @@ if (isset($_POST['Submit'])) {
 
             // Route back to the list
             if (array_key_exists('FromUserList', $_GET) and $_GET['FromUserList'] == 'True') {
-                Redirect('UserList.php');
+                RedirectUtils::Redirect('UserList.php');
             } else {
-                Redirect('Menu.php');
+                RedirectUtils::Redirect('Menu.php');
             }
         }
     }
@@ -149,9 +152,9 @@ if (isset($_POST['Submit'])) {
 
             // Route back to the list
             if ($_GET['FromUserList'] == 'True') {
-                Redirect('UserList.php');
+                RedirectUtils::Redirect('UserList.php');
             } else {
-                Redirect('Menu.php');
+                RedirectUtils::Redirect('Menu.php');
             }
         }
     }

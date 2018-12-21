@@ -13,6 +13,7 @@
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\SessionUser;
 
 
 ?>
@@ -29,7 +30,7 @@ use EcclesiaCRM\Service\SystemService;
 </footer>
 
 <!-- The Right Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
+<aside class="control-sidebar control-sidebar-light">
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li class="active">
             <a href="#control-sidebar-tasks-tab" data-toggle="tab" aria-expanded="true">
@@ -52,7 +53,7 @@ use EcclesiaCRM\Service\SystemService;
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-settings-other-tab">
       <?php 
-        if ($_SESSION['user']->isMenuOptionsEnabled()) {
+        if (SessionUser::getUser()->isMenuOptionsEnabled()) {
       ?>
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Family') ?></h4>
             <ul class="control-sidebar-menu">
@@ -93,7 +94,7 @@ use EcclesiaCRM\Service\SystemService;
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Group') ?></h4>
             <ul class="control-sidebar-menu">
           <?php
-             if ($_SESSION['user']->isManageGroupsEnabled()) {
+             if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=g">
@@ -103,7 +104,7 @@ use EcclesiaCRM\Service\SystemService;
           <?php
              }
 
-             if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || $_SESSION['user']->isManageGroupsEnabled() ) {
+             if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled() ) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
@@ -113,7 +114,7 @@ use EcclesiaCRM\Service\SystemService;
           <?php
              }
 
-             if ($_SESSION['user']->isManageGroupsEnabled()) {
+             if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
@@ -132,7 +133,7 @@ use EcclesiaCRM\Service\SystemService;
                     </a>
                 </li>
               <?php
-                if ($_SESSION['user']->isCanvasserEnabled()) {
+                if (SessionUser::getUser()->isCanvasserEnabled()) {
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/VolunteerOpportunityEditor.php">
@@ -142,7 +143,7 @@ use EcclesiaCRM\Service\SystemService;
               <?php
                 } 
               
-                if ($_SESSION['user']->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
+                if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
@@ -152,7 +153,7 @@ use EcclesiaCRM\Service\SystemService;
               <?php
                  } 
                 
-                 if ($_SESSION['user']->isPastoralCareEnabled()) {
+                 if (SessionUser::getUser()->isPastoralCareEnabled()) {
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
@@ -191,7 +192,7 @@ use EcclesiaCRM\Service\SystemService;
             <div><h4 class="control-sidebar-heading"><?= gettext('System Settings') ?></h4>
                 <ul class="control-sidebar-menu">
                   <?php 
-                  if ($_SESSION['user']->isAdmin()) {
+                  if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
@@ -205,7 +206,7 @@ use EcclesiaCRM\Service\SystemService;
                    } 
                   ?>
                   <?php 
-                  if ($_SESSION['user']->isAdmin()) {
+                  if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/UserList.php">
@@ -222,7 +223,7 @@ use EcclesiaCRM\Service\SystemService;
                 <hr/>
                 <ul class="control-sidebar-menu">
                   <?php 
-                    if ($_SESSION['user']->isAdmin()) {
+                    if (SessionUser::getUser()->isAdmin()) {
                   ?>
                         <li>
                             <a href="<?= SystemURLs::getRootPath() ?>/RestoreDatabase.php">
@@ -263,7 +264,7 @@ use EcclesiaCRM\Service\SystemService;
                   <?php
                     } 
                     
-                    if ($_SESSION['user']->isAdmin()) {
+                    if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
@@ -327,7 +328,7 @@ use EcclesiaCRM\Service\SystemService;
     //Enable sidebar expand on hover effect for sidebar mini
     //This option is forced to true if both the fixed layout and sidebar mini
     //are used together
-    sidebarExpandOnHover: <?= ($_SESSION['bSidebarExpandOnHover'])?"true":"false" ?>,
+    sidebarExpandOnHover: <?= (SessionUser::getUser()->isSidebarExpandOnHoverEnabled())?"true":"false" ?>,
     //BoxRefresh Plugin
     enableBoxRefresh: true,
     //Bootstrap.js tooltip

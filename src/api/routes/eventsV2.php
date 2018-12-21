@@ -33,6 +33,7 @@ use EcclesiaCRM\EventAttendQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\GeoUtils;
+use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
@@ -166,7 +167,7 @@ $app->group('/events', function () {
             $eventAttent = new EventAttend();
         
             $eventAttent->setEventId($params->EventID);
-            $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+            $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
             $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
             $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
             $eventAttent->setPersonId($params->PersonId);
@@ -195,7 +196,7 @@ $app->group('/events', function () {
               $eventAttent = new EventAttend();
         
               $eventAttent->setEventId($params->EventID);
-              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+              $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
               $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
               $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
               $eventAttent->setPersonId($person->getPersonId());
@@ -223,7 +224,7 @@ $app->group('/events', function () {
               $eventAttent = new EventAttend();
         
               $eventAttent->setEventId($params->EventID);
-              $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+              $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
               $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
               $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
               $eventAttent->setPersonId($person->getId());
@@ -357,7 +358,7 @@ $app->group('/events', function () {
 
              if ($persons->count() > 0) {
 
-               $vevent = array_merge($vevent,['ATTENDEE;CN='.$_SESSION['user']->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.$_SESSION['user']->getEmail().';PARTSTAT=ACCEPTED;ROLE=CHAIR:MAILTO' => $_SESSION['user']->getEmail()]);                          
+               $vevent = array_merge($vevent,['ATTENDEE;CN='.SessionUser::getUser()->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.SessionUser::getUser()->getEmail().';PARTSTAT=ACCEPTED;ROLE=CHAIR:MAILTO' => SessionUser::getUser()->getEmail()]);                          
               
                foreach ($persons as $person) {
                   $user = UserQuery::Create()->findOneByPersonId($person->getPersonId());
@@ -426,7 +427,7 @@ $app->group('/events', function () {
                     $eventAttent = new EventAttend();
         
                     $eventAttent->setEventId($event->getID());
-                    $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                    $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
                     $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
                     $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
                     $eventAttent->setPersonId($person->getPersonId());
@@ -967,7 +968,7 @@ $app->group('/events', function () {
                     $eventAttent = new EventAttend();
         
                     $eventAttent->setEventId($event->getID());
-                    $eventAttent->setCheckinId($_SESSION['user']->getPersonId());
+                    $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
                     $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
                     $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
                     $eventAttent->setPersonId($person->getPersonId());

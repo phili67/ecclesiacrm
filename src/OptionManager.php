@@ -28,6 +28,8 @@ use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 $mode = trim($_GET['mode']);
 
@@ -37,8 +39,8 @@ $listID = 0;
 switch ($mode) {
     case 'famroles':
     case 'classes':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-            Redirect('Menu.php');
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
@@ -64,11 +66,11 @@ switch ($mode) {
         }
          
         if ($iGroupID > 0) {
-          $manager = GroupManagerPersonQuery::Create()->filterByPersonID($_SESSION['user']->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
+          $manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
         }
 
-        if (!($_SESSION['user']->isManageGroupsEnabled() || !empty($manager) ) ) {
-            Redirect('Menu.php');
+        if (!(SessionUser::getUser()->isManageGroupsEnabled() || !empty($manager) ) ) {
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
@@ -76,14 +78,14 @@ switch ($mode) {
     case 'custom':
     case 'famcustom':
     case 'securitygrp':
-        if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-            Redirect('Menu.php');
+        if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+            RedirectUtils::Redirect('Menu.php');
             exit;
         }
         break;
 
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 
@@ -135,7 +137,7 @@ switch ($mode) {
         if (!is_null($ormGroupList) ) {
            $iDefaultRole = $ormGroupList->getDefaultRole();
         } else {
-          Redirect('Menu.php');
+          RedirectUtils::Redirect('Menu.php');
           exit;
         }
         
@@ -151,7 +153,7 @@ switch ($mode) {
         $per_cus = PersonCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
         
         if ($per_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
 
@@ -167,7 +169,7 @@ switch ($mode) {
         $group_cus = GroupPropMasterQuery::Create()->filterByTypeId(12)->findBySpecial($listID);
 
         if ($group_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
         
@@ -183,13 +185,13 @@ switch ($mode) {
         $fam_cus = FamilyCustomMasterQuery::Create()->filterByTypeId(12)->findByCustomSpecial($listID);
                 
         if ($fam_cus->count() == 0) {
-            Redirect('Menu.php');
+            RedirectUtils::Redirect('Menu.php');
             break;
         }
         
         break;
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         break;
 }
 

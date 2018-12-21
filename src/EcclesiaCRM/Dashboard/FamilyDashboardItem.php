@@ -4,6 +4,7 @@ namespace EcclesiaCRM\Dashboard;
 
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\SessionUser;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 class FamilyDashboardItem implements DashboardItemInterface {
@@ -44,7 +45,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
                     ->select(array("Id","Name","Address1","DateEntered","DateLastEdited"))
                     ->find()->toArray();
                     
-    if (!$_SESSION['user']->isSeePrivacyDataEnabled()) {
+    if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       $res = [];
   
       foreach ($families as $family) {
@@ -73,7 +74,7 @@ class FamilyDashboardItem implements DashboardItemInterface {
                     ->find()->toArray();
 
                     
-    if (!$_SESSION['user']->isSeePrivacyDataEnabled()) {
+    if (!SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       $res = [];
   
       foreach ($families as $family) {

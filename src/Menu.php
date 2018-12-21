@@ -30,6 +30,9 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
 use EcclesiaCRM\Map\PastoralCareTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
@@ -48,13 +51,13 @@ $updatedMembers = $dashboardService->getUpdatedMembers(12);
 //Newly added members from Active families
 $latestMembers = $dashboardService->getLatestMembers(12);
 
-if (!($_SESSION['user']->isFinanceEnabled() || $_SESSION['user']->isMainDashboardEnabled() || $_SESSION['user']->isPastoralCareEnabled())) {
-   Redirect('PersonView.php?PersonID='.$_SESSION['user']->getPersonId());
+if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->isMainDashboardEnabled() || SessionUser::getUser()->isPastoralCareEnabled())) {
+   RedirectUtils::Redirect('PersonView.php?PersonID='.SessionUser::getUser()->getPersonId());
    exit;
 }
 
 $depositData = false;  //Determine whether or not we should display the deposit line graph
-if ($_SESSION['user']->isFinanceEnabled()) {
+if (SessionUser::getUser()->isFinanceEnabled()) {
     $deposits = DepositQuery::create()->filterByDate(['min' =>date('Y-m-d', strtotime('-90 days'))])->find();
     if (count($deposits) > 0) {
         $depositData = $deposits->toJSON();
@@ -69,7 +72,7 @@ $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
 $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
-if ($_SESSION['user']->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
+if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
   // when a person is completely deactivated
   $time = new DateTime('now');
   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
@@ -150,7 +153,7 @@ if ($_SESSION['user']->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
   }  
 }
 
-if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) && $_SESSION['user']->isSeePrivacyDataEnabled()) {
+if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) && SessionUser::getUser()->isSeePrivacyDataEnabled()) {
 ?>
     <div class="alert alert-birthday alert-dismissible " id="Menu_Banner">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -308,14 +311,14 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 }
 
 // The person can see the pastoral care
-if ($_SESSION['user']->isPastoralCareEnabled()) {
+if (SessionUser::getUser()->isPastoralCareEnabled()) {
   $cares = PastoralCareQuery::Create()
                      ->leftJoinPastoralCareType()
                      ->joinPersonRelatedByPersonId()
                      ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
                      ->orderByDate(Criteria::DESC)
                      ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
-                     ->findByPastorId($_SESSION['user']->getPerson()->getId());
+                     ->findByPastorId(SessionUser::getUser()->getPerson()->getId());
   
   if ($cares->count() > 0) {    
   ?>

@@ -121,3 +121,18 @@ msgid ""
 "Some families haven't any \"head of household\" role name defined or there's "
 "any activated members in this families:"
 msgstr "Einige familien haben keine Rolle für der Leiter des Haushalts:"
+
+msgid "send"
+msgstr "senden"
+
+msgid "save"
+msgstr "speichern"
+
+msgid "subscribed"
+msgstr "abonnierte"
+
+msgid "unsubscribed"
+msgstr "abgemeldet"
+
+msgid "sent"
+msgstr "gesendet"

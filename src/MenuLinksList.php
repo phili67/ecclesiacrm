@@ -15,6 +15,9 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 $personId = 0;
 
@@ -22,8 +25,8 @@ if (isset($_GET['personId'])) {
   $personId = InputUtils::LegacyFilterInput($_GET['personId']);
 }
 
-if ( !($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId == $_SESSION['user']->getPersonId())) {
-  Redirect('Menu.php');
+if ( !(SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId())) {
+  RedirectUtils::Redirect('Menu.php');
   exit;
 }
 
@@ -31,12 +34,12 @@ if ( !($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId =
 $sPageTitle = gettext("Custom Menus List");
 
 if ($personId > 0) {// we are in the case of Personal Links
-  $sPageTitle .= " ".gettext("For")." : ".$_SESSION['user']->getFullName();
+  $sPageTitle .= " ".gettext("For")." : ".SessionUser::getUser()->getFullName();
 }
 
 require 'Include/Header.php';
 
-if ($_SESSION['user']->isMenuOptionsEnabled() || $personId > 0 && $personId == $_SESSION['user']->getPersonId() ) {
+if (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId() ) {
 ?>
     <p align="center"><button class="btn btn-primary" id="add-new-menu-links"><?= gettext("Add Custom Menu Link") ?></button></p>
 <?php 

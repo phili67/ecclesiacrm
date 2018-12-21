@@ -13,9 +13,11 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 if (!SystemService::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
-    Redirect('SystemDBUpdate.php');
+    RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }
 
@@ -56,7 +58,7 @@ $MenuFirst = 1;
   Header_modals();
   Header_body_scripts();
 
-  $loggedInUserPhoto = SystemURLs::getRootPath().'/api/persons/'.$_SESSION['user']->getPersonId().'/thumbnail';
+  $loggedInUserPhoto = SystemURLs::getRootPath().'/api/persons/'.SessionUser::getUser()->getPersonId().'/thumbnail';
   $MenuFirst = 1;
   ?>
 
@@ -89,7 +91,7 @@ $MenuFirst = 1;
         <ul class="nav navbar-nav">
             <!-- Cart Functions: style can be found in dropdown.less -->
             <?php 
-               if ($_SESSION['user']->isShowCartEnabled()) { 
+               if (SessionUser::getUser()->isShowCartEnabled()) { 
             ?>
             <li class="dropdown notifications-menu" id="CartBlock" >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">
@@ -104,8 +106,8 @@ $MenuFirst = 1;
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your settings and more') ?>">
-              <img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="user-image initials-image" alt="User Image">
-              <span class="hidden-xs"><?= $_SESSION['user']->getName() ?> </span>
+              <img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="user-image initials-image" alt="User Image">
+              <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
 
             </a>
             <ul class="hidden-xxs dropdown-menu">
@@ -113,10 +115,10 @@ $MenuFirst = 1;
                 <table border=0 class="table-dropdown-menu">
                 <tr style="border-bottom: 1pt solid black;">
                 <td valign="middle" width=110>
-                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $_SESSION['user']->getPersonId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle" alt="User Image" style="width:85px;height:85px">                
+                  <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle" alt="User Image" style="width:85px;height:85px">                
                 </td>
                 <td valign="middle" align="left" style="padding-top:10px">   
-                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= $_SESSION['user']->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
+                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
                       <p ><i class="fa fa fa-user"></i> <?= gettext("Private Space") ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("You can change here your password")?>" data-placement="right">
                       <p ><i class="fa fa fa-key"></i> <?= gettext('Change Password') ?></p></a>
@@ -129,7 +131,7 @@ $MenuFirst = 1;
                 </td>
                 </tr>
                 </table>
-                <p style="color:#fff"><b><?= $_SESSION['user']->getName() ?></b></p>
+                <p style="color:#fff"><b><?= SessionUser::getUser()->getName() ?></b></p>
               </li>
             </ul>
           </li>

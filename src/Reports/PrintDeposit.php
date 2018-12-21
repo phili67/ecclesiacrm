@@ -21,10 +21,12 @@ require "../Include/ReportFunctions.php";
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -53,8 +55,8 @@ if (!$iDepositSlipID && array_key_exists('iCurrentDeposit', $_SESSION)) {
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
 // If no DepositSlipId, redirect to the menu
-if ((!$_SESSION['user']->isFinanceEnabled() && $bCSVAdminOnly && $output != "pdf") || !$iDepositSlipID) {
-    Redirect("Menu.php");
+if ((!SessionUser::getUser()->isFinanceEnabled() && $bCSVAdminOnly && $output != "pdf") || !$iDepositSlipID) {
+    RedirectUtils::Redirect("Menu.php");
     exit;
 }
 

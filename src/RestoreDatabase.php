@@ -16,10 +16,13 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 
 // Security: User must have Manage Groups permission
-if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isAdmin()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 

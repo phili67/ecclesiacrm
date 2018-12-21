@@ -23,9 +23,12 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+
 // Security
-if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isAdmin()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -38,7 +41,7 @@ $sPageTitle = gettext('Convert Individuals to Families');
 
 require 'Include/Header.php';
 
-$iUserID = $_SESSION['user']->getPersonId();
+$iUserID = SessionUser::getUser()->getPersonId();
 
 // find the family ID so we can associate to person record
 $sSQL = 'SELECT MAX(fam_ID) AS iFamilyID FROM family_fam';

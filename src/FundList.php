@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
@@ -26,7 +27,7 @@ require 'Include/Header.php'; ?>
 
 <div class="box box-body">
 
-<?php if ($_SESSION['user']->isMenuOptionsEnabled()) {
+<?php if (SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
     <p align="center"><button class="btn btn-primary delete-payment" id="add-new-fund"><?= gettext('Add a New Fund') ?></button></p>
 <?php 

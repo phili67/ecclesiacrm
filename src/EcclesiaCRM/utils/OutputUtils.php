@@ -5,6 +5,7 @@
 namespace EcclesiaCRM\Utils;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\SessionUser;
 
 class OutputUtils {
 
@@ -84,52 +85,52 @@ class OutputUtils {
         return true;
         break;
       case 2: // bAdmin
-        if ($_SESSION['user']->isAdmin()) {
+        if (SessionUser::getUser()->isAdmin()) {
           return true;
         }
         break;
       case 3: // bAddRecords        
-        if ($_SESSION['user']->isAddRecordsEnabled()) {
+        if (SessionUser::getUser()->isAddRecordsEnabled()) {
           return true;
         }
         break;
       case 4: // bEditRecords        
-        if ($_SESSION['user']->isEditRecordsEnabled()) {
+        if (SessionUser::getUser()->isEditRecordsEnabled()) {
           return true;
         }
         break;
       case 5: // bDeleteRecords        
-        if ($_SESSION['user']->isDeleteRecordsEnabled()) {
+        if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
           return true;
         }
         break;
       case 6: // bMenuOptions        
-        if ($_SESSION['user']->isMenuOptionsEnabled()) {
+        if (SessionUser::getUser()->isMenuOptionsEnabled()) {
           return true;
         }
         break;
       case 7: // bManageGroups        
-        if ($_SESSION['user']->isManageGroupsEnabled()) {
+        if (SessionUser::getUser()->isManageGroupsEnabled()) {
           return true;
         }
         break;
       case 8: // bFinance        
-        if ($_SESSION['user']->isFinanceEnabled()) {
+        if (SessionUser::getUser()->isFinanceEnabled()) {
           return true;
         }
         break;
       case 9: // bNotes        
-        if ($_SESSION['user']->isNotesEnabled()) {
+        if (SessionUser::getUser()->isNotesEnabled()) {
           return true;
         }
         break;
       /*case 10: // bCommunication        
-        if ($_SESSION['user']->isNotesEnabled()) {
+        if (SessionUser::getUser()->isNotesEnabled()) {
           return true;
         }
         break;*/
       case 11: // bCanvasser        
-        if ($_SESSION['user']->isCanvasserEnabled()) {
+        if (SessionUser::getUser()->isCanvasserEnabled()) {
           return true;
         }
         break;

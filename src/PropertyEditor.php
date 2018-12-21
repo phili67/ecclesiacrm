@@ -17,11 +17,13 @@ use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\PropertyType;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Property;
+use EcclesiaCRM\utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 // Security: User must have property and classification editing permission
-if (!$_SESSION['user']->isMenuOptionsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -52,7 +54,7 @@ switch ($sType) {
         $sTypeName = gettext('Menu');
         break;
     default:
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
         break;
 }
@@ -116,7 +118,7 @@ if (isset($_POST['Submit'])) {
         }
 
         //Route back to the list
-        Redirect('PropertyList.php?Type='.$sType);
+        RedirectUtils::Redirect('PropertyList.php?Type='.$sType);
     }
 } else {
     if ($iPropertyID != 0) {

@@ -17,10 +17,12 @@ use EcclesiaCRM\dto\LocaleInfo;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 // Security
-if (!$_SESSION['user']->isAdmin()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isAdmin()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -75,7 +77,7 @@ if (isset($_POST['save'])) {
         SystemConfig::setValueById($id, $value);
         next($type);
     }
-    Redirect("SystemSettings.php?saved=true");
+    RedirectUtils::Redirect("SystemSettings.php?saved=true");
 }
 
 if (isset($_GET['saved'])) {

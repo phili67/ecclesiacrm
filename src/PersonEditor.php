@@ -31,6 +31,8 @@ use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
@@ -54,25 +56,25 @@ if ($iPersonID > 0) {
         ->findOneById($iPersonID);
         
     if (empty($person)) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit();
     }
     
-    if ($person->getDateDeactivated() != null && !$_SESSION['user']->isGdrpDpoEnabled()) {
-      Redirect('members/404.php?type=Person');
+    if ($person->getDateDeactivated() != null && !SessionUser::getUser()->isGdrpDpoEnabled()) {
+      RedirectUtils::Redirect('members/404.php?type=Person');
     }
     
     if (!(
-        $_SESSION['user']->isEditRecordsEnabled() ||
-        ($_SESSION['user']->isEditSelfEnabled() && $iPersonID == $_SESSION['user']->getPersonId()) ||
-        ($_SESSION['user']->isEditSelfEnabled() && $person->getFamId() == $_SESSION['user']->getPerson()->getFamId())
+        SessionUser::getUser()->isEditRecordsEnabled() ||
+        (SessionUser::getUser()->isEditSelfEnabled() && $iPersonID == SessionUser::getUser()->getPersonId()) ||
+        (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
     )
     ) {
-        Redirect('Menu.php');
+        RedirectUtils::Redirect('Menu.php');
         exit;
     }
-} elseif (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+} elseif (!SessionUser::getUser()->isAddRecordsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -377,7 +379,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setCellPhone($sCellPhone);
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
-            $family->setEnteredBy($_SESSION['user']->getPersonId());
+            $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             $family->setSendNewsletter($bSendNewsLetterString);
             
             $family->save();
@@ -402,7 +404,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->setCellPhone($sCellPhone);
               $family->setEmail($sEmail);
               $family->setDateEntered(date('YmdHis'));
-              $family->setEnteredBy($_SESSION['user']->getPersonId());
+              $family->setEnteredBy(SessionUser::getUser()->getPersonId());
               $family->setSendNewsletter($bSendNewsLetterString);
             
               $family->save();
@@ -441,7 +443,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+            if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
             
@@ -454,7 +456,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
-            $person->setEnteredBy($_SESSION['user']->getPersonId());
+            $person->setEnteredBy(SessionUser::getUser()->getPersonId());
             
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
@@ -497,7 +499,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
             
-            if ( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
+            if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
             
@@ -510,10 +512,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             
             $person->setClsId($iClassification);
             $person->setDateEntered(new DateTime());
-            $person->setEnteredBy($_SESSION['user']->getPersonId());
+            $person->setEnteredBy(SessionUser::getUser()->getPersonId());
             
             $person->setDateLastEdited(new DateTime());
-            $person->setEditedBy($_SESSION['user']->getPersonId());
+            $person->setEditedBy(SessionUser::getUser()->getPersonId());
             
             if (strlen($dFriendDate) > 0) {
                 $person->setFriendDate($dFriendDate);
@@ -573,13 +575,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         // Check for redirection to another page after saving information: (ie. PersonEditor.php?previousPage=prev.php?a=1;b=2;c=3)
         if ($sPreviousPage != '') {
             $sPreviousPage = str_replace(';', '&', $sPreviousPage);
-            Redirect($sPreviousPage.$iPersonID);
+            RedirectUtils::Redirect($sPreviousPage.$iPersonID);
         } elseif (isset($_POST['PersonSubmit'])) {
             //Send to the view of this person
-            Redirect('PersonView.php?PersonID='.$iPersonID);
+            RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
         } else {
             //Reload to editor to add another record
-            Redirect('PersonEditor.php');
+            RedirectUtils::Redirect('PersonEditor.php');
         }
     }
 
@@ -734,7 +736,7 @@ $ormClassifications = ListOptionQuery::Create()
               ->findById(1);
 
 //Get Families for the drop-down
-if ($_SESSION['user']->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
+if (SessionUser::getUser()->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
    $ormFamilies = FamilyQuery::Create()
                   ->orderByName()
                   ->find();
@@ -1600,7 +1602,7 @@ require 'Include/Header.php';
   ?>
     <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="PersonSubmit">
   <?php 
-    if ($_SESSION['user']->isAddRecordsEnabled()) {
+    if (SessionUser::getUser()->isAddRecordsEnabled()) {
   ?>
     <input type="submit" class="btn btn-success" value="<?= gettext('Save and Add') ?>" name="PersonSubmitAndAdd">
   <?php

@@ -3,6 +3,7 @@ use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/cart', function () {
   
@@ -11,7 +12,7 @@ $app->group('/cart', function () {
     });
 
     $this->post('/', function ($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -49,7 +50,7 @@ $app->group('/cart', function () {
       });
       
     $this->post('/emptyToGroup', function($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -62,7 +63,7 @@ $app->group('/cart', function () {
     });
     
     $this->post('/emptyToEvent', function($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled() || $_SESSION['user']->isAddRecordsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->isAddRecordsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -75,7 +76,7 @@ $app->group('/cart', function () {
     });
     
     $this->post('/emptyToNewGroup', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin() && !$_SESSION['user']->isManageGroupsEnabled()) {
+        if (!SessionUser::getUser()->isAdmin() && !SessionUser::getUser()->isManageGroupsEnabled()) {
             return $response->withStatus(401);
         }
         
@@ -92,7 +93,7 @@ $app->group('/cart', function () {
     
     
     $this->post('/removeGroup', function($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -105,7 +106,7 @@ $app->group('/cart', function () {
     });
     
     $this->post('/removeStudentGroup', function($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -118,7 +119,7 @@ $app->group('/cart', function () {
     });
     
     $this->post('/removeTeacherGroup', function($request, $response, $args) {
-        if (!($_SESSION['user']->isAdmin() || $_SESSION['user']->isManageGroupsEnabled())) {
+        if (!(SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())) {
             return $response->withStatus(401);
         }
 
@@ -134,7 +135,7 @@ $app->group('/cart', function () {
 
     
     $this->post('/delete', function($request, $response, $args) {
-        if (!$_SESSION['user']->isAdmin()) {
+        if (!SessionUser::getUser()->isAdmin()) {
             return $response->withStatus(401);
         }
         

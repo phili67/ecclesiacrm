@@ -26,12 +26,13 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
-
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 
 // Security: User must have add records permission
-if (!$_SESSION['user']->isAddRecordsEnabled()) {
-    Redirect('Menu.php');
+if (!SessionUser::getUser()->isAddRecordsEnabled()) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -132,7 +133,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             $fam->setEmail($sEmail);
             $fam->setWeddingdate($dWeddingDate);
             $fam->setDateEntered(date('YmdHis'));
-            $fam->setEnteredBy($_SESSION['user']->getPersonId());
+            $fam->setEnteredBy(SessionUser::getUser()->getPersonId());
             
             $fam->save();
             
@@ -177,7 +178,7 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
           $_SESSION['aPeopleCart'] = [];
         }
 
-        Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
+        RedirectUtils::Redirect('FamilyView.php?FamilyID='.$iFamilyID.'&Action=EmptyCart');
     }
 }
 

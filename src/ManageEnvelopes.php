@@ -15,13 +15,15 @@ require 'Include/Functions.php';
 require 'Include/EnvelopeFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
 
 //Set the page title
-$sPageTitle = gettext('Envelope Manager');
+$sPageTitle = _('Envelope Manager');
 
 // Security: User must have finance permission to use this form
-if ( !( $_SESSION['user']->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
-    Redirect('Menu.php');
+if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
+    RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
@@ -93,7 +95,7 @@ $updateEnvelopes = 0;
 
 // Service the action buttons
 if (isset($_POST['PrintReport'])) {
-    redirect('Reports/EnvelopeReport.php');
+    RedirectUtils::Redirect('Reports/EnvelopeReport.php');
 } elseif (isset($_POST['AssignAllFamilies'])) {
     $newEnvNum = $iAssignStartNum;
     $envelopesToWrite = []; // zero it out
