@@ -30,11 +30,13 @@ class MailChimpService
     private $myMailchimp;
     private $lists;
     private $campaigns;
+    
     public function __construct()
     {
         if (!empty(SystemConfig::getValue('sMailChimpApiKey'))) {
             $this->isActive = true;
             $this->myMailchimp = new MailChimp(SystemConfig::getValue('sMailChimpApiKey'));
+            $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
         }
     }
     public function isActive()
@@ -66,6 +68,14 @@ class MailChimpService
         LoggerUtils::getAppLogger()->info("Using cached MailChimp List");
       }
       return $_SESSION['MailChimpCampaigns'];
+    }
+    public function getConnectionStatus()
+    {
+      if ( !isset ($connection_status) && !empty(SystemConfig::getValue('sMailChimpApiKey')) ) {
+        $_SESSION['MailChimpConnectionStatus'] = $this->myMailchimp->post("authorized-apps");
+      }
+        
+      return $_SESSION['MailChimpConnectionStatus'];
     }
     public function isEmailInMailChimp($email)
     {
