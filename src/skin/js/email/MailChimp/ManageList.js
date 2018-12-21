@@ -337,7 +337,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            dialogLoadingFunction( i18next.t('Deleting Subscribers...')+'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
+            dialogLoadingFunction( i18next.t('Deleting Subscriber...') );
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/suppress',
@@ -406,7 +406,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            dialogLoadingFunction( i18next.t('Deleting all subscribers...') );
+            dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
             
             window.CRM.APIRequest({
                   method: 'POST',
