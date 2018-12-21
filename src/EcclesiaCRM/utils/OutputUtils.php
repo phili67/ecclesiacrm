@@ -550,7 +550,7 @@ class OutputUtils {
 function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
 { 
 
-    $bTimeEnglish = SystemConfig::getValue("bTimeEnglish");
+    $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
 
     for ($hour = $start; $hour <= $stop; $hour++) {
         if ($hour == '0') {

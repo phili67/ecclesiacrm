@@ -39,7 +39,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->
-            limit(SystemConfig::getValue("bSearchIncludePersonsMax"))->find();
+            limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
       
     
           if (!is_null($people))
@@ -79,7 +79,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
             _or()->filterByAddress2($searchLikeString, Criteria::LIKE)->
             _or()->filterByZip($searchLikeString, Criteria::LIKE)->
             _or()->filterByState($searchLikeString, Criteria::LIKE)->
-            limit(SystemConfig::getValue("bSearchIncludeAddressesMax"))->find();
+            limit(SystemConfig::getValue("iSearchIncludeAddressesMax"))->find();
       
           if (!is_null($addresses))
           {          
@@ -120,7 +120,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
               _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->
-              limit(SystemConfig::getValue("bSearchIncludeFamiliesMax"))->find();
+              limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))->find();
 
           if (!is_null($families))
           {
@@ -161,7 +161,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
         try {
             $groups = GroupQuery::create()
                 ->filterByName("%$query%", Criteria::LIKE)
-                ->limit(SystemConfig::getValue("bSearchIncludeGroupsMax"))
+                ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
                 ->withColumn('grp_Name', 'displayName')
                 ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/GroupView.php?GroupID=",Group.Id)', 'uri')
                 ->select(['displayName', 'uri'])
@@ -212,7 +212,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                     ->endUse()
                     ->withColumn('CONCAT("#",Deposit.Id," ",Deposit.Comment)', 'displayName')
                     ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/DepositSlipEditor.php?DepositSlipID=",Deposit.Id)', 'uri')
-                    ->limit(SystemConfig::getValue("bSearchIncludeDepositsMax"));
+                    ->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"));
               
               if (!is_null($Deposits))
               {      
@@ -237,7 +237,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 }
               }*/
               $Deposits = DepositQuery::create()
-                         ->limit(SystemConfig::getValue("bSearchIncludeDepositsMax"))
+                         ->limit(SystemConfig::getValue("iSearchIncludeDepositsMax"))
                          ->filterByComment("%$query%", Criteria::LIKE)
                          ->_or()
                          ->filterById($query)
@@ -323,7 +323,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                        ->filterByTitle($searchLikeString, Criteria::LIKE)
                      ->endUse()
                      ->orderByDate(Criteria::DESC)
-                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"));
+                     ->limit(SystemConfig::getValue("iSearchIncludePastoralCareMax"));
                      
             if (SessionUser::getUser()->isAdmin()) {
               $cares->find();

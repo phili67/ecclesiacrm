@@ -41,7 +41,7 @@ $app->group('/people', function () {
         $people = PersonQuery::create()->
           filterByFirstName($searchLikeString, Criteria::LIKE)->
             _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-          limit(SystemConfig::getValue("bSearchIncludePersonsMax"))->find();
+          limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
   
 
         if (!empty($people))
@@ -89,7 +89,7 @@ $app->group('/people', function () {
         $people = PersonQuery::create()->
           filterByFirstName($searchLikeString, Criteria::LIKE)->
             _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-          limit(SystemConfig::getValue("bSearchIncludePersonsMax"))->find();
+          limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
   
 
         if (!empty($people))
@@ -125,7 +125,7 @@ $app->group('/people', function () {
      try {
           $families = FamilyQuery::create()
               ->filterByName("%$query%", Criteria::LIKE)
-              ->limit(SystemConfig::getValue("bSearchIncludeFamiliesMax"))
+              ->limit(SystemConfig::getValue("iSearchIncludeFamiliesMax"))
               ->find();
 
           if (!empty($families))
@@ -164,7 +164,7 @@ $app->group('/people', function () {
       try {
           $groups = GroupQuery::create()
               ->filterByName("%$query%", Criteria::LIKE)
-              ->limit(SystemConfig::getValue("bSearchIncludeGroupsMax"))
+              ->limit(SystemConfig::getValue("iSearchIncludeGroupsMax"))
               ->withColumn('grp_Name', 'displayName')
               ->withColumn('grp_ID', 'id')
               ->withColumn('CONCAT("' . SystemURLs::getRootPath() . '/GroupView.php?GroupID=",Group.Id)', 'uri')

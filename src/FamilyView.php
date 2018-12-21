@@ -274,14 +274,14 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       <?php
         }
 
-        if (!SystemConfig::getValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
+        if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
       ?>
           <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>
           </li>
       <?php
         }
-        if (!SystemConfig::getValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */ 
+        if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */ 
       ?>
           <li>
             <i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
@@ -289,7 +289,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           </li>
       <?php
         }
-        if (SystemConfig::getValue("bUseDonationEnvelopes")) {
+        if (SystemConfig::getBooleanValue("bUseDonationEnvelopes")) {
       ?>
           <li><i class="fa-li fa fa-phone"></i><?= gettext("Envelope Number") ?>
               <span><?= $family->getEnvelope() ?></span>

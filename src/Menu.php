@@ -64,7 +64,7 @@ if (SessionUser::getUser()->isFinanceEnabled()) {
     }
 }
 
-$showBanner = SystemConfig::getValue("bEventsOnDashboardPresence");
+$showBanner = SystemConfig::getBooleanValue("bEventsOnDashboardPresence");
 
 $peopleWithBirthDays = MenuEventsCount::getBirthDates();
 $Anniversaries = MenuEventsCount::getAnniversaries();
@@ -72,10 +72,10 @@ $peopleWithBirthDaysCount = MenuEventsCount::getNumberBirthDates();
 $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
-if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
+if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
   // when a person is completely deactivated
   $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+  $newtime = $time->modify('-'.SystemConfig::getBooleanValue('iGdprExpirationDate').' year')->format('Y-m-d');
  
   $families = FamilyQuery::create()
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
@@ -317,7 +317,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                      ->joinPersonRelatedByPersonId()
                      ->groupBy(PastoralCareTableMap::COL_PST_CR_PERSON_ID)
                      ->orderByDate(Criteria::DESC)
-                     ->limit(SystemConfig::getValue("bSearchIncludePastoralCareMax"))
+                     ->limit(SystemConfig::getBooleanValue("iSearchIncludePastoralCareMax"))
                      ->findByPastorId(SessionUser::getUser()->getPerson()->getId());
   
   if ($cares->count() > 0) {    
@@ -411,6 +411,9 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             </a>
         </div>
     </div><!-- ./col -->
+  <?php
+    if (SystemConfig::getBooleanValue("bEnabledSundaySchool")) {
+  ?>
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-yellow">
@@ -430,6 +433,9 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             </a>
         </div>
     </div><!-- ./col -->
+  <?php
+    }
+  ?>
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-maroon">
