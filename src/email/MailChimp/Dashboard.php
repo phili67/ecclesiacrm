@@ -23,13 +23,48 @@ if (!(SessionUser::getUser()->isMailChimpEnabled())) {
     exit;
 }
 
-$mailchimp = new MailChimpService();
+$mailchimp       = new MailChimpService();
+$mailChimpStatus = $mailchimp->getConnectionStatus();
 
 //Set the page title
 $sPageTitle = gettext('MailChimp Dashboard');
 
 require '../../Include/Header.php';
 
+?>
+<?php
+  if ( $mailChimpStatus['title'] == 'Forbidden' ) {
+?>
+  <div class="callout callout-danger">
+    <h4><i class="fa fa-ban"></i> <?= _('MailChimp Problem') ?></h4>
+    <?= _("Mailchimp Status") ?> : Title : <?= $mailChimpStatus['title'] ?> status : <?= $mailChimpStatus['status'] ?> detail : <?= $mailChimpStatus['detail'] ?> 
+    <?php
+      if (!empty($mailChimpStatus['errors']) ) {
+    ?>
+    <ul>
+      <?php
+        foreach ($mailChimpStatus['errors'] as $error) {
+      ?>
+          <li>
+            field : <?= $error['field'] ?> Message : <?= $error['message'] ?>
+          </li>
+      <?php
+        } 
+      ?>
+    </ul>
+    <?php
+      }
+    ?>
+  </div>
+<?php
+  } else {
+?>
+  <div class="callout callout-info">
+    <h4><i class="fa fa-info"></i> <?= _('MailChimp is activated') ?></h4>
+    <?= _('MailChimp is working correctly') ?>
+  </div>
+<?php
+  }
 ?>
 <div class="row">
   <div class="col-lg-12">
