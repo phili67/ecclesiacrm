@@ -29,6 +29,7 @@ class MailChimpService
     private $myMailchimp;
     private $lists;
     private $campaigns;
+    
     public function __construct()
     {
         if (!empty(SystemConfig::getValue('sMailChimpApiKey'))) {
@@ -45,7 +46,7 @@ class MailChimpService
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
-          $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
           $list['members'] = $listmembers['members'];
         }
         $_SESSION['MailChimpLists'] = $lists;
@@ -73,7 +74,7 @@ class MailChimpService
       LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];
         foreach($lists as &$list) {
-          $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
           $list['members'] = $listmembers['members'];
         }
         $_SESSION['MailChimpLists'] = $lists;
@@ -145,7 +146,7 @@ class MailChimpService
         if ($list['id'] == $list_id) {
           if (is_null ($list['members'])) {
             // in the case the list is no more in the cache
-            $listmembers = $this->myMailchimp->get('lists/'.$list['id'].'/members',['count' => 100000]);
+            $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
             
             if (count($listmembers[0]) == 0) {
               return [];
@@ -544,6 +545,10 @@ class MailChimpService
       }
       
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
+    }
+    
+    public function getMembersFromList ($list_id,$count=500) {
+      return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]); 
     }
     
     public function deleteMember($list_id,$email){
