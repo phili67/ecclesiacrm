@@ -189,13 +189,13 @@ class MenuBar {
       $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
       
       if ($menuLinks->count()) {
-        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true);
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true,null,"global_custom_menu");
 
         foreach ($menuLinks as $menuLink) {
             $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
         }
       } else {
-        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","MenuLinksList.php",true);
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","MenuLinksList.php",true,null,"global_custom_menu");
       }
       
       
@@ -206,7 +206,7 @@ class MenuBar {
     {
       $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(SessionUser::getUser()->getPersonId());
       
-      $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu);
+      $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu,"personal_custom_menu_".SessionUser::getUser()->getPersonId());
       $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".SessionUser::getUser()->getPersonId(),true,$menuItem);
       
       foreach ($menuLinks as $menuLink) {
@@ -427,13 +427,13 @@ class MenuBar {
       return "class=\"treeview-menu menu-open\"";
     }
     
-    private function is_li_class_active ($links,$is_menu=false)
+    private function is_li_class_active ($links,$is_menu=false,$class=null)
     {
       $link = $_SERVER['REQUEST_URI'];
       
       foreach($links as $l) {
          if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
-            return "class=\"active ".(($is_menu)?"treeview":"")."\"";
+            return "class=\"active ".(($is_menu)?"treeview":"").(($class !=null)?" ".$class:"")."\"";
          }             
       }
       
@@ -474,13 +474,13 @@ class MenuBar {
       echo "<ul class=\"sidebar-menu\">\n";
       foreach ($this->_menus as $menu) {
         if (count($menu->subMenu()) == 0) {
-          echo "<li ".$this->is_li_class_active($menu->getLinks()).">\n";
+          echo "<li ".$this->is_li_class_active($menu->getLinks(),false,$menu->getClass()).">\n";
           echo "<a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\">\n";
           echo "<i class=\"".$menu->getIcon()."\"></i> <span>".gettext($menu->getTitle())."</span>\n";
           echo "</a>\n";
           echo "</li>\n";
         } else {// we are in the case of a treeview
-          echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks())."\">";
+          echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
             echo "<a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\">\n";
             echo " <i class=\"".$menu->getIcon()."\"></i>\n";
             echo " <span>".gettext($menu->getTitle())."</span>\n";
