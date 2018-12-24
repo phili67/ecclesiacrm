@@ -84,7 +84,7 @@ if ($iPersonID > 0) {
 if (isset($_POST['Submit'])) {
     //Initialize the ErrorFlag
     $bErrorFlag = false;
-    
+        
     //Assign all variables locally
     $iNoteID = InputUtils::LegacyFilterInput($_POST['NoteID'], 'int');
     $sNoteText = InputUtils::FilterHTML($_POST['NoteText'], 'htmltext');
