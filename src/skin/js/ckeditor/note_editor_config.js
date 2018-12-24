@@ -62,6 +62,7 @@ CKEDITOR.editorConfig = function( config ) {
   config.plugins =
     'about,' +
     'sourcedialog,' +
+    //'forms,' +
     'blockquote,' +
     'clipboard,' +
     'colorbutton,' +
