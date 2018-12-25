@@ -189,7 +189,8 @@ class MenuBar {
       $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(null);
       
       if ($menuLinks->count()) {
-        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true,null,"global_custom_menu");
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true,null,"global_custom_menu");        
+        $menu->addLink("MenuLinksList.php");
 
         foreach ($menuLinks as $menuLink) {
             $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
