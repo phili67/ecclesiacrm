@@ -51,7 +51,6 @@ use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-
 // Set the page title and include HTML header
 $sPageTitle = gettext('Person Profile');
 require 'Include/Header.php';
