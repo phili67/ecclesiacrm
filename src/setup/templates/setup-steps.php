@@ -104,13 +104,13 @@ require '../Include/HeaderNotLoggedIn.php';
                     If you will be accessing from <b>http://www.yourdomain.com/ecclesiacrm</b> then you would
                     enter <b>'/ecclesiacrm'</b> here.
                     <br/>
-                    If you will be accessing from <b>http://www.yourdomain.com</b> then you would enter
-                    <b>''</b> ... an empty string for a top level installation.
+                    If you will be accessing from <b>http://www.yourdomain.com</b>  leave
+                    this field blank.
 
                     <p/>
                     <i><b>NOTE:</b></i>
                     <p/>
-                    SHOULD Start end with slash.<br/>
+                    SHOULD Start with slash.<br/>
                     SHOULD NOT end with slash.<br/>
                     It is case sensitive.
                     </ul>
@@ -131,7 +131,13 @@ require '../Include/HeaderNotLoggedIn.php';
                 <label for="DB_SERVER_NAME">Database Server Name</label>
                 <input type="text" name="DB_SERVER_NAME" id="DB_SERVER_NAME" class="form-control"
                        aria-describedby="DB_SERVER_NAME_HELP" required>
-                <small id="DB_SERVER_NAME_HELP" class="form-text text-muted"></small>
+                <small id="DB_SERVER_NAME_HELP" class="form-text text-muted">Use localhost over 127.0.0.1</small>
+            </div>
+            <div class="form-group">
+              <label for="DB_SERVER_PORT">MySQL Database Server Port</label>
+              <input type="text" name="DB_SERVER_PORT" id="DB_SERVER_PORT" class="form-control"
+                       aria-describedby="DB_SERVER_PORT_HELP" required value="3306">
+              <small id="DB_SERVER_PORT_HELP" class="form-text text-muted">Default MySQL Port is 3306</small>
             </div>
             <div class="form-group">
                 <label for="DB_NAME">Database Name</label>
@@ -143,7 +149,7 @@ require '../Include/HeaderNotLoggedIn.php';
                 <label for="DB_USER">Database User</label>
                 <input type="text" name="DB_USER" id="DB_USER" placeholder="ecclesiacrm" class="form-control"
                        aria-describedby="DB_USER_HELP" required>
-                <small id="DB_USER_HELP" class="form-text text-muted">Must have permissions to create tables</small>
+                <small id="DB_USER_HELP" class="form-text text-muted">Must have permissions to create tables and views</small>
             </div>
             <div class="form-group">
                 <label for="DB_PASSWORD">Database Password</label>

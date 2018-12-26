@@ -14,7 +14,7 @@
  
  /*******************************************************************************
  *
- *  IMPORTANT : For webdav support the constant : webdav is the most important point
+ *  IMPORTANT : For davserver support the constant : davserver is the most important point
  *  Copyright 2018 : Philippe Logel all right reserved
  *
  *******************************************************************************/
@@ -23,180 +23,16 @@
 
 require_once dirname(__FILE__).'/../vendor/autoload.php';
 
-use EcclesiaCRM\ConfigQuery;
-use EcclesiaCRM\dto\LocaleInfo;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\SQLUtils;
-use EcclesiaCRM\Version;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
-use Propel\Runtime\Connection\ConnectionManagerSingle;
-use Propel\Runtime\Propel;
-use EcclesiaCRM\Utils\LoggerUtils;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Bootstrapper;
 
+// enable this line to debug the bootstrapper process (database connections, etc).
+// this makes a lot of log noise, so don't leave it on for normal production use.
+//$debugBootstrapper = true;
 
-function system_failure($message, $header = 'Setup failure')
-{
-    require 'Include/HeaderNotLoggedIn.php'; ?>
-    <div class='container'>
-        <h3>EcclesiaCRM – <?= gettext($header) ?></h3>
-        <div class='alert alert-danger text-center' style='margin-top: 20px;'>
-            <?= gettext($message) ?>
-        </div>
-    </div>
-    <?php
-    require 'Include/FooterNotLoggedIn.php';
-    exit();
-}
-
-function buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD, $dbClassName, $dbPort = '3306')
-{
-    return [
-        'dsn' => 'mysql:host=' . $sSERVERNAME . ';port='.$dbPort.';dbname=' . $sDATABASE,
-        'user' => $sUSER,
-        'password' => $sPASSWORD,
-        'settings' => [
-            'charset' => 'utf8',
-            'queries' => ["SET sql_mode=(SELECT REPLACE(REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''),'NO_ZERO_DATE',''))"],
-        ],
-        'classname' => $dbClassName,
-        'model_paths' => [
-            0 => 'src',
-            1 => 'vendor',
-        ],
-    ];
-}
-
-try {
-    SystemURLs::init($sRootPath, $URL, dirname(dirname(__FILE__)));
-} catch (\Exception $e) {
-    system_failure($e->getMessage());
-}
-
-if (!defined("webdav")) {
-    SystemURLs::checkAllowedURL($bLockURL, $URL);
-}
-
-$cnInfoCentral = mysqli_connect($sSERVERNAME, $sUSER, $sPASSWORD)
-or system_failure('Could not connect to MySQL on <strong>'.$sSERVERNAME.'</strong> as <strong>'.$sUSER.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
-
-mysqli_set_charset($cnInfoCentral, 'utf8');
-
-mysqli_select_db($cnInfoCentral, $sDATABASE)
-or system_failure('Could not connect to the MySQL database <strong>'.$sDATABASE.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
-
-
-// Initialize the session
-if (!defined("webdav")) {
-  session_cache_limiter('private_no_expire:');
-  session_name('CRM@'.SystemURLs::getRootPath());
-  session_start();
+// In the case of an old config, the port is by default : 3306
+if (!isset($dbPort)) {
+    $dbPort = "3306";
 }
 
 
-// ==== ORM
-$dbClassName = "\\Propel\\Runtime\\Connection\\ConnectionWrapper";
-
-
-$serviceContainer = Propel::getServiceContainer();
-$serviceContainer->checkVersion('2.0.0-dev');
-$serviceContainer->setAdapterClass('default', 'mysql');
-$manager = new ConnectionManagerSingle();
-$manager->setConfiguration(buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD, $dbClassName));
-$manager->setName('default');
-$serviceContainer->setConnectionManager('default', $manager);
-$serviceContainer->setDefaultDatasource('default');
-
-$connection = Propel::getConnection();
-$query = "SHOW TABLES FROM `$sDATABASE`";
-$statement = $connection->prepare($query);
-$resultset = $statement->execute();
-$results = $statement->fetchAll(\PDO::FETCH_ASSOC);
-
-
-if (!defined("webdav")) {
-    // with webdav connexion we don't need to have more things
-    if (count($results) == 0) {// in the case of installation
-        $systemService = new SystemService();
-        $version = new Version();
-        $version->setVersion(SystemService::getInstalledVersion());
-        $version->setUpdateStart(new DateTime());
-        SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
-        $version->setUpdateEnd(new DateTime());
-        $version->save();
-    }
-}
-
-// Read values from config table into local variables
-// **************************************************
-
-SystemConfig::init(ConfigQuery::create()->find());
-
-// enable logs if we are in debug mode
-// **************************************************
-
-$logLevel = SystemConfig::getValue('sLogLevel');
-
-// PHP Logs
-if ($logLevel == 0) {
-  ini_set('log_errors', 1);
-  ini_set('error_log', LoggerUtils::buildLogFilePath("php"));
-}
-
-// APP Logs
-$logger = LoggerUtils::getAppLogger();
-
-// ORM Logs
-$ormLogger = new Logger('ormLogger');
-if ($logLevel == 0) {
-  $dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";//DebugPDO for debugging
-} else {
-  $dbClassName = "\\Propel\\Runtime\\Connection\\DebugPDO"; // for debugging
-}
-
-$manager->setConfiguration(buildConnectionManagerConfig($sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD, $dbClassName));
-$ormLogger->pushHandler(new StreamHandler(LoggerUtils::buildLogFilePath("orm"), LoggerUtils::getLogLevel()));
-$serviceContainer->setLogger('defaultLogger', $ormLogger);
-
-
-if (!is_null(SessionUser::getUser())) {      // Not set on Login.php
-    // Load user variables from user config table.
-    // **************************************************
-    $sSQL = 'SELECT ucfg_name, ucfg_value AS value '
-        ."FROM userconfig_ucfg WHERE ucfg_per_ID='".SessionUser::getUser()->getPersonId()."'";
-    $rsConfig = mysqli_query($cnInfoCentral, $sSQL);     // Can't use RunQuery -- not defined yet
-    if ($rsConfig) {
-        while (list($ucfg_name, $value) = mysqli_fetch_row($rsConfig)) {
-            $$ucfg_name = $value;
-            $_SESSION[$ucfg_name] = $value;
-        }
-    }
-}
-
-$sMetaRefresh = '';  // Initialize to empty
-
-if (SystemConfig::getValue('sTimeZone')) {
-    date_default_timezone_set(SystemConfig::getValue('sTimeZone'));
-}
-
-$localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
-setlocale(LC_ALL, $localeInfo->getLocale());
-
-// Get numeric and monetary locale settings.
-$aLocaleInfo = $localeInfo->getLocaleInfo();
-
-// This is needed to avoid some bugs in various libraries like fpdf.
-// http://www.velanhotels.com/fpdf/FAQ.htm#6
-setlocale(LC_NUMERIC, 'C');
-
-$domain = 'messages';
-$sLocaleDir = SystemURLs::getDocumentRoot().'/locale/textdomain';
-
-bind_textdomain_codeset($domain, 'UTF-8');
-bindtextdomain($domain, $sLocaleDir);
-textdomain($domain);
-
-?>
+Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, defined("davserver"));

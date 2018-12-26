@@ -8,6 +8,7 @@
 namespace EcclesiaCRM\dto;
 
 use EcclesiaCRM\dto\LocaleInfo;
+use EcclesiaCRM\Bootstrapper;
 
 class SystemURLs
 {
@@ -54,8 +55,7 @@ class SystemURLs
 
     public static function getSupportURL()
     {
-        $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
-        $lang = $localeInfo->getShortLocale();
+        $lang = Bootstrapper::GetCurrentLocale()->getShortLocale();
         
         return self::$supportURL."/".$lang."/";
     }

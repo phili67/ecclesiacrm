@@ -4,6 +4,7 @@ use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\Service\UpgradeService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Bootstrapper;
 
 
 // Include the function library
@@ -11,7 +12,7 @@ require 'Include/Config.php';
 $bSuppressSessionTests = true; // DO NOT MOVE
 require 'Include/Functions.php';
 
-if (SystemService::isDBCurrent()) {
+if (Bootstrapper::isDBCurrent()) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }

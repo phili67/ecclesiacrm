@@ -17,8 +17,8 @@ use Sabre\CardDAV;
 
 // Include the function library
 // Very important this constant !!!!
-// be carefull with the webdav constant !!!!
-define("webdav", "1");
+// be carefull with the davserver constant !!!!
+define("davserver", "1");
 require dirname(__FILE__).'/Include/Config.php';
 
 use Propel\Runtime\Propel;
@@ -53,7 +53,7 @@ $pdo = Propel::getConnection()->getWrappedConnection();
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);*/
 
 //Mapping PHP errors to exceptions
-// problem with the webdav constant, this can't be used
+// problem with the davserver constant, this can't be used
 
 /*function exception_error_handler($errno, $errstr, $errfile, $errline) {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);

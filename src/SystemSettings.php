@@ -19,6 +19,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Bootstrapper;
 
 // Security
 if (!SessionUser::getUser()->isAdmin()) {
@@ -64,7 +65,7 @@ if (isset($_POST['save'])) {
     }
 
         // If changing the locale, translate the menu options
-        if ($id == 39 && $value != $localeInfo->getLocale()) {
+        if ($id == 39 && $value != Bootstrapper::GetCurrentLocale()->getLocale()) {
             $localeInfo = new LocaleInfo($value);
             setlocale(LC_ALL, $localeInfo->getLocale());
             $aLocaleInfo = $localeInfo->getLocaleInfo();

@@ -27,9 +27,10 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Token;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Bootstrapper;
 
 
-if (!SystemService::isDBCurrent()) {
+if (!Bootstrapper::isDBCurrent()) {
     RedirectUtils::Redirect('SystemDBUpdate.php');
     exit;
 }

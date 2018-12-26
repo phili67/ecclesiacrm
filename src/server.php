@@ -7,8 +7,8 @@ use Sabre\DAV\Auth;
 
 // Include the function library
 // Very important this constant !!!!
-// be carefull with the webdav constant !!!!
-define("webdav", "1");
+// be carefull with the davserver constant !!!!
+define("davserver", "1");
 require dirname(__FILE__).'/Include/Config.php';
 
 use EcclesiaCRM\Auth\BasicAuth;
@@ -25,7 +25,7 @@ if ( !SystemConfig::getBooleanValue('bEnabledDav') ) {
 
 
 //Mapping PHP errors to exceptions
-// problem with the webdav constant
+// problem with the davserver constant
 
 /*function exception_error_handler($errno, $errstr, $errfile, $errline) {
     throw new ErrorException($errstr, 0, $errno, $errfile, $errline);

@@ -4,6 +4,7 @@ namespace EcclesiaCRM\Utils;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\LocaleInfo;
+use EcclesiaCRM\Bootstrapper;
 use Geocoder\Provider\BingMaps\BingMaps;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\Provider\Nominatim\Nominatim;
@@ -18,7 +19,6 @@ class GeoUtils
     {
 
         $logger = LoggerUtils::getAppLogger();
-        $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
 
         $provider = null;
         $adapter = new Client();
@@ -38,7 +38,7 @@ class GeoUtils
                     break;                
             }
             $logger->debug("Using: Geo Provider -  ". $provider->getName());
-            $geoCoder = new StatefulGeocoder($provider, $localeInfo->getShortLocale());
+            $geoCoder = new StatefulGeocoder($provider, Bootstrapper::GetCurrentLocale()->getShortLocale());
             $result = $geoCoder->geocodeQuery(GeocodeQuery::create($address));
             $logger->debug("We have " . $result->count() . " results");
             if (!empty($result)) {
@@ -61,9 +61,8 @@ class GeoUtils
     public static function DrivingDistanceMatrix($address1, $address2)
     {
         $logger = LoggerUtils::getAppLogger();
-        $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
         $url = "https://maps.googleapis.com/maps/api/distancematrix/json?";
-        $url = $url . "language=" . $localeInfo->getShortLocale();
+        $url = $url . "language=" . Bootstrapper::GetCurrentLocale()->getShortLocale();
         $url = $url . "&origins=" . urlencode($address1);
         $url = $url . "&destinations=" . urlencode($address2);
         $logger->debug($url);
