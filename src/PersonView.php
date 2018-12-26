@@ -1140,21 +1140,26 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
        <div role="tab-pane fade" class="tab-pane" id="finance">
           <div class="main-box clearfix">
               <div class="main-box-body clearfix">
-              <?php 
-                if ($ormAutoPayments->count() > 0 && !is_null ($person->getFamily())) {
-              ?>    
+              
+            <?php 
+              if ( !is_null ($person->getFamily()) ) {
+                if ( $ormAutoPayments->count() > 0 ) {
+            ?>    
                   <table class="table table-striped table-bordered" id="automaticPaymentsTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+            <?php
+                }
+            ?>
                   <p align="center">
                       <a class="btn btn-primary"
                          href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
                   </p>
-              <?php
-                } else {
+            <?php
+              } else {
               ?>
                 <?= _("You must set an address for this person") ?>
-              <?php
-                }
-              ?>
+            <?php
+              }
+            ?>
               </div>
           </div>
         </div>
