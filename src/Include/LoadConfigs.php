@@ -29,10 +29,4 @@ use EcclesiaCRM\Bootstrapper;
 // this makes a lot of log noise, so don't leave it on for normal production use.
 //$debugBootstrapper = true;
 
-// In the case of an old config, the port is by default : 3306
-if (!isset($dbPort)) {
-    $dbPort = "3306";
-}
-
-
 Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, defined("davserver"));
