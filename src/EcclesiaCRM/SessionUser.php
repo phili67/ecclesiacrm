@@ -3,9 +3,14 @@ namespace EcclesiaCRM;
 
 class SessionUser
 {
+    public static function isActive()
+    {
+      return isset($_SESSION['user']);
+    }
     /**
      * @return User
      */
+
     public static function getUser()
     {
         return $_SESSION['user'];
