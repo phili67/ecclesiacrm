@@ -5,6 +5,7 @@ namespace EcclesiaCRM\data;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\LocaleInfo;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\Bootstrapper;
 
 class States
 {
@@ -13,8 +14,7 @@ class States
     
     public function __construct()
     {       
-        $localeInfo = new LocaleInfo(SystemConfig::getValue('sLanguage'));
-        $this->countryCode = $localeInfo->getCountryCode();
+        $this->countryCode = Bootstrapper::GetCurrentLocale()->getCountryCode();
         
         $stateFileName = SystemURLs::getDocumentRoot() . '/locale/states/'. $this->countryCode .'.json';
         

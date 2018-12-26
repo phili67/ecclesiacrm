@@ -20,6 +20,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\MenuBar\MenuBar;
+use EcclesiaCRM\Bootstrapper;
+
 
 function Header_system_notifications()
 {
@@ -165,7 +167,7 @@ function Header_modals()
 
 function Header_body_scripts()
 {
-    global $localeInfo;
+    $localeInfo = Bootstrapper::GetCurrentLocale();
     $systemService = new SystemService(); ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
         window.CRM = {

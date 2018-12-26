@@ -1,10 +1,9 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\Bootstrapper;
 
-global $localeInfo;
-
-
+$localeInfo = Bootstrapper::GetCurrentLocale();
 ?>
     <div style="background-color: white; padding-top: 5px; padding-bottom: 5px; text-align: center; position: fixed; bottom: 0; width: 100%">
       <strong><?= gettext('Copyright') ?> &copy; 2015-<?= date('Y') ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getPackageMainVersion() ?></a>.</strong> <?= gettext('All rights reserved')?>.
@@ -26,7 +25,7 @@ global $localeInfo;
   <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
   <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/input-mask/jquery.inputmask.extensions.js" ></script>
   <script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/datepicker/bootstrap-datepicker.js" ></script>
-  <?php if ($localeInfo): ?><script src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= $localeInfo->getLocale() ?>.js"></script><?php endif; ?>
+  <?php if (!is_null($localeInfo)): ?><script src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= $localeInfo->getLocale() ?>.js"></script><?php endif; ?>
 
 
   <!-- Bootbox -->

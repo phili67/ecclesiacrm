@@ -1,13 +1,11 @@
 <?php
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Bootstrapper;
 
 // Set the page title and include HTML header
 $sPageTitle = gettext("Family Registration");
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
-
-global $localeInfo;
-
 ?>
   <form action="<?= SystemURLs::getRootPath() ?>/external/register/confirm" method="post">
     <div class="register-box" style="width: 600px;">
@@ -148,7 +146,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/FooterNotLoggedIn.php");
       $(".inputDatePicker").datepicker({
         autoclose: true,
         format:"<?= SystemConfig::getValue('sDatePickerPlaceHolder') ?>", 
-        language: "<?= $localeInfo->getLanguageCode() ?>"
+        language: "<?= Bootstrapper::GetCurrentLocale()->getLanguageCode() ?>"
       });
         $("[data-mask]").inputmask();
     });

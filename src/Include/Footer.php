@@ -14,7 +14,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\Bootstrapper;
 
 ?>
 </section><!-- /.content -->
@@ -369,7 +369,7 @@ use EcclesiaCRM\SessionUser;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/fastclick/fastclick.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-toggle/bootstrap-toggle.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/i18next/i18next.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= $localeInfo->getLocale() ?>.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-validator/validator.min.js"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ShowAge.js"></script>
