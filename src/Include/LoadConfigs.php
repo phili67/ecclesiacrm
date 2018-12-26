@@ -29,4 +29,5 @@ use EcclesiaCRM\Bootstrapper;
 // this makes a lot of log noise, so don't leave it on for normal production use.
 //$debugBootstrapper = true;
 
+
 Bootstrapper::init($sSERVERNAME, $dbPort, $sUSER, $sPASSWORD, $sDATABASE, $sRootPath, $bLockURL, $URL, defined("davserver"));

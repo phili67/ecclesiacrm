@@ -7,7 +7,6 @@ class SessionUser
     {
       return isset($_SESSION['user']);
     }
-  
     /**
      * @return User
      */
