@@ -603,7 +603,7 @@ $("body").on('keypress', '.fileName', function(e) {
   function BootboxContentUploadFile(){
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Upload your Files")+'</h3>'
        + '<div>'
-            +'<div class="row div-title">'
+            +'<div class="row div-title" style="margin-bottom:-80px">'
             +'  <form action="api/" method="post" id="formId" enctype="multipart/form-data">'
             +'     <p align="center" >'
             +'       <label for="noteInputFile">'+i18next.t("Files input")+" : " + '</label>'

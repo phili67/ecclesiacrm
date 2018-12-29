@@ -587,8 +587,13 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
       } else {
     ?>
         <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= gettext("Delete this Record") ?></a>
-    <?php
+  <?php
       }
+    }
+      if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+  ?>
+        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a note") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a note") ?></a>
+  <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
   ?>
@@ -1232,20 +1237,6 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                             <option value="shared"><?= gettext("Shared documents") ?></option>
                         </select>
                     </td>
-                    <?php 
-                      if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
-                    ?>
-                    <td>
-                      <a href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a note") ?>">
-                        <span class="fa-stack" data-personid="<?= $iPersonID ?>">
-                            <i class="fa fa-square fa-stack-2x" style="color:green"></i>
-                            <i class="fa fa-file-o fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
-                    </td>
-                    <?php
-                      } 
-                    ?>
                   </tr>
                 </table>
               </div>

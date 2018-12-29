@@ -53,7 +53,7 @@ $('.saveNoteAsWordFile').click(function (event) {
     var noteId = $(this).data("id");
     bootbox.confirm({
         title:i18next.t("Save your note"),
-        message: i18next.t("Do you want to save your not as a Word File in your EDrive?"),
+        message: i18next.t("Do you want to save your note as a Word File in your EDrive?"),
         buttons: {
             cancel: {
                 className: 'btn-default',
