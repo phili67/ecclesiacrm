@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM;
 
+use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Base\NoteShare as BaseNoteShare;
 use EcclesiaCRM\dto\SystemURLs;
 
@@ -28,6 +29,16 @@ class NoteShare extends BaseNoteShare
         }
 
         return $url;
+    }
+    
+    public function setNoteId($v)
+    {
+      $note = NoteQuery::create()->findOneById($v);
+      
+      $note->setDateLastEdited(new \DateTime()); 
+      $note->save();
+      
+      parent::setNoteId($v);
     }
 
 }

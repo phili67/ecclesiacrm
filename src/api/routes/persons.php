@@ -26,6 +26,7 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 
@@ -411,4 +412,62 @@ $app->group('/persons', function () {
      
     return $response->withJson(["emails" => $missingEmailInMailChimp]);
   });
+  
+  $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile');
+  
 });
+
+
+function generateRandomString($length = 15)
+{
+    return substr(sha1(rand()), 0, $length);
+}
+
+
+function saveNoteAsWordFile ($request, $res, $args) {
+  $input = (object)$request->getParsedBody();
+  
+  if ( isset ($input->personId) && isset ($input->noteId) ) {
+    $user = UserQuery::create()->findPk($input->personId);
+    
+    $actualNote = NoteQuery::Create()->findOneById ($input->noteId);
+    
+      
+    if ( !is_null($user) && !is_null($actualNote) ) {
+        $realNoteDir = $userDir = $user->getUserRootDir();
+        $userName    = $user->getUserName();
+        $currentpath = $user->getCurrentpath();
+        
+        $pw = new \PhpOffice\PhpWord\PhpWord();
+
+        // [THE HTML] 
+        $section = $pw->addSection();
+        \PhpOffice\PhpWord\Shared\Html::addHtml($section, $actualNote->getText(), false, false);
+        
+        $title = "note_".generateRandomString(5);
+        
+        // we set a random title
+
+        // [SAVE FILE ON THE SERVER]
+        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
+        $pw->save($tmpFile, "Word2007");
+        
+        // now we create the note
+        $note = new Note();
+        $note->setPerId($input->personId);
+        $note->setFamId(0);
+        $note->setTitle($fileName);
+        $note->setPrivate(1);
+        $note->setText($userName . $currentpath . $title.".docx");
+        $note->setType('file');
+        $note->setEntered(SessionUser::getUser()->getPersonId());
+        $note->setInfo(gettext('Create file'));
+      
+        $note->save();
+
+        return $res->withJson(['success' => $title ]);
+    }
+  }
+  
+  return $res->withJson(['success' => false]);
+}
