@@ -351,26 +351,38 @@ $app->group('/events', function () {
           
         }
         
-        /*if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
+        $realVevent = $vcalendar->add('VEVENT',$vevent);
+        
+        //$res = '';
+        
+        if ($calendar->getGroupId() && $input->addGroupAttendees) {// add Attendees with sabre connection
              $persons = Person2group2roleP2g2rQuery::create()
                 ->filterByGroupId($calendar->getGroupId())
                 ->find();
+                
+             $res = $persons->count();
 
              if ($persons->count() > 0) {
 
-               $vevent = array_merge($vevent,['ATTENDEE;CN='.SessionUser::getUser()->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.SessionUser::getUser()->getEmail().';PARTSTAT=ACCEPTED;ROLE=CHAIR:MAILTO' => SessionUser::getUser()->getEmail()]);                          
-              
+               $realVevent->add('ORGANIZER','mailto:'.SessionUser::getUser()->getEmail());
+               
+               //$res .= SessionUser::getUser()->getEmail();
+               
                foreach ($persons as $person) {
                   $user = UserQuery::Create()->findOneByPersonId($person->getPersonId());
                   if ( !empty($user) ) {
-                    $vevent = array_merge($vevent,['ATTENDEE;CN='.$user->getFullName().';CUTYPE=INDIVIDUAL;EMAIL='.$user->getEmail().';PARTSTAT=ACCEPTED;SCHEDULE-STATUS=3.7:mailto' => $user->getEmail()]);
+                    $realVevent->add('ATTENDEE','mailto:'.$user->getEmail());
+                    $res .= " " . $user->getEmail();
                   }
                }
             }
-        }*/
+        }
         
-        $vcalendar->add('VEVENT',$vevent);        
-        //return $response->withJson(["status" => $vcalendar->serialize()]);        
+        if ($input->alarm != _("NONE")) {
+          $realVevent->add('VALARM',['TRIGGER' => $input->alarm, 'DESCRIPTION' => 'Event reminder', 'ACTION' => 'DISPLAY']);
+        }
+
+        //return $response->withJson(["status" => $vcalendar->serialize(),"grpId" => $calendar->getGroupId(), "cocuou" => $input->addGroupAttendees,"res" => $res]);        
 
 
         // Now we move to propel, to finish the put extra infos        

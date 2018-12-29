@@ -522,6 +522,23 @@
                   +'</div>'
                 +'</div>'
             +'</div>'            
+            +'<div class="row div-title">'
+              +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Alarm') + ":</div>"
+              +'<div class="col-md-9">'
+                    + '<select class="form-control input-sm" id="EventAlarm" name="EventAlarm">'
+                    +   '<option value="NONE">'+i18next.t("NONE")+'</option>'
+                    +   '<option value="PT0S">'+i18next.t("At time of event")+'</option>'
+                    +   '<option value="-PT5M">'+i18next.t("5 minutes before")+'</option>'
+                    +   '<option value="-PT10M">'+i18next.t("10 minutes before")+'</option>'
+                    +   '<option value="-PT15M">'+i18next.t("15 minutes before")+'</option>'
+                    +   '<option value="-PT30M">'+i18next.t("30 minutes before")+'</option>'
+                    +   '<option value="-PT1H">'+i18next.t("1 hour before")+'</option>'
+                    +   '<option value="-PT2H">'+i18next.t("2 hour before")+'</option>'
+                    +   '<option value="-P1D">'+i18next.t("1 day before")+'</option>'
+                    +   '<option value="-P2D">'+i18next.t("2 day before")+'</option>'
+                    + '</select>'
+              +'</div>'
+            +'</div>'
             +'<div class="row date-recurrence div-block" style="padding-top:0px;padding-bottom:5px">'            
                 +'<div class="col-md-12">'
                   +'<div class="row">'
@@ -676,6 +693,8 @@
                   var recurrenceValid = $('#checkboxEventrecurrence').is(":checked");
                   var recurrenceType  = $("#typeEventrecurrence").val();
                   var endrecurrence   = $("#endDateEventrecurrence").val();
+
+                  var alarm           = $("#EventAlarm").val();
                   
                   var fmt = window.CRM.datePickerformat.toUpperCase();
     
@@ -731,7 +750,8 @@
                       data: JSON.stringify({"evntAction":dialogType,"eventID":eventID,"eventTypeID":eventTypeID,"EventCalendarType":EventCalendarType,"EventTitle":EventTitle,"EventDesc":EventDesc,"calendarID":EventCalendarID,
                           "Fields":fields,"EventCountNotes":EventCountNotes,"eventNotes":eventNotes,
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
-                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
+                          "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,
+                          "reccurenceID":reccurenceID,"location":loc,"alarm":alarm})
                   }).done(function(data) {
                      $('#calendar').fullCalendar('unselect');              
                      add = true;              
