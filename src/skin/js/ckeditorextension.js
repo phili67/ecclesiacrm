@@ -63,12 +63,21 @@
                 ]
             }
         ],
+        onShow : function () {
+          if (window.CRM.ckedt  != null) {
+            $('.name_ckeditor_custom_save :input').val(window.CRM.ckedt.title);
+            $('.description_ckeditor_custom_save  :input').val(window.CRM.ckedt.desc);
+          }
+        },
         onOk: function() {
           var dialog = this;
         
           var  title = $('.name_ckeditor_custom_save :input').val();
-          var  desc = $('.description_ckeditor_custom_save  :input').val();
-          var  text = editor.getData();
+          var  desc  = $('.description_ckeditor_custom_save  :input').val();
+          var  text  = editor.getData();
+          
+          // we store the last element
+          window.CRM.ckedt = {title: title, desc: desc};
         
           window.CRM.APIRequest({
             method: 'POST',
@@ -446,7 +455,7 @@
       label: i18next.t("Save templates"),
       command: 'saveTemplates',
       toolbar: 'template',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
+      icon: window.CRM.root+'/skin/js/ckeditorExtraPlugin/icons/hidpi/saveTemplate.png'
     });
     
     editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command to the template group
@@ -460,7 +469,7 @@
       label: i18next.t("Save As Word File in EDrive"),
       command: 'saveAsWordFile',
       toolbar: 'export',
-      icon: window.CRM.root+'/skin/external/ckeditor/plugins/save/icons/hidpi/save.png'
+      icon: window.CRM.root+'/skin/js/ckeditorExtraPlugin/icons/hidpi/saveWord.png'
     });
     
     //  create the MathJax command
