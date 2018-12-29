@@ -47,3 +47,36 @@ $('.delete-person').click(function (event) {
         }
     });
 });
+
+
+$('.saveNoteAsWordFile').click(function (event) {
+    var noteId = $(this).data("id");
+    bootbox.confirm({
+        title:i18next.t("Save your note"),
+        message: i18next.t("Do you want to save your not as a Word File in your EDrive?"),
+        buttons: {
+            cancel: {
+                className: 'btn-default',
+                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+            },
+            confirm: {
+                className: 'btn-primary',
+                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Save")
+            }
+        },
+        callback: function (result) {
+            if(result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'persons/saveNoteAsWordFile',
+                  data: JSON.stringify({"personId":window.CRM.iPersonId,"noteId":noteId})
+                }).done(function(data) {
+                  // reload toolbar
+                  if (window.CRM.dataEDriveTable != undefined) {
+                     window.CRM.reloadEDriveTable();
+                  }
+                });
+            }
+        }
+    });
+});

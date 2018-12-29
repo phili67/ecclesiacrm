@@ -1304,6 +1304,16 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                       <?php
                         }
                       } ?>
+                  <?php
+                    if ( $item['type'] == 'note' && $person->getId() == SessionUser::getUser()->getPersonId() ) {
+                  ?>
+                        <span class="fa-stack saveNoteAsWordFile" data-id="<?= $item['id'] ?>">
+                          <i class="fa fa-square fa-stack-2x" style="color:#001FFF"></i>
+                          <i class="fa fa-file-word-o fa-stack-1x fa-inverse" ></i>
+                        </span>
+                  <?php
+                    }
+                  ?>
                     </span>
 
                  <?php
@@ -1327,6 +1337,8 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                       } 
                     ?>
                   </h3>
+                  
+                  
 
                   <div class="timeline-body">
                   <?php
@@ -1334,7 +1346,11 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                   ?>
                           <p class="text-danger"><small><?= $item['currentUserName'] ?></small></p><br>
                   <?php
-                     }                    
+                     } else if (isset($item['lastEditedBy'])) {
+                  ?>
+                     <p class="text-success"><small><?= _("Last modification by")." : ".$item['lastEditedBy'] ?></small></p><br>
+                  <?php
+                     }
                   ?>
                       <?= ((!empty($item['info']))?$item['info']." : ":"").$item['text'] ?>
                   </div>
@@ -1368,6 +1384,8 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                   <?php
                         }
                   ?>
+                        <button type="button" data-id="<?= $item['id'] ?>" data-shared="<?= $item['isShared'] ?>" class="btn btn-<?= $item['isShared']?"success":"default" 
+                        ?> shareNote"><i class="fa fa-share-square-o"></i></button>
                     </div>
                   <?php
                     }

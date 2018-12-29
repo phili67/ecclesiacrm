@@ -247,15 +247,15 @@ class TimelineService
             }
             
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
-                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy, '', $dbNote->getText(),
+                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $userName/*$displayEditedBy*/, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
-                $sharePerson,$shareRights,$currentUserName,$userName,$perID);
+                $sharePerson,$shareRights,$currentUserName,$userName,$perID,$displayEditedBy);
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null,$perID = 0)
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null,$perID = 0,$displayEditedBy = "")
     {
         $item['id']       = $id;
         $item['slim']     = false;
@@ -263,6 +263,7 @@ class TimelineService
         $item['isShared'] = $isShared;
         $item['userName'] = $userName;
         $item['perID']    = $perID;
+        $item['lastEditedBy']    = $displayEditedBy;
         
         switch ($type) {
             case 'create':
@@ -275,17 +276,17 @@ class TimelineService
                 $item['style'] = 'fa-camera bg-green';
                 break;
             case 'audio':
-                $item['slim'] = true;
-                $item['style'] = 'fa-music bg-purple';
-                $item['editLink'] = $editLink;
-                $item['deleteLink'] = $deleteLink;
+                $item['slim']            = true;
+                $item['style']           = 'fa-music bg-purple';
+                $item['editLink']        = $editLink;
+                $item['deleteLink']      = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
                 break;
             case 'video':
-                $item['slim'] = true;
-                $item['style'] = 'fa-video-camera bg-maroon';
-                $item['editLink'] = $editLink;
-                $item['deleteLink'] = $deleteLink;
+                $item['slim']            = true;
+                $item['style']           = 'fa-video-camera bg-maroon';
+                $item['editLink']        = $editLink;
+                $item['deleteLink']      = $deleteLink;
                 $item['currentUserName'] = $currentUserName;
                 break;
             case 'folder':
@@ -330,12 +331,12 @@ class TimelineService
         
         if (!is_null($sharePerson)) {
           $item['sharePersonName'] = $sharePerson->getFullName();
-          $item['sharePersonID'] = $sharePerson->getId();
-          $item['shareRights'] = $shareRights;
-          $item['headerLink'] = '';
-          $item['header'] = gettext("Shared by") . ' : ' . $sharePerson->getFullName();
+          $item['sharePersonID']   = $sharePerson->getId();
+          $item['shareRights']     = $shareRights;
+          $item['headerLink']      = '';
+          $item['header']          = gettext("Shared by") . ' : ' . $sharePerson->getFullName();
           
-          $item['deleteLink'] = '';
+          $item['deleteLink']      = '';
           
           if ($shareRights != 2) {
             $item['editLink'] = '';

@@ -1,4 +1,15 @@
+
 $(document).ready(function () {
+  // DOM callback for all the project
+  window.CRM.reloadEDriveTable = function (callback) {
+     window.CRM.dataEDriveTable.ajax.reload(function(json) {
+        installDragAndDrop();
+        if (callback)
+        {
+          callback();
+        }
+     });
+  }
   
   // EDrive
   var selected     = [];// the selected rows
@@ -193,9 +204,7 @@ $("body").on('click', '.fileName', function(e) {
               data: JSON.stringify({"personID": window.CRM.currentPersonID,"oldName" : oldName, "newName" : result, "type" : type})
             }).done(function(data) {
               if (data && data.success) {
-                window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                 installDragAndDrop();
-                });
+                window.CRM.reloadEDriveTable();
               }
             });
           }
@@ -250,9 +259,7 @@ $("body").on('keypress', '.fileName', function(e) {
         data: JSON.stringify({"personID": window.CRM.currentPersonID,"oldName" : oldName, "newName" : newName, "type" : type})
       }).done(function(data) {
         if (data && data.success) {
-          window.CRM.dataEDriveTable.ajax.reload(function(json) {
-            installDragAndDrop();
-          });
+          window.CRM.reloadEDriveTable();
         }
       });
       break;
@@ -298,9 +305,8 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
+                  window.CRM.reloadEDriveTable(function() {
+                     selected.length=0;
                   });
                 }
               });
@@ -340,9 +346,8 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
+                  window.CRM.reloadEDriveTable(function() {
+                     selected.length=0;
                   });
                 }
               });
@@ -380,9 +385,8 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
+                  window.CRM.reloadEDriveTable(function() {
+                     selected.length=0;
                   });
                 }
               });
@@ -413,9 +417,8 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : [name]})
               }).done(function(data) {
                 if (data && data.success) {
-                  window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                    installDragAndDrop();
-                    selected.length=0;
+                  window.CRM.reloadEDriveTable(function() {
+                     selected.length=0;
                   });
                 }
               });
@@ -442,8 +445,7 @@ $("body").on('keypress', '.fileName', function(e) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
           
-          window.CRM.dataEDriveTable.ajax.reload(function(json) {
-            installDragAndDrop();
+          window.CRM.reloadEDriveTable(function() {
             selected.length=0;
           });
         });
@@ -457,8 +459,7 @@ $("body").on('keypress', '.fileName', function(e) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
           
-          window.CRM.dataEDriveTable.ajax.reload(function(json) {
-            installDragAndDrop();
+          window.CRM.reloadEDriveTable(function() {
             selected.length=0;
           });
         });
@@ -491,8 +492,7 @@ $("body").on('keypress', '.fileName', function(e) {
               window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
           
-            window.CRM.dataEDriveTable.ajax.reload(function(json) {
-              installDragAndDrop();
+            window.CRM.reloadEDriveTable(function() {
               selected.length=0;
             });
           });
@@ -506,8 +506,7 @@ $("body").on('keypress', '.fileName', function(e) {
               window.CRM.DisplayAlert(i18next.t("Error"),data.message);
             }
           
-            window.CRM.dataEDriveTable.ajax.reload(function(json) {
-              installDragAndDrop();
+            window.CRM.reloadEDriveTable(function() {
               selected.length=0;
             });
           });
@@ -523,8 +522,7 @@ $("body").on('keypress', '.fileName', function(e) {
       data: JSON.stringify({"personID": personID,"folder" : folder})
     }).done(function(data) {
       if (data && data.success) {
-        window.CRM.dataEDriveTable.ajax.reload(function(json) {
-          installDragAndDrop();
+        window.CRM.reloadEDriveTable(function() {
           $(".folder-back-drop").show();
           $("#currentPath").html(data.currentPath);
           selected.length = 0;// no more selected files
@@ -571,9 +569,8 @@ $("body").on('keypress', '.fileName', function(e) {
             window.CRM.DisplayAlert(i18next.t("Error"),data.message);
           }
         
-          window.CRM.dataEDriveTable.ajax.reload(function(json) {
-            installDragAndDrop();
-            selected.length=0;
+          window.CRM.reloadEDriveTable(function() {
+            selected.length = 0;// no more selected files
           });
         });
       }
@@ -589,8 +586,7 @@ $("body").on('keypress', '.fileName', function(e) {
       data: JSON.stringify({"personID": personID})
     }).done(function(data) {
       if (data && data.success) {
-        window.CRM.dataEDriveTable.ajax.reload(function(json) {
-          installDragAndDrop();
+        window.CRM.reloadEDriveTable(function() {
           if (data.isHomeFolder) {
             $(".folder-back-drop").hide();
           } else {
@@ -598,8 +594,7 @@ $("body").on('keypress', '.fileName', function(e) {
           }
         
           $("#currentPath").html(data.currentPath);
-        });
-        
+        });        
       }
     });
   });
@@ -657,10 +652,9 @@ $("body").on('keypress', '.fileName', function(e) {
       processData: false,
       contentType: false
     }).done(function (data) {
-      window.CRM.dataEDriveTable.ajax.reload(function(json) {
-        installDragAndDrop();
-        uploadWindow.modal("hide");
-      });
+        window.CRM.reloadEDriveTable(function() {
+          uploadWindow.modal("hide");
+        });
     });
     e.preventDefault();
   });  
@@ -797,9 +791,7 @@ $("body").on('keypress', '.fileName', function(e) {
                 $(button).addClass("btn-default");
                 $(button).removeClass("btn-success");
                 modal.modal("hide");
-                window.CRM.dataEDriveTable.ajax.reload(function(json) {
-                  installDragAndDrop();
-                });
+                window.CRM.reloadEDriveTable();
               });
             }
           });
@@ -810,9 +802,8 @@ $("body").on('keypress', '.fileName', function(e) {
          label: i18next.t("Ok"),
          className: "btn btn-primary",
          callback: function() {
-            window.CRM.dataEDriveTable.ajax.reload(function(json) {
-              modal.modal("hide");
-              installDragAndDrop();
+            window.CRM.reloadEDriveTable(function() {
+              uploadWindow.modal("hide");
             });
             return true;
          }
