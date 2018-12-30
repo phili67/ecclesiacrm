@@ -49,18 +49,20 @@ class CalDavPDO extends SabreCalDavBase\PDO {
         }*/
 
 
-        $title = '';
-        $componentType = null;
-        $component = null;
-        $firstOccurence = '0000-00-00 00:00:00';
-        $lastOccurence = '0000-00-00 00:00:00';
+        $title             = '';
+        $componentType     = null;
+        $component         = null;
+        $firstOccurence    = '0000-00-00 00:00:00';
+        $lastOccurence     = '0000-00-00 00:00:00';
         $freqlastOccurence = '0000-00-00 00:00:00';
-        $uid = null;
-        $freqEvents = [];
-        $freq = 'none';
-        $location = null;
-        $description = null;
-        $attentees = null;
+        $uid               = null;
+        $freqEvents        = [];
+        $freq              = 'none';
+        $location          = null;
+        $description       = null;
+        $alarm             = null;
+        $organiser         = null;
+        $attentees         = [];
         
 
         foreach ($vObject->getComponents() as $component) {
@@ -92,6 +94,26 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                $description = $component->DESCRIPTION->getValue();       
             }
                         
+            if (isset($component->VALARM)) {
+               $alarm = [
+                 'trigger'     => $component->VALARM->TRIGGER->getValue(),
+                 'DESCRIPTION' => $component->VALARM->DESCRIPTION->getValue(),
+                 'ACTION'      => $component->VALARM->ACTION->getValue(),
+               ];
+            }
+            
+            if (isset($component->VALARM)) {
+               $organiser = $component->ORGANIZER->getValue();
+            }
+            
+            // we check if we've global attendees
+            if (isset($component->ATTENDEE)) {
+               foreach($component->ATTENDEE as $attendee) {
+                 $attentees[] = (string)$attendee;
+               }
+            }
+            
+            
             // Finding the last occurence is a bit harder
             if (!isset($component->RRULE)) {
                 if (isset($component->DTEND)) {
@@ -138,10 +160,13 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                              $extras['LOCATION'] = $componentSubObject->LOCATION->getValue(); 
                            }
                            
+                           // we search the sub attendees
+                           $sub_attentees = [];
+                           
                            if (isset($componentSubObject->ATTENDEE)) {
                              foreach($vcalendar->VEVENT->ATTENDEE as $attendee) {
                                 //echo 'Attendee ', (string)$attendee;
-                                array_push($attendees,(string)$attendee);
+                                array_push($sub_attentees,(string)$attendee);
                              }
                            }
 
@@ -168,10 +193,11 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                                continue;
                              }
 
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
-                                          'EVENT' => $componentSubObject->serialize()];
+                             $subEvent = ['SUMMARY'           => $componentSubObject->SUMMARY->getValue(),
+                                          'DTSTART'           => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                          'DTEND'             => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                          'EVENT'             => $componentSubObject->serialize(),
+                                          'SUBATTENDEES'      => $sub_attentees];
                                           
                                           
                              $subEvent = array_merge($subEvent,$extras);
@@ -188,10 +214,11 @@ class CalDavPDO extends SabreCalDavBase\PDO {
                                continue;
                              }
                              
-                             $subEvent = ['SUMMARY' => $componentSubObject->SUMMARY->getValue(),
-                                          'DTSTART' => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
-                                          'DTEND' => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
-                                          'EVENT' => $componentSubObject->serialize()];
+                             $subEvent = ['SUMMARY'           => $componentSubObject->SUMMARY->getValue(),
+                                          'DTSTART'           => $componentSubObject->DTSTART->getDateTime()->format('Y-m-d H:i:s'),
+                                          'DTEND'             => $componentSubObject->DTEND->getDateTime()->format('Y-m-d H:i:s'),
+                                          'EVENT'             => $componentSubObject->serialize(),
+                                          'SUBATTENDEES'      => $sub_attentees];
                            }
                            
                            if ( isset($subEvent['RECURRENCE-ID']) && !array_search($subEvent['RECURRENCE-ID'],$freqEvents) || !isset($subEvent['RECURRENCE-ID']) ) {
@@ -236,12 +263,13 @@ class CalDavPDO extends SabreCalDavBase\PDO {
               'uid'            => $uid,
               'location'       => $location,
               'description'    => $description,
+              'alarm'          => $alarm,
+              'organiser'      => $organiser,
               'attentees'      => $attentees
           ];
           
       //}
-    }
-    
+    }    
     function getFullCalendar ($calendarId) {
        if (!is_array($calendarId)) {
             throw new \InvalidArgumentException('The value passed to $calendarId is expected to be an array with a calendarId and an instanceId');
