@@ -238,7 +238,13 @@ $(document).ready(function () {
         {
           window.CRM.groups.removePerson(targetGroupID,window.CRM.currentPersonID).done(
             function(){
-              location.reload()
+              var url = window.location.href;
+    
+              if (url.indexOf('&group=true') === -1){ 
+                url += '&group=true';
+              }
+          
+              window.location.href = url;
             }
           ); 
         }
@@ -582,9 +588,14 @@ $(document).ready(function () {
   $("#addGroup").click(function() {
     var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function(data){
       window.CRM.groups.addPerson(data.GroupID,window.CRM.currentPersonID,data.RoleID).done(function(){
-          location.reload()
+        var url = window.location.href;
+    
+        if (url.indexOf('&group=true') === -1){ 
+          url += '&group=true';
         }
-      );
+          
+        window.location.href = url;
+      });
     });
   });
   
