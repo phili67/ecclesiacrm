@@ -57,11 +57,11 @@ $('.saveNoteAsWordFile').click(function (event) {
         buttons: {
             cancel: {
                 className: 'btn-default',
-                label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+                label: '<i class="fa fa-times"></i> ' + i18next.t("Cancel")
             },
             confirm: {
                 className: 'btn-primary',
-                label: '<i class="fa fa-trash-o"></i>' + i18next.t("Save")
+                label: '<i class="fa fa-floppy-o"></i> ' + i18next.t("Save")
             }
         },
         callback: function (result) {
