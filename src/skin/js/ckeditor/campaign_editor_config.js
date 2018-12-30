@@ -67,10 +67,9 @@ CKEDITOR.editorConfig = function( config ) {
       label: {
         text: i18next.t('Merge Tags'),
         width: 45,
-        visible:true, //default value
-        icon: window.CRM.root+'/skin/js/ckeditorExtraPlugin/icons/hidpi/mergeTags.png'
+        visible:true //default value
       },
-      iconPath:'/skin/js/ckeditorExtraPlugin/icons/hidpi/mergeTags.png'
+      iconPath:'/images/widgetIcon.png',
       //toolbar: 'tools' // to specify toolbar group for button
     },
   };
