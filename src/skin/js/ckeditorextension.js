@@ -330,12 +330,14 @@
           d += "\x3c/td\x3e\x3c/tr\x3e\x3c/table\x3e";
           m.getFirst().setHtml(d);
           m.on("click", function() {
-              t(a.html)
+              t(a.html,a.title,a.description)
           });
           return m
         }
 
-        function t(a) {
+        function t(a,title,desc) {
+            window.CRM.ckedt = {title: title, desc: desc};
+            
             var b = CKEDITOR.dialog.getCurrent();
             b.getValueOf("selectTpl", "chkInsertOpt") ? (c.fire("saveSnapshot"), c.setData(a, function() {
                 b.hide();
