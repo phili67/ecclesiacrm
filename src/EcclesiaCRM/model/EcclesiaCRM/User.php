@@ -21,6 +21,7 @@ use Sabre\DAV\Sharing;
 use Sabre\DAV\Xml\Element\Sharee;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use EcclesiaCRM\MyPDO\CalDavPDO;
+use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 
 /**
@@ -569,7 +570,7 @@ class User extends BaseUser
     {
         $note = new Note();
         $note->setPerId($this->getPersonId());
-        $note->setEntered((is_null($info))?$_SESSION['user']->getPersonId():$this->getPersonId());
+        $note->setEntered((is_null($info))?SessionUser::getUser()->getPersonId():$this->getPersonId());
         $note->setType('user');
 
         switch ($type) {
