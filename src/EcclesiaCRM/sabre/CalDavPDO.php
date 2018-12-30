@@ -3,9 +3,9 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incorporated in another software without any authorizaion
+//                This code can't be incorporated in another software without authorizaion
 //
-//  Updated : 2018/06/23
+//  Updated : 2018/12/30
 //
 
 namespace EcclesiaCRM\MyPDO;
