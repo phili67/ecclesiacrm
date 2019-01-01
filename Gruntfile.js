@@ -21,6 +21,8 @@ module.exports = function (grunt) {
         }
         return DTLangs.toString();
     };
+    
+    const sass = require('node-sass');
 
 // Project configuration.
     grunt.initConfig({
@@ -203,6 +205,8 @@ module.exports = function (grunt) {
         sass: {
             dist: {
               options: {
+                 implementation: sass,
+                 sourceMap: true,
                  cacheLocation: process.env['HOME'] + "/node_cache"
               },
               files: {
@@ -463,7 +467,7 @@ module.exports = function (grunt) {
       //  display local master's commit hash
     });
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compress');
