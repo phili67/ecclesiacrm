@@ -202,7 +202,7 @@ function Header_body_scripts()
                     responsive: true,
                     "dom": 'T<"clear">lfrtip',
                     "tableTools": {
-                        "sSwfPath": "<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/datatables/extensions/TableTools/swf/copy_csv_xls.swf"
+                        "sSwfPath": "<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/flashExport.swf"
                     }
                 }
             },

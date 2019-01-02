@@ -44,7 +44,7 @@ module.exports = function (grunt) {
             '!logs/*.log'
         ],
         clean: {
-            skin: ["src/skin/{adminlte,external}"],
+            skin: ["src/skin/external"],
             release: ["target"]
         },
         copy: {
@@ -53,22 +53,14 @@ module.exports = function (grunt) {
                     // includes files within path and its sub-directories
                     {
                         expand: true,
+                        filter: 'isFile',
+                        flatten: true,
                         cwd: 'node_modules/admin-lte',
                         src: [
-                            '{dist,bootstrap,plugins}/**',
-                            '!dist/img',
-                            '!plugins/**/*.md',
-                            '!plugins/**/examples/**',
-                            '!plugins/fullcalendar/**',
-                            '!plugins/moment/**',
-                            '!plugins/fastclick/**',
-                            '!plugins/bootstrap-wysihtml5/**',
-                            '!plugins/ckeditor/**',
-                            '!plugins/jQueryUI/**',
-                            '!plugins/morris/**',
-                            '!dist/img/**',
-                            '!plugins/**/psd/**'],
-                        dest: 'src/skin/adminlte/'
+                            'dist/css/*.min.*',
+                            'dist/css/skins/**',
+                            'dist/js/adminlte.min.js'],
+                        dest: 'src/skin/external/adminlte/'
                     },
                     {
                         expand: true,
@@ -127,8 +119,58 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
+                        src: ['node_modules/bootstrap/dist/css/bootstrap.min.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css.map', 'node_modules/bootstrap/dist/js/bootstrap.min.js'],
+                        dest: 'src/skin/external/bootstrap/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap/fonts/**'],
+                        dest: 'src/skin/external/fonts/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/icheck/icheck.min.js', 'node_modules/icheck/skins/square/blue.**'],
+                        dest: 'src/skin/external/iCheck/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
                         src: ['node_modules/bootstrap-toggle/css/bootstrap-toggle.css', 'node_modules/bootstrap-toggle/js/bootstrap-toggle.js'],
                         dest: 'src/skin/external/bootstrap-toggle/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css', 'node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js'],
+                        dest: 'src/skin/external/bootstrap-timepicker/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css', 'node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css.map', 'node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js', 'node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js.map'],
+                        dest: 'src/skin/external/bootstrap-colorpicker/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap-daterangepicker/daterangepicker.css', 'node_modules/bootstrap-daterangepicker/daterangepicker.js'],
+                        dest: 'src/skin/external/bootstrap-daterangepicker/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js', 'node_modules/inputmask/dist/min/inputmask/inputmask.date.extensions.min.js',
+                        'node_modules/inputmask/dist/min/inputmask/inputmask.extensions.min.js'],
+                        dest: 'src/skin/external/inputmask/'
                     },
                     {
                         expand: true,
@@ -137,6 +179,14 @@ module.exports = function (grunt) {
                         src: ['node_modules/bootstrap-validator/dist/validator.min.js'],
                         dest: 'src/skin/external/bootstrap-validator/'
                     },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/jquery/dist/jquery.min.js'],
+                        dest: 'src/skin/external/jquery/'
+                    },
+                    
                     {
                         expand: true,
                         filter: 'isFile',
@@ -151,6 +201,27 @@ module.exports = function (grunt) {
                         src: ['node_modules/jquery-validation/dist/jquery.validate.min.js'],
                         dest: 'src/skin/external/jquery-validation/'
                     },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/chart.js/Chart.min.js'],
+                        dest: 'src/skin/external/chartjs/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/pace-js/pace.js'],
+                        dest: 'src/skin/external/pace/'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/flot/jquery.flot*.js'],
+                        dest: 'src/skin/external/flot/'
+                    },                    
                     {
                         expand: true,
                         filter: 'isFile',
@@ -174,14 +245,86 @@ module.exports = function (grunt) {
                         flatten: true,
                         src: ['node_modules/bootstrap-notify/bootstrap-notify.min.js'],
                         dest: 'src/skin/external/bootstrap-notify'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+                        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.standalone.min.css'],
+                        dest: 'src/skin/external/bootstrap-datepicker'
+                    },
+                    {
+                        expand: true,
+                        filter: 'isFile',
+                        flatten: true,
+                        src: ['node_modules/select2/dist/js/select2.min.js',
+                        'node_modules/select2/dist/css/select2.min.css'],
+                        dest: 'src/skin/external/select2'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net/js/',
+                        src: ['*.js','*.css'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-dt/',
+                        src: ['images/*'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-dt/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-dt/css/',
+                        src: ['*.css'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-responsive/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/responsive/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-buttons/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/extensions/TableTools/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-buttons/swf/',
+                        src: ['*.swf'],
+                        dest: 'src/skin/external/datatables/extensions/TableTools/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/jquery-slimscroll/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/slimscroll/'
                     }
                 ]
             }
         },
         'curl-dir': {
             datatables: {
-                src: ['https://cdn.datatables.net/plug-ins/1.10.12/i18n/{'+dataTablesLang()+'}.json'],
-                dest: 'src/locale/datatables'
+                src: [
+                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js",
+                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js.map",
+                      "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js",
+                     /* "https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.css",
+                      "https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/sl-1.2.6/datatables.min.js",
+                      "https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css",
+                      "https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"*/
+                ],
+                dest: 'src/skin/external/datatables'
             },
             fastclick: {
                 src: ['https://raw.githubusercontent.com/ftlabs/fastclick/569732a7aa5861d428731b8db022b2d55abe1a5a/lib/fastclick.js'],
@@ -199,7 +342,7 @@ module.exports = function (grunt) {
                     'https://cdn.datatables.net/select/1.2.2/css/select.bootstrap.min.css',
                     'https://cdn.datatables.net/select/1.2.2/js/dataTables.select.min.js'
                 ],
-                dest: 'src/skin/adminlte/plugins/datatables/extensions/Select/'
+                dest: 'src/skin/external/datatables/extensions/Select/'
             }
         },
         sass: {
@@ -393,13 +536,13 @@ module.exports = function (grunt) {
                 jsFileContent = jsFileContent + '\n' + "try {"+fullCalendar+"} catch(e) {};\n";
             }
             if (enableDatePicker) {
-                tempFile = 'node_modules/admin-lte/plugins/datepicker/locales/bootstrap-datepicker.'+languageCode+'.js';
+                tempFile = 'node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.'+languageCode+'.min.js';
                 var datePicker = grunt.file.read(tempFile);
                 jsFileContent = jsFileContent + '\n// Source: ' + tempFile;
                 jsFileContent = jsFileContent + '\n' + "try {"+datePicker+"} catch(e) {};\n"
             }
             if (enableSelect2) {
-                tempFile = 'node_modules/admin-lte/plugins/select2/i18n/'+languageCode+'.js';
+                tempFile = 'node_modules/select2/dist/js/i18n/'+languageCode+'.js';
                 jsFileContent = jsFileContent + '\n// Source: ' + tempFile;
                 var select2 = grunt.file.read(tempFile);
                 jsFileContent = jsFileContent + '\n' + "try {"+select2+"} catch(e) {}"

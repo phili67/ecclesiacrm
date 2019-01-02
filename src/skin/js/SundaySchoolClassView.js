@@ -463,10 +463,8 @@ $("document").ready(function(){
   });
   
 
-  // the chart donut code 
-    
     // turn the element to select2 select style
-    $('.email-recepients-kids').select2({
+    /*$('.email-recepients-kids').select2({
       placeholder: 'Enter recepients',
       tags:KidsEmails
     });
@@ -477,8 +475,9 @@ $("document").ready(function(){
     $('.email-recepients-parents').select2({
       placeholder: 'Enter recepients',
       tags: ParentsEmails
-    });
+    });*/
 
+  // the chart donut code 
     var hideBirthDayFilter = function() {
       window.CRM.plot.unhighlight();
 

@@ -172,16 +172,6 @@
     "datePicker": true,
     "select2": true
   },
-  "Norwegian": {
-    "poEditor": "nb",
-    "locale": "nb_NO",
-    "languageCode": "nb",
-    "countryCode": "NO",
-    "dataTables": "Norwegian-Bokmal",
-    "fullCalendar" : true,
-    "datePicker": true,
-    "select2": true
-  },
   "Polish": {
     "poEditor": "pl",
     "locale": "pl_PL",
