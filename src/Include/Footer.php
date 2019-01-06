@@ -339,7 +339,7 @@ use EcclesiaCRM\Bootstrapper;
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/vfs_fonts.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/jszip.min.js"></script>
-<!--<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/dataTables.bootstrap.min.js"></script>-->
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/dataTables.bootstrap.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/responsive/dataTables.responsive.min.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/dataTables.buttons.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/buttons.colVis.min.js"></script>
