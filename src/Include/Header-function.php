@@ -170,6 +170,9 @@ function Header_body_scripts()
     $localeInfo = Bootstrapper::GetCurrentLocale();
     $systemService = new SystemService(); ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    
+        var Allbuttons = [ 'copy', 'pdf', 'colvis', 'print' ];
+        
         window.CRM = {
             root: "<?= SystemURLs::getRootPath() ?>",
             lang: "<?= $localeInfo->getLanguageCode() ?>",
@@ -205,7 +208,7 @@ function Header_body_scripts()
                     },
                     responsive: true,
                     "dom": 'Bfrtip',
-                    "buttons": [ 'copy', 'csv', 'excel', 'pdf', 'colvis', 'print' ],
+                    "buttons": [ 'copy', <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf',":""?>, 'colvis', 'print' ],
                 }
             },
             PageName:"<?= $_SERVER['PHP_SELF']?>"
