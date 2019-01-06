@@ -270,6 +270,18 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
+                        cwd:'node_modules/datatables.net-bs/js/',
+                        src: ['*.js'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
+                        cwd:'node_modules/datatables.net-bs/css/',
+                        src: ['*.css'],
+                        dest: 'src/skin/external/datatables/'
+                    },
+                    {
+                        expand: true,
                         cwd:'node_modules/datatables.net-dt/',
                         src: ['images/*'],
                         dest: 'src/skin/external/datatables/'
@@ -306,9 +318,9 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd:'node_modules/jquery-slimscroll/',
+                        cwd:'node_modules/jszip/dist/',
                         src: ['*.js'],
-                        dest: 'src/skin/external/slimscroll/'
+                        dest: 'src/skin/external/datatables/'
                     }
                 ]
             }

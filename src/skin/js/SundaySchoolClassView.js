@@ -179,17 +179,14 @@ $("document").ready(function(){
     momentDateFormat = momentDateFormat.replace("MM", "MMMM");
     momentDateFormat = momentDateFormat.replace(/-/g, " ");
     momentDateFormat = momentDateFormat.replace(/\//g, " ");
+    
   
-
-   var dataTable = $("#sundayschoolTable").DataTable({
+  var  dataTableConfig = {
     ajax:{
       url: window.CRM.root + "/api/sundayschool/getallstudents/" + sundayGroupId,
       type: 'POST',
       contentType: "application/json",
       dataSrc: "ClassroomStudents"
-    },
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
     },
     pageLength: 100,
     //order: [[ 0, "asc" ]],
@@ -460,8 +457,14 @@ $("document").ready(function(){
     createdRow : function (row,data,index) {
       $(row).addClass("menuLinksRow");
     }
-  });
+  }
   
+  $.extend(dataTableConfig,window.CRM.plugin.dataTable);
+  
+
+   var dataTable = $("#sundayschoolTable").DataTable(dataTableConfig);
+  
+
 
     // turn the element to select2 select style
     /*$('.email-recepients-kids').select2({

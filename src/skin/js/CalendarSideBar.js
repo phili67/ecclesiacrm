@@ -781,6 +781,20 @@
           horizontal:true,
           right:true
         });
+        
+        $(".my-colorpicker1"+i).on('changeColor', function(e) {
+          var calIDs = $(this).data("id");
+          var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+          
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setcolor',
+            data: JSON.stringify({"calIDs":calIDs,"color":color})
+          }).done(function(data) {    
+            // we reload all the events
+            $('#calendar').fullCalendar( 'refetchEvents' );   
+          });
+        });
       }      
     });  
   }
@@ -804,6 +818,20 @@
           inline:false,
           horizontal:true,
           right:true
+        });
+        
+        $(".my-colorpicker1"+i).on('changeColor', function(e) {
+          var calIDs = $(this).data("id");
+          var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+          
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setcolor',
+            data: JSON.stringify({"calIDs":calIDs,"color":color})
+          }).done(function(data) {    
+            // we reload all the events
+            $('#calendar').fullCalendar( 'refetchEvents' );   
+          });
         });
       }      
     });  
@@ -839,6 +867,20 @@
           horizontal:true,
           right:true
         });
+
+        $(".my-colorpicker1"+i).on('changeColor', function(e) {
+          var calIDs = $(this).data("id");
+          var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+          
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setcolor',
+            data: JSON.stringify({"calIDs":calIDs,"color":color})
+          }).done(function(data) {    
+            // we reload all the events
+            $('#calendar').fullCalendar( 'refetchEvents' );   
+          });
+        });
       }      
     });  
   }
@@ -873,23 +915,23 @@
           horizontal:true,
           right:true
         });
+
+        $(".my-colorpicker1"+i).on('changeColor', function(e) {
+          var calIDs = $(this).data("id");
+          var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
+          
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'calendar/setcolor',
+            data: JSON.stringify({"calIDs":calIDs,"color":color})
+          }).done(function(data) {    
+            // we reload all the events
+            $('#calendar').fullCalendar( 'refetchEvents' );   
+          });
+        });
       }      
     });  
   }
-  
-  $('body').colorpicker().on('changeColor','.my-colorpicker-global', function(e){
-    var calIDs = $(this).data("id");
-    var color = $(this).data('colorpicker').color.toHex();//.toString('hex');
-          
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'calendar/setcolor',
-      data: JSON.stringify({"calIDs":calIDs,"color":color})
-    }).done(function(data) {    
-      // we reload all the events
-      $('#calendar').fullCalendar( 'refetchEvents' );   
-    });
-  });
   
   // Add all the calendars
   addPersonalCalendars();

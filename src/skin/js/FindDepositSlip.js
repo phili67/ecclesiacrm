@@ -28,8 +28,8 @@ $(document).ready(function () {
       dataT.ajax.reload();
     });
   });
-
-  dataT = $("#depositsTable").DataTable({
+  
+  dataTableConfig = {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
@@ -108,7 +108,11 @@ $(document).ready(function () {
       }
     ],
     order: [0, 'desc']
-  });
+  }
+  
+  $.extend(dataTableConfig, window.CRM.plugin.dataTable);
+
+  dataT = $("#depositsTable").DataTable(dataTableConfig);
 
   $("#depositsTable tbody").on('click', 'tr', function () {
     $(this).toggleClass('selected');

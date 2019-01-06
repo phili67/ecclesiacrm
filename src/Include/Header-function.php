@@ -197,13 +197,15 @@ function Header_body_scripts()
             plugin: {
                 dataTable : {
                    "language": {
-                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.json"
+                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.json",
+                        buttons: {
+                          colvis: "<?= _('Change columns') ?>",
+                          print: "<?= _('Print') ?>"
+                        }
                     },
                     responsive: true,
-                    "dom": 'T<"clear">lfrtip',
-                    "tableTools": {
-                        "sSwfPath": "<?= SystemURLs::getRootPath() ?>/skin/external/datatables/extensions/TableTools/flashExport.swf"
-                    }
+                    "dom": 'Bfrtip',
+                    "buttons": [ 'copy', 'csv', 'excel', 'pdf', 'colvis', 'print' ],
                 }
             },
             PageName:"<?= $_SERVER['PHP_SELF']?>"

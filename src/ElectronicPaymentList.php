@@ -321,10 +321,5 @@ foreach ($ormAutopayments as $payment) {
 <?php require 'Include/Footer.php' ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  $("#PaymentMethodTable").DataTable({
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    },
-    responsive: true
-  });
+  $("#PaymentMethodTable").DataTable(window.CRM.plugin.dataTable);
 </script>

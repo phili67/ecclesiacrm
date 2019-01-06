@@ -866,19 +866,15 @@ require 'Include/Header.php';
         console.log("Add the Menu OK");
       });
     });
-
-    $("#FundTable").DataTable({
-        "language": {
-            "url": window.CRM.plugin.dataTable.language.url
-        },
-        responsive:true,
+    
+    var fundTableConfig = {
         paging: false,
         searching: false,
-        "dom": window.CRM.plugin.dataTable.dom,
-        "tableTools": {
-            "sSwfPath": window.CRM.plugin.dataTable.tableTools.sSwfPath
-        },
-    });
+    };
+    
+    $.extend(fundTableConfig,window.CRM.plugin.dataTable);
+
+    $("#FundTable").DataTable(fundTableConfig);
 
 
     $(".FundAmount").change(function(){

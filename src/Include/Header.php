@@ -50,7 +50,7 @@ $MenuFirst = 1;
   ?>
 </head>
 
-<body class="hold-transition <?= $_SESSION['sStyle'] ?> sidebar-mini <?= ($_SESSION['bSidebarCollapse'])?"sidebar-collapse":"" ?>" id="sidebar-mini">
+<body class="<?= $_SESSION['sStyle'] ?> sidebar-mini <?= ($_SESSION['bSidebarCollapse'])?"sidebar-collapse":"" ?>" id="sidebar-mini">
 <?php
   Header_system_notifications();
  ?>

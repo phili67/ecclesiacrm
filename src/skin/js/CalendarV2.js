@@ -248,8 +248,10 @@ $(document).ready(function () {
                           }
                         }
                     });
+                    
+                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
 
-                    box.show();
+                    //box.show();
                   } else {
                     // the other event type
                   }
