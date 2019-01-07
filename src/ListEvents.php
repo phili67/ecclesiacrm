@@ -142,7 +142,7 @@ $eventTypes = EventTypesQuery::Create()
          ?>
           <option value="0" <?= ($eType == '0' && $eType !='All')?'selected':'' ?>><?= gettext("Personal Calendar") ?></option>
          <?php } else { ?>
-          <option value="<?php echo $eventType->getId() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
+          <option value="<?= $eventType->getId() ?>" <?= ($eventType->getId() == $eType)?'selected':'' ?>><?= $eventType->getName() ?></option>
         <?php
           }
         }        
@@ -171,7 +171,6 @@ if ($eType == 'All') {
             ->find();
 
 }
-
 ?>
 </div>
 <div class="col-sm-4">
@@ -196,10 +195,27 @@ if ($eType == 'All') {
 <div class="col-sm-4"><label><?= gettext('Display Events in Year') ?></label>
     <select name="WhichYear" onchange="javascript:this.form.submit()" class='form-control'>
         <?php
+          $current_Year = date('Y');
+          
+          $is_current_available = false;
+          $is_option_selected   = false;
+          
           foreach ($years as $year) {
+            if ($year == $current_Year) {
+              $is_current_available = true;
+            }
+            
+            if ($year == $yVal && $year != $current_Year) {
+              $is_option_selected = true;
+            }
         ?>
-          <option value="<?php echo $year ?>" <?= ($year == $yVal)?'selected':'' ?>><?= $year ?></option>
+          <option value="<?= $year ?>" <?= ($year == $yVal)?'selected':'' ?>><?= $year ?></option>
         <?php
+          }
+          if (!$is_current_available) {
+        ?>
+		        <option value="<?= $current_Year ?>" <?= (!$is_option_selected)?"selected":"" ?>><?= $current_Year ?></option>
+        <?php  
           }
         ?>        
       </select>
