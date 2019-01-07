@@ -26,6 +26,10 @@ function removeDirectory($path) {
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-toggle/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-validator/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootbox/");
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/editor/");
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/randomcolor/");
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/ionicons/");
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/locale/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-ui/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-photo-uploader/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");

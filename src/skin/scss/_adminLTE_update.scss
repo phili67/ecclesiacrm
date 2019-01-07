@@ -4,7 +4,7 @@ font-size: 14px;
 line-height: 1.42857143;
 color: #000;
 background-color: #fff;
-font-weight:200;
+font-weight:300;
 }
 
 /*
@@ -153,6 +153,11 @@ table.dataTable>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th,  {
 border-top: 0;
 border: 0px;
 font-weight: 600;
+}
+
+
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th {
+border: 0;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th
