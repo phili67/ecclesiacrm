@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-30 20:41+0100\n"
+"POT-Creation-Date: 2019-01-07 18:25+0100\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,14 +154,14 @@ msgstr "إنشاء ملف"
 
 #: api/routes/gdrp.php:53 CartView.php:340 CartView.php:360
 #: EcclesiaCRM/utils/OutputUtils.php:166 EcclesiaCRM/utils/OutputUtils.php:268
-#: FinancialReports.php:407 GDPRListExport.php:85 ListEvents.php:553
+#: FinancialReports.php:407 GDPRListExport.php:85 ListEvents.php:569
 #: Reports/ConfirmReport.php:236
 msgid "Yes"
 msgstr "نعم"
 
 #: api/routes/gdrp.php:53 CartView.php:353 CartView.php:362
 #: EcclesiaCRM/utils/OutputUtils.php:168 EcclesiaCRM/utils/OutputUtils.php:269
-#: FinancialReports.php:408 GDPRListExport.php:85 ListEvents.php:553
+#: FinancialReports.php:408 GDPRListExport.php:85 ListEvents.php:569
 #: Reports/ConfirmReport.php:238
 msgid "No"
 msgstr "لا"
@@ -755,7 +755,7 @@ msgstr "تصفية"
 msgid "By Types"
 msgstr "نوع"
 
-#: Calendar.php:76 GroupList.php:39 ListEvents.php:138 ListEvents.php:180
+#: Calendar.php:76 GroupList.php:39 ListEvents.php:138 ListEvents.php:179
 #: ManageEnvelopes.php:146
 msgid "All"
 msgstr ""
@@ -1131,7 +1131,7 @@ msgstr "إضافة عربة للأسرة"
 #: FamilyCustomFieldsEditor.php:459 FamilyList.php:104 GeoPage.php:358
 #: GroupEditor.php:81 GroupPersonPropsFormEditor.php:222
 #: GroupPropsFormEditor.php:317 GroupPropsFormEditor.php:443 GroupView.php:430
-#: ListEvents.php:284 ListEvents.php:286 PersonCustomFieldsEditor.php:327
+#: ListEvents.php:300 ListEvents.php:302 PersonCustomFieldsEditor.php:327
 #: PersonCustomFieldsEditor.php:454 PersonList.php:112
 #: PrintPastoralCare.php:344 PrintPastoralCare.php:471 PrintView.php:346
 #: PrintView.php:477 PropertyEditor.php:171 PropertyList.php:88
@@ -1466,7 +1466,7 @@ msgstr "الخروج"
 #: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
 #: email/MailChimp/Campaign.php:56 email/MailChimp/ManageList.php:58
 #: EventNames.php:327 FamilyView.php:924 FindDepositSlip.php:131
-#: FundRaiserEditor.php:201 ListEvents.php:399 PaddleNumList.php:55
+#: FundRaiserEditor.php:201 ListEvents.php:415 PaddleNumList.php:55
 #: PastoralCare.php:153 PastoralCare.php:162 PersonView.php:1431
 #: PersonView.php:1499
 msgid "Delete"
@@ -1503,7 +1503,7 @@ msgid "Checked Out By"
 msgstr "الخروج"
 
 #: Checkin.php:557 DepositSlipEditor.php:196 EditEventAttendees.php:73
-#: EventNames.php:297 ListEvents.php:343 PersonView.php:938 PropertyList.php:84
+#: EventNames.php:297 ListEvents.php:359 PersonView.php:938 PropertyList.php:84
 #: PropertyTypeList.php:64
 msgid "Action"
 msgstr "عمل"
@@ -2210,7 +2210,7 @@ msgstr "إذهب"
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
 #: GroupEditor.php:87 GroupPersonPropsFormEditor.php:223
 #: GroupPropsFormEditor.php:318 GroupPropsFormEditor.php:444 GroupView.php:431
-#: ListEvents.php:344 PropertyTypeEditor.php:105 PropertyTypeList.php:70
+#: ListEvents.php:360 PropertyTypeEditor.php:105 PropertyTypeList.php:70
 msgid "Description"
 msgstr "الوصف"
 
@@ -4418,7 +4418,7 @@ msgstr "كسف الأسر مجمعة بصيغة CSV"
 msgid "Events"
 msgstr "وصف الحدث"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:254 ListEvents.php:346 MapUsingBing.php:194
+#: EcclesiaCRM/MenuBar/MenuBar.php:254 ListEvents.php:362 MapUsingBing.php:194
 #: MapUsingBing.php:240 MapUsingGoogle.php:190 MapUsingGoogle.php:235
 #: MapUsingLeaflet.php:186 MapUsingLeaflet.php:232
 msgid "Calendar"
@@ -5224,8 +5224,8 @@ msgstr "إضافة حدث جديد"
 msgid "Delele All Attendees"
 msgstr "حضور الحدث"
 
-#: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:477
-#: ListEvents.php:478 sundayschool/SundaySchoolClassView.php:131
+#: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:493
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:131
 #, fuzzy
 msgid "Make Check-out"
 msgstr "الخروج"
@@ -5256,7 +5256,7 @@ msgstr "سنة"
 msgid "Edit Event Type"
 msgstr "تحرير نوع الحدث"
 
-#: EditEventTypes.php:172 EventNames.php:292 ListEvents.php:345
+#: EditEventTypes.php:172 EventNames.php:292 ListEvents.php:361
 msgid "Event Type"
 msgstr "نوع الحدث"
 
@@ -5348,7 +5348,7 @@ msgstr "إضافة أسلوب دفع إلكتروني الجديدة"
 
 #: ElectronicPaymentList.php:214 ElectronicPaymentList.php:257
 #: EventNames.php:321 FamilyView.php:240 FindFundRaiser.php:235
-#: FindFundRaiser.php:243 ListEvents.php:363 PersonView.php:372
+#: FindFundRaiser.php:243 ListEvents.php:379 PersonView.php:372
 #: SelectList.php:1135
 msgid "Edit"
 msgstr "تحرير"
@@ -5604,21 +5604,21 @@ msgstr "نوع الحدث"
 msgid "Back to Report Menu"
 msgstr "العودة إلى قائمة التقرير"
 
-#: EventAttendance.php:107 ListEvents.php:337
+#: EventAttendance.php:107 ListEvents.php:353
 #, fuzzy
 msgid "There is"
 msgstr "هناك "
 
-#: EventAttendance.php:107 ListEvents.php:337
+#: EventAttendance.php:107 ListEvents.php:353
 #, fuzzy
 msgid "There are"
 msgstr "هناك "
 
-#: EventAttendance.php:107 ListEvents.php:337
+#: EventAttendance.php:107 ListEvents.php:353
 msgid "event"
 msgstr ""
 
-#: EventAttendance.php:107 ListEvents.php:337
+#: EventAttendance.php:107 ListEvents.php:353
 #, fuzzy
 msgid "events"
 msgstr "وصف الحدث"
@@ -6192,55 +6192,55 @@ msgstr "حدد مجموعة"
 msgid "Select Role"
 msgstr "حدد مجموعة"
 
-#: FamilyEditor.php:1103 ListEvents.php:182 PersonEditor.php:864
+#: FamilyEditor.php:1103 ListEvents.php:181 PersonEditor.php:864
 msgid "January"
 msgstr ""
 
-#: FamilyEditor.php:1106 ListEvents.php:183 PersonEditor.php:865
+#: FamilyEditor.php:1106 ListEvents.php:182 PersonEditor.php:865
 msgid "February"
 msgstr ""
 
-#: FamilyEditor.php:1109 ListEvents.php:184 PersonEditor.php:866
+#: FamilyEditor.php:1109 ListEvents.php:183 PersonEditor.php:866
 #, fuzzy
 msgid "March"
 msgstr "الأم الحاطمة"
 
-#: FamilyEditor.php:1112 ListEvents.php:185 PersonEditor.php:867
+#: FamilyEditor.php:1112 ListEvents.php:184 PersonEditor.php:867
 msgid "April"
 msgstr ""
 
-#: FamilyEditor.php:1115 ListEvents.php:186 PersonEditor.php:868
+#: FamilyEditor.php:1115 ListEvents.php:185 PersonEditor.php:868
 #, fuzzy
 msgid "May"
 msgstr "الاثنين"
 
-#: FamilyEditor.php:1118 ListEvents.php:187 PersonEditor.php:869
+#: FamilyEditor.php:1118 ListEvents.php:186 PersonEditor.php:869
 msgid "June"
 msgstr ""
 
-#: FamilyEditor.php:1121 ListEvents.php:188 PersonEditor.php:870
+#: FamilyEditor.php:1121 ListEvents.php:187 PersonEditor.php:870
 msgid "July"
 msgstr ""
 
-#: FamilyEditor.php:1124 ListEvents.php:189 PersonEditor.php:871
+#: FamilyEditor.php:1124 ListEvents.php:188 PersonEditor.php:871
 msgid "August"
 msgstr ""
 
-#: FamilyEditor.php:1127 ListEvents.php:190 PersonEditor.php:872
+#: FamilyEditor.php:1127 ListEvents.php:189 PersonEditor.php:872
 #, fuzzy
 msgid "September"
 msgstr "الأعضاء"
 
-#: FamilyEditor.php:1130 ListEvents.php:191 PersonEditor.php:873
+#: FamilyEditor.php:1130 ListEvents.php:190 PersonEditor.php:873
 msgid "October"
 msgstr ""
 
-#: FamilyEditor.php:1133 ListEvents.php:192 PersonEditor.php:874
+#: FamilyEditor.php:1133 ListEvents.php:191 PersonEditor.php:874
 #, fuzzy
 msgid "November"
 msgstr "الأعضاء"
 
-#: FamilyEditor.php:1136 ListEvents.php:193 PersonEditor.php:875
+#: FamilyEditor.php:1136 ListEvents.php:192 PersonEditor.php:875
 #, fuzzy
 msgid "December"
 msgstr "الأعضاء"
@@ -7210,7 +7210,7 @@ msgstr "إضافة إلى مجموعة"
 msgid "Group-Specific Properties Form Editor:"
 msgstr ""
 
-#: GroupPersonPropsFormEditor.php:49 ListEvents.php:337
+#: GroupPersonPropsFormEditor.php:49 ListEvents.php:353
 msgid "for"
 msgstr ""
 
@@ -7410,7 +7410,7 @@ msgstr ""
 msgid "Status"
 msgstr "الحي"
 
-#: GroupView.php:297 KioskManager.php:30 ListEvents.php:351
+#: GroupView.php:297 KioskManager.php:30 ListEvents.php:367
 msgid "Active"
 msgstr "نشط"
 
@@ -7812,6 +7812,14 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
+#: Include/Header-function.php:205
+msgid "Change columns"
+msgstr ""
+
+#: Include/Header-function.php:206 SelectList.php:1143
+msgid "Print"
+msgstr ""
+
 #: Include/Header.php:86
 msgid "Toggle navigation"
 msgstr ""
@@ -8000,7 +8008,7 @@ msgstr ""
 msgid "Listing Events of Type = "
 msgstr "تحرير نوع الحدث"
 
-#: ListEvents.php:61 ListEvents.php:143 ListEvents.php:422
+#: ListEvents.php:61 ListEvents.php:143 ListEvents.php:438
 #, fuzzy
 msgid "Personal Calendar"
 msgstr "البريد الإلكتروني الشخصي"
@@ -8013,78 +8021,78 @@ msgstr ""
 msgid "Select Event Types To Display"
 msgstr ""
 
-#: ListEvents.php:178
+#: ListEvents.php:177
 msgid "Display Events in Month"
 msgstr ""
 
-#: ListEvents.php:196
+#: ListEvents.php:195
 msgid "Display Events in Year"
 msgstr ""
 
-#: ListEvents.php:284
+#: ListEvents.php:300
 msgid "login"
 msgstr ""
 
-#: ListEvents.php:347
+#: ListEvents.php:363
 #, fuzzy
 msgid "Attendance Counts with real Attendees"
 msgstr "تهم بالحضور"
 
-#: ListEvents.php:348
+#: ListEvents.php:364
 msgid "Free Attendance Counts without Attendees"
 msgstr ""
 
-#: ListEvents.php:349
+#: ListEvents.php:365
 msgid "Start Date/Time"
 msgstr ""
 
-#: ListEvents.php:350
+#: ListEvents.php:366
 #, fuzzy
 msgid "End Date/Time"
 msgstr "تاريخ الحدث"
 
-#: ListEvents.php:418
+#: ListEvents.php:434
 msgid "Sermon Text"
 msgstr ""
 
-#: ListEvents.php:433 ListEvents.php:592 ListEvents.php:679
+#: ListEvents.php:449 ListEvents.php:608 ListEvents.php:695
 #, fuzzy
 msgid "Check-in"
 msgstr "الخروج"
 
-#: ListEvents.php:434 ListEvents.php:597 ListEvents.php:684
+#: ListEvents.php:450 ListEvents.php:613 ListEvents.php:700
 #, fuzzy
 msgid "Check-out"
 msgstr "الخروج"
 
-#: ListEvents.php:435 ListEvents.php:602 ListEvents.php:689
+#: ListEvents.php:451 ListEvents.php:618 ListEvents.php:705
 msgid "Rest"
 msgstr ""
 
-#: ListEvents.php:459 ListEvents.php:504
+#: ListEvents.php:475 ListEvents.php:520
 #, fuzzy
 msgid "Attendees"
 msgstr "حضور الحدث"
 
-#: ListEvents.php:503 ListEvents.php:538 ListEvents.php:609 ListEvents.php:649
-#: ListEvents.php:696 ListEvents.php:734
+#: ListEvents.php:519 ListEvents.php:554 ListEvents.php:625 ListEvents.php:665
+#: ListEvents.php:712 ListEvents.php:750
 #, fuzzy
 msgid "No Attendance Recorded"
 msgstr "مذكرات الحضور: "
 
-#: ListEvents.php:579
+#: ListEvents.php:595
 msgid " Monthly Averages"
 msgstr ""
 
-#: ListEvents.php:592 ListEvents.php:597 ListEvents.php:602 ListEvents.php:640
+#: ListEvents.php:608 ListEvents.php:613 ListEvents.php:618 ListEvents.php:656
 msgid "AVG"
 msgstr ""
 
-#: ListEvents.php:666
+#: ListEvents.php:682
 msgid "Monthly Counts"
 msgstr ""
 
-#: ListEvents.php:679 ListEvents.php:684 ListEvents.php:689 ListEvents.php:725
+#: ListEvents.php:695 ListEvents.php:700 ListEvents.php:705 ListEvents.php:741
 #: PledgeEditor.php:655 Reports/AdvancedDeposit.php:394
 #: Reports/AdvancedDeposit.php:412 Reports/AdvancedDeposit.php:501
 #: Reports/AdvancedDeposit.php:515 Reports/AdvancedDeposit.php:677
@@ -8092,7 +8100,7 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
-#: ListEvents.php:758
+#: ListEvents.php:774
 #, fuzzy
 msgid "Return to Calendar"
 msgstr "العودة إلى أحداث"
@@ -10201,10 +10209,6 @@ msgstr "صور"
 msgid "Cart"
 msgstr "خريطة عربة التسوق"
 
-#: SelectList.php:1143
-msgid "Print"
-msgstr ""
-
 #: SettingsIndividual.php:90
 msgid "My User Settings"
 msgstr ""
@@ -11468,38 +11472,34 @@ msgid "Italian - Italy"
 msgstr ""
 
 #: settings-locales.php:19
-msgid "Norwegian"
-msgstr ""
-
-#: settings-locales.php:20
 msgid "Polish"
 msgstr ""
 
-#: settings-locales.php:21
+#: settings-locales.php:20
 msgid "Portuguese - Brazil"
 msgstr ""
 
-#: settings-locales.php:22
+#: settings-locales.php:21
 msgid "Romanian - Romania"
 msgstr ""
 
-#: settings-locales.php:23
+#: settings-locales.php:22
 msgid "Russian"
 msgstr ""
 
-#: settings-locales.php:24
+#: settings-locales.php:23
 msgid "Spanish - Spain"
 msgstr ""
 
-#: settings-locales.php:25
+#: settings-locales.php:24
 msgid "Sami (Northern) (Sweden)"
 msgstr ""
 
-#: settings-locales.php:26
+#: settings-locales.php:25
 msgid "Thai"
 msgstr ""
 
-#: settings-locales.php:27
+#: settings-locales.php:26
 msgid "Vietnamese"
 msgstr ""
 
