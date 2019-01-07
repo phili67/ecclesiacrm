@@ -250,8 +250,8 @@ $eventTypes = EventTypesQuery::Create()
 
 <?php require 'Include/Footer.php'; ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
-<link href="<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js"></script>
+<link href="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
 
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
@@ -262,6 +262,10 @@ $eventTypes = EventTypesQuery::Create()
       lng: <?= OutputUtils::number_dot(ChurchMetaData::getChurchLongitude()) ?>};
   window.CRM.mapZoom   = <?= SystemConfig::getValue("iLittleMapZoom")?>;
 </script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/fullcalendar/fullcalendar.min.js"></script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarSideBar.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>

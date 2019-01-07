@@ -170,6 +170,9 @@ function Header_body_scripts()
     $localeInfo = Bootstrapper::GetCurrentLocale();
     $systemService = new SystemService(); ?>
     <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    
+        var Allbuttons = [ 'copy', 'pdf', 'colvis', 'print' ];
+        
         window.CRM = {
             root: "<?= SystemURLs::getRootPath() ?>",
             lang: "<?= $localeInfo->getLanguageCode() ?>",
@@ -197,13 +200,15 @@ function Header_body_scripts()
             plugin: {
                 dataTable : {
                    "language": {
-                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.json"
+                        "url": "<?= SystemURLs::getRootPath() ?>/locale/datatables/<?= $localeInfo->getDataTables() ?>.json",
+                        buttons: {
+                          colvis: "<?= _('Change columns') ?>",
+                          print: "<?= _('Print') ?>"
+                        }
                     },
                     responsive: true,
-                    "dom": 'T<"clear">lfrtip',
-                    "tableTools": {
-                        "sSwfPath": "<?= SystemURLs::getRootPath() ?>/skin/adminlte/plugins/datatables/extensions/TableTools/swf/copy_csv_xls.swf"
-                    }
+                    "dom": 'Bfrtip',
+                    "buttons": [ 'copy', <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf',":""?>, 'colvis', 'print' ],
                 }
             },
             PageName:"<?= $_SERVER['PHP_SELF']?>"

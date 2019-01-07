@@ -435,7 +435,9 @@ class MenuBar {
       foreach($links as $l) {
          if (!strcmp(SystemURLs::getRootPath() . "/" . $l,$link)) {
             return "class=\"active ".(($is_menu)?"treeview":"").(($class !=null)?" ".$class:"")."\"";
-         }             
+         } else if ($is_menu) {
+            return "class=\"treeview\"";
+         }
       }
       
       return "";
@@ -472,7 +474,7 @@ class MenuBar {
     public function renderMenu()
     {
       // render all the menus submenus etc ...
-      echo "<ul class=\"sidebar-menu\">\n";
+      echo "<ul class=\"sidebar-menu\" data-widget=\"tree\">\n";
       foreach ($this->_menus as $menu) {
         if (count($menu->subMenu()) == 0) {
           echo "<li ".$this->is_li_class_active($menu->getLinks(),false,$menu->getClass()).">\n";
@@ -484,18 +486,20 @@ class MenuBar {
           echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
             echo "<a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\">\n";
             echo " <i class=\"".$menu->getIcon()."\"></i>\n";
-            echo " <span>".gettext($menu->getTitle())."</span>\n";
-            echo " <i class=\"fa fa-angle-left pull-right\"></i>\n";
+            echo " <span>".gettext($menu->getTitle());
             if (count($menu->getBadges()) > 0) {
               foreach ($menu->getBadges() as $badge) {
                 if ($badge['id'] != ''){
-                  echo "<small class=\"".$badge['class']."\" id=\"".$badge['id']."\">".$badge['value']."</small>\n";
+                  echo "<small class=\"".$badge['class']." badges-size\" id=\"".$badge['id']."\">".$badge['value']."</small>\n";
                 } else if ($badge['data-id'] != ''){
-                  echo "<small class=\"".$badge['class']."\" data-id=\"".$badge['data-id']."\">".$badge['value']."</small>\n"; 
+                  echo "<small class=\"".$badge['class']." badges-size\" data-id=\"".$badge['data-id']."\">".$badge['value']."</small>\n"; 
                 } else {
-                  echo "<small class=\"".$badge['class']."\">".$badge['value']."</small>\n";
+                  echo "<small class=\"".$badge['class']." badges-size\">".$badge['value']."</small>\n";
                 }
               }
+              echo "</span>\n";
+            } else {
+              echo " <i class=\"fa fa-angle-left pull-right\"></i>\n"."</span>\n";
             }
             echo "</a>\n";
             echo "<ul ".$this->is_treeview_menu_open($menu->getLinks()).">\n";

@@ -107,88 +107,84 @@ require 'Include/Header.php';
   })
   
   $(document).ready(function(){
-    window.CRM.kioskDataTable = $("#KioskTable").DataTable({
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    },
-    responsive: true,
-    ajax: {
-      url: window.CRM.root + "/api/kiosks/",
-      dataSrc: "KioskDevices"
-    },
-    "dom": window.CRM.plugin.dataTable.dom,
-    "tableTools": {
-        "sSwfPath": window.CRM.plugin.dataTable.tableTools.sSwfPath
-    },
-    columns: [
-      {
-        width: 'auto',
-        title: 'Id',
-        data: 'Id',
-        searchable: false
+    var kioskTableConfig = {
+      ajax: {
+        url: window.CRM.root + "/api/kiosks/",
+        dataSrc: "KioskDevices"
       },
-      {
-        width: 'auto',
-        title: 'Kiosk Name',
-        data: 'Name',
-      },
-      {
-        width: 'auto',
-        title: 'Assignment',
-        data: function (row,type,set,meta){
-          if (row.KioskAssignments.length > 0)
-          {
-            return row.KioskAssignments[0];
-          }
-          else
-          {
-            return "None";
-          }
-            
-        },
-        render: function (data,type,full,meta)
+      columns: [
         {
-          return renderKioskAssignment(full);
-        }
-        
-      },
-      {
-        width: 'auto',
-        title: 'Last Heartbeat',
-        data: 'LastHeartbeat',
-        render: function (data, type, full, meta) {
-          return moment(full.LastHeartbeat).fromNow();
-        }
-      },
-      {
-        width: 'auto',
-        title: 'Accepted',
-        data: 'Accepted',
-        render: function (data, type, full, meta) {
-          if (full.Accepted)
+          width: 'auto',
+          title: 'Id',
+          data: 'Id',
+          searchable: false
+        },
+        {
+          width: 'auto',
+          title: 'Kiosk Name',
+          data: 'Name',
+        },
+        {
+          width: 'auto',
+          title: 'Assignment',
+          data: function (row,type,set,meta){
+            if (row.KioskAssignments.length > 0)
+            {
+              return row.KioskAssignments[0];
+            }
+            else
+            {
+              return "None";
+            }
+            
+          },
+          render: function (data,type,full,meta)
           {
-            return "True";
+            return renderKioskAssignment(full);
           }
-          else {
-            return "False";
+        
+        },
+        {
+          width: 'auto',
+          title: 'Last Heartbeat',
+          data: 'LastHeartbeat',
+          render: function (data, type, full, meta) {
+            return moment(full.LastHeartbeat).fromNow();
           }
+        },
+        {
+          width: 'auto',
+          title: 'Accepted',
+          data: 'Accepted',
+          render: function (data, type, full, meta) {
+            if (full.Accepted)
+            {
+              return "True";
+            }
+            else {
+              return "False";
+            }
 
-        }
-      },
-      {
-        width: 'auto',
-        title: 'Actions',
-        render: function (data, type, full, meta) {
-          buttons = "<button class='reload' onclick='window.CRM.kiosks.reload("+full.Id+")' >Reload</button>" +
-                 "<button class='identify' onclick='window.CRM.kiosks.identify("+full.Id+")' >Identify</button>";
-          if(!full.Accepted){
-              buttons += "<button class='accept' onclick='window.CRM.kiosks.accept("+full.Id+")' >Accept</button>";
           }
-          return buttons;
+        },
+        {
+          width: 'auto',
+          title: 'Actions',
+          render: function (data, type, full, meta) {
+            buttons = "<button class='reload' onclick='window.CRM.kiosks.reload("+full.Id+")' >Reload</button>" +
+                   "<button class='identify' onclick='window.CRM.kiosks.identify("+full.Id+")' >Identify</button>";
+            if(!full.Accepted){
+                buttons += "<button class='accept' onclick='window.CRM.kiosks.accept("+full.Id+")' >Accept</button>";
+            }
+            return buttons;
+          }
         }
-      }
-    ]
-  })
+      ]
+    };
+  
+    $.extend(kioskTableConfig,window.CRM.plugin.dataTable);
+    
+    window.CRM.kioskDataTable = $("#KioskTable").DataTable(kioskTableConfig);
   
     setInterval(function(){window.CRM.kioskDataTable.ajax.reload()},5000);
   })

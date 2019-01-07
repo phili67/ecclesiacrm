@@ -191,16 +191,16 @@
             "/mysql/upgrade/3.0.0-upgrade.php"
         ],
         "dbVersion": "3.0.0"
-    },  
+    },
     "pre-3.1.0": {
         "versions": [
             "3.0.0"
         ],
         "scripts": [
-          "/mysql/upgrade/3.1.0-upgrade.sql"
+            "/mysql/upgrade/3.1.0-upgrade.sql"
         ],
         "dbVersion": "3.1.0"
-    },    
+    },
     "pre-3.3.0": {
         "versions": [
             "3.1.0",
@@ -209,18 +209,18 @@
             "3.2.2"
         ],
         "scripts": [
-          "/mysql/upgrade/3.2.0-upgrade.php",
-          "/mysql/upgrade/3.2.2-upgrade.sql",
-          "/mysql/upgrade/3.2.2-upgrade.php"
+            "/mysql/upgrade/3.2.0-upgrade.php",
+            "/mysql/upgrade/3.2.2-upgrade.sql",
+            "/mysql/upgrade/3.2.2-upgrade.php"
         ],
         "dbVersion": "3.3.0"
-    },   
+    },
     "pre-3.4.0": {
-        "versions": [           
+        "versions": [
             "3.3.0"
         ],
         "scripts": [
-          "/mysql/upgrade/3.4.0-upgrade.sql"
+            "/mysql/upgrade/3.4.0-upgrade.sql"
         ],
         "dbVersion": "3.4.0"
     },
@@ -235,13 +235,13 @@
             "/mysql/upgrade/3.4.3-upgrade.sql"
         ],
         "dbVersion": "3.4.4"
-    },   
+    },
     "pre-3.5.0": {
         "versions": [
             "3.4.4"
         ],
         "scripts": [
-             "/mysql/upgrade/3.5.0-upgrade.sql"
+            "/mysql/upgrade/3.5.0-upgrade.sql"
         ],
         "dbVersion": "3.5.0"
     },
@@ -251,7 +251,7 @@
             "3.5.1"
         ],
         "scripts": [
-             "/mysql/upgrade/3.6.0-upgrade.sql"
+            "/mysql/upgrade/3.6.0-upgrade.sql"
         ],
         "dbVersion": "3.6.0"
     },
@@ -260,8 +260,7 @@
             "3.6.0",
             "3.6.1"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "3.6.2"
     },
     "pre-4.0.0": {
@@ -297,8 +296,7 @@
         "versions": [
             "4.2.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.2.1"
     },
     "pre-4.3.0": {
@@ -314,8 +312,7 @@
         "versions": [
             "4.3.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.3.1"
     },
     "pre-4.4.0": {
@@ -323,8 +320,8 @@
             "4.3.1"
         ],
         "scripts": [
-           "/mysql/upgrade/4.4.0-upgrade.sql",
-           "/mysql/upgrade/4.4.0-upgrade.php"
+            "/mysql/upgrade/4.4.0-upgrade.sql",
+            "/mysql/upgrade/4.4.0-upgrade.php"
         ],
         "dbVersion": "4.4.0"
     },
@@ -332,16 +329,14 @@
         "versions": [
             "4.4.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.4.1"
     },
-     "4.4.2": {
+    "4.4.2": {
         "versions": [
             "4.4.1"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.4.2"
     },
     "4.5.0": {
@@ -349,8 +344,8 @@
             "4.4.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.5.0-upgrade.sql",
-          "/mysql/upgrade/4.5.0-upgrade.php"
+            "/mysql/upgrade/4.5.0-upgrade.sql",
+            "/mysql/upgrade/4.5.0-upgrade.php"
         ],
         "dbVersion": "4.5.0"
     },
@@ -359,7 +354,7 @@
             "4.5.0"
         ],
         "scripts": [
-          "/mysql/upgrade/4.5.1-upgrade.php"
+            "/mysql/upgrade/4.5.1-upgrade.php"
         ],
         "dbVersion": "4.5.1"
     },
@@ -368,7 +363,7 @@
             "4.5.1"
         ],
         "scripts": [
-          "/mysql/upgrade/4.5.2-upgrade.php"
+            "/mysql/upgrade/4.5.2-upgrade.php"
         ],
         "dbVersion": "4.5.2"
     },
@@ -377,8 +372,8 @@
             "4.5.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.6.0-upgrade.sql",
-          "/mysql/upgrade/4.6.0-upgrade.php"
+            "/mysql/upgrade/4.6.0-upgrade.sql",
+            "/mysql/upgrade/4.6.0-upgrade.php"
         ],
         "dbVersion": "4.6.0"
     },
@@ -386,16 +381,14 @@
         "versions": [
             "4.6.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.6.1"
     },
     "4.6.2": {
         "versions": [
             "4.6.1"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.6.2"
     },
     "4.7.0": {
@@ -403,8 +396,8 @@
             "4.6.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.7.0-upgrade.sql",
-          "/mysql/upgrade/5.2.0-upgrade.php"
+            "/mysql/upgrade/4.7.0-upgrade.sql",
+            "/mysql/upgrade/5.2.0-upgrade.php"
         ],
         "dbVersion": "4.7.0"
     },
@@ -412,8 +405,7 @@
         "versions": [
             "4.7.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.7.1"
     },
     "4.7.2": {
@@ -421,7 +413,7 @@
             "4.7.1"
         ],
         "scripts": [
-           "/mysql/upgrade/4.7.2-upgrade.sql"
+            "/mysql/upgrade/4.7.2-upgrade.sql"
         ],
         "dbVersion": "4.7.2"
     },
@@ -430,7 +422,7 @@
             "4.7.2"
         ],
         "scripts": [
-          "/mysql/upgrade/4.7.3-upgrade.php"
+            "/mysql/upgrade/4.7.3-upgrade.php"
         ],
         "dbVersion": "4.7.3"
     },
@@ -439,7 +431,7 @@
             "4.7.3"
         ],
         "scripts": [
-          "/mysql/upgrade/4.7.4-upgrade.php"
+            "/mysql/upgrade/4.7.4-upgrade.php"
         ],
         "dbVersion": "4.7.4"
     },
@@ -447,24 +439,21 @@
         "versions": [
             "4.7.4"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.7.5"
     },
     "4.7.6": {
         "versions": [
             "4.7.5"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.7.6"
     },
     "4.8.0": {
         "versions": [
             "4.7.6"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.8.0"
     },
     "4.9.0": {
@@ -489,16 +478,14 @@
         "versions": [
             "4.9.1"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "4.9.2"
     },
     "5.0.0": {
         "versions": [
             "4.9.2"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "5.0.0"
     },
     "5.1.0": {
@@ -531,12 +518,20 @@
         ],
         "dbVersion": "5.3.0"
     },
-    "current": {
+    "5.3.1": {
         "versions": [
             "5.3.0"
         ],
-        "scripts": [
-        ],
+        "scripts": [],
         "dbVersion": "5.3.1"
-    }    
+    },
+    "current": {
+        "versions": [
+            "5.3.1"
+        ],
+        "scripts": [
+            "/mysql/upgrade/5.4.0-upgrade.php"
+        ],
+        "dbVersion": "5.4.0"
+    }
 }

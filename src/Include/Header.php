@@ -50,7 +50,7 @@ $MenuFirst = 1;
   ?>
 </head>
 
-<body class="hold-transition <?= $_SESSION['sStyle'] ?> sidebar-mini <?= ($_SESSION['bSidebarCollapse'])?"sidebar-collapse":"" ?>" id="sidebar-mini">
+<body class="<?= $_SESSION['sStyle'] ?> sidebar-mini <?= ($_SESSION['bSidebarCollapse'])?"sidebar-collapse":"" ?>" id="sidebar-mini">
 <?php
   Header_system_notifications();
  ?>
@@ -82,7 +82,7 @@ $MenuFirst = 1;
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only"><?= gettext('Toggle navigation') ?></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

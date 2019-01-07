@@ -344,14 +344,7 @@ function initDataTable() {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
-      responsive: true,
-      "language": {
-          "url": window.CRM.plugin.dataTable.language.url
-      },
-      "dom": window.CRM.plugin.dataTable.dom,
-      "tableTools": {
-          "sSwfPath": window.CRM.plugin.dataTable.tableTools.sSwfPath
-      },
+    responsive: true,
     columns: [
       {
         width: 'auto',
@@ -456,7 +449,8 @@ function initDataTable() {
       $(row).addClass("groupRow");
     }
   };
-  $.extend(DataTableOpts,window.CRM.plugin.DataTable);
+  $.extend(DataTableOpts,window.CRM.plugin.dataTable);
+  
   window.CRM.DataTableGroupView = $("#membersTable").DataTable(DataTableOpts);
 
   $('#isGroupActive').change(function () {

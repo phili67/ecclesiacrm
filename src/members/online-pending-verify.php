@@ -35,19 +35,11 @@ use EcclesiaCRM\dto\SystemURLs;
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
     $(document).ready(function () {
-        $("#families").DataTable({
-            "language": {
-                "url": window.CRM.plugin.dataTable.language.url
-            },
+        var familiesTableConfig = {
             ajax: {
                 url: window.CRM.root + "/api/families/pending-self-verify",
                 dataSrc: 'families'
             },
-            "dom": window.CRM.plugin.dataTable.dom,
-            "tableTools": {
-                "sSwfPath": window.CRM.plugin.dataTable.tableTools.sSwfPath
-            },
-            responsive: true,
             columns: [
                 {
                     title: i18next.t('Family Id'),
@@ -72,7 +64,11 @@ use EcclesiaCRM\dto\SystemURLs;
                 }
             ],
             order: [[2, "desc"]]
-        });
+        }
+    
+        $.extend(familiesTableConfig,window.CRM.plugin.dataTable);
+        
+        $("#families").DataTable(familiesTableConfig);
     });
 </script>
 <?php
