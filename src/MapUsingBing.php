@@ -179,7 +179,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-        <div id="maplegend" style="z-index: 1000; position: absolute; bottom: 127px; left: 0px;"><h4><?= gettext('Legend') ?></h4>
+        <div id="maplegend"><h4><?= gettext('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-2" name="feature"
