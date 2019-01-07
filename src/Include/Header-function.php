@@ -208,7 +208,7 @@ function Header_body_scripts()
                     },
                     responsive: true,
                     "dom": 'Bfrtip',
-                    "buttons": [ 'copy', <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf',":""?>, 'colvis', 'print' ],
+                    "buttons": [ <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'copy', ":""?> <?= (SessionUser::getUser()->isCSVExportEnabled() )?"'csv','excel',":""?> <?= (SessionUser::getUser()->isCreateDirectoryEnabled() )?"'pdf', 'print', ":""?> 'colvis'  ],
                 }
             },
             PageName:"<?= $_SERVER['PHP_SELF']?>"
