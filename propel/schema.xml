@@ -25,7 +25,7 @@
     <column name="displayname" phpName="Displayname" type="VARCHAR" size="255"/>
     <column name="description" phpName="Description" type="LONGVARCHAR"/>
     <column name="href" phpName="Href" type="VARCHAR" size="100" sqlType="varbinary(100)"/>
-    <column name="access" phpName="Access" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+    <column name="access" phpName="Access" type="SMALLINT" size="1" required="true" defaultValue="true"/>
     <foreign-key foreignTable="addressbooks" name="fk_addressbooksid" onDelete="CASCADE">
       <reference local="addressbooksid" foreign="id"/>
     </foreign-key>
@@ -78,7 +78,7 @@
     <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
     <column name="calendarid" phpName="Calendarid" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
     <column name="principaluri" phpName="Principaluri" type="VARCHAR" size="100" sqlType="varbinary(100)"/>
-    <column name="access" phpName="Access" type="BOOLEAN" size="1" required="true" defaultValue="true"/>
+    <column name="access" phpName="Access" type="SMALLINT" size="1" required="true" defaultValue="1"/>
     <column name="displayname" phpName="Displayname" type="VARCHAR" size="100"/>
     <column name="uri" phpName="Uri" type="VARCHAR" size="200" sqlType="varbinary(200)"/>
     <column name="description" phpName="Description" type="LONGVARCHAR"/>

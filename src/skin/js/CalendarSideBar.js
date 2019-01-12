@@ -533,7 +533,7 @@
     window.CRM.APIRequest({
        method: 'POST',
        path: 'calendar/info',
-       data: JSON.stringify({"calIDs":calIDs})
+       data: JSON.stringify({"calIDs":calIDs,"type": type})
     }).done(function(data) {             
         var allButtons = {};
     
@@ -811,7 +811,7 @@
       var len = data.length;
       
       for (i=0; i<len; ++i) {
-        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#group-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="group" data-id="'+data[i].calendarID+'"></i> <span class="editGroupName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,          
@@ -859,7 +859,15 @@
           icon = '&nbsp;<i class="fa fa-video-camera"></i>&nbsp;';
         }
         
-        $('#reservation-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+'<i class="fa pull-right fa-info-circle" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>'+' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        var infoLine = '<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
+        
+        if (data[i].isAdmin) {
+          infoLine += '<i class="fa pull-right fa-gear" data-title="'+data[i].calendarName+'" data-caltype="'+data[i].calType+'" data-content="'+data[i].desc+'" style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="reservation-info" data-type="reservation" data-id="'+data[i].calendarID+'"></i>';
+        }
+        
+        infoLine += ' <span class="editReservationName" data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>';
+        
+        $('#reservation-list').append(infoLine);
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,          
@@ -907,7 +915,7 @@
           icon = '&nbsp<i class="fa fa-video-camera"></i>&nbsp;';
         }
         
-        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-gear"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
+        $('#share-list').append('<li class="list-group-item" style="cursor: pointer;"><div class="input-group my-colorpicker-global my-colorpicker1'+i+' colorpicker-element" data-id="'+data[i].calendarID+'"><input id="checkBox" type="checkbox" class="check-calendar" data-id="'+data[i].calendarID+'"'+((data[i].visible)?"checked":"")+'>'+data[i].icon+icon+'<i class="fa pull-right fa-info-circle"  style="font-size: 1.2em" style="color:gray;padding-right:10px;" id="manage-cal-group" data-type="shared" data-id="'+data[i].calendarID+'"></i> <span class="editShareName"  data-id="'+data[i].calendarID+'">'+data[i].calendarName+'</span><div class="input-group-addon" style="border-left: 1"><i style="background-color:'+data[i].calendarColor+';"></i></li>');
         
         $(".my-colorpicker1"+i).colorpicker({
           color:data[i].calendarColor,
