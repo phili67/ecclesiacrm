@@ -19,6 +19,7 @@ use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Emails\CalendarEmail;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\PrincipalsQuery;
 
 
 use Sabre\CalDAV;
@@ -169,7 +170,7 @@ $app->group('/calendar', function () {
             $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
             $values['calendarShareAccess']= $calendar['share-access'];
             $values['calendarUri']        = $calendar['uri'];
-            $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fa fa-pencil"></i>&nbsp;':'';
+            $values['icon']               = ($calendar['share-access'] == 1 || $calendar['share-access'] == 3)?'&nbsp;<i class="fa fa-pencil"></i>&nbsp;':'&nbsp;<i class="fa fa-eye"></i>&nbsp;';
           
             $id                           = $calendar['id'];
             $values['calendarID']         = $id[0].",".$id[1];
@@ -178,7 +179,8 @@ $app->group('/calendar', function () {
             $values['type']               = ($calendar['grpid'] > 0)?'group':'personal';
             $values['grpid']              = $calendar['grpid'];
             $values['calType']            = $calendar['cal_type'];
-            $values['desc']               = ($calendar['description'] == null)?gettext("None"):$calendar['description'];
+            $values['desc']               = ($calendar['description'] == null)?_("None"):$calendar['description'];
+            $values['isAdmin']            = SessionUser::getUser()->isAdmin();
 
             if ($calendar['cal_type'] > 1) {
               $values['type'] = 'reservation';
@@ -208,14 +210,19 @@ $app->group('/calendar', function () {
     $this->post('/info', function ($request, $response, $args) {  
         $params = (object)$request->getParsedBody();
          
-        if ( isset ($params->calIDs) ) {
+        if ( isset ($params->calIDs) && isset ($params->type) ) {
 
           $calIDs = explode(",",$params->calIDs);
                
           $calendarId = $calIDs[0];
           $Id = $calIDs[1];          
           
-          $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
+          $calendar    = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneByAccess(1); // we search the owner of this calendar
+          $calendarCU  = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);   // current user calendar          
+          
+          $principal   = PrincipalsQuery::create()->findOneByDisplayname (str_replace("principals/","",$calendar->getPrincipaluri()));
+          
+          $user = UserQuery::Create()->findOneByUserName (str_replace("principals/","",$calendar->getPrincipaluri()));
           
           $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
           
@@ -225,17 +232,29 @@ $app->group('/calendar', function () {
             $root = SystemURLs::getRootPath()."/";
           }
           
-          $message = "<p><label>".gettext("This address can be used only with a CalDav server.")." ".gettext("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
-          $message .= "<p><label>".gettext("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
+          $message = "";
+          
+          if ( $params->type != "personal" ) {
+            $message.= "<p><label>"._("Owner")."</label> : ".$user->getPerson()->getFullName()."</p>";
+            
+            if ( $calendarCU->getAccess() == 3 ) {
+              $message.= "<p><label>"._("Access")."</label> : "._("Full access in Read and write for all the events of this calendar.")."</p>";
+            } else {
+              $message.= "<p><label>"._("Access")."</label> : "._("You can only read the events of this calendar.")."</p>";
+            }
+          }
+          
+          $message .= "<p><label>"._("This address can be used only with a CalDav server.")." "._("For thunderbird the URL is")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."calendarserver.php/calendars/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."/<p>";
+          $message .= "<p><label>"._("For a share calendar (only in read mode)")." : </label><br>".$protocol."://".$_SERVER[HTTP_HOST].$root."external/calendar/events/".strtolower(str_replace("principals/","",$calendar->getPrincipaluri()))."/".$calendar->getUri()."<p>";
           if (SessionUser::getUser()->isAdmin()) {
-            $message .= "<p><label>".gettext("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">".gettext("General Settings/Integration")."</a>.";
+            $message .= "<p><label>"._("You've to activate the \"bEnableExternalCalendarAPI\" setting in")." <a href=\"".$root."SystemSettings.php\">"._("General Settings/Integration")."</a>.";
           }
           
           $title = $calendar->getDisplayname();
           
           $isAdmin = (SessionUser::getUser()->isAdmin() || SessionUser::getUser()->isManageGroupsEnabled())?true:false;
         
-          return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin]);
+          return $response->withJson(["status" => "success","title"=> $title, "message" => $message, "isAdmin" => $isAdmin, "access" => $calendarCU->getAccess()/*, "URI" => $calendar->getPrincipaluri(), "Owner" => $user->getPerson()->getFullName()*/]);
         }
         
         return $response->withJson(['status' => "failed"]);
@@ -475,7 +494,7 @@ $app->group('/calendar', function () {
             );
             
             if ($params->notification) {
-              $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+              $email = new CalendarEmail($user, _("You can visualize it in your account, in the Calendar."));
               $email->send();
             }
         
@@ -529,7 +548,7 @@ $app->group('/calendar', function () {
             }
             
             if ($params->notification) {
-              $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+              $email = new CalendarEmail($user, _("You can visualize it in your account, in the Calendar."));
               $email->send();
             }
         
@@ -583,7 +602,7 @@ $app->group('/calendar', function () {
               );
               
               if ($params->notification) {
-                $email = new CalendarEmail($user, gettext("You can visualize it in your account, in the Calendar."));
+                $email = new CalendarEmail($user, _("You can visualize it in your account, in the Calendar."));
                 $email->send();
               }
               
