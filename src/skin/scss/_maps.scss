@@ -1,4 +1,4 @@
-#maplegend {
+#maplegend{
     font-family: Arial, sans-serif;
     background: #fff;
     padding: 5px;
@@ -6,9 +6,22 @@
     border: 1px solid #000;
     opacity: 0.7;
     z-index: 800; 
-    position: absolute; 
-    bottom: 127px; 
-    left: 0px;
+    h4 {
+        margin-top: 0;
+    }
+    img {
+        vertical-align: middle;
+    }
+}
+
+#maplegend-bing{
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #000;
+    opacity: 0.7;
+    z-index: 800; 
     h4 {
         margin-top: 0;
     }
@@ -47,9 +60,20 @@ img.legendicon {
 @media screen and (max-device-width: 600px) {
     #maplegend {
         visibility: hidden;
+        position: absolute;
+        bottom: 127px; 
+        right: 0px;
     }
+    #maplegend-bing {
+        visibility: hidden;
+        position: absolute;
+        bottom: 127px; 
+        left: 0px;
+    }
+    
     #maplegend-mobile {
         display: block;
+        width:100%;
     }
     .map-div {
         height: 500px;
@@ -58,9 +82,20 @@ img.legendicon {
 @media screen and (min-device-width: 599px) {
     #maplegend {
         display: block;
+        position: absolute; 
+        bottom: 127px; 
+        right: 0px;
     }
+    #maplegend-bing {
+        visibility: block;
+        position: absolute;
+        bottom: 127px; 
+        left: 0px;
+    }
+
     #maplegend-mobile {
         visibility: hidden;
+        width:100%;
     }
     .map-div {
         height: 750px;
