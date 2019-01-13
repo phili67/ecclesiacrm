@@ -21,7 +21,8 @@
 
 * [Download the lastest release](https://github.com/phili67/ecclesiacrm/releases/latest)
 
-* [Checkout our online Docs](https://www.docs.ecclesiacrm.com)
+* [Checkout our online Docs in English](https://docs.ecclesiacrm.com/en/)
+* [Checkout our online Docs in French](https://docs.ecclesiacrm.com/fr/)
 
 ## Project Metrics 
 
