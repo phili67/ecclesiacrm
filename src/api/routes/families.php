@@ -3,6 +3,7 @@
 /* Contributors Philippe Logel */
 // Routes
 use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\dto\Photo;
 use EcclesiaCRM\Emails\FamilyVerificationEmail;
@@ -18,7 +19,6 @@ use EcclesiaCRM\Token;
 use EcclesiaCRM\TokenQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
@@ -91,7 +91,7 @@ $app->group('/families', function () {
         $query = $args['query'];
         $results = [];
         $q = FamilyQuery::create()
-            ->filterByName("%$query%", Propel\Runtime\ActiveQuery\Criteria::LIKE)
+            ->filterByName("%$query%", Criteria::LIKE)
             ->limit(15)
             ->find();
         foreach ($q as $family) {

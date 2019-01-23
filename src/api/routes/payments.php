@@ -161,15 +161,35 @@ $app->group('/payments', function () {
         
         $funds = $thisDeposit->getFundTotals();
         
-        $fundData = [];
+        $fundLabels          = [];
+        $fundDatas           = [];
+        $fundBackgroundColor = [];
+        $fundborderColor     = [];
         foreach ($funds as $tmpfund) {
-            $fund = new StdClass();
-            $fund->color = '#'.MiscUtils::random_color();
-            $fund->highlight = '#'.MiscUtils::random_color();
-            $fund->label = $tmpfund['Name'];
-            $fund->value = $tmpfund['Total'];
-            array_push($fundData, $fund);
+          $fundLabels[]           = $tmpfund['Name'];
+          $fundDatas[]            = $tmpfund['Total'];
+          $fundBackgroundColor[]  = '#'.MiscUtils::random_color();
+          $fundborderColor[]      = '#'.MiscUtils::random_color();
         }
+        
+        $funddatasets = new StdClass();
+            
+        $funddatasets->label           = '# of Votes';
+        $funddatasets->data            = $fundDatas;
+        $funddatasets->backgroundColor = $fundBackgroundColor;
+        $funddatasets->borderColor     = $fundborderColor;
+        $funddatasets->borderWidth     = 1;
+        
+        
+        $fund = new StdClass();
+        
+        $fund->datasets   = [];
+        $fund->datasets[] = $funddatasets;
+        $fund->labels     = $fundLabels;
+        
+            
+            
+        // the pledgesDatas
         $pledgeTypeData = [];
         $t1 = new stdClass();
         $t1->value = $thisDeposit->getTotalamount() ? $thisDeposit->getTotalCash() : '0';
@@ -187,8 +207,25 @@ $app->group('/payments', function () {
         $t1->label = gettext("Checks");
         array_push($pledgeTypeData, $t1);
         
+        // the pledges
+        $pledgedatasets = new StdClass();
+            
+        $pledgedatasets->label           = '# of Votes';
+        $pledgedatasets->data            = [$thisDeposit->getTotalamount() ? $thisDeposit->getTotalCash() : '0', $thisDeposit->getTotalamount() ? $thisDeposit->getTotalChecks() : '0'];
+        $pledgedatasets->backgroundColor = ['#197A05','#003399'];
+        $pledgedatasets->borderColor     = ['#4AFF23', '#3366ff'];
+        $pledgedatasets->borderWidth     = 1;
         
-        return json_encode(['status' => "OK",'pledgeTypeData' => $pledgeTypeData, 'fundData' => $fundData]);
+        
+        $pledge = new StdClass();
+        
+        $pledge->datasets   = [];
+        $pledge->datasets[] = $pledgedatasets;
+        $pledge->labels     = [gettext("Cash"), gettext("Checks")];
+
+        
+        // now the json
+        return json_encode(['status' => "OK",'pledgeData' => $pledge, 'pledgeTypeData' => $pledgeTypeData, 'fundData' => $fund]);
     });
     
 

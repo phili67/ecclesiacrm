@@ -247,26 +247,28 @@ require 'Include/Header.php';
           data: JSON.stringify({"depositSlipID" : depositSlipID})
         }).done(function(data) {
           fundData = data.fundData;
-          pledgeData = data.pledgeTypeData;
-          initCharts(pledgeData, fundData);
+          pledgeData = data.pledgeData;
+          pledgeDataType = data.pledgeTypeData;
           
-          var len = fundData.length;
+          initCharts(fundData, pledgeData);
+          
+          var len = fundData.datasets[0].data.length;
       
           $("#mainFundTotals").empty();
           var globalTotal = 0;
           for (i=0; i<len; ++i) {
-            $("#mainFundTotals").append('<li><b>'+fundData[i].label+'</b>: '+window.CRM.currency+Number(fundData[i].value).toLocaleString(window.CRM.lang)+'</li>');
-            globalTotal += Number(fundData[i].value);
+            $("#mainFundTotals").append('<li><b>'+fundData.labels[i]+'</b>: '+window.CRM.currency+Number(fundData.datasets[0].data[i]).toLocaleString(window.CRM.lang)+'</li>');
+            globalTotal += Number(fundData.datasets[0].data[i]);
           }
           
           $("#GlobalTotal").empty();          
           $("#GlobalTotal").append('<li><b>'+i18next.t("TOTAL")+"("+len+"):</b> "+window.CRM.currency+globalTotal.toLocaleString(window.CRM.lang)+'</li>');
           
-          if (pledgeData[0].value != null) {
-            $("#GlobalTotal").append('<li><b>'+pledgeData[0].label+" ("+pledgeData[0].countCash+"):</b> "+window.CRM.currency+Number(pledgeData[0].value).toLocaleString(window.CRM.lang)+"</b></li>");
+          if (pledgeDataType[0].value != null) {
+            $("#GlobalTotal").append('<li><b>'+pledgeDataType[0].label+" ("+pledgeDataType[0].countCash+"):</b> "+window.CRM.currency+Number(pledgeDataType[0].value).toLocaleString(window.CRM.lang)+"</b></li>");
           }
-          if (pledgeData[1].value != null) {
-            $("#GlobalTotal").append('<li><b>'+pledgeData[1].label+" ("+pledgeData[1].countChecks+"):</b> "+window.CRM.currency+Number(pledgeData[1].value).toLocaleString(window.CRM.lang)+"</b></li>");
+          if (pledgeDataType[1].value != null) {
+            $("#GlobalTotal").append('<li><b>'+pledgeDataType[1].label+" ("+pledgeDataType[1].countChecks+"):</b> "+window.CRM.currency+Number(pledgeDataType[1].value).toLocaleString(window.CRM.lang)+"</b></li>");
           }
         });
     }
