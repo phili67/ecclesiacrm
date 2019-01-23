@@ -1781,16 +1781,13 @@ INSERT INTO `gdpr_infos` (`gdpr_info_About`, `gdpr_info_Name`, `gdpr_info_Type`,
 ('Family', 'City', '3', ''),
 ('Family', 'Country', '12', ''),
 ('Family', 'State', '3', ''),
-('Family', 'Latitude', '7', ''),
-('Family', 'Longitude', '7', ''),
 ('Family', 'Home Phone', '3', ''),
 ('Family', 'Work Phone', '3', ''),
 ('Family', 'Mobile Phone', '3', ''),
 ('Family', 'Email', '3', ''),
 ('Family', 'Send Newsletter', '1', ''),
 ('Family', 'Wedding Date', '2', ''),
-('Family', 'Role', '12', ''),
-('Family', 'Ok To Canvass', '2', '');
+('Family', 'Role', '12', '');
 --
 -- Dumping data for table `gdpr_infos`
 --
