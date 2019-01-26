@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-07 18:25+0100\n"
+"POT-Creation-Date: 2019-01-26 18:03+0100\n"
 "Language: fr-BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgid "POST to cart requires a EventID"
 msgstr ""
 "Envoi au Panier requière un tableau de personnes ID famille ou ID de groupe."
 
-#: api/routes/calendarV2.php:181 AutoPaymentEditor.php:887 CartToBadge.php:134
+#: api/routes/calendarV2.php:182 AutoPaymentEditor.php:887 CartToBadge.php:134
 #: EcclesiaCRM/utils/OutputUtils.php:209 EditEventTypes.php:119
 #: EditEventTypes.php:131 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:67 GroupReports.php:165
@@ -39,29 +39,46 @@ msgstr ""
 msgid "None"
 msgstr "Aucun"
 
-#: api/routes/calendarV2.php:228
+#: api/routes/calendarV2.php:238
+msgid "Owner"
+msgstr "Propriétaire"
+
+#: api/routes/calendarV2.php:241 api/routes/calendarV2.php:243
+msgid "Access"
+msgstr "Droits"
+
+#: api/routes/calendarV2.php:241
+msgid "Full access in Read and write for all the events of this calendar."
+msgstr "Plein droits en lecture et écriture pour tous les événements de ce calendrier."
+
+#: api/routes/calendarV2.php:243
+msgid "You can only read the events of this calendar."
+msgstr "Vous ne pourrez que lire les événements de ce calendrier"
+
+
+#: api/routes/calendarV2.php:247
 msgid "This address can be used only with a CalDav server."
 msgstr ""
 "Cette adresse ne peut être utilisée que si le serveur est compatible CalDav."
 
-#: api/routes/calendarV2.php:228
+#: api/routes/calendarV2.php:247
 msgid "For thunderbird the URL is"
 msgstr "Pour Thunderbird l'URL est"
 
-#: api/routes/calendarV2.php:229
+#: api/routes/calendarV2.php:248
 msgid "For a share calendar (only in read mode)"
 msgstr "Pour un calendrier partagé (en lecture seule)"
 
-#: api/routes/calendarV2.php:231
+#: api/routes/calendarV2.php:250
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr "Vous devez activer le réglage \"bEnableExternalCalendarAPI\" dans"
 
-#: api/routes/calendarV2.php:231
+#: api/routes/calendarV2.php:250
 msgid "General Settings/Integration"
 msgstr "Réglages Généraux/Intégration"
 
-#: api/routes/calendarV2.php:478 api/routes/calendarV2.php:532
-#: api/routes/calendarV2.php:586
+#: api/routes/calendarV2.php:497 api/routes/calendarV2.php:551
+#: api/routes/calendarV2.php:605
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 "Vous pourrez le visualiser dans votre compte, dans la partie Calendrier."
@@ -210,12 +227,14 @@ msgstr "Carte de crédit"
 msgid "Bank account"
 msgstr "Compte bancaire"
 
-#: api/routes/payments.php:179 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:145
-#: FinancialReports.php:344 PledgeEditor.php:621
+#: api/routes/payments.php:199 api/routes/payments.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:145 FinancialReports.php:344
+#: PledgeEditor.php:621
 msgid "Cash"
 msgstr "Espèce"
 
-#: api/routes/payments.php:187 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:140
+#: api/routes/payments.php:207 api/routes/payments.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:140
 msgid "Checks"
 msgstr "Chèques"
 
@@ -1433,7 +1452,7 @@ msgstr "Nom de l'adulte (Optionnel)"
 msgid "CheckOut"
 msgstr "Confirmer"
 
-#: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:286
+#: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:288
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
 #: email/MailChimp/Campaign.php:56 email/MailChimp/ManageList.php:58
@@ -1996,29 +2015,29 @@ msgstr "Engagé"
 msgid "Return to Deposit Listing"
 msgstr "Retour à la Liste des dépôts"
 
-#: DepositSlipEditor.php:277 FamilyView.php:916 FindDepositSlip.php:121
+#: DepositSlipEditor.php:279 FamilyView.php:916 FindDepositSlip.php:121
 #: PersonView.php:1488
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
-#: DepositSlipEditor.php:278
+#: DepositSlipEditor.php:280
 msgid "Are you sure ? You're about to delete the selected"
 msgstr "Êtes vous sûr de vouloir supprimer la sélection"
 
-#: DepositSlipEditor.php:278
+#: DepositSlipEditor.php:280
 msgid "payments(s)?"
 msgstr "paiement(s)?"
 
-#: DepositSlipEditor.php:279 FindDepositSlip.php:124
+#: DepositSlipEditor.php:281 FindDepositSlip.php:124
 msgid "This action CANNOT be undone, and may have legal implications!"
 msgstr ""
 "Cette action est IRRÉVERSIBLE, et peut entraîner des implications juridiques!"
 
-#: DepositSlipEditor.php:280
+#: DepositSlipEditor.php:282
 msgid "Please ensure this what you want to do.</p>"
 msgstr "Vérifier que c'est ce que vous voulez faire.</p>"
 
-#: DepositSlipEditor.php:283 FindDepositSlip.php:128 GroupEditor.php:62
+#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:62
 msgid "Close"
 msgstr "Fermer"
 
@@ -8629,19 +8648,19 @@ msgstr "Classification des personnes"
 msgid "Gender Demographics"
 msgstr "Données démographiques des sexes"
 
-#: PeopleDashboard.php:402
+#: PeopleDashboard.php:407
 msgid "Men"
 msgstr "Hommes"
 
-#: PeopleDashboard.php:405
+#: PeopleDashboard.php:413
 msgid "Women"
 msgstr "Femmes"
 
-#: PeopleDashboard.php:410 sundayschool/SundaySchoolDashboard.php:130
+#: PeopleDashboard.php:422 sundayschool/SundaySchoolDashboard.php:130
 msgid "Boys"
 msgstr "Garçons"
 
-#: PeopleDashboard.php:413 sundayschool/SundaySchoolDashboard.php:142
+#: PeopleDashboard.php:428 sundayschool/SundaySchoolDashboard.php:142
 msgid "Girls"
 msgstr "Filles"
 
