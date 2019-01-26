@@ -1,0 +1,169 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Ecclesia\nCRM\n documentation\n\n\n\n\nCRM\n\n\nEcclesia\nCRM\n is a CRM (Customer Relationship Management).\n\n\n\n\nOverview\n\n\nEcclesiaCRM\n is is based on \nChurchCRM\n and which was based on InfoCentral.\n\n\nThe software was developed by a team of volunteers, in their spare time, for the purpose of providing churches and with high-quality free software.\n\n\nIf you'd like to find out more or want to help out, checkout our \ngithub.com\n repo\n\n\n--\n\n\nHow do I run EcclesiaCRM?\n\n\nRunning EcclesiaCRM is not complicated if you have experience with Web applications. If you don't, there are a few things to get used to. It is important to understand is that EcclesiaCRM is a Web-based application, which means it has two distinct sides:\n\n\nThe \"server\", on which the application actually runs. This is a centrally located computer that stores the files and information that EcclesiaCRM needs to run\n\n\nThe \"client\", through which a user interacts with the application via a Web browser.\n\n\nThere is only one server, but there can be an unlimited number of clients.\n\n\n\n\nInstallation\n\n\nEcclesiaCRM is a PHP/MySQL application which runs on a web server, providing web pages so users can update and access the data in the database. You can run both the server and the browser on a single computer, but the real power of a web database application is visible when you have multiple users accessing the database from their own computers.\n\n\nGetting help\n\n\nTo get help with EcclesiaCRM, please use the GitHub \nissues\n.\n\n\n\n\nGetting started\n\n\nThe application is based on the concepts of people who are members of families and are also members of common interest groups.\n\n\nAfter you have installed the EcclesiaCRM application and can login, you are ready to configure the application.\n\n\nThe first thing to do is enter your church name, address, phone and email address into the Report Settings.\n\n\nEcclesiaCRM will display \u201cMy Church\u201d in large, bold letters at the top of each page.\n\n\n\n\nDuring the configuration stage, give some consideration to how you will use EcclesiaCRM:\n\n\n\n\nWhat are the groups that you will use?\n\n\nWhat properties do you need to record for people, families and groups?\n\n\nDo you need to use custom fields?\n\n\nWho needs access to the administration features?\n\n\nWho should be given access to the Financial records?\n\n\nWho can add or change records?", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#ecclesiacrm-documentation", 
+            "text": "", 
+            "title": "EcclesiaCRM documentation"
+        }, 
+        {
+            "location": "/#crm", 
+            "text": "Ecclesia CRM  is a CRM (Customer Relationship Management).", 
+            "title": "CRM"
+        }, 
+        {
+            "location": "/#overview", 
+            "text": "EcclesiaCRM  is is based on  ChurchCRM  and which was based on InfoCentral.  The software was developed by a team of volunteers, in their spare time, for the purpose of providing churches and with high-quality free software.  If you'd like to find out more or want to help out, checkout our  github.com  repo  --", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/#how-do-i-run-ecclesiacrm", 
+            "text": "Running EcclesiaCRM is not complicated if you have experience with Web applications. If you don't, there are a few things to get used to. It is important to understand is that EcclesiaCRM is a Web-based application, which means it has two distinct sides:  The \"server\", on which the application actually runs. This is a centrally located computer that stores the files and information that EcclesiaCRM needs to run  The \"client\", through which a user interacts with the application via a Web browser.  There is only one server, but there can be an unlimited number of clients.", 
+            "title": "How do I run EcclesiaCRM?"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "EcclesiaCRM is a PHP/MySQL application which runs on a web server, providing web pages so users can update and access the data in the database. You can run both the server and the browser on a single computer, but the real power of a web database application is visible when you have multiple users accessing the database from their own computers.", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#getting-help", 
+            "text": "To get help with EcclesiaCRM, please use the GitHub  issues .", 
+            "title": "Getting help"
+        }, 
+        {
+            "location": "/#getting-started", 
+            "text": "The application is based on the concepts of people who are members of families and are also members of common interest groups.  After you have installed the EcclesiaCRM application and can login, you are ready to configure the application.  The first thing to do is enter your church name, address, phone and email address into the Report Settings.  EcclesiaCRM will display \u201cMy Church\u201d in large, bold letters at the top of each page.   During the configuration stage, give some consideration to how you will use EcclesiaCRM:   What are the groups that you will use?  What properties do you need to record for people, families and groups?  Do you need to use custom fields?  Who needs access to the administration features?  Who should be given access to the Financial records?  Who can add or change records?", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/user-guide/doc-persons/", 
+            "text": "", 
+            "title": "Person management"
+        }, 
+        {
+            "location": "/user-guide/doc-families/", 
+            "text": "", 
+            "title": "Family management"
+        }, 
+        {
+            "location": "/user-guide/doc-groups/", 
+            "text": "", 
+            "title": "Groups management"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/", 
+            "text": "Ecclesia\nCRM\n API documentation\n\n\n\n\nEcclesiaCRM leverages Slim 3.9.2 to provide REST access to the data elements.\n\n\nPeople\n\n\n\n\n[GET] /api/persons/search/:query\n\n\nReturns a list of the members who's first name or last name matches the :query parameter\n\n\n[POST] /api/persons/volunteers/:personID\n\n\nReturns all the volunteers opportunities\n\n\n[POST] /volunteers/delete\n\n\ndelete a volunteer opportunity for a user\n\n\n\n\nFamilies\n\n\n\n\n[GET] /families/byCheckNumber/:tScanString\n\n\nReturns a family string based on the scan string of an MICR reader containing a routing and account number\n\n\n[GET] /families/byEnvelopeNumber/:tEnvelopeNumber\n\n\nReturns a family string based on the the requested envelope number\n\n\n[GET] /api/families/search/:query\n\n\nReturns a list of the families who's name matches the :query parameter\n\n\n[GET] /api/families/lastedited\n\n\nReturns a the last 10 updated families\n\n\n[POST] /api/families/:familyId/activate/:status\n\n\nUpdate the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.\n\n\n\n\nGroups\n\n\n\n\n[POST] /api/groups\n\n\nPost Data options:  {\n      'groupName':\"groupName\",\n      'isSundaySchool':[true|false]\n    }\n\n\nif isSundaySchool is specified, the group will be marked as a Sunday School class, and the Teacher and Student roles will be created.\n\n\n[POST] /api/groups/:groupID/removeuser/:userID\n\n\nRemoves the user with ID :userID from group with ID :groupID\n\n\n[POST] /api/groups/:groupID/adduser/:userID\n\n\nAdds the user with ID :userID to the group with ID :groupID\n\n\n[DELETE] /api/groups/:groupID\n\n\nDeletes the group with ID :groupID\n\n\n[GET] /api/groups/:groupID\n\n\nReturns a JSON objecte representing the group with ID :groupID\n\n\n[POST] /api/groups/:groupID/roles/:roleID\n\n\nAlters the role with ID :roleID for group with ID :groupID/adduser/\n\n\nRequires JSON with either \"groupRoleName\", or \"groupRoleOrder\" properties set\n\n\n[DELETE] /api/groups/:groupID/roles/:roleID\n\n\nDeletes the specified roleID in the group\n\n\n[POST] /api/groups/:groupID/defaultRole\n\n\nSets the default role fo the group with ID :groupID\n\n\nRequres JSON in the POST body with the \"roleID\" property set\n\n\n[POST] /api/groups/:groupID/roles/\n\n\nCreates a new group role for group with ID :groupID\n\n\nrequires JSON in the POST body with roleName set to the new role's name\n\n\n[POST] /api/groups/:groupID/userRole/:userID\n\n\nSets the role of a user in a group\n\n\nrequires JSON in the POST body with roleID set to the ID of the user's role in the specified group\n\n\n[POST] /api/:groupID/setGroupSpecificPropertyStatus\n\n\nrequires JSON property GroupSpecificPropertyStatus either true or false\n\n\n[POST] /api/:groupID/settings/active/{true/false}\n\n\nsets the status to true or false\n\n\n[POST] /api/:groupID/settings/email/export/{true/false}\n\n\nsets the email export status to true or false\n\n\n\n\nDeposits\n\n\n\n\n[GET] /\n\n\nReturns all deposits\n\n\n[POST] /\n\n\nCreates a new deposit\n\n\nRequires JSON body with properties: depositType, depositComment, depositDate\n\n\n[GET] /:id\n\n\nReturns the deposit with the selected ID\n\n\n[POST] /:id\n\n\nUpdates the deposit\n\n\nrequires JSON body with properties: depositType, depositComment, depositDate, depositClosed\n\n\n[GET] /:id/ofx\n\n\nReturns an OFX file representing the requested deposit\n\n\n[GET] /:id/pdf\n\n\nReturns a PDF file representing the requested deposit\n\n\n[GET] /:id/csv\n\n\nReturns a CSV file representing the requested deposit\n\n\n[DELETE] /:id\n\n\nDeletes the selected deposit\n\n\n[GET] /:id/payments\n\n\nReturns all payments associated with the supplied deposit ID\n\n\n\n\nPayments\n\n\n\n\n[GET] /\n\n\nReturns all payments\n\n\n[POST] /\n\n\nPosts a new payment. Validates the input\n\n\n[GET] /:id\n\n\nGets the specified payment by ID\n\n\n[GET] /byFamily/:familyID(/:fyid)\n\n\nGets all payments be family, and optionally by the fiscal year ID\n\n\n[DELETE] /:groupKey\n\n\nDeleted the payment with the specified GroupKey\n\n\n\n\nSearch\n\n\n\n\n[GET] /api/search/:query\n\n\na search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query\n\n\n\n\nEvents\n\n\nNo API Calls yet for Events\n\n\nUtilities\n\n\n Seed Data (/data/seed) \n\n\n\n\n[GET] /data/seed/families/{count}\n\n\nExpects: A JSON element containing one element: families of type (int)\n\n\nActions: Generates the supplied number of families in the EcclesiaCRM database using the randomuser.me web service.\n\n\nReturns: A JSON element containing statistics about the families added, as well as the raw data from the randomuser.me data query.\n\n\n[POST] /data/seed/sundaySchoolClasses (Not yet implemented)\n\n\nExpects:\n\n\nActions:\n\n\nReturns:", 
+            "title": "API"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#ecclesiacrm-api-documentation", 
+            "text": "EcclesiaCRM leverages Slim 3.9.2 to provide REST access to the data elements.", 
+            "title": "EcclesiaCRM API documentation"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#people", 
+            "text": "[GET] /api/persons/search/:query  Returns a list of the members who's first name or last name matches the :query parameter  [POST] /api/persons/volunteers/:personID  Returns all the volunteers opportunities  [POST] /volunteers/delete  delete a volunteer opportunity for a user", 
+            "title": "People"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#families", 
+            "text": "[GET] /families/byCheckNumber/:tScanString  Returns a family string based on the scan string of an MICR reader containing a routing and account number  [GET] /families/byEnvelopeNumber/:tEnvelopeNumber  Returns a family string based on the the requested envelope number  [GET] /api/families/search/:query  Returns a list of the families who's name matches the :query parameter  [GET] /api/families/lastedited  Returns a the last 10 updated families  [POST] /api/families/:familyId/activate/:status  Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.", 
+            "title": "Families"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#groups", 
+            "text": "[POST] /api/groups  Post Data options:  {\n      'groupName':\"groupName\",\n      'isSundaySchool':[true|false]\n    }  if isSundaySchool is specified, the group will be marked as a Sunday School class, and the Teacher and Student roles will be created.  [POST] /api/groups/:groupID/removeuser/:userID  Removes the user with ID :userID from group with ID :groupID  [POST] /api/groups/:groupID/adduser/:userID  Adds the user with ID :userID to the group with ID :groupID  [DELETE] /api/groups/:groupID  Deletes the group with ID :groupID  [GET] /api/groups/:groupID  Returns a JSON objecte representing the group with ID :groupID  [POST] /api/groups/:groupID/roles/:roleID  Alters the role with ID :roleID for group with ID :groupID/adduser/  Requires JSON with either \"groupRoleName\", or \"groupRoleOrder\" properties set  [DELETE] /api/groups/:groupID/roles/:roleID  Deletes the specified roleID in the group  [POST] /api/groups/:groupID/defaultRole  Sets the default role fo the group with ID :groupID  Requres JSON in the POST body with the \"roleID\" property set  [POST] /api/groups/:groupID/roles/  Creates a new group role for group with ID :groupID  requires JSON in the POST body with roleName set to the new role's name  [POST] /api/groups/:groupID/userRole/:userID  Sets the role of a user in a group  requires JSON in the POST body with roleID set to the ID of the user's role in the specified group  [POST] /api/:groupID/setGroupSpecificPropertyStatus  requires JSON property GroupSpecificPropertyStatus either true or false  [POST] /api/:groupID/settings/active/{true/false}  sets the status to true or false  [POST] /api/:groupID/settings/email/export/{true/false}  sets the email export status to true or false", 
+            "title": "Groups"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#deposits", 
+            "text": "[GET] /  Returns all deposits  [POST] /  Creates a new deposit  Requires JSON body with properties: depositType, depositComment, depositDate  [GET] /:id  Returns the deposit with the selected ID  [POST] /:id  Updates the deposit  requires JSON body with properties: depositType, depositComment, depositDate, depositClosed  [GET] /:id/ofx  Returns an OFX file representing the requested deposit  [GET] /:id/pdf  Returns a PDF file representing the requested deposit  [GET] /:id/csv  Returns a CSV file representing the requested deposit  [DELETE] /:id  Deletes the selected deposit  [GET] /:id/payments  Returns all payments associated with the supplied deposit ID", 
+            "title": "Deposits"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#payments", 
+            "text": "[GET] /  Returns all payments  [POST] /  Posts a new payment. Validates the input  [GET] /:id  Gets the specified payment by ID  [GET] /byFamily/:familyID(/:fyid)  Gets all payments be family, and optionally by the fiscal year ID  [DELETE] /:groupKey  Deleted the payment with the specified GroupKey", 
+            "title": "Payments"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#search", 
+            "text": "[GET] /api/search/:query  a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query", 
+            "title": "Search"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#events", 
+            "text": "No API Calls yet for Events", 
+            "title": "Events"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#utilities", 
+            "text": "Seed Data (/data/seed)    [GET] /data/seed/families/{count}  Expects: A JSON element containing one element: families of type (int)  Actions: Generates the supplied number of families in the EcclesiaCRM database using the randomuser.me web service.  Returns: A JSON element containing statistics about the families added, as well as the raw data from the randomuser.me data query.  [POST] /data/seed/sundaySchoolClasses (Not yet implemented)  Expects:  Actions:  Returns:", 
+            "title": "Utilities"
+        }, 
+        {
+            "location": "/about/about/", 
+            "text": "Contributing to Ecclesia\nCRM\n \n\n\nAn introduction to contributing to the EcclesiaCRM project.\n\n\nThe project welcomes, and depends on, contributions from developers and users in the open source community. Contributions can be made in a number of ways. A few examples are:\n\n\n\n\nCode patches via pull requests\n\n\nDocumentation improvements\n\n\nBug reports and patch reviews\n\n\n\n\nFirst Steps\n\n\n\n\nRead this whole page \"top to bottom.\"\n\n\nIntroduce yourself in the developer chat at \nTchat\n\n\nTake a look at the Open Issues page. We've made it easy for beginners with the Good First Bug Label.\n   These are issues that should be relatively easy to fix.\n\n\nHave fun!\n\n\n\n\nTesting A Branch\n\n\nAs long as there is software, there is a need for software testers. We're no different. Even though we have many automated tests, there's still a very real need for actual human beings to test new features, bug fixes, and other aspects of the software.\n\n\nSetting Up A Testing Machine\n\n\nThere are three system requirements for a testing machine:\n\n\n\n\nOracle Virtual Box\n\n\nOracle VirtualBox allows you to run virtual machines on your system for free.\n\n\nwmware\n\n\nwmware is a profesional tool.\n\n\nHyper-V\n\n\nHyper-V is now a role in Windows 10 and allow you to virtualise a Linux web server.\n\n\n\n\nTesting EcclesiaCRM\n\n\n\n\nCheck out the branch you're going to test. You can use the GitHub Desktop Client, manually download the source from the GitHub Page, or click one of the following links:\n\n\nMost often, we'll want help testing the Development Branch\n\n\nSometimes we'll need to test something in the Expiremental Branch\n\n\nIf you downloaded a Zip file, please extract that ZIP to a directory\n\n\nFrom a command line, navigate to the directory containing the files\n\n\nWait for the prompt that says EcclesiaCRM is now Hosted\n\n\nTest the features in question\n\n\nReport any issues\n\n\n\n\nReporting an issue?\n\n\nWhen reporting an issue, please include as much detail as you can. Let us know your platform and EcclesiaCRM version. If the problem is visual (for example a theme or design issue) please add a screenshot; and if you get an error please include the the full error and traceback.\n\n\nInstalling for development\n\n\nNeed a vagrant box can you build use one\n\n\nRunning the tests\n\n\n[Need test so that the build systems can run] (https://github.com/EcclesiaCRM/CRM/issues/13)\n\n\nSubmitting Pull Requests\n\n\nOnce you are happy with your changes or you are ready for some feedback, push it to your fork and send a pull request. For all change requests, documentation and unit tests will be required for acceptance.", 
+            "title": "About"
+        }, 
+        {
+            "location": "/about/about/#contributing-to-ecclesiacrm", 
+            "text": "", 
+            "title": "Contributing to EcclesiaCRM "
+        }, 
+        {
+            "location": "/about/about/#an-introduction-to-contributing-to-the-ecclesiacrm-project", 
+            "text": "The project welcomes, and depends on, contributions from developers and users in the open source community. Contributions can be made in a number of ways. A few examples are:   Code patches via pull requests  Documentation improvements  Bug reports and patch reviews", 
+            "title": "An introduction to contributing to the EcclesiaCRM project."
+        }, 
+        {
+            "location": "/about/about/#first-steps", 
+            "text": "Read this whole page \"top to bottom.\"  Introduce yourself in the developer chat at  Tchat  Take a look at the Open Issues page. We've made it easy for beginners with the Good First Bug Label.\n   These are issues that should be relatively easy to fix.  Have fun!", 
+            "title": "First Steps"
+        }, 
+        {
+            "location": "/about/about/#testing-a-branch", 
+            "text": "As long as there is software, there is a need for software testers. We're no different. Even though we have many automated tests, there's still a very real need for actual human beings to test new features, bug fixes, and other aspects of the software.  Setting Up A Testing Machine  There are three system requirements for a testing machine:   Oracle Virtual Box  Oracle VirtualBox allows you to run virtual machines on your system for free.  wmware  wmware is a profesional tool.  Hyper-V  Hyper-V is now a role in Windows 10 and allow you to virtualise a Linux web server.", 
+            "title": "Testing A Branch"
+        }, 
+        {
+            "location": "/about/about/#testing-ecclesiacrm", 
+            "text": "Check out the branch you're going to test. You can use the GitHub Desktop Client, manually download the source from the GitHub Page, or click one of the following links:  Most often, we'll want help testing the Development Branch  Sometimes we'll need to test something in the Expiremental Branch  If you downloaded a Zip file, please extract that ZIP to a directory  From a command line, navigate to the directory containing the files  Wait for the prompt that says EcclesiaCRM is now Hosted  Test the features in question  Report any issues", 
+            "title": "Testing EcclesiaCRM"
+        }, 
+        {
+            "location": "/about/about/#reporting-an-issue", 
+            "text": "When reporting an issue, please include as much detail as you can. Let us know your platform and EcclesiaCRM version. If the problem is visual (for example a theme or design issue) please add a screenshot; and if you get an error please include the the full error and traceback.", 
+            "title": "Reporting an issue?"
+        }, 
+        {
+            "location": "/about/about/#installing-for-development", 
+            "text": "Need a vagrant box can you build use one", 
+            "title": "Installing for development"
+        }, 
+        {
+            "location": "/about/about/#running-the-tests", 
+            "text": "[Need test so that the build systems can run] (https://github.com/EcclesiaCRM/CRM/issues/13)", 
+            "title": "Running the tests"
+        }, 
+        {
+            "location": "/about/about/#submitting-pull-requests", 
+            "text": "Once you are happy with your changes or you are ready for some feedback, push it to your fork and send a pull request. For all change requests, documentation and unit tests will be required for acceptance.", 
+            "title": "Submitting Pull Requests"
+        }, 
+        {
+            "location": "/about/license/", 
+            "text": "", 
+            "title": "Licence"
+        }, 
+        {
+            "location": "/about/release-notes/", 
+            "text": "", 
+            "title": "Release Notes"
+        }
+    ]
+}
