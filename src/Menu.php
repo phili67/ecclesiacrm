@@ -501,7 +501,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 </div>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <canvas id="deposit-lineGraph" style="height:125px; width:100%"></canvas>
+                <canvas id="deposit-lineGraph" style="height:225px; width:100%"></canvas>
             </div>
             </div>
     </div>
@@ -658,7 +658,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         labels: [],
         datasets: [
             {
-                data: []
+                data           : [],
+                backgroundColor: [],
+                borderColor    : []
             }
         ]
     };
@@ -668,13 +670,30 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     $.each(lineDataRaw.Deposits, function(i, val) {
         lineData.labels.push(moment(val.Date).format(window.CRM.datePickerformat.toUpperCase()));
         lineData.datasets[0].data.push(val.totalAmount);
+        lineData.datasets[0].backgroundColor.push("rgba(189, 245, 109, 0.8)");
+        lineData.datasets[0].borderColor.push("rgba(108, 139, 65, 0.8)");
     });
+    
+    lineData.datasets[0].label = i18next.t("Deposit Tracking");
+    
     options = {
       responsive:true,
       maintainAspectRatio:false
     };
+    
+    
     var lineChartCanvas = $("#deposit-lineGraph").get(0).getContext("2d");
-    var lineChart = new Chart(lineChartCanvas).Line(lineData,options);
+    var lineChart = new Chart(lineChartCanvas, {
+        type: 'line',
+        data: lineData,
+        options: {
+            scales: {
+                yAxes: [{
+                    stacked: true
+                }]
+              }
+           }
+    });
 
   });
 <?php

@@ -13,7 +13,7 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 
 // Set the page title
-$sPageTitle = gettext('People Dashboard');
+$sPageTitle = _('People Dashboard');
 
 require 'Include/Header.php';
 
@@ -49,7 +49,7 @@ $sSQL = "SELECT per_Email, fam_Email, lst_OptionName as virt_RoleName FROM perso
           LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
           INNER JOIN list_lst on lst_ID=1 AND per_cls_ID = lst_OptionID
           WHERE fam_DateDeactivated is  null
-			 AND per_ID NOT IN
+       AND per_ID NOT IN
           (SELECT per_ID
               FROM person_per
               INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
@@ -75,10 +75,10 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
 <!-- Default box -->
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('People Functions') ?></h3>
+    <h3 class="box-title"><?= _('People Functions') ?></h3>
   </div>
   <div class="box-body">
-    <a href="SelectList.php?mode=person" class="btn btn-app"><i class="fa fa-user"></i><?= gettext('All People') ?></a>
+    <a href="SelectList.php?mode=person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
     <?php
     if ($sEmailLink) {
         // Add default email if default email has been set and is not already in string
@@ -90,7 +90,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       // Display link
        ?>
         <div class="btn-group">
-          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= gettext('Email All')?></a>
+          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= _('Email All')?></a>
           <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -100,7 +100,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
           </ul>
         </div>
        <div class="btn-group">
-          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?=gettext('Email All (BCC)') ?></a>
+          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?=_('Email All (BCC)') ?></a>
            <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -114,28 +114,28 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     }
      ?>
     <br/>
-    <a href="FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= gettext('All Families') ?></a>
+    <a href="FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
     <?php
       if (SessionUser::getUser()->isShowMapEnabled()) {
     ?>
-      <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= gettext('Family Geographic') ?></a>
+      <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= _('Family Geographic') ?></a>
     <?php
         if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     ?>
-      <a href="MapUsingLeaflet.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+      <a href="MapUsingLeaflet.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
     <?php
         } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
     ?>
-      <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+      <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
     <?php
         } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
     ?>
-      <a href="MapUsingBing.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= gettext('Family Map') ?></a>
+      <a href="MapUsingBing.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
     <?php
         } 
     ?>    
     
-      <a href="UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= gettext('Update All Family Coordinates') ?></a>
+      <a href="UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
     <?php
       }
     ?>
@@ -152,14 +152,14 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         </h3>
 
         <p>
-          <?= gettext('Families') ?>
+          <?= _('Families') ?>
         </p>
       </div>
       <div class="icon">
         <i class="fa fa-users"></i>
       </div>
       <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="small-box-footer">
-        <?= gettext('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
+        <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>
   </div>
@@ -173,14 +173,14 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         </h3>
 
         <p>
-          <?= gettext('People') ?>
+          <?= _('People') ?>
         </p>
       </div>
       <div class="icon">
         <i class="fa fa-user"></i>
       </div>
       <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person" class="small-box-footer">
-        <?= gettext('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
+        <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>
   </div>
@@ -194,14 +194,14 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         </h3>
 
         <p>
-          <?= gettext('Sunday School Kids') ?>
+          <?= _('Sunday School Kids') ?>
         </p>
       </div>
       <div class="icon">
         <i class="fa fa-child"></i>
       </div>
       <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolDashboard.php" class="small-box-footer">
-        <?= gettext('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+        <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>
   </div>
@@ -215,14 +215,14 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         </h3>
 
         <p>
-          <?= gettext('Groups') ?>
+          <?= _('Groups') ?>
         </p>
       </div>
       <div class="icon">
         <i class="fa fa-gg"></i>
       </div>
       <a href="<?= SystemURLs::getRootPath() ?>/grouplist" class="small-box-footer">
-        <?= gettext('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+        <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>
   </div>
@@ -233,7 +233,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
   <div class="col-lg-6">
     <div class="box box-info">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('Reports') ?></h3>
+        <h3 class="box-title"><?= _('Reports') ?></h3>
           <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
@@ -241,26 +241,26 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
           </div>
       </div>
       <div class="box-body">
-        <a class="MediumText" href="GroupReports.php"><?php echo gettext('Reports on groups and roles'); ?></a>
+        <a class="MediumText" href="GroupReports.php"><?php echo _('Reports on groups and roles'); ?></a>
         <br>
-        <?php echo gettext('Report on group and roles selected (it may be a multi-page PDF).'); ?>
+        <?php echo _('Report on group and roles selected (it may be a multi-page PDF).'); ?>
         </p>
         <?php if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
          ?>
           <p><a class="MediumText"
-                href="DirectoryReports.php"><?= gettext('People Directory') ?></a><br><?= gettext('Printable directory of all people, grouped by family where assigned') ?>
+                href="DirectoryReports.php"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
           </p>
         <?php
      } ?>
-        <a class="MediumText" href="LettersAndLabels.php"><?php echo gettext('Letters and Mailing Labels'); ?></a>
-        <br><?php echo gettext('Generate letters and mailing labels.'); ?>
+        <a class="MediumText" href="LettersAndLabels.php"><?php echo _('Letters and Mailing Labels'); ?></a>
+        <br><?php echo _('Generate letters and mailing labels.'); ?>
         </p>
         <?php
         if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
             echo '<p>';
             echo '<a class="MediumText" href="USISTAddressVerification.php">';
-            echo gettext('US Address Verification Report')."</a><br>\n";
-            echo gettext('Generate report comparing all US family addresses '.
+            echo _('US Address Verification Report')."</a><br>\n";
+            echo _('Generate report comparing all US family addresses '.
               'with United States Postal Service Standard Address Format.<br>')."\n";
         }
         ?>
@@ -270,7 +270,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     <div class="col-lg-6">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Self Update') ?> <?= gettext('Reports') ?></h3>
+                <h3 class="box-title"><?= _('Self Update') ?> <?= _('Reports') ?></h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -278,17 +278,17 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
                 </div>
             </div>
             <div class="box-body">
-               <p> <a class="MediumText" href="members/self-register.php"><?php echo gettext('Self Register') ?> <?= gettext('Reports') ?></a>
+               <p> <a class="MediumText" href="members/self-register.php"><?php echo _('Self Register') ?> <?= _('Reports') ?></a>
                 <br>
-                <?php echo gettext('List families that were created via self registration.') ?>
+                <?php echo _('List families that were created via self registration.') ?>
                </p>
                 <p>
                     <a class="MediumText"
-                      href="members/self-verify-updates.php"><?= gettext('Self Verify Updates') ?></a><br><?= gettext('Families who commented via self verify links') ?>
+                      href="members/self-verify-updates.php"><?= _('Self Verify Updates') ?></a><br><?= _('Families who commented via self verify links') ?>
                 </p>
                 <p>
                     <a class="MediumText"
-                      href="members/online-pending-verify.php"><?= gettext('Pending Self Verify') ?></a><br><?= gettext('Families with valid self verify links') ?>
+                      href="members/online-pending-verify.php"><?= _('Pending Self Verify') ?></a><br><?= _('Families with valid self verify links') ?>
                 </p>
             </div>
         </div>
@@ -300,7 +300,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       <div class="box-header with-border">
         <i class="fa fa-pie-chart"></i>
 
-        <h3 class="box-title"><?= gettext('Family Roles') ?></h3>
+        <h3 class="box-title"><?= _('Family Roles') ?></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -311,15 +311,15 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       <div class="box-body no-padding">
         <table class="table table-condensed">
           <tr>
-            <th><?= gettext('Role / Gender') ?></th>
-            <th>% <?= gettext('of People') ?></th>
-            <th style="width: 40px"><?= gettext('Count') ?></th>
+            <th><?= _('Role / Gender') ?></th>
+            <th>% <?= _('of People') ?></th>
+            <th style="width: 40px"><?= _('Count') ?></th>
           </tr>
             <?php foreach ($demographicStats as $demStat) {
             ?>
             <tr>
                 <td>
-                    <a href="SelectList.php?mode=person&Gender=<?= $demStat['gender'] ?>&FamilyRole=<?= $demStat['role'] ?>"><?= gettext($demStat['key']) ?></a>
+                    <a href="SelectList.php?mode=person&Gender=<?= $demStat['gender'] ?>&FamilyRole=<?= $demStat['role'] ?>"><?= _($demStat['key']) ?></a>
                 </td>
               <td>
                 <div class="progress progress-xs progress-striped active">
@@ -340,7 +340,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       <div class="box-header with-border">
         <i class="fa fa-bar-chart-o"></i>
 
-        <h3 class="box-title"><?= gettext('People Classification') ?></h3>
+        <h3 class="box-title"><?= _('People Classification') ?></h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -350,14 +350,14 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       </div>
       <table class="table table-condensed">
         <tr>
-          <th><?= gettext('Classification') ?></th>
-          <th>% <?= gettext('of People') ?></th>
-          <th style="width: 40px"><?= gettext('Count') ?></th>
+          <th><?= _('Classification') ?></th>
+          <th>% <?= _('of People') ?></th>
+          <th style="width: 40px"><?= _('Count') ?></th>
         </tr>
         <?php foreach ($personStats as $key => $value) {
             ?>
           <tr>
-            <td><a href='SelectList.php?Sort=name&Filter=&mode=person&Classification=<?= $classifications->$key ?>'><?= gettext($key) ?></a></td>
+            <td><a href='SelectList.php?Sort=name&Filter=&mode=person&Classification=<?= $classifications->$key ?>'><?= _($key) ?></a></td>
             <td>
               <div class="progress progress-xs progress-striped active">
                 <div class="progress-bar progress-bar-success"
@@ -375,7 +375,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       <div class="box-header">
         <i class="fa fa-address-card-o"></i>
 
-        <h3 class="box-title"><?= gettext('Gender Demographics') ?></h3>
+        <h3 class="box-title"><?= _('Gender Demographics') ?></h3>
 
         <div class="box-tools pull-right">
           <div id="gender-donut-legend" class="chart-legend"></div>
@@ -396,60 +396,80 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         //- PIE CHART -
         //-------------
         // Get context with jQuery - using jQuery's .get() method.
-        var PieData = [
-            <?php while ($row = mysqli_fetch_array($rsAdultsGender)) {
-            if ($row['per_Gender'] == 1) {
-                echo '{value: ' . $row['numb'] . ' , color: "#003399", highlight: "#3366ff", label: "' . gettext('Men') . '" },';
+        var PieData = <?php 
+            $Labels          = [];
+            $Datas           = [];
+            $BackgroundColor = [];
+            $borderColor     = [];
+            
+            while ($row = mysqli_fetch_array($rsAdultsGender)) {
+              if ($row['per_Gender'] == 1) {
+                $Labels[]           = _('Men');
+                $Datas[]            = $row['numb'];
+                $BackgroundColor[]  = "#003399";
+                $borderColor[]      = "#3366ff";
+              }
+              if ($row['per_Gender'] == 2) {
+                $Labels[]           = _('Women');
+                $Datas[]            = $row['numb'];
+                $BackgroundColor[]  = "#9900ff";
+                $borderColor[]      = "#ff66cc";
+              }
             }
-            if ($row['per_Gender'] == 2) {
-                echo '{value: ' . $row['numb'] . ' , color: "#9900ff", highlight: "#ff66cc", label: "' . gettext('Women') . '"},';
-            }
-        }
+            
             while ($row = mysqli_fetch_array($rsKidsGender)) {
-                if ($row['per_Gender'] == 1) {
-                    echo '{value: ' . $row['numb'] . ' , color: "#3399ff", highlight: "#99ccff", label: "' . gettext('Boys') . '"},';
-                }
-                if ($row['per_Gender'] == 2) {
-                    echo '{value: ' . $row['numb'] . ' , color: "#009933", highlight: "#99cc00", label: "' . gettext('Girls') . '",}';
-                }
+              if ($row['per_Gender'] == 1) {
+                $Labels[]           = _('Boys');
+                $Datas[]            = $row['numb'];
+                $BackgroundColor[]  = "#3399ff";
+                $borderColor[]      = "#99ccff";
+              }
+              if ($row['per_Gender'] == 2) {
+                $Labels[]           = _('Girls');
+                $Datas[]            = $row['numb'];
+                $BackgroundColor[]  = "#009933";
+                $borderColor[]      = "#99cc00";
+              }
             }
-            ?>
-        ];
+        
+            $datasets = new StdClass();
+            
+            $datasets->label           = '# of Votes';
+            $datasets->data            = $Datas;
+            $datasets->backgroundColor = $BackgroundColor;
+            $datasets->borderColor     = $borderColor;
+            $datasets->borderWidth     = 1;
+        
+        
+            $res = new StdClass();
+        
+            $res->datasets   = [];
+            $res->datasets[] = $datasets;
+            $res->labels     = $Labels;
+            
+            echo json_encode($res,JSON_NUMERIC_CHECK);
+          ?>;
+        
         var pieOptions = {
-
-            //String - Point label font colour
-            pointLabelFontColor: "#666",
-
-            //Boolean - Whether we should show a stroke on each segment
-            segmentShowStroke: true,
-            //String - The colour of each segment stroke
-            segmentStrokeColor: "#fff",
-            //Number - The width of each segment stroke
-            segmentStrokeWidth: 2,
-            //Number - The percentage of the chart that we cut out of the middle
-            percentageInnerCutout: 50, // This is 0 for Pie charts
-            //Boolean - Whether we animate the rotation of the Doughnut
-            animateRotate: false,
-            //Boolean - whether to make the chart responsive to window resizing
-            responsive: true,
-            // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-            maintainAspectRatio: true,
-            //String - A legend template
-            legendTemplate: "<% for (var i=0; i<segments.length; i++){%><span style=\"color: white;padding-right: 4px;padding-left: 2px;background-color:<%=segments[i].fillColor%>\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span> <%}%></ul>"
+          animation: {animateRotate: true, animateScale: false},
+          circumference: 6.283185307179586,
+          cutoutPercentage: 50,
+          hover: {mode: "single"},
+          rotation: -1.5707963267948966
         };
 
         var pieChartCanvas = $("#gender-donut").get(0).getContext("2d");
-        var pieChart = new Chart(pieChartCanvas);
-
-        //Create pie or douhnut chart
-        // You can switch between pie and douhnut using the method below.
-        pieChart = pieChart.Doughnut(PieData, pieOptions);
+        var pieChart = new Chart(pieChartCanvas,{
+          type: 'doughnut',
+          data: PieData,
+          options: pieOptions
+        });
 
         //then you just need to generate the legend
-        var legend = pieChart.generateLegend();
+        //var legend = pieChart.generateLegend();
 
         //and append it to your page somewhere
-        $('#gender-donut-legend').append(legend);
+        //$('#gender-donut-legend').append(legend);
     });
 </script>
 
