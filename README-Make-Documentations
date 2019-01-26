@@ -1,6 +1,4 @@
-** to install mkdocs **
-
-*use the command lines below*
+To install mkdocs : use the command lines below
 
 pip install mkdocs
 apt install python-pip
