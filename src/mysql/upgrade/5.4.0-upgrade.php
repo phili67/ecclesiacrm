@@ -8,15 +8,14 @@ require '../../Include/Config.php';*/
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\dto\SystemURLs;
 
-function removeDirectory($path) {
-  $files = glob($path . '/*');
-  foreach ($files as $file) {
-    is_dir($file) ? removeDirectory($file) : unlink($file);
+  function removeDirectory($path) {
+    $files = glob($path . '/*');
+    foreach ($files as $file) {
+      is_dir($file) ? removeDirectory($file) : unlink($file);
+    }
+    rmdir($path);
+    return;
   }
-  rmdir($path);
-  return;
-}
-
 
   $logger = LoggerUtils::getAppLogger();
   
@@ -32,12 +31,25 @@ function removeDirectory($path) {
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/locale/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-ui/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-photo-uploader/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/fullcalendar/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/fastclick/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/font-awesome/");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/moment/");
+
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/test/.DS_Store");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/src/.DS_Store");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.DS_Store");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.babelrc");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.codeclimate.yml");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.coveralls.yml");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.editorconfig");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.eslintignore");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.eslintignore");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.eslintrc");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.npmignore");
+  unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.travis.yml");
   
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");
   
   $logger->info("End of Reset :  all unusefull files");
 ?>
