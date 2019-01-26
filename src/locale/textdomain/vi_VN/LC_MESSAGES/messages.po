@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-07 18:25+0100\n"
+"POT-Creation-Date: 2019-01-26 18:03+0100\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "Ghi chú tham dự: "
 msgid "POST to cart requires a EventID"
 msgstr ""
 
-#: api/routes/calendarV2.php:181 AutoPaymentEditor.php:887 CartToBadge.php:134
+#: api/routes/calendarV2.php:182 AutoPaymentEditor.php:887 CartToBadge.php:134
 #: EcclesiaCRM/utils/OutputUtils.php:209 EditEventTypes.php:119
 #: EditEventTypes.php:131 EventNames.php:124 EventNames.php:136
 #: EventNames.php:190 GroupReports.php:67 GroupReports.php:165
@@ -38,29 +38,45 @@ msgstr ""
 msgid "None"
 msgstr "Không có"
 
-#: api/routes/calendarV2.php:228
+#: api/routes/calendarV2.php:238
+msgid "Owner"
+msgstr ""
+
+#: api/routes/calendarV2.php:241 api/routes/calendarV2.php:243
+msgid "Access"
+msgstr ""
+
+#: api/routes/calendarV2.php:241
+msgid "Full access in Read and write for all the events of this calendar."
+msgstr ""
+
+#: api/routes/calendarV2.php:243
+msgid "You can only read the events of this calendar."
+msgstr ""
+
+#: api/routes/calendarV2.php:247
 msgid "This address can be used only with a CalDav server."
 msgstr ""
 
-#: api/routes/calendarV2.php:228
+#: api/routes/calendarV2.php:247
 msgid "For thunderbird the URL is"
 msgstr ""
 
-#: api/routes/calendarV2.php:229
+#: api/routes/calendarV2.php:248
 msgid "For a share calendar (only in read mode)"
 msgstr ""
 
-#: api/routes/calendarV2.php:231
+#: api/routes/calendarV2.php:250
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr ""
 
-#: api/routes/calendarV2.php:231
+#: api/routes/calendarV2.php:250
 #, fuzzy
 msgid "General Settings/Integration"
 msgstr "Cài đặt thành viên"
 
-#: api/routes/calendarV2.php:478 api/routes/calendarV2.php:532
-#: api/routes/calendarV2.php:586
+#: api/routes/calendarV2.php:497 api/routes/calendarV2.php:551
+#: api/routes/calendarV2.php:605
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
@@ -221,12 +237,14 @@ msgstr "Thẻ tín dụng"
 msgid "Bank account"
 msgstr "Số tài khoản ngân hàng"
 
-#: api/routes/payments.php:179 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:145
-#: FinancialReports.php:344 PledgeEditor.php:621
+#: api/routes/payments.php:199 api/routes/payments.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:145 FinancialReports.php:344
+#: PledgeEditor.php:621
 msgid "Cash"
 msgstr ""
 
-#: api/routes/payments.php:187 EcclesiaCRM/model/EcclesiaCRM/Deposit.php:140
+#: api/routes/payments.php:207 api/routes/payments.php:224
+#: EcclesiaCRM/model/EcclesiaCRM/Deposit.php:140
 msgid "Checks"
 msgstr ""
 
@@ -1487,7 +1505,7 @@ msgstr ""
 msgid "CheckOut"
 msgstr ""
 
-#: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:286
+#: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:288
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
 #: email/MailChimp/Campaign.php:56 email/MailChimp/ManageList.php:58
@@ -2061,29 +2079,29 @@ msgstr ""
 msgid "Return to Deposit Listing"
 msgstr "Quay về sự kiện"
 
-#: DepositSlipEditor.php:277 FamilyView.php:916 FindDepositSlip.php:121
+#: DepositSlipEditor.php:279 FamilyView.php:916 FindDepositSlip.php:121
 #: PersonView.php:1488
 #, fuzzy
 msgid "Confirm Delete"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
 
-#: DepositSlipEditor.php:278
+#: DepositSlipEditor.php:280
 msgid "Are you sure ? You're about to delete the selected"
 msgstr ""
 
-#: DepositSlipEditor.php:278
+#: DepositSlipEditor.php:280
 msgid "payments(s)?"
 msgstr ""
 
-#: DepositSlipEditor.php:279 FindDepositSlip.php:124
+#: DepositSlipEditor.php:281 FindDepositSlip.php:124
 msgid "This action CANNOT be undone, and may have legal implications!"
 msgstr ""
 
-#: DepositSlipEditor.php:280
+#: DepositSlipEditor.php:282
 msgid "Please ensure this what you want to do.</p>"
 msgstr ""
 
-#: DepositSlipEditor.php:283 FindDepositSlip.php:128 GroupEditor.php:62
+#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:62
 msgid "Close"
 msgstr "Đóng lại"
 
@@ -8883,19 +8901,19 @@ msgstr "Tất cả các loại"
 msgid "Gender Demographics"
 msgstr ""
 
-#: PeopleDashboard.php:402
+#: PeopleDashboard.php:407
 msgid "Men"
 msgstr "Đàn ông"
 
-#: PeopleDashboard.php:405
+#: PeopleDashboard.php:413
 msgid "Women"
 msgstr "Phụ nữ"
 
-#: PeopleDashboard.php:410 sundayschool/SundaySchoolDashboard.php:130
+#: PeopleDashboard.php:422 sundayschool/SundaySchoolDashboard.php:130
 msgid "Boys"
 msgstr "Nam"
 
-#: PeopleDashboard.php:413 sundayschool/SundaySchoolDashboard.php:142
+#: PeopleDashboard.php:428 sundayschool/SundaySchoolDashboard.php:142
 msgid "Girls"
 msgstr "Nữ"
 
