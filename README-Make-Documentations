@@ -3,12 +3,8 @@
 *use the command lines below*
 
 pip install mkdocs
-
 apt install python-pip
-
 pip install --upgrade pip
-
 pip install mkdocs
-
 pip install mkdocs-material
 
