@@ -495,7 +495,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-info">
             <div class="box-header">
                 <i class="fa fa-money"></i>
-                <h3 class="box-title"><?= gettext('Deposit Tracking') ?></h3>
+                <!--<h3 class="box-title"><?= gettext('Deposit Tracking') ?></h3>-->
                 <div class="box-tools pull-right">
                     <div id="deposit-graph" class="chart-legend"></div>
                 </div>
@@ -674,7 +674,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         lineData.datasets[0].borderColor.push("rgba(108, 139, 65, 0.8)");
     });
     
-    lineData.datasets[0].label = i18next.t("Deposit Tracking");
+    lineData.datasets[0].label = "<?= _("Deposit Tracking") ?>";
     
     options = {
       responsive:true,
