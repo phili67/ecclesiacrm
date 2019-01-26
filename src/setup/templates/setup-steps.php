@@ -54,6 +54,11 @@ require '../Include/HeaderNotLoggedIn.php';
         padding: 15px;
         position: relative;
     }
+    
+    td, th {
+      padding: 5px;
+      font-size:14px !important;
+    } 
 
 </style>
 
@@ -63,7 +68,7 @@ require '../Include/HeaderNotLoggedIn.php';
     <div id="wizard">
         <h2>System Prerequisite</h2>
         <section>
-            <table class="table table-condensed" id="prerequisites"></table>
+            <table class="table table-condensed" id="prerequisites"><tbody></tbody></table>
             <p/>
             <div class="callout callout-warning" id="prerequisites-war">
                 This server isn't quite ready for Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>. If you know what you are doing.
@@ -429,7 +434,7 @@ require '../Include/HeaderNotLoggedIn.php';
 </form>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery.steps/jquery.steps.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-validation/jquery.validate.min.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/select2/select2.full.min.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/external/select2/select2.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/setup.js"></script>
 
 <?php
