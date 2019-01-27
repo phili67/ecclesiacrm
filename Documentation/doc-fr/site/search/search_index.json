@@ -101,17 +101,17 @@
             "title": "Les rapports se situent"
         }, 
         {
-            "location": "/user-guide/doc-persons/", 
+            "location": "/user-guide/doc-admin/doc-persons/", 
             "text": "", 
             "title": "Gestion des personnes"
         }, 
         {
-            "location": "/user-guide/doc-families/", 
+            "location": "/user-guide/doc-admin/doc-families/", 
             "text": "", 
             "title": "Gestion des familles"
         }, 
         {
-            "location": "/user-guide/doc-groups/", 
+            "location": "/user-guide/doc-admin/doc-groups/", 
             "text": "", 
             "title": "Gestion des groupes"
         }, 
@@ -161,158 +161,213 @@
             "title": "Modifier le nom ou supprimer un Profile"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-profile/", 
+            "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/", 
+            "text": "Ici vous pourrez r\u00e9gler les param\u00e8tres d'int\u00e9gration avec d'autres applications \n\n\n\n\nMailChimp\n\n\nLes outils permettant d'int\u00e9grer les calendrier externes d'EcclesiaCRM.\n\n\nLa gestion externe de DAV\n\n\n\n\nComment y acc\u00e9der ?\n\n\nAller dans : \n\n\n\n\nPuis s\u00e9lectionner l'onglet : \"Int\u00e9gration\"\n\n\n\n\nIl y a plusieurs p\u00f4les possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.\n\n\nMailChimp : \"bEnabledDavWebBrowser\" \n \"iMailChimpApiMaxMembersCount\"\n\n\nMailChimp est un outil de publipostage compl\u00e8tement int\u00e9gr\u00e9 \u00e0 EcclesiaCRM. Pour obtenir une cl\u00e9 d'activation gratuite aller dans le lien ci-dessous.\n\n\nMailChimp\n\n\nUne fois la c\u00e9l obtenu, il sera possible de la saisir dans : \nbEnabledDavWebBrowser\n\n\nRemarque \n L'api MailChimp pose parfois des probl\u00e8mes quand un trop grand nombre d'utilisateurs est li\u00e9 \u00e0 une liste de diffusion.\n\n\nIl est possible de fixer le nombre maximum de personnes \u00e0 \niMailChimpApiMaxMembersCount\n.\n\n\nsOLPURL \n sOLPUserName \n sOLPPassword\n\n\nCes r\u00e9glages sont utilis\u00e9s pour OpenLP, un syst\u00e8me de pr\u00e9sentation pour les \u00e9glises (Comme PowerPoint).\n\n\nbEnabledDav \n bEnabledDavWebBrowser\n\n\nCes param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler \nsabre.io\n\nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.\n\n\nbEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)\n\n\nbEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :\n\n\n\n\n\n\npour les syst\u00e8me de fichiers : \nhttps://url_de_la_web_application/server.php\n\n\n\n\n\n\npour les calendriers : \nhttps://url_de_la_web_application/calendarserver.php\n\n\n\n\n\n\npour les carnets d'adresses : \nhttps://url_de_la_web_application/addressbookserver.php", 
+            "title": "Int\u00e9gration"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#comment-y-acceder", 
+            "text": "Aller dans :    Puis s\u00e9lectionner l'onglet : \"Int\u00e9gration\"   Il y a plusieurs p\u00f4les possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.", 
+            "title": "Comment y acc\u00e9der ?"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#mailchimp-benableddavwebbrowser-imailchimpapimaxmemberscount", 
+            "text": "MailChimp est un outil de publipostage compl\u00e8tement int\u00e9gr\u00e9 \u00e0 EcclesiaCRM. Pour obtenir une cl\u00e9 d'activation gratuite aller dans le lien ci-dessous.  MailChimp  Une fois la c\u00e9l obtenu, il sera possible de la saisir dans :  bEnabledDavWebBrowser  Remarque   L'api MailChimp pose parfois des probl\u00e8mes quand un trop grand nombre d'utilisateurs est li\u00e9 \u00e0 une liste de diffusion.  Il est possible de fixer le nombre maximum de personnes \u00e0  iMailChimpApiMaxMembersCount .", 
+            "title": "MailChimp : \"bEnabledDavWebBrowser\" &amp; \"iMailChimpApiMaxMembersCount\""
+        }, 
+        {
+            "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#solpurl-solpusername-solppassword", 
+            "text": "Ces r\u00e9glages sont utilis\u00e9s pour OpenLP, un syst\u00e8me de pr\u00e9sentation pour les \u00e9glises (Comme PowerPoint).", 
+            "title": "sOLPURL &amp; sOLPUserName &amp; sOLPPassword"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#benableddav-benableddavwebbrowser", 
+            "text": "Ces param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler  sabre.io \nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.  bEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)  bEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :    pour les syst\u00e8me de fichiers :  https://url_de_la_web_application/server.php    pour les calendriers :  https://url_de_la_web_application/calendarserver.php    pour les carnets d'adresses :  https://url_de_la_web_application/addressbookserver.php", 
+            "title": "bEnabledDav &amp;&amp; bEnabledDavWebBrowser"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-profile/", 
             "text": "Un utilisateur dispose d'un espace personnel ou il peut stoquer ses documents.\n\n\n\n\n\n\nPour y acc\u00e9der :\n\n\n\n\n\n\n\n\nIl dispose d'un espace personnel :\n\n\n\n\n\n\n\n\nIl pourra modifier :\n\n\n\n\nses documents\n\n\nson profile\n\n\nsa famille\n\n\npartager des documents avec tout utilisateur du syst\u00e8me.", 
             "title": "Espace Personnel"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user/", 
+            "location": "/user-guide/doc-person/doc-person/", 
             "text": "Un utilisateur a les droits suivants octroy\u00e9s par l'administrateur\n\n\n\n\n\n\nPour modifier ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nNote : selon votre administrateur, vous n'aurez pas forc\u00e9ment acc\u00e8s \u00e0 tous ces r\u00e9glages.\n\n\n\n\nLes exports CSV\n\n\nLes annuaires\n\n\netc ...\n\n\n\n\nSeront affect\u00e9s par l'administrateur du CRM.", 
             "title": "R\u00e9glages personnels"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/", 
-            "text": "Un utilisateur peut cr\u00e9er des calendriers personnels les lire sur son smartphone ou \u00e0 d'autres utilisateurs\n\n\nCalendriers\n\n\nPour y acc\u00e9der, aller dans la barre lat\u00e9rale et choisir Ev\u00e9nements et calendrier\n\n\n\n\nIl y a trois type de calendrier :\n    - les personnels.\n    - les groupes.\n    - les partag\u00e9s.\n\n\nPour ajouter un nouveau calendrier\n\n\n\n\n\n\nCliquez sur le \"+\"\n\n\n\n\n\n\n\n\nIl suffit de choisir un nom\n\n\n\n\n\n\nModifier sa couleur\n\n\n\n\n\n\nOn clique sur l'ic\u00f4ne du calendrier\n\n\n\n\n\n\n\n\nVous choisissez la couleur voulue\n\n\n\n\n\n\n\n\nle r\u00e9sultat est imm\u00e9diat \u00e0 droite.\n\n\n\n\n\n\nInclure/exclure ses calendriers\n\n\n\n\n\n\nVous pourrez inclure ou exclure des calendriers :\n\n\n\n\nPour cela cliquez sur la roue crant\u00e9e\n\n\n\n\n\n\n\n\nS\u00e9lectionnez le calendrier \u00e0 inclure/exclure\n\n\n\n\n\n\n\n\nVous obtiendrez\n\n\n\n\n\n\n\n\nDans la barre lat\u00e9rale le calendrier est masqu\u00e9 et non supprim\u00e9\n\n\n\n\n\n\n\n\n\n\nPour supprimer un calendrier\n\n\n\n\n\n\nAller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e\n\n\n\n\n\n\n\n\nCliquer sur supprimer", 
+            "location": "/user-guide/doc-person/doc-person-calendar/", 
+            "text": "Un utilisateur peut cr\u00e9er des calendriers personnels les lire sur son smartphone ou \u00e0 d'autres utilisateurs\n\n\nCalendriers\n\n\nPour y acc\u00e9der, aller dans la barre lat\u00e9rale et choisir Ev\u00e9nements et calendrier\n\n\n\n\nIl y a trois type de calendrier :\n\n\n\n\n\n\nles personnels.\n\n\n\n\n\n\nles groupes.\n\n\n\n\n\n\nles r\u00e9servations.\n\n\n\n\n\n\nles partag\u00e9s.\n\n\n\n\n\n\nPour ajouter un nouveau calendrier\n\n\n\n\n\n\nCliquez sur le \"+\"\n\n\n\n\n\n\n\n\nIl suffit de choisir un nom\n\n\n\n\n\n\nModifier sa couleur\n\n\n\n\n\n\nOn clique sur l'ic\u00f4ne du calendrier\n\n\n\n\n\n\n\n\nVous choisissez la couleur voulue\n\n\n\n\n\n\n\n\nle r\u00e9sultat est imm\u00e9diat \u00e0 droite.\n\n\n\n\n\n\nInclure/exclure ses calendriers\n\n\n\n\n\n\nVous pourrez inclure ou exclure des calendriers :\n\n\n\n\nPour cela cliquez sur la roue crant\u00e9e\n\n\n\n\n\n\n\n\nS\u00e9lectionnez le calendrier \u00e0 inclure/exclure\n\n\n\n\n\n\n\n\nVous obtiendrez\n\n\n\n\n\n\n\n\nDans la barre lat\u00e9rale le calendrier est masqu\u00e9 et non supprim\u00e9\n\n\n\n\n\n\n\n\n\n\nPour supprimer un calendrier\n\n\n\n\n\n\nAller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e\n\n\n\n\n\n\n\n\nCliquer sur supprimer\n\n\n\n\n\n\n\n\nRemarques\n\n\nVous constaterez deux liens dans cette fen\u00eatre :\n- Un qui est un lien pour le calendrier de partage dans le cas ou le serveur est compatible CalDaV.\n- L'autre est toujours accessible du moment que les r\u00e9glages administrateurs le permettent, pour cela aller dans la partie des r\u00e9glages particuliers du manuel administrateur.", 
             "title": "Ajouter supprimer"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/#calendriers", 
-            "text": "Pour y acc\u00e9der, aller dans la barre lat\u00e9rale et choisir Ev\u00e9nements et calendrier   Il y a trois type de calendrier :\n    - les personnels.\n    - les groupes.\n    - les partag\u00e9s.", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#calendriers", 
+            "text": "Pour y acc\u00e9der, aller dans la barre lat\u00e9rale et choisir Ev\u00e9nements et calendrier   Il y a trois type de calendrier :    les personnels.    les groupes.    les r\u00e9servations.    les partag\u00e9s.", 
             "title": "Calendriers"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/#pour-ajouter-un-nouveau-calendrier", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#pour-ajouter-un-nouveau-calendrier", 
             "text": "Cliquez sur le \"+\"     Il suffit de choisir un nom", 
             "title": "Pour ajouter un nouveau calendrier"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/#modifier-sa-couleur", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#modifier-sa-couleur", 
             "text": "On clique sur l'ic\u00f4ne du calendrier     Vous choisissez la couleur voulue     le r\u00e9sultat est imm\u00e9diat \u00e0 droite.", 
             "title": "Modifier sa couleur"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/#inclureexclure-ses-calendriers", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#inclureexclure-ses-calendriers", 
             "text": "Vous pourrez inclure ou exclure des calendriers :   Pour cela cliquez sur la roue crant\u00e9e     S\u00e9lectionnez le calendrier \u00e0 inclure/exclure     Vous obtiendrez     Dans la barre lat\u00e9rale le calendrier est masqu\u00e9 et non supprim\u00e9", 
             "title": "Inclure/exclure ses calendriers"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar/#pour-supprimer-un-calendrier", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#pour-supprimer-un-calendrier", 
             "text": "Aller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e     Cliquer sur supprimer", 
             "title": "Pour supprimer un calendrier"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar1/", 
-            "text": "Un utilisateur peut cr\u00e9er des calendriers personnels les lire sur son smartphone ou \u00e0 d'autres utilisateurs\n\n\nPartager un calendrier\n\n\n\n\n\n\nAller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e\n\n\n\n\n\n\n\n\nCliquer le bouton \"Gestion\"\n\n\n\n\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\n\n\n\n\nDans le champ texte, ajouter une personne une famille ou un groupe\n\n\n\n\n\n\nVous pourrez choisir les options Lecture/Ecriture\n\n\n\n\n\n\nRemarque\n\n\n\n\nDe m\u00eame avec les calendriers groupes et partag\u00e9s.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
+            "location": "/user-guide/doc-person/doc-person-calendar/#remarques", 
+            "text": "Vous constaterez deux liens dans cette fen\u00eatre :\n- Un qui est un lien pour le calendrier de partage dans le cas ou le serveur est compatible CalDaV.\n- L'autre est toujours accessible du moment que les r\u00e9glages administrateurs le permettent, pour cela aller dans la partie des r\u00e9glages particuliers du manuel administrateur.", 
+            "title": "Remarques"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-share-calendar/", 
+            "text": "Un utilisateur peut cr\u00e9er des calendriers personnels les lire sur son smartphone ou \u00e0 d'autres utilisateurs\n\n\nPartager un calendrier\n\n\n\n\n\n\nAller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e \u00e0 c\u00f4t\u00e9 du calendrier\n\n\n\n\n\n\n\n\nCliquer le bouton \"Gestion\"\n\n\n\n\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\n\n\n\n\nDans le champ texte, ajouter une personne une famille ou un groupe\n\n\n\n\n\n\nVous pourrez choisir les options Lecture/Ecriture\n\n\n\n\n\n\nRemarques\n\n\n\n\nDe m\u00eame avec les calendriers groupes et partag\u00e9s.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Partager son calendrier"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar1/#partager-un-calendrier", 
-            "text": "Aller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e     Cliquer le bouton \"Gestion\"     Voici le r\u00e9sultat     Dans le champ texte, ajouter une personne une famille ou un groupe    Vous pourrez choisir les options Lecture/Ecriture", 
+            "location": "/user-guide/doc-person/doc-person-share-calendar/#partager-un-calendrier", 
+            "text": "Aller dans la partie gestion, c'est la deuxi\u00e8me roue crant\u00e9e \u00e0 c\u00f4t\u00e9 du calendrier     Cliquer le bouton \"Gestion\"     Voici le r\u00e9sultat     Dans le champ texte, ajouter une personne une famille ou un groupe    Vous pourrez choisir les options Lecture/Ecriture", 
             "title": "Partager un calendrier"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-calendar1/#remarque", 
+            "location": "/user-guide/doc-person/doc-person-share-calendar/#remarques", 
             "text": "De m\u00eame avec les calendriers groupes et partag\u00e9s.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
-            "title": "Remarque"
+            "title": "Remarques"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/", 
             "text": "Un calendrier peut-\u00eatre partag\u00e9 avec un Mac ou un iPhone ou encore avec Thunderbird.\n\n\nEcclesiaCRM est compatible CalDAV \n\n\nPartager un calendrier sous Mac\n\n\n\n\n\n\nOuvrir Calendar sur Mac et ajouter un nouveau calendrier\n\n\n\n\n\n\n\n\nLes param\u00e8tres sont les suivants, vous devrez renseigner le login utilisateurs sous EcclesiaCRM\n\n\n\n\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\n\n\nVous pourrez ajouter des \u00e9v\u00e9nements, si le calendrier est accessible en \u00e9criture.\n\n\ntout sera ensuite r\u00e9percut\u00e9 sous Mac.\n\n\n\n\n\n\n\n\nPartager un calendrier sous iOS\n\n\nla d\u00e9marche est la m\u00eame que sous Mac.\n\n\nIl faut renseigner l'url sous la forme :  http://192.168.151.205/calendarserver.php/principals/plogel2/\n\n\nPartager sous Thunderbird\n\n\n\n\n\n\nDans un premier temps, il faut r\u00e9cup\u00e9rer l'adresse du calendrier\n\n\n\n\n\n\n\n\nVous pourrez s\u00e9lectionner cette adresse et la mettre dans Thunderbird.\n\n\n\n\n\n\nD\u00e9faut, il faut le faire pour chaque calendrier.\n\n\n\n\n\n\nPour Outlook, il faut un connecteur comme pour Zimbra.\n\n\nVous pourrez le t\u00e9l\u00e9charger ici par exemple : \n\n\nhttps://sourceforge.net/projects/outlookcaldavsynchronizer/\n\n\nRemarques\n\n\n\n\nDe m\u00eame avec les calendriers groupes et partag\u00e9s.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Partager avec le Mac"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/#partager-un-calendrier-sous-mac", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/#partager-un-calendrier-sous-mac", 
             "text": "Ouvrir Calendar sur Mac et ajouter un nouveau calendrier     Les param\u00e8tres sont les suivants, vous devrez renseigner le login utilisateurs sous EcclesiaCRM     Voici le r\u00e9sultat    Vous pourrez ajouter des \u00e9v\u00e9nements, si le calendrier est accessible en \u00e9criture.  tout sera ensuite r\u00e9percut\u00e9 sous Mac.", 
             "title": "Partager un calendrier sous Mac"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/#partager-un-calendrier-sous-ios", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/#partager-un-calendrier-sous-ios", 
             "text": "la d\u00e9marche est la m\u00eame que sous Mac.  Il faut renseigner l'url sous la forme :  http://192.168.151.205/calendarserver.php/principals/plogel2/", 
             "title": "Partager un calendrier sous iOS"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/#partager-sous-thunderbird", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/#partager-sous-thunderbird", 
             "text": "Dans un premier temps, il faut r\u00e9cup\u00e9rer l'adresse du calendrier     Vous pourrez s\u00e9lectionner cette adresse et la mettre dans Thunderbird.    D\u00e9faut, il faut le faire pour chaque calendrier.", 
             "title": "Partager sous Thunderbird"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/#pour-outlook-il-faut-un-connecteur-comme-pour-zimbra", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/#pour-outlook-il-faut-un-connecteur-comme-pour-zimbra", 
             "text": "Vous pourrez le t\u00e9l\u00e9charger ici par exemple :   https://sourceforge.net/projects/outlookcaldavsynchronizer/", 
             "title": "Pour Outlook, il faut un connecteur comme pour Zimbra."
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-share-mac/#remarques", 
+            "location": "/user-guide/doc-person/doc-person-share-mac/#remarques", 
             "text": "De m\u00eame avec les calendriers groupes et partag\u00e9s.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Remarques"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-events/", 
+            "location": "/user-guide/doc-person/doc-person-events/", 
             "text": "Il est possible de cr\u00e9er des \u00e9v\u00e9nements de groupes, personnels et partag\u00e9s.\n\n\nCr\u00e9ation d'un \u00e9v\u00e9nement\n\n\n\n\n\n\nAller dans la partie \"Calendrier\"\n\n\n\n\n\n\nIl suffit de cliquer sur la zone de calendrier que vous voulez\n\n\n\n\n\n\n\n\nVous pourrez remplir l'\u00e9v\u00e9nement comme suit\n\n\n\n\n\n\n\n\nNe pas oublier de choisir un calendrier\n\n\nIl est possible de changer la date et rajouter une r\u00e9currence\nPour cela cliquer simplement sur la date, la partie date se d\u00e9pliera :\n\n\n\n\n\n\n\n\nil ne vous reste plus qu'\u00e0 personnaliser.\n\n\nvous pourrez rajouter du texte \u00e0 l'\u00e9v\u00e9nement\n\n\n\n\n\n\n\n\n\n\nOu dans la partie \"Lister les \u00e9v\u00e9nements\"\n\n\n\n\n\n\nLa d\u00e9marche est ensuite la m\u00eame que la partie ci-dessus.\n\n\n\n\n\n\n\n\nActiver un document\n\n\n\n\nil est possible de rendre un document actif ou inactif.\n\n\n\n\n\n\n\n\nRemarques\n\n\n\n\nVous pourrez rajouter des participants aux \u00e9v\u00e9nements.\n\n\nIl pourront ensuite \u00eatre inclus pour faire un appel.\n\n\nen rendant l'\u00e9v\u00e9nement inactif, il n'apparaitra pas dans le calendrier, seulement dans la liste d'\u00e9v\u00e9nements. Il est donc possible de pr\u00e9parer des \u00e9v\u00e9nements \u00e0 l'avance et de les activer au cas par cas.", 
             "title": "Cr\u00e9er un \u00e9v\u00e9nement"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-events/#creation-dun-evenement", 
+            "location": "/user-guide/doc-person/doc-person-events/#creation-dun-evenement", 
             "text": "Aller dans la partie \"Calendrier\"    Il suffit de cliquer sur la zone de calendrier que vous voulez     Vous pourrez remplir l'\u00e9v\u00e9nement comme suit     Ne pas oublier de choisir un calendrier  Il est possible de changer la date et rajouter une r\u00e9currence\nPour cela cliquer simplement sur la date, la partie date se d\u00e9pliera :     il ne vous reste plus qu'\u00e0 personnaliser.  vous pourrez rajouter du texte \u00e0 l'\u00e9v\u00e9nement      Ou dans la partie \"Lister les \u00e9v\u00e9nements\"    La d\u00e9marche est ensuite la m\u00eame que la partie ci-dessus.     Activer un document   il est possible de rendre un document actif ou inactif.", 
             "title": "Cr\u00e9ation d'un \u00e9v\u00e9nement"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-events/#remarques", 
+            "location": "/user-guide/doc-person/doc-person-events/#remarques", 
             "text": "Vous pourrez rajouter des participants aux \u00e9v\u00e9nements.  Il pourront ensuite \u00eatre inclus pour faire un appel.  en rendant l'\u00e9v\u00e9nement inactif, il n'apparaitra pas dans le calendrier, seulement dans la liste d'\u00e9v\u00e9nements. Il est donc possible de pr\u00e9parer des \u00e9v\u00e9nements \u00e0 l'avance et de les activer au cas par cas.", 
             "title": "Remarques"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-creation/", 
+            "location": "/user-guide/doc-person/doc-person-document-creation/", 
             "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nVisualiser tous ses documents\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet Documents\n\n\n\n\n\n\n\n\nVoici la liste des documents\n\n\n\n\n\n\n\n\nIl est possible de les trier par type\n\n\n\n\n\n\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nIl est possible de cr\u00e9er trois types de document\n\n\n\n\n\n\n\n\nles documents classiques\nVous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran.\n\n      c'est un document CKeditor visible que dans le cas du CRM.\nVous pourrez le formater comme bon vous semble.\n\n\n\n\n\n\nles vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.\n\n\n\n\nPour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.\n\n\nAller sur youtube\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Partager\"\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Int\u00e9grer\"\n\n\n\n\n\n\n\n\nIl faut copier le lien comme ci-dessous\n\n\n\n\n\n\n\n\nOn revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"\n\n\n\n\n\n\n\n\nOn clique l'ic\u00f4ne\n\n\n\n\n\n\n\n\nColle le lien en compl\u00e9tant\n\n\n\n\n\n\n\n\n\n\nOn donne un nom au document\n\n\n\n\n\n\n\n\nvoici le r\u00e9sultat\n\n\n\n\n\n\n\n\n\n\nles fichiers classiques\n\n\nIl est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section \nsuivante\n.\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "G\u00e9rer-cr\u00e9er"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-creation/#visualiser-tous-ses-documents", 
+            "location": "/user-guide/doc-person/doc-person-document-creation/#visualiser-tous-ses-documents", 
             "text": "Pour cela aller dans votre espace personnel     Cliquez l'onglet Documents     Voici la liste des documents     Il est possible de les trier par type", 
             "title": "Visualiser tous ses documents"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-creation/#creation", 
+            "location": "/user-guide/doc-person/doc-person-document-creation/#creation", 
             "text": "Aller dans un document, CKEditor   Pour cela aller dans votre personnel      Ajouter un document", 
             "title": "Cr\u00e9ation"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-creation/#il-est-possible-de-creer-trois-types-de-document", 
+            "location": "/user-guide/doc-person/doc-person-document-creation/#il-est-possible-de-creer-trois-types-de-document", 
             "text": "les documents classiques Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran. \n      c'est un document CKeditor visible que dans le cas du CRM. Vous pourrez le formater comme bon vous semble.    les vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.   Pour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.  Aller sur youtube     cliquer sur le lien \"Partager\"     cliquer sur le lien \"Int\u00e9grer\"     Il faut copier le lien comme ci-dessous     On revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"     On clique l'ic\u00f4ne     Colle le lien en compl\u00e9tant      On donne un nom au document     voici le r\u00e9sultat      les fichiers classiques  Il est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section  suivante .", 
             "title": "Il est possible de cr\u00e9er trois types de document"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-creation/#remarque", 
+            "location": "/user-guide/doc-person/doc-person-document-creation/#remarque", 
             "text": "Vous faire de m\u00eame avec les calendriers groupes et partag\u00e9.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Remarque"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-templates/", 
+            "location": "/user-guide/doc-person/doc-person-document-templates/", 
             "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nVous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les\n\n\n\n\n\n\n\n\nLe cr\u00e9er\n\n\n\n\ndans un premier temps, formater votre document comme bon vous semble.\n\n\n\n\n\n\n\n\nVous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les\n\n\n\n\n\n\n\n\n\n\nGestion des profiles\n\n\n\n\nquand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer\n\n\n\n\n\n\n\n\nVous pourrez le renommer ou le supprimer facilement\n\n\n\n\n\n\n\n\n\n\nAppliquer\n\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Mod\u00e8les"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-templates/#creation", 
+            "location": "/user-guide/doc-person/doc-person-document-templates/#creation", 
             "text": "Aller dans un document, CKEditor   Pour cela aller dans votre personnel      Ajouter un document     Vous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les     Le cr\u00e9er   dans un premier temps, formater votre document comme bon vous semble.     Vous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les      Gestion des profiles   quand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer     Vous pourrez le renommer ou le supprimer facilement      Appliquer", 
             "title": "Cr\u00e9ation"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-templates/#remarque", 
+            "location": "/user-guide/doc-person/doc-person-document-templates/#remarque", 
             "text": "Vous faire de m\u00eame avec les calendriers groupes et partag\u00e9.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Remarque"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-share/", 
+            "location": "/user-guide/doc-person/doc-person-document-share/", 
             "text": "Un utilisateur a la possibilit\u00e9 de partager ses documents avec tous les autres utilisateurs.\n\n\nPartager un document\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nAller dans l'onglet Documents\n\n\n\n\n\n\n\n\nVous constatez que vous avez une ic\u00f4ne \u00e0 c\u00f4t\u00e9 de la date de cr\u00e9ation\n\n\n\n\n\n\n\n\nS\u00e9lectionnez la derni\u00e8re ic\u00f4ne\n\n\n\n\n\n\n\n\nIl suffit de choisir le nom :\n\n\n\n\nd'une personne \n\n\nd'une famille\n\n\nd'un groupe\n\n\n\n\nVous constaterez qu'un document partag\u00e9 a une ic\u00f4ne qui est pass\u00e9e au vert.\n\n\n\n\n\n\n\n\nIl est possible ensuite de fixer les droits pour chacune des personnes affect\u00e9es.\n\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nAvec cette derni\u00e8re boite de dialogue, il est possible de supprimer soit des personnes du partage.\n\n\nIl est possible de supprimer \u00e9galement le partage via ce m\u00eame panneau.", 
             "title": "Les partager"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-share/#partager-un-document", 
+            "location": "/user-guide/doc-person/doc-person-document-share/#partager-un-document", 
             "text": "Pour cela aller dans votre espace personnel     Aller dans l'onglet Documents     Vous constatez que vous avez une ic\u00f4ne \u00e0 c\u00f4t\u00e9 de la date de cr\u00e9ation     S\u00e9lectionnez la derni\u00e8re ic\u00f4ne     Il suffit de choisir le nom :   d'une personne   d'une famille  d'un groupe   Vous constaterez qu'un document partag\u00e9 a une ic\u00f4ne qui est pass\u00e9e au vert.     Il est possible ensuite de fixer les droits pour chacune des personnes affect\u00e9es.", 
             "title": "Partager un document"
         }, 
         {
-            "location": "/user-guide/doc-user/doc-user-document-share/#remarque", 
+            "location": "/user-guide/doc-person/doc-person-document-share/#remarque", 
             "text": "Avec cette derni\u00e8re boite de dialogue, il est possible de supprimer soit des personnes du partage.  Il est possible de supprimer \u00e9galement le partage via ce m\u00eame panneau.", 
+            "title": "Remarque"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-creation/", 
+            "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nVisualiser tous ses documents\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet Documents\n\n\n\n\n\n\n\n\nVoici la liste des documents\n\n\n\n\n\n\n\n\nIl est possible de les trier par type\n\n\n\n\n\n\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nIl est possible de cr\u00e9er trois types de document\n\n\n\n\n\n\n\n\nles documents classiques\nVous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran.\n\n      c'est un document CKeditor visible que dans le cas du CRM.\nVous pourrez le formater comme bon vous semble.\n\n\n\n\n\n\nles vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.\n\n\n\n\nPour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.\n\n\nAller sur youtube\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Partager\"\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Int\u00e9grer\"\n\n\n\n\n\n\n\n\nIl faut copier le lien comme ci-dessous\n\n\n\n\n\n\n\n\nOn revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"\n\n\n\n\n\n\n\n\nOn clique l'ic\u00f4ne\n\n\n\n\n\n\n\n\nColle le lien en compl\u00e9tant\n\n\n\n\n\n\n\n\n\n\nOn donne un nom au document\n\n\n\n\n\n\n\n\nvoici le r\u00e9sultat\n\n\n\n\n\n\n\n\n\n\nles fichiers classiques\n\n\nIl est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section \nsuivante\n.\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
+            "title": "G\u00e9rer-cr\u00e9er"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-creation/#visualiser-tous-ses-documents", 
+            "text": "Pour cela aller dans votre espace personnel     Cliquez l'onglet Documents     Voici la liste des documents     Il est possible de les trier par type", 
+            "title": "Visualiser tous ses documents"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-creation/#creation", 
+            "text": "Aller dans un document, CKEditor   Pour cela aller dans votre personnel      Ajouter un document", 
+            "title": "Cr\u00e9ation"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-creation/#il-est-possible-de-creer-trois-types-de-document", 
+            "text": "les documents classiques Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran. \n      c'est un document CKeditor visible que dans le cas du CRM. Vous pourrez le formater comme bon vous semble.    les vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.   Pour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.  Aller sur youtube     cliquer sur le lien \"Partager\"     cliquer sur le lien \"Int\u00e9grer\"     Il faut copier le lien comme ci-dessous     On revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"     On clique l'ic\u00f4ne     Colle le lien en compl\u00e9tant      On donne un nom au document     voici le r\u00e9sultat      les fichiers classiques  Il est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section  suivante .", 
+            "title": "Il est possible de cr\u00e9er trois types de document"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-creation/#remarque", 
+            "text": "Vous faire de m\u00eame avec les calendriers groupes et partag\u00e9.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "Remarque"
         }, 
         {
@@ -354,6 +409,56 @@
             "location": "/user-guide/doc-webdav-file/doc-webdav-use/#sous-windows", 
             "text": "Dans l'explorateur de fichiers, fa\u00eetes un clic droit sur l'ic\u00f4ne r\u00e9seau     Il faudra ensuite saisir l'adresse sous la forme :  https://url_serveur/server.php/home/nom_utilisateur/     Renseignez l'identifiant de l'utilisateur, en cochant les deux cases      Une fen\u00eatre s'ouvrira sur le dossier de partage    Il est possible maintenant d'ajouter les documents que vous voulez dans ce dossier et ils se retrouveront dans profile utilisateur.  Un fichier rajout\u00e9 via ce moyen aura une mention DAV :", 
             "title": "Sous Windows"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/", 
+            "text": "Ecclesia\nCRM\n documentation de l'API\n\n\n\n\nEcclesia\nCRM\n utilise Slim 3.9.2 qui permet d'acc\u00e9der de mani\u00e8re restreinte aux \u00e9l\u00e9ments du CRM.\n\n\nPeople\n\n\n\n\n[GET] /api/persons/search/:query\n\n\nRetourne une liste de membre qui ont le nom, pr\u00e9nom, l'adresse, la ville, le t\u00e9l\u00e9phone, le suivi pastoral ...\n\n\n[POST] /api/persons/volunteers/:personID\n\n\nretourne toutes les opportunit\u00e9s de b\u00e9n\u00e9volat pour une personne\n\n\n[POST] /volunteers/delete\n\n\npermet de supprimer une opportunit\u00e9s de b\u00e9n\u00e9volat pour une personne\n\n\n\n\nFamilies\n\n\n\n\n[GET] /families/byCheckNumber/:tScanString\n\n\nReturns a family string based on the scan string of an MICR reader containing a routing and account number\n\n\n[GET] /families/byEnvelopeNumber/:tEnvelopeNumber\n\n\nReturns a family string based on the the requested envelope number\n\n\n[GET] /api/families/search/:query\n\n\nReturns a list of the families who's name matches the :query parameter\n\n\n[GET] /api/families/lastedited\n\n\nReturns a the last 10 updated families\n\n\n[POST] /api/families/:familyId/activate/:status\n\n\nUpdate the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.\n\n\n\n\nGroups\n\n\n\n\n[POST] /api/groups\n\n\nPost Data options:  {\n      'groupName':\"groupName\",\n      'isSundaySchool':[true|false]\n    }\n\n\nif isSundaySchool is specified, the group will be marked as a Sunday School class, and the Teacher and Student roles will be created.\n\n\n[POST] /api/groups/:groupID/removeuser/:userID\n\n\nRemoves the user with ID :userID from group with ID :groupID\n\n\n[POST] /api/groups/:groupID/adduser/:userID\n\n\nAdds the user with ID :userID to the group with ID :groupID\n\n\n[DELETE] /api/groups/:groupID\n\n\nDeletes the group with ID :groupID\n\n\n[GET] /api/groups/:groupID\n\n\nReturns a JSON objecte representing the group with ID :groupID\n\n\n[POST] /api/groups/:groupID/roles/:roleID\n\n\nAlters the role with ID :roleID for group with ID :groupID/adduser/\n\n\nRequires JSON with either \"groupRoleName\", or \"groupRoleOrder\" properties set\n\n\n[DELETE] /api/groups/:groupID/roles/:roleID\n\n\nDeletes the specified roleID in the group\n\n\n[POST] /api/groups/:groupID/defaultRole\n\n\nSets the default role fo the group with ID :groupID\n\n\nRequres JSON in the POST body with the \"roleID\" property set\n\n\n[POST] /api/groups/:groupID/roles/\n\n\nCreates a new group role for group with ID :groupID\n\n\nrequires JSON in the POST body with roleName set to the new role's name\n\n\n[POST] /api/groups/:groupID/userRole/:userID\n\n\nSets the role of a user in a group\n\n\nrequires JSON in the POST body with roleID set to the ID of the user's role in the specified group\n\n\n[POST] /api/:groupID/setGroupSpecificPropertyStatus\n\n\nrequires JSON property GroupSpecificPropertyStatus either true or false\n\n\n[POST] /api/:groupID/settings/active/{true/false}\n\n\nsets the status to true or false\n\n\n[POST] /api/:groupID/settings/email/export/{true/false}\n\n\nsets the email export status to true or false\n\n\n\n\nDeposits\n\n\n\n\n[GET] /\n\n\nReturns all deposits\n\n\n[POST] /\n\n\nCreates a new deposit\n\n\nRequires JSON body with properties: depositType, depositComment, depositDate\n\n\n[GET] /:id\n\n\nReturns the deposit with the selected ID\n\n\n[POST] /:id\n\n\nUpdates the deposit\n\n\nrequires JSON body with properties: depositType, depositComment, depositDate, depositClosed\n\n\n[GET] /:id/ofx\n\n\nReturns an OFX file representing the requested deposit\n\n\n[GET] /:id/pdf\n\n\nReturns a PDF file representing the requested deposit\n\n\n[GET] /:id/csv\n\n\nReturns a CSV file representing the requested deposit\n\n\n[DELETE] /:id\n\n\nDeletes the selected deposit\n\n\n[GET] /:id/payments\n\n\nReturns all payments associated with the supplied deposit ID\n\n\n\n\nPayments\n\n\n\n\n[GET] /\n\n\nReturns all payments\n\n\n[POST] /\n\n\nPosts a new payment. Validates the input\n\n\n[GET] /:id\n\n\nGets the specified payment by ID\n\n\n[GET] /byFamily/:familyID(/:fyid)\n\n\nGets all payments be family, and optionally by the fiscal year ID\n\n\n[DELETE] /:groupKey\n\n\nDeleted the payment with the specified GroupKey\n\n\n\n\nSearch\n\n\n\n\n[GET] /api/search/:query\n\n\na search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query\n\n\n\n\nEvents\n\n\nNo API Calls yet for Events\n\n\nUtilities\n\n\n Seed Data (/data/seed) \n\n\n\n\n[GET] /data/seed/families/{count}\n\n\nExpects: A JSON element containing one element: families of type (int)\n\n\nActions: Generates the supplied number of families in the EcclesiaCRM database using the randomuser.me web service.\n\n\nReturns: A JSON element containing statistics about the families added, as well as the raw data from the randomuser.me data query.\n\n\n[POST] /data/seed/sundaySchoolClasses (Not yet implemented)\n\n\nExpects:\n\n\nActions:\n\n\nReturns:", 
+            "title": "Tableau de bord"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#ecclesiacrm-documentation-de-lapi", 
+            "text": "Ecclesia CRM  utilise Slim 3.9.2 qui permet d'acc\u00e9der de mani\u00e8re restreinte aux \u00e9l\u00e9ments du CRM.", 
+            "title": "EcclesiaCRM documentation de l'API"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#people", 
+            "text": "[GET] /api/persons/search/:query  Retourne une liste de membre qui ont le nom, pr\u00e9nom, l'adresse, la ville, le t\u00e9l\u00e9phone, le suivi pastoral ...  [POST] /api/persons/volunteers/:personID  retourne toutes les opportunit\u00e9s de b\u00e9n\u00e9volat pour une personne  [POST] /volunteers/delete  permet de supprimer une opportunit\u00e9s de b\u00e9n\u00e9volat pour une personne", 
+            "title": "People"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#families", 
+            "text": "[GET] /families/byCheckNumber/:tScanString  Returns a family string based on the scan string of an MICR reader containing a routing and account number  [GET] /families/byEnvelopeNumber/:tEnvelopeNumber  Returns a family string based on the the requested envelope number  [GET] /api/families/search/:query  Returns a list of the families who's name matches the :query parameter  [GET] /api/families/lastedited  Returns a the last 10 updated families  [POST] /api/families/:familyId/activate/:status  Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.", 
+            "title": "Families"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#groups", 
+            "text": "[POST] /api/groups  Post Data options:  {\n      'groupName':\"groupName\",\n      'isSundaySchool':[true|false]\n    }  if isSundaySchool is specified, the group will be marked as a Sunday School class, and the Teacher and Student roles will be created.  [POST] /api/groups/:groupID/removeuser/:userID  Removes the user with ID :userID from group with ID :groupID  [POST] /api/groups/:groupID/adduser/:userID  Adds the user with ID :userID to the group with ID :groupID  [DELETE] /api/groups/:groupID  Deletes the group with ID :groupID  [GET] /api/groups/:groupID  Returns a JSON objecte representing the group with ID :groupID  [POST] /api/groups/:groupID/roles/:roleID  Alters the role with ID :roleID for group with ID :groupID/adduser/  Requires JSON with either \"groupRoleName\", or \"groupRoleOrder\" properties set  [DELETE] /api/groups/:groupID/roles/:roleID  Deletes the specified roleID in the group  [POST] /api/groups/:groupID/defaultRole  Sets the default role fo the group with ID :groupID  Requres JSON in the POST body with the \"roleID\" property set  [POST] /api/groups/:groupID/roles/  Creates a new group role for group with ID :groupID  requires JSON in the POST body with roleName set to the new role's name  [POST] /api/groups/:groupID/userRole/:userID  Sets the role of a user in a group  requires JSON in the POST body with roleID set to the ID of the user's role in the specified group  [POST] /api/:groupID/setGroupSpecificPropertyStatus  requires JSON property GroupSpecificPropertyStatus either true or false  [POST] /api/:groupID/settings/active/{true/false}  sets the status to true or false  [POST] /api/:groupID/settings/email/export/{true/false}  sets the email export status to true or false", 
+            "title": "Groups"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#deposits", 
+            "text": "[GET] /  Returns all deposits  [POST] /  Creates a new deposit  Requires JSON body with properties: depositType, depositComment, depositDate  [GET] /:id  Returns the deposit with the selected ID  [POST] /:id  Updates the deposit  requires JSON body with properties: depositType, depositComment, depositDate, depositClosed  [GET] /:id/ofx  Returns an OFX file representing the requested deposit  [GET] /:id/pdf  Returns a PDF file representing the requested deposit  [GET] /:id/csv  Returns a CSV file representing the requested deposit  [DELETE] /:id  Deletes the selected deposit  [GET] /:id/payments  Returns all payments associated with the supplied deposit ID", 
+            "title": "Deposits"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#payments", 
+            "text": "[GET] /  Returns all payments  [POST] /  Posts a new payment. Validates the input  [GET] /:id  Gets the specified payment by ID  [GET] /byFamily/:familyID(/:fyid)  Gets all payments be family, and optionally by the fiscal year ID  [DELETE] /:groupKey  Deleted the payment with the specified GroupKey", 
+            "title": "Payments"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#search", 
+            "text": "[GET] /api/search/:query  a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query", 
+            "title": "Search"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#events", 
+            "text": "No API Calls yet for Events", 
+            "title": "Events"
+        }, 
+        {
+            "location": "/user-guide/doc-dev/api/#utilities", 
+            "text": "Seed Data (/data/seed)    [GET] /data/seed/families/{count}  Expects: A JSON element containing one element: families of type (int)  Actions: Generates the supplied number of families in the EcclesiaCRM database using the randomuser.me web service.  Returns: A JSON element containing statistics about the families added, as well as the raw data from the randomuser.me data query.  [POST] /data/seed/sundaySchoolClasses (Not yet implemented)  Expects:  Actions:  Returns:", 
+            "title": "Utilities"
         }, 
         {
             "location": "/user-guide/doc-dev/api/", 
