@@ -254,7 +254,7 @@ class SystemConfig
         "bEnabledFundraiser" => new ConfigItem(2075, "bEnabledFundraiser", "boolean", "1", gettext("Enable Fundraiser menu.")),
         "bEnabledEmail" => new ConfigItem(2076, "bEnabledEmail", "boolean", "1", gettext("Enable Email menu.")),
         "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", gettext("Enable WebDav, CardDav and CalDav support.")),
-        "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", gettext("Enable WebDav, CardDav and CalDav support.")),
+        "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", gettext("Enable WebDav, CardDav and CalDav support through a Browser.")),
         "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", gettext("Max count of members in a MailChimp List."))
       );
   }

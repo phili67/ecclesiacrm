@@ -4,7 +4,35 @@ font-size: 14px;
 line-height: 1.42857143;
 color: #000;
 background-color: #fff;
-font-weight:300;
+font-weight:200;
+}
+
+.content-header>h1 {
+font-weight: 100;
+}
+
+.h3, h3 {
+font-weight: 200;
+}
+
+.h4, h4 {
+font-weight: 200 !important;
+}
+
+/* the treeview */
+
+.treeview-menu>li>a {
+font-weight: 300;
+}
+
+/* the select input */>
+
+select.input-sm {
+font-weight: 300;
+}
+
+.login-logo, .register-logo {
+font-weight: 200;
 }
 
 /*
@@ -44,6 +72,7 @@ the buttons
    border-radius: 2px  !important;
    border:1px gray !important;
    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 3px 5px -5px rgba(169, 170, 176, 0.4) !important;
+   font-weight: 200;
 }
 
 .btn-link-menu {
@@ -83,7 +112,7 @@ input.form-control {
   border-left:0px;
   border-right:0px;
   color:#222 !important;
-  font-weight: 500 !important;
+  font-weight: 300 !important;
   height : 25px;
   /*padding: 12px 10px !important;*/
 }
@@ -485,7 +514,7 @@ width: 100%;
 }
 
 .nav-tabs-custom>.nav-tabs>li>a {
-  font-weight:400;
+  font-weight:300;
   border: 1px white  !important;
   border-radius: 30px  !important;
   background-color: white  !important;
@@ -497,7 +526,7 @@ width: 100%;
 }
 
 .nav-tabs-custom>.nav-tabs>li>a:hover {
-  font-weight:400;
+  font-weight:300;
   border: 1px #ddd  !important;
   background-color: #ddd  !important;
   color: black  !important;
