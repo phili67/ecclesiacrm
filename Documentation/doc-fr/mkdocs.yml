@@ -52,29 +52,35 @@ pages:
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
         - "Localisation CRM en français": 'user-guide/doc-installation/doc-localization.md'
         - "Rapports CRM en français": 'user-guide/doc-installation/doc-report.md'
-    - 'Gestion des personnes': 'user-guide/doc-persons.md'
-    - 'Gestion des familles': 'user-guide/doc-families.md'
-    - 'Gestion des groupes': 'user-guide/doc-groups.md'
+    - 'Gestion des personnes': 'user-guide/doc-admin/doc-persons.md'
+    - 'Gestion des familles': 'user-guide/doc-admin/doc-families.md'
+    - 'Gestion des groupes': 'user-guide/doc-admin/doc-groups.md'
     - 'Droits et gestion des utilisateurs du CRM': 
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
+    - 'Réglages généraux':
+        - "Intégration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
 - Manuel utilisateur:
     - "Gérer son profile": 
-        - 'Espace Personnel': 'user-guide/doc-user/doc-user-profile.md'
-        - 'Réglages personnels': 'user-guide/doc-user/doc-user.md'
+        - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
+        - 'Réglages personnels': 'user-guide/doc-person/doc-person.md'
     - "calendriers":
-        - 'Ajouter supprimer': 'user-guide/doc-user/doc-user-calendar.md'
-        - 'Partager son calendrier': 'user-guide/doc-user/doc-user-calendar1.md'
-        - 'Partager avec le Mac': 'user-guide/doc-user/doc-user-share-mac.md'
-        - 'Créer un événement': 'user-guide/doc-user/doc-user-events.md'
+        - 'Ajouter supprimer': 'user-guide/doc-person/doc-person-calendar.md'
+        - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
+        - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
+        - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
     - "Documents": 
-        - 'Gérer-créer': 'user-guide/doc-user/doc-user-document-creation.md'
-        - 'Modèles': 'user-guide/doc-user/doc-user-document-templates.md'
-        - 'Les partager': 'user-guide/doc-user/doc-user-document-share.md'
+        - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
+        - 'Modèles': 'user-guide/doc-person/doc-person-document-templates.md'
+        - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
+    - "Edrive":
+        - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
     - 'Gestion des fichiers': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
         - 'Utiliser la gestion de fichiers sans serveur': 'user-guide/doc-webdav-file/doc-file-use.md'
         - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
+- MailChimp:
+    - 'Tableau de bord': 'user-guide/doc-dev/api.md'
 - Manuel du développeur:
     - 'API': 'user-guide/doc-dev/api.md'
 - À propos:

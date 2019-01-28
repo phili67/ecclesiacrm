@@ -494,7 +494,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="box box-info">
             <div class="box-header">
-                <i class="fa fa-money"></i>
+                <i class="fa fa-money fa-5x" style="font-size:26px"></i>
                 <!--<h3 class="box-title"><?= gettext('Deposit Tracking') ?></h3>-->
                 <div class="box-tools pull-right">
                     <div id="deposit-graph" class="chart-legend"></div>
