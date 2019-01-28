@@ -8,7 +8,7 @@ require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
 
 <form action="<?= SystemURLs::getRootPath() ?>/external/register/done" method="post">
-  <div class="register-box" style="width: 600px;">
+  <div class="register-box register-box-custom">
     <div class="register-logo">
       <a href="<?= SystemURLs::getRootPath() ?>/"><b>Ecclesia</b>CRM</a>
     </div>
