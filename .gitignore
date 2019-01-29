@@ -53,3 +53,10 @@ src/logs/*.log
 error.log
 /nbproject/private/
 !propel/*
+
+# ignore the sufolders of propel
+propel/extract_schema.sh
+propel/generated-reversed-database/
+
+# ignore 
+prepare_archive.sh
