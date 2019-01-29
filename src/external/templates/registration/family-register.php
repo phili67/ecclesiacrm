@@ -10,7 +10,7 @@ $sPageTitle = gettext("Family Registration");
 require(SystemURLs::getDocumentRoot(). "/Include/HeaderNotLoggedIn.php");
 ?>
 
-  <div class="register-box" style="width: 600px;">
+  <div class="register-box register-box-custom">
     <div class="register-logo">
       <?php
         $headerHTML = '<b>Ecclesia</b>CRM';

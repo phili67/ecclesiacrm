@@ -197,7 +197,7 @@ $("document").ready(function(){
         data:'kidId',
         render: function(data, type, full, meta) {
           return '<table>'
-              +'<tr>'
+              +'<tr class="no-background-theme">'
               +'  <td style="min-width:55px">'
               +'    <img src="'+window.CRM.root+'/api/persons/'+data+'/thumbnail"'
               +'        alt="User Image" class="user-image initials-image" width="50" height="50" />'
