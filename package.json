@@ -56,7 +56,7 @@
     "datatables.net-dt": "^1.10.19",
     "datatables.net-responsive": "^2.2.3",
     "font-awesome": "4.7.0",
-    "fullcalendar": "3.9.0",
+    "fullcalendar": "^3.9.0",
     "grunt-git": "^1.0.10",
     "grunt-http": "^2.2.0",
     "grunt-sass": "^3.0.2",
