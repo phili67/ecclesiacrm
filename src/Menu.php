@@ -507,7 +507,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
     </div>
 </div>
 <?php
-                  }  //END IF block for Finance permissions to include HTML for Deposit Chart
+}  //END IF block for Finance permissions to include HTML for Deposit Chart
 ?>
 
 <div class="row">
@@ -524,19 +524,17 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 </div>
             </div><!-- /.box-header -->
             <div class="box-body clearfix">
-                <div class="table-responsive" style="overflow:hidden">
-                    <table class="dataTable table table-striped table-condensed" id="latestFamiliesDashboardItem">
-                        <thead>
-                        <tr>
-                            <th data-field="name"><?= gettext('Family Name') ?></th>
-                            <th data-field="address"><?= gettext('Address') ?></th>
-                            <th data-field="city"><?= gettext('Created') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+              <table class="dataTable table table-striped table-condensed" id="latestFamiliesDashboardItem">
+                  <thead>
+                  <tr>
+                      <th data-field="name"><?= gettext('Family Name') ?></th>
+                      <th data-field="address"><?= gettext('Address') ?></th>
+                      <th data-field="city"><?= gettext('Created') ?></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
             </div>
         </div>
     </div>
@@ -553,19 +551,17 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
                 </div>
             </div><!-- /.box-header -->
             <div class="box-body clearfix">
-                <div class="table-responsive" style="overflow:hidden">
-                    <table class=" dataTable table table-striped table-condensed" id="updatedFamiliesDashboardItem">
-                        <thead>
-                        <tr>
-                            <th data-field="name"><?= gettext('Family Name') ?></th>
-                            <th data-field="address"><?= gettext('Address') ?></th>
-                            <th data-field="city"><?= gettext('Updated') ?></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+              <table class=" dataTable table table-striped table-condensed" id="updatedFamiliesDashboardItem">
+                  <thead>
+                  <tr>
+                      <th data-field="name"><?= gettext('Family Name') ?></th>
+                      <th data-field="address"><?= gettext('Address') ?></th>
+                      <th data-field="city"><?= gettext('Updated') ?></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
             </div>
         </div>
     </div>
