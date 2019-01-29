@@ -60,3 +60,6 @@ propel/generated-reversed-database/
 
 # ignore 
 prepare_archive.sh
+
+# ignore
+package-lock.json
