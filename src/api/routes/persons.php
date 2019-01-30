@@ -1,5 +1,8 @@
 <?php
 /* contributor Philippe Logel */
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 
 // Person APIs
 use Propel\Runtime\Propel;
@@ -29,190 +32,38 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Emails\UpdateAccountEmail;
 
 
 $app->group('/persons', function () {
     // search person by Name
-    $this->get('/search/{query}', function ($request, $response, $args) {
-        $query = $args['query'];
-
-      $searchLikeString = '%'.$query.'%';
-      $people = PersonQuery::create()->
-      filterByFirstName($searchLikeString, Criteria::LIKE)->
-      _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-      _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
-          limit(15)->find();
-        
-        $id = 1;
-        
-        $return = [];        
-        foreach ($people as $person) {
-            $values['id'] = $id++;
-            $values['objid'] = $person->getId();
-            $values['text'] = $person->getFullName();
-            $values['uri'] = $person->getViewURI();
-            
-            array_push($return, $values);
-        }
-        
-        return $response->withJson($return);    
-    });
-    
+    $this->get('/search/{query}', "searchPerson");
 
     /**
      *
      * VolunteerOpportunity 
      *
      **/
-    $this->post('/volunteers/{personID:[0-9]+}', function ($request, $response, $args) {
-      return VolunteerOpportunityQuery::Create()
-        ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
-        ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$args['personID'])
-        ->find()->toJson();
-    });
+    $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId");
+    $this->post('/volunteers/delete', "volunteersDelete");
+    $this->post('/volunteers/add', "volunteersAdd");
+    
+    $this->post('/isMailChimpActive', "isMailChimpActive");
 
-    $this->post('/volunteers/delete', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-    
-      if ( isset ($input->personId) && isset ($input->volunteerOpportunityId) ){
-      
-        $vol = PersonVolunteerOpportunityQuery::Create()
-          ->filterByPersonId($input->personId)
-          ->findOneByVolunteerOpportunityId($input->volunteerOpportunityId);
-          
-        if (!is_null($vol)){
-          $vol->delete();
-        }
-        
-        $vols = PersonVolunteerOpportunityQuery::Create()
-          ->filterByPersonId($input->personId)
-          ->find();
-        
-        return $response->withJson(['success' => true,'count' => $vols->count()]);
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-    
-    $this->post('/isMailChimpActive', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-    
-      if ( isset ($input->personId) && isset ($input->email)){
-      
-        // we get the MailChimp Service
-        $mailchimp = new MailChimpService();
-        $person = PersonQuery::create()->findPk($input->personId);
-        
-        if ( !is_null ($mailchimp) && $mailchimp->isActive() && !is_null ($person->getFamily()) ) {
-          return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getFamily()->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
-        }
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-
-    $this->post('/volunteers/add', function ($request, $response, $args) {
-      $input = (object)$request->getParsedBody();
-    
-      if ( isset ($input->personId) && isset ($input->volID) ){
-      
-        $vol = PersonVolunteerOpportunityQuery::Create()
-          ->filterByPersonId($input->personId)
-          ->findOneByVolunteerOpportunityId($input->volID);
-          
-        if (is_null($vol)){
-          $vol = new PersonVolunteerOpportunity();
-          
-          $vol->setPersonId($input->personId);
-          $vol->setVolunteerOpportunityId($input->volID);
-
-          $vol->save();
-        }
-        
-        $vols = PersonVolunteerOpportunityQuery::Create()
-          ->filterByPersonId($input->personId)
-          ->find();
-        
-        return $response->withJson(['success' => true,'count' => $vols->count()]);
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-    
     /**
      * Update the person status to activated or deactivated with :familyId and :status true/false.
      * Pass true to activate and false to deactivate.     *
      */
-    $this->post('/{personId:[0-9]+}/activate/{status}', function ($request, $response, $args) {
-        $personId = $args["personId"];
-        $newStatus = $args["status"];
-
-        $person = PersonQuery::create()->findPk($personId);
-        $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
-
-        //update only if the value is different
-        if ($currentStatus != $newStatus) {
-            if ($newStatus == "false") {
-                $person->setDateDeactivated(date('YmdHis'));
-            } elseif ($newStatus == "true") {
-                $person->setDateDeactivated(Null);
-            }
-            $person->save();
-            
-            // a one person family is deactivated too
-            if ($person->getFamily()->getPeople()->count() == 1) {
-              if ($newStatus == "false") {
-                  $person->getFamily()->setDateDeactivated(date('YmdHis'));
-              } elseif ($newStatus == "true") {
-                  $person->getFamily()->setDateDeactivated(Null);
-              }
-              $person->getFamily()->save();
-            }
-
-            //Create a note to record the status change
-            $note = new Note();
-            $note->setPerId($personId);
-            if ($newStatus == 'false') {
-                $note->setText(gettext('Person Deactivated'));
-            } else {
-                $note->setText(gettext('Person Activated'));
-            }
-            $note->setType('edit');
-            $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->save();
-        }
-        return $response->withJson(['success' => true]);
-
-    });    
+    $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate");
     
     // api for person properties
-    $this->post('/personproperties/{personID:[0-9]+}', function ($request, $response, $args) {
-      $ormAssignedProperties = Record2propertyR2pQuery::Create()
-                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
-                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
-                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
-                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
-                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
-                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
-                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
-                            ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
-                            ->addAscendingOrderByColumn('ProName')
-                            ->addAscendingOrderByColumn('ProTypeName')
-                            ->findByR2pRecordId($args['personID']);
+    $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId");
+    $this->get('/numbers', "numbers");
 
-      return $ormAssignedProperties->toJSON();
-    });
-    
-    $this->get('/numbers', function ($request, $response, $args) {
-      return $response->withJson(MenuEventsCount::getNumberBirthDates());       
-    });
-
-    $this->get('/{personId:[0-9]+}/photo', function ($request, $response, $args) {
+    $this->get('/{personId:[0-9]+}/photo', function ($request, $response, $args ) {
       $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
       $photo = new Photo("Person",$args['personId']);
       return $res->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
-      
     });
 
     $this->get('/{personId:[0-9]+}/thumbnail', function ($request, $response, $args) {
@@ -221,143 +72,286 @@ $app->group('/persons', function () {
       return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
-    $this->post('/{personId:[0-9]+}/photo', function ($request, $response, $args) {
-        $input = (object)$request->getParsedBody();
-        $person = PersonQuery::create()->findPk($args['personId']);
-        $person->setImageFromBase64($input->imgBase64);
-        $response->withJSON(array("status" => "success"));
-    });
+    $this->post('/{personId:[0-9]+}/photo', "postPhoto");
+    $this->delete('/{personId:[0-9]+}/photo', "deletePhoto");
 
-    $this->delete('/{personId:[0-9]+}/photo', function ($request, $response, $args) {
-        $person = PersonQuery::create()->findPk($args['personId']);
-        return json_encode(array("status" => $person->deletePhoto()));
-    });
-
-    $this->post('/{personId:[0-9]+}/addToCart', function ($request, $response, $args) {
-        Cart::AddPerson($args['personId']);
-    });
+    $this->post('/{personId:[0-9]+}/addToCart', "addToCart");
 
     /**
      * @var $response \Psr\Http\Message\ResponseInterface
      */
-    $this->delete('/{personId:[0-9]+}', function ($request, $response, $args) {
-        /**
-         * @var \EcclesiaCRM\User $sessionUser
-         */
-        $sessionUser = SessionUser::getUser();
-        if (!$sessionUser->isDeleteRecordsEnabled()) {
-            return $response->withStatus(401);
-        }
-        $personId = $args['personId'];
-        if ($sessionUser->getId() == $personId) {
-            return $response->withStatus(403);
-        }
-        $person = PersonQuery::create()->findPk($personId);
-        if (is_null($person)) {
-            return $response->withStatus(404);
-        }
-
-        $person->delete();
-
-        return $response->withJSON(array("status" => "success"));
-
-    });
+    $this->delete('/{personId:[0-9]+}', "deletePerson");
     
-    $this->post('/deletefield', function ($request, $response, $args) {
-      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-          return $response->withStatus(404);
-      }
-      
-      $values = (object)$request->getParsedBody();
-      
-      if ( isset ($values->orderID) && isset ($values->field) )
-      {
-        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-        $perCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
-        
-        if ( !is_null ($perCus) && $perCus->getTypeId() == 12 ) {
-           $list = ListOptionQuery::Create()->findById($perCus->getCustomSpecial());
-           if( !is_null($list) ) {
-             $list->delete();
-           }
-        }
-        
-        // this can't be propeled
-        $connection = Propel::getConnection();
-        $sSQL = 'ALTER TABLE `person_custom` DROP `'.$values->field.'` ;';
-        $connection->exec($sSQL); 
-
-        // now we can delete the FamilyCustomMaster
-        $perCus->delete();
-
-        $allperCus = PersonCustomMasterQuery::Create()->find();
-        $numRows = $allperCus->count();
-
-        // Shift the remaining rows up by one, unless we've just deleted the only row
-        if ($numRows > 0) {
-            for ($reorderRow = $values->orderID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
-                $firstperCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($reorderRow);
-                if (!is_null($firstperCus)) {
-                  $firstperCus->setCustomOrder($reorderRow - 1)->save();
-                }
-            }
-        }
-        
-        return $response->withJson(['success' => true]);
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-
-    $this->post('/upactionfield', function ($request, $response, $args) {
-      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-          return $response->withStatus(404);
-      }
-
-      $values = (object)$request->getParsedBody();
-      
-      if ( isset ($values->orderID) && isset ($values->field) )
-      {
-        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-        $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID - 1);
-        $firstFamCus->setCustomOrder($values->orderID)->save();
-        
-        $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
-        $secondFamCus->setCustomOrder($values->orderID - 1)->save();
-        
-        return $response->withJson(['success' => true]);
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
-    
-    $this->post('/downactionfield', function ($request, $response, $args) {
-      if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-          return $response->withStatus(404);
-      }
-
-      $values = (object)$request->getParsedBody();
-      
-      if ( isset ($values->orderID) && isset ($values->field) )
-      {
-        // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
-        $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID + 1);
-        $firstFamCus->setCustomOrder($values->orderID)->save();
-        
-        $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
-        $secondFamCus->setCustomOrder($values->orderID + 1)->save();
-        
-        return $response->withJson(['success' => true]);
-      }
-      
-      return $response->withJson(['success' => false]);
-    });
+    $this->post('/deletefield', "deleteField");
+    $this->post('/upactionfield', "upactionfield");
+    $this->post('/downactionfield', "downactionfield");
     
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
  
- $this->get('/duplicate/emails', function ($request, $response, $args) {
+ $this->get('/duplicate/emails', "duplicateEmails");
+ $this->get('/NotInMailChimp/emails', "notInMailChimpEmails");
+  
+/**
+ * A method that review dup emails in the db and returns families and people where that email is used.
+ */
+ $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile'); 
+});
+
+function searchPerson (Request $request, Response $response, array $args) {
+  $query = $args['query'];
+
+  $searchLikeString = '%'.$query.'%';
+  $people = PersonQuery::create()->
+  filterByFirstName($searchLikeString, Criteria::LIKE)->
+  _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+  _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
+      limit(15)->find();
+    
+    $id = 1;
+    
+    $return = [];        
+    foreach ($people as $person) {
+        $values['id'] = $id++;
+        $values['objid'] = $person->getId();
+        $values['text'] = $person->getFullName();
+        $values['uri'] = $person->getViewURI();
+        
+        array_push($return, $values);
+    }
+    
+    return $response->withJson($return);    
+}
+
+function volunteersPerPersonId(Request $request, Response $response, array $args) {
+  return VolunteerOpportunityQuery::Create()
+    ->addJoin(VolunteerOpportunityTableMap::COL_VOL_ID,PersonVolunteerOpportunityTableMap::COL_P2VO_VOL_ID,Criteria::LEFT_JOIN)
+    ->Where(PersonVolunteerOpportunityTableMap::COL_P2VO_PER_ID.' = '.$args['personID'])
+    ->find()->toJson();
+}
+
+function volunteersDelete(Request $request, Response $response, array $args) {
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->personId) && isset ($input->volunteerOpportunityId) ){
+  
+    $vol = PersonVolunteerOpportunityQuery::Create()
+      ->filterByPersonId($input->personId)
+      ->findOneByVolunteerOpportunityId($input->volunteerOpportunityId);
+      
+    if (!is_null($vol)){
+      $vol->delete();
+    }
+    
+    $vols = PersonVolunteerOpportunityQuery::Create()
+      ->filterByPersonId($input->personId)
+      ->find();
+    
+    return $response->withJson(['success' => true,'count' => $vols->count()]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function volunteersAdd(Request $request, Response $response, array $args) {
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->personId) && isset ($input->volID) ){
+  
+    $vol = PersonVolunteerOpportunityQuery::Create()
+      ->filterByPersonId($input->personId)
+      ->findOneByVolunteerOpportunityId($input->volID);
+      
+    if (is_null($vol)){
+      $vol = new PersonVolunteerOpportunity();
+      
+      $vol->setPersonId($input->personId);
+      $vol->setVolunteerOpportunityId($input->volID);
+
+      $vol->save();
+    }
+    
+    $vols = PersonVolunteerOpportunityQuery::Create()
+      ->filterByPersonId($input->personId)
+      ->find();
+    
+    return $response->withJson(['success' => true,'count' => $vols->count()]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function isMailChimpActive(Request $request, Response $response, array $args) {
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->personId) && isset ($input->email)){
+  
+    // we get the MailChimp Service
+    $mailchimp = new MailChimpService();
+    $person = PersonQuery::create()->findPk($input->personId);
+    
+    if ( !is_null ($mailchimp) && $mailchimp->isActive() && !is_null ($person->getFamily()) ) {
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getFamily()->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function personpropertiesPerPersonId (Request $request, Response $response, array $args) {
+  $ormAssignedProperties = Record2propertyR2pQuery::Create()
+                        ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                        ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                        ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                        ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                        ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                        ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                        ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                        ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                        ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
+                        ->addAscendingOrderByColumn('ProName')
+                        ->addAscendingOrderByColumn('ProTypeName')
+                        ->findByR2pRecordId($args['personID']);
+
+  return $ormAssignedProperties->toJSON();
+}
+
+function numbers (Request $request, Response $response, array $args) {
+  return $response->withJson(MenuEventsCount::getNumberBirthDates());       
+}
+
+function postPhoto (Request $request, Response $response, array $args) {
+    $input = (object)$request->getParsedBody();
+    $person = PersonQuery::create()->findPk($args['personId']);
+    $person->setImageFromBase64($input->imgBase64);
+    $response->withJSON(array("status" => "success"));
+}
+
+function deletePhoto (Request $request, Response $response, array $args) {
+    $person = PersonQuery::create()->findPk($args['personId']);
+    return json_encode(array("status" => $person->deletePhoto()));
+}
+
+function addToCart (Request $request, Response $response, array $args) {
+    Cart::AddPerson($args['personId']);
+}
+
+
+function deletePerson(Request $request, Response $response, array $args) {
+    /**
+     * @var \EcclesiaCRM\User $sessionUser
+     */
+    $sessionUser = SessionUser::getUser();
+    if (!$sessionUser->isDeleteRecordsEnabled()) {
+        return $response->withStatus(401);
+    }
+    $personId = $args['personId'];
+    if ($sessionUser->getId() == $personId) {
+        return $response->withStatus(403);
+    }
+    $person = PersonQuery::create()->findPk($personId);
+    if (is_null($person)) {
+        return $response->withStatus(404);
+    }
+
+    $person->delete();
+
+    return $response->withJSON(array("status" => "success"));
+}
+
+function deleteField (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+  
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->orderID) && isset ($values->field) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $perCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+    
+    if ( !is_null ($perCus) && $perCus->getTypeId() == 12 ) {
+       $list = ListOptionQuery::Create()->findById($perCus->getCustomSpecial());
+       if( !is_null($list) ) {
+         $list->delete();
+       }
+    }
+    
+    // this can't be propeled
+    $connection = Propel::getConnection();
+    $sSQL = 'ALTER TABLE `person_custom` DROP `'.$values->field.'` ;';
+    $connection->exec($sSQL); 
+
+    // now we can delete the FamilyCustomMaster
+    $perCus->delete();
+
+    $allperCus = PersonCustomMasterQuery::Create()->find();
+    $numRows = $allperCus->count();
+
+    // Shift the remaining rows up by one, unless we've just deleted the only row
+    if ($numRows > 0) {
+        for ($reorderRow = $values->orderID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
+            $firstperCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($reorderRow);
+            if (!is_null($firstperCus)) {
+              $firstperCus->setCustomOrder($reorderRow - 1)->save();
+            }
+        }
+    }
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function upactionfield (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->orderID) && isset ($values->field) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID - 1);
+    $firstFamCus->setCustomOrder($values->orderID)->save();
+    
+    $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+    $secondFamCus->setCustomOrder($values->orderID - 1)->save();
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+    
+    
+function downactionfield (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->orderID) && isset ($values->field) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $firstFamCus = PersonCustomMasterQuery::Create()->findOneByCustomOrder($values->orderID + 1);
+    $firstFamCus->setCustomOrder($values->orderID)->save();
+    
+    $secondFamCus = PersonCustomMasterQuery::Create()->findOneByCustomField($values->field);
+    $secondFamCus->setCustomOrder($values->orderID + 1)->save();
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function duplicateEmails(Request $request, Response $response, array $args) {
     $connection = Propel::getConnection();
     $dupEmailsSQL = "SELECT email, total FROM email_count where total > 1";
     $statement = $connection->prepare($dupEmailsSQL);
@@ -383,14 +377,10 @@ $app->group('/persons', function () {
         ]);
     }
     return $response->withJson(["emails" => $emails]);
-  });
+  }
   
   
-/**
- * A method that review dup emails in the db and returns families and people where that email is used.
- */
- 
- $this->get('/NotInMailChimp/emails', function ($request, $response, $args) {    
+function notInMailChimpEmails (Request $request, Response $response, array $args) {    
     $mailchimp = new MailChimpService();
     if (!$mailchimp->isActive())
     {
@@ -411,12 +401,82 @@ $app->group('/persons', function () {
     }
      
     return $response->withJson(["emails" => $missingEmailInMailChimp]);
-  });
-  
-  $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile');
-  
-});
+  }
 
+function activateDeacticate (Request $request, Response $response, array $args) {
+    $personId = $args["personId"];
+    $newStatus = $args["status"];
+
+    $person = PersonQuery::create()->findPk($personId);
+    $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
+
+    //update only if the value is different
+    if ($currentStatus != $newStatus) {
+        if ($newStatus == "false") {
+            $user = UserQuery::create()->findPk($personId);
+            
+            if (!is_null($user)) {
+              $newStatus = (empty($user->getIsDeactivated()) ? true : false);
+
+              //update only if the value is different
+              if ($newStatus) {
+                  $user->setIsDeactivated(true);
+              } else {
+                  $user->setIsDeactivated(false);
+              }
+        
+              $user->save();
+        
+              // a mail is notified
+              $email = new UpdateAccountEmail($user, ($newStatus)?gettext("Deactivate account"):gettext("The same as before"));
+              $email->send();
+
+
+              //Create a note to record the status change
+              $note = new Note();
+              $note->setPerId($user->getPersonId());
+              if ($newStatus == 'false') {
+                  $note->setText(gettext('User Deactivated'));
+              } else {
+                  $note->setText(gettext('User Activated'));
+              }
+              $note->setType('edit');
+              $note->setEntered(SessionUser::getUser()->getPersonId());
+              $note->save();
+            }
+
+            $person->setDateDeactivated(date('YmdHis'));
+
+        } elseif ($newStatus == "true") {
+            $person->setDateDeactivated(Null);
+        }
+        
+        $person->save();
+        
+        // a one person family is deactivated too
+        if ($person->getFamily()->getPeople()->count() == 1) {
+          if ($newStatus == "false") {
+              $person->getFamily()->setDateDeactivated(date('YmdHis'));
+          } elseif ($newStatus == "true") {
+              $person->getFamily()->setDateDeactivated(Null);
+          }
+          $person->getFamily()->save();
+        }
+
+        //Create a note to record the status change
+        $note = new Note();
+        $note->setPerId($personId);
+        if ($newStatus == 'false') {
+            $note->setText(gettext('Person Deactivated'));
+        } else {
+            $note->setText(gettext('Person Activated'));
+        }
+        $note->setType('edit');
+        $note->setEntered(SessionUser::getUser()->getPersonId());
+        $note->save();
+    }
+    return $response->withJson(['success' => true]);
+}
 
 function generateRandomString($length = 15)
 {
