@@ -9,10 +9,14 @@
  *  http://www.ecclesiacrm.com/
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
+ *                This code can't be incoprorated in another software without authorizaion
  *  Updated : 2018/05/13
  *
  ******************************************************************************/
+
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\EventQuery;
@@ -55,229 +59,248 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 $app->group('/events', function () {
 
-    $this->get('/', function ($request, $response, $args) {
-        $Events= EventQuery::create()
-                ->find();
-        return $response->write($Events->toJSON());
-    });
-   
-    $this->get('/notDone', function ($request, $response, $args) {
-        $Events= EventQuery::create()
-                 ->filterByEnd(new DateTime(),  Criteria::GREATER_EQUAL)
-                ->find();
-        return $response->write($Events->toJSON());
-    });
+    $this->get('/', "getAllEvents" );
+    $this->get('/notDone', "getNotDoneEvents" );
+    $this->get('/numbers', "numbersOfEventOfToday" );
+    $this->get('/types', "getEventTypes" );
+    $this->get('/names', "eventNames");
+    $this->post('/deleteeventtype',"deleteeventtype" );
+    $this->post('/info', "eventInfo" );
+    $this->post('/person', "personCheckIn" );
+    $this->post('/group', "groupCheckIn" );
+    $this->post('/family', "familyCheckIn" );
+    $this->post('/attendees', "eventCount" );
+    $this->post('/', "manageEvent" );
     
-    $this->get('/numbers', function ($request, $response, $args) {        
-        $response->withJson(MenuEventsCount::getNumberEventsOfToday());       
-    });    
-    
-    $this->get('/types', function ($request, $response, $args) {
-        $eventTypes = EventTypesQuery::Create()
-              ->orderByName()
-              ->find();
-             
-        $return = [];       
-        
-        foreach ($eventTypes as $eventType) {
-            $values['eventTypeID'] = $eventType->getID();
-            $values['name'] = $eventType->getName();
-            
-            array_push($return, $values);
-        }
-        
-        return $response->withJson($return);    
-    });
-    
-    $this->get('/names', function ($request, $response, $args) {
-        $ormEvents = EventQuery::Create()->orderByTitle()->find();
-             
-        $return = [];           
-        foreach ($ormEvents as $ormEvent) {
-            $values['eventTypeID'] = $ormEvent->getID();
-            $values['name'] = $ormEvent->getTitle()." (".$ormEvent->getDesc().")";
-            
-            array_push($return, $values);
-        }
-        
-        return $response->withJson($return);    
-    });
-    
-    $this->post('/deleteeventtype',function ($request, $response, $args) {
-        $input = (object)$request->getParsedBody();
-        
-        if (isset ($input->typeID) ){
-          $eventType = EventTypesQuery::Create()
-                      ->filterById(InputUtils::LegacyFilterInput($input->typeID))
-                      ->limit(1)
-                      ->findOne();
-      
-          if (!empty($eventType)) {
-            $eventType->delete();
-          }
-    
-          $eventCountNames = EventCountNameQuery::Create()
-                          ->findByTypeId(InputUtils::LegacyFilterInput($input->typeID));
-    
-          if (!empty($eventCountNames)) {
-            $eventCountNames->delete();
-          }
+});
 
-          
-          return $response->withJson(['status' => "success"]); 
-          
-        }   
-        
-        return $response->withJson(['status' => "failed"]);
-
-    });
-    
-    $this->post('/info', function ($request, $response, $args) {
-        $input = (object)$request->getParsedBody();
-        
-        if (isset ($input->eventID) ){
-          $event = EventQuery::Create()->findOneById($input->eventID);
-          
-          
-          $arr['eventID'] = $event->getId();                   
-          $arr['Title'] = $event->getTitle();
-          $arr['Desc'] = $event->getDesc();
-          $arr['Text'] = $event->getText();
-          $arr['start'] = $event->getStart('Y-m-d H:i:s');
-          $arr['end'] = $event->getEnd('Y-m-d H:i:s');
-          $arr['calendarID'] = [$event->getEventCalendarid(),0];
-          $arr['eventTypeID'] = $event->getType();
-          $arr['inActive'] = $event->getInActive();
-          $arr['location'] = $event->getLocation();
-          $arr['latitude'] = $event->getLatitude();
-          $arr['longitude'] = $event->getLongitude();
-          
-          return $response->withJson($arr); 
-          
-        }   
-        
-        return $response->withJson(['status' => "failed"]);
-
-    });
-    
-    $this->post('/person',function($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-        
-        try {
-            $eventAttent = new EventAttend();
-        
-            $eventAttent->setEventId($params->EventID);
-            $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-            $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-            $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-            $eventAttent->setPersonId($params->PersonId);
-            $eventAttent->save();
-        } catch (\Exception $ex) {
-            $errorMessage = $ex->getMessage();
-            return $response->withJson(['status' => $errorMessage]);    
-        }
-        
-       return $response->withJson(['status' => "success"]);
-    });
-    
-    $this->post('/group',function($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-                
-        $persons = Person2group2roleP2g2rQuery::create()
-            ->usePersonQuery()
-              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
-            ->endUse()
-            ->filterByGroupId($params->GroupID)
+function getAllEvents (Request $request, Response $response, array $args) {
+    $Events= EventQuery::create()
             ->find();
+    return $response->write($Events->toJSON());
+}
 
-        foreach ($persons as $person) {
-          try {
-            if ($person->getPersonId() > 0) {
-              $eventAttent = new EventAttend();
-        
-              $eventAttent->setEventId($params->EventID);
-              $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-              $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-              $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-              $eventAttent->setPersonId($person->getPersonId());
-              $eventAttent->save();
-            }
-          } catch (\Exception $ex) {
-              $errorMessage = $ex->getMessage();
-              //return $response->withJson(['status' => $errorMessage]);    
-          }
-        }
-        
-       return $response->withJson(['status' => "success"]);
-    });
+function getNotDoneEvents(Request $request, Response $response, array $args) {
+    $Events= EventQuery::create()
+             ->filterByEnd(new DateTime(),  Criteria::GREATER_EQUAL)
+            ->find();
+    return $response->write($Events->toJSON());
+}
 
-    $this->post('/family',function($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
-                
-        $family = FamilyQuery::create()
-             ->findPk($params->FamilyID);
+function numbersOfEventOfToday (Request $request, Response $response, array $args) {        
+    $response->withJson(MenuEventsCount::getNumberEventsOfToday());       
+}
 
-        foreach ($family->getPeople() as $person) {
-          //return $response->withJson(['person' => $person->getId(),"eventID" => $params->EventID]);
-          try {
-            if ($person->getId() > 0 && $person->getDateDeactivated() == null) {// RGPD, when a person is completely deactivated
-              $eventAttent = new EventAttend();
-        
-              $eventAttent->setEventId($params->EventID);
-              $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
-              $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
-              $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
-              $eventAttent->setPersonId($person->getId());
-              $eventAttent->save();
-            }
-          } catch (\Exception $ex) {
-              $errorMessage = $ex->getMessage();
-              //return $response->withJson(['status' => $errorMessage]);    
-          }
-        }
-        
-       return $response->withJson(['status' => "success"]);
-    });
+function getEventTypes (Request $request, Response $response, array $args) {
+    $eventTypes = EventTypesQuery::Create()
+          ->orderByName()
+          ->find();
+         
+    $return = [];       
     
-    $this->post('/attendees', function ($request, $response, $args) {
-        $params = (object)$request->getParsedBody();
+    foreach ($eventTypes as $eventType) {
+        $values['eventTypeID'] = $eventType->getID();
+        $values['name'] = $eventType->getName();
         
-        // Get a list of the attendance counts currently associated with thisevent type
-        $eventCountNames = EventCountNameQuery::Create()
-                               ->filterByTypeId($params->typeID)
-                               ->orderById()
-                               ->find();
-                       
-        $numCounts = count($eventCountNames);
+        array_push($return, $values);
+    }
+    
+    return $response->withJson($return);    
+}
 
-        $return = [];           
+function eventNames(Request $request, Response $response, array $args) {
+    $ormEvents = EventQuery::Create()->orderByTitle()->find();
+         
+    $return = [];           
+    foreach ($ormEvents as $ormEvent) {
+        $values['eventTypeID'] = $ormEvent->getID();
+        $values['name'] = $ormEvent->getTitle()." (".$ormEvent->getDesc().")";
         
-        if ($numCounts) {
-            foreach ($eventCountNames as $eventCountName) {
-                $values['countID'] = $eventCountName->getId();
-                $values['countName'] = $eventCountName->getName();
-                $values['typeID'] = $params->typeID;
-                
-                $values['count'] = 0;
-                $values['notes'] = "";
-                
-                if ($params->eventID > 0) {
-                  $eventCounts = EventCountsQuery::Create()->filterByEvtcntCountid($eventCountName->getId())->findOneByEvtcntEventid($params->eventID);
-                  
-                  if (!empty($eventCounts)) {            
-                    $values['count'] = $eventCounts->getEvtcntCountcount();
-                    $values['notes'] = $eventCounts->getEvtcntNotes();
-                  }
-                }
-                
-                array_push($return, $values);
-            }
-        }      
-        
-        return $response->withJson($return);    
-    });
+        array_push($return, $values);
+    }
+    
+    return $response->withJson($return);    
+}
+
+
+function deleteeventtype (Request $request, Response $response, array $args) {
+    $input = (object)$request->getParsedBody();
+    
+    if (isset ($input->typeID) ){
+      $eventType = EventTypesQuery::Create()
+                  ->filterById(InputUtils::LegacyFilterInput($input->typeID))
+                  ->limit(1)
+                  ->findOne();
   
-    $this->post('/', function ($request, $response, $args) {
+      if (!empty($eventType)) {
+        $eventType->delete();
+      }
+
+      $eventCountNames = EventCountNameQuery::Create()
+                      ->findByTypeId(InputUtils::LegacyFilterInput($input->typeID));
+
+      if (!empty($eventCountNames)) {
+        $eventCountNames->delete();
+      }
+
+      
+      return $response->withJson(['status' => "success"]); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+}
+
+function eventInfo (Request $request, Response $response, array $args) {
+    $input = (object)$request->getParsedBody();
+    
+    if (isset ($input->eventID) ){
+      $event = EventQuery::Create()->findOneById($input->eventID);
+      
+      if (is_null ($event)) {
+        return $response->withJson(["status" => "failed"]);
+      }
+
+      $arr['eventID'] = $event->getId();                   
+      $arr['Title'] = $event->getTitle();
+      $arr['Desc'] = $event->getDesc();
+      $arr['Text'] = $event->getText();
+      $arr['start'] = $event->getStart('Y-m-d H:i:s');
+      $arr['end'] = $event->getEnd('Y-m-d H:i:s');
+      $arr['calendarID'] = [$event->getEventCalendarid(),0];
+      $arr['eventTypeID'] = $event->getType();
+      $arr['inActive'] = $event->getInActive();
+      $arr['location'] = $event->getLocation();
+      $arr['latitude'] = $event->getLatitude();
+      $arr['longitude'] = $event->getLongitude();
+      
+      return $response->withJson($arr); 
+      
+    }   
+    
+    return $response->withJson(['status' => "failed"]);
+}
+
+function personCheckIn(Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+    
+    try {
+        $eventAttent = new EventAttend();
+    
+        $eventAttent->setEventId($params->EventID);
+        $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
+        $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+        $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+        $eventAttent->setPersonId($params->PersonId);
+        $eventAttent->save();
+    } catch (\Exception $ex) {
+        $errorMessage = $ex->getMessage();
+        return $response->withJson(['status' => $errorMessage]);    
+    }
+    
+   return $response->withJson(['status' => "success"]);
+}
+
+function groupCheckIn (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+            
+    $persons = Person2group2roleP2g2rQuery::create()
+        ->usePersonQuery()
+          ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+        ->endUse()
+        ->filterByGroupId($params->GroupID)
+        ->find();
+
+    foreach ($persons as $person) {
+      try {
+        if ($person->getPersonId() > 0) {
+          $eventAttent = new EventAttend();
+    
+          $eventAttent->setEventId($params->EventID);
+          $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
+          $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+          $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+          $eventAttent->setPersonId($person->getPersonId());
+          $eventAttent->save();
+        }
+      } catch (\Exception $ex) {
+          $errorMessage = $ex->getMessage();
+          //return $response->withJson(['status' => $errorMessage]);    
+      }
+    }
+    
+   return $response->withJson(['status' => "success"]);
+}
+
+function familyCheckIn (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+            
+    $family = FamilyQuery::create()
+         ->findPk($params->FamilyID);
+
+    foreach ($family->getPeople() as $person) {
+      //return $response->withJson(['person' => $person->getId(),"eventID" => $params->EventID]);
+      try {
+        if ($person->getId() > 0 && $person->getDateDeactivated() == null) {// RGPD, when a person is completely deactivated
+          $eventAttent = new EventAttend();
+    
+          $eventAttent->setEventId($params->EventID);
+          $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
+          $date = new DateTime('now', new DateTimeZone(SystemConfig::getValue('sTimeZone')));
+          $eventAttent->setCheckinDate($date->format('Y-m-d H:i:s'));
+          $eventAttent->setPersonId($person->getId());
+          $eventAttent->save();
+        }
+      } catch (\Exception $ex) {
+          $errorMessage = $ex->getMessage();
+          //return $response->withJson(['status' => $errorMessage]);    
+      }
+    }
+    
+   return $response->withJson(['status' => "success"]);
+}
+
+
+function eventCount (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+    
+    // Get a list of the attendance counts currently associated with thisevent type
+    $eventCountNames = EventCountNameQuery::Create()
+                           ->filterByTypeId($params->typeID)
+                           ->orderById()
+                           ->find();
+                   
+    $numCounts = count($eventCountNames);
+
+    $return = [];           
+    
+    if ($numCounts) {
+        foreach ($eventCountNames as $eventCountName) {
+            $values['countID'] = $eventCountName->getId();
+            $values['countName'] = $eventCountName->getName();
+            $values['typeID'] = $params->typeID;
+            
+            $values['count'] = 0;
+            $values['notes'] = "";
+            
+            if ($params->eventID > 0) {
+              $eventCounts = EventCountsQuery::Create()->filterByEvtcntCountid($eventCountName->getId())->findOneByEvtcntEventid($params->eventID);
+              
+              if (!empty($eventCounts)) {            
+                $values['count'] = $eventCounts->getEvtcntCountcount();
+                $values['notes'] = $eventCounts->getEvtcntNotes();
+              }
+            }
+            
+            array_push($return, $values);
+        }
+    }      
+    
+    return $response->withJson($return);    
+}
+
+
+function manageEvent (Request $request, Response $response, array $args) {
       $input = (object) $request->getParsedBody();
       
       if (!strcmp($input->evntAction,'createEvent'))
@@ -803,6 +826,11 @@ $app->group('/events', function () {
      else if (!strcmp($input->evntAction,'modifyEvent'))
      {
         $old_event = EventQuery::Create()->findOneById($input->eventID);
+        
+        if (is_null ($old_event)) {
+          return $response->withJson(["status" => "failed"]);
+        }
+        
         $oldCalendarID = [$old_event->getEventCalendarid(),0];
 
         $pdo = Propel::getConnection();
@@ -993,5 +1021,4 @@ $app->group('/events', function () {
           
         return $response->withJson(["status" => "success"]);
       }
-  });
-});
+  }
