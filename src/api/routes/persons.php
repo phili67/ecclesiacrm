@@ -72,19 +72,19 @@ $app->group('/persons', function () {
       return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
-    $this->post('/{personId:[0-9]+}/photo', "postPhoto");
-    $this->delete('/{personId:[0-9]+}/photo', "deletePhoto");
+    $this->post('/{personId:[0-9]+}/photo', "postPersonPhoto");
+    $this->delete('/{personId:[0-9]+}/photo', "deletePersonPhoto");
 
-    $this->post('/{personId:[0-9]+}/addToCart', "addToCart");
+    $this->post('/{personId:[0-9]+}/addToCart', "addPersonToCart");
 
     /**
      * @var $response \Psr\Http\Message\ResponseInterface
      */
     $this->delete('/{personId:[0-9]+}', "deletePerson");
     
-    $this->post('/deletefield', "deleteField");
-    $this->post('/upactionfield', "upactionfield");
-    $this->post('/downactionfield', "downactionfield");
+    $this->post('/deletefield', "deletePersonField");
+    $this->post('/upactionfield', "upactionPersonfield");
+    $this->post('/downactionfield', "downactionPersonfield");
     
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
@@ -221,19 +221,19 @@ function numbersOfBirthDates (Request $request, Response $response, array $args)
   return $response->withJson(MenuEventsCount::getNumberBirthDates());       
 }
 
-function postPhoto (Request $request, Response $response, array $args) {
+function postPersonPhoto (Request $request, Response $response, array $args) {
     $input = (object)$request->getParsedBody();
     $person = PersonQuery::create()->findPk($args['personId']);
     $person->setImageFromBase64($input->imgBase64);
     $response->withJSON(array("status" => "success"));
 }
 
-function deletePhoto (Request $request, Response $response, array $args) {
+function deletePersonPhoto (Request $request, Response $response, array $args) {
     $person = PersonQuery::create()->findPk($args['personId']);
     return json_encode(array("status" => $person->deletePhoto()));
 }
 
-function addToCart (Request $request, Response $response, array $args) {
+function addPersonToCart (Request $request, Response $response, array $args) {
     Cart::AddPerson($args['personId']);
 }
 
@@ -260,7 +260,7 @@ function deletePerson(Request $request, Response $response, array $args) {
     return $response->withJSON(array("status" => "success"));
 }
 
-function deleteField (Request $request, Response $response, array $args) {
+function deletePersonField (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
@@ -306,7 +306,7 @@ function deleteField (Request $request, Response $response, array $args) {
   return $response->withJson(['success' => false]);
 }
 
-function upactionfield (Request $request, Response $response, array $args) {
+function upactionPersonfield (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
@@ -329,7 +329,7 @@ function upactionfield (Request $request, Response $response, array $args) {
 }
     
     
-function downactionfield (Request $request, Response $response, array $args) {
+function downactionPersonfield (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(404);
   }
