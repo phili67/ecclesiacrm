@@ -58,7 +58,7 @@ $app->group('/persons', function () {
     
     // api for person properties
     $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId");
-    $this->get('/numbers', "numbers");
+    $this->get('/numbers', "numbersOfBirthDates");
 
     $this->get('/{personId:[0-9]+}/photo', function ($request, $response, $args ) {
       $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
@@ -217,7 +217,7 @@ function personpropertiesPerPersonId (Request $request, Response $response, arra
   return $ormAssignedProperties->toJSON();
 }
 
-function numbers (Request $request, Response $response, array $args) {
+function numbersOfBirthDates (Request $request, Response $response, array $args) {
   return $response->withJson(MenuEventsCount::getNumberBirthDates());       
 }
 
