@@ -374,7 +374,7 @@ foreach ($allMonths as $mVal) {
           <tr>
             <td>
                <table class='table-responsive'>
-                <tr>
+                <tr class="no-background-theme">
                   <td>
                     <a title="<?= gettext('Edit') ?>" value="Edit" data-id="<?= $aEventID[$row] ?>" data-tooltip class="<?= !($aEventRights[$row])?"disabled":" EditEvent" ?>">
                         <i class='fa fa-pencil'></i>
@@ -445,21 +445,21 @@ foreach ($allMonths as $mVal) {
               if ($attNumRows[$row]) { 
             ?>
                <table width='100%' class='table-simple-padding' align="center">
-                <tr>
+                <tr class="no-background-theme">
                   <td><b><?= gettext("Check-in") ?></b></td>
                   <td><b><?= gettext("Check-out") ?></b></td>
                   <td><b><?= gettext("Rest") ?></b></td>
                 </tr>
-                <tr>
+                <tr class="no-background-theme">
                   <td><?= $attNumRows[$row] ?></td>
                   <td><?= $attCheckOut[$row] ?></td>
                   <td><?= $attNumRows[$row]-$attCheckOut[$row] ?></td>
                 </tr>
-                <tr>
+                <tr class="no-background-theme">
                    <td colspan="3">
                      <center>
                       <table>
-                      <tr>
+                      <tr class="no-background-theme">
                       <td>
                     <?php 
                       if ($aEventRights[$row]) {
@@ -525,7 +525,7 @@ foreach ($allMonths as $mVal) {
             </td>
             <td>
               <table width='100%' class='table-simple-padding'>
-                <tr>
+                <tr class="no-background-theme">
                   <?php
                     // RETRIEVE THE list of counts associated with the current event
                     $eventCounts = EventCountsQuery::Create()->filterByEvtcntEventid($aEventID[$row])->orderByEvtcntCountid(Criteria::ASC)->find();
@@ -591,7 +591,7 @@ foreach ($allMonths as $mVal) {
             ?>            
             
             
-          <tr>
+          <tr class="no-background-theme">
             <td class="LabelColumn"><?= gettext(' Monthly Averages') ?></td>
             <td></td>
             <td></td>
@@ -602,7 +602,7 @@ foreach ($allMonths as $mVal) {
                 if ($numAVGAtt > 0) {
               ?>
                <table width='100%' class='table-simple-padding' align="center">
-                  <tr>
+                  <tr class="no-background-theme">
                      <td align="center">
                         <span class="SmallText">
                         <strong><?= gettext("AVG") ?><br><?= gettext("Check-in") ?></strong>
@@ -634,7 +634,7 @@ foreach ($allMonths as $mVal) {
                   if ($aAvgRows > 0) {
                 ?>
                 <table width=100%>
-                  <tr>
+                  <tr class="no-background-theme">
                 <?php
                    $count=0;
                 // calculate and report averages
@@ -644,7 +644,7 @@ foreach ($allMonths as $mVal) {
                    if ($count == 0) {
                   ?>
                       </tr>
-                      <tr>                      
+                      <tr class="no-background-theme">                      
                   <?php
                       
                    }
@@ -678,7 +678,7 @@ foreach ($allMonths as $mVal) {
         // calculate averages if this is a single type list
         if ($eType != 'All' && $aNumCounts > 0) {
       ?>
-          <tr>
+          <tr class="no-background-theme">
             <td class="LabelColumn"> <?= gettext('Monthly Counts') ?></td>
             <td></td>
             <td></td>            
@@ -689,7 +689,7 @@ foreach ($allMonths as $mVal) {
                 if ($numAVGAtt > 0) {
               ?>
                <table width='100%' class='table-simple-padding' align="center">
-                  <tr>
+                  <tr class="no-background-theme">
                      <td align="center">
                         <span class="SmallText">
                         <strong><?= gettext("Total") ?><br><?= gettext("Check-in") ?></strong>
@@ -720,7 +720,7 @@ foreach ($allMonths as $mVal) {
                   if ($aAvgRows > 0) {
                 ?>                
                 <table width=100%>
-                  <tr>
+                  <tr class="no-background-theme">
                 <?php
                    $count=0;
                 // calculate and report averages
@@ -729,7 +729,7 @@ foreach ($allMonths as $mVal) {
                    if ($count == 0) {
                   ?>
                       </tr>
-                      <tr>                      
+                      <tr class="no-background-theme">                      
                   <?php
                       
                    }

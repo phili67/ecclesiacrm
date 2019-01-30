@@ -309,7 +309,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) == 'NEW') {
               <td><?= $cCountList[$row] ?></td>
               <td>
                 <table class='table-simple-padding'>
-                  <tr>
+                  <tr class="no-background-theme">
                     <td>
                         <button value="<?= gettext('Create Event') ?>" class="btn btn-primary btn-sm add-event">
                           <?= gettext('Create Event') ?>
