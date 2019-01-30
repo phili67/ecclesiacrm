@@ -48,7 +48,7 @@ $app->group('/persons', function () {
     $this->post('/volunteers/delete', "volunteersDelete");
     $this->post('/volunteers/add', "volunteersAdd");
     
-    $this->post('/isMailChimpActive', "isMailChimpActive");
+    $this->post('/isMailChimpActive', "isMailChimpActivePerson");
 
     /**
      * Update the person status to activated or deactivated with :familyId and :status true/false.
@@ -182,7 +182,7 @@ function volunteersAdd(Request $request, Response $response, array $args) {
   return $response->withJson(['success' => false]);
 }
 
-function isMailChimpActive(Request $request, Response $response, array $args) {
+function isMailChimpActivePerson (Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
 
   if ( isset ($input->personId) && isset ($input->email)){
