@@ -499,7 +499,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
             foreach ($ageStats as $age => $value) {
               $datasets = new StdClass();
             
-              $datasets->x  = $age++;
+              $datasets->x  = $age;
               $datasets->y  = $value;
 
               $Labels[] = $age;
