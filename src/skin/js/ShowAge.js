@@ -1,5 +1,5 @@
 (function($) {
-  $(document).on('ready', function() {
+  $(document).ready(function () {
     $('[data-birth-date]').each(function(idx, element) {
       var $element = $(element);
       var birthDate = moment($element.data('birthDate'));
