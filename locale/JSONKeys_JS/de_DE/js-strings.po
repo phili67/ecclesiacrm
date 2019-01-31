@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-01-07T17:25:24.089Z\n"
+"POT-Creation-Date: 2019-01-31T19:43:07.023Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -521,6 +521,10 @@ msgstr "Lage"
 msgid "Map"
 msgstr "Karte"
 
+msgid ""
+"WARNING : To validate your address with this map : <b>\"hit return\"</b>."
+msgstr "WARNUNG : für ihre adresse zu bestätigen : <b>\"Eingabetaste bestätigen?\"</b>."
+
 msgid "Desc"
 msgstr "Besch"
 
@@ -631,6 +635,17 @@ msgstr "Bitte bestätige die Deaktivierung der Familie"
 
 msgid "Please confirm activation of family"
 msgstr "Bitte bestätige die Aktivierung der Familie"
+
+msgid ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
+msgstr ""
+"Be carefull with the GDPR, when a family is de-activated, you have to ask "
+"all the persons of the family first, if you want to re-activate the account !"
+"<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS FAMILY "
+"ILLEGAL !!!!!"
 
 msgid "Family Photo"
 msgstr "Familienfoto"
@@ -1154,6 +1169,15 @@ msgstr "Bitte bestätige die Person Deaktivierung"
 
 msgid "Please confirm activation of person"
 msgstr "Bitte bestätige die Person Aktivierung"
+
+msgid ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
+msgstr ""
+"Be carefull with the GDPR, when a person is de-activated, you have to ask "
+"the person first, if you want to reactivate the account !<br><br>WITHOUT ANY "
+"AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
 
 msgid "Photo"
 msgstr "Photo"
