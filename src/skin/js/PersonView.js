@@ -57,9 +57,11 @@ $(document).ready(function () {
           popupMessage = i18next.t("Please confirm activation of person") + ': ' + window.CRM.personFullName;
       }
 
+      popupWarning = i18next.t("Be carefull with the GDPR, when a person is de-activated, you have to ask the person first, if you want to reactivate the account !<br><br>WITHOUT ANY AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!");
+
       bootbox.confirm({
           title: popupTitle,
-          message: '<p style="color: red">' + popupMessage + '</p>',
+          message: '<p style="color: red">' + popupWarning + '</p><br><p>' + popupMessage + '</p>',
           callback: function (result) {
               if (result) {
                   $.ajax({

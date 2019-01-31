@@ -204,10 +204,6 @@ function DoQuery()
 <div class="box box-primary">
     
     <div class="box-body">
-        <p class="text-right">
-            <?= $qry_Count ? mysqli_num_rows($rsQueryResults).gettext(' record(s) returned') : ''; ?>
-        </p>
-        
         <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -216,7 +212,7 @@ function DoQuery()
                     for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
                         //If this field is called "AddToCart", don't display this field...
                         $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-                        if ($fieldInfo->name != 'AddToCart') {
+                        if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
                             echo '<th>'.gettext($fieldInfo->name).'</th>';
                         }
                     } ?>
@@ -224,8 +220,14 @@ function DoQuery()
             <tbody>
 <?php
     $aHiddenFormField = [];
+    
+    $qry_real_Count = 0;
 
     while ($aRow = mysqli_fetch_array($rsQueryResults)) {
+        if (!is_null($aRow['GDPR']) && SystemConfig::getBooleanValue('bGDPR') ) continue;
+        
+        $qry_real_Count++;
+
         //Alternate the background color of the row
         $sRowClass = AlternateRowStyle($sRowClass);
 
@@ -235,11 +237,11 @@ function DoQuery()
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
             //If this field is called "AddToCart", add this to the hidden form field...
             $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
-            if ($fieldInfo->name == 'AddToCart') {
+            if ( $fieldInfo->name == 'AddToCart' ) {
                 $aHiddenFormField[] = $aRow[$iCount];
             }
             //...otherwise just render the field
-            else {
+            else if ($fieldInfo->name != 'GDPR') {
                 //Write the actual value of this row
                 echo '<td>'.$aRow[$iCount].'</td>';
             }
@@ -250,6 +252,10 @@ function DoQuery()
             </tbody>
         </table>
         </div>
+        
+        <p class="text-right">
+            <?= $qry_Count ? $qry_real_Count.gettext(' record(s) returned') : ''; ?>
+        </p>
     </div>
     
     <div class="box-footer">
