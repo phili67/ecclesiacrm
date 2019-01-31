@@ -86,7 +86,6 @@ class Person extends BasePerson implements iPhoto
 
       return $ret;
     }
-
     
     public function isDeactivated()
     {
@@ -511,13 +510,32 @@ class Person extends BasePerson implements iPhoto
     }
     
     
+
+    public function getNumericAge() {
+      $birthDate = $this->getBirthDate();
+      if (date_format($birthD, 'Y-m-d') == date_format(date_create('today'), 'Y-m-d') 
+         || $this->hideAge())
+      {
+        return false;
+      }
+      if (empty($now)) {
+        $now = date_create('today');
+      }
+      $age = date_diff($now,$birthDate);
+      if ($age->y < 1) {
+        $ageValue = 0;
+      } else {
+        $ageValue = $age->y;
+      }
+      return $ageValue;
+    }
+    
     /* Philippe Logel 2017 */
     public function getAge($with_suffix=true)
     {
        $birthD = $this->getBirthDate();
-   
-       if ($this->hideAge() == 1) 
-       {
+       
+       if ($this->hideAge() == 1) {
             return '';
        }
 

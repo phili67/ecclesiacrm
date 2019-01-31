@@ -2,12 +2,16 @@
 
 namespace EcclesiaCRM\Service;
 
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\ListOptionQuery;
 
 class DashboardService
 {
+
     public function getFamilyCount()
     {
         $familyCount = FamilyQuery::Create()
@@ -38,8 +42,13 @@ class DashboardService
                 LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
                 WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null
                 group by per_cls_ID, lst_OptionName order by count desc;';
-        $rsClassification = RunQuery($sSQL);
-        while ($row = mysqli_fetch_array($rsClassification)) {
+                
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             $data[$row['Classification']] = $row['count'];
         }
 
@@ -53,38 +62,42 @@ class DashboardService
                 from person_per LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
                 where family_fam.fam_DateDeactivated is  null
                 group by per_Gender, per_fmr_ID order by per_fmr_ID;';
-        $rsGenderAndRole = RunQuery($sSQL);
-        while ($row = mysqli_fetch_array($rsGenderAndRole)) {
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             switch ($row['per_Gender']) {
-        case 0:
-          $gender = gettext('Unknown');
-          break;
-        case 1:
-          $gender = gettext('Male');
-          break;
-        case 2:
-          $gender = gettext('Female');
-          break;
-        default:
-          $gender = gettext('Other');
-      }
+              case 0:
+                $gender = gettext('Unknown');
+                break;
+              case 1:
+                $gender = gettext('Male');
+                break;
+              case 2:
+                $gender = gettext('Female');
+                break;
+              default:
+                $gender = gettext('Other');
+            }
 
             switch ($row['per_fmr_ID']) {
-        case 0:
-          $role = gettext('Unknown');
-          break;
-        case 1:
-          $role = gettext('Head of Household');
-          break;
-        case 2:
-          $role = gettext('Spouse');
-          break;
-        case 3:
-          $role = gettext('Child');
-          break;
-        default:
-          $role = gettext('Other');
-      }
+              case 0:
+                $role = gettext('Unknown');
+                break;
+              case 1:
+                $role = gettext('Head of Household');
+                break;
+              case 2:
+                $role = gettext('Spouse');
+                break;
+              case 3:
+                $role = gettext('Child');
+                break;
+              default:
+                $role = gettext('Other');
+            }
 
             array_push($stats, array(
                     "key" => "$role - $gender",
@@ -107,11 +120,15 @@ class DashboardService
           INNER JOIN group_grp ON grp_ID = p2g2r_grp_ID
           LEFT JOIN family_fam ON fam_ID = per_fam_ID
           where fam_DateDeactivated is  null and
-	            p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount
+              p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount
         from dual ;
         ';
-        $rsQuickStat = RunQuery($sSQL);
-        $row = mysqli_fetch_array($rsQuickStat);
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $row = $statement->fetch( \PDO::FETCH_BOTH );
         $data = ['groups' => $row['Groups'], 'sundaySchoolClasses' => $row['SundaySchoolClasses'], 'sundaySchoolkids' => $row['SundaySchoolKidsCount']];
 
         return $data;
@@ -178,5 +195,18 @@ class DashboardService
             ->orderByDateEntered('DESC')
             ->limit($limit)
             ->find();
+    }
+    
+    public function getAgeStats(){
+      $persons = PersonQuery::create()->find();
+
+      $stats = [];
+      foreach($persons as $person) {
+        if ($person->getAge(false) != '') {
+          $stats[$person->getAge(false)]++;
+        }
+      }
+      ksort($stats);
+      return $stats;
     }
 }

@@ -18,11 +18,12 @@ $sPageTitle = _('People Dashboard');
 require 'Include/Header.php';
 
 $dashboardService = new DashboardService();
-$personCount = $dashboardService->getPersonCount();
-$personStats = $dashboardService->getPersonStats();
-$familyCount = $dashboardService->getFamilyCount();
-$groupStats = $dashboardService->getGroupStats();
+$personCount      = $dashboardService->getPersonCount();
+$personStats      = $dashboardService->getPersonStats();
+$familyCount      = $dashboardService->getFamilyCount();
+$groupStats       = $dashboardService->getGroupStats();
 $demographicStats = $dashboardService->getDemographic();
+$ageStats         = $dashboardService->getAgeStats();
 
 $sSQL = 'select count(*) as numb, per_Gender from person_per, family_fam
         where fam_ID =per_fam_ID and fam_DateDeactivated is  null
@@ -371,6 +372,10 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       </table>
       <!-- /.box-body-->
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
     <div class="box box-info">
       <div class="box-header">
         <i class="fa fa-address-card-o"></i>
@@ -386,6 +391,20 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         <canvas id="gender-donut" style="height:250px"></canvas>
       </div>
     </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="box box-info">
+        <div class="box-header">
+          <i class="fa fa-birthday-cake"></i>  
+          <div class="box-tools pull-left">
+            <div id="age-stats-bar-legend" class="chart-legend"></div>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <canvas id="age-stats-bar" style="height:250px"></canvas>
+        </div>
+      </div>
   </div>
 </div>
 
@@ -470,6 +489,68 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
 
         //and append it to your page somewhere
         //$('#gender-donut-legend').append(legend);
+        
+        var histDatas = <?php 
+            $Labels = [];
+            $Datas  = [];
+            $BackgroundColor = [];
+            $borderColor     = [];
+            
+            foreach ($ageStats as $age => $value) {
+              $datasets = new StdClass();
+            
+              $datasets->x  = $age++;
+              $datasets->y  = $value;
+
+              $Labels[] = $age;
+              $Datas[]  = $datasets;
+              $BackgroundColor[]  = "#86adc4";
+              $borderColor[]      = "#337ab7";
+            }
+            
+            $datasets = new StdClass();
+            
+            $datasets->label           = _('# Age Histogram');
+            $datasets->data            = $Datas;
+            $datasets->backgroundColor = $BackgroundColor;
+            $datasets->borderColor     = $borderColor;
+            $datasets->borderWidth     = 1;
+        
+
+            $res = new StdClass();
+        
+            $res->datasets   = [];
+            $res->datasets[] = $datasets;
+            $res->labels     = $Labels;
+            
+            echo json_encode($res,JSON_NUMERIC_CHECK);
+        ?>;
+        
+        var ageStatsCanvas = $("#age-stats-bar").get(0).getContext("2d");
+        
+        var AgeChart = new Chart(ageStatsCanvas,{
+          type: 'bar',
+          data: histDatas,
+          options: {
+              scales: {
+              xAxes: [{
+                display: true,
+                barPercentage: 1.3,
+                ticks: {
+                  max: 100,
+                }
+             }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero:true
+                }
+              }]
+            }
+          }
+        });
+        
+          
+        
     });
 </script>
 
