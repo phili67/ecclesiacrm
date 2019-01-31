@@ -267,7 +267,7 @@ class MailChimpService
     public function getCampaigns()
     {
         if (!$this->isActive) {
-          return 'Mailchimp is not active';
+          return 'Mailchimp is not actived';
         }
         try {
             $result = $this->getCampaignsFromCache();
