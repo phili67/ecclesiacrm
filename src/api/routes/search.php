@@ -30,9 +30,13 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     if (SystemConfig::getBooleanValue("bSearchIncludePersons")) {
         try {
           $searchLikeString = '%'.$query.'%';
-          $people = PersonQuery::create()
-             ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
-             ->filterByFirstName($searchLikeString, Criteria::LIKE)->
+          $people = PersonQuery::create();
+          
+          if (SystemConfig::getBooleanValue('bGDPR')) {
+             $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
+          }
+
+          $people->filterByFirstName($searchLikeString, Criteria::LIKE)->
               _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
               _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkEmail($searchLikeString, Criteria::LIKE)->
@@ -73,8 +77,14 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     if (SystemConfig::getBooleanValue("bSearchIncludeAddresses")) {
         try {
           $searchLikeString = '%'.$query.'%';
-          $addresses = FamilyQuery::create()->
-            filterByCity($searchLikeString, Criteria::LIKE)->
+          $addresses = FamilyQuery::create();
+          
+          if (SystemConfig::getBooleanValue('bGDPR')) {
+             $addresses->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
+          }
+
+          
+          $addresses->filterByCity($searchLikeString, Criteria::LIKE)->
             _or()->filterByAddress1($searchLikeString, Criteria::LIKE)->
             _or()->filterByAddress2($searchLikeString, Criteria::LIKE)->
             _or()->filterByZip($searchLikeString, Criteria::LIKE)->
@@ -114,9 +124,13 @@ $app->get('/search/{query}', function ($request, $response, $args) {
     if (SystemConfig::getBooleanValue("bSearchIncludeFamilies")) {
         try {
           $results = [];
-          $families = FamilyQuery::create()
-              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
-              ->filterByName("%$query%", Criteria::LIKE)->
+          $families = FamilyQuery::create();
+          
+          if (SystemConfig::getBooleanValue('bGDPR')) {
+            $families->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
+          }
+          
+          $families->filterByName("%$query%", Criteria::LIKE)->
               _or()->filterByHomePhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByCellPhone($searchLikeString, Criteria::LIKE)->
               _or()->filterByWorkPhone($searchLikeString, Criteria::LIKE)->

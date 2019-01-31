@@ -24,6 +24,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\SessionUser;
@@ -336,8 +337,15 @@ if (isset($sLetter)) {
 
 $sGroupBySQL = ' GROUP BY per_ID';
 
-$activeFamiliesWhereExt = ' AND fam_DateDeactivated is null';
-$activePersonsWhereExt = ' AND per_DateDeactivated is null';
+if ( SystemConfig::getBooleanValue('bGDPR') ) {
+  $activeFamiliesWhereExt = ' AND fam_DateDeactivated is null';
+  $activePersonsWhereExt = ' AND per_DateDeactivated is null';
+} else {
+  $activeFamiliesWhereExt = ' ';
+  $activePersonsWhereExt = ' ';
+}
+
+
 
 $sWhereExt = $sGroupWhereExt . $sFilterWhereExt . $sClassificationWhereExt .
     $sFamilyRoleWhereExt . $sGenderWhereExt . $sLetterWhereExt . $sPersonPropertyWhereExt . $activeFamiliesWhereExt . $activePersonsWhereExt;
