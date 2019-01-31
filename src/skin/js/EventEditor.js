@@ -441,7 +441,7 @@
               +'</div>'
             +'</div>'
             +'<div class="row div-title map-title">'
-              +'<div class="col-md-3">' + i18next.t("Map") + ":</div>"
+              +'<div class="col-md-3">' + i18next.t("Map") + ":<br><br><p style='color:orange;font-size:11px'>" + i18next.t("WARNING : To validate your address with this map : <b>\"hit return\"</b>.") + "</p></div>"
               +'<div class="col-md-9">'
                 +'<div id="MyMap"></div>'
               +'</div>'
