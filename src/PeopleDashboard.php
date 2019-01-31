@@ -396,6 +396,9 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     <div class="box box-info">
         <div class="box-header">
           <i class="fa fa-birthday-cake"></i>  
+          
+          <h3 class="box-title"><?= _('# Age Histogram')?></h3>
+          
           <div class="box-tools pull-left">
             <div id="age-stats-bar-legend" class="chart-legend"></div>
           </div>
@@ -510,7 +513,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
             
             $datasets = new StdClass();
             
-            $datasets->label           = _('# Age Histogram');
+            $datasets->label           = _('# number of people');
             $datasets->data            = $Datas;
             $datasets->backgroundColor = $BackgroundColor;
             $datasets->borderColor     = $borderColor;
