@@ -86,7 +86,6 @@ class Person extends BasePerson implements iPhoto
 
       return $ret;
     }
-
     
     public function isDeactivated()
     {
@@ -510,14 +509,12 @@ class Person extends BasePerson implements iPhoto
       return parent::postSave($con);
     }
     
-    
     /* Philippe Logel 2017 */
     public function getAge($with_suffix=true)
     {
        $birthD = $this->getBirthDate();
-   
-       if ($this->hideAge() == 1) 
-       {
+       
+       if ($this->hideAge() == 1) {
             return '';
        }
 
