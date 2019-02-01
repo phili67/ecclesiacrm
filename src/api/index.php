@@ -42,86 +42,61 @@ $app->add(new JwtAuthentication([
 require __DIR__.'/dependencies.php';
 require __DIR__.'/../Include/slim/error-handler.php';
 
-// system routes
-require __DIR__.'/routes/database.php';
-require __DIR__.'/routes/issues.php';
+// calendar and events
+require __DIR__.'/routes/calendar/calendar-calendarV2.php';
+require __DIR__.'/routes/calendar/calendar-eventsV2.php';
 
-// people routes
-require __DIR__.'/routes/search.php';
-require __DIR__.'/routes/persons.php';
-require __DIR__.'/routes/roles.php';
-require __DIR__.'/routes/properties.php';
-require __DIR__.'/routes/users.php';
-require __DIR__.'/routes/families.php';
-require __DIR__.'/routes/groups.php';
-require __DIR__.'/routes/userrole.php';
-require __DIR__.'/routes/people.php';
-
-// the pastoral care route
-require __DIR__.'/routes/pastoralcare.php';
-
-// the map icons
-require __DIR__.'/routes/mapicons.php';
-
-// share documents routes
-require __DIR__.'/routes/sharedocument.php';
-
-// share ckeditor routes
-require __DIR__.'/routes/ckeditor.php';
+// file manager documents routes
+require __DIR__.'/routes/documents/documents-ckeditor.php';
+require __DIR__.'/routes/documents/documents-filemanager.php';
+require __DIR__.'/routes/documents/documents-sharedocument.php';
 
 // finance routes
-require __DIR__.'/routes/deposits.php';
-require __DIR__.'/routes/payments.php';
-require __DIR__.'/routes/donationfunds.php';
-require __DIR__.'/routes/pledges.php';
-require __DIR__.'/routes/attendees.php';
+require __DIR__.'/routes/finance/finance-deposits.php';
+require __DIR__.'/routes/finance/finance-donationfunds.php';
+require __DIR__.'/routes/finance/finance-payments.php';
+require __DIR__.'/routes/finance/finance-pledges.php';
 
-// other
-require __DIR__.'/routes/calendarV2.php';
+// people families and persons routes
+require __DIR__.'/routes/people/people.php';
+require __DIR__.'/routes/people/people-attendees.php';
+require __DIR__.'/routes/people/people-families.php';
+require __DIR__.'/routes/people/people-groups.php';
+require __DIR__.'/routes/people/people-persons.php';
 
-//timer jobs
-require __DIR__.'/routes/timerjobs.php';
+// public routes
+require __DIR__.'/routes/public/public-data.php';
+require __DIR__.'/routes/public/public-register.php';
 
-//self-upgrade tasks
-require __DIR__.'/routes/systemupgrade.php';
+// system sidebar route
+require __DIR__.'/routes/sidebar/sidebar-mapicons.php';
+require __DIR__.'/routes/sidebar/sidebar-menulinks.php';
+require __DIR__.'/routes/sidebar/sidebar-pastoralcare.php';
+require __DIR__.'/routes/sidebar/sidebar-properties.php';
+require __DIR__.'/routes/sidebar/sidebar-roles.php';
+require __DIR__.'/routes/sidebar/sidebar-volunteeropportunity.php';
 
-//registration
-require __DIR__.'/routes/register.php';
+// system routes
+require __DIR__.'/routes/system/system.php';
+require __DIR__.'/routes/system/system-custom-fields.php';
+require __DIR__.'/routes/system/system-dashboard.php';
+require __DIR__.'/routes/system/system-database.php';
+require __DIR__.'/routes/system/system-gdrp.php';
+require __DIR__.'/routes/system/system-issues.php';
+require __DIR__.'/routes/system/system-system-upgrade.php';
+require __DIR__.'/routes/system/system-timerjobs.php';
 
-//cart
+// users routes
+require __DIR__.'/routes/user/user-users.php';
+require __DIR__.'/routes/user/user-role.php';
+
+// the rest
 require __DIR__.'/routes/cart.php';
-
-require __DIR__.'/routes/kiosks.php';
-
-require __DIR__.'/routes/eventsV2.php';
-
-require __DIR__.'/routes/custom-fields.php';
-
-require __DIR__.'/routes/system.php';
-
-require __DIR__.'/routes/dashboard.php';
-
 require __DIR__.'/routes/geocoder.php';
-
-require __DIR__.'/routes/public-data.php';
-
-// gdrp route
-require __DIR__.'/routes/gdrp.php';
-
-// menulink route
-require __DIR__.'/routes/menulinks.php';
-
-// sundayschool route
-require __DIR__.'/routes/sundayschool.php';
-
-// routes for the fileManage
-require __DIR__.'/routes/filemanager.php';
-
-// routes for the fileManage
-require __DIR__.'/routes/volunteeropportunity.php';
-
-// routes for the fileManage
+require __DIR__.'/routes/kiosks.php';
 require __DIR__.'/routes/mailchimp.php';
+require __DIR__.'/routes/search.php';
+require __DIR__.'/routes/sundayschool.php';
 
 // Run app
 $app->run();
