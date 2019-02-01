@@ -84,6 +84,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/api/routes/ckeditor.php");
   unlink(SystemURLs::getDocumentRoot()."/api/routes/calendarV2.php");
   unlink(SystemURLs::getDocumentRoot()."/api/routes/attendees.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/autopayement.php");
   
   $logger->info("End of Reset :  all unusefull files");
 ?>
