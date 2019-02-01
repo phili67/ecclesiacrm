@@ -121,6 +121,13 @@ class User extends BaseUser
       
     public function renameHomeDir($oldUserName,$newUserName)
     {
+      $oldUserName = strtolower ($oldUserName);
+      $newUserName = strtolower ($newUserName);
+      
+      if ($oldUserName != "admin") {// the calendars of the principal admin should be preserved
+        return;
+      }
+      
       if ($oldUserName != $newUserName) {
          try {
               rename(dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($oldUserName)),dirname(__FILE__)."/../../../".$this->getUserDir(strtolower($newUserName)));
