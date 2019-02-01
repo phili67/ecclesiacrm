@@ -51,5 +51,39 @@ require '../../Include/Config.php';*/
   
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");
   
+  // clarification of the api directory  
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/volunteeropportunity.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/users.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/userrole.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/timerjobs.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/systemupgrade.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/system.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/sharedocument.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/roles.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/register.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/public-data.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/properties.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/pledges.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/persons.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/people.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/payments.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/pastoralcare.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/menulinks.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/mapicons.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/issues.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/groups.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/gdrp.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/filemanager.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/families.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/eventsV2.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/donationfunds.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/deposits.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/database.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/dashboard.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/custom-fields.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/ckeditor.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/calendarV2.php");
+  unlink(SystemURLs::getDocumentRoot()."/api/routes/attendees.php");
+  
   $logger->info("End of Reset :  all unusefull files");
 ?>
