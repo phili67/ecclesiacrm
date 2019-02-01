@@ -42,7 +42,7 @@ $app->add(new JwtAuthentication([
 require __DIR__.'/dependencies.php';
 require __DIR__.'/../Include/slim/error-handler.php';
 
-// calendar and events
+// calendar and events routes
 require __DIR__.'/routes/calendar/calendar-calendarV2.php';
 require __DIR__.'/routes/calendar/calendar-eventsV2.php';
 
@@ -68,7 +68,7 @@ require __DIR__.'/routes/people/people-persons.php';
 require __DIR__.'/routes/public/public-data.php';
 require __DIR__.'/routes/public/public-register.php';
 
-// system sidebar route
+// system sidebar routes
 require __DIR__.'/routes/sidebar/sidebar-mapicons.php';
 require __DIR__.'/routes/sidebar/sidebar-menulinks.php';
 require __DIR__.'/routes/sidebar/sidebar-pastoralcare.php';
