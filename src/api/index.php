@@ -52,7 +52,6 @@ require __DIR__.'/routes/documents/documents-filemanager.php';
 require __DIR__.'/routes/documents/documents-sharedocument.php';
 
 // finance routes
-require __DIR__.'/routes/finance/finance-autopayement.php';
 require __DIR__.'/routes/finance/finance-deposits.php';
 require __DIR__.'/routes/finance/finance-donationfunds.php';
 require __DIR__.'/routes/finance/finance-payments.php';
