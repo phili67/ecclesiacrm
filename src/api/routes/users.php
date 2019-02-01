@@ -17,6 +17,7 @@ use EcclesiaCRM\Note;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 
 $app->group('/users', function () {
@@ -41,7 +42,9 @@ function passwordReset (Request $request, Response $response, array $args ) {
       if ($email->send()) {
           return $response->withStatus(200)->withJson(['status' => "success"]);
       } else {
-          $this->Logger->error($email->getError());
+          $logger = LoggerUtils::getAppLogger();
+          $logger->error($email->getError());
+          
           throw new \Exception($email->getError());
       }
   } else {
@@ -146,7 +149,8 @@ function loginReset ($request, $response, $args) {
         $user->createTimeLineNote("login-reset");
         $email = new UnlockedEmail($user);
         if (!$email->send()) {
-            $this->Logger->warn($email->getError());
+          $logger = LoggerUtils::getAppLogger();
+          $logger->error($email->getError());
         }
         return $response->withStatus(200)->withJson(['status' => "success"]);
     } else {
@@ -167,7 +171,8 @@ function deleteUser ($request, $response, $args) {
         $email = new AccountDeletedEmail($user);
         $user->delete();
         if (!$email->send()) {
-            $this->Logger->warn($email->getError());
+          $logger = LoggerUtils::getAppLogger();
+          $logger->error($email->getError());
         }
         return $response->withStatus(200)->withJson(['status' => "success"]);
     } else {

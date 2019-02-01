@@ -78,7 +78,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
     $sAction = $_POST['Action'];
 
     $defaultFY = CurrentFY();
-    $sUserName = InputUtils::LegacyFilterInput($_POST['UserName']);
+    $sUserName = strtolower(InputUtils::LegacyFilterInput($_POST['UserName']));
 
     if (strlen($sUserName) < 3) {
         if ($NewUser == false) {
@@ -287,12 +287,19 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
                     $user->setStyle($Style);
-                    $user->setUserName($sUserName);                    
+                    
+                    if (strtolower($oldUserName) != "admin") {
+                      $user->setUserName($sUserName);
+                    }
+                    
                     $user->setEditSelf($EditSelf);
                     $user->setCanvasser($Canvasser);
                     $user->save();
                     
-                    $user->renameHomeDir($oldUserName,$sUserName);
+                    if (strtolower($oldUserName) != "admin") {
+                      $user->renameHomeDir($oldUserName,$sUserName);
+                    }
+                    
                     $user->createTimeLineNote("updated");// the calendars are moved from one username to another in the function : renameHomeDir
                     
                     if ($ManageGroups || $Admin) {
@@ -549,7 +556,7 @@ if ($usr_role_id == null) {
             <?= gettext('Login Name') ?>:
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
-            <input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32">
+            <input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>>
           </div>
         </div>
     </div>
@@ -600,7 +607,7 @@ if ($usr_role_id == null) {
           ?>
           <tr>
               <td><?= gettext('Login Name') ?>:</td>
-              <td><input  class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32"></td>
+              <td><input class="form-control input-md" type="text" name="UserName" value="<?= $sUserName ?>" class="form-control" width="32" <?= (strtolower($sUserName) == "admin")?"readonly":""?>></td>
           </tr>
           <?php
             }
