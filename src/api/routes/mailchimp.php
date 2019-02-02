@@ -1,7 +1,6 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
-
 use Slim\Http\Request;
 use Slim\Http\Response;
 
