@@ -9,10 +9,13 @@
  *  http://www.ecclesiacrm.com/
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
+ *                This code can't be incoprorated in another software without authorizaion
  *  Updated : 2018-07-13
  *
  ******************************************************************************/
+
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 use EcclesiaCRM\dto\SystemConfig;
 
@@ -24,7 +27,17 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/menulinks', function () {
 
-  $this->post('/{userId:[0-9]+}', function ($request, $response, $args) {
+  $this->post('/{userId:[0-9]+}', 'getMenuLinksForUser' );
+  $this->post('/delete', 'deleteMenuLink' );
+  $this->post('/upaction', 'upMenuLink' );
+  $this->post('/downaction', 'downMenuLink' );  
+  $this->post('/create', 'createMenuLink' );
+  $this->post('/set', 'setMenuLink' );  
+  $this->post('/edit', 'editMenuLink' );  
+
+});
+
+function getMenuLinksForUser (Request $request, Response $response, array $args) {
     if ($args['userId'] == 0 && !SessionUser::getUser()->isMenuOptionsEnabled()) {
             return $response->withStatus(401);
     }
@@ -64,9 +77,9 @@ $app->group('/menulinks', function () {
     }
     
     echo "{\"MenuLinks\":[".substr($res, 0, -1)."]}"; 
-  });
+  }
   
-  $this->post('/delete', function ($request, $response, $args) {    
+  function deleteMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset ($input->MenuLinkId) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -94,10 +107,9 @@ $app->group('/menulinks', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });
+  }
   
-  
-  $this->post('/upaction', function ($request, $response, $args) {    
+  function upMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -118,9 +130,9 @@ $app->group('/menulinks', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });
+  }
   
-  $this->post('/downaction', function ($request, $response, $args) {    
+  function downMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset($input->PersonID) && isset ($input->MenuLinkId) && isset ($input->MenuPlace) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -141,10 +153,9 @@ $app->group('/menulinks', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });  
+  }
   
-  
-  $this->post('/create', function ($request, $response, $args) {    
+  function createMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->PersonID) && isset ($input->Name) && isset ($input->URI) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -178,10 +189,9 @@ $app->group('/menulinks', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });  
-
+  }
   
-  $this->post('/set', function ($request, $response, $args) {    
+  function setMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->URI) && isset ($input->MenuLinkId) && isset ($input->Name) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -197,9 +207,9 @@ $app->group('/menulinks', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });  
+  }
   
-  $this->post('/edit', function ($request, $response, $args) {    
+  function editMenuLink (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->MenuLinkId) && SessionUser::getUser()->isMenuOptionsEnabled() ){
@@ -207,5 +217,4 @@ $app->group('/menulinks', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });  
-});
+  }
