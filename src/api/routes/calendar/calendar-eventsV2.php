@@ -206,7 +206,7 @@ function groupCheckIn (Request $request, Response $response, array $args) {
             
     $persons = Person2group2roleP2g2rQuery::create()
         ->usePersonQuery()
-          ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+          ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
         ->endUse()
         ->filterByGroupId($params->GroupID)
         ->find();
@@ -241,7 +241,7 @@ function familyCheckIn (Request $request, Response $response, array $args) {
     foreach ($family->getPeople() as $person) {
       //return $response->withJson(['person' => $person->getId(),"eventID" => $params->EventID]);
       try {
-        if ($person->getId() > 0 && $person->getDateDeactivated() == null) {// RGPD, when a person is completely deactivated
+        if ($person->getId() > 0 && $person->getDateDeactivated() == null) {// GDRP, when a person is completely deactivated
           $eventAttent = new EventAttend();
     
           $eventAttent->setEventId($params->EventID);

@@ -60,7 +60,7 @@ if ($iPersonID > 0) {
         exit();
     }
     
-    if ($person->getDateDeactivated() != null && !SessionUser::getUser()->isGdrpDpoEnabled()) {
+    if ($person->getDateDeactivated() != null && !SessionUser::getUser()->isGDRPDpoEnabled()) {
       RedirectUtils::Redirect('members/404.php?type=Person');
     }
     
@@ -736,13 +736,13 @@ $ormClassifications = ListOptionQuery::Create()
               ->findById(1);
 
 //Get Families for the drop-down
-if (SessionUser::getUser()->isGdrpDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
+if (SessionUser::getUser()->isGDRPDpoEnabled()) {// only GDRP Pdo can see the super deactivated members
    $ormFamilies = FamilyQuery::Create()
                   ->orderByName()
                   ->find();
 } else {
    $ormFamilies = FamilyQuery::Create()
-                  ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+                  ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
                   ->orderByName()
                   ->find();
 }

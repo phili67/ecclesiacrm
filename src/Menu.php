@@ -86,14 +86,14 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
           ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
           ->_or() // or : this part is unusefull, it's only for debugging
           ->useFamilyQuery()
-            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a Family is completely deactivated
+            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a Family is completely deactivated
           ->endUse()
           ->orderByLastName()
           ->find();
               
   if ($persons->count()+$families->count() > 0) {
 ?>
-  <div class="alert alert-gpdr alert-dismissible " id="Menu_RGPD">
+  <div class="alert alert-gpdr alert-dismissible " id="Menu_GDRP">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
        <h4 class="alert-heading"><?= gettext("GDPR") ?>  (<?= gettext("message for the DPO") ?>)</h4>
        <div class="row">

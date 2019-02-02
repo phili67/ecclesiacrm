@@ -167,7 +167,7 @@ $app->group('/gdrp', function () {
         ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
         ->_or() // or : this part is unusefull, it's only for debugging
         ->useFamilyQuery()
-          ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a Family is completely deactivated
+          ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a Family is completely deactivated
         ->endUse()
         ->find();
       

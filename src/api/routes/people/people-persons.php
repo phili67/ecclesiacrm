@@ -105,6 +105,7 @@ function searchPerson (Request $request, Response $response, array $args) {
   $searchLikeString = '%'.$query.'%';
   $people = PersonQuery::create()->
   filterByFirstName($searchLikeString, Criteria::LIKE)->
+  filterByDateDeactivated(null)->
   _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
   _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
       limit(15)->find();

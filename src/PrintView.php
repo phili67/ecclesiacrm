@@ -359,7 +359,7 @@ if ($fam_ID) {
         
         extract($aRow);
 
-        if ($per_DateDeactivated != null)// // RGPD, when a person is completely deactivated
+        if ($per_DateDeactivated != null)// GDRP, when a person is completely deactivated
           continue;
         
         // Alternate the row style

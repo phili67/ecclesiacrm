@@ -39,7 +39,8 @@ $app->group('/people', function () {
       try {
         $searchLikeString = '%'.$query.'%';
         $people = PersonQuery::create()->
-          filterByFirstName($searchLikeString, Criteria::LIKE)->
+            filterByDateDeactivated(null)->// gdpr when a person is de-activated
+            filterByFirstName($searchLikeString, Criteria::LIKE)->
             _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
           limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
   

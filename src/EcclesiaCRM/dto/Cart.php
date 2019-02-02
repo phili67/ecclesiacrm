@@ -44,7 +44,7 @@ class Cart
   public static function FamilyInCart($FamilyID)
   {
     $FamilyMembers = PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->filterByFamId($FamilyID)
             ->find();
             
@@ -124,7 +124,7 @@ class Cart
     }
     $GroupMembers = Person2group2roleP2g2rQuery::create()
             ->usePersonQuery()
-              ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+              ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->endUse()
             ->filterByGroupId($GroupID)
             ->find();
@@ -141,7 +141,7 @@ class Cart
       throw new \Exception (gettext("FamilyID for Cart must be numeric"),400);
     }
     $FamilyMembers = PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->filterByFamId($FamilyID)
             ->find();
     foreach ($FamilyMembers as $FamilyMember)
@@ -223,7 +223,7 @@ class Cart
       throw new \Exception (gettext("FamilyID for Cart must be numeric"),400);
     }
     $FamilyMembers = PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->filterByFamId($FamilyID)
             ->find();
     foreach ($FamilyMembers as $FamilyMember)
@@ -240,7 +240,7 @@ class Cart
               ->findOneByPersonId($personID);
 
         $person = PersonQuery::create()
-                ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+                ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
                 ->findOneById($personID);              
               
         if (empty($user)) {// it's only a person, we can delete.
@@ -310,7 +310,7 @@ class Cart
   public static function CountFamilies()
   {
     $persons = PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->distinct()
             ->select(['Person.FamId'])
             ->filterById($_SESSION['aPeopleCart'])

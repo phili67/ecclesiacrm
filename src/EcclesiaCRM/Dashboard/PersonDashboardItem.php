@@ -29,7 +29,7 @@ class PersonDashboardItem implements DashboardItemInterface {
     public static function getUpdatedMembers($limit = 12)
     {
         return PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->leftJoinWithFamily()
             ->where('Family.DateDeactivated is null')
             ->orderByDateLastEdited('DESC')
@@ -45,7 +45,7 @@ class PersonDashboardItem implements DashboardItemInterface {
     public static function getLatestMembers($limit = 12)
     {
         return PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->leftJoinWithFamily()
             ->where('Family.DateDeactivated is null')
             ->filterByDateLastEdited(null)
