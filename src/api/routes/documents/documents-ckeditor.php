@@ -21,8 +21,7 @@ use EcclesiaCRM\Note;
 use EcclesiaCRM\SessionUser;
 
 $app->group('/ckeditor', function () {
-    // search person by Name
-    
+
     $this->get('/{personId:[0-9]+}/templates', 'templates');
     $this->post('/alltemplates'   , 'alltemplates');
     $this->post('/deletetemplate' , 'deleteTemplate');
