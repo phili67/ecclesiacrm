@@ -13,6 +13,9 @@
  *
  ******************************************************************************/
 
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 use EcclesiaCRM\dto\SystemConfig;
 
 use EcclesiaCRM\VolunteerOpportunityQuery;
@@ -23,7 +26,17 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/volunteeropportunity', function () {
 
-  $this->post('/', function ($request, $response, $args) {
+  $this->post('/', 'getAllVolunteerOpportunities' );
+  $this->post('/delete', 'deleteVolunteerOpportunity' );
+  $this->post('/upaction', 'upActionVolunteerOpportunity' );
+  $this->post('/downaction', 'downActionVolunteerOpportunity');  
+  $this->post('/create', 'createVolunteerOpportunity' );
+  $this->post('/set', 'setVolunteerOpportunity' );
+  $this->post('/edit', 'editVolunteerOpportunity' );
+  
+});
+
+function getAllVolunteerOpportunities (Request $request, Response $response, array $args) {
     if ( !( SessionUser::getUser()->isCanvasserEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
       return $response->withStatus(401);
     }
@@ -59,9 +72,9 @@ $app->group('/volunteeropportunity', function () {
     }
     
     echo "{\"VolunteerOpportunities\":[".substr($res, 0, -1)."]}"; 
-  });
+  }
   
-  $this->post('/delete', function ($request, $response, $args) {    
+function deleteVolunteerOpportunity (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset ($input->id) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled() ){
@@ -88,10 +101,9 @@ $app->group('/volunteeropportunity', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });
-  
-  
-  $this->post('/upaction', function ($request, $response, $args) {    
+  }
+
+function upActionVolunteerOpportunity(Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset ($input->id) && isset ($input->place) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled() ){
@@ -106,9 +118,9 @@ $app->group('/volunteeropportunity', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });
+  }
   
-  $this->post('/downaction', function ($request, $response, $args) {    
+function downActionVolunteerOpportunity(Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset ($input->id) && isset ($input->place) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()  ){
@@ -123,10 +135,9 @@ $app->group('/volunteeropportunity', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });  
-  
-  
-  $this->post('/create', function ($request, $response, $args) {    
+  }
+
+function createVolunteerOpportunity (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if ( isset ($input->Name) && isset ($input->desc) && isset ($input->state) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()  ){
@@ -152,10 +163,9 @@ $app->group('/volunteeropportunity', function () {
     }
     
     return $response->withJson(['success' => false]);
-  });  
-
+  }
   
-  $this->post('/set', function ($request, $response, $args) {    
+function setVolunteerOpportunity (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->id) && isset ($input->Name) && isset ($input->desc) && isset ($input->state) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled()  ){
@@ -172,9 +182,9 @@ $app->group('/volunteeropportunity', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });  
+  }
   
-  $this->post('/edit', function ($request, $response, $args) {    
+function editVolunteerOpportunity (Request $request, Response $response, array $args) {    
     $input = (object)$request->getParsedBody();
     
     if (isset ($input->id) && SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isCanvasserEnabled() ){
@@ -182,5 +192,4 @@ $app->group('/volunteeropportunity', function () {
     }   
     
     return $response->withJson(['success' => false]);
-  });  
-});
+  }
