@@ -2,12 +2,15 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incoprorated in another software without authorizaion
 //
 //  Updated : 2018/05/30
 //
 
-// Person APIs
+// CKeditor APIs
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -29,7 +32,7 @@ $app->group('/ckeditor', function () {
     
 });
 
-function templates ($request, $response, $args) {      
+function templates (Request $request, Response $response, array $args) {      
   $templates = CKEditorTemplatesQuery::Create()->findByPersonID($args['personId']);
   
   $templatesArr = [];
@@ -56,7 +59,7 @@ CKEDITOR.addTemplates( 'default',
 }
 
 
-function alltemplates ($request, $response, $args) {
+function alltemplates (Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
   
   if ( isset ($input->personID) ) {
@@ -78,7 +81,7 @@ function alltemplates ($request, $response, $args) {
   return $response->withJson(['status' => 'failed']);
 }
 
-function deleteTemplate ($request, $response, $args) {
+function deleteTemplate (Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
   
   if ( isset ($input->templateID) ) {
@@ -92,7 +95,7 @@ function deleteTemplate ($request, $response, $args) {
   return $response->withJson(['status' => 'failed']);
 }
 
-function renameTemplate ($request, $response, $args) {
+function renameTemplate (Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
   
   if ( isset ($input->templateID) && isset ($input->title) && isset ($input->desc) ) {
@@ -110,7 +113,7 @@ function renameTemplate ($request, $response, $args) {
   return $response->withJson(['status' => 'failed']);
 }
 
-function saveTemplate($request, $response, $args) {      
+function saveTemplate(Request $request, Response $response, array $args) {      
   $input = (object)$request->getParsedBody();
   
   if ( isset ($input->personID) && isset ($input->title) && isset ($input->desc) && isset ($input->text) ) {
@@ -155,7 +158,7 @@ function saveAsWordFile ($request, $res, $args) {
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $input->text, false, false);
 
         // [SAVE FILE ON THE SERVER]
-        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
+        $tmpFile = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
         $pw->save($tmpFile, "Word2007");
         
         // now we create the note

@@ -1,6 +1,9 @@
 <?php
 
 // Routes
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 use EcclesiaCRM\Deposit;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\dto\SystemConfig;
@@ -10,7 +13,21 @@ use Propel\Runtime\ActiveQuery\ModelCriteria;
 
 
 $app->group('/deposits', function () {
-    $this->post('', function ($request, $response, $args) {
+
+    $this->post('', 'createDeposit' );
+    $this->get('', 'getAllDeposits' );
+    $this->get('/{id:[0-9]+}', 'getOneDeposit' );
+    $this->post('/{id:[0-9]+}', 'modifyOneDeposit' );
+    $this->get('/{id:[0-9]+}/ofx', 'createDepositOFX' );
+    $this->get('/{id:[0-9]+}/pdf', 'createDepositPDF' );
+    $this->get('/{id:[0-9]+}/csv', 'createDepositCSV' );
+    $this->delete('/{id:[0-9]+}', 'deleteDeposit' );
+    $this->get('/{id:[0-9]+}/pledges', 'getAllPledgesForDeposit' );
+
+});
+
+
+function createDeposit (Request $request, Response $response, array $args) {
         $input = (object) $request->getParsedBody();
         $deposit = new Deposit();
         $deposit->setType($input->depositType);
@@ -19,23 +36,23 @@ $app->group('/deposits', function () {
         //$deposit->setFund($input->depositFund);// unusefull actually
         $deposit->save();
         echo $deposit->toJSON();
-    });
-
-    $this->get('', function ($request, $response, $args) {
+    }
+    
+function getAllDeposits (Request $request, Response $response, array $args) {
         $deposits = DepositQuery::create()
            ->leftJoinDonationFund()
            ->withColumn('DonationFund.Name','fundName')
            ->find();
            
         echo $deposits->toJSON();
-    });
+    }
 
-    $this->get('/{id:[0-9]+}', function ($request, $response, $args) {
+function getOneDeposit (Request $request, Response $response, array $args) {
         $id = $args['id'];
         echo DepositQuery::create()->findOneById($id)->toJSON();
-    });
-
-    $this->post('/{id:[0-9]+}', function ($request, $response, $args) {
+    }
+    
+function modifyOneDeposit (Request $request, Response $response, array $args) {
         $id = $args['id'];
         $input = (object) $request->getParsedBody();
         $thisDeposit = DepositQuery::create()->findOneById($id);
@@ -45,21 +62,21 @@ $app->group('/deposits', function () {
         $thisDeposit->setClosed($input->depositClosed);
         $thisDeposit->save();
         echo $thisDeposit->toJSON();
-    });
-
-    $this->get('/{id:[0-9]+}/ofx', function ($request, $response, $args) {
+    }
+    
+function createDepositOFX (Request $request, Response $response, array $args) {
         $id = $args['id'];
         $OFX = DepositQuery::create()->findOneById($id)->getOFX();
         header($OFX->header);
         echo $OFX->content;
-    });
+    }
 
-    $this->get('/{id:[0-9]+}/pdf', function ($request, $response, $args) {
+function createDepositPDF (Request $request, Response $response, array $args) {
         $id = $args['id'];
         DepositQuery::create()->findOneById($id)->getPDF();
-    });
-
-    $this->get('/{id:[0-9]+}/csv', function ($request, $response, $args) {
+    }
+    
+function createDepositCSV (Request $request, Response $response, array $args) {
         $id = $args['id'];
     //echo DepositQuery::create()->findOneById($id)->toCSV();
     header('Content-Disposition: attachment; filename=EcclesiaCRM-Deposit-'.$id.'-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
@@ -72,15 +89,15 @@ $app->group('/deposits', function () {
             ->endUse()
             ->find()
             ->toCSV();
-    });
-
-    $this->delete('/{id:[0-9]+}', function ($request, $response, $args) {
+    }
+    
+function deleteDeposit (Request $request, Response $response, array $args) {
         $id = $args['id'];
         DepositQuery::create()->findOneById($id)->delete();
         echo json_encode(['success' => true]);
-    });
-
-    $this->get('/{id:[0-9]+}/pledges', function ($request, $response, $args) {
+    }
+    
+function getAllPledgesForDeposit (Request $request, Response $response, array $args) {
         $id = $args['id'];
         /*$Pledges = \EcclesiaCRM\PledgeQuery::create()
             ->filterByDepid($id)
@@ -106,5 +123,4 @@ $app->group('/deposits', function () {
     
         return $response->withJSON($Pledges);
         
-    });
-});
+    }

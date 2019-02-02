@@ -1,6 +1,9 @@
 <?php
 
 /* Copyright Philippe Logel not MIT */
+use Slim\Http\Request;
+use Slim\Http\Response;
+
 
 // Routes
 use EcclesiaCRM\FamilyQuery;
@@ -20,11 +23,8 @@ use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
 
 
-use Slim\Http\Request;
-use Slim\Http\Response;
-
-
 $app->group('/mailchimp', function () {
+
     $this->get('/search/{query}','searchList');
     $this->get('/list/{listID}','oneList');
     $this->get('/lists','lists');
@@ -49,9 +49,10 @@ $app->group('/mailchimp', function () {
     $this->post('/addgroup', 'addGroup');
 
     $this->post('/testConnection', 'testEmailConnectionMVC');
+
 });
 
-function searchList ($request,$response,$args) {
+function searchList (Request $request, Response $response, array $args) {
   $query = $args['query'];
   $resultsArray = [];
 
