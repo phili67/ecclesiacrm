@@ -1308,7 +1308,7 @@ function generateGroupRoleEmailDropdown($roleEmails, $href)
 {
     foreach ($roleEmails as $role => $Email) {
         if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($Email, SystemConfig::getValue('sToEmailAddress'))) {
-            $Email .= $sMailtoDelimiter.SystemConfig::getValue('sToEmailAddress');
+            $Email .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
         }
         $Email = urlencode($Email);  // Mailto should comply with RFC 2368
     ?>

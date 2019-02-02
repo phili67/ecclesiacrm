@@ -54,7 +54,7 @@ require '../Include/Header.php';
       } 
     ?>
     <?php 
-      if ($_SESSION['bExportSundaySchoolPDF'] || SessionUser::getUser()->isAdmin()) { 
+      if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) { 
     ?>  
      <a href="SundaySchoolReports.php" class="btn btn-app"
        title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i

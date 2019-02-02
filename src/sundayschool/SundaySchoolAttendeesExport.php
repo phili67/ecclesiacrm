@@ -35,7 +35,9 @@ if ( !( SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
-  
+
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
 
 $iGroupID = $_GET['groupID'];
 
@@ -47,32 +49,32 @@ header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
-header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+header('Content-Type: text/csv;charset='.$charset);
 header('Content-Disposition: attachment; filename=SundaySchool-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
-$delimiter = $sCSVExportDelemiter;
+$delimiter = $delimiter;
 
 $out = fopen('php://output', 'w');
 
-//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-if ($sCSVExportCharset == "UTF-8") {
+//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+if ($charset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
   
 $labelArr = [];
-$labelArr[] = InputUtils::translate_special_charset("First Name",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Last Name",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Birth Date",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Gender",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Age",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Phone",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Group",$sCSVExportCharset);
-$labelArr[] = InputUtils::translate_special_charset("Notes",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("First Name",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Last Name",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Birth Date",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Gender",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Age",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Phone",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Group",$charset);
+$labelArr[] = InputUtils::translate_special_charset("Notes",$charset);
 /*$labelArr[] = InputUtils::translate_special_charset("Photo");*/
 /*$labelArr[] = InputUtils::translate_special_charset("Follow");
-$labelArr[] = InputUtils::translate_special_charset("Re-inscription",$sCSVExportCharset);*/
-$labelArr[] = InputUtils::translate_special_charset("Stats",$sCSVExportCharset);
+$labelArr[] = InputUtils::translate_special_charset("Re-inscription",$charset);*/
+$labelArr[] = InputUtils::translate_special_charset("Stats",$charset);
 
 $activeEvents = EventQuery::Create()
     ->filterByGroupId($iGroupID)
@@ -166,10 +168,10 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
         $maxNbrEvents = $lineNbrEvents;
       }
       
-      $lineArr[] = InputUtils::translate_special_charset($person->getFirstName(),$sCSVExportCharset);
-      $lineArr[] = InputUtils::translate_special_charset($person->getLastName(),$sCSVExportCharset);
-      $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")),$sCSVExportCharset);
-      $lineArr[] = InputUtils::translate_special_charset(($person->getGender() == 1)?gettext("Boy"):gettext("Girl"),$sCSVExportCharset);
+      $lineArr[] = InputUtils::translate_special_charset($person->getFirstName(),$charset);
+      $lineArr[] = InputUtils::translate_special_charset($person->getLastName(),$charset);
+      $lineArr[] = InputUtils::translate_special_charset(OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d")),$charset);
+      $lineArr[] = InputUtils::translate_special_charset(($person->getGender() == 1)?_("Boy"):_("Girl"),$charset);
       $lineArr[] = $person->getAge();
       $lineArr[] = $homePhone;
       $lineArr[] = $group->getName();
@@ -182,7 +184,7 @@ foreach ($groupRoleMemberships as $groupRoleMembership) {
     }
 }
 
-$base = ['','','','','','','','',gettext('Totals')];
+$base = ['','','','','','','','',_('Totals')];
 
 for ($i=0;$i < $maxNbrEvents;$i++) {
   $base[$i+9] = $sizeArray[$i];

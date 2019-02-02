@@ -493,34 +493,40 @@ class User extends BaseUser
         return hash('sha256', $password . $this->getPersonId());
     }
     
+    
+    public function MailtoDelimiter()
+    {
+        return $this->getUserConfigString('sMailtoDelimiter');
+    }
+    
     public function isEmailEnabled()
     {
-        return $this->getUserConfigString('bEmailMailto');
+        return $this->isAdmin() || $this->getUserConfigString('bEmailMailto');
     }
     
     public function isExportSundaySchoolCSVEnabled()
     {
-        return $this->getUserConfigString('bExportSundaySchoolCSV');
+        return $this->isAdmin() || $this->getUserConfigString('bExportSundaySchoolCSV');
     }
     
     public function isExportSundaySchoolPDFEnabled()
     {
-        return $this->getUserConfigString('bExportSundaySchoolPDF');
+        return $this->isAdmin() || $this->getUserConfigString('bExportSundaySchoolPDF');
     }
     
     public function isCreateDirectoryEnabled()
     {
-        return $this->getUserConfigString('bCreateDirectory');
+        return $this->isAdmin() || $this->getUserConfigString('bCreateDirectory');
     }
 
     public function isCSVExportEnabled()
     {
-        return $this->getUserConfigString('bExportCSV');
+        return $this->isAdmin() || $this->getUserConfigString('bExportCSV');
     }
 
     public function isUSAddressVerificationEnabled()
     {
-        return $this->getUserConfigString('bUSAddressVerification');
+        return $this->isAdmin() || $this->getUserConfigString('bUSAddressVerification');
     }
     
     public function isShowTooltipEnabled()
@@ -528,6 +534,16 @@ class User extends BaseUser
         return $this->getUserConfigString('bShowTooltip');
     }
     
+    public function CSVExportDelemiter()
+    {
+        return $this->getUserConfigString('sCSVExportDelemiter');
+    }
+
+    public function CSVExportCharset()
+    {
+        return $this->getUserConfigString('sCSVExportCharset');
+    }
+
     public function isSidebarExpandOnHoverEnabled()
     {
         return $this->getUserConfigString('bSidebarExpandOnHover');
@@ -537,6 +553,7 @@ class User extends BaseUser
     {
         return $this->getUserConfigString('bSidebarCollapse');
     }
+    
 
     public function isLocked()
     {
@@ -582,40 +599,40 @@ class User extends BaseUser
 
         switch ($type) {
             case "created":
-                $note->setText(gettext('system user created'));
+                $note->setText(_('system user created'));
                 break;
             case "updated":
-                $note->setText(gettext('system user updated'));
+                $note->setText(_('system user updated'));
                 break;
             case "deleted":
-                $note->setText(gettext('system user deleted'));
+                $note->setText(_('system user deleted'));
                 break;
             case "password-reset":
-                $note->setText(gettext('system user password reset'));
+                $note->setText(_('system user password reset'));
                 break;
             case "password-changed":
-                $note->setText(gettext('system user changed password'));
+                $note->setText(_('system user changed password'));
                 break;
             case "password-changed-admin":
-                $note->setText(gettext('system user password changed by admin'));
+                $note->setText(_('system user password changed by admin'));
                 break;
             case "login-reset":
-                $note->setText(gettext('system user login reset'));
+                $note->setText(_('system user login reset'));
                 break;
             case "dav-create-file":
                 $note->setText(str_replace("home/","",$info));
                 $note->setType('file');
-                $note->setInfo(gettext('Dav create file'));
+                $note->setInfo(_('Dav create file'));
                 break;    
             case "dav-create-directory":
                 $note->setText(str_replace("home/","",$info));
                 $note->setType('folder');
-                $note->setInfo(gettext('Dav create directory'));
+                $note->setInfo(_('Dav create directory'));
                 break;                           
             case "dav-update-file":
                 $note->setText(str_replace("home/","",$info));
                 $note->setType('file');
-                $note->setInfo(gettext('Dav update file'));
+                $note->setInfo(_('Dav update file'));
                 break;
             case "dav-move-copy-file":
                 $note->setText(str_replace("home/","",$info));
@@ -627,13 +644,13 @@ class User extends BaseUser
                 } else {
                   $note->setType('file');
                 }
-                $note->setInfo(gettext('Dav move copy file'));
+                $note->setInfo(_('Dav move copy file'));
 
                 break;            
             case "dav-delete-file":
                 $note->setText(str_replace("home/","",$info));
                 $note->setType('file');
-                $note->setInfo(gettext('Dav delete file'));
+                $note->setInfo(_('Dav delete file'));
                 break;
         }
 
@@ -710,11 +727,11 @@ class User extends BaseUser
               ->find();
               
       foreach ($notes as $note) {
-        $oldName = $note->getText();
-        $newName = str_replace($oldPath,$newPath,$note->getText());
+        $oldName = $note->_();
+        $newName = str_replace($oldPath,$newPath,$note->_());
         
         $newNote = NoteQuery::Create()->findOneById($note->getId());
-        $newNote->setText(str_replace($realOldPath,$realNewPath,$note->getText()));
+        $newNote->setText(str_replace($realOldPath,$realNewPath,$note->_()));
         $newNote->setCurrentEditedBy(0);
         $newNote->save();
       }      

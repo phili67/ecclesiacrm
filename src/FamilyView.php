@@ -379,7 +379,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
        if ( SessionUser::getUser()->isEmailEnabled() ) {
           $emails = "";
           foreach ($family->getActivatedPeople() as $person) {
-            $emails .= $person->getEmail().$sMailtoDelimiter;
+            $emails .= $person->getEmail().SessionUser::getUser()->MailtoDelimiter();
           }
           
            $emails = mb_substr($emails, 0, -1)

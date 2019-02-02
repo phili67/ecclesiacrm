@@ -55,23 +55,24 @@ header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
-header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+header('Content-Type: text/csv;charset='.$charset);
 header('Content-Disposition: attachment; filename=GDPRList-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
-$delimiter = $sCSVExportDelemiter;
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
 
 $out = fopen('php://output', 'w');
 
-//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-if ($sCSVExportCharset == "UTF-8") {
+//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+if ($charset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
 
-fputcsv($out, [InputUtils::translate_special_charset(gettext("Informations"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("For"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Type"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Comment"),$sCSVExportCharset)], $delimiter);
+fputcsv($out, [InputUtils::translate_special_charset(_("Informations"),$charset),
+  InputUtils::translate_special_charset(_("For"),$charset),
+  InputUtils::translate_special_charset(_("Type"),$charset),
+  InputUtils::translate_special_charset(_("Comment"),$charset)], $delimiter);
 
 foreach ($personInfos as $personInfo) {
           $dataType = ListOptionQuery::Create()
@@ -79,10 +80,10 @@ foreach ($personInfos as $personInfo) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset($personInfo->getName(),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Person"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($personInfo->getComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($personInfo->getName(),$charset),
+            InputUtils::translate_special_charset(_("Person"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($personInfo->getComment(),$charset)
           ], $delimiter);
 }
 
@@ -92,10 +93,10 @@ foreach ($personCustMasts as $personCustMast) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset($personCustMast->getCustomName(),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Custom Person"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($personCustMast->getCustomComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($personCustMast->getCustomName(),$charset),
+            InputUtils::translate_special_charset(_("Custom Person"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($personCustMast->getCustomComment(),$charset)
           ], $delimiter);
 }
 
@@ -105,10 +106,10 @@ foreach ($personProperties as $personProperty) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset($personProperty->getProName()." (".$personProperty->getProDescription().")",$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Person Property"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($personProperty->getProComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($personProperty->getProName()." (".$personProperty->getProDescription().")",$charset),
+            InputUtils::translate_special_charset(_("Person Property"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($personProperty->getProComment(),$charset)
           ], $delimiter);
 }
 
@@ -118,10 +119,10 @@ foreach ($familyInfos as $familyInfo) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset(gettext($familyInfo->getName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Family"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($familyInfo->getComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset(_($familyInfo->getName()),$charset),
+            InputUtils::translate_special_charset(_("Family"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($familyInfo->getComment(),$charset)
           ], $delimiter);
 }
 
@@ -131,10 +132,10 @@ foreach ($familyCustMasts as $familyCustMast) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset($familyCustMast->getCustomName(),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Custom Family"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($familyCustMast->getCustomComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($familyCustMast->getCustomName(),$charset),
+            InputUtils::translate_special_charset(_("Custom Family"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($familyCustMast->getCustomComment(),$charset)
           ], $delimiter);
 }
 
@@ -144,19 +145,19 @@ foreach ($familyProperties as $familyProperty) {
             ->findOneById(4);
 
    fputcsv($out, [
-            InputUtils::translate_special_charset($familyProperty->getProName()." (".$familyProperty->getProDescription().")",$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Family Property"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext($dataType->getOptionName()),$sCSVExportCharset),
-            InputUtils::translate_special_charset($familyProperty->getProComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($familyProperty->getProName()." (".$familyProperty->getProDescription().")",$charset),
+            InputUtils::translate_special_charset(_("Family Property"),$charset),
+            InputUtils::translate_special_charset(_($dataType->getOptionName()),$charset),
+            InputUtils::translate_special_charset($familyProperty->getProComment(),$charset)
           ], $delimiter);
 }
 
 foreach ($pastoralCareTypes as $pastoralCareType) { 
    fputcsv($out, [
-            InputUtils::translate_special_charset($pastoralCareType->getTitle(),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Pastoral Care"),$sCSVExportCharset),
-            InputUtils::translate_special_charset(gettext("Text Field (100 char)"),$sCSVExportCharset),
-            InputUtils::translate_special_charset($pastoralCareType->getComment(),$sCSVExportCharset)
+            InputUtils::translate_special_charset($pastoralCareType->getTitle(),$charset),
+            InputUtils::translate_special_charset(_("Pastoral Care"),$charset),
+            InputUtils::translate_special_charset(_("Text Field (100 char)"),$charset),
+            InputUtils::translate_special_charset($pastoralCareType->getComment(),$charset)
           ], $delimiter);
 }
 
