@@ -59,7 +59,7 @@ function numberOfFiles ($personID) {
   $userName    = $user->getUserName();
   $currentpath = $user->getCurrentpath();
 
-  $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
+  $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath;
   
   $result = [];
   $files = array_diff(scandir($currentNoteDir), array('.','..','.DS_Store','._.DS_Store'));
@@ -79,7 +79,7 @@ function getAllFileNoteForPerson (Request $request, Response $response, array $a
   $userName    = $user->getUserName();
   $currentpath = $user->getCurrentpath();
 
-  $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
+  $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath;
   
   $result = [];
   $files = array_diff(scandir($currentNoteDir), array('.','..','.DS_Store','._.DS_Store'));
@@ -140,7 +140,7 @@ function getRealFile($request, $res, $args) {
         $note = NoteQuery::Create()->filterByPerId ($args['personID'])->filterByText($searchLikeString, Criteria::LIKE)->findOne();
         
         if ( !is_null($note) && ( $note->isShared() > 0 || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->getPersonId() == $args['personID'] ) ) {
-          $file = dirname(__FILE__)."/../../".$realNoteDir."/".$name;
+          $file = dirname(__FILE__)."/../../../".$realNoteDir."/".$name;
       
           $response = $res->withHeader('Content-Description', 'File Transfer')
              ->withHeader('Content-Type', 'application/octet-stream')
@@ -250,7 +250,7 @@ function deleteOneFolder (Request $request, Response $response, array $args) {
           $userName    = $user->getUserName();
           $currentpath = $user->getCurrentpath();
 
-          $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
+          $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
           
           $searchLikeString = $userName.$currentpath.substr($params->folder,1).'%';
           $searchLikeString = str_replace("//","/",$searchLikeString);
@@ -280,7 +280,7 @@ function deleteOneFile (Request $request, Response $response, array $args) {
           $userName    = $user->getUserName();
           $currentpath = $user->getCurrentpath();
 
-          $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->file;
+          $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->file;
           
           $searchLikeString = $userName.$currentpath.$params->file.'%';
           $searchLikeString = str_replace("//","/",$searchLikeString);
@@ -313,7 +313,7 @@ function deleteFiles (Request $request, Response $response, array $args) {
           foreach ($params->files as $file) {
             if ($file[0] == '/') {
               // we're in a case of a folder
-              $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+              $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
               
               if (MiscUtils::delTree($currentNoteDir)) {
                 $searchLikeString = $userName.$currentpath.$file.'%';
@@ -327,7 +327,7 @@ function deleteFiles (Request $request, Response $response, array $args) {
               }
             } else {
               // in the case of a file
-              $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
+              $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
               
               if (unlink ($currentNoteDir)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
@@ -360,14 +360,14 @@ function movefiles (Request $request, Response $response, array $args) {
         $userName    = $user->getUserName();
         $currentpath = $user->getCurrentpath();
           
-        $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->files;
+        $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->files;
         
         foreach ($params->files as $file) {
           if ($file[0] == '/') {
             // we're in a case of a folder
             // $file is a folder here
-            $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
-            $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
+            $currentDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
+            $newDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
             
             if (is_dir($newDest)) {
               return $response->withJson(['success' => false,"message" => gettext("A Folder")." \"".substr($file,1)."\" ".gettext("already exists at this place.")]);
@@ -411,8 +411,8 @@ function movefiles (Request $request, Response $response, array $args) {
               }
             }
           } else {
-            $currentDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$file;
-            $newDest = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1)."/".$file;
+            $currentDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
+            $newDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1)."/".$file;
             
             if (file_exists($newDest)) {
               return $response->withJson(['success' => false,"message" => gettext ("A File")." \"".$file."\" ".gettext ("already exists at this place.")]);
@@ -467,7 +467,7 @@ function newFolder (Request $request, Response $response, array $args) {
           $userName    = $user->getUserName();
           $currentpath = $user->getCurrentpath();
           
-          $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
+          $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->folder;
           
           if (is_dir($currentNoteDir)) {
             return $response->withJson(['success' => false,"message" => gettext("A Folder")." \"".$params->folder."\" ".gettext("already exists at this place.")]);
@@ -507,8 +507,8 @@ function renameFile (Request $request, Response $response, array $args) {
           $currentpath = $user->getCurrentpath();
           $extension   = pathinfo($params->oldName, PATHINFO_EXTENSION); 
           
-          $oldName = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->oldName;
-          $newName = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$params->newName.(($params->type == 'file')?".".$extension:"");
+          $oldName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->oldName;
+          $newName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->newName.(($params->type == 'file')?".".$extension:"");
           
           if (rename($oldName, $newName)) {
             $searchLikeString = $userName.$currentpath.$params->oldName;
@@ -555,7 +555,7 @@ function uploadFile (Request $request, Response $response, array $args) {
       return $response->withJson(['success' => "failed"]);
     }
     
-    $currentNoteDir = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath;
+    $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath;
     
     $file_ary = reArrayFiles($_FILES['noteInputFile']);
     

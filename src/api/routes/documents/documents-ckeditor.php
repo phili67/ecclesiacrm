@@ -2,7 +2,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incoprorated in another software without authorizaion
 //
 //  Updated : 2018/05/30
 //
@@ -158,7 +158,7 @@ function saveAsWordFile ($request, $res, $args) {
         \PhpOffice\PhpWord\Shared\Html::addHtml($section, $input->text, false, false);
 
         // [SAVE FILE ON THE SERVER]
-        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
+        $tmpFile = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$input->title.".docx";
         $pw->save($tmpFile, "Word2007");
         
         // now we create the note
