@@ -701,7 +701,7 @@ function addGroup (Request $request, Response $response, array $args) {
       $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
           ->joinWithPerson()
           ->usePersonQuery()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
           ->endUse()
           ->findByGroupId($input->groupID);
     

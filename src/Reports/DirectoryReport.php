@@ -148,7 +148,7 @@ if (array_key_exists('cartdir', $_POST)) {
     $sWhereExt .= 'AND per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')';
 }
 
-//Exclude inactive families RGPD
+//Exclude inactive families GDRP
 if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DPO can print all the directory
     $sWhereExt .= ' AND per_DateDeactivated is null';
 }

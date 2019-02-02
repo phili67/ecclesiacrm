@@ -59,7 +59,7 @@ class SundaySchoolService
               and per_DateDeactivated is null
             order by per_FirstName";
             
-        // RGPD, when a person is completely deactivated : and per_DateDeactivated is null 
+        // GDRP, when a person is completely deactivated : and per_DateDeactivated is null 
 
         $rsMembers = RunQuery($sql);
         $members = [];
@@ -192,7 +192,7 @@ class SundaySchoolService
 
             order by grp.grp_Name, fam.fam_Name";
             
-            // RGPD, when a person is completely deactivated : and kid.per_DateDeactivated is null 
+            // GDRP, when a person is completely deactivated : and kid.per_DateDeactivated is null 
 
         $rsKids = RunQuery($sSQL);
         $kids = [];
@@ -230,7 +230,7 @@ class SundaySchoolService
 
             order by grp.grp_Name, fam.fam_Name";
             
-            // RGPD, when a person is completely deactivated : and teacher.per_DateDeactivated is null 
+            // GDRP, when a person is completely deactivated : and teacher.per_DateDeactivated is null 
 
         $rsteachers = RunQuery($sSQL);
         $teachers = [];

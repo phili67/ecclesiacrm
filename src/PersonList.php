@@ -28,10 +28,10 @@ if (strtolower($sMode) == 'gdrp') {
    $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
    
    $persons = PersonQuery::create()
-            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a person is completely deactivated
             ->_or() // or : this part is unusefull, it's only for debugging
             ->useFamilyQuery()
-              ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// RGPD, when a Family is completely deactivated
+              ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP, when a Family is completely deactivated
             ->endUse()
             ->orderByLastName()
             ->find();
@@ -50,7 +50,7 @@ if (strtolower($sMode) == 'gdrp') {
             ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person isn't under GDRP but deactivated, we only can see the person who are over a certain date
             ->_or()// this part is unusefull, it's only for debugging
             ->useFamilyQuery()
-              ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// RGPD, when a Family is completely deactivated
+              ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a Family is completely deactivated
             ->endUse()
             ->orderByLastName()
             ->find();

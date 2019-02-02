@@ -343,7 +343,7 @@ class OutputUtils {
         $sSQL = 'SELECT person_per.per_ID, person_per.per_FirstName, person_per.per_LastName
                           FROM person2group2role_p2g2r
                           LEFT JOIN person_per ON person2group2role_p2g2r.p2g2r_per_ID = person_per.per_ID
-                          WHERE p2g2r_grp_ID = '.$special.' ORDER BY per_FirstName';
+                          WHERE p2g2r_grp_ID = '.$special.' AND per_DateDeactivated IS NULL ORDER BY per_FirstName';// GDPR per_DateDeactivated IS NULL
 
         $rsGroupPeople = RunQuery($sSQL);
 

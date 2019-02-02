@@ -99,7 +99,7 @@ class MenuEventsCount
     public static function getBirthDates()
     {
         $peopleWithBirthDays = PersonQuery::create()
-            ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+            ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
             ->filterByBirthMonth(date('m'))
             ->filterByBirthDay(date('d'))
             ->find();

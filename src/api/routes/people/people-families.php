@@ -136,6 +136,7 @@ function searchFamily (Request $request, Response $response, array $args) {
     $query = $args['query'];
     $results = [];
     $q = FamilyQuery::create()
+        //->filterByDateDeactivated(null)// PledgeEditor : a financer can add last payment for a family
         ->filterByName("%$query%", Criteria::LIKE)
         ->limit(15)
         ->find();

@@ -742,7 +742,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled()) {// only GDRP Pdo can see the su
                   ->find();
 } else {
    $ormFamilies = FamilyQuery::Create()
-                  ->filterByDateDeactivated(null)// RGPD, when a person is completely deactivated
+                  ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
                   ->orderByName()
                   ->find();
 }
