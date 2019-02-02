@@ -62,11 +62,11 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     $sEmail = SelectWhichInfo($per_Email, $fam_Email, false);
     if ($sEmail) {
         /* if ($sEmailLink) // Don't put delimiter before first email
-            $sEmailLink .= $sMailtoDelimiter; */
+            $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
         // Add email only if email address is not already in string
         if (!stristr($sEmailLink, $sEmail)) {
-            $sEmailLink .= $sEmail .= $sMailtoDelimiter;
-            $roleEmails->$virt_RoleName .= $sEmail .= $sMailtoDelimiter;
+            $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+            $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
         }
     }
 }
@@ -84,7 +84,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     if ($sEmailLink) {
         // Add default email if default email has been set and is not already in string
         if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
-            $sEmailLink .= $sMailtoDelimiter.SystemConfig::getValue('sToEmailAddress');
+            $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
         }
         $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
        if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups

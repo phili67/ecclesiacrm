@@ -81,13 +81,13 @@ require '../Include/Header.php';
   <div class="box-body">
     <?php
     $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
-    $roleEmails->Parents = implode($sMailtoDelimiter, $ParentsEmails).',';
-    $roleEmails->Teachers = implode($sMailtoDelimiter, $TeachersEmails).',';
-    $roleEmails->Kids = implode($sMailtoDelimiter, $KidsEmails).',';
-    $sEmailLink = implode($sMailtoDelimiter, $allEmails).',';
+    $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
+    $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
+    $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
+    $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
     // Add default email if default email has been set and is not already in string
     if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
-        $sEmailLink .= $sMailtoDelimiter.SystemConfig::getValue('sToEmailAddress');
+        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
     }
     $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
 
@@ -133,12 +133,12 @@ require '../Include/Header.php';
     }
   ?>
   <?php 
-  if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) ) {
+  if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
   <?php
    }
-   if (SessionUser::getUser()->isAdmin() || (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && $_SESSION['bExportSundaySchoolPDF']) ) {
+   if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
   ?>  
     <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= gettext("Export Attendance") ?></span></a>
     

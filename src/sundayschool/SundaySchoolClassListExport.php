@@ -21,40 +21,42 @@ use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\SessionUser;
 
 header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
-header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+header('Content-Type: text/csv;charset='.$charset);
 header('Content-Disposition: attachment; filename=SundaySchool-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
-$delimiter = $sCSVExportDelemiter;
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
 
 $out = fopen('php://output', 'w');
 
-//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-if ($sCSVExportCharset == "UTF-8") {
+//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+if ($charset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
 
 
-fputcsv($out, [InputUtils::translate_special_charset("Class",$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Role"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("First Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Last Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Birth Date"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Mobile"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Home Phone"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Home Address"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Dad Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Dad Mobile"),$sCSVExportCharset) ,
-  InputUtils::translate_special_charset(gettext("Dad Email"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Mom Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Mom Mobile"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Mom Email"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Properties"),$sCSVExportCharset) ], $delimiter);
+fputcsv($out, [InputUtils::translate_special_charset("Class",$charset),
+  InputUtils::translate_special_charset(_("Role"),$charset),
+  InputUtils::translate_special_charset(_("First Name"),$charset),
+  InputUtils::translate_special_charset(_("Last Name"),$charset),
+  InputUtils::translate_special_charset(_("Birth Date"),$charset),
+  InputUtils::translate_special_charset(_("Mobile"),$charset),
+  InputUtils::translate_special_charset(_("Home Phone"),$charset),
+  InputUtils::translate_special_charset(_("Home Address"),$charset),
+  InputUtils::translate_special_charset(_("Dad Name"),$charset),
+  InputUtils::translate_special_charset(_("Dad Mobile"),$charset) ,
+  InputUtils::translate_special_charset(_("Dad Email"),$charset),
+  InputUtils::translate_special_charset(_("Mom Name"),$charset),
+  InputUtils::translate_special_charset(_("Mom Mobile"),$charset),
+  InputUtils::translate_special_charset(_("Mom Email"),$charset),
+  InputUtils::translate_special_charset(_("Properties"),$charset) ], $delimiter);
 
 // only the unday groups
 $groups = GroupQuery::create()
@@ -151,14 +153,14 @@ foreach ($groups as $group) {
         }
         
         fputcsv($out, [
-            InputUtils::translate_special_charset($sundayschoolClass,$sCSVExportCharset),
-            InputUtils::translate_special_charset($lst_OptionName,$sCSVExportCharset),
-            InputUtils::translate_special_charset($firstName,$sCSVExportCharset),
-            InputUtils::translate_special_charset($lastname,$sCSVExportCharset),
+            InputUtils::translate_special_charset($sundayschoolClass,$charset),
+            InputUtils::translate_special_charset($lst_OptionName,$charset),
+            InputUtils::translate_special_charset($firstName,$charset),
+            InputUtils::translate_special_charset($lastname,$charset),
             $birthDate, $mobilePhone, $homePhone,
-            InputUtils::translate_special_charset($Address1,$sCSVExportCharset).' '.InputUtils::translate_special_charset($Address2,$sCSVExportCharset).' '.InputUtils::translate_special_charset($city,$sCSVExportCharset).' '.InputUtils::translate_special_charset($state,$sCSVExportCharset).' '.$zip,
-            InputUtils::translate_special_charset($dadFirstName,$sCSVExportCharset).' '.InputUtils::translate_special_charset($dadLastName,$sCSVExportCharset), $dadCellPhone, $dadEmail,
-            InputUtils::translate_special_charset($momFirstName,$sCSVExportCharset).' '.InputUtils::translate_special_charset($momLastName,$sCSVExportCharset), $momCellPhone, $momEmail, $props], $delimiter);
+            InputUtils::translate_special_charset($Address1,$charset).' '.InputUtils::translate_special_charset($Address2,$charset).' '.InputUtils::translate_special_charset($city,$charset).' '.InputUtils::translate_special_charset($state,$charset).' '.$zip,
+            InputUtils::translate_special_charset($dadFirstName,$charset).' '.InputUtils::translate_special_charset($dadLastName,$charset), $dadCellPhone, $dadEmail,
+            InputUtils::translate_special_charset($momFirstName,$charset).' '.InputUtils::translate_special_charset($momLastName,$charset), $momCellPhone, $momEmail, $props], $delimiter);
     }
 }
 

@@ -115,14 +115,13 @@ switch ($sMode) {
         break;
 }
 
-// Save default search mode
-$_SESSION['bSearchFamily'] = ($sMode != 'person');
-
 if (array_key_exists('Number', $_GET)) {
-    $_SESSION['SearchLimit'] = InputUtils::LegacyFilterInput($_GET['Number'], 'int');
     $tmpUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-    $tmpUser->setSearchLimit($_SESSION['SearchLimit']);
+    $tmpUser->setSearchLimit(InputUtils::LegacyFilterInput($_GET['Number'], 'int'));
+    $tmpUser->setSearchfamily($sMode != 'person');
     $tmpUser->save();
+    
+    $_SESSION['user'] = $tmpUser;
 }
 
 if (array_key_exists('PersonColumn3', $_GET)) {
@@ -194,7 +193,7 @@ if ($sMode == 'person') {
     }
 }
 
-$iPerPage = $_SESSION['SearchLimit'];
+$iPerPage = SessionUser::getUser()->getSearchLimit();
 
 $sLimit5 = '';
 $sLimit10 = '';
@@ -949,28 +948,28 @@ if ($Total == 1) {
             }
 
             // Display record limit per page
-            if ($_SESSION['SearchLimit'] == '5') {
+            if ($iPerPage == '5') {
                 $sLimit5 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '10') {
+            if ($iPerPage == '10') {
                 $sLimit10 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '20') {
+            if ($iPerPage == '20') {
                 $sLimit20 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '25') {
+            if ($iPerPage == '25') {
                 $sLimit25 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '50') {
+            if ($iPerPage == '50') {
                 $sLimit50 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '100') {
+            if ($iPerPage == '100') {
                 $sLimit100 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '200') {
+            if ($iPerPage == '200') {
                 $sLimit200 = 'selected';
             }
-            if ($_SESSION['SearchLimit'] == '500') {
+            if ($iPerPage == '500') {
                 $sLimit500 = 'selected';
             }
 

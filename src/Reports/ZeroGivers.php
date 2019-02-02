@@ -25,6 +25,9 @@ if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVa
     exit;
 }
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 // Filter values
 $output = InputUtils::LegacyFilterInput($_POST['output']);
 $sDateStart = InputUtils::FilterDate($_POST['DateStart'], 'date');
@@ -153,7 +156,7 @@ if ($output == 'pdf') {
 
     // Settings
     //$delimiter = ',';
-    $delimiter = $sCSVExportDelemiter;
+    $delimiter = $delimiter;
     $eol = "\r\n";
 
     // Build headings row
@@ -181,11 +184,11 @@ if ($output == 'pdf') {
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Content-Description: File Transfer');
-    header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+    header('Content-Type: text/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     
-    if ($sCSVExportCharset == "UTF-8") {
+    if ($charset == "UTF-8") {
        echo "\xEF\xBB\xBF";
     }
     

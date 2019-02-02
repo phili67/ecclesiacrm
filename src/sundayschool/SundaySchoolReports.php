@@ -33,7 +33,7 @@ $groups = GroupQuery::create()
 $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
-if (!(SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] )) {
+if (! SessionUser::getUser()->isExportSundaySchoolPDFEnabled() )) {
    RedirectUtils::Redirect('Menu.php');
    exit;
 }
@@ -295,7 +295,7 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
         <tr>
           <td width="75%">
       <?php 
-        if (SessionUser::getUser()->isAdmin() || $_SESSION['bExportSundaySchoolPDF'] ) {
+        if ( SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
       ?>
          <div class="row">
               <div class="col-md-3">
@@ -331,7 +331,7 @@ require '../Include/Footer.php';
 ?>
 
 <?php 
-  if (SessionUser::getUser()->isAdmin() || $bExportSundaySchoolPDF ) {
+  if ( SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
 ?> 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolReports.js" ></script>
 <?php

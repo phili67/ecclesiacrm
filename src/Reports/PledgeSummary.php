@@ -23,6 +23,9 @@ if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVa
     exit;
 }
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 // Filter Values
 $output = InputUtils::LegacyFilterInput($_POST['output']);
 $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');
@@ -219,13 +222,13 @@ if ($output == 'pdf') {
     $curY += 3 * SystemConfig::getValue('incrementY');
 
     $pdf->SetFont('Times', 'B', 10);
-    $pdf->WriteAt($nameX, $curY, gettext('Fund'));
-    $pdf->PrintRightJustified($pledgeX, $curY, gettext('Pledges'));
-    $pdf->PrintRightJustified($paymentX, $curY, gettext('Payments'));
-    $pdf->PrintRightJustified($pledgeCountX+6, $curY, "# ".gettext('Pledges'));
-    $pdf->PrintRightJustified($paymentCountX+8, $curY, "# ".gettext('Payments'));
-    $pdf->PrintRightJustified($underpaidX, $curY, gettext('Overpaid'));
-    $pdf->PrintRightJustified($overpaidX, $curY, gettext('Underpaid'));
+    $pdf->WriteAt($nameX, $curY, _('Fund'));
+    $pdf->PrintRightJustified($pledgeX, $curY, _('Pledges'));
+    $pdf->PrintRightJustified($paymentX, $curY, _('Payments'));
+    $pdf->PrintRightJustified($pledgeCountX+6, $curY, "# "._('Pledges'));
+    $pdf->PrintRightJustified($paymentCountX+8, $curY, "# "._('Payments'));
+    $pdf->PrintRightJustified($underpaidX, $curY, _('Overpaid'));
+    $pdf->PrintRightJustified($overpaidX, $curY, _('Underpaid'));
     $pdf->SetFont('Times', '', 10);
     $curY += SystemConfig::getValue('incrementY');
 
@@ -238,7 +241,7 @@ if ($output == 'pdf') {
             } else {
                 $short_fun_name = $fun_name;
             }
-            $pdf->WriteAt($nameX, $curY, gettext($short_fun_name));
+            $pdf->WriteAt($nameX, $curY, _($short_fun_name));
             $amountStr = sprintf('%.2f', $pledgeFundTotal[$fun_name]);
             $pdf->PrintRightJustified($pledgeX, $curY, $amountStr);
             $amountStr = sprintf('%.2f', $paymentFundTotal[$fun_name]);
@@ -277,7 +280,7 @@ if ($output == 'pdf') {
 } elseif ($output == 'csv') {
 
     // Settings
-    $delimiter = $sCSVExportDelemiter;
+    $delimiter = $delimiter;
     $eol = "\r\n";
 
     // Build headings row
@@ -294,22 +297,22 @@ if ($output == 'pdf') {
     while ($row = mysqli_fetch_row($rsPledges)) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
-            $buffer .= gettext($field).$delimiter;
+            $buffer .= _($field).$delimiter;
         }
         // Remove trailing delimiter and add eol
         $buffer = mb_substr($buffer, 0, -1).$eol;
     }
 
     // Export file
-    header('Content-type: application/csv;charset='.$sCSVExportCharset);
+    header('Content-type: application/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=Pledges-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Pragma: public');
     
-    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-    if ($sCSVExportCharset == "UTF-8") {
+    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+    if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";
     }    echo $buffer;
 }

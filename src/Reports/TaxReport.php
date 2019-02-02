@@ -24,6 +24,9 @@ if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanVa
     exit;
 }
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 // Filter values
 $letterhead = InputUtils::LegacyFilterInput($_POST['letterhead']);
 $remittance = InputUtils::LegacyFilterInput($_POST['remittance']);
@@ -200,7 +203,7 @@ if ($output == 'pdf') {
             global $letterhead, $sDateStart, $sDateEnd, $iDepID;
             $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country, $letterhead);
             if (SystemConfig::getValue('bUseDonationEnvelopes')) {
-                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('Envelope:').$fam_envelope);
+                $this->WriteAt(SystemConfig::getValue('leftX'), $curY, _('Envelope:').$fam_envelope);
                 $curY += SystemConfig::getValue('incrementY');
             }
             $curY += 2 * SystemConfig::getValue('incrementY');
@@ -240,11 +243,11 @@ if ($output == 'pdf') {
                 // Add remittance slip
                 $curY = 194;
                 $curX = 60;
-                $this->WriteAt($curX, $curY, gettext('Please detach this slip and mail with your next gift.'));
+                $this->WriteAt($curX, $curY, _('Please detach this slip and mail with your next gift.'));
                 $curY += (1.5 * SystemConfig::getValue('incrementY'));
-                $church_mailing = gettext('Please mail you next gift to ').SystemConfig::getValue('sChurchName').', '
+                $church_mailing = _('Please mail you next gift to ').SystemConfig::getValue('sChurchName').', '
                     .SystemConfig::getValue('sChurchAddress').', '.SystemConfig::getValue('sChurchCity').', '.SystemConfig::getValue('sChurchState').'  '
-                    .SystemConfig::getValue('sChurchZip').gettext(', Phone: ').SystemConfig::getValue('sChurchPhone');
+                    .SystemConfig::getValue('sChurchZip')._(', Phone: ').SystemConfig::getValue('sChurchPhone');
                 $this->SetFont('Times', 'I', 10);
                 $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $church_mailing);
                 $this->SetFont('Times', '', 10);
@@ -281,10 +284,10 @@ if ($output == 'pdf') {
                 }
                 $curX = 100;
                 $curY = 215;
-                $this->WriteAt($curX, $curY, gettext('Gift Amount:'));
+                $this->WriteAt($curX, $curY, _('Gift Amount:'));
                 $this->WriteAt($curX + 25, $curY, '_______________________________');
                 $curY += (2 * SystemConfig::getValue('incrementY'));
-                $this->WriteAt($curX, $curY, gettext('Gift Designation:'));
+                $this->WriteAt($curX, $curY, _('Gift Designation:'));
                 $this->WriteAt($curX + 25, $curY, '_______________________________');
                 $curY = 200 + (11 * SystemConfig::getValue('incrementY'));
             }
@@ -317,19 +320,19 @@ if ($output == 'pdf') {
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Total Payments:')));
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Total Payments:')));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Goods and Services Rendered:')));
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Goods and Services Rendered:')));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
             $pdf->SetFont('Times', 'B', 10);
             $pdf->Cell(95, $summaryIntervalY, ' ');
-            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Tax-Deductible Contribution:')));
+            $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Tax-Deductible Contribution:')));
             $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
             $pdf->SetFont('Courier', '', 9);
             $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
@@ -364,12 +367,12 @@ if ($output == 'pdf') {
             $curY += 2 * $summaryIntervalY;
             $pdf->SetFont('Times', 'B', 10);
             $pdf->SetXY($summaryDateX, $curY);
-            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Date')));
-            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Chk No.')), 0, 0, 'C');
-            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('PmtMethod')));
-            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Fund')));
-            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Memo')));
-            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext('Amount')), 0, 1, 'R');
+            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Date')));
+            $pdf->Cell(20, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Chk No.')), 0, 0, 'C');
+            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('PmtMethod')));
+            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Fund')));
+            $pdf->Cell(40, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Memo')));
+            $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Amount')), 0, 1, 'R');
             //$curY = $pdf->GetY();
             $totalAmount = 0;
             $totalNonDeductible = 0;
@@ -392,7 +395,7 @@ if ($output == 'pdf') {
         $pdf->SetFont('Times', '', 10);
         $pdf->Cell(20, $summaryIntervalY, date(SystemConfig::getValue('sDateFormatLong'), strtotime($plg_date)));
         $pdf->Cell(20, $summaryIntervalY, $plg_CheckNo, 0, 0, 'R');
-        $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(gettext($plg_method)));
+        $pdf->Cell(25, $summaryIntervalY, OutputUtils::translate_text_fpdf(_($plg_method)));
         $pdf->Cell(40, $summaryIntervalY, $fun_Name);
         $pdf->Cell(40, $summaryIntervalY, $plg_comment);
         $pdf->SetFont('Courier', '', 9);
@@ -474,7 +477,7 @@ if ($output == 'pdf') {
 
     // Settings
     //$delimiter = ',';
-    $delimiter = $sCSVExportDelemiter;
+    $delimiter = $delimiter;
     $eol = "\r\n";
 
     // Build headings row
@@ -502,11 +505,11 @@ if ($output == 'pdf') {
     header('Expires: 0');
     header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
     header('Content-Description: File Transfer');
-    header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+    header('Content-Type: text/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=EcclesiaCRM-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     
-    if ($sCSVExportCharset == "UTF-8") {
+    if ($charset == "UTF-8") {
        echo "\xEF\xBB\xBF";
     }
 

@@ -163,8 +163,6 @@ function Header_body_scripts()
             iDasbhoardServiceIntervalTime:"<?= SystemConfig::getValue('iDasbhoardServiceIntervalTime') ?>",
             showTooltip:<?= (SessionUser::getUser()->isShowTooltipEnabled())?"true":"false" ?>,
             showCart:<?= (SessionUser::getUser()->isShowCartEnabled())?"true":"false" ?>,
-            bSidebarExpandOnHover:<?= (SessionUser::getUser()->isSidebarExpandOnHoverEnabled())?"true":"false" ?>,
-            bSidebarCollapse:<?= (SessionUser::getUser()->isSidebarCollapseEnabled())?"true":"false" ?>,
             sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",

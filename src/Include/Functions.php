@@ -51,7 +51,7 @@ if (empty($bSuppressSessionTests)) {  // This is used for the login page only.
     }
 
     // If this user needs to change password, send to that page
-    if ($_SESSION['bNeedPasswordChange'] && !isset($bNoPasswordRedirect)) {
+    if (SessionUser::getUser()->getNeedPasswordChange() && !isset($bNoPasswordRedirect)) {
         RedirectUtils::Redirect('UserPasswordChange.php?PersonID='.SessionUser::getUser()->getPersonId());
         exit;
     }
@@ -1308,7 +1308,7 @@ function generateGroupRoleEmailDropdown($roleEmails, $href)
 {
     foreach ($roleEmails as $role => $Email) {
         if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($Email, SystemConfig::getValue('sToEmailAddress'))) {
-            $Email .= $sMailtoDelimiter.SystemConfig::getValue('sToEmailAddress');
+            $Email .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
         }
         $Email = urlencode($Email);  // Mailto should comply with RFC 2368
     ?>

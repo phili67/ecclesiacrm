@@ -28,6 +28,9 @@ if (!(SessionUser::getUser()->isGdrpDpoEnabled())) {
   exit;
 }
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 $notes = NoteQuery::Create()
       ->filterByPerId(array('min' => 2))
       ->filterByEnteredBy(array('min' => 2))
@@ -45,28 +48,28 @@ header('Pragma: no-cache');
 header('Expires: 0');
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 header('Content-Description: File Transfer');
-header('Content-Type: text/csv;charset='.$sCSVExportCharset);
+header('Content-Type: text/csv;charset='.$charset);
 header('Content-Disposition: attachment; filename=GDPRList-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
 header('Content-Transfer-Encoding: binary');
 
-$delimiter = $sCSVExportDelemiter;
+$delimiter = $delimiter;
 
 $out = fopen('php://output', 'w');
 
-//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-if ($sCSVExportCharset == "UTF-8") {
+//add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+if ($charset == "UTF-8") {
     fputs($out, $bom =(chr(0xEF) . chr(0xBB) . chr(0xBF)));
 }
 
 
-fputcsv($out, [InputUtils::translate_special_charset(gettext("Full Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Title"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Text"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Type"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Date Entered"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Date Last Edited"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Edited By Name"),$sCSVExportCharset),
-  InputUtils::translate_special_charset(gettext("Deactivated"),$sCSVExportCharset) ], $delimiter);
+fputcsv($out, [InputUtils::translate_special_charset(_("Full Name"),$charset),
+  InputUtils::translate_special_charset(_("Title"),$charset),
+  InputUtils::translate_special_charset(_("Text"),$charset),
+  InputUtils::translate_special_charset(_("Type"),$charset),
+  InputUtils::translate_special_charset(_("Date Entered"),$charset),
+  InputUtils::translate_special_charset(_("Date Last Edited"),$charset),
+  InputUtils::translate_special_charset(_("Edited By Name"),$charset),
+  InputUtils::translate_special_charset(_("Deactivated"),$charset) ], $delimiter);
 
 // only the unday groups
                     
@@ -74,15 +77,15 @@ fputcsv($out, [InputUtils::translate_special_charset(gettext("Full Name"),$sCSVE
     $person = PersonQuery::Create()->findOneById($note->getPerId());
  
     fputcsv($out, [
-            InputUtils::translate_special_charset($note->getPerson()->getFullName(),$sCSVExportCharset),
-            InputUtils::translate_special_charset($note->getTitle(),$sCSVExportCharset),
-            InputUtils::translate_special_charset($note->getText(),$sCSVExportCharset),
-            InputUtils::translate_special_charset($note->getType(),$sCSVExportCharset),
+            InputUtils::translate_special_charset($note->getPerson()->getFullName(),$charset),
+            InputUtils::translate_special_charset($note->getTitle(),$charset),
+            InputUtils::translate_special_charset($note->_(),$charset),
+            InputUtils::translate_special_charset($note->getType(),$charset),
             (!empty($note->getDateEntered()))?$note->getDateEntered()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"", 
             (!empty($note->getDateLastEdited()))?$note->getDateLastEdited()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"",
             InputUtils::translate_special_charset($note->getEditedByLastName()." ".$note->getEditedByFirstName(),
-            $sCSVExportCharset).' '.InputUtils::translate_special_charset($Address2,$sCSVExportCharset).' '.InputUtils::translate_special_charset($city,$sCSVExportCharset).' '.InputUtils::translate_special_charset($state,$sCSVExportCharset).' '.$zip,
-            (!is_null($note->getDeactivated()))?gettext("Yes"):gettext("No")
+            $charset).' '.InputUtils::translate_special_charset($Address2,$charset).' '.InputUtils::translate_special_charset($city,$charset).' '.InputUtils::translate_special_charset($state,$charset).' '.$zip,
+            (!is_null($note->getDeactivated()))?_("Yes"):_("No")
             ], $delimiter);
  
  

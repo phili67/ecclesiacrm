@@ -70,7 +70,7 @@ if (isset($_POST['Submit'])) {
             $curUser->save();
             $curUser->createTimeLineNote("password-changed-admin");
             // Set the session variable so they don't get sent back here
-            $_SESSION['bNeedPasswordChange'] = false;
+            SessionUser::getUser()->setNeedPasswordChange(false);
 
 
             if (!empty($curUser->getEmail())) {
@@ -148,7 +148,7 @@ if (isset($_POST['Submit'])) {
             $curUser->save();
             $curUser->createTimeLineNote("password-changed");
             // Set the session variable so they don't get sent back here
-            $_SESSION['bNeedPasswordChange'] = false;
+            SessionUser::getUser()->setNeedPasswordChange(false);
 
             // Route back to the list
             if ($_GET['FromUserList'] == 'True') {
@@ -169,7 +169,7 @@ if (isset($_POST['Submit'])) {
 $sPageTitle = gettext('User Password Change');
 require 'Include/Header.php';
 
-if ($_SESSION['bNeedPasswordChange']) {
+if (SessionUser::getUser()->getNeedPasswordChange()) {
     ?>
     <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

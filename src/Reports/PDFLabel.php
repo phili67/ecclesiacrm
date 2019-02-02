@@ -27,6 +27,7 @@ use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\SessionUser;
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {
@@ -713,7 +714,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
             }
 
             if ($bToParents && ($key == 'child')) {
-                $sName = gettext("To the parents of").":\n".$sName;
+                $sName = _("To the parents of").":\n".$sName;
             }
 
             SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
@@ -769,6 +770,9 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
 
 // Main body of PHP file begins here
 
+$delimiter = SessionUser::getUser()->CSVExportDelemiter();
+$charset   = SessionUser::getUser()->CSVExportCharset();
+
 // Standard format
 
 $startcol = InputUtils::LegacyFilterInput($_GET['startcol'], 'int');
@@ -783,7 +787,7 @@ if ($startrow < 1) {
 
 $sLabelType = InputUtils::LegacyFilterInput($_GET['labeltype'], 'char', 10);
 
-if ($sLabelType == gettext('Tractor') ) {
+if ($sLabelType == _('Tractor') ) {
   $sLabelType = 'Tractor';
 }
 
@@ -797,7 +801,7 @@ $sFontSize = $_GET['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
 $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
 
-if ($sFontSize == gettext('default')) {
+if ($sFontSize == _('default')) {
     $sFontSize = '10';
 }
 
@@ -855,7 +859,7 @@ if ($sFileType == 'PDF') {
     }
 } else { // File Type must be CSV
 
-    $delimiter = $sCSVExportDelemiter;
+    $delimiter = $delimiter;
 
     $sCSVOutput = '';
     if ($iBulkCode) {
@@ -863,7 +867,7 @@ if ($sFileType == 'PDF') {
     }
     
 
-    $sCSVOutput .= '"'.InputUtils::translate_special_charset(gettext("Greeting"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Name"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Address"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("City"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("State"),$sCSVExportCharset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(gettext("Zip"),$sCSVExportCharset).'"'."\n";
+    $sCSVOutput .= '"'.InputUtils::translate_special_charset(_("Greeting"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Name"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Address"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("City"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("State"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Zip"),$charset).'"'."\n";
 
     while (list($i, $sLT) = each($aLabelList)) {
         if ($iBulkCode) {
@@ -872,26 +876,26 @@ if ($sFileType == 'PDF') {
 
         $iNewline = (strpos($sLT['Name'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '""'.$delimiter.'"'.InputUtils::translate_special_charset($sLT['Name'],$sCSVExportCharset).'"'.$delimiter;
+            $sCSVOutput .= '""'.$delimiter.'"'.InputUtils::translate_special_charset($sLT['Name'],$charset).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], 0, $iNewline),$sCSVExportCharset).'"'.$delimiter.
-                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], $iNewline + 1),$sCSVExportCharset).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], 0, $iNewline),$charset).'"'.$delimiter.
+                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Name'], $iNewline + 1),$charset).'"'.$delimiter;
         }
 
         $iNewline = (strpos($sLT['Address'], "\n"));
         if ($iNewline === false) { // There is no newline character
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['Address'],$sCSVExportCharset).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['Address'],$charset).'"'.$delimiter;
         } else {
-            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], 0, $iNewline),$sCSVExportCharset).'"'.$delimiter.
-                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], $iNewline + 1),$sCSVExportCharset).'"'.$delimiter;
+            $sCSVOutput .= '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], 0, $iNewline),$charset).'"'.$delimiter.
+                            '"'.InputUtils::translate_special_charset(mb_substr($sLT['Address'], $iNewline + 1),$charset).'"'.$delimiter;
         }
 
-        $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['City'],$sCSVExportCharset).'"'.$delimiter.
-                        '"'.InputUtils::translate_special_charset($sLT['State'],$sCSVExportCharset).'"'.$delimiter.
+        $sCSVOutput .= '"'.InputUtils::translate_special_charset($sLT['City'],$charset).'"'.$delimiter.
+                        '"'.InputUtils::translate_special_charset($sLT['State'],$charset).'"'.$delimiter.
                         '"'.$sLT['Zip'].'"'."\n";
     }
 
-    header('Content-type: application/csv;charset='.$sCSVExportCharset);
+    header('Content-type: application/csv;charset='.$charset);
     header('Content-Disposition: attachment; filename=Labels-'.date(SystemConfig::getValue("sDateFilenameFormat")).'.csv');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
@@ -899,8 +903,8 @@ if ($sFileType == 'PDF') {
     header('Pragma: public');
     
     
-    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the sCSVExportCharset variable
-    if ($sCSVExportCharset == "UTF-8") {
+    //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
+    if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";
     }
     
