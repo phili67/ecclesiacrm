@@ -91,71 +91,48 @@ if (isset($_POST['User'])) {
 
         $_SESSION['user'] = $currentUser;
         
+        // for webDav we've to create the Home directory
         $currentUser->createHomeDir();
 
-        // Set the User's family id in case EditSelf is enabled
-        $_SESSION['iFamID'] = $currentUser->getPerson()->getFamId();
-
-        // Set the UserID
-        $_SESSION['iUserID'] = $currentUser->getPersonId();
-
-        // Set the pagination Search Limit
-        $_SESSION['SearchLimit'] = $currentUser->getSearchLimit();
-
         // If user has administrator privilege, override other settings and enable all permissions.
-        $_SESSION['bAdmin'] = $currentUser->isAdmin();                       //ok
-        $_SESSION['bPastoralCare'] = $currentUser->isPastoralCareEnabled();         //ok
-        $_SESSION['bMailChimp'] = $currentUser->isMailChimpEnabled();         //ok
-        $_SESSION['bGdrpDpo'] = $currentUser->isGdrpDpoEnabled();         //ok
-        $_SESSION['bMainDashboard'] = $currentUser->isMainDashboardEnabled(); // ok
-        $_SESSION['bSeePrivacyData'] = $currentUser->isSeePrivacyDataEnabled(); // ok
-        $_SESSION['bAddRecords'] = $currentUser->isAddRecordsEnabled();// ok
-        $_SESSION['bEditRecords'] = $currentUser->isEditRecordsEnabled();//ok
-        $_SESSION['bDeleteRecords'] = $currentUser->isDeleteRecordsEnabled();//ok
-        $_SESSION['bMenuOptions'] = $currentUser->isMenuOptionsEnabled(); // ok
-        $_SESSION['bManageGroups'] = $currentUser->isManageGroupsEnabled();  // usefull in GroupView and in Properties
-        $_SESSION['bFinance'] = $currentUser->isFinanceEnabled();            //ok
-        $_SESSION['bNotes'] = $currentUser->isNotesEnabled(); //ok
-        $_SESSION['bCanvasser'] = $currentUser->isCanvasserEnabled();//ok
-        $_SESSION['bEditSelf'] = $currentUser->isEditSelfEnabled();//ok
-        $_SESSION['bShowCart'] = $currentUser->isShowCartEnabled();//ok
-        $_SESSION['bShowMap'] = $currentUser->isShowMapEnabled();
+        // this is usefull for : requireUserGroupMembership in Include/Functions.php
         
-        // Set the FailedLogins
-        $_SESSION['iFailedLogins'] = $currentUser->getFailedLogins();
-
-        // Set the LoginCount
-        $_SESSION['iLoginCount'] = $currentUser->getLoginCount();
-
-        // Set the Last Login
-        $_SESSION['dLastLogin'] = $currentUser->getLastLogin();
-
-        // Set the Style Sheet
-        $_SESSION['sStyle'] = $currentUser->getStyle();
+        $_SESSION['bAdmin']          = $currentUser->isAdmin();                       //ok
+        $_SESSION['bPastoralCare']   = $currentUser->isPastoralCareEnabled();         //ok
+        $_SESSION['bMailChimp']      = $currentUser->isMailChimpEnabled();            //ok
+        $_SESSION['bGdrpDpo']        = $currentUser->isGdrpDpoEnabled();              //ok
+        $_SESSION['bMainDashboard']  = $currentUser->isMainDashboardEnabled();        //ok
+        $_SESSION['bSeePrivacyData'] = $currentUser->isSeePrivacyDataEnabled();       //ok
+        $_SESSION['bAddRecords']     = $currentUser->isAddRecordsEnabled();           //ok
+        $_SESSION['bEditRecords']    = $currentUser->isEditRecordsEnabled();          //ok
+        $_SESSION['bDeleteRecords']  = $currentUser->isDeleteRecordsEnabled();        //ok
+        $_SESSION['bMenuOptions']    = $currentUser->isMenuOptionsEnabled();          //ok
+        $_SESSION['bManageGroups']   = $currentUser->isManageGroupsEnabled();         //usefull in GroupView and in Properties
+        $_SESSION['bFinance']        = $currentUser->isFinanceEnabled();              //ok
+        $_SESSION['bNotes']          = $currentUser->isNotesEnabled();                //ok
+        $_SESSION['bCanvasser']      = $currentUser->isCanvasserEnabled();            //ok
+        $_SESSION['bEditSelf']       = $currentUser->isEditSelfEnabled();             //ok
+        $_SESSION['bShowCart']       = $currentUser->isShowCartEnabled();             //ok
+        $_SESSION['bShowMap']        = $currentUser->isShowMapEnabled();              //ok
+        
 
         // Create the Cart
         $_SESSION['aPeopleCart'] = [];
 
         // Create the variable for the Global Message
-        $_SESSION['sGlobalMessage'] = '';
-
-        // Set whether or not we need a password change
-        $_SESSION['bNeedPasswordChange'] = $currentUser->getNeedPasswordChange();
+        $_SESSION['sGlobalMessage']  = '';
 
         // Initialize the last operation time
-        $_SESSION['tLastOperation'] = time();
+        $_SESSION['tLastOperation']  = time();
 
         $_SESSION['bHasMagicQuotes'] = 0;
 
         // Pledge and payment preferences
-        $_SESSION['sshowPledges'] = $currentUser->getShowPledges();
-        $_SESSION['sshowPayments'] = $currentUser->getShowPayments();
-        $_SESSION['sshowSince'] = $currentUser->getShowSince();
-        $_SESSION['idefaultFY'] = CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
+        $_SESSION['sshowPledges']    = $currentUser->getShowPledges();
+        $_SESSION['sshowPayments']   = $currentUser->getShowPayments();
+        $_SESSION['sshowSince']      = $currentUser->getShowSince();
+        $_SESSION['idefaultFY']      = CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
         $_SESSION['iCurrentDeposit'] = $currentUser->getCurrentDeposit();
-
-        // Search preference
-        $_SESSION['bSearchFamily'] = $currentUser->getSearchfamily();
 
         $systemService = new SystemService();
         $_SESSION['latestVersion'] = $systemService->getLatestRelese();

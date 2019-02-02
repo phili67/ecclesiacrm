@@ -241,7 +241,7 @@ msgstr "Chèques"
 
 #: api/routes/persons.php:431 api/routes/users.php:115
 msgid "Deactivate account"
-msgstr "Désactiver le compte"
+msgstr "Compte désactivé"
 
 #: api/routes/persons.php:431 api/routes/users.php:115 UserEditor.php:304
 msgid "The same as before"
