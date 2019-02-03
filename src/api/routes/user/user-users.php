@@ -25,6 +25,8 @@ $app->group('/users', function () {
     $this->post('/applyrole' , 'applyRole');
     $this->post('/webdavKey' , 'webDavKey');
     $this->post('/lockunlock', 'lockUnlock');
+    $this->post('/showsince', 'showSince');
+    $this->post('/showto', 'showTo');
     $this->post('/{userId:[0-9]+}/login/reset', 'loginReset');
     $this->delete('/{userId:[0-9]+}', 'deleteUser');
 });
@@ -53,7 +55,7 @@ function passwordReset (Request $request, Response $response, array $args ) {
 }
 
 
-function applyRole ($request, $response, $args) {
+function applyRole (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -73,7 +75,7 @@ function applyRole ($request, $response, $args) {
     return $response->withJson(['success' => false]);
 }
 
-function webDavKey ($request, $response, $args) {
+function webDavKey (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -91,7 +93,7 @@ function webDavKey ($request, $response, $args) {
     return $response->withJson(['status' => "failed"]);
 }
 
-function lockUnlock ($request, $response, $args) {
+function lockUnlock (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -138,7 +140,7 @@ function lockUnlock ($request, $response, $args) {
     return $response->withJson(['success' => false]);
 }
 
-function loginReset ($request, $response, $args) {
+function loginReset (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -158,7 +160,7 @@ function loginReset ($request, $response, $args) {
     }
 }
 
-function deleteUser ($request, $response, $args) {
+function deleteUser (Request $request, Response $response, array $args) {
     if (!SessionUser::getUser()->isAdmin()) {
         return $response->withStatus(401);
     }
@@ -178,4 +180,38 @@ function deleteUser ($request, $response, $args) {
     } else {
         return $response->withStatus(404);
     }
+}
+
+function showSince (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+      
+    if (isset ($params->date)) {
+       $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+       
+       $user->setShowSince ($params->date);
+       $user->save();
+       
+       $_SESSION['user'] = $user;
+
+       return $response->withJson(['success' => true]);
+    }
+    
+    return $response->withJson(['success' => false]);
+}
+
+function showTo (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+      
+    if (isset ($params->date)) {
+       $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+       
+       $user->setShowTo ($params->date);
+       $user->save();
+       
+       $_SESSION['user'] = $user;
+
+       return $response->withJson(['success' => true]);
+    }
+    
+    return $response->withJson(['success' => false]);
 }
