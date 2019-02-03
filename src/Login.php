@@ -91,6 +91,12 @@ if (isset($_POST['User'])) {
 
         $_SESSION['user'] = $currentUser;
         
+        // Set the UserID
+        $_SESSION['iUserID'] = $currentUser->getPersonId();
+        
+        // Set the User's family id in case EditSelf is enabled
+        $_SESSION['iFamID'] = $currentUser->getPerson()->getFamId();
+
         // for webDav we've to create the Home directory
         $currentUser->createHomeDir();
 
