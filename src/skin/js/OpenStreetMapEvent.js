@@ -29,6 +29,11 @@
         type: "GET",
         dataType: "json",
         success:function(res){
+          if (res === undefined || res.length == 0) {
+            alert(i18next.t('Wrong address format.'));
+            return;
+          }
+          
           var latitude  = res[0].lat;
           var longitude = res[0].lon;
           var EventTitle =  $('form #EventTitle').val();
