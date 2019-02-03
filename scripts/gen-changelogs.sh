@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 githubToken=$1
 
 if [ -z ${githubToken} ]; then
