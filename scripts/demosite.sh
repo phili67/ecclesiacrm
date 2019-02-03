@@ -2,7 +2,7 @@
 
 buildversion=`grep \"version\" package.json | cut -d ',' -f1 | cut -d'"' -f4`
 demoKey=$1
-file=target/ChurchCRM-$buildversion.zip
+file=target/EcclesiaCRM-$buildversion.zip
 currentBranch=`git rev-parse --abbrev-ref HEAD`
 publishBranch=${currentBranch}
 commitHash=`git log --pretty=format:'%H' -n 1`
@@ -38,7 +38,7 @@ if [ -f $file  ]; then
   echo "Publishing as Branch: $publishBranch"
   echo "Current Commit Hash: $commitHash"
   echo "**************************************"
-  result=`curl -s -F "demoKey=${demoKey}" -F "branch=${publishBranch}" -F "commitHash=${commitHash}" -F "fileupload=@${file}" http://demo.churchcrm.io/webhooks/DemoUpdate.php`
+  result=`curl -s -F "demoKey=${demoKey}" -F "branch=${publishBranch}" -F "commitHash=${commitHash}" -F "fileupload=@${file}" http://demo.ecclesiacrm.com/webhooks/DemoUpdate.php`
   echo "Publishing Result"
   echo $result
   echo "**************************************"
