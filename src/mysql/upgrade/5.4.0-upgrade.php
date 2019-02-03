@@ -106,13 +106,15 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/campaign_editor_config.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/event_editor_config.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/note_editor_config.js");
-  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorextension.js");  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorextension.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/icons/hidpi/.DS_Store");
   removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/");
 
   unlink(SystemURLs::getDocumentRoot()."/skin/js/Checkin.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/EventNames.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/Events.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ListEvent.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/EditEventAttendees.js");
   
   unlink(SystemURLs::getDocumentRoot()."/skin/js/FamilyCustomFieldsEditor.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/FundList.js");
