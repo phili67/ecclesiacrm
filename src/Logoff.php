@@ -19,14 +19,15 @@ if (is_null(SessionUser::getUser())) {
     }
 
     $currentUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
-    $currentUser->setShowPledges($_SESSION['sshowPledges']);
-    $currentUser->setShowPayments($_SESSION['sshowPayments']);
-    $currentUser->setShowSince($_SESSION['sshowSince']);
-    $currentUser->setDefaultFY($_SESSION['idefaultFY']);
-    $currentUser->setCurrentDeposit($_SESSION['iCurrentDeposit']);
+    
+    if (!is_null($currentUser)) {
+      $currentUser->setShowPledges($_SESSION['sshowPledges']);
+      $currentUser->setShowPayments($_SESSION['sshowPayments']);
+      $currentUser->setDefaultFY($_SESSION['idefaultFY']);
+      $currentUser->setCurrentDeposit($_SESSION['iCurrentDeposit']);
 
-    $currentUser->setSearchfamily($_SESSION['bSearchFamily']);
-    $currentUser->save();
+      $currentUser->save();
+    }
 }
 
 $_COOKIE = [];

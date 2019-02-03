@@ -754,12 +754,24 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                 <div class="main-box-body clearfix">
                   <input type="checkbox" name="ShowPledges" id="ShowPledges"
                       value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= gettext("Show Pledges") ?>
-                  <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                      value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
-                  <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
-                  <input type="text" Name="Min" id="Min" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
-                  <label for="ShowSinceDate"><?= gettext("To") ?>:</label>
-                  <input type="text" Name="Max" id="Max" value="<?= date("Y") ?>" maxlength="10" id="ShowSinceDate" size="15">
+                  <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                      <input type="checkbox" name="ShowPayments" id="ShowPayments"
+                        value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                      <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                      <input class="form-control date-picker" type="text" id="Min" Name="ShowSinceDate" value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                      <label for="ShowToDate"><?= gettext("To") ?>:</label>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                      <input class="form-control date-picker" type="text" id="Max" Name="ShowToDate" value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+                    </div>
+                  </div>
                 <?php
                   $tog = 0;
                   if ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) {        

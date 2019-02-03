@@ -130,7 +130,17 @@ if (isset($_POST['User'])) {
         // Pledge and payment preferences
         $_SESSION['sshowPledges']    = $currentUser->getShowPledges();
         $_SESSION['sshowPayments']   = $currentUser->getShowPayments();
-        $_SESSION['sshowSince']      = $currentUser->getShowSince();
+        
+        if (is_null($_SESSION['user']->getShowSince())) {
+          $_SESSION['user']->setShowSince(date("Y-m-d", strtotime('-1 year')));
+          $currentUser->save();
+        }
+        
+        if (is_null($_SESSION['user']->getShowTo())) {
+          $_SESSION['user']->setShowTo(date('Y-m-d'));
+          $currentUser->save();
+        }
+
         $_SESSION['idefaultFY']      = CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
         $_SESSION['iCurrentDeposit'] = $currentUser->getCurrentDeposit();
 

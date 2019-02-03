@@ -773,15 +773,16 @@ $(document).ready(function () {
 
 
   /* Custom filtering function which will search data in column four between two values */
-   $.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
+   $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
         if (settings.nTable.id == "automaticPaymentsTable") {
           return true;
         }
         
-        var min = parseInt( $('#Min').val(), 10 );
-        var max = parseInt( $('#Max').val(), 10 );
-        var age = parseFloat( data[3] ) || 0; // use data for the fiscal year
+        var fmt = window.CRM.datePickerformat.toUpperCase();
+        
+        var min = moment($('#Min').val(),fmt);
+        var max = moment($('#Max').val(),fmt);
+        var age = moment(data[4],fmt);
  
         if ( ( isNaN( min ) && isNaN( max ) ) ||
              ( isNaN( min ) && age <= max ) ||
@@ -791,13 +792,35 @@ $(document).ready(function () {
             return true;
         }
         return false;
-    }
-);
-
-    $('#Min, #Max').keyup( function() {
-        pledgePaymentTable.draw();
     });
 
+    $("#Min").on('change', function(){
+      pledgePaymentTable.draw();
+      var fmt = window.CRM.datePickerformat.toUpperCase();
+        
+      var min = moment($(this).val(),fmt).format('YYYY-MM-DD');
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'users/showsince',
+        data: JSON.stringify({"date": min})
+      }).done(function(data) {
+      });
+    });
+
+    $("#Max").on('change', function(){
+      pledgePaymentTable.draw();
+      var fmt = window.CRM.datePickerformat.toUpperCase();
+
+      var max = moment($(this).val(),fmt).format('YYYY-MM-DD');
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'users/showto',
+        data: JSON.stringify({"date": max})
+      }).done(function(data) {
+      });
+    });
 
     function applyFilter()
     {
