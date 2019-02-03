@@ -519,7 +519,7 @@ require 'Include/Header.php'; ?>
 
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonCustomFieldsEditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/PersonCustomFieldsEditor.js"></script>
 
 
 <?php require 'Include/Footer.php'; ?>

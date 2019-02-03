@@ -112,7 +112,7 @@ $donationFunds = DonationFundQuery::Create()->find();
     </div>
   </div>
 </div>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FindDepositSlip.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/FindDepositSlip.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   $('#deleteSelectedRows').click(function () {

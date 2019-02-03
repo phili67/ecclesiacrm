@@ -190,7 +190,7 @@ require 'Include/Header.php'; ?>
   });
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonList.js" ></script>
 
 <?php
 require 'Include/Footer.php';

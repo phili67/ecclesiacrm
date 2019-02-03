@@ -276,6 +276,6 @@ require 'Include/Header.php';
   var roleCount = groupRoleData.length;
   var groupID =<?= $iGroupID ?>;
 </script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupEditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>

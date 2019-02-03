@@ -1616,6 +1616,6 @@ require 'Include/Header.php';
   window.CRM.iFamily  = <?= $iFamily ?>;
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonEditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>

@@ -991,8 +991,8 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
   </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyView.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js" ></script>
   
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentFamily = <?= $iFamilyID ?>;

@@ -60,7 +60,7 @@ if (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId
   window.CRM.personId  = <?= $personId ?>;
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/MenuLinksList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/MenuLinksList.js" ></script>
 
 <?php
 require 'Include/Footer.php';

@@ -39,7 +39,7 @@ require 'Include/Header.php'; ?>
 
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FundList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/FundList.js" ></script>
 
 <?php
 require 'Include/Footer.php';

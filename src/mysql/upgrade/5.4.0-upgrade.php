@@ -86,5 +86,76 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/api/routes/attendees.php");
   unlink(SystemURLs::getDocumentRoot()."/api/routes/autopayement.php");
   
+  // old unusefull file
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PledgeEditor.js");
+
+  // clarification of the js directory  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/CalendarSideBar.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/CalendarV2.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/EventEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GoogleMapEvent.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/OpenStreetMapEvent.js");
+
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Checkin.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/EventNames.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Events.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ListEvent.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/BingMapEvent.js");  
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/calendar_event_editor_config.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/campaign_editor_config.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/event_editor_config.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/note_editor_config.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorextension.js");  
+  removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/");
+
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Checkin.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/EventNames.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Events.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/ListEvent.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FamilyCustomFieldsEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FundList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/IconPicker.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/MenuLinksList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/OptionManager.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PastoralCareList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PersonCustomFieldsEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/VolunteerOpportunity.js");
+
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GroupEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GroupList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GroupRoles.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GroupView.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FamilyList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FamilyVerify.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FamilyView.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/MemberView.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PersonEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PersonList.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PersonView.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/PastoralCare.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/DepositSlipEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FinancialReports.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/FindDepositSlip.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/IssueReporter.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Kiosk.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/KioskJSOM.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/setup.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/SystemSettings.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/Tooltips.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/UserEditor.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/UserList.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GDPRDataStructure.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/GDRPDashboard.js");
+  
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/SundaySchoolClassView.js");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/SundaySchoolReports.js");
+  
   $logger->info("End of Reset :  all unusefull files");
 ?>

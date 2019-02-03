@@ -185,4 +185,4 @@ require 'Include/Header.php'; ?>
 require 'Include/Footer.php';
 ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyList.js" ></script>

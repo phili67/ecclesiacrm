@@ -393,7 +393,7 @@ function implodeUnique($array, $withQuotes)
   var canDeleteMembers       = <?= SessionUser::getUser()->isDeleteRecordsEnabled()?1:0 ?>;
 </script>
 
-<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolClassView.js" ></script>
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/sundayschool/SundaySchoolClassView.js" ></script>
 
 <?php
 require '../Include/Footer.php';

@@ -2,10 +2,9 @@
 /*******************************************************************************
  *
  *  filename    : PastoralCareList.php
- *  last change : 2003-01-07
+ *  last change : 2019-01-07
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2001, 2002 Deane Barker
- *                          2018 Philippe Logel
+ *  copyright   : Copyright 2018 Philippe Logel
  *
  ******************************************************************************/
 
@@ -49,7 +48,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
 
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PastoralCareList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/PastoralCareList.js" ></script>
 
 <?php
 require 'Include/Footer.php';

@@ -1515,8 +1515,8 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/MemberView.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PersonView.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
 
 <!-- Drag and drop -->

@@ -39,7 +39,7 @@ $sPageTitle = gettext('Group reports').$groupName;
 require 'Include/Header.php';
 ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupRoles.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupRoles.js"></script>
 
 <?php 
   if (!isset($_POST['GroupID'])) {

@@ -191,12 +191,12 @@ require 'Include/Header.php';
 <?php require 'Include/Footer.php' ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">  
   var currentPersonID = <?= $currentPersonID ?>;
   var currentPastorId = <?= $currentPastorId ?>;  
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/PastoralCare.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PastoralCare.js"></script>
 

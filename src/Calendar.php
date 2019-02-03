@@ -268,26 +268,26 @@ $eventTypes = EventTypesQuery::Create()
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/fullcalendar/fullcalendar.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/fullcalendar/locale-all.js"></script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarSideBar.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/CalendarV2.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/CalendarSideBar.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/CalendarV2.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <?php
   if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
 ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
 ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
 <?php
   }
 ?>

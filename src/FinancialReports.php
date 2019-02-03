@@ -482,4 +482,4 @@ if ($sReportType == '') {
 <?php
 require 'Include/Footer.php';
 ?>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FinancialReports.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/FinancialReports.js"></script>

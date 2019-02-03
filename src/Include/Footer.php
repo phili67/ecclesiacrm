@@ -359,11 +359,11 @@ use EcclesiaCRM\Bootstrapper;
 <script src="<?= SystemURLs::getRootPath() ?>/locale/js/<?= Bootstrapper::getCurrentLocale()->getLocale() ?>.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-validator/validator.min.js"></script>
 
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/IssueReporter.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/system/Tooltips.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/Events.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ShowAge.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/IssueReporter.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/DataTables.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Tooltips.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Events.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/Footer.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">

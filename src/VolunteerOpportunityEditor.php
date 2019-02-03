@@ -44,7 +44,7 @@ require 'Include/Header.php';
   <table class="table table-striped table-bordered" id="VolunteerOpportunityTable" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/VolunteerOpportunity.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/VolunteerOpportunity.js" ></script>
 
 
 <?php require 'Include/Footer.php' ?>

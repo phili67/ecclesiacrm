@@ -33,7 +33,7 @@ $groups = GroupQuery::create()
 $sPageTitle = gettext('Sunday School Reports');
 require '../Include/Header.php';
 
-if (! SessionUser::getUser()->isExportSundaySchoolPDFEnabled() )) {
+if (! SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
    RedirectUtils::Redirect('Menu.php');
    exit;
 }
@@ -333,7 +333,7 @@ require '../Include/Footer.php';
 <?php 
   if ( SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
 ?> 
-<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/SundaySchoolReports.js" ></script>
+<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/sundayschool/SundaySchoolReports.js" ></script>
 <?php
   }
 ?>

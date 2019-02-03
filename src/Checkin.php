@@ -708,7 +708,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
 </div>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
 <?php if ($EventID > 0 ) { ?>
@@ -724,7 +724,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
        });
      
      var editor = CKEDITOR.replace('NoteText',{
-       customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
+       customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/configs/note_editor_config.js',
        language : window.CRM.lang
      });  
      
@@ -829,23 +829,23 @@ function loadPerson($iPersonID)
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/EventEditor.js" ></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/Checkin.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/Checkin.js" ></script>
 <?php
   if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/OpenStreetMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/OpenStreetMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
 ?>
     <!--Google Map Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=<?= SystemConfig::getValue('sGoogleMapKey') ?>"></script>
 
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/GoogleMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/GoogleMapEvent.js"></script>
 <?php
   } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
 ?>
-    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/BingMapEvent.js"></script>
+    <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/BingMapEvent.js"></script>
 <?php
   }
 ?>

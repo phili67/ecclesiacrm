@@ -75,7 +75,7 @@ if (SessionUser::getUser()->isManageGroupsEnabled()) {
 
 </div>
 
-<script src="skin/js/GroupList.js"></script>
+<script src="skin/js/group/GroupList.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
 $( document).ready(function() {
   var gS = localStorage.getItem("groupSelect");
