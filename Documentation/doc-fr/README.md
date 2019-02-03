@@ -1,3 +1,3 @@
 # To compile each projects :
 
-```mkdocs build
+```mkdocs build```
