@@ -2,7 +2,7 @@
 
 <phpunit bootstrap="tests/bootstrap.php" colors="true">
     <php>
-        <var name="db_dsn" value="mysql:dbname=churchcrm_test;host=localhost"/>
+        <var name="db_dsn" value="mysql:dbname=ecclesiacrm;host=localhost"/>
         <var name="db_username" value="root"/>
         <var name="db_password" value=""/>
         <ini name="display_errors" value="On" />
