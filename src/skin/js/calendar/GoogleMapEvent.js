@@ -27,6 +27,11 @@
         url:"https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&sensor=false&key="+window.CRM.iGoogleMapKey,
         type: "POST",
         success:function(res){
+          if (res.status == "ZERO_RESULTS") {
+            alert(i18next.t('Wrong address format.'));
+            $('form #EventLocation').val('');
+            return;            
+          }
           var latitude  = res.results[0].geometry.location.lat;
           var longitude = res.results[0].geometry.location.lng;
           var EventTitle =  $('form #EventTitle').val();

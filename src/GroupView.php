@@ -553,7 +553,7 @@ require 'Include/Header.php';
    
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GroupView.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupView.js" ></script>
 
 
 

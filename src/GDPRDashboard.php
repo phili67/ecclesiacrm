@@ -67,7 +67,7 @@ $notes = NoteQuery::Create()
   <table class="table table-striped table-bordered" id="GDRP-Table" cellpadding="5" cellspacing="0"  width="100%"></table>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GDRPDashboard.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/gdpr/GDRPDashboard.js" ></script>
 
 <?php require 'Include/Footer.php'; ?>
 

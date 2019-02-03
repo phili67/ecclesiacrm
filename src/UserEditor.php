@@ -864,6 +864,6 @@ if ($usr_role_id == null) {
 
 </form>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/UserEditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/user/UserEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>

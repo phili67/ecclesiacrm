@@ -1,6 +1,6 @@
 $(function() {
-	// jQuery for EventNames.php
-	$('.event-recurrance-patterns input[type=radio]').change(function() {
+  // jQuery for EventNames.php
+  $('.event-recurrance-patterns input[type=radio]').change(function() {
     $el = $(this);
     $container = $el.closest('.row');
     $input = $container.find('select, input[type=text]').prop({ disabled: false });

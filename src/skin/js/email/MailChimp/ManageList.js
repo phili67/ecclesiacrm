@@ -101,7 +101,7 @@ $(document).ready(function () {
       // this will create the toolbar for the textarea
        if (editor == null) {
          editor = CKEDITOR.replace('campaignNotes',{
-          customConfig: window.CRM.root+'/skin/js/ckeditor/campaign_editor_config.js',
+          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/campaign_editor_config.js',
           language : window.CRM.lang,
           width : '100%'
          });

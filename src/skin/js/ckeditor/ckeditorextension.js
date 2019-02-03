@@ -31,7 +31,7 @@
  ******************************************************************************/
   
   // we add the special extraPlugin
-  CKEDITOR.plugins.addExternal('dropdownmenumanager',window.CRM.root+'/skin/js/ckeditorExtraPlugin/dropdownmenumanager/', 'plugin.js');
+  CKEDITOR.plugins.addExternal('dropdownmenumanager',window.CRM.root+'/skin/js/ckeditor/ckeditorExtraPlugin/dropdownmenumanager/', 'plugin.js');
 
   function add_ckeditor_buttons(editor)
   {
@@ -457,7 +457,7 @@
       label: i18next.t("Save templates"),
       command: 'saveTemplates',
       toolbar: 'template',
-      icon: window.CRM.root+'/skin/js/ckeditorExtraPlugin/icons/hidpi/saveTemplate.png'
+      icon: window.CRM.root+'/skin/js/ckeditor/ckeditorExtraPlugin/icons/hidpi/saveTemplate.png'
     });
     
     editor.ui.addButton('ApplyTemplateButton', { // add new button and bind our command to the template group
@@ -471,7 +471,7 @@
       label: i18next.t("Save As Word File in EDrive"),
       command: 'saveAsWordFile',
       toolbar: 'export',
-      icon: window.CRM.root+'/skin/js/ckeditorExtraPlugin/icons/hidpi/saveWord.png'
+      icon: window.CRM.root+'/skin/js/ckeditor/ckeditorExtraPlugin/icons/hidpi/saveWord.png'
     });
     
     //  create the MathJax command

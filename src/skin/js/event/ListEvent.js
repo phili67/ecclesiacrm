@@ -45,7 +45,7 @@ function addEvent(dateStart,dateEnd)
    // this will create the toolbar for the textarea
    if (editor == null) {
      editor = CKEDITOR.replace('eventNotes',{
-       customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+       customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
        language : window.CRM.lang,
        width : '100%'
      });
@@ -175,7 +175,7 @@ $('#add-event').click('focus', function (e) {
          // this will create the toolbar for the textarea
          if (editor == null) {
            editor = CKEDITOR.replace('eventNotes',{
-             customConfig: window.CRM.root+'/skin/js/ckeditor/calendar_event_editor_config.js',
+             customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
              language : window.CRM.lang,
              width : '100%'
            });

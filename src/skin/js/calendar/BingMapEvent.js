@@ -37,25 +37,31 @@
       };
       
       contentString = "<p>" + address + "</p>";
-
+      
+      
       Microsoft.Maps.loadModule('Microsoft.Maps.Search', function () {
-          var searchManager = new Microsoft.Maps.Search.SearchManager(window.CRM.map);
-          var requestOptions = {
-              bounds: window.CRM.map.getBounds(),
-              where: address,
-              callback: function (answer, userData) {
-                  window.CRM.map.setView({ bounds: answer.results[0].bestView });
+        var searchManager = new Microsoft.Maps.Search.SearchManager(window.CRM.map);
+        var requestOptions = {
+            bounds: window.CRM.map.getBounds(),
+            where: address,
+            callback: function (answer, userData) {
+                window.CRM.map.setView({ bounds: answer.results[0].bestView });
+                
+                var centerCard = {
+                  lat: Number(answer.results[0].location.latitude),
+                  lng: Number(answer.results[0].location.longitude)};
                   
-                  var centerCard = {
-                    lat: Number(answer.results[0].location.latitude),
-                    lng: Number(answer.results[0].location.longitude)};
-                    
-                  marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
-                  
-                  window.CRM.map.setCenter(new Microsoft.Maps.Location(centerCard.lat, centerCard.lng), window.CRM.iLittleMapZoom );
-              }
-          };
-          searchManager.geocode(requestOptions);
+                marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);
+                
+                window.CRM.map.setCenter(new Microsoft.Maps.Location(centerCard.lat, centerCard.lng), window.CRM.iLittleMapZoom );
+            },
+            errorCallback: function (answer, userData) {
+              alert(i18next.t('Wrong address format.'));
+              $('form #EventLocation').val('');
+              return;
+            }
+        };
+        searchManager.geocode(requestOptions);
       });
     }
   });

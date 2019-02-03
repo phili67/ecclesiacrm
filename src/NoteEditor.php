@@ -317,11 +317,11 @@ require 'Include/Header.php';
 <?php require 'Include/Footer.php' ?>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">  
   var editor = CKEDITOR.replace('NoteText',{
-      customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/note_editor_config.js',
+      customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/configs/note_editor_config.js',
       language : window.CRM.lang
   });
     

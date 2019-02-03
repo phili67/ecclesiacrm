@@ -517,5 +517,5 @@ if ($embedded) {
 }
 ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/IconPicker.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/OptionManager.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/IconPicker.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/OptionManager.js"></script>

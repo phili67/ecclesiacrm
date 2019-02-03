@@ -193,6 +193,6 @@ require 'Include/Header.php';
   </div>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/GDPRDataStructure.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/gdpr/GDPRDataStructure.js"></script>
 
 <?php require 'Include/Footer.php' ?>

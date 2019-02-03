@@ -208,7 +208,7 @@ $dateFormatShort = str_replace(" Y","",$dateFormatLong);
 
 </style>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyVerify.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyVerify.js"></script>
 
 <?php
 // Add the page footer

@@ -129,4 +129,4 @@ require '../../Include/Footer.php';
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/email/MailChimp/ManageList.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditorextension.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>

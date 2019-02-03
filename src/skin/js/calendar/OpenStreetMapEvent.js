@@ -30,6 +30,7 @@
         dataType: "json",
         success:function(res){
           if (res === undefined || res.length == 0) {
+            $('form #EventLocation').val();
             alert(i18next.t('Wrong address format.'));
             return;
           }

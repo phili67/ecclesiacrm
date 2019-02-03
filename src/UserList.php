@@ -214,4 +214,4 @@ if ($usr_role_id == null) {
 
 <?php require 'Include/Footer.php' ?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/UserList.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/user/UserList.js" ></script>

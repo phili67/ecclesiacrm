@@ -224,7 +224,7 @@ require 'Include/Header.php';
     <?= gettext('Return to Deposit Listing') ?></a>
 </div>
 
-<script  src="<?= SystemURLs::getRootPath() ?>/skin/js/DepositSlipEditor.js"></script>
+<script  src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/DepositSlipEditor.js"></script>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   var depositType = '<?php echo $thisDeposit->getType(); ?>';

@@ -523,6 +523,6 @@ if ($numRows == 0) {
     </form>
 </div>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/FamilyCustomFieldsEditor.js"></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/FamilyCustomFieldsEditor.js"></script>
 
 <?php require 'Include/Footer.php' ?>
