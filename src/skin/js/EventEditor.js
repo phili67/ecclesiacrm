@@ -437,11 +437,15 @@
             +'<div class="row  div-title">'
               +'<div class="col-md-3">' + i18next.t('Location') + ":</div>"
               +'<div class="col-md-9">'
-                  +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                  +'<div class="form-group has-warning location_group_warning">'
+                    +'<label class="control-label location_label_warning" for="inputWarning"><i class="fa fa-bell-o location_label_warning"></i>' + i18next.t("To validate your address : <b>\"hit return\"</b>.") + '</label>'
+                    +"<input type='text' id='EventLocation' placeholder='" + i18next.t("Location") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                    +'<span class="help-block location_span_warning">' + i18next.t("To see the Map click this text field.") + '</span>'
+                  +'</div>'
               +'</div>'
             +'</div>'
             +'<div class="row div-title map-title">'
-              +'<div class="col-md-3">' + i18next.t("Map") + ":<br><br><p style='color:orange;font-size:11px'>" + i18next.t("WARNING : To validate your address with this map : <b>\"hit return\"</b>.") + "</p></div>"
+              +'<div class="col-md-3">' + i18next.t("Map") + "</p></div>"
               +'<div class="col-md-9">'
                 +'<div id="MyMap"></div>'
               +'</div>'
