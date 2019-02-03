@@ -1,3 +1,6 @@
+UPDATE `user_usr`SET usr_showSince = '2018-01-01';
+ALTER TABLE `user_usr` ADD `usr_showTo` date NOT NULL default '2019-01-01';
+
 --
 -- gdpr update : gdpr_infos list
 --
