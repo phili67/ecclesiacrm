@@ -116,7 +116,7 @@ class MenuEventsCount
     {
         $Anniversaries = FamilyQuery::create()
               ->filterByWeddingDate(['min' => '0001-00-00']) // a Wedding Date
-              ->filterByDateDeactivated(null, Criteria::EQUAL) //Date Deactivated is null (active)
+              ->filterByDateDeactivated(null, Criteria::EQUAL) // GDRP, Date Deactivated is null (active)
               ->find();
       
         $curDay = date('d');
