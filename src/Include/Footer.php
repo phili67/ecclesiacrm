@@ -23,9 +23,9 @@ use EcclesiaCRM\Bootstrapper;
 <!-- /.content-wrapper -->
 <footer class="main-footer">
     <div class="pull-right">
-        <b><?= gettext('Version') ?></b> <?= SystemService::getDBVersion() ?>
+        <b><?= _('Version') ?></b> <?= SystemService::getDBVersion() ?>
     </div>
-    <strong><?= gettext('Copyright') ?> &copy; 2017-<?= SystemService::getCopyrightDate() ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?></a>.</strong> <?= gettext('All rights reserved') ?>
+    <strong><?= _('Copyright') ?> &copy; 2017-<?= SystemService::getCopyrightDate() ?> <a href="https://www.ecclesiacrm.com" target="_blank"><b>Ecclesia</b>CRM<?= SystemService::getDBMainVersion() ?></a>.</strong> <?= _('All rights reserved') ?>
     .
 </footer>
 
@@ -55,50 +55,50 @@ use EcclesiaCRM\Bootstrapper;
       <?php 
         if (SessionUser::getUser()->isMenuOptionsEnabled()) {
       ?>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Family') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Family') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=famroles">
-                        <i class="fa fa-cog"></i> <?= gettext('Family Roles') ?>
+                        <i class="fa fa-cog"></i> <?= _('Family Roles') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=f">
-                        <i class="fa fa-cog"></i> <?= gettext('Family Properties') ?>
+                        <i class="fa fa-cog"></i> <?= _('Family Properties') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/FamilyCustomFieldsEditor.php">
-                        <i class="fa fa-cog"></i> <?= gettext('Edit Custom Family Fields') ?>
+                        <i class="fa fa-cog"></i> <?= _('Edit Custom Family Fields') ?>
                     </a>
                 </li>
             </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Person') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Person') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes">
-                        <i class="fa fa-cog"></i> <?= gettext('Classifications Manager') ?>
+                        <i class="fa fa-cog"></i> <?= _('Classifications Manager') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=p">
-                        <i class="fa fa-cog"></i> <?= gettext('People Properties') ?>
+                        <i class="fa fa-cog"></i> <?= _('People Properties') ?>
                     </a>
                 </li>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php">
-                        <i class="fa fa-cog"></i> <?= gettext('Edit Custom Person Fields') ?>
+                        <i class="fa fa-cog"></i> <?= _('Edit Custom Person Fields') ?>
                     </a>
                 </li>
             </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Group') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Group') ?></h4>
             <ul class="control-sidebar-menu">
           <?php
              if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=g">
-                        <i class="fa fa-cog"></i> <?= gettext('Group Properties') ?>
+                        <i class="fa fa-cog"></i> <?= _('Group Properties') ?>
                     </a>
                 </li>
           <?php
@@ -108,7 +108,7 @@ use EcclesiaCRM\Bootstrapper;
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
-                        <i class="fa fa-cog"></i> <?= gettext('Sunday School Menu Properties') ?>
+                        <i class="fa fa-cog"></i> <?= _('Sunday School Menu Properties') ?>
                     </a>
                 </li>
           <?php
@@ -118,18 +118,18 @@ use EcclesiaCRM\Bootstrapper;
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
-                        <i class="fa fa-cog"></i> <?= gettext('Edit Group Types') ?>
+                        <i class="fa fa-cog"></i> <?= _('Edit Group Types') ?>
                     </a>
                 </li>
           <?php
              }
           ?>
             </ul>
-            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= gettext('Other') ?></h4>
+            <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Other') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php">
-                        <i class="fa fa-cog"></i> <?= gettext('Property Types') ?>
+                        <i class="fa fa-cog"></i> <?= _('Property Types') ?>
                     </a>
                 </li>
               <?php
@@ -137,7 +137,7 @@ use EcclesiaCRM\Bootstrapper;
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/VolunteerOpportunityEditor.php">
-                            <i class="fa fa-cog"></i> <?= gettext('Volunteer Opportunities') ?>
+                            <i class="fa fa-cog"></i> <?= _('Volunteer Opportunities') ?>
                         </a>
                     </li>
               <?php
@@ -147,7 +147,7 @@ use EcclesiaCRM\Bootstrapper;
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
-                            <i class="fa fa-cog"></i> <?= gettext('Edit Donation Funds') ?>
+                            <i class="fa fa-cog"></i> <?= _('Edit Donation Funds') ?>
                         </a>
                     </li>
               <?php
@@ -156,8 +156,8 @@ use EcclesiaCRM\Bootstrapper;
                  if (SessionUser::getUser()->isPastoralCareEnabled()) {
               ?>
                     <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/PastoralCareList.php">
-                            <i class="fa fa-cog"></i> <?= gettext("Pastoral Care Type") ?>
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcarelist">
+                            <i class="fa fa-cog"></i> <?= _("Pastoral Care Type") ?>
                         </a>
                     </li>
               <?php
@@ -167,7 +167,7 @@ use EcclesiaCRM\Bootstrapper;
               ?>
                     <li>
                         <a href="<?= SystemURLs::getRootPath() ?>/v2/menulinklist">
-                            <i class="fa fa-cog"></i> <?= gettext("Global Custom Menus") ?>
+                            <i class="fa fa-cog"></i> <?= _("Global Custom Menus") ?>
                         </a>
                     </li>
               <?php
@@ -181,7 +181,7 @@ use EcclesiaCRM\Bootstrapper;
         } else {
       ?>
            <ul>
-               <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
+               <li><div class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div></li>
            </ul>
       <?php
         }
@@ -189,7 +189,7 @@ use EcclesiaCRM\Bootstrapper;
         </div>
 
         <div id="control-sidebar-settings-tab" class="tab-pane">
-            <div><h4 class="control-sidebar-heading"><?= gettext('System Settings') ?></h4>
+            <div><h4 class="control-sidebar-heading"><?= _('System Settings') ?></h4>
                 <ul class="control-sidebar-menu">
                   <?php 
                   if (SessionUser::getUser()->isAdmin()) {
@@ -198,7 +198,7 @@ use EcclesiaCRM\Bootstrapper;
                         <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php">
                             <i class="menu-icon fa fa-gears bg-red"></i>
                             <div class="menu-info">
-                                <h4 class="control-sidebar-subheading"><?= gettext('Edit General Settings') ?></h4>
+                                <h4 class="control-sidebar-subheading"><?= _('Edit General Settings') ?></h4>
                             </div>
                         </a>
                     </li>
@@ -212,7 +212,7 @@ use EcclesiaCRM\Bootstrapper;
                         <a href="<?= SystemURLs::getRootPath() ?>/UserList.php">
                             <i class="menu-icon fa fa-user-secret bg-gray"></i>
                             <div class="menu-info">
-                                <h4 class="control-sidebar-subheading"><?= gettext('System Users') ?></h4>
+                                <h4 class="control-sidebar-subheading"><?= _('System Users') ?></h4>
                             </div>
                         </a>
                     </li>
@@ -229,7 +229,7 @@ use EcclesiaCRM\Bootstrapper;
                             <a href="<?= SystemURLs::getRootPath() ?>/RestoreDatabase.php">
                                 <i class="menu-icon fa fa-database bg-yellow-gradient"></i>
                                 <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('Restore Database') ?></h4>
+                                    <h4 class="control-sidebar-subheading"><?= _('Restore Database') ?></h4>
                                 </div>
                             </a>
                         </li>
@@ -237,7 +237,7 @@ use EcclesiaCRM\Bootstrapper;
                             <a href="<?= SystemURLs::getRootPath() ?>/BackupDatabase.php">
                                 <i class="menu-icon fa fa-database bg-green"></i>
                                 <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('Backup Database') ?></h4>
+                                    <h4 class="control-sidebar-subheading"><?= _('Backup Database') ?></h4>
                                 </div>
                             </a>
                         </li>
@@ -245,7 +245,7 @@ use EcclesiaCRM\Bootstrapper;
                             <a href="<?= SystemURLs::getRootPath() ?>/CSVImport.php">
                                 <i class="menu-icon fa fa-upload bg-yellow-gradient"></i>
                                 <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('CSV Import') ?></h4>
+                                    <h4 class="control-sidebar-subheading"><?= _('CSV Import') ?></h4>
                                 </div>
                             </a>
                         </li>
@@ -253,14 +253,14 @@ use EcclesiaCRM\Bootstrapper;
                             <a href="<?= SystemURLs::getRootPath() ?>/KioskManager.php">
                                 <i class="menu-icon fa fa-laptop bg-blue-gradient"></i>
                                 <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading"><?= gettext('Kiosk Manager') ?></h4>
+                                    <h4 class="control-sidebar-subheading"><?= _('Kiosk Manager') ?></h4>
                                 </div>
                             </a>
                         </li>
                   <?php
                     } else {
                   ?>
-                        <li><div class="menu-info"><?= gettext('Please contact your admin to change the system settings.') ?></div></li>
+                        <li><div class="menu-info"><?= _('Please contact your admin to change the system settings.') ?></div></li>
                   <?php
                     } 
                     
@@ -270,7 +270,7 @@ use EcclesiaCRM\Bootstrapper;
                         <a href="<?= SystemURLs::getRootPath() ?>/CSVExport.php">
                             <i class="menu-icon fa fa-download bg-green"></i>
                             <div class="menu-info">
-                                <h4 class="control-sidebar-subheading"><?= gettext('CSV Export Records') ?></h4>
+                                <h4 class="control-sidebar-subheading"><?= _('CSV Export Records') ?></h4>
                             </div>
                         </a>
                     </li>
@@ -284,9 +284,9 @@ use EcclesiaCRM\Bootstrapper;
 
         <!-- Settings tab content -->
         <div class="tab-pane active" id="control-sidebar-tasks-tab">
-            <h3 class="control-sidebar-heading"><?= gettext('Open Tasks') ?></h3>
-            <?= gettext('You have') ?> &nbsp; <span class="label label-danger"><?= $taskSize ?></span>
-            &nbsp; <?= gettext('task(s)') ?>
+            <h3 class="control-sidebar-heading"><?= _('Open Tasks') ?></h3>
+            <?= _('You have') ?> &nbsp; <span class="label label-danger"><?= $taskSize ?></span>
+            &nbsp; <?= _('task(s)') ?>
             <br/><br/>
             <ul class="control-sidebar-menu">
                 <?php foreach ($tasks as $task) {

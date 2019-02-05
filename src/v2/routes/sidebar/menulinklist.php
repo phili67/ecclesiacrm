@@ -18,9 +18,7 @@ $app->group('/menulinklist', function () {
 function renderMenuLinkList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
     
-    $personId = 0;
-
-    return $renderer->render($response, 'menulinklist.php', argumentsMl($personId));
+    return $renderer->render($response, 'menulinklist.php', argumentsMenuLinkListArray());
 }
 
 function renderMenuLinkListForPerson (Request $request, Response $response, array $args) {
@@ -32,10 +30,10 @@ function renderMenuLinkListForPerson (Request $request, Response $response, arra
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
     
-    return $renderer->render($response, 'menulinklist.php', argumentsMl($personId));
+    return $renderer->render($response, 'menulinklist.php', argumentsMenuLinkListArray($personId));
 }
 
-function argumentsMl ($personId)
+function argumentsMenuLinkListArray ($personId=0)
 {
     //Set the page title
     $sPageTitle = _("Custom Menus List");

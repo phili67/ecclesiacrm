@@ -50,5 +50,6 @@ require __DIR__ . '/routes/calendar.php';
 
 // the sidebar routes
 require __DIR__ . '/routes/sidebar/menulinklist.php';
+require __DIR__ . '/routes/sidebar/pastoralcarelist.php';
 
 $app->run();
