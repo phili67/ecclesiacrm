@@ -166,7 +166,7 @@ use EcclesiaCRM\Bootstrapper;
                 if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
               ?>
                     <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/MenuLinksList.php">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/menulinklist">
                             <i class="fa fa-cog"></i> <?= gettext("Global Custom Menus") ?>
                         </a>
                     </li>

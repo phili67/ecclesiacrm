@@ -48,4 +48,7 @@ require __DIR__.'/../Include/slim/error-handler.php';
 // the routes
 require __DIR__ . '/routes/calendar.php';
 
+// the sidebar routes
+require __DIR__ . '/routes/sidebar/menulinklist.php';
+
 $app->run();

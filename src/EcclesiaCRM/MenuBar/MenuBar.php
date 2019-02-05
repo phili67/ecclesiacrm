@@ -190,13 +190,13 @@ class MenuBar {
       
       if ($menuLinks->count()) {
         $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","",true,null,"global_custom_menu");        
-        $menu->addLink("MenuLinksList.php");
+        $menu->addLink("v2/menulinklist");
 
         foreach ($menuLinks as $menuLink) {
             $menuItem = new Menu ($menuLink->getName(),"fa fa-circle-o",$menuLink->getUri(),true,$menu);
         }
       } else {
-        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","MenuLinksList.php",true,null,"global_custom_menu");
+        $menu = new Menu (gettext("Global Custom Menus"),"fa fa-link","v2/menulinklist",true,null,"global_custom_menu");
       }
       
       
@@ -208,7 +208,7 @@ class MenuBar {
       $menuLinks = MenuLinkQuery::Create()->orderByOrder(Criteria::ASC)->findByPersonId(SessionUser::getUser()->getPersonId());
       
       $menuItem = new Menu (gettext("Custom Menus"),"fa fa-link","#",true,$mainmenu,"personal_custom_menu_".SessionUser::getUser()->getPersonId());
-      $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","MenuLinksList.php?personId=".SessionUser::getUser()->getPersonId(),true,$menuItem);
+      $menuItem1 = new Menu (gettext("Dashboard"),"fa fa-circle-o","v2/menulinklist/".SessionUser::getUser()->getPersonId(),true,$menuItem);
       
       foreach ($menuLinks as $menuLink) {
           $menuItemItem1 = new Menu ($menuLink->getName(),"fa fa-angle-double-right",$menuLink->getUri(),true,$menuItem);
