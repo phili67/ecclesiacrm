@@ -251,7 +251,7 @@ class MenuBar {
           $menu->addBadge('label bg-red pull-right','BirthdateNumber',0);
           $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
-          $menuItem = new Menu (gettext("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","Calendar.php",true,$menu);
+          $menuItem = new Menu (gettext("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","v2/calendar",true,$menu);
           if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
             $menuItem = new Menu (gettext("View on Map"),"fa fa-map-o","MapUsingLeaflet.php",true,$menu);
           } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
