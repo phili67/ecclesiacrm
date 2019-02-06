@@ -85,3 +85,24 @@ margin-bottom: 0px;
   padding-left: 15px;
   width: 33.33333333%;
 }
+
+/* bug resolution with Chrome */
+ @media print {
+    a[href]:after {
+        content: none !important;
+    }
+}
+.fc-other-month .fc-day-number {
+  display:none;
+}
+
+.input-group-addon {
+  border: 2;
+  padding:1px 1px;
+}
+
+.input-group-addon:last-child {
+  border-left: 1;
+} 
+
+/* end of bug resolution */
