@@ -7,8 +7,8 @@
 *
 *  This code is under copyright not under MIT Licence
 *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-*                This code can't be incoprorated in another software without any authorizaion
-*  Updated     : 2018/06/3
+*                This code can't be incoprorated in another software without authorizaion
+*  Updated     : 2019/02/5
 *
 ******************************************************************************/
 
@@ -484,7 +484,7 @@ class MenuBar {
           echo "</li>\n";
         } else {// we are in the case of a treeview
           echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
-            echo "<a href=\"" . $menu->getUri() . "\">\n";
+            echo "<a href=\"" . $menu->getUri() . "\">\n";// the menu keep his link #
             echo " <i class=\"".$menu->getIcon()."\"></i>\n";
             echo " <span>".gettext($menu->getTitle());
             if (count($menu->getBadges()) > 0) {
