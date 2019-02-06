@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2019-02-06T07:59:23.282Z\n"
+"PO-Revision-Date: 2019-02-06T07:59:23.283Z\n"
+
+msgid "Family"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+msgid "Person"
+msgstr ""
+
+msgid "Anonymous"
+msgstr ""
+
+msgid "Fund"
+msgstr ""
+
+msgid "Pledge or payment"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "Method"
+msgstr ""
+
+msgid "Check Number"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Selected Rows"
+msgstr ""
+
+msgid "Deposit ID"
+msgstr ""
+
+msgid "Deposit Date"
+msgstr ""
+
+msgid "Deposit Total"
+msgstr ""
+
+msgid "Deposit Comment"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Deposit Type"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Generate Deposit Slip for Selected"
+msgstr ""
+
+msgid "Rows"
+msgstr ""
