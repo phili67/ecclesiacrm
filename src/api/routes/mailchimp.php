@@ -21,6 +21,7 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\LoggerUtils;
 
 
 $app->group('/mailchimp', function () {
@@ -121,7 +122,8 @@ function searchList (Request $request, Response $response, array $args) {
       }
     }
   } catch (Exception $e) {
-      $this->Logger->warn($e->getMessage());
+      $logger = LoggerUtils::getAppLogger();
+      $logger->warn($e->getMessage());
   }
 
 // Family search   
@@ -160,7 +162,8 @@ function searchList (Request $request, Response $response, array $args) {
         }
       }
     } catch (Exception $e) {
-        $this->Logger->warn($e->getMessage());
+        $logger = LoggerUtils::getAppLogger();
+        $logger->warn($e->getMessage());
     }
 
 // Group Search
@@ -197,7 +200,8 @@ function searchList (Request $request, Response $response, array $args) {
         }
       }
   } catch (Exception $e) {
-      $this->Logger->warn($e->getMessage());
+      $logger = LoggerUtils::getAppLogger();
+      $logger->warn($e->getMessage());
   }
 
   return $response->withJson(array_filter($resultsArray));
