@@ -24,6 +24,22 @@ $app->group('/', function () {
         $required = EcclesiaCRM\Service\AppIntegrityService::getApplicationPrerequisites();
         return $response->withStatus(200)->withJson($required);
     });
+    
+    $this->post('checkDatabaseConnection', function ($request, $response, $args) {
+        $input = (object)$request->getParsedBody();
+    
+        if (isset ($input->serverName) && isset ($input->dbName) && isset ($input->dbPort)  && isset ($input->user) && isset ($input->password) ){
+           try { 
+             $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName, $input->dbPort);
+           } catch (mysqli_sql_exception $e) { 
+             throw $e; 
+           } 
+           
+           return $response->withJson(['status' => "success"]); 
+        }
+
+        return $response->withJson(['status' => "failed"]); 
+    });
 
     $this->post('', function ($request, $response, $args) {
         $setupDate = $request->getParsedBody();
