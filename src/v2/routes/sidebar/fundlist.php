@@ -10,33 +10,33 @@ use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/pastoralcarelist', function () {
-    $this->get('', 'renderPastoralCareList');
-    $this->get('/', 'renderPastoralCareList');
+$app->group('/fundlist', function () {
+    $this->get('', 'renderFundList');
+    $this->get('/', 'renderFundList');
 });
 
 
-function renderPastoralCareList (Request $request, Response $response, array $args) {
+function renderFundList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/sidebar/');
     
-    if ( !(SessionUser::getUser()->isMenuOptionsEnabled() && SessionUser::getUser()->isPastoralCareEnabled() ) ) {
+    if ( !( SessionUser::getUser()->isMenuOptionsEnabled() ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
     
-    return $renderer->render($response, 'pastoralcarelist.php', argumentsPastoralCareListArray());
+    return $renderer->render($response, 'fundlist.php', argumentsFundListArray());
 }
 
-function argumentsPastoralCareListArray ()
+function argumentsFundListArray ()
 {
     //Set the page title
-    $sPageTitle = _("Pastoral Care Type Editor");
+    $sPageTitle = _("Donation Fund Editor");
 
     $sRootDocument  = SystemURLs::getDocumentRoot();
           
     $paramsArguments = ['sRootPath'    => SystemURLs::getRootPath(),
                        'sRootDocument' => $sRootDocument,
                        'sPageTitle'    => $sPageTitle, 
-                       'isPastoralCareEnabled' => ( (SessionUser::getUser()->isMenuOptionsEnabled() || $personId > 0 && $personId == SessionUser::getUser()->getPersonId())?1:0 )
+                       'isMenuOption' => SessionUser::getUser()->isMenuOptionsEnabled()
                        ];   
    return $paramsArguments;
 }
