@@ -901,6 +901,7 @@ $(document).ready(function () {
     "language": {
       "url": window.CRM.plugin.dataTable.language.url
     },
+    "searching": false,
     columns: [
       {
         width: 'auto',
@@ -923,8 +924,6 @@ $(document).ready(function () {
         title:i18next.t('Description'),
         data:'Description',
         render: function(data, type, full, meta) {
-          var fmt = window.CRM.datePickerformat.toUpperCase();
-          
           return data;
         }
       },
