@@ -122,7 +122,7 @@
      localStorage.setItem("EventTypeFilterID",EventTypeFilterID); 
   });
   
-  $('body').on('click','.date-title .date-range', function(){ 
+  $('body').on('click','.date-title, .date-range', function(){ 
       $( ".date-title").slideUp();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
@@ -133,20 +133,8 @@
       $( ".eventNotes").slideUp();
       $('#EventDesc').attr("rows", "1");
   });
-  
-  $('body').on('click','.eventNotesTitle', function(){ 
-      $( ".date-title").slideDown();
-      $('.ATTENDENCES-title').slideDown();
-      $( ".map-title").slideUp();
-      $('.date-start').slideUp();
-      $('.date-end').slideUp();
-      $('.date-recurrence').slideUp();      
-      $( ".ATTENDENCES" ).slideUp();
-      $( ".eventNotes").slideDown();
-      $('#EventDesc').attr("rows", "1");
-  });
-  
-  $('body').on('click','#EventTitle', function(){ 
+    
+  $('body').on('click','#EventTitle, .EventTitle', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
@@ -158,7 +146,7 @@
       $('#EventDesc').attr("rows", "1");
   });
   
-  $('body').on('click','#EventLocation', function(){ 
+  $('body').on('click','#EventLocation, .EventLocation', function(){ 
       $( ".map-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $('.date-start').slideUp();
@@ -172,7 +160,7 @@
   });
 
   
-  $('body').on('click','#EventDesc', function(){ 
+  $('body').on('click','#EventDesc, .EventDesc', function(){ 
       $( ".date-title").slideDown();
       $('.ATTENDENCES-title').slideDown();
       $( ".map-title").slideUp();
@@ -184,7 +172,7 @@
       $('#EventDesc').attr("rows", "3");
   });
   
-  $('body').on('click','.ATTENDENCES-title', function(){ 
+  $('body').on('click','#ATTENDENCES-title, .ATTENDENCES-title', function(){ 
     $( ".date-title").slideDown();
     //$('.ATTENDENCES-title').slideUp();
     $( ".map-title").slideUp();
@@ -193,6 +181,18 @@
     $('.date-recurrence').slideUp();      
     $( ".eventNotes").slideUp();
     $( ".ATTENDENCES" ).slideDown( "slow");
+    $('#EventDesc').attr("rows", "1");
+  });
+  
+  $('body').on('click','.calendar-title', function(){ 
+    $( ".date-title").slideDown();
+    //$('.ATTENDENCES-title').slideUp();
+    $( ".map-title").slideUp();
+    $('.date-start').slideUp();
+    $('.date-end').slideUp();
+    $('.date-recurrence').slideUp();      
+    $( ".eventNotes").slideUp();
+    $( ".ATTENDENCES" ).slideUp( "slow");
     $('#EventDesc').attr("rows", "1");
   });
   
@@ -221,6 +221,18 @@
     $("#addGroupAttendees").prop('checked', (_grpID == "0")?false:true);
      
     localStorage.setItem("calendarFilterID",calendarFilterID); 
+  });
+
+  $('body').on('click','.eventNotesTitle', function(){ 
+      $( ".date-title").slideDown();
+      $('.ATTENDENCES-title').slideDown();
+      $( ".map-title").slideUp();
+      $('.date-start').slideUp();
+      $('.date-end').slideUp();
+      $('.date-recurrence').slideUp();      
+      $( ".ATTENDENCES" ).slideUp();
+      $( ".eventNotes").slideDown();
+      $('#EventDesc').attr("rows", "1");
   });
   
   // I have to do this because EventCalendar isn't yet present when you load the page the first time
@@ -303,7 +315,7 @@
         
         $(".ATTENDENCES-fields" ).html(innerHtml);
         
-          $(".ATTENDENCES").slideDown();  
+        //$(".ATTENDENCES").slideDown();  
       }
     }); 
   }
@@ -428,13 +440,13 @@
     
     var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Event Creation")+'</h3><form id="some-form">'
        + '<div>'
-            +'<div class="row div-title">'
+            +'<div class="row div-title EventTitle">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Title') + ":</div>"
               +'<div class="col-md-9">'
                 +"<input type='text' id='EventTitle' placeholder='" + i18next.t("Calendar Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
-            +'<div class="row  div-title">'
+            +'<div class="row  div-title EventLocation">'
               +'<div class="col-md-3">' + i18next.t('Location') + ":</div>"
               +'<div class="col-md-9">'
                   +'<div class="form-group has-warning location_group_warning">'
@@ -450,7 +462,7 @@
                 +'<div id="MyMap"></div>'
               +'</div>'
             +'</div>'       
-            +'<div class="row div-title">'
+            +'<div class="row div-title EventDesc">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Desc') + ":</div>"
               +'<div class="col-md-9">'
                 +"<textarea id='EventDesc' rows='1' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required placeholder='" + i18next.t("Event description") + "'></textarea>"
@@ -558,7 +570,7 @@
                   +'</div>'
                +'</div>'
             +'</div>'  
-            +'<div class="row  div-title">'
+            +'<div class="row  div-title calendar-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Calendar') + ":</div>"
               +'<div class="col-md-4">'
                 +'<select type="text" id="EventCalendar" value="39" width="100%" style="width: 100%" class="form-control input-sm">'
@@ -572,7 +584,7 @@
                 +'</div>'
               +'</div>'
             +'</div>'
-            +'<div class="row  ATTENDENCES-title div-title">'
+            +'<div class="row div-title ATTENDENCES-title ">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Attendances') + ":</div>"
               +'<div class="col-md-9">'
               +'<select type="text" id="eventType" value="39"  width="100%" style="width: 100%" class="form-control input-sm">'
@@ -580,14 +592,14 @@
                 +'</select>'
               +'</div>'
             +'</div>'
-            +'<div class="row ATTENDENCES  div-block">'
+            +'<div class="row div-block ATTENDENCES">'
               +'<div class="col-md-3">' + i18next.t('Attendance Counts') + "</div>"
                 +'<div class="col-md-9 ATTENDENCES-fields">'                
                 +'</div>'
                 +'<hr/>'
               +'</div>'
             +'</div>'            
-            +'<div class="row eventNotesTitle div-title">'
+            +'<div class="row div-title eventNotesTitle">'
               +'<div class="col-md-12">'
                 +i18next.t('Notes')
               +'</div>'
