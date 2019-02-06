@@ -1,6 +1,38 @@
+window.CRM.dataBaseCheck = false;
+
 function skipCheck() {
     $("#prerequisites-war").hide();
     window.CRM.prerequisitesStatus = true;
+}
+
+function dataBaseCheck ()
+{
+    var serverName   = $('#DB_SERVER_NAME').val();
+    var dbName       = $('#DB_NAME').val();
+    var dbPort       = $('#DB_SERVER_PORT').val();
+    var user         = $('#DB_USER').val();
+    var password     = $('#DB_PASSWORD').val();
+    
+    var infos = {'serverName': serverName,'dbName': dbName, 'dbPort' : dbPort, 'user' : user, 'password':password};
+    
+    $.ajax({
+        url: window.CRM.root + "/setup/checkDatabaseConnection",
+        method: "post",
+        data: JSON.stringify(infos), // stringify the object we created earlier, and add it to the data payload
+        contentType: "application/json",
+        error: function (request, status, error) {
+          window.CRM.dataBaseCheck = false;
+          $('#databaseconnection-war').html ('Connection to your database failed. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to re-check your connection.');
+          $('.callout-db').removeClass('callout-warning');
+          $('.callout-db').addClass('callout-danger');
+        }
+    }).done(function (data) {
+      $('#databaseconnection-war').html ('Connection to your database successfully done. Click the "Next" button finish your installation.');
+      $('.callout-db').removeClass('callout-warning');
+      $('.callout-db').removeClass('callout-danger');
+      $('.callout-db').addClass('callout-success');
+      window.CRM.dataBaseCheck = true;
+    });
 }
 
 window.CRM.checkIntegrity = function () {
@@ -40,6 +72,7 @@ window.CRM.checkPrerequisites = function () {
         });
     });
 };
+
 window.CRM.renderPrerequisite = function (name, status) {
     var td = {};
     if (status == "pass") {
@@ -94,6 +127,13 @@ $("document").ready(function () {
         transitionEffect: "slideLeft",
         stepsOrientation: "vertical",
         onStepChanging: function (event, currentIndex, newIndex) {
+            if (currentIndex == 3) {
+              if (window.CRM.dataBaseCheck == false) {
+                dataBaseCheck();
+                $("#setup-form").steps("previous",{});
+              }
+            }
+            
             if (currentIndex > newIndex) {
                 return true;
             }

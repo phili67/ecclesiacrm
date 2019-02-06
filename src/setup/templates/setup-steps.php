@@ -168,6 +168,9 @@ require '../Include/HeaderNotLoggedIn.php';
                        aria-describedby="DB_PASSWORD2_HELP" required>
                 <small id="DB_PASSWORD2_HELP" class="form-text text-muted"></small>
             </div>
+            <div class="callout callout-warning callout-db" id="databaseconnection-war">
+                Check your database connection. Click the link <a href="#" onclick="dataBaseCheck()"><b>here</b></a> to check your connection.
+            </div>
         </section>
         <h2>Church Main Infos</h2>
         <section>
@@ -423,8 +426,8 @@ require '../Include/HeaderNotLoggedIn.php';
         
         <h2>Final infos</h2>
         <section>
-            <div class="callout callout-info" id="prerequisites-war">
-                To open a connection to EcclesiaCRM, use the information below :
+            <div class="callout callout-success" id="prerequisites-war">
+                To open a connection to Ecclesia<b>CRM</b><?=SystemService::getPackageMainVersion() ?>, use the information below :
                 <ul style="padding-left:20px">
                   <li>login    : <b>admin</b></li>
                   <li>password : <b>changeme</b></li>
