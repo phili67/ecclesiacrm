@@ -484,7 +484,7 @@ class MenuBar {
           echo "</li>\n";
         } else {// we are in the case of a treeview
           echo "<li class=\"treeview".$this->is_treeview_Opened($menu->getLinks()).(($menu->getClass() != null)?" ".$menu->getClass():"")."\">";
-            echo "<a href=\"".SystemURLs::getRootPath() . "/" . $menu->getUri()."\">\n";
+            echo "<a href=\"" . $menu->getUri() . "\">\n";
             echo " <i class=\"".$menu->getIcon()."\"></i>\n";
             echo " <span>".gettext($menu->getTitle());
             if (count($menu->getBadges()) > 0) {
