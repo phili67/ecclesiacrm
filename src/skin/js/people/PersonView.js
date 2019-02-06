@@ -1281,7 +1281,6 @@ $(document).ready(function () {
       alert($('#date-picker-period').val());
     });
 
-
   /* Custom filtering function which will search data in column four between two values */
    $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
         if (settings.nTable.id == "automaticPaymentsTable") {
