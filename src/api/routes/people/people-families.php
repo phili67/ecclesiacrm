@@ -31,7 +31,7 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\Utils\LoggerUtils;
 
 
 $app->group('/families', function () {
@@ -211,7 +211,8 @@ function verifyFamily (Request $request, Response $response, array $args) {
             $family->createTimeLineNote("verify-link");
             $response = $response->withStatus(200);
         } else {
-            $this->Logger->error($email->getError());
+            $logger = LoggerUtils::getAppLogger();
+            $logger->error($email->getError());
             throw new \Exception($email->getError());
         }
     } else {
