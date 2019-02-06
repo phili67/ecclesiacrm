@@ -46,10 +46,11 @@ $app->add(new JwtAuthentication([
 require __DIR__.'/../Include/slim/error-handler.php';
 
 // the routes
-require __DIR__ . '/routes/calendar.php';
+require __DIR__ . '/routes/calendar/calendar.php';
 
 // the sidebar routes
 require __DIR__ . '/routes/sidebar/menulinklist.php';
 require __DIR__ . '/routes/sidebar/pastoralcarelist.php';
+require __DIR__ . '/routes/sidebar/fundlist.php';
 
 $app->run();

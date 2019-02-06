@@ -10,7 +10,7 @@
 
 require $sRootDocument . '/Include/Header.php';
 
-if ( $addCustomLink ) {
+if ( $isPastoralCareEnabled ) {
 ?>
     <div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>
       <?= _('Be carefull ! By deleting pastoral care type, the recorded datas for each persons will be lost.') ?>

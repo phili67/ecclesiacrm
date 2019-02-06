@@ -146,7 +146,7 @@ use EcclesiaCRM\Bootstrapper;
                 if (SessionUser::getUser()->isFinanceEnabled() && (SystemConfig::getBooleanValue("bEnabledFinance") || SystemConfig::getBooleanValue("bEnabledFundraiser"))) {
               ?>
                     <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/FundList.php">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/fundlist">
                             <i class="fa fa-cog"></i> <?= _('Edit Donation Funds') ?>
                         </a>
                     </li>
