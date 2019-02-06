@@ -136,7 +136,7 @@ use EcclesiaCRM\Bootstrapper;
                 if (SessionUser::getUser()->isCanvasserEnabled()) {
               ?>
                     <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/VolunteerOpportunityEditor.php">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/volunteeropportunityeditor">
                             <i class="fa fa-cog"></i> <?= _('Volunteer Opportunities') ?>
                         </a>
                     </li>

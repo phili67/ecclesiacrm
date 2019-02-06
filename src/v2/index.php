@@ -52,5 +52,6 @@ require __DIR__ . '/routes/calendar/calendar.php';
 require __DIR__ . '/routes/sidebar/menulinklist.php';
 require __DIR__ . '/routes/sidebar/pastoralcarelist.php';
 require __DIR__ . '/routes/sidebar/fundlist.php';
+require __DIR__ . '/routes/sidebar/volunteeropportunityeditor.php';
 
 $app->run();
