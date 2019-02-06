@@ -1,0 +1,231 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2019-02-06T07:59:25.636Z\n"
+"PO-Revision-Date: 2019-02-06T07:59:25.636Z\n"
+
+msgid "Error"
+msgstr ""
+
+msgid "Campaign"
+msgstr ""
+
+msgid "saved successfully"
+msgstr ""
+
+msgid "You're about to send your campaign! Are you sure ?"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "You're about to delete your campaign! Are you sure ?"
+msgstr ""
+
+msgid "Loading resources ..."
+msgstr ""
+
+msgid "MailChimp List"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Subject"
+msgstr ""
+
+msgid "Members:"
+msgstr ""
+
+msgid "Campaigns:"
+msgstr ""
+
+msgid "Unsubscribed count:"
+msgstr ""
+
+msgid "Unsubscribed count since last send:"
+msgstr ""
+
+msgid "Cleaned count:"
+msgstr ""
+
+msgid "Cleaned count since last send:"
+msgstr ""
+
+msgid "Campaigns"
+msgstr ""
+
+msgid "is not configured"
+msgstr ""
+
+msgid "Please update the"
+msgstr ""
+
+msgid "API key in Setting->"
+msgstr ""
+
+msgid "Edit General Settings"
+msgstr ""
+
+msgid "then update"
+msgstr ""
+
+msgid "For more info see our "
+msgstr ""
+
+msgid "support docs."
+msgstr ""
+
+msgid "List Creation"
+msgstr ""
+
+msgid "List Title"
+msgstr ""
+
+msgid "Your List Title"
+msgstr ""
+
+msgid "Your Subject"
+msgstr ""
+
+msgid "Permission Reminder"
+msgstr ""
+
+msgid "Archive Bars"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Private"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "People"
+msgstr ""
+
+msgid "Families"
+msgstr ""
+
+msgid "Modify Properties"
+msgstr ""
+
+msgid "List Details"
+msgstr ""
+
+msgid "Person or Family or Group"
+msgstr ""
+
+msgid "Loading subscriber"
+msgstr ""
+
+msgid "Loading subscribers from Group"
+msgstr ""
+
+msgid "Loading subscribers from family"
+msgstr ""
+
+msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
+msgstr ""
+
+msgid ""
+"In fact, you've better to quit the CRM, wait 5 minutes and make your "
+"campaigns after.<br>To import huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid ""
+"Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
+"while !"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "Email Marketing"
+msgstr ""
+
+msgid "Select status for : "
+msgstr ""
+
+msgid "Subscribed"
+msgstr ""
+
+msgid "Unsubscribed"
+msgstr ""
+
+msgid "Changing status ..."
+msgstr ""
+
+msgid "You're about to delete a subscriber! Are you sure ?"
+msgstr ""
+
+msgid "Deleting Subscriber..."
+msgstr ""
+
+msgid "Do you really want to delete this mailing list ?"
+msgstr ""
+
+msgid "Are you sure you want to delete all the subscribers"
+msgstr ""
+
+msgid "Deleting all subscribers..."
+msgstr ""
+
+msgid ""
+"In fact, you've better to leave the CRM, and in a quater of an hour re-open "
+"it to manage your list.<br>To delete huge datas, MailChimp API is slow."
+msgstr ""
+
+msgid "MailChimp Campaign Creation"
+msgstr ""
+
+msgid "Campaign Title"
+msgstr ""
+
+msgid "Your Campaign Title"
+msgstr ""
+
+msgid "Mail Subject"
+msgstr ""
+
+msgid "Your Mail Subject"
+msgstr ""
+
+msgid "Adding Campaign ..."
+msgstr ""
+
+msgid "You have to set a Campaign Title for your eMail Campaign"
+msgstr ""
+
+msgid "List Name"
+msgstr ""
+
+msgid "Family"
+msgstr ""
+
+msgid "Name"
+msgstr ""
