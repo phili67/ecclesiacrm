@@ -1,6 +1,6 @@
 {
     "name": "EcclesiaCRM",
-    "version": "5.4.1",
+    "version": "5.4.2",
     "type": "project",
     "keywords": [
         "church",
@@ -43,7 +43,7 @@
         "mustache/mustache": "~2.5",
         "nexmo/client": "1.5.*",
         "slim/http-cache": "^0.4.0",
-        "sabre/dav": "~3.2.0",
+        "sabre/dav": "^3.2.1",
         "tuupola/slim-jwt-auth": "^2.4",
         "phpoffice/phpword": "v0.14.*"
     },
