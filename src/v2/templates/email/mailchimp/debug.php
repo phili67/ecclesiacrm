@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : Debug.php
+ *  filename    : debug.php
  *  last change : 2019/2/6
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2019/2/6 Philippe Logel
