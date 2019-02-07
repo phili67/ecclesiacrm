@@ -27,7 +27,7 @@ $(document).ready(function () {
       
             listViews += '<div class="box">'
             +'    <div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/email/MailChimp/ManageList.php?list_id='+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
+            +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
             +'    </div>'
             +'    <div class="box-body">'
             +'      <div class="row" style="100%">'
@@ -51,7 +51,7 @@ $(document).ready(function () {
             listViews += '          <table width="300px">';
 
             for (j=0;j<lenCampaigns;j++) {
-              listViews += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][j].status) + ')</span></b>  </td></tr>';
+              listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][j].status) + ')</span></b>  </td></tr>';
             }
           
             if (lenCampaigns == 0) {
@@ -65,7 +65,7 @@ $(document).ready(function () {
             +'    </div>'
             +'  </div>';
         
-            listItems += '<li><a href="' + window.CRM.root + '/email/MailChimp/ManageList.php?list_id=' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
           }
     
           $("#container").html(listViews);

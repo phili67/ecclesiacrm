@@ -1,51 +1,23 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : Dashboard.php
- *  last change : 2014-11-29
+ *  filename    : campaign.php
+ *  last change : 2019-02-6
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2014
+ *  copyright   : Copyright 2019 Philippe Logel all rights reserved
  *
  ******************************************************************************/
 
-require '../../Include/Config.php';
-require '../../Include/Functions.php';
-
-use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
-
-$mailchimp = new MailChimpService();
-
-if ( !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()) ) {
-    RedirectUtils::Redirect('Menu.php');
-    exit;
-}
-
-if ( !isset($_GET['campaignId']) ) {
-    RedirectUtils::Redirect('Menu.php');
-    exit;
-}
-
-$campaign_Id = $_GET['campaignId'];
-
-$campaign = $mailchimp->getCampaignFromId($campaign_Id);
-
-//Set the page title
-$sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray')."\">("._($campaign['status']).")</span></b>";
-
-require '../../Include/Header.php';
-
+require $sRootDocument . '/Include/Header.php';
 ?>
 
 <div class="row">
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/<?= substr(SystemConfig::getValue('sLanguage'),0,2) ?>/"><img src="<?= SystemURLs::getRootPath() ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
+        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
       </div>
       <div class="box-body">
         <p>
@@ -84,16 +56,14 @@ require '../../Include/Header.php';
 </div>
 
 
-<?php
-require '../../Include/Footer.php';
-?>
+<?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  window.CRM.campaign_Id       = "<?= $campaign_Id ?>";
-  window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
+  window.CRM.campaign_Id       = "<?= $campaignId ?>";
+  window.CRM.mailchimpIsActive = <?= ($isMailchimpActiv)?1:0 ?>;
   window.CRM.list_Id           = "<?= $campaign['recipients']['list_id'] ?>";
 </script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/email/MailChimp/Campaign.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/external/ckeditor/ckeditor.js"></script>
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Campaign.js"></script>
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
