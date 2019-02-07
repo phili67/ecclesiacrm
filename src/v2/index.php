@@ -54,4 +54,9 @@ require __DIR__ . '/routes/sidebar/pastoralcarelist.php';
 require __DIR__ . '/routes/sidebar/fundlist.php';
 require __DIR__ . '/routes/sidebar/volunteeropportunityeditor.php';
 
+
+// email routes
+// mailchimp
+
+require __DIR__ . '/routes/email/mailchimp/mailchimp.php';
 $app->run();

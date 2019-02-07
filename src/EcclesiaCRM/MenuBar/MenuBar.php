@@ -321,9 +321,10 @@ class MenuBar {
 
         $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",SessionUser::getUser()->isMailChimpEnabled(),$menu);
 
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","email/MailChimp/Dashboard.php",SessionUser::getUser()->isMailChimpEnabled(),$menuMain);
-        $menuItem->addLink("email/MailChimp/DuplicateEmails.php");
-        $menuItem->addLink("email/MailChimp/NotInMailChimpEmails.php");
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","v2/mailchimp/dashboard",SessionUser::getUser()->isMailChimpEnabled(),$menuMain);
+        $menuItem->addLink("v2/mailchimp/duplicateemails");
+        $menuItem->addLink("v2/mailchimp/notinmailchimpemails");
+        $menuItem->addLink("v2/mailchimp/debug");
         
         if ($mailchimp->isActive()) {
           $mcLists = $mailchimp->getLists();
@@ -331,13 +332,13 @@ class MenuBar {
           $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu");
 
           foreach ($mcLists as $list) {
-            $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItem,"listName".$list['id']);
+            $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","v2/mailchimp/managelist/".$list['id'],true,$menuItemItem,"listName".$list['id']);
 
             $campaigns = $mailchimp->getCampaignsFromListId($list['id']);
           
             foreach ($campaigns as $campaign) {
               //$menuItemItemItem = new Menu ($campaign['settings']['title'],"fa fa-circle-o","email/MailChimp/ManageList.php?list_id=".$list['id'],true,$menuItemItemItem);
-              $menuItemItemItem->addLink("email/MailChimp/Campaign.php?campaignId=".$campaign['id']);
+              $menuItemItemItem->addLink("v2/mailchimp/campaign/".$campaign['id']);
             }
           }
         }

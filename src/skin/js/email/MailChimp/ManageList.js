@@ -63,7 +63,7 @@ $(document).ready(function () {
             if (data.membersCount == 0) {
               listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
             } else {
-              listView += '<tr><td>• <a href="' + window.CRM.root + '/email/MailChimp/Campaign.php?campaignId='+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
+              listView += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
             }
           }
           
@@ -77,7 +77,7 @@ $(document).ready(function () {
           +'      </div>'
           +'    </div>';
         
-          listItems += '<li><a href="' + window.CRM.root + '/email/MailChimp/ManageList.php?list_id=' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+          listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
     
         $("#container").html(listView);
       });
@@ -379,7 +379,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID})
             }).done(function(data) { 
                if (data.success) {
-                 window.location.href = window.CRM.root + "/email/MailChimp/Dashboard.php";
+                 window.location.href = window.CRM.root + "/v2/mailchimp/dashboard";
                } else if (data.error) {
                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }

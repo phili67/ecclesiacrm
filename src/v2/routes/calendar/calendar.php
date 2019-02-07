@@ -20,10 +20,10 @@ $app->group('/calendar', function () {
 function renderCalendar (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/calendar/');
     
-    return $renderer->render($response, 'calendar.php', arguments());
+    return $renderer->render($response, 'calendar.php', argumentsCalendarArray());
 }
 
-function arguments ()
+function argumentsCalendarArray ()
 {
    $eventTypes = EventTypesQuery::Create()
       ->orderByName()
@@ -35,10 +35,9 @@ function arguments ()
    $iLittleMapZoom = SystemConfig::getValue("iLittleMapZoom");
    $sMapProvider   = SystemConfig::getValue('sMapProvider');
    $sGoogleMapKey  = SystemConfig::getValue('sGoogleMapKey');
-   $sRootDocument  = SystemURLs::getDocumentRoot();
       
    $paramsArguments = ['sRootPath'   => SystemURLs::getRootPath(),
-                       'sRootDocument' => $sRootDocument,
+                       'sRootDocument' => SystemURLs::getDocumentRoot(),
                        'sPageTitle'  => _('Church Calendar'), 
                        'eventTypes'  => $eventTypes, 
                        'coordinates' => [
@@ -48,7 +47,8 @@ function arguments ()
                        'iLittleMapZoom' => $iLittleMapZoom,
                        'sGoogleMapKey'  => $sGoogleMapKey,
                        'sMapProvider'   => $sMapProvider,
-                       'sessionUsr'     => SessionUser::getUser()];
+                       'sessionUsr'     => SessionUser::getUser()
+                      ];
    
    return $paramsArguments;
 }
