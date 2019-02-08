@@ -42,7 +42,7 @@
             var Name = EventTitle;
             var latlng = new google.maps.LatLng(latitude, longitude);
 
-            var imghref = window.CRM.root+"/Calendar.php";
+            var imghref = window.CRM.root+"/v2/calendar";
             var iconurl = window.CRM.root+"/skin/icons/event.png";
       
             var image = {
@@ -125,7 +125,7 @@
       if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
         var latlng = new google.maps.LatLng(Number(latitude), Number(longitude));
 
-        var imghref = window.CRM.root+"/Calendar.php";
+        var imghref = window.CRM.root+"/v2/calendar";
         var iconurl = window.CRM.root+"/skin/icons/event.png";
         
         var image = {

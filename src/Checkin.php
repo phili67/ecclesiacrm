@@ -107,7 +107,7 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
     //RedirectUtils::Redirect('GroupView.php?GroupID='.$event->getGroupId());
-    RedirectUtils::Redirect('Calendar.php');
+    RedirectUtils::Redirect('v2/calendar');
     exit;
   }
 }

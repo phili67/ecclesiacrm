@@ -639,7 +639,7 @@
       }
       
       if (page === undefined) {
-        page = window.CRM.root + '/Calendar.php';
+        page = window.CRM.root + '/v2/calendar';
       }
 
       if (eventID === undefined) {
@@ -749,12 +749,17 @@
                           "start":real_start,"end":real_end,"addGroupAttendees":addGroupAttendees,"eventInActive":eventInActive,
                           "recurrenceValid":recurrenceValid,"recurrenceType":recurrenceType,"endrecurrence":real_endrecurrence,"reccurenceID":reccurenceID,"location":loc})
                   }).done(function(data) {
-                     $('#calendar').fullCalendar('unselect');              
+                     var cal = $('#calendar');
+                     if (cal.length !== 0) {
+                       $('#calendar').fullCalendar('unselect');
+                     }
                      add = true;              
                      modal.modal("hide");   
                     
                      // we reload all the events
-                     $('#calendar').fullCalendar( 'refetchEvents' );
+                     if (cal.length !== 0) {
+                       $('#calendar').fullCalendar( 'refetchEvents' );
+                     }
                     
                      if (dialogType == 'createEvent') {
                        eventCreated = true;

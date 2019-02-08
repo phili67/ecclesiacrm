@@ -29,7 +29,7 @@
       var Salutation = EventTitle + " ("+EventDesc+")";
       var Name = EventTitle;
 
-      var imghref = window.CRM.root+"/Calendar.php";
+      var imghref = window.CRM.root+"/v2/calendar";
       var iconurl = window.CRM.root+"/skin/icons/event.png";
   
       var icon = { 
@@ -102,7 +102,7 @@
           lat: Number(latitude),
           lng: Number(longitude)};
 
-        var imghref = window.CRM.root+"/Calendar.php";
+        var imghref = window.CRM.root+"/v2/calendar";
         var iconurl = window.CRM.root+"/skin/icons/event.png";
                 
         var icon = { 
