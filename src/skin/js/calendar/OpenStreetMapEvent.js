@@ -44,7 +44,7 @@
             var Salutation = EventTitle + " ("+EventDesc+")";
             var Name = EventTitle;
 
-            var imghref = window.CRM.root+"/Calendar.php";
+            var imghref = window.CRM.root+"/v2/calendar";
             var iconurl = window.CRM.root+"/skin/icons/event.png";
       
             var icon = L.icon({
@@ -104,7 +104,7 @@
       }).addTo(window.CRM.map);
 
       if ( longitude !== undefined && latitude !== undefined && longitude > 0 && latitude > 0 ) {
-        var imghref = window.CRM.root+"/Calendar.php";
+        var imghref = window.CRM.root+"/v2/calendar";
 
         var iconurl = window.CRM.root+"/skin/icons/event.png";
         

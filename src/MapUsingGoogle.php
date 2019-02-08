@@ -471,7 +471,7 @@ require 'Include/Footer.php' ?>
       } else if (plot.type == 'person') {
           imghref = "PersonView.php?PersonID=" + plot.ID;
       } else if (plot.type == 'event') {
-          imghref = window.CRM.root+"/Calendar.php";
+          imghref = window.CRM.root+"/v2/calendar";
       }
 
       contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";

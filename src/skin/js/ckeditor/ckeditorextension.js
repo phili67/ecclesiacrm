@@ -1,8 +1,8 @@
 /*******************************************************************************
  *
- *  filename    : Calendar.php
+ *  filename    : ckeditorextension.js
  *  last change : 2018-05-13
- *  description : manage the full Calendar
+ *  description : manage the ckeditor
  *
  *  http://www.ecclesiacrm.com/
  *

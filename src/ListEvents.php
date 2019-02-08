@@ -769,7 +769,7 @@ foreach ($allMonths as $mVal) {
 ?>
 
 <div>
-  <a href="<?= SystemURLs::getRootPath() ?>/Calendar.php" class='btn btn-default'>
+  <a href="<?= SystemURLs::getRootPath() ?>/v2/calendar" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
     <?= gettext('Return to Calendar') ?>
   </a>
