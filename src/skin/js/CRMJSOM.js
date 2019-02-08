@@ -878,7 +878,11 @@
             window.location.replace(window.CRM.root+'/Login.php?session=Lock');
           } else {
             for (var key in data[1]) {
-              window["CRM"]["dashboard"]["renderers"][key](data[1][key]);
+                try {
+                  window["CRM"]["dashboard"]["renderers"][key](data[1][key]);
+                } catch (e) {
+                  console.log(e);
+                }
             }
           }
         });
