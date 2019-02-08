@@ -87,7 +87,8 @@ require $sRootDocument . '/Include/Header.php';
 <?php require $sRootDocument . '/Include/Footer.php'; ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-   window.CRM.mailchimpIsActive = <?= ($mailchimp->isActive())?1:0 ?>;
+   window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
+   window.CRM.getSupportURL     = "<?= $getSupportURL ?>";
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>

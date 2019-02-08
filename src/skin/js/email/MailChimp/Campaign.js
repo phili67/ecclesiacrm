@@ -64,7 +64,7 @@
                   data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
             }).done(function(data) { 
                if (data.success) {
-                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
+                 window.location.href = window.CRM.root + "/v2/mailchimp/managelist/" + window.CRM.list_Id;
                } else if (data.success == false && data.error) {
                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }
@@ -96,7 +96,7 @@
                   data: JSON.stringify({"campaign_id":window.CRM.campaign_Id})
             }).done(function(data) { 
                if (data.success) {
-                 window.location.href = window.CRM.root + "/email/MailChimp/ManageList.php?list_id=" + window.CRM.list_Id;
+                 window.location.href = window.CRM.root + "/v2/mailchimp/managelist/" + window.CRM.list_Id;
                } else if (data.success == false && data.error) {
                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }

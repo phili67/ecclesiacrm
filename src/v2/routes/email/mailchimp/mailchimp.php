@@ -44,7 +44,9 @@ function mailchimpDashboardArgumentsArray ()
                        'mailchimp'       => $mailchimp,
                        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
                        'mailChimpStatus' => $mailChimpStatus,
-                       'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled()
+                       'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled(),
+                       'getSupportURL'   => SystemURLs::getSupportURL(),
+                       'isMailChimpActiv'=> (($mailchimp->isActive())?1:0)
                        ];   
 
    return $paramsArguments;
