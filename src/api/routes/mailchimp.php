@@ -418,16 +418,26 @@ function campaignSave (Request $request, Response $response, array $args) {
   
   $input = (object)$request->getParsedBody();
   
-  if ( isset ($input->campaign_id) && isset ($input->subject) && isset ($input->content) ){
+  if ( isset ($input->campaign_id) && isset ($input->subject) && isset ($input->content) && isset ($input->realScheduleDate) && isset ($input->isSchedule) && isset ($input->oldStatus) ) {
     $mailchimp = new MailChimpService();
   
     $res1 = $mailchimp->setCampaignContent ($input->campaign_id,$input->content);
     $res2 = $mailchimp->setCampaignMailSubject ($input->campaign_id,$input->subject);
+    
+    $status = "save";
+    
+    if ( ( $input->oldStatus == "save" || $input->oldStatus == "paused" ) && $input->isSchedule) {
+      $res3 = $mailchimp->setCampaignSchedule ($input->campaign_id,$input->realScheduleDate, "false", "false");
+      $status = "schedule";
+    } else if ( $input->oldStatus == "schedule" ) {
+      $res3 = $mailchimp->setCampaignUnschedule ($input->campaign_id);
+      $status = "paused";
+    }
   
-    if ( !array_key_exists ('title',$res1) && !array_key_exists ('title',$res2) ) {
-      return $response->withJson(['success' => true,'content' => $res1,'subject' => $res2]);
+    if ( !array_key_exists ('title',$res1) && !array_key_exists ('title',$res2) && !array_key_exists ('title',$res3) ) {
+      return $response->withJson(['success' => true,'content' => $res1,'subject' => $res2, 'schedule' => $res3, 'status' => _($status)]);
     } else {
-      return $response->withJson(['success' => false, "error1" => $res1, "error2" => $res2]);
+      return $response->withJson(['success' => false, "error1" => $res1, "error2" => $res2, "error3" => $res3]);
     }
   }
   

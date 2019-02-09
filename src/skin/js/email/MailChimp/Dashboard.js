@@ -3,7 +3,7 @@ $(document).ready(function () {
    {
      if (window.CRM.mailchimpIsActive) {
         // we first empty the container
-        $("#container").html( '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + i18next.t("Loading resources ...") + "</div>");
+        $("#container").html( '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + i18next.t("Loading datas ...") + "</div>");
 
         window.CRM.APIRequest({
           method: 'GET',
@@ -33,7 +33,7 @@ $(document).ready(function () {
       
             listViews += '<div class="box">'
             +'    <div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
+            +'      <h3 class="box-title">'+i18next.t('Email List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')  <span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
             +'    </div>'
             +'    <div class="box-body">'
             +'      <div class="row" style="100%">'
