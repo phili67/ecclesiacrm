@@ -100,7 +100,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
    $mailChimpStatus = $mailchimp->getConnectionStatus();
    $campaign        = $mailchimp->getCampaignFromId($campaignId);
    
-   $sPageTitle = _('Manage Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray')."\">("._($campaign['status']).")</span></b>";
+   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray')."\"class=\"status\">("._($campaign['status']).")</span></b>";
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
@@ -110,7 +110,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
                        'isMailchimpActiv'=> $mailchimp->isActive(),
                        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
                        'isMenuOption'    => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive())
-                       ];   
+                       ];
 
    return $paramsArguments;
 }
@@ -132,18 +132,20 @@ function renderMailChimpManageList (Request $request, Response $response, array 
 function mailchimpManageListArgumentsArray ($listId,$mailchimp)
 {
    $mailChimpStatus = $mailchimp->getConnectionStatus();
-   $campaigns       = $mailchimp->getCampaignsFromListId($listId);
    
-   $sPageTitle = gettext('Manage List');
+   $list = $mailchimp->getListFromListId($listId);
+   
+   $sPageTitle = gettext('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  <span style="float:right">'._("GDPR List"):'');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
                        'sPageTitle'      => $sPageTitle,
                        'listId'          => $listId,
                        'mailchimp'       => $mailchimp,
-                       'campaigns'       => $campaigns,
+                       'list'            => $list,
                        'isMailchimpActiv'=> $mailchimp->isActive(),
                        'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
+                       'getSupportURL'   => SystemURLs::getSupportURL(),
                        'isMenuOption'    => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive())
                        ];   
 
@@ -201,4 +203,3 @@ function mailchimpNotInMailchimpEmailsArgumentsArray ()
 
    return $paramsArguments;
 }
-

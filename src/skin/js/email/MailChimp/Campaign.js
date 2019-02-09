@@ -25,19 +25,84 @@
        }
     });
     
+    // I have to do this because EventCalendar isn't yet present when you load the page the first time
+    $(document).on('change','#checkboxaCampaignSchedule',function (value) {
+      if (window.CRM.isCampaignSent) return;
+      
+      var _val = $('#checkboxaCampaignSchedule').is(":checked");
+    
+      $("#dateCampaign").prop("disabled", (_val == 0)?true:false);
+      $("#timeCampaign").prop("disabled", (_val == 0)?true:false);
+      
+      if (_val == 0 && (window.CRM.status == "paused" || window.CRM.status == "save") ) {
+        $("#sendCampaign").show();
+      } else {
+        $("#sendCampaign").hide();
+      }
+      
+      var fmt  = window.CRM.datePickerformat.toUpperCase();
+      
+      var date = moment().format(fmt);
+      $("#dateCampaign").val(date);
+      
+      if (window.CRM.timeEnglish == 'true') {
+        time_format = 'h:00 A';
+      } else {
+        time_format = 'H:00';
+      }
+      
+      var time = moment().format(time_format);
+      $("#timeCampaign").val(time);
+    });
+
     $(document).on("click","#saveCampaign", function(){
-      var subject = $("#CampaignSubject").val();
-      var content = CKEDITOR.instances['campaignContent'].getData();
+      var subject          = $("#CampaignSubject").val();
+      var content          = CKEDITOR.instances['campaignContent'].getData();
+      var isSchedule       = $('#checkboxaCampaignSchedule').is(":checked");
+      var realScheduleDate = '';
+      
+      if (isSchedule) {
+        var dateStart = $('#dateCampaign').val();
+        var timeStart = $('#timeCampaign').val();
+        
+        var fmt = window.CRM.datePickerformat.toUpperCase();
+    
+        if (window.CRM.timeEnglish == 'true') {
+          time_format = 'h:mm A';
+        } else {
+          time_format = 'H:mm';
+        }
+        
+        fmt = fmt+' '+time_format;
+                          
+        realScheduleDate = moment(dateStart+' '+timeStart,fmt).format('YYYY-MM-DDTH:mm+00:00');
+      }
+      
+      window.CRM.dialogLoadingFunction (i18next.t("Saving Campaign ..."));
       
       window.CRM.APIRequest({
         method: 'POST',
         path: 'mailchimp/campaign/actions/save',
-        data: JSON.stringify({"campaign_id" : window.CRM.campaign_Id,"subject" : subject, "content" : content})
+        data: JSON.stringify({"campaign_id" : window.CRM.campaign_Id,"subject" : subject, "content" : content, "realScheduleDate" : realScheduleDate, "isSchedule" : isSchedule, "oldStatus" : window.CRM.status})
       }).done(function(data) {
+         window.CRM.closeDialogLoadingFunction();
+         
          if (data.success == true) {
            window.CRM.DisplayAlert(i18next.t("Campaign"),i18next.t("saved successfully"));
-         } else if (data.success == false && data.error) {
-           window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+         } else if (data.success == false && data.error1.detail) {
+           window.CRM.DisplayAlert(i18next.t("Error"),data.error1.detail);
+         } else if (data.success == false && data.error2.detail) {
+           window.CRM.DisplayAlert(i18next.t("Error"), data.error2.detail);
+         } else if (data.success == false && data.error3.detail) {
+           window.CRM.DisplayAlert(i18next.t("Error"),data.error3.detail);
+         }
+         
+         $('.status').html("(" + i18next.t(data.status) + ")");
+         
+         window.CRM.status = data.status;
+         
+         if (data.status == "paused") {
+           $("#sendCampaign").show();
          }
       });
     });

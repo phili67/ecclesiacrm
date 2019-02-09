@@ -1,6 +1,4 @@
 $(document).ready(function () {
- var dialogLoading = null;
-
  function render_container ()
  {
    if (window.CRM.mailchimpIsActive) {     
@@ -26,13 +24,13 @@ $(document).ready(function () {
         var list = data.MailChimpList;
       
         var  listView = '<div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3><button class="btn btn-xs btn-primary" id="modifyList" style="float:right" data-name="' + list.name + '" data-subject="' + list.campaign_defaults.subject + '">' + i18next.t('Modify Properties') + '</button>'
+          +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3><button class="btn btn-xs btn-primary" id="modifyList" style="float:right" data-name="' + list.name + '" data-subject="' + list.campaign_defaults.subject + '">' + i18next.t('Modify Properties') + '</button>'
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
           +'        <div class="col-lg-6">'
           +'          <table width="350px">'
-          +'            <tr><td><b>' + i18next.t('List Details') + '</b> </td><td></td></tr>'
+          +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
           +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
           //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
@@ -415,7 +413,7 @@ $(document).ready(function () {
 
   function BootboxContent(){  
     
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("MailChimp Campaign Creation")+'</h3><form id="some-form">'
+    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Email Campaign Creation")+'</h3><form id="some-form">'
        + '<div>'
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Campaign Title') + ":</div>"
