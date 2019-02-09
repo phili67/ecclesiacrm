@@ -17,10 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "true"
-msgstr "vrai"
+msgstr " "
 
 msgid "false"
-msgstr "faux"
+msgstr " "
 
 msgid "pm"
 msgstr " "
@@ -138,3 +138,9 @@ msgstr "désabonné"
 
 msgid "sent"
 msgstr "envoyée"
+
+msgid "schedule"
+msgstr "Planifiée"
+
+msgid "paused"
+msgstr "En pause"

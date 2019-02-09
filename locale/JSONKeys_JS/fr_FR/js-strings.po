@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-02-06T07:50:47.165Z\n"
+"POT-Creation-Date: 2019-02-09T21:58:49.996Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -505,8 +505,8 @@ msgstr "Localisation"
 
 msgid "To validate your address : <b>\"hit return\"</b>."
 msgstr ""
-"Attention : pour valider votre adresse : <b>"
-"\"Valider avec la touche entrée\"</b>"
+"Attention : pour valider votre adresse : <b>\"Valider avec la touche entrée"
+"\"</b>"
 
 msgid "To see the Map click this text field."
 msgstr "Pour voir la carte cliquez the champ de texte"
@@ -1367,6 +1367,9 @@ msgstr ""
 msgid "Password reset for"
 msgstr "Réinitialisation Mot de Passe pour"
 
+msgid "Saving Campaign ..."
+msgstr "Enregistrement de la campagne"
+
 msgid "Campaign"
 msgstr "Campagne"
 
@@ -1379,11 +1382,17 @@ msgstr "Vous êtes sur le point d'envoyer votre campagne! Etes-vous certain ?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Vous allez supprimer cette campagne! Etes-vous certain ?"
 
-msgid "Loading resources ..."
-msgstr "Chargement de ressources ..."
+msgid "Loading datas ..."
+msgstr "Chargement des données ..."
 
-msgid "MailChimp List"
-msgstr "Liste MailChimp"
+msgid "No list are created with this account ...."
+msgstr "Aucune liste créé avec ce compte ...."
+
+msgid "Email List"
+msgstr "liste de diffusion"
+
+msgid "GDPR"
+msgstr "RGPD"
 
 msgid "Subject"
 msgstr "Sujet"
@@ -1460,11 +1469,11 @@ msgstr "Personne"
 msgid "Families"
 msgstr "Familles"
 
+msgid "Loading resources ..."
+msgstr "Chargement de ressources ..."
+
 msgid "Modify Properties"
 msgstr "Modifier Propriétés"
-
-msgid "List Details"
-msgstr "Détails de la liste"
 
 msgid "Loading subscriber"
 msgstr "Chargement des abonnés"
@@ -1536,8 +1545,8 @@ msgstr ""
 "le re-ouvrir pour gérer vos listes. <br>Pour supprimer un volume de données "
 "important, MailChimp est lent."
 
-msgid "MailChimp Campaign Creation"
-msgstr "Création de la campagne MailChimp"
+msgid "Email Campaign Creation"
+msgstr "Création Campagne Publipostage"
 
 msgid "Campaign Title"
 msgstr "Titre de la campagne"
@@ -1559,6 +1568,12 @@ msgstr "Vous devez saisir un titre de Campagne pour cette campagne d'eMailing"
 
 msgid "List Name"
 msgstr "Nom De la liste"
+
+#~ msgid "MailChimp List"
+#~ msgstr "Liste MailChimp"
+
+#~ msgid "List Details"
+#~ msgstr "Détails de la liste"
 
 #~ msgid "Phone"
 #~ msgstr "Téléphone"

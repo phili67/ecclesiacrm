@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 08:42+0100\n"
+"POT-Creation-Date: 2019-02-09 23:02+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,21 +167,21 @@ msgstr "Geld"
 msgid "Checks"
 msgstr "Scheck"
 
-#: api/routes/mailchimp.php:69 PeopleDashboard.php:82
+#: api/routes/mailchimp.php:70 PeopleDashboard.php:82
 msgid "All People"
 msgstr "Alle Menschen"
 
-#: api/routes/mailchimp.php:83
+#: api/routes/mailchimp.php:84
 msgid "newsletter"
 msgstr "newsletter"
 
-#: api/routes/mailchimp.php:118 api/routes/people/people.php:68
+#: api/routes/mailchimp.php:119 api/routes/people/people.php:68
 #: api/routes/people/people.php:116 api/routes/search.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:294
 msgid "Persons"
 msgstr "Personen"
 
-#: api/routes/mailchimp.php:157 api/routes/people/people.php:155
+#: api/routes/mailchimp.php:159 api/routes/people/people.php:155
 #: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:271
 #: EcclesiaCRM/MenuBar/MenuBar.php:299 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:384
@@ -189,14 +189,14 @@ msgstr "Personen"
 msgid "Families"
 msgstr "Familien"
 
-#: api/routes/mailchimp.php:194 api/routes/people/people.php:192
+#: api/routes/mailchimp.php:197 api/routes/people/people.php:192
 #: api/routes/search.php:202 EcclesiaCRM/MenuBar/MenuBar.php:55
 #: external/templates/verify/verify-family-info.php:108 Menu.php:447
 #: PeopleDashboard.php:219 v2/templates/calendar/calendar.php:153
 msgid "Groups"
 msgstr "Gruppen"
 
-#: api/routes/mailchimp.php:745
+#: api/routes/mailchimp.php:759
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP ist nicht eingerichtet, Schauen Sie sich die Einstellungsseite"
 
@@ -221,11 +221,11 @@ msgstr "Teilnahme"
 msgid "POST to cart requires a EventID"
 msgstr "POST zum Korb erfordert en EventID"
 
-#: api/routes/people/people-families.php:267
+#: api/routes/people/people-families.php:268
 msgid "Family Deactivated"
 msgstr " Familie deaktiviert."
 
-#: api/routes/people/people-families.php:269
+#: api/routes/people/people-families.php:270
 msgid "Family Activated"
 msgstr " Familie aktiviert."
 
@@ -466,7 +466,7 @@ msgstr "Deaktivieren"
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
 msgid "Date"
 msgstr "Datum"
 
@@ -966,6 +966,7 @@ msgstr "Ausweis herstellen"
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:67 CSVImport.php:236
 #: DonatedItemEditor.php:210 FindFundRaiser.php:238 FundRaiserEditor.php:170
 #: FundRaiserEditor.php:196 GDPRListExport.php:66 PersonEditor.php:810
+#: v2/templates/email/mailchimp/dashboard.php:21
 msgid "Title"
 msgstr "Titel"
 
@@ -1381,11 +1382,11 @@ msgstr "Auschecken"
 #: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:288
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
-#: email/MailChimp/Campaign.php:56 email/MailChimp/ManageList.php:58
 #: EventNames.php:327 FamilyView.php:936 FindDepositSlip.php:131
 #: FundRaiserEditor.php:201 ListEvents.php:415 PaddleNumList.php:55
 #: PastoralCare.php:153 PastoralCare.php:162 PersonView.php:1443
-#: PersonView.php:1511
+#: PersonView.php:1511 v2/templates/email/mailchimp/campaign.php:33
+#: v2/templates/email/mailchimp/managelist.php:34
 msgid "Delete"
 msgstr "Löschen"
 
@@ -4402,74 +4403,74 @@ msgstr "View aktiv Familien"
 msgid "MailChimp"
 msgstr "MailChimp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:331
+#: EcclesiaCRM/MenuBar/MenuBar.php:329
 msgid "eMail Lists"
 msgstr "eMail liste"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:350 FinancialReports.php:419
+#: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
 #: Reports/AdvancedDeposit.php:415 Reports/AdvancedDeposit.php:427
 #: Reports/AdvancedDeposit.php:518
 msgid "Deposit"
 msgstr "Einlage"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:367
 msgid "Current"
 msgstr "Aktual"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:367 ManageEnvelopes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:370 ManageEnvelopes.php:22
 msgid "Envelope Manager"
 msgstr "Spendenumschlag Manager"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:368
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 msgid "View All Deposits"
 msgstr "Anzeigen alle Einlagen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:369 ElectronicPaymentList.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:372 ElectronicPaymentList.php:54
 msgid "Electronic Payment Listing"
 msgstr "Neue elektronische Zahlmethode hinzufügen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:370
+#: EcclesiaCRM/MenuBar/MenuBar.php:373
 msgid "Deposit Reports"
 msgstr "Einzahlungen Berichte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 msgid "Edit Deposit Slip"
 msgstr "Einzahlungsbeleg editieren"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:378 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:381 FundRaiserEditor.php:32
 msgid "Fundraiser"
 msgstr "Spendenaktion"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:380
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 msgid "View All Fundraisers"
 msgstr "Alle Spendenaktionen anzeigen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 msgid "Create New Fundraiser"
 msgstr "Neuen Spendenaktion anlegen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:382
+#: EcclesiaCRM/MenuBar/MenuBar.php:385
 msgid "Edit Fundraiser"
 msgstr "Spendenaktion editieren"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:383
+#: EcclesiaCRM/MenuBar/MenuBar.php:386
 msgid "View Buyers"
 msgstr "Käufer anzeigen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384
+#: EcclesiaCRM/MenuBar/MenuBar.php:387
 msgid "Add Donors to Buyer List"
 msgstr "Spender zur Käuferliste hinzufügen"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 msgid "Data/Reports"
 msgstr "Daten/Berichte"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392
+#: EcclesiaCRM/MenuBar/MenuBar.php:395
 msgid "Reports Menu"
 msgstr "Berichtemenü"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:393 UserEditor.php:698
+#: EcclesiaCRM/MenuBar/MenuBar.php:396 UserEditor.php:698
 msgid "Query Menu"
 msgstr "Query menü"
 
@@ -5295,160 +5296,6 @@ msgstr "Mit aktiviert"
 #: ElectronicPaymentList.php:318
 msgid "Clear Account Numbers"
 msgstr "Kontonummer für"
-
-#: email/MailChimp/Campaign.php:38
-msgid "Manage Campaign"
-msgstr "Kampagnen verwalten"
-
-#: email/MailChimp/Campaign.php:48 email/MailChimp/ManageList.php:47
-msgid "Manage Mailing List"
-msgstr "Mailing List verwalten"
-
-#: email/MailChimp/Campaign.php:53
-msgid "Save Campaign"
-msgstr "Kampagne speichern"
-
-#: email/MailChimp/Campaign.php:59 Register.php:55
-msgid "Send"
-msgstr "Senden"
-
-#: email/MailChimp/Campaign.php:71
-msgid "Mail Subject"
-msgstr "E-mail Betreff"
-
-#: email/MailChimp/Campaign.php:74
-msgid "Your Mail Subject"
-msgstr "Ihre E-mail Betreff"
-
-#: email/MailChimp/Dashboard.php:30
-msgid "MailChimp Dashboard"
-msgstr "MailChimp Dashboard"
-
-#: email/MailChimp/Dashboard.php:39
-msgid "MailChimp Problem"
-msgstr "MailChimp Problem"
-
-#: email/MailChimp/Dashboard.php:40
-msgid "Mailchimp Status"
-msgstr "Backup Status"
-
-#: email/MailChimp/Dashboard.php:63
-msgid "MailChimp is activated"
-msgstr "Maichimp ist aktiviert"
-
-#: email/MailChimp/Dashboard.php:64
-msgid "MailChimp is working correctly"
-msgstr "Mailchimp funktioniert ordnungsgemäß"
-
-#: email/MailChimp/Dashboard.php:73
-msgid "MailChimp Management"
-msgstr "MailChimp Verwaltung"
-
-#: email/MailChimp/Dashboard.php:78
-msgid "Create a Mailing list"
-msgstr "Mailing list Erstellen"
-
-#: email/MailChimp/Dashboard.php:81
-msgid "Generate CSV"
-msgstr "CSV Erstellen"
-
-#: email/MailChimp/Dashboard.php:84
-msgid "Find Duplicate Emails"
-msgstr "Doppelte E-Mails suchen"
-
-#: email/MailChimp/Dashboard.php:87 email/MailChimp/NotInMailChimpEmails.php:21
-#: email/MailChimp/NotInMailChimpEmails.php:29
-msgid "Families Not In MailChimp"
-msgstr "Familien, die nicht in Mailchimp sind"
-
-#: email/MailChimp/Dashboard.php:90
-msgid "Debug"
-msgstr "Debuggen"
-
-#: email/MailChimp/Dashboard.php:93
-msgid "You can import the generated CSV file to external email system."
-msgstr "Du kannst das generierte CSV in ein externes Emailsystem importieren."
-
-#: email/MailChimp/Dashboard.php:94
-msgid "For MailChimp see"
-msgstr "Für MailChimp Beachten Sie"
-
-#: email/MailChimp/Dashboard.php:95
-msgid "import subscribers to a list."
-msgstr "Importiere Abonnenten zu einer Liste."
-
-#: email/MailChimp/Debug.php:25
-msgid "Debug Email Connection"
-msgstr "Debug-E-mail Verbindung "
-
-#: email/MailChimp/Debug.php:32
-msgid "Testing connection ....."
-msgstr "Verbindungsprüfung ....."
-
-#: email/MailChimp/DuplicateEmails.php:21
-#: email/MailChimp/DuplicateEmails.php:27
-msgid "Duplicate Emails"
-msgstr "Doppelte E-Mails"
-
-#: email/MailChimp/ManageList.php:38
-msgid "Manage List"
-msgstr "Liste Verwalten"
-
-#: email/MailChimp/ManageList.php:52
-msgid "Create a Campaign"
-msgstr "Kampagne Erstellen"
-
-#: email/MailChimp/ManageList.php:55
-msgid "Delete All Subscribers"
-msgstr "Alle Abonnenten Löschen"
-
-#: email/MailChimp/ManageList.php:80
-msgid ""
-"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
-"to add all members of the CRM, use <b>*</b>"
-msgstr ""
-
-#: email/MailChimp/ManageList.php:83
-msgid ""
-"The max numbers of members can be modified in the \"System Settings\" -> "
-"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
-msgstr ""
-
-#: email/MailChimp/ManageList.php:86
-msgid "Increase this value is unstable with MailChimp API."
-msgstr ""
-
-#: email/MailChimp/ManageList.php:95
-msgid "Subscribers"
-msgstr "Abonnenten"
-
-#: email/MailChimp/ManageList.php:112
-msgid "is not configured"
-msgstr "ist nicht konfiguriert"
-
-#: email/MailChimp/ManageList.php:113
-msgid "Please update the"
-msgstr "Bitte update die"
-
-#: email/MailChimp/ManageList.php:113
-msgid "API key in Setting->"
-msgstr "API key in Einstellungen->"
-
-#: email/MailChimp/ManageList.php:113 Include/Footer.php:201
-msgid "Edit General Settings"
-msgstr "General Einstellung Editieren"
-
-#: email/MailChimp/ManageList.php:114
-msgid "then update"
-msgstr "danach aktualisiere"
-
-#: email/MailChimp/ManageList.php:114
-msgid "For more info see our "
-msgstr "Für weitere Informationen sehen Sie unsere"
-
-#: email/MailChimp/ManageList.php:114
-msgid "support docs."
-msgstr "Dokumentation support."
 
 #: EventAttendance.php:32
 msgid "Event Attendees"
@@ -6609,20 +6456,6 @@ msgstr "Nächste Seite"
 msgid "Display:"
 msgstr "Anzeigen:"
 
-#: FundList.php:22
-msgid "Donation Fund Editor"
-msgstr "Spenden Fonds Editieren"
-
-#: FundList.php:26
-msgid ""
-"Be carefull ! By deleting Fund type, the recorded datas for pledges or "
-"payments will be lost."
-msgstr ""
-
-#: FundList.php:32
-msgid "Add a New Fund"
-msgstr "Neuen Fonds hinzufügen"
-
 #: FundRaiserEditor.php:34
 msgid "Create New Fund Raiser"
 msgstr "Neuen Spendenaktion anlegen"
@@ -7344,6 +7177,10 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Wenden Sie sich an den Administrator, um die Einstellungen der "
 "Systemvariablen zu ändern."
+
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+msgid "Edit General Settings"
+msgstr "General Einstellung Editieren"
 
 #: Include/Footer.php:215
 msgid "System Users"
@@ -9017,7 +8854,7 @@ msgstr "Neuen Eigenschaftstyp hinzufügen"
 
 #: PropertyTypeList.php:46 v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
-#: VolunteerOpportunityEditor.php:39
+#: v2/templates/sidebar/volunteeropportunityeditor.php:19
 msgid "Only an admin can modify or delete this records."
 msgstr ""
 
@@ -9156,9 +8993,13 @@ msgstr ""
 msgid "Base URL"
 msgstr "Basis-URL "
 
-#: Register.php:50
+#: Register.php:50 v2/templates/email/mailchimp/dashboard.php:30
 msgid "Message"
 msgstr "Nachricht"
+
+#: Register.php:55 v2/templates/email/mailchimp/campaign.php:36
+msgid "Send"
+msgstr "Senden"
 
 #: ReminderReport.php:27
 msgid "Pledge Reminder Report"
@@ -9682,7 +9523,8 @@ msgstr "Abbrechen und Zurück zum Personenansicht"
 msgid "Move Donations to Selected Person"
 msgstr "Verschieben Spenden nach die ausgewählte Person"
 
-#: SelectDelete.php:312
+#: SelectDelete.php:312 v2/templates/email/mailchimp/campaign.php:64
+#: v2/templates/email/mailchimp/campaign.php:68
 msgid "Schedule"
 msgstr "Termin"
 
@@ -10534,9 +10376,46 @@ msgid ""
 msgstr ""
 "http://www.intelligentsearch.com/address_verification/verify_address.html"
 
-#: v2/routes/calendar.php:42
+#: v2/routes/calendar/calendar.php:41
 msgid "Church Calendar"
 msgstr "Kirchenkalender"
+
+#: v2/routes/email/mailchimp/mailchimp.php:36
+msgid "MailChimp Dashboard"
+msgstr "MailChimp Dashboard"
+
+#: v2/routes/email/mailchimp/mailchimp.php:69
+msgid "Debug Email Connection"
+msgstr "Debug-E-mail Verbindung "
+
+#: v2/routes/email/mailchimp/mailchimp.php:103
+#, fuzzy
+msgid "Email Campaign"
+msgstr "Kampagne speichern"
+
+#: v2/routes/email/mailchimp/mailchimp.php:138
+#, fuzzy
+msgid "Email List"
+msgstr "eMail liste"
+
+#: v2/routes/email/mailchimp/mailchimp.php:138
+#, fuzzy
+msgid "GDPR List"
+msgstr "GDPR"
+
+#: v2/routes/email/mailchimp/mailchimp.php:170
+msgid "Manage List"
+msgstr "Liste Verwalten"
+
+#: v2/routes/email/mailchimp/mailchimp.php:196
+#: v2/templates/email/mailchimp/dashboard.php:71
+#: v2/templates/email/mailchimp/notinmailchimpemails.php:16
+msgid "Families Not In MailChimp"
+msgstr "Familien, die nicht in Mailchimp sind"
+
+#: v2/routes/sidebar/fundlist.php:32
+msgid "Donation Fund Editor"
+msgstr "Spenden Fonds Editieren"
 
 #: v2/routes/sidebar/menulinklist.php:39
 msgid "Custom Menus List"
@@ -10545,6 +10424,10 @@ msgstr "Benutzerfelder Menüs Liste"
 #: v2/routes/sidebar/pastoralcarelist.php:32
 msgid "Pastoral Care Type Editor"
 msgstr "Pastoral Pflege Typen Editieren"
+
+#: v2/routes/sidebar/volunteeropportunityeditor.php:32
+msgid "Volunteer Opportunity Editor"
+msgstr "Editor zu den ehrenamtlichen Fähigkeiten"
 
 #: v2/templates/calendar/calendar.php:35
 msgid "By Types"
@@ -10610,6 +10493,152 @@ msgstr "Benutzer"
 msgid "Exclude/include the Shared"
 msgstr "Ausschließen/Einschließen Gemeinsam"
 
+#: v2/templates/email/mailchimp/campaign.php:22
+#, fuzzy
+msgid "Email Campaign Management"
+msgstr "MailChimp Verwaltung"
+
+#: v2/templates/email/mailchimp/campaign.php:30
+msgid "Save Campaign"
+msgstr "Kampagne speichern"
+
+#: v2/templates/email/mailchimp/campaign.php:48
+msgid "Mail Subject"
+msgstr "E-mail Betreff"
+
+#: v2/templates/email/mailchimp/campaign.php:51
+msgid "Your Mail Subject"
+msgstr "Ihre E-mail Betreff"
+
+#: v2/templates/email/mailchimp/dashboard.php:20
+msgid "MailChimp Problem"
+msgstr "MailChimp Problem"
+
+#: v2/templates/email/mailchimp/dashboard.php:21
+msgid "Mailchimp Status"
+msgstr "Backup Status"
+
+#: v2/templates/email/mailchimp/dashboard.php:30
+#, fuzzy
+msgid "field"
+msgstr "Feld"
+
+#: v2/templates/email/mailchimp/dashboard.php:44
+msgid "MailChimp is activated"
+msgstr "Maichimp ist aktiviert"
+
+#: v2/templates/email/mailchimp/dashboard.php:45
+msgid "MailChimp is working correctly"
+msgstr "Mailchimp funktioniert ordnungsgemäß"
+
+#: v2/templates/email/mailchimp/dashboard.php:54
+msgid "MailChimp Management"
+msgstr "MailChimp Verwaltung"
+
+#: v2/templates/email/mailchimp/dashboard.php:62
+#, fuzzy
+msgid "Create list"
+msgstr "Erstelle Gruppenliste"
+
+#: v2/templates/email/mailchimp/dashboard.php:65
+msgid "Generate CSV"
+msgstr "CSV Erstellen"
+
+#: v2/templates/email/mailchimp/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr "Doppelte E-Mails suchen"
+
+#: v2/templates/email/mailchimp/dashboard.php:74
+msgid "Debug"
+msgstr "Debuggen"
+
+#: v2/templates/email/mailchimp/dashboard.php:77
+msgid "You can import the generated CSV file to external email system."
+msgstr "Du kannst das generierte CSV in ein externes Emailsystem importieren."
+
+#: v2/templates/email/mailchimp/dashboard.php:78
+msgid "For MailChimp see"
+msgstr "Für MailChimp Beachten Sie"
+
+#: v2/templates/email/mailchimp/dashboard.php:79
+msgid "import subscribers to a list."
+msgstr "Importiere Abonnenten zu einer Liste."
+
+#: v2/templates/email/mailchimp/debug.php:16
+msgid "Testing connection ....."
+msgstr "Verbindungsprüfung ....."
+
+#: v2/templates/email/mailchimp/duplicateemails.php:16
+msgid "Duplicate Emails"
+msgstr "Doppelte E-Mails"
+
+#: v2/templates/email/mailchimp/managelist.php:20
+#, fuzzy
+msgid "Manage Email List"
+msgstr "Mailing List verwalten"
+
+#: v2/templates/email/mailchimp/managelist.php:28
+msgid "Create a Campaign"
+msgstr "Kampagne Erstellen"
+
+#: v2/templates/email/mailchimp/managelist.php:31
+msgid "Delete All Subscribers"
+msgstr "Alle Abonnenten Löschen"
+
+#: v2/templates/email/mailchimp/managelist.php:53
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:56
+msgid ""
+"The max numbers of members can be modified in the \"System Settings\" -> "
+"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:59
+msgid "Increase this value is unstable with MailChimp API."
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:67
+msgid "Subscribers"
+msgstr "Abonnenten"
+
+#: v2/templates/email/mailchimp/managelist.php:84
+msgid "is not configured"
+msgstr "ist nicht konfiguriert"
+
+#: v2/templates/email/mailchimp/managelist.php:85
+msgid "Please update the"
+msgstr "Bitte update die"
+
+#: v2/templates/email/mailchimp/managelist.php:85
+msgid "API key in Setting->"
+msgstr "API key in Einstellungen->"
+
+#: v2/templates/email/mailchimp/managelist.php:86
+msgid "then update"
+msgstr "danach aktualisiere"
+
+#: v2/templates/email/mailchimp/managelist.php:86
+msgid "For more info see our "
+msgstr "Für weitere Informationen sehen Sie unsere"
+
+#: v2/templates/email/mailchimp/managelist.php:86
+msgid "support docs."
+msgstr "Dokumentation support."
+
+#: v2/templates/sidebar/fundlist.php:16
+msgid ""
+"Be carefull ! By deleting Fund type, the recorded datas for pledges or "
+"payments will be lost."
+msgstr ""
+
+#: v2/templates/sidebar/fundlist.php:22
+msgid "Add a New Fund"
+msgstr "Neuen Fonds hinzufügen"
+
 #: v2/templates/sidebar/menulinklist.php:18
 msgid "Add Custom Menu Link"
 msgstr "Neuen Custom Menu hinzufügen"
@@ -10624,11 +10653,7 @@ msgstr ""
 msgid "Add a New Pastoral Care Type"
 msgstr "Neue Pastoral Pflege Typ Hinzufügen"
 
-#: VolunteerOpportunityEditor.php:28
-msgid "Volunteer Opportunity Editor"
-msgstr "Editor zu den ehrenamtlichen Fähigkeiten"
-
-#: VolunteerOpportunityEditor.php:35
+#: v2/templates/sidebar/volunteeropportunityeditor.php:15
 msgid "Add Volunteer Opportunity"
 msgstr "Möglichkeiten für Freiwillige Hinzufügen"
 
@@ -11245,6 +11270,19 @@ msgstr "senden"
 msgid "save"
 msgstr "speichern"
 
+#, fuzzy
+msgid "schedule"
+msgstr "Termin"
+
+msgid "paused"
+msgstr ""
+
+#~ msgid "Manage Campaign"
+#~ msgstr "Kampagnen verwalten"
+
+#~ msgid "Create a Mailing list"
+#~ msgstr "Mailing list Erstellen"
+
 #~ msgid "Norwegian"
 #~ msgstr "Norwegisch"
 
@@ -11566,9 +11604,6 @@ msgstr "speichern"
 
 #~ msgid "Error text"
 #~ msgstr "Fehlermeldung"
-
-#~ msgid "Create Class List"
-#~ msgstr "Erstelle Gruppenliste"
 
 #~ msgid "Create Attendance Sheet"
 #~ msgstr "Erstelle Besucherliste"
