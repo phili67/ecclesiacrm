@@ -27,7 +27,7 @@ i18next-extract-gettext --files=skin/js/ckeditor/*.js --output=../locale/js-stri
 
 msgcat ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot  ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot -o ../locale/js-strings.pot
 
-rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot
+rm ../locale/js-strings1.pot ../locale/js-strings2.pot ../locale/js-strings3.pot ../locale/js-strings4.pot ../locale/js-strings5.pot ../locale/js-strings6.pot ../locale/js-strings7.pot ../locale/js-strings8.pot ../locale/js-strings9.pot ../locale/js-strings10.pot ../locale/js-strings11.pot ../locale/js-strings12.pot ../locale/js-strings13.pot ../locale/js-strings14.pot ../locale/js-strings15.pot
 
 cd ../locale
 
