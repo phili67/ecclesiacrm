@@ -138,3 +138,9 @@ msgstr ""
 
 msgid "sent"
 msgstr ""
+
+msgid "schedule"
+msgstr ""
+
+msgid "paused"
+msgstr ""

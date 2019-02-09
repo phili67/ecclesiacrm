@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-06 08:42+0100\n"
+"POT-Creation-Date: 2019-02-09 23:02+0100\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -182,24 +182,24 @@ msgstr "现金"
 msgid "Checks"
 msgstr "查"
 
-#: api/routes/mailchimp.php:69 PeopleDashboard.php:82
+#: api/routes/mailchimp.php:70 PeopleDashboard.php:82
 #, fuzzy
 msgid "All People"
 msgstr "人"
 
-#: api/routes/mailchimp.php:83
+#: api/routes/mailchimp.php:84
 #, fuzzy
 msgid "newsletter"
 msgstr "发送通讯"
 
-#: api/routes/mailchimp.php:118 api/routes/people/people.php:68
+#: api/routes/mailchimp.php:119 api/routes/people/people.php:68
 #: api/routes/people/people.php:116 api/routes/search.php:66
 #: EcclesiaCRM/MenuBar/MenuBar.php:294
 #, fuzzy
 msgid "Persons"
 msgstr "人"
 
-#: api/routes/mailchimp.php:157 api/routes/people/people.php:155
+#: api/routes/mailchimp.php:159 api/routes/people/people.php:155
 #: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:271
 #: EcclesiaCRM/MenuBar/MenuBar.php:299 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:384
@@ -207,7 +207,7 @@ msgstr "人"
 msgid "Families"
 msgstr "家庭"
 
-#: api/routes/mailchimp.php:194 api/routes/people/people.php:192
+#: api/routes/mailchimp.php:197 api/routes/people/people.php:192
 #: api/routes/search.php:202 EcclesiaCRM/MenuBar/MenuBar.php:55
 #: external/templates/verify/verify-family-info.php:108 Menu.php:447
 #: PeopleDashboard.php:219 v2/templates/calendar/calendar.php:153
@@ -215,7 +215,7 @@ msgstr "家庭"
 msgid "Groups"
 msgstr "组"
 
-#: api/routes/mailchimp.php:745
+#: api/routes/mailchimp.php:759
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -241,12 +241,12 @@ msgstr "出席计数"
 msgid "POST to cart requires a EventID"
 msgstr ""
 
-#: api/routes/people/people-families.php:267
+#: api/routes/people/people-families.php:268
 #, fuzzy
 msgid "Family Deactivated"
 msgstr "此值是必需的。"
 
-#: api/routes/people/people-families.php:269
+#: api/routes/people/people-families.php:270
 #, fuzzy
 msgid "Family Activated"
 msgstr "此值是必需的。"
@@ -507,7 +507,7 @@ msgstr ""
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
 msgid "Date"
 msgstr "日期"
 
@@ -1006,6 +1006,7 @@ msgstr "生成标签"
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:67 CSVImport.php:236
 #: DonatedItemEditor.php:210 FindFundRaiser.php:238 FundRaiserEditor.php:170
 #: FundRaiserEditor.php:196 GDPRListExport.php:66 PersonEditor.php:810
+#: v2/templates/email/mailchimp/dashboard.php:21
 msgid "Title"
 msgstr "标题"
 
@@ -1444,11 +1445,11 @@ msgstr "离店"
 #: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:288
 #: EditEventAttendees.php:110 ElectronicPaymentList.php:215
 #: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
-#: email/MailChimp/Campaign.php:56 email/MailChimp/ManageList.php:58
 #: EventNames.php:327 FamilyView.php:936 FindDepositSlip.php:131
 #: FundRaiserEditor.php:201 ListEvents.php:415 PaddleNumList.php:55
 #: PastoralCare.php:153 PastoralCare.php:162 PersonView.php:1443
-#: PersonView.php:1511
+#: PersonView.php:1511 v2/templates/email/mailchimp/campaign.php:33
+#: v2/templates/email/mailchimp/managelist.php:34
 msgid "Delete"
 msgstr "删除"
 
@@ -4535,87 +4536,87 @@ msgstr "，CSV联合家庭"
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:331
+#: EcclesiaCRM/MenuBar/MenuBar.php:329
 #, fuzzy
 msgid "eMail Lists"
 msgstr "族编辑器"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:350 FinancialReports.php:419
+#: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
 #: Reports/AdvancedDeposit.php:415 Reports/AdvancedDeposit.php:427
 #: Reports/AdvancedDeposit.php:518
 msgid "Deposit"
 msgstr "存款"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:367
 #, fuzzy
 msgid "Current"
 msgstr "电流的作用"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:367 ManageEnvelopes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:370 ManageEnvelopes.php:22
 msgid "Envelope Manager"
 msgstr "信封经理"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:368
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 #, fuzzy
 msgid "View All Deposits"
 msgstr "查看全部"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:369 ElectronicPaymentList.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:372 ElectronicPaymentList.php:54
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "电子交易详情"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:370
+#: EcclesiaCRM/MenuBar/MenuBar.php:373
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "存款报告"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "存款单"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:378 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:381 FundRaiserEditor.php:32
 #, fuzzy
 msgid "Fundraiser"
 msgstr "筹款上市"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:380
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "所有基金"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "创建新的筹款奖"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:382
+#: EcclesiaCRM/MenuBar/MenuBar.php:385
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "编辑用户"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:383
+#: EcclesiaCRM/MenuBar/MenuBar.php:386
 #, fuzzy
 msgid "View Buyers"
 msgstr "买方"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384
+#: EcclesiaCRM/MenuBar/MenuBar.php:387
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 #, fuzzy
 msgid "Data/Reports"
 msgstr "创建报告"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392
+#: EcclesiaCRM/MenuBar/MenuBar.php:395
 #, fuzzy
 msgid "Reports Menu"
 msgstr "报告菜单"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:393 UserEditor.php:698
+#: EcclesiaCRM/MenuBar/MenuBar.php:396 UserEditor.php:698
 #, fuzzy
 msgid "Query Menu"
 msgstr "查询视图"
@@ -5503,177 +5504,6 @@ msgstr ""
 #, fuzzy
 msgid "Clear Account Numbers"
 msgstr "银行帐户号码"
-
-#: email/MailChimp/Campaign.php:38
-msgid "Manage Campaign"
-msgstr ""
-
-#: email/MailChimp/Campaign.php:48 email/MailChimp/ManageList.php:47
-msgid "Manage Mailing List"
-msgstr ""
-
-#: email/MailChimp/Campaign.php:53
-#, fuzzy
-msgid "Save Campaign"
-msgstr "保存更改"
-
-#: email/MailChimp/Campaign.php:59 Register.php:55
-msgid "Send"
-msgstr "发送"
-
-#: email/MailChimp/Campaign.php:71
-#, fuzzy
-msgid "Mail Subject"
-msgstr "电子邮件组"
-
-#: email/MailChimp/Campaign.php:74
-msgid "Your Mail Subject"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:30
-msgid "MailChimp Dashboard"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:39
-#, fuzzy
-msgid "MailChimp Problem"
-msgstr "物业取消分配"
-
-#: email/MailChimp/Dashboard.php:40
-#, fuzzy
-msgid "Mailchimp Status"
-msgstr "备份数据库"
-
-#: email/MailChimp/Dashboard.php:63
-#, fuzzy
-msgid "MailChimp is activated"
-msgstr "此值是必需的。"
-
-#: email/MailChimp/Dashboard.php:64
-msgid "MailChimp is working correctly"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:73
-#, fuzzy
-msgid "MailChimp Management"
-msgstr "物业取消分配"
-
-#: email/MailChimp/Dashboard.php:78
-#, fuzzy
-msgid "Create a Mailing list"
-msgstr "信函和邮寄标签"
-
-#: email/MailChimp/Dashboard.php:81
-#, fuzzy
-msgid "Generate CSV"
-msgstr "生成："
-
-#: email/MailChimp/Dashboard.php:84
-msgid "Find Duplicate Emails"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:87 email/MailChimp/NotInMailChimpEmails.php:21
-#: email/MailChimp/NotInMailChimpEmails.php:29
-#, fuzzy
-msgid "Families Not In MailChimp"
-msgstr "电子邮件是无效的"
-
-#: email/MailChimp/Dashboard.php:90
-msgid "Debug"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:93
-msgid "You can import the generated CSV file to external email system."
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:94
-msgid "For MailChimp see"
-msgstr ""
-
-#: email/MailChimp/Dashboard.php:95
-msgid "import subscribers to a list."
-msgstr ""
-
-#: email/MailChimp/Debug.php:25
-#, fuzzy
-msgid "Debug Email Connection"
-msgstr "保存设置"
-
-#: email/MailChimp/Debug.php:32
-msgid "Testing connection ....."
-msgstr ""
-
-#: email/MailChimp/DuplicateEmails.php:21
-#: email/MailChimp/DuplicateEmails.php:27
-#, fuzzy
-msgid "Duplicate Emails"
-msgstr "电子邮件"
-
-#: email/MailChimp/ManageList.php:38
-#, fuzzy
-msgid "Manage List"
-msgstr "管理组和角色"
-
-#: email/MailChimp/ManageList.php:52
-#, fuzzy
-msgid "Create a Campaign"
-msgstr "建立新的家庭"
-
-#: email/MailChimp/ManageList.php:55
-#, fuzzy
-msgid "Delete All Subscribers"
-msgstr "选择所有"
-
-#: email/MailChimp/ManageList.php:80
-msgid ""
-"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
-"to add all members of the CRM, use <b>*</b>"
-msgstr ""
-
-#: email/MailChimp/ManageList.php:83
-msgid ""
-"The max numbers of members can be modified in the \"System Settings\" -> "
-"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
-msgstr ""
-
-#: email/MailChimp/ManageList.php:86
-msgid "Increase this value is unstable with MailChimp API."
-msgstr ""
-
-#: email/MailChimp/ManageList.php:95
-msgid "Subscribers"
-msgstr ""
-
-#: email/MailChimp/ManageList.php:112
-#, fuzzy
-msgid "is not configured"
-msgstr "没有得到证实。"
-
-#: email/MailChimp/ManageList.php:113
-msgid "Please update the"
-msgstr ""
-
-#: email/MailChimp/ManageList.php:113
-msgid "API key in Setting->"
-msgstr ""
-
-#: email/MailChimp/ManageList.php:113 Include/Footer.php:201
-#, fuzzy
-msgid "Edit General Settings"
-msgstr "其他设置"
-
-#: email/MailChimp/ManageList.php:114
-#, fuzzy
-msgid "then update"
-msgstr "更新日期"
-
-#: email/MailChimp/ManageList.php:114
-msgid "For more info see our "
-msgstr ""
-
-#: email/MailChimp/ManageList.php:114
-msgid "support docs."
-msgstr ""
 
 #: EventAttendance.php:32
 msgid "Event Attendees"
@@ -6897,21 +6727,6 @@ msgstr "下一页"
 msgid "Display:"
 msgstr "显示方式："
 
-#: FundList.php:22
-msgid "Donation Fund Editor"
-msgstr "捐赠基金的编辑"
-
-#: FundList.php:26
-msgid ""
-"Be carefull ! By deleting Fund type, the recorded datas for pledges or "
-"payments will be lost."
-msgstr ""
-
-#: FundList.php:32
-#, fuzzy
-msgid "Add a New Fund"
-msgstr "添加新基金"
-
 #: FundRaiserEditor.php:34
 msgid "Create New Fund Raiser"
 msgstr "创建新的筹款奖"
@@ -7691,6 +7506,11 @@ msgstr "物业类型编辑器"
 #: Include/Footer.php:184 Include/Footer.php:263
 msgid "Please contact your admin to change the system settings."
 msgstr ""
+
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+#, fuzzy
+msgid "Edit General Settings"
+msgstr "其他设置"
 
 #: Include/Footer.php:215
 msgid "System Users"
@@ -9487,7 +9307,7 @@ msgstr "添加新的属性类型"
 
 #: PropertyTypeList.php:46 v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
-#: VolunteerOpportunityEditor.php:39
+#: v2/templates/sidebar/volunteeropportunityeditor.php:19
 msgid "Only an admin can modify or delete this records."
 msgstr ""
 
@@ -9627,10 +9447,14 @@ msgstr "此信息是仅用于跟踪此软件的用法。"
 msgid "Base URL"
 msgstr ""
 
-#: Register.php:50
+#: Register.php:50 v2/templates/email/mailchimp/dashboard.php:30
 #, fuzzy
 msgid "Message"
 msgstr "信息"
+
+#: Register.php:55 v2/templates/email/mailchimp/campaign.php:36
+msgid "Send"
+msgstr "发送"
 
 #: ReminderReport.php:27
 msgid "Pledge Reminder Report"
@@ -10187,7 +10011,8 @@ msgstr "返回家庭观"
 msgid "Move Donations to Selected Person"
 msgstr "重新导入到选定家庭"
 
-#: SelectDelete.php:312
+#: SelectDelete.php:312 v2/templates/email/mailchimp/campaign.php:64
+#: v2/templates/email/mailchimp/campaign.php:68
 msgid "Schedule"
 msgstr "时间表"
 
@@ -11120,10 +10945,50 @@ msgid ""
 "http://www.intelligentsearch.com/address_verification/verify_address.html"
 msgstr ""
 
-#: v2/routes/calendar.php:42
+#: v2/routes/calendar/calendar.php:41
 #, fuzzy
 msgid "Church Calendar"
 msgstr "教会名称"
+
+#: v2/routes/email/mailchimp/mailchimp.php:36
+msgid "MailChimp Dashboard"
+msgstr ""
+
+#: v2/routes/email/mailchimp/mailchimp.php:69
+#, fuzzy
+msgid "Debug Email Connection"
+msgstr "保存设置"
+
+#: v2/routes/email/mailchimp/mailchimp.php:103
+#, fuzzy
+msgid "Email Campaign"
+msgstr "保存更改"
+
+#: v2/routes/email/mailchimp/mailchimp.php:138
+#, fuzzy
+msgid "Email List"
+msgstr "族编辑器"
+
+#: v2/routes/email/mailchimp/mailchimp.php:138
+#, fuzzy
+msgid "GDPR List"
+msgstr "人上市"
+
+#: v2/routes/email/mailchimp/mailchimp.php:170
+#, fuzzy
+msgid "Manage List"
+msgstr "管理组和角色"
+
+#: v2/routes/email/mailchimp/mailchimp.php:196
+#: v2/templates/email/mailchimp/dashboard.php:71
+#: v2/templates/email/mailchimp/notinmailchimpemails.php:16
+#, fuzzy
+msgid "Families Not In MailChimp"
+msgstr "电子邮件是无效的"
+
+#: v2/routes/sidebar/fundlist.php:32
+msgid "Donation Fund Editor"
+msgstr "捐赠基金的编辑"
 
 #: v2/routes/sidebar/menulinklist.php:39
 #, fuzzy
@@ -11134,6 +10999,10 @@ msgstr "自定义联系人字段编辑器"
 #, fuzzy
 msgid "Pastoral Care Type Editor"
 msgstr "物业类型编辑器"
+
+#: v2/routes/sidebar/volunteeropportunityeditor.php:32
+msgid "Volunteer Opportunity Editor"
+msgstr "义工机会编辑器"
 
 #: v2/templates/calendar/calendar.php:35
 #, fuzzy
@@ -11204,6 +11073,165 @@ msgstr "用户名"
 msgid "Exclude/include the Shared"
 msgstr ""
 
+#: v2/templates/email/mailchimp/campaign.php:22
+#, fuzzy
+msgid "Email Campaign Management"
+msgstr "物业取消分配"
+
+#: v2/templates/email/mailchimp/campaign.php:30
+#, fuzzy
+msgid "Save Campaign"
+msgstr "保存更改"
+
+#: v2/templates/email/mailchimp/campaign.php:48
+#, fuzzy
+msgid "Mail Subject"
+msgstr "电子邮件组"
+
+#: v2/templates/email/mailchimp/campaign.php:51
+msgid "Your Mail Subject"
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:20
+#, fuzzy
+msgid "MailChimp Problem"
+msgstr "物业取消分配"
+
+#: v2/templates/email/mailchimp/dashboard.php:21
+#, fuzzy
+msgid "Mailchimp Status"
+msgstr "备份数据库"
+
+#: v2/templates/email/mailchimp/dashboard.php:30
+#, fuzzy
+msgid "field"
+msgstr "估价值"
+
+#: v2/templates/email/mailchimp/dashboard.php:44
+#, fuzzy
+msgid "MailChimp is activated"
+msgstr "此值是必需的。"
+
+#: v2/templates/email/mailchimp/dashboard.php:45
+msgid "MailChimp is working correctly"
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:54
+#, fuzzy
+msgid "MailChimp Management"
+msgstr "物业取消分配"
+
+#: v2/templates/email/mailchimp/dashboard.php:62
+#, fuzzy
+msgid "Create list"
+msgstr "创建文件"
+
+#: v2/templates/email/mailchimp/dashboard.php:65
+#, fuzzy
+msgid "Generate CSV"
+msgstr "生成："
+
+#: v2/templates/email/mailchimp/dashboard.php:68
+msgid "Find Duplicate Emails"
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:74
+msgid "Debug"
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:77
+msgid "You can import the generated CSV file to external email system."
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:78
+msgid "For MailChimp see"
+msgstr ""
+
+#: v2/templates/email/mailchimp/dashboard.php:79
+msgid "import subscribers to a list."
+msgstr ""
+
+#: v2/templates/email/mailchimp/debug.php:16
+msgid "Testing connection ....."
+msgstr ""
+
+#: v2/templates/email/mailchimp/duplicateemails.php:16
+#, fuzzy
+msgid "Duplicate Emails"
+msgstr "电子邮件"
+
+#: v2/templates/email/mailchimp/managelist.php:20
+#, fuzzy
+msgid "Manage Email List"
+msgstr "管理组和角色"
+
+#: v2/templates/email/mailchimp/managelist.php:28
+#, fuzzy
+msgid "Create a Campaign"
+msgstr "建立新的家庭"
+
+#: v2/templates/email/mailchimp/managelist.php:31
+#, fuzzy
+msgid "Delete All Subscribers"
+msgstr "选择所有"
+
+#: v2/templates/email/mailchimp/managelist.php:53
+msgid ""
+"To add all the newsletter users, type <b>NewLetter</b> in the search field, "
+"to add all members of the CRM, use <b>*</b>"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:56
+msgid ""
+"The max numbers of members can be modified in the \"System Settings\" -> "
+"\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:59
+msgid "Increase this value is unstable with MailChimp API."
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:67
+msgid "Subscribers"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:84
+#, fuzzy
+msgid "is not configured"
+msgstr "没有得到证实。"
+
+#: v2/templates/email/mailchimp/managelist.php:85
+msgid "Please update the"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:85
+msgid "API key in Setting->"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:86
+#, fuzzy
+msgid "then update"
+msgstr "更新日期"
+
+#: v2/templates/email/mailchimp/managelist.php:86
+msgid "For more info see our "
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:86
+msgid "support docs."
+msgstr ""
+
+#: v2/templates/sidebar/fundlist.php:16
+msgid ""
+"Be carefull ! By deleting Fund type, the recorded datas for pledges or "
+"payments will be lost."
+msgstr ""
+
+#: v2/templates/sidebar/fundlist.php:22
+#, fuzzy
+msgid "Add a New Fund"
+msgstr "添加新基金"
+
 #: v2/templates/sidebar/menulinklist.php:18
 #, fuzzy
 msgid "Add Custom Menu Link"
@@ -11220,11 +11248,7 @@ msgstr ""
 msgid "Add a New Pastoral Care Type"
 msgstr "添加新的属性类型"
 
-#: VolunteerOpportunityEditor.php:28
-msgid "Volunteer Opportunity Editor"
-msgstr "义工机会编辑器"
-
-#: VolunteerOpportunityEditor.php:35
+#: v2/templates/sidebar/volunteeropportunityeditor.php:15
 #, fuzzy
 msgid "Add Volunteer Opportunity"
 msgstr "义工机会编辑器"
@@ -11903,6 +11927,17 @@ msgstr ""
 
 msgid "save"
 msgstr ""
+
+#, fuzzy
+msgid "schedule"
+msgstr "时间表"
+
+msgid "paused"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Create a Mailing list"
+#~ msgstr "信函和邮寄标签"
 
 #, fuzzy
 #~ msgid "Email Export"

@@ -78,3 +78,10 @@ msgstr ""
 
 msgid "save"
 msgstr ""
+
+
+msgid "schedule"
+msgstr ""
+
+msgid "paused"
+msgstr ""

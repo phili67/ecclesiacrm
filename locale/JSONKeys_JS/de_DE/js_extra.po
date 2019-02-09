@@ -136,3 +136,9 @@ msgstr "abgemeldet"
 
 msgid "sent"
 msgstr "gesendet"
+
+msgid "schedule"
+msgstr ""
+
+msgid "paused"
+msgstr ""
