@@ -321,15 +321,15 @@ class MenuBar {
 
         $menuMain = new Menu (gettext("MailChimp"),"fa fa-circle-o","#",SessionUser::getUser()->isMailChimpEnabled(),$menu);
 
-        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","v2/mailchimp/dashboard",SessionUser::getUser()->isMailChimpEnabled(),$menuMain);
+        $menuItem = new Menu (gettext("Dashboard"),"fa fa-circle-o","v2/mailchimp/dashboard",SessionUser::getUser()->isMailChimpEnabled(),$menuMain,"lists_class_main_menu");
         $menuItem->addLink("v2/mailchimp/duplicateemails");
         $menuItem->addLink("v2/mailchimp/notinmailchimpemails");
         $menuItem->addLink("v2/mailchimp/debug");
         
-        if ($mailchimp->isActive()) {
-          $mcLists = $mailchimp->getLists();
+        $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu hidden");
 
-          $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu");
+        if ($mailchimp->isLoaded()) {// to accelerate the Menu.php the first time
+          $mcLists = $mailchimp->getLists();
 
           foreach ($mcLists as $list) {
             $menuItemItemItem = new Menu ($list['name']/*.' <small class="badge pull-right bg-blue current-deposit-item">'.$list['stats']['member_count'].'</small>'*/,"fa fa-circle-o","v2/mailchimp/managelist/".$list['id'],true,$menuItemItem,"listName".$list['id']);
@@ -341,6 +341,8 @@ class MenuBar {
               $menuItemItemItem->addLink("v2/mailchimp/campaign/".$campaign['id']);
             }
           }
+        } else {// we add just a false item
+          $menuItemItemItem = new Menu ("false item","fa fa-circle-o","#",true,$menuItemItem,"#");
         }
 
         $this->addMenu($menu);
@@ -452,7 +454,7 @@ class MenuBar {
         
         if (strpos($menu->getUri(),"http") === false) {
           $real_link = false;
-          $url = SystemURLs::getRootPath() . "/" . $url;
+          $url = SystemURLs::getRootPath() . (($url != "#")?"/":"") . $url;
         }
         
         echo "<li ".$this->is_li_class_active($menu->getLinks(),(count($menu->subMenu()) > 0)?true:false)."><a href=\"".$url."\" ".(($real_link==true)?'target="_blank"':'')." ".(($menu->getClass() != null)?"class=\"".$menu->getClass()."\"":"")."><i class=\"".$menu->getIcon()."\"></i>".gettext($menu->getTitle());

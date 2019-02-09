@@ -43,6 +43,10 @@ class MailChimpService
     {
         return $this->isActive; 
     }
+    public function isLoaded ()
+    {
+       return isset($_SESSION['MailChimpLists']);
+    }
     private function getListsFromCache(){
       if (!isset($_SESSION['MailChimpLists']) ){// the second part can be used to force update
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");

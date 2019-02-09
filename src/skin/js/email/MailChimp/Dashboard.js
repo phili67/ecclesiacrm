@@ -2,18 +2,24 @@ $(document).ready(function () {
   function render_container ()
    {
      if (window.CRM.mailchimpIsActive) {
+        // we first empty the container
+        $("#container").html( '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + i18next.t("Loading resources ...") + "</div>");
+
         window.CRM.APIRequest({
           method: 'GET',
           path: 'mailchimp/lists'
         }).done(function(data) {
-          if (data.MailChimpLists == null) return;
+
+          if (data.MailChimpLists == null) {
+            $("#container").html( i18next.t("No list are created with this account ....") );
+
+            return;
+          }
           
           var len = data.MailChimpLists.length;
-    
-          // we empty first the container
-          $("#container").html( i18next.t("Loading resources ...") );
       
           // now we empty the menubar lists
+          $(".lists_class_menu").removeClass("hidden");
           var lists_menu = $(".lists_class_menu").parent();
           var real_listMenu = $( lists_menu ).find (".treeview-menu");
       

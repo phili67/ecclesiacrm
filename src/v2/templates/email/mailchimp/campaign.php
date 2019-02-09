@@ -17,7 +17,10 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3><div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a></div>
+        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3>
+        <div style="float:right">
+          <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
+        </div>
       </div>
       <div class="box-body">
         <p>

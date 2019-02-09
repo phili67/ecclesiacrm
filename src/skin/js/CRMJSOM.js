@@ -40,6 +40,17 @@
       });
     }
     
+    window.CRM.dialogLoadingFunction =  function (message) {
+      dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
+   }
+ 
+   window.CRM.closeDialogLoadingFunction = function () {
+     if (dialogLoading != null) {
+        dialogLoading.modal('hide');
+      }
+   }
+
+    
     window.CRM.notify = function(icon,title,message,link,type,place,delay) {
       if (delay === undefined) {
         delay = 6000;

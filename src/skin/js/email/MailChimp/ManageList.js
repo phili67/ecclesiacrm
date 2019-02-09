@@ -1,16 +1,6 @@
 $(document).ready(function () {
  var dialogLoading = null;
 
- function dialogLoadingFunction (message) {
-    dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
- }
- 
- function closeDialogLoadingFunction () {
-   if (dialogLoading != null) {
-      dialogLoading.modal('hide');
-    }
- }
- 
  function render_container ()
  {
    if (window.CRM.mailchimpIsActive) {     
@@ -18,7 +8,7 @@ $(document).ready(function () {
         method: 'GET',
         path: 'mailchimp/list/' + window.CRM.list_ID
       }).done(function(data) {
-        closeDialogLoadingFunction();
+        window.CRM.closeDialogLoadingFunction();
         
         // we set correctly the buttons
         if (data.membersCount == 0) {
@@ -137,7 +127,7 @@ $(document).ready(function () {
        var list_id=$(this).data("listid");
        
        if (e.params.data.personID !== undefined) {
-           dialogLoadingFunction ( i18next.t("Loading subscriber") );
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading subscriber") );
        
            window.CRM.APIRequest({
                 method: 'POST',
@@ -149,11 +139,11 @@ $(document).ready(function () {
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                closeDialogLoadingFunction();
+                window.CRM.closeDialogLoadingFunction();
              }
            });
         } else if (e.params.data.groupID !== undefined) {
-           dialogLoadingFunction ( i18next.t("Loading subscribers from Group") );
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading subscribers from Group") );
        
            window.CRM.APIRequest({
                 method: 'POST',
@@ -165,11 +155,11 @@ $(document).ready(function () {
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                closeDialogLoadingFunction();
+                window.CRM.closeDialogLoadingFunction();
              }
            });
         } else if (e.params.data.familyID !== undefined) {
-           dialogLoadingFunction ( i18next.t("Loading subscribers from family") );
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading subscribers from family") );
        
            window.CRM.APIRequest({
                 method: 'POST',
@@ -181,11 +171,11 @@ $(document).ready(function () {
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                closeDialogLoadingFunction();
+                window.CRM.closeDialogLoadingFunction();
              }
            });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 1) {
-           dialogLoadingFunction ( i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !")+'<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading all persons from EcclesiaCRM<br>This could take a while !")+'<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
 
            window.CRM.APIRequest({
                 method: 'POST',
@@ -202,7 +192,7 @@ $(document).ready(function () {
              }
            });
         } else if (e.params.data.typeId !== undefined && e.params.data.typeId == 2) {
-           dialogLoadingFunction ( i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") + '<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
+           window.CRM.dialogLoadingFunction ( i18next.t("Loading all newsletter subscribers from EcclesiaCRM<br>This could take a while !") + '<br>'+i18next.t("In fact, you've better to quit the CRM, wait 5 minutes and make your campaigns after.<br>To import huge datas, MailChimp API is slow.") );
 
            window.CRM.APIRequest({
                 method: 'POST',
@@ -300,7 +290,7 @@ $(document).ready(function () {
         ],
         callback: function (status) {
           if (status) {
-            dialogLoadingFunction ( i18next.t("Changing status ...") );
+            window.CRM.dialogLoadingFunction ( i18next.t("Changing status ...") );
           
             window.CRM.APIRequest({
                   method: 'POST',
@@ -311,7 +301,7 @@ $(document).ready(function () {
                  window.CRM.dataListTable.ajax.reload();
                  render_container();
                } else if (data.success ==  false && data.error) {
-                  closeDialogLoadingFunction();
+                  window.CRM.closeDialogLoadingFunction();
                   window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }
             });
@@ -337,7 +327,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            dialogLoadingFunction( i18next.t('Deleting Subscriber...') );
+            window.CRM.dialogLoadingFunction( i18next.t('Deleting Subscriber...') );
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/suppress',
@@ -347,7 +337,7 @@ $(document).ready(function () {
                  window.CRM.dataListTable.ajax.reload();
                  render_container();
                } else if (data.success ==  false && data.error) {
-                  closeDialogLoadingFunction();
+                  window.CRM.closeDialogLoadingFunction();
                   window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                }
             });
@@ -406,7 +396,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
+            window.CRM.dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
             
             window.CRM.APIRequest({
                   method: 'POST',
@@ -475,7 +465,7 @@ $(document).ready(function () {
                   var htmlBody     = CKEDITOR.instances['campaignNotes'].getData();//$('form #campaignNotes').val();
                   
                   
-                  dialogLoadingFunction ( i18next.t("Adding Campaign ...") );
+                  window.CRM.dialogLoadingFunction ( i18next.t("Adding Campaign ...") );
 
                   window.CRM.APIRequest({
                         method: 'POST',
