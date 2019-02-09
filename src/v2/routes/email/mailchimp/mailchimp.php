@@ -135,7 +135,7 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
    
    $list = $mailchimp->getListFromListId($listId);
    
-   $sPageTitle = gettext('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  <span style="float:right">'._('GDPR').' '._('List'):'');
+   $sPageTitle = gettext('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  <span style="float:right">'._("GDPR List"):'');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),

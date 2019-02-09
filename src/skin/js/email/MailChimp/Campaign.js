@@ -34,7 +34,7 @@
       $("#dateCampaign").prop("disabled", (_val == 0)?true:false);
       $("#timeCampaign").prop("disabled", (_val == 0)?true:false);
       
-      if (_val == 0) {
+      if (_val == 0 && (window.CRM.status == "paused" || window.CRM.status == "save") ) {
         $("#sendCampaign").show();
       } else {
         $("#sendCampaign").hide();
@@ -97,7 +97,13 @@
            window.CRM.DisplayAlert(i18next.t("Error"),data.error3.detail);
          }
          
-         $('.status').html("(" + data.status + ")");
+         $('.status').html("(" + i18next.t(data.status) + ")");
+         
+         window.CRM.status = data.status;
+         
+         if (data.status == "paused") {
+           $("#sendCampaign").show();
+         }
       });
     });
 
