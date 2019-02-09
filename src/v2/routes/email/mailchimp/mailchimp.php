@@ -38,15 +38,16 @@ function mailchimpDashboardArgumentsArray ()
    $mailchimp       = new MailChimpService();
    $mailChimpStatus = $mailchimp->getConnectionStatus();
 
-   $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
-                       'sRootDocument'   => SystemURLs::getDocumentRoot(),
-                       'sPageTitle'      => $sPageTitle, 
-                       'mailchimp'       => $mailchimp,
-                       'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
-                       'mailChimpStatus' => $mailChimpStatus,
-                       'isMenuOption'    => SessionUser::getUser()->isMenuOptionsEnabled(),
-                       'getSupportURL'   => SystemURLs::getSupportURL(),
-                       'isMailChimpActiv'=> (($mailchimp->isActive())?1:0)
+   $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
+                       'sRootDocument'     => SystemURLs::getDocumentRoot(),
+                       'sPageTitle'        => $sPageTitle, 
+                       'mailchimp'         => $mailchimp,
+                       'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
+                       'mailChimpStatus'   => $mailChimpStatus,
+                       'isMenuOption'      => SessionUser::getUser()->isMenuOptionsEnabled(),
+                       'getSupportURL'     => SystemURLs::getSupportURL(),
+                       'isMailChimpActiv'  => (($mailchimp->isActive())?1:0),
+                       'isMailChimpLoaded' => (($mailchimp->isLoaded())?1:0)
                        ];   
 
    return $paramsArguments;

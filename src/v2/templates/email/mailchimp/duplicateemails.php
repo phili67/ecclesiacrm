@@ -15,7 +15,7 @@ require $sRootDocument . '/Include/Header.php';
 <div class="box-header  with-border">
   <h3 class="box-title"><?= _("Duplicate Emails")?></h3>
   <div style="float:right">
-    <a href="https://mailchimp.com/<?= $lang ?>/"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
+    <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
   </div>
 </div>
 <table class="table table-striped table-bordered" id="duplicateTable" cellpadding="5" cellspacing="0"  width="100%"></table>

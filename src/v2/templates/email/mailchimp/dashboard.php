@@ -4,7 +4,7 @@
  *  filename    : dashboard.php
  *  last change : 2019/2/6
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2019/2/6 Philippe Logel
+ *  copyright   : Copyright 2019/2/6 all right reserved Philippe Logel
  *
  ******************************************************************************/
 
@@ -52,7 +52,7 @@ require $sRootDocument . '/Include/Header.php';
     <div class="box">
       <div class="box-header   with-border">
         <h3 class="box-title"><?= _('MailChimp Management') ?></h3>
-        <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/">
+        <div style="float:right"><a href="https://mailchimp.com/<?= $lang ?>/" target="_blank">
           <img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
       </div>
@@ -89,6 +89,7 @@ require $sRootDocument . '/Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
    window.CRM.mailchimpIsActive = <?= $isMailChimpActiv ?>;
    window.CRM.getSupportURL     = "<?= $getSupportURL ?>";
+   window.CRM.isMailChimpLoaded = <?= $isMailChimpLoaded ?>;
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
