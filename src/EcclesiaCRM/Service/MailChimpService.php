@@ -411,6 +411,47 @@ class MailChimpService
       
       return $result;
     }
+    
+    public function setCampaignSchedule ($campaignID,$schedule_time, $timewarp, $batch_delay) {
+      $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/schedule", ["schedule_time" => $schedule_time, "timewarp" => $timewarp, "batch_delay" => $batch_delay]);
+      
+      $this->setCampaignStatus($campaignID,"schedule",$schedule_time);
+      
+      return $resultContent;
+    }
+
+    public function setCampaignUnschedule ($campaignID) {
+      $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/unschedule");
+      
+      $this->setCampaignStatus($campaignID,"paused");
+      
+      return $resultContent;
+    }
+    
+    private function setCampaignStatus ($campaignID,$status,$send_time = nil) {
+      $campaigns = $_SESSION['MailChimpCampaigns'];
+      
+      $res = [];
+      
+      foreach ($campaigns as $campaign) {
+        if ($campaign['id'] == $campaignID) {
+          $campaign['status'] = $status;
+          if (!is_null($send_time)) {
+            $campaign['send_time'] = $send_time;
+          }
+        }
+        $res[] = $campaign;
+      }
+        
+      $_SESSION['MailChimpCampaigns'] = $res;
+    }
+
+
+    public function setCampaignPause ($campaignID,$schedule_time, $timewarp, $batch_delay) {
+      $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/pause");
+      
+      return $resultContent;
+    }
 
     public function setCampaignContent ($campaignID,$htmlBody) {
       $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);

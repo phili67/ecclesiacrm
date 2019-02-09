@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
       <div class="box-body">
         <p>
           <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive())?'':'disabled' ?>>
-            <i class="fa fa-list-alt"></i><?= _("Create a Mailing list") ?>
+            <i class="fa fa-list-alt"></i><?= _("Create list") ?>
           </button>
           <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
             <i class="fa fa fa-table"></i> <?= _('Generate CSV') ?>

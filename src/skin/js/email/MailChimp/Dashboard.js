@@ -33,7 +33,7 @@ $(document).ready(function () {
       
             listViews += '<div class="box">'
             +'    <div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+i18next.t('MailChimp List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
+            +'      <h3 class="box-title">'+i18next.t('eMail List') + ' : '+ list.name + '</h3> <a href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"><span class="fa-stack"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></a>'
             +'    </div>'
             +'    <div class="box-body">'
             +'      <div class="row" style="100%">'

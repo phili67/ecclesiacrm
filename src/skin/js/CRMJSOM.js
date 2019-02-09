@@ -41,12 +41,12 @@
     }
     
     window.CRM.dialogLoadingFunction =  function (message) {
-      dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
+      window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
    }
  
    window.CRM.closeDialogLoadingFunction = function () {
-     if (dialogLoading != null) {
-        dialogLoading.modal('hide');
+     if (window.CRM.dialogLoading != null) {
+        window.CRM.dialogLoading.modal('hide');
       }
    }
 

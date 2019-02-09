@@ -17,7 +17,7 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Mailing List') ?></h3>
+        <h3 class="box-title"><?= _('Manage Email List') ?></h3>
         <div style="float:right">
           <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
@@ -43,9 +43,6 @@ require $sRootDocument . '/Include/Header.php';
   if ($isMailchimpActiv) {
 ?>
   <div class="row">
-    <?php 
-      $list = $mailchimp->getListFromListId($listId);
-    ?>
       <div class="col-lg-12">
         <div class="box" id="container">
         </div>
@@ -86,8 +83,8 @@ require $sRootDocument . '/Include/Header.php';
       <div class="box box-body">
         <div class="alert alert-danger alert-dismissible">
           <h4><i class="fa fa-ban"></i> MailChimp <?= _('is not configured') ?></h4>
-          <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?><a href="../../SystemSettings.php"><?= _('Edit General Settings') ?></a>,
-          <?= _('then update') ?> sMailChimpApiKey. <?= _('For more info see our ') ?><a href="<?= SystemURLs::getSupportURL() ?>"> MailChimp <?= _('support docs.') ?></a>
+          <?= _('Please update the') ?> MailChimp <?= _('API key in Setting->') ?><a href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Edit General Settings') ?></a>,
+          <?= _('then update') ?> sMailChimpApiKey. <?= _('For more info see our ') ?><a href="<?= $getSupportURL ?>"> MailChimp <?= _('support docs.') ?></a>
         </div>
       </div>
     </div>
@@ -99,7 +96,7 @@ require $sRootDocument . '/Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  window.CRM.list_ID = "<?= $listId ?>";
+  window.CRM.list_ID           = "<?= $listId ?>";
   window.CRM.mailchimpIsActive = <?= ($isMailchimpActiv)?1:0 ?>;
 </script>
 

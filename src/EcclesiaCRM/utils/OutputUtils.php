@@ -434,6 +434,20 @@ class OutputUtils {
   {
     return ((strtotime($string) != "")?date(SystemConfig::getValue("sDatePickerFormat"), strtotime($string)):strtotime($string));
   }
+  
+  public static function change_time_for_place_holder($string)
+  {
+    $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
+    
+    try {
+      $d = new \DateTime($string);
+    } catch (\Exception $e) {
+      return "";
+    }
+
+    return $d->format('H:i');
+  }
+
 
   public static function FormatDateOutput($bWithTime)
   {
