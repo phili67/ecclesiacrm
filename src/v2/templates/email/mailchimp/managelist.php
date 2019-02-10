@@ -33,6 +33,10 @@ require $sRootDocument . '/Include/Header.php';
           <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= _("Delete") ?>
           </button>
+          <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>" data-subject="<?= $list['campaign_defaults']['subject']?>">
+             <i class="fa fa-pencil"></i>
+             <?= _('Modify Properties') ?>
+          </button>
         </p>
       </div>
     </div>
@@ -49,17 +53,6 @@ require $sRootDocument . '/Include/Header.php';
       </div>
   </div>
   
-  <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
-    <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?><br>
-    <ul>
-      <li>
-        <?= _("The max numbers of members can be modified in the \"System Settings\" -> \"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount ") ?>
-      </li>
-      <li>
-        <?= _("Increase this value is unstable with MailChimp API.") ?>
-      </li>
-    </ul>
-  </div>
   <div class="row">  
       <div class="col-lg-12">
         <div class="box">
@@ -67,6 +60,17 @@ require $sRootDocument . '/Include/Header.php';
             <h3 class="box-title"><?= _('Subscribers') ?></h3>
           </div>
           <div class="box-body">
+              <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
+                <?= _("To add all the newsletter users, type <b>NewLetter</b> in the search field, to add all members of the CRM, use <b>*</b>") ?><br>
+                <ul>
+                  <li>
+                    <?= _("The max numbers of members can be modified in the \"System Settings\" -> \"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount ") ?>
+                  </li>
+                  <li>
+                    <?= _("Increase this value is unstable with MailChimp API.") ?>
+                  </li>
+                </ul>
+              </div>
               <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5" cellspacing="0"  width="100%"></table>
               <select name="person-group-Id-Share" class="person-group-Id-Share" class="form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
           </div>

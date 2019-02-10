@@ -24,7 +24,7 @@ $(document).ready(function () {
         var list = data.MailChimpList;
       
         var  listView = '<div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3><button class="btn btn-xs btn-primary" id="modifyList" style="float:right" data-name="' + list.name + '" data-subject="' + list.campaign_defaults.subject + '">' + i18next.t('Modify Properties') + '</button>'
+          +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3>'
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
@@ -470,9 +470,27 @@ $(document).ready(function () {
                         path: 'mailchimp/campaign/actions/create',
                         data: JSON.stringify({"list_id":window.CRM.list_ID, "subject":Subject, "title" : campaignTitle,"htmlBody" : htmlBody})
                   }).done(function(data) { 
-                     if (data.success) {
-                       render_container();
-                     }
+                    if (data.success) {
+                      bootbox.confirm({
+                        message: i18next.t("Would like to manage directly this new campaign ?"),
+                        buttons: {
+                            confirm: {
+                                label: i18next.t('Yes'),
+                                className: 'btn-primary'
+                            },
+                            cancel: {
+                                label: i18next.t('No'),
+                                className: 'btn-default'
+                            }
+                        },
+                        callback: function (result) {
+                          render_container();
+                          if (result) {
+                            window.location.href = window.CRM.root + "/v2/mailchimp/campaign/" + data.result[0].id;
+                          }
+                        }
+                      });
+                    }
                   });
               } else {
                   window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Campaign Title for your eMail Campaign"));
@@ -513,8 +531,12 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID, "name" : name, "subject":subject})
             }).done(function(data) { 
                if (data.success) {
-                 render_container();
-                 $( '.listName' + window.CRM.list_ID ).html('<i class="fa fa-circle-o"></i>' + name );
+                  $("#modifyList").data('name',name);
+                  $("#modifyList").data('subject',subject);
+                  $("#ListTitle").text(name);
+            
+                  render_container();
+                  $( '.listName' + window.CRM.list_ID ).html('<i class="fa fa-circle-o"></i>' + name );
                }
             });
             

@@ -58,19 +58,22 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-      <?php
-        if ($campaign['status'] == "schedule") {
-      ?>
-          <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <?= _('Schedule') ?></h3>
-      <?php
-        } else {
-      ?>
-          <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <?= _('Schedule') ?></h3>
-      <?php
-      	}
-      ?>
+        <?php
+          if ($campaign['status'] == "schedule") {
+        ?>
+            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <?= _('Schedule') ?></h3>
+        <?php
+          } else {
+        ?>
+            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <?= _('Schedule') ?></h3>
+        <?php
+          }
+        ?>
       </div>
       <div class="box-body">
+        <div class="callout callout-warning"><i class="fa fa-warning" aria-hidden="true"></i> 
+          <?= _("You've first to create a content below to schedule a campaign.") ?>
+        </div>
         <div class="row">
            <div class="col-md-12">
               <div class="row">
@@ -99,6 +102,9 @@ require $sRootDocument . '/Include/Header.php';
                             </div>
                          </div>
                      </div>
+                  <div class="col-md-7">
+                     <?= _("To validate, save your campaign with the <b>\"Save Campaign\"</b> button over.") ?>
+                  </div>   
                 </div>
            </div>
         </div>
@@ -108,8 +114,22 @@ require $sRootDocument . '/Include/Header.php';
 </div>
 
 <div class="row">
-  <div class="col-lg-12" style="padding-left:15px;padding-right:15px;">
-    <textarea name="campaignContent" cols="80" class="form-control input-sm campaignContent" id="campaignContent"  width="100%" style="margin-top:0px;width: 100%;height: 14em;"></textarea></div>
+  <div class="col-lg-12">
+    <div class="box">
+      <div class="box-header   with-border">
+        <h3 class="box-title"><?= _("Content") ?> </h3>
+      </div>
+      <div class="box-body">
+        <div class="row">
+          <div class="col-lg-12" style="padding-left:15px;padding-right:15px;">
+            <div class="callout callout-info"><i class="fa fa-info" aria-hidden="true"></i> 
+              <?= _("You can use the button \"Merge Tags\" below, to customize your content") ?> : <img src="<?= $sRootPath ?>/Images/merge_tags.png">.
+            </div>
+            <textarea name="campaignContent" cols="80" class="form-control input-sm campaignContent" id="campaignContent"  width="100%" style="margin-top:0px;width: 100%;height: 14em;"></textarea></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
