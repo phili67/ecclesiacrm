@@ -100,7 +100,7 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
    $mailChimpStatus = $mailchimp->getConnectionStatus();
    $campaign        = $mailchimp->getCampaignFromId($campaignId);
    
-   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray')."\"class=\"status\">("._($campaign['status']).")</span></b>";
+   $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray').";float:right\"class=\"status\">("._($campaign['status']).")</span></b>";
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
@@ -135,7 +135,7 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
    
    $list = $mailchimp->getListFromListId($listId);
    
-   $sPageTitle = gettext('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  <span style="float:right">'._("GDPR List"):'');
+   $sPageTitle = gettext('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR List"):'');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),

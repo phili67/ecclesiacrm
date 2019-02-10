@@ -326,7 +326,7 @@ class MenuBar {
         $menuItem->addLink("v2/mailchimp/notinmailchimpemails");
         $menuItem->addLink("v2/mailchimp/debug");
         
-        $menuItemItem = new Menu (gettext("eMail Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu hidden");
+        $menuItemItem = new Menu (gettext("Email Lists"),"fa fa-circle-o","#",true,$menuMain,"lists_class_menu ".(($mailchimp->isLoaded())?"":"hidden"));
 
         if ($mailchimp->isLoaded()) {// to accelerate the Menu.php the first time
           $mcLists = $mailchimp->getLists();
