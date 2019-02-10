@@ -10745,9 +10745,8 @@ msgid "Delete All Subscribers"
 msgstr "Effacer tous les abonnés"
 
 #: v2/templates/email/mailchimp/managelist.php:38
-#, fuzzy
 msgid "Modify Properties"
-msgstr "Modifier Propriétés spécifiques"
+msgstr "Modifier Les Propriétés"
 
 #: v2/templates/email/mailchimp/managelist.php:60
 msgid "Subscribers"

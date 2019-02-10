@@ -1377,9 +1377,8 @@ msgstr "Bestätigen das Zurücksetzen des Kennwort für diesen Benutzer"
 msgid "Password reset for"
 msgstr "Kennwortzurücksetzung für"
 
-#, fuzzy
 msgid "Saving Campaign ..."
-msgstr "Kampagne hinzufügen ... "
+msgstr "Kampagne Speichern ... "
 
 msgid "Campaign"
 msgstr "Kampagne"
@@ -1393,19 +1392,17 @@ msgstr "Sie sind im Begriff, eine Kampagne zu senden ! Sind sie sicher?"
 msgid "You're about to delete your campaign! Are you sure ?"
 msgstr "Sie sind im Begriff, eine Kampagne zu löschen ! Sind sie sicher?"
 
-#, fuzzy
 msgid "Loading datas ..."
-msgstr "Ressourcen werden geladen..."
+msgstr "Laden von Daten..."
 
 msgid "No list are created with this account ...."
-msgstr ""
+msgstr "Kein liste ist erstellt für dieses Konto ...."
 
-#, fuzzy
 msgid "Email List"
-msgstr "Email"
+msgstr "Email Liste"
 
 msgid "GDPR"
-msgstr ""
+msgstr "GDPR"
 
 msgid "Subject"
 msgstr "Betreff"
@@ -1549,9 +1546,8 @@ msgstr ""
 "warten für ihren Listen zu verwalten.<br>Maichimp ist wirklich eine langsame "
 "Anwendung für Daten zu löschen."
 
-#, fuzzy
 msgid "Email Campaign Creation"
-msgstr "MailChimp Kampagne Erstellung"
+msgstr "Email Kampagne Erstellung"
 
 msgid "Campaign Title"
 msgstr "Kampagne Titel"
@@ -1569,7 +1565,7 @@ msgid "Adding Campaign ..."
 msgstr "Kampagne hinzufügen ... "
 
 msgid "Would like to manage directly this new campaign ?"
-msgstr ""
+msgstr "Wollen Sie diese Kampagne direkt verwalten ?"
 
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
