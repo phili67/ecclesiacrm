@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-09 23:02+0100\n"
+"POT-Creation-Date: 2019-02-10 17:42+0100\n"
 "Language: fr-FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -476,7 +476,7 @@ msgstr "Désactiver "
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:81
 msgid "Date"
 msgstr "Date"
 
@@ -4483,8 +4483,8 @@ msgid "MailChimp"
 msgstr "MailChimp"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:329
-msgid "eMail Lists"
-msgstr "Liste Mailing"
+msgid "Email Lists"
+msgstr "Listes de Diffusion"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
@@ -7274,7 +7274,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Veuillez contacter votre administrateur pour changer les Réglages du Système."
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:89
 msgid "Edit General Settings"
 msgstr "Modifier les Réglages Généraux"
 
@@ -10534,7 +10534,7 @@ msgstr "Campagne de publipostage"
 
 #: v2/routes/email/mailchimp/mailchimp.php:138
 msgid "Email List"
-msgstr "Liste Publipostage"
+msgstr "Liste de Diffusion"
 
 #: v2/routes/email/mailchimp/mailchimp.php:138
 msgid "GDPR List"
@@ -10647,6 +10647,30 @@ msgstr "Sujet du Mail"
 msgid "Your Mail Subject"
 msgstr "Votre sujet de mail"
 
+#: v2/templates/email/mailchimp/campaign.php:75
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+"Vous devez dans un premier temps, créer un contenu en dessous, pour "
+"planifier une campagne."
+
+#: v2/templates/email/mailchimp/campaign.php:106
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+"Pour valider, enregistrer votre campagne avec le bouton <b>\"Enregistrer la "
+"Campagne\"</b> au dessus."
+
+#: v2/templates/email/mailchimp/campaign.php:120
+msgid "Content"
+msgstr "Contenu"
+
+#: v2/templates/email/mailchimp/campaign.php:126
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+"Vous pourrez utiliser le bouton \"Champ de Fusion\" ci-dessous, pour "
+"personnaliser votre contenu"
+
 #: v2/templates/email/mailchimp/dashboard.php:20
 msgid "MailChimp Problem"
 msgstr "Problème MailChimp"
@@ -10720,16 +10744,25 @@ msgstr "Crée une Campagne"
 msgid "Delete All Subscribers"
 msgstr "Effacer tous les abonnés"
 
-#: v2/templates/email/mailchimp/managelist.php:53
+#: v2/templates/email/mailchimp/managelist.php:38
+#, fuzzy
+msgid "Modify Properties"
+msgstr "Modifier Propriétés spécifiques"
+
+#: v2/templates/email/mailchimp/managelist.php:60
+msgid "Subscribers"
+msgstr "Abonnés"
+
+#: v2/templates/email/mailchimp/managelist.php:64
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
-"Pour ajouter tous les personnes voulant une NewsLetter, écrire "
+"Pour ajouter toutes les personnes voulant une NewsLetter, écrire "
 "<b>NewsLetter</b> dans le champ de recherche, pour ajouter tous les membres "
 "du CRM, utiliser <b>*</b>"
 
-#: v2/templates/email/mailchimp/managelist.php:56
+#: v2/templates/email/mailchimp/managelist.php:67
 msgid ""
 "The max numbers of members can be modified in the \"System Settings\" -> "
 "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
@@ -10737,35 +10770,31 @@ msgstr ""
 "Le nombre maximum de membres peut être modifié dans \"Réglages généraux\" -> "
 "\"Intégration\" -> \"Champ\" : iMailChimpApiMaxMembersCount"
 
-#: v2/templates/email/mailchimp/managelist.php:59
+#: v2/templates/email/mailchimp/managelist.php:70
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Augmenter cette valeur peut être instable avec l'API MailChimp."
 
-#: v2/templates/email/mailchimp/managelist.php:67
-msgid "Subscribers"
-msgstr "Abonnés"
-
-#: v2/templates/email/mailchimp/managelist.php:84
+#: v2/templates/email/mailchimp/managelist.php:88
 msgid "is not configured"
 msgstr "n'est pas configuré"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "Please update the"
 msgstr "Veuillez mettre à jour le"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "API key in Setting->"
 msgstr "Clé API dans Réglages->"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "then update"
 msgstr "puis mettre à jour"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "For more info see our "
 msgstr "Pour plus d'infos voir notre "
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "support docs."
 msgstr "documentations."
 
@@ -11440,6 +11469,9 @@ msgid "subscribed"
 msgstr "abonné"
 
 msgid "send"
+msgstr "envoyée"
+
+msgid "sent"
 msgstr "envoyée"
 
 msgid "save"

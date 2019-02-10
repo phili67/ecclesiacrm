@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-09 23:02+0100\n"
+"POT-Creation-Date: 2019-02-10 17:42+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -507,7 +507,7 @@ msgstr ""
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:81
 msgid "Date"
 msgstr "Дата"
 
@@ -4552,7 +4552,7 @@ msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:329
 #, fuzzy
-msgid "eMail Lists"
+msgid "Email Lists"
 msgstr "Редактор семейств"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
@@ -7527,7 +7527,7 @@ msgstr "Тип недвижимости редактор"
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:89
 #, fuzzy
 msgid "Edit General Settings"
 msgstr "Другие настройки"
@@ -11149,6 +11149,24 @@ msgstr "Email Группа"
 msgid "Your Mail Subject"
 msgstr ""
 
+#: v2/templates/email/mailchimp/campaign.php:75
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:106
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:120
+msgid "Content"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:126
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+
 #: v2/templates/email/mailchimp/dashboard.php:20
 #, fuzzy
 msgid "MailChimp Problem"
@@ -11232,49 +11250,54 @@ msgstr "Создать новую семью"
 msgid "Delete All Subscribers"
 msgstr "Выбрать все"
 
-#: v2/templates/email/mailchimp/managelist.php:53
+#: v2/templates/email/mailchimp/managelist.php:38
+#, fuzzy
+msgid "Modify Properties"
+msgstr "Групповые специфические свойства"
+
+#: v2/templates/email/mailchimp/managelist.php:60
+msgid "Subscribers"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:64
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:56
+#: v2/templates/email/mailchimp/managelist.php:67
 msgid ""
 "The max numbers of members can be modified in the \"System Settings\" -> "
 "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:59
+#: v2/templates/email/mailchimp/managelist.php:70
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:67
-msgid "Subscribers"
-msgstr ""
-
-#: v2/templates/email/mailchimp/managelist.php:84
+#: v2/templates/email/mailchimp/managelist.php:88
 #, fuzzy
 msgid "is not configured"
 msgstr "Не подтверждено."
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "Please update the"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "API key in Setting->"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 #, fuzzy
 msgid "then update"
 msgstr "Дата обновления"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "For more info see our "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "support docs."
 msgstr ""
 
@@ -11983,6 +12006,9 @@ msgstr ""
 msgid "send"
 msgstr ""
 
+msgid "sent"
+msgstr ""
+
 msgid "save"
 msgstr ""
 
@@ -11992,6 +12018,10 @@ msgstr "Сроки"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "eMail Lists"
+#~ msgstr "Редактор семейств"
 
 #, fuzzy
 #~ msgid "Create a Mailing list"

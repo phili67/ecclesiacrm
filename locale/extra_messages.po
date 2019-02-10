@@ -76,6 +76,9 @@ msgstr ""
 msgid "send"
 msgstr ""
 
+msgid "sent"
+msgstr ""
+
 msgid "save"
 msgstr ""
 
