@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-02-09T21:58:49.996Z\n"
+"POT-Creation-Date: 2019-02-10T16:42:04.266Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -642,6 +642,40 @@ msgstr "Apply Modelo"
 msgid "Save As Word File in EDrive"
 msgstr "Guardar como archivo Word"
 
+#, fuzzy
+msgid "First Name"
+msgstr "Primer nombre"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "Papá-Nombre"
+
+msgid "Email"
+msgstr "Email"
+
+#, fuzzy
+msgid "Phone"
+msgstr "Teléfono Celular"
+
+msgid "Address"
+msgstr "Dirección"
+
+#, fuzzy
+msgid "List"
+msgstr "Nombre"
+
+msgid "Company"
+msgstr ""
+
+msgid "Unsub"
+msgstr ""
+
+msgid "VCard"
+msgstr ""
+
+msgid "Merge Tags"
+msgstr ""
+
 msgid "Present"
 msgstr "Presente"
 
@@ -865,9 +899,6 @@ msgstr "Rol de Grupo"
 msgid "Private Data"
 msgstr "Datos Personales"
 
-msgid "Address"
-msgstr "Dirección"
-
 msgid "City"
 msgstr "Ciudad"
 
@@ -879,9 +910,6 @@ msgstr "Código Postal"
 
 msgid "Cell Phone"
 msgstr "Teléfono Celular"
-
-msgid "Email"
-msgstr "Email"
 
 msgid "Remove"
 msgstr "Remover"
@@ -1459,10 +1487,6 @@ msgstr "Familia"
 msgid "Loading resources ..."
 msgstr ""
 
-#, fuzzy
-msgid "Modify Properties"
-msgstr "Cambiar nombre de grupo"
-
 msgid "Loading subscriber"
 msgstr ""
 
@@ -1484,14 +1508,6 @@ msgid ""
 "Loading all newsletter subscribers from EcclesiaCRM<br>This could take a "
 "while !"
 msgstr ""
-
-#, fuzzy
-msgid "First Name"
-msgstr "Primer nombre"
-
-#, fuzzy
-msgid "Last Name"
-msgstr "Papá-Nombre"
 
 msgid "Email Marketing"
 msgstr ""
@@ -1551,6 +1567,9 @@ msgstr ""
 msgid "Adding Campaign ..."
 msgstr ""
 
+msgid "Would like to manage directly this new campaign ?"
+msgstr ""
+
 #, fuzzy
 msgid "You have to set a Campaign Title for your eMail Campaign"
 msgstr "Debe configurar un Título e una descripción para su Problema."
@@ -1560,16 +1579,12 @@ msgid "List Name"
 msgstr "Nombre"
 
 #, fuzzy
+#~ msgid "Modify Properties"
+#~ msgstr "Cambiar nombre de grupo"
+
+#, fuzzy
 #~ msgid "List Details"
 #~ msgstr "Detalles"
-
-#, fuzzy
-#~ msgid "Phone"
-#~ msgstr "Teléfono Celular"
-
-#, fuzzy
-#~ msgid "List"
-#~ msgstr "Nombre"
 
 #~ msgid "Edit Value"
 #~ msgstr "Editar valor"

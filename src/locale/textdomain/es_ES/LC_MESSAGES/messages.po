@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-09 23:02+0100\n"
+"POT-Creation-Date: 2019-02-10 17:42+0100\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -474,7 +474,7 @@ msgstr "Desabilitar "
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:81
 msgid "Date"
 msgstr "Fecha"
 
@@ -4443,7 +4443,7 @@ msgstr "MailChimp"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:329
 #, fuzzy
-msgid "eMail Lists"
+msgid "Email Lists"
 msgstr "Lista de Familia"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
@@ -7205,7 +7205,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Por favor contacte el administrador para cambiarlo los ajustes del sistema."
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:89
 msgid "Edit General Settings"
 msgstr "Editar Ajustes Generales"
 
@@ -10559,6 +10559,24 @@ msgstr "Ajustes de Email"
 msgid "Your Mail Subject"
 msgstr ""
 
+#: v2/templates/email/mailchimp/campaign.php:75
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:106
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:120
+msgid "Content"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:126
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+
 #: v2/templates/email/mailchimp/dashboard.php:20
 #, fuzzy
 msgid "MailChimp Problem"
@@ -10642,47 +10660,52 @@ msgstr "Creado vía Familia"
 msgid "Delete All Subscribers"
 msgstr "Seleccionar todos los miembros"
 
-#: v2/templates/email/mailchimp/managelist.php:53
+#: v2/templates/email/mailchimp/managelist.php:38
+#, fuzzy
+msgid "Modify Properties"
+msgstr "Cambiar Propiedades Específicas de Grupo"
+
+#: v2/templates/email/mailchimp/managelist.php:60
+msgid "Subscribers"
+msgstr ""
+
+#: v2/templates/email/mailchimp/managelist.php:64
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:56
+#: v2/templates/email/mailchimp/managelist.php:67
 msgid ""
 "The max numbers of members can be modified in the \"System Settings\" -> "
 "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:59
+#: v2/templates/email/mailchimp/managelist.php:70
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:67
-msgid "Subscribers"
-msgstr ""
-
-#: v2/templates/email/mailchimp/managelist.php:84
+#: v2/templates/email/mailchimp/managelist.php:88
 msgid "is not configured"
 msgstr "no está configurado"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "Please update the"
 msgstr "Por favor actualizar la"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "API key in Setting->"
 msgstr "Llave de API en Ajuste->"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "then update"
 msgstr "después actualizar"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "For more info see our "
 msgstr "Para más información vea nuestros "
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "support docs."
 msgstr "documentos de soporte."
 
@@ -11345,6 +11368,10 @@ msgstr "Cantidad de desuscritos:"
 msgid "send"
 msgstr ""
 
+#, fuzzy
+msgid "sent"
+msgstr "Ausente"
+
 msgid "save"
 msgstr ""
 
@@ -11354,6 +11381,10 @@ msgstr "Agendar"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "eMail Lists"
+#~ msgstr "Lista de Familia"
 
 #, fuzzy
 #~ msgid "Manage Campaign"

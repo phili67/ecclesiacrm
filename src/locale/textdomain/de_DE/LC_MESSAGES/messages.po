@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-09 23:02+0100\n"
+"POT-Creation-Date: 2019-02-10 17:42+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -466,7 +466,7 @@ msgstr "Deaktivieren"
 #: EditEventAttendees.php:57 FindFundRaiser.php:237 FundRaiserEditor.php:165
 #: Include/Functions.php:93 PledgeEditor.php:554 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:370
-#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:78
+#: SelectDelete.php:310 v2/templates/email/mailchimp/campaign.php:81
 msgid "Date"
 msgstr "Datum"
 
@@ -4404,8 +4404,8 @@ msgid "MailChimp"
 msgstr "MailChimp"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:329
-msgid "eMail Lists"
-msgstr "eMail liste"
+msgid "Email Lists"
+msgstr "Email liste"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
@@ -7178,7 +7178,7 @@ msgstr ""
 "Wenden Sie sich an den Administrator, um die Einstellungen der "
 "Systemvariablen zu ändern."
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:85
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:89
 msgid "Edit General Settings"
 msgstr "General Einstellung Editieren"
 
@@ -10389,19 +10389,16 @@ msgid "Debug Email Connection"
 msgstr "Debug-E-mail Verbindung "
 
 #: v2/routes/email/mailchimp/mailchimp.php:103
-#, fuzzy
 msgid "Email Campaign"
-msgstr "Kampagne speichern"
+msgstr "Email Kampagne"
 
 #: v2/routes/email/mailchimp/mailchimp.php:138
-#, fuzzy
 msgid "Email List"
-msgstr "eMail liste"
+msgstr "Email liste"
 
 #: v2/routes/email/mailchimp/mailchimp.php:138
-#, fuzzy
 msgid "GDPR List"
-msgstr "GDPR"
+msgstr "GDPR Liste"
 
 #: v2/routes/email/mailchimp/mailchimp.php:170
 msgid "Manage List"
@@ -10494,9 +10491,8 @@ msgid "Exclude/include the Shared"
 msgstr "Ausschließen/Einschließen Gemeinsam"
 
 #: v2/templates/email/mailchimp/campaign.php:22
-#, fuzzy
 msgid "Email Campaign Management"
-msgstr "MailChimp Verwaltung"
+msgstr "Email Kampagne Verwaltung"
 
 #: v2/templates/email/mailchimp/campaign.php:30
 msgid "Save Campaign"
@@ -10510,6 +10506,24 @@ msgstr "E-mail Betreff"
 msgid "Your Mail Subject"
 msgstr "Ihre E-mail Betreff"
 
+#: v2/templates/email/mailchimp/campaign.php:75
+msgid "You've first to create a content below to schedule a campaign."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:106
+msgid ""
+"To validate, save your campaign with the <b>\"Save Campaign\"</b> button "
+"over."
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:120
+msgid "Content"
+msgstr ""
+
+#: v2/templates/email/mailchimp/campaign.php:126
+msgid "You can use the button \"Merge Tags\" below, to customize your content"
+msgstr ""
+
 #: v2/templates/email/mailchimp/dashboard.php:20
 msgid "MailChimp Problem"
 msgstr "MailChimp Problem"
@@ -10519,7 +10533,6 @@ msgid "Mailchimp Status"
 msgstr "Backup Status"
 
 #: v2/templates/email/mailchimp/dashboard.php:30
-#, fuzzy
 msgid "field"
 msgstr "Feld"
 
@@ -10536,9 +10549,8 @@ msgid "MailChimp Management"
 msgstr "MailChimp Verwaltung"
 
 #: v2/templates/email/mailchimp/dashboard.php:62
-#, fuzzy
 msgid "Create list"
-msgstr "Erstelle Gruppenliste"
+msgstr "Liste Erstellen"
 
 #: v2/templates/email/mailchimp/dashboard.php:65
 msgid "Generate CSV"
@@ -10573,9 +10585,8 @@ msgid "Duplicate Emails"
 msgstr "Doppelte E-Mails"
 
 #: v2/templates/email/mailchimp/managelist.php:20
-#, fuzzy
 msgid "Manage Email List"
-msgstr "Mailing List verwalten"
+msgstr "Email List verwalten"
 
 #: v2/templates/email/mailchimp/managelist.php:28
 msgid "Create a Campaign"
@@ -10585,47 +10596,51 @@ msgstr "Kampagne Erstellen"
 msgid "Delete All Subscribers"
 msgstr "Alle Abonnenten Löschen"
 
-#: v2/templates/email/mailchimp/managelist.php:53
+#: v2/templates/email/mailchimp/managelist.php:38
+msgid "Modify Properties"
+msgstr "Eigenschaften Bearbeiten"
+
+#: v2/templates/email/mailchimp/managelist.php:60
+msgid "Subscribers"
+msgstr "Abonnenten"
+
+#: v2/templates/email/mailchimp/managelist.php:64
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:56
+#: v2/templates/email/mailchimp/managelist.php:67
 msgid ""
 "The max numbers of members can be modified in the \"System Settings\" -> "
 "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:59
+#: v2/templates/email/mailchimp/managelist.php:70
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:67
-msgid "Subscribers"
-msgstr "Abonnenten"
-
-#: v2/templates/email/mailchimp/managelist.php:84
+#: v2/templates/email/mailchimp/managelist.php:88
 msgid "is not configured"
 msgstr "ist nicht konfiguriert"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "Please update the"
 msgstr "Bitte update die"
 
-#: v2/templates/email/mailchimp/managelist.php:85
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "API key in Setting->"
 msgstr "API key in Einstellungen->"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "then update"
 msgstr "danach aktualisiere"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "For more info see our "
 msgstr "Für weitere Informationen sehen Sie unsere"
 
-#: v2/templates/email/mailchimp/managelist.php:86
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "support docs."
 msgstr "Dokumentation support."
 
@@ -11267,15 +11282,20 @@ msgstr "abonnenten"
 msgid "send"
 msgstr "senden"
 
-msgid "save"
-msgstr "speichern"
+msgid "sent"
+msgstr "gesendet"
 
-#, fuzzy
+msgid "save"
+msgstr "gespeichert"
+
 msgid "schedule"
-msgstr "Termin"
+msgstr "Zeitplan"
 
 msgid "paused"
-msgstr ""
+msgstr "pausiert"
+
+#~ msgid "eMail Lists"
+#~ msgstr "eMail liste"
 
 #~ msgid "Manage Campaign"
 #~ msgstr "Kampagnen verwalten"
