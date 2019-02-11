@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Philippe Logel 2019
+
 # setup the LAMP server with everything
 sudo apt install tasksel
 sudo tasksel install lamp-server
