@@ -26,7 +26,7 @@ function getSupportedLocales()
 function select_Timezone($selected = '') {
     $OptionsArray = timezone_identifiers_list();
         $select= '<br><select id="sTimeZone" name="sTimeZone" class="form-control select2" aria-describedby="sTimeZoneHelp" style="width:100%" required>';
-        while (list ($key, $row) = each ($OptionsArray) ){
+        foreach ($OptionsArray as $key => $row) {
             $select .='<option value="'.$row.'"';
             $select .= ($key == $selected ? ' selected' : '');
             $select .= '>'.$row.'</option>';

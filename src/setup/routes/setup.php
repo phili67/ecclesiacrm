@@ -5,6 +5,8 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SystemService;
 use EcclesiaCRM\SQLUtils;
 use EcclesiaCRM\Version;
+use EcclesiaCRM\Utils\LoggerUtils;
+
 
 use Slim\Views\PhpRenderer;
 
@@ -30,7 +32,11 @@ $app->group('/', function () {
     
         if (isset ($input->serverName) && isset ($input->dbName) && isset ($input->dbPort)  && isset ($input->user) && isset ($input->password) ){
            try { 
-             $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName, $input->dbPort);
+             if ($input->dbPort == 3306) {
+               $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName, $input->dbPort);
+             } else {
+               $connection = new mysqli($input->serverName, $input->user, $input->password, $input->dbName);
+             }
            } catch (mysqli_sql_exception $e) { 
              throw $e; 
            } 
@@ -53,11 +59,16 @@ $app->group('/', function () {
         $template = str_replace('||ROOT_PATH||', $setupDate['ROOT_PATH'], $template);
         $template = str_replace('||URL||', $setupDate['URL'], $template);
                 
-        
+        $logger = LoggerUtils::getAppLogger();
+          
         file_put_contents(SystemURLs::getDocumentRoot().'/Include/Config.php', $template);
 
         // now we can install the CRM
-        $connection = new mysqli($setupDate['DB_SERVER_NAME'], $setupDate['DB_USER'], $setupDate['DB_PASSWORD'], $setupDate['DB_NAME']);
+        if ($setupDate['DB_SERVER_PORT'] == 3306) {
+          $connection = new mysqli($setupDate['DB_SERVER_NAME'], $setupDate['DB_USER'], $setupDate['DB_PASSWORD'], $setupDate['DB_NAME']/*, $setupDate['DB_SERVER_PORT']*/);
+        } else {
+          $connection = new mysqli($setupDate['DB_SERVER_NAME'], $setupDate['DB_USER'], $setupDate['DB_PASSWORD'], $setupDate['DB_NAME']/*, $setupDate['DB_SERVER_PORT']*/);
+        }
         $connection->set_charset("utf8");
         
         $systemService = new SystemService();
@@ -67,6 +78,13 @@ $app->group('/', function () {
         
         SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
         
+        // now we install the version
+        $sql = "INSERT INTO `version_ver` (`ver_version`, `ver_update_start`, `ver_update_end`) VALUES ('".$version."', '".$date."', '".$date."');";
+        
+        $logger->info("Version : \n". $sql);
+        
+        $connection->query($sql);
+
         // we install the language
         $filename = SystemURLs::getDocumentRoot().'/mysql/install/languages/'.$setupDate['sLanguage'].'.sql';
 
@@ -74,10 +92,6 @@ $app->group('/', function () {
           SQLUtils::sqlImport($filename, $connection);
         }
         
-        // now we install the version
-        $sql = "INSERT INTO `version_ver` (`ver_version`, `ver_update_start`, `ver_update_end`) VALUES ('".$version."', '".$date."', '".$date."');";
-        
-        $connection->query($sql);
         
         // and the info for the church Administration
         $sql = "INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES 
