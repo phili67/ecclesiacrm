@@ -19,6 +19,8 @@
 
 ## Installation, Upgrades and Documentation
 
+* EcclesiaCRM is compatible and tested with Ubuntu server 16.04, Ubuntu server 18.04, and Debian 9.7 server.
+
 * [Download the lastest release](https://github.com/phili67/ecclesiacrm/releases/latest)
 
 * [Checkout our online Docs (English)](https://docs.ecclesiacrm.com/en/)
