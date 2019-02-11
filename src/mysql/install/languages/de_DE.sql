@@ -110,10 +110,10 @@ INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Descript
   (4, 'm', 'Menu', 'Nicht zu ändern.')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
-INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
-  (1, 'p', 1, 'Deaktiviert', 'Hat ein Invalidität.', 'Welcher ?'),
-  (2, 'f', 2, 'Alleinerziehende', 'Kommentar', ''),
-  (3, 'g', 3, 'Jung', 'est orienté jeune.', '')
+INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
+  (1, 'p', 1, 'Deaktiviert', 'Hat ein Invalidität.', 'Welcher ?', ''),
+  (2, 'f', 2, 'Alleinerziehende', 'Kommentar', '', ''),
+  (3, 'g', 3, 'Jung', 'est orienté jeune.', '', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
@@ -125,13 +125,13 @@ ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 -- last update for the new CRM 4.4.0
 --
 
-INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-(1, 'klassischen Pastoral Notizen', '', 1),
-(2, 'Warum sind Sie in unsere Kirche gekommen ?', '', 1),
-(3, 'Warum kommen sie dann immer wieder her ?', '', 1),
-(4, 'Haben Sie irgendwelche ein Wünsche ?', '', 1),
-(5, 'Wie sind Sie auf uns gekommen ?', '', 1),
-(6, 'Taufe', 'Ausbildung', 0),
-(7, 'Hochzeit', 'Ausbildung', 0),
-(8, 'Hilfeleistungen ', 'Therapie', 0)
+INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
+(1, 'klassischen Pastoral Notizen', '', 1, ''),
+(2, 'Warum sind Sie in unsere Kirche gekommen ?', '', 1, ''),
+(3, 'Warum kommen sie dann immer wieder her ?', '', 1, ''),
+(4, 'Haben Sie irgendwelche ein Wünsche ?', '', 1, ''),
+(5, 'Wie sind Sie auf uns gekommen ?', '', 1, ''),
+(6, 'Taufe', 'Ausbildung', 0, ''),
+(7, 'Hochzeit', 'Ausbildung', 0, ''),
+(8, 'Hilfeleistungen ', 'Therapie', 0, '')
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);

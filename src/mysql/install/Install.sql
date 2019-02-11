@@ -516,7 +516,7 @@ CREATE TABLE `family_custom_master` (
   `fam_custom_Special` mediumint(8) unsigned default NULL,
   `fam_custom_Side` enum('left','right') NOT NULL default 'left',
   `fam_custom_FieldSec` tinyint(4) NOT NULL default '1',
-  `fam_custom_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+  `fam_custom_comment` text NOT NULL COMMENT 'comment for GDPR',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY  (`family_custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -787,7 +787,7 @@ CREATE TABLE `person_custom_master` (
   `custom_Special` mediumint(8) unsigned default NULL,
   `custom_Side` enum('left','right') NOT NULL default 'left',
   `custom_FieldSec` tinyint(4) NOT NULL,
-  `custom_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+  `custom_comment` text NOT NULL COMMENT 'comment for GDPR',
   `type_ID` tinyint(4) NOT NULL default '0',
   PRIMARY KEY (`custom_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -926,7 +926,7 @@ CREATE TABLE `property_pro` (
   `pro_Name` varchar(200) NOT NULL default '0',
   `pro_Description` text NOT NULL,
   `pro_Prompt` varchar(255) default NULL,
-  `pro_Comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+  `pro_Comment` text NOT NULL COMMENT 'comment for GDPR',
   PRIMARY KEY  (`pro_ID`),
   UNIQUE KEY `pro_ID` (`pro_ID`),
   KEY `pro_ID_2` (`pro_ID`)
@@ -936,10 +936,10 @@ CREATE TABLE `property_pro` (
 -- Dumping data for table `property_pro`
 --
 
-INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
-  (1, 'p', 1, 'Disabled', 'has a disability.', 'What is the nature of the disability?'),
-  (2, 'f', 2, 'Single Parent', 'is a single-parent household.', ''),
-  (3, 'g', 3, 'Youth', 'is youth-oriented.', '');
+INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
+  (1, 'p', 1, 'Disabled', 'has a disability.', 'What is the nature of the disability?',''),
+  (2, 'f', 2, 'Single Parent', 'is a single-parent household.', '',''),
+  (3, 'g', 3, 'Youth', 'is youth-oriented.', '','');
 
 -- --------------------------------------------------------
 
@@ -1629,19 +1629,19 @@ CREATE TABLE pastoral_care_type (
     `pst_cr_tp_title` varchar(255) NOT NULL default '',
     `pst_cr_tp_desc` varchar(255) NOT NULL default '',
     `pst_cr_tp_visible` BOOLEAN NOT NULL default 0,
-    `pst_cr_tp_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+    `pst_cr_tp_comment` text NOT NULL COMMENT 'comment for GDPR',
     PRIMARY KEY(pst_cr_tp_id)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-INSERT INTO `pastoral_care_type` (`pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-  ('Classical Pastoral note','', true),
-  ('Why did you come to the church?','', true),
-  ('Why do you keep coming?','', true),
-  ('Do you have any suggestions for us?','', true),
-  ('How did you learn of the church?','', true),
-  ('Baptism', 'Baptism formation', false),
-  ('Mariage', 'Mariage formation', false),
-  ('Psychology', 'Psychology therapy', false);
+INSERT INTO `pastoral_care_type` (`pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
+  ('Classical Pastoral note','', true, ''),
+  ('Why did you come to the church?','', true, ''),
+  ('Why do you keep coming?','', true, ''),
+  ('Do you have any suggestions for us?','', true, ''),
+  ('How did you learn of the church?','', true, ''),
+  ('Baptism', 'Baptism formation', false, ''),
+  ('Mariage', 'Mariage formation', false, ''),
+  ('Psychology', 'Psychology therapy', false, '');
 
 --
 -- Pastoral care for a person
@@ -1749,7 +1749,7 @@ CREATE TABLE `gdpr_infos` (
   `gdpr_info_About` enum('Person','Family') NOT NULL default 'Person',
   `gdpr_info_Name` varchar(40) NOT NULL default '',
   `gdpr_info_Type` tinyint(4) NOT NULL default '0',
-  `gdpr_info_comment` text NOT NULL default '' COMMENT 'comment for GDPR',
+  `gdpr_info_comment` text NOT NULL COMMENT 'comment for GDPR',
   PRIMARY KEY  (`gdpr_info_id`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 

@@ -109,10 +109,10 @@ INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Descript
   (4, 'm', 'Menu', 'Pour personnaliser le menu école du dimanche.')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
-INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
-  (1, 'p', 1, 'Désactivé', 'A une invalidité.', 'Quelle en est sa nature ?'),
-  (2, 'f', 2, 'Parent isolé', 'est un parent isolé dans sa famille.', ''),
-  (3, 'g', 3, 'Jeune', 'est orienté jeune.', '')
+INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
+  (1, 'p', 1, 'Désactivé', 'A une invalidité.', 'Quelle en est sa nature ?', ''),
+  (2, 'f', 2, 'Parent isolé', 'est un parent isolé dans sa famille.', '', ''),
+  (3, 'g', 3, 'Jeune', 'est orienté jeune.', '', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
@@ -124,13 +124,13 @@ ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 -- last update for the new CRM 4.4.0
 --
 
-INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-(1, 'Note pastorale classique', '', 1),
-(2, 'Pourquoi êtes-vous venu à l\'église', '', 1),
-(3, 'Pourquoi continuez-vous à venir ?', '', 1),
-(4, 'Avez-vous une requêtes à nous faire ?', '', 1),
-(5, 'Comment avez-vous entendu parler de l\'église ?', '', 1),
-(6, 'Baptême', 'Formation', 0),
-(7, 'Mariage', 'Formation', 0),
-(8, 'Relation d\'aide', 'Thérapie et suivi', 0)
+INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
+(1, 'Note pastorale classique', '', 1, ''),
+(2, 'Pourquoi êtes-vous venu à l\'église', '', 1, ''),
+(3, 'Pourquoi continuez-vous à venir ?', '', 1, ''),
+(4, 'Avez-vous une requêtes à nous faire ?', '', 1, ''),
+(5, 'Comment avez-vous entendu parler de l\'église ?', '', 1, ''),
+(6, 'Baptême', 'Formation', 0, ''),
+(7, 'Mariage', 'Formation', 0, ''),
+(8, 'Relation d\'aide', 'Thérapie et suivi', 0, '')
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);
