@@ -82,10 +82,10 @@ INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Descript
   (4, 'm', 'Menú', 'Para personalizar el menú escuelas dominicales')
 ON DUPLICATE KEY UPDATE prt_Name=VALUES(prt_Name),prt_Description=VALUES(prt_Description);
 
-INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`) VALUES
-  (1, 'p', 1, 'Desactivado', 'a una discapacidad', 'cuál ha sido esta naturaleza ?'),
-  (2, 'f', 2, ' Familia monoparentale', '', ''),
-  (3, 'g', 3, 'Joven', 'est orienté jeune.', '')
+INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pro_Description`, `pro_Prompt`, `pro_Comment`) VALUES
+  (1, 'p', 1, 'Desactivado', 'a una discapacidad', 'cuál ha sido esta naturaleza ?', ''),
+  (2, 'f', 2, ' Familia monoparentale', '', '', ''),
+  (3, 'g', 3, 'Joven', 'est orienté jeune.', '', '')
   ON DUPLICATE KEY UPDATE pro_Name=VALUES(pro_Name),pro_Description=VALUES(pro_Description),pro_Prompt=VALUES(pro_Prompt);
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
@@ -97,13 +97,13 @@ ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 --
 -- last update for the new CRM 4.4.0
 --
-INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`) VALUES
-(1, 'Nota Clásico Pastoral', '', 1),
-(2, '¿Por qué vino a la iglesia?', '', 1),
-(3, '¿Por qué sigue viniendo?', '', 1),
-(4, '¿Tiene alguna sugerencia para nosotros?', '', 1),
-(5, '¿Cómo se enteró de la iglesia?', '', 1),
-(6, 'bautismo', 'Ausbildung', 0),
-(7, 'boda', 'Ausbildung', 0),
-(8, 'asistencia', 'Therapie', 0)
+INSERT INTO `pastoral_care_type` (`pst_cr_tp_id`, `pst_cr_tp_title`, `pst_cr_tp_desc`, `pst_cr_tp_visible`, `pst_cr_tp_comment`) VALUES
+(1, 'Nota Clásico Pastoral', '', 1, ''),
+(2, '¿Por qué vino a la iglesia?', '', 1, ''),
+(3, '¿Por qué sigue viniendo?', '', 1, ''),
+(4, '¿Tiene alguna sugerencia para nosotros?', '', 1, ''),
+(5, '¿Cómo se enteró de la iglesia?', '', 1, ''),
+(6, 'bautismo', 'Ausbildung', 0, ''),
+(7, 'boda', 'Ausbildung', 0, ''),
+(8, 'asistencia', 'Therapie', 0, '')
 ON DUPLICATE KEY UPDATE pst_cr_tp_title=VALUES(pst_cr_tp_title),pst_cr_tp_desc=VALUES(pst_cr_tp_desc),pst_cr_tp_visible=VALUES(pst_cr_tp_visible);
