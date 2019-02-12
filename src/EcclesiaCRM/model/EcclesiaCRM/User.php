@@ -726,15 +726,17 @@ class User extends BaseUser
               ->filterByText("%$realOldPath%", Criteria::LIKE)
               ->find();
               
-      foreach ($notes as $note) {
-        $oldName = $note->_();
-        $newName = str_replace($oldPath,$newPath,$note->_());
-        
-        $newNote = NoteQuery::Create()->findOneById($note->getId());
-        $newNote->setText(str_replace($realOldPath,$realNewPath,$note->_()));
-        $newNote->setCurrentEditedBy(0);
-        $newNote->save();
-      }      
+      if (!is_null ($notes)) {
+				foreach ($notes as $note) {
+					$oldName = $note->getText();
+					$newName = str_replace($oldPath,$newPath,$note->getText());
+				
+					$newNote = NoteQuery::Create()->findOneById($note->getId());
+					$newNote->setText(str_replace($realOldPath,$realNewPath,$note->getText()));
+					$newNote->setCurrentEditedBy(0);
+					$newNote->save();
+				}
+			}
     }
     
     public function isEnabledSecurity($securityConfigName){

@@ -98,7 +98,7 @@ class EcclesiaCRMServer extends DAV\Server
       }
      
       return true;
-     }
+    }
 
     
 }
