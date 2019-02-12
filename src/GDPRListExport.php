@@ -79,7 +79,7 @@ fputcsv($out, [InputUtils::translate_special_charset(_("Full Name"),$charset),
     fputcsv($out, [
             InputUtils::translate_special_charset($note->getPerson()->getFullName(),$charset),
             InputUtils::translate_special_charset($note->getTitle(),$charset),
-            InputUtils::translate_special_charset($note->_(),$charset),
+            InputUtils::translate_special_charset($note->getText(),$charset),
             InputUtils::translate_special_charset($note->getType(),$charset),
             (!empty($note->getDateEntered()))?$note->getDateEntered()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"", 
             (!empty($note->getDateLastEdited()))?$note->getDateLastEdited()->format(SystemConfig::getValue('sDateFormatLong').' H:i'):"",
