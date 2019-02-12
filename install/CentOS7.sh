@@ -19,6 +19,6 @@ service mysqld start
 
 cd /var/www/
 rm -rf html
-wget https://github.com/phili67/ecclesiacrm/releases/download/5.3.1/EcclesiaCRM-5.3.1.zip
-unzip EcclesiaCRM-5.3.1.zip
+sudo wget https://github.com/phili67/ecclesiacrm/releases/download/5.4.3/EcclesiaCRM-5.4.3.zip
+sudo unzip EcclesiaCRM-5.4.3.zip
 mv ecclesiacrm/ html
