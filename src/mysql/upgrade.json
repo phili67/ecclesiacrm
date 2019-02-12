@@ -552,7 +552,7 @@
         ],
         "dbVersion": "5.4.2"
     },
-    "current": {
+    "5.4.3": {
         "versions": [
             "5.4.2"
         ],
@@ -560,5 +560,13 @@
           "/mysql/upgrade/5.4.3-upgrade.sql"
         ],
         "dbVersion": "5.4.3"
+    },
+    "current": {
+        "versions": [
+            "5.4.3"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "5.4.4"
     }
 }
