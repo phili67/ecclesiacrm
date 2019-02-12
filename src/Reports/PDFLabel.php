@@ -20,7 +20,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
@@ -426,7 +425,7 @@ $iAdcMinBundleSize = 10;  // Minimum number of labels allowed in an ADC bundle
 $n = count($inLabels);
     $nTotalLabels = $n;
     if ($db) {
-        echo "{$n} Labels passed to bundle function....<br>";
+        echo "{$n} "._("Labels passed to bundle function")."....<br>";
     }
 
     for ($i = 0; $i < $n; $i++) {
@@ -445,12 +444,12 @@ $n = count($inLabels);
 
     $nz5 = 0;
 
-    while (list($z, $zc) = each($ZipCounts)) {
+    foreach($ZipCounts as $z => $zc) {
         if ($zc >= $iZip5MinBundleSize) {
-            $NoteText = ['Note'=>'******* Presort ZIP-5 '.$z];
-            $NameText = ['Name'=>'** '.$zc.' Addresses in Bundle '.$z.' *'];
-            $AddressText = ['Address'=>'** '.$nTotalLabels.' Total Addresses *'];
-            $CityText = ['City'=>'******* Presort ZIP-5 '.$z.'  '];
+            $NoteText = ['Note'=>'******* '._("Presort ZIP-5").' '.$z];
+            $NameText = ['Name'=>'** '.$zc.' '._("Addresses in Bundle").' '.$z.' *'];
+            $AddressText = ['Address'=>'** '.$nTotalLabels.' '._("Total Addresses").' *'];
+            $CityText = ['City'=>'******* '._("Presort ZIP-5").' '.$z.'  '];
             $outList[] = array_merge($NoteText, $NameText, $AddressText, $CityText);
             for ($i = 0; $i < $n; $i++) {
                 if (intval(mb_substr($inLabels[$i]['Zip'], 0, 5)) == $z) {
@@ -462,7 +461,7 @@ $n = count($inLabels);
         }
     }
     if ($db) {
-        echo "<br>{$nz5} Labels moved to the output list<br>";
+        echo "<br>{$nz5} "._("Labels moved to the output list")."<br>";
     }
 
     //
@@ -484,7 +483,7 @@ $n = count($inLabels);
     unset($Zips);
     $n = count($inLabels);
     if ($db) {
-        echo "<br>...pass 2 ZIP3..{$n} labels to process<br>";
+        echo "<br>..."._("pass 2 ZIP3")."..{$n} "._("labels to process")."<br>";
     }
 
     //print_r($inLabels);
@@ -504,12 +503,12 @@ $n = count($inLabels);
     //
 
     $nz3 = 0;
-    while (list($z, $zc) = each($ZipCounts)) {
+    foreach($ZipCounts as $z => $zc) {
         if ($zc >= $iZip3MinBundleSize) {
-            $NoteText = ['Note'=>'******* Presort ZIP-3 '.$z];
-            $NameText = ['Name'=>'** '.$zc.' Addresses in Bundle '.$z.' *'];
-            $AddressText = ['Address'=>'** '.$nTotalLabels.' Total Addresses *'];
-            $CityText = ['City'=>'******* Presort ZIP-3 '.$z.'  '];
+            $NoteText = ['Note'=>'******* '._("Presort ZIP-3").' '.$z];
+            $NameText = ['Name'=>'** '.$zc.' '._("Addresses in Bundle").' '.$z.' *'];
+            $AddressText = ['Address'=>'** '.$nTotalLabels.' '._("Total Addresses").' *'];
+            $CityText = ['City'=>'******* '._("Presort ZIP-3").' '.$z.'  '];
             $outList[] = array_merge($NoteText, $NameText, $AddressText, $CityText);
             for ($i = 0; $i < $n; $i++) {
                 if (intval(mb_substr($inLabels[$i]['Zip'], 0, 3)) == $z) {
@@ -522,7 +521,7 @@ $n = count($inLabels);
     }
 
     if ($db) {
-        echo "{$nz3} Labels moved to the output list...<br>";
+        echo "{$nz3} ".("Labels moved to the output list")."...<br>";
     }
     unset($inLabels2);
     for ($i = 0; $i < $n; $i++) {
@@ -540,7 +539,7 @@ $n = count($inLabels);
     unset($Zips);
     $n = count($inLabels);
     if ($db) {
-        echo "...pass 3 ADC..{$n} labels to process\r\n";
+        echo "..."._("pass 3 ADC")."..{$n} "._("labels to process")."\r\n";
     }
 
     for ($i = 0; $i < $n; $i++) {
@@ -566,12 +565,12 @@ $n = count($inLabels);
     }
     $nadc = 0;
     if ($ncounts) {
-        while (list($z, $zc) = each($ZipCounts)) {
+        foreach($ZipCounts as $z => $zc) {
             if ($zc >= $iAdcMinBundleSize) {
-                $NoteText = ['Note'=>'******* Presort ADC '.$z];
-                $NameText = ['Name'=>'** '.$zc.' Addresses in Bundle ADC '.$z.' *'];
-                $AddressText = ['Address'=>'** '.$nTotalLabels.' Total Addresses *'];
-                $CityText = ['City'=>'******* Presort ADC '.$z.'  '];
+                $NoteText = ['Note'=>'******* '._("Presort ADC").' '.$z];
+                $NameText = ['Name'=>'** '.$zc.' '._("Addresses in Bundle ADC").' '.$z.' *'];
+                $AddressText = ['Address'=>'** '.$nTotalLabels.' '._("Total Addresses").' *'];
+                $CityText = ['City'=>'******* '._("Presort ADC").' '.$z.'  '];
                 $outList[] = array_merge($NoteText, $NameText, $AddressText, $CityText);
                 for ($i = 0; $i < $n; $i++) {
                     if ($adc[intval(mb_substr($inLabels[$i]['Zip'], 0, 3))] == $z) {
@@ -585,7 +584,7 @@ $n = count($inLabels);
     }
 
     if ($db) {
-        echo "{$nadc} Labels moved to the output list<br>";
+        echo "{$nadc} "._("Labels moved to the output list")."<br>";
     }
     unset($inLabels2);
     for ($i = 0; $i < $n; $i++) {
@@ -604,13 +603,13 @@ $n = count($inLabels);
     $n = count($inLabels);
     $zc = $n;
     if ($db) {
-        echo "...pass 4 Mixed ADC..{$n} labels to process\r\n";
+        echo "...".("pass 4 Mixed ADC")."..{$n} ".("labels to process")."\r\n";
     }
     if ($zc > 0) {
-        $NoteText = ['Note'=>'******* Presort MIXED ADC '];
-        $NameText = ['Name'=>'** '.$zc.' Addresses in Bundle *'];
-        $AddressText = ['Address'=>'** '.$nTotalLabels.' Total Addresses *'];
-        $CityText = ['City'=>'******* Presort MIXED ADC   '];
+        $NoteText = ['Note'=>'******* '._("Presort MIXED ADC").' '];
+        $NameText = ['Name'=>'** '.$zc.' '._("Addresses in Bundle").' *'];
+        $AddressText = ['Address'=>'** '.$nTotalLabels.' '._("Total Addresses").' *'];
+        $CityText = ['City'=>'******* '._("Presort MIXED ADC").'   '];
         $outList[] = array_merge($NoteText, $NameText, $AddressText, $CityText);
         for ($i = 0; $i < $n; $i++) {
             if ($db) {
@@ -622,7 +621,7 @@ $n = count($inLabels);
     }
 
     if ($db) {
-        echo "{$nmadc} Labels moved to the output list <br>";
+        echo "{$nmadc} "._("Labels moved to the output list")." <br>";
     }
 
     //
@@ -741,20 +740,20 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
         //
         $zipLabels = ZipBundleSort($sLabelList);
         if ($iBulkMailPresort == 2) {
-            while (list($i, $sLT) = each($zipLabels)) {
+            foreach($zipLabels as $i => $sLT) {
                 $pdf->Add_PDF_Label(sprintf("%s\n%s\n%s\n%s, %s %s",
                             $sLT['Note'], $sLT['Name'], $sLT['Address'],
                             $sLT['City'], $sLT['State'], $sLT['Zip']));
             } // end while
         } else {
-            while (list($i, $sLT) = each($zipLabels)) {
+            foreach($zipLabels as $i => $sLT) {
                 $pdf->Add_PDF_Label(sprintf("%s\n%s\n%s, %s %s",
                             $sLT['Name'], $sLT['Address'],
                             $sLT['City'], $sLT['State'], $sLT['Zip']));
             } // end while
         } // end of if ($BulkMailPresort == 2)
     } else {
-        while (list($i, $sLT) = each($sLabelList)) {
+        foreach($sLabelList as $i => $sLT) {
             $pdf->Add_PDF_Label(sprintf("%s\n%s\n%s, %s %s",
                             $sLT['Name'], $sLT['Address'],
                             $sLT['City'], $sLT['State'], $sLT['Zip']));
@@ -869,7 +868,7 @@ if ($sFileType == 'PDF') {
 
     $sCSVOutput .= '"'.InputUtils::translate_special_charset(_("Greeting"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Name"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Address"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("City"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("State"),$charset).'"'.$delimiter.'"'.InputUtils::translate_special_charset(_("Zip"),$charset).'"'."\n";
 
-    while (list($i, $sLT) = each($aLabelList)) {
+    foreach ($aLabelList as $i => $sLT) {
         if ($iBulkCode) {
             $sCSVOutput .= '"'.$sLT['Note'].'"'.$delimiter;
         }
