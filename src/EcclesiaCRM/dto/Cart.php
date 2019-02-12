@@ -100,7 +100,7 @@ class Cart
     self::CheckCart();
     if (!is_numeric($PersonID))
     {
-      throw new \Exception (gettext("PersonID for Cart must be numeric"),400);
+      throw new \Exception (_("PersonID for Cart must be numeric"),400);
     }
     if ($PersonID !== null && !in_array($PersonID, $_SESSION['aPeopleCart'], false)) {
       array_push($_SESSION['aPeopleCart'], $PersonID);
@@ -120,7 +120,7 @@ class Cart
   {
     if (!is_numeric($GroupID))
     {
-      throw new \Exception (gettext("GroupID for Cart must be numeric"),400);
+      throw new \Exception (_("GroupID for Cart must be numeric"),400);
     }
     $GroupMembers = Person2group2roleP2g2rQuery::create()
             ->usePersonQuery()
@@ -138,7 +138,7 @@ class Cart
   {
     if (!is_numeric($FamilyID))
     {
-      throw new \Exception (gettext("FamilyID for Cart must be numeric"),400);
+      throw new \Exception (_("FamilyID for Cart must be numeric"),400);
     }
     $FamilyMembers = PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
@@ -163,7 +163,7 @@ class Cart
     // we can't remove anybody if there is no cart
     if (!is_numeric($PersonID))
     {
-      throw new \Exception (gettext("PersonID for Cart must be numeric"),400);
+      throw new \Exception (_("PersonID for Cart must be numeric"),400);
     }
     if (isset($_SESSION['aPeopleCart'])) {
       $aTempArray[] = $PersonID; // the only element in this array is the ID to be removed
@@ -220,7 +220,7 @@ class Cart
   {
     if (!is_numeric($FamilyID))
     {
-      throw new \Exception (gettext("FamilyID for Cart must be numeric"),400);
+      throw new \Exception (_("FamilyID for Cart must be numeric"),400);
     }
     $FamilyMembers = PersonQuery::create()
             ->filterByDateDeactivated(null)// GDRP, when a person is completely deactivated
@@ -270,7 +270,7 @@ class Cart
   {
     if (!is_numeric($GroupID))
     {
-      throw new \Exception (gettext("GroupID for Cart must be numeric"),400);
+      throw new \Exception (_("GroupID for Cart must be numeric"),400);
     }
     $GroupMembers = Person2group2roleP2g2rQuery::create()
             ->filterByGroupId($GroupID)
@@ -329,7 +329,7 @@ class Cart
   {
     // Loop through the session array
     $iCount = 0;
-    while ($element = each($_SESSION['aPeopleCart'])) {
+    foreach ($_SESSION['aPeopleCart'] as $element) {
         // Enter ID into event
         try {
             $eventAttent = new EventAttend();
@@ -360,7 +360,7 @@ class Cart
       $RoleID = $group->getDefaultRole();
     }
     
-    while ($element = each($_SESSION['aPeopleCart'])) {      
+    foreach ($_SESSION['aPeopleCart'] as $element) {
       $personGroupRole = Person2group2roleP2g2rQuery::create()
         ->filterByGroupId($GroupID)
         ->filterByPersonId($_SESSION['aPeopleCart'][$element['key']])
