@@ -79,7 +79,11 @@ $(document).ready(function () {
     });
     
     $(".lock-unlock").click(function() {
-      var userID = $(this).data("userid");
+      var userID     = $(this).data("userid");
+      var userName   = $(this).data("username");
+      var button     = $(this)
+      var content    = $(this).find('i');
+      var lock       = content.hasClass('fa-lock');
       
       window.CRM.APIRequest({
          method: 'POST',
@@ -87,7 +91,17 @@ $(document).ready(function () {
          data: JSON.stringify({"userID": userID})
       }).done(function(data) {
         if (data.success == true) {
-           location.reload();
+           if (lock == false) {
+             content.removeClass('fa-unlock');
+             content.addClass('fa-lock');
+             button.css('color','red');
+             window.CRM.showGlobalMessage(i18next.t("User") + ' ' + userName + ' ' + i18next.t("is now locked") , "warning");
+           } else {
+             content.removeClass('fa-lock');
+             content.addClass('fa-unlock');
+             button.css('color','green');
+             window.CRM.showGlobalMessage(i18next.t("User") + ' ' + userName + ' ' + i18next.t("is now unlocked"), "success");
+           }
         }
       });
     });
@@ -122,31 +136,37 @@ $(document).ready(function () {
       });
     });
 
-    function deleteUser(userId, userName) {
-        bootbox.confirm({
-            title: i18next.t("User Delete Confirmation"),
-            message: '<p style="color: red">' +
-            i18next.t("Please confirm removal of user status from:")+'<b>' + userName + '</b><br><br>'+
-            i18next.t("Be carefull, You are about to lose the home folder and the associated files, the Calendars, the Share calendars and all the events too, for")+':<b> ' + userName + '</b><br><br>'+
-            i18next.t("This can't be undone")+'</p>',
-            callback: function (result) {
-                if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId,
-                        dataType: "json",
-                        encode: true,
-                        data: {"_METHOD": "DELETE"}
-                    }).done(function (data) {
-                        if (data.status == "success")
-                            window.location.href = window.CRM.root + "/UserList.php";
-                    });
-                }
-            }
-        });
-    }
+    $(".deleteUser").click(function() {
+      var userId   = $(this).data('id');
+      var userName = $(this).data('name');
 
-    function restUserLoginCount(userId, userName) {
+      bootbox.confirm({
+        title: i18next.t("User Delete Confirmation"),
+        message: '<p style="color: red">' +
+        i18next.t("Please confirm removal of user status from:")+'<b>' + userName + '</b><br><br>'+
+        i18next.t("Be carefull, You are about to lose the home folder and the associated files, the Calendars, the Share calendars and all the events too, for")+':<b> ' + userName + '</b><br><br>'+
+        i18next.t("This can't be undone")+'</p>',
+        callback: function (result) {
+          if (result) {
+            $.ajax({
+                method: "POST",
+                url: window.CRM.root + "/api/users/" + userId,
+                dataType: "json",
+                encode: true,
+                data: {"_METHOD": "DELETE"}
+            }).done(function (data) {
+                if (data.status == "success")
+                    window.location.href = window.CRM.root + "/UserList.php";
+            });
+          }
+        }
+      });
+    });
+
+    $(".restUserLoginCount").click(function() {
+      var userId   = $(this).data('id');
+      var userName = $(this).data('name');
+      
         bootbox.confirm({
             title: i18next.t("Action Confirmation"),
             message: '<p style="color: red">' +
@@ -165,25 +185,28 @@ $(document).ready(function () {
                 }
             }
         });
-    }
+    });
 
-    function resetUserPassword(userId, userName) {
-        bootbox.confirm({
-            title: i18next.t("Action Confirmation"),
-            message: '<p style="color: red">' +
-            i18next.t("Please confirm the password reset of this user")+": <b>" + userName + "</b></p>",
-            callback: function (result) {
-                if (result) {
-                    $.ajax({
-                        method: "POST",
-                        url: window.CRM.root + "/api/users/" + userId + "/password/reset",
-                        dataType: "json",
-                        encode: true,
-                    }).done(function (data) {
-                        if (data.status == "success")
-                            window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "success");
-                    });
-                }
-            }
-        });
-    }
+    $(".resetUserPassword").click(function() {
+      var userId   = $(this).data('id');
+      var userName = $(this).data('name');
+    
+      bootbox.confirm({
+        title: i18next.t("Action Confirmation"),
+        message: '<p style="color: red">' +
+        i18next.t("Please confirm the password reset of this user")+": <b>" + userName + "</b></p>",
+        callback: function (result) {
+          if (result) {
+            $.ajax({
+                method: "POST",
+                url: window.CRM.root + "/api/users/" + userId + "/password/reset",
+                dataType: "json",
+                encode: true,
+            }).done(function (data) {
+              if (data.status == "success")
+                window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "info");
+            });
+          }
+        }
+      });
+    });

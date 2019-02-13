@@ -137,7 +137,7 @@ if ($usr_role_id == null) {
                         <?php 
                           if ( $user->getId() != SessionUser::getUser()->getId() && $user->getPersonId() != 1 ) {
                         ?>
-                            <a onclick="deleteUser(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                            <a class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
                         <?php
                           } 
@@ -174,7 +174,7 @@ if ($usr_role_id == null) {
     }
     if ($user->getFailedLogins() > 0) {
         ?>
-                            <a onclick="restUserLoginCount(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                            <a class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-eraser" aria-hidden="true"></i></a>
                             <?php
     } ?>
@@ -184,7 +184,7 @@ if ($usr_role_id == null) {
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php if ($user->getId() != SessionUser::getUser()->getId() && !empty($user->getEmail())) {
         ?>
-                            <a onclick="resetUserPassword(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                            <a class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                 class="fa fa-send-o" aria-hidden="true"></i></a>
                             <?php
     } ?>
@@ -193,7 +193,7 @@ if ($usr_role_id == null) {
                     <?php 
                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
                     ?>
-                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
+                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
                              <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
                           </a>
                     <?php
