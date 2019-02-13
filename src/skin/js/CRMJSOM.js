@@ -42,6 +42,10 @@
     
     window.CRM.showGlobalMessage = function (message, callOutClass) {
         $("#globalMessageText").text(message);
+        $("#globalMessageCallOut").removeClass("callout-danger");
+        $("#globalMessageCallOut").removeClass("callout-warning");
+        $("#globalMessageCallOut").removeClass("callout-info");
+        $("#globalMessageCallOut").removeClass("callout-success");
         $("#globalMessageCallOut").addClass("callout-"+callOutClass);
         $("#globalMessage").show("slow");
     }
