@@ -38,10 +38,6 @@ $rsUsers = UserQuery::create()
            ->leftJoinWithUserRole()
            ->find();
 
-// Set the page title and include HTML header
-$sPageTitle = gettext("System Users Listing");
-require 'Include/Header.php';
-
 // we search all the available roles
 $userRoles = UserRoleQuery::Create()->find();
 
@@ -55,14 +51,18 @@ if ($usr_role_id == null) {
   $usr_role_id = $first_roleID;
 }
 
+// Set the page title and include HTML header
+$sPageTitle = _("System Users Listing");
+require 'Include/Header.php';
+
 ?>
 <!-- Default box -->
 <div class="box">
     <div class="box-header">
-        <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= gettext('New User') ?></a>
+        <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= _('New User') ?></a>
     
       <div class="btn-group pull-right">
-        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= gettext("Add Role to Selected User(s)") ?></a>
+        <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Selected User(s)") ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only">Toggle Dropdown</span>
@@ -78,7 +78,7 @@ if ($usr_role_id == null) {
         </ul>
       </div>
       <div class="pull-right" style="margin-right:15px;margin-top:10px">
-        <h4><?= gettext("Apply Roles") ?></h4>
+        <h4><?= _("Apply Roles") ?></h4>
       </div>
     </div>
 </div>
@@ -88,20 +88,20 @@ if ($usr_role_id == null) {
             <thead>
             <tr>
                 <th align="center"></th>
-                <th><?= gettext('Actions') ?></th>
-                <th><?= gettext('Name') ?></th>
-                <th><?= gettext('First Name') ?></th>
-                <th align="center"><?= gettext('User Role') ?></th>
-                <th align="center"><?= gettext('Last Login') ?></th>
-                <th align="center"><?= gettext('Total Logins') ?></th>
-                <th align="center"><?= gettext('Failed Logins') ?></th>
-                <th align="center"><?= gettext('Password') ?></th>
-                <th align="center"><?= gettext('Status') ?></th>
+                <th><?= _('Actions') ?></th>
+                <th><?= _('Name') ?></th>
+                <th><?= _('First Name') ?></th>
+                <th align="center"><?= _('User Role') ?></th>
+                <th align="center"><?= _('Last Login') ?></th>
+                <th align="center"><?= _('Total Logins') ?></th>
+                <th align="center"><?= _('Failed Logins') ?></th>
+                <th align="center"><?= _('Password') ?></th>
+                <th align="center"><?= _('Status') ?></th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($rsUsers as $user) { //Loop through the person?>
-                <tr>
+                <tr id="row-<?= $user->getId() ?>">
                     <td>
                       <?php 
                          if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
@@ -113,16 +113,16 @@ if ($usr_role_id == null) {
                     </td>
                     <td>
                         <?php 
-                           if ( $user->getPersonId() != 1 || $user->getId() == SessionUser::getUser()->getId() && $user->getPersonId() == 1) {
+                          if ( $user->getPersonId() != 1 || $user->getId() == SessionUser::getUser()->getId() && $user->getPersonId() == 1) {
                         ?>
                             <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
-                            } else {
+                          } else {
                         ?>
-                           <span style="color:red"><?= gettext("Not modifiable") ?></span>
+                           <span style="color:red"><?= _("Not modifiable") ?></span>
                         <?php
-                            }
+                          }
                         ?>
                          <?php 
                            if ( $user->getPersonId() != 1) {
@@ -137,7 +137,7 @@ if ($usr_role_id == null) {
                         <?php 
                           if ( $user->getId() != SessionUser::getUser()->getId() && $user->getPersonId() != 1 ) {
                         ?>
-                            <a onclick="deleteUser(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                            <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
                         <?php
                           } 
@@ -157,7 +157,7 @@ if ($usr_role_id == null) {
                         <?php 
                           } else {
                         ?>
-                           <?= gettext("Undefined") ?>
+                           <?= _("Undefined") ?>
                         <?php
                           }
                         ?>
@@ -165,48 +165,53 @@ if ($usr_role_id == null) {
                     <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatLong')) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td align="center">
-                        <?php if ($user->isLocked()) {
-        ?>
+                      <?php 
+                        if ($user->isLocked()) {
+                      ?>
                             <span class="text-red"><?= $user->getFailedLogins() ?></span>
-                            <?php
-    } else {
-        echo $user->getFailedLogins();
-    }
-    if ($user->getFailedLogins() > 0) {
-        ?>
-                            <a onclick="restUserLoginCount(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                      <?php
+                        } else {
+                            echo $user->getFailedLogins();
+                        }
+                        if ($user->getFailedLogins() > 0) {
+                      ?>
+                            <a href="#" class="restUserLoginCount" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-eraser" aria-hidden="true"></i></a>
-                            <?php
-    } ?>
+                      <?php
+                        } 
+                      ?>
                     </td>
                     <td>
                         <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                        <?php if ($user->getId() != SessionUser::getUser()->getId() && !empty($user->getEmail())) {
-        ?>
-                            <a onclick="resetUserPassword(<?= $user->getId() ?>, '<?= $user->getPerson()->getFullName() ?>')"><i
+                        <?php 
+                          if ($user->getId() != SessionUser::getUser()->getId() && !empty($user->getEmail())) {
+                        ?>
+                            <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                 class="fa fa-send-o" aria-hidden="true"></i></a>
-                            <?php
-    } ?>
+                        <?php
+                          } 
+                        ?>
                     </td>
                     <td  align="center">
-                    <?php 
+                      <?php 
                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
-                    ?>
-                          <a class="lock-unlock" data-userid="<?= $user->getId()?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
+                      ?>
+                          <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
                              <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
                           </a>
-                    <?php
-                         }
-                    ?>
+                      <?php
+                        }
+                      ?>
                     </td>
                 </tr>
-                <?php
-} ?>
+              <?php
+                } 
+              ?>
             </tbody>
         </table>
         
-        <input type="checkbox" class="check_all"> <?= gettext("Check all") ?>
+        <input type="checkbox" class="check_all"> <?= _("Check all") ?>
     </div>
     <!-- /.box-body -->
 </div>
