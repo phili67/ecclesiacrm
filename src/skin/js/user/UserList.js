@@ -181,7 +181,7 @@ $(document).ready(function () {
                         encode: true,
                     }).done(function (data) {
                         if (data.status == "success")
-                            showGlobalMessage(i18next.t("Password reset for") + userName, i18next.t("success"));
+                            window.CRM.showGlobalMessage(i18next.t("Password reset for") + userName, "success");
                     });
                 }
             }

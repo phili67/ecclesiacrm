@@ -330,12 +330,6 @@ $(document).on("click", "#deleteCart", function (e) {
 });
 
 
-function showGlobalMessage(message, callOutClass) {
-    $("#globalMessageText").text(message);
-    $("#globalMessageCallOut").addClass("callout-"+callOutClass);
-    $("#globalMessage").show("slow");
-}
-
 function suspendSession(){
   $.ajax({
         method: 'HEAD',

@@ -312,9 +312,9 @@ $(document).ready(function () {
       .done(function(data, textStatus, xhr) {
         $('#confirm-verify').modal('hide');
         if (xhr.status == 200) {
-          showGlobalMessage(i18next.t("Verification email sent"), "success")
+          window.CRM.showGlobalMessage(i18next.t("Verification email sent"), "success")
         } else {
-          showGlobalMessage(i18next.t("Failed to send verification email"), "danger")
+          window.CRM.showGlobalMessage(i18next.t("Failed to send verification email"), "danger")
         }
       });
   });
@@ -329,7 +329,7 @@ $(document).ready(function () {
         if (xhr.status == 200) {
           location.reload();
         } else {
-          showGlobalMessage(i18next.t("Failed to add verification"), "danger")
+          window.CRM.showGlobalMessage(i18next.t("Failed to add verification"), "danger")
         }
       });
   });
