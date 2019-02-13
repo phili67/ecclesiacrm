@@ -40,6 +40,37 @@
       });
     }
     
+    window.CRM.renderMailchimpLists = function  () {
+        
+        window.CRM.APIRequest({
+          method: 'GET',
+          path: 'mailchimp/lists'
+        }).done(function(data) {
+
+          var len = data.MailChimpLists.length;
+      
+          // now we empty the menubar lists
+          $(".lists_class_menu").removeClass("hidden");
+          var lists_menu = $(".lists_class_menu").parent();
+          var real_listMenu = $( lists_menu ).find (".treeview-menu");
+      
+          real_listMenu.html("");
+          var listItems  = "";
+
+          for (i=0;i<len;i++) {
+            var list = data.MailChimpLists[i];
+        
+            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+          }
+    
+          real_listMenu.html(listItems);
+          
+          if ( data.firstLoaded == true ) {
+            window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top");
+          }
+        });
+    }
+    
     window.CRM.showGlobalMessage = function (message, callOutClass) {
         $("#globalMessageText").text(message);
         $("#globalMessageCallOut").removeClass("callout-danger");
@@ -62,9 +93,12 @@
    }
 
     
-    window.CRM.notify = function(icon,title,message,link,type,place,delay) {
+    window.CRM.notify = function(icon,title,message,link,type,place,delay,target) {
       if (delay === undefined) {
-        delay = 6000;
+        delay = 4000;
+      }
+      if (target === undefined) {
+        target = '_self';
       }
       $.notify({
         // options
@@ -72,12 +106,12 @@
         title: title,
         message: message,
         url: link,
-        target: '_blank'
+        target: target
       },{
         // settings
         element: 'body',
         position: null,
-        type: "info",
+        type: type,
         allow_dismiss: true,
         newest_on_top: false,
         showProgressbar: false,
@@ -90,7 +124,7 @@
         z_index: 1031,
         delay: delay,
         timer: 1000,
-        url_target: '_blank',
+        url_target: target,
         mouse_over: null,
         animate: {
           enter: 'animated fadeInDown',
@@ -412,7 +446,7 @@
              path:"systemupgrade/isUpdateRequired"
             }).done(function(data) {
               if (data.Upgrade) {
-                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom");
+                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
               }
             });
         if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull

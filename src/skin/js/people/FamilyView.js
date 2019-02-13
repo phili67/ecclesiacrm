@@ -2,6 +2,8 @@ $(document).ready(function () {
 
 // mailchimp management
   if (window.CRM.familyMail != undefined) {
+    window.CRM.renderMailchimpLists();
+    
     window.CRM.APIRequest({
       method: 'POST',
       path: 'families/isMailChimpActive',

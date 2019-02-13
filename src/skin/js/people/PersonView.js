@@ -1,6 +1,8 @@
 $(document).ready(function () {
 // mailChimp management
   if (window.CRM.normalMail != undefined) {
+    window.CRM.renderMailchimpLists();
+    
     window.CRM.APIRequest({
       method: 'POST',
       path: 'persons/isMailChimpActive',
