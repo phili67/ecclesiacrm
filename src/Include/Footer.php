@@ -209,7 +209,7 @@ use EcclesiaCRM\Bootstrapper;
                   if (SessionUser::getUser()->isAdmin()) {
                   ?>
                     <li>
-                        <a href="<?= SystemURLs::getRootPath() ?>/UserList.php">
+                        <a href="<?= SystemURLs::getRootPath() ?>/v2/user">
                             <i class="menu-icon fa fa-user-secret bg-gray"></i>
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading"><?= _('System Users') ?></h4>
