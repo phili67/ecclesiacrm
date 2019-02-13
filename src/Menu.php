@@ -711,6 +711,8 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
 
     $("#Menu_Banner").fadeTo(timeOut, 500).slideUp(500, function(){
     $("#Menu_Banner").slideUp(500);
+    
+    window.CRM.renderMailchimpLists();
 });
 </script>
 
