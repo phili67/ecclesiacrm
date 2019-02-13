@@ -193,9 +193,9 @@ function Header_body_scripts()
     <?php
 }
 
-function addMenu($menu)
+function addMenu()
 {
-    $menubar = new MenuBar("MainMenuBar");    
+    $menubar = new MenuBar("MainMenuBar");
     $menubar->renderMenu();
 }
 
