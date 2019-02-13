@@ -6,8 +6,8 @@
 *  description : Creates a csv for a GDPR List
 
 ******************************************************************************/
-require 'Include/Config.php';
-require 'Include/Functions.php';
+require '../../Include/Config.php';
+require '../../Include/Functions.php';
 
 use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\PersonQuery;

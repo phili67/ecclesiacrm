@@ -235,8 +235,8 @@ class MenuBar {
       if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getValue('bGDPR')) {
         // the GDPR Menu
         $menu = new Menu (gettext("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
-          $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","GDPRDashboard.php",true,$menu);
-          $menuItem = new Menu (gettext("Data Structure"),"fa fa-user-secret","GDPRDataStructure.php",true,$menu);
+          $menuItem = new Menu (gettext("Dashboard"),"fa fa-rebel","v2/gdpr",true,$menu);
+          $menuItem = new Menu (gettext("Data Structure"),"fa fa-user-secret","v2/gdpr/gdprdatastructure",true,$menu);
           $menuItem = new Menu (gettext("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=GDRP",true,$menu);
           $menuItem = new Menu (gettext("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=GDRP",true,$menu);
           
