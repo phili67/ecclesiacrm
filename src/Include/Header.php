@@ -212,7 +212,7 @@ $MenuFirst = 1;
     <section class="content">
         <div class="main-box-body clearfix" style="display:none" id="globalMessage">
           <div class="callout fade in" id="globalMessageCallOut">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <!--<button type="button" class="close" data-dismiss="callout" aria-hidden="true">×</button>-->
             <i class="fa fa-exclamation-triangle fa-fw fa-lg"></i><span id="globalMessageText"></span>
           </div>
         </div>
