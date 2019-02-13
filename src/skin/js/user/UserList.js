@@ -134,8 +134,7 @@ $(document).ready(function () {
        },
        responsive: true
       });
-    });
-
+      
     $(".deleteUser").click(function() {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
@@ -210,3 +209,6 @@ $(document).ready(function () {
         }
       });
     });
+      
+});
+
