@@ -25,6 +25,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/GDPRListExport.php");
   unlink(SystemURLs::getDocumentRoot()."/GDPRDataStructure.php");
   unlink(SystemURLs::getDocumentRoot()."/GDPRDataStructureExport.php");
+  unlink(SystemURLs::getDocumentRoot()."/UserList.php");
   
   $logger->info("End of Reset :  all unusefull files");
 ?>
