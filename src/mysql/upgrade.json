@@ -566,6 +566,7 @@
             "5.4.3"
         ],
         "scripts": [
+          "/mysql/upgrade/5.4.4-upgrade.php"
         ],
         "dbVersion": "5.4.4"
     }
