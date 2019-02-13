@@ -199,7 +199,7 @@ $MenuFirst = 1;
             <i class="fa fa-dashboard"></i> <span><?= gettext('Dashboard') ?></span>
           </a>
         </li>
-        <?php addMenu('root'); ?>
+        <?php addMenu(); ?>
       </ul>
     </section>
   </aside>
