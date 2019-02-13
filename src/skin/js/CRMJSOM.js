@@ -40,6 +40,13 @@
       });
     }
     
+    window.CRM.showGlobalMessage = function (message, callOutClass) {
+        $("#globalMessageText").text(message);
+        $("#globalMessageCallOut").addClass("callout-"+callOutClass);
+        $("#globalMessage").show("slow");
+    }
+
+    
     window.CRM.dialogLoadingFunction =  function (message) {
       window.CRM.dialogLoading = bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> ' + message + '</div>' });
    }
