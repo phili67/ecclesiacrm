@@ -82,7 +82,7 @@ if (isset($_POST['Submit'])) {
 
             // Route back to the list
             if (array_key_exists('FromUserList', $_GET) and $_GET['FromUserList'] == 'True') {
-                RedirectUtils::Redirect('UserList.php');
+                RedirectUtils::Redirect('v2/user');
             } else {
                 RedirectUtils::Redirect('Menu.php');
             }
@@ -152,7 +152,7 @@ if (isset($_POST['Submit'])) {
 
             // Route back to the list
             if ($_GET['FromUserList'] == 'True') {
-                RedirectUtils::Redirect('UserList.php');
+                RedirectUtils::Redirect('v2/user');
             } else {
                 RedirectUtils::Redirect('Menu.php');
             }

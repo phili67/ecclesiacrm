@@ -1,65 +1,21 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : UserList.php
- *  last change : 2003-01-07
+ *  filename    : userlist.php
+ *  last change : 2019-02-07
  *  description : displays a list of all users
  *
  *  http://www.ecclesiacrm.com/
- *  Copyright 2001-2002 Phillip Hullquist, Deane Barker
- *  Cpoyright 2018 Philippe Logel
- *
+ *  Cpoyright 2019 Philippe Logel all tight reserved not MIT
  *
  ******************************************************************************/
 
-// Include the function library
-require 'Include/Config.php';
-require 'Include/Functions.php';
-
-
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\UserRoleQuery;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\UserConfigQuery;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
-
-
-// Security: User must be an Admin to access this page.
-// Otherwise, re-direct them to the main menu.
-if (!SessionUser::getUser()->isAdmin()) {
-    RedirectUtils::Redirect('Menu.php');
-    exit;
-}
-
-// Get all the User records
-$rsUsers = UserQuery::create()
-           ->leftJoinWithUserRole()
-           ->find();
-
-// we search all the available roles
-$userRoles = UserRoleQuery::Create()->find();
-
-$first_roleID = 0;
-foreach ($userRoles as $userRole) {
-  $first_roleID = $userRole->getId();
-  break;
-}
-
-if ($usr_role_id == null) {
-  $usr_role_id = $first_roleID;
-}
-
-// Set the page title and include HTML header
-$sPageTitle = _("System Users Listing");
-require 'Include/Header.php';
-
+require $sRootDocument . '/Include/Header.php';
 ?>
 <!-- Default box -->
 <div class="box">
     <div class="box-header">
-        <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= _('New User') ?></a>
+        <a href="<?= $sRootPath ?>/UserEditor.php" class="btn btn-app"><i class="fa fa-user-plus"></i><?= _('New User') ?></a>
     
       <div class="btn-group pull-right">
         <a class="btn btn-app changeRole" id="mainbuttonRole" data-id="<?= $first_roleID ?>"><i class="fa fa-arrow-circle-o-down"></i><?= _("Add Role to Selected User(s)") ?></a>
@@ -104,7 +60,7 @@ require 'Include/Header.php';
                 <tr id="row-<?= $user->getId() ?>">
                     <td>
                       <?php 
-                         if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
+                         if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
                         <input type="checkbox" class="checkbox_users checkbox_user<?= $user->getPersonId()?>" name="AddRecords" data-id="<?= $user->getPersonId() ?>">
                       <?php
@@ -113,9 +69,9 @@ require 'Include/Header.php';
                     </td>
                     <td>
                         <?php 
-                          if ( $user->getPersonId() != 1 || $user->getId() == SessionUser::getUser()->getId() && $user->getPersonId() == 1) {
+                          if ( $user->getPersonId() != 1 || $user->getId() == $sessionUserId && $user->getPersonId() == 1) {
                         ?>
-                            <a href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
+                            <a href="<?= $sRootPath ?>/UserEditor.php?PersonID=<?= $user->getId() ?>"><i class="fa fa-pencil"
                                                                                    aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php
                           } else {
@@ -135,7 +91,7 @@ require 'Include/Header.php';
                            }
                           ?>
                         <?php 
-                          if ( $user->getId() != SessionUser::getUser()->getId() && $user->getPersonId() != 1 ) {
+                          if ( $user->getId() != $sessionUserId && $user->getPersonId() != 1 ) {
                         ?>
                             <a href="#" class="deleteUser" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                         class="fa fa-trash-o" aria-hidden="true"></i></a>
@@ -144,10 +100,10 @@ require 'Include/Header.php';
                         ?>
                       </td>
                     <td>
-                        <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
+                        <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getLastName() ?></a>
                     </td>
                     <td>
-                        <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
+                        <a href="<?= $sRootPath ?>/PersonView.php?PersonID=<?= $user->getId() ?>"> <?= $user->getPerson()->getFirstName() ?></a>
                     </td>
                     <td class="role<?=$user->getPersonId()?>">
                         <?php 
@@ -162,7 +118,7 @@ require 'Include/Header.php';
                           }
                         ?>
                     </td>
-                    <td align="center"><?= $user->getLastLogin(SystemConfig::getValue('sDateFormatLong')) ?></td>
+                    <td align="center"><?= $user->getLastLogin($dateFormatLong) ?></td>
                     <td align="center"><?= $user->getLoginCount() ?></td>
                     <td align="center">
                       <?php 
@@ -182,10 +138,10 @@ require 'Include/Header.php';
                       ?>
                     </td>
                     <td>
-                        <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
+                        <a href="<?= $sRootPath ?>/UserPasswordChange.php?PersonID=<?= $user->getId() ?>&FromUserList=True"><i
                                     class="fa fa-wrench" aria-hidden="true"></i></a>&nbsp;&nbsp;
                         <?php 
-                          if ($user->getId() != SessionUser::getUser()->getId() && !empty($user->getEmail())) {
+                          if ($user->getId() != $sessionUserId && !empty($user->getEmail())) {
                         ?>
                             <a href="#" class="resetUserPassword" data-id="<?= $user->getId() ?>" data-name="<?= $user->getPerson()->getFullName() ?>"><i
                                 class="fa fa-send-o" aria-hidden="true"></i></a>
@@ -195,7 +151,7 @@ require 'Include/Header.php';
                     </td>
                     <td  align="center">
                       <?php 
-                        if ( $user->getPersonId() != 1 && $user->getId() != SessionUser::getUser()->getId()) {
+                        if ( $user->getPersonId() != 1 && $user->getId() != $sessionUserId) {
                       ?>
                           <a href="#" class="lock-unlock" data-userid="<?= $user->getId()?>" data-userName = "<?= $user->getPerson()->getFullName() ?>" data-locktype="<?= ($user->getIsDeactivated() == false)?'unlock':'lock' ?>" style="color:<?= ($user->getIsDeactivated() == false)?'green':'red'?>" data-userid="<?= $user->getId()?>">
                              <i class="fa <?= ($user->getIsDeactivated() == false)?'fa-unlock':'fa-lock' ?>" aria-hidden="true"></i>
@@ -217,6 +173,8 @@ require 'Include/Header.php';
 </div>
 <!-- /.box -->
 
-<?php require 'Include/Footer.php' ?>
+<?php
+require $sRootDocument . '/Include/Footer.php';
+?>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/user/UserList.js" ></script>
+<script src="<?= $sRootPath ?>/skin/js/user/UserList.js" ></script>
