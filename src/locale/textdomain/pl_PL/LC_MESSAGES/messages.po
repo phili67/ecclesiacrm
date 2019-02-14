@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 17:42+0100\n"
+"POT-Creation-Date: 2019-02-13 18:14+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -215,7 +215,7 @@ msgstr "Rodziny"
 msgid "Groups"
 msgstr "Grupa"
 
-#: api/routes/mailchimp.php:759
+#: api/routes/mailchimp.php:761
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -302,7 +302,7 @@ msgstr "To pole jest wymagane."
 #: PersonEditor.php:987 PersonEditor.php:1065 PersonEditor.php:1089
 #: PersonList.php:114 PersonView.php:421 Register.php:43
 #: Reports/ConfirmReportEmail.php:126 Reports/ConfirmReportEmail.php:131
-#: Reports/PDFLabel.php:870
+#: Reports/PDFLabel.php:869
 msgid "Address"
 msgstr "Adres"
 
@@ -317,9 +317,9 @@ msgstr "Deposit"
 msgid "Payments"
 msgstr "Wszystkie płatności"
 
-#: api/routes/search.php:364 GDPRDataStructureExport.php:158
-#: GDPRDataStructure.php:184 Menu.php:327 PersonView.php:584
-#: PrintPastoralCare.php:498 UserEditor.php:733
+#: api/routes/search.php:364 Menu.php:327 PersonView.php:584
+#: PrintPastoralCare.php:498 Reports/GDPR/GDPRDataStructureExport.php:158
+#: UserEditor.php:733 v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr ""
 
@@ -406,15 +406,15 @@ msgstr ""
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:340 CartView.php:360
 #: EcclesiaCRM/utils/OutputUtils.php:166 EcclesiaCRM/utils/OutputUtils.php:268
-#: FinancialReports.php:407 GDPRListExport.php:88 ListEvents.php:569
-#: Reports/ConfirmReport.php:236
+#: FinancialReports.php:407 ListEvents.php:569 Reports/ConfirmReport.php:236
+#: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Tak"
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:353 CartView.php:362
 #: EcclesiaCRM/utils/OutputUtils.php:168 EcclesiaCRM/utils/OutputUtils.php:269
-#: FinancialReports.php:408 GDPRListExport.php:88 ListEvents.php:569
-#: Reports/ConfirmReport.php:238
+#: FinancialReports.php:408 ListEvents.php:569 Reports/ConfirmReport.php:238
+#: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
 msgstr "Nie"
 
@@ -438,10 +438,11 @@ msgstr "Ustawienie Automatycznej płatności dla rodziny"
 msgid "For the"
 msgstr "Rodziny"
 
-#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810
-#: GDPRDataStructureExport.php:84 GDPRDataStructure.php:99
-#: Include/Footer.php:76 PledgeEditor.php:544 PropertyEditor.php:45
-#: PropertyList.php:29 PropertyTypeEditor.php:90 PropertyTypeList.php:133
+#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810 Include/Footer.php:76
+#: PledgeEditor.php:544 PropertyEditor.php:45 PropertyList.php:29
+#: PropertyTypeEditor.php:90 PropertyTypeList.php:133
+#: Reports/GDPR/GDPRDataStructureExport.php:84
+#: v2/templates/gdpr/gdprdatastructure.php:56
 msgid "Person"
 msgstr "Osoba"
 
@@ -449,11 +450,12 @@ msgstr "Osoba"
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: ElectronicPaymentList.php:216
 #: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:235 FinancialReports.php:421 GDPRDataStructureExport.php:123
-#: GDPRDataStructure.php:143 Include/Footer.php:58 members/404.php:16
-#: PersonView.php:654 PledgeEditor.php:544 PrintPastoralCare.php:265
-#: PrintView.php:267 PropertyEditor.php:48 PropertyList.php:33
-#: PropertyTypeEditor.php:91 PropertyTypeList.php:133 SelectList.php:1123
+#: FamilyView.php:235 FinancialReports.php:421 Include/Footer.php:58
+#: members/404.php:16 PersonView.php:654 PledgeEditor.php:544
+#: PrintPastoralCare.php:265 PrintView.php:267 PropertyEditor.php:48
+#: PropertyList.php:33 PropertyTypeEditor.php:91 PropertyTypeList.php:133
+#: Reports/GDPR/GDPRDataStructureExport.php:123 SelectList.php:1123
+#: v2/templates/gdpr/gdprdatastructure.php:100
 msgid "Family"
 msgstr "Rodzina"
 
@@ -544,7 +546,7 @@ msgstr "nieaktywne"
 #: external/templates/registration/family-register-members.php:70
 #: external/templates/verify/enter-info.php:21 PersonEditor.php:819
 #: PersonList.php:113 sundayschool/SundaySchoolClassListExport.php:47
-#: sundayschool/SundaySchoolDashboard.php:217 UserList.php:93
+#: sundayschool/SundaySchoolDashboard.php:217 v2/templates/user/userlist.php:49
 #, fuzzy
 msgid "First Name"
 msgstr "Imię"
@@ -562,7 +564,7 @@ msgstr "Nazwisko"
 #: CSVImport.php:245 DirectoryReports.php:278
 #: external/templates/registration/family-register.php:43 FamilyEditor.php:711
 #: PersonEditor.php:991 PersonEditor.php:1113 Register.php:44
-#: Reports/PDFLabel.php:870 queryparameteroptions_qpo.php:7
+#: Reports/PDFLabel.php:869 queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Miasto"
 
@@ -570,7 +572,7 @@ msgstr "Miasto"
 #: CSVImport.php:246 DirectoryReports.php:282
 #: external/templates/registration/family-register.php:46 FamilyEditor.php:718
 #: PersonEditor.php:997 PersonEditor.php:1141 Register.php:45
-#: Reports/PDFLabel.php:870 queryparameteroptions_qpo.php:6
+#: Reports/PDFLabel.php:869 queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Hrabstwo"
 
@@ -579,7 +581,7 @@ msgstr "Hrabstwo"
 #: external/templates/registration/family-register.php:57
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:731
 #: PersonEditor.php:1010 PersonEditor.php:1175 Register.php:46
-#: Reports/PDFLabel.php:870
+#: Reports/PDFLabel.php:869
 #, fuzzy
 msgid "Zip"
 msgstr "Kod pocztowy"
@@ -750,7 +752,8 @@ msgstr ""
 msgid "Encrypt backup file with a password?"
 msgstr "Zaszyfrować Kopię Zapasową?"
 
-#: BackupDatabase.php:94 Login.php:250 Login.php:328 UserList.php:98
+#: BackupDatabase.php:94 Login.php:250 Login.php:328
+#: v2/templates/user/userlist.php:54
 msgid "Password"
 msgstr "Hasło"
 
@@ -1009,7 +1012,8 @@ msgstr "Wygeneruj Etykiety"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:67 CSVImport.php:236
 #: DonatedItemEditor.php:210 FindFundRaiser.php:238 FundRaiserEditor.php:170
-#: FundRaiserEditor.php:196 GDPRListExport.php:66 PersonEditor.php:810
+#: FundRaiserEditor.php:196 PersonEditor.php:810
+#: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:21
 msgid "Title"
 msgstr "Tytuł"
@@ -1094,7 +1098,7 @@ msgstr "Typ Naklejki"
 
 #: CartToBadge.php:169 EcclesiaCRM/utils/LabelUtils.php:66
 #: Reports/PDFBadge.php:131 Reports/PDFBadgeSundaySchool.php:152
-#: Reports/PDFLabel.php:804 sundayschool/SundaySchoolBadge.php:199
+#: Reports/PDFLabel.php:803 sundayschool/SundaySchoolBadge.php:199
 #, fuzzy
 msgid "default"
 msgstr "Domyślne"
@@ -1121,8 +1125,8 @@ msgstr "Dodaj Koszyk do Rodziny"
 #: PropertyTypeEditor.php:97 PropertyTypeList.php:68
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:218 Reports/FRBidSheets.php:88
-#: Reports/PDFLabel.php:870 SelectList.php:1051 UserList.php:92
-#: queryparameteroptions_qpo.php:4
+#: Reports/PDFLabel.php:869 SelectList.php:1051
+#: v2/templates/user/userlist.php:48 queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Nazwa"
 
@@ -1504,7 +1508,7 @@ msgstr ""
 msgid "Uncheck all"
 msgstr ""
 
-#: Checkin.php:677 UserList.php:209
+#: Checkin.php:677 v2/templates/user/userlist.php:170
 #, fuzzy
 msgid "Check all"
 msgstr "Czek"
@@ -4867,7 +4871,7 @@ msgstr "Katalog Grup"
 
 #: EcclesiaCRM/Reports/PDF_Label.php:124 EcclesiaCRM/utils/LabelUtils.php:92
 #: Reports/PDFBadge.php:115 Reports/PDFBadgeSundaySchool.php:136
-#: Reports/PDFLabel.php:790
+#: Reports/PDFLabel.php:789
 #, fuzzy
 msgid "Tractor"
 msgstr "Katalog"
@@ -5184,7 +5188,7 @@ msgstr "Wszystkie Osoby"
 msgid "Grouped by Family"
 msgstr "Pogrupowane wg. Rodziny"
 
-#: EcclesiaCRM/utils/LabelUtils.php:139 Reports/PDFLabel.php:717
+#: EcclesiaCRM/utils/LabelUtils.php:139 Reports/PDFLabel.php:716
 #, fuzzy
 msgid "To the parents of"
 msgstr "Do Rodziców"
@@ -5447,11 +5451,12 @@ msgid "Edit"
 msgstr "Edytuj"
 
 #: ElectronicPaymentList.php:217 FamilyCustomFieldsEditor.php:336
-#: FamilyCustomFieldsEditor.php:456 GDPRDataStructureExport.php:74
-#: GDPRDataStructure.php:85 GDPRListExport.php:68 GroupPropsFormEditor.php:316
+#: FamilyCustomFieldsEditor.php:456 GroupPropsFormEditor.php:316
 #: GroupPropsFormEditor.php:442 GroupView.php:429 OptionManager.php:113
 #: PersonCustomFieldsEditor.php:326 PersonCustomFieldsEditor.php:451
-#: PropertyEditor.php:155 SelectDelete.php:307
+#: PropertyEditor.php:155 Reports/GDPR/GDPRDataStructureExport.php:74
+#: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:307
+#: v2/templates/gdpr/gdprdatastructure.php:42
 msgid "Type"
 msgstr "Typ"
 
@@ -6781,113 +6786,6 @@ msgstr "Cena"
 msgid "Estimated value"
 msgstr "Szacowana wartość:"
 
-#: GDPRDashboard.php:30
-msgid "GDPR Dashboard"
-msgstr ""
-
-#: GDPRDashboard.php:47 GDPRDataStructure.php:62 PastoralCare.php:98
-#: PersonView.php:578
-msgid "Printable Page"
-msgstr "Format do Druku"
-
-#: GDPRDashboard.php:52
-msgid "GDPR DPO Signer"
-msgstr ""
-
-#: GDPRDashboard.php:55
-msgid "GDPR DPO Signer Email"
-msgstr ""
-
-#: GDPRDashboard.php:65
-#, fuzzy
-msgid "GDPR Person status"
-msgstr "Lista Osób"
-
-#: GDPRDataStructureExport.php:72 GDPRDataStructure.php:83
-#, fuzzy
-msgid "Informations"
-msgstr "Raport Grupy"
-
-#: GDPRDataStructureExport.php:73 GDPRDataStructure.php:84
-#: v2/routes/sidebar/menulinklist.php:42
-#, fuzzy
-msgid "For"
-msgstr "Praca"
-
-#: GDPRDataStructureExport.php:75 GDPRDataStructure.php:86 PledgeEditor.php:764
-#: SelectDelete.php:314
-msgid "Comment"
-msgstr "Komentarz"
-
-#: GDPRDataStructureExport.php:97 GDPRDataStructure.php:114
-#, fuzzy
-msgid "Custom Person"
-msgstr "Dodatkowe Pole Osoby"
-
-#: GDPRDataStructureExport.php:110 GDPRDataStructure.php:128
-#, fuzzy
-msgid "Person Property"
-msgstr "Osoba"
-
-#: GDPRDataStructureExport.php:136 GDPRDataStructure.php:158
-#, fuzzy
-msgid "Custom Family"
-msgstr "Dodatkowe Pole Rodziny"
-
-#: GDPRDataStructureExport.php:149 GDPRDataStructure.php:172
-#, fuzzy
-msgid "Family Property"
-msgstr "Właściwości"
-
-#: GDPRDataStructureExport.php:159 GDPRDataStructure.php:185
-#: Include/Functions.php:95
-msgid "Text Field (100 char)"
-msgstr "Pole Tekstowe (100 znaków)"
-
-#: GDPRDataStructure.php:27
-msgid "GDPR Data Structure"
-msgstr ""
-
-#: GDPRDataStructure.php:69
-msgid "To validate each text fields, use the tab or enter key !!!"
-msgstr ""
-
-#: GDPRDataStructure.php:76
-msgid ""
-"Informations about the Data Structure for Persons, Families and Pastoral "
-"Cares"
-msgstr ""
-
-#: GDPRListExport.php:65
-#, fuzzy
-msgid "Full Name"
-msgstr "Drugie Imię"
-
-#: GDPRListExport.php:67
-#, fuzzy
-msgid "Text"
-msgstr "Wyczyść Koszyk"
-
-#: GDPRListExport.php:69
-#, fuzzy
-msgid "Date Entered"
-msgstr "Wpisane:"
-
-#: GDPRListExport.php:70
-#, fuzzy
-msgid "Date Last Edited"
-msgstr "Nazwisko"
-
-#: GDPRListExport.php:71
-#, fuzzy
-msgid "Edited By Name"
-msgstr "wg. Nazwy"
-
-#: GDPRListExport.php:72
-#, fuzzy
-msgid "Deactivated"
-msgstr "nieaktywne"
-
 #: GeoPage.php:87
 msgid "Family Geographic Utilities"
 msgstr "Narzędzia Geo dla Rodziny"
@@ -7307,7 +7205,7 @@ msgstr "Adres"
 msgid "Quick Settings"
 msgstr "Zapisz Ustawienia"
 
-#: GroupView.php:297 UserList.php:99
+#: GroupView.php:297 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
 msgstr "Hrabstwo"
@@ -7569,6 +7467,11 @@ msgstr "True / False"
 #: Include/Functions.php:94
 msgid "Text Field (50 char)"
 msgstr "Pole Tekstowe (50 znaków)"
+
+#: Include/Functions.php:95 Reports/GDPR/GDPRDataStructureExport.php:159
+#: v2/templates/gdpr/gdprdatastructure.php:142
+msgid "Text Field (100 char)"
+msgstr "Pole Tekstowe (100 znaków)"
 
 #: Include/Functions.php:96
 #, fuzzy
@@ -8614,6 +8517,11 @@ msgstr ""
 msgid "Add Pastoral Care Notes"
 msgstr "Dodaj do Koszyka"
 
+#: PastoralCare.php:98 PersonView.php:578 v2/templates/gdpr/dashboard.php:23
+#: v2/templates/gdpr/gdprdatastructure.php:19
+msgid "Printable Page"
+msgstr "Format do Druku"
+
 #: PastoralCare.php:107
 msgid "Everyone"
 msgstr ""
@@ -8953,7 +8861,7 @@ msgstr "Nie przypisano"
 msgid "This Person is Deactivated"
 msgstr "To pole jest wymagane."
 
-#: PersonView.php:342 UserList.php:160
+#: PersonView.php:342 v2/templates/user/userlist.php:116
 msgid "Undefined"
 msgstr "Niezadefiniowane"
 
@@ -9190,6 +9098,11 @@ msgstr "Cel"
 #: PledgeEditor.php:760
 msgid "Non-deductible amount"
 msgstr "Wartość nie odliczalna"
+
+#: PledgeEditor.php:764 Reports/GDPR/GDPRDataStructureExport.php:75
+#: SelectDelete.php:314 v2/templates/gdpr/gdprdatastructure.php:43
+msgid "Comment"
+msgstr "Komentarz"
 
 #: PrintPastoralCare.php:132 PrintView.php:129
 msgid "Printable View"
@@ -9821,7 +9734,124 @@ msgstr ""
 "                                        Podpis "
 "________________________________________________________________"
 
-#: Reports/PDFLabel.php:870
+#: Reports/GDPR/GDPRDataStructureExport.php:72
+#: v2/templates/gdpr/gdprdatastructure.php:40
+#, fuzzy
+msgid "Informations"
+msgstr "Raport Grupy"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:73
+#: v2/routes/sidebar/menulinklist.php:42
+#: v2/templates/gdpr/gdprdatastructure.php:41
+#, fuzzy
+msgid "For"
+msgstr "Praca"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:97
+#: v2/templates/gdpr/gdprdatastructure.php:71
+#, fuzzy
+msgid "Custom Person"
+msgstr "Dodatkowe Pole Osoby"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:110
+#: v2/templates/gdpr/gdprdatastructure.php:85
+#, fuzzy
+msgid "Person Property"
+msgstr "Osoba"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:136
+#: v2/templates/gdpr/gdprdatastructure.php:115
+#, fuzzy
+msgid "Custom Family"
+msgstr "Dodatkowe Pole Rodziny"
+
+#: Reports/GDPR/GDPRDataStructureExport.php:149
+#: v2/templates/gdpr/gdprdatastructure.php:129
+#, fuzzy
+msgid "Family Property"
+msgstr "Właściwości"
+
+#: Reports/GDPR/GDPRListExport.php:65
+#, fuzzy
+msgid "Full Name"
+msgstr "Drugie Imię"
+
+#: Reports/GDPR/GDPRListExport.php:67
+#, fuzzy
+msgid "Text"
+msgstr "Wyczyść Koszyk"
+
+#: Reports/GDPR/GDPRListExport.php:69
+#, fuzzy
+msgid "Date Entered"
+msgstr "Wpisane:"
+
+#: Reports/GDPR/GDPRListExport.php:70
+#, fuzzy
+msgid "Date Last Edited"
+msgstr "Nazwisko"
+
+#: Reports/GDPR/GDPRListExport.php:71
+#, fuzzy
+msgid "Edited By Name"
+msgstr "wg. Nazwy"
+
+#: Reports/GDPR/GDPRListExport.php:72
+#, fuzzy
+msgid "Deactivated"
+msgstr "nieaktywne"
+
+#: Reports/PDFLabel.php:428
+msgid "Labels passed to bundle function"
+msgstr ""
+
+#: Reports/PDFLabel.php:449 Reports/PDFLabel.php:452
+msgid "Presort ZIP-5"
+msgstr ""
+
+#: Reports/PDFLabel.php:450 Reports/PDFLabel.php:509 Reports/PDFLabel.php:610
+msgid "Addresses in Bundle"
+msgstr ""
+
+#: Reports/PDFLabel.php:451 Reports/PDFLabel.php:510 Reports/PDFLabel.php:572
+#: Reports/PDFLabel.php:611
+#, fuzzy
+msgid "Total Addresses"
+msgstr "Adres Kościoła"
+
+#: Reports/PDFLabel.php:464 Reports/PDFLabel.php:587 Reports/PDFLabel.php:624
+msgid "Labels moved to the output list"
+msgstr ""
+
+#: Reports/PDFLabel.php:486
+msgid "pass 2 ZIP3"
+msgstr ""
+
+#: Reports/PDFLabel.php:486 Reports/PDFLabel.php:542
+msgid "labels to process"
+msgstr ""
+
+#: Reports/PDFLabel.php:508 Reports/PDFLabel.php:511
+msgid "Presort ZIP-3"
+msgstr ""
+
+#: Reports/PDFLabel.php:542
+msgid "pass 3 ADC"
+msgstr ""
+
+#: Reports/PDFLabel.php:570 Reports/PDFLabel.php:573
+msgid "Presort ADC"
+msgstr ""
+
+#: Reports/PDFLabel.php:571
+msgid "Addresses in Bundle ADC"
+msgstr ""
+
+#: Reports/PDFLabel.php:609 Reports/PDFLabel.php:612
+msgid "Presort MIXED ADC"
+msgstr ""
+
+#: Reports/PDFLabel.php:869
 #, fuzzy
 msgid "Greeting"
 msgstr "Lista Grup"
@@ -10863,52 +10893,6 @@ msgstr ""
 msgid "Permission"
 msgstr "Uprawnienia"
 
-#: UserList.php:42
-#, fuzzy
-msgid "System Users Listing"
-msgstr "Lista Użytkowników"
-
-#: UserList.php:62
-#, fuzzy
-msgid "New User"
-msgstr "Utwórz Użytkownika"
-
-#: UserList.php:65
-#, fuzzy
-msgid "Add Role to Selected User(s)"
-msgstr "Nie wybrano Grupy"
-
-#: UserList.php:81
-#, fuzzy
-msgid "Apply Roles"
-msgstr "Wszystkie Role"
-
-#: UserList.php:91
-#, fuzzy
-msgid "Actions"
-msgstr "Akcja"
-
-#: UserList.php:94
-#, fuzzy
-msgid "User Role"
-msgstr "Nowa Rola"
-
-#: UserList.php:95
-msgid "Last Login"
-msgstr "Ostatnio Zalogowany"
-
-#: UserList.php:96
-msgid "Total Logins"
-msgstr "Wyszystkich Logowań"
-
-#: UserList.php:97
-msgid "Failed Logins"
-msgstr "Błędnych Logowań"
-
-#: UserList.php:123
-msgid "Not modifiable"
-msgstr ""
-
 #: UserPasswordChange.php:57
 msgid "You must enter a password in both boxes"
 msgstr "Musisz wpisać hasło w obu polach"
@@ -11036,6 +11020,14 @@ msgstr "Zarządzaj Grupami i Rolami"
 msgid "Families Not In MailChimp"
 msgstr "Nie poprawny Email"
 
+#: v2/routes/gdpr/gdpr.php:39
+msgid "GDPR Dashboard"
+msgstr ""
+
+#: v2/routes/gdpr/gdpr.php:84
+msgid "GDPR Data Structure"
+msgstr ""
+
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
 msgstr "Edytor Datków (Celu)"
@@ -11053,6 +11045,11 @@ msgstr "Edytor Typów Właściwości"
 #: v2/routes/sidebar/volunteeropportunityeditor.php:32
 msgid "Volunteer Opportunity Editor"
 msgstr "Edytor Zadań dla Wolontariuszy"
+
+#: v2/routes/user/user.php:53
+#, fuzzy
+msgid "System Users Listing"
+msgstr "Lista Użytkowników"
 
 #: v2/templates/calendar/calendar.php:35
 #, fuzzy
@@ -11294,6 +11291,29 @@ msgstr ""
 msgid "support docs."
 msgstr ""
 
+#: v2/templates/gdpr/dashboard.php:28
+msgid "GDPR DPO Signer"
+msgstr ""
+
+#: v2/templates/gdpr/dashboard.php:31
+msgid "GDPR DPO Signer Email"
+msgstr ""
+
+#: v2/templates/gdpr/dashboard.php:41
+#, fuzzy
+msgid "GDPR Person status"
+msgstr "Lista Osób"
+
+#: v2/templates/gdpr/gdprdatastructure.php:26
+msgid "To validate each text fields, use the tab or enter key !!!"
+msgstr ""
+
+#: v2/templates/gdpr/gdprdatastructure.php:33
+msgid ""
+"Informations about the Data Structure for Persons, Families and Pastoral "
+"Cares"
+msgstr ""
+
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
 "Be carefull ! By deleting Fund type, the recorded datas for pledges or "
@@ -11325,6 +11345,47 @@ msgstr "Dodaj Nowy Typ Właściwości"
 #, fuzzy
 msgid "Add Volunteer Opportunity"
 msgstr "Edytor Zadań dla Wolontariuszy"
+
+#: v2/templates/user/userlist.php:18
+#, fuzzy
+msgid "New User"
+msgstr "Utwórz Użytkownika"
+
+#: v2/templates/user/userlist.php:21
+#, fuzzy
+msgid "Add Role to Selected User(s)"
+msgstr "Nie wybrano Grupy"
+
+#: v2/templates/user/userlist.php:37
+#, fuzzy
+msgid "Apply Roles"
+msgstr "Wszystkie Role"
+
+#: v2/templates/user/userlist.php:47
+#, fuzzy
+msgid "Actions"
+msgstr "Akcja"
+
+#: v2/templates/user/userlist.php:50
+#, fuzzy
+msgid "User Role"
+msgstr "Nowa Rola"
+
+#: v2/templates/user/userlist.php:51
+msgid "Last Login"
+msgstr "Ostatnio Zalogowany"
+
+#: v2/templates/user/userlist.php:52
+msgid "Total Logins"
+msgstr "Wyszystkich Logowań"
+
+#: v2/templates/user/userlist.php:53
+msgid "Failed Logins"
+msgstr "Błędnych Logowań"
+
+#: v2/templates/user/userlist.php:79
+msgid "Not modifiable"
+msgstr ""
 
 #: queryparameteroptions_qpo.php:5
 msgid "Zip Code"

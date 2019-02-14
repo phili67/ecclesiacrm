@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-02-10T16:42:04.266Z\n"
+"POT-Creation-Date: 2019-02-13T17:14:30.060Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +22,14 @@ msgstr "Stack Trace"
 
 msgid "ERROR"
 msgstr "ERROR"
+
+msgid "Mailchimp"
+msgstr "MailChimp"
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr "Alle liste sind jetzt im Ecclesia<b>CRM</b> geladen.<br><b>Klicken Sie Diese Mitteilung für diesen liste zu verwalten !</b>"
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Problem beim das angeforderte Objekt Abrufen "
@@ -1349,6 +1357,15 @@ msgstr "WebDav Schlüssel"
 msgid "The WebDav Key is"
 msgstr "Der WebDav Schlüssel ist"
 
+msgid "User"
+msgstr "Benutzer"
+
+msgid "is now locked"
+msgstr "ist jetzt gesperrt"
+
+msgid "is now unlocked"
+msgstr "ist jetzt entsperrt"
+
 msgid "User Delete Confirmation"
 msgstr "Bestätigung Benutzer löschen"
 
@@ -1370,6 +1387,12 @@ msgstr "Bestätigungsabfrage"
 
 msgid "Please confirm reset failed login count"
 msgstr "Zählung der fehlgeschlagenen Anmeldungen zurücksetzen"
+
+msgid "Reset failed login count for"
+msgstr "Zählung der fehlgeschlagenen Anmeldungen zurücksetzen"
+
+msgid "done."
+msgstr "gemacht."
 
 msgid "Please confirm the password reset of this user"
 msgstr "Bestätigen das Zurücksetzen des Kennwort für diesen Benutzer"
@@ -1575,9 +1598,6 @@ msgstr "Mailingliste Name"
 
 #~ msgid "Modify Properties"
 #~ msgstr "Eigenschaften Bearbeiten"
-
-#~ msgid "MailChimp List"
-#~ msgstr "MailChimp Liste"
 
 #~ msgid "List Details"
 #~ msgstr "Details der Liste  "

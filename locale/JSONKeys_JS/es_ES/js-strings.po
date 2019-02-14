@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-02-10T16:42:04.266Z\n"
+"POT-Creation-Date: 2019-02-13T17:14:30.060Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +22,14 @@ msgstr "Stack Trace"
 
 msgid "ERROR"
 msgstr "ERROR"
+
+msgid "Mailchimp"
+msgstr ""
+
+msgid ""
+"All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
+"manage them, click this notification !</b>"
+msgstr ""
 
 msgid "There was a problem retrieving the requested object"
 msgstr "Hubo un problema al obtener el objeto solicitado"
@@ -1345,6 +1353,15 @@ msgstr "clave WebDav"
 msgid "The WebDav Key is"
 msgstr "La Clave WebDav es"
 
+msgid "User"
+msgstr ""
+
+msgid "is now locked"
+msgstr ""
+
+msgid "is now unlocked"
+msgstr ""
+
 msgid "User Delete Confirmation"
 msgstr "Confirmación de Eliminación del Usuario"
 
@@ -1367,6 +1384,13 @@ msgstr "Confirmación de Acción"
 
 msgid "Please confirm reset failed login count"
 msgstr "Por favor confirme restablecer la cuenta de ingresos fallidos"
+
+#, fuzzy
+msgid "Reset failed login count for"
+msgstr "Por favor confirme restablecer la cuenta de ingresos fallidos"
+
+msgid "done."
+msgstr ""
 
 msgid "Please confirm the password reset of this user"
 msgstr "Por favor confirme la renovación de contraseña de este usuario"
