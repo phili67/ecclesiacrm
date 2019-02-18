@@ -21,6 +21,10 @@ security-checker.phar
 src/Images/Family
 src/Images/Person
 
+# public dir
+src/public/userdir
+src/private/userdir
+
 # SASS
 .sass-cache
 
