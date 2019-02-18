@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96f97341e1152761890707c6d6388017",
-    "content-hash": "44343978de28c2cd08f143e6f801cfbc",
+    "hash": "78706da87c35f28f1176745832bb25b0",
+    "content-hash": "42965cba0ba31be5f6426467c65fd624",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -2095,34 +2095,35 @@
         },
         {
             "name": "phpoffice/phpword",
-            "version": "v0.14.0",
+            "version": "0.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PHPWord.git",
-                "reference": "b614497ae6dd44280be1c2dda56772198bcd25ae"
+                "reference": "7b7d4e4936014544aa706f4c03d3ac925d74beb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/b614497ae6dd44280be1c2dda56772198bcd25ae",
-                "reference": "b614497ae6dd44280be1c2dda56772198bcd25ae",
+                "url": "https://api.github.com/repos/PHPOffice/PHPWord/zipball/7b7d4e4936014544aa706f4c03d3ac925d74beb9",
+                "reference": "7b7d4e4936014544aa706f4c03d3ac925d74beb9",
                 "shasum": ""
             },
             "require": {
                 "ext-xml": "*",
                 "php": "^5.3.3 || ^7.0",
-                "phpoffice/common": "^0.2",
-                "zendframework/zend-escaper": "^2.2",
-                "zendframework/zend-stdlib": "^2.2 || ^3.0"
+                "phpoffice/common": "^0.2.9",
+                "zendframework/zend-escaper": "^2.2"
             },
             "require-dev": {
                 "dompdf/dompdf": "0.8.*",
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "mpdf/mpdf": "5.* || 6.* || 7.*",
-                "phpdocumentor/phpdocumentor": "2.*",
+                "ext-gd": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "^2.2",
+                "mpdf/mpdf": "5.7.4 || 6.* || 7.*",
+                "php-coveralls/php-coveralls": "1.1.0 || ^2.0",
                 "phploc/phploc": "2.* || 3.* || 4.*",
                 "phpmd/phpmd": "2.*",
-                "phpunit/phpunit": "^4.8.36 || ^5.0",
-                "squizlabs/php_codesniffer": "^2.7",
+                "phpunit/phpunit": "^4.8.36 || ^7.0",
+                "squizlabs/php_codesniffer": "^2.9",
                 "tecnickcom/tcpdf": "6.*"
             },
             "suggest": {
@@ -2133,6 +2134,11 @@
                 "ext-zip": "Allows writing OOXML and ODF"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.17-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "PhpOffice\\PhpWord\\": "src/PhpWord"
@@ -2194,7 +2200,7 @@
                 "word",
                 "writer"
             ],
-            "time": "2017-12-29 01:30:53"
+            "time": "2018-12-30 00:35:03"
         },
         {
             "name": "phpoption/phpoption",
@@ -4104,52 +4110,6 @@
                 "zf"
             ],
             "time": "2018-04-25 15:48:53"
-        },
-        {
-            "name": "zendframework/zend-stdlib",
-            "version": "3.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "66536006722aff9e62d1b331025089b7ec71c065"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/66536006722aff9e62d1b331025089b7ec71c065",
-                "reference": "66536006722aff9e62d1b331025089b7ec71c065",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "phpbench/phpbench": "^0.13",
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
-                "zendframework/zend-coding-standard": "~1.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev",
-                    "dev-develop": "3.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Stdlib\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "SPL extensions, array utilities, error handlers, and more",
-            "keywords": [
-                "ZendFramework",
-                "stdlib",
-                "zf"
-            ],
-            "time": "2018-08-28 21:34:05"
         }
     ],
     "packages-dev": [],
