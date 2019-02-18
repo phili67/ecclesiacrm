@@ -1265,6 +1265,7 @@ CREATE TABLE `user_usr` (
   `usr_CurrentPath` varchar(1500) NOT NULL default '/',
   `usr_NeedPasswordChange` tinyint(1) unsigned NOT NULL default '1',
   `usr_HomeDir` varchar(500) default NULL,
+  `usr_HomeDir_public` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `usr_LastLogin` datetime NOT NULL default '2000-01-01 00:00:00',
   `usr_LoginCount` smallint(5) unsigned NOT NULL default '0',
   `usr_FailedLogins` tinyint(3) unsigned NOT NULL default '0',
