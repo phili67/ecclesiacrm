@@ -33,9 +33,9 @@
     "node-sha1": "^1.0.1"
   },
   "dependencies": {
-    "admin-lte": "^2.4.*",
+    "admin-lte": "^2.4.9",
     "bootbox": "^4.4.0",
-    "bootstrap": "^3.4.0",
+    "bootstrap": "^3.4.1",
     "bootstrap-colorpicker": "^2.5.3",
     "bootstrap-datepicker": "^1.8.0",
     "bootstrap-notify": "^3.1.3",
