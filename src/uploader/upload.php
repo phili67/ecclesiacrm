@@ -9,8 +9,6 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Note;
 
-use EcclesiaCRM\Utils\LoggerUtils;
-
 
 $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
     
@@ -18,17 +16,6 @@ $privateNoteDir = $userDir = $user->getUserRootDir();
 $publicNoteDir  = $user->getUserPublicDir();
 $userName       = $user->getUserName();
 $currentpath    = $user->getCurrentpath();
-
-$logger = LoggerUtils::getAppLogger();
-
-$logger->info("get param : ".$_GET['type']);
-$logger->info("get param : ".$_GET['type']);
-$logger->info("get privateNoteDir : ".$privateNoteDir);
-$logger->info("get publicNoteDir : ".$publicNoteDir);
-$logger->info("get userName : ".$userName);
-$logger->info("get currentpath : ".$currentpath);
-
-
 
 $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
 $root = '/';
@@ -54,9 +41,6 @@ switch ($_GET['type']) {
     $dropAddress = $protocol."://".$_SERVER[HTTP_HOST]."/". $publicNoteDir ."/" . $fileName;
     break;
 }
-
-$logger->info("get dropDir : ".$dropDir);
-$logger->info("get dropAddress : ".$dropAddress);
 
 //
 // the main part : storing the file
