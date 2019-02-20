@@ -74,6 +74,7 @@ $('.saveNoteAsWordFile').click(function (event) {
                   // reload toolbar
                   if (window.CRM.dataEDriveTable != undefined) {
                      window.CRM.reloadEDriveTable();
+                     alert (i18next.t('Your note is saved in your EDrive')+' : '+data.title+'.docx');
                   }
                 });
             }

@@ -12,6 +12,13 @@ namespace EcclesiaCRM\PersonalServer;
 use Sabre\DAV;
 use Sabre\HTTP\RequestInterface;
 
+
+
+  use EcclesiaCRM\Utils\LoggerUtils;
+
+
+
+
 // Include the function library
 // Very important this constant !!!!
 // be carefull with the webdav constant !!!!
@@ -91,7 +98,15 @@ class EcclesiaCRMServer extends DAV\Server
       return $res;
     }
     
-    function beforeUnbind($uri) {       
+    function beforeUnbind($uri) {
+      $logger = LoggerUtils::getAppLogger();
+  
+      $logger->info("Path : ".$this->authBackend->getLoginName());
+              
+      if ($uri == "home/".$this->authBackend->getLoginName()."/public") {
+        return false;
+      }
+
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
            $currentUser->deleteTimeLineNote("dav-delete-file",$uri);

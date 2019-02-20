@@ -322,7 +322,12 @@ require 'Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">  
   var editor = CKEDITOR.replace('NoteText',{
       customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/configs/note_editor_config.js',
-      language : window.CRM.lang
+      language : window.CRM.lang,
+      extraPlugins : 'uploadfile,uploadimage,filebrowser',
+      uploadUrl: '/uploader/upload.php?type=privateDocuments',
+      imageUploadUrl: '/uploader/upload.php?type=privateImages',
+      filebrowserUploadUrl: '/uploader/upload.php?type=privateDocuments',
+      filebrowserBrowseUrl: '/browser/browse.php?type=privateDocuments'
   });
     
   add_ckeditor_buttons(editor);

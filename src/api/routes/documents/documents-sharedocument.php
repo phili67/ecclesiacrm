@@ -71,7 +71,7 @@ function addPersonToShare (Request $request, Response $response, array $args) {
   if (isset ($params->personID) && isset ($params->noteId) && isset ($params->currentPersonID) && isset ($params->notification) ) {
       $noteShare = NoteShareQuery::Create()->filterBySharePerId($params->personID)->findOneByNoteId($params->noteId);
       
-      if ( empty($noteShare) && $params->currentPersonID != $params->personID) {
+      if ( empty($noteShare) && $params->currentPersonID != $params->personID && $params->noteId > 0) {
         $noteShare = new NoteShare();
         
         $noteShare->setSharePerId($params->personID);
@@ -87,10 +87,12 @@ function addPersonToShare (Request $request, Response $response, array $args) {
             $email->send();
           }
         }
+        
+        return $response->withJson(['status' => "success"]);
       }
   }
         
-  return $response->withJson(['status' => "success"]);                  
+  return $response->withJson(['status' => "failed"]);
 }
 
 function addFamilyToShare (Request $request, Response $response, array $args) {

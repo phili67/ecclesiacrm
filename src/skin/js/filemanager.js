@@ -305,6 +305,9 @@ $("body").on('keypress', '.fileName', function(e) {
                 data: JSON.stringify({"personID": window.CRM.currentPersonID,"files" : selected})
               }).done(function(data) {
                 if (data && data.success) {
+                  if (data.error.length) {
+                    alert(data.error[0]);
+                  }
                   window.CRM.reloadEDriveTable(function() {
                      selected.length=0;
                   });
@@ -936,46 +939,54 @@ $("body").on('keypress', '.fileName', function(e) {
     }
   });
 
-    $.fn.dataTable.moment = function ( format, locale ) {
-        var types = $.fn.dataTable.ext.type;
+  $.fn.dataTable.moment = function ( format, locale ) {
+    var types = $.fn.dataTable.ext.type;
 
-        // Add type detection
-        types.detect.unshift( function ( d ) {
-            // Removed true as the last parameter of the following moment
-            return moment( d, format, locale ).isValid() ?
-                'moment-'+format :
-            null;
-        } );
+    // Add type detection
+    types.detect.unshift( function ( d ) {
+        // Removed true as the last parameter of the following moment
+        return moment( d, format, locale ).isValid() ?
+            'moment-'+format :
+        null;
+    } );
 
-        // Add sorting method - use an integer for the sorting
-        types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-           console.log("d");
-            return moment ( d, format, locale, true ).unix();
-        };
-      };
+    // Add sorting method - use an integer for the sorting
+    types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+       console.log("d");
+        return moment ( d, format, locale, true ).unix();
+    };
+  };
 
-$.fn.dataTable.ext.type.order['column-name-pre'] = function  ( data )
-{
-  var val = $(data).data("name");
-  
-  return val;
-}  
+  $.fn.dataTable.ext.type.order['column-name-pre'] = function  ( data )
+  {
+    var val = $(data).data("name");
 
-$.fn.dataTable.ext.type.order['file-size-pre'] = function ( data ) {
-    var units = data.replace( /[\d\.\,\ ]/g, '' ).toLowerCase();
-    var multiplier = 1;
- 
-    if ( units === 'kb' ) {
-        multiplier = 1000;
-    }
-    else if ( units === 'mb' ) {
-        multiplier = 1000000;
-    }
-    else if ( units === 'gb' ) {
-        multiplier = 1000000000;
-    }
- 
-    return parseFloat( data ) * multiplier;
-};
-  // end of EDrive management
+    return val;
+  }  
+
+  $.fn.dataTable.ext.type.order['file-size-pre'] = function ( data ) {
+      var units = data.replace( /[\d\.\,\ ]/g, '' ).toLowerCase();
+      var multiplier = 1;
+
+      if ( units === 'kb' ) {
+          multiplier = 1000;
+      }
+      else if ( units === 'mb' ) {
+          multiplier = 1000000;
+      }
+      else if ( units === 'gb' ) {
+          multiplier = 1000000000;
+      }
+
+      return parseFloat( data ) * multiplier;
+  };
+    // end of EDrive management
+
+  $('#edrive-table').on( 'draw.dt', function () {
+      installDragAndDrop();
+  });
+
 });
+
+
+
