@@ -222,6 +222,12 @@ function oneList (Request $request, Response $response, array $args) {
 
 function lists(Request $request, Response $response, array $args) {
   $mailchimp = new MailChimpService();
+
+  $isActive = $mailchimp->isActive();
+  
+  if ($isActive == false) {
+    return $response->withJSON(['isActive' => $isActive]);
+  }
   
   $isLoaded = $mailchimp->isLoaded();
   
@@ -233,7 +239,7 @@ function lists(Request $request, Response $response, array $args) {
     $campaigns[] = $mailchimp->getCampaignsFromListId($list['id']);
   }
   
-  return $response->withJSON(['MailChimpLists' => $mailchimp->getLists(),'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded]);
+  return $response->withJSON(['MailChimpLists' => $mailchimp->getLists(),'MailChimpCampaigns' => $campaigns, 'firstLoaded' => !$isLoaded, 'isActive' => $isActive]);
 }
 
 function listmembers (Request $request, Response $response, array $args) {
