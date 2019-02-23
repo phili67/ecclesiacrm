@@ -46,28 +46,31 @@
           method: 'GET',
           path: 'mailchimp/lists'
         }).done(function(data) {
-
-          var len = data.MailChimpLists.length;
-      
-          // now we empty the menubar lists
-          $(".lists_class_menu").removeClass("hidden");
-          var lists_menu = $(".lists_class_menu").parent();
-          var real_listMenu = $( lists_menu ).find (".treeview-menu");
-      
-          real_listMenu.html("");
-          var listItems  = "";
-
-          for (i=0;i<len;i++) {
-            var list = data.MailChimpLists[i];
         
-            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
-          }
+          if (data.isActive) {
+            var len = data.MailChimpLists.length;
+      
+            // now we empty the menubar lists
+            $(".lists_class_menu").removeClass("hidden");
+            var lists_menu = $(".lists_class_menu").parent();
+            var real_listMenu = $( lists_menu ).find (".treeview-menu");
+      
+            real_listMenu.html("");
+            var listItems  = "";
+
+            for (i=0;i<len;i++) {
+              var list = data.MailChimpLists[i];
+        
+              listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+            }
     
-          real_listMenu.html(listItems);
+            real_listMenu.html(listItems);
           
-          if ( data.firstLoaded == true ) {
-            window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top");
+            if ( data.firstLoaded == true ) {
+              window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Mailchimp"), "<br>" + i18next.t("All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to manage them, click this notification !</b>"), window.CRM.root + '/v2/mailchimp/dashboard' ,'success',"top");
+            }
           }
+          
         });
     }
     
