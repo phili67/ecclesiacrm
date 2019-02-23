@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "78706da87c35f28f1176745832bb25b0",
-    "content-hash": "42965cba0ba31be5f6426467c65fd624",
+    "hash": "24092104f4d72c45cfc9ac0449f76d7a",
+    "content-hash": "e5cb6133768eaff174bb1f922af0757d",
     "packages": [
         {
             "name": "authorizenet/authorizenet",
@@ -1574,16 +1574,16 @@
         },
         {
             "name": "php-http/discovery",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/discovery.git",
-                "reference": "02b7ea21eafa0757af04140890a67d8ed45f83b2"
+                "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-http/discovery/zipball/02b7ea21eafa0757af04140890a67d8ed45f83b2",
-                "reference": "02b7ea21eafa0757af04140890a67d8ed45f83b2",
+                "url": "https://api.github.com/repos/php-http/discovery/zipball/684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+                "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
                 "shasum": ""
             },
             "require": {
@@ -1634,7 +1634,7 @@
                 "message",
                 "psr7"
             ],
-            "time": "2019-01-23 12:41:22"
+            "time": "2019-02-23 07:42:53"
         },
         {
             "name": "php-http/guzzle6-adapter",
