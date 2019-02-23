@@ -9,27 +9,20 @@
 
 namespace EcclesiaCRM\PersonalServer;
 
-use Sabre\DAV;
-use Sabre\HTTP\RequestInterface;
-
-
-
-  use EcclesiaCRM\Utils\LoggerUtils;
-
-
-
-
 // Include the function library
 // Very important this constant !!!!
 // be carefull with the webdav constant !!!!
 define("webdav", "1");
 require dirname(__FILE__).'/../../Include/Config.php';
 
+use Sabre\DAV;
+use Sabre\HTTP\RequestInterface;
+
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\User;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\dto\SystemURLs;
-
+use EcclesiaCRM\Utils\MiscUtils;
 
 class EcclesiaCRMServer extends DAV\Server
 {
@@ -41,12 +34,13 @@ class EcclesiaCRMServer extends DAV\Server
      parent::__construct($treeOrNode);
 
      $this->on('beforeUnbind',array($this, 'beforeUnbind'));     
+     //$this->on('beforeBind',array($this, 'beforeBind'));     
    }
    
    function createFile($uri, $data, &$etag = null) {
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
         $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
-        $currentUser->createTimeLineNote("dav-create-file",$uri);
+        $currentUser->createTimeLineNote("dav-create-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
       }
       
       return parent::createFile($uri, $data, $etag);
@@ -55,7 +49,7 @@ class EcclesiaCRMServer extends DAV\Server
    function createCollection($uri, $mkCol) {
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
         $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
-        $currentUser->createTimeLineNote("dav-create-directory",$uri);
+        $currentUser->createTimeLineNote("dav-create-directory",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
       }
         
       parent::createCollection($uri,$mkCol);
@@ -64,7 +58,7 @@ class EcclesiaCRMServer extends DAV\Server
     function updateFile($uri, $data, &$etag = null) {
         if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
-           $currentUser->createTimeLineNote("dav-update-file",$uri);
+           $currentUser->createTimeLineNote("dav-update-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
         }
       
         return parent::updateFile($uri, $data, $etag);
@@ -86,7 +80,7 @@ class EcclesiaCRMServer extends DAV\Server
       if (strpos($res['destination'],"._") == false && strpos($res['destination'],".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
            $currentUser->createTimeLineNote("dav-move-copy-file",$res['destination']);
-           $currentUser->updateFolder($oldPath,$res['destination']);
+           $currentUser->updateFolder($oldPath,MiscUtils::convertUnicodeAccentuedString2UTF8($res['destination']));
       }
       
       return $res;
@@ -98,18 +92,22 @@ class EcclesiaCRMServer extends DAV\Server
       return $res;
     }
     
+    /*function beforeBind($uri) { // due to a bug with : ́e special char that aren't to the right format : é
+       if(preg_match('/[^\x20-\x7f]/', $uri)) 
+         return false;
+       else 
+         return true;
+
+    }*/
+    
     function beforeUnbind($uri) {
-      $logger = LoggerUtils::getAppLogger();
-  
-      $logger->info("Path : ".$this->authBackend->getLoginName());
-              
       if ($uri == "home/".$this->authBackend->getLoginName()."/public") {
         return false;
       }
 
       if (strpos($uri,"._") == false && strpos($uri,".DS_Store") == false) {
            $currentUser = UserQuery::create()->findOneByUserName($this->authBackend->getLoginName());    
-           $currentUser->deleteTimeLineNote("dav-delete-file",$uri);
+           $currentUser->deleteTimeLineNote("dav-delete-file",MiscUtils::convertUnicodeAccentuedString2UTF8($uri));
       }
      
       return true;

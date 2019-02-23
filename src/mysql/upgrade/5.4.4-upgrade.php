@@ -27,5 +27,11 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/GDPRDataStructureExport.php");
   unlink(SystemURLs::getDocumentRoot()."/UserList.php");
   
+  // we create the new public directory
+  mkdir(SystemURLs::getDocumentRoot()."/public", 0755);
+  mkdir(SystemURLs::getDocumentRoot()."/public/userdir", 0755);
+  
+  file_put_contents(SystemURLs::getDocumentRoot()."/public/.htaccess", 'Options -Indexes');
+  
   $logger->info("End of Reset :  all unusefull files");
 ?>

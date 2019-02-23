@@ -1,5 +1,14 @@
 
 $(document).ready(function () {
+  // Helper function to get parameters from the query string.
+  // use to search the ckeditor function to put the right param in the ckeditor image tool
+  function getUrlParam( paramName ) {
+      var reParam = new RegExp( '(?:[\?&]|&)' + paramName + '=([^&]+)', 'i' );
+      var match = window.location.search.match( reParam );
+
+      return ( match && match.length > 1 ) ? match[1] : null;
+  }
+
   // DOM callback for all the project
   window.CRM.reloadEDriveTable = function (callback) {
      window.CRM.dataEDriveTable.ajax.reload(function(json) {
@@ -15,7 +24,6 @@ $(document).ready(function () {
   var selected     = [];// the selected rows
   var uploadWindow = null;
   var oldTextField = null;
-
   
   window.CRM.dataEDriveTable = $("#edrive-table").DataTable({
     ajax:{
@@ -127,12 +135,32 @@ $(document).ready(function () {
       installDragAndDrop();
     }
   });
+  
+
+$("body").on('click', '.filemanager-download', function(e) {
+  var selectedRows = window.CRM.dataEDriveTable.rows('.selected').data()
+  $.each(selectedRows, function (index, value) {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'filemanager/getRealLink',
+      data: JSON.stringify({"personID": window.CRM.currentPersonID,"pathFile" : value.path})
+    }).done(function(data) {
+      if (data && data.success) {
+        var funcNum = getUrlParam( 'CKEditorFuncNum' );
+        var fileUrl = data.address;
+        window.opener.CKEDITOR.tools.callFunction( funcNum, fileUrl );
+        window.close();
+      }
+    });
+  });
+});
 
   
  $('#edrive-table tbody').on('click', 'td', function (e) {
  
   var id    = $(this).parent().attr('id');
   var col  = window.CRM.dataEDriveTable.cell( this ).index().column;
+  
   
   if ( !(col == 2) ) {
     if (!e.shiftKey) {
@@ -156,6 +184,14 @@ $(document).ready(function () {
       selected.length = 0;// no lines
     }
     
+    if (window.CRM.browserImage == true) {
+      if (selectedRows) {
+        $('.filemanager-download').show();
+      } else {
+        $('.filemanager-download').hide();
+      }
+    }
+
     if ( !(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) && selectedRows == 1) {
      
@@ -533,6 +569,10 @@ $("body").on('keypress', '.fileName', function(e) {
       }
     });
   }
+  $(document).on('click','.filemanager-refresh',function () {
+    window.CRM.reloadEDriveTable(function() {
+    });  
+  });
   
   $(document).on('click','.change-folder',function () {
     if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||

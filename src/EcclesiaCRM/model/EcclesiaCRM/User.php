@@ -633,21 +633,25 @@ class User extends BaseUser
                 break;
             case "dav-create-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav create file'));
                 break;    
             case "dav-create-directory":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('folder');
                 $note->setInfo(_('Dav create directory'));
                 break;                           
             case "dav-update-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav update file'));
                 break;
             case "dav-move-copy-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
 
                 $path = dirname(__FILE__).'/../../../'.$this->getUserRootDir().str_replace("home/","",$info);
                 
@@ -661,6 +665,7 @@ class User extends BaseUser
                 break;            
             case "dav-delete-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav delete file'));
                 break;

@@ -1453,6 +1453,12 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
                           <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
+                      <a class="filemanager-refresh" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Actualize files") ?>">
+                        <span class="fa-stack fa-special-icon drag-elements">
+                          <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
+                          <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
                     </td>
                   </tr>
                 </table>
@@ -1533,6 +1539,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
   window.CRM.personFullName  = "<?= $person->getFullName() ?>";
   window.CRM.normalMail      = "<?= $sEmail ?>";
   window.CRM.workMail        = "<?= $person->getWorkEmail() ?>";
+  window.CRM.browserImage    = false;
   
   if ( (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
       (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.platform)) ) ) {

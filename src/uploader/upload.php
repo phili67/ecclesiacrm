@@ -18,13 +18,6 @@ $userName       = $user->getUserName();
 $currentpath    = $user->getCurrentpath();
 
 $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
-$root = '/';
-
-if ( !empty(SystemURLs::getRootPath()) ) {
-  $root = SystemURLs::getRootPath()."/";
-}
-
-
 
 $dropDir = $privateNoteDir;
 $fileName = $_FILES["upload"]["name"];
@@ -61,8 +54,6 @@ if (file_exists("/".$dropDir."/" . $fileName))
 }
 else
 {
-    
-    
     move_uploaded_file($_FILES["upload"]["tmp_name"],"../".$dropDir."/" . $fileName);
 
 
