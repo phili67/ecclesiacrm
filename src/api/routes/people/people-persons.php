@@ -510,7 +510,7 @@ function saveNoteAsWordFile ($request, $res, $args) {
         // we set a random title
 
         // [SAVE FILE ON THE SERVER]
-        $tmpFile = dirname(__FILE__)."/../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
+        $tmpFile = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$title.".docx";
         $pw->save($tmpFile, "Word2007");
         
         // now we create the note
@@ -526,7 +526,7 @@ function saveNoteAsWordFile ($request, $res, $args) {
       
         $note->save();
 
-        return $res->withJson(['success' => $title ]);
+        return $res->withJson(['success' => true, 'title' => $title ]);
     }
   }
   

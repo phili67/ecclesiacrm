@@ -24,6 +24,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 
+
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
  *
@@ -35,6 +36,9 @@ use Propel\Runtime\Propel;
  */
 class User extends BaseUser
 {
+    private $public_path  = "public/userdir/";
+    private $private_path = "private/userdir/";
+    
     public function getId()
     {
         return $this->getPersonId();
@@ -182,9 +186,17 @@ class User extends BaseUser
               $this->createGroupAdminCalendars ();              
             }
             
+            // create the home public folder
+            $this->createHomePublicDir();
+            
        } catch (Exception $e) {
             throw new PropelException('Unable to create home dir for user'.strtolower($this->getUserName()).'.', 0, $e);
        }       
+    }
+    
+    public function createHomePublicDir ()
+    {
+      $path = $this->getUserPublicDir();
     }
 
     public function deleteHomeDir()
@@ -621,21 +633,25 @@ class User extends BaseUser
                 break;
             case "dav-create-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav create file'));
                 break;    
             case "dav-create-directory":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('folder');
                 $note->setInfo(_('Dav create directory'));
                 break;                           
             case "dav-update-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav update file'));
                 break;
             case "dav-move-copy-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
 
                 $path = dirname(__FILE__).'/../../../'.$this->getUserRootDir().str_replace("home/","",$info);
                 
@@ -649,6 +665,7 @@ class User extends BaseUser
                 break;            
             case "dav-delete-file":
                 $note->setText(str_replace("home/","",$info));
+                $note->setTitle(str_replace("home/","",$info));
                 $note->setType('file');
                 $note->setInfo(_('Dav delete file'));
                 break;
@@ -668,7 +685,7 @@ class User extends BaseUser
     
     public function getUserRootDir()
     {
-      return "private/userdir/".$this->getWebDavKeyUUID();
+      return $this->private_path.$this->getWebDavKeyUUID();
     }
     
     public function getWebDavKeyUUID()
@@ -677,7 +694,7 @@ class User extends BaseUser
         $this->createWebDavUUID();
         
         // the new destination
-        $new_dir = "private/userdir/".$this->getWebdavkey()."/".strtolower($this->getUserName());
+        $new_dir = $this->private_path.$this->getWebdavkey()."/".strtolower($this->getUserName());
         
         // in this case we have to create the create the folder
         mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
@@ -686,7 +703,7 @@ class User extends BaseUser
         
         // then we move the files
         if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) { 
-          $old_dir = "private/userdir/".strtolower($this->getUserName());
+          $old_dir = $this->private_path.strtolower($this->getUserName());
           
           rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
         }
@@ -703,6 +720,50 @@ class User extends BaseUser
         
         // we store the uuid
         $this->setWebdavkey($uuid);
+        $this->save();
+      }
+    }
+    
+    public function getUserPublicDir()
+    {
+      return $this->public_path.$this->getWebDavKeyPublicUUID();
+    }
+    
+    public function getWebDavKeyPublicUUID()
+    {
+      if ($this->getWebdavPublickey() == null) {
+        $this->createWebDavPublicUUID();
+        
+        // the new destination
+        $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
+        
+        // in this case we have to create the create the folder
+        mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+
+        // then we move the files
+        if (file_exists(dirname(__FILE__)."/../../../".$old_dir) && is_dir(dirname(__FILE__)."/../../../".$old_dir)) { 
+          $old_dir = $this->public_path;
+          
+          rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
+        }
+      }
+      
+      // now we create the symlink in the real home folder
+      symlink(dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey()."/", dirname(__FILE__)."/../../../".$this->getUserDir()."/public");
+
+      
+      return $this->getWebdavPublickey();
+    }
+
+
+    private function createWebDavPublicUUID()
+    {
+      if ($this->getWebdavPublickey() == null) {
+        // we create the uuid name
+        $uuid = strtoupper( \Sabre\DAV\UUIDUtil::getUUID() );
+        
+        // we store the uuid
+        $this->setWebdavPublickey($uuid);
         $this->save();
       }
     }

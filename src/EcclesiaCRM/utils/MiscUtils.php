@@ -29,6 +29,33 @@ class MiscUtils {
     return rmdir($dir); 
   } 
   
+  
+/**
+ * Unicode to UTF8 real real string
+ * @param string $dir the directory name
+ */
+  public static function convertUnicodeAccentuedString2UTF8 ($string) {
+      $uriUtf8 = str_replace(
+          ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are two byte char
+          ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are one byte char
+          $string);
+          
+      return $uriUtf8;
+  }
+
+/**
+ * UTF8 to unicode real real string
+ * @param string $dir the directory name
+ */
+  public static function convertUTF8AccentuedString2Unicode ($string) {
+      $uriUnicode = str_replace(
+          ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], // this are one byte char
+          ["á","à","â","ä","À","Ä","Â","ç","Ç","é","è","ê","É","È","Ê","Ë","í","ì","ï","Ï","î","Î"], //this are two byte char
+          $string);
+          
+      return $uriUnicode;
+  }
+  
   public static function pathToPathWithIcons ($path) {
     $items = explode('/', $path);
     

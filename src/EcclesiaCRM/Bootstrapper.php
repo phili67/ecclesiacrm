@@ -150,7 +150,7 @@ namespace EcclesiaCRM
               $cnInfoCentral = mysqli_connect(self::$databaseServerName, self::$databaseUser, self::$databasePassword, null, self::$databasePort);
           }
           self::testMYSQLI();
-          mysqli_set_charset($cnInfoCentral, 'utf8mb4');
+          mysqli_set_charset($cnInfoCentral, 'utf8');
           self::$bootStrapLogger->debug("Selecting database: " . self::$databaseName);
           mysqli_select_db($cnInfoCentral, self::$databaseName)
       or Bootstrapper::system_failure('Could not connect to the MySQL database <strong>'.self::$databaseName.'</strong>. Please check the settings in <strong>Include/Config.php</strong>.<br/>MySQL Error: '.mysqli_error($cnInfoCentral));
@@ -267,7 +267,7 @@ namespace EcclesiaCRM
             'user' => self::$databaseUser,
             'password' => self::$databasePassword,
             'settings' => [
-                'charset' => 'utf8mb4',
+                'charset' => 'utf8',
                 'queries' => ["SET sql_mode=(SELECT REPLACE(REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''),'NO_ZERO_DATE',''))"],
             ],
             'classname' => self::$dbClassName,

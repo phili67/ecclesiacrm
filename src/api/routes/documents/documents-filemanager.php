@@ -14,7 +14,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\dto\ImageTreatment;
 
 $app->group('/filemanager', function () {
     
@@ -30,6 +30,7 @@ $app->group('/filemanager', function () {
     $this->post('/newFolder', 'newFolder' );
     $this->post('/rename', 'renameFile' );
     $this->post('/uploadFile/{personID:[0-9]+}', 'uploadFile' );
+    $this->post('/getRealLink', 'getRealLink');
 
 });
 
@@ -140,7 +141,11 @@ function getRealFile($request, $res, $args) {
         $note = NoteQuery::Create()->filterByPerId ($args['personID'])->filterByText($searchLikeString, Criteria::LIKE)->findOne();
         
         if ( !is_null($note) && ( $note->isShared() > 0 || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->getPersonId() == $args['personID'] ) ) {
-          $file = dirname(__FILE__)."/../../../".$realNoteDir."/".$name;
+          $file = dirname(__FILE__)."/../../../".$realNoteDir."/".MiscUtils::convertUTF8AccentuedString2Unicode($name);
+          
+          if (!file_exists ($file)) {// in the case the file name isn't in unicode format
+            $file = dirname(__FILE__)."/../../../".$realNoteDir."/".$name;
+          }
       
           $response = $res->withHeader('Content-Description', 'File Transfer')
              ->withHeader('Content-Type', 'application/octet-stream')
@@ -197,6 +202,8 @@ function changeFolder (Request $request, Response $response, array $args) {
       if (!is_null($user)) {
           $user->setCurrentpath($user->getCurrentpath().substr($params->folder, 1)."/");
           $user->save();
+          
+          $_SESSION['user'] = $user;
 
           return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($user->getCurrentpath()),"numberOfFiles" => numberOfFiles ($params->personID)]);
       }
@@ -280,7 +287,11 @@ function deleteOneFile (Request $request, Response $response, array $args) {
           $userName    = $user->getUserName();
           $currentpath = $user->getCurrentpath();
 
-          $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->file;
+          $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.MiscUtils::convertUTF8AccentuedString2Unicode($params->file);
+
+          if (!file_exists ($currentNoteDir)) {// in the case the file name isn't in unicode format
+            $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->file;
+          }
           
           $searchLikeString = $userName.$currentpath.$params->file.'%';
           $searchLikeString = str_replace("//","/",$searchLikeString);
@@ -303,6 +314,8 @@ function deleteFiles (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
     
     if (isset ($params->personID) && isset ($params->files) ) {
+    
+      $error = [];
 
       $user = UserQuery::create()->findPk($params->personID);
       if (!is_null($user)) {
@@ -315,6 +328,13 @@ function deleteFiles (Request $request, Response $response, array $args) {
               // we're in a case of a folder
               $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
               
+              $currentNoteDir = str_replace("//","/",$currentNoteDir);
+              
+              if ($currentpath.$file == "//public") {
+                $error[] = _("You can't erase the public folder !");
+                continue;
+              }
+
               if (MiscUtils::delTree($currentNoteDir)) {
                 $searchLikeString = $userName.$currentpath.$file.'%';
                 $searchLikeString = str_replace("//","/",$searchLikeString);
@@ -328,7 +348,14 @@ function deleteFiles (Request $request, Response $response, array $args) {
             } else {
               // in the case of a file
               $currentNoteDir = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
+
+              $currentNoteDir = str_replace("//","/",$currentNoteDir);
               
+              $utf8Test = MiscUtils::convertUTF8AccentuedString2Unicode($currentNoteDir);
+              if (file_exists ($utf8Test)) {// in the case the file name isn't in unicode format
+                $currentNoteDir = $utf8Test;
+              }
+
               if (unlink ($currentNoteDir)) {
                   $searchLikeString = $userName.$currentpath.$file.'%';
                   $searchLikeString = str_replace("//","/",$searchLikeString);
@@ -342,7 +369,7 @@ function deleteFiles (Request $request, Response $response, array $args) {
             }
           }
 
-          return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($params->personID)]);
+          return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($params->personID),'error' => $error]);
       }
     }
     
@@ -369,6 +396,10 @@ function movefiles (Request $request, Response $response, array $args) {
             $currentDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
             $newDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1).$file;
             
+            if ( strpos($newDest, $userName."/public/../") > 0) {
+              $newDest = str_replace ("/public/../","/",$newDest);
+            }
+
             if (is_dir($newDest)) {
               return $response->withJson(['success' => false,"message" => gettext("A Folder")." \"".substr($file,1)."\" ".gettext("already exists at this place.")]);
               break;
@@ -413,6 +444,11 @@ function movefiles (Request $request, Response $response, array $args) {
           } else {
             $currentDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$file;
             $newDest = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.substr($params->folder,1)."/".$file;
+            
+            if ( strpos($newDest, $userName."/public/../") > 0) {
+              $newDest = str_replace ("/public/../","/",$newDest);
+            }
+            
             
             if (file_exists($newDest)) {
               return $response->withJson(['success' => false,"message" => gettext ("A File")." \"".$file."\" ".gettext ("already exists at this place.")]);
@@ -507,7 +543,10 @@ function renameFile (Request $request, Response $response, array $args) {
           $currentpath = $user->getCurrentpath();
           $extension   = pathinfo($params->oldName, PATHINFO_EXTENSION); 
           
-          $oldName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->oldName;
+          $oldName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.MiscUtils::convertUTF8AccentuedString2Unicode($params->oldName);
+          if (!file_exists ($oldName)) {// in the case the file name isn't in unicode format
+            $oldName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->oldName;
+          }
           $newName = dirname(__FILE__)."/../../../".$realNoteDir."/".$userName.$currentpath.$params->newName.(($params->type == 'file')?".".$extension:"");
           
           if (rename($oldName, $newName)) {
@@ -583,4 +622,34 @@ function uploadFile (Request $request, Response $response, array $args) {
     }
 
     return $response->withJson(['success' => true,"numberOfFiles" => numberOfFiles ($args['personID'])]);
+}
+
+function getRealLink (Request $request, Response $response, array $args) {
+    $params = (object)$request->getParsedBody();
+    
+    if (isset ($params->personID) && isset ($params->pathFile) ) {
+      $user = UserQuery::create()->findPk($params->personID);
+      if (!is_null($user)) {
+
+        $userName       = $user->getUserName();
+        $currentpath    = $user->getCurrentpath();
+        $privateNoteDir = $user->getUserRootDir();
+        $publicNoteDir  = $user->getUserPublicDir();
+        $fileName       = basename($params->pathFile);
+        $publicDir      = $user->getUserName()."/public/";
+
+        $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+
+        if (strpos($params->pathFile, $publicDir) === false) {
+            $dropAddress = $protocol."://".$_SERVER[HTTP_HOST]."/api/filemanager/getFile/".$user->getPersonId(). "/". $userName. $currentpath . $fileName;
+        } else {
+            $fileName = str_replace ( $publicDir ,"",$params->pathFile);
+            $dropAddress = $protocol."://".$_SERVER[HTTP_HOST]."/". $publicNoteDir ."/" . $fileName;
+        }
+
+        return $response->withJson(['success' => "success", "privateNoteDir" => $privateNoteDir, "publicNoteDir" => $publicNoteDir, 'fileName' => $fileName,"address" => $dropAddress]);
+      }
+    }
+    
+    return $response->withJson(['success' => "failed"]);
 }
