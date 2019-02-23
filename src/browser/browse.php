@@ -1,5 +1,7 @@
 <?php
 
+/* Copyright Philippe Logel not MIT */
+
 // Include the function library
 require '../Include/Config.php';
 
