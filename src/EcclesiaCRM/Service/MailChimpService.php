@@ -41,7 +41,7 @@ class MailChimpService
     }
     public function isActive()
     {
-        return $this->isActive; 
+        return $this->isActive && SessionUser::getUser()->isMailChimpEnabled();
     }
     public function isLoaded ()
     {

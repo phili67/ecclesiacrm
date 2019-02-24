@@ -314,7 +314,7 @@ class MenuBar {
       
       
       // the Email
-      if (SystemConfig::getBooleanValue("bEnabledEmail")) {
+      if (SessionUser::getUser()->isMailChimpEnabled()) {
         $menu = new Menu (gettext("Email"),"fa fa-envelope","#",true);
           
         $mailchimp = new MailChimpService();

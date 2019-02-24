@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-13 18:14+0100\n"
+"POT-Creation-Date: 2019-02-23 19:01+0100\n"
 "Language: fr-BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,42 +96,46 @@ msgid "Your cart has been successfully emptied"
 msgstr "Votre panier a bien été vidé"
 
 #: api/routes/documents/documents-ckeditor.php:172
-#: api/routes/documents/documents-filemanager.php:579
+#: api/routes/documents/documents-filemanager.php:618
 #: api/routes/people/people-persons.php:525 NoteEditor.php:127
-#: NoteEditor.php:149
+#: NoteEditor.php:149 uploader/upload.php:74
 msgid "Create file"
 msgstr "Création fichier"
 
-#: api/routes/documents/documents-filemanager.php:117
-#: EcclesiaCRM/utils/MiscUtils.php:234
+#: api/routes/documents/documents-filemanager.php:118
+#: EcclesiaCRM/utils/MiscUtils.php:261
 msgid "Folder"
 msgstr "Dossier"
 
-#: api/routes/documents/documents-filemanager.php:373
-#: api/routes/documents/documents-filemanager.php:473
+#: api/routes/documents/documents-filemanager.php:334
+msgid "You can't erase the public folder !"
+msgstr "Vous ne pouvez effacer le dossier public !"
+
+#: api/routes/documents/documents-filemanager.php:404
+#: api/routes/documents/documents-filemanager.php:509
 msgid "A Folder"
 msgstr "Un Dossier"
 
-#: api/routes/documents/documents-filemanager.php:373
-#: api/routes/documents/documents-filemanager.php:418
-#: api/routes/documents/documents-filemanager.php:473
+#: api/routes/documents/documents-filemanager.php:404
+#: api/routes/documents/documents-filemanager.php:454
+#: api/routes/documents/documents-filemanager.php:509
 msgid "already exists at this place."
 msgstr "existe déjà à cet emplacement"
 
-#: api/routes/documents/documents-filemanager.php:403
+#: api/routes/documents/documents-filemanager.php:434
 msgid "Folder modification"
 msgstr "Modification de dossier"
 
-#: api/routes/documents/documents-filemanager.php:405
-#: api/routes/documents/documents-filemanager.php:443
+#: api/routes/documents/documents-filemanager.php:436
+#: api/routes/documents/documents-filemanager.php:479
 msgid "File modification"
 msgstr "Modification de fichier"
 
-#: api/routes/documents/documents-filemanager.php:418
+#: api/routes/documents/documents-filemanager.php:454
 msgid "A File"
 msgstr "Un fichier"
 
-#: api/routes/documents/documents-filemanager.php:485
+#: api/routes/documents/documents-filemanager.php:521
 msgid "New Folder"
 msgstr "Nouveau Dossier"
 
@@ -144,8 +148,8 @@ msgid "[👀 ✐]"
 msgstr "[👀 ✐]"
 
 #: api/routes/documents/documents-sharedocument.php:86
-#: api/routes/documents/documents-sharedocument.php:118
-#: api/routes/documents/documents-sharedocument.php:152
+#: api/routes/documents/documents-sharedocument.php:120
+#: api/routes/documents/documents-sharedocument.php:154
 msgid ""
 "You can visualize it in your account, in the time Line or the notes tab."
 msgstr ""
@@ -202,7 +206,7 @@ msgstr "Familles"
 msgid "Groups"
 msgstr "Groupes"
 
-#: api/routes/mailchimp.php:761
+#: api/routes/mailchimp.php:767
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "L'hôte SMTP est non configuré, aller dans la page de réglages"
 
@@ -645,7 +649,7 @@ msgstr "Enregistrer"
 #: GroupPropsEditor.php:170 GroupReports.php:102 GroupReports.php:174
 #: LettersAndLabels.php:83 ManageEnvelopes.php:134 MemberRoleChange.php:121
 #: MemberRoleChange.php:123 NoteDelete.php:100 NoteEditor.php:313
-#: PersonEditor.php:1611 PersonView.php:1510 PledgeEditor.php:736
+#: PersonEditor.php:1611 PersonView.php:1516 PledgeEditor.php:736
 #: PropertyEditor.php:191 PropertyTypeEditor.php:115 Register.php:56
 #: ReminderReport.php:54 SettingsIndividual.php:122 SettingsIndividual.php:171
 #: sundayschool/SundaySchoolDashboard.php:280
@@ -768,6 +772,46 @@ msgstr "Prix"
 #: BatchWinnerEntry.php:112
 msgid "Enter Winners"
 msgstr "Entrer les gagnants"
+
+#: browser/browse.php:17
+msgid "File Manager"
+msgstr "Gestionnaire de fichiers"
+
+#: browser/browse.php:30 PersonView.php:1427
+msgid "Upload a file in EDrive"
+msgstr "Télécharger fichier dans EDrive"
+
+#: browser/browse.php:39
+msgid "Download"
+msgstr "Télécharger"
+
+#: browser/browse.php:46 PersonView.php:1436
+msgid "Create a Folder"
+msgstr "Créer un dossier"
+
+#: browser/browse.php:53 Checkin.php:520 Checkin.php:561 Checkin.php:660
+#: DepositSlipEditor.php:288 EditEventAttendees.php:110
+#: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
+#: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
+#: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
+#: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
+#: PersonView.php:1443 PersonView.php:1517
+#: v2/templates/email/mailchimp/campaign.php:33
+#: v2/templates/email/mailchimp/managelist.php:34
+msgid "Delete"
+msgstr "Supprimer"
+
+#: browser/browse.php:60 PersonView.php:1450
+msgid "Up One Level"
+msgstr "Monter d'un niveau"
+
+#: browser/browse.php:66 PersonView.php:1456
+msgid "Actualize files"
+msgstr "Actualiser les fichiers"
+
+#: browser/browse.php:79 PersonView.php:1474
+msgid "Preview"
+msgstr "Aperçu"
 
 #: CanvassAutomation.php:23 ReportList.php:58
 msgid "Canvass Automation"
@@ -1404,17 +1448,6 @@ msgstr "Nom de l'adulte (Optionnel)"
 msgid "CheckOut"
 msgstr "Confirmer"
 
-#: Checkin.php:520 Checkin.php:561 Checkin.php:660 DepositSlipEditor.php:288
-#: EditEventAttendees.php:110 ElectronicPaymentList.php:215
-#: ElectronicPaymentList.php:259 ElectronicPaymentList.php:317
-#: EventNames.php:327 FamilyView.php:936 FindDepositSlip.php:131
-#: FundRaiserEditor.php:201 ListEvents.php:415 PaddleNumList.php:55
-#: PastoralCare.php:153 PastoralCare.php:162 PersonView.php:1443
-#: PersonView.php:1511 v2/templates/email/mailchimp/campaign.php:33
-#: v2/templates/email/mailchimp/managelist.php:34
-msgid "Delete"
-msgstr "Supprimer"
-
 #: Checkin.php:543 SelectList.php:765
 msgid "Listing"
 msgstr "Liste"
@@ -1973,7 +2006,7 @@ msgid "Return to Deposit Listing"
 msgstr "Retour à la Liste des dépôts"
 
 #: DepositSlipEditor.php:279 FamilyView.php:928 FindDepositSlip.php:121
-#: PersonView.php:1500
+#: PersonView.php:1506
 msgid "Confirm Delete"
 msgstr "Confirmer la suppression"
 
@@ -4393,7 +4426,7 @@ msgstr "Menus Perso."
 msgid "Private Space"
 msgstr "Espace Personnel"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223 EcclesiaCRM/utils/MiscUtils.php:41
+#: EcclesiaCRM/MenuBar/MenuBar.php:223 EcclesiaCRM/utils/MiscUtils.php:68
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr "Accueil"
@@ -4692,51 +4725,51 @@ msgstr "ans"
 msgid "yr old"
 msgstr "ans"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:602
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:614
 msgid "system user created"
 msgstr "un utilisateur système a été créé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:605
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:617
 msgid "system user updated"
 msgstr "un utilisateur système a été mis à jour"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:608
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:620
 msgid "system user deleted"
 msgstr "un utilisateur système a été effacé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:611
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:623
 msgid "system user password reset"
 msgstr "réinitialisation du mot de passe de l'utilisateur système"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:614
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:626
 msgid "system user changed password"
 msgstr "le mot de passe de l'utilisateur système a été modifié."
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:617
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:629
 msgid "system user password changed by admin"
 msgstr "le mot de passe de l'utilisateur système a été modifié par l'admin"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:620
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:632
 msgid "system user login reset"
 msgstr "l'identifiant de l'utilisateur système a été réinitialisé"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:625
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:638
 msgid "Dav create file"
 msgstr "Création fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:630
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:644
 msgid "Dav create directory"
 msgstr "Création dossier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:635
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:650
 msgid "Dav update file"
 msgstr "Mise à jour fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:647
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:663
 msgid "Dav move copy file"
 msgstr "Déplacement copie fichier DAV"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:653
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
 msgid "Dav delete file"
 msgstr "Suppression fichier DAV"
 
@@ -5105,45 +5138,45 @@ msgstr "Ignorez les Adresses<br>Incomplètes"
 msgid "File Type"
 msgstr "Type de fichier"
 
-#: EcclesiaCRM/utils/MiscUtils.php:234 EcclesiaCRM/utils/MiscUtils.php:335
+#: EcclesiaCRM/utils/MiscUtils.php:261 EcclesiaCRM/utils/MiscUtils.php:362
 msgid "File"
 msgstr "Fichier"
 
-#: EcclesiaCRM/utils/MiscUtils.php:282
+#: EcclesiaCRM/utils/MiscUtils.php:309
 msgid "You've to use a PDF viewer or download the file here "
 msgstr "Vous devez utiliser une visionneuse PDF ou télécharger le fichier ici "
 
-#: EcclesiaCRM/utils/MiscUtils.php:289 EcclesiaCRM/utils/MiscUtils.php:294
-#: EcclesiaCRM/utils/MiscUtils.php:298 EcclesiaCRM/utils/MiscUtils.php:402
+#: EcclesiaCRM/utils/MiscUtils.php:316 EcclesiaCRM/utils/MiscUtils.php:321
+#: EcclesiaCRM/utils/MiscUtils.php:325 EcclesiaCRM/utils/MiscUtils.php:429
 msgid "Your browser does not support the audio element."
 msgstr "Votre navigateur ne supporte pas les éléments audios"
 
-#: EcclesiaCRM/utils/MiscUtils.php:304 EcclesiaCRM/utils/MiscUtils.php:311
-#: EcclesiaCRM/utils/MiscUtils.php:320 EcclesiaCRM/utils/MiscUtils.php:412
-#: EcclesiaCRM/utils/MiscUtils.php:423 EcclesiaCRM/utils/MiscUtils.php:438
+#: EcclesiaCRM/utils/MiscUtils.php:331 EcclesiaCRM/utils/MiscUtils.php:338
+#: EcclesiaCRM/utils/MiscUtils.php:347 EcclesiaCRM/utils/MiscUtils.php:439
+#: EcclesiaCRM/utils/MiscUtils.php:450 EcclesiaCRM/utils/MiscUtils.php:465
 msgid "Your browser does not support the video tag."
 msgstr "Votre navigateur ne supporte pas les tags vidéos"
 
-#: EcclesiaCRM/utils/MiscUtils.php:344 EcclesiaCRM/utils/MiscUtils.php:376
-#: EcclesiaCRM/utils/MiscUtils.php:385 EcclesiaCRM/utils/MiscUtils.php:400
-#: EcclesiaCRM/utils/MiscUtils.php:409 EcclesiaCRM/utils/MiscUtils.php:419
-#: EcclesiaCRM/utils/MiscUtils.php:432
+#: EcclesiaCRM/utils/MiscUtils.php:371 EcclesiaCRM/utils/MiscUtils.php:403
+#: EcclesiaCRM/utils/MiscUtils.php:412 EcclesiaCRM/utils/MiscUtils.php:427
+#: EcclesiaCRM/utils/MiscUtils.php:436 EcclesiaCRM/utils/MiscUtils.php:446
+#: EcclesiaCRM/utils/MiscUtils.php:459
 msgid "Expand"
 msgstr "Développer"
 
-#: EcclesiaCRM/utils/MiscUtils.php:477
+#: EcclesiaCRM/utils/MiscUtils.php:504
 msgid "Classic Note"
 msgstr "Note classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:480
+#: EcclesiaCRM/utils/MiscUtils.php:507
 msgid "Classic Video"
 msgstr "Vidéo classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:483
+#: EcclesiaCRM/utils/MiscUtils.php:510
 msgid "Classic File"
 msgstr "Fichier classique"
 
-#: EcclesiaCRM/utils/MiscUtils.php:486
+#: EcclesiaCRM/utils/MiscUtils.php:513
 msgid "Classic Audio"
 msgstr "Audio classique"
 
@@ -6197,14 +6230,14 @@ msgstr "Ajouter un nouveau paiement"
 msgid " Canvass Entry"
 msgstr " entrée/ajout de démarchage"
 
-#: FamilyView.php:931 PersonView.php:1504
+#: FamilyView.php:931 PersonView.php:1510
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 "Vous êtes sur le point de supprimer la photo de profil, cette opération est "
 "irréversible."
 
-#: FamilyView.php:932 PersonView.php:1506
+#: FamilyView.php:932 PersonView.php:1512
 msgid "Do you want to proceed?"
 msgstr "Voulez-vous continuer ?"
 
@@ -8635,22 +8668,6 @@ msgstr "Dernière modification par"
 #: PersonView.php:1420
 msgid "All Files"
 msgstr "Les fichiers"
-
-#: PersonView.php:1427
-msgid "Upload a file in EDrive"
-msgstr "Télécharger fichier dans EDrive"
-
-#: PersonView.php:1436
-msgid "Create a Folder"
-msgstr "Créer un dossier"
-
-#: PersonView.php:1450
-msgid "Up One Level"
-msgstr "Monter d'un niveau"
-
-#: PersonView.php:1468
-msgid "Preview"
-msgstr "Aperçu"
 
 #: PledgeEditor.php:478
 msgid "Pledge Editor"
