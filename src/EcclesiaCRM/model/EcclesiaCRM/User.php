@@ -24,6 +24,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\SessionUser;
 use Propel\Runtime\Propel;
 
+
 /**
  * Skeleton subclass for representing a row from the 'user_usr' table.
  *
@@ -207,6 +208,7 @@ class User extends BaseUser
       $res = $principalBackend->deletePrincipal ("principals/".strtolower( $this->getUserName() ));
 
       // we code now in propel
+      MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserPublicDir());
       MiscUtils::delTree(dirname(__FILE__)."/../../../".$this->getUserRootDir());
       
       $this->setHomedir(null);
