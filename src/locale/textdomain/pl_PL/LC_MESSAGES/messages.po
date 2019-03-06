@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-23 19:01+0100\n"
+"POT-Creation-Date: 2019-03-06 16:12+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,52 +97,52 @@ msgid "Your cart has been successfully emptied"
 msgstr "Koszyk pomyślnie wyczyszczony"
 
 #: api/routes/documents/documents-ckeditor.php:172
-#: api/routes/documents/documents-filemanager.php:618
+#: api/routes/documents/documents-filemanager.php:621
 #: api/routes/people/people-persons.php:525 NoteEditor.php:127
 #: NoteEditor.php:149 uploader/upload.php:74
 #, fuzzy
 msgid "Create file"
 msgstr "Utwórz plik (file)"
 
-#: api/routes/documents/documents-filemanager.php:118
+#: api/routes/documents/documents-filemanager.php:119
 #: EcclesiaCRM/utils/MiscUtils.php:261
 #, fuzzy
 msgid "Folder"
 msgstr "Utwórz plik (file)"
 
-#: api/routes/documents/documents-filemanager.php:334
+#: api/routes/documents/documents-filemanager.php:337
 msgid "You can't erase the public folder !"
 msgstr ""
 
-#: api/routes/documents/documents-filemanager.php:404
-#: api/routes/documents/documents-filemanager.php:509
+#: api/routes/documents/documents-filemanager.php:407
+#: api/routes/documents/documents-filemanager.php:512
 #, fuzzy
 msgid "A Folder"
 msgstr "Utwórz plik (file)"
 
-#: api/routes/documents/documents-filemanager.php:404
-#: api/routes/documents/documents-filemanager.php:454
-#: api/routes/documents/documents-filemanager.php:509
+#: api/routes/documents/documents-filemanager.php:407
+#: api/routes/documents/documents-filemanager.php:457
+#: api/routes/documents/documents-filemanager.php:512
 msgid "already exists at this place."
 msgstr ""
 
-#: api/routes/documents/documents-filemanager.php:434
+#: api/routes/documents/documents-filemanager.php:437
 #, fuzzy
 msgid "Folder modification"
 msgstr "Potwierdzenie Usunięcia Rodziny"
 
-#: api/routes/documents/documents-filemanager.php:436
-#: api/routes/documents/documents-filemanager.php:479
+#: api/routes/documents/documents-filemanager.php:439
+#: api/routes/documents/documents-filemanager.php:482
 #, fuzzy
 msgid "File modification"
 msgstr "Potwierdzenie Usunięcia Rodziny"
 
-#: api/routes/documents/documents-filemanager.php:454
+#: api/routes/documents/documents-filemanager.php:457
 #, fuzzy
 msgid "A File"
 msgstr "Wszystkie Rodziny"
 
-#: api/routes/documents/documents-filemanager.php:521
+#: api/routes/documents/documents-filemanager.php:524
 #, fuzzy
 msgid "New Folder"
 msgstr "Nowa Rola"
@@ -4819,53 +4819,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:614
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:615
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:617
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:618
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:620
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:621
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:623
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:624
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:626
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:627
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:629
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:630
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:632
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:633
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:638
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:639
 #, fuzzy
 msgid "Dav create file"
 msgstr "Utwórz plik (file)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:644
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:645
 #, fuzzy
 msgid "Dav create directory"
 msgstr "Utwórz Spis (Directory)"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:650
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:651
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:663
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:664
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:670
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:671
 msgid "Dav delete file"
 msgstr ""
 
