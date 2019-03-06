@@ -31,6 +31,7 @@ $app->group('/filemanager', function () {
     $this->post('/rename', 'renameFile' );
     $this->post('/uploadFile/{personID:[0-9]+}', 'uploadFile' );
     $this->post('/getRealLink', 'getRealLink');
+    $this->post('/setpathtopublicfolder', 'setpathtopublicfolder');
 
 });
 
@@ -238,6 +239,8 @@ function folderBack (Request $request, Response $response, array $args) {
           $user->setCurrentpath($currentPath);
           
           $user->save();
+          
+          $_SESSION['user'] = $user;
 
           return $response->withJson(['success' => true, "currentPath" => MiscUtils::pathToPathWithIcons($currentPath), "isHomeFolder" => ($currentPath=="/")?true:false,"numberOfFiles" => numberOfFiles ($params->personID)]);
       }
@@ -652,4 +655,20 @@ function getRealLink (Request $request, Response $response, array $args) {
     }
     
     return $response->withJson(['success' => "failed"]);
+}
+
+function setpathtopublicfolder (Request $request, Response $response, array $args) {
+  $currentpath = SessionUser::getUser()->getCurrentpath();
+  
+  if (strpos($currentpath, "/public/") === false) {
+    $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+    $user->setCurrentpath("/public/");
+    $user->save();
+    
+    $_SESSION['user'] = $user;
+    
+    return $response->withJson(['success' => "failed"]);
+  }
+  
+  return $response->withJson(['success' => "success"]);
 }
