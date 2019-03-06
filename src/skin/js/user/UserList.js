@@ -60,7 +60,7 @@ $(document).ready(function () {
   });
 
   
-  $(".webdavkey").click(function() {
+  $("#user-listing-table").on('click','.webdavkey', function() {
     var userID = $(this).data("userid");
     
     window.CRM.APIRequest({
@@ -78,7 +78,7 @@ $(document).ready(function () {
     });
   });
   
-  $(".lock-unlock").click(function() {
+  $("#user-listing-table").on('click','.lock-unlock', function() {
     var userID     = $(this).data("userid");
     var userName   = $(this).data("username");
     var button     = $(this)
@@ -134,8 +134,8 @@ $(document).ready(function () {
      },
      responsive: true
   });
-      
-  $(".deleteUser").click(function() {
+
+  $("#user-listing-table").on('click','.deleteUser', function() {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
 
@@ -162,7 +162,7 @@ $(document).ready(function () {
       });
   });
 
-  $(".restUserLoginCount").click(function() {
+  $("#user-listing-table").on('click','.restUserLoginCount', function() {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
       var parentTd = $(this).parent();
@@ -188,7 +188,7 @@ $(document).ready(function () {
       });
   });
 
-  $(".resetUserPassword").click(function() {
+  $("#user-listing-table").on('click','.resetUserPassword', function() {
       var userId   = $(this).data('id');
       var userName = $(this).data('name');
     
