@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 16:12+0100\n"
+"POT-Creation-Date: 2019-03-07 22:31+0100\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +93,7 @@ msgstr ""
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:621
 #: api/routes/people/people-persons.php:525 NoteEditor.php:127
-#: NoteEditor.php:149 uploader/upload.php:74
+#: NoteEditor.php:149 uploader/upload.php:80
 #, fuzzy
 msgid "Create file"
 msgstr "สร้างไฟล์"
@@ -774,25 +774,25 @@ msgstr "ราคา"
 msgid "Enter Winners"
 msgstr "ลงชื่อผู้ชนะ"
 
-#: browser/browse.php:17
+#: browser/browse.php:24
 #, fuzzy
 msgid "File Manager"
 msgstr "ซอง"
 
-#: browser/browse.php:30 PersonView.php:1427
+#: browser/browse.php:34 PersonView.php:1427
 msgid "Upload a file in EDrive"
 msgstr ""
 
-#: browser/browse.php:39
+#: browser/browse.php:40
 msgid "Download"
 msgstr ""
 
-#: browser/browse.php:46 PersonView.php:1436
+#: browser/browse.php:47 PersonView.php:1436
 #, fuzzy
 msgid "Create a Folder"
 msgstr "สร้างไฟล์"
 
-#: browser/browse.php:53 Checkin.php:520 Checkin.php:561 Checkin.php:660
+#: browser/browse.php:54 Checkin.php:520 Checkin.php:561 Checkin.php:660
 #: DepositSlipEditor.php:288 EditEventAttendees.php:110
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
 #: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
@@ -804,15 +804,15 @@ msgstr "สร้างไฟล์"
 msgid "Delete"
 msgstr "ลบ"
 
-#: browser/browse.php:60 PersonView.php:1450
+#: browser/browse.php:61 PersonView.php:1450
 msgid "Up One Level"
 msgstr ""
 
-#: browser/browse.php:66 PersonView.php:1456
+#: browser/browse.php:67 PersonView.php:1456
 msgid "Actualize files"
 msgstr ""
 
-#: browser/browse.php:79 PersonView.php:1474
+#: browser/browse.php:80 PersonView.php:1474
 msgid "Preview"
 msgstr ""
 

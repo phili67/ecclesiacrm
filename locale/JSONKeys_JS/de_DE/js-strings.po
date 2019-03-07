@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-06T15:21:04.177Z\n"
+"POT-Creation-Date: 2019-03-07T21:35:15.933Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1598,8 +1598,7 @@ msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
 msgid "List Name"
 msgstr "Mailingliste Name"
 
-#, fuzzy
-msgid "The current  images folder is now the public folder !!!"
+msgid "The current images folder is now the public folder !!!"
 msgstr "Der aktuelle Bilder Ordner ist jetzt dem Öffentlichen Ordner !!!"
 
 #~ msgid "Modify Properties"
