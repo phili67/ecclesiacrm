@@ -12,6 +12,13 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+
+if ( !SessionUser::isActive() ) {
+  RedirectUtils::Redirect('members/404.php?type=Upload');
+  return;
+}
+
 
 // Set the page title and include HTML header
 $sPageTitle = _('File Manager');
@@ -23,18 +30,12 @@ $user = SessionUser::getUser();
 ?>
 
 <br>
-<?php 
-  if ($user->isNotesEnabled() || ($user->isEditSelfEnabled() && $person->getId() == $user->getPersonId() || $person->getFamId() == $user->getPerson()->getFamId())) {
-?>
-  <a href="#" id="uploadFile">
+<a href="#" id="uploadFile">
     <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $user->getPersonId() ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Upload a file in EDrive") ?>">
       <i class="fa fa-square fa-stack-2x" style="color:green"></i>
       <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
     </span>
-  </a>
-<?php 
-  }
-?>
+</a>
 
 <a class="filemanager-download" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Download") ?>" style="display: none;">
   <span class="fa-stack fa-special-icon drag-elements">

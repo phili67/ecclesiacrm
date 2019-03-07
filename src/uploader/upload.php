@@ -8,6 +8,12 @@ use EcclesiaCRM\dto\ImageTreatment;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Note;
+use EcclesiaCRM\Utils\RedirectUtils;
+
+if ( !SessionUser::isActive() ) {
+  RedirectUtils::Redirect('members/404.php?type=Upload');
+  return;
+}
 
 
 $user = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
