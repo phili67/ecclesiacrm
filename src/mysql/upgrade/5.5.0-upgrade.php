@@ -8,15 +8,6 @@ require '../../Include/Config.php';*/
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\dto\SystemURLs;
 
-  function removeDirectory($path) {
-    $files = glob($path . '/*');
-    foreach ($files as $file) {
-      is_dir($file) ? removeDirectory($file) : unlink($file);
-    }
-    rmdir($path);
-    return;
-  }
-
   $logger = LoggerUtils::getAppLogger();
   
   $logger->info("Start to delete : all unusefull files");
