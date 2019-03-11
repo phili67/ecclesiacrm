@@ -144,6 +144,8 @@ require $sRootDocument . '/Include/Header.php';
   window.CRM.mailchimpIsActive = <?= ($isMailchimpActiv)?1:0 ?>;
   window.CRM.list_Id           = "<?= $campaign['recipients']['list_id'] ?>";
   window.CRM.status            = "<?= $campaign['status'] ?>";
+  window.CRM.bWithAddressPhone = <?= ($bWithAddressPhone)?'true':'false' ?>;
+  window.CRM.sDateFormatLong   = "<?= $sDateFormatLong ?>";
   
   //Timepicker
   $('.timepicker').timepicker({

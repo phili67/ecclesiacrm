@@ -1,14 +1,13 @@
 /**
  * @license Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/terms-of-use/#open-source-licences
+ * Copyright : Philippe Logel not MIT
  */
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '400px';
-    
-  config.dropdownmenumanager = {
-    'mergeTagsMailChimp': {
-      items: [
+  
+  var menuItems = [
         {
           name: 'fName',
           label: i18next.t('First Name'),
@@ -26,19 +25,27 @@ CKEDITOR.editorConfig = function( config ) {
           label: i18next.t('Email'),
           command: 'optionEmail',
           order: 3
+        }
+      ];
+      
+  if (window.CRM.bWithAddressPhone) {
+    menuItems.push(
+        {
+          name: 'Address',
+          label: i18next.t('Address'),
+          command: 'optionAddress',
+          order: 4
         },
         {
           name: 'Phone',
           label: i18next.t('Phone'),
           command: 'optionPhone',
-          order: 4
-        },
-        {
-          name: 'Address',
-          label: i18next.t('Address'),
-          command: 'optionAddress',
           order: 5
-        },
+        }
+    );
+  }
+  
+  menuItems.push(
         {
           name: 'ListName',
           label: i18next.t('List') + ' : ' + i18next.t('Name'),
@@ -61,9 +68,26 @@ CKEDITOR.editorConfig = function( config ) {
           name: 'ListVCard',
           label: i18next.t('List') + ' : ' + i18next.t('VCard'),
           command: 'optionListAddressVcard',
-          order: 8
+          order: 9
+        },
+        {
+          name: 'Date',
+          label: i18next.t('Date'),
+          command: 'optionDate',
+          order: 10
+        },
+        {
+          name: 'Language',
+          label: i18next.t('Language'),
+          command: 'optionTRANSLATE',
+          order: 11
         }
-      ],
+  );
+  
+    
+  config.dropdownmenumanager = {
+    'mergeTagsMailChimp': {
+      items: menuItems,
       label: {
         text: i18next.t('Merge Tags'),
         width: 45,

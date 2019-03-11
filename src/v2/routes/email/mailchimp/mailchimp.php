@@ -1,5 +1,6 @@
 <?php
 
+/* Copyright Philippe Logel not MIT */
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -102,14 +103,16 @@ function mailchimpCampaignArgumentsArray ($campaignId,$mailchimp)
    
    $sPageTitle = _('Email Campaign').' : '.$campaign['settings']['title']." <b><span style=\"color:".(($campaign['status'] == "sent")?'green':'gray').";float:right\"class=\"status\">("._($campaign['status']).")</span></b>";
 
-   $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
-                       'sRootDocument'   => SystemURLs::getDocumentRoot(),
-                       'sPageTitle'      => $sPageTitle,
-                       'campaignId'      => $campaignId,
-                       'campaign'        => $campaign,
-                       'isMailchimpActiv'=> $mailchimp->isActive(),
-                       'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
-                       'isMenuOption'    => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive())
+   $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
+                       'sRootDocument'     => SystemURLs::getDocumentRoot(),
+                       'sPageTitle'        => $sPageTitle,
+                       'campaignId'        => $campaignId,
+                       'campaign'          => $campaign,
+                       'isMailchimpActiv'  => $mailchimp->isActive(),
+                       'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
+                       'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
+                       'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
+                       'sDateFormatLong'   => SystemConfig::getValue('sDateFormatLong')
                        ];
 
    return $paramsArguments;
@@ -137,16 +140,18 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
    
    $sPageTitle = gettext('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR List"):'');
 
-   $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
-                       'sRootDocument'   => SystemURLs::getDocumentRoot(),
-                       'sPageTitle'      => $sPageTitle,
-                       'listId'          => $listId,
-                       'mailchimp'       => $mailchimp,
-                       'list'            => $list,
-                       'isMailchimpActiv'=> $mailchimp->isActive(),
-                       'lang'            => substr(SystemConfig::getValue('sLanguage'),0,2),
-                       'getSupportURL'   => SystemURLs::getSupportURL(),
-                       'isMenuOption'    => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive())
+   $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
+                       'sRootDocument'     => SystemURLs::getDocumentRoot(),
+                       'sPageTitle'        => $sPageTitle,
+                       'listId'            => $listId,
+                       'mailchimp'         => $mailchimp,
+                       'list'              => $list,
+                       'isMailchimpActiv'  => $mailchimp->isActive(),
+                       'lang'              => substr(SystemConfig::getValue('sLanguage'),0,2),
+                       'getSupportURL'     => SystemURLs::getSupportURL(),
+                       'isMenuOption'      => !(SessionUser::getUser()->isMailChimpEnabled() && $mailchimp->isActive()),
+                       'bWithAddressPhone' => SystemConfig::getBooleanValue('bMailChimpWithAddressPhone'),
+                        'sDateFormatLong'  => SystemConfig::getValue('sDateFormatLong')
                        ];   
 
    return $paramsArguments;
