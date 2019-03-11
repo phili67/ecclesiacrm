@@ -7,34 +7,26 @@ require '../../Include/Config.php';*/
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\dto\SystemURLs;
-
-  function removeDirectory($path) {
-    $files = glob($path . '/*');
-    foreach ($files as $file) {
-      is_dir($file) ? removeDirectory($file) : unlink($file);
-    }
-    rmdir($path);
-    return;
-  }
+  use EcclesiaCRM\Utils\MiscUtils;
 
   $logger = LoggerUtils::getAppLogger();
   
   $logger->info("Start to delete : all unusefull files");
   
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/adminlte/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-toggle/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-validator/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootbox/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/editor/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/randomcolor/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/ionicons/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/locale/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-ui/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-photo-uploader/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/fullcalendar/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/fastclick/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/font-awesome/");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/moment/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/adminlte/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-toggle/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootstrap-validator/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/bootbox/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/editor/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/randomcolor/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/ionicons/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/locale/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-ui/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/jquery-photo-uploader/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/fullcalendar/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/fastclick/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/font-awesome/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/moment/");
 
   unlink(SystemURLs::getDocumentRoot()."/skin/i18next/test/.DS_Store");
   unlink(SystemURLs::getDocumentRoot()."/skin/i18next/src/.DS_Store");
@@ -49,7 +41,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.npmignore");
   unlink(SystemURLs::getDocumentRoot()."/skin/i18next/.travis.yml");
   
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/i18next/");
   
   // clarification of the api directory  
   unlink(SystemURLs::getDocumentRoot()."/api/routes/volunteeropportunity.php");
@@ -108,7 +100,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditor/note_editor_config.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorextension.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/icons/hidpi/.DS_Store");
-  removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/skin/js/ckeditorExtraPlugin/");
 
   unlink(SystemURLs::getDocumentRoot()."/skin/js/Checkin.js");
   unlink(SystemURLs::getDocumentRoot()."/skin/js/EventNames.js");

@@ -1,5 +1,5 @@
 <?php 
-// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/5.4.0-upgrade.php
+// pour le debug on se met au bon endroit : http://192.168.151.205/mysql/upgrade/5.4.2-upgrade.php
 // et il faut décommenter
 /*define("webdav", "1");
 require '../../Include/Config.php';*/
@@ -7,21 +7,13 @@ require '../../Include/Config.php';*/
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\dto\SystemURLs;
-
-  function removeDirectory($path) {
-    $files = glob($path . '/*');
-    foreach ($files as $file) {
-      is_dir($file) ? removeDirectory($file) : unlink($file);
-    }
-    rmdir($path);
-    return;
-  }
+  use EcclesiaCRM\Utils\MiscUtils;
 
   $logger = LoggerUtils::getAppLogger();
   
   $logger->info("Start to delete : all unusefull files");
   
-  removeDirectory(SystemURLs::getDocumentRoot()."/email/");
+  MiscUtils::removeDirectory(SystemURLs::getDocumentRoot()."/email/");
 
   unlink(SystemURLs::getDocumentRoot()."/VolunteerOpportunityEditor.php");
   unlink(SystemURLs::getDocumentRoot()."/MenuLinksList.php");
