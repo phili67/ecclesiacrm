@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 22:31+0100\n"
+"POT-Creation-Date: 2019-03-12 18:28+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,13 +93,13 @@ msgstr "Der Korb wurde erfogreich geleert"
 
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:621
-#: api/routes/people/people-persons.php:525 NoteEditor.php:127
+#: api/routes/people/people-persons.php:530 NoteEditor.php:127
 #: NoteEditor.php:149 uploader/upload.php:80
 msgid "Create file"
 msgstr "Datei Erstellen"
 
 #: api/routes/documents/documents-filemanager.php:119
-#: EcclesiaCRM/utils/MiscUtils.php:261
+#: EcclesiaCRM/utils/MiscUtils.php:275
 msgid "Folder"
 msgstr "Ordner"
 
@@ -200,7 +200,7 @@ msgstr "Familien"
 msgid "Groups"
 msgstr "Gruppen"
 
-#: api/routes/mailchimp.php:767
+#: api/routes/mailchimp.php:809
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "SMTP ist nicht eingerichtet, Schauen Sie sich die Einstellungsseite"
 
@@ -241,28 +241,28 @@ msgstr "Aus Gruppe gelöscht"
 msgid "Added to group"
 msgstr "Zu der Gruppe hinzugefügt"
 
-#: api/routes/people/people-persons.php:432 api/routes/user/user-users.php:120
+#: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
 msgid "Deactivate account"
 msgstr "Deaktivieren Account"
 
-#: api/routes/people/people-persons.php:432 api/routes/user/user-users.php:120
+#: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
 #: UserEditor.php:311
 msgid "The same as before"
 msgstr "Das Gleiche wie zuvor"
 
-#: api/routes/people/people-persons.php:440 api/routes/user/user-users.php:128
+#: api/routes/people/people-persons.php:445 api/routes/user/user-users.php:128
 msgid "User Deactivated"
 msgstr "Benutzer deaktiviert."
 
-#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:130
+#: api/routes/people/people-persons.php:447 api/routes/user/user-users.php:130
 msgid "User Activated"
 msgstr "Benutzer aktiviert."
 
-#: api/routes/people/people-persons.php:471
+#: api/routes/people/people-persons.php:476
 msgid "Person Deactivated"
 msgstr "Persondeaktiviert."
 
-#: api/routes/people/people-persons.php:473
+#: api/routes/people/people-persons.php:478
 msgid "Person Activated"
 msgstr "Personaktiviert."
 
@@ -783,7 +783,7 @@ msgstr "Ordner Erstellen"
 #: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
 #: PersonView.php:1443 PersonView.php:1517
 #: v2/templates/email/mailchimp/campaign.php:33
-#: v2/templates/email/mailchimp/managelist.php:34
+#: v2/templates/email/mailchimp/managelist.php:35
 msgid "Delete"
 msgstr "Löschen"
 
@@ -2200,7 +2200,7 @@ msgstr "Private Daten"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:521
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:579
 #: EcclesiaCRM/Service/DashboardService.php:73
 #: EcclesiaCRM/Service/DashboardService.php:87
 #: EcclesiaCRM/Service/TimelineService.php:210
@@ -4111,77 +4111,81 @@ msgstr "WebDav, CardDav and CalDav support Support durch einen Browser"
 msgid "Max count of members in a MailChimp List."
 msgstr "Mitglieder Maximale Anzahl für MailChimp Listen."
 
-#: EcclesiaCRM/dto/SystemConfig.php:265
+#: EcclesiaCRM/dto/SystemConfig.php:259
+msgid "Add Address, Phone."
+msgstr ""
+
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Church Information"
 msgstr "Kirche Informationen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:266
+#: EcclesiaCRM/dto/SystemConfig.php:267
 msgid "User setup"
 msgstr "Benutzer Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:268
 msgid "Email Setup"
 msgstr "Email Gruppe"
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:269
 msgid "People Setup"
 msgstr "Menschen Setup"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Enabled Features"
 msgstr "Aktivierten Funktionen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:271
 msgid "Map Settings"
 msgstr "Karte Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:272
 msgid "Report Settings"
 msgstr "Bericht Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:273
 msgid "Financial Settings"
 msgstr "Finanzielle Einstellung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273 Include/Footer.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:274 Include/Footer.php:192
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Quick Search"
 msgstr "Schnellsuche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275
+#: EcclesiaCRM/dto/SystemConfig.php:276
 msgid "Backup"
 msgstr "Datensicherung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Localization"
 msgstr "Lokalisierung"
 
-#: EcclesiaCRM/dto/SystemConfig.php:277 EcclesiaCRM/MenuBar/MenuBar.php:237
+#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:237
 #: Menu.php:98
 msgid "GDPR"
 msgstr "GDPR"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Integration"
 msgstr "Integration"
 
-#: EcclesiaCRM/dto/SystemConfig.php:279
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Users Specific Schedule Tasks"
 msgstr "Benutzern bestimmte Aufgaben planen"
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Sundayschool Attendance"
 msgstr "Sonntagsschule Teilnahme"
 
-#: EcclesiaCRM/dto/SystemConfig.php:332 EcclesiaCRM/dto/SystemConfig.php:344
-#: EcclesiaCRM/dto/SystemConfig.php:357
+#: EcclesiaCRM/dto/SystemConfig.php:333 EcclesiaCRM/dto/SystemConfig.php:345
+#: EcclesiaCRM/dto/SystemConfig.php:358
 msgid "An invalid configuration name has been requested"
 msgstr "Eine ungültige Konfiguration Name wurde angefordert"
 
-#: EcclesiaCRM/dto/SystemConfig.php:375
+#: EcclesiaCRM/dto/SystemConfig.php:376
 msgid "An invalid configuration id has been requested"
 msgstr "Eine ungültige Konfiguration ID wurde angefordert"
 
@@ -4330,7 +4334,7 @@ msgstr "Sonntagsschule"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:146 EcclesiaCRM/MenuBar/MenuBar.php:211
 #: EcclesiaCRM/MenuBar/MenuBar.php:238 EcclesiaCRM/MenuBar/MenuBar.php:273
-#: EcclesiaCRM/MenuBar/MenuBar.php:324 Include/Header.php:199
+#: EcclesiaCRM/MenuBar/MenuBar.php:324 Include/Header.php:201
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -4343,21 +4347,21 @@ msgstr "Global Custom Menüs"
 msgid "Custom Menus"
 msgstr "Custom Menüs"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 Include/Header.php:124
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 Include/Header.php:126
 msgid "Private Space"
 msgstr "Persönlicher Bereich"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223 EcclesiaCRM/utils/MiscUtils.php:68
+#: EcclesiaCRM/MenuBar/MenuBar.php:223 EcclesiaCRM/utils/MiscUtils.php:82
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr "Haus"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:224 Include/Header.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:224 Include/Header.php:128
 #: PersonView.php:574
 msgid "Change Password"
 msgstr "Kennwort ändern"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:225 Include/Header.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:225 Include/Header.php:130
 #: PersonView.php:573
 msgid "Change Settings"
 msgstr "Einstellung ändern"
@@ -4620,29 +4624,29 @@ msgid "Verification email sent"
 msgstr "E-Mail Bestätigungs geschickt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:323
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:349
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:407
 msgid "Profile Image Deleted"
 msgstr "Profil Bild gelöscht"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:336
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:373
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:431
 msgid "Profile Image uploaded"
 msgstr "Profilbild hochgeladen"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:528 Include/Functions.php:559
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:586 Include/Functions.php:559
 msgid "mos old"
 msgstr "Monate alt"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:530 Include/Functions.php:561
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:588 Include/Functions.php:561
 msgid "mo old"
 msgstr "Monat alt"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:534 Include/Functions.php:534
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:592 Include/Functions.php:534
 #: Include/Functions.php:536 Include/Functions.php:565
 msgid "yrs old"
 msgstr "Jahre alt"
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:536 Include/Functions.php:567
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:594 Include/Functions.php:567
 msgid "yr old"
 msgstr "Jährige"
 
@@ -5056,46 +5060,46 @@ msgstr "Ignoriere unvollständige<br>Adressen"
 msgid "File Type"
 msgstr "Dateityp"
 
-#: EcclesiaCRM/utils/MiscUtils.php:261 EcclesiaCRM/utils/MiscUtils.php:362
+#: EcclesiaCRM/utils/MiscUtils.php:275 EcclesiaCRM/utils/MiscUtils.php:376
 msgid "File"
 msgstr "Datei"
 
-#: EcclesiaCRM/utils/MiscUtils.php:309
+#: EcclesiaCRM/utils/MiscUtils.php:323
 msgid "You've to use a PDF viewer or download the file here "
 msgstr ""
 "Sie sollten ein PDF viewer nutzen oder die Datei gleich hier runterladen"
 
-#: EcclesiaCRM/utils/MiscUtils.php:316 EcclesiaCRM/utils/MiscUtils.php:321
-#: EcclesiaCRM/utils/MiscUtils.php:325 EcclesiaCRM/utils/MiscUtils.php:429
+#: EcclesiaCRM/utils/MiscUtils.php:330 EcclesiaCRM/utils/MiscUtils.php:335
+#: EcclesiaCRM/utils/MiscUtils.php:339 EcclesiaCRM/utils/MiscUtils.php:443
 msgid "Your browser does not support the audio element."
 msgstr "Ihrer Browser unterstützt nicht Audioteil."
 
-#: EcclesiaCRM/utils/MiscUtils.php:331 EcclesiaCRM/utils/MiscUtils.php:338
-#: EcclesiaCRM/utils/MiscUtils.php:347 EcclesiaCRM/utils/MiscUtils.php:439
-#: EcclesiaCRM/utils/MiscUtils.php:450 EcclesiaCRM/utils/MiscUtils.php:465
+#: EcclesiaCRM/utils/MiscUtils.php:345 EcclesiaCRM/utils/MiscUtils.php:352
+#: EcclesiaCRM/utils/MiscUtils.php:361 EcclesiaCRM/utils/MiscUtils.php:453
+#: EcclesiaCRM/utils/MiscUtils.php:464 EcclesiaCRM/utils/MiscUtils.php:479
 msgid "Your browser does not support the video tag."
 msgstr "Ihrer Browser unterstützt nicht video tag."
 
-#: EcclesiaCRM/utils/MiscUtils.php:371 EcclesiaCRM/utils/MiscUtils.php:403
-#: EcclesiaCRM/utils/MiscUtils.php:412 EcclesiaCRM/utils/MiscUtils.php:427
-#: EcclesiaCRM/utils/MiscUtils.php:436 EcclesiaCRM/utils/MiscUtils.php:446
-#: EcclesiaCRM/utils/MiscUtils.php:459
+#: EcclesiaCRM/utils/MiscUtils.php:385 EcclesiaCRM/utils/MiscUtils.php:417
+#: EcclesiaCRM/utils/MiscUtils.php:426 EcclesiaCRM/utils/MiscUtils.php:441
+#: EcclesiaCRM/utils/MiscUtils.php:450 EcclesiaCRM/utils/MiscUtils.php:460
+#: EcclesiaCRM/utils/MiscUtils.php:473
 msgid "Expand"
 msgstr "Expandieren"
 
-#: EcclesiaCRM/utils/MiscUtils.php:504
+#: EcclesiaCRM/utils/MiscUtils.php:518
 msgid "Classic Note"
 msgstr "Standard Hinweis"
 
-#: EcclesiaCRM/utils/MiscUtils.php:507
+#: EcclesiaCRM/utils/MiscUtils.php:521
 msgid "Classic Video"
 msgstr "Standard Videospiele"
 
-#: EcclesiaCRM/utils/MiscUtils.php:510
+#: EcclesiaCRM/utils/MiscUtils.php:524
 msgid "Classic File"
 msgstr "Standard Datei"
 
-#: EcclesiaCRM/utils/MiscUtils.php:513
+#: EcclesiaCRM/utils/MiscUtils.php:527
 msgid "Classic Audio"
 msgstr "Standard Audiospiele"
 
@@ -7122,7 +7126,7 @@ msgstr ""
 "Wenden Sie sich an den Administrator, um die Einstellungen der "
 "Systemvariablen zu ändern."
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:89
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:90
 msgid "Edit General Settings"
 msgstr "General Einstellung Editieren"
 
@@ -7271,30 +7275,30 @@ msgstr "Nummer zu groß. Muss zwischen -2147483648 und 2147483647 liegen."
 msgid "Money amount too large. Maximum is $999999999.99"
 msgstr "Geldbetrag zu hoch. Höchstens EUR 999999999.99"
 
-#: Include/Header-function.php:88
+#: Include/Header-function.php:82
 msgid "Issue Report!"
 msgstr "Problemmeldung!"
 
-#: Include/Header-function.php:95
+#: Include/Header-function.php:89
 msgid "Enter a Title for your bug / feature report"
 msgstr "Einen Titel zur Meldung des Bugs oder Featurerequest"
 
-#: Include/Header-function.php:105
+#: Include/Header-function.php:99
 msgid "What were you doing when you noticed the bug / feature opportunity?"
 msgstr "Was geschah, als der Fehler auftrat?"
 
-#: Include/Header-function.php:113
+#: Include/Header-function.php:107
 msgid ""
 "When you click \"submit,\" an error report will be posted to the EcclesiaCRM "
 "GitHub Issue tracker."
 msgstr ""
 "Wenn Du auf \"Senden\" klickt, wird ein Bug im GitHub Issue tracker erstellt."
 
-#: Include/Header-function.php:114
+#: Include/Header-function.php:108
 msgid "Please do not include any confidential information."
 msgstr "Bitte keine vertraulichen Informationen einfügen."
 
-#: Include/Header-function.php:115
+#: Include/Header-function.php:109
 msgid ""
 "Some general information about your system will be submitted along with the "
 "request such as Server version and browser headers."
@@ -7302,102 +7306,102 @@ msgstr ""
 "Einige Grundinformationen (wie Serverversion und Browser Header) werden "
 "mitgeschickt."
 
-#: Include/Header-function.php:116
+#: Include/Header-function.php:110
 msgid ""
 "No personally identifiable information will be submitted unless you "
 "purposefully include it."
 msgstr ""
 "Keine persönlichen Daten werden mitgeschickt, es sei denn Du fügst sie hinzu."
 
-#: Include/Header-function.php:120
+#: Include/Header-function.php:114
 msgid "Submit"
 msgstr "Versende"
 
-#: Include/Header-function.php:127
+#: Include/Header-function.php:121
 msgid "Issue Report done!"
 msgstr "Problemmeldung fertig!"
 
-#: Include/Header-function.php:129
+#: Include/Header-function.php:123
 msgid "Successfully submitted Issue"
 msgstr "Erfolgreich Problem abgesendet"
 
-#: Include/Header-function.php:130
+#: Include/Header-function.php:124
 msgid "View Issue on GitHub"
 msgstr "Problem auf GitHub anzeigen"
 
-#: Include/Header-function.php:132
+#: Include/Header-function.php:126
 msgid "OK"
 msgstr "Ok"
 
-#: Include/Header-function.php:180
+#: Include/Header-function.php:174
 msgid "Change columns"
 msgstr "Spalten ändern"
 
-#: Include/Header-function.php:181 SelectList.php:1150
+#: Include/Header-function.php:175 SelectList.php:1150
 msgid "Print"
 msgstr "Drucken"
 
-#: Include/Header.php:86
+#: Include/Header.php:88
 msgid "Toggle navigation"
 msgstr "Schaltet Navigationselementen"
 
-#: Include/Header.php:99
+#: Include/Header.php:101
 msgid "Your Cart"
 msgstr "Korb anzeigen"
 
-#: Include/Header.php:110
+#: Include/Header.php:112
 msgid "Your settings and more"
 msgstr "Ihre Einstellungen usw"
 
-#: Include/Header.php:123
+#: Include/Header.php:125
 msgid "For your documents family etc ..."
 msgstr "Einstellen der Dokumenttitel"
 
-#: Include/Header.php:125
+#: Include/Header.php:127
 msgid "You can change here your password"
 msgstr "Rücksetzen Ihrer Kennwort"
 
-#: Include/Header.php:127
+#: Include/Header.php:129
 msgid "Change Custom Settings"
 msgstr "Einstellung ändern"
 
-#: Include/Header.php:129
+#: Include/Header.php:131
 msgid "Lock your session"
 msgstr "Sitzung Sperren"
 
-#: Include/Header.php:130
+#: Include/Header.php:132
 msgid "Lock"
 msgstr "Schließen"
 
-#: Include/Header.php:131
+#: Include/Header.php:133
 msgid "Quit EcclesiaCRM and close your session"
 msgstr "EcclesiaCRM verlassen und Sitzung Sperren"
 
-#: Include/Header.php:132
+#: Include/Header.php:134
 msgid "Sign out"
 msgstr "Ausloggen"
 
-#: Include/Header.php:141
+#: Include/Header.php:143
 msgid "Help & Support"
 msgstr "Hilfe und Support"
 
-#: Include/Header.php:146 Include/Header.php:147
+#: Include/Header.php:148 Include/Header.php:149
 msgid "Help & Manual"
 msgstr "Hilfe & Anleitung"
 
-#: Include/Header.php:151 Include/Header.php:152
+#: Include/Header.php:153 Include/Header.php:154
 msgid "Report an issue"
 msgstr "Melden Sie uns ihr Problem"
 
-#: Include/Header.php:156 Include/Header.php:157
+#: Include/Header.php:158 Include/Header.php:159
 msgid "Developer Chat"
 msgstr "Entwicklerchat"
 
-#: Include/Header.php:161 Include/Header.php:162
+#: Include/Header.php:163 Include/Header.php:164
 msgid "Contributing"
 msgstr "Mitwirken"
 
-#: Include/Header.php:172
+#: Include/Header.php:174
 msgid "Your tasks"
 msgstr "Ihre Vorgänge"
 
@@ -10388,31 +10392,33 @@ msgstr ""
 msgid "Church Calendar"
 msgstr "Kirchenkalender"
 
-#: v2/routes/email/mailchimp/mailchimp.php:36
+#: v2/routes/email/mailchimp/mailchimp.php:37
 msgid "MailChimp Dashboard"
 msgstr "MailChimp Dashboard"
 
-#: v2/routes/email/mailchimp/mailchimp.php:69
+#: v2/routes/email/mailchimp/mailchimp.php:70
 msgid "Debug Email Connection"
 msgstr "Debug-E-mail Verbindung "
 
-#: v2/routes/email/mailchimp/mailchimp.php:103
+#: v2/routes/email/mailchimp/mailchimp.php:104
 msgid "Email Campaign"
 msgstr "Email Kampagne"
 
-#: v2/routes/email/mailchimp/mailchimp.php:138
+#: v2/routes/email/mailchimp/mailchimp.php:141
+#: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "Email List"
 msgstr "Email liste"
 
-#: v2/routes/email/mailchimp/mailchimp.php:138
+#: v2/routes/email/mailchimp/mailchimp.php:141
+#: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR List"
 msgstr "GDPR Liste"
 
-#: v2/routes/email/mailchimp/mailchimp.php:170
+#: v2/routes/email/mailchimp/mailchimp.php:177
 msgid "Manage List"
 msgstr "Liste Verwalten"
 
-#: v2/routes/email/mailchimp/mailchimp.php:196
+#: v2/routes/email/mailchimp/mailchimp.php:203
 #: v2/templates/email/mailchimp/dashboard.php:71
 #: v2/templates/email/mailchimp/notinmailchimpemails.php:16
 msgid "Families Not In MailChimp"
@@ -10604,63 +10610,63 @@ msgstr "Verbindungsprüfung ....."
 msgid "Duplicate Emails"
 msgstr "Doppelte E-Mails"
 
-#: v2/templates/email/mailchimp/managelist.php:20
+#: v2/templates/email/mailchimp/managelist.php:21
 msgid "Manage Email List"
 msgstr "Email List verwalten"
 
-#: v2/templates/email/mailchimp/managelist.php:28
+#: v2/templates/email/mailchimp/managelist.php:29
 msgid "Create a Campaign"
 msgstr "Kampagne Erstellen"
 
-#: v2/templates/email/mailchimp/managelist.php:31
+#: v2/templates/email/mailchimp/managelist.php:32
 msgid "Delete All Subscribers"
 msgstr "Alle Abonnenten Löschen"
 
-#: v2/templates/email/mailchimp/managelist.php:38
+#: v2/templates/email/mailchimp/managelist.php:39
 msgid "Modify Properties"
 msgstr "Eigenschaften Bearbeiten"
 
-#: v2/templates/email/mailchimp/managelist.php:60
+#: v2/templates/email/mailchimp/managelist.php:61
 msgid "Subscribers"
 msgstr "Abonnenten"
 
-#: v2/templates/email/mailchimp/managelist.php:64
+#: v2/templates/email/mailchimp/managelist.php:65
 msgid ""
 "To add all the newsletter users, type <b>NewLetter</b> in the search field, "
 "to add all members of the CRM, use <b>*</b>"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:67
+#: v2/templates/email/mailchimp/managelist.php:68
 msgid ""
 "The max numbers of members can be modified in the \"System Settings\" -> "
 "\"Integration\" -> \"field\" : iMailChimpApiMaxMembersCount "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:70
+#: v2/templates/email/mailchimp/managelist.php:71
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:88
+#: v2/templates/email/mailchimp/managelist.php:89
 msgid "is not configured"
 msgstr "ist nicht konfiguriert"
 
-#: v2/templates/email/mailchimp/managelist.php:89
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "Please update the"
 msgstr "Bitte update die"
 
-#: v2/templates/email/mailchimp/managelist.php:89
+#: v2/templates/email/mailchimp/managelist.php:90
 msgid "API key in Setting->"
 msgstr "API key in Einstellungen->"
 
-#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/email/mailchimp/managelist.php:91
 msgid "then update"
 msgstr "danach aktualisiere"
 
-#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/email/mailchimp/managelist.php:91
 msgid "For more info see our "
 msgstr "Für weitere Informationen sehen Sie unsere"
 
-#: v2/templates/email/mailchimp/managelist.php:90
+#: v2/templates/email/mailchimp/managelist.php:91
 msgid "support docs."
 msgstr "Dokumentation support."
 
