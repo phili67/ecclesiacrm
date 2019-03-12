@@ -8,7 +8,7 @@
  *
  *  This code is under copyright not under MIT Licence
  *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
- *                This code can't be incoprorated in another software without any authorizaion
+ *                This code can't be incoprorated in another software without authorizaion
  *
  * to use it :
  *
@@ -504,19 +504,21 @@
         }
     });
     
-    editor.addCommand( 'optionPhone', {
-        exec: function( editor ) {
-            var now = new Date();
-            editor.insertHtml( '*|PHONE|*' );
-        }
-    });
-    
-    editor.addCommand( 'optionAddress', {
-        exec: function( editor ) {
-            var now = new Date();
-            editor.insertHtml( '*|ADDRESS|*' );
-        }
-    });
+    if (window.CRM.bWithAddressPhone) {
+      editor.addCommand( 'optionAddress', {
+          exec: function( editor ) {
+              var now = new Date();
+              editor.insertHtml( '*|ADDRESS|*' );
+          }
+      });
+      
+      editor.addCommand( 'optionPhone', {
+          exec: function( editor ) {
+              var now = new Date();
+              editor.insertHtml( '*|PHONE|*' );
+          }
+      });
+    }
 
     editor.addCommand( 'optionListName', {
         exec: function( editor ) {
@@ -543,6 +545,20 @@
         exec: function( editor ) {
             var now = new Date();
             editor.insertHtml( '*|LIST:ADDRESS_VCARD|*' );
+        }
+    });
+
+    editor.addCommand( 'optionDate', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|DATE:' + window.CRM.sDateFormatLong + '|*' );
+        }
+    });
+
+    editor.addCommand( 'optionTRANSLATE', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|TRANSLATE:' + window.CRM.lang + '|*' );
         }
     });
   }

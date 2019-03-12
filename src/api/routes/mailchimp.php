@@ -666,7 +666,7 @@ function addPerson(Request $request, Response $response, array $args) {
     $person = PersonQuery::create()->findPk($input->personID);
     
     if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->isEmailInMailChimp($person->getEmail()) == ''*/ ) {
-      $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),'subscribed');
+      $res = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(), 'subscribed');
       
       if ( !array_key_exists ('title',$res) ) {
         return $response->withJson(['success' => true, "result" => $res]);
@@ -698,7 +698,7 @@ function addFamily (Request $request, Response $response, array $args) {
       // all person from the family should be deactivated too
       $res = [];
       foreach ($persons as $person) {
-        $res[] = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),'subscribed');
+        $res[] = $mailchimp->postMember($input->list_id,32,$person->getFirstName(),$person->getLastName(),$person->getEmail(),$person->getAddressForMailChimp(), $person->getHomePhone(),'subscribed');
       }
       
       return $response->withJson(['success' => true, "result" => $res]);
@@ -732,7 +732,7 @@ function addGroup (Request $request, Response $response, array $args) {
       // all person from the family should be deactivated too
       $res = [];
       foreach ($members as $member) {
-        $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),'subscribed');
+        $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),$member->getAddressForMailChimp(), $member->getHomePhone(),'subscribed');
       }
       
       return $response->withJson(['success' => true, "result" => $res]);

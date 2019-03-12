@@ -307,6 +307,64 @@ class Person extends BasePerson implements iPhoto
         //if it reaches here, no address found. return empty $address
         return "";
     }
+    
+    public function getAddressForMailChimp()
+    {
+       if (!empty($this->getAddress1()) && SystemConfig::getBooleanValue("bHidePersonAddress") == false) {
+            $address['addr1'] = $this->getAddress1();
+
+            $address['addr2'] = "";
+            if (!empty($this->getAddress2())) {
+              $address['addr2'] = $this->getAddress2();
+            }
+            $address['city'] = "";
+            if (!empty($this->getCity())) {
+              $address['city'] = $this->getCity();
+            }
+            $address['state'] = "";
+            if (!empty($this->getState())) {
+              $address['state'] = $this->getState();
+            } 
+            $address['zip'] = "";
+            if (!empty($this->getZip())) {
+              $address['zip'] = $this->getZip();
+            }
+            $address['country'] = "";
+            if (!empty($this->getCountry())) {
+              $address['country'] = $this->getCountry();
+            }
+            
+            return $address;
+        } else {
+            if ($this->getFamily()) {
+              $address['addr1'] = $this->getFamily()->getAddress1();
+
+              $address['addr2'] = "";
+              if (!empty($this->getFamily()->getAddress2())) {
+                $address['addr2'] = $this->getFamily()->getAddress2();
+              }
+              $address['city'] = "";
+              if (!empty($this->getFamily()->getCity())) {
+                $address['city'] = $this->getFamily()->getCity();
+              }
+              $address['state'] = "";
+              if (!empty($this->getFamily()->getState())) {
+                $address['state'] = $this->getFamily()->getState();
+              }
+              $address['zip'] = "";
+              if (!empty($this->getFamily()->getZip())) {
+                $address['zip'] = $this->getFamily()->getZip();
+              }
+              $address['country'] = "";
+              if (!empty($this->getFamily()->getCountry())) {
+                $address['country'] = $this->getFamily()->getCountry();
+              }
+            
+              return $address;
+            }
+        }
+       
+    }
 
     /**
      * * If person address found, return latitude and Longitude of person address

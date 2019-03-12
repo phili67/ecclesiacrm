@@ -15,7 +15,21 @@ use Sabre\DAVACL;
 use EcclesiaCRM\Utils\OutputUtils;
 
 class MiscUtils {
-  
+
+
+/**
+ * Remove the directory and its content (all files and subdirectories), useFull in system upgrade.
+ * @param string $path the directory name
+ */
+  public static function removeDirectory($path) {
+    $files = glob($path . '/*');
+    foreach ($files as $file) {
+      is_dir($file) ? self::removeDirectory($file) : unlink($file);
+    }
+    rmdir($path);
+    return;
+  }
+
   
 /**
  * Remove the directory and its content (all files and subdirectories).

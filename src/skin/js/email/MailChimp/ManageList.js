@@ -215,18 +215,8 @@ $(document).ready(function () {
         
      });
 
-// the DataTable     
-  window.CRM.dataListTable = $("#memberListTable").DataTable({
-    ajax:{
-      url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
-      type: 'GET',
-      contentType: "application/json",
-      dataSrc: "MailChimpMembers"
-    },
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    },
-    columns: [
+// the DataTable
+   var columns = [
       {
         width: 'auto',
         title:i18next.t('Actions'),
@@ -267,7 +257,40 @@ $(document).ready(function () {
           return i18next.t(data);
         }
       }
-    ],
+    ];
+      
+  if (window.CRM.bWithAddressPhone) {
+    columns.push(
+      {
+        width: 'auto',
+        title:i18next.t('Address'),
+        data:'merge_fields',
+        render: function(data, type, full, meta) {
+          return data.ADDRESS.addr1 + ' ' + data.ADDRESS.city + ' ' + data.ADDRESS.zip + ' ' + data.ADDRESS.state + ' ' + data.ADDRESS.state;
+        }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Phone'),
+        data:'merge_fields',
+        render: function(data, type, full, meta) {
+          return data.PHONE;
+        }
+      }
+    );
+  }
+
+  window.CRM.dataListTable = $("#memberListTable").DataTable({
+    ajax:{
+      url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
+      type: 'GET',
+      contentType: "application/json",
+      dataSrc: "MailChimpMembers"
+    },
+    "language": {
+      "url": window.CRM.plugin.dataTable.language.url
+    },
+    columns: columns,
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("duplicateRow");

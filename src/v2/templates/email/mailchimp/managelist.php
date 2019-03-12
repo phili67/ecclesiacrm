@@ -4,7 +4,8 @@
  *  filename    : managelist.php
  *  last change : 2014-11-29
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2014
+ *  copyright   : Copyright 2019
+ *                Philippe Logel not MIT 
  *
  ******************************************************************************/
  
@@ -101,6 +102,8 @@ require $sRootDocument . '/Include/Footer.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.list_ID           = "<?= $listId ?>";
   window.CRM.mailchimpIsActive = <?= ($isMailchimpActiv)?1:0 ?>;
+  window.CRM.bWithAddressPhone = <?= ($bWithAddressPhone)?'true':'false' ?>;
+  window.CRM.sDateFormatLong   = "<?= $sDateFormatLong ?>";
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/ManageList.js"></script>
