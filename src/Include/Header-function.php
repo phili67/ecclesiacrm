@@ -59,17 +59,11 @@ function Header_fav_icons ()
 <?php
 }
 
-function Header_head_metatag()
+function Header_head_metatag($sPageTitle)
 {
-    global $sMetaRefresh, $sPageTitle;
-
-    if (strlen($sMetaRefresh) > 0) {
-        echo $sMetaRefresh;
-    } ?>
+?>
     <title>EcclesiaCRM: <?= $sPageTitle ?></title>
-    <?php
-    
-    Header_fav_icons();
+<?php
 }
 
 function Header_modals()
@@ -190,13 +184,6 @@ function Header_body_scripts()
         };
     </script>
     <script src="<?= SystemURLs::getRootPath() ?>/skin/js/CRMJSOM.js"></script>
-    <?php
+<?php
 }
-
-function addMenu()
-{
-    $menubar = new MenuBar("MainMenuBar");
-    $menubar->renderMenu();
-}
-
 ?>

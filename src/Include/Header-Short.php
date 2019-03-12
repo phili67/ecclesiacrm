@@ -24,7 +24,8 @@ ob_start();
 <head>
   <?php
   require 'Header-HTML-Scripts.php';
-  Header_head_metatag();
+  Header_head_metatag($sPageTitle);
+  Header_fav_icons();
   ?>
 </head>
 
