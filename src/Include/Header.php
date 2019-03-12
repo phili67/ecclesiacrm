@@ -16,6 +16,7 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\view\MenuRenderer;
 
 
 if (!Bootstrapper::isDBCurrent()) {  //either the DB is good, or the upgrade was successful.
@@ -46,7 +47,8 @@ $MenuFirst = 1;
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <?php
   require 'Header-HTML-Scripts.php';
-  Header_head_metatag();
+  Header_head_metatag($sPageTitle);
+  Header_fav_icons();
   ?>
 </head>
 
@@ -199,14 +201,14 @@ $MenuFirst = 1;
             <i class="fa fa-dashboard"></i> <span><?= gettext('Dashboard') ?></span>
           </a>
         </li>
-        <?php addMenu(); ?>
+        <?php MenuRenderer::RenderMenu() ?>
       </ul>
     </section>
   </aside>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <section class="content-header">
-      <h1><?= $sPageTitle; ?></h1>
+      <h1><?= (strlen($sPageTitleSpan))?$sPageTitleSpan:$sPageTitle ?></h1>
     </section>
     <!-- Main content -->
     <section class="content">
