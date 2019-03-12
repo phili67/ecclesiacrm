@@ -544,13 +544,13 @@ class MailChimpService
       if ( !empty($mail) ) {
         $merge_fields = ['FNAME'=>$first_name, 'LNAME'=>$last_name];
         
-        /*if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+        if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
           $merge_fields['ADDRESS'] = $address;
         }
 
         if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
           $merge_fields['PHONE']   = $phone ;
-        }*/
+        }
         
         $result = $this->myMailchimp->post("lists/$list_id/members", [
           'id'            => "$id",

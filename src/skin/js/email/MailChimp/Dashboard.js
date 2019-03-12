@@ -184,8 +184,6 @@ $(document).ready(function () {
                         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                       }
                     });
-
-                    return add;  
                 } else {
                     window.CRM.DisplayAlert("Error","You have to set a List Title for your eMail List");
                 

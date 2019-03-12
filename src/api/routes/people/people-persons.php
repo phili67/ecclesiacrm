@@ -33,6 +33,7 @@ use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
+use EcclesiaCRM\dto\SystemConfig;
 
 
 $app->group('/persons', function () {
@@ -103,12 +104,16 @@ function searchPerson (Request $request, Response $response, array $args) {
   $query = $args['query'];
 
   $searchLikeString = '%'.$query.'%';
-  $people = PersonQuery::create()->
-  filterByFirstName($searchLikeString, Criteria::LIKE)->
-  filterByDateDeactivated(null)->
-  _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
-  _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
-      limit(15)->find();
+  $people = PersonQuery::create();
+  
+  if (SystemConfig::getBooleanValue('bGDPR')) {
+    $people->filterByDateDeactivated(null);// GDPR, when a family is completely deactivated
+  }
+          
+  $people->filterByFirstName($searchLikeString, Criteria::LIKE)->
+    _or()->filterByLastName($searchLikeString, Criteria::LIKE)->
+    _or()->filterByEmail($searchLikeString, Criteria::LIKE)->
+    limit(SystemConfig::getValue("iSearchIncludePersonsMax"))->find();
     
     $id = 1;
     
@@ -122,7 +127,7 @@ function searchPerson (Request $request, Response $response, array $args) {
         array_push($return, $values);
     }
     
-    return $response->withJson($return);    
+    return $response->withJson($return);
 }
 
 function volunteersPerPersonId(Request $request, Response $response, array $args) {

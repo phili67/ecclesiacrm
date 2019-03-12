@@ -144,6 +144,7 @@ $(document).ready(function () {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                 window.CRM.closeDialogLoadingFunction();
              }
+             $(".person-group-Id-Share").val('').trigger('change') ;
            });
         } else if (e.params.data.groupID !== undefined) {
            window.CRM.dialogLoadingFunction ( i18next.t("Loading subscribers from Group") );
