@@ -544,26 +544,47 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
           ->find();
 
       $resError = [];
+
+      $numberOfPerson = 0;
+      $list           = $mailchimp->getListFromListId($input->list_id);
+      $listID         = $input->list_id;
       
       foreach ($persons as $person) {
-        $data = array(
-            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
-            "email_address" => $person->getEmail(),
-            "status"        => "subscribed",
-            "merge_fields"  => array(                
-                    'FNAME' => $person->getFirstName(),
-                    'LNAME' => $person->getLastName(),
-            )
-        );
+        if (strlen($person->getEmail()) > 0) {
+          $numberOfPerson++;
+        
+          if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
+             $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+             $listID   = $new_List['id'];
 
-        $json_data = json_encode($data);
+             $numberOfPerson = 0;
+          }
         
-        $allUsers[] = array(
-            "method" => "POST",
-            "path" => "/lists/" . $input->list_id . "/members/",
-            "body" => $json_data
-        );
+          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getFirstName()];
         
+          if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+            $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
+          }
+
+          if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+            $merge_fields['PHONE']   = $person->getHomePhone();
+          }
+
+          $data = array(
+              "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
+              "email_address" => $person->getEmail(),
+              "status"        => "subscribed",
+              "merge_fields"  => $merge_fields
+          );
+
+          $json_data = json_encode($data);
+        
+          $allUsers[] = array(
+              "method" => "POST",
+              "path" => "/lists/" . $listID . "/members/",
+              "body" => $json_data
+          );
+        }
       }
       
       $array = array(
@@ -608,26 +629,47 @@ function addallpersons(Request $request, Response $response, array $args) {
 
       $resError = [];
       
+      $numberOfPerson = 0;
+      $list           = $mailchimp->getListFromListId($input->list_id);
+      $listID         = $input->list_id;
+      
       $allUsers = [];
-      foreach ($persons as $person) {
-        $data = array(
-            "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
-            "email_address" => $person->getEmail(),
-            "status"        => "subscribed",
-            "merge_fields"  => array(                
-                    'FNAME' => $person->getFirstName(),
-                    'LNAME' => $person->getLastName(),
-            )
-        );
 
-        $json_data = json_encode($data);
+      foreach ($persons as $person) {
+        if (strlen($person->getEmail()) > 0) {
+          $numberOfPerson++;
         
-        $allUsers[] = array(
-            "method" => "POST",
-            "path" => "/lists/" . $input->list_id . "/members/",
-            "body" => $json_data
-        );
+          if (SystemConfig::getValue("iMailChimpApiMaxMembersCount") < $numberOfPerson) {
+             $new_List = $mailchimp->createList($list['name'].'_'.time(), $list['campaign_defaults']['subject'], $list['permission_reminder'], isset($list['use_archive_bar']), $list['visibility']);
+             $listID   = $new_List['id'];
+             $numberOfPerson = 0;
+          }
         
+          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getFirstName()];
+        
+          if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+            $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
+          }
+
+          if ( !is_null ($phone) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
+            $merge_fields['PHONE']   = $person->getHomePhone();
+          }
+
+          $data = array(
+              "apikey"        => SystemConfig::getValue("sMailChimpApiKey"),
+              "email_address" => $person->getEmail(),
+              "status"        => "subscribed",
+              "merge_fields"  => $merge_fields
+          );
+
+          $json_data = json_encode($data);
+        
+          $allUsers[] = array(
+              "method" => "POST",
+              "path" => "/lists/" . $listID . "/members/",
+              "body" => $json_data
+          );
+        }
       }
       
       $array = array(
