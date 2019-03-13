@@ -76,19 +76,19 @@ $(document).ready(function () {
 // end of container
 
 
-    var editor = null;
+    window.CRM.editor = null;
 
     $(document).on("click","#CreateCampaign", function(){
-      if (editor != null) {
-        editor.destroy(false);
-        editor = null;              
+      if (window.CRM.editor) {
+         CKEDITOR.remove(window.CRM.editor);
+         window.CRM.editor = null;
       }
     
       var modal = createCampaignEditorWindow();
-    
+
       // this will create the toolbar for the textarea
-       if (editor == null) {
-         editor = CKEDITOR.replace('campaignNotes',{
+       if (window.CRM.editor == null) {
+         window.CRM.editor = CKEDITOR.replace('campaignNotes',{
           customConfig: window.CRM.root+'/skin/js/ckeditor/configs/campaign_editor_config.js',
           language : window.CRM.lang,
           width : '100%',
@@ -99,8 +99,8 @@ $(document).ready(function () {
           filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
          });
    
-         add_ckeditor_buttons(editor);
-         add_ckeditor_buttons_merge_tag_mailchimp(editor);
+         add_ckeditor_buttons(window.CRM.editor);
+         add_ckeditor_buttons_merge_tag_mailchimp(window.CRM.editor);
        }
     
       modal.modal("show");

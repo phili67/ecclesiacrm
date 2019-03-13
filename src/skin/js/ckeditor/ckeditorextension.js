@@ -14,11 +14,11 @@
  *
  * Before the code see for example : CalendarV2.js
  *
- *  var editor = null; //the first time
+ *  window.CRM.editor = null; //the first time
  *
- *  if (editor != null) {
- *     editor.destroy(false);
- *     editor = null;              
+ *  if (window.CRM.editor != null) {
+ *     CKEDITOR.remove(window.CRM.editor);
+ *     window.CRM.editor = null;
  *  }
  * 
  *  editor = CKEDITOR.replace('NoteText',{
