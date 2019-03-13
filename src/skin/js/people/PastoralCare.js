@@ -6,7 +6,7 @@
 //  Updated : 2018/05/30
 //
 
-var editor = null;
+window.CRM.editor = null;
 
 $(document).ready(function () {
   $( ".filterByPastor" ).click(function() {
@@ -36,9 +36,9 @@ $(document).ready(function () {
         var visible  = data.visible;
         var text     = data.text;
     
-        if (editor != null) {
-          editor.destroy(false);
-          editor = null;              
+        if (window.CRM.editor != null) {
+          CKEDITOR.remove(window.CRM.editor);
+          window.CRM.editor = null;              
         }
 
         // this will create the toolbar for the textarea
@@ -46,14 +46,14 @@ $(document).ready(function () {
     
         $('form #NoteText').val(text);
     
-        if (editor == null) {
-         editor = CKEDITOR.replace('NoteText',{
+        if (window.CRM.editor == null) {
+         window.CRM.editor = CKEDITOR.replace('NoteText',{
            customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
            language : window.CRM.lang,
            width : '100%'
          });
    
-         add_ckeditor_buttons(editor);
+         add_ckeditor_buttons(window.CRM.editor);
        }
    
        modal.modal("show");
@@ -95,9 +95,9 @@ $(document).ready(function () {
     var typeDesc = $(this).data('typedesc');
     var visible  = $(this).data('visible');
     
-    if (editor != null) {
-        editor.destroy(false);
-        editor = null;              
+    if (window.CRM.editor != null) {
+        CKEDITOR.remove(window.CRM.editor);
+        window.CRM.editor = null;              
     }
 
     // this will create the toolbar for the textarea
@@ -106,14 +106,14 @@ $(document).ready(function () {
     /*var text = "coucou";
     $('form #NoteText').val(text);*/
     
-    if (editor == null) {
-     editor = CKEDITOR.replace('NoteText',{
+    if (window.CRM.editor == null) {
+     window.CRM.editor = CKEDITOR.replace('NoteText',{
        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
        language : window.CRM.lang,
        width : '100%'
      });
    
-     add_ckeditor_buttons(editor);
+     add_ckeditor_buttons(window.CRM.editor);
    }
    
    modal.modal("show");

@@ -6,7 +6,7 @@
 //  Updated : 2018/05/30
 //
 
-var editor = null;
+window.CRM.editor = null;
   
 $(document).ready(function () {
   //
@@ -288,9 +288,9 @@ $(document).ready(function () {
                  label: i18next.t('Edit'),
                  className: 'btn btn-success',
                  callback: function () {
-                   if (editor != null) {
-                      editor.destroy(false);
-                      editor = null;              
+                   if (window.CRM.editor != null) {
+                      CKEDITOR.remove(window.CRM.editor);
+                      window.CRM.editor = null;
                    }
                    
                    modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.reccurenceID);
@@ -324,14 +324,14 @@ $(document).ready(function () {
                    $(".eventNotes").hide();
  
                    // this will create the toolbar for the textarea
-                   if (editor == null) {
-                     editor = CKEDITOR.replace('eventNotes',{
+                   if (window.CRM.editor == null) {
+                     window.CRM.editor = CKEDITOR.replace('eventNotes',{
                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
                        language : window.CRM.lang,
                        width : '100%'
                      });
                    
-                     add_ckeditor_buttons(editor);
+                     add_ckeditor_buttons(window.CRM.editor);
                    }
 
                    $(".ATTENDENCES").hide();
@@ -451,9 +451,9 @@ select: function(start, end) {
   }).done(function(data) {         
     if (data.CalendarNumber > 0){
        // We create the dialog
-       if (editor != null) {
-          editor.destroy(false);
-          editor = null;              
+       if (window.CRM.editor != null) {
+          CKEDITOR.remove(window.CRM.editor);
+          window.CRM.editor = null;
        }
       
        modal = createEventEditorWindow (start,end);
@@ -484,14 +484,14 @@ select: function(start, end) {
        $("#endDateEventrecurrence").prop("disabled", true);
  
        // this will create the toolbar for the textarea
-       if (editor == null) {
-         editor = CKEDITOR.replace('eventNotes',{
+       if (window.CRM.editor == null) {
+         window.CRM.editor = CKEDITOR.replace('eventNotes',{
           customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
           language : window.CRM.lang,
           width : '100%'
          });
        
-         add_ckeditor_buttons(editor);
+         add_ckeditor_buttons(window.CRM.editor);
        }
 
        $(".ATTENDENCES").hide();

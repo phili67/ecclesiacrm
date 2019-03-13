@@ -6,13 +6,13 @@
 //  Updated : 2018/05/30
 //
 
-var editor = null;
+window.CRM.editor = null;
 
 function addEvent(dateStart,dateEnd)
 {
-   if (editor != null) {
-      editor.destroy(false);
-      editor = null;              
+   if (window.CRM.editor != null) {
+      CKEDITOR.remove(window.CRM.editor);
+      window.CRM.editor = null;
    }
        
    modal = createEventEditorWindow (dateStart,dateEnd,'createEvent',0,'','ListEvent.php');
@@ -43,14 +43,14 @@ function addEvent(dateStart,dateEnd)
    $("#endDateEventrecurrence").prop("disabled", true);
 
    // this will create the toolbar for the textarea
-   if (editor == null) {
-     editor = CKEDITOR.replace('eventNotes',{
+   if (window.CRM.editor == null) {
+     window.CRM.editor = CKEDITOR.replace('eventNotes',{
        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
        language : window.CRM.lang,
        width : '100%'
      });
    
-     add_ckeditor_buttons(editor);
+     add_ckeditor_buttons(window.CRM.editor);
    }
 
    $(".ATTENDENCES").hide();
@@ -136,9 +136,9 @@ $('#add-event').click('focus', function (e) {
           path: 'events/info',
           data: JSON.stringify({"eventID":eventID})
       }).done(function(calEvent) {
-         if (editor != null) {
-           editor.destroy(false);
-           editor = null;              
+         if (window.CRM.editor != null) {
+           window.CRM.CKEDITOR.remove(window.CRM.editor);
+           window.CRM.editor = null;              
          }
          
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
@@ -173,14 +173,14 @@ $('#add-event').click('focus', function (e) {
          $(".eventNotes").hide();
 
          // this will create the toolbar for the textarea
-         if (editor == null) {
-           editor = CKEDITOR.replace('eventNotes',{
+         if (window.CRM.editor == null) {
+           window.CRM.editor = CKEDITOR.replace('eventNotes',{
              customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
              language : window.CRM.lang,
              width : '100%'
            });
    
-           add_ckeditor_buttons(editor);
+           add_ckeditor_buttons(window.CRM.editor);
          }
 
          $(".ATTENDENCES").hide();
