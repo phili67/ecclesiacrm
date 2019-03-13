@@ -535,7 +535,7 @@ class MailChimpService
     public function sendAllMembers ($array) {
       $res = $this->myMailchimp->post("batches",$array);
       
-      $this->restoreCache();
+      //$this->restoreCache();
       
       return $res;
     }
