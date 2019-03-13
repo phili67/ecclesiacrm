@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-07T21:35:15.933Z\n"
+"POT-Creation-Date: 2019-03-12T17:28:23.577Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,11 +671,11 @@ msgstr "Nom"
 msgid "Email"
 msgstr "Email"
 
-msgid "Phone"
-msgstr "Téléphone"
-
 msgid "Address"
 msgstr "Adresse"
+
+msgid "Phone"
+msgstr "Téléphone"
 
 msgid "List"
 msgstr "Liste"
@@ -688,6 +688,12 @@ msgstr "Désabonner"
 
 msgid "VCard"
 msgstr "VCard"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Language"
+msgstr ""
 
 msgid "Merge Tags"
 msgstr "Champ de fusion"
@@ -1043,9 +1049,6 @@ msgstr "Dép ID"
 
 msgid "Fiscal Year"
 msgstr "Année Fiscale"
-
-msgid "Date"
-msgstr "Date"
 
 msgid "NonDeductible"
 msgstr "Non déductible"
@@ -1531,7 +1534,7 @@ msgid "Loading subscribers from family"
 msgstr "Chargement des abonnés de la famille"
 
 msgid "Loading all persons from EcclesiaCRM<br>This could take a while !"
-msgstr "Chargement toutes les personnes de EcclesiaCRM<br> Très lent !"
+msgstr "Chargement de toutes les personnes de EcclesiaCRM<br> Très lent !"
 
 msgid ""
 "In fact, you've better to quit the CRM, wait 5 minutes and make your "

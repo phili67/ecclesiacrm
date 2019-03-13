@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-07T21:35:15.933Z\n"
+"POT-Creation-Date: 2019-03-12T17:28:23.577Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -661,12 +661,12 @@ msgstr "Papá-Nombre"
 msgid "Email"
 msgstr "Email"
 
+msgid "Address"
+msgstr "Dirección"
+
 #, fuzzy
 msgid "Phone"
 msgstr "Teléfono Celular"
-
-msgid "Address"
-msgstr "Dirección"
 
 #, fuzzy
 msgid "List"
@@ -679,6 +679,12 @@ msgid "Unsub"
 msgstr ""
 
 msgid "VCard"
+msgstr ""
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Language"
 msgstr ""
 
 msgid "Merge Tags"
@@ -1029,9 +1035,6 @@ msgstr "Dep ID"
 
 msgid "Fiscal Year"
 msgstr "Año fiscal"
-
-msgid "Date"
-msgstr "Fecha"
 
 msgid "NonDeductible"
 msgstr "no deducible"
