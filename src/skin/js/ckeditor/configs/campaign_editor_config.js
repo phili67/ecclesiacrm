@@ -78,7 +78,7 @@ CKEDITOR.editorConfig = function( config ) {
         },
         {
           name: 'Language',
-          label: i18next.t('Language'),
+          label: i18next.t('Lang'),
           command: 'optionTRANSLATE',
           order: 11
         }
