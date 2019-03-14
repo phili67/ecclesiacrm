@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-12T17:28:23.577Z\n"
+"POT-Creation-Date: 2019-03-14T17:35:25.153Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -681,7 +681,7 @@ msgstr "VCard"
 msgid "Date"
 msgstr "Datum"
 
-msgid "Language"
+msgid "Lang"
 msgstr ""
 
 msgid "Merge Tags"
