@@ -543,25 +543,29 @@ $(document).ready(function () {
   
   
   $(document).on("click","#modifyList", function(){
-    var name    = $(this).data('name');
-    var subject = $(this).data('subject');
-    
+    var name                = $(this).data('name');
+    var subject             = $(this).data('subject');
+    var permission_reminder = $(this).data('permissionreminder');
+
     bootbox.confirm('<form id="infos" action="#">'
       + i18next.t('List Name') + ':<input type="text" class="form-control" id="list_name" value="' + name +'"/><br/>'
-      + i18next.t('Subject') + ':<input type="text" class="form-control" id="list_subject" value="' + subject + '"/>'
+      + i18next.t('Subject') + ':<input type="text" class="form-control" id="list_subject" value="' + subject + '"/><br/>'
+      + i18next.t('Permission Reminder') + ':<input type="text" class="form-control" id="list_permission_reminder" value="' + permission_reminder + '"/>'
       + '</form>', function(result) {
           if(result) {
             name    = $("#list_name").val();
             subject = $("#list_subject").val();
+            permission_reminder = $("#list_permission_reminder").val();
             
             window.CRM.APIRequest({
                   method: 'POST',
                   path: 'mailchimp/modifylist',
-                  data: JSON.stringify({"list_id":window.CRM.list_ID, "name" : name, "subject":subject})
+                  data: JSON.stringify({"list_id":window.CRM.list_ID, "name" : name, "subject":subject, "permission_reminder" : permission_reminder})
             }).done(function(data) { 
                if (data.success) {
                   $("#modifyList").data('name',name);
                   $("#modifyList").data('subject',subject);
+                  $("#modifyList").data('permissionreminder',permission_reminder);
                   $("#ListTitle").text(name);
             
                   render_container();

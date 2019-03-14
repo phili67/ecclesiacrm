@@ -34,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
           <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
             <i class="fa fa-trash"></i><?= _("Delete") ?>
           </button>
-          <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>" data-subject="<?= $list['campaign_defaults']['subject']?>">
+          <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>" data-subject="<?= $list['campaign_defaults']['subject']?>" data-permissionreminder="<?= $list['permission_reminder'] ?>">
              <i class="fa fa-pencil"></i>
              <?= _('Modify Properties') ?>
           </button>

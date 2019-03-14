@@ -526,6 +526,13 @@
             editor.insertHtml( '*|LIST:NAME|*' );
         }
     });
+
+    editor.addCommand( 'optionListDescription', {
+        exec: function( editor ) {
+            var now = new Date();
+            editor.insertHtml( '*|LIST:DESCRIPTION|*' );
+        }
+    });
     
     editor.addCommand( 'optionListCompany', {
         exec: function( editor ) {
