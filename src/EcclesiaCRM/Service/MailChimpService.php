@@ -293,6 +293,7 @@ class MailChimpService
         if ($list['id'] == $new_list['id']) {
           $list['name'] = $new_list['name'];
           $list['campaign_defaults']['subject'] = $new_list['campaign_defaults']['subject'];
+          $list['permission_reminder'] = $new_list['permission_reminder'];
         }
         $res[] = $list;
       }
@@ -300,8 +301,8 @@ class MailChimpService
       $_SESSION['MailChimpLists'] = $res;
     }
     
-    public function changeListName ($list_id,$name,$subject) {
-      $new_list = $this->myMailchimp->patch("lists/$list_id",["name" => $name,"campaign_defaults" => array("subject" => $subject)]);
+    public function changeListName ($list_id,$name,$subject,$permission_reminder) {
+      $new_list = $this->myMailchimp->patch("lists/$list_id",["name" => $name,"campaign_defaults" => array("subject" => $subject), "permission_reminder" => $permission_reminder]);
       
       $this->changeLists ($new_list);
       

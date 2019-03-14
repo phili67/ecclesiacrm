@@ -59,28 +59,34 @@ CKEDITOR.editorConfig = function( config ) {
           order: 7
         },
         {
+          name: 'ListDescription',
+          label: i18next.t('List') +' : '+i18next.t('Description'),
+          command: 'optionListDescription',
+          order: 8
+        },
+        {
           name: 'ListUnsub',
           label: i18next.t('List') +' : ' + i18next.t('Unsub'),
           command: 'optionListUnsub',
-          order: 8
+          order: 9
         },
         {
           name: 'ListVCard',
           label: i18next.t('List') + ' : ' + i18next.t('VCard'),
           command: 'optionListAddressVcard',
-          order: 9
+          order: 10
         },
         {
           name: 'Date',
           label: i18next.t('Date'),
           command: 'optionDate',
-          order: 10
+          order: 11
         },
         {
           name: 'Language',
           label: i18next.t('Lang'),
           command: 'optionTRANSLATE',
-          order: 11
+          order: 12
         }
   );
   

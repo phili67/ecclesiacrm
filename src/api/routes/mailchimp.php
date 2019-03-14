@@ -284,11 +284,11 @@ function modifyList (Request $request, Response $response, array $args) {
 
   $input = (object)$request->getParsedBody();
 
-  if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) ){
+  if ( isset ($input->list_id) && isset ($input->name) && isset ($input->subject) && isset ($input->permission_reminder) ){
      $mailchimp = new MailChimpService();
   
      if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-       $res = $mailchimp->changeListName($input->list_id, $input->name, $input->subject);
+       $res = $mailchimp->changeListName($input->list_id, $input->name, $input->subject, $input->permission_reminder);
        
        if ( !array_key_exists ('title',$res) ) {
          return $response->withJson(['success' => true, "result" => $res]);
