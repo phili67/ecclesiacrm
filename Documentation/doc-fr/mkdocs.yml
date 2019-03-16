@@ -73,14 +73,15 @@ pages:
         - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
         - 'Modèles': 'user-guide/doc-person/doc-person-document-templates.md'
         - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
-    - "Edrive":
-        - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
-    - 'Gestion des fichiers': 
+    - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
+    - 'EDrive en dehors du CRM': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
         - 'Utiliser la gestion de fichiers sans serveur': 'user-guide/doc-webdav-file/doc-file-use.md'
         - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
 - MailChimp:
-    - 'Tableau de bord': 'user-guide/doc-dev/api.md'
+    - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
+    - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
+    - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 - Manuel du développeur:
     - 'API': 'user-guide/doc-dev/api.md'
 - À propos:
