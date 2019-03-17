@@ -8849,9 +8849,7 @@ msgstr "Message"
 #: PropertyEditor.php:186
 msgid ""
 "Entering a Prompt value will allow the association of a free-form value."
-msgstr ""
-"Saisir rapidement une valeur permettra l'association d'une valeur de "
-"formulaire libre."
+msgstr "Saisir une valeur au message permettra l'association à la valeur de la propriété."
 
 #: PropertyList.php:51
 msgid "Property List"
