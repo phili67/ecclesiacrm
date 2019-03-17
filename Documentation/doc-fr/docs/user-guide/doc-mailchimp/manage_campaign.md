@@ -76,12 +76,14 @@ Une fois la campagne finalisée, vous pourrez "Enregistrer" votre campagne.
 
 ## Planifier vos envois de Mails
 
-Pour cela, il faut enregistrer vos mails, vous serez basculer sur la page d'envoi
+Pour cela, il faut enregistrer votre campagne, vous serez basculer sur la page d'envoi
 
 ![Screenshot](../../img/mailchimp/campaignplanification1.png)<br>
 ![Screenshot](../../img/mailchimp/campaignplanification2.png)<br>
 Ici pour pourrez, enregistrer, envoyer, supprimer ou fixer une date et une heure pour votre campagne.<br>
 ![Screenshot](../../img/mailchimp/campaignplanification3.png)<br>
 
-Il sera possible aussi de la modi
+Il sera possible aussi de la modifier pour une version ultérieure.
+
+**Remarque** Il est recommandé, de créer des modèles de documents pour les utiliser une autre fois, pour cela consulter la partie "Modèle de documents", dans la partie "Manuel Utilisateur" et "Documents".
 

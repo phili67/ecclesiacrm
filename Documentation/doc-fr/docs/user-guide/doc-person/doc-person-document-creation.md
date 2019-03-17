@@ -76,9 +76,9 @@ Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de do
       
       - voici le résultat
 
-3. les fichiers classiques
+3. les fichiers audios classiques
 
-      Il est possible d'importer de réels fichiers, pour cela référez-vous à la section [suivante](../../user-guide/doc-webdav-file/doc-file-use.md).
+      c'est en fait un document CKEditor classique qui a le type audio, ce n'est utile que pour le référencement.
 
 ## Remarque
 

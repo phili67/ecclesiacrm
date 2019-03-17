@@ -50,16 +50,25 @@ pages:
     - 'Mise en place du CRM': 
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
-        - "Localisation CRM en français": 'user-guide/doc-installation/doc-localization.md'
-        - "Rapports CRM en français": 'user-guide/doc-installation/doc-report.md'
     - 'Gestion des personnes': 'user-guide/doc-admin/doc-persons.md'
-    - 'Gestion des familles': 'user-guide/doc-admin/doc-families.md'
+    - 'Gestion des familles': 
+        - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
+        - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
+        - 'Désactiver supprimer une famille': 'user-guide/doc-admin/family/doc-delete-family.md'
+        - 'Personnalisation':
+            - 'Rôles de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
+            - 'Propriétés de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-properties.md'
+            - 'Champs personnalisables de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields.md'
     - 'Gestion des groupes': 'user-guide/doc-admin/doc-groups.md'
     - 'Droits et gestion des utilisateurs du CRM': 
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
     - 'Réglages généraux':
         - "Intégration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
+        - "Localisation CRM en français": 'user-guide/doc-installation/doc-localization.md'
+        - "Rapports CRM en français": 'user-guide/doc-installation/doc-report.md'
+#    - 'Personalisation du CRM':
+
 - Manuel utilisateur:
     - "Gérer son profile": 
         - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
@@ -76,7 +85,6 @@ pages:
     - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
     - 'EDrive en dehors du CRM': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
-        - 'Utiliser la gestion de fichiers sans serveur': 'user-guide/doc-webdav-file/doc-file-use.md'
         - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
 - MailChimp:
     - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
