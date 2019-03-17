@@ -81,34 +81,159 @@
             "title": "Installation"
         }, 
         {
-            "location": "/user-guide/doc-installation/doc-localization/", 
-            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais\n\n\nMise en place d'un CRM enti\u00e8rement francis\u00e9", 
-            "title": "Localisation CRM en fran\u00e7ais"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-localization/#mise-en-place-dun-crm-entierement-francise", 
-            "text": "", 
-            "title": "Mise en place d'un CRM enti\u00e8rement francis\u00e9"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-report/", 
-            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais.\n\n\nPour acc\u00e9der aux r\u00e9glages, la proc\u00e9dure est la m\u00eame que pour la partie localisation.\n\n\nVous pourrez r\u00e9gler les rapports en cliquant sur :\n\n\n\n\nLes rapports se situent\n\n\n\n\nLes annuaires \u00e0 cr\u00e9er.\n\n\nLes exports aux niveau \u00e9cole du dimanche.\n\n\nLes rapports financiers.\n\n\nLe mail de notification quand on change un identifiant ou autre.\n\n\netc ...\n\n\n\n\nVous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
-            "title": "Rapports CRM en fran\u00e7ais"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-report/#les-rapports-se-situent", 
-            "text": "Les annuaires \u00e0 cr\u00e9er.  Les exports aux niveau \u00e9cole du dimanche.  Les rapports financiers.  Le mail de notification quand on change un identifiant ou autre.  etc ...   Vous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
-            "title": "Les rapports se situent"
-        }, 
-        {
             "location": "/user-guide/doc-admin/doc-persons/", 
             "text": "", 
             "title": "Gestion des personnes"
         }, 
         {
-            "location": "/user-guide/doc-admin/doc-families/", 
+            "location": "/user-guide/doc-admin/family/doc-families/", 
+            "text": "Famille \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.\n\n\nUne famille : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne famille : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nUne famille : des propri\u00e9t\u00e9s\n\n\nUne famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces champs personnalisables\n\n une famille par exemple mono parentale\n\n une famille \u00e0 aider\n* etc ...\n\n\nUne famille : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne famille : fonds ou des paiements automatiques\n\n\nUne famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nDes notes aussi\n\n\nUne famille peut conserver des notes assez sophistiqu\u00e9s.", 
+            "title": "Pr\u00e9sentation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#famille-ecclesiacrm", 
+            "text": "Ecclesia CRM  fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.", 
+            "title": "Famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#une-famille-une-adresse", 
+            "text": "Chaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.", 
+            "title": "Une famille : une adresse"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#une-famille-des-roles", 
+            "text": "Chaque membre dans la famille a un r\u00f4le bien d\u00e9finie   le repr\u00e9sentant familiale  le conjoint ou la conjointe  les enfants ...   Le repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.", 
+            "title": "Une famille : des r\u00f4les."
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#une-famille-des-proprietes", 
+            "text": "Une famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces champs personnalisables  une famille par exemple mono parentale  une famille \u00e0 aider\n* etc ...", 
+            "title": "Une famille : des propri\u00e9t\u00e9s"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#une-famille-des-champs-personnalisables", 
+            "text": "Il est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.  Les champs personnalisables sont de type :   Boolean :   Date    :  Du texte de type 50 ou 100 ou infini en terme de caract\u00e8res :  Ann\u00e9e   :  Saison  :  Nombre  :  Personne du groupe :   Argent  :  Num\u00e9ro de t\u00e9l\u00e9phone :  Liste personnalisable d\u00e9roulante :    A vous d'avoir des id\u00e9es.", 
+            "title": "Une famille : des champs personnalisables"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#une-famille-fonds-ou-des-paiements-automatiques", 
+            "text": "Une famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.", 
+            "title": "Une famille : fonds ou des paiements automatiques"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-families/#des-notes-aussi", 
+            "text": "Une famille peut conserver des notes assez sophistiqu\u00e9s.", 
+            "title": "Des notes aussi"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family/", 
+            "text": "Cr\u00e9er une famille \n Ecclesia\nCRM\n \n\n\nPour cr\u00e9er une famille\n\n\nrien de plus simple, aller dans le menu \"Personnes \n Familles\", \"Familles\", \"Ajouter une Famille\".\n\n\n\n\nInformations\n\n\nC'est \u00e0 cette endroit que vous pourrez saisir, la date de mariage, les enfants, leur r\u00f4le dans la famille ...\n\n\nSi vous avez saisi des champs personnalisables, c'est \u00e9galement \u00e0 cette endroit que vous pourrez les saisir.", 
+            "title": "Cr\u00e9er une famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family/#creer-une-famille-ecclesiacrm", 
             "text": "", 
-            "title": "Gestion des familles"
+            "title": "Cr\u00e9er une famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family/#pour-creer-une-famille", 
+            "text": "rien de plus simple, aller dans le menu \"Personnes   Familles\", \"Familles\", \"Ajouter une Famille\".", 
+            "title": "Pour cr\u00e9er une famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-create-family/#informations", 
+            "text": "C'est \u00e0 cette endroit que vous pourrez saisir, la date de mariage, les enfants, leur r\u00f4le dans la famille ...  Si vous avez saisi des champs personnalisables, c'est \u00e9galement \u00e0 cette endroit que vous pourrez les saisir.", 
+            "title": "Informations"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-delete-family/", 
+            "text": "Supprimer d\u00e9sactiver une famille \n Ecclesia\nCRM\n \n\n\nPour supprimer une famille\n\n\nVous recherchez une famille via le lien de recherche dans le menu de gauche.\n\n\nVous obtiendrez la vue suivante avec ses boutons\n\n\n\n\nLa suppression d'une famille peut avoir des impacts au niveau l\u00e9gal\n\n\n\n\ndans le cas de d\u00e9p\u00f4t fait par la famille\n\n\nde note prise par la famille\n\n\n\n\nD\u00e9sactiver une famille\n\n\nD\u00e9sactiver une famille, placera la famille dans les familles d\u00e9sactiv\u00e9es et ne fera plus partie d'aucune recherche possible dans le cas du RGPD.\n\n\n\n\nAu bout de deux ann\u00e9es, la famille passera dans la gestion RGPD et sera administrable via le DPO g\u00e9rant la partie RGPD.\n\n\nRGPD : ATTENTION\n\n\nAttention\n une famille inactive ne doit pas \u00eatre r\u00e9activ\u00e9e comme cela, sa date de d\u00e9sactivation sera alors fausse. Cela peut engendrer des poursuites judiciares, en raison du RGPD.", 
+            "title": "D\u00e9sactiver supprimer une famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-delete-family/#supprimer-desactiver-une-famille-ecclesiacrm", 
+            "text": "", 
+            "title": "Supprimer d\u00e9sactiver une famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-delete-family/#pour-supprimer-une-famille", 
+            "text": "Vous recherchez une famille via le lien de recherche dans le menu de gauche.  Vous obtiendrez la vue suivante avec ses boutons   La suppression d'une famille peut avoir des impacts au niveau l\u00e9gal   dans le cas de d\u00e9p\u00f4t fait par la famille  de note prise par la famille", 
+            "title": "Pour supprimer une famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-delete-family/#desactiver-une-famille", 
+            "text": "D\u00e9sactiver une famille, placera la famille dans les familles d\u00e9sactiv\u00e9es et ne fera plus partie d'aucune recherche possible dans le cas du RGPD.   Au bout de deux ann\u00e9es, la famille passera dans la gestion RGPD et sera administrable via le DPO g\u00e9rant la partie RGPD.", 
+            "title": "D\u00e9sactiver une famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-delete-family/#rgpd-attention", 
+            "text": "Attention  une famille inactive ne doit pas \u00eatre r\u00e9activ\u00e9e comme cela, sa date de d\u00e9sactivation sera alors fausse. Cela peut engendrer des poursuites judiciares, en raison du RGPD.", 
+            "title": "RGPD : ATTENTION"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-roles/", 
+            "text": "Gestion des r\u00f4les famille \n Ecclesia\nCRM\n \n\n\nAller dans les r\u00e9glages de personnalisation\n\n\n\n\nIl suffit de choisir l'item de menu : \"R\u00f4les d'une famille\"\n\n\nR\u00e9glages par d\u00e9faut\n\n\nQuand Ecclesia\nCRM\n est install\u00e9 pour la premi\u00e8re fois, des r\u00f4les par d\u00e9faut sont install\u00e9s. C'est les r\u00f4les ci-dessous.\n\n\nAjouter Modifier des r\u00f4les.\n\n\nTout est assez clair dans cette vue\n\n\n\n\n\n\nIl est possible de classer les r\u00f4les avec les fl\u00e8ches vers le haut ou le bas\n\n\nde supprimer un r\u00f4le avec la croix\n\n\nde cr\u00e9er un r\u00f4le via la partie en bas", 
+            "title": "R\u00f4les de famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-roles/#gestion-des-roles-famille-ecclesiacrm", 
+            "text": "", 
+            "title": "Gestion des r\u00f4les famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-roles/#aller-dans-les-reglages-de-personnalisation", 
+            "text": "Il suffit de choisir l'item de menu : \"R\u00f4les d'une famille\"", 
+            "title": "Aller dans les r\u00e9glages de personnalisation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-roles/#reglages-par-defaut", 
+            "text": "Quand Ecclesia CRM  est install\u00e9 pour la premi\u00e8re fois, des r\u00f4les par d\u00e9faut sont install\u00e9s. C'est les r\u00f4les ci-dessous.", 
+            "title": "R\u00e9glages par d\u00e9faut"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-roles/#ajouter-modifier-des-roles", 
+            "text": "Tout est assez clair dans cette vue    Il est possible de classer les r\u00f4les avec les fl\u00e8ches vers le haut ou le bas  de supprimer un r\u00f4le avec la croix  de cr\u00e9er un r\u00f4le via la partie en bas", 
+            "title": "Ajouter Modifier des r\u00f4les."
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-properties/", 
+            "text": "Gestion des Propri\u00e9t\u00e9s famille \n Ecclesia\nCRM\n \n\n\nAller dans les r\u00e9glages de personnalisation\n\n\n\n\nIl suffit de choisir l'item de menu : \"Propri\u00e9t\u00e9s des familles\"\n\n\nPour Ajouter une nouvelle propri\u00e9t\u00e9\n\n\nCliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"\n\n\n\n\nVous pourrez saisir \n\n\n\n\nun nom de propri\u00e9t\u00e9\n\n\nun message\n\n\net une association au message", 
+            "title": "Propri\u00e9t\u00e9s de famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-properties/#gestion-des-proprietes-famille-ecclesiacrm", 
+            "text": "", 
+            "title": "Gestion des Propri\u00e9t\u00e9s famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-properties/#aller-dans-les-reglages-de-personnalisation", 
+            "text": "Il suffit de choisir l'item de menu : \"Propri\u00e9t\u00e9s des familles\"", 
+            "title": "Aller dans les r\u00e9glages de personnalisation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-properties/#pour-ajouter-une-nouvelle-propriete", 
+            "text": "Cliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"   Vous pourrez saisir    un nom de propri\u00e9t\u00e9  un message  et une association au message", 
+            "title": "Pour Ajouter une nouvelle propri\u00e9t\u00e9"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields/", 
+            "text": "Gestion des Champs personnalisables de famille \n Ecclesia\nCRM\n \n\n\nAller dans les r\u00e9glages de personnalisation\n\n\n\n\nIl suffit de choisir l'item de menu : \" Modifier les champs personnalisables des familles\"\n\n\nPour Ajouter un nouveau champ personnalisable\n\n\nCliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"\n\n\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nIl est possible de \n\n\n\n\nles positionner \u00e0 gauche ou \u00e0 droite\n\n\nde fixer les droits par r\u00f4le : bAll etc ...", 
+            "title": "Champs personnalisables de famille"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields/#gestion-des-champs-personnalisables-de-famille-ecclesiacrm", 
+            "text": "", 
+            "title": "Gestion des Champs personnalisables de famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields/#aller-dans-les-reglages-de-personnalisation", 
+            "text": "Il suffit de choisir l'item de menu : \" Modifier les champs personnalisables des familles\"", 
+            "title": "Aller dans les r\u00e9glages de personnalisation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields/#pour-ajouter-un-nouveau-champ-personnalisable", 
+            "text": "Cliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"   Les champs personnalisables sont de type :   Boolean :   Date    :  Du texte de type 50 ou 100 ou infini en terme de caract\u00e8res :  Ann\u00e9e   :  Saison  :  Nombre  :  Personne du groupe :   Argent  :  Num\u00e9ro de t\u00e9l\u00e9phone :  Liste personnalisable d\u00e9roulante :    Il est possible de    les positionner \u00e0 gauche ou \u00e0 droite  de fixer les droits par r\u00f4le : bAll etc ...", 
+            "title": "Pour Ajouter un nouveau champ personnalisable"
         }, 
         {
             "location": "/user-guide/doc-admin/doc-groups/", 
@@ -184,6 +309,26 @@
             "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#benableddav-benableddavwebbrowser", 
             "text": "Ces param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler  sabre.io \nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.  bEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)  bEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :    pour les syst\u00e8me de fichiers :  https://url_de_la_web_application/server.php    pour les calendriers :  https://url_de_la_web_application/calendarserver.php    pour les carnets d'adresses :  https://url_de_la_web_application/addressbookserver.php", 
             "title": "bEnabledDav &amp;&amp; bEnabledDavWebBrowser"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-localization/", 
+            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais\n\n\nMise en place d'un CRM enti\u00e8rement francis\u00e9", 
+            "title": "Localisation CRM en fran\u00e7ais"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-localization/#mise-en-place-dun-crm-entierement-francise", 
+            "text": "", 
+            "title": "Mise en place d'un CRM enti\u00e8rement francis\u00e9"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-report/", 
+            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais.\n\n\nPour acc\u00e9der aux r\u00e9glages, la proc\u00e9dure est la m\u00eame que pour la partie localisation.\n\n\nVous pourrez r\u00e9gler les rapports en cliquant sur :\n\n\n\n\nLes rapports se situent\n\n\n\n\nLes annuaires \u00e0 cr\u00e9er.\n\n\nLes exports aux niveau \u00e9cole du dimanche.\n\n\nLes rapports financiers.\n\n\nLe mail de notification quand on change un identifiant ou autre.\n\n\netc ...\n\n\n\n\nVous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
+            "title": "Rapports CRM en fran\u00e7ais"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-report/#les-rapports-se-situent", 
+            "text": "Les annuaires \u00e0 cr\u00e9er.  Les exports aux niveau \u00e9cole du dimanche.  Les rapports financiers.  Le mail de notification quand on change un identifiant ou autre.  etc ...   Vous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
+            "title": "Les rapports se situent"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-profile/", 
@@ -292,7 +437,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/", 
-            "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nVisualiser tous ses documents\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet Documents\n\n\n\n\n\n\n\n\nVoici la liste des documents\n\n\n\n\n\n\n\n\nIl est possible de les trier par type\n\n\n\n\n\n\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nIl est possible de cr\u00e9er trois types de document\n\n\n\n\n\n\n\n\nles documents classiques\nVous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran.\n\n      c'est un document CKeditor visible que dans le cas du CRM.\nVous pourrez le formater comme bon vous semble.\n\n\n\n\n\n\nles vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.\n\n\n\n\nPour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.\n\n\nAller sur youtube\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Partager\"\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Int\u00e9grer\"\n\n\n\n\n\n\n\n\nIl faut copier le lien comme ci-dessous\n\n\n\n\n\n\n\n\nOn revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"\n\n\n\n\n\n\n\n\nOn clique l'ic\u00f4ne\n\n\n\n\n\n\n\n\nColle le lien en compl\u00e9tant\n\n\n\n\n\n\n\n\n\n\nOn donne un nom au document\n\n\n\n\n\n\n\n\nvoici le r\u00e9sultat\n\n\n\n\n\n\n\n\n\n\nles fichiers classiques\n\n\nIl est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section \nsuivante\n.\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
+            "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nVisualiser tous ses documents\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet Documents\n\n\n\n\n\n\n\n\nVoici la liste des documents\n\n\n\n\n\n\n\n\nIl est possible de les trier par type\n\n\n\n\n\n\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nIl est possible de cr\u00e9er trois types de document\n\n\n\n\n\n\n\n\nles documents classiques\nVous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran.\n\n      c'est un document CKeditor visible que dans le cas du CRM.\nVous pourrez le formater comme bon vous semble.\n\n\n\n\n\n\nles vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.\n\n\n\n\nPour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.\n\n\nAller sur youtube\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Partager\"\n\n\n\n\n\n\n\n\ncliquer sur le lien \"Int\u00e9grer\"\n\n\n\n\n\n\n\n\nIl faut copier le lien comme ci-dessous\n\n\n\n\n\n\n\n\nOn revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"\n\n\n\n\n\n\n\n\nOn clique l'ic\u00f4ne\n\n\n\n\n\n\n\n\nColle le lien en compl\u00e9tant\n\n\n\n\n\n\n\n\n\n\nOn donne un nom au document\n\n\n\n\n\n\n\n\nvoici le r\u00e9sultat\n\n\n\n\n\n\n\n\n\n\nles fichiers audios classiques\n\n\nc'est en fait un document CKEditor classique qui a le type audio, ce n'est utile que pour le r\u00e9f\u00e9rencement.\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
             "title": "G\u00e9rer-cr\u00e9er"
         }, 
         {
@@ -307,7 +452,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-creation/#il-est-possible-de-creer-trois-types-de-document", 
-            "text": "les documents classiques Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran. \n      c'est un document CKeditor visible que dans le cas du CRM. Vous pourrez le formater comme bon vous semble.    les vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.   Pour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.  Aller sur youtube     cliquer sur le lien \"Partager\"     cliquer sur le lien \"Int\u00e9grer\"     Il faut copier le lien comme ci-dessous     On revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"     On clique l'ic\u00f4ne     Colle le lien en compl\u00e9tant      On donne un nom au document     voici le r\u00e9sultat      les fichiers classiques  Il est possible d'importer de r\u00e9els fichiers, pour cela r\u00e9f\u00e9rez-vous \u00e0 la section  suivante .", 
+            "text": "les documents classiques Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein \u00e9cran. \n      c'est un document CKeditor visible que dans le cas du CRM. Vous pourrez le formater comme bon vous semble.    les vid\u00e9os\n      c'est en fait un document CKEditor classique qui a le type vid\u00e9o.   Pour rajouter une vid\u00e9o Youtube, la proc\u00e9dure est complexe en raison de restriction forte youtube.  Aller sur youtube     cliquer sur le lien \"Partager\"     cliquer sur le lien \"Int\u00e9grer\"     Il faut copier le lien comme ci-dessous     On revient sous EcclesiaCRM, et on cr\u00e9\u00e9 un document comme au premier point en choisissant comme type : \"Vid\u00e9o Classique\"     On clique l'ic\u00f4ne     Colle le lien en compl\u00e9tant      On donne un nom au document     voici le r\u00e9sultat      les fichiers audios classiques  c'est en fait un document CKEditor classique qui a le type audio, ce n'est utile que pour le r\u00e9f\u00e9rencement.", 
             "title": "Il est possible de cr\u00e9er trois types de document"
         }, 
         {
@@ -401,21 +546,6 @@
             "title": "Introduction"
         }, 
         {
-            "location": "/user-guide/doc-webdav-file/doc-file-use/", 
-            "text": "Introduction\n\n\nDepuis la version 3.5.0, il est possible de g\u00e9rer les fichiers des membres dans Ecclesia\nCRM\n.\n\n\nPour cela, il faut transformer une personne en utilisateur du syst\u00e8me. Consultez la section \"Gestion des utilisateurs di \nCRM\n\".\n\n\nUne fois un utilisateur cr\u00e9\u00e9, vous pourrez vous connecter au serveur WebDAV.\nL'utilisation suivante peut se faire avec un h\u00e9bergeur normal.\n\n\nGestion des fichiers\n\n\n\n\n\n\nDans la partie \"Profile Utilisateur\"\n\n\n\n\nIl suffit de se rendre dans son profile personnel\n\n\n\n\n\n\n\n\nOn ajoute un document\n\n\n\n\n\n\n\n\nOn choisit le type\n\n\n\n\n\n\n\n\nil est possible de t\u00e9l\u00e9charger un document qui se trouvera sur votre bureau ou tout autre localisation\n\n\n\n\n\n\nOn peut maintenant enregistrer le document  et le stocker dans son espace personnel.\n\n\n\n\n\n\n\n\nPour y acc\u00e9der\n\n\n\n\nQuand l'ensemble est termin\u00e9, on retrouve dans le Time Line \n\n\n\n\n\n\n\n\nEt dans la partie \"Documents\"\n\n\n\n\n\n\n\n\n\n\nRemarque\n Vous remarquerez un petit lecteur pour tout fichier audio ou vid\u00e9o.\n\n\nPour un fichier pdf vous aurez une liseuse permettant de bien le visualiser.", 
-            "title": "Utiliser la gestion de fichiers sans serveur"
-        }, 
-        {
-            "location": "/user-guide/doc-webdav-file/doc-file-use/#introduction", 
-            "text": "Depuis la version 3.5.0, il est possible de g\u00e9rer les fichiers des membres dans Ecclesia CRM .  Pour cela, il faut transformer une personne en utilisateur du syst\u00e8me. Consultez la section \"Gestion des utilisateurs di  CRM \".  Une fois un utilisateur cr\u00e9\u00e9, vous pourrez vous connecter au serveur WebDAV.\nL'utilisation suivante peut se faire avec un h\u00e9bergeur normal.", 
-            "title": "Introduction"
-        }, 
-        {
-            "location": "/user-guide/doc-webdav-file/doc-file-use/#gestion-des-fichiers", 
-            "text": "Dans la partie \"Profile Utilisateur\"   Il suffit de se rendre dans son profile personnel     On ajoute un document     On choisit le type     il est possible de t\u00e9l\u00e9charger un document qui se trouvera sur votre bureau ou tout autre localisation    On peut maintenant enregistrer le document  et le stocker dans son espace personnel.     Pour y acc\u00e9der   Quand l'ensemble est termin\u00e9, on retrouve dans le Time Line      Et dans la partie \"Documents\"      Remarque  Vous remarquerez un petit lecteur pour tout fichier audio ou vid\u00e9o.  Pour un fichier pdf vous aurez une liseuse permettant de bien le visualiser.", 
-            "title": "Gestion des fichiers"
-        }, 
-        {
             "location": "/user-guide/doc-webdav-file/doc-webdav-use/", 
             "text": "Introduction\n\n\nAvec la version 3.5.0 et plus, il est possible de g\u00e9rer les fichiers des membres dans Ecclesia\nCRM\n.\n\n\nIl faut transformer une personne en utilisateur du CRM. Consultez la section \"Gestion des utilisateurs di \nCRM\n\".\n\n\nUne fois un utilisateur cr\u00e9\u00e9, vous pourrez vous connecter au serveur WebDAV.\n\n ATTENTION \n votre h\u00e9bergeur doit \u00eatre compatible WebDAV.\n\n\nSous MacOS\n\n\n\n\ndans le \"Finder\", s\u00e9lectionnez le menu suivant :\n\n\n\n\n\n\n\n\n\n\nChoisir l'item \"Se connecter au serveur....\"\n\n\n\n\n\n\nIl faudra ensuite saisir l'adresse sous la forme : \nhttps://url_serveur/server.php/home/nom_utilisateur/\n\n\n\n\n\n\n\n\n\n\nRenseignez l'identifiant de l'utilisateur\n\n\n\n\nEvitez de cocher la case pour vous souvenir du mot de passe.\n\n\n\n\n\n\nUne fen\u00eatre s'ouvrira sur le dossier de partage\n\n\n\n\n\n\nSous Windows\n\n\n\n\nDans l'explorateur de fichiers, fa\u00eetes un clic droit sur l'ic\u00f4ne r\u00e9seau\n\n\n\n\n\n\n\n\nIl faudra ensuite saisir l'adresse sous la forme : \nhttps://url_serveur/server.php/home/nom_utilisateur/\n\n\n\n\n\n\n\n\nRenseignez l'identifiant de l'utilisateur, en cochant les deux cases \n\n\n\n\n\n\n\n\nUne fen\u00eatre s'ouvrira sur le dossier de partage\n\n\n\n\n\n\nIl est possible maintenant d'ajouter les documents que vous voulez dans ce dossier et ils se retrouveront dans profile utilisateur.\n\n\nUn fichier rajout\u00e9 via ce moyen aura une mention DAV :", 
             "title": "Utiliser le serveur de fichiers"
@@ -502,7 +632,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/", 
-            "text": "G\u00e9rer ses campagnes Mailchimp sous Ecclesia\nCRM\n \n\n\nIMPORTANT\n pour la gestion des images, le gestionnaire de fichier doit pointer sur le dossier publique.\n\n\nEn effet, toutes les images ins\u00e9r\u00e9es dans la campagne doivent avoir des liens publiques et non priv\u00e9s.\n\n\nCr\u00e9er sa premi\u00e8re campagne\n\n\nOn utilise le bouton suivant\n\n\n\n\nAvec la boite de dialogue\n\n\n\n\nVous pourrez saisir le titre de votre campagne et le sujet du mail\n\n\nGestion d'un Mail type (code champ : publipostage)\n\n\nIl est maintenant d'utiliser les codes champs de Mailchimp, un code champ permet de faire des mail type comme des lettres types (ce que l'on appelle commun\u00e9ment le publipostage).\n\n\n\n\nL'exemple ci-dessous, inclus FNAME (le pr\u00e9nom), LNAME (le nom) la date de cr\u00e9ation d'envoi du mail.\n\n\n\n\nQuand la campagne sera envoy\u00e9e, les pr\u00e9noms, noms de chaque utilisateurs seront substitu\u00e9s \u00e0 la place de chaque code champ.\n\n\n\n\nIl est possible de mettre en place le lien de d\u00e9sabonnement par rapport \u00e0 la liste de diffusion\n\nPour cela, on utilise le code champ\n\n \n\nOn obtient\n\n\n\nOn s\u00e9lectionne le lien \n*|UNSUB|*\n et on utilise le bouton \n\n \n\nOn obtient\n\n\n\n\n\n\nPuis on valide par \"Ok\".\n\n\nRemarque\n Dans les r\u00e9glages g\u00e9n\u00e9raux, il est possible de rajouter l'adresse et le num\u00e9ro de t\u00e9l\u00e9phone de chaque utilisateur.\n\n\n\n\nIns\u00e9rer des Images ou des Documents\n\n\nVous pourrez ins\u00e9rer des images ou des documents\n\n\n\n\npar glisser d\u00e9poser dans la zone de texte\n\n\nVous constaterez en double-cliquant sur l'image, que le lien est publique et pointe sur le dossier de l'utilisateur courant dans un conteneur sous forme UUID\n\n\nVous pourrez ici, changer la taille de l'image.\n\n\n\n\nou par le gestionnaire de fichier via le fait d'ins\u00e9rer des images.\n\n\n\nUne boite de dialogue\n\n\n\nOn clique le bouton \"Parcourir le serveur\"\n\n\n\nOn obtient le gestionnaire de fichier\n\n\n\nOn peut t\u00e9l\u00e9charger une image sur le serveur\n\n\n\nOn s\u00e9lectionne le fichier \u00e0 ins\u00e9rer dans le document\n\n\n\n\n\n\n\n\npar glisser-d\u00e9poser de fichier, tr\u00e8s utile pour t\u00e9l\u00e9charger un document en pi\u00e8ce jointe dans le mail\n\n\nVoici la pi\u00e8ce jointe\n\n\n\n\n\n\n\n\nUne fois la campagne finalis\u00e9e, vous pourrez \"Enregistrer\" votre campagne.\n\n\nPlanifier vos envois de Mails\n\n\nPour cela, il faut enregistrer vos mails, vous serez basculer sur la page d'envoi\n\n\n\n\n\nIci pour pourrez, enregistrer, envoyer, supprimer ou fixer une date et une heure pour votre campagne.\n\n\n\n\nIl sera possible aussi de la modi", 
+            "text": "G\u00e9rer ses campagnes Mailchimp sous Ecclesia\nCRM\n \n\n\nIMPORTANT\n pour la gestion des images, le gestionnaire de fichier doit pointer sur le dossier publique.\n\n\nEn effet, toutes les images ins\u00e9r\u00e9es dans la campagne doivent avoir des liens publiques et non priv\u00e9s.\n\n\nCr\u00e9er sa premi\u00e8re campagne\n\n\nOn utilise le bouton suivant\n\n\n\n\nAvec la boite de dialogue\n\n\n\n\nVous pourrez saisir le titre de votre campagne et le sujet du mail\n\n\nGestion d'un Mail type (code champ : publipostage)\n\n\nIl est maintenant d'utiliser les codes champs de Mailchimp, un code champ permet de faire des mail type comme des lettres types (ce que l'on appelle commun\u00e9ment le publipostage).\n\n\n\n\nL'exemple ci-dessous, inclus FNAME (le pr\u00e9nom), LNAME (le nom) la date de cr\u00e9ation d'envoi du mail.\n\n\n\n\nQuand la campagne sera envoy\u00e9e, les pr\u00e9noms, noms de chaque utilisateurs seront substitu\u00e9s \u00e0 la place de chaque code champ.\n\n\n\n\nIl est possible de mettre en place le lien de d\u00e9sabonnement par rapport \u00e0 la liste de diffusion\n\nPour cela, on utilise le code champ\n\n \n\nOn obtient\n\n\n\nOn s\u00e9lectionne le lien \n*|UNSUB|*\n et on utilise le bouton \n\n \n\nOn obtient\n\n\n\n\n\n\nPuis on valide par \"Ok\".\n\n\nRemarque\n Dans les r\u00e9glages g\u00e9n\u00e9raux, il est possible de rajouter l'adresse et le num\u00e9ro de t\u00e9l\u00e9phone de chaque utilisateur.\n\n\n\n\nIns\u00e9rer des Images ou des Documents\n\n\nVous pourrez ins\u00e9rer des images ou des documents\n\n\n\n\npar glisser d\u00e9poser dans la zone de texte\n\n\nVous constaterez en double-cliquant sur l'image, que le lien est publique et pointe sur le dossier de l'utilisateur courant dans un conteneur sous forme UUID\n\n\nVous pourrez ici, changer la taille de l'image.\n\n\n\n\nou par le gestionnaire de fichier via le fait d'ins\u00e9rer des images.\n\n\n\nUne boite de dialogue\n\n\n\nOn clique le bouton \"Parcourir le serveur\"\n\n\n\nOn obtient le gestionnaire de fichier\n\n\n\nOn peut t\u00e9l\u00e9charger une image sur le serveur\n\n\n\nOn s\u00e9lectionne le fichier \u00e0 ins\u00e9rer dans le document\n\n\n\n\n\n\n\n\npar glisser-d\u00e9poser de fichier, tr\u00e8s utile pour t\u00e9l\u00e9charger un document en pi\u00e8ce jointe dans le mail\n\n\nVoici la pi\u00e8ce jointe\n\n\n\n\n\n\n\n\nUne fois la campagne finalis\u00e9e, vous pourrez \"Enregistrer\" votre campagne.\n\n\nPlanifier vos envois de Mails\n\n\nPour cela, il faut enregistrer votre campagne, vous serez basculer sur la page d'envoi\n\n\n\n\n\nIci pour pourrez, enregistrer, envoyer, supprimer ou fixer une date et une heure pour votre campagne.\n\n\n\n\nIl sera possible aussi de la modifier pour une version ult\u00e9rieure.\n\n\nRemarque\n Il est recommand\u00e9, de cr\u00e9er des mod\u00e8les de documents pour les utiliser une autre fois, pour cela consulter la partie \"Mod\u00e8le de documents\", dans la partie \"Manuel Utilisateur\" et \"Documents\".", 
             "title": "G\u00e9rer les campagnes"
         }, 
         {
@@ -527,7 +657,7 @@
         }, 
         {
             "location": "/user-guide/doc-mailchimp/manage_campaign/#planifier-vos-envois-de-mails", 
-            "text": "Pour cela, il faut enregistrer vos mails, vous serez basculer sur la page d'envoi   \nIci pour pourrez, enregistrer, envoyer, supprimer ou fixer une date et une heure pour votre campagne.   Il sera possible aussi de la modi", 
+            "text": "Pour cela, il faut enregistrer votre campagne, vous serez basculer sur la page d'envoi   \nIci pour pourrez, enregistrer, envoyer, supprimer ou fixer une date et une heure pour votre campagne.   Il sera possible aussi de la modifier pour une version ult\u00e9rieure.  Remarque  Il est recommand\u00e9, de cr\u00e9er des mod\u00e8les de documents pour les utiliser une autre fois, pour cela consulter la partie \"Mod\u00e8le de documents\", dans la partie \"Manuel Utilisateur\" et \"Documents\".", 
             "title": "Planifier vos envois de Mails"
         }, 
         {
