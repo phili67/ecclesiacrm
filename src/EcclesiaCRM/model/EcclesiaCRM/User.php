@@ -122,6 +122,24 @@ class User extends BaseUser
           }
         }
     }
+    
+    public function changePrincipalEmail ($newEmail)
+    {
+      if ($newEmail != $this->getEmail()) {
+         try {
+         
+              $principal = PrincipalsQuery::Create()->findOneByEmail ($this->getEmail());
+              
+              if ( !is_null ($principal) ) { 
+                $principal->setEmail ($newEmail);
+                $principal->save();
+              }
+
+         } catch (Exception $e) {
+              throw new PropelException('Unable to change email for : '.strtolower($this->getUserName()).'.', 0, $e);
+         }
+      }
+    }
       
     public function renameHomeDir($oldUserName,$newUserName)
     {

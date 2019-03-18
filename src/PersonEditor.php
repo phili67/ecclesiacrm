@@ -33,6 +33,7 @@ use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserQuery;
 
 
 //Set the page title
@@ -475,6 +476,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
             // Existing person (update)
         } else {
+            // we change the email of the User if the user exists
+            $user = UserQuery::Create()->findOneByPersonId ($iPersonID);
+            
+            if ( !is_null ($user) ) {
+              $user->changePrincipalEmail ($sEmail);
+            }
+
             $person = PersonQuery::Create()
                 ->findOneByID($iPersonID);
                 
