@@ -296,7 +296,32 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
         <strong><?= gettext("This Person is Deactivated") ?> </strong>
     </div>
     <?php
-} ?>
+} 
+
+$ormNextPersons = PersonQuery::Create ()
+                    ->orderByLastName()
+                    ->find();
+
+$last_id = 0;
+$next_id = 0;
+$capture_next = 0;
+
+foreach ($ormNextPersons as $ormNextPerson) {
+    $pid = $ormNextPerson->getId();
+    if ($capture_next == 1) {
+        $next_id = $pid;
+        break;
+    }
+    if ($pid == $iPersonID) {
+        $previous_id = $last_id;
+        $capture_next = 1;
+    } else {
+      $last_id = $pid;
+    }
+}
+
+
+?>
 
 <div class="row">
   <div class="col-lg-3 col-md-3 col-sm-3">
@@ -581,9 +606,27 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
       
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
       ?>
-        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
+        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
       <?php
        }
+      ?>
+      <?php 
+        if (($previous_id > 0)) {
+      ?>
+          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Person') ?></a>
+      <?php
+        } 
+      ?>
+      
+      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonList.php"><i class="fa fa-list-ul"></i><?= gettext('Person List') ?></a>
+      <?php 
+         if (($next_id > 0)) {
+      ?>
+          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Person') ?> </a>
+      <?php
+        } 
+      ?>
+    <?php
 
        if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
          if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
