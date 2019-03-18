@@ -302,8 +302,6 @@ $ormNextPersons = PersonQuery::Create ()
                     ->orderByLastName()
                     ->find();
 
-//echo $ormNextFamilies;
-
 $last_id = 0;
 $next_id = 0;
 $capture_next = 0;
