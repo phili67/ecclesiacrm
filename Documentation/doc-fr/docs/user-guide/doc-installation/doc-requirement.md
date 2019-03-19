@@ -33,7 +33,7 @@
 
 ## Optionnel : WebDAV
 * WebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud
-* le dossier data doit être réglé à 777
-* le dossier private doit être réglé à 777 ainsi que userid
+* le dossier data doit être réglé à 755
+* le dossier private doit être réglé à 755 ainsi que userid
 
 Ce dernier point est non utile pour le fonctionnement, mais est le réel plus de l'application

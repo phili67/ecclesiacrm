@@ -5,7 +5,7 @@ site_author: 'Philippe Logel'
 site_url: 'https://github.com/phili67/ecclesiacrm/releases/'
 
 # Copyright
-copyright: 'Copyright &copy; 2017 - 2018 Philippe Logel'
+copyright: 'Copyright &copy; 2017 - 2019 Philippe Logel'
 
 # Configuration
 theme:
@@ -50,7 +50,8 @@ pages:
     - 'Mise en place du CRM': 
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
-    - 'Gestion des personnes': 'user-guide/doc-admin/doc-persons.md'
+    - 'Gestion des personnes': 
+        - 'Présentation': 'user-guide/doc-admin/person/doc-persons.md'
     - 'Gestion des familles': 
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
