@@ -42,7 +42,7 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/", 
-            "text": "Serveur\n\n\n\n\nUn serveur sous Linux (Une Ubuntu 16.04LTS par exemple)\n\n\nUn php 7.0 au minimum est requis\n\n\nUne base de donn\u00e9es sous Mysql 5.7 ou plus\n\n\n\n\nCes mods sur Apache doivent \u00eatre activ\u00e9s\n\n\n\n\nPCRE et UTF-8 sont requis\n\n\nMultibyte Encoding\n\n\nPHP Phar\n\n\nPHP Session\n\n\nPHP XML\n\n\nPHP EXIF\n\n\nPHP iconv\n\n\nOpenSSL\n\n\nMod Rewrite\n\n\nGD Library for image manipulation\n\n\nFileInfo Extension for image manipulation\n\n\ncURL\n\n\nlocale gettext\n\n\nInclude/Config file is writeable\n\n\nImages directory is writeable\n\n\n\n\nM\u00e9moire\n\n\n\n\nMax file upload size  32M\n\n\nMax POST size  32M\n\n\nPHP Memory Limit  128M\n\n\n\n\nMode evasive and security\n\n\n\n\nle module Apache mod-evasive peut restreindre fortement le CRM voir le rendre inop\u00e9rant.\n\n\nle module Apache mod-security doit \u00eatre fix\u00e9 le plus l\u00e9g\u00e8rement possible.\n\n\n\n\nOptionnel : WebDAV\n\n\n\n\nWebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud\n\n\nle dossier data doit \u00eatre r\u00e9gl\u00e9 \u00e0 777\n\n\nle dossier private doit \u00eatre r\u00e9gl\u00e9 \u00e0 777 ainsi que userid\n\n\n\n\nCe dernier point est non utile pour le fonctionnement, mais est le r\u00e9el plus de l'application", 
+            "text": "Serveur\n\n\n\n\nUn serveur sous Linux (Une Ubuntu 16.04LTS par exemple)\n\n\nUn php 7.0 au minimum est requis\n\n\nUne base de donn\u00e9es sous Mysql 5.7 ou plus\n\n\n\n\nCes mods sur Apache doivent \u00eatre activ\u00e9s\n\n\n\n\nPCRE et UTF-8 sont requis\n\n\nMultibyte Encoding\n\n\nPHP Phar\n\n\nPHP Session\n\n\nPHP XML\n\n\nPHP EXIF\n\n\nPHP iconv\n\n\nOpenSSL\n\n\nMod Rewrite\n\n\nGD Library for image manipulation\n\n\nFileInfo Extension for image manipulation\n\n\ncURL\n\n\nlocale gettext\n\n\nInclude/Config file is writeable\n\n\nImages directory is writeable\n\n\n\n\nM\u00e9moire\n\n\n\n\nMax file upload size  32M\n\n\nMax POST size  32M\n\n\nPHP Memory Limit  128M\n\n\n\n\nMode evasive and security\n\n\n\n\nle module Apache mod-evasive peut restreindre fortement le CRM voir le rendre inop\u00e9rant.\n\n\nle module Apache mod-security doit \u00eatre fix\u00e9 le plus l\u00e9g\u00e8rement possible.\n\n\n\n\nOptionnel : WebDAV\n\n\n\n\nWebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud\n\n\nle dossier data doit \u00eatre r\u00e9gl\u00e9 \u00e0 755\n\n\nle dossier private doit \u00eatre r\u00e9gl\u00e9 \u00e0 755 ainsi que userid\n\n\n\n\nCe dernier point est non utile pour le fonctionnement, mais est le r\u00e9el plus de l'application", 
             "title": "Configuration requise"
         }, 
         {
@@ -67,7 +67,7 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-requirement/#optionnel-webdav", 
-            "text": "WebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud  le dossier data doit \u00eatre r\u00e9gl\u00e9 \u00e0 777  le dossier private doit \u00eatre r\u00e9gl\u00e9 \u00e0 777 ainsi que userid   Ce dernier point est non utile pour le fonctionnement, mais est le r\u00e9el plus de l'application", 
+            "text": "WebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud  le dossier data doit \u00eatre r\u00e9gl\u00e9 \u00e0 755  le dossier private doit \u00eatre r\u00e9gl\u00e9 \u00e0 755 ainsi que userid   Ce dernier point est non utile pour le fonctionnement, mais est le r\u00e9el plus de l'application", 
             "title": "Optionnel : WebDAV"
         }, 
         {
@@ -81,18 +81,68 @@
             "title": "Installation"
         }, 
         {
-            "location": "/user-guide/doc-admin/doc-persons/", 
-            "text": "", 
-            "title": "Gestion des personnes"
+            "location": "/user-guide/doc-admin/person/doc-persons/", 
+            "text": "Personne \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me ou membre d'une famille ou d'un groupe.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne personne : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne personne : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nUne personne une classification\n\n\n\n\nmembre\n\n\nun responsable de cellule.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des propri\u00e9t\u00e9s\n\n\nUne personne au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n\n\n\nUn enfant peut \u00eatre allergique\n\n\nUn membre peut avoir des contraintes personnelles.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des groupes\n\n\nUne personne peut faire partie d'un ou de plusieurs groupes.\n\n Un membre d'un groupe \u00e9cole du dimanche\n\n Un groupe cellule de maison\n\n du groupe des anciens.\n\n etc ...\n\n\nUne personne : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne personne : fonds ou des paiements automatiques (uniquement si la personne n'est pas en famille).\n\n\nUne personne peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nRappel\n une adresse est un contener ayant des membres. Une adresse sous entend une possibilit\u00e9 de famille.\n\n\nDes notes aussi\n\n\nUne personne peut conserver des notes assez sophistiqu\u00e9s (une forme de document) exportable sous le Drive sous forme de document Word.\n\n\n\n\nUn EDrive\n\n\n\n\nNous vous renvoyons \u00e0 la section \"Manuel Utilisateur\" et \"EDrive dans le CRM\" ou en dehors, pour de plus amples informations.", 
+            "title": "Pr\u00e9sentation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#personne-ecclesiacrm", 
+            "text": "Ecclesia CRM  vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me ou membre d'une famille ou d'un groupe.  NewsLetter  une famille peut recevoir la lettre de news.", 
+            "title": "Personne &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-une-adresse", 
+            "text": "Chaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.", 
+            "title": "Une personne : une adresse"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-des-roles", 
+            "text": "Chaque membre dans la famille a un r\u00f4le bien d\u00e9finie   le repr\u00e9sentant familiale  le conjoint ou la conjointe  les enfants ...   Le repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.", 
+            "title": "Une personne : des r\u00f4les."
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-une-classification", 
+            "text": "membre  un responsable de cellule.  etc ...   Cette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".", 
+            "title": "Une personne une classification"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-des-proprietes", 
+            "text": "Une personne au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables   Un enfant peut \u00eatre allergique  Un membre peut avoir des contraintes personnelles.  etc ...   Cette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".", 
+            "title": "Une personne : des propri\u00e9t\u00e9s"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-des-groupes", 
+            "text": "Une personne peut faire partie d'un ou de plusieurs groupes.  Un membre d'un groupe \u00e9cole du dimanche  Un groupe cellule de maison  du groupe des anciens.  etc ...", 
+            "title": "Une personne : des groupes"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-des-champs-personnalisables", 
+            "text": "Il est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.  Les champs personnalisables sont de type :   Boolean :   Date    :  Du texte de type 50 ou 100 ou infini en terme de caract\u00e8res :  Ann\u00e9e   :  Saison  :  Nombre  :  Personne du groupe :   Argent  :  Num\u00e9ro de t\u00e9l\u00e9phone :  Liste personnalisable d\u00e9roulante :    A vous d'avoir des id\u00e9es.", 
+            "title": "Une personne : des champs personnalisables"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-fonds-ou-des-paiements-automatiques-uniquement-si-la-personne-nest-pas-en-famille", 
+            "text": "Une personne peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.  Rappel  une adresse est un contener ayant des membres. Une adresse sous entend une possibilit\u00e9 de famille.", 
+            "title": "Une personne : fonds ou des paiements automatiques (uniquement si la personne n'est pas en famille)."
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#des-notes-aussi", 
+            "text": "Une personne peut conserver des notes assez sophistiqu\u00e9s (une forme de document) exportable sous le Drive sous forme de document Word.", 
+            "title": "Des notes aussi"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-persons/#un-edrive", 
+            "text": "Nous vous renvoyons \u00e0 la section \"Manuel Utilisateur\" et \"EDrive dans le CRM\" ou en dehors, pour de plus amples informations.", 
+            "title": "Un EDrive"
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-families/", 
-            "text": "Famille \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.\n\n\nUne famille : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne famille : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nUne famille : des propri\u00e9t\u00e9s\n\n\nUne famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces champs personnalisables\n\n une famille par exemple mono parentale\n\n une famille \u00e0 aider\n* etc ...\n\n\nUne famille : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne famille : fonds ou des paiements automatiques\n\n\nUne famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nDes notes aussi\n\n\nUne famille peut conserver des notes assez sophistiqu\u00e9s.", 
+            "text": "Famille \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne famille : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne famille : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des propri\u00e9t\u00e9s\n\n\nUne famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n une famille par exemple mono parentale\n\n une famille \u00e0 aider\n* etc ...\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne famille : fonds ou des paiements automatiques\n\n\nUne famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nDes notes aussi\n\n\nUne famille peut conserver des notes assez sophistiqu\u00e9s.", 
             "title": "Pr\u00e9sentation"
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-families/#famille-ecclesiacrm", 
-            "text": "Ecclesia CRM  fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.", 
+            "text": "Ecclesia CRM  fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.  NewsLetter  une famille peut recevoir la lettre de news.", 
             "title": "Famille &amp; EcclesiaCRM "
         }, 
         {
@@ -102,12 +152,12 @@
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-families/#une-famille-des-roles", 
-            "text": "Chaque membre dans la famille a un r\u00f4le bien d\u00e9finie   le repr\u00e9sentant familiale  le conjoint ou la conjointe  les enfants ...   Le repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.", 
+            "text": "Chaque membre dans la famille a un r\u00f4le bien d\u00e9finie   le repr\u00e9sentant familiale  le conjoint ou la conjointe  les enfants ...   Le repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.  Cette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".", 
             "title": "Une famille : des r\u00f4les."
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-families/#une-famille-des-proprietes", 
-            "text": "Une famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces champs personnalisables  une famille par exemple mono parentale  une famille \u00e0 aider\n* etc ...", 
+            "text": "Une famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables  une famille par exemple mono parentale  une famille \u00e0 aider\n* etc ...  Cette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".", 
             "title": "Une famille : des propri\u00e9t\u00e9s"
         }, 
         {

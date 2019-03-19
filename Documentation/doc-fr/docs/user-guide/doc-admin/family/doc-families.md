@@ -3,6 +3,8 @@
 
 Ecclesia**CRM** fait de la famille une place centrale, la définition d'une famille dans ce CRM est polymorphe. La famille n'est pas figée est peut-etre définie au travers de son nom, de ses membres, de son numéro de téléphone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.
 
+**NewsLetter** une famille peut recevoir la lettre de news.
+
 ##Une famille : une adresse
 
 Chaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir réellement affecter une adresse.
@@ -17,13 +19,16 @@ Chaque membre dans la famille a un rôle bien définie
 
 Le représentant de famille est capitale pour visualiser une famille sur la carte des membres.
 
+Cette partie est personnalisable dans la partie "Gestion des Personnes" et "Personnalisation".
 
 ##Une famille : des propriétés
 
-Une famille au départ doit être pensée avec ces champs personnalisables
+Une famille au départ doit être pensée avec ces propriétés personnalisables
 * une famille par exemple mono parentale
 * une famille à aider
 * etc ...
+
+Cette partie est personnalisable dans la partie "Gestion des Personnes" et "Personnalisation".
 
 
 ##Une famille : des champs personnalisables

@@ -247,10 +247,34 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../doc-persons/" title="Gestion des personnes" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
       Gestion des personnes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Gestion des personnes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../person/doc-persons/" title="Présentation" class="md-nav__link">
+      Présentation
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1071,6 +1095,7 @@
                 
                 <h1 id="famille-ecclesiacrm"><center><big>Famille &amp; Ecclesia<strong>CRM</strong> </big></center><a class="headerlink" href="#famille-ecclesiacrm" title="Permanent link">&para;</a></h1>
 <p>Ecclesia<strong>CRM</strong> fait de la famille une place centrale, la définition d'une famille dans ce CRM est polymorphe. La famille n'est pas figée est peut-etre définie au travers de son nom, de ses membres, de son numéro de téléphone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.</p>
+<p><strong>NewsLetter</strong> une famille peut recevoir la lettre de news.</p>
 <h2 id="une-famille-une-adresse">Une famille : une adresse<a class="headerlink" href="#une-famille-une-adresse" title="Permanent link">&para;</a></h2>
 <p>Chaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir réellement affecter une adresse.</p>
 <h2 id="une-famille-des-roles">Une famille : des rôles.<a class="headerlink" href="#une-famille-des-roles" title="Permanent link">&para;</a></h2>
@@ -1081,11 +1106,13 @@
 <li>les enfants ...</li>
 </ul>
 <p>Le représentant de famille est capitale pour visualiser une famille sur la carte des membres.</p>
+<p>Cette partie est personnalisable dans la partie "Gestion des Personnes" et "Personnalisation".</p>
 <h2 id="une-famille-des-proprietes">Une famille : des propriétés<a class="headerlink" href="#une-famille-des-proprietes" title="Permanent link">&para;</a></h2>
-<p>Une famille au départ doit être pensée avec ces champs personnalisables
+<p>Une famille au départ doit être pensée avec ces propriétés personnalisables
 <em> une famille par exemple mono parentale
 </em> une famille à aider
 * etc ...</p>
+<p>Cette partie est personnalisable dans la partie "Gestion des Personnes" et "Personnalisation".</p>
 <h2 id="une-famille-des-champs-personnalisables">Une famille : des champs personnalisables<a class="headerlink" href="#une-famille-des-champs-personnalisables" title="Permanent link">&para;</a></h2>
 <p>Il est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.</p>
 <p>Les champs personnalisables sont de type :</p>
@@ -1125,7 +1152,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../doc-persons/" title="Gestion des personnes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../person/doc-persons/" title="Présentation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1134,7 +1161,7 @@
                 <span class="md-footer-nav__direction">
                   Précédent
                 </span>
-                Gestion des personnes
+                Présentation
               </span>
             </div>
           </a>
@@ -1162,7 +1189,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2018 Philippe Logel
+            Copyright &copy; 2017 - 2019 Philippe Logel
           </div>
         
         powered by

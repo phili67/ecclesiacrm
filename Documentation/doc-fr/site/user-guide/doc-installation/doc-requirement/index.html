@@ -309,10 +309,34 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../doc-admin/doc-persons/" title="Gestion des personnes" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
       Gestion des personnes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Gestion des personnes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../doc-admin/person/doc-persons/" title="Présentation" class="md-nav__link">
+      Présentation
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1089,8 +1113,8 @@
 <h2 id="optionnel-webdav">Optionnel : WebDAV<a class="headerlink" href="#optionnel-webdav" title="Permanent link">&para;</a></h2>
 <ul>
 <li>WebDAV est un plus pour que la connexion puisse fonctionner comme NextCloud</li>
-<li>le dossier data doit être réglé à 777</li>
-<li>le dossier private doit être réglé à 777 ainsi que userid</li>
+<li>le dossier data doit être réglé à 755</li>
+<li>le dossier private doit être réglé à 755 ainsi que userid</li>
 </ul>
 <p>Ce dernier point est non utile pour le fonctionnement, mais est le réel plus de l'application</p>
                 
@@ -1148,7 +1172,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2017 - 2018 Philippe Logel
+            Copyright &copy; 2017 - 2019 Philippe Logel
           </div>
         
         powered by
