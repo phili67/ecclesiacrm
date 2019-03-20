@@ -166,6 +166,61 @@
             "title": "Les champs personnalisables"
         }, 
         {
+            "location": "/user-guide/doc-admin/person/doc-delete-person/", 
+            "text": "Supprimer d\u00e9sactiver une personne \n Ecclesia\nCRM\n \n\n\nPour supprimer une personne\n\n\nVous recherchez une personne via le lien de recherche dans le menu de gauche.\n\n\nVous obtiendrez la vue suivante avec ses boutons\n\n\n\n\nLa suppression d'une personne peut avoir des impacts au niveau l\u00e9gal.\n\n\n\n\ndans le cas de d\u00e9p\u00f4t fait par la personne\n\n\nde note prise par la personne\n\n\n\n\nD\u00e9sactiver une personne\n\n\nD\u00e9sactiver une personne, placera cette personne dans les personnes d\u00e9sactiv\u00e9es et ne fera plus partie d'aucune recherche possible dans le cas du RGPD.\n\n\n\n\nAu bout de deux ann\u00e9es, la personne passera dans la gestion RGPD et sera administrable via le DPO g\u00e9rant la partie RGPD.\n\n\nRGPD : ATTENTION\n\n\nAttention\n une personne inactive ne doit pas \u00eatre r\u00e9activ\u00e9e comme cela, sa date de d\u00e9sactivation sera alors fausse. Cela peut engendrer des poursuites judiciares, en raison du RGPD.", 
+            "title": "D\u00e9sactiver/supprimer une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-delete-person/#supprimer-desactiver-une-personne-ecclesiacrm", 
+            "text": "", 
+            "title": "Supprimer d\u00e9sactiver une personne &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-delete-person/#pour-supprimer-une-personne", 
+            "text": "Vous recherchez une personne via le lien de recherche dans le menu de gauche.  Vous obtiendrez la vue suivante avec ses boutons   La suppression d'une personne peut avoir des impacts au niveau l\u00e9gal.   dans le cas de d\u00e9p\u00f4t fait par la personne  de note prise par la personne", 
+            "title": "Pour supprimer une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-delete-person/#desactiver-une-personne", 
+            "text": "D\u00e9sactiver une personne, placera cette personne dans les personnes d\u00e9sactiv\u00e9es et ne fera plus partie d'aucune recherche possible dans le cas du RGPD.   Au bout de deux ann\u00e9es, la personne passera dans la gestion RGPD et sera administrable via le DPO g\u00e9rant la partie RGPD.", 
+            "title": "D\u00e9sactiver une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-delete-person/#rgpd-attention", 
+            "text": "Attention  une personne inactive ne doit pas \u00eatre r\u00e9activ\u00e9e comme cela, sa date de d\u00e9sactivation sera alors fausse. Cela peut engendrer des poursuites judiciares, en raison du RGPD.", 
+            "title": "RGPD : ATTENTION"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/", 
+            "text": "Gestionnaire de classification de Personne \n Ecclesia\nCRM\n \n\n\nC'est \u00e0 cette endroit que vous pourrez fixer \n- les classifications des membres.\n- les ic\u00f4nes google Map.\n\n\nPour acc\u00e9der au gestionnaire de classification.\n\n\nAller dans la partie R\u00e9glages\n\n\n\n\nR\u00e9glages\n\n\n\n\nVous pourrez ici fixer \n\n\n\n\nune nouvelle classification\n\n\nla supprimer\n\n\nqu'elle soit visible que dans la vue d'une personne et seulement ici (pas sur la page d'accueil).\n\n\naffecter une ic\u00f4ne google map ou OpenStreep Map\n\n\n\n\nClassement\n\n\nEn utilisant les fl\u00e8ches vers le haut, vers le bas, vous pourrez \u00e9tablir une classification des ic\u00f4nes \u00e0 la fois \n\n\n\n\ndans le choix quand vous \u00e9ditez une personne\n\n\ndans les classements qui se trouvent dans les ic\u00f4nes des cartes Google Map.\n\n\n\n\nPour changer d'ic\u00f4nes\n\n\nCliquer la croix \u00e0 gauche de l'ic\u00f4ne, l'ic\u00f4ne sera supprim\u00e9e.\n\n\nPuis cliquer sur le + \n\n\n\n\nVous pourrez alors choisir l'ic\u00f4ne dans la liste \n\n\n\n\nRemarque\n Il est possible d'ajouter une ic\u00f4ne en allant sur le serveur dans le dossier : /skin/icons/markers/", 
+            "title": "Gestionnaire de Classification"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/#gestionnaire-de-classification-de-personne-ecclesiacrm", 
+            "text": "C'est \u00e0 cette endroit que vous pourrez fixer \n- les classifications des membres.\n- les ic\u00f4nes google Map.  Pour acc\u00e9der au gestionnaire de classification.", 
+            "title": "Gestionnaire de classification de Personne &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/#aller-dans-la-partie-reglages", 
+            "text": "", 
+            "title": "Aller dans la partie R\u00e9glages"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/#reglages", 
+            "text": "Vous pourrez ici fixer    une nouvelle classification  la supprimer  qu'elle soit visible que dans la vue d'une personne et seulement ici (pas sur la page d'accueil).  affecter une ic\u00f4ne google map ou OpenStreep Map", 
+            "title": "R\u00e9glages"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/#classement", 
+            "text": "En utilisant les fl\u00e8ches vers le haut, vers le bas, vous pourrez \u00e9tablir une classification des ic\u00f4nes \u00e0 la fois    dans le choix quand vous \u00e9ditez une personne  dans les classements qui se trouvent dans les ic\u00f4nes des cartes Google Map.", 
+            "title": "Classement"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-classification/#pour-changer-dicones", 
+            "text": "Cliquer la croix \u00e0 gauche de l'ic\u00f4ne, l'ic\u00f4ne sera supprim\u00e9e.  Puis cliquer sur le +    Vous pourrez alors choisir l'ic\u00f4ne dans la liste    Remarque  Il est possible d'ajouter une ic\u00f4ne en allant sur le serveur dans le dossier : /skin/icons/markers/", 
+            "title": "Pour changer d'ic\u00f4nes"
+        }, 
+        {
             "location": "/user-guide/doc-admin/family/doc-families/", 
             "text": "Famille \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne famille : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne famille : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des propri\u00e9t\u00e9s\n\n\nUne famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n une famille par exemple mono parentale\n\n une famille \u00e0 aider\n* etc ...\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne famille : fonds ou des paiements automatiques\n\n\nUne famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nDes notes aussi\n\n\nUne famille peut conserver des notes assez sophistiqu\u00e9s.", 
             "title": "Pr\u00e9sentation"
