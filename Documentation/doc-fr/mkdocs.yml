@@ -54,6 +54,8 @@ pages:
         - 'Présentation': 'user-guide/doc-admin/person/doc-persons.md'
         - 'Créer une personne': 'user-guide/doc-admin/person/doc-create-person.md'
         - 'Désactiver/supprimer une personne': 'user-guide/doc-admin/person/doc-delete-person.md'
+        - 'Personnalisation':
+            - 'Gestionnaire de Classification': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-classification.md'
     - 'Gestion des familles': 
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
