@@ -596,12 +596,20 @@
         ],
         "dbVersion": "5.5.3"
     },
-    "current": {
+    "5.5.4": {
         "versions": [
             "5.5.3"
         ],
         "scripts": [
         ],
         "dbVersion": "5.5.4"
+    },
+    "current": {
+        "versions": [
+            "5.5.4"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "5.5.5"
     }
 }
