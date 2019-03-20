@@ -82,12 +82,12 @@
         }, 
         {
             "location": "/user-guide/doc-admin/person/doc-persons/", 
-            "text": "Personne \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me ou membre d'une famille ou d'un groupe.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne personne : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne personne : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nUne personne une classification\n\n\n\n\nmembre\n\n\nun responsable de cellule.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des propri\u00e9t\u00e9s\n\n\nUne personne au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n\n\n\nUn enfant peut \u00eatre allergique\n\n\nUn membre peut avoir des contraintes personnelles.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des groupes\n\n\nUne personne peut faire partie d'un ou de plusieurs groupes.\n\n Un membre d'un groupe \u00e9cole du dimanche\n\n Un groupe cellule de maison\n\n du groupe des anciens.\n\n etc ...\n\n\nUne personne : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne personne : fonds ou des paiements automatiques (uniquement si la personne n'est pas en famille).\n\n\nUne personne peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nRappel\n une adresse est un contener ayant des membres. Une adresse sous entend une possibilit\u00e9 de famille.\n\n\nDes notes aussi\n\n\nUne personne peut conserver des notes assez sophistiqu\u00e9s (une forme de document) exportable sous le Drive sous forme de document Word.\n\n\n\n\nUn EDrive\n\n\n\n\nNous vous renvoyons \u00e0 la section \"Manuel Utilisateur\" et \"EDrive dans le CRM\" ou en dehors, pour de plus amples informations.", 
+            "text": "Personne \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me, membre d'une famille ou d'un groupe.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne personne : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne personne : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nUne personne : une classification\n\n\n\n\nmembre\n\n\nun responsable de cellule.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des propri\u00e9t\u00e9s\n\n\nUne personne au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n\n\n\nUn enfant peut \u00eatre allergique\n\n\nUn membre peut avoir des contraintes personnelles.\n\n\netc ...\n\n\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne personne : des groupes\n\n\nUne personne peut faire partie d'un ou de plusieurs groupes.\n\n Un membre d'un groupe \u00e9cole du dimanche\n\n Un groupe cellule de maison\n\n du groupe des anciens.\n\n etc ...\n\n\nUne personne : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne personne : fonds ou des paiements automatiques (uniquement si la personne n'est pas en famille).\n\n\nUne personne peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nRappel\n une adresse est un contener ayant des membres. Une adresse sous entend une possibilit\u00e9 de famille.\n\n\nDes notes aussi\n\n\nUne personne peut conserver des notes assez sophistiqu\u00e9s (une forme de document) exportable sous le Drive sous forme de document Word.\n\n\n\n\nUn EDrive\n\n\n\n\nNous vous renvoyons \u00e0 la section \"Manuel Utilisateur\" et \"EDrive dans le CRM\" ou en dehors, pour de plus amples informations.", 
             "title": "Pr\u00e9sentation"
         }, 
         {
             "location": "/user-guide/doc-admin/person/doc-persons/#personne-ecclesiacrm", 
-            "text": "Ecclesia CRM  vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me ou membre d'une famille ou d'un groupe.  NewsLetter  une famille peut recevoir la lettre de news.", 
+            "text": "Ecclesia CRM  vous permet de cr\u00e9er une personne qui peut \u00eatre un \"utilisateur\" du syst\u00e8me, membre d'une famille ou d'un groupe.  NewsLetter  une famille peut recevoir la lettre de news.", 
             "title": "Personne &amp; EcclesiaCRM "
         }, 
         {
@@ -103,7 +103,7 @@
         {
             "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-une-classification", 
             "text": "membre  un responsable de cellule.  etc ...   Cette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".", 
-            "title": "Une personne une classification"
+            "title": "Une personne : une classification"
         }, 
         {
             "location": "/user-guide/doc-admin/person/doc-persons/#une-personne-des-proprietes", 
@@ -134,6 +134,36 @@
             "location": "/user-guide/doc-admin/person/doc-persons/#un-edrive", 
             "text": "Nous vous renvoyons \u00e0 la section \"Manuel Utilisateur\" et \"EDrive dans le CRM\" ou en dehors, pour de plus amples informations.", 
             "title": "Un EDrive"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/", 
+            "text": "Cr\u00e9er une Personne \n Ecclesia\nCRM\n \n\n\nPour cr\u00e9er une personne\n\n\nrien de plus simple, aller dans le menu \"Personnes \n Familles\", \"Personnes\", \"Ajouter une Personne\".\n\n\n\n\nInformations\n\n\nC'est \u00e0 cette endroit que vous pourrez saisir toutes les informations concernant une personne, le fait \n\n\n\n\nqu'elle est souscrit \u00e0 la NewsLetter, \n\n\nson compte Facebook ID\n\n\nTwitter\n\n\n\n\nAdresse\n\n\nC'est ici que vous pourrez changer une personne d'adresse, ou lui cr\u00e9er une adresse\n\n\nLes champs personnalisables\n\n\nSi vous avez cr\u00e9\u00e9 des champs personnalisables, c'est \u00e9galement \u00e0 cette endroit que vous pourrez les saisir.", 
+            "title": "Cr\u00e9er une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/#creer-une-personne-ecclesiacrm", 
+            "text": "", 
+            "title": "Cr\u00e9er une Personne &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/#pour-creer-une-personne", 
+            "text": "rien de plus simple, aller dans le menu \"Personnes   Familles\", \"Personnes\", \"Ajouter une Personne\".", 
+            "title": "Pour cr\u00e9er une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/#informations", 
+            "text": "C'est \u00e0 cette endroit que vous pourrez saisir toutes les informations concernant une personne, le fait    qu'elle est souscrit \u00e0 la NewsLetter,   son compte Facebook ID  Twitter", 
+            "title": "Informations"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/#adresse", 
+            "text": "C'est ici que vous pourrez changer une personne d'adresse, ou lui cr\u00e9er une adresse", 
+            "title": "Adresse"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-create-person/#les-champs-personnalisables", 
+            "text": "Si vous avez cr\u00e9\u00e9 des champs personnalisables, c'est \u00e9galement \u00e0 cette endroit que vous pourrez les saisir.", 
+            "title": "Les champs personnalisables"
         }, 
         {
             "location": "/user-guide/doc-admin/family/doc-families/", 
