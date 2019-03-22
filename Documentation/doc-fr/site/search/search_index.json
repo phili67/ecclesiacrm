@@ -221,6 +221,56 @@
             "title": "Pour changer d'ic\u00f4nes"
         }, 
         {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/", 
+            "text": "Liste des Propri\u00e9t\u00e9s : Personne \n Ecclesia\nCRM\n \n\n\nUne personne peut \u00eatre allergique ou ne pas vouloir de photos.\n\n\nLes propri\u00e9t\u00e9s seront visibles dans le cas d'\u00e9dition de badges pour l'\u00e9cole de dimanche ou des listes.\n\n\nAller dans la partie R\u00e9glages\n\n\n\n\nR\u00e9glages\n\n\n\n\nVous pourrez ici fixer \n\n\n\n\nune nouvelle propri\u00e9t\u00e9\n\n\nla supprimer\n\n\nvous pourrez donner des informations suppl\u00e9mentaires : allergique \u00e0 quoi ...\n\n\n\n\nMise en place d'une nouvelle propri\u00e9t\u00e9\n\n\n\n\nVous pourrez fixer ici\n\n\n\n\nNom : Allergique\n\n\nMessage : \u00e0 quoi\n\n\nLe champ : \"Un Personne avec cette propri\u00e9t\u00e9...\" permet de donner une explication.\n\n\n\n\npar exemple :\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nAjouter une propri\u00e9t\u00e9 \u00e0 une personne", 
+            "title": "Liste des propri\u00e9t\u00e9s"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/#liste-des-proprietes-personne-ecclesiacrm", 
+            "text": "Une personne peut \u00eatre allergique ou ne pas vouloir de photos.  Les propri\u00e9t\u00e9s seront visibles dans le cas d'\u00e9dition de badges pour l'\u00e9cole de dimanche ou des listes.", 
+            "title": "Liste des Propri\u00e9t\u00e9s : Personne &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/#aller-dans-la-partie-reglages", 
+            "text": "", 
+            "title": "Aller dans la partie R\u00e9glages"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/#reglages", 
+            "text": "Vous pourrez ici fixer    une nouvelle propri\u00e9t\u00e9  la supprimer  vous pourrez donner des informations suppl\u00e9mentaires : allergique \u00e0 quoi ...", 
+            "title": "R\u00e9glages"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/#mise-en-place-dune-nouvelle-propriete", 
+            "text": "Vous pourrez fixer ici   Nom : Allergique  Message : \u00e0 quoi  Le champ : \"Un Personne avec cette propri\u00e9t\u00e9...\" permet de donner une explication.   par exemple :   Voici le r\u00e9sultat", 
+            "title": "Mise en place d'une nouvelle propri\u00e9t\u00e9"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-properties/#ajouter-une-propriete-a-une-personne", 
+            "text": "", 
+            "title": "Ajouter une propri\u00e9t\u00e9 \u00e0 une personne"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields/", 
+            "text": "Gestion des Champs personnalisables de famille \n Ecclesia\nCRM\n \n\n\nAller dans les r\u00e9glages de personnalisation\n\n\n\n\nIl suffit de choisir l'item de menu : \" Modifier les champs personnalisables des familles\"\n\n\nPour Ajouter un nouveau champ personnalisable\n\n\nCliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"\n\n\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nIl est possible de \n\n\n\n\nles positionner \u00e0 gauche ou \u00e0 droite\n\n\nde fixer les droits par r\u00f4le : bAll etc ...", 
+            "title": "Champs personnalisables"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields/#gestion-des-champs-personnalisables-de-famille-ecclesiacrm", 
+            "text": "", 
+            "title": "Gestion des Champs personnalisables de famille &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields/#aller-dans-les-reglages-de-personnalisation", 
+            "text": "Il suffit de choisir l'item de menu : \" Modifier les champs personnalisables des familles\"", 
+            "title": "Aller dans les r\u00e9glages de personnalisation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields/#pour-ajouter-un-nouveau-champ-personnalisable", 
+            "text": "Cliquer sur \"Ajouter une nouvelle Propri\u00e9t\u00e9\"   Les champs personnalisables sont de type :   Boolean :   Date    :  Du texte de type 50 ou 100 ou infini en terme de caract\u00e8res :  Ann\u00e9e   :  Saison  :  Nombre  :  Personne du groupe :   Argent  :  Num\u00e9ro de t\u00e9l\u00e9phone :  Liste personnalisable d\u00e9roulante :    Il est possible de    les positionner \u00e0 gauche ou \u00e0 droite  de fixer les droits par r\u00f4le : bAll etc ...", 
+            "title": "Pour Ajouter un nouveau champ personnalisable"
+        }, 
+        {
             "location": "/user-guide/doc-admin/family/doc-families/", 
             "text": "Famille \n Ecclesia\nCRM\n \n\n\nEcclesia\nCRM\n fait de la famille une place centrale, la d\u00e9finition d'une famille dans ce CRM est polymorphe. La famille n'est pas fig\u00e9e est peut-etre d\u00e9finie au travers de son nom, de ses membres, de son num\u00e9ro de t\u00e9l\u00e9phone, mais vous pourrez constater que l'on peut rajouter autant de champs personnalisables que l'on veut.\n\n\nNewsLetter\n une famille peut recevoir la lettre de news.\n\n\nUne famille : une adresse\n\n\nChaque personne dans le CRM a une adresse, la notion de famille permet de pouvoir r\u00e9ellement affecter une adresse.\n\n\nUne famille : des r\u00f4les.\n\n\nChaque membre dans la famille a un r\u00f4le bien d\u00e9finie\n\n\n\n\nle repr\u00e9sentant familiale\n\n\nle conjoint ou la conjointe\n\n\nles enfants ...\n\n\n\n\nLe repr\u00e9sentant de famille est capitale pour visualiser une famille sur la carte des membres.\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des propri\u00e9t\u00e9s\n\n\nUne famille au d\u00e9part doit \u00eatre pens\u00e9e avec ces propri\u00e9t\u00e9s personnalisables\n\n une famille par exemple mono parentale\n\n une famille \u00e0 aider\n* etc ...\n\n\nCette partie est personnalisable dans la partie \"Gestion des Personnes\" et \"Personnalisation\".\n\n\nUne famille : des champs personnalisables\n\n\nIl est possible de rajouter autant de champ personnalisables que l'ont veut pour une famille.\n\n\nLes champs personnalisables sont de type :\n\n\n\n\nBoolean : \n\n\nDate    :\n\n\nDu texte de type 50 ou 100 ou infini en terme de caract\u00e8res :\n\n\nAnn\u00e9e   :\n\n\nSaison  :\n\n\nNombre  :\n\n\nPersonne du groupe : \n\n\nArgent  :\n\n\nNum\u00e9ro de t\u00e9l\u00e9phone :\n\n\nListe personnalisable d\u00e9roulante : \n\n\n\n\nA vous d'avoir des id\u00e9es.\n\n\nUne famille : fonds ou des paiements automatiques\n\n\nUne famille peut faire des dons, bien entendu et ces dons seront r\u00e9clam\u00e9s dans le cas d'un re\u00e7u fiscal.\n\n\nDes notes aussi\n\n\nUne famille peut conserver des notes assez sophistiqu\u00e9s.", 
             "title": "Pr\u00e9sentation"
