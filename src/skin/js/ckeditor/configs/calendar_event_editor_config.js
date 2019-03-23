@@ -4,7 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-  config.height = '150px';
+  config.height = '200px';
   
   config.toolbar = [
     { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
