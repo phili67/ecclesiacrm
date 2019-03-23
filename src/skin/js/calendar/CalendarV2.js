@@ -326,9 +326,14 @@ $(document).ready(function () {
                    // this will create the toolbar for the textarea
                    if (window.CRM.editor == null) {
                      window.CRM.editor = CKEDITOR.replace('eventNotes',{
-                       customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
-                       language : window.CRM.lang,
-                       width : '100%'
+                        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
+                        language : window.CRM.lang,
+                        width : '100%',
+                        extraPlugins : 'uploadfile,uploadimage,filebrowser',
+                        uploadUrl: '/uploader/upload.php?type=publicDocuments',
+                        imageUploadUrl: '/uploader/upload.php?type=publicImages',
+                        filebrowserUploadUrl: '/uploader/upload.php?type=publicDocuments',
+                        filebrowserBrowseUrl: '/browser/browse.php?type=publicDocuments'
                      });
                    
                      add_ckeditor_buttons(window.CRM.editor);
@@ -488,7 +493,12 @@ select: function(start, end) {
          window.CRM.editor = CKEDITOR.replace('eventNotes',{
           customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
           language : window.CRM.lang,
-          width : '100%'
+          width : '100%',
+          extraPlugins : 'uploadfile,uploadimage,filebrowser',
+          uploadUrl: '/uploader/upload.php?type=publicDocuments',
+          imageUploadUrl: '/uploader/upload.php?type=publicImages',
+          filebrowserUploadUrl: '/uploader/upload.php?type=publicDocuments',
+          filebrowserBrowseUrl: '/browser/browse.php?type=publicDocuments'
          });
        
          add_ckeditor_buttons(window.CRM.editor);

@@ -5,37 +5,68 @@
 
 CKEDITOR.editorConfig = function( config ) {
   config.height = '150px';
-    
-  config.toolbarGroups = [
-    { name: 'styles', groups: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
-    { name: 'document', groups: [ 'mode' ] },//'source',
+  
+  config.toolbar = [
+    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+    { name: 'document', items: [ 'Preview', 'Print', '-' , 'mergeTagsMailChimp' ] },
+    { name: 'template', items: [ 'document', 'ApplyTemplateButton','ManageTemplateButton','SaveTemplateButton'] },//'source',
+    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll'] },
     '/',
-    { name: 'clipboard', groups: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-    { name: 'colors', groups: [ 'colors' ] },
-    { name: 'tools', groups: [ 'tools' ] },
-    { name: 'others', groups: [ 'others' ] }
+    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+    //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
+    '/',
+    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe','-', 'mathjax' ] },
+    { name: 'about', items: [ 'About' ] }
   ];
   
   config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
-    'undo,' +
+    'about,' +
+    'sourcedialog,' +
+    'blockquote,' +
+    'clipboard,' +
     'colorbutton,' +
     'colordialog,' +
+    'copyformatting,' +
+    'dialogadvtab,' +
+    'elementspath,' +
+    'enterkey,' +
+    'entities,' +
+    'iframe,'+
+    'find,' +
+    'floatingspace,' +
     'font,' +
     'format,' +
     'horizontalrule,' +
     'image,' +
+    'indentlist,' +
+    'indentblock,' +
     'justify,' +
     'link,' +
     'list,' +
+    'magicline,' +
+    'maximize,' +
     'pastefromword,' +
     'pastetext,' +
+    'preview,' +
+    'print,' +
+    'removeformat,' +
     'resize,' +
-    'tableselection,' +
+    'selectall,' +
     'smiley,' +
-    'maximize,' +
-    'mathjax,' +
-    'wysiwygarea';
+    'specialchar,' +
+    'stylescombo,' +
+    'tab,' +
+    'table,' +
+    'tableselection,' +
+    'tabletools,' +
+    'undo,' +
+    'wysiwygarea,' +
+    'mathjax';
 };

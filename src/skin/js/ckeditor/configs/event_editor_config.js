@@ -6,27 +6,29 @@
 CKEDITOR.editorConfig = function( config ) {
   config.height = '250px';
   
-    config.toolbarGroups = [
-    { name: 'document', groups: [ 'mode', 'document'] },
-    { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-    { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-    { name: 'forms', groups: [ 'forms' ] },
+  config.toolbar = [
+    { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
+    { name: 'document', items: [ 'Preview', 'Print', '-' , 'mergeTagsMailChimp' ] },
+    { name: 'template', items: [ 'document', 'ApplyTemplateButton','ManageTemplateButton','SaveTemplateButton'] },//'source',
+    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+    { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll'] },
     '/',
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-    { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-    { name: 'links', groups: [ 'links' ] },
-    { name: 'insert', groups: [ 'insert' ] },
+    { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+    { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+    //{ name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
     '/',
-    { name: 'styles', groups: [ 'styles' ] },
-    { name: 'colors', groups: [ 'colors' ] },
-    { name: 'tools', groups: [ 'tools' ] },
-    { name: 'others', groups: [ 'others' ] }
+    { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+    { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+    { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+    { name: 'insert', items: [ 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe','-', 'mathjax' ] },
+    { name: 'about', items: [ 'About' ] }
   ];
   
   config.mathJaxLib = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML';
 
   config.plugins =
     'about,' +
+    'sourcedialog,' +
     'blockquote,' +
     'clipboard,' +
     'colorbutton,' +
@@ -36,6 +38,7 @@ CKEDITOR.editorConfig = function( config ) {
     'elementspath,' +
     'enterkey,' +
     'entities,' +
+    'iframe,'+
     'find,' +
     'floatingspace,' +
     'font,' +
@@ -63,8 +66,7 @@ CKEDITOR.editorConfig = function( config ) {
     'table,' +
     'tableselection,' +
     'tabletools,' +
-    'templates,' +
     'undo,' +
-    'mathjax,' +
-    'wysiwygarea';
+    'wysiwygarea,' +
+    'mathjax';
 };
