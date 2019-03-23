@@ -49,10 +49,10 @@ function addEvent(dateStart,dateEnd)
         language : window.CRM.lang,
         width : '100%',
         extraPlugins : 'uploadfile,uploadimage,filebrowser',
-        uploadUrl: '/uploader/upload.php?type=publicDocuments',
-        imageUploadUrl: '/uploader/upload.php?type=publicImages',
-        filebrowserUploadUrl: '/uploader/upload.php?type=publicDocuments',
-        filebrowserBrowseUrl: '/browser/browse.php?type=publicDocuments'
+        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
      });
    
      add_ckeditor_buttons(window.CRM.editor);
@@ -184,10 +184,10 @@ $('#add-event').click('focus', function (e) {
               language : window.CRM.lang,
               width : '100%',
               extraPlugins : 'uploadfile,uploadimage,filebrowser',
-              uploadUrl: '/uploader/upload.php?type=publicDocuments',
-              imageUploadUrl: '/uploader/upload.php?type=publicImages',
-              filebrowserUploadUrl: '/uploader/upload.php?type=publicDocuments',
-              filebrowserBrowseUrl: '/browser/browse.php?type=publicDocuments'
+              uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+              imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+              filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+              filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
            });
    
            add_ckeditor_buttons(window.CRM.editor);
