@@ -72,13 +72,58 @@
         }, 
         {
             "location": "/user-guide/doc-installation/doc-install/", 
-            "text": "Installation\n\n\n\n\nVous t\u00e9l\u00e9chargez l'archive sur git.\n\n\nvous copiez ensuite les fichiers sur le serveur.\n\n\nVous vous laissez guider par l'installeur.\n\n\n\n\n\n\n\n\nPuis on continue\n\n\n\n\n\n\n\n\nEt on termine\n\n\n\n\n\n\n\n\nOn tombe sur l'\u00e9cran d'accueil\n\n\n\n\n\n\nLe login est        : admin\n  Le mot de passe est : changeme\n\n\n\n\nVous serez invit\u00e9 \u00e0 changer votre mot de passe tout de suite.", 
+            "text": "Installation\n\n\n\n\nVous t\u00e9l\u00e9chargez l'archive sur git.\n\n\nvous copiez ensuite les fichiers sur le serveur.\n\n\nVous vous laissez guider par l'installeur.\n\n\n\n\nAttention aux \u00e9l\u00e9ments requis\n\n\n\n\nPuis on continue\n\n\n\n\nOn peut ici fixer le chemin d'acc\u00e8s quand il est non standard\n\n\n\n\nOn peut utiliser le localhost ou choisir un nom de serveur avec un port de communication\n\n\n\n\n\n\nle nom de la base de donn\u00e9es est \u00e0 fournir\n\n\nl'utilisateur et son mot de passe aussi (deux fois)\n\n\n\n\nVous pourrez tester ici la connectivit\u00e9 \u00e0 la base de donn\u00e9es en cliquant sur le lien : \"here\"\n\n\n\n\nOn constate que la base de donn\u00e9es est accessible, on peut maintenant continuer.\n\n\nInformations importantes\n\n\n\n\nIci, vous mettrez en place\n\n\n\n\nla langue du CRM : \n\n\nLe time Zone est important pour le Drive\n\n\nle reste est standard\n\n\n\n\nInformations l\u00e9gales\n\n\nCette partie est importante pour tout ce qui est l\u00e9gale\n\n\n\n\n\n\ncelui qui sera le responsable l\u00e9gal de tout ce qui est fait sur le CRM (Confirm Signer)  : le pasteur\n\n\ncelui qui sera le responsable l\u00e9gal pour les rappels de tout ce qui est fait sur le CRM (Reminder Signer) : le pasteur\n\n\nCelui qui s'engagera pour toute la partie financi\u00e8re (Tax Signer) : le tr\u00e9sorier par exemple\n\n\nGDPR en France c'est le RGPD : attention de bien l'activer\n\n\nDPO GDPR Signer : voir pour cela la documentation RGPD, c'est lui qui supervisera toutes les donn\u00e9s stoqu\u00e9es dans le CRM\n\n\nL'adresse email du DPO\n\n\n\n\nLe reste est plus standard : information de site web etc ....\n\n\n\n\nImportant La mise en place de la connexion email\n\n\nLa gestion email est capital dans le CRM, chaque action peut dans le CRM est susceptible d'envoyer un email\n\n\n\n\nmodifier un compte (activer d\u00e9sactiver).\n\n\najouter des personnes \u00e0 un \u00e9v\u00e9nements de calendrier.\n\n\netc ....\n\n\n\n\n\n\nRemarque\n il est toujours possible de modifier ou d'ajouter ces param\u00e8tres par la suite. Il suffit d'aller dans les \"r\u00e9glages g\u00e9n\u00e9raux\" et \"r\u00e9glages email\"\n\n\n\n\n\n\n\n\non peut mettre l'adresse du serveur avec le port de com, comme sur la bulle d'aide\n\n\non demande l'authentification\n\n\nle user\n\n\nle mot de passe\n\n\nle temps de connexion\n\n\nl'adresse email\n\n\nPour PHPmailer le param\u00e9trage peut \u00eatre en TLS (si la connexion au serveur se fait en mode https).\n\n\n\n\nParam\u00e8tres de premi\u00e8re connexion\n\n\n\n\n\n\nOn tombe sur l'\u00e9cran d'accueil\n\n\n\n\n\n\nLe login est        : admin\n  Le mot de passe est : changeme\n\n\n\n\nVous serez invit\u00e9 \u00e0 changer votre mot de passe \u00e0 la premi\u00e8re connexion.", 
             "title": "Proc\u00e9dure d'Installation"
         }, 
         {
             "location": "/user-guide/doc-installation/doc-install/#installation", 
-            "text": "Vous t\u00e9l\u00e9chargez l'archive sur git.  vous copiez ensuite les fichiers sur le serveur.  Vous vous laissez guider par l'installeur.     Puis on continue     Et on termine     On tombe sur l'\u00e9cran d'accueil    Le login est        : admin\n  Le mot de passe est : changeme   Vous serez invit\u00e9 \u00e0 changer votre mot de passe tout de suite.", 
+            "text": "Vous t\u00e9l\u00e9chargez l'archive sur git.  vous copiez ensuite les fichiers sur le serveur.  Vous vous laissez guider par l'installeur.", 
             "title": "Installation"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#attention-aux-elements-requis", 
+            "text": "", 
+            "title": "Attention aux \u00e9l\u00e9ments requis"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#puis-on-continue", 
+            "text": "", 
+            "title": "Puis on continue"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#on-peut-ici-fixer-le-chemin-dacces-quand-il-est-non-standard", 
+            "text": "", 
+            "title": "On peut ici fixer le chemin d'acc\u00e8s quand il est non standard"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#on-peut-utiliser-le-localhost-ou-choisir-un-nom-de-serveur-avec-un-port-de-communication", 
+            "text": "le nom de la base de donn\u00e9es est \u00e0 fournir  l'utilisateur et son mot de passe aussi (deux fois)   Vous pourrez tester ici la connectivit\u00e9 \u00e0 la base de donn\u00e9es en cliquant sur le lien : \"here\"   On constate que la base de donn\u00e9es est accessible, on peut maintenant continuer.", 
+            "title": "On peut utiliser le localhost ou choisir un nom de serveur avec un port de communication"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#informations-importantes", 
+            "text": "Ici, vous mettrez en place   la langue du CRM :   Le time Zone est important pour le Drive  le reste est standard", 
+            "title": "Informations importantes"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#informations-legales", 
+            "text": "Cette partie est importante pour tout ce qui est l\u00e9gale    celui qui sera le responsable l\u00e9gal de tout ce qui est fait sur le CRM (Confirm Signer)  : le pasteur  celui qui sera le responsable l\u00e9gal pour les rappels de tout ce qui est fait sur le CRM (Reminder Signer) : le pasteur  Celui qui s'engagera pour toute la partie financi\u00e8re (Tax Signer) : le tr\u00e9sorier par exemple  GDPR en France c'est le RGPD : attention de bien l'activer  DPO GDPR Signer : voir pour cela la documentation RGPD, c'est lui qui supervisera toutes les donn\u00e9s stoqu\u00e9es dans le CRM  L'adresse email du DPO", 
+            "title": "Informations l\u00e9gales"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#le-reste-est-plus-standard-information-de-site-web-etc", 
+            "text": "", 
+            "title": "Le reste est plus standard : information de site web etc ...."
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#important-la-mise-en-place-de-la-connexion-email", 
+            "text": "La gestion email est capital dans le CRM, chaque action peut dans le CRM est susceptible d'envoyer un email   modifier un compte (activer d\u00e9sactiver).  ajouter des personnes \u00e0 un \u00e9v\u00e9nements de calendrier.  etc ....    Remarque  il est toujours possible de modifier ou d'ajouter ces param\u00e8tres par la suite. Il suffit d'aller dans les \"r\u00e9glages g\u00e9n\u00e9raux\" et \"r\u00e9glages email\"     on peut mettre l'adresse du serveur avec le port de com, comme sur la bulle d'aide  on demande l'authentification  le user  le mot de passe  le temps de connexion  l'adresse email  Pour PHPmailer le param\u00e9trage peut \u00eatre en TLS (si la connexion au serveur se fait en mode https).", 
+            "title": "Important La mise en place de la connexion email"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-install/#parametres-de-premiere-connexion", 
+            "text": "On tombe sur l'\u00e9cran d'accueil    Le login est        : admin\n  Le mot de passe est : changeme   Vous serez invit\u00e9 \u00e0 changer votre mot de passe \u00e0 la premi\u00e8re connexion.", 
+            "title": "Param\u00e8tres de premi\u00e8re connexion"
         }, 
         {
             "location": "/user-guide/doc-admin/person/doc-persons/", 
