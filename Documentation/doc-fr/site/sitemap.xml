@@ -86,20 +86,24 @@
     
         
     <url>
-     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-mailchimp/dashboard/</loc>
+     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-pastoral-care/doc-pastoral-care/</loc>
      <lastmod>2019-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-mailchimp/manage_list/</loc>
-     <lastmod>2019-03-23</lastmod>
+     <loc>https://github.com/phili67/ecclesiacrm/releases/</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+        
     <url>
-     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-mailchimp/manage_campaign/</loc>
-     <lastmod>2019-03-23</lastmod>
+     <loc>https://github.com/phili67/ecclesiacrm/releases/</loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

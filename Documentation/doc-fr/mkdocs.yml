@@ -93,10 +93,15 @@ pages:
     - 'EDrive en dehors du CRM': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
         - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
-- MailChimp:
-    - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
-    - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
-    - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
+- Manuel pasteur & conseiller:
+    - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
+    - 'Personnalisation': 
+        - "Personnalisation suivi pastoral": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+- Campagne de Publipostage:
+    - MailChimp:
+        - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
+        - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
+        - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 - Manuel du développeur:
     - 'API': 'user-guide/doc-dev/api.md'
 - À propos:
