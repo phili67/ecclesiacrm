@@ -102,6 +102,7 @@ Le fichier ou le dossier remontera dans le dossier parent.
 ## Pour supprimer un élément
 
 On a deux choix possibles :
+
 - on sélectionne l'élément et on le glisse dépose sur l'icône de la corbeille ![Screenshot](../../img/person/edrive19.png)
 - ou on sélectionne et on clique : ![Screenshot](../../img/person/edrive19.png)
 

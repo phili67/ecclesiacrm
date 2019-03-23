@@ -516,6 +516,26 @@
             "title": "Modifier le nom ou supprimer un Profile"
         }, 
         {
+            "location": "/user-guide/doc-installation/doc-localization/", 
+            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais\n\n\nMise en place d'un CRM enti\u00e8rement francis\u00e9", 
+            "title": "Localisation CRM en fran\u00e7ais"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-localization/#mise-en-place-dun-crm-entierement-francise", 
+            "text": "", 
+            "title": "Mise en place d'un CRM enti\u00e8rement francis\u00e9"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-report/", 
+            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais.\n\n\nPour acc\u00e9der aux r\u00e9glages, la proc\u00e9dure est la m\u00eame que pour la partie localisation.\n\n\nVous pourrez r\u00e9gler les rapports en cliquant sur :\n\n\n\n\nLes rapports se situent\n\n\n\n\nLes annuaires \u00e0 cr\u00e9er.\n\n\nLes exports aux niveau \u00e9cole du dimanche.\n\n\nLes rapports financiers.\n\n\nLe mail de notification quand on change un identifiant ou autre.\n\n\netc ...\n\n\n\n\nVous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
+            "title": "Rapports CRM en fran\u00e7ais"
+        }, 
+        {
+            "location": "/user-guide/doc-installation/doc-report/#les-rapports-se-situent", 
+            "text": "Les annuaires \u00e0 cr\u00e9er.  Les exports aux niveau \u00e9cole du dimanche.  Les rapports financiers.  Le mail de notification quand on change un identifiant ou autre.  etc ...   Vous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
+            "title": "Les rapports se situent"
+        }, 
+        {
             "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/", 
             "text": "Ici vous pourrez r\u00e9gler les param\u00e8tres d'int\u00e9gration avec d'autres applications \n\n\n\n\nMailChimp\n\n\nLes outils permettant d'int\u00e9grer les calendrier externes d'EcclesiaCRM.\n\n\nLa gestion externe de DAV\n\n\n\n\nComment y acc\u00e9der ?\n\n\nAller dans : \n\n\n\n\nPuis s\u00e9lectionner l'onglet : \"Int\u00e9gration\"\n\n\n\n\nIl y a plusieurs p\u00f4les possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.\n\n\nMailChimp : \"bEnabledDavWebBrowser\" \n \"iMailChimpApiMaxMembersCount\"\n\n\nMailChimp est un outil de publipostage compl\u00e8tement int\u00e9gr\u00e9 \u00e0 EcclesiaCRM. Pour obtenir une cl\u00e9 d'activation gratuite aller dans le lien ci-dessous.\n\n\nMailChimp\n\n\nUne fois la c\u00e9l obtenu, il sera possible de la saisir dans : \nbEnabledDavWebBrowser\n\n\nRemarque \n L'api MailChimp pose parfois des probl\u00e8mes quand un trop grand nombre d'utilisateurs est li\u00e9 \u00e0 une liste de diffusion.\n\n\nIl est possible de fixer le nombre maximum de personnes \u00e0 \niMailChimpApiMaxMembersCount\n.\n\n\nsOLPURL \n sOLPUserName \n sOLPPassword\n\n\nCes r\u00e9glages sont utilis\u00e9s pour OpenLP, un syst\u00e8me de pr\u00e9sentation pour les \u00e9glises (Comme PowerPoint).\n\n\nbEnabledDav \n bEnabledDavWebBrowser\n\n\nCes param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler \nsabre.io\n\nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.\n\n\nbEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)\n\n\nbEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :\n\n\n\n\n\n\npour les syst\u00e8me de fichiers : \nhttps://url_de_la_web_application/server.php\n\n\n\n\n\n\npour les calendriers : \nhttps://url_de_la_web_application/calendarserver.php\n\n\n\n\n\n\npour les carnets d'adresses : \nhttps://url_de_la_web_application/addressbookserver.php", 
             "title": "Int\u00e9gration"
@@ -539,26 +559,6 @@
             "location": "/user-guide/doc-admin/doc-settings/doc-settings-integration/#benableddav-benableddavwebbrowser", 
             "text": "Ces param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler  sabre.io \nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.  bEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)  bEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :    pour les syst\u00e8me de fichiers :  https://url_de_la_web_application/server.php    pour les calendriers :  https://url_de_la_web_application/calendarserver.php    pour les carnets d'adresses :  https://url_de_la_web_application/addressbookserver.php", 
             "title": "bEnabledDav &amp;&amp; bEnabledDavWebBrowser"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-localization/", 
-            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais\n\n\nMise en place d'un CRM enti\u00e8rement francis\u00e9", 
-            "title": "Localisation CRM en fran\u00e7ais"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-localization/#mise-en-place-dun-crm-entierement-francise", 
-            "text": "", 
-            "title": "Mise en place d'un CRM enti\u00e8rement francis\u00e9"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-report/", 
-            "text": "Vous voudrez tr\u00e8s certainement avoir votre serveur en Fran\u00e7ais.\n\n\nPour acc\u00e9der aux r\u00e9glages, la proc\u00e9dure est la m\u00eame que pour la partie localisation.\n\n\nVous pourrez r\u00e9gler les rapports en cliquant sur :\n\n\n\n\nLes rapports se situent\n\n\n\n\nLes annuaires \u00e0 cr\u00e9er.\n\n\nLes exports aux niveau \u00e9cole du dimanche.\n\n\nLes rapports financiers.\n\n\nLe mail de notification quand on change un identifiant ou autre.\n\n\netc ...\n\n\n\n\nVous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
-            "title": "Rapports CRM en fran\u00e7ais"
-        }, 
-        {
-            "location": "/user-guide/doc-installation/doc-report/#les-rapports-se-situent", 
-            "text": "Les annuaires \u00e0 cr\u00e9er.  Les exports aux niveau \u00e9cole du dimanche.  Les rapports financiers.  Le mail de notification quand on change un identifiant ou autre.  etc ...   Vous pourrez ici fixer tous les rapports en fran\u00e7ais.", 
-            "title": "Les rapports se situent"
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-profile/", 
@@ -691,21 +691,6 @@
             "title": "Remarque"
         }, 
         {
-            "location": "/user-guide/doc-person/doc-person-document-templates/", 
-            "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nVous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les\n\n\n\n\n\n\n\n\nLe cr\u00e9er\n\n\n\n\ndans un premier temps, formater votre document comme bon vous semble.\n\n\n\n\n\n\n\n\nVous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les\n\n\n\n\n\n\n\n\n\n\nGestion des profiles\n\n\n\n\nquand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer\n\n\n\n\n\n\n\n\nVous pourrez le renommer ou le supprimer facilement\n\n\n\n\n\n\n\n\n\n\nAppliquer\n\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
-            "title": "Mod\u00e8les"
-        }, 
-        {
-            "location": "/user-guide/doc-person/doc-person-document-templates/#creation", 
-            "text": "Aller dans un document, CKEditor   Pour cela aller dans votre personnel      Ajouter un document     Vous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les     Le cr\u00e9er   dans un premier temps, formater votre document comme bon vous semble.     Vous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les      Gestion des profiles   quand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer     Vous pourrez le renommer ou le supprimer facilement      Appliquer", 
-            "title": "Cr\u00e9ation"
-        }, 
-        {
-            "location": "/user-guide/doc-person/doc-person-document-templates/#remarque", 
-            "text": "Vous faire de m\u00eame avec les calendriers groupes et partag\u00e9.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
-            "title": "Remarque"
-        }, 
-        {
             "location": "/user-guide/doc-person/doc-person-document-share/", 
             "text": "Un utilisateur a la possibilit\u00e9 de partager ses documents avec tous les autres utilisateurs.\n\n\nPartager un document\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nAller dans l'onglet Documents\n\n\n\n\n\n\n\n\nVous constatez que vous avez une ic\u00f4ne \u00e0 c\u00f4t\u00e9 de la date de cr\u00e9ation\n\n\n\n\n\n\n\n\nS\u00e9lectionnez la derni\u00e8re ic\u00f4ne\n\n\n\n\n\n\n\n\nIl suffit de choisir le nom :\n\n\n\n\nd'une personne \n\n\nd'une famille\n\n\nd'un groupe\n\n\n\n\nVous constaterez qu'un document partag\u00e9 a une ic\u00f4ne qui est pass\u00e9e au vert.\n\n\n\n\n\n\n\n\nIl est possible ensuite de fixer les droits pour chacune des personnes affect\u00e9es.\n\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nAvec cette derni\u00e8re boite de dialogue, il est possible de supprimer soit des personnes du partage.\n\n\nIl est possible de supprimer \u00e9galement le partage via ce m\u00eame panneau.", 
             "title": "Les partager"
@@ -721,8 +706,23 @@
             "title": "Remarque"
         }, 
         {
+            "location": "/user-guide/doc-person/doc-person-document-templates/", 
+            "text": "Il est possible depuis la version 4.1 d'EcclesiaCRM de g\u00e9rer les mod\u00e8les de document.\n\n\nCr\u00e9ation\n\n\n\n\n\n\nAller dans un document, CKEditor\n\n\n\n\nPour cela aller dans votre personnel\n\n\n\n\n\n\n\n\n\n\nAjouter un document\n\n\n\n\n\n\n\n\nVous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les\n\n\n\n\n\n\n\n\nLe cr\u00e9er\n\n\n\n\ndans un premier temps, formater votre document comme bon vous semble.\n\n\n\n\n\n\n\n\nVous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les\n\n\n\n\n\n\n\n\n\n\nGestion des profiles\n\n\n\n\nquand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer\n\n\n\n\n\n\n\n\nVous pourrez le renommer ou le supprimer facilement\n\n\n\n\n\n\n\n\n\n\nAppliquer\n\n\n\n\n\n\n\n\nRemarque\n\n\n\n\nVous faire de m\u00eame avec les calendriers groupes et partag\u00e9.\n\n\nUn calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
+            "title": "Mod\u00e8les de documents"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-templates/#creation", 
+            "text": "Aller dans un document, CKEditor   Pour cela aller dans votre personnel      Ajouter un document     Vous disposerez de toute une s\u00e9rie d'ic\u00f4nes, notamment les trois permettant de g\u00e9rer les mod\u00e8les     Le cr\u00e9er   dans un premier temps, formater votre document comme bon vous semble.     Vous pourrez ensuite le rajouter \u00e0 la liste de vos Mod\u00e8les      Gestion des profiles   quand un profile est cr\u00e9\u00e9, il est possible de le renommer ou de le supprimer     Vous pourrez le renommer ou le supprimer facilement      Appliquer", 
+            "title": "Cr\u00e9ation"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-person-document-templates/#remarque", 
+            "text": "Vous faire de m\u00eame avec les calendriers groupes et partag\u00e9.  Un calendrier groupe ne peut \u00eatre rajout\u00e9 que par un admin.", 
+            "title": "Remarque"
+        }, 
+        {
             "location": "/user-guide/doc-person/doc-person-document-edrive/", 
-            "text": "Il est possible depuis la version 5.0 d'Ecclesia\nCRM\n de g\u00e9rer des fichiers via un gestionnaire de fichiers.\n\n\nVoici sa pr\u00e9sentation.\n\n\nVisualiser tous ses documents dans son Edrive\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet EDrive\n\n\n\n\n\n\n\n\nOu vous pourrez y acc\u00e9der comme cela\n\n\n\n\n\n\n\n\nVous constaterez que de base vous avez un dossier Public (ce dossier est capital pour Mailchimp).\n\n\nCe dossier sera utile pour joindre des images ou document avec vos campagnes de mailings.\n\n\nAjouter un fichier \u00e0 votre EDrive\n\n\n\n\n\n\nPour cela cliquer l'ic\u00f4ne\n\n       \n\n\n\n\n\n\nUne boite de dialogue va s'ouvrir\n\n       \n\n\n\n\n\n\nVous pourrez le ou \nles\n fichiers pour les t\u00e9l\u00e9charger sur le serveur dans votre espace personnel\n\n       \n\n\n\n\n\n\nChoisir les fichiers\n\n       \n\n\n\n\n\n\nVous constaterez qu'ils sont pr\u00e9sents\n\n       \n\n\n\n\n\n\nAttendez un peu et ils seront pr\u00e9sents sur le serveur\n\n       \n\n\n\n\n\n\nVisualiser le contenu du fichier\n\n\nLe petit \"EDrive\" est un vrai drive, cliquez sur la ligne \n\n\n\n\n\n\nPour un fichier PDF\n\n       \n\n\n\n\n\n\nPour un fichier Image\n\n       \n\n\n\n\n\n\nVous pourrez pr\u00e9visualiser des vid\u00e9os ou des fichiers mp3, etc ...\n\n\n\n\n\n\nCr\u00e9ation d'un dossier\n\n\nLa d\u00e9marche est simple\n\n\n\n\n\n\nS\u00e9lectionner le bouton suivant\n\n       \n\n\n\n\n\n\nSaisissez le nom de dossier voulu\n\n       \n\n\n\n\n\n\nEt vous obtiendrez le dossier voulu\n\n       \n\n\n\n\n\n\nModifier le nom d'un fichier ou d'un dossier\n\n\n\n\n\n\nIl suffit de double cliquer le nom du dossier ou du fichier\n\n       \n\n\n\n\n\n\nSaisissez le nouveau nom d\u00e9sir\u00e9\n\n       \n\n\n\n\n\n\nValider avec la touche entr\u00e9e ou retour chariot\n\n       \n\n\n\n\n\n\nPour d\u00e9placer un fichier dans un dossier\n\n\n\n\n\n\nS\u00e9lectionnez l'ic\u00f4ne et la d\u00e9placer dans le dossier voulu\n\n       \n\n\n\n\n\n\nLe drop est fait\n\n       \n\n\n\n\n\n\nPour aller dans le dossier voulu, double cliquer l'ic\u00f4ne du dossier\n\n       \n\n\n\n\n\n\nPour remonter d'un dossier\n\n\nC'est assez simple on clique l'ic\u00f4ne suivante : \n\n\nPour faire remonter un fichier d'un cran dans le dossier parent\n\n\nOn glisse et on d\u00e9pose l'ic\u00f4ne du fichier ou dossier sur \n\n\nLe fichier ou le dossier remontera dans le dossier parent.\n\n\nPour supprimer un \u00e9l\u00e9ment\n\n\nOn a deux choix possibles :\n- on s\u00e9lectionne l'\u00e9l\u00e9ment et on le glisse d\u00e9pose sur l'ic\u00f4ne de la corbeille \n\n- ou on s\u00e9lectionne et on clique : \n\n\nEn conclusion c'est un vrai gestionnaire de fichier.\n\n\nMais EDrive est accessible via WebDav comme NextCloud ou OwnCloud.", 
+            "text": "Il est possible depuis la version 5.0 d'Ecclesia\nCRM\n de g\u00e9rer des fichiers via un gestionnaire de fichiers.\n\n\nVoici sa pr\u00e9sentation.\n\n\nVisualiser tous ses documents dans son Edrive\n\n\n\n\n\n\nPour cela aller dans votre espace personnel\n\n\n\n\n\n\n\n\nCliquez l'onglet EDrive\n\n\n\n\n\n\n\n\nOu vous pourrez y acc\u00e9der comme cela\n\n\n\n\n\n\n\n\nVous constaterez que de base vous avez un dossier Public (ce dossier est capital pour Mailchimp).\n\n\nCe dossier sera utile pour joindre des images ou document avec vos campagnes de mailings.\n\n\nAjouter un fichier \u00e0 votre EDrive\n\n\n\n\n\n\nPour cela cliquer l'ic\u00f4ne\n\n       \n\n\n\n\n\n\nUne boite de dialogue va s'ouvrir\n\n       \n\n\n\n\n\n\nVous pourrez le ou \nles\n fichiers pour les t\u00e9l\u00e9charger sur le serveur dans votre espace personnel\n\n       \n\n\n\n\n\n\nChoisir les fichiers\n\n       \n\n\n\n\n\n\nVous constaterez qu'ils sont pr\u00e9sents\n\n       \n\n\n\n\n\n\nAttendez un peu et ils seront pr\u00e9sents sur le serveur\n\n       \n\n\n\n\n\n\nVisualiser le contenu du fichier\n\n\nLe petit \"EDrive\" est un vrai drive, cliquez sur la ligne \n\n\n\n\n\n\nPour un fichier PDF\n\n       \n\n\n\n\n\n\nPour un fichier Image\n\n       \n\n\n\n\n\n\nVous pourrez pr\u00e9visualiser des vid\u00e9os ou des fichiers mp3, etc ...\n\n\n\n\n\n\nCr\u00e9ation d'un dossier\n\n\nLa d\u00e9marche est simple\n\n\n\n\n\n\nS\u00e9lectionner le bouton suivant\n\n       \n\n\n\n\n\n\nSaisissez le nom de dossier voulu\n\n       \n\n\n\n\n\n\nEt vous obtiendrez le dossier voulu\n\n       \n\n\n\n\n\n\nModifier le nom d'un fichier ou d'un dossier\n\n\n\n\n\n\nIl suffit de double cliquer le nom du dossier ou du fichier\n\n       \n\n\n\n\n\n\nSaisissez le nouveau nom d\u00e9sir\u00e9\n\n       \n\n\n\n\n\n\nValider avec la touche entr\u00e9e ou retour chariot\n\n       \n\n\n\n\n\n\nPour d\u00e9placer un fichier dans un dossier\n\n\n\n\n\n\nS\u00e9lectionnez l'ic\u00f4ne et la d\u00e9placer dans le dossier voulu\n\n       \n\n\n\n\n\n\nLe drop est fait\n\n       \n\n\n\n\n\n\nPour aller dans le dossier voulu, double cliquer l'ic\u00f4ne du dossier\n\n       \n\n\n\n\n\n\nPour remonter d'un dossier\n\n\nC'est assez simple on clique l'ic\u00f4ne suivante : \n\n\nPour faire remonter un fichier d'un cran dans le dossier parent\n\n\nOn glisse et on d\u00e9pose l'ic\u00f4ne du fichier ou dossier sur \n\n\nLe fichier ou le dossier remontera dans le dossier parent.\n\n\nPour supprimer un \u00e9l\u00e9ment\n\n\nOn a deux choix possibles :\n\n\n\n\non s\u00e9lectionne l'\u00e9l\u00e9ment et on le glisse d\u00e9pose sur l'ic\u00f4ne de la corbeille \n\n\nou on s\u00e9lectionne et on clique : \n\n\n\n\nEn conclusion c'est un vrai gestionnaire de fichier.\n\n\nMais EDrive est accessible via WebDav comme NextCloud ou OwnCloud.", 
             "title": "EDrive dans le CRM"
         }, 
         {
@@ -767,7 +767,7 @@
         }, 
         {
             "location": "/user-guide/doc-person/doc-person-document-edrive/#pour-supprimer-un-element", 
-            "text": "On a deux choix possibles :\n- on s\u00e9lectionne l'\u00e9l\u00e9ment et on le glisse d\u00e9pose sur l'ic\u00f4ne de la corbeille  \n- ou on s\u00e9lectionne et on clique :   En conclusion c'est un vrai gestionnaire de fichier.  Mais EDrive est accessible via WebDav comme NextCloud ou OwnCloud.", 
+            "text": "On a deux choix possibles :   on s\u00e9lectionne l'\u00e9l\u00e9ment et on le glisse d\u00e9pose sur l'ic\u00f4ne de la corbeille   ou on s\u00e9lectionne et on clique :    En conclusion c'est un vrai gestionnaire de fichier.  Mais EDrive est accessible via WebDav comme NextCloud ou OwnCloud.", 
             "title": "Pour supprimer un \u00e9l\u00e9ment"
         }, 
         {
@@ -797,33 +797,28 @@
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/", 
-            "text": "Suivi pastoral \n Ecclesia\nCRM\n \n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nPour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.\n\n\nAller pour cela dans \n\n\n\nS\u00e9lectionner l'utilisateur, puis vous l'\u00e9diterez et lui ajouterez le r\u00f4le suivi pastoral.\n\n\n\n\nOn coche cette case et on enregistre\n\n\n\n\nComment y acc\u00e9der ?\n\n\nAller dans : \n\n\n\n\nPuis s\u00e9lectionner l'onglet : \"Int\u00e9gration\"\n\n\n\n\nIl y a plusieurs p\u00f4les possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.\n\n\nMailChimp : \"bEnabledDavWebBrowser\" \n \"iMailChimpApiMaxMembersCount\"\n\n\nMailChimp est un outil de publipostage compl\u00e8tement int\u00e9gr\u00e9 \u00e0 EcclesiaCRM. Pour obtenir une cl\u00e9 d'activation gratuite aller dans le lien ci-dessous.\n\n\nMailChimp\n\n\nUne fois la c\u00e9l obtenu, il sera possible de la saisir dans : \nbEnabledDavWebBrowser\n\n\nRemarque \n L'api MailChimp pose parfois des probl\u00e8mes quand un trop grand nombre d'utilisateurs est li\u00e9 \u00e0 une liste de diffusion.\n\n\nIl est possible de fixer le nombre maximum de personnes \u00e0 \niMailChimpApiMaxMembersCount\n.\n\n\nsOLPURL \n sOLPUserName \n sOLPPassword\n\n\nCes r\u00e9glages sont utilis\u00e9s pour OpenLP, un syst\u00e8me de pr\u00e9sentation pour les \u00e9glises (Comme PowerPoint).\n\n\nbEnabledDav \n bEnabledDavWebBrowser\n\n\nCes param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler \nsabre.io\n\nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.\n\n\nbEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)\n\n\nbEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :\n\n\n\n\n\n\npour les syst\u00e8me de fichiers : \nhttps://url_de_la_web_application/server.php\n\n\n\n\n\n\npour les calendriers : \nhttps://url_de_la_web_application/calendarserver.php\n\n\n\n\n\n\npour les carnets d'adresses : \nhttps://url_de_la_web_application/addressbookserver.php", 
+            "text": "Suivi pastoral \n Ecclesia\nCRM\n \n\n\nChaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.\n\n\nActiver le suivi pastoral pour un utilisateur du syst\u00e8me\n\n\nPour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.\n\n\nAller pour cela dans \n\n\n\nS\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.\n\n\n\n\nOn coche cette case et on enregistre\n\n\n\n\nCet utilisateur pourra maintenant ajouter une note de suivi pastoral.\n\n\nCr\u00e9er une note de suivi pastoral\n\n\nDans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche\n\n\n\n\nVoici son profile\n\n\n\n\nOn clique sur le bouton ci-dessus et on peut commencer le suivi pastoral\n\n\n\n\nLa vue se s\u00e9pare en deux parties \n\n\n\n\nles boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.\n\n\nvoici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter\n\n\n\n\n\n\n\n\nS\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu\n\n\n\n\nIl sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone \n\n\nd'utiliser \n\n\nd'utiliser des mod\u00e8les de documents \nMod\u00e8le\n\n\nde mettre en place des tableaux\n\n\netc ...\n\n\n\n\n\n\n\n\nRemarque\n Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.\n\n\nIl est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.\n\n\n\n\nVoici le r\u00e9sultat apr\u00e8s saisie\n\n\n\n\n\n\nFiltrage par pasteur ou conseiller\n\n\nPour cela, prenez le bouton de droite.", 
             "title": "Suivi Pastoral"
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#suivi-pastoral-ecclesiacrm", 
-            "text": "Chaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.  Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.  Aller pour cela dans   S\u00e9lectionner l'utilisateur, puis vous l'\u00e9diterez et lui ajouterez le r\u00f4le suivi pastoral.   On coche cette case et on enregistre", 
+            "text": "Chaque pasteur, conseiller en relation d'aide, ou m\u00eame responsable autoris\u00e9 a la possibilit\u00e9 de pouvoir g\u00e9rer le suivi pastoral.", 
             "title": "Suivi pastoral &amp; EcclesiaCRM "
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#comment-y-acceder", 
-            "text": "Aller dans :    Puis s\u00e9lectionner l'onglet : \"Int\u00e9gration\"   Il y a plusieurs p\u00f4les possibles, la plupart du temps les bulles d'aide sont claires et suffisantes.", 
-            "title": "Comment y acc\u00e9der ?"
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#activer-le-suivi-pastoral-pour-un-utilisateur-du-systeme", 
+            "text": "Pour qu'un utilisateur puisse utiliser le suivi pastoral, il faut lui donner le r\u00f4le de suivi pastoral.  Aller pour cela dans   S\u00e9lectionner l'utilisateur, puis l'\u00e9diterer et lui ajouterer le r\u00f4le suivi pastoral.   On coche cette case et on enregistre   Cet utilisateur pourra maintenant ajouter une note de suivi pastoral.", 
+            "title": "Activer le suivi pastoral pour un utilisateur du syst\u00e8me"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#mailchimp-benableddavwebbrowser-imailchimpapimaxmemberscount", 
-            "text": "MailChimp est un outil de publipostage compl\u00e8tement int\u00e9gr\u00e9 \u00e0 EcclesiaCRM. Pour obtenir une cl\u00e9 d'activation gratuite aller dans le lien ci-dessous.  MailChimp  Une fois la c\u00e9l obtenu, il sera possible de la saisir dans :  bEnabledDavWebBrowser  Remarque   L'api MailChimp pose parfois des probl\u00e8mes quand un trop grand nombre d'utilisateurs est li\u00e9 \u00e0 une liste de diffusion.  Il est possible de fixer le nombre maximum de personnes \u00e0  iMailChimpApiMaxMembersCount .", 
-            "title": "MailChimp : \"bEnabledDavWebBrowser\" &amp; \"iMailChimpApiMaxMembersCount\""
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#creer-une-note-de-suivi-pastoral", 
+            "text": "Dans un premier temps, rechercher un utilisateur avec le menu dans la barre lat\u00e9rale gauche   Voici son profile   On clique sur le bouton ci-dessus et on peut commencer le suivi pastoral   La vue se s\u00e9pare en deux parties    les boutons qui permettent de choisir le type, de l'imprimer ou de filtrer les note prises par ceux ont fait le suivi pastoral.  voici les types pr\u00e9d\u00e9finies, vous pourrez dans la partie personnalisation en rajouter     S\u00e9lectionnons par exemple : Pourquoi \u00eates-vous venu \u00e0 l'\u00e9glise dans le petit menu   Il sera possible dans la fen\u00eatre ci-dessus, de glisser d\u00e9poser des images documents dans la zone   d'utiliser   d'utiliser des mod\u00e8les de documents  Mod\u00e8le  de mettre en place des tableaux  etc ...     Remarque  Vous remarquerez les boutons radio \"Afficher\" \"Masquer\", une autre personne n'aura pas toujours besoin de visualiser les notes prises par un autre pasteur ou une personne ayant fait un suivi en relation d'aide.  Il est important par exemple de savoir que la personne a \u00e9t\u00e9 suivi mais pas de voir les notes prises durant le suivi.   Voici le r\u00e9sultat apr\u00e8s saisie", 
+            "title": "Cr\u00e9er une note de suivi pastoral"
         }, 
         {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#solpurl-solpusername-solppassword", 
-            "text": "Ces r\u00e9glages sont utilis\u00e9s pour OpenLP, un syst\u00e8me de pr\u00e9sentation pour les \u00e9glises (Comme PowerPoint).", 
-            "title": "sOLPURL &amp; sOLPUserName &amp; sOLPPassword"
-        }, 
-        {
-            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#benableddav-benableddavwebbrowser", 
-            "text": "Ces param\u00e8tres permettent de g\u00e9rer l'acc\u00e8s externe via \u00e0 un lien \u00e0 l'api permettant de contr\u00f4ler  sabre.io \nPour les protocoles, WebDav comme NextCloud ou Owncloud, CalDav pour g\u00e9rer les calendriers, et CardDav pour g\u00e9rer les carnets d'adresses.  bEnabledDav permet de d\u00e9sactiver compl\u00e9tement le support de Dav (WebDav, CalDav et CardDav)  bEnabledDavWebBrowser est activ\u00e9 : Les acc\u00e8s se font comme suit :    pour les syst\u00e8me de fichiers :  https://url_de_la_web_application/server.php    pour les calendriers :  https://url_de_la_web_application/calendarserver.php    pour les carnets d'adresses :  https://url_de_la_web_application/addressbookserver.php", 
-            "title": "bEnabledDav &amp;&amp; bEnabledDavWebBrowser"
+            "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/#filtrage-par-pasteur-ou-conseiller", 
+            "text": "Pour cela, prenez le bouton de droite.", 
+            "title": "Filtrage par pasteur ou conseiller"
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care/", 
