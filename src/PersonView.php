@@ -8,7 +8,7 @@
  *
  *  http://www.ecclesiacrm.com/
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
- *  Copyright : 2018 Philippe Logel
+ *  Copyright : 2019 Philippe Logel
  *
  ******************************************************************************/
 
@@ -606,7 +606,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
       ?>
-        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PastoralCare.php?PersonID=<?= $iPersonID ?>&linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
+        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
       <?php
        }
       ?>
