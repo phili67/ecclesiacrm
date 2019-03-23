@@ -3,6 +3,9 @@
 
 Ecclesia**CRM** est pleinement compatible avec MailChimp ![Screenshot](../../img/mailchimp/Mailchimp.png)
 
+Pour cela, il faut tout d'abord activer la fonctionnalité
+
+
 ##Introduction
 
 Mailchimp est un système de publipostage qui permet d'envoyer une News letter, vous permettant d'envoyer des mails à beaucoup de membres.
