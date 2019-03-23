@@ -1,6 +1,7 @@
 ## Serveur 
 
 * Un serveur sous Linux (Une Ubuntu 16.04LTS par exemple)
+* une configuration LAMP est souhaitée
 * Un php 7.0 au minimum est requis
 * Une base de données sous Mysql 5.7 ou plus
 
