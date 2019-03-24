@@ -662,7 +662,6 @@ foreach ($ormNextPersons as $ormNextPerson) {
         }
     } 
 ?>
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person"><i class="fa fa-list"></i> <?= gettext("List Members") ?></span></a>      
     <?php 
       if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
     ?>
