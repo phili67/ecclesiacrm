@@ -46,7 +46,7 @@ markdown_extensions:
 site_name: EcclesiaCRM
 pages:
 - Accueil: 'index.md'
-- Manuel Administrateur:
+- "Manuel : Administrateur":
     - 'Mise en place du CRM': 
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
         - "Procédure d'Installation": 'user-guide/doc-installation/doc-install.md'
@@ -56,6 +56,8 @@ pages:
         - 'Désactiver/supprimer une personne': 'user-guide/doc-admin/person/doc-delete-person.md'
         - 'Personnalisation':
             - 'Gestionnaire de Classification': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-classification.md'
+            - 'Liste des propriétés': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-properties.md'
+            - 'Champs personnalisables': 'user-guide/doc-admin/person/doc-custom-settings/doc-person-customfields.md'
     - 'Gestion des familles': 
         - 'Présentation': 'user-guide/doc-admin/family/doc-families.md'
         - 'Créer une famille': 'user-guide/doc-admin/family/doc-create-family.md'
@@ -69,12 +71,12 @@ pages:
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
     - 'Réglages généraux':
-        - "Intégration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
         - "Localisation CRM en français": 'user-guide/doc-installation/doc-localization.md'
         - "Rapports CRM en français": 'user-guide/doc-installation/doc-report.md'
+        - "Intégration": 'user-guide/doc-admin/doc-settings/doc-settings-integration.md'
 #    - 'Personalisation du CRM':
 
-- Manuel utilisateur:
+- "Manuel : utilisateur":
     - "Gérer son profile": 
         - 'Espace Personnel': 'user-guide/doc-person/doc-person-profile.md'
         - 'Réglages personnels': 'user-guide/doc-person/doc-person.md'
@@ -83,18 +85,23 @@ pages:
         - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
         - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
         - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
-    - "Documents": 
+    - "Documents & Modèles": 
         - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
-        - 'Modèles': 'user-guide/doc-person/doc-person-document-templates.md'
         - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
+        - 'Modèles de documents': 'user-guide/doc-person/doc-person-document-templates.md'
     - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
     - 'EDrive en dehors du CRM': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
         - 'Utiliser le serveur de fichiers': 'user-guide/doc-webdav-file/doc-webdav-use.md'
-- MailChimp:
-    - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
-    - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
-    - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
+- "Manuel : pasteur & conseiller":
+    - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
+    - 'Personnalisation': 
+        - "Personnalisation suivi pastoral": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+- Campagne de Publipostage:
+    - MailChimp:
+        - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
+        - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
+        - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 - Manuel du développeur:
     - 'API': 'user-guide/doc-dev/api.md'
 - À propos:

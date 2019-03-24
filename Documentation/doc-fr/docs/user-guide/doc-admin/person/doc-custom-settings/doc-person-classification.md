@@ -12,7 +12,7 @@ Pour accéder au gestionnaire de classification.
 
 ##Réglages
 
-![Screenshot](../../../../img/person/admin/personClassifications.png)
+![Screenshot](../../../../img/person/admin/settings/personClassifications.png)
 
 Vous pourrez ici fixer 
 
@@ -35,10 +35,10 @@ Cliquer la croix à gauche de l'icône, l'icône sera supprimée.
 
 Puis cliquer sur le + 
 
-![Screenshot](../../../../img/person/admin/addPersonclassification.png)
+![Screenshot](../../../../img/person/admin/settings/addPersonclassification.png)
 
 Vous pourrez alors choisir l'icône dans la liste 
 
-![Screenshot](../../../../img/person/admin/choosePersonClassification.png)
+![Screenshot](../../../../img/person/admin/settings/choosePersonClassification.png)
 
 **Remarque** Il est possible d'ajouter une icône en allant sur le serveur dans le dossier : /skin/icons/markers/

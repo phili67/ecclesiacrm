@@ -3,7 +3,35 @@
 
 Ecclesia**CRM** est pleinement compatible avec MailChimp ![Screenshot](../../img/mailchimp/Mailchimp.png)
 
-##Introduction
+
+##Activation
+
+Il faut activer la fonctionnalité dans un premier temps, pour cela, aller dans les réglages généraux
+
+![Screenshot](/img/settings/generalsettings.png)
+
+Puis dans la partie activation
+
+![Screenshot](/img/settings/mailchimpactivation.png)
+
+
+##Ajouter le rôle "Mailchimp" à un utilisateur
+
+Pour qu'un utilisateur puisse utiliser le suivi Mailchimp, il faut lui donner ce rôle.
+
+Aller pour cela dans 
+![Screenshot](/img/settings/usersettings.png)
+
+Sélectionner l'utilisateur, puis vous l'éditerez et lui ajouterez le rôle Mailchimp.
+
+![Screenshot](/img/settings/usersettingsedit.png)
+
+On coche cette case et on enregistre
+
+![Screenshot](/img/settings/usersettingseditmailchimp.png)
+
+
+##Mailchimp : Introduction
 
 Mailchimp est un système de publipostage qui permet d'envoyer une News letter, vous permettant d'envoyer des mails à beaucoup de membres.
 
