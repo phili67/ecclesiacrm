@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5091,7 +5091,7 @@ msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
 #, fuzzy
-msgid "Classic Note"
+msgid "Classic Document"
 msgstr "สร้างไฟล์"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
@@ -7933,11 +7933,11 @@ msgstr ""
 
 #: NoteEditor.php:62
 #, fuzzy
-msgid "Note Editor"
+msgid "Document Editor"
 msgstr "จำนวนเงินที่ชำระ"
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
+msgid "You must enter text for this document"
 msgstr ""
 
 #: NoteEditor.php:250
@@ -7946,7 +7946,7 @@ msgid "File Info"
 msgstr "บทบาทในครอบครัว"
 
 #: NoteEditor.php:250
-msgid "Note Title"
+msgid "Document Title"
 msgstr ""
 
 #: NoteEditor.php:252
@@ -7954,7 +7954,7 @@ msgid "Set your File Info"
 msgstr ""
 
 #: NoteEditor.php:252
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr ""
 
 #: NoteEditor.php:258
@@ -11489,6 +11489,10 @@ msgstr "เลือกประเภทเก็บ"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Note Editor"
+#~ msgstr "จำนวนเงินที่ชำระ"
 
 #, fuzzy
 #~ msgid "Create a note"

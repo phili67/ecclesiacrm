@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5240,8 +5240,8 @@ msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
 #, fuzzy
-msgid "Classic Note"
-msgstr "Xóa bỏ lọc"
+msgid "Classic Document"
+msgstr "Phân loại:"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 #, fuzzy
@@ -8225,12 +8225,13 @@ msgstr ""
 
 #: NoteEditor.php:62
 #, fuzzy
-msgid "Note Editor"
-msgstr "Chỉnh sửa thành viên"
+msgid "Document Editor"
+msgstr "Chỉnh sửa ghi chú"
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
-msgstr ""
+#, fuzzy
+msgid "You must enter text for this document"
+msgstr "Bạn cần lựa chọn thể loại"
 
 #: NoteEditor.php:250
 #, fuzzy
@@ -8239,7 +8240,7 @@ msgstr "Thông tin gia đình"
 
 #: NoteEditor.php:250
 #, fuzzy
-msgid "Note Title"
+msgid "Document Title"
 msgstr "Tiêu đề sự kiện"
 
 #: NoteEditor.php:252
@@ -8249,7 +8250,7 @@ msgstr "Thông tin cá nhân"
 
 #: NoteEditor.php:252
 #, fuzzy
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr "Người không tham dự sự kiện"
 
 #: NoteEditor.php:258
@@ -11966,6 +11967,18 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Classic Note"
+#~ msgstr "Xóa bỏ lọc"
+
+#, fuzzy
+#~ msgid "Note Editor"
+#~ msgstr "Chỉnh sửa thành viên"
+
+#, fuzzy
+#~ msgid "Note Title"
+#~ msgstr "Tiêu đề sự kiện"
+
+#, fuzzy
 #~ msgid "Add a Note"
 #~ msgstr "Thêm mới"
 
@@ -11990,18 +12003,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Missing emails report"
 #~ msgstr "Email xuất ra"
-
-#, fuzzy
-#~ msgid "Document Editor"
-#~ msgstr "Chỉnh sửa ghi chú"
-
-#, fuzzy
-#~ msgid "Document Title"
-#~ msgstr "Tiêu đề sự kiện"
-
-#, fuzzy
-#~ msgid "Classic Document"
-#~ msgstr "Phân loại:"
 
 #, fuzzy
 #~ msgid "Volunteer Opportunity Delete Confirmation"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 08:05+0100\n"
+"POT-Creation-Date: 2019-03-24 19:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5000,7 +5000,7 @@ msgid "Expand"
 msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
-msgid "Classic Note"
+msgid "Classic Document"
 msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
@@ -7763,11 +7763,11 @@ msgid "in"
 msgstr ""
 
 #: NoteEditor.php:62
-msgid "Note Editor"
+msgid "Document Editor"
 msgstr ""
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
+msgid "You must enter text for this document"
 msgstr ""
 
 #: NoteEditor.php:250
@@ -7775,7 +7775,7 @@ msgid "File Info"
 msgstr ""
 
 #: NoteEditor.php:250
-msgid "Note Title"
+msgid "Document Title"
 msgstr ""
 
 #: NoteEditor.php:252
@@ -7783,7 +7783,7 @@ msgid "Set your File Info"
 msgstr ""
 
 #: NoteEditor.php:252
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr ""
 
 #: NoteEditor.php:258

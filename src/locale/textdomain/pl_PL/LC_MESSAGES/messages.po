@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5285,8 +5285,8 @@ msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
 #, fuzzy
-msgid "Classic Note"
-msgstr "Usuń Sortowanie"
+msgid "Classic Document"
+msgstr "Klasyfikacja"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 #, fuzzy
@@ -8307,12 +8307,13 @@ msgid "in"
 msgstr ""
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Edytor Notatek"
+#, fuzzy
+msgid "Document Editor"
+msgstr "Edytor Płatności:"
 
 #: NoteEditor.php:104
 #, fuzzy
-msgid "You must enter text for this note"
+msgid "You must enter text for this document"
 msgstr "Musisz podać Nazwę"
 
 #: NoteEditor.php:250
@@ -8322,7 +8323,7 @@ msgstr "Rola w Rodzinie"
 
 #: NoteEditor.php:250
 #, fuzzy
-msgid "Note Title"
+msgid "Document Title"
 msgstr "Tytuł Wydarzenia"
 
 #: NoteEditor.php:252
@@ -8332,7 +8333,7 @@ msgstr "Powróć do Widoku Rodziny"
 
 #: NoteEditor.php:252
 #, fuzzy
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr "Nieobecni-Nie biorący udziału"
 
 #: NoteEditor.php:258
@@ -12115,6 +12116,17 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Classic Note"
+#~ msgstr "Usuń Sortowanie"
+
+#~ msgid "Note Editor"
+#~ msgstr "Edytor Notatek"
+
+#, fuzzy
+#~ msgid "Note Title"
+#~ msgstr "Tytuł Wydarzenia"
+
+#, fuzzy
 #~ msgid "Add a Note"
 #~ msgstr "Dodaj Nową"
 
@@ -12137,18 +12149,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Members:"
 #~ msgstr "Członek"
-
-#, fuzzy
-#~ msgid "Document Editor"
-#~ msgstr "Edytor Płatności:"
-
-#, fuzzy
-#~ msgid "Document Title"
-#~ msgstr "Tytuł Wydarzenia"
-
-#, fuzzy
-#~ msgid "Classic Document"
-#~ msgstr "Klasyfikacja"
 
 #~ msgid "Volunteer Opportunity Delete Confirmation"
 #~ msgstr "Skasuj Zadanie dla Wolonatariusza "
