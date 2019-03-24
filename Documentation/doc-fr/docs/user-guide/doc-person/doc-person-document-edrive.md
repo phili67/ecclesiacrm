@@ -109,4 +109,4 @@ On a deux choix possibles :
 
 En conclusion c'est un vrai gestionnaire de fichier.
 
-Mais EDrive est accessible via WebDav comme NextCloud ou OwnCloud.
+Au final, EDrive est aussi via WebDav comme NextCloud ou OwnCloud .... EcclesiaCRM est donc un Cloud.
