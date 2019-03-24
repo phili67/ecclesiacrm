@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 21:30+0100\n"
+"POT-Creation-Date: 2019-03-24 07:59+0100\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -831,10 +831,11 @@ msgstr "Creați fișiere"
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
 #: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
 #: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
-#: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
-#: PersonView.php:1486 PersonView.php:1560
+#: PaddleNumList.php:55 PersonView.php:1486 PersonView.php:1560
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:35
+#: v2/templates/people/pastoralcare.php:107
+#: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
 msgstr "Șterge"
 
@@ -1665,8 +1666,9 @@ msgstr "Custom fields Persoana"
 msgid "Custom Family Fields"
 msgstr "Câmpuri personalizate pentru familii"
 
-#: CSVExport.php:236 FinancialReports.php:127 PastoralCare.php:118
+#: CSVExport.php:236 FinancialReports.php:127
 #: v2/templates/calendar/calendar.php:27
+#: v2/templates/people/pastoralcare.php:72
 msgid "Filters"
 msgstr "Filtre"
 
@@ -4504,8 +4506,8 @@ msgstr "Parolă"
 msgid "Change Settings"
 msgstr "Salvare setări"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 FamilyView.php:569 PersonView.php:742
-#: SettingsIndividual.php:107 UserEditor.php:770
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 SettingsIndividual.php:107
+#: UserEditor.php:770
 #, fuzzy
 msgid "Notes"
 msgstr "Note:"
@@ -6341,8 +6343,8 @@ msgstr "Selectați familia:"
 
 #: FamilyView.php:434
 #, fuzzy
-msgid "Add a Note"
-msgstr "Adauga un nou"
+msgid "Add a Document"
+msgstr "Adauga plată"
 
 #: FamilyView.php:442 PersonView.php:670
 #, fuzzy
@@ -6377,6 +6379,11 @@ msgstr "Tipul de plată automată"
 #: FamilyView.php:565 PersonView.php:731
 msgid "Pledges and Payments"
 msgstr "Angajamente și plăți"
+
+#: FamilyView.php:569 PersonView.php:742
+#, fuzzy
+msgid "Documents"
+msgstr "Comentariu"
 
 #: FamilyView.php:700 GroupView.php:369 PersonView.php:1108
 #, fuzzy
@@ -8549,36 +8556,6 @@ msgstr "Adauga Cumparator"
 msgid "Generate Statements for Selected"
 msgstr "Genera declarații pentru selectia"
 
-#: PastoralCare.php:56
-msgid "Pastoral care for"
-msgstr ""
-
-#: PastoralCare.php:66
-msgid "Please add some records with the button below."
-msgstr ""
-
-#: PastoralCare.php:78
-#, fuzzy
-msgid "Add Pastoral Care Notes"
-msgstr "Adauga in cos"
-
-#: PastoralCare.php:98 PersonView.php:603 v2/templates/gdpr/dashboard.php:23
-#: v2/templates/gdpr/gdprdatastructure.php:19
-msgid "Printable Page"
-msgstr "Printabilă Page"
-
-#: PastoralCare.php:107
-msgid "Everyone"
-msgstr ""
-
-#: PastoralCare.php:152
-msgid "Modify"
-msgstr ""
-
-#: PastoralCare.php:183 PledgeEditor.php:738
-msgid "Return"
-msgstr ""
-
 #: PeopleDashboard.php:16
 msgid "People Dashboard"
 msgstr ""
@@ -8926,6 +8903,12 @@ msgstr ""
 msgid "Family:"
 msgstr "Familie"
 
+#: PersonView.php:603 v2/templates/gdpr/dashboard.php:23
+#: v2/templates/gdpr/gdprdatastructure.php:19
+#: v2/templates/people/pastoralcare.php:52
+msgid "Printable Page"
+msgstr "Printabilă Page"
+
 #: PersonView.php:616
 #, fuzzy
 msgid "Previous Person"
@@ -8942,8 +8925,8 @@ msgstr "Ștergeți această înregistrare"
 
 #: PersonView.php:644
 #, fuzzy
-msgid "Create a note"
-msgstr "Creați fișiere"
+msgid "Create a document"
+msgstr "A crea un raport"
 
 #: PersonView.php:649
 #, fuzzy
@@ -9125,6 +9108,10 @@ msgstr "găsi familie din contul control #"
 #: PledgeEditor.php:720
 msgid "Set default check account number for family"
 msgstr "Setați verificare implicit numărul de cont pentru familie"
+
+#: PledgeEditor.php:738 v2/templates/people/pastoralcare.php:137
+msgid "Return"
+msgstr ""
 
 #: PledgeEditor.php:749
 msgid "Fund Split"
@@ -11084,6 +11071,10 @@ msgstr ""
 msgid "GDPR Data Structure"
 msgstr ""
 
+#: v2/routes/people/pastoralcare.php:69
+msgid "Pastoral care for"
+msgstr ""
+
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
 msgstr "Fondul de donatie Editor"
@@ -11368,6 +11359,23 @@ msgstr ""
 msgid ""
 "Informations about the Data Structure for Persons, Families and Pastoral "
 "Cares"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:20
+msgid "Please add some records with the button below."
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:32
+#, fuzzy
+msgid "Add Pastoral Care Notes"
+msgstr "Adauga in cos"
+
+#: v2/templates/people/pastoralcare.php:61
+msgid "Everyone"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:106
+msgid "Modify"
 msgstr ""
 
 #: v2/templates/sidebar/fundlist.php:16
@@ -12129,6 +12137,14 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Add a Note"
+#~ msgstr "Adauga un nou"
+
+#, fuzzy
+#~ msgid "Create a note"
+#~ msgstr "Creați fișiere"
+
+#, fuzzy
 #~ msgid "eMail Lists"
 #~ msgstr "Editor de familie"
 
@@ -12145,10 +12161,6 @@ msgstr ""
 #~ msgstr "Membru"
 
 #, fuzzy
-#~ msgid "Add a Document"
-#~ msgstr "Adauga plată"
-
-#, fuzzy
 #~ msgid "Document Editor"
 #~ msgstr "Editor de plată:"
 
@@ -12157,16 +12169,8 @@ msgstr ""
 #~ msgstr "Eveniment Titlu"
 
 #, fuzzy
-#~ msgid "Documents"
-#~ msgstr "Comentariu"
-
-#, fuzzy
 #~ msgid "Classic Document"
 #~ msgstr "Clasificare"
-
-#, fuzzy
-#~ msgid "Create a document"
-#~ msgstr "A crea un raport"
 
 #~ msgid "Volunteer Opportunity Delete Confirmation"
 #~ msgstr "Voluntari Ștergere Confirmarea oportunitate"

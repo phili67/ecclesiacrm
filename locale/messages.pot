@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 21:37+0100\n"
+"POT-Creation-Date: 2019-03-24 08:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -774,10 +774,11 @@ msgstr ""
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
 #: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
 #: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
-#: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
-#: PersonView.php:1486 PersonView.php:1560
+#: PaddleNumList.php:55 PersonView.php:1486 PersonView.php:1560
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:35
+#: v2/templates/people/pastoralcare.php:107
+#: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
 msgstr ""
 
@@ -1553,8 +1554,9 @@ msgstr ""
 msgid "Custom Family Fields"
 msgstr ""
 
-#: CSVExport.php:236 FinancialReports.php:127 PastoralCare.php:118
+#: CSVExport.php:236 FinancialReports.php:127
 #: v2/templates/calendar/calendar.php:27
+#: v2/templates/people/pastoralcare.php:72
 msgid "Filters"
 msgstr ""
 
@@ -4280,8 +4282,8 @@ msgstr ""
 msgid "Change Settings"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 FamilyView.php:569 PersonView.php:742
-#: SettingsIndividual.php:107 UserEditor.php:770
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 SettingsIndividual.php:107
+#: UserEditor.php:770
 msgid "Notes"
 msgstr ""
 
@@ -5965,7 +5967,7 @@ msgid "Delete this Family"
 msgstr ""
 
 #: FamilyView.php:434
-msgid "Add a Note"
+msgid "Add a Document"
 msgstr ""
 
 #: FamilyView.php:442 PersonView.php:670
@@ -5995,6 +5997,10 @@ msgstr ""
 
 #: FamilyView.php:565 PersonView.php:731
 msgid "Pledges and Payments"
+msgstr ""
+
+#: FamilyView.php:569 PersonView.php:742
+msgid "Documents"
 msgstr ""
 
 #: FamilyView.php:700 GroupView.php:369 PersonView.php:1108
@@ -7971,35 +7977,6 @@ msgstr ""
 msgid "Generate Statements for Selected"
 msgstr ""
 
-#: PastoralCare.php:56
-msgid "Pastoral care for"
-msgstr ""
-
-#: PastoralCare.php:66
-msgid "Please add some records with the button below."
-msgstr ""
-
-#: PastoralCare.php:78
-msgid "Add Pastoral Care Notes"
-msgstr ""
-
-#: PastoralCare.php:98 PersonView.php:603 v2/templates/gdpr/dashboard.php:23
-#: v2/templates/gdpr/gdprdatastructure.php:19
-msgid "Printable Page"
-msgstr ""
-
-#: PastoralCare.php:107
-msgid "Everyone"
-msgstr ""
-
-#: PastoralCare.php:152
-msgid "Modify"
-msgstr ""
-
-#: PastoralCare.php:183 PledgeEditor.php:738
-msgid "Return"
-msgstr ""
-
 #: PeopleDashboard.php:16
 msgid "People Dashboard"
 msgstr ""
@@ -8308,6 +8285,12 @@ msgstr ""
 msgid "Family:"
 msgstr ""
 
+#: PersonView.php:603 v2/templates/gdpr/dashboard.php:23
+#: v2/templates/gdpr/gdprdatastructure.php:19
+#: v2/templates/people/pastoralcare.php:52
+msgid "Printable Page"
+msgstr ""
+
 #: PersonView.php:616
 msgid "Previous Person"
 msgstr ""
@@ -8321,7 +8304,7 @@ msgid "Delete this Record"
 msgstr ""
 
 #: PersonView.php:644
-msgid "Create a note"
+msgid "Create a document"
 msgstr ""
 
 #: PersonView.php:649
@@ -8486,6 +8469,10 @@ msgstr ""
 
 #: PledgeEditor.php:720
 msgid "Set default check account number for family"
+msgstr ""
+
+#: PledgeEditor.php:738 v2/templates/people/pastoralcare.php:137
+msgid "Return"
 msgstr ""
 
 #: PledgeEditor.php:749
@@ -10234,6 +10221,10 @@ msgstr ""
 msgid "GDPR Data Structure"
 msgstr ""
 
+#: v2/routes/people/pastoralcare.php:69
+msgid "Pastoral care for"
+msgstr ""
+
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
 msgstr ""
@@ -10490,6 +10481,22 @@ msgstr ""
 msgid ""
 "Informations about the Data Structure for Persons, Families and Pastoral "
 "Cares"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:20
+msgid "Please add some records with the button below."
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:32
+msgid "Add Pastoral Care Notes"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:61
+msgid "Everyone"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:106
+msgid "Modify"
 msgstr ""
 
 #: v2/templates/sidebar/fundlist.php:16

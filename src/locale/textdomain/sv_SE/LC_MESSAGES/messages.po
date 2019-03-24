@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 21:30+0100\n"
+"POT-Creation-Date: 2019-03-24 07:59+0100\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -832,10 +832,11 @@ msgstr "Skapa fil"
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
 #: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
 #: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
-#: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
-#: PersonView.php:1486 PersonView.php:1560
+#: PaddleNumList.php:55 PersonView.php:1486 PersonView.php:1560
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:35
+#: v2/templates/people/pastoralcare.php:107
+#: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
 msgstr "Radera"
 
@@ -1666,8 +1667,9 @@ msgstr "Fritt anpassade person fält"
 msgid "Custom Family Fields"
 msgstr "Fritt anpassade familj fält"
 
-#: CSVExport.php:236 FinancialReports.php:127 PastoralCare.php:118
+#: CSVExport.php:236 FinancialReports.php:127
 #: v2/templates/calendar/calendar.php:27
+#: v2/templates/people/pastoralcare.php:72
 msgid "Filters"
 msgstr "Filtrar"
 
@@ -4503,8 +4505,8 @@ msgstr "Det nya lösenordet"
 msgid "Change Settings"
 msgstr "Spara inställningar"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 FamilyView.php:569 PersonView.php:742
-#: SettingsIndividual.php:107 UserEditor.php:770
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 SettingsIndividual.php:107
+#: UserEditor.php:770
 #, fuzzy
 msgid "Notes"
 msgstr "Anteckningar:"
@@ -6343,8 +6345,8 @@ msgstr "Välj familj:"
 
 #: FamilyView.php:434
 #, fuzzy
-msgid "Add a Note"
-msgstr "Lägg till en ny"
+msgid "Add a Document"
+msgstr "Lägg till betalning"
 
 #: FamilyView.php:442 PersonView.php:670
 #, fuzzy
@@ -6379,6 +6381,11 @@ msgstr "Autobetalningstyp"
 #: FamilyView.php:565 PersonView.php:731
 msgid "Pledges and Payments"
 msgstr "Bidrag löfte och betalningar"
+
+#: FamilyView.php:569 PersonView.php:742
+#, fuzzy
+msgid "Documents"
+msgstr "Kommentar"
 
 #: FamilyView.php:700 GroupView.php:369 PersonView.php:1108
 #, fuzzy
@@ -8567,36 +8574,6 @@ msgstr "Lägg till ny"
 msgid "Generate Statements for Selected"
 msgstr "Generera rapporter för valda"
 
-#: PastoralCare.php:56
-msgid "Pastoral care for"
-msgstr ""
-
-#: PastoralCare.php:66
-msgid "Please add some records with the button below."
-msgstr ""
-
-#: PastoralCare.php:78
-#, fuzzy
-msgid "Add Pastoral Care Notes"
-msgstr "Lägg till korgen"
-
-#: PastoralCare.php:98 PersonView.php:603 v2/templates/gdpr/dashboard.php:23
-#: v2/templates/gdpr/gdprdatastructure.php:19
-msgid "Printable Page"
-msgstr "Utskriftbar sida"
-
-#: PastoralCare.php:107
-msgid "Everyone"
-msgstr ""
-
-#: PastoralCare.php:152
-msgid "Modify"
-msgstr ""
-
-#: PastoralCare.php:183 PledgeEditor.php:738
-msgid "Return"
-msgstr ""
-
 #: PeopleDashboard.php:16
 msgid "People Dashboard"
 msgstr ""
@@ -8942,6 +8919,12 @@ msgstr ""
 msgid "Family:"
 msgstr "Familj"
 
+#: PersonView.php:603 v2/templates/gdpr/dashboard.php:23
+#: v2/templates/gdpr/gdprdatastructure.php:19
+#: v2/templates/people/pastoralcare.php:52
+msgid "Printable Page"
+msgstr "Utskriftbar sida"
+
 #: PersonView.php:616
 #, fuzzy
 msgid "Previous Person"
@@ -8958,8 +8941,8 @@ msgstr "Radera denna post"
 
 #: PersonView.php:644
 #, fuzzy
-msgid "Create a note"
-msgstr "Skapa fil"
+msgid "Create a document"
+msgstr "Skapa rapport"
 
 #: PersonView.php:649
 #, fuzzy
@@ -9146,6 +9129,10 @@ msgstr "hitta familjen från checkräkning #"
 #, fuzzy
 msgid "Set default check account number for family"
 msgstr "Ställa in standard check för familj"
+
+#: PledgeEditor.php:738 v2/templates/people/pastoralcare.php:137
+msgid "Return"
+msgstr ""
 
 #: PledgeEditor.php:749
 msgid "Fund Split"
@@ -11100,6 +11087,10 @@ msgstr ""
 msgid "GDPR Data Structure"
 msgstr ""
 
+#: v2/routes/people/pastoralcare.php:69
+msgid "Pastoral care for"
+msgstr ""
+
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
 msgstr "Insamlingsfond redigerare"
@@ -11384,6 +11375,23 @@ msgstr ""
 msgid ""
 "Informations about the Data Structure for Persons, Families and Pastoral "
 "Cares"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:20
+msgid "Please add some records with the button below."
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:32
+#, fuzzy
+msgid "Add Pastoral Care Notes"
+msgstr "Lägg till korgen"
+
+#: v2/templates/people/pastoralcare.php:61
+msgid "Everyone"
+msgstr ""
+
+#: v2/templates/people/pastoralcare.php:106
+msgid "Modify"
 msgstr ""
 
 #: v2/templates/sidebar/fundlist.php:16
@@ -12145,6 +12153,14 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Add a Note"
+#~ msgstr "Lägg till en ny"
+
+#, fuzzy
+#~ msgid "Create a note"
+#~ msgstr "Skapa fil"
+
+#, fuzzy
 #~ msgid "eMail Lists"
 #~ msgstr "Familj redigeringsverktyg"
 
@@ -12161,10 +12177,6 @@ msgstr ""
 #~ msgstr "Medlem"
 
 #, fuzzy
-#~ msgid "Add a Document"
-#~ msgstr "Lägg till betalning"
-
-#, fuzzy
 #~ msgid "Document Editor"
 #~ msgstr "Betalning redigeringsverktyg:"
 
@@ -12173,16 +12185,8 @@ msgstr ""
 #~ msgstr "Evenemangsnamn"
 
 #, fuzzy
-#~ msgid "Documents"
-#~ msgstr "Kommentar"
-
-#, fuzzy
 #~ msgid "Classic Document"
 #~ msgstr "Klassificering "
-
-#, fuzzy
-#~ msgid "Create a document"
-#~ msgstr "Skapa rapport"
 
 #, fuzzy
 #~ msgid "Volunteer Opportunity Delete Confirmation"
