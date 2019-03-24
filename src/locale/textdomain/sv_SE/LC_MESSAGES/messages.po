@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5288,8 +5288,8 @@ msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
 #, fuzzy
-msgid "Classic Note"
-msgstr "Ta bort filtrar"
+msgid "Classic Document"
+msgstr "Klassificering "
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 #, fuzzy
@@ -8324,12 +8324,13 @@ msgid "in"
 msgstr ""
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Anteckning redigeringsverktyg"
+#, fuzzy
+msgid "Document Editor"
+msgstr "Betalning redigeringsverktyg:"
 
 #: NoteEditor.php:104
 #, fuzzy
-msgid "You must enter text for this note"
+msgid "You must enter text for this document"
 msgstr "Du måste ange ett namn"
 
 #: NoteEditor.php:250
@@ -8339,7 +8340,7 @@ msgstr "Familj roll"
 
 #: NoteEditor.php:250
 #, fuzzy
-msgid "Note Title"
+msgid "Document Title"
 msgstr "Evenemangsnamn"
 
 #: NoteEditor.php:252
@@ -8349,7 +8350,7 @@ msgstr "Återgå till familj vy"
 
 #: NoteEditor.php:252
 #, fuzzy
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr "Evenemang icke deltagare"
 
 #: NoteEditor.php:258
@@ -12153,6 +12154,17 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Classic Note"
+#~ msgstr "Ta bort filtrar"
+
+#~ msgid "Note Editor"
+#~ msgstr "Anteckning redigeringsverktyg"
+
+#, fuzzy
+#~ msgid "Note Title"
+#~ msgstr "Evenemangsnamn"
+
+#, fuzzy
 #~ msgid "Add a Note"
 #~ msgstr "Lägg till en ny"
 
@@ -12175,18 +12187,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Members:"
 #~ msgstr "Medlem"
-
-#, fuzzy
-#~ msgid "Document Editor"
-#~ msgstr "Betalning redigeringsverktyg:"
-
-#, fuzzy
-#~ msgid "Document Title"
-#~ msgstr "Evenemangsnamn"
-
-#, fuzzy
-#~ msgid "Classic Document"
-#~ msgstr "Klassificering "
 
 #, fuzzy
 #~ msgid "Volunteer Opportunity Delete Confirmation"

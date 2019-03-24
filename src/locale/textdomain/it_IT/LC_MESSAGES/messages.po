@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5075,9 +5075,8 @@ msgid "Expand"
 msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
-#, fuzzy
-msgid "Classic Note"
-msgstr "Azzera filtri"
+msgid "Classic Document"
+msgstr "Classificazione"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 msgid "Classic Video"
@@ -7882,11 +7881,12 @@ msgid "in"
 msgstr ""
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Modifica note"
+msgid "Document Editor"
+msgstr "Modifica persona"
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
+#, fuzzy
+msgid "You must enter text for this document"
 msgstr "Devi inserire un nome"
 
 #: NoteEditor.php:250
@@ -7895,8 +7895,7 @@ msgid "File Info"
 msgstr "Informazioni Famiglia"
 
 #: NoteEditor.php:250
-#, fuzzy
-msgid "Note Title"
+msgid "Document Title"
 msgstr "Titolo"
 
 #: NoteEditor.php:252
@@ -7906,7 +7905,7 @@ msgstr "Informazioni Famiglia"
 
 #: NoteEditor.php:252
 #, fuzzy
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr "Evento Nonattendees"
 
 #: NoteEditor.php:258
@@ -11520,6 +11519,17 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Classic Note"
+#~ msgstr "Azzera filtri"
+
+#~ msgid "Note Editor"
+#~ msgstr "Modifica note"
+
+#, fuzzy
+#~ msgid "Note Title"
+#~ msgstr "Titolo"
+
+#, fuzzy
 #~ msgid "Add a Note"
 #~ msgstr "Aggiungi una nuova"
 
@@ -11548,15 +11558,6 @@ msgstr ""
 
 #~ msgid "Members:"
 #~ msgstr "Membro"
-
-#~ msgid "Document Editor"
-#~ msgstr "Modifica persona"
-
-#~ msgid "Document Title"
-#~ msgstr "Titolo"
-
-#~ msgid "Classic Document"
-#~ msgstr "Classificazione"
 
 #~ msgid "Volunteer Opportunity Delete Confirmation"
 #~ msgstr "Conferma eliminazione proprietà"

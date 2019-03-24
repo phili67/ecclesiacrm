@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5090,8 +5090,8 @@ msgid "Expand"
 msgstr "Expandieren"
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
-msgid "Classic Note"
-msgstr "Standard Hinweis"
+msgid "Classic Document"
+msgstr "Standard Dokument"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 msgid "Classic Video"
@@ -7913,28 +7913,28 @@ msgid "in"
 msgstr "im"
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Hinweis Editor"
+msgid "Document Editor"
+msgstr "Dokument Editor"
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
-msgstr "Du musst einen Namen eingeben"
+msgid "You must enter text for this document"
+msgstr "Du musst einen Dokument Namen eingeben"
 
 #: NoteEditor.php:250
 msgid "File Info"
 msgstr "Dateiinfo"
 
 #: NoteEditor.php:250
-msgid "Note Title"
-msgstr "Hinweis Titel"
+msgid "Document Title"
+msgstr "Dokument Titel"
 
 #: NoteEditor.php:252
 msgid "Set your File Info"
 msgstr "Dateiinfo definieren"
 
 #: NoteEditor.php:252
-msgid "Set your Note title"
-msgstr "Einstellen der Hinweis titel"
+msgid "Set your Document title"
+msgstr "Einstellen der Dokument titel"
 
 #: NoteEditor.php:258
 msgid "Your Note type is"
@@ -8464,9 +8464,8 @@ msgid "Delete this Record"
 msgstr "Diesen Datensatz löschen"
 
 #: PersonView.php:644
-#, fuzzy
 msgid "Create a document"
-msgstr "Hinweis Erstellen"
+msgstr "Dokument Erstellen"
 
 #: PersonView.php:649
 msgid "Assign New Group"
@@ -11393,6 +11392,12 @@ msgstr "Zeitplan"
 
 msgid "paused"
 msgstr "pausiert"
+
+#~ msgid "Note Editor"
+#~ msgstr "Hinweis Editor"
+
+#~ msgid "Note Title"
+#~ msgstr "Hinweis Titel"
 
 #~ msgid "Add a Note"
 #~ msgstr "Neue Hinweis hinzufügen"

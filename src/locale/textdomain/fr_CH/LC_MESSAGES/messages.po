@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: fr-CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5171,8 +5171,8 @@ msgid "Expand"
 msgstr "Développer"
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
-msgid "Classic Note"
-msgstr "Note classique"
+msgid "Classic Document"
+msgstr "Document classique"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 msgid "Classic Video"
@@ -8017,28 +8017,28 @@ msgid "in"
 msgstr "dans"
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Gestionnaire de note"
+msgid "Document Editor"
+msgstr "Gestionnaire de Document"
 
 #: NoteEditor.php:104
-msgid "You must enter text for this note"
-msgstr "Vous devez entrer un message pour cette note"
+msgid "You must enter text for this document"
+msgstr "Vous devez entrer un message pour ce document"
 
 #: NoteEditor.php:250
 msgid "File Info"
 msgstr "Info Fichier"
 
 #: NoteEditor.php:250
-msgid "Note Title"
-msgstr "Titre de la note"
+msgid "Document Title"
+msgstr "Titre du document"
 
 #: NoteEditor.php:252
 msgid "Set your File Info"
 msgstr "Saisir Info du fichier"
 
 #: NoteEditor.php:252
-msgid "Set your Note title"
-msgstr "Saisir le titre de votre note"
+msgid "Set your Document title"
+msgstr "Saisir le titre de votre document"
 
 #: NoteEditor.php:258
 msgid "Your Note type is"
@@ -11579,6 +11579,12 @@ msgstr "Planifiée"
 
 msgid "paused"
 msgstr "En pause"
+
+#~ msgid "Note Editor"
+#~ msgstr "Gestionnaire de note"
+
+#~ msgid "Note Title"
+#~ msgstr "Titre de la note"
 
 #~ msgid "Add a Note"
 #~ msgstr "Ajouter une note"

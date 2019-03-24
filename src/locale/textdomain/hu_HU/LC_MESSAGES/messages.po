@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 07:59+0100\n"
+"POT-Creation-Date: 2019-03-24 19:43+0100\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5286,8 +5286,8 @@ msgstr ""
 
 #: EcclesiaCRM/utils/MiscUtils.php:518
 #, fuzzy
-msgid "Classic Note"
-msgstr "Szűrők törlése"
+msgid "Classic Document"
+msgstr "Besorolás"
 
 #: EcclesiaCRM/utils/MiscUtils.php:521
 #, fuzzy
@@ -8305,12 +8305,13 @@ msgid "in"
 msgstr ""
 
 #: NoteEditor.php:62
-msgid "Note Editor"
-msgstr "Megjegyzés szerkesztő"
+#, fuzzy
+msgid "Document Editor"
+msgstr "Fizetés Vágó:"
 
 #: NoteEditor.php:104
 #, fuzzy
-msgid "You must enter text for this note"
+msgid "You must enter text for this document"
 msgstr "Meg kell adnia egy nevet"
 
 #: NoteEditor.php:250
@@ -8320,7 +8321,7 @@ msgstr "Család Szerep"
 
 #: NoteEditor.php:250
 #, fuzzy
-msgid "Note Title"
+msgid "Document Title"
 msgstr "Esemény címe"
 
 #: NoteEditor.php:252
@@ -8330,7 +8331,7 @@ msgstr "Vissza a Family megnézése"
 
 #: NoteEditor.php:252
 #, fuzzy
-msgid "Set your Note title"
+msgid "Set your Document title"
 msgstr "Event Nonattendees"
 
 #: NoteEditor.php:258
@@ -12117,6 +12118,17 @@ msgid "paused"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Classic Note"
+#~ msgstr "Szűrők törlése"
+
+#~ msgid "Note Editor"
+#~ msgstr "Megjegyzés szerkesztő"
+
+#, fuzzy
+#~ msgid "Note Title"
+#~ msgstr "Esemény címe"
+
+#, fuzzy
 #~ msgid "Add a Note"
 #~ msgstr "Hozzáadása Új"
 
@@ -12139,18 +12151,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Members:"
 #~ msgstr "Tag"
-
-#, fuzzy
-#~ msgid "Document Editor"
-#~ msgstr "Fizetés Vágó:"
-
-#, fuzzy
-#~ msgid "Document Title"
-#~ msgstr "Esemény címe"
-
-#, fuzzy
-#~ msgid "Classic Document"
-#~ msgstr "Besorolás"
 
 #~ msgid "Volunteer Opportunity Delete Confirmation"
 #~ msgstr "Önkéntes Opportunity Törlés megerősítése"
