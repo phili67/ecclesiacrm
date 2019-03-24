@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 21:30+0100\n"
+"POT-Creation-Date: 2019-03-24 07:59+0100\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -793,10 +793,11 @@ msgstr "Crear Carpeta"
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:259
 #: ElectronicPaymentList.php:317 EventNames.php:327 FamilyView.php:936
 #: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
-#: PaddleNumList.php:55 PastoralCare.php:153 PastoralCare.php:162
-#: PersonView.php:1486 PersonView.php:1560
+#: PaddleNumList.php:55 PersonView.php:1486 PersonView.php:1560
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:35
+#: v2/templates/people/pastoralcare.php:107
+#: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
 msgstr "Borrar"
 
@@ -1590,8 +1591,9 @@ msgstr "Campos personalizados para Personas"
 msgid "Custom Family Fields"
 msgstr "Campos personalizados para Familias"
 
-#: CSVExport.php:236 FinancialReports.php:127 PastoralCare.php:118
+#: CSVExport.php:236 FinancialReports.php:127
 #: v2/templates/calendar/calendar.php:27
+#: v2/templates/people/pastoralcare.php:72
 msgid "Filters"
 msgstr "Filtros"
 
@@ -4406,8 +4408,8 @@ msgstr "Cambiar Contraseña"
 msgid "Change Settings"
 msgstr "Cambiar Ajustes"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 FamilyView.php:569 PersonView.php:742
-#: SettingsIndividual.php:107 UserEditor.php:770
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 SettingsIndividual.php:107
+#: UserEditor.php:770
 msgid "Notes"
 msgstr "Notas"
 
@@ -6110,8 +6112,9 @@ msgid "Delete this Family"
 msgstr "Borrar esta Familia"
 
 #: FamilyView.php:434
-msgid "Add a Note"
-msgstr "Agregar nueva nota"
+#, fuzzy
+msgid "Add a Document"
+msgstr "Agregar pago"
 
 #: FamilyView.php:442 PersonView.php:670
 msgid "Deactivate"
@@ -6141,6 +6144,11 @@ msgstr "Pagos Automáticos"
 #: FamilyView.php:565 PersonView.php:731
 msgid "Pledges and Payments"
 msgstr "Promesas y Pagos"
+
+#: FamilyView.php:569 PersonView.php:742
+#, fuzzy
+msgid "Documents"
+msgstr "Comentarios"
 
 #: FamilyView.php:700 GroupView.php:369 PersonView.php:1108
 msgid "Assign a New Property"
@@ -8166,35 +8174,6 @@ msgstr "Agregar Comprador"
 msgid "Generate Statements for Selected"
 msgstr "Generar Declaraciones para Seleccionados"
 
-#: PastoralCare.php:56
-msgid "Pastoral care for"
-msgstr "Atención Pastoral para"
-
-#: PastoralCare.php:66
-msgid "Please add some records with the button below."
-msgstr "Por favor, agregar registros con el botón más abajo."
-
-#: PastoralCare.php:78
-msgid "Add Pastoral Care Notes"
-msgstr "Agregar al Atención Pastoral"
-
-#: PastoralCare.php:98 PersonView.php:603 v2/templates/gdpr/dashboard.php:23
-#: v2/templates/gdpr/gdprdatastructure.php:19
-msgid "Printable Page"
-msgstr "Hoja Imprimible"
-
-#: PastoralCare.php:107
-msgid "Everyone"
-msgstr "Todos"
-
-#: PastoralCare.php:152
-msgid "Modify"
-msgstr "Cambiar"
-
-#: PastoralCare.php:183 PledgeEditor.php:738
-msgid "Return"
-msgstr "Volver"
-
 #: PeopleDashboard.php:16
 msgid "People Dashboard"
 msgstr "Dashboard de Personas"
@@ -8513,6 +8492,12 @@ msgstr "Acerca de mí"
 msgid "Family:"
 msgstr "Familia:"
 
+#: PersonView.php:603 v2/templates/gdpr/dashboard.php:23
+#: v2/templates/gdpr/gdprdatastructure.php:19
+#: v2/templates/people/pastoralcare.php:52
+msgid "Printable Page"
+msgstr "Hoja Imprimible"
+
 #: PersonView.php:616
 #, fuzzy
 msgid "Previous Person"
@@ -8528,7 +8513,8 @@ msgid "Delete this Record"
 msgstr "Borrar este registro"
 
 #: PersonView.php:644
-msgid "Create a note"
+#, fuzzy
+msgid "Create a document"
 msgstr "Crear Nota"
 
 #: PersonView.php:649
@@ -8696,6 +8682,10 @@ msgstr "encontrar familia desde la cuenta de cheque #"
 #: PledgeEditor.php:720
 msgid "Set default check account number for family"
 msgstr "Establecer Cuenta de Cheque para familia por defecto"
+
+#: PledgeEditor.php:738 v2/templates/people/pastoralcare.php:137
+msgid "Return"
+msgstr "Volver"
 
 #: PledgeEditor.php:749
 msgid "Fund Split"
@@ -10495,6 +10485,10 @@ msgstr "Dashboard de GDPR"
 msgid "GDPR Data Structure"
 msgstr "Estructuras de los datos del GDPR"
 
+#: v2/routes/people/pastoralcare.php:69
+msgid "Pastoral care for"
+msgstr "Atención Pastoral para"
+
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
 msgstr "Editor de Fondos de Donación"
@@ -10768,6 +10762,22 @@ msgid ""
 "Informations about the Data Structure for Persons, Families and Pastoral "
 "Cares"
 msgstr ""
+
+#: v2/templates/people/pastoralcare.php:20
+msgid "Please add some records with the button below."
+msgstr "Por favor, agregar registros con el botón más abajo."
+
+#: v2/templates/people/pastoralcare.php:32
+msgid "Add Pastoral Care Notes"
+msgstr "Agregar al Atención Pastoral"
+
+#: v2/templates/people/pastoralcare.php:61
+msgid "Everyone"
+msgstr "Todos"
+
+#: v2/templates/people/pastoralcare.php:106
+msgid "Modify"
+msgstr "Cambiar"
 
 #: v2/templates/sidebar/fundlist.php:16
 msgid ""
@@ -11477,6 +11487,9 @@ msgstr "Agendar"
 
 msgid "paused"
 msgstr ""
+
+#~ msgid "Add a Note"
+#~ msgstr "Agregar nueva nota"
 
 #, fuzzy
 #~ msgid "eMail Lists"
