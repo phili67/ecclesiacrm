@@ -57,9 +57,9 @@ if (isset($_GET['PersonID'])) {
 $user = UserQuery::create()->findOneByPersonId($iPersonID);
 
 if ($sNoteType == 'file' && !is_null ($user) ) {
-  $sPageTitle = gettext('Cloud Upload')." ".gettext("in"). " : " . $user->getCurrentpath();
+  $sPageTitle = _('Cloud Upload')." "._("in"). " : " . $user->getCurrentpath();
 } else {
-  $sPageTitle = gettext('Note Editor');
+  $sPageTitle = _('Document Editor');
 }
 
 if (isset($_GET['FamilyID'])) {
@@ -101,7 +101,7 @@ if (isset($_POST['Submit'])) {
     
     //Did they enter text for the note?
     if ($sNoteText == '' && empty($_FILES["noteInputFile"]["name"])) {
-        $sNoteTextError = '<br><span style="color: red;">'.gettext("You must enter text for this note").'.</span>';
+        $sNoteTextError = '<br><span style="color: red;">'._("You must enter text for this document").'.</span>';
         $bErrorFlag = true;
     }
 
@@ -124,7 +124,7 @@ if (isset($_POST['Submit'])) {
             $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
             $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->setInfo(gettext('Create file'));
+            $note->setInfo(_('Create file'));
             
             $note->save();
           } else {
@@ -146,7 +146,7 @@ if (isset($_POST['Submit'])) {
             $note->setText($user->getUserName().str_replace($target_dir,"",$target_file));
             $note->setType('file');
             $note->setEntered(SessionUser::getUser()->getPersonId());
-            $note->setInfo(gettext('Create file'));
+            $note->setInfo(_('Create file'));
             
             $note->save();          }
         } else {// now we simply store the document
@@ -247,26 +247,26 @@ require 'Include/Header.php';
   <div class="box box-primary">
     <div class="box-header with-border">
       <h3 class="box-title">
-        <label><?= ($sNoteType == 'file')?gettext("File Info"):gettext("Note Title") ?></label> 
+        <label><?= ($sNoteType == 'file')?_("File Info"):_("Document Title") ?></label> 
       </h3>
-      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= ($sNoteType == 'file')?gettext("Set your File Info"):gettext("Set your Note title") ?>"  required="">
+      <input type="text" name="noteTitle" id="noteTitle" value="<?= $sTitleText ?>" size="30" maxlength="100" class="form-control" width="100%" style="width: 100%" placeholder="<?= ($sNoteType == 'file')?_("Set your File Info"):_("Set your Document title") ?>"  required="">
     </div>
     <div class="box-body">
       <div class="row" <?= (!empty($sNoteType))?"":'style="display: none;"' ?>>
           <div class="col-lg-3"></div>
           <div class="col-lg-6">
-            <center><label><?= gettext("Your Note type is") ?> : "<?= MiscUtils::noteType($sNoteType) ?>"</label></center>
+            <center><label><?= _("Your Note type is") ?> : "<?= MiscUtils::noteType($sNoteType) ?>"</label></center>
           </div>
           <div class="col-lg-3"></div>
       </div>
       <div class="row" <?= (empty($sNoteType))?"":'style="display: none;"' ?>>
           <div class="col-lg-3"></div>
           <div class="col-lg-3">
-            <label><?= gettext("Choose your Note Type") ?> : </label>
+            <label><?= _("Choose your Note Type") ?> : </label>
           </div>
           <div class="col-lg-3">
             <select name="noteType" class="form-control input-sm" id="selectType">
-              <option value="note" <?= ($sNoteType == "note")?'selected="selected"':"" ?>><?= MiscUtils::noteType("note") ?></option>
+              <option value="document" <?= ($sNoteType == "document")?'selected="selected"':"" ?>><?= MiscUtils::noteType("document") ?></option>
               <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= MiscUtils::noteType("video") ?></option>
               <option value="audio" <?= ($sNoteType == "audio")?'selected="selected"':"" ?>><?= MiscUtils::noteType("audio") ?></option>
               <?php 
@@ -292,25 +292,25 @@ require 'Include/Header.php';
           </p>            
           <div id="blockFile"  <?= ($sNoteType == "file")?'':'style="display: none;' ?>
             <p align="center" >
-              <label for="noteInputFile"><?= gettext("File input")." : ".$sNoteText ?></label>
+              <label for="noteInputFile"><?= _("File input")." : ".$sNoteText ?></label>
               <input type="file" id="noteInputFile" name="noteInputFile">
 
-              <?= gettext("Upload your file")?>.
+              <?= _("Upload your file")?>.
             </p>
           </div>
           <p align="center">
             <input type="checkbox" value="1" name="Private" <?php if ($bPrivate != 0) {
         echo 'checked';
-    } ?>>&nbsp;<?= gettext('Private') ?>
+    } ?>>&nbsp;<?= _('Private') ?>
           </p>
         </div>
       </div>
     </div>
   </div>
   <p align="center">
-    <input type="submit" class="btn btn-success" name="Submit" value="<?= ($uploadEDrive == true)?gettext("Upload"):gettext('Save') ?>">
+    <input type="submit" class="btn btn-success" name="Submit" value="<?= ($uploadEDrive == true)?_("Upload"):_('Save') ?>">
     &nbsp;
-    <input type="submit" class="btn btn-danger" name="Cancel" value="<?= gettext('Cancel') ?>" formnovalidate>
+    <input type="submit" class="btn btn-danger" name="Cancel" value="<?= _('Cancel') ?>" formnovalidate>
   </p>
 </form>
 

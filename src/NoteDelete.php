@@ -22,7 +22,7 @@ use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
-$sPageTitle = gettext('Note Delete Confirmation');
+$sPageTitle = _('Note Delete Confirmation');
 
 //Get the NoteID from the querystring
 $iNoteID = InputUtils::LegacyFilterInput($_GET['NoteID'], 'int');
@@ -80,7 +80,7 @@ require 'Include/Header.php';
 <div class="box box-warning">
     <div class="box-header with-border">
       <h3 class="box-title">
-        <label><?= gettext('Please confirm deletion of this note') ?> : <?= ($note->getType() == 'file')?$note->getText():$note->getTitle() ?></label> 
+        <label><?= _('Please confirm deletion of this note') ?> : <?= ($note->getType() == 'file')?$note->getText():$note->getTitle() ?></label> 
       </h3>
     </div>
   <div class="box-body">
@@ -97,8 +97,8 @@ require 'Include/Header.php';
     ?>
   </div>
   <div class="box-footer">
-    <a class="btn btn-primary" href="<?= $sReroute ?>"><?= gettext('Cancel') ?></a>
-  	<a class="btn btn-danger" href="NoteDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= gettext('Yes, delete this record') ?></a> <?= gettext('(this action cannot be undone)') ?>
+    <a class="btn btn-primary" href="<?= $sReroute ?>"><?= _('Cancel') ?></a>
+  	<a class="btn btn-danger" href="NoteDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= _('Yes, delete this record') ?></a> <?= _('(this action cannot be undone)') ?>
   </div>
 
 <?php require 'Include/Footer.php' ?>
