@@ -431,7 +431,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
        
       if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
           ?>
-          <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Note") ?></a>
+          <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
           <?php
       } ?>
               
@@ -566,7 +566,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           <?php
             } 
           ?>
-          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= gettext("Notes") ?></a></li>
+          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">

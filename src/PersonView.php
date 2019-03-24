@@ -641,7 +641,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
     }
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
   ?>
-        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a note") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a note") ?></a>
+        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
   <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
@@ -739,7 +739,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isNotesEnabled() ) {
             if ($bDocuments) $activeTab = 'notes';
         ?>
-        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Notes") ?></a></li>
+        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
         <?php
           }
         ?>
