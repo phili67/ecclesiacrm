@@ -45,7 +45,7 @@ markdown_extensions:
     
 site_name: EcclesiaCRM
 pages:
-- Accueil: 'index.md'
+- "Accueil": 'index.md'
 - "Manuel : Administrateur":
     - 'Mise en place du CRM': 
         - 'Configuration requise': 'user-guide/doc-installation/doc-requirement.md'
@@ -66,7 +66,8 @@ pages:
             - 'Rôles de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-roles.md'
             - 'Propriétés de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-properties.md'
             - 'Champs personnalisables de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields.md'
-    - 'Gestion des groupes': 'user-guide/doc-admin/doc-groups.md'
+    - 'Gestion des groupes': 
+        - 'Présentation': 'user-guide/doc-admin/group/doc-groups.md'
     - 'Droits et gestion des utilisateurs du CRM': 
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
@@ -97,14 +98,14 @@ pages:
     - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
     - 'Personnalisation': 
         - "Personnalisation suivi pastoral": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
-- Campagne de Publipostage:
-    - MailChimp:
+- "Campagne de Publipostage":
+    - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
         - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
-- Manuel du développeur:
+- "Manuel du développeur":
     - 'API': 'user-guide/doc-dev/api.md'
-- À propos:
+- "À propos":
     - 'A propos': 'about/about.md'
     - 'Licence': 'about/license.md'
     - 'Notes de mise à jour': 'about/release-notes.md'

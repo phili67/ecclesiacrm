@@ -466,9 +466,24 @@
             "title": "Pour Ajouter un nouveau champ personnalisable"
         }, 
         {
-            "location": "/user-guide/doc-admin/doc-groups/", 
+            "location": "/user-guide/doc-admin/group/doc-groups/", 
+            "text": "Groupe \n Ecclesia\nCRM\n \n\n\nIntroduction\n\n\nLes groupes dans Ecclesia\nCRM\n ont une place pr\u00e9pond\u00e9rante dans le fait \n\n\n\n\nd'envoyer des mails\n\n\nde r\u00e9unir plusieurs personnes dans une m\u00eame container\n\n\nde g\u00e9rer les groupes d'\u00e9cole du dimanche\n\n\nde hi\u00e9rarchiser les menus qui se trouvent dans la barre lat\u00e9rale gauche aussi dans le cas de groupe classique que de groupes sp\u00e9ciaux comme ceux de l'\u00e9cole du dimanche.\n\n\n\n\nAcc\u00e9der aux groupes", 
+            "title": "Pr\u00e9sentation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#groupe-ecclesiacrm", 
             "text": "", 
-            "title": "Gestion des groupes"
+            "title": "Groupe &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#introduction", 
+            "text": "Les groupes dans Ecclesia CRM  ont une place pr\u00e9pond\u00e9rante dans le fait    d'envoyer des mails  de r\u00e9unir plusieurs personnes dans une m\u00eame container  de g\u00e9rer les groupes d'\u00e9cole du dimanche  de hi\u00e9rarchiser les menus qui se trouvent dans la barre lat\u00e9rale gauche aussi dans le cas de groupe classique que de groupes sp\u00e9ciaux comme ceux de l'\u00e9cole du dimanche.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#acceder-aux-groupes", 
+            "text": "", 
+            "title": "Acc\u00e9der aux groupes"
         }, 
         {
             "location": "/user-guide/doc-users/doc-users/", 
