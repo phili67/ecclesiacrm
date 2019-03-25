@@ -1285,7 +1285,7 @@ $(document).ready(function () {
 
   /* Custom filtering function which will search data in column four between two values */
    $.fn.dataTable.ext.search.push(function( settings, data, dataIndex ) {
-        if (settings.nTable.id == "automaticPaymentsTable") {
+        if (settings.nTable.id == "automaticPaymentsTable" || settings.nTable.id  == "edrive-table" ) {
           return true;
         }
         
