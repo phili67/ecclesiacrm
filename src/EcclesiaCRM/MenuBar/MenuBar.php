@@ -33,7 +33,7 @@ use EcclesiaCRM\SessionUser;
 
 class MenuBar {
     private $_title;
-    private $_menus = [];
+    private $_menus  = [];
     private $_maxStr = 25;// maximum numbers of char in the menu items
     
     
@@ -58,7 +58,7 @@ class MenuBar {
       
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3)
-                    ->orderByOptionName()
+                    ->orderByOptionSequence()
                     ->find();
 
       foreach ($listOptions as $listOption) {
