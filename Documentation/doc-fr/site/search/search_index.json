@@ -466,9 +466,34 @@
             "title": "Pour Ajouter un nouveau champ personnalisable"
         }, 
         {
-            "location": "/user-guide/doc-admin/doc-groups/", 
+            "location": "/user-guide/doc-admin/group/doc-groups/", 
+            "text": "Groupe \n Ecclesia\nCRM\n \n\n\nIntroduction\n\n\nLes groupes dans Ecclesia\nCRM\n ont une place pr\u00e9pond\u00e9rante dans le fait \n\n\n\n\nde r\u00e9unir plusieurs personnes dans un m\u00eame \"container\"\n\n\nd'envoyer des mails\n\n\nde g\u00e9rer les groupes d'\u00e9cole du dimanche\n\n\nde hi\u00e9rarchiser les menus, via des \"types\", qui se trouvent dans la barre lat\u00e9rale gauche aussi dans le cas de groupe classique que de groupes sp\u00e9ciaux comme ceux de l'\u00e9cole du dimanche.\n\n\n\n\nVous pourrez aussi via le \"Panier\" faire\n\n\n\n\ndes extractions CSV \n\n\nimprimer \n\n\nun annuaire\n\n\ndes \u00e9tiquettes\n\n\ndes badges\n\n\n\n\nVoir pour cela la section \"Panier\"\n\n\nAcc\u00e9der aux groupes\n\n\nPour acc\u00e9der \u00e0 l'ensemble des groupes, il suffit de d\u00e9ployer la barre lat\u00e9rale comme suit\n\n\n\n\nOn s\u00e9lectionne \"Lister tous les groupes\" et on obtient\n\n\n\n\nOn peut les filtrer par \"type\"\n\n\n\n\nIci vous n'aurez que les groupes de type \"Ecole du dimanche\"\n\n\nRemarque\n le type de groupe permet de hi\u00e9rarchiser les groupes dans la barre de menu lat\u00e9ral \u00e0 gauche\n\n\n\n\nAjouter un nouveau groupe\n\n\nOn va au bas de ces groupes\n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe \n\n\npuis on fait ajouter\n\n\n\n\nPlacer un ou plusieurs membre(s) dans le panier\n\n\nL'utilisateur doit avoir le r\u00f4le panier pour manipuler cet outil.\n\n\nAller dans la section Groupe \"Lister tous les groupes\"\n\n\n\n\n\n\nRemarque\n\n\n\n\nDeux groupes sont ajout\u00e9s au panier\n\n\nl'ic\u00f4ne panier contient le compte de personne\n\n\n\n\nPuis consulter la section \"Panier\" pour cela.", 
+            "title": "Pr\u00e9sentation"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#groupe-ecclesiacrm", 
             "text": "", 
-            "title": "Gestion des groupes"
+            "title": "Groupe &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#introduction", 
+            "text": "Les groupes dans Ecclesia CRM  ont une place pr\u00e9pond\u00e9rante dans le fait    de r\u00e9unir plusieurs personnes dans un m\u00eame \"container\"  d'envoyer des mails  de g\u00e9rer les groupes d'\u00e9cole du dimanche  de hi\u00e9rarchiser les menus, via des \"types\", qui se trouvent dans la barre lat\u00e9rale gauche aussi dans le cas de groupe classique que de groupes sp\u00e9ciaux comme ceux de l'\u00e9cole du dimanche.   Vous pourrez aussi via le \"Panier\" faire   des extractions CSV   imprimer   un annuaire  des \u00e9tiquettes  des badges   Voir pour cela la section \"Panier\"", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#acceder-aux-groupes", 
+            "text": "Pour acc\u00e9der \u00e0 l'ensemble des groupes, il suffit de d\u00e9ployer la barre lat\u00e9rale comme suit   On s\u00e9lectionne \"Lister tous les groupes\" et on obtient   On peut les filtrer par \"type\"   Ici vous n'aurez que les groupes de type \"Ecole du dimanche\"  Remarque  le type de groupe permet de hi\u00e9rarchiser les groupes dans la barre de menu lat\u00e9ral \u00e0 gauche", 
+            "title": "Acc\u00e9der aux groupes"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#ajouter-un-nouveau-groupe", 
+            "text": "On va au bas de ces groupes   On ajoute   le nom du groupe   puis on fait ajouter", 
+            "title": "Ajouter un nouveau groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups/#placer-un-ou-plusieurs-membres-dans-le-panier", 
+            "text": "L'utilisateur doit avoir le r\u00f4le panier pour manipuler cet outil.  Aller dans la section Groupe \"Lister tous les groupes\"    Remarque   Deux groupes sont ajout\u00e9s au panier  l'ic\u00f4ne panier contient le compte de personne   Puis consulter la section \"Panier\" pour cela.", 
+            "title": "Placer un ou plusieurs membre(s) dans le panier"
         }, 
         {
             "location": "/user-guide/doc-users/doc-users/", 
