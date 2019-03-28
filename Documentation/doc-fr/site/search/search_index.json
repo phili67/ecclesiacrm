@@ -496,6 +496,46 @@
             "title": "Placer un ou plusieurs membre(s) dans le panier"
         }, 
         {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/", 
+            "text": "Cr\u00e9ation \n Menu \n Ecclesia\nCRM\n \n\n\nAjouter un nouveau groupe\n\n\nOn consulte l'ensemble de ces groupes\n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nClasser ce groupe dans la barre lat\u00e9rale (Menu)\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat", 
+            "title": "Cr\u00e9ation & Menu"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#creation-menu-ecclesiacrm", 
+            "text": "", 
+            "title": "Cr\u00e9ation &amp; Menu &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#ajouter-un-nouveau-groupe", 
+            "text": "On consulte l'ensemble de ces groupes   On ajoute   le nom du groupe, par exemple essai  puis on fait ajouter   Voici le r\u00e9sultat   Il est class\u00e9 pour l'instant dans les groupes non assign\u00e9s", 
+            "title": "Ajouter un nouveau groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#classer-ce-groupe-dans-la-barre-laterale-menu", 
+            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat", 
+            "title": "Classer ce groupe dans la barre lat\u00e9rale (Menu)"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-members-roles/", 
+            "text": "Membres \n R\u00f4les \n Ecclesia\nCRM\n \n\n\nChanger le r\u00f4le d'un membre\n\n\nOn s\u00e9lectionne le groupe ou on veut changer le r\u00f4le d'un membre.\n\n\nOn clique sur le \"crayon\"\n\n\n\n\nOn peut changer, le r\u00f4le\n\n\n\n\nAjouter un r\u00f4le de membre\n\n\nOn s\u00e9lectionne le groupe sur lequel on veut travailler", 
+            "title": "Membres & r\u00f4les"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-members-roles/#membres-roles-ecclesiacrm", 
+            "text": "", 
+            "title": "Membres &amp; R\u00f4les &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-members-roles/#changer-le-role-dun-membre", 
+            "text": "On s\u00e9lectionne le groupe ou on veut changer le r\u00f4le d'un membre.  On clique sur le \"crayon\"   On peut changer, le r\u00f4le", 
+            "title": "Changer le r\u00f4le d'un membre"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-members-roles/#ajouter-un-role-de-membre", 
+            "text": "On s\u00e9lectionne le groupe sur lequel on veut travailler", 
+            "title": "Ajouter un r\u00f4le de membre"
+        }, 
+        {
             "location": "/user-guide/doc-users/doc-users/", 
             "text": "Un utilisateur a les droits suivants\n\n\n\n\ng\u00e9rer son espace personnel\n\n\nacc\u00e9der \u00e0 son dossier via WebDAV\n\n\nAjouter des fichiers dans son espace personnel\n\n\nCr\u00e9er des calendriers\n\n\nConsulter des calendriers partag\u00e9s\n\n\nPartager ses calendriers\n\n\n\n\nPour acc\u00e9der \u00e0 la gestion\n\n\n\n\n\n\nPour g\u00e9rer les utilisateurs  \n\n\n\n\n\n\nAller dans la partie r\u00e9glage\n\n\n\n\n\n\n\n\nPuis dans \"Utilisateurs du Syst\u00e8me\"\n\n\n\n\n\n\n\n\nOn peut maintenant g\u00e9rer les utilisateurs ou en cr\u00e9er \n\n\n\n\n\n\n\n\n\n\n\n\nPour modifier un utilisateur \n\n\n\n\n\n\n\n\nCr\u00e9er un utilisateur d'une personne\n\n\n\n\n\n\n\n\n\n\nPour modifier les propri\u00e9t\u00e9s\n\n\n\n\n\n\nDroits d'un utilisateur (pour un administrateur du syst\u00e8me)\n\n\n\n\nIl peut g\u00e9rer un des aspects les plus puissant le panier\n\n\nles enregistrements (Cr\u00e9er des Personnes)\n\n\nModidier des personnes\n\n\nVisualiser les cartes google map pour voir les personnes\n\n\nAdministrer des Propri\u00e9t\u00e9s et Classifications:   \n\n\nAdministrer des Groupes et des R\u00f4les:    \n\n\nAdministrer des Cotisations et des Finances: \n\n\nVisualiser, Ajouter et Modifier les documents:   \n\n\nModifier son propre compte:   (Modifier uniquement sa propre famille.)\n\n\nD\u00e9marcheur:   (b\u00e9n\u00e9volat pour du d\u00e9marchage.)\n\n\nCr\u00e9er des administrateur Administrateur\n\n\nG\u00e9rer les couleurs par d\u00e9faut du CRM\n\n\n\n\n\n\n\n\nIl peut \u00e9galement fixer les droits auquel chaque utilisateur a acc\u00e8s \n\n\n\n\nEnvoyer des mails\n\n\nG\u00e9rer son caract\u00e8res de s\u00e9paration pour les mails group\u00e9s\n\n\nCr\u00e9er des Annuaires de personnes\n\n\nExporter le contenu d'un panier au format CSV (sous Excel ou LibreOffice Calc)\n\n\nAfficher des bulles d'aide\n\n\nAjouter des \u00e9v\u00e9nements dans le calendrier\n\n\nVoir les donn\u00e9es priv\u00e9es", 
             "title": "Mise en place d'un utilisateur (administrateur)"
