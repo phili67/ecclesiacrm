@@ -19,3 +19,9 @@ On peut changer, le rôle
 On sélectionne le groupe sur lequel on veut travailler
 
 ![Screenshot](../../../img/group/addRoles.png)
+
+On peut maintenant ajouter le nouveau rôle en bas
+
+![Screenshot](../../../img/group/addRole1.png)
+
+**Remarque** les rôles étudiants et moniteurs sont sélectionnés par défaut dans les groupes écoles du dimanche.
