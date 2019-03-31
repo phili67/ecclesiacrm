@@ -68,6 +68,8 @@ pages:
             - 'Champs personnalisables de famille': 'user-guide/doc-admin/family/doc-custom-settings/doc-family-customfields.md'
     - 'Gestion des groupes': 
         - 'Présentation': 'user-guide/doc-admin/group/doc-groups.md'
+        - 'Création & Menu': 'user-guide/doc-admin/group/doc-groups-management.md'
+        - 'Membres & rôles': 'user-guide/doc-admin/group/doc-groups-members-roles.md'
     - 'Droits et gestion des utilisateurs du CRM': 
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
