@@ -120,7 +120,7 @@ msgid "Select Role"
 msgstr "Sélectionner un rôle"
 
 msgid "Please select target Role for members"
-msgstr "Veuillez sélectionner le rôle cible pour es membres"
+msgstr "Veuillez sélectionner le rôle cible pour ce(s) membre(s)"
 
 msgid "GroupID required for role selection prompt"
 msgstr "GroupID requière pour le rôle une sélection rapide"
