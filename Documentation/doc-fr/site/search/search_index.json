@@ -517,22 +517,22 @@
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-managers/", 
-            "text": "Gestion d'un groupe \n Ecclesia\nCRM\n \n\n\nGestion global d'un groupe\n\n\nUn utilisateur du syst\u00e8me peut avoir le r\u00f4le \n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nGestion local d'un groupe\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat", 
+            "text": "Gestion d'un groupe \n Ecclesia\nCRM\n \n\n\nUn manager de groupe peut ajouter ou retirer des membres du groupes ou g\u00e9rer son groupe.\n\n\nGestion global d'un groupe\n\n\nUn utilisateur du syst\u00e8me peut avoir le r\u00f4le : \"gestion de groupe\"\n\n\nPour cela \n\n\n\n\nOn \u00e9dite un des utilisateurs\n\n\n\n\nOn lui affecte ce r\u00f4le\n\n\n\n\nGestion local d'un groupe\n\n\nIl faut dans ce cas s\u00e9lectionner le groupe pour lequel vous aimeriez ajouter un admin local\n\n\nOn s\u00e9lection ensuite l'ic\u00f4ne \"+\" qui permet de d\u00e9ployer le volet permettant d'affecter le manager local\n\n\n\n\nOn clique ensuite le bouton : \"Ajouter Manager\"\n\n\n\n\nOn pourra ici choisir la personne \u00e0 affecter.", 
             "title": "Gestion du groupe"
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-dun-groupe-ecclesiacrm", 
-            "text": "", 
+            "text": "Un manager de groupe peut ajouter ou retirer des membres du groupes ou g\u00e9rer son groupe.", 
             "title": "Gestion d'un groupe &amp; EcclesiaCRM "
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-global-dun-groupe", 
-            "text": "Un utilisateur du syst\u00e8me peut avoir le r\u00f4le    On ajoute   le nom du groupe, par exemple essai  puis on fait ajouter   Voici le r\u00e9sultat   Il est class\u00e9 pour l'instant dans les groupes non assign\u00e9s", 
+            "text": "Un utilisateur du syst\u00e8me peut avoir le r\u00f4le : \"gestion de groupe\"  Pour cela    On \u00e9dite un des utilisateurs   On lui affecte ce r\u00f4le", 
             "title": "Gestion global d'un groupe"
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-local-dun-groupe", 
-            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat", 
+            "text": "Il faut dans ce cas s\u00e9lectionner le groupe pour lequel vous aimeriez ajouter un admin local  On s\u00e9lection ensuite l'ic\u00f4ne \"+\" qui permet de d\u00e9ployer le volet permettant d'affecter le manager local   On clique ensuite le bouton : \"Ajouter Manager\"   On pourra ici choisir la personne \u00e0 affecter.", 
             "title": "Gestion local d'un groupe"
         }, 
         {

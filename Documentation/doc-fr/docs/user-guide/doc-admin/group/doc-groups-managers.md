@@ -1,47 +1,33 @@
 # <center><big>Gestion d'un groupe & Ecclesia**CRM** </big></center>
 
+Un manager de groupe peut ajouter ou retirer des membres du groupes ou gérer son groupe.
 
 ##Gestion global d'un groupe
 
-Un utilisateur du système peut avoir le rôle 
+Un utilisateur du système peut avoir le rôle : "gestion de groupe"
 
-![Screenshot](../../../img/group/addGroupName.png)
+Pour cela 
 
-On ajoute
+![Screenshot](../../../img/group/admin/globalgroupmanagement1.png)
 
-- le nom du groupe, par exemple essai
-- puis on fait ajouter
+On édite un des utilisateurs
 
-Voici le résultat
+![Screenshot](../../../img/group/admin/globalgroupmanagement2.png)
 
-![Screenshot](../../../img/group/addGroupName2.png)
+On lui affecte ce rôle
 
-Il est classé pour l'instant dans les groupes non assignés
-
-![Screenshot](../../../img/group/nonAssignedAddedGroup.png)
+![Screenshot](../../../img/group/admin/globalgroupmanagement3.png)
 
 ##Gestion local d'un groupe
 
-Pour créer un nouveau type de groupe
+Il faut dans ce cas sélectionner le groupe pour lequel vous aimeriez ajouter un admin local
 
-![Screenshot](../../../img/group/assignedGroupProp.png)
+On sélection ensuite l'icône "+" qui permet de déployer le volet permettant d'affecter le manager local
 
-On peut ici créer un type de groupe
+![Screenshot](../../../img/group/admin/localgroupmanagement1.png)
 
-![Screenshot](../../../img/group/assignedGroupPropManagement.png)
+On clique ensuite le bouton : "Ajouter Manager"
 
-Nous pouvons ensuite la propriété à ce groupe, sélectionner le groupe
+![Screenshot](../../../img/group/admin/localgroupmanagement2.png)
 
-![Screenshot](../../../img/group/assignGroupeProp1.png)
-
-Il suffit maintenant de cliquer le bouton
-
-![Screenshot](../../../img/group/assignGroupeProp2.png)
-
-Puis de choisir le type
-
-![Screenshot](../../../img/group/assignGroupeProp3.png)
-
-Voici le résultat
-
-![Screenshot](../../../img/group/assignGroupeProp4.png)
+On pourra ici choisir la personne à affecter.
