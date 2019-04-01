@@ -556,6 +556,16 @@
             "title": "Ajouter un r\u00f4le de membre"
         }, 
         {
+            "location": "/user-guide/doc-admin/group/doc-groups-export-contacts/", 
+            "text": "Exporter contacts CardDav\n Ecclesia\nCRM\n \n\n\nPour cela vous s\u00e9lectionnez le groupe et vous cliquez le bouton suivant\n\n\n\n\nLe fichier export\u00e9 pourra \u00eatre int\u00e9gr\u00e9 ensuite au carnet d'adresses ou \u00e0 thunderBird.", 
+            "title": "Export Contacts"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-export-contacts/#exporter-contacts-carddav-ecclesiacrm", 
+            "text": "Pour cela vous s\u00e9lectionnez le groupe et vous cliquez le bouton suivant   Le fichier export\u00e9 pourra \u00eatre int\u00e9gr\u00e9 ensuite au carnet d'adresses ou \u00e0 thunderBird.", 
+            "title": "Exporter contacts CardDav&amp; EcclesiaCRM "
+        }, 
+        {
             "location": "/user-guide/doc-users/doc-users/", 
             "text": "Un utilisateur a les droits suivants\n\n\n\n\ng\u00e9rer son espace personnel\n\n\nacc\u00e9der \u00e0 son dossier via WebDAV\n\n\nAjouter des fichiers dans son espace personnel\n\n\nCr\u00e9er des calendriers\n\n\nConsulter des calendriers partag\u00e9s\n\n\nPartager ses calendriers\n\n\n\n\nPour acc\u00e9der \u00e0 la gestion\n\n\n\n\n\n\nPour g\u00e9rer les utilisateurs  \n\n\n\n\n\n\nAller dans la partie r\u00e9glage\n\n\n\n\n\n\n\n\nPuis dans \"Utilisateurs du Syst\u00e8me\"\n\n\n\n\n\n\n\n\nOn peut maintenant g\u00e9rer les utilisateurs ou en cr\u00e9er \n\n\n\n\n\n\n\n\n\n\n\n\nPour modifier un utilisateur \n\n\n\n\n\n\n\n\nCr\u00e9er un utilisateur d'une personne\n\n\n\n\n\n\n\n\n\n\nPour modifier les propri\u00e9t\u00e9s\n\n\n\n\n\n\nDroits d'un utilisateur (pour un administrateur du syst\u00e8me)\n\n\n\n\nIl peut g\u00e9rer un des aspects les plus puissant le panier\n\n\nles enregistrements (Cr\u00e9er des Personnes)\n\n\nModidier des personnes\n\n\nVisualiser les cartes google map pour voir les personnes\n\n\nAdministrer des Propri\u00e9t\u00e9s et Classifications:   \n\n\nAdministrer des Groupes et des R\u00f4les:    \n\n\nAdministrer des Cotisations et des Finances: \n\n\nVisualiser, Ajouter et Modifier les documents:   \n\n\nModifier son propre compte:   (Modifier uniquement sa propre famille.)\n\n\nD\u00e9marcheur:   (b\u00e9n\u00e9volat pour du d\u00e9marchage.)\n\n\nCr\u00e9er des administrateur Administrateur\n\n\nG\u00e9rer les couleurs par d\u00e9faut du CRM\n\n\n\n\n\n\n\n\nIl peut \u00e9galement fixer les droits auquel chaque utilisateur a acc\u00e8s \n\n\n\n\nEnvoyer des mails\n\n\nG\u00e9rer son caract\u00e8res de s\u00e9paration pour les mails group\u00e9s\n\n\nCr\u00e9er des Annuaires de personnes\n\n\nExporter le contenu d'un panier au format CSV (sous Excel ou LibreOffice Calc)\n\n\nAfficher des bulles d'aide\n\n\nAjouter des \u00e9v\u00e9nements dans le calendrier\n\n\nVoir les donn\u00e9es priv\u00e9es", 
             "title": "Mise en place d'un utilisateur (administrateur)"

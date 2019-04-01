@@ -71,6 +71,7 @@ pages:
         - 'Création & Menu': 'user-guide/doc-admin/group/doc-groups-management.md'
         - 'Gestion du groupe': 'user-guide/doc-admin/group/doc-groups-managers.md'
         - 'Membres & rôles': 'user-guide/doc-admin/group/doc-groups-members-roles.md'
+        - 'Export Contacts': 'user-guide/doc-admin/group/doc-groups-export-contacts.md'
     - 'Droits et gestion des utilisateurs du CRM': 
         - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
         - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
