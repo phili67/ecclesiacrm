@@ -516,6 +516,26 @@
             "title": "Classer ce groupe dans la barre lat\u00e9rale (Menu)"
         }, 
         {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/", 
+            "text": "Gestion d'un groupe \n Ecclesia\nCRM\n \n\n\nGestion global d'un groupe\n\n\nUn utilisateur du syst\u00e8me peut avoir le r\u00f4le \n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nGestion local d'un groupe\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat", 
+            "title": "Gestion du groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-dun-groupe-ecclesiacrm", 
+            "text": "", 
+            "title": "Gestion d'un groupe &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-global-dun-groupe", 
+            "text": "Un utilisateur du syst\u00e8me peut avoir le r\u00f4le    On ajoute   le nom du groupe, par exemple essai  puis on fait ajouter   Voici le r\u00e9sultat   Il est class\u00e9 pour l'instant dans les groupes non assign\u00e9s", 
+            "title": "Gestion global d'un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-local-dun-groupe", 
+            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat", 
+            "title": "Gestion local d'un groupe"
+        }, 
+        {
             "location": "/user-guide/doc-admin/group/doc-groups-members-roles/", 
             "text": "Membres \n R\u00f4les \n Ecclesia\nCRM\n \n\n\nChanger le r\u00f4le d'un membre\n\n\nOn s\u00e9lectionne le groupe ou on veut changer le r\u00f4le d'un membre.\n\n\nOn clique sur le \"crayon\"\n\n\n\n\nOn peut changer, le r\u00f4le\n\n\n\n\nAjouter un r\u00f4le de membre\n\n\nOn s\u00e9lectionne le groupe sur lequel on veut travailler\n\n\n\n\nOn peut maintenant ajouter le nouveau r\u00f4le en bas\n\n\n\n\nRemarque\n les r\u00f4les \u00e9tudiants et moniteurs sont s\u00e9lectionn\u00e9s par d\u00e9faut dans les groupes \u00e9coles du dimanche.", 
             "title": "Membres & r\u00f4les"
