@@ -516,6 +516,26 @@
             "title": "Classer ce groupe dans la barre lat\u00e9rale (Menu)"
         }, 
         {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/", 
+            "text": "Gestion d'un groupe \n Ecclesia\nCRM\n \n\n\nUn manager de groupe peut ajouter ou retirer des membres du groupes ou g\u00e9rer son groupe.\n\n\nGestion global d'un groupe\n\n\nUn utilisateur du syst\u00e8me peut avoir le r\u00f4le : \"gestion de groupe\"\n\n\nPour cela \n\n\n\n\nOn \u00e9dite un des utilisateurs\n\n\n\n\nOn lui affecte ce r\u00f4le\n\n\n\n\nGestion local d'un groupe\n\n\nIl faut dans ce cas s\u00e9lectionner le groupe pour lequel vous aimeriez ajouter un admin local\n\n\nOn s\u00e9lection ensuite l'ic\u00f4ne \"+\" qui permet de d\u00e9ployer le volet permettant d'affecter le manager local\n\n\n\n\nOn clique ensuite le bouton : \"Ajouter Manager\"\n\n\n\n\nOn pourra ici choisir la personne \u00e0 affecter.", 
+            "title": "Gestion du groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-dun-groupe-ecclesiacrm", 
+            "text": "Un manager de groupe peut ajouter ou retirer des membres du groupes ou g\u00e9rer son groupe.", 
+            "title": "Gestion d'un groupe &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-global-dun-groupe", 
+            "text": "Un utilisateur du syst\u00e8me peut avoir le r\u00f4le : \"gestion de groupe\"  Pour cela    On \u00e9dite un des utilisateurs   On lui affecte ce r\u00f4le", 
+            "title": "Gestion global d'un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-managers/#gestion-local-dun-groupe", 
+            "text": "Il faut dans ce cas s\u00e9lectionner le groupe pour lequel vous aimeriez ajouter un admin local  On s\u00e9lection ensuite l'ic\u00f4ne \"+\" qui permet de d\u00e9ployer le volet permettant d'affecter le manager local   On clique ensuite le bouton : \"Ajouter Manager\"   On pourra ici choisir la personne \u00e0 affecter.", 
+            "title": "Gestion local d'un groupe"
+        }, 
+        {
             "location": "/user-guide/doc-admin/group/doc-groups-members-roles/", 
             "text": "Membres \n R\u00f4les \n Ecclesia\nCRM\n \n\n\nChanger le r\u00f4le d'un membre\n\n\nOn s\u00e9lectionne le groupe ou on veut changer le r\u00f4le d'un membre.\n\n\nOn clique sur le \"crayon\"\n\n\n\n\nOn peut changer, le r\u00f4le\n\n\n\n\nAjouter un r\u00f4le de membre\n\n\nOn s\u00e9lectionne le groupe sur lequel on veut travailler\n\n\n\n\nOn peut maintenant ajouter le nouveau r\u00f4le en bas\n\n\n\n\nRemarque\n les r\u00f4les \u00e9tudiants et moniteurs sont s\u00e9lectionn\u00e9s par d\u00e9faut dans les groupes \u00e9coles du dimanche.", 
             "title": "Membres & r\u00f4les"
@@ -534,6 +554,61 @@
             "location": "/user-guide/doc-admin/group/doc-groups-members-roles/#ajouter-un-role-de-membre", 
             "text": "On s\u00e9lectionne le groupe sur lequel on veut travailler   On peut maintenant ajouter le nouveau r\u00f4le en bas   Remarque  les r\u00f4les \u00e9tudiants et moniteurs sont s\u00e9lectionn\u00e9s par d\u00e9faut dans les groupes \u00e9coles du dimanche.", 
             "title": "Ajouter un r\u00f4le de membre"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-export-contacts/", 
+            "text": "Exporter contacts CardDav\n Ecclesia\nCRM\n \n\n\nPour cela vous s\u00e9lectionnez le groupe et vous cliquez le bouton suivant\n\n\n\n\nLe fichier export\u00e9 pourra \u00eatre int\u00e9gr\u00e9 ensuite au carnet d'adresses ou \u00e0 thunderBird.", 
+            "title": "Export Contacts"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-export-contacts/#exporter-contacts-carddav-ecclesiacrm", 
+            "text": "Pour cela vous s\u00e9lectionnez le groupe et vous cliquez le bouton suivant   Le fichier export\u00e9 pourra \u00eatre int\u00e9gr\u00e9 ensuite au carnet d'adresses ou \u00e0 thunderBird.", 
+            "title": "Exporter contacts CardDav&amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/", 
+            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s globales\n\n\nElles sont fix\u00e9s pour tous les groupes ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s\n\n\n\n\nOn peut maintenant les rajouter ou les modifier via cette vue\n\n\n\n\nAffecter des propri\u00e9t\u00e9s globales \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nPuis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Propri\u00e9t\u00e9s globales"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#proprietes-globales-ecclesiacrm", 
+            "text": "Dans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s", 
+            "title": "Propri\u00e9t\u00e9s globales &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#les-proprietes-globales", 
+            "text": "Elles sont fix\u00e9s pour tous les groupes ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s   On peut maintenant les rajouter ou les modifier via cette vue", 
+            "title": "Les propri\u00e9t\u00e9s globales"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#affecter-des-proprietes-globales-a-un-groupe", 
+            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   Puis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Affecter des propri\u00e9t\u00e9s globales \u00e0 un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/", 
+            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s sp\u00e9cifiques\n\n\nElles sont fix\u00e9s pour un seul groupe ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes\n\n\n\n\nPour cela on clique\n\n\n\n\nIl suffit de cliquer \n\n\n\n\nOn peut maintenant ajouter les propri\u00e9t\u00e9s sp\u00e9cifiques aux groupes\n\n\n\n\nAffecter des propri\u00e9t\u00e9s sp\u00e9cifiques \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn peut maintenant les \u00e9diter\n\n\n\n\nIl suffit maintenant de rajouter les propri\u00e9t\u00e9s comme suit\n\n\n\n\nVoici un exemple\n\n\n\n\nAstuce\n\n\nEn cliquant la case \u00e0 cocher, on peut donner aux personnes la possibilit\u00e9 de modifier chacune pour elle m\u00eame la valeur de ce champ.\n\n\nEn faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalis\u00e9.", 
+            "title": "Propri\u00e9t\u00e9s sp\u00e9cifiques"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#proprietes-globales-ecclesiacrm", 
+            "text": "Dans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s", 
+            "title": "Propri\u00e9t\u00e9s globales &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#les-proprietes-specifiques", 
+            "text": "Elles sont fix\u00e9s pour un seul groupe ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher   On doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes   Pour cela on clique   Il suffit de cliquer    On peut maintenant ajouter les propri\u00e9t\u00e9s sp\u00e9cifiques aux groupes", 
+            "title": "Les propri\u00e9t\u00e9s sp\u00e9cifiques"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#affecter-des-proprietes-specifiques-a-un-groupe", 
+            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   On peut maintenant les \u00e9diter   Il suffit maintenant de rajouter les propri\u00e9t\u00e9s comme suit   Voici un exemple", 
+            "title": "Affecter des propri\u00e9t\u00e9s sp\u00e9cifiques \u00e0 un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#astuce", 
+            "text": "En cliquant la case \u00e0 cocher, on peut donner aux personnes la possibilit\u00e9 de modifier chacune pour elle m\u00eame la valeur de ce champ.  En faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalis\u00e9.", 
+            "title": "Astuce"
         }, 
         {
             "location": "/user-guide/doc-users/doc-users/", 
