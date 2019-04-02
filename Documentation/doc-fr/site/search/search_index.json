@@ -587,7 +587,7 @@
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/", 
-            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s sp\u00e9cifiques\n\n\nElles sont fix\u00e9s pour un seul groupe ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes\n\n\n\n\nAffecter des propri\u00e9t\u00e9s globales \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nPuis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s sp\u00e9cifiques\n\n\nElles sont fix\u00e9s pour un seul groupe ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes\n\n\n\n\nPour cela on clique\n\n\n\n\nIl suffit de cliquer \n\n\n\n\nOn peut maintenant ajouter les propri\u00e9t\u00e9s sp\u00e9cifiques aux groupes\n\n\n\n\nAffecter des propri\u00e9t\u00e9s sp\u00e9cifiques \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn peut maintenant les \u00e9diter\n\n\n\n\nIl suffit maintenant de rajouter les propri\u00e9t\u00e9s comme suit\n\n\n\n\nVoici un exemple\n\n\n\n\nAstuce\n\n\nEn cliquant la case \u00e0 cocher, on peut donner aux personnes la possibilit\u00e9 de modifier chacune pour elle m\u00eame la valeur de ce champ.\n\n\nEn faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalis\u00e9.", 
             "title": "Propri\u00e9t\u00e9s sp\u00e9cifiques"
         }, 
         {
@@ -597,13 +597,18 @@
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#les-proprietes-specifiques", 
-            "text": "Elles sont fix\u00e9s pour un seul groupe ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher   On doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes", 
+            "text": "Elles sont fix\u00e9s pour un seul groupe ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher   On doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes   Pour cela on clique   Il suffit de cliquer    On peut maintenant ajouter les propri\u00e9t\u00e9s sp\u00e9cifiques aux groupes", 
             "title": "Les propri\u00e9t\u00e9s sp\u00e9cifiques"
         }, 
         {
-            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#affecter-des-proprietes-globales-a-un-groupe", 
-            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   Puis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
-            "title": "Affecter des propri\u00e9t\u00e9s globales \u00e0 un groupe"
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#affecter-des-proprietes-specifiques-a-un-groupe", 
+            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   On peut maintenant les \u00e9diter   Il suffit maintenant de rajouter les propri\u00e9t\u00e9s comme suit   Voici un exemple", 
+            "title": "Affecter des propri\u00e9t\u00e9s sp\u00e9cifiques \u00e0 un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#astuce", 
+            "text": "En cliquant la case \u00e0 cocher, on peut donner aux personnes la possibilit\u00e9 de modifier chacune pour elle m\u00eame la valeur de ce champ.  En faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalis\u00e9.", 
+            "title": "Astuce"
         }, 
         {
             "location": "/user-guide/doc-users/doc-users/", 

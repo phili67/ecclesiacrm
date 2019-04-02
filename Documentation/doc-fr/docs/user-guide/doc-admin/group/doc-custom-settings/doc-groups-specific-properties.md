@@ -12,15 +12,40 @@ Pour accéder à ces propriétés, on sélectionne un groupe, via le menu recher
 
 On doit activer les propriétés spécifiques de groupes
 
-![Screenshot](../../../../img/group/admin/globalPropsSettings2.png)
+![Screenshot](../../../../img/group/admin/specificPropsSettings1.png)
 
-##Affecter des propriétés globales à un groupe
+Pour cela on clique
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings2.png)
+
+Il suffit de cliquer 
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings3.png)
+
+On peut maintenant ajouter les propriétés spécifiques aux groupes
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings4.png)
+
+##Affecter des propriétés spécifiques à un groupe
 
 On sélectionne un groupe, via le menu rechercher
 
-![Screenshot](../../../../img/group/admin/setGlobalProps1.png)
+![Screenshot](../../../../img/group/admin/searchGroup.png)
 
-Puis on peut affecter la propriété au groupe comme ci-dessous
+On peut maintenant les éditer
 
-![Screenshot](../../../../img/group/admin/setGlobalProps2.png)
+![Screenshot](../../../../img/group/admin/specificPropsSettings6.png)
 
+Il suffit maintenant de rajouter les propriétés comme suit
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings5.png)
+
+Voici un exemple
+
+![Screenshot](../../../../img/group/admin/specificPropsSettings7.png)
+
+##Astuce
+
+En cliquant la case à cocher, on peut donner aux personnes la possibilité de modifier chacune pour elle même la valeur de ce champ.
+
+**En faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalisé.**
