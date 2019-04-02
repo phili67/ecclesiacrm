@@ -7097,7 +7097,7 @@ msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
-"Vous pourriez Editer le groupe et \"Activer les Propriétés spécifiques du "
+"Vous pourriez \"Modifier ce groupe\" et \"Activer les Propriétés spécifiques du "
 "groupe\". Pour cela, cliquer : \"Modifier ce Groupe\""
 
 #: GroupView.php:478
