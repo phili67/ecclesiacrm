@@ -566,6 +566,46 @@
             "title": "Exporter contacts CardDav&amp; EcclesiaCRM "
         }, 
         {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/", 
+            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s globales\n\n\nElles sont fix\u00e9s pour tous les groupes ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s\n\n\n\n\nOn peut maintenant les rajouter ou les modifier via cette vue\n\n\n\n\nAffecter des propri\u00e9t\u00e9s globales \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nPuis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Propri\u00e9t\u00e9s globales"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#proprietes-globales-ecclesiacrm", 
+            "text": "Dans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s", 
+            "title": "Propri\u00e9t\u00e9s globales &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#les-proprietes-globales", 
+            "text": "Elles sont fix\u00e9s pour tous les groupes ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s   On peut maintenant les rajouter ou les modifier via cette vue", 
+            "title": "Les propri\u00e9t\u00e9s globales"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-global-properties/#affecter-des-proprietes-globales-a-un-groupe", 
+            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   Puis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Affecter des propri\u00e9t\u00e9s globales \u00e0 un groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/", 
+            "text": "Propri\u00e9t\u00e9s globales \n Ecclesia\nCRM\n \n\n\nDans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s\n\n\nLes propri\u00e9t\u00e9s sp\u00e9cifiques\n\n\nElles sont fix\u00e9s pour un seul groupe ...\n\n\nPour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nOn doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes\n\n\n\n\nAffecter des propri\u00e9t\u00e9s globales \u00e0 un groupe\n\n\nOn s\u00e9lectionne un groupe, via le menu rechercher\n\n\n\n\nPuis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Propri\u00e9t\u00e9s sp\u00e9cifiques"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#proprietes-globales-ecclesiacrm", 
+            "text": "Dans EcclesiaCRM, il y a de deux types de propri\u00e9t\u00e9s", 
+            "title": "Propri\u00e9t\u00e9s globales &amp; EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#les-proprietes-specifiques", 
+            "text": "Elles sont fix\u00e9s pour un seul groupe ...  Pour acc\u00e9der \u00e0 ces propri\u00e9t\u00e9s, on s\u00e9lectionne un groupe, via le menu rechercher   On doit activer les propri\u00e9t\u00e9s sp\u00e9cifiques de groupes", 
+            "title": "Les propri\u00e9t\u00e9s sp\u00e9cifiques"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#affecter-des-proprietes-globales-a-un-groupe", 
+            "text": "On s\u00e9lectionne un groupe, via le menu rechercher   Puis on peut affecter la propri\u00e9t\u00e9 au groupe comme ci-dessous", 
+            "title": "Affecter des propri\u00e9t\u00e9s globales \u00e0 un groupe"
+        }, 
+        {
             "location": "/user-guide/doc-users/doc-users/", 
             "text": "Un utilisateur a les droits suivants\n\n\n\n\ng\u00e9rer son espace personnel\n\n\nacc\u00e9der \u00e0 son dossier via WebDAV\n\n\nAjouter des fichiers dans son espace personnel\n\n\nCr\u00e9er des calendriers\n\n\nConsulter des calendriers partag\u00e9s\n\n\nPartager ses calendriers\n\n\n\n\nPour acc\u00e9der \u00e0 la gestion\n\n\n\n\n\n\nPour g\u00e9rer les utilisateurs  \n\n\n\n\n\n\nAller dans la partie r\u00e9glage\n\n\n\n\n\n\n\n\nPuis dans \"Utilisateurs du Syst\u00e8me\"\n\n\n\n\n\n\n\n\nOn peut maintenant g\u00e9rer les utilisateurs ou en cr\u00e9er \n\n\n\n\n\n\n\n\n\n\n\n\nPour modifier un utilisateur \n\n\n\n\n\n\n\n\nCr\u00e9er un utilisateur d'une personne\n\n\n\n\n\n\n\n\n\n\nPour modifier les propri\u00e9t\u00e9s\n\n\n\n\n\n\nDroits d'un utilisateur (pour un administrateur du syst\u00e8me)\n\n\n\n\nIl peut g\u00e9rer un des aspects les plus puissant le panier\n\n\nles enregistrements (Cr\u00e9er des Personnes)\n\n\nModidier des personnes\n\n\nVisualiser les cartes google map pour voir les personnes\n\n\nAdministrer des Propri\u00e9t\u00e9s et Classifications:   \n\n\nAdministrer des Groupes et des R\u00f4les:    \n\n\nAdministrer des Cotisations et des Finances: \n\n\nVisualiser, Ajouter et Modifier les documents:   \n\n\nModifier son propre compte:   (Modifier uniquement sa propre famille.)\n\n\nD\u00e9marcheur:   (b\u00e9n\u00e9volat pour du d\u00e9marchage.)\n\n\nCr\u00e9er des administrateur Administrateur\n\n\nG\u00e9rer les couleurs par d\u00e9faut du CRM\n\n\n\n\n\n\n\n\nIl peut \u00e9galement fixer les droits auquel chaque utilisateur a acc\u00e8s \n\n\n\n\nEnvoyer des mails\n\n\nG\u00e9rer son caract\u00e8res de s\u00e9paration pour les mails group\u00e9s\n\n\nCr\u00e9er des Annuaires de personnes\n\n\nExporter le contenu d'un panier au format CSV (sous Excel ou LibreOffice Calc)\n\n\nAfficher des bulles d'aide\n\n\nAjouter des \u00e9v\u00e9nements dans le calendrier\n\n\nVoir les donn\u00e9es priv\u00e9es", 
             "title": "Mise en place d'un utilisateur (administrateur)"
