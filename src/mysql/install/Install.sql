@@ -1218,7 +1218,7 @@ INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_valu
   (0, 12, 'bSidebarExpandOnHover', '1', 'boolean', 'Enable sidebar expand on hover effect for sidebar mini', 'TRUE', ''),
   (0, 13, 'bSidebarCollapse', '1', 'boolean', 'The sidebar is collapse by default', 'TRUE', ''),
   (1, 0, 'bEmailMailto', '1', 'boolean', 'User permission to send email via mailto: links', 'TRUE', ''),
-  (1, 1, 'sMailtoDelimiter', ',', 'text', 'user permission to send email via mailto: links', 'TRUE', ''),
+  (1, 1, 'sMailtoDelimiter', ',', 'text', 'User permission to send email via mailto: links', 'TRUE', ''),
   (1, 3, 'bExportSundaySchoolCSV', '1', 'boolean', 'User permission to export CSV files for the sunday school', 'TRUE', ''),
   (1, 4, 'bExportSundaySchoolPDF', '1', 'boolean', 'User permission to export PDF files for the sunday school', 'TRUE', ''),
   (1, 5, 'bCreateDirectory', '1', 'boolean', 'User permission to create directories', 'TRUE', ''),
