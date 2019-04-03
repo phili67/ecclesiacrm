@@ -497,13 +497,13 @@
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-management/", 
-            "text": "Cr\u00e9ation \n Menu \n Ecclesia\nCRM\n \n\n\nAjouter un nouveau groupe\n\n\nOn consulte l'ensemble de ces groupes\n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nClasser ce groupe dans la barre lat\u00e9rale (Menu)\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat", 
+            "text": "Groupe \n Menu \n Type dans Ecclesia\nCRM\n \n\n\nLe type de groupe permet de classer les groupes par cat\u00e9gories, dans un contener si on veut.\n\n\nIl permet \u00e9galement de faire la classifications des groupes dans le menu de la barre lat\u00e9rale gauche.\n\n\nAjouter un nouveau groupe\n\n\nOn consulte l'ensemble de ces groupes\n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nType de groupe \n Classer ce groupe dans la barre lat\u00e9rale (Menu)\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nRemarque\n Le groupe \u00e9cole du dimanche est un groupe sp\u00e9cial que nous aborderons dans une autre partie.", 
             "title": "Cr\u00e9ation & Menu"
         }, 
         {
-            "location": "/user-guide/doc-admin/group/doc-groups-management/#creation-menu-ecclesiacrm", 
-            "text": "", 
-            "title": "Cr\u00e9ation &amp; Menu &amp; EcclesiaCRM "
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#groupe-menu-type-dans-ecclesiacrm", 
+            "text": "Le type de groupe permet de classer les groupes par cat\u00e9gories, dans un contener si on veut.  Il permet \u00e9galement de faire la classifications des groupes dans le menu de la barre lat\u00e9rale gauche.", 
+            "title": "Groupe &amp; Menu &amp; Type dans EcclesiaCRM "
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-management/#ajouter-un-nouveau-groupe", 
@@ -511,9 +511,9 @@
             "title": "Ajouter un nouveau groupe"
         }, 
         {
-            "location": "/user-guide/doc-admin/group/doc-groups-management/#classer-ce-groupe-dans-la-barre-laterale-menu", 
-            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat", 
-            "title": "Classer ce groupe dans la barre lat\u00e9rale (Menu)"
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#type-de-groupe-classer-ce-groupe-dans-la-barre-laterale-menu", 
+            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat   Remarque  Le groupe \u00e9cole du dimanche est un groupe sp\u00e9cial que nous aborderons dans une autre partie.", 
+            "title": "Type de groupe &amp; Classer ce groupe dans la barre lat\u00e9rale (Menu)"
         }, 
         {
             "location": "/user-guide/doc-admin/group/doc-groups-managers/", 
@@ -609,6 +609,26 @@
             "location": "/user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties/#astuce", 
             "text": "En cliquant la case \u00e0 cocher, on peut donner aux personnes la possibilit\u00e9 de modifier chacune pour elle m\u00eame la valeur de ce champ.  En faisant cela, on obtient par exemple une forme de Sondage de type Doodle personnalis\u00e9.", 
             "title": "Astuce"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/", 
+            "text": "Groupe \n Menu \n Type dans Ecclesia\nCRM\n \n\n\nLe type de groupe permet de classer les groupes par cat\u00e9gories, dans un contener si on veut.\n\n\nIl permet \u00e9galement de faire la classifications des groupes dans le menu de la barre lat\u00e9rale gauche.\n\n\nAjouter un nouveau groupe\n\n\nOn consulte l'ensemble de ces groupes\n\n\n\n\nOn ajoute\n\n\n\n\nle nom du groupe, par exemple essai\n\n\npuis on fait ajouter\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nIl est class\u00e9 pour l'instant dans les groupes non assign\u00e9s\n\n\n\n\nType de groupe \n Classer ce groupe dans la barre lat\u00e9rale (Menu)\n\n\nPour cr\u00e9er un nouveau type de groupe\n\n\n\n\nOn peut ici cr\u00e9er un type de groupe\n\n\n\n\nNous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe\n\n\n\n\nIl suffit maintenant de cliquer le bouton\n\n\n\n\nPuis de choisir le type\n\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nRemarque\n Le groupe \u00e9cole du dimanche est un groupe sp\u00e9cial que nous aborderons dans une autre partie.", 
+            "title": "Types de groupes"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#groupe-menu-type-dans-ecclesiacrm", 
+            "text": "Le type de groupe permet de classer les groupes par cat\u00e9gories, dans un contener si on veut.  Il permet \u00e9galement de faire la classifications des groupes dans le menu de la barre lat\u00e9rale gauche.", 
+            "title": "Groupe &amp; Menu &amp; Type dans EcclesiaCRM "
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#ajouter-un-nouveau-groupe", 
+            "text": "On consulte l'ensemble de ces groupes   On ajoute   le nom du groupe, par exemple essai  puis on fait ajouter   Voici le r\u00e9sultat   Il est class\u00e9 pour l'instant dans les groupes non assign\u00e9s", 
+            "title": "Ajouter un nouveau groupe"
+        }, 
+        {
+            "location": "/user-guide/doc-admin/group/doc-groups-management/#type-de-groupe-classer-ce-groupe-dans-la-barre-laterale-menu", 
+            "text": "Pour cr\u00e9er un nouveau type de groupe   On peut ici cr\u00e9er un type de groupe   Nous pouvons ensuite la propri\u00e9t\u00e9 \u00e0 ce groupe, s\u00e9lectionner le groupe   Il suffit maintenant de cliquer le bouton   Puis de choisir le type   Voici le r\u00e9sultat   Remarque  Le groupe \u00e9cole du dimanche est un groupe sp\u00e9cial que nous aborderons dans une autre partie.", 
+            "title": "Type de groupe &amp; Classer ce groupe dans la barre lat\u00e9rale (Menu)"
         }, 
         {
             "location": "/user-guide/doc-users/doc-users/", 
