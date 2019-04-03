@@ -1,5 +1,8 @@
-# <center><big>Création & Menu & Ecclesia**CRM** </big></center>
+# <center><big>Groupe & Menu & Type dans Ecclesia**CRM** </big></center>
 
+Le type de groupe permet de classer les groupes par catégories, dans un contener si on veut.
+
+Il permet également de faire la classifications des groupes dans le menu de la barre latérale gauche.
 
 ##Ajouter un nouveau groupe
 
@@ -20,7 +23,7 @@ Il est classé pour l'instant dans les groupes non assignés
 
 ![Screenshot](../../../img/group/nonAssignedAddedGroup.png)
 
-##Classer ce groupe dans la barre latérale (Menu)
+##Type de groupe & Classer ce groupe dans la barre latérale (Menu)
 
 Pour créer un nouveau type de groupe
 
@@ -45,3 +48,5 @@ Puis de choisir le type
 Voici le résultat
 
 ![Screenshot](../../../img/group/assignGroupeProp4.png)
+
+**Remarque** Le groupe école du dimanche est un groupe spécial que nous aborderons dans une autre partie.
