@@ -4422,7 +4422,7 @@ msgstr "Tableau de bord"
 #: EcclesiaCRM/MenuBar/MenuBar.php:192 EcclesiaCRM/MenuBar/MenuBar.php:199
 #: Include/Footer.php:170
 msgid "Global Custom Menus"
-msgstr "Menus Perso. Global"
+msgstr "Menus Perso. Globaux"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:210
 msgid "Custom Menus"
