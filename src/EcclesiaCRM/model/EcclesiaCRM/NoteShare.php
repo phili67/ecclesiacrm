@@ -20,7 +20,7 @@ class NoteShare extends BaseNoteShare
 {
     public function getEditLink()
     {
-        $url = SystemURLs::getRootPath().'/NoteEditor.php?NoteID='.$this->getNote()->getId().'&';
+        $url = SystemURLs::getRootPath().'/DocumentEditor.php?NoteID='.$this->getNote()->getId().'&';
         
         if ($this->getSharePerId() != '') {
             $url = $url.'PersonID='.$this->getSharePerId();
