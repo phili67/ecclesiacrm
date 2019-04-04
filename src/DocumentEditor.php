@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : NoteEditor.php
+ *  filename    : DocumentEditor.php
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker, 2018 Philippe Logel
@@ -266,7 +266,7 @@ require 'Include/Header.php';
           </div>
           <div class="col-lg-3">
             <select name="noteType" class="form-control input-sm" id="selectType">
-              <option value="document" <?= ($sNoteType == "document")?'selected="selected"':"" ?>><?= MiscUtils::noteType("document") ?></option>
+              <option value="note" <?= ($sNoteType == "document")?'selected="selected"':"" ?>><?= MiscUtils::noteType("document") ?></option>
               <option value="video" <?= ($sNoteType == "video")?'selected="selected"':"" ?>><?= MiscUtils::noteType("video") ?></option>
               <option value="audio" <?= ($sNoteType == "audio")?'selected="selected"':"" ?>><?= MiscUtils::noteType("audio") ?></option>
               <?php 

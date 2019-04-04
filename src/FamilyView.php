@@ -431,7 +431,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
        
       if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
           ?>
-          <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
+          <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/DocumentEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
           <?php
       } ?>
               

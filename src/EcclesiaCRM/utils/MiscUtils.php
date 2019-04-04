@@ -514,6 +514,7 @@ public static function FileSizeConvert($bytes)
     $type = '';
     
     switch ($notetype) {
+      case 'note':
       case 'document':
         $type = gettext("Classic Document");
         break;

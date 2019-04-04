@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : NoteDelete.php
+ *  filename    : DocumentDelete.php
  *  last change : 2003-01-07
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker, 2018 Philippe Logel
@@ -98,7 +98,7 @@ require 'Include/Header.php';
   </div>
   <div class="box-footer">
     <a class="btn btn-primary" href="<?= $sReroute ?>"><?= _('Cancel') ?></a>
-  	<a class="btn btn-danger" href="NoteDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= _('Yes, delete this record') ?></a> <?= _('(this action cannot be undone)') ?>
+  	<a class="btn btn-danger" href="DocumentDelete.php?Confirmed=Yes&NoteID=<?php echo $iNoteID ?>"><?= _('Yes, delete this record') ?></a> <?= _('(this action cannot be undone)') ?>
   </div>
 
 <?php require 'Include/Footer.php' ?>
