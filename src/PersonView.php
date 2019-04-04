@@ -641,7 +641,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
     }
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
   ?>
-        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/NoteEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
+        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/DocumentEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
   <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
