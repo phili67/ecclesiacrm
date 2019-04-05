@@ -111,6 +111,9 @@ pages:
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
         - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
+- "Outils":
+    - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
+    - "Import de données": 'user-guide/doc-tools/doc-import.md'
 - "Manuel du développeur":
     - 'API': 'user-guide/doc-dev/api.md'
 - "À propos":
