@@ -6,7 +6,7 @@
 [![Github All Releases](https://img.shields.io/github/downloads/phili67/ecclesiacrm/total.svg)](https://github.com/phili67/ecclesiacrm/releases)
 
 ### Development 
-[![GitHub contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/phili67/ecclesiacrm.svg)](https://github.com/phili67/ecclesiacrm/graphs/contributors)
 [![Join the chat at https://gitter.im/ecclesiacrm/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ecclesiacrm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <!--[![Build Status](https://travis-ci.org/ChurchCRM/CRM.svg?branch=master)](https://travis-ci.org/ChurchCRM/CRM)
 [![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
