@@ -1,19 +1,26 @@
 # <center><big>Recherche Géographique & Ecclesia**CRM** </big></center>
 
-Ecclesia**CRM** permet de visualiser des personnes, des familles ou des membres d'un groupe sur une Carte GoogleMap, OpenStreetMap ou BingMap
+Ecclesia**CRM** permet de visualiser des personnes, des familles ou des membres d'un groupe sur une Carte GoogleMap, OpenStreetMap ou BingMap.
+Un événement peut également localisé sur une carte (exemple pour donner rendez-vous à un groupe de personne sur une carte).
 
-##How does ChurchCRM know exactly where Families live?
+##Comment EcclesiaCRM peut-il localiser les personnes sur une carte ?
 
-ChurchCRM stores the latitude and longitude with each Family. These numbers may be entered into the Family edit page, or looked up based on the address. In the United States, this information is found automatically by using the Internet service rpc.geocoder.us. If you know of a similar service for other countries please let us know!
+EcclesiaCRM stoque les coordonnées GPS afin d'optimiser la recherche sur une carte. Ces coordonnées sont fournies via rpc.geocoder.us. ou nominatim.openstreetmap.org au moyen des adresses des personnes ou des familles dans le CRM. Si vous connaissez une autre service permettant la geolocalisation, contactez-nous.
 
-##How do I find Families that live close to each other?
+##Comment rechercher des personnes autour d'une autre personne ?
 
-Select "Family Geographic Utilities" from the "People" menu, then select a Family from the list. Press "Show Neighbors" and this page will update with the nearest neighbor families listed at the bottom. The Maximum number of neighbors and Maximum distance fields are used to limit the number of neighbor families displayed.
+Pour cela, aller dans le menu "Personnes & Familles" puis "Tableau de bord", enfin sélectionner "Famille Géographique", il suffit de sélectionner une le nom d'un famille, de choisir le nombre maximum de voisin, la distance (le rayon autour de la famille) et de valider.
 
-##How do I see where Families live on a map?
+Il est possible en bas de page des résultats de pouvoir mettre les résultats dans le "Panier".
 
-The easiest way is to select "Family Map" from the "People" menu. This map is generated using the Google mapping service. For this feature to work, the Google map key must be set specifically for your web site URL. The setting is near the bottom of the General Settings page available from the Admin menu. You can obtain a unique Google Maps API key on the Google Developers page.
+##Ou puis-je voir ou sont situées les familles sur la carte ?
 
-##Are other types of maps available?
+Pour cela, aller dans les menu "Personnes & Familles" et choisir l'item "Voir sur la carte".
 
-The "Family Geographic Utilities" page can also make annotation files for the GPS Visualizer web site or the Delorme Street Atlas USA map program. To make an annotation file select the desired format and press "Make Data File".
+Vous pourrez ensuite via la "légende", afficher ou non les personnes selon le type de "Rôle" qui leur a été fixé. 
+
+**Remarque** le rôle principal est normalement celui de "Représentant de famille", ceci pour éviter que 10 pins soient affichés sur la carte pour une même famille de 10 membres.
+
+##A-t-on d'autres formats de cartes ?
+
+La page "Famille Géographique" permet de créer des fichiers de données exploitables par d'autres outils. Aller pour cela sur "Fichiers de données" et cliquer sur le + pour voir les différentes options.
