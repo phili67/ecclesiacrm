@@ -21,6 +21,6 @@ Vous pourrez ensuite via la "légende", afficher ou non les personnes selon le t
 
 **Remarque** le rôle principal est normalement celui de "Représentant de famille", ceci pour éviter que 10 pins soient affichés sur la carte pour une même famille de 10 membres.
 
-##A-t-on d'autres formats de cartes ?
+##A-t-on d'autres formats de cartes possibles ?
 
 La page "Famille Géographique" permet de créer des fichiers de données exploitables par d'autres outils. Aller pour cela sur "Fichiers de données" et cliquer sur le + pour voir les différentes options.
