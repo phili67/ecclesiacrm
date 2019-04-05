@@ -4,6 +4,8 @@ Vous pourrez importer des données via un fichier CSV avec le séparateur "," ou
 
 La fonctionnalité "Importer un fichier CSV" se trouve dans le menu administrateur
 
+![Screenshot](../../img/tools/importCSV.png)
+
 Vous trouverez ici vous permettant de manière guidée d'importer les données de manière automatisée. Si vous sélectionnez le genre correctement vous permettra de créer automatiquement les familles selon les adresses.
 
 Voici le informations de base

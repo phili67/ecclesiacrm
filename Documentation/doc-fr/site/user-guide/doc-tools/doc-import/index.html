@@ -1204,9 +1204,43 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Import de données
+      </label>
+    
     <a href="./" title="Import de données" class="md-nav__link md-nav__link--active">
       Import de données
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-des-enregistrements-de-familles" title="Créer des enregistrements de familles" class="md-nav__link">
+    Créer des enregistrements de familles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classification-des-membres" title="Classification des membres" class="md-nav__link">
+    Classification des membres
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1329,6 +1363,27 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table des matières</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-des-enregistrements-de-familles" title="Créer des enregistrements de familles" class="md-nav__link">
+    Créer des enregistrements de familles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classification-des-membres" title="Classification des membres" class="md-nav__link">
+    Classification des membres
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1343,6 +1398,7 @@
                 <h1 id="import-de-donnees-ecclesiacrm"><center><big>Import de données &amp; Ecclesia<strong>CRM</strong> </big></center><a class="headerlink" href="#import-de-donnees-ecclesiacrm" title="Permanent link">&para;</a></h1>
 <p>Vous pourrez importer des données via un fichier CSV avec le séparateur "," ou ";". Chaque ligne du fichier doit contenir les informations pour une personne.</p>
 <p>La fonctionnalité "Importer un fichier CSV" se trouve dans le menu administrateur</p>
+<p><img alt="Screenshot" src="../../../img/tools/importCSV.png" /></p>
 <p>Vous trouverez ici vous permettant de manière guidée d'importer les données de manière automatisée. Si vous sélectionnez le genre correctement vous permettra de créer automatiquement les familles selon les adresses.</p>
 <p>Voici le informations de base</p>
 <ul>
@@ -1371,18 +1427,17 @@
 <li>des champs personnels pour la famille</li>
 </ul>
 <p>Les dates peuvent être formatées sous la forme YYYY-MM-DD, MM-DD-YYYY, or DD-MM-YYYY. Les séparateurs de date (un tiret, un slash, etc.) ou le blanc ne peut fonctionner.</p>
-<p>It is best to import the data first, before you invest time into tweaking the database. This way you can use the feature of the import screen which deletes all of the Person and Family records (see image below) so you can try importing again. It is usually easier to do most of the necessary clean-up in your data file rather than navigating the ChurchCRM interface to make corrections.</p>
-<p>Import clear data</p>
-<p>Once you are satisfied that the import has done what it can, you can make corrections using the ChurchCRM pages. You can move someone to a different family by editing the Person record. You can also specify family roles such as “child”, which helps ChurchCRM identify the adults for address labels.</p>
-<p>Generating family records</p>
-<p>ChurchCRM can automatically generate family records for the imported person records. Two methods are offered to determine if two (or more) persons belong to the same family</p>
-<p>They share the same Last Name and Address1 field values
-They share values of a selected Custom Family Field
-Select family record mode</p>
-<p>The first option is a simple heuristic to detect traditional families. The second option allows the import of member directories with pre-assigned family identifiers and allows for families where not all members share the same last name. Switch on family record generation by ticking the checkbox in front of the dropdown list shown in the figure above, then select either "Make Family records based on last name and address" (default) or one of listed custom family fields below.</p>
-<p>Member classification</p>
-<p>Another area which may require attention is the classification field, which keeps track of which people are members. This information becomes important when ChurchCRM is used to generate the list of voting members. By creating separate import files by membership type (member, guest, regular attender, etc.), you can assign a classification during the import process that will apply to each person in that file. Example: Create an import file that contains only “Members” so the classification of “Member” can be assigned during the import process. This way each person in that file will be classified as a “Member” in ChurchCRM. Then, import another file that contains only “Guests” so the classification of “Guest” can be assigned during the import process…and so on.</p>
-<p>Note: If you are running the import on shared hosting then you may not have write access to the default area needed for import and the import script will show a file with 0 rows and not import anything. In this case, edit lines 139 and 316 of the CSVImport.php file so that they point to a writable location, e.g. $system_temp = "../tmp";</p>
+<p>Laissez-vous guider par l'outil et la documentation intégrée à l'outil.</p>
+<h2 id="creer-des-enregistrements-de-familles">Créer des enregistrements de familles<a class="headerlink" href="#creer-des-enregistrements-de-familles" title="Permanent link">&para;</a></h2>
+<p>EcclesiaCRM peut créer pour vous directement des familles. Encore une fois laissez-vous diriger par l'outil. L'outil est bati sur le fait</p>
+<ul>
+<li>Qu'elle partage la même adresse</li>
+<li>Elle partage des données qui font partie de champ personnels de familles.</li>
+</ul>
+<p>Pour cela sélectionner le mode de génération de famille.</p>
+<h2 id="classification-des-membres">Classification des membres<a class="headerlink" href="#classification-des-membres" title="Permanent link">&para;</a></h2>
+<p>Il est possible d'importer le personnes selon le fait qu'ils soient membres, invité etc ...</p>
+<p>Note: A la fin de l'importation, tous les membres sont automatiquement dans le "Panier", vous pourrez créer un groupe directement.</p>
                 
                   
                 
