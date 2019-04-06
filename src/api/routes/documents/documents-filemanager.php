@@ -7,6 +7,7 @@ use Slim\Http\Response;
 // Documents filemanager APIs
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\User;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Note;
@@ -131,6 +132,8 @@ function getRealFile($request, $res, $args) {
       $user = UserQuery::create()->findPk($args['personID']);
       $name = $request->getAttribute('path');
       
+      $per = PersonQuery::Create()->findOneById ($args['personID']);
+      
       if ( !is_null($user) ) {
         $realNoteDir = $userDir = $user->getUserRootDir();
         $userName    = $user->getUserName();
@@ -141,7 +144,9 @@ function getRealFile($request, $res, $args) {
         
         $note = NoteQuery::Create()->filterByPerId ($args['personID'])->filterByText($searchLikeString, Criteria::LIKE)->findOne();
         
-        if ( !is_null($note) && ( $note->isShared() > 0 || SessionUser::getUser()->isAdmin() || SessionUser::getUser()->getPersonId() == $args['personID'] ) ) {
+        if ( !is_null($note) && ( $note->isShared() > 0 || SessionUser::getUser()->isAdmin() 
+          || SessionUser::getUser()->getPersonId() == $args['personID'] 
+          || $per->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ) ) {
           $file = dirname(__FILE__)."/../../../".$realNoteDir."/".MiscUtils::convertUTF8AccentuedString2Unicode($name);
           
           if (!file_exists ($file)) {// in the case the file name isn't in unicode format
