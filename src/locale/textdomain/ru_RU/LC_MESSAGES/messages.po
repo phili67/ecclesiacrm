@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-25 20:55+0100\n"
+"POT-Creation-Date: 2019-04-06 19:08+0200\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,52 +97,52 @@ msgid "Your cart has been successfully emptied"
 msgstr "Ваша корзина успешно очищена"
 
 #: api/routes/documents/documents-ckeditor.php:172
-#: api/routes/documents/documents-filemanager.php:621
-#: api/routes/people/people-persons.php:530 NoteEditor.php:127
-#: NoteEditor.php:149 uploader/upload.php:80
+#: api/routes/documents/documents-filemanager.php:626
+#: api/routes/people/people-persons.php:530 DocumentEditor.php:127
+#: DocumentEditor.php:149 uploader/upload.php:80
 #, fuzzy
 msgid "Create file"
 msgstr "Создать файл"
 
-#: api/routes/documents/documents-filemanager.php:119
+#: api/routes/documents/documents-filemanager.php:120
 #: EcclesiaCRM/utils/MiscUtils.php:275
 #, fuzzy
 msgid "Folder"
 msgstr "Создать файл"
 
-#: api/routes/documents/documents-filemanager.php:337
+#: api/routes/documents/documents-filemanager.php:342
 msgid "You can't erase the public folder !"
 msgstr ""
 
-#: api/routes/documents/documents-filemanager.php:407
-#: api/routes/documents/documents-filemanager.php:512
+#: api/routes/documents/documents-filemanager.php:412
+#: api/routes/documents/documents-filemanager.php:517
 #, fuzzy
 msgid "A Folder"
 msgstr "Создать файл"
 
-#: api/routes/documents/documents-filemanager.php:407
-#: api/routes/documents/documents-filemanager.php:457
-#: api/routes/documents/documents-filemanager.php:512
+#: api/routes/documents/documents-filemanager.php:412
+#: api/routes/documents/documents-filemanager.php:462
+#: api/routes/documents/documents-filemanager.php:517
 msgid "already exists at this place."
 msgstr ""
 
-#: api/routes/documents/documents-filemanager.php:437
+#: api/routes/documents/documents-filemanager.php:442
 #, fuzzy
 msgid "Folder modification"
 msgstr "Семья подтверждения удаления"
 
-#: api/routes/documents/documents-filemanager.php:439
-#: api/routes/documents/documents-filemanager.php:482
+#: api/routes/documents/documents-filemanager.php:444
+#: api/routes/documents/documents-filemanager.php:487
 #, fuzzy
 msgid "File modification"
 msgstr "Семья подтверждения удаления"
 
-#: api/routes/documents/documents-filemanager.php:457
+#: api/routes/documents/documents-filemanager.php:462
 #, fuzzy
 msgid "A File"
 msgstr "Все семьи"
 
-#: api/routes/documents/documents-filemanager.php:524
+#: api/routes/documents/documents-filemanager.php:529
 #, fuzzy
 msgid "New Folder"
 msgstr "Новая роль"
@@ -666,10 +666,10 @@ msgid "Store Private Data at Vanco"
 msgstr ""
 
 #: AutoPaymentEditor.php:1086 CanvassEditor.php:239 DepositSlipEditor.php:120
-#: DonatedItemEditor.php:295 FamilyEditor.php:686 FamilyEditor.php:773
-#: FamilyEditor.php:833 FamilyEditor.php:908 FamilyEditor.php:928
-#: FamilyEditor.php:1002 FamilyEditor.php:1201 FundRaiserEditor.php:143
-#: GroupEditor.php:245 GroupPropsEditor.php:168 NoteEditor.php:311
+#: DocumentEditor.php:311 DonatedItemEditor.php:295 FamilyEditor.php:686
+#: FamilyEditor.php:773 FamilyEditor.php:833 FamilyEditor.php:908
+#: FamilyEditor.php:928 FamilyEditor.php:1002 FamilyEditor.php:1201
+#: FundRaiserEditor.php:143 GroupEditor.php:245 GroupPropsEditor.php:168
 #: PaddleNumEditor.php:149 PersonEditor.php:802 PersonEditor.php:935
 #: PersonEditor.php:1053 PersonEditor.php:1452 PersonEditor.php:1525
 #: PersonEditor.php:1611 PledgeEditor.php:729 PropertyEditor.php:191
@@ -679,15 +679,15 @@ msgstr "Сохранить"
 
 #: AutoPaymentEditor.php:1089 BatchWinnerEntry.php:113 CanvassEditor.php:240
 #: Checkin.php:392 Checkin.php:502 Checkin.php:521 DirectoryReports.php:314
-#: DonatedItemEditor.php:299 EventNames.php:261
-#: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1205
-#: FamilyView.php:935 FinancialReports.php:82 FundRaiserEditor.php:144
-#: GroupPropsEditor.php:170 GroupReports.php:102 GroupReports.php:174
-#: LettersAndLabels.php:83 ManageEnvelopes.php:134 MemberRoleChange.php:121
-#: MemberRoleChange.php:123 NoteDelete.php:100 NoteEditor.php:313
-#: PersonEditor.php:1619 PersonView.php:1558 PledgeEditor.php:736
-#: PropertyEditor.php:191 PropertyTypeEditor.php:115 Register.php:56
-#: ReminderReport.php:54 SettingsIndividual.php:122 SettingsIndividual.php:171
+#: DocumentDelete.php:100 DocumentEditor.php:313 DonatedItemEditor.php:299
+#: EventNames.php:261 external/templates/verify/verify-family-info.php:165
+#: FamilyEditor.php:1205 FamilyView.php:935 FinancialReports.php:82
+#: FundRaiserEditor.php:144 GroupPropsEditor.php:170 GroupReports.php:102
+#: GroupReports.php:174 LettersAndLabels.php:83 ManageEnvelopes.php:134
+#: MemberRoleChange.php:121 MemberRoleChange.php:123 PersonEditor.php:1619
+#: PersonView.php:1558 PledgeEditor.php:736 PropertyEditor.php:191
+#: PropertyTypeEditor.php:115 Register.php:56 ReminderReport.php:54
+#: SettingsIndividual.php:122 SettingsIndividual.php:171
 #: sundayschool/SundaySchoolDashboard.php:280
 #: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:751
 #: UserEditor.php:857
@@ -1110,7 +1110,7 @@ msgstr "Нет Воскресная школа"
 msgid "Pictures in the Image folder: "
 msgstr ""
 
-#: CartToBadge.php:144 CartToBadge.php:150 NoteEditor.php:311
+#: CartToBadge.php:144 CartToBadge.php:150 DocumentEditor.php:311
 #: sundayschool/SundaySchoolBadge.php:174
 #: sundayschool/SundaySchoolBadge.php:180
 #, fuzzy
@@ -2226,6 +2226,84 @@ msgstr "Правовая информация "
 #: DirectoryReports.php:313
 msgid "Create Directory"
 msgstr "Создать каталог"
+
+#: DocumentDelete.php:25
+#, fuzzy
+msgid "Note Delete Confirmation"
+msgstr "Примечание Подтверждение удаления"
+
+#: DocumentDelete.php:83
+#, fuzzy
+msgid "Please confirm deletion of this note"
+msgstr "Пожалуйста, подтвердите удаление этой заметке"
+
+#: DocumentDelete.php:101 PropertyDelete.php:61 PropertyTypeDelete.php:75
+msgid "Yes, delete this record"
+msgstr "Да, удалить эту запись"
+
+#: DocumentDelete.php:101 PropertyDelete.php:61 SelectDelete.php:363
+msgid "(this action cannot be undone)"
+msgstr "(Это действие не может быть отменено)"
+
+#: DocumentEditor.php:60
+msgid "Cloud Upload"
+msgstr ""
+
+#: DocumentEditor.php:60
+msgid "in"
+msgstr ""
+
+#: DocumentEditor.php:62
+#, fuzzy
+msgid "Document Editor"
+msgstr "Оплата Редактора: "
+
+#: DocumentEditor.php:104
+#, fuzzy
+msgid "You must enter text for this document"
+msgstr "Введите имя"
+
+#: DocumentEditor.php:250
+#, fuzzy
+msgid "File Info"
+msgstr "Роль семьи"
+
+#: DocumentEditor.php:250
+#, fuzzy
+msgid "Document Title"
+msgstr "Событие Название"
+
+#: DocumentEditor.php:252
+#, fuzzy
+msgid "Set your File Info"
+msgstr "Вернуться в семьи Вид"
+
+#: DocumentEditor.php:252
+#, fuzzy
+msgid "Set your Document title"
+msgstr "Событие Nonattendees"
+
+#: DocumentEditor.php:258
+msgid "Your Note type is"
+msgstr ""
+
+#: DocumentEditor.php:265
+msgid "Choose your Note Type"
+msgstr ""
+
+#: DocumentEditor.php:295
+#, fuzzy
+msgid "File input"
+msgstr "Тип Файла"
+
+#: DocumentEditor.php:298
+#, fuzzy
+msgid "Upload your file"
+msgstr "Загрузить файл CSV"
+
+#: DocumentEditor.php:304
+msgid "Private"
+msgstr "Личные"
 
 #: DonatedItemEditor.php:46
 msgid "Donated Item Editor"
@@ -4506,11 +4584,10 @@ msgstr "Новый пароль"
 msgid "Change Settings"
 msgstr "Сохранить настройки"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:226 SettingsIndividual.php:107
-#: UserEditor.php:770
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 FamilyView.php:569 PersonView.php:741
 #, fuzzy
-msgid "Notes"
-msgstr "Примечание:"
+msgid "Documents"
+msgstr "Комментарий "
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:227 PersonView.php:749
 msgid "EDrive"
@@ -5287,22 +5364,22 @@ msgstr ""
 msgid "Expand"
 msgstr ""
 
-#: EcclesiaCRM/utils/MiscUtils.php:518
+#: EcclesiaCRM/utils/MiscUtils.php:519
 #, fuzzy
 msgid "Classic Document"
 msgstr "Классификация"
 
-#: EcclesiaCRM/utils/MiscUtils.php:521
+#: EcclesiaCRM/utils/MiscUtils.php:522
 #, fuzzy
 msgid "Classic Video"
 msgstr "Классификация"
 
-#: EcclesiaCRM/utils/MiscUtils.php:524
+#: EcclesiaCRM/utils/MiscUtils.php:525
 #, fuzzy
 msgid "Classic File"
 msgstr "Очистить фильтры"
 
-#: EcclesiaCRM/utils/MiscUtils.php:527
+#: EcclesiaCRM/utils/MiscUtils.php:528
 #, fuzzy
 msgid "Classic Audio"
 msgstr "Классификация"
@@ -6377,11 +6454,6 @@ msgstr "Автоматический способ оплаты"
 #: FamilyView.php:565 PersonView.php:730
 msgid "Pledges and Payments"
 msgstr "Объявленные и платежи"
-
-#: FamilyView.php:569 PersonView.php:741
-#, fuzzy
-msgid "Documents"
-msgstr "Комментарий "
 
 #: FamilyView.php:700 GroupView.php:369 PersonView.php:1107
 #, fuzzy
@@ -8279,84 +8351,6 @@ msgstr "Посещение Пользователи"
 #, fuzzy
 msgid "Tracking"
 msgstr "Депозит Листинг"
-
-#: NoteDelete.php:25
-#, fuzzy
-msgid "Note Delete Confirmation"
-msgstr "Примечание Подтверждение удаления"
-
-#: NoteDelete.php:83
-#, fuzzy
-msgid "Please confirm deletion of this note"
-msgstr "Пожалуйста, подтвердите удаление этой заметке"
-
-#: NoteDelete.php:101 PropertyDelete.php:61 PropertyTypeDelete.php:75
-msgid "Yes, delete this record"
-msgstr "Да, удалить эту запись"
-
-#: NoteDelete.php:101 PropertyDelete.php:61 SelectDelete.php:363
-msgid "(this action cannot be undone)"
-msgstr "(Это действие не может быть отменено)"
-
-#: NoteEditor.php:60
-msgid "Cloud Upload"
-msgstr ""
-
-#: NoteEditor.php:60
-msgid "in"
-msgstr ""
-
-#: NoteEditor.php:62
-#, fuzzy
-msgid "Document Editor"
-msgstr "Оплата Редактора: "
-
-#: NoteEditor.php:104
-#, fuzzy
-msgid "You must enter text for this document"
-msgstr "Введите имя"
-
-#: NoteEditor.php:250
-#, fuzzy
-msgid "File Info"
-msgstr "Роль семьи"
-
-#: NoteEditor.php:250
-#, fuzzy
-msgid "Document Title"
-msgstr "Событие Название"
-
-#: NoteEditor.php:252
-#, fuzzy
-msgid "Set your File Info"
-msgstr "Вернуться в семьи Вид"
-
-#: NoteEditor.php:252
-#, fuzzy
-msgid "Set your Document title"
-msgstr "Событие Nonattendees"
-
-#: NoteEditor.php:258
-msgid "Your Note type is"
-msgstr ""
-
-#: NoteEditor.php:265
-msgid "Choose your Note Type"
-msgstr ""
-
-#: NoteEditor.php:295
-#, fuzzy
-msgid "File input"
-msgstr "Тип Файла"
-
-#: NoteEditor.php:298
-#, fuzzy
-msgid "Upload your file"
-msgstr "Загрузить файл CSV"
-
-#: NoteEditor.php:304
-msgid "Private"
-msgstr "Личные"
 
 #: OptionManager.php:100
 #, fuzzy
@@ -10274,6 +10268,11 @@ msgstr "Имя переменной"
 #: SettingsIndividual.php:106 UserEditor.php:769
 msgid "Current Value"
 msgstr "Текущая стоимость"
+
+#: SettingsIndividual.php:107 UserEditor.php:770
+#, fuzzy
+msgid "Notes"
+msgstr "Примечание:"
 
 #: SettingsIndividual.php:123 SettingsIndividual.php:172 SystemSettings.php:254
 #: UserEditor.php:856
