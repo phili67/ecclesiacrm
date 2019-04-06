@@ -114,6 +114,7 @@ pages:
 - "Outils":
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'
     - "Import de données": 'user-guide/doc-tools/doc-import.md'
+    - "Email": 'user-guide/doc-tools/doc-email.md'
 - "Manuel du développeur":
     - 'API': 'user-guide/doc-dev/api.md'
 - "À propos":
