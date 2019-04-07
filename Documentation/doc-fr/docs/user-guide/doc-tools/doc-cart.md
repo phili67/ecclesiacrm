@@ -55,6 +55,4 @@ Tout sera finalement fait via le CRM.
 1. Vous ouvrez le menu Panier, puis "Afficher le Panier" un bouton "Vider le Panier" permettra de vider tout le panier.
 2. En bas de page, vous aurez la liste des personnes dans le Panier, vous pourrez supprimer une ou plusieurs personnes dans ce Panier.
 
-
-
-> Note: Pour vider le panier complètement, cliquer le bouton "Vider le Panier" en haut de la page, ou dans le menu. (Ne pas confondre "Vider le Panier dans Le Groupe.", "Vider le Panier" effacera simplement les personne du panier, sans placer les personnes à un autre endroit.)
+> Note: Pour vider le panier complètement, cliquer le bouton "Vider le Panier" en haut de la page, ou dans le menu. (Ne pas confondre "Vider le Panier dans Le Groupe.", "Vider le Panier" effacera simplement les personne du panier, sans placer les personnes à un autre endroit.)<br>Vous pourrez aussi ajouter les personnes à une famille. **Attention si vous choisissez "Supprimer les personnes du CRM" cette option est irréversible**
