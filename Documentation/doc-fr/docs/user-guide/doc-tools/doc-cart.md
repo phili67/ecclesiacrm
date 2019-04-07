@@ -8,39 +8,41 @@ Vous pourrez en ajouter autant qu'il y a de personnes dans le CRM. Ajouter quelq
 
 Le panier est propre à l'utilisateur et à la session en cours. Chaque utilisateur du système a propre panier qui sera valide tant que l'utilisateur ne se sera pas déconnecté.
 
+> Note: Le panier est un des outils les plus puissants d'Ecclesi**CRM**, il permet de gérer la création de groupe, les extractions d'une partie des membres sous forme de fichier CSV, d'annuaire, etc ...
+
 ##Ajouter le rôle Panier à un utilisateur
 
-Un administrateur peut ajouter le rôle de panier à un utilisateur, via le panneau "Manuel : Administrateur → Droits et gestion des utilisateurs du CRM → Gestion des profiles utilisateurs"
+Un administrateur peut ajouter le rôle de panier à un utilisateur, via le panneau "Manuel : Administrateur → Droits et gestion des utilisateurs du CRM → Gestion des profiles utilisateurs".
 
+##Comment voir le contenu de mon Panier ?
 
+Vous trouverez le panier dans la barre d'outils en haut de votre fenêtre, elle indique en temps réel le nombre d'item dans votre Panier. Ce compte augmentera ou diminuera quand vous ajouterez ou retrancherez des personnes.
 
-##How can I see what's in my Cart?
+![Screenshot](../../img/cart/cart1.png)<br>
 
-On the top menu, second row, right side, a real-time counter will tell you how many records you have in the Cart. This counter will go up or down as you add or remove records.
+En cliquant sur le Panier, un menu contextuel apparaîtra, qui vous permettra de visualiser le Panier ou plus.
 
-To see the actual records in your Cart, click on the cart icon in the upper right corner. This will display a context menu for quick cart actions. You may also choose to "View Cart" to show all people currently in the cart.
+##Comment ajouter une personne au panier ?
 
-##How do I add a Person to the Cart?
+Il y a plusieurs manières de le faire
 
-There several ways to do this:
+- Pour ajouter une personne seule:
 
-- To add an individual Person:
+    1. Soit aller dans la barre latérale gauche et déployer "Personnes & Familles" Puis "Afficher toutes les Personnes", vous aurez la liste des personnes ou vous pourrez ajouter une ou plusieurs personnes dans le Panier via l'icône ad'hoc.
+    2. Ou saisir le nom d'une personne dans le champ de recherche de la barre latérale.
+    3. Quand le nom de la personne ou de la famille apparaîtra un bouton "Ajouter au Panier" vous permettra d'ajouter la personne ou toute la famille.
+    4. Si la personne n'est pas déjà présente dans le Panier, elle y sera ajoutée.
 
-    1. From the top menu, either click on "View All Persons" (under "People") and list all persons,
-    2. Or enter a name into the filter box in the top menu and press Enter.
-    3. When the results of the filter are displayed, there will be a link on the far right of every Person record called "Add to Cart." Click this link for the desired Person.
-    4. If this Person does not already exist in the cart, they will be added.
+- Alternativement:
 
-- Alternately:
+    1. Consulter le profile d'une personne, et utiliser le bouton "Ajouter au Panier".
+    2. Vous obtiendrez le même résultat qu'avec la même méthode citée ci-dessus.
+    3. Il est aussi possible de passer par le fait d'ajouter les personnes via : les résultats d'une recherche avancées, ou par exemple quand on fait des recherches via le Menu des Requêtes.
+    
+    
+Très souvent le bouton "Ajouter au Panier" sera présent. Il est ensuite possible d'utiliser le menu Panier et d'ajouter toutes les personnes à un groupe ou encore de créer un groupe pour les y ajouter.
 
-    1. View the desired Person record, and within that record will be a link for "Add to Cart."
-    2. Clicking this link accomplishes the same thing as the process described above.
-    3. To add the results of a report: Some reports will allow you to dump the results to the Cart, and some won't -- it depends what the report returns. Since the cart holds People, a report that returned Family records will not allow the results to be placed in the Cart.
-Run the desired report.
-
-If the report is Cart-enabled, at the bottom of the results you will find a button labeled "Add Results to Cart." Clicking this button will add all the results of that report to the cart. To add all people assigned to a Group:
-
-From the top menu, click "Empty Cart to Group" (under "Cart"). Click on the desired Group or Create a New Group - Don't worry, if you make a new group, you can empty the cart to it as well.
+Pour cela utiliser "Empty Cart to Group" (under "Cart"). Click on the desired Group or Create a New Group - Don't worry, if you make a new group, you can empty the cart to it as well.
 
 If you choose to make a new group, on the New Group page, there is a box for "Empty Cart to this Group?". It should already be checked, so just let InfoCentral make the move for you.
 
