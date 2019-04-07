@@ -1167,7 +1167,7 @@
         }, 
         {
             "location": "/user-guide/doc-tools/doc-email/", 
-            "text": "Email \n Ecclesia\nCRM\n \n\n\nPour envoyer des mails via Ecclesia\nCRM\n\n\nAvant de vouloir envoyer des mails via Ecclesia\nCRM\n la configuration Email doit \u00eatre activ\u00e9e. Voir pour cela la page de configuration Email dans le manuel administrateur.\n\n\nPour envoyer des emails via votre client Email sur PC ou Mac ou sur tout autre Client sur Smartphone\n\n\n\n\nil suffit pour cela d'ajouter les Membres d'un groupe ou via un profile au Panier\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nPuis aller \"Panier \u2192 Afficher Le panier\".\n\n\n\n\nCliquer \"Envoyer un Email au Panier\".\n\n\n\n\nLes emails seront envoy\u00e9s via votre client sur PC ou Mac ou autre ....\n\n\n\n\nEmail via Mailchimp\n\n\nVoir pour cela le manuel Email-\nMailChimp", 
+            "text": "Email \n Ecclesia\nCRM\n \n\n\nPour envoyer des mails via Ecclesia\nCRM\n\n\nAvant de vouloir envoyer des mails via Ecclesia\nCRM\n la configuration Email doit \u00eatre activ\u00e9e. Voir pour cela la page de configuration Email dans le manuel administrateur.\n\n\nPour envoyer des emails via votre client Email sur PC ou Mac ou sur tout autre Client sur Smartphone\n\n\n\n\nil suffit pour cela d'ajouter les Membres d'un groupe ou via un profile au Panier\n\n\n\nVoici le r\u00e9sultat\n\n\n\n\nPuis aller \"Panier \u2192 Afficher Le panier\".\n\n\n\n\nCliquer \"Envoyer un Email au Panier\".\n\n\n\n\nLes emails seront envoy\u00e9s via votre client sur PC ou Mac ou autre ....\n\n\n\n\nEmail via Mailchimp\n\n\nVoir pour cela le manuel \"Email \u2192 MailChimp\"", 
             "title": "Email"
         }, 
         {
@@ -1182,7 +1182,7 @@
         }, 
         {
             "location": "/user-guide/doc-tools/doc-email/#email-via-mailchimp", 
-            "text": "Voir pour cela le manuel Email- MailChimp", 
+            "text": "Voir pour cela le manuel \"Email \u2192 MailChimp\"", 
             "title": "Email via Mailchimp"
         }, 
         {
