@@ -46,7 +46,7 @@ Très souvent le bouton "Ajouter au Panier" sera présent. Il est ensuite possib
 
 Pour cela utiliser "Vider le Panier dans Le Groupe" (sous "Panier"). Utiliser "Sélectionner un groupe existant" ou "Créer un nouveau Groupe" - En créant un nouveau groupe tout le contenu du Panier y sera vidé.
 
-![Screenshot](../../img/cart/cart2.png)
+![Screenshot](../../img/cart/cart3.png)
 
 Tout sera finalement fait via le CRM.
 
