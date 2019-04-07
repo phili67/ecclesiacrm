@@ -96,7 +96,7 @@ msgid "Empty Cart to Event"
 msgstr "Vider le panier dans l'événement"
 
 msgid "Map Cart"
-msgstr "Visualiser le panier dans la carte"
+msgstr "Visualiser le panier sur la carte"
 
 msgid "Delete Persons From Cart and CRM"
 msgstr "Supprimer les Personnes du Panier et du CRM"
