@@ -281,7 +281,7 @@ msgid "Select an existing Group"
 msgstr "Sélectionner à un groupe existant"
 
 msgid "or Create a new Group from the Cart"
-msgstr "ou créer un nouveau group du panier"
+msgstr "ou créer un nouveau groupe du panier"
 
 msgid "Select the group to which you would like to add your cart"
 msgstr "Sélectionner le groupe auquel vous voulez ajouter le panier"
