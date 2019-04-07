@@ -8,9 +8,11 @@ Vous pourrez en ajouter autant qu'il y a de personnes dans le CRM. Ajouter quelq
 
 Le panier est propre à l'utilisateur et à la session en cours. Chaque utilisateur du système a propre panier qui sera valide tant que l'utilisateur ne se sera pas déconnecté.
 
-##Comment ajouter le rôle Panier pour un utilisateur
+##Ajouter le rôle Panier à un utilisateur
 
 Un administrateur peut ajouter le rôle de panier à un utilisateur, via le panneau "Manuel : Administrateur → Droits et gestion des utilisateurs du CRM → Gestion des profiles utilisateurs"
+
+
 
 ##How can I see what's in my Cart?
 
