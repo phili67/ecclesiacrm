@@ -42,11 +42,15 @@ Il y a plusieurs manières de le faire
     
 Très souvent le bouton "Ajouter au Panier" sera présent. Il est ensuite possible d'utiliser le menu Panier et d'ajouter toutes les personnes à un groupe ou encore de créer un groupe pour les y ajouter.
 
-Pour cela utiliser "Empty Cart to Group" (under "Cart"). Click on the desired Group or Create a New Group - Don't worry, if you make a new group, you can empty the cart to it as well.
+![Screenshot](../../img/cart/cart2.png)
 
-If you choose to make a new group, on the New Group page, there is a box for "Empty Cart to this Group?". It should already be checked, so just let InfoCentral make the move for you.
+Pour cela utiliser "Vider le Panier dans Le Groupe" (sous "Panier"). Utiliser "Sélectionner un groupe existant" ou "Créer un nouveau Groupe" - En créant un nouveau groupe tout le contenu du Panier y sera vidé.
 
-##How do I remove a person from the Cart?
+![Screenshot](../../img/cart/cart2.png)
+
+Tout sera finalement fait via le CRM.
+
+##Comment supprimer une personne du Panier ?
 
 1. On the resulting screen, all the People currently in the Cart will be listed, with a "Remove" link to the far right of their name.
 2. Clicking this link will remove the specified Person from the Cart.
