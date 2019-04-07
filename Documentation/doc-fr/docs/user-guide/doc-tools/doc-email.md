@@ -18,5 +18,5 @@ Voici le résultat<br>
 
 ##Email via Mailchimp
 
-Voir pour cela le manuel Email->MailChimp 
+Voir pour cela le manuel "Email → MailChimp"
 
