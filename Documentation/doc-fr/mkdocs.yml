@@ -77,8 +77,8 @@ pages:
             - 'Propriétés spécifiques': 'user-guide/doc-admin/group/doc-custom-settings/doc-groups-specific-properties.md'
             - 'Types de groupes': 'user-guide/doc-admin/group/doc-groups-management.md'
     - 'Droits et gestion des utilisateurs du CRM': 
-        - "Mise en place d'un utilisateur (administrateur)": 'user-guide/doc-users/doc-users.md'
-        - "Gestion des profiles utilisateurs (administrateur)": 'user-guide/doc-users/doc-user-profile.md'
+        - "Mise en place d'un utilisateur": 'user-guide/doc-users/doc-users.md'
+        - "Gestion des profiles utilisateurs": 'user-guide/doc-users/doc-user-profile.md'
     - 'Réglages généraux':
         - "Localisation CRM en français": 'user-guide/doc-installation/doc-localization.md'
         - "Rapports CRM en français": 'user-guide/doc-installation/doc-report.md'
