@@ -21,7 +21,7 @@ $(document).ready(function () {
             
           if (full.PrtName != 'Menu') {
             var res = '<a href="#" data-typeid="' + full.PrtId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-            res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+            res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" data-warn="' + full.Properties + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
             return res;
           } else {
             return '';
@@ -99,11 +99,17 @@ $(document).ready(function () {
     }
     
   $(document).on("click",".delete-prop", function(){
-     var typeId = $(this).data("typeid");
+     var typeId  = $(this).data("typeid");
+     var warn    = $(this).data("warn");
+     var message = i18next.t("You're about to delete this general properties. Would you like to continue ?");
+     
+     if (warn > 0) {
+       message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('This property type is still being used by') + ' ' + warn + ' ' + ((warn==1)?i18next.t('property'):i18next.t('properties')) + '.<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.')+'</div>';
+     }
      
      bootbox.confirm({
       title: i18next.t("Attention"),
-      message: i18next.t('This property type is still being used by at least one property.') + '<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.'),
+      message: message,
       callback: function(result){
         if (result) {
           window.CRM.APIRequest({

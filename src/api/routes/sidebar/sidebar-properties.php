@@ -53,6 +53,7 @@ function getAllPropertyTypes (Request $request, Response $response, array $args)
       ->groupByPrtId()
       ->groupByPrtClass()
       ->groupByPrtName()
+      ->withColumn('COUNT(Property.pro_ID)', 'Properties')
       ->find();
     
     $arr = $ormPropertyTypes->toArray();
