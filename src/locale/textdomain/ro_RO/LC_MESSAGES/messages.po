@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-06 19:08+0200\n"
+"POT-Creation-Date: 2019-04-08 15:41+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -327,62 +327,93 @@ msgstr "Toate plățile"
 msgid "Pastoral Care"
 msgstr ""
 
-#: api/routes/sidebar/sidebar-properties.php:48
-#: api/routes/sidebar/sidebar-properties.php:111
-#: api/routes/sidebar/sidebar-properties.php:146
-#: api/routes/sidebar/sidebar-properties.php:195
-#: api/routes/sidebar/sidebar-properties.php:216
-#: api/routes/sidebar/sidebar-properties.php:265
-#: api/routes/sidebar/sidebar-properties.php:287
-#: api/routes/sidebar/sidebar-properties.php:325
+#: api/routes/sidebar/sidebar-properties.php:70 PropertyEditor.php:54
+#: PropertyList.php:41
+msgid "Menu"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-properties.php:70 AutoPaymentEditor.php:801
+#: AutoPaymentEditor.php:810 Include/Footer.php:76 PledgeEditor.php:544
+#: PropertyEditor.php:45 PropertyList.php:29
+#: Reports/GDPR/GDPRDataStructureExport.php:84
+#: v2/templates/gdpr/gdprdatastructure.php:56
+msgid "Person"
+msgstr "Persoană"
+
+#: api/routes/sidebar/sidebar-properties.php:70 AutoPaymentEditor.php:801
+#: AutoPaymentEditor.php:810
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: ElectronicPaymentList.php:216
+#: external/templates/registration/family-register-done.php:28
+#: FamilyView.php:235 FinancialReports.php:421 Include/Footer.php:58
+#: members/404.php:16 PersonView.php:696 PledgeEditor.php:544
+#: PrintPastoralCare.php:265 PrintView.php:267 PropertyEditor.php:48
+#: PropertyList.php:33 Reports/GDPR/GDPRDataStructureExport.php:123
+#: SelectList.php:1123 v2/templates/gdpr/gdprdatastructure.php:100
+msgid "Family"
+msgstr "Familie"
+
+#: api/routes/sidebar/sidebar-properties.php:70 Include/Footer.php:94
+#: OptionManager.php:121 PropertyEditor.php:51 PropertyList.php:37
+msgid "Group"
+msgstr "Grup"
+
+#: api/routes/sidebar/sidebar-properties.php:246
+#: api/routes/sidebar/sidebar-properties.php:309
+#: api/routes/sidebar/sidebar-properties.php:344
+#: api/routes/sidebar/sidebar-properties.php:393
+#: api/routes/sidebar/sidebar-properties.php:414
+#: api/routes/sidebar/sidebar-properties.php:463
+#: api/routes/sidebar/sidebar-properties.php:485
+#: api/routes/sidebar/sidebar-properties.php:523
 #: api/routes/sidebar/sidebar-roles.php:43
 msgid "The record could not be found."
 msgstr ""
 
-#: api/routes/sidebar/sidebar-properties.php:58
-#: api/routes/sidebar/sidebar-properties.php:156
-#: api/routes/sidebar/sidebar-properties.php:226
+#: api/routes/sidebar/sidebar-properties.php:256
+#: api/routes/sidebar/sidebar-properties.php:354
+#: api/routes/sidebar/sidebar-properties.php:424
 #, fuzzy
 msgid "The property is already assigned."
 msgstr "Proprietate atribuit cu succes."
 
-#: api/routes/sidebar/sidebar-properties.php:63
-#: api/routes/sidebar/sidebar-properties.php:93
-#: api/routes/sidebar/sidebar-properties.php:161
-#: api/routes/sidebar/sidebar-properties.php:177
-#: api/routes/sidebar/sidebar-properties.php:231
-#: api/routes/sidebar/sidebar-properties.php:247
+#: api/routes/sidebar/sidebar-properties.php:261
+#: api/routes/sidebar/sidebar-properties.php:291
+#: api/routes/sidebar/sidebar-properties.php:359
+#: api/routes/sidebar/sidebar-properties.php:375
+#: api/routes/sidebar/sidebar-properties.php:429
+#: api/routes/sidebar/sidebar-properties.php:445
 #, fuzzy
 msgid "The property is successfully assigned."
 msgstr "Proprietate atribuit cu succes."
 
-#: api/routes/sidebar/sidebar-properties.php:65
-#: api/routes/sidebar/sidebar-properties.php:76
-#: api/routes/sidebar/sidebar-properties.php:163
-#: api/routes/sidebar/sidebar-properties.php:174
-#: api/routes/sidebar/sidebar-properties.php:233
-#: api/routes/sidebar/sidebar-properties.php:244
+#: api/routes/sidebar/sidebar-properties.php:263
+#: api/routes/sidebar/sidebar-properties.php:274
+#: api/routes/sidebar/sidebar-properties.php:361
+#: api/routes/sidebar/sidebar-properties.php:372
+#: api/routes/sidebar/sidebar-properties.php:431
+#: api/routes/sidebar/sidebar-properties.php:442
 #, fuzzy
 msgid "The property could not be assigned."
 msgstr "Proprietate atribuit cu succes."
 
-#: api/routes/sidebar/sidebar-properties.php:130
-#: api/routes/sidebar/sidebar-properties.php:200
-#: api/routes/sidebar/sidebar-properties.php:270
+#: api/routes/sidebar/sidebar-properties.php:328
+#: api/routes/sidebar/sidebar-properties.php:398
+#: api/routes/sidebar/sidebar-properties.php:468
 #, fuzzy
 msgid "The property is successfully unassigned."
 msgstr "Proprietate atribuit cu succes."
 
-#: api/routes/sidebar/sidebar-properties.php:305
+#: api/routes/sidebar/sidebar-properties.php:503
 msgid "The menu could not be assigned."
 msgstr ""
 
-#: api/routes/sidebar/sidebar-properties.php:308
+#: api/routes/sidebar/sidebar-properties.php:506
 #, fuzzy
 msgid "The menu is successfully assigned."
 msgstr "Proprietate atribuit cu succes."
 
-#: api/routes/sidebar/sidebar-properties.php:337
+#: api/routes/sidebar/sidebar-properties.php:535
 #, fuzzy
 msgid "The menu is successfully unassigned."
 msgstr "Proprietate atribuit cu succes."
@@ -441,27 +472,6 @@ msgstr "Configurare de plată automată pentru"
 #, fuzzy
 msgid "For the"
 msgstr "de"
-
-#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810 Include/Footer.php:76
-#: PledgeEditor.php:544 PropertyEditor.php:45 PropertyList.php:29
-#: PropertyTypeEditor.php:90 PropertyTypeList.php:133
-#: Reports/GDPR/GDPRDataStructureExport.php:84
-#: v2/templates/gdpr/gdprdatastructure.php:56
-msgid "Person"
-msgstr "Persoană"
-
-#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
-#: ElectronicPaymentList.php:216
-#: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:235 FinancialReports.php:421 Include/Footer.php:58
-#: members/404.php:16 PersonView.php:696 PledgeEditor.php:544
-#: PrintPastoralCare.php:265 PrintView.php:267 PropertyEditor.php:48
-#: PropertyList.php:33 PropertyTypeEditor.php:91 PropertyTypeList.php:133
-#: Reports/GDPR/GDPRDataStructureExport.php:123 SelectList.php:1123
-#: v2/templates/gdpr/gdprdatastructure.php:100
-msgid "Family"
-msgstr "Familie"
 
 #: AutoPaymentEditor.php:810 PersonEditor.php:982 PledgeEditor.php:544
 #, fuzzy
@@ -672,7 +682,7 @@ msgstr ""
 #: PaddleNumEditor.php:149 PersonEditor.php:802 PersonEditor.php:935
 #: PersonEditor.php:1053 PersonEditor.php:1452 PersonEditor.php:1525
 #: PersonEditor.php:1611 PledgeEditor.php:729 PropertyEditor.php:191
-#: PropertyTypeEditor.php:113 UserEditor.php:750 UserPasswordChange.php:224
+#: UserEditor.php:750 UserPasswordChange.php:224
 msgid "Save"
 msgstr "Salva"
 
@@ -685,9 +695,8 @@ msgstr "Salva"
 #: GroupReports.php:174 LettersAndLabels.php:83 ManageEnvelopes.php:134
 #: MemberRoleChange.php:121 MemberRoleChange.php:123 PersonEditor.php:1619
 #: PersonView.php:1558 PledgeEditor.php:736 PropertyEditor.php:191
-#: PropertyTypeEditor.php:115 Register.php:56 ReminderReport.php:54
-#: SettingsIndividual.php:122 SettingsIndividual.php:171
-#: sundayschool/SundaySchoolDashboard.php:280
+#: Register.php:56 ReminderReport.php:54 SettingsIndividual.php:122
+#: SettingsIndividual.php:171 sundayschool/SundaySchoolDashboard.php:280
 #: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:751
 #: UserEditor.php:857
 msgid "Cancel"
@@ -1174,7 +1183,6 @@ msgstr "Adauga in cos pentru a Familiei"
 #: PersonCustomFieldsEditor.php:454 PersonList.php:112
 #: PrintPastoralCare.php:344 PrintPastoralCare.php:471 PrintView.php:346
 #: PrintView.php:477 PropertyEditor.php:171 PropertyList.php:88
-#: PropertyTypeEditor.php:97 PropertyTypeList.php:68
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:218 Reports/FRBidSheets.php:88
 #: Reports/PDFLabel.php:869 SelectList.php:1051
@@ -1534,7 +1542,6 @@ msgstr "Verificat de către"
 
 #: Checkin.php:557 DepositSlipEditor.php:196 EditEventAttendees.php:73
 #: EventNames.php:297 ListEvents.php:359 PersonView.php:980 PropertyList.php:84
-#: PropertyTypeList.php:64
 msgid "Action"
 msgstr "Acțiune"
 
@@ -2237,7 +2244,7 @@ msgstr "Notă Ștergerea Confirmare"
 msgid "Please confirm deletion of this note"
 msgstr "Vă rugăm să confirmați ștergerea această notă"
 
-#: DocumentDelete.php:101 PropertyDelete.php:61 PropertyTypeDelete.php:75
+#: DocumentDelete.php:101 PropertyDelete.php:61
 msgid "Yes, delete this record"
 msgstr "Da, șterge această înregistrare"
 
@@ -2361,7 +2368,7 @@ msgstr "Merge"
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
 #: GroupEditor.php:87 GroupPersonPropsFormEditor.php:223
 #: GroupPropsFormEditor.php:318 GroupPropsFormEditor.php:444 GroupView.php:431
-#: ListEvents.php:360 PropertyTypeEditor.php:105 PropertyTypeList.php:70
+#: ListEvents.php:360
 msgid "Description"
 msgstr "Descriere"
 
@@ -6071,7 +6078,7 @@ msgstr "Familie-Side View"
 #: FamilyEditor.php:254 GroupPropsFormEditor.php:352
 #: GroupPropsFormEditor.php:467 OptionManager.php:435
 #: PersonCustomFieldsEditor.php:363 PersonCustomFieldsEditor.php:488
-#: PropertyEditor.php:77 PropertyTypeEditor.php:46
+#: PropertyEditor.php:77
 msgid "You must enter a name"
 msgstr "Trebuie să introduceți un nume"
 
@@ -7509,11 +7516,6 @@ msgstr "Proprietăți"
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "Custom fields Persoana"
-
-#: Include/Footer.php:94 OptionManager.php:121 PropertyEditor.php:51
-#: PropertyList.php:37 PropertyTypeEditor.php:92 PropertyTypeList.php:133
-msgid "Group"
-msgstr "Grup"
 
 #: Include/Footer.php:111
 #, fuzzy
@@ -9196,14 +9198,9 @@ msgstr ""
 "Ștergerea aceasta proprietate va șterge, de asemenea toate sarcinile de "
 "această proprietate orice popor, familie, sau înregistrări Group."
 
-#: PropertyDelete.php:63 PropertyTypeDelete.php:77 SelectDelete.php:390
-#: SelectDelete.php:397
+#: PropertyDelete.php:63 SelectDelete.php:390 SelectDelete.php:397
 msgid "No, cancel this deletion"
 msgstr "Nu, anula această ștergere"
-
-#: PropertyEditor.php:54 PropertyList.php:41
-msgid "Menu"
-msgstr ""
 
 #: PropertyEditor.php:63
 msgid "Property Editor"
@@ -9250,67 +9247,25 @@ msgstr "Adauga un nou"
 msgid "with this Property..."
 msgstr "Da, anulați această proprietate"
 
-#: PropertyTypeDelete.php:30
-msgid "Property Type Delete Confirmation"
-msgstr "Tipul de proprietate Ștergere Confirmarea"
-
-#: PropertyTypeDelete.php:65
-msgid "Warning"
-msgstr "Atenție"
-
-#: PropertyTypeDelete.php:65
-msgid "This property type is still being used by at least one property."
-msgstr ""
-"Acest tip de proprietate este încă utilizat de către cel puțin o proprietate."
-
-#: PropertyTypeDelete.php:65
-msgid "If you delete this type, you will also remove all properties using"
-msgstr ""
-"Dacă ștergeți acest tip, vă va elimina, de asemenea, toate proprietățile "
-"care utilizează"
-
-#: PropertyTypeDelete.php:65
-msgid "it and lose any corresponding property assignments."
-msgstr "l și pierde orice misiuni de proprietate corespunzătoare."
-
-#: PropertyTypeDelete.php:71
-#, fuzzy
-msgid "Please confirm deletion of this Property Type"
-msgstr "Vă rugăm să confirmați ștergerea acestui Tip Proprietate"
-
-#: PropertyTypeEditor.php:26
-msgid "Property Type Editor"
-msgstr "Tip de Editor"
-
-#: PropertyTypeEditor.php:87 PropertyTypeList.php:69
-#: sundayschool/SundaySchoolDashboard.php:166 queryparameters_qrp.php:12
-msgid "Class"
-msgstr "Clasă"
-
-#: PropertyTypeList.php:23
+#: PropertyTypeList.php:21
 msgid "Property Type List"
 msgstr "Tip de listă"
 
-#: PropertyTypeList.php:42
+#: PropertyTypeList.php:33
 msgid "Add a New Property Type"
 msgstr "Adauga un nou tip de proprietate"
 
-#: PropertyTypeList.php:46 v2/templates/sidebar/menulinklist.php:22
+#: PropertyTypeList.php:37 v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
 #: v2/templates/sidebar/volunteeropportunityeditor.php:19
 msgid "Only an admin can modify or delete this records."
 msgstr ""
 
-#: PropertyTypeList.php:51
+#: PropertyTypeList.php:42
 msgid ""
 "Be carefull ! By deleting properties, all persons, families and groups will "
 "be affected."
 msgstr ""
-
-#: PropertyTypeList.php:123
-#, fuzzy
-msgid "Sunday School Sub Menu"
-msgstr "Rapoarte de Școală Duminicală"
 
 #: QueryList.php:26
 msgid "Query Listing"
@@ -10542,6 +10497,10 @@ msgstr "Rezultate Exporta un fisier CSV"
 #: sundayschool/SundaySchoolDashboard.php:83
 #, fuzzy
 msgid "Classes"
+msgstr "Clasă"
+
+#: sundayschool/SundaySchoolDashboard.php:166 queryparameters_qrp.php:12
+msgid "Class"
 msgstr "Clasă"
 
 #: sundayschool/SundaySchoolDashboard.php:203
@@ -11797,7 +11756,7 @@ msgstr "Selectați anul fiscal"
 
 #: query_qry.php:20 query_qry.php:63
 #, fuzzy
-msgid "Persons not assigned to a group"
+msgid "Person not assigned to a group"
 msgstr "Nu este alocat"
 
 #: query_qry.php:21 query_qry.php:64
@@ -12157,6 +12116,36 @@ msgstr "Programa"
 
 msgid "paused"
 msgstr ""
+
+#~ msgid "Property Type Delete Confirmation"
+#~ msgstr "Tipul de proprietate Ștergere Confirmarea"
+
+#~ msgid "Warning"
+#~ msgstr "Atenție"
+
+#~ msgid "This property type is still being used by at least one property."
+#~ msgstr ""
+#~ "Acest tip de proprietate este încă utilizat de către cel puțin o "
+#~ "proprietate."
+
+#~ msgid "If you delete this type, you will also remove all properties using"
+#~ msgstr ""
+#~ "Dacă ștergeți acest tip, vă va elimina, de asemenea, toate proprietățile "
+#~ "care utilizează"
+
+#~ msgid "it and lose any corresponding property assignments."
+#~ msgstr "l și pierde orice misiuni de proprietate corespunzătoare."
+
+#, fuzzy
+#~ msgid "Please confirm deletion of this Property Type"
+#~ msgstr "Vă rugăm să confirmați ștergerea acestui Tip Proprietate"
+
+#~ msgid "Property Type Editor"
+#~ msgstr "Tip de Editor"
+
+#, fuzzy
+#~ msgid "Sunday School Sub Menu"
+#~ msgstr "Rapoarte de Școală Duminicală"
 
 #, fuzzy
 #~ msgid "List Members"

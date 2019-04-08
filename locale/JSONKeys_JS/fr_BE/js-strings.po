@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-03-14T18:02:19.817Z\n"
+"POT-Creation-Date: 2019-04-08T13:57:58.509Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1243,6 +1243,44 @@ msgstr "Editeur de type de suivi pastoral"
 msgid "Add Pastoral Care Type"
 msgstr "Ajouter un type de suivi pastoral"
 
+msgid "Class"
+msgstr "Class"
+
+msgid "Sunday School Sub Menu"
+msgstr "Les sous menus de l'école du dimanche"
+
+msgid "Group"
+msgstr "Groupe"
+
+msgid ""
+"You're about to delete this general properties. Would you like to continue ?"
+msgstr ""
+"Vous êtes sur le point de supprimer cette propriété générale. Vous-vous "
+"poursuivre ?"
+
+msgid "This general property type is still being used by"
+msgstr "Ce type de propriété général est utilisé par"
+
+msgid "property"
+msgstr "propriété"
+
+msgid "properties"
+msgstr "propriétés"
+
+msgid "If you delete this type, you will also remove all properties using"
+msgstr "Si vous supprimez ce type, vous supprimerez également toutes les propriétés "
+"qui"
+
+
+msgid "it and lose any corresponding property assignments."
+msgstr "l'utiliseront et tous les propriétés associées."
+
+msgid "Property Type Editor"
+msgstr "Editeur de type de propriétés"
+
+msgid "Add a New Property Type"
+msgstr "Ajouter une nouveau Type de propriété"
+
 msgid "Activ"
 msgstr "Actif"
 
@@ -1617,9 +1655,6 @@ msgstr "Nom De la liste"
 
 msgid "The current images folder is now the public folder !!!"
 msgstr "Le dossier d'images courant est maintenant le dossier public !!!"
-
-#~ msgid "Modify Properties"
-#~ msgstr "Modifier Propriétés"
 
 #~ msgid "List Details"
 #~ msgstr "Détails de la liste"
