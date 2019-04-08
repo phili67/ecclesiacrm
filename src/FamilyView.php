@@ -5,7 +5,7 @@
  *  last change : 2013-02-02
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2001, 2002 Deane Barker, 2003 Chris Gebhardt, 2004-2005 Michael Wilt
- *                Copyright 2018 Philippe Logel
+ *                Copyright 2019 Philippe Logel
  *
  ******************************************************************************/
 
@@ -124,14 +124,13 @@ $iCurrentUserFamID = SessionUser::getUser()->getPerson()->getFamId();
 $ormFamCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-
-// Get the custom field data for this person.
-$connection = Propel::getConnection();
-$sSQL = "SELECT * FROM `family_custom` where fam_ID=" . $iFamilyID;
-
-$statement = $connection->prepare($sSQL);
-$statement->execute();
-$aFamCustomData = $statement->fetch( PDO::FETCH_ASSOC );//fetchAll();//
+                     
+// get family with all the extra columns created
+$rawQry =  FamilyCustomQuery::create();
+foreach ($ormFamCustomFields as $customfield ) {
+   $rawQry->withColumn($customfield->getCustomField());
+}
+$aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
 
 
 $family = FamilyQuery::create()->findPk($iFamilyID);
@@ -338,7 +337,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
   // Display the left-side custom fields
   foreach ($ormFamCustomFields as $rowCustomField) {
     if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
-      $currentData = trim($aFamCustomData[$rowCustomField->getCustomField()]);
+      $currentData = trim($aFamCustomDataArr[$rowCustomField->getCustomField()]);
       
       if ( empty($currentData) ) continue;
       

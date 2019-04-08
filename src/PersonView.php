@@ -48,6 +48,7 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
@@ -183,16 +184,16 @@ $ormAutoPayments = AutoPaymentQuery::create()
 
 
 // Get the lists of custom person fields
-$ormCustomFields = PersonCustomMasterQuery::Create()
+$ormPersonCustomFields = PersonCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
                      
 // Get the custom field data for this person.
-$sSQL = 'SELECT * FROM `person_custom` WHERE per_ID = '.$iPersonID;
-
-$statement = $connection->prepare($sSQL);
-$statement->execute();
-$aCustomData = $statement->fetch( PDO::FETCH_BOTH );
+$rawQry =  PersonCustomQuery::create();
+foreach ($ormPersonCustomFields as $customfield ) {
+   $rawQry->withColumn($customfield->getCustomField());
+}
+$aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
 
 // Get the Groups this Person is assigned to
 $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
@@ -543,7 +544,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
   } // end of $can_see_privatedata
 
     // Display the right-side custom fields
-  foreach ($ormCustomFields as $rowCustomField) {
+  foreach ($ormPersonCustomFields as $rowCustomField) {
     if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
       $currentData = trim($aCustomData[$rowCustomField->getCustomField()]);
         if ($currentData != '') {
