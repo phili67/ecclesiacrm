@@ -6,6 +6,7 @@ use Slim\Http\Response;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PropertyType;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
@@ -22,6 +23,8 @@ $app->group('/properties', function() {
     $this->post('/propertytypelists', 'getAllPropertyTypes' );
     $this->post('/propertytypelists/edit', 'editPropertyType' );
     $this->post('/propertytypelists/set', 'setPropertyType' );
+    $this->post('/propertytypelists/create', 'createPropertyType' );
+    $this->post('/propertytypelists/delete', 'deletePropertyType' );
 
     $this->post('/typelists/{type}', 'getAllProperties' );
 
@@ -97,11 +100,74 @@ function editPropertyType (Request $request, Response $response, array $args) {
   $data = $request->getParsedBody();
 
   //Get the properties
-    $ormPropertyType = PropertyTypeQuery::Create()
+    $propertyType = PropertyTypeQuery::Create()
       ->findOneByPrtId($data['typeId']);
     
-    return $response->withJson(['success' => true, 'prtType' => $ormPropertyType->toArray()]);
+    return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
 }
+
+function setPropertyType (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  //Set the properties
+    $propertyType = PropertyTypeQuery::Create()
+      ->findOneByPrtId($data['typeId']);
+      
+    $propertyType->setPrtName ($data['Name']);
+    $propertyType->setPrtDescription($data['Description']);
+    
+    $propertyType->save();
+    
+    return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
+}
+
+
+function createPropertyType (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  //Get the properties
+    $propertyType = new PropertyType();
+      
+    $propertyType->setPrtClass ($data['Class']);
+    $propertyType->setPrtName ($data['Name']);
+    $propertyType->setPrtDescription($data['Description']);
+    
+    $propertyType->save();
+    
+    return $response->withJson(['success' => true, 'prtType' => $propertyType->toArray()]);
+}
+
+
+function deletePropertyType (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  //Set the properties
+    $propertyType = PropertyTypeQuery::Create()
+      ->findOneByPrtId($data['typeId']);
+    
+    $propertyType->delete();
+    
+    return $response->withJson(['success' => true]);
+}
+
+
+
+
 
 function getAllProperties (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  window.CRM.dataFundTable = $("#property-listing-table-v2").DataTable({
+  window.CRM.dataPropertyListTable = $("#property-listing-table-v2").DataTable({
     ajax:{
       url: window.CRM.root + "/api/properties/propertytypelists",
       type: 'POST',
@@ -70,8 +70,8 @@ $(document).ready(function () {
       var frm_str = '<div class="box-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
-        +'    <select class="form-control" id="class" name="Class">'
-        +'        <option value="p" '+ ((type=='p')?'selected=""':'')+'>'+i18next.t("Person")+'</option>'
+        +'    <select class="form-control" id="Class" name="Class">'
+        +'        <option value="p" '+ ((type=='p' || type==-1)?'selected=""':'')+'>'+i18next.t("Person")+'</option>'
         +'        <option value="f" '+ ((type=='f')?'selected=""':'')+'>'+i18next.t("Family")+'</option>'
         +'        <option value="g" '+ ((type=='g')?'selected=""':'')+'>'+i18next.t("Group")+'</option>'
         +'    </select>'
@@ -103,15 +103,15 @@ $(document).ready(function () {
      
      bootbox.confirm({
       title: i18next.t("Attention"),
-      message: i18next.t("If you delete the fund, <u><b>you'll lose all the connected datas.</b></u><br><b>Are you sure? This action can't be undone.</b>"),
+      message: i18next.t('This property type is still being used by at least one property.') + '<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.'),
       callback: function(result){
         if (result) {
           window.CRM.APIRequest({
             method: 'POST',
-            path: 'donationfunds/delete',
+            path: 'properties/propertytypelists/delete',
             data: JSON.stringify({"typeId": typeId})
           }).done(function(data) {
-            window.CRM.dataFundTable.ajax.reload();
+            window.CRM.dataPropertyListTable.ajax.reload();
           });
         }
       }
@@ -142,7 +142,7 @@ $(document).ready(function () {
                 path: 'properties/propertytypelists/set',
                 data: JSON.stringify({"typeId": typeId,"Name": Name,"Description": Description})
              }).done(function(data) {
-                window.CRM.dataFundTable.ajax.reload();
+                window.CRM.dataPropertyListTable.ajax.reload();
              });
             }
           },
@@ -167,25 +167,25 @@ $(document).ready(function () {
       });
   });
   
-  $(document).on("click","#add-new-fund", function(){
+  $(document).on("click","#add-new-prop", function(){
     var modal = bootbox.dialog({
-     message: BootboxContentPropertyTypeList,
-     title: i18next.t("Add Fund"),
+     message: BootboxContentPropertyTypeList(-1),
+     title: i18next.t("Add a New Property Type"),
      buttons: [
       {
        label: i18next.t("Save"),
        className: "btn btn-primary pull-left",
        callback: function() {
-         var Activ = $("#activCheckbox").is(":checked");
-         var Name = $("#Name").val();
+         var theClass    = $("#Class").val();
+         var Name        = $("#Name").val();
          var Description = $("#description").val();
        
          window.CRM.APIRequest({
             method: 'POST',
-            path: 'donationfunds/create',
-            data: JSON.stringify({"Activ":Activ, "Name": Name,"Description": Description})
+            path: 'properties/propertytypelists/create',
+            data: JSON.stringify({"Class":theClass, "Name": Name,"Description": Description})
          }).done(function(data) {
-            window.CRM.dataFundTable.ajax.reload();
+            window.CRM.dataPropertyListTable.ajax.reload();
          });
         }
       },

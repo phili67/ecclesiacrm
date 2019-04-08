@@ -30,7 +30,7 @@ require 'Include/Header.php';
 //Display the new property link
 if ( SessionUser::getUser()->isMenuOptionsEnabled()) {
 ?>
-    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyTypeEditor.php"><?= _('Add a New Property Type') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="#" id="add-new-prop"><?= _('Add a New Property Type') ?></a></p>
 <?php
 } else {
 ?>
