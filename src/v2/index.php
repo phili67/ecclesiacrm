@@ -56,6 +56,7 @@ require __DIR__ . '/routes/sidebar/menulinklist.php';
 require __DIR__ . '/routes/sidebar/pastoralcarelist.php';
 require __DIR__ . '/routes/sidebar/fundlist.php';
 require __DIR__ . '/routes/sidebar/volunteeropportunityeditor.php';
+require __DIR__ . '/routes/sidebar/propertytypelist.php';
 
 // people
 require __DIR__ . '/routes/people/pastoralcare.php';
