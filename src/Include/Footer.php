@@ -128,7 +128,7 @@ use EcclesiaCRM\Bootstrapper;
             <h4 class="control-sidebar-heading"><i class="fa fa-cogs"></i> <?= _('Other') ?></h4>
             <ul class="control-sidebar-menu">
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyTypeList.php">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertytypelist">
                         <i class="fa fa-cog"></i> <?= _('Property Types') ?>
                     </a>
                 </li>
