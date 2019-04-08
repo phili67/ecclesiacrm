@@ -160,10 +160,24 @@ function deletePropertyType (Request $request, Response $response, array $args) 
   //Set the properties
     $propertyType = PropertyTypeQuery::Create()
       ->findOneByPrtId($data['typeId']);
+      
+      
+   $properties = PropertyQuery::Create()->findByProPrtId ($data['typeId']);
     
-    $propertyType->delete();
+  foreach ($properties as $property) {
+      $recProps = Record2propertyR2pQuery::Create()->findByR2pProId ($property->getProId());
+      if(!is_null ($recProps)) {
+        $recProps->delete();
+      }
+  }
     
-    return $response->withJson(['success' => true]);
+  if (!is_null ($properties)) {
+      $properties->delete();
+  }
+    
+  $propertyType->delete();
+    
+  return $response->withJson(['success' => true]);
 }
 
 
