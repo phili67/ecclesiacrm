@@ -16,9 +16,12 @@ $(document).ready(function () {
         title:i18next.t('Actions'),
         data:'Id',
         render: function(data, type, full, meta) {
+          if (window.CRM.menuOptionEnabled == false)
+            return '';
+            
           if (full.PrtName != 'Menu') {
-            var res = '<a href="' + window.CRM.root + '/PropertyTypeEditor.php?PropertyTypeID='+ full.PrtId + '"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-            res += '&nbsp;&nbsp;&nbsp;<a href="' + window.CRM.root + '/PropertyTypeDelete.php?PropertyTypeID='+ full.PrtId + '&Warn"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+            var res = '<a href="#" data-typeid="' + full.PrtId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+            res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
             return res;
           } else {
             return '';
@@ -63,12 +66,15 @@ $(document).ready(function () {
   
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentFundList(){    
+    function BootboxContentPropertyTypeList(type){
       var frm_str = '<div class="box-body">'
         +'<div class="row">'
         +'  <div class="col-lg-2">'
-        +'    <label for="depositComment">'+i18next.t("Active")+'</label>'
-        +'    <input id="activCheckbox" type="checkbox" name="activ" id="activ" checked="checked">'
+        +'    <select class="form-control" id="class" name="Class">'
+        +'        <option value="p" '+ ((type=='p')?'selected=""':'')+'>'+i18next.t("Person")+'</option>'
+        +'        <option value="f" '+ ((type=='f')?'selected=""':'')+'>'+i18next.t("Family")+'</option>'
+        +'        <option value="g" '+ ((type=='g')?'selected=""':'')+'>'+i18next.t("Group")+'</option>'
+        +'    </select>'
         +'  </div>'
         +'  <div class="col-lg-1">'
         +'    <label for="depositDate">'+i18next.t("Name")+'</label>'
@@ -92,8 +98,8 @@ $(document).ready(function () {
         return object
     }
     
-  $(document).on("click",".delete-fund", function(){
-     var fundId = $(this).data("id");
+  $(document).on("click",".delete-prop", function(){
+     var typeId = $(this).data("typeid");
      
      bootbox.confirm({
       title: i18next.t("Attention"),
@@ -103,7 +109,7 @@ $(document).ready(function () {
           window.CRM.APIRequest({
             method: 'POST',
             path: 'donationfunds/delete',
-            data: JSON.stringify({"fundId": fundId})
+            data: JSON.stringify({"typeId": typeId})
           }).done(function(data) {
             window.CRM.dataFundTable.ajax.reload();
           });
@@ -112,30 +118,29 @@ $(document).ready(function () {
     });
   });  
   
-  $(document).on("click",".edit-fund", function(){
-     var fundId = $(this).data("id");
+  $(document).on("click",".edit-prop", function(){
+     var typeId = $(this).data("typeid");
      
       window.CRM.APIRequest({
         method: 'POST',
-        path: 'donationfunds/edit',
-        data: JSON.stringify({"fundId": fundId})
+        path: 'properties/propertytypelists/edit',
+        data: JSON.stringify({"typeId": typeId})
       }).done(function(data) {
         var modal = bootbox.dialog({
-         message: BootboxContentFundList,
-         title: i18next.t("Fund Editor"),
+         message: BootboxContentPropertyTypeList(data.prtType.PrtClass),
+         title: i18next.t("Property Type Editor"),
          buttons: [
           {
            label: i18next.t("Save"),
            className: "btn btn-primary pull-left",
            callback: function() {
-             var Activ = $("#activCheckbox").is(":checked");
              var Name = $("#Name").val();
              var Description = $("#description").val();
            
              window.CRM.APIRequest({
                 method: 'POST',
-                path: 'donationfunds/set',
-                data: JSON.stringify({"fundId": fundId,"Activ":Activ, "Name": Name,"Description": Description})
+                path: 'properties/propertytypelists/set',
+                data: JSON.stringify({"typeId": typeId,"Name": Name,"Description": Description})
              }).done(function(data) {
                 window.CRM.dataFundTable.ajax.reload();
              });
@@ -155,9 +160,8 @@ $(document).ready(function () {
          }
        });
        
-       $("#activCheckbox").prop('checked', data.Active);
-       $("#Name").val(data.Name);
-       $("#description").val(data.Description);
+       $("#Name").val(data.prtType.PrtName);
+       $("#description").val(data.prtType.PrtDescription);
   
        modal.modal("show");
       });
@@ -165,7 +169,7 @@ $(document).ready(function () {
   
   $(document).on("click","#add-new-fund", function(){
     var modal = bootbox.dialog({
-     message: BootboxContentFundList,
+     message: BootboxContentPropertyTypeList,
      title: i18next.t("Add Fund"),
      buttons: [
       {

@@ -20,6 +20,8 @@ use EcclesiaCRM\SessionUser;
 $app->group('/properties', function() {
     
     $this->post('/propertytypelists', 'getAllPropertyTypes' );
+    $this->post('/propertytypelists/edit', 'editPropertyType' );
+    $this->post('/propertytypelists/set', 'setPropertyType' );
 
     $this->post('/typelists/{type}', 'getAllProperties' );
 
@@ -62,9 +64,9 @@ function getAllPropertyTypes (Request $request, Response $response, array $args)
       foreach ($elt as $key => $value) {
         if ($key == 'PrtClass') {
           switch ($value) { case 'm': $value = _('Menu'); break; case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
-          $new_elt .= "\""._($key)."\":"._(json_encode($value)).",";
+          $new_elt .= "\"".$key."\":".json_encode($value).",";
         } else {
-          $new_elt .= "\""._($key)."\":"._(json_encode($value)).",";
+          $new_elt .= "\"".$key."\":".json_encode($value).",";
         }
       }
       
@@ -84,6 +86,21 @@ function getAllPropertyTypes (Request $request, Response $response, array $args)
     }
     
     echo "{\"PropertyTypeLists\":[".substr($res, 0, -1)."]}"; 
+}
+
+function editPropertyType (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  //Get the properties
+    $ormPropertyType = PropertyTypeQuery::Create()
+      ->findOneByPrtId($data['typeId']);
+    
+    return $response->withJson(['success' => true, 'prtType' => $ormPropertyType->toArray()]);
 }
 
 function getAllProperties (Request $request, Response $response, array $args) {
