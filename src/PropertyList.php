@@ -74,6 +74,7 @@ require 'Include/Header.php'; ?>
 
 //Start the table
 ?>
+<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2"></table>
 
 <table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table">
 <thead>
@@ -162,6 +163,10 @@ require 'Include/Footer.php';
 ?>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  window.CRM.menuOptionEnabled = <?= (SessionUser::getUser()->isMenuOptionsEnabled())?'true':'false' ?>;
+  window.CRM.propertyType      = "<?= $sType ?>";
+  window.CRM.propertyTypeName  = "<?= $sTypeName ?>";
+  
   $("#property-listing-table").DataTable({
        "language": {
          "url": window.CRM.plugin.dataTable.language.url
@@ -170,3 +175,5 @@ require 'Include/Footer.php';
        "order": [[ 1, "asc" ]]
   });
 </script>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/PropertyList.js" ></script>
