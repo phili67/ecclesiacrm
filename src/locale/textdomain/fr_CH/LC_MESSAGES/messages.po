@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-06 19:08+0200\n"
+"POT-Creation-Date: 2019-04-08 15:41+0200\n"
 "Language: fr-CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,57 +304,88 @@ msgstr "Paiements"
 msgid "Pastoral Care"
 msgstr "Suivi pastoral"
 
-#: api/routes/sidebar/sidebar-properties.php:48
-#: api/routes/sidebar/sidebar-properties.php:111
-#: api/routes/sidebar/sidebar-properties.php:146
-#: api/routes/sidebar/sidebar-properties.php:195
-#: api/routes/sidebar/sidebar-properties.php:216
-#: api/routes/sidebar/sidebar-properties.php:265
-#: api/routes/sidebar/sidebar-properties.php:287
-#: api/routes/sidebar/sidebar-properties.php:325
+#: api/routes/sidebar/sidebar-properties.php:70 PropertyEditor.php:54
+#: PropertyList.php:41
+msgid "Menu"
+msgstr "Menu"
+
+#: api/routes/sidebar/sidebar-properties.php:70 AutoPaymentEditor.php:801
+#: AutoPaymentEditor.php:810 Include/Footer.php:76 PledgeEditor.php:544
+#: PropertyEditor.php:45 PropertyList.php:29
+#: Reports/GDPR/GDPRDataStructureExport.php:84
+#: v2/templates/gdpr/gdprdatastructure.php:56
+msgid "Person"
+msgstr "Personne"
+
+#: api/routes/sidebar/sidebar-properties.php:70 AutoPaymentEditor.php:801
+#: AutoPaymentEditor.php:810
+#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
+#: ElectronicPaymentList.php:216
+#: external/templates/registration/family-register-done.php:28
+#: FamilyView.php:235 FinancialReports.php:421 Include/Footer.php:58
+#: members/404.php:16 PersonView.php:696 PledgeEditor.php:544
+#: PrintPastoralCare.php:265 PrintView.php:267 PropertyEditor.php:48
+#: PropertyList.php:33 Reports/GDPR/GDPRDataStructureExport.php:123
+#: SelectList.php:1123 v2/templates/gdpr/gdprdatastructure.php:100
+msgid "Family"
+msgstr "Famille"
+
+#: api/routes/sidebar/sidebar-properties.php:70 Include/Footer.php:94
+#: OptionManager.php:121 PropertyEditor.php:51 PropertyList.php:37
+msgid "Group"
+msgstr "Groupe"
+
+#: api/routes/sidebar/sidebar-properties.php:246
+#: api/routes/sidebar/sidebar-properties.php:309
+#: api/routes/sidebar/sidebar-properties.php:344
+#: api/routes/sidebar/sidebar-properties.php:393
+#: api/routes/sidebar/sidebar-properties.php:414
+#: api/routes/sidebar/sidebar-properties.php:463
+#: api/routes/sidebar/sidebar-properties.php:485
+#: api/routes/sidebar/sidebar-properties.php:523
 #: api/routes/sidebar/sidebar-roles.php:43
 msgid "The record could not be found."
 msgstr "L'enregistrement n'a pas pu être trouvé."
 
-#: api/routes/sidebar/sidebar-properties.php:58
-#: api/routes/sidebar/sidebar-properties.php:156
-#: api/routes/sidebar/sidebar-properties.php:226
+#: api/routes/sidebar/sidebar-properties.php:256
+#: api/routes/sidebar/sidebar-properties.php:354
+#: api/routes/sidebar/sidebar-properties.php:424
 msgid "The property is already assigned."
 msgstr "Cette propriété est déjà assigné."
 
-#: api/routes/sidebar/sidebar-properties.php:63
-#: api/routes/sidebar/sidebar-properties.php:93
-#: api/routes/sidebar/sidebar-properties.php:161
-#: api/routes/sidebar/sidebar-properties.php:177
-#: api/routes/sidebar/sidebar-properties.php:231
-#: api/routes/sidebar/sidebar-properties.php:247
+#: api/routes/sidebar/sidebar-properties.php:261
+#: api/routes/sidebar/sidebar-properties.php:291
+#: api/routes/sidebar/sidebar-properties.php:359
+#: api/routes/sidebar/sidebar-properties.php:375
+#: api/routes/sidebar/sidebar-properties.php:429
+#: api/routes/sidebar/sidebar-properties.php:445
 msgid "The property is successfully assigned."
 msgstr "Cette propriété a été affectée avec succès."
 
-#: api/routes/sidebar/sidebar-properties.php:65
-#: api/routes/sidebar/sidebar-properties.php:76
-#: api/routes/sidebar/sidebar-properties.php:163
-#: api/routes/sidebar/sidebar-properties.php:174
-#: api/routes/sidebar/sidebar-properties.php:233
-#: api/routes/sidebar/sidebar-properties.php:244
+#: api/routes/sidebar/sidebar-properties.php:263
+#: api/routes/sidebar/sidebar-properties.php:274
+#: api/routes/sidebar/sidebar-properties.php:361
+#: api/routes/sidebar/sidebar-properties.php:372
+#: api/routes/sidebar/sidebar-properties.php:431
+#: api/routes/sidebar/sidebar-properties.php:442
 msgid "The property could not be assigned."
 msgstr "Cette propriété ne peut pas être assigné"
 
-#: api/routes/sidebar/sidebar-properties.php:130
-#: api/routes/sidebar/sidebar-properties.php:200
-#: api/routes/sidebar/sidebar-properties.php:270
+#: api/routes/sidebar/sidebar-properties.php:328
+#: api/routes/sidebar/sidebar-properties.php:398
+#: api/routes/sidebar/sidebar-properties.php:468
 msgid "The property is successfully unassigned."
 msgstr "Cette propriété a été retiré avec succès."
 
-#: api/routes/sidebar/sidebar-properties.php:305
+#: api/routes/sidebar/sidebar-properties.php:503
 msgid "The menu could not be assigned."
 msgstr "Le menu n'a pu être affecté"
 
-#: api/routes/sidebar/sidebar-properties.php:308
+#: api/routes/sidebar/sidebar-properties.php:506
 msgid "The menu is successfully assigned."
 msgstr "Le menu a été affecté avec succès"
 
-#: api/routes/sidebar/sidebar-properties.php:337
+#: api/routes/sidebar/sidebar-properties.php:535
 msgid "The menu is successfully unassigned."
 msgstr "Le menu a été supprimé avec succès."
 
@@ -411,27 +442,6 @@ msgstr "Configuration de paiement automatique"
 #: AutoPaymentEditor.php:801
 msgid "For the"
 msgstr "Pour la"
-
-#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810 Include/Footer.php:76
-#: PledgeEditor.php:544 PropertyEditor.php:45 PropertyList.php:29
-#: PropertyTypeEditor.php:90 PropertyTypeList.php:133
-#: Reports/GDPR/GDPRDataStructureExport.php:84
-#: v2/templates/gdpr/gdprdatastructure.php:56
-msgid "Person"
-msgstr "Personne"
-
-#: AutoPaymentEditor.php:801 AutoPaymentEditor.php:810
-#: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
-#: ElectronicPaymentList.php:216
-#: external/templates/registration/family-register-done.php:28
-#: FamilyView.php:235 FinancialReports.php:421 Include/Footer.php:58
-#: members/404.php:16 PersonView.php:696 PledgeEditor.php:544
-#: PrintPastoralCare.php:265 PrintView.php:267 PropertyEditor.php:48
-#: PropertyList.php:33 PropertyTypeEditor.php:91 PropertyTypeList.php:133
-#: Reports/GDPR/GDPRDataStructureExport.php:123 SelectList.php:1123
-#: v2/templates/gdpr/gdprdatastructure.php:100
-msgid "Family"
-msgstr "Famille"
 
 #: AutoPaymentEditor.php:810 PersonEditor.php:982 PledgeEditor.php:544
 msgid "or"
@@ -637,7 +647,7 @@ msgstr "Stocker des Données Privés à Vanco"
 #: PaddleNumEditor.php:149 PersonEditor.php:802 PersonEditor.php:935
 #: PersonEditor.php:1053 PersonEditor.php:1452 PersonEditor.php:1525
 #: PersonEditor.php:1611 PledgeEditor.php:729 PropertyEditor.php:191
-#: PropertyTypeEditor.php:113 UserEditor.php:750 UserPasswordChange.php:224
+#: UserEditor.php:750 UserPasswordChange.php:224
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -650,9 +660,8 @@ msgstr "Enregistrer"
 #: GroupReports.php:174 LettersAndLabels.php:83 ManageEnvelopes.php:134
 #: MemberRoleChange.php:121 MemberRoleChange.php:123 PersonEditor.php:1619
 #: PersonView.php:1558 PledgeEditor.php:736 PropertyEditor.php:191
-#: PropertyTypeEditor.php:115 Register.php:56 ReminderReport.php:54
-#: SettingsIndividual.php:122 SettingsIndividual.php:171
-#: sundayschool/SundaySchoolDashboard.php:280
+#: Register.php:56 ReminderReport.php:54 SettingsIndividual.php:122
+#: SettingsIndividual.php:171 sundayschool/SundaySchoolDashboard.php:280
 #: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:751
 #: UserEditor.php:857
 msgid "Cancel"
@@ -1135,7 +1144,6 @@ msgstr "Ajouter le panier à la famille"
 #: PersonCustomFieldsEditor.php:454 PersonList.php:112
 #: PrintPastoralCare.php:344 PrintPastoralCare.php:471 PrintView.php:346
 #: PrintView.php:477 PropertyEditor.php:171 PropertyList.php:88
-#: PropertyTypeEditor.php:97 PropertyTypeList.php:68
 #: Reports/CanvassReports.php:68 Reports/CanvassReports.php:236
 #: Reports/FamilyPledgeSummary.php:218 Reports/FRBidSheets.php:88
 #: Reports/PDFLabel.php:869 SelectList.php:1051
@@ -1479,7 +1487,6 @@ msgstr "Confirmé par"
 
 #: Checkin.php:557 DepositSlipEditor.php:196 EditEventAttendees.php:73
 #: EventNames.php:297 ListEvents.php:359 PersonView.php:980 PropertyList.php:84
-#: PropertyTypeList.php:64
 msgid "Action"
 msgstr "Action"
 
@@ -2159,7 +2166,7 @@ msgstr "Confirmation de la suppression le la note"
 msgid "Please confirm deletion of this note"
 msgstr "Veuillez confirmer la suppression de cette note"
 
-#: DocumentDelete.php:101 PropertyDelete.php:61 PropertyTypeDelete.php:75
+#: DocumentDelete.php:101 PropertyDelete.php:61
 msgid "Yes, delete this record"
 msgstr "Oui, supprimer cet enregistrement"
 
@@ -2272,7 +2279,7 @@ msgstr "Aller"
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
 #: GroupEditor.php:87 GroupPersonPropsFormEditor.php:223
 #: GroupPropsFormEditor.php:318 GroupPropsFormEditor.php:444 GroupView.php:431
-#: ListEvents.php:360 PropertyTypeEditor.php:105 PropertyTypeList.php:70
+#: ListEvents.php:360
 msgid "Description"
 msgstr "Description"
 
@@ -5902,7 +5909,7 @@ msgstr "Vue de famille latérale"
 #: FamilyEditor.php:254 GroupPropsFormEditor.php:352
 #: GroupPropsFormEditor.php:467 OptionManager.php:435
 #: PersonCustomFieldsEditor.php:363 PersonCustomFieldsEditor.php:488
-#: PropertyEditor.php:77 PropertyTypeEditor.php:46
+#: PropertyEditor.php:77
 msgid "You must enter a name"
 msgstr "Vous devez entrer un nom"
 
@@ -7252,11 +7259,6 @@ msgstr "Propriétés des Personnes"
 #: Include/Footer.php:90
 msgid "Edit Custom Person Fields"
 msgstr "Modifier les champs personnalisables des personnes"
-
-#: Include/Footer.php:94 OptionManager.php:121 PropertyEditor.php:51
-#: PropertyList.php:37 PropertyTypeEditor.php:92 PropertyTypeList.php:133
-msgid "Group"
-msgstr "Groupe"
 
 #: Include/Footer.php:111
 msgid "Sunday School Menu Properties"
@@ -8823,14 +8825,9 @@ msgstr ""
 "Supprimer cette Propriété entraînera également la suppression des "
 "attributions de cette Propriété à toutes les personnes, familles, ou groupes."
 
-#: PropertyDelete.php:63 PropertyTypeDelete.php:77 SelectDelete.php:390
-#: SelectDelete.php:397
+#: PropertyDelete.php:63 SelectDelete.php:390 SelectDelete.php:397
 msgid "No, cancel this deletion"
 msgstr "Non, annuler cette suppression"
-
-#: PropertyEditor.php:54 PropertyList.php:41
-msgid "Menu"
-msgstr "Menu"
 
 #: PropertyEditor.php:63
 msgid "Property Editor"
@@ -8875,66 +8872,27 @@ msgstr "Ajouter une nouvelle"
 msgid "with this Property..."
 msgstr "avec cette Propriété..."
 
-#: PropertyTypeDelete.php:30
-msgid "Property Type Delete Confirmation"
-msgstr "Confirmation de la Suppression du Type de Propriété"
-
-#: PropertyTypeDelete.php:65
-msgid "Warning"
-msgstr "Attention"
-
-#: PropertyTypeDelete.php:65
-msgid "This property type is still being used by at least one property."
-msgstr "Ce type de Propriété est encore utilisé par au moins une propriété."
-
-#: PropertyTypeDelete.php:65
-msgid "If you delete this type, you will also remove all properties using"
-msgstr ""
-"Si vous supprimez ce type, vous supprimerez également toutes les Propriétés "
-"qui l'utilisent"
-
-#: PropertyTypeDelete.php:65
-msgid "it and lose any corresponding property assignments."
-msgstr "et vous perdrez toutes les Propriétés correspondantes."
-
-#: PropertyTypeDelete.php:71
-msgid "Please confirm deletion of this Property Type"
-msgstr "Veuillez confirmer la suppression du Type de Propriété"
-
-#: PropertyTypeEditor.php:26
-msgid "Property Type Editor"
-msgstr "Gestionnaire des Types de Propriété"
-
-#: PropertyTypeEditor.php:87 PropertyTypeList.php:69
-#: sundayschool/SundaySchoolDashboard.php:166 queryparameters_qrp.php:12
-msgid "Class"
-msgstr "Classe"
-
-#: PropertyTypeList.php:23
+#: PropertyTypeList.php:21
 msgid "Property Type List"
 msgstr "Liste des Types de propriétés"
 
-#: PropertyTypeList.php:42
+#: PropertyTypeList.php:33
 msgid "Add a New Property Type"
 msgstr "Ajouter un nouveau Type de Propriété"
 
-#: PropertyTypeList.php:46 v2/templates/sidebar/menulinklist.php:22
+#: PropertyTypeList.php:37 v2/templates/sidebar/menulinklist.php:22
 #: v2/templates/sidebar/pastoralcarelist.php:27
 #: v2/templates/sidebar/volunteeropportunityeditor.php:19
 msgid "Only an admin can modify or delete this records."
 msgstr "Seul un administrateur peut modifier ou supprimer ces enregistrements."
 
-#: PropertyTypeList.php:51
+#: PropertyTypeList.php:42
 msgid ""
 "Be carefull ! By deleting properties, all persons, families and groups will "
 "be affected."
 msgstr ""
 "Attention ! En supprimant les propriétés, toutes les personnes, familles ou "
 "groupes perdront les données associées."
-
-#: PropertyTypeList.php:123
-msgid "Sunday School Sub Menu"
-msgstr "Sous menu Ecole du dimanche"
 
 #: QueryList.php:26
 msgid "Query Listing"
@@ -10073,6 +10031,10 @@ msgstr "Exporter au format CSV"
 #: sundayschool/SundaySchoolDashboard.php:83
 msgid "Classes"
 msgstr "Classes"
+
+#: sundayschool/SundaySchoolDashboard.php:166 queryparameters_qrp.php:12
+msgid "Class"
+msgstr "Classe"
 
 #: sundayschool/SundaySchoolDashboard.php:203
 msgid "Students not in a Sunday School Class"
@@ -11236,8 +11198,8 @@ msgid "Family Pledge by Fiscal Year"
 msgstr "Egagement familiale par année fiscale"
 
 #: query_qry.php:20 query_qry.php:63
-msgid "Persons not assigned to a group"
-msgstr "Personnes non affectées à un groupe"
+msgid "Person not assigned to a group"
+msgstr "Personne non affectée à un groupe"
 
 #: query_qry.php:21 query_qry.php:64
 msgid "Person assigned to a group"
@@ -11599,6 +11561,35 @@ msgstr "Planifiée"
 msgid "paused"
 msgstr "En pause"
 
+#~ msgid "Property Type Delete Confirmation"
+#~ msgstr "Confirmation de la Suppression du Type de Propriété"
+
+#~ msgid "Warning"
+#~ msgstr "Attention"
+
+#~ msgid "This property type is still being used by at least one property."
+#~ msgstr "Ce type de Propriété est encore utilisé par au moins une propriété."
+
+#~ msgid "If you delete this type, you will also remove all properties using"
+#~ msgstr ""
+#~ "Si vous supprimez ce type, vous supprimerez également toutes les "
+#~ "Propriétés qui l'utilisent"
+
+#~ msgid "it and lose any corresponding property assignments."
+#~ msgstr "et vous perdrez toutes les Propriétés correspondantes."
+
+#~ msgid "Please confirm deletion of this Property Type"
+#~ msgstr "Veuillez confirmer la suppression du Type de Propriété"
+
+#~ msgid "Property Type Editor"
+#~ msgstr "Gestionnaire des Types de Propriété"
+
+#~ msgid "Sunday School Sub Menu"
+#~ msgstr "Sous menu Ecole du dimanche"
+
+#~ msgid "Persons not assigned to a group"
+#~ msgstr "Personnes non affectées à un groupe"
+
 #~ msgid "List Members"
 #~ msgstr "Lister des membres"
 
@@ -11616,9 +11607,6 @@ msgstr "En pause"
 
 #~ msgid "Create a Mailing list"
 #~ msgstr "Créer une liste de Publipostage"
-
-#~ msgid "Person not assigned to a group"
-#~ msgstr "Personne non affectée à un groupe"
 
 #~ msgid "Norwegian"
 #~ msgstr "Norvégien"
