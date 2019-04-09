@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-08T13:57:58.509Z\n"
+"POT-Creation-Date: 2019-04-09T06:46:56.102Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1243,6 +1243,29 @@ msgstr "Editeur de type de suivi pastoral"
 msgid "Add Pastoral Care Type"
 msgstr "Ajouter un type de suivi pastoral"
 
+msgid "with this Property..."
+msgstr "avec cette propriété"
+
+msgid "Prompt"
+msgstr "Message"
+
+msgid "Select Property Type"
+msgstr "Ajouter une nouvelle propriété"
+
+msgid "with this property.."
+msgstr "avec cette propriété ..."
+
+msgid "You're about to delete this property. Would you like to continue ?"
+msgstr ""
+"Vous êtes sur le point de supprimer cette propriété. Vous-vous "
+"poursuivre ?"
+
+msgid "Property Type Editor"
+msgstr "Editeur de type de propriétés"
+
+msgid "Add a New Property"
+msgstr "Ajouter une nouvelle propriété"
+
 msgid "Class"
 msgstr "Class"
 
@@ -1274,9 +1297,6 @@ msgstr ""
 
 msgid "it and lose any corresponding property assignments."
 msgstr "l'utiliseront et tous les propriétés associées."
-
-msgid "Property Type Editor"
-msgstr "Editeur de type de propriétés"
 
 msgid "Add a New Property Type"
 msgstr "Ajouter une nouveau Type de propriété"
