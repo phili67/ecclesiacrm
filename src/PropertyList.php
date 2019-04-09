@@ -15,7 +15,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
@@ -26,19 +26,19 @@ $sType = InputUtils::LegacyFilterInput($_GET['Type'], 'char', 1);
 //Based on the type, set the TypeName
 switch ($sType) {
     case 'p':
-        $sTypeName = gettext('Person');
+        $sTypeName = _('Person');
         break;
 
     case 'f':
-        $sTypeName = gettext('Family');
+        $sTypeName = _('Family');
         break;
 
     case 'g':
-        $sTypeName = gettext('Group');
+        $sTypeName = _('Group');
         break;
 
     case 'm':
-        $sTypeName = gettext('Menu');
+        $sTypeName = _('Menu');
         break;
 
     default:
@@ -48,17 +48,12 @@ switch ($sType) {
 }
 
 //Set the page title
-$sPageTitle = $sTypeName.' : '.gettext('Property List');
+$sPageTitle = $sTypeName.' : '._('Property List');
 
-//Get the properties
-$ormProperties = PropertyQuery::Create()
-  ->leftJoinPropertyType()
-  ->filterByProClass($sType)
-  ->usePropertyTypeQuery()
-    ->orderByPrtName()
-  ->endUse()
-  ->orderByProName()
-  ->find();
+// We need the properties types
+$ormPropertyTypes = PropertyTypeQuery::Create()
+                      ->filterByPrtClass($sType)
+                      ->find();
 
 require 'Include/Header.php'; ?>
 
@@ -68,95 +63,14 @@ require 'Include/Header.php'; ?>
    if (SessionUser::getUser()->isMenuOptionsEnabled()) {
     //Display the new property link
 ?>
-    <p align="center"><a class='btn btn-primary' href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?Type=<?=$sType?>"><?= gettext('Add a New') ?> <?= $sTypeName?> <?= gettext('Property') ?></a></p>
+    <p align="center"><a class='btn btn-primary' href="#" id="add-new-prop"><?= _('Add a New') ?> <?= $sTypeName?> <?= _('Property') ?></a></p>
 <?php
 }
 
 //Start the table
 ?>
 <table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table-v2"></table>
-
-<table class='table table-hover dt-responsive dataTable no-footer dtr-inline' id="property-listing-table">
-<thead>
-<tr>
-<?php
-if (SessionUser::getUser()->isMenuOptionsEnabled()) {
-?>
-    <td valign="top"><?= gettext('Action') ?></td>
-<?php
-}
-?>
-<th valign="top"><?= gettext('Name') ?></th>
-<th valign="top"><?= gettext('A')?> <?= $sTypeName ?> <?= gettext('with this Property...') ?></b></th>
-<th valign="top"><?= gettext('Prompt') ?></th>
-</tr>
-</thead>
-<tbody>
-
-<?php
-//Initalize the row shading
-$sRowClass = 'RowColorA';
-$iPreviousPropertyType = -1;
-$sBlankLine = '';
-
-//Loop through the records
-foreach ($ormProperties as $ormProperty) {
-    //Did the Type change?
-    if ($iPreviousPropertyType != $ormProperty->getPropertyType()->getPrtId()) {
-
-        //Write the header row
-?>
-        <tr class="RowColorA"><td><b><?= gettext($ormProperty->getPropertyType()->getPrtName()) ?></b></td><td></td><td></td>
-
-<?php
-    if (SessionUser::getUser()->isMenuOptionsEnabled()) {
-?>        
-        <td></td>
-<?php 
-    }
-?>
-</tr>
-<?php
-        //Reset the row color
-        $sRowClass = 'RowColorA';
-    }
-
-    $sRowClass = AlternateRowStyle($sRowClass);
-    
-?>
-
-    <tr class="<?= $sRowClass ?>">
-<?php
-    if (SessionUser::getUser()->isMenuOptionsEnabled()) {
-?>
-      <td valign="top">
-        <a href="<?= SystemURLs::getRootPath() ?>/PropertyEditor.php?PropertyID=<?= $ormProperty->getProId() ?>&Type=<?= $sType ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-        &nbsp;&nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/PropertyDelete.php?PropertyID=<?= $ormProperty->getProId()?>&Type=<?= $sType ?>"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
-      </td>
-<?php
-    }
-?>
-    <td valign="top"><?= $ormProperty->getProName() ?>&nbsp;</td>
-    <td valign="top">
-<?php
-    if (strlen($ormProperty->getProDescription()) > 0) {
-?>
-        ...<?= stripslashes($ormProperty->getProDescription()) ?>
-<?php
-    }
-?>
-    &nbsp;</td>
-    <td valign="top"><?= stripslashes($ormProperty->getProPrompt()) ?>&nbsp;</td>
-    </tr>
-<?php
-    //Store the PropertyType
-    $iPreviousPropertyType = $ormProperty->getPropertyType()->getPrtId();
-}
-
-//End the table
-?>
-</tbody>
-</table></div>
+</div>
 
 <?php
 require 'Include/Footer.php';
@@ -166,14 +80,7 @@ require 'Include/Footer.php';
   window.CRM.menuOptionEnabled = <?= (SessionUser::getUser()->isMenuOptionsEnabled())?'true':'false' ?>;
   window.CRM.propertyType      = "<?= $sType ?>";
   window.CRM.propertyTypeName  = "<?= $sTypeName ?>";
-  
-  $("#property-listing-table").DataTable({
-       "language": {
-         "url": window.CRM.plugin.dataTable.language.url
-       },
-       responsive: true,
-       "order": [[ 1, "asc" ]]
-  });
+  window.CRM.propertyTypesAll  = <?= json_encode($ormPropertyTypes->toArray()) ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/sidebar/PropertyList.js" ></script>
