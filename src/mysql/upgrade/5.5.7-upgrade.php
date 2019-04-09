@@ -19,5 +19,9 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/PropertyDelete.php");
   unlink(SystemURLs::getDocumentRoot()."/PropertyList.php");
   
+  unlink(SystemURLs::getDocumentRoot()."/MapUsingBing.php");
+  unlink(SystemURLs::getDocumentRoot()."/MapUsingGoogle.php");
+  unlink(SystemURLs::getDocumentRoot()."/MapUsingLeaflet.php");
+  
   $logger->info("End of delete :  all unusefull files");
 ?>
