@@ -59,13 +59,13 @@ $(document).ready(function () {
   
   /* IMPORTANT : be careful
        This will work in cartToGroup code */
-    function BootboxContentPropertyTypeList(propertyTypes){
+    function BootboxContentPropertyList(propertyTypes){
       var options   = '<option value="">'+ i18next.t('Select Property Type') + '</option>';
       var firstTime = true;
       
       for (i=0;i < propertyTypes.length;i++){
-        options += "\n"+'<option value="'+propertyTypes[i].PrtId+'" '+ ((firstTime)?'selected=""':'')+'>'+propertyTypes[i].PrtName+'</option>';
-        firstTime=false;
+          options += "\n"+'<option value="'+propertyTypes[i].PrtId+'" '+ ((firstTime)?'selected=""':'')+'>'+propertyTypes[i].PrtName+'</option>';
+          firstTime=false;
       }
       
       var frm_str = '<div class="box-body">'
@@ -112,13 +112,8 @@ $(document).ready(function () {
     
   $(document).on("click",".delete-prop", function(){
      var typeId  = $(this).data("typeid");
-     var warn    = $(this).data("warn");
-     var message = i18next.t("You're about to delete this general properties. Would you like to continue ?");
-     
-     if (warn > 0) {
-       message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('This general property type is still being used by') + ' ' + warn + ' ' + ((warn==1)?i18next.t('property'):i18next.t('properties')) + '.<BR>' + i18next.t('If you delete this type, you will also remove all properties using') + '<BR>' + i18next.t('it and lose any corresponding property assignments.')+'</div>';
-     }
-     
+     var message = i18next.t("You're about to delete this property. Would you like to continue ?");
+          
      bootbox.confirm({
       title: i18next.t("Attention"),
       message: message,
@@ -126,7 +121,7 @@ $(document).ready(function () {
         if (result) {
           window.CRM.APIRequest({
             method: 'POST',
-            path: 'properties/propertytypelists/delete',
+            path: 'properties/typelists/delete',
             data: JSON.stringify({"typeId": typeId})
           }).done(function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
@@ -145,7 +140,7 @@ $(document).ready(function () {
         data: JSON.stringify({"typeId": typeId})
       }).done(function(data) {
         var modal = bootbox.dialog({
-         message: BootboxContentPropertyTypeList(data.propertyTypes),
+         message: BootboxContentPropertyList(data.propertyTypes),
          title: i18next.t("Property Type Editor"),
          buttons: [
           {
@@ -189,21 +184,22 @@ $(document).ready(function () {
   
   $(document).on("click","#add-new-prop", function(){
     var modal = bootbox.dialog({
-     message: BootboxContentPropertyTypeList(-1),
-     title: i18next.t("Add a New Property Type"),
+     message: BootboxContentPropertyList(window.CRM.propertyTypesAll),
+     title: i18next.t("Add a New Property"),
      buttons: [
       {
        label: i18next.t("Save"),
        className: "btn btn-primary pull-left",
        callback: function() {
-         var theClass    = $("#Class").val();
+         var theClass    = window.CRM.propertyType;
          var Name        = $("#Name").val();
          var Description = $("#description").val();
+         var Prompt      = $("#prompt").val();
        
          window.CRM.APIRequest({
             method: 'POST',
-            path: 'properties/propertytypelists/create',
-            data: JSON.stringify({"Class":theClass, "Name": Name,"Description": Description})
+            path: 'properties/typelists/create',
+            data: JSON.stringify({"Class":theClass, "Name": Name,"Description": Description, "Prompt": Prompt})
          }).done(function(data) {
             window.CRM.dataPropertyListTable.ajax.reload();
          });
@@ -225,5 +221,4 @@ $(document).ready(function () {
    
    modal.modal("show");
   });
-
 });

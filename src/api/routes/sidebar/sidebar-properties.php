@@ -7,6 +7,7 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PropertyType;
+use EcclesiaCRM\Property;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\PropertyTypeQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
@@ -28,9 +29,9 @@ $app->group('/properties', function() {
 
     $this->post('/typelists/edit', 'editProperty' );
     $this->post('/typelists/set', 'setProperty' );
+    $this->post('/typelists/delete', 'deleteProperty' );
+    $this->post('/typelists/create', 'createProperty' );
     $this->post('/typelists/{type}', 'getAllProperties' );
-    /*$this->post('/typelists/create', 'createProperty' );
-    $this->post('/typelists/delete', 'deleteProperty' );*/
 
     $this->post('/persons/assign', 'propertiesPersonsAssign' );
     $this->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
@@ -271,6 +272,56 @@ function setProperty (Request $request, Response $response, array $args) {
     
     return $response->withJson(['success' => true, 'proType' => $property->toArray()]);
 }
+
+function deleteProperty (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  $property = PropertyQuery::Create()->findByProId ($data['typeId']);
+  
+  // we delete the correleted datas
+  $recProps = Record2propertyR2pQuery::Create()->findByR2pProId ($data['typeId']);
+  if(!is_null ($recProps)) {
+    $recProps->delete();
+  }
+    
+  if (!is_null ($property)) {
+      $property->delete();
+  }
+    
+  return $response->withJson(['success' => true]);
+}
+
+function createProperty (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+  
+    $propertyType = PropertyTypeQuery::Create()
+                      ->filterByPrtClass($data['Class'])
+                      ->findOne();
+
+  //Create the properties
+    $property = new Property();
+      
+    $property->setProPrtId($propertyType->getPrtId());
+    $property->setProClass ($data['Class']);
+    $property->setProName ($data['Name']);
+    $property->setProDescription($data['Description']);
+    $property->setProPrompt($data['Prompt']);
+    
+    $property->save();
+    
+    return $response->withJson(['success' => true, 'proType' => $property->toArray()]);
+}
+
 
 function propertiesPersonsAssign (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
