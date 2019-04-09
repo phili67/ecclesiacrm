@@ -330,7 +330,7 @@ require $sRootDocument . '/Include/Header.php';
         }
 
         contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-        contentString += '<p><a href="http://maps.google.com/?q=1  ' + plot.Address + '" target="_blank">' + plot.Address + '</a></p>';
+        contentString += '<p><a href="https://nominatim.openstreetmap.org/search.php?q=' + plot.Address + '&polygon_geojson=1&viewbox=" target="_blank">' + plot.Address + '</a></p>';
 
         if (plot.Thumbnail.length > 0) {
             //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
