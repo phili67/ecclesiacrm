@@ -687,7 +687,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
-          <li role="presentation" <?= (!$bDocuments && !$bEDrive && !bGroup)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
+          <li role="presentation" <?= (!$bDocuments && !$bEDrive && !$bGroup)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
         <?php
           }
         ?>
