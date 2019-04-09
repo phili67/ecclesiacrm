@@ -65,16 +65,14 @@ require $sRootDocument . '/Include/Header.php';
         <div id="maplegend-bing"><h4><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
-                    <input type="checkbox" class="view" data-id="-2" name="feature"
-               value="scales" checked /><img
-                        src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
-                    <?= _('Unassigned') ?>
+                    <img src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
+                    <input type="checkbox" class="view" data-id="-2" id="Unassigned" name="feature" value="scales" checked />
+                    <label for="Unassigned"><?= _('Unassigned') ?></label>
                 </div>
                 <div class="legenditem">
-                    <input type="checkbox" class="view" data-id="-1" name="feature"
-               value="scales" checked /><img
-                        src='<?= $sRootPath ?>/skin/icons/event.png'/>
-                    <?= _("Calendar") ?>
+                    <img src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                    <input type="checkbox" class="view" data-id="-1" id="calendar" name="feature" value="scales" checked />
+                    <label for="calendar"><?= _("Calendar") ?></label>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
@@ -84,7 +82,6 @@ require $sRootDocument . '/Include/Header.php';
                    $arrPlotItemsSeperate[$icon->getOptionId()] =  array();
                     ?>
                     <div class="legenditem">
-                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
                         <?php 
                           if (!empty($icon->getUrl())) {
                         ?>
@@ -96,7 +93,8 @@ require $sRootDocument . '/Include/Header.php';
                         <?php
                           }
                         ?>
-                        <?= $icon->getOptionName() ?>
+                        <input type="checkbox" class="view" data-id="<?= $icon->getOptionId() ?>" id="<?= $icon->getOptionId() ?>" name="feature" value="scales" checked />
+                        <label for="<?= $icon->getOptionId() ?>"><?= $icon->getOptionName() ?></label>
                     </div>
                     <?php
                 } 
