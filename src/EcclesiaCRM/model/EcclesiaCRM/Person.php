@@ -230,6 +230,13 @@ class Person extends BasePerson implements iPhoto
     {
         $note = new Note();
         $note->setPerId($this->getId());
+        
+        if (!is_null (SessionUser::getUser())) {
+          $note->setEnteredBy(SessionUser::getUser()->getPerson()->getEditedBy());
+        } else {
+          $note->setEnteredBy($this->getEditedBy());
+        }
+        
         $note->setType($type);
         $note->setDateEntered(new DateTime());
 
@@ -241,7 +248,6 @@ class Person extends BasePerson implements iPhoto
               break;
             case "edit":
               $note->setText(gettext('Updated'));
-              $note->setEnteredBy($this->getEditedBy());
               $note->setDateEntered($this->getDateLastEdited());
               break;
         }

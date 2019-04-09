@@ -247,7 +247,7 @@ class TimelineService
             }
             
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
-                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $userName/*$displayEditedBy*/, '', $dbNote->getText(),
+                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy/*$userName*/, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
                 $sharePerson,$shareRights,$currentUserName,$userName,$perID,$displayEditedBy);
         }
