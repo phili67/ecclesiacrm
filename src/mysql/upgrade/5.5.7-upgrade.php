@@ -15,6 +15,8 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/PropertyTypeEditor.php");
   unlink(SystemURLs::getDocumentRoot()."/PropertyTypeDelete.php");
   unlink(SystemURLs::getDocumentRoot()."/PropertyTypeList.php");
+  unlink(SystemURLs::getDocumentRoot()."/PropertyEditor.php");
+  unlink(SystemURLs::getDocumentRoot()."/PropertyDelete.php");
   
   $logger->info("End of delete :  all unusefull files");
 ?>
