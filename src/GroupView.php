@@ -51,7 +51,7 @@ $thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
 //Look up the default role name
 $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId())->filterByOptionId($thisGroup->getDefaultRole())->findOne();
 
-$sGroupType = gettext('Unassigned');
+$sGroupType = _('Unassigned');
 
 $manager = GroupManagerPersonQuery::Create()->filterByPersonID(SessionUser::getUser()->getPerson()->getId())->filterByGroupId($iGroupID)->findOne();
   
@@ -83,51 +83,40 @@ $ormProperties = PropertyQuery::Create()
 $ormPropList = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID);
 
 //Set the page title
-$sPageTitle = gettext('Group View').' : '.$thisGroup->getName();
+$sPageTitle = _('Group View').' : '.$thisGroup->getName();
 
 require 'Include/Header.php';
 ?>
 
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group Functions') ?></h3>
+    <h3 class="box-title"><?= _('Group Functions') ?></h3>
   </div>
   <div class="box-body">
     <?php 
       if (SessionUser::getUser()->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
-        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
     ?>
-        <a class="btn btn-app" href="MapUsingLeaflet.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
-      <?php
-        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps') {
-      ?>
-        <a class="btn btn-app" href="MapUsingGoogle.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
-        
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/map/<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= _('Map this group') ?></a>
     <?php
-        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-    ?>
-        <a class="btn btn-app" href="MapUsingBing.php?GroupID=<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= gettext('Map this group') ?></a>
-    <?php
-        }    
       }
     ?>
 
     <?php
       if (Cart::GroupInCart($iGroupID) && SessionUser::getUser()->isShowCartEnabled()) {
     ?>
-       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
     <?php
       } else if (SessionUser::getUser()->isShowCartEnabled()){
     ?>
-       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+       <a class="btn btn-app AddToGroupCart" id="AddToGroupCart" data-cartgroupid="<?= $thisGroup->getId() ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
     <?php
      }
     ?>
     <?php
       if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
     ?>
-        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= gettext("Edit this Group") ?></a>
-        <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= gettext("Delete this Group") ?></button>
+        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
+        <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= _("Delete this Group") ?></button>
     <?php
       }
     ?>
@@ -137,7 +126,7 @@ require 'Include/Header.php';
     ?>
      <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php" style="display:inline">
        <input type="hidden" id="GroupID" name="GroupID" value="<?= $iGroupID?>">
-       <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= gettext("Group reports") ?></button>
+       <button type="submit" class="btn btn-app bg-green exportCheckOutCSV"><i class="fa fa-file-pdf-o"></i><?= _("Group reports") ?></button>
      </form>
     <?php
       }
@@ -183,7 +172,7 @@ require 'Include/Header.php';
         // Display link
         ?>
         <div class="btn-group">
-          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= gettext("Email Group") ?></a>
+          <a  class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send-o"></i><?= _("Email Group") ?></a>
           <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -194,7 +183,7 @@ require 'Include/Header.php';
         </div>
 
         <div class="btn-group">
-          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?= gettext("Email (BCC)") ?></a>
+          <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i class="fa fa-send"></i><?= _("Email (BCC)") ?></a>
           <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown" >
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
@@ -237,8 +226,8 @@ require 'Include/Header.php';
     if ($sPhoneLink) {
         if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
             // Display link
-            echo '<a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i>'.gettext('Text Group').'</a>';
-            echo '<script nonce="'. SystemURLs::getCSPNonce() .'">function allPhonesCommaD() {prompt("'.gettext("Press CTRL + C to copy all group members\' phone numbers").'", "'.mb_substr($sPhoneLink, 0, -2).'")};</script>';
+            echo '<a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i>'._('Text Group').'</a>';
+            echo '<script nonce="'. SystemURLs::getCSPNonce() .'">function allPhonesCommaD() {prompt("'._("Press CTRL + C to copy all group members\' phone numbers").'", "'.mb_substr($sPhoneLink, 0, -2).'")};</script>';
         }
     }
     ?>
@@ -249,25 +238,25 @@ require 'Include/Header.php';
     <div class="box-body">
       <center>
         <button class="btn btn-success" type="button">
-            <?= gettext('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
+            <?= _('Type of Group') ?> <span class="badge"> <?= $sGroupType ?> </span>
         </button>
         <button class="btn btn-info" type="button">
         <?php 
           if (!empty($defaultRole)) {
         ?>
-            <?= gettext('Default Role') ?> <span class="badge"><?= $defaultRole->getOptionName() ?></span>
+            <?= _('Default Role') ?> <span class="badge"><?= $defaultRole->getOptionName() ?></span>
         <?php
           } 
         ?>
         </button>
         <button class="btn btn-primary" type="button">
-            <?= gettext('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
+            <?= _('Total Members') ?> <span class="badge" id="iTotalMembers"></span>
         </button>
         <?php 
           if (SessionUser::getUser()->isAdmin()) { 
         ?>
         <a class="btn btn-danger" href="<?= SystemURLs::getRootPath() ?>/api/groups/addressbook/extract/<?= $iGroupID ?>">
-            <?= gettext('Address Book') ?> 
+            <?= _('Address Book') ?> 
             <span class="badge">
               <i class="fa fa fa-address-card-o" aria-hidden="true"></i>
             </span>
@@ -287,15 +276,15 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('Quick Settings') ?></h3>
+        <h3 class="box-title"><?= _('Quick Settings') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
       </div>
       <div class="box-body">
           <form>
-              <div class="col-sm-4"> <b><?= gettext('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Active') ?>" data-off="<?= gettext('Disabled') ?>"> </div>
-              <div class="col-sm-6"> <b><?= gettext('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= gettext('Include') ?>" data-off="<?= gettext('Exclude') ?>"></div>
+              <div class="col-sm-4"> <b><?= _('Status') ?>:</b> <input data-size="small" id="isGroupActive" type="checkbox" data-toggle="toggle" data-on="<?= _('Active') ?>" data-off="<?= _('Disabled') ?>"> </div>
+              <div class="col-sm-6"> <b><?= _('Email export') ?>:</b> <input data-size="small" id="isGroupEmailExport" type="checkbox" data-toggle="toggle" data-on="<?= _('Include') ?>" data-off="<?= _('Exclude') ?>"></div>
           </form>
       </div>
     </div>
@@ -303,13 +292,13 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= gettext("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= gettext("Group Managers") ?></h3>
+        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign a group manager only for This Group. He can add or remove member from This Group, but not create Members.") ?>"><?= _("Group Managers") ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
       </div>
       <div class="box-body">
-          <b><?= gettext("Assigned Managers") ?>:</b>
+          <b><?= _("Assigned Managers") ?>:</b>
           <div id="Manager-list">
           <?php
             $managers = GroupManagerPersonQuery::Create()->findByGroupId($iGroupID);
@@ -324,12 +313,12 @@ require 'Include/Header.php';
               }
             } else {
           ?>
-            <p><?= gettext("No assigned Manager") ?>.</p>
+            <p><?= _("No assigned Manager") ?>.</p>
           <?php
             }
           ?>
           </div>
-          <a class="btn btn-primary" id="add-manager"><?= gettext("Add Manager") ?></a>
+          <a class="btn btn-primary" id="add-manager"><?= _("Add Manager") ?></a>
       </div>
     </div>
   </div>
@@ -347,13 +336,13 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= gettext("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= gettext('Group Properties') ?></h3>
+        <h3 class="box-title" data-toggle="tooltip"  title="" data-placement="bottom" data-original-title="<?= _("Assign properties for This Group. This properties are global properties and this can be changed in the admin right side bar &rarr; Group Properties") ?>"><?= _('Group Properties') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
       </div>
       <div class="box-body">
-                <b><?= gettext('Assigned Properties') ?>:</b>
+                <b><?= _('Assigned Properties') ?>:</b>
                 <?php
                   $sAssignedProperties = ',';
                 ?>
@@ -366,12 +355,12 @@ require 'Include/Header.php';
                 ?>
                     <div class="alert alert-info">
                       <div>
-                          <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
+                          <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
 
                             <div class="row">
                               <div class="form-group col-xs-12 col-md-7">
                               <select name="PropertyId" id="input-group-properties" class="input-group-properties form-control select2" style="width:100%" data-groupID="<?= $iGroupID ?>">
-                              <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
+                              <option disabled selected> -- <?= _('select an option') ?> -- </option>
                                 <?php
                                 foreach ($ormProperties as $ormProperty) {
                                     //If the property doesn't already exist for this Person, write the <OPTION> tag
@@ -387,7 +376,7 @@ require 'Include/Header.php';
                               </div>
                               <div id="prompt-box" class="col-xs-12 col-md-7"></div>
                               <div class="form-group col-xs-12 col-md-7">
-                                 <input type="submit" class="btn btn-primary assign-property-btn" value="<?= gettext('Assign') ?>">
+                                 <input type="submit" class="btn btn-primary assign-property-btn" value="<?= _('Assign') ?>">
                               </div>
                             </div>
                       </div>
@@ -405,13 +394,13 @@ require 'Include/Header.php';
   <div class="col-lg-6">
     <div class="box collapsed-box">
       <div class="box-header with-border">
-        <h3 class="box-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= gettext("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= gettext('Group-Specific Properties') ?></h3>
+        <h3 class="box-title" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="<?= _("Assign properties for all members of the group. This properties are visible in each Person Profile &rarr; Assigned Group") ?>"><?= _('Group-Specific Properties') ?></h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
         </div>
       </div>
       <div class="box-body">
-          <b><?= gettext('Assigned Properties') ?>:</b>
+          <b><?= _('Assigned Properties') ?>:</b>
               <?php
               if ($thisGroup->getHasSpecialProps()) {
                   // Create arrays of the properties.
@@ -419,16 +408,16 @@ require 'Include/Header.php';
                   // Construct the table
                   if ($ormPropList->count() == 0) {
                   ?>
-                      <p><?= gettext("No member properties have been created")?></p>
+                      <p><?= _("No member properties have been created")?></p>
                   <?php
                   } else {
                   ?>
               
                   <table width="100%" cellpadding="2" cellspacing="0"  class="table table-condensed dt-responsive dataTable no-footer dtr-inline">
                     <tr class="TableHeader">
-                      <!--<td><b><?= gettext('Type') ?></b></td>-->
-                      <td><b><?= gettext('Name') ?></b></td>
-                      <td><b><?= gettext('Description') ?></b></td>
+                      <!--<td><b><?= _('Type') ?></b></td>-->
+                      <td><b><?= _('Name') ?></b></td>
+                      <td><b><?= _('Description') ?></b></td>
                     </tr>
                     <?php
                       $sRowClass = 'RowColorA';
@@ -451,7 +440,7 @@ require 'Include/Header.php';
                   }
               } else {
               ?>
-                  <p><?= gettext("Disabled for this group.") ?> <?= gettext("You should Edit the group and \"Enable Group Specific Properties\". To do this, press the button above : \"Edit this Group\"") ?></p>
+                  <p><?= _("Disabled for this group.") ?> <?= _("You should Edit the group and \"Enable Group Specific Properties\". To do this, press the button above : \"Edit this Group\"") ?></p>
               <?php
               }          
                 //Print Assigned Properties
@@ -460,7 +449,7 @@ require 'Include/Header.php';
               <?php
                  if ($thisGroup->getHasSpecialProps() && (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
               ?>
-                  <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= gettext('Edit Group-Specific Properties Form') ?></a>
+                  <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
               <?php
                  }
               ?>
@@ -475,7 +464,7 @@ require 'Include/Header.php';
 
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group Members:') ?></h3>
+    <h3 class="box-title"><?= _('Group Members:') ?></h3>
   </div>
   <div class="box-body">
     <!-- START GROUP MEMBERS LISTING  -->
@@ -489,32 +478,32 @@ require 'Include/Header.php';
 ?>
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?php echo gettext("Manage Group Members"); ?>:</h3>
+    <h3 class="box-title"><?php echo _("Manage Group Members"); ?>:</h3>
   </div>
   <div class="box-body">
     <div class="row">
       <div class="col-md-1">
-        <?= gettext("Add") ?>
+        <?= _("Add") ?>
       </div>
       <div class="col-md-3">
         <select class="form-control personSearch  select2" name="addGroupMember" style="width:100%"></select>
       </div>
       <div class="col-md-4">
-        <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= gettext('Remove Selected Members from group') ?> </button>
+        <button type="button" id="deleteSelectedRows" class="btn btn-danger" disabled> <?= _('Remove Selected Members from group') ?> </button>
       </div>
       <?php 
         if (SessionUser::getUser()->isManageGroupsEnabled()) { 
       ?>
       <div class="col-md-4">
         <div class="btn-group">
-          <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= gettext('Add Selected Members to Cart') ?></button>
+          <button type="button" id="addSelectedToCart" class="btn btn-success"  disabled> <?= _('Add Selected Members to Cart') ?></button>
           <button type="button" id="buttonDropdown" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
             <span class="caret"></span>
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a id="addSelectedToGroup"   disabled> <?= gettext('Add Selected Members to Group') ?></a></li>
-            <li><a id="moveSelectedToGroup"  disabled> <?= gettext('Move Selected Members to Group') ?></a></li>
+            <li><a id="addSelectedToGroup"   disabled> <?= _('Add Selected Members to Group') ?></a></li>
+            <li><a id="moveSelectedToGroup"  disabled> <?= _('Move Selected Members to Group') ?></a></li>
           </ul>
         </div>
       </div>

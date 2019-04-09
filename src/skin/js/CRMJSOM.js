@@ -452,7 +452,7 @@
                  window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
               }
             });
-        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && windowCRM.showCart) {// the first time it's unusefull
+        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && window.CRM.showCart) {// the first time it's unusefull
           return;
         }
         
@@ -475,12 +475,6 @@
         
           var cartDropdownMenu;
           if (data.PeopleCart.length > 0) {
-            var mapProvider = "MapUsingGoogle.php";
-            if (window.CRM.sMapProvider == "OpenStreetMap") {
-               mapProvider = "MapUsingLeaflet.php";
-            } else if (window.CRM.sMapProvider == "BingMaps") {
-               mapProvider = "MapUsingBing.php";
-            }
             cartDropdownMenu = '\
               <li id="showWhenCartNotEmpty">\
                   <ul class="menu">\
@@ -510,7 +504,7 @@
                           </a>\
                       </li>\
                       <li>\
-                          <a href="' + window.CRM.root+ '/'+mapProvider+'?GroupID=0">\
+                          <a href="' + window.CRM.root+ '/v2/map/0">\
                               <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
                           </a>\
                       </li>\
