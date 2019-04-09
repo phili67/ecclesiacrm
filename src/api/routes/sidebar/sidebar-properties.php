@@ -21,6 +21,18 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/properties', function() {
     
+    $this->post('/persons/assign', 'propertiesPersonsAssign' );
+    $this->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
+    
+    $this->post('/families/assign', 'propertiesFamiliesAssign' );
+    $this->delete('/families/unassign', 'propertiesFamiliesUnAssign' );
+    
+    $this->post('/groups/assign', 'propertiesGroupsAssign' );
+    $this->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
+    
+    $this->post('/sundayschoolmenu/assign', 'propertiesSundayschoolMenuAssign' );
+    $this->post('/sundayschoolmenu/unassign', 'propertiesSundayschoolMenuUnAssign' );
+
     $this->post('/propertytypelists', 'getAllPropertyTypes' );
     $this->post('/propertytypelists/edit', 'editPropertyType' );
     $this->post('/propertytypelists/set', 'setPropertyType' );
@@ -33,18 +45,6 @@ $app->group('/properties', function() {
     $this->post('/typelists/create', 'createProperty' );
     $this->post('/typelists/{type}', 'getAllProperties' );
 
-    $this->post('/persons/assign', 'propertiesPersonsAssign' );
-    $this->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
-    
-    $this->post('/families/assign', 'propertiesFamiliesAssign' );
-    $this->delete('/families/unassign', 'propertiesFamiliesUnAssign' );
-    
-    $this->post('/groups/assign', 'propertiesGroupsAssign' );
-    $this->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
-    
-    $this->post('/sundayschoolmenu/assign', 'propertiesSundayschoolMenuAssign' );
-    $this->post('/sundayschoolmenu/unassign', 'propertiesSundayschoolMenuUnAssign' );
-    
 });
 
 function getAllPropertyTypes (Request $request, Response $response, array $args) {

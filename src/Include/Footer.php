@@ -63,7 +63,7 @@ use EcclesiaCRM\Bootstrapper;
                     </a>
                 </li>
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=f">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/f">
                         <i class="fa fa-cog"></i> <?= _('Family Properties') ?>
                     </a>
                 </li>
@@ -81,7 +81,7 @@ use EcclesiaCRM\Bootstrapper;
                     </a>
                 </li>
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=p">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/p">
                         <i class="fa fa-cog"></i> <?= _('People Properties') ?>
                     </a>
                 </li>
@@ -97,7 +97,7 @@ use EcclesiaCRM\Bootstrapper;
              if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=g">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/g">
                         <i class="fa fa-cog"></i> <?= _('Group Properties') ?>
                     </a>
                 </li>
