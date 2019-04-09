@@ -166,13 +166,15 @@ require $sRootDocument . '/Include/Header.php';
   var newPlotArray = null;
   
   
-  function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {         
+  function addMarkerWithInfowindow(map, marker_position, image, title, infowindow_content) {
+     if (marker_position.lng == null || marker_position.lat == null || marker_position.lng == "" || marker_position.lat == "") return null;
+  
       var pin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), image);
       
       map.entities.push(pin);
 
       var infobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(marker_position.lat, marker_position.lng), 
-      { title: title,description: infowindow_content, visible: false });
+      { title: title,description: infowindow_content, visible: false,maxHeight: 500 });
         
       infobox.setMap(map);
         
@@ -196,6 +198,13 @@ require $sRootDocument . '/Include/Header.php';
       };
 
       addMarkerWithInfowindow(map,churchloc,icon,"titre","<?= SystemConfig::getValue('sChurchName') ?>");
+      
+      // set the default place
+      map.setView({
+            mapTypeId: Microsoft.Maps.MapTypeId.canvasLight,
+            center: new Microsoft.Maps.Location(churchloc.lat, churchloc.lng),
+            zoom: <?= SystemConfig::getValue("iMapZoom")?>
+      });
       
       <?php
         $arr = array();
@@ -340,7 +349,7 @@ require $sRootDocument . '/Include/Header.php';
     }
 
     //contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-    contentString = '<p><a href="http://maps.google.com/?q=1  ' + plot.Address + '" target="_blank">' + plot.Address + '</a></p>';
+    contentString = '<p><a href="https://www.bing.com/maps?where1=' + plot.Address + '&sty=c" target="_blank">' + plot.Address + '</a></p>';
 
     if (plot.Thumbnail.length > 0) {
         //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
