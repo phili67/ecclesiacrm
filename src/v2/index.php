@@ -49,6 +49,7 @@ require __DIR__.'/../Include/slim/error-handler.php';
 require __DIR__ . '/routes/user/user.php';
 require __DIR__ . '/routes/calendar/calendar.php';
 require __DIR__ . '/routes/gdpr/gdpr.php';
+require __DIR__ . '/routes/map/map.php';
 
 
 // the sidebar routes

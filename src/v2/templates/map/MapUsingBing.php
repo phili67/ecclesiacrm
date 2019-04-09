@@ -6,161 +6,44 @@
 //  Updated     : 2018/06/27
 //
 
-require 'Include/Config.php';
-require 'Include/Functions.php';
-require 'Include/ReportFunctions.php';
-
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\Base\FamilyQuery;
-use EcclesiaCRM\Base\ListOptionQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\ChurchMetaData;
-use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Map\ListOptionIconTableMap;
-use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
-use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\EventQuery;
 
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
-use EcclesiaCRM\MyPDO\CalDavPDO;
-use EcclesiaCRM\MyPDO\PrincipalPDO;
-use Propel\Runtime\Propel;
-
-
-//Set the page title
-$sPageTitle = gettext('View on Map');
-
-require 'Include/Header.php';
-
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+require $sRootDocument . '/Include/Header.php';
 ?>
 
 
 
 <div class="callout callout-info">
-    <a href="<?= SystemURLs::getRootPath() ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
-    <?= gettext('Missing Families?').'<a href="'.SystemURLs::getRootPath().'/UpdateAllLatLon.php" >'.' '.gettext('Update Family Latitude or Longitude now.') ?></a>
+    <a href="<?= $sRootPath ?>/UpdateAllLatLon.php" class="btn bg-green-active"><i class="fa fa-map-marker"></i> </a>
+    <?= _('Missing Families?').'<a href="'.$sRootPath.'/UpdateAllLatLon.php" >'.' '._('Update Family Latitude or Longitude now.') ?></a>
 </div>
 
 <?php if (ChurchMetaData::getChurchLatitude() == '') {
     ?>
     <div class="callout callout-danger">
-        <?= gettext('Unable to display map due to missing Church Latitude or Longitude. Please update the church Address in the settings menu.') ?>
+        <?= _('Unable to display map due to missing Church Latitude or Longitude. Please update the church Address in the settings menu.') ?>
     </div>
     <?php
 } else {
     if (SystemConfig::getValue('sBingMapKey') == '') {
             ?>
         <div class="callout callout-warning">
-          <a href="<?= SystemURLs::getRootPath() ?>/SystemSettings.php"><?= gettext('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
+          <a href="<?= $sRootPath ?>/SystemSettings.php"><?= _('Google Map API key is not set. The Map will work for smaller set of locations. Please create a Key in the maps sections of the setting menu.') ?></a>
         </div>
   <?php
     }
     
-    // new way to manage events
-    // we get the PDO for the Sabre connection from the Propel connection
-    $pdo = Propel::getConnection();         
-    
-    // We set the BackEnd for sabre Backends
-    $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-    $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
-    // get all the calendars for the current user
-    
-    $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),"displayname",false);
-    
-    $eventsArr = [];
-    
-    foreach ($calendars as $calendar) {
-      // we get all the events for the Cal
-      $eventsForCal = $calendarBackend->getCalendarObjects($calendar['id']);
-      
-      if ($calendar['present'] == 0 || $calendar['visible'] == 0) {// this ensure the events are present or not
-        continue;
-      }
-      
-      foreach ($eventsForCal as $eventForCal) {
-        $evnt = EventQuery::Create()->filterByInActive('false')->findOneById($eventForCal['id']);
-        
-        if ($evnt != null && $evnt->getLocation() != '') {
-          $eventsArr[] = $evnt->getID();
-        }            
-      }
-    }
-    
-    
-    // we can work with the normal locations
-    $plotFamily = false;
-    //Get the details from DB
-    $dirRoleHead = SystemConfig::getValue('sDirRoleHead');
-
-    if ($iGroupID > 0) {
-       // security test
-       $currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
-            
-       if ($currentUserBelongToGroup == 0) {
-          RedirectUtils::Redirect('Menu.php');
-       }
-
-        //Get all the members of this group
-        $persons = PersonQuery::create()
-          ->usePerson2group2roleP2g2rQuery()
-          ->filterByGroupId($iGroupID)
-          ->endUse()
-          ->find();
-    } elseif ($iGroupID == 0) {
-        // group zero means map the cart
-        if (!empty($_SESSION['aPeopleCart'])) {
-            $persons = PersonQuery::create()
-            ->filterById($_SESSION['aPeopleCart'])
-            ->find();
-        }
-    } else {
-      if ( !(SessionUser::getUser()->isShowMapEnabled()) ) {
-          RedirectUtils::Redirect('Menu.php');
-      }
-       
-      //Map all the families
-      $families = FamilyQuery::create()
-        ->filterByDateDeactivated(null)
-        ->filterByLatitude(0, Criteria::NOT_EQUAL)
-        ->filterByLongitude(0, Criteria::NOT_EQUAL)
-        ->usePersonQuery('per')
-        ->filterByFmrId($dirRoleHead)
-        ->endUse()
-        ->find();
-        
-      $plotFamily = true;
-    }
-
-    //Markericons list
-    $icons = ListOptionQuery::create()
-      ->filterById(1)
-      ->orderByOptionSequence()
-      ->addJoin(ListOptionTableMap::COL_LST_OPTIONID,ListOptionIconTableMap::COL_LST_IC_LST_OPTION_ID,Criteria::LEFT_JOIN)
-      ->addAsColumn('url',ListOptionIconTableMap::COL_LST_IC_LST_URL)
-      ->addAsColumn('onlyInPersonView',ListOptionIconTableMap::COL_LST_IC_ONLY_PERSON_VIEW)
-      ->find();
-      
     foreach ($icons as $icon) {
       if ($icon->getUrl() == null) {
         ?>
            <div class="callout callout-danger">
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
-                <?= gettext("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". ".gettext("Clik").' <a href="'.SystemURLs::getRootPath().'/OptionManager.php?mode=classes">'.gettext("here").'</a> '.gettext("to solve the problem.") ?>                
+                <a href="<?= $sRootPath ?>/OptionManager.php?mode=classes" class="btn bg-info-active"><img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>' height=20/></a>
+                <?= _("Missing Person Map classification icon for")." : \"".$icon->getOptionName()."\". "._("Clik").' <a href="'.$sRootPath.'/OptionManager.php?mode=classes">'._("here").'</a> '._("to solve the problem.") ?>                
             </div>
         <?php
         break;
@@ -179,19 +62,19 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         <div id="mapid" class="map-div"></div>
 
         <!-- map Desktop legend-->
-        <div id="maplegend-bing"><h4><?= gettext('Legend') ?></h4>
+        <div id="maplegend-bing"><h4><?= _('Legend') ?></h4>
             <div class="row legendbox">
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-2" name="feature"
                value="scales" checked /><img
                         src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
-                    <?= gettext('Unassigned') ?>
+                    <?= _('Unassigned') ?>
                 </div>
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-1" name="feature"
                value="scales" checked /><img
-                        src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
-                    <?= gettext("Calendar") ?>
+                        src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                    <?= _("Calendar") ?>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
@@ -205,11 +88,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                         <?php 
                           if (!empty($icon->getUrl())) {
                         ?>
-                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
                         <?php
                           } else {
                         ?>
-                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>'/>
                         <?php
                           }
                         ?>
@@ -224,20 +107,20 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         <!-- map Mobile legend-->
         <div id="maplegend-mobile" class="box visible-xs-block">
             <div class="row legendbox">
-                <div class="btn bg-primary col-xs-12"><?= gettext('Legend') ?></div>
+                <div class="btn bg-primary col-xs-12"><?= _('Legend') ?></div>
             </div>
             <div class="row legendbox">
                 <div class="col-xs-6 legenditem">
                     <input type="checkbox" class="view" data-id="-2" name="feature"
                value="scales" checked /><img
                         class="legendicon" src='https://www.google.com/intl/en_us/mapfiles/ms/micons/red-pushpin.png'/>
-                    <div class="legenditemtext"><?= gettext('Unassigned') ?></div>
+                    <div class="legenditemtext"><?= _('Unassigned') ?></div>
                 </div>
                 <div class="legenditem">
                     <input type="checkbox" class="view" data-id="-1" name="feature"
                value="scales" checked /><img
-                        src='<?= SystemURLs::getRootPath() ?>/skin/icons/event.png'/>
-                    <?= gettext("Calendar") ?>
+                        src='<?= $sRootPath ?>/skin/icons/event.png'/>
+                    <?= _("Calendar") ?>
                 </div>
                 <?php
                 foreach ($icons as $icon) {
@@ -250,11 +133,11 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                         <?php 
                           if (!empty($icon->getUrl())) {
                         ?>
-                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/".$icon->getUrl()?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/".$icon->getUrl()?>'/>
                         <?php
                           } else {
                         ?>
-                          <img src='<?= SystemURLs::getRootPath()."/skin/icons/markers/../interrogation_point.png" ?>'/>
+                          <img src='<?= $sRootPath."/skin/icons/markers/../interrogation_point.png" ?>'/>
                         <?php
                           }
                         ?>
@@ -269,7 +152,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 <?php
   }
-  require 'Include/Footer.php' 
+  require $sRootDocument . '/Include/Footer.php';
 ?>
 
 
@@ -325,7 +208,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                     $member = $family->getHeadPeople()[0];
 
                     if (is_null($member)) {
-                      $familiesLack .= "<a href=\"".SystemURLs::getRootPath()."/FamilyView.php?FamilyID=".$family->getId()."\">".$family->getName()."</a>, ";
+                      $familiesLack .= "<a href=\"".$sRootPath."/FamilyView.php?FamilyID=".$family->getId()."\">".$family->getName()."</a>, ";
                       continue;
                     }
 
@@ -333,7 +216,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                       continue;
                     }
 
-                    $photoFileThumb = SystemURLs::getRootPath() . '/api/families/' . $family->getId() . '/photo';
+                    $photoFileThumb = $sRootPath . '/api/families/' . $family->getId() . '/photo';
                     $arr['ID'] = $family->getId();
                     $arr['Name'] = $family->getName();
                     $arr['Salutation'] = $family->getSaluation();
@@ -361,7 +244,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
                 }
 
                 $latLng = $member->getLatLng();
-                $photoFileThumb = SystemURLs::getRootPath() . '/api/persons/' . $member->getId() . '/thumbnail';
+                $photoFileThumb = $sRootPath . '/api/persons/' . $member->getId() . '/thumbnail';
                 $arr['ID'] = $member->getId();
                 $arr['Salutation'] = $member->getFullName();
                 $arr['Name'] = $member->getFullName();
@@ -386,14 +269,14 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
         foreach ($eventsArr as $ev) {          
           $event = EventQuery::Create()->findOneById($ev);
 
-          $photoFileThumb = SystemURLs::getRootPath() ."/skin/icons/event.png";
+          $photoFileThumb = $sRootPath ."/skin/icons/event.png";
           $arr['ID'] = $ev;
           $arr['Salutation'] = $event->getTitle()." (".$event->getDesc().")";
           $arr['Name'] = $event->getTitle()." (".$event->getDesc().")";
           $arr['Text'] = $event->getText();
           $arr['Address'] = $event->getLocation();
           $arr['Thumbnail'] = $photoFileThumb;
-          $arr['bigThumbnail'] = SystemURLs::getRootPath() ."/skin/icons/bigevent.png";
+          $arr['bigThumbnail'] = $sRootPath ."/skin/icons/bigevent.png";
           $arr['Latitude'] = $event->getLatitude();
           $arr['Longitude'] = $event->getLongitude();
           $arr['iconClassification'] = '';
@@ -449,9 +332,9 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
     //Infowindow Content
     var imghref, contentString;
     if (plot.type == 'family') {
-        imghref = "FamilyView.php?FamilyID=" + plot.ID;
+        imghref = window.CRM.root+"/FamilyView.php?FamilyID=" + plot.ID;
     } else if (plot.type == 'person') {
-        imghref = "PersonView.php?PersonID=" + plot.ID;
+        imghref = window.CRM.root+"/PersonView.php?PersonID=" + plot.ID;
     } else if (plot.type == 'event') {
         imghref = window.CRM.root+"/v2/calendar";
     }

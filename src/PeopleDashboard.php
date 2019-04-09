@@ -119,24 +119,9 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
     <?php
       if (SessionUser::getUser()->isShowMapEnabled()) {
     ?>
-      <a href="GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= _('Family Geographic') ?></a>
-    <?php
-        if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
-    ?>
-      <a href="MapUsingLeaflet.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
-    <?php
-        } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
-    ?>
-      <a href="MapUsingGoogle.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
-    <?php
-        } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-    ?>
-      <a href="MapUsingBing.php?GroupID=-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
-    <?php
-        } 
-    ?>    
-    
-      <a href="UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/GeoPage.php" class="btn btn-app"><i class="fa fa-globe"></i><?= _('Family Geographic') ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/v2/map/-1" class="btn btn-app"><i class="fa fa-map"></i><?= _('Family Map') ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/UpdateAllLatLon.php" class="btn btn-app"><i class="fa fa-map-pin"></i><?= _('Update All Family Coordinates') ?></a>
     <?php
       }
     ?>

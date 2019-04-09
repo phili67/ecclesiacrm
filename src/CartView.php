@@ -110,17 +110,9 @@ if (!Cart::HasPeople()) {
                 class="fa fa-ticket"></i><?= _('Empty Cart to Event') ?></a>
 
         <?php
-            if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
+            if ( SessionUser::getUser()->isShowMapEnabled() ) {
         ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingLeaflet.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
-        <?php
-            } else if (SystemConfig::getValue('sMapProvider') == 'GoogleMaps'){
-        ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingGoogle.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
-        <?php
-            } else if (SystemConfig::getValue('sMapProvider') == 'BingMaps') {
-        ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/MapUsingBing.php?GroupID=0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>        
+              <a href="<?= SystemURLs::getRootPath() ?>/v2/map/0" class="btn btn-app"><i class="fa fa-map-marker"></i><?= _('Map Cart') ?></a>
         <?php
             }
         ?>
