@@ -26,7 +26,11 @@ $app->group('/properties', function() {
     $this->post('/propertytypelists/create', 'createPropertyType' );
     $this->post('/propertytypelists/delete', 'deletePropertyType' );
 
+    $this->post('/typelists/edit', 'editProperty' );
+    $this->post('/typelists/set', 'setProperty' );
     $this->post('/typelists/{type}', 'getAllProperties' );
+    /*$this->post('/typelists/create', 'createProperty' );
+    $this->post('/typelists/delete', 'deleteProperty' );*/
 
     $this->post('/persons/assign', 'propertiesPersonsAssign' );
     $this->delete('/persons/unassign', 'propertiesPersonsUnAssign' );
@@ -181,9 +185,6 @@ function deletePropertyType (Request $request, Response $response, array $args) 
 }
 
 
-
-
-
 function getAllProperties (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
       return $response->withStatus(401);
@@ -209,6 +210,7 @@ function getAllProperties (Request $request, Response $response, array $args) {
     foreach ($arr as $elt) {
       $new_elt = "{";
       foreach ($elt as $key => $value) {
+        switch ($value) { case 'm': $value = _('Menu'); break; case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
         $new_elt .= "\"".$key."\":".json_encode($value).",";
       }
       
@@ -228,6 +230,46 @@ function getAllProperties (Request $request, Response $response, array $args) {
     }
     
     echo "{\"PropertyLists\":[".substr($res, 0, -1)."]}"; 
+}
+
+function editProperty (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  $data = $request->getParsedBody();
+  
+
+  //Get the properties
+    $property = PropertyQuery::Create()
+      ->findOneByProId($data['typeId']);
+
+    $ormPropertyTypes = PropertyTypeQuery::Create()
+                      ->filterByPrtClass($property->getProClass())
+                      ->find();
+    
+    return $response->withJson(['success' => true, 'proType' => $property->toArray(), 'propertyTypes' => $ormPropertyTypes->toArray()]);
+}
+
+function setProperty (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(401);
+  }
+  
+  
+  $data = $request->getParsedBody();
+
+  //Set the properties
+    $property = PropertyQuery::Create()
+      ->findOneByProId($data['typeId']);
+      
+    $property->setProName ($data['Name']);
+    $property->setProDescription($data['Description']);
+    $property->setProPrompt($data['Prompt']);
+    
+    $property->save();
+    
+    return $response->withJson(['success' => true, 'proType' => $property->toArray()]);
 }
 
 function propertiesPersonsAssign (Request $request, Response $response, array $args) {
