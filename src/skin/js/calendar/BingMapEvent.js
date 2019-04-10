@@ -109,7 +109,7 @@
           icon: iconurl,
         };
 
-        contentString = '<p><a href="http://maps.google.com/?q=1  ' + Address + '" target="_blank">' + Address + '</a></p>';
+        contentString = '<p>' + window.CRM.tools.getLinkMapFromAddress (Address) + '</a></p>';
 
         //Add marker and infowindow
         marker  = addMarkerWithInfowindow(window.CRM.map, centerCard, icon, Name, contentString);

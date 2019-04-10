@@ -353,7 +353,7 @@ $("document").ready(function(){
           }
           var address = full.Address1+' '+full.Address2+' '+full.city+' '+full.state+' '+full.zip;
           
-          return '<a href="http://maps.google.com/?q='+address+'" target="_blank">'+address+'</a>';
+          return window.CRM.tools.getLinkMapFromAddress (address);
         }
       },
       {

@@ -250,8 +250,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       ?>
           <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:
           <span>
-             <a href="http://maps.google.com/?q=<?= $family->getAddress() ?>"
-                  target="_blank"><?= $family->getAddress() ?></a>
+             <?= OutputUtils::GetLinkMapFromAddress ($family->getAddress()) ?>
           </span><br>
 
         <?php 
