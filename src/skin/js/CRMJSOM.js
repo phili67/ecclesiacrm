@@ -813,6 +813,18 @@
       }
     };
     
+    window.CRM.tools = {
+      'getLinkMapFromAddress' : function(address) {
+         if (window.CRM.sMapExternalProvider == "OpenStreetMap") {
+           return '<a href="https://nominatim.openstreetmap.org/search.php?q=' + address + '&polygon_geojson=1&viewbox=" target="_blank">' + address + '</a>';
+         } else if (window.CRM.sMapExternalProvider == "GoogleMaps") {
+           return '<a href="http://maps.google.com/?q=1  ' + address + '" target="_blank">' + address + '</a>';
+         } else if (window.CRM.sMapExternalProvider == "BingMaps") {
+           return '<a href="https://www.bing.com/maps?where1=' + address + '&sty=c" target="_blank">' + address + '</a>';
+         }
+      }
+    };
+    
     window.CRM.dashboard = {
       renderers: {
         EventsCounters: function (data) {
