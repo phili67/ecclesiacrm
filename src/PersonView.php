@@ -1325,11 +1325,11 @@ foreach ($ormNextPersons as $ormNextPerson) {
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
                      <?php 
-                     
                      if ( $item['slim'] && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
-                      <a href="<?= $item['editLink'] ?>">
+                      <!--<a href="<?= $item['editLink'] ?>">-->
+                      <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" class="editDocument">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>

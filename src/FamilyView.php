@@ -993,6 +993,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js" ></script>
   
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
+  window.CRM.currentPersonID = 0;
   window.CRM.currentFamily = <?= $iFamilyID ?>;
   window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
   window.CRM.fam_Name      = "<?= $family->getName() ?>";
