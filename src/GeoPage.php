@@ -384,8 +384,7 @@ $families = FamilyQuery::create()
                     </td>
                     <td><b><?= $oneResult['fam_Name'] ?> </b></td>
                     <td>
-                        <a target="_blank"
-                           href="http://maps.google.com/maps?q=<?= $oneResult['fam_Latitude'] . ',' . $oneResult['fam_Longitude'] ?>"><?= $oneResult['fam_Address'] ?></a>
+                       <?= OutputUtils::GetLinkMapFromCoordinates ($oneResult['fam_Latitude'], $oneResult['fam_Longitude'], $oneResult['fam_Address']) ?>
                     </td>
                 </tr>
                 <?php

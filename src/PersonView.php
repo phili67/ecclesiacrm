@@ -446,9 +446,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       ?>
           <li><i class="fa-li fa fa-home"></i><?php echo gettext('Address'); ?>: 
             <span>
-              <a href="http://maps.google.com/?q=<?= $plaintextMailingAddress ?>" target="_blank">
-                <?= $formattedMailingAddress ?>
-              </a>
+              <?= OutputUtils::GetLinkMapFromAddress ($plaintextMailingAddress) ?>
             </span>
           </li>
       <?php
