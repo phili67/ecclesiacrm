@@ -640,7 +640,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
     }
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
   ?>
-        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/DocumentEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
+        <a class="btn btn-app bg-green"  href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
   <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
@@ -1565,6 +1565,12 @@ foreach ($ormNextPersons as $ormNextPerson) {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
+
+<!-- Document editor -->
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<!-- !Document editor -->
 
 <!-- Drag and drop -->
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
