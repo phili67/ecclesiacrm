@@ -347,7 +347,7 @@ require $sRootDocument . '/Include/Header.php';
     }
 
     //contentString = "<b><a href='" + imghref + "'>" + plot.Salutation + "</a></b>";
-    contentString = '<p><a href="https://www.bing.com/maps?where1=' + plot.Address + '&sty=c" target="_blank">' + plot.Address + '</a></p>';
+    contentString = '<p>' + window.CRM.tools.getLinkMapFromAddress (plot.Address) + '</p>';
 
     if (plot.Thumbnail.length > 0) {
         //contentString += "<div class='image-container'><p class='text-center'><a href='" + imghref + "'>";
