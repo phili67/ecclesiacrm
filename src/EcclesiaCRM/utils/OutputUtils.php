@@ -8,6 +8,29 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
 
 class OutputUtils {
+  
+  public static function GetLinkMapFromAddress ($address)
+  {
+     if (SystemConfig::getValue("sMapExternalProvider") == "OpenStreetMap") {
+       return '<a href="https://nominatim.openstreetmap.org/search.php?q='.$address.'&polygon_geojson=1&viewbox=" target="_blank">'.$address.'</a>';
+     } elseif (SystemConfig::getValue("sMapExternalProvider") == "GoogleMaps") {
+       return '<a href="http://maps.google.com/?q=1  '.$address.'" target="_blank">'.$address.'</a>';
+     } elseif (SystemConfig::getValue("sMapExternalProvider") == "BingMaps") {
+       return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
+     }
+  }
+  
+  public static function GetLinkMapFromCoordinates ($lat,$lng,$address)
+  {
+     if (SystemConfig::getValue("sMapExternalProvider") == "OpenStreetMap") {
+       return '<a href="https://www.openstreetmap.org/?mlat='. $lat .'&mlon=' . $lng .'#map=' . SystemConfig::getValue("iLittleMapZoom") . '/'. $lat .'/' . $lng .'"  target="_blank">' . $address . '</a>';
+     } elseif (SystemConfig::getValue("sMapExternalProvider") == "GoogleMaps") {
+       return '<a href="http://maps.google.com/maps?q='. $lat .',' . $lng .' target="_blank">' . $address . '</a>';
+     } elseif (SystemConfig::getValue("sMapExternalProvider") == "BingMaps") {
+       //return '<a href="https://www.bing.com/maps?cp=' . $lat . '~' . $lng . '&lvl='. SystemConfig::getValue("iLittleMapZoom"). '&style=c" target="_blank">'.$address.'</a>';
+       return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
+     }
+  }
 
   public static function translate_currency_fpdf($string)
   {

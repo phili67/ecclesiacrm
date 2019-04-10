@@ -256,7 +256,8 @@ class SystemConfig
         "bEnabledDav" => new ConfigItem(2077, "bEnabledDav", "boolean", "1", gettext("Enable WebDav, CardDav and CalDav support.")),
         "bEnabledDavWebBrowser" => new ConfigItem(2078, "bEnabledDavWebBrowser", "boolean", "0", gettext("Enable WebDav, CardDav and CalDav support through a Browser.")),
         "iMailChimpApiMaxMembersCount" => new ConfigItem(2079, "iMailChimpApiMaxMembersCount", "number", "500", gettext("Max count of members in a MailChimp List.")),
-        "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", gettext("Add Address, Phone."))
+        "bMailChimpWithAddressPhone" => new ConfigItem(2080, "bMailChimpWithAddressPhone", "boolean", "0", gettext("Add Address, Phone.")),
+        "sMapExternalProvider" => new ConfigItem(2081, "sMapExternalProvider", "choice", "GoogleMaps", gettext("Open map links in external page with the provider you fix.") , "https://github.com/geocoder-php/Geocoder/blob/3.x/README.md#address-based-providers", '{"Choices":["OpenStreetMap", "GoogleMaps", "BingMaps"]}'),
       );
   }
 
@@ -268,7 +269,7 @@ class SystemConfig
       gettext('Email Setup')  => ["sSMTPHost","bSMTPAuth","sSMTPUser","sSMTPPass", "iSMTPTimeout","sToEmailAddress", "bPHPMailerAutoTLS","sPHPMailerSMTPSecure"],
       gettext('People Setup')  => ["sDirClassifications","sDirRoleHead","sDirRoleSpouse","sDirRoleChild","sDefaultCity","sDefaultState","sDefaultCountry","bShowFamilyData"/*,"bHidePersonAddress"*/,"bHideFriendDate","bHideFamilyNewsletter","bHideWeddingDate","bHideLatLon","bForceUppercaseZip","bEnableSelfRegistration", "bAllowEmptyLastName", "iPersonNameStyle","iPersonAddressStyle","sNewPersonNotificationRecipientIDs"],
       gettext('Enabled Features')  => ["bEnabledEvents","bEnabledSundaySchool","bEnabledEmail","bEnabledFinance","bEnabledFundraiser", "bEnabledMenuLinks"],
-      gettext('Map Settings')  => ["sMapProvider","sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
+      gettext('Map Settings')  => ["sMapProvider","sMapExternalProvider", "sNominatimLink","sGoogleMapKey","sBingMapKey", "iMapZoom","iLittleMapZoom","sISTusername","sISTpassword"],
       gettext('Report Settings')  => ["sQBDTSettings", "sTaxSigner","sReminderSigner", "leftX","incrementY","sTaxReport1","sTaxReport2","sTaxReport3","sReminder1","sReminderNoPledge","sReminderNoPayments","sConfirm1","sConfirm2","sConfirm3","sConfirm4","sConfirm5","sConfirm6","sDear","sConfirmSincerely","sConfirmSigner","sUnsubscribeStart","sUnsubscribeEnd","sPledgeSummary1","sPledgeSummary2","sDirectoryDisclaimer1","sDirectoryDisclaimer2","bDirLetterHead","sZeroGivers","sZeroGivers2","sZeroGivers3", "iPDFOutputType"],
       gettext('Financial Settings') => ["sCurrency","sDepositSlipType","iChecksPerDepositForm","bDisplayBillCounts","bUseScannedChecks","sElectronicTransactionProcessor","bEnableNonDeductible","iFYMonth","bUseDonationEnvelopes","aFinanceQueries"],
       gettext('System Settings')  => ["sLogLevel", "bRegistered","sGZIPname","sZIPname","sPGPname","bCSVAdminOnly","sHeader","bEnableIntegrityCheck","iIntegrityCheckInterval","sLastIntegrityCheckTimeStamp", "iPhotoClientCacheDuration","bHSTSEnable","iDocumentTimeLeft"],
