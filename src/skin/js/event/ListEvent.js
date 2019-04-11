@@ -142,8 +142,8 @@ $('#add-event').click('focus', function (e) {
           data: JSON.stringify({"eventID":eventID})
       }).done(function(calEvent) {
          if (window.CRM.editor != null) {
-           window.CRM.CKEDITOR.remove(window.CRM.editor);
-           window.CRM.editor = null;              
+           CKEDITOR.remove(window.CRM.editor);
+           window.CRM.editor = null;
          }
          
          modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',eventID,'','ListEvent.php');
