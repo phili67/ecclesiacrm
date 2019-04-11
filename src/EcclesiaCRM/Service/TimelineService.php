@@ -247,8 +247,16 @@ class TimelineService
               }
             }
             
+            if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
+              // only in this case : the header title in the timeline should be in function of the note owner
+              $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $userName;
+            } else {
+              // in all other cases the header title should be the person who had made the modifications
+              $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $displayEditedBy;
+            }
+            
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
-                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"")._('by') . ' ' . $displayEditedBy/*$userName*/, '', $dbNote->getText(),
+                $dbNote->getDisplayEditedDate("Y"),$title_message, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
                 $sharePerson,$shareRights,$currentUserName,$userName,$perID,$famID,$displayEditedBy);
         }
