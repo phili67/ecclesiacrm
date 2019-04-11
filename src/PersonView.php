@@ -1415,7 +1415,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                     if (!$item['slim']) {
                       if ($item['editLink'] != '') {
                   ?>
-                        <a href="<?= $item['editLink'] ?>">
+                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0" class="editDocument">
                           <button type="button" class="btn btn-primary editDocument" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0"><i class="fa fa-edit"></i></button>
                         </a>
                   <?php
