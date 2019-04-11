@@ -37,7 +37,7 @@ use EcclesiaCRM\SessionUser;
 
 
 //Set the page title
-$sPageTitle = gettext("Family View");
+$sPageTitle = _("Family View");
 require "Include/Header.php";
 
 //Get the FamilyID out of the querystring
@@ -198,7 +198,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
 <?php if (!empty($family->getDateDeactivated())) {
     ?>
     <div class="alert alert-warning">
-        <strong><?= gettext(" This Family is Deactivated") ?> </strong>
+        <strong><?= _(" This Family is Deactivated") ?> </strong>
     </div>
     <?php
 } ?>
@@ -214,15 +214,15 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           <div class="after">
             <div class="buttons">
               <a class="hide" id="view-larger-image-btn" href="#"
-                  title="<?= gettext("View Photo") ?>">
+                  title="<?= _("View Photo") ?>">
                 <i class="fa fa-search-plus"></i>
               </a>&nbsp;
               <a href="#" data-toggle="modal" data-target="#upload-image"
-                  title="<?= gettext("Upload Photo") ?>">
+                  title="<?= _("Upload Photo") ?>">
                 <i class="fa fa-camera"></i>
               </a>&nbsp;
               <a href="#" data-toggle="modal" data-target="#confirm-delete-image"
-                 title="<?= gettext("Delete Photo") ?>">
+                 title="<?= _("Delete Photo") ?>">
                   <i class="fa fa-trash-o"></i>
               </a>
             </div>
@@ -231,12 +231,12 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           } 
         ?>
         </div>
-        <h3 class="profile-username text-center"><?= gettext('Family') . ': ' . $family->getName() ?></h3>
+        <h3 class="profile-username text-center"><?= _('Family') . ': ' . $family->getName() ?></h3>
       <?php 
         if ($bOkToEdit) {
       ?>
         <a href="<?= SystemURLs::getRootPath() ?>/FamilyEditor.php?FamilyID=<?= $family->getId() ?>"
-           class="btn btn-primary btn-block"><b><?= gettext("Edit") ?></b></a>
+           class="btn btn-primary btn-block"><b><?= _("Edit") ?></b></a>
       <?php
         } 
       ?>
@@ -248,7 +248,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       <?php
         if ($can_see_privatedata) {
       ?>
-          <li><i class="fa-li fa fa-home"></i><?= gettext("Address") ?>:
+          <li><i class="fa-li fa fa-home"></i><?= _("Address") ?>:
           <span>
              <?= OutputUtils::GetLinkMapFromAddress ($family->getAddress()) ?>
           </span><br>
@@ -258,7 +258,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
             if (SystemConfig::getValue("iChurchLatitude") && SystemConfig::getValue("iChurchLongitude")) {
               $sDistance = GeoUtils::LatLonDistance(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
               $sDirection = GeoUtils::LatLonBearing(SystemConfig::getValue("iChurchLatitude"), SystemConfig::getValue("iChurchLongitude"), $family->getLatitude(), $family->getLongitude());
-              echo OutputUtils::number_localized($sDistance) . " " . gettext(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . gettext($sDirection) . " " . gettext(" of church<br>");
+              echo OutputUtils::number_localized($sDistance) . " " . _(strtolower(SystemConfig::getValue("sDistanceUnit"))) . " " . _($sDirection) . " " . _(" of church<br>");
             }
           } else {
             $bHideLatLon = true;
@@ -266,7 +266,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
         ?>
       <?php 
         if (!$bHideLatLon && !SystemConfig::getBooleanValue('bHideLatLon')) { /* Lat/Lon can be hidden - General Settings */ ?>
-          <li><i class="fa-li fa fa-compass"></i><?= gettext("Latitude/Longitude") ?>
+          <li><i class="fa-li fa fa-compass"></i><?= _("Latitude/Longitude") ?>
               <span><?= $family->getLatitude() . " / " . $family->getLongitude() ?></span>
           </li>
       <?php
@@ -274,7 +274,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
 
         if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
       ?>
-          <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
+          <li><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>
           </li>
       <?php
@@ -282,49 +282,49 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
         if (!SystemConfig::getBooleanValue("bHideWeddingDate") && $family->getWeddingdate() != "") { /* Wedding Date can be hidden - General Settings */ 
       ?>
           <li>
-            <i class="fa-li fa fa-magic"></i><?= gettext("Wedding Date") ?>:
+            <i class="fa-li fa fa-magic"></i><?= _("Wedding Date") ?>:
             <span><?= OutputUtils::FormatDate($family->getWeddingdate()->format('Y-m-d'), false) ?></span>
           </li>
       <?php
         }
         if (SystemConfig::getBooleanValue("bUseDonationEnvelopes")) {
       ?>
-          <li><i class="fa-li fa fa-phone"></i><?= gettext("Envelope Number") ?>
+          <li><i class="fa-li fa fa-phone"></i><?= _("Envelope Number") ?>
               <span><?= $family->getEnvelope() ?></span>
           </li>
       <?php
         }
         if ($sHomePhone != "") {
       ?>
-          <li><i class="fa-li fa fa-phone"></i><?= gettext("Home Phone") ?>: <span><a
+          <li><i class="fa-li fa fa-phone"></i><?= _("Home Phone") ?>: <span><a
                           href="tel:<?= $sHomePhone ?>"><?= $sHomePhone ?></a></span></li>
       <?php
         }
         if ($sWorkPhone != "") {
       ?>
-        <li><i class="fa-li fa fa-building"></i><?= gettext("Work Phone") ?>: <span>
+        <li><i class="fa-li fa fa-building"></i><?= _("Work Phone") ?>: <span>
           <a href="tel:<?= $sWorkPhone ?>"><?= $sWorkPhone ?></a></span>
         </li>
       <?php
         }
         if ($sCellPhone != "") {
       ?>
-          <li><i class="fa-li fa fa-mobile"></i><?= gettext("Mobile Phone") ?>: <span><a
+          <li><i class="fa-li fa fa-mobile"></i><?= _("Mobile Phone") ?>: <span><a
                           href="tel:<?= $sCellPhone ?>"><?= $sCellPhone ?></a></span></li>
-          <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a 
-                          href="sms:<?= $sCellPhone ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a 
+                          href="sms:<?= $sCellPhone ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
 
       <?php
         }
         if ($family->getEmail() != "") {
       ?>
-          <li><i class="fa-li fa fa-envelope"></i><?= gettext("Email") ?>:
+          <li><i class="fa-li fa fa-envelope"></i><?= _("Email") ?>:
             <a href="mailto:<?= $family->getEmail() ?>"><span><?= $family->getEmail() ?></span></a>
           </li>
         <?php 
           if ($mailchimp->isActive()) {
         ?>
-          <li><i class="fa-li fa fa-send"></i><?= gettext("MailChimp") ?>:
+          <li><i class="fa-li fa fa-send"></i><?= _("MailChimp") ?>:
             <span id="mailChimpUserNormal"></span>
           </li>
         <?php
@@ -364,11 +364,11 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       <?php
         if (Cart::FamilyInCart($iFamilyID) && SessionUser::getUser()->isShowCartEnabled()) {
       ?>
-        <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+        <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
       <?php 
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
-        <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+        <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
       <?php 
        }
       ?>
@@ -382,22 +382,22 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
           
            $emails = mb_substr($emails, 0, -1)
       ?>
-          <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
-          <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+          <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+          <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
       <?php
        }
       ?>
       <?php
         if (SessionUser::getUser()->isAdmin()) {
       ?>
-      <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= gettext("Verify Info") ?></a>
+      <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
       <?php
         }
       ?>
       <?php
         if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
       ?>
-         <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= gettext('Add New Member') ?></a>
+         <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
       <?php
         }
       ?>
@@ -405,23 +405,23 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       <?php 
         if (($previous_id > 0)) {
       ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Family') ?></a>
+          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= _('Previous Family') ?></a>
       <?php
         } 
       ?>
       
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyList.php"><i class="fa fa-list-ul"></i><?= gettext('Family List') ?></a>
+      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyList.php"><i class="fa fa-list-ul"></i><?= _('Family List') ?></a>
       <?php 
          if (($next_id > 0)) {
       ?>
-          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Family') ?> </a>
+          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= _('Next Family') ?> </a>
       <?php
         } 
       ?>
       <?php 
          if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
       ?>
-          <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= gettext('Delete this Family') ?></a>
+          <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
       <?php
         } 
       ?>
@@ -429,7 +429,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
        
       if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
           ?>
-          <a class="btn btn-app bg-green" href="<?= SystemURLs::getRootPath() ?>/DocumentEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-sticky-note"></i><?= gettext("Add a Document") ?></a>
+          <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
           <?php
       } ?>
               
@@ -437,7 +437,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
       <?php if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
           ?>
           <button class="btn btn-app bg-orange" id="activateDeactivate">
-              <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . gettext(' this Family')); ?>
+              <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
           </button>
           <?php
       } ?>
@@ -452,11 +452,11 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
         <table class="table user-list table-hover data-person" width="100%">
           <thead>
             <tr>
-              <th><span><?= gettext("Family Members") ?></span></th>
-              <th class="text-center"><span><?= gettext("Role") ?></span></th>
-              <th><span><?= gettext("Classification") ?></span></th>
-              <th><span><?= gettext("Birthday") ?></span></th>
-              <th><span><?= gettext("Email") ?></span></th>
+              <th><span><?= _("Family Members") ?></span></th>
+              <th class="text-center"><span><?= _("Role") ?></span></th>
+              <th><span><?= _("Classification") ?></span></th>
+              <th><span><?= _("Birthday") ?></span></th>
+              <th><span><?= _("Email") ?></span></th>
               <th></th>
               </tr>
             </thead>
@@ -476,10 +476,10 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
             <?php
               $famRole = $person->getFamilyRoleName();
               $labelColor = 'label-default';
-              if ($famRole == gettext('Head of Household')) {
-              } elseif ($famRole == gettext('Spouse')) {
+              if ($famRole == _('Head of Household')) {
+              } elseif ($famRole == _('Spouse')) {
                   $labelColor = 'label-info';
-              } elseif ($famRole == gettext('Child')) {
+              } elseif ($famRole == _('Child')) {
                   $labelColor = 'label-warning';
               } 
             ?>
@@ -554,17 +554,17 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
      <div class="nav-tabs-custom tab-success">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext("Timeline") ?></a></li>
-          <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext("Assigned Properties") ?></a></li>
+          <li role="presentation" class="active"><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= _("Timeline") ?></a></li>
+          <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= _("Assigned Properties") ?></a></li>
         <?php 
           if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
         ?>
-          <li role="presentation"><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= gettext("Automatic Payments") ?></a></li>
-          <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= gettext("Pledges and Payments") ?></a></li>
+          <li role="presentation"><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
+          <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= _("Pledges and Payments") ?></a></li>
           <?php
             } 
           ?>
-          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
+          <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab"><i class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -610,7 +610,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                   <?php 
                     if (isset($item["editLink"])) {
                   ?>
-                    <a href="<?= $item["editLink"] ?>">
+                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
                       <span class="fa-stack">
                         <i class="fa fa-square fa-stack-2x"></i>
                         <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
@@ -621,7 +621,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                     
                     if (isset($item["deleteLink"])) {
                   ?>
-                    <a href="<?= $item["deleteLink"] ?>">
+                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
                         <span class="fa-stack">
                         <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                         <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
@@ -640,7 +640,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                 <?php
                   } else {
                 ?>
-                      <?= gettext($item['header']) ?>
+                      <?= _($item['header']) ?>
                 <?php
                   } 
                 ?>
@@ -657,7 +657,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                 <?php 
                   if (isset($item["editLink"])) {
                 ?>
-                    <a href="<?= $item["editLink"] ?>">
+                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
                       <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                     </a>
                 <?php
@@ -665,7 +665,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                   
                   if (isset($item["deleteLink"])) {
                 ?>
-                    <a href="<?= $item["deleteLink"] ?>">
+                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
                       <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </a>
                 <?php
@@ -695,13 +695,13 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
               ?>
                 <div class="alert alert-info">
                 <div>
-                  <h4><strong><?= gettext("Assign a New Property") ?>:</strong></h4>
+                  <h4><strong><?= _("Assign a New Property") ?>:</strong></h4>
 
                   <div class="row">
                     <div class="form-group col-xs-12 col-md-7">
                         <select name="PropertyId" id="input-family-properties" class="input-family-properties form-control select2"
-                                style="width:100%" data-placeholder="<?= gettext("Select") ?> ..." data-familyID="<?= $iFamilyID ?>">
-                          <option selected disabled> -- <?= gettext('select an option') ?>--</option>
+                                style="width:100%" data-placeholder="<?= _("Select") ?> ..." data-familyID="<?= $iFamilyID ?>">
+                          <option selected disabled> -- <?= _('select an option') ?>--</option>
                         <?php
                           foreach ($ormProperties as $ormProperty) {
                             //If the property doesn't already exist for this Person, write the <OPTION> tag
@@ -716,7 +716,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                       </div>
                     <div id="prompt-box" class="col-xs-12 col-md-7"></div>
                       <div class="form-group col-xs-12 col-md-7">
-                        <input type="submit" class="btn btn-primary assign-property-btn" value="<?= gettext("Assign") ?>">
+                        <input type="submit" class="btn btn-primary assign-property-btn" value="<?= _("Assign") ?>">
                     </div>
                   </div>
                 </div>
@@ -742,7 +742,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
             ?>
                 <p align="center">
                   <a class="btn btn-primary"
-                      href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                      href="<?= SystemURLs::getRootPath() ?>/AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= _("Add a new automatic payment") ?></a>
                 </p>
               </div>
             </div>
@@ -751,20 +751,20 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
             <div class="main-box clearfix">
                 <div class="main-box-body clearfix">
                   <input type="checkbox" name="ShowPledges" id="ShowPledges"
-                      value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= gettext("Show Pledges") ?>
+                      value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= _("Show Pledges") ?>
                   <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                        value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
+                        value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= _("Show Payments") ?>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1">
-                      <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                      <label for="ShowSinceDate"><?= _("From") ?>:</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input class="form-control date-picker" type="text" id="Min" Name="ShowSinceDate" value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1">
-                      <label for="ShowToDate"><?= gettext("To") ?>:</label>
+                      <label for="ShowToDate"><?= _("To") ?>:</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input class="form-control date-picker" type="text" id="Max" Name="ShowToDate" value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -782,9 +782,9 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                             
                   <p align="center">
                     <a class="btn btn-primary"
-                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                     <a class="btn btn-default"
-                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                       href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $family->getId() ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                   </p>
 
                 <?php 
@@ -792,7 +792,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                 ?>
                   <p align="center">
                     <a class="btn btn-default"
-                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $family->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=FamilyView.php?FamilyID=<?= $iFamilyID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
                 <?php
                   } 
@@ -830,7 +830,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                      if ($item['slim']) {
                        if ($item['editLink'] != '') {
                     ?>
-                      <a href="<?= $item['editLink'] ?>">
+                      <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
@@ -841,7 +841,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                       
                       if ($item['deleteLink'] != '') {
                     ?>
-                      <a href="<?= $item['deleteLink'] ?>">
+                      <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                           <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
@@ -878,7 +878,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                       <?php 
                         if ($item['editLink'] != '') {
                       ?>
-                        <a href="<?= $item['editLink'] ?>">
+                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
                           <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                         </a>
                       <?php
@@ -886,7 +886,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                         
                         if ($item['deleteLink'] != '') {
                       ?>
-                        <a href="<?= $item['deleteLink'] ?>">
+                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                       <?php
@@ -923,15 +923,15 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="delete-Image-label"><?= gettext("Confirm Delete") ?></h4>
+        <h4 class="modal-title" id="delete-Image-label"><?= _("Confirm Delete") ?></h4>
       </div>
       <div class="modal-body">
-        <p><?= gettext("You are about to delete the profile photo, this procedure is irreversible.") ?></p>
-        <p><?= gettext("Do you want to proceed?") ?></p>
+        <p><?= _("You are about to delete the profile photo, this procedure is irreversible.") ?></p>
+        <p><?= _("Do you want to proceed?") ?></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext("Cancel") ?></button>
-        <button class="btn btn-danger danger" id="deletePhoto"><?= gettext("Delete") ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?= _("Cancel") ?></button>
+        <button class="btn btn-danger danger" id="deletePhoto"><?= _("Delete") ?></button>
       </div>
     </div>
   </div>
@@ -942,15 +942,15 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="confirm-verify-label"><?= gettext("Request Family Info Verification") ?></h4>
+        <h4 class="modal-title" id="confirm-verify-label"><?= _("Request Family Info Verification") ?></h4>
       </div>
       <div class="modal-body">
-        <b><?= gettext("Select how do you want to request the family information to be verified") ?></b>
+        <b><?= _("Select how do you want to request the family information to be verified") ?></b>
         <p>
         <?php 
           if (count($sFamilyEmails) > 0) {
         ?>
-          <p><?= gettext("You are about to email copy of the family information in pdf to the following emails") ?>
+          <p><?= _("You are about to email copy of the family information in pdf to the following emails") ?>
           <ul>
         <?php 
           foreach ($sFamilyEmails as $tmpEmail) {
@@ -971,18 +971,18 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
     ?>
         <button type="button" id="onlineVerify" class="btn btn-warning warning">
           <i class="fa fa-envelope"></i> 
-          <?= gettext("Online Verification") ?>
+          <?= _("Online Verification") ?>
         </button>
     <?php
       } 
     ?>
         <button type="button" id="verifyDownloadPDF" class="btn btn-info">
           <i class="fa fa-download"></i> 
-          <?= gettext("PDF Report") ?>
+          <?= _("PDF Report") ?>
         </button>
         <button type="button" id="verifyNow" class="btn btn-success">
           <i class="fa fa-check"></i>
-          <?= gettext("Verified In Person") ?>
+          <?= _("Verified In Person") ?>
         </button>
       </div>
     </div>
@@ -991,20 +991,26 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-photo-uploader/PhotoUploader.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/FamilyView.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js" ></script>
+
+<!-- Document editor -->
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<!-- !Document editor -->
   
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = 0;
-  window.CRM.currentFamily = <?= $iFamilyID ?>;
-  window.CRM.currentActive = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
-  window.CRM.fam_Name      = "<?= $family->getName() ?>";
-  window.CRM.iPhotoHeight  = <?= SystemConfig::getValue("iPhotoHeight") ?>;
-  window.CRM.iPhotoWidth   = <?= SystemConfig::getValue("iPhotoWidth") ?>;
-  window.CRM.familyMail    = "<?= $family->getEmail() ?>";
-
+  window.CRM.currentFamily   = <?= $iFamilyID ?>;
+  window.CRM.docType         = 'family';
+  window.CRM.currentActive   = <?= (empty($family->getDateDeactivated()) ? 'true' : 'false') ?>;
+  window.CRM.fam_Name        = "<?= $family->getName() ?>";
+  window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
+  window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
+  window.CRM.familyMail      = "<?= $family->getEmail() ?>";
   
-  var dataT = 0;
-  var dataPaymentTable = 0;
-  var pledgePaymentTable = 0;
+  var dataT                  = 0;
+  var dataPaymentTable       = 0;
+  var pledgePaymentTable     = 0;
 </script>
 
 <?php require "Include/Footer.php" ?>
