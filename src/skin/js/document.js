@@ -92,10 +92,10 @@ $(document).ready(function () {
           path: 'document/get',
           data: JSON.stringify({"docID" : docID, "personID" : window.CRM.currentPersonID, "famID" : window.CRM.currentFamily})
         }).done(function(data) {     
-           message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this note') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
+           message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this document') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
      
            bootbox.confirm({
-            title  : i18next.t("Note Delete Confirmation"),
+            title  : i18next.t("Document Delete Confirmation"),
             message: message,
             size   : 'large',
             callback: function(result){
