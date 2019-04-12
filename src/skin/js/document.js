@@ -118,6 +118,7 @@ $(document).ready(function () {
       } else {
         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.message));
       }
+    });
   });  
 
 
