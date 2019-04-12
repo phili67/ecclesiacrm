@@ -8,6 +8,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -201,10 +202,14 @@ class TimelineService
         $perID    = $dbNote->getPerId();
         $famID    = $dbNote->getFamId();
         $person   = PersonQuery::create()->findPk($dbNote->getPerId());
-        
+        $family   = FamilyQuery::create()->findPk($dbNote->getFamId());
         
         if (!is_null($person)) {
+          // in the case of the Person notes
           $userName = $person->getFullName();
+        } else if (!is_null($family) ){
+          // in the case of a family note
+          $userName = _('Family').' '.$family->getName();
         }
         
         if ( $this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {

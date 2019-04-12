@@ -33,9 +33,11 @@ function createDocument(Request $request, Response $response, array $args) {
     $note->setText($input->text);
     $note->setType($input->type);
     $note->setEntered(SessionUser::getUser()->getPersonId());
+    $note->setDateLastEdited(new DateTime());
 
     $note->setCurrentEditedBy(0);
     $note->setCurrentEditedDate(NULL);
+    
     $note->save();
    
     return $response->withJson(['success' => true]);
@@ -119,6 +121,7 @@ function updateDocument(Request $request, Response $response, array $args) {
     $note->setText($input->text);
     $note->setType($input->type);
     $note->setEntered(SessionUser::getUser()->getPersonId());
+    $note->setDateLastEdited(new DateTime());
     
     // now the document is no more used
     $note->setCurrentEditedBy(0);

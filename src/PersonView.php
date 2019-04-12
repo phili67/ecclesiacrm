@@ -1329,7 +1329,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
                       <!--<a href="<?= $item['editLink'] ?>">-->
-                      <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0" class="editDocument">
+                      <?= $item['editLink'] ?>
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
@@ -1339,7 +1339,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                         }
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                       ?>
-                      <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0" class="deleteDocument">
+                      <?= $item['deleteLink'] ?>
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                           <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
@@ -1415,7 +1415,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                     if (!$item['slim']) {
                       if ($item['editLink'] != '') {
                   ?>
-                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0" class="editDocument">
+                        <?= $item['editLink'] ?>
                           <button type="button" class="btn btn-primary editDocument" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0"><i class="fa fa-edit"></i></button>
                         </a>
                   <?php
@@ -1423,7 +1423,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                             
                       if ($item['deleteLink'] != '') {
                   ?>
-                        <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0" class="deleteDocument">
+                        <?= $item['deleteLink'] ?>
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                   <?php

@@ -610,7 +610,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                   <?php 
                     if (isset($item["editLink"])) {
                   ?>
-                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
+                    <?= $item["editLink"] ?>
                       <span class="fa-stack">
                         <i class="fa fa-square fa-stack-2x"></i>
                         <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
@@ -621,7 +621,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                     
                     if (isset($item["deleteLink"])) {
                   ?>
-                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
+                    <?= $item["deleteLink"] ?>
                         <span class="fa-stack">
                         <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                         <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
@@ -657,7 +657,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                 <?php 
                   if (isset($item["editLink"])) {
                 ?>
-                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="editDocument">
+                    <?= $item["editLink"] ?>
                       <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
                     </a>
                 <?php
@@ -665,7 +665,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
                   
                   if (isset($item["deleteLink"])) {
                 ?>
-                    <a href="#" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="<?= $item['famID'] ?>" class="deleteDocument">
+                    <?= $item["deleteLink"] ?>
                       <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                     </a>
                 <?php
