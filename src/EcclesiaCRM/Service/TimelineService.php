@@ -212,7 +212,7 @@ class TimelineService
           $userName = _('Family').' '.$family->getName();
         }
         
-        if ( $this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
+        if ( $this->currentUser->isAdmin() || $dbNote->isVisualableBy ($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
             $displayEditedBy = _('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
                 $displayEditedBy = _('Self Registration');
