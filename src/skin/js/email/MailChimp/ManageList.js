@@ -473,6 +473,7 @@ $(document).ready(function () {
       
       var modal = bootbox.dialog({
          message: BootboxContent(),
+         size: 'large',
          buttons: [
           {
            label: i18next.t("Close"),
