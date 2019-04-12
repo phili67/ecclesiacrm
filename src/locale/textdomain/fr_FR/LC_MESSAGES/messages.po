@@ -1261,7 +1261,7 @@ msgstr "Voir votre panier"
 
 #: CartView.php:37
 msgid "You have no items in your cart."
-msgstr "Vous n'avez aucun article dans votre panier."
+msgstr "Vous n'avez aucun item dans votre panier."
 
 #: CartView.php:47
 msgid "Back to Menu"
@@ -1289,7 +1289,7 @@ msgstr "Vider le panier dans l'événement"
 
 #: CartView.php:115
 msgid "Map Cart"
-msgstr "Visualiser le panier dans la carte"
+msgstr "Visualiser le panier sur la carte"
 
 #: CartView.php:122 CSVExport.php:49
 msgid "CSV Export"
