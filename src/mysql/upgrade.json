@@ -625,11 +625,12 @@
     },
     "current": {
         "versions": [
-            "5.5.6"
+            "5.5.6",
+            "5.5.7"
         ],
         "scripts": [
-          "/mysql/upgrade/5.5.7-upgrade.php"
+          "/mysql/upgrade/5.6.0-upgrade.php"
         ],
-        "dbVersion": "5.5.7"
+        "dbVersion": "5.6.0"
     }
 }
