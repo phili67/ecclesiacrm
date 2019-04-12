@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-12T15:29:04.469Z\n"
+"POT-Creation-Date: 2019-04-12T15:52:18.000Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,13 +175,11 @@ msgstr "pour ce champ. Choisissez-en un autre."
 msgid "Error"
 msgstr "Erreur"
 
-#, fuzzy
-msgid "Please confirm deletion of this note"
+msgid "Please confirm deletion of this document"
 msgstr "Merci de confirmer la suppression de ce document"
 
-#, fuzzy
-msgid "Note Delete Confirmation"
-msgstr "Utilisateur supprimé"
+msgid "Document Delete Confirmation"
+msgstr "Confirmation de la suppression du document"
 
 msgid "Document Editor"
 msgstr "Editeur de document"
@@ -1707,8 +1705,9 @@ msgstr "Nom De la liste"
 msgid "The current images folder is now the public folder !!!"
 msgstr "Le dossier d'images courant est maintenant le dossier public !!!"
 
-#~ msgid "Document Delete Confirmation"
-#~ msgstr "Confirmation de la suppression du document"
+#, fuzzy
+#~ msgid "Note Delete Confirmation"
+#~ msgstr "Utilisateur supprimé"
 
 #~ msgid "List Details"
 #~ msgstr "Détails de la liste"

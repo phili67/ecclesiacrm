@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-12T15:29:04.469Z\n"
+"POT-Creation-Date: 2019-04-12T15:52:18.000Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -174,13 +174,11 @@ msgstr "für dieses Feld. Wählte sie ein anderes."
 msgid "Error"
 msgstr "Error"
 
-#, fuzzy
-msgid "Please confirm deletion of this note"
+msgid "Please confirm deletion of this document"
 msgstr "Bitte bestätige die Löschung Dieser Dokumente"
 
-#, fuzzy
-msgid "Note Delete Confirmation"
-msgstr "Bestätigung Benutzer löschen"
+msgid "Document Delete Confirmation"
+msgstr "Bestätigung Dokumente löschen"
 
 msgid "Document Editor"
 msgstr "Dokumente Editor"
@@ -1688,8 +1686,9 @@ msgstr "Mailingliste Name"
 msgid "The current images folder is now the public folder !!!"
 msgstr "Der aktuelle Bilder Ordner ist jetzt dem Öffentlichen Ordner !!!"
 
-#~ msgid "Document Delete Confirmation"
-#~ msgstr "Bestätigung Dokumente löschen"
+#, fuzzy
+#~ msgid "Note Delete Confirmation"
+#~ msgstr "Bestätigung Benutzer löschen"
 
 #~ msgid "List Details"
 #~ msgstr "Details der Liste  "
