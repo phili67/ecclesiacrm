@@ -77,39 +77,49 @@ $(document).ready(function () {
   });
   
   $(document).on("click",".deleteDocument", function(){
-     var docID  = $(this).data('id');
+    var docID  = $(this).data('id');
+    var perID  = $(this).data('perid');
+    var famID  = $(this).data('famid');
      
-     window.CRM.APIRequest({
+      window.CRM.APIRequest({
       method: 'POST',
       path: 'document/get',
-      data: JSON.stringify({"docID" : docID, "personID" : window.CRM.currentPersonID, "famID" : window.CRM.currentFamily})
-    }).done(function(data) {     
-       message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this note') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
+      data: JSON.stringify({"docID" : docID, "personID" : perID, "famID" : famID})
+    }).done(function(data) {
+      if (data.success) { 
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'document/get',
+          data: JSON.stringify({"docID" : docID, "personID" : window.CRM.currentPersonID, "famID" : window.CRM.currentFamily})
+        }).done(function(data) {     
+           message = '<div class="callout callout-danger"><i class="fa fa-warning" aria-hidden="true"></i>'+i18next.t('Please confirm deletion of this note') + ' : ' + data.note.Title + '</div><br>' + data.note.Text;
      
-       bootbox.confirm({
-        title  : i18next.t("Note Delete Confirmation"),
-        message: message,
-        size   : 'large',
-        callback: function(result){
-          if (result) {
-            window.CRM.APIRequest({
-              method: 'POST',
-              path: 'document/delete',
-              data: JSON.stringify({"docID": docID})
-            }).done(function(data) {
-              if (window.CRM.docType == 'person') {
-                location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
-              } else if (window.CRM.docType == 'family') {
-                location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
+           bootbox.confirm({
+            title  : i18next.t("Note Delete Confirmation"),
+            message: message,
+            size   : 'large',
+            callback: function(result){
+              if (result) {
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'document/delete',
+                  data: JSON.stringify({"docID": docID})
+                }).done(function(data) {
+                  if (window.CRM.docType == 'person') {
+                    location.href = window.CRM.root + '/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&documents=true';
+                  } else if (window.CRM.docType == 'family') {
+                    location.href = window.CRM.root + '/FamilyView.php?FamilyID=' + window.CRM.currentFamily + '&documents=true';
+                  }
+                });
               }
-            });
-          }
-        }
-      });
-    });
+            }
+          });
+        });
+      } else {
+        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.message));
+      }
   });  
 
-  
 
   function BootboxContent(sTitleText, sDocType, sText){  
     
