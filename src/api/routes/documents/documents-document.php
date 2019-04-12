@@ -97,14 +97,19 @@ function leaveDocument(Request $request, Response $response, array $args) {
   if ( isset ($input->docID) ){
     $note = NoteQuery::Create()->findOneById ($input->docID);
     
-    // now the document is used by someone
-    $note->setCurrentEditedBy(0);
-    $note->setCurrentEditedDate(NULL);
+    if (!is_null($note)) {
+    
+      // now the document is used by someone
+      $note->setCurrentEditedBy(0);
+      $note->setCurrentEditedDate(NULL);
           
-    $note->save();
-    // !now the document is used by someone
+      $note->save();
+      // !now the document is used by someone
+      
+      return $response->withJson(['success' => true ,'note' => $note->toArray()]);
+    }
        
-    return $response->withJson(['success' => true ,'note' => $note->toArray()]);
+    return $response->withJson(['success' => true]);
   }
   
   return $response->withJson(['success' => false]);
@@ -150,4 +155,3 @@ function deleteDocument(Request $request, Response $response, array $args) {
   
   return $response->withJson(['success' => false]);
 }
-
