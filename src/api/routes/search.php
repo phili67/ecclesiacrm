@@ -352,7 +352,7 @@ $app->get('/search/{query}', function ($request, $response, $args) {
                 foreach ($cares as $care) {
                   $elt = ['id'=>$id++,
                     'text'=>$care->getPersonRelatedByPersonId()->getFullName(),
-                    'uri'=>SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId()];
+                    'uri'=>SystemURLs::getRootPath() . "/v2/pastoralcare/".$care->getPersonId()];
         
                   array_push($data, $elt);
                 }
