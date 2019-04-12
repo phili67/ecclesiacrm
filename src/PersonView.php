@@ -53,7 +53,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Person Profile');
+$sPageTitle = _('Person Profile');
 require 'Include/Header.php';
 
 // Get the person ID from the querystring
@@ -278,7 +278,7 @@ $sUnformattedEmail = SelectWhichInfo($person->getEmail(), $famEmail, false);
 if ($person->getEnvelope() > 0) {
     $sEnvelope = $person->getEnvelope();
 } else {
-    $sEnvelope = gettext('Not assigned');
+    $sEnvelope = _('Not assigned');
 }
 
 $iTableSpacerWidth = 10;
@@ -294,7 +294,7 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
 <?php if (!empty($person->getDateDeactivated())) {
     ?>
     <div class="alert alert-warning">
-        <strong><?= gettext("This Person is Deactivated") ?> </strong>
+        <strong><?= _("This Person is Deactivated") ?> </strong>
     </div>
     <?php
 } 
@@ -334,13 +334,13 @@ foreach ($ormNextPersons as $ormNextPerson) {
             <?php if ($bOkToEdit): ?>
                 <div class="after">
                 <div class="buttons">
-                    <a id="view-larger-image-btn" class="hide"  title="<?= gettext("View Photo") ?>">
+                    <a id="view-larger-image-btn" class="hide"  title="<?= _("View Photo") ?>">
                         <i class="fa fa-search-plus"></i>
                     </a>&nbsp;
-                    <a  class="" data-toggle="modal" data-target="#upload-image" title="<?= gettext("Upload Photo") ?>">
+                    <a  class="" data-toggle="modal" data-target="#upload-image" title="<?= _("Upload Photo") ?>">
                         <i class="fa fa-camera"></i>
                     </a>&nbsp;
-                    <a  data-toggle="modal" data-target="#confirm-delete-image" title="<?= gettext("Delete Photo") ?>">
+                    <a  data-toggle="modal" data-target="#confirm-delete-image" title="<?= _("Delete Photo") ?>">
                         <i class="fa fa-trash-o"></i>
                     </a>
                 </div>
@@ -365,7 +365,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
          if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isEditRecordsEnabled() ) {
       ?>
         <p class="text-muted text-center">
-            <?= empty($person->getFamilyRoleName()) ? gettext('Undefined') : gettext($person->getFamilyRoleName()); ?>
+            <?= empty($person->getFamilyRoleName()) ? _('Undefined') : _($person->getFamilyRoleName()); ?>
             &nbsp;
             <a id="edit-role-btn" data-person_id="<?= $person->getId() ?>" data-family_role="<?= $person->getFamilyRoleName() ?>"
             data-family_role_id="<?= $person->getFmrId() ?>"  class="btn btn-primary btn-xs">
@@ -384,10 +384,10 @@ foreach ($ormNextPersons as $ormNextPerson) {
           <?php
             }
           ?>
-        <?= gettext($sClassName);
+        <?= _($sClassName);
           if ($person->getMembershipDate()) {
         ?>
-              <br><?= gettext('Member')." ".gettext(' Since:').' '.OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
+              <br><?= _('Member')." "._(' Since:').' '.OutputUtils::FormatDate($person->getMembershipDate()->format('Y-m-d'), false) ?>
         <?php
           } 
         ?>
@@ -395,7 +395,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       <?php 
         if ($bOkToEdit) {
       ?>
-          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="btn btn-primary btn-block"><b><?php echo gettext('Edit'); ?></b></a>
+          <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $person->getId() ?>" class="btn btn-primary btn-block"><b><?php echo _('Edit'); ?></b></a>
       <?php
         } 
       ?>
@@ -410,7 +410,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
     ?>
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title text-center"><?php echo gettext('About Me'); ?></h3>
+        <h3 class="box-title text-center"><?php echo _('About Me'); ?></h3>
       </div>
       <!-- /.box-header -->
       <div class="box-body">
@@ -419,7 +419,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( $can_see_privatedata ) {
             if (count($person->getOtherFamilyMembers()) > 0) {
         ?>
-          <li><i class="fa-li fa fa-group"></i><?php echo gettext('Family:'); ?> <span>
+          <li><i class="fa-li fa fa-group"></i><?php echo _('Family:'); ?> <span>
             <?php
               if (!is_null ($person->getFamily()) && $person->getFamily()->getId() != '') {
             ?>
@@ -433,7 +433,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
             <?php
               } else {
             ?>
-                <?= gettext('(No assigned family)') ?>
+                <?= _('(No assigned family)') ?>
             <?php
               } 
             ?>
@@ -444,7 +444,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       
         if (!empty($formattedMailingAddress)) {
       ?>
-          <li><i class="fa-li fa fa-home"></i><?php echo gettext('Address'); ?>: 
+          <li><i class="fa-li fa fa-home"></i><?php echo _('Address'); ?>: 
             <span>
               <?= OutputUtils::GetLinkMapFromAddress ($plaintextMailingAddress) ?>
             </span>
@@ -455,7 +455,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
         if ($dBirthDate) {
       ?>
           <li>
-            <i class="fa-li fa fa-calendar"></i><?= gettext('Birth Date') ?>:
+            <i class="fa-li fa fa-calendar"></i><?= _('Birth Date') ?>:
             <span><?= $dBirthDate ?></span>
           <?php 
             if (!$person->hideAge()) {
@@ -469,33 +469,33 @@ foreach ($ormNextPersons as $ormNextPerson) {
     }
     if (!SystemConfig::getValue('bHideFriendDate') && $person->getFriendDate() != '') { /* Friend Date can be hidden - General Settings */ 
   ?>
-          <li><i class="fa-li fa fa-tasks"></i><?= gettext('Friend Date') ?>: <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span></li>
+          <li><i class="fa-li fa fa-tasks"></i><?= _('Friend Date') ?>: <span><?= OutputUtils::FormatDate($person->getFriendDate()->format('Y-m-d'), false) ?></span></li>
   <?php
     }
     
     if ($sCellPhone) {
   ?>
-          <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
-          <li><i class="fa-li fa fa-mobile-phone"></i><?= gettext('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= gettext("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Mobile Phone') ?>: <span><a href="tel:<?= $sCellPhoneUnformatted ?>"><?= $sCellPhone ?></a></span></li>
+          <li><i class="fa-li fa fa-mobile-phone"></i><?= _('Text Message') ?>: <span><a href="sms:<?= str_replace(' ', '',$sCellPhoneUnformatted) ?>&body=<?= _("EcclesiaCRM text message") ?>"><?= $sCellPhone ?></a></span></li>
   <?php
     }
     
     if ($sHomePhone) {
   ?>
-          <li><i class="fa-li fa fa-phone"></i><?= gettext('Home Phone') ?>: <span><a href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
+          <li><i class="fa-li fa fa-phone"></i><?= _('Home Phone') ?>: <span><a href="tel:<?= $sHomePhoneUnformatted ?>"><?= $sHomePhone ?></a></span></li>
   <?php
     }
     
     if (!SystemConfig::getBooleanValue("bHideFamilyNewsletter")) { /* Newsletter can be hidden - General Settings */ 
       ?>
-          <li><i class="fa-li fa fa-hacker-news"></i><?= gettext("Send Newsletter") ?>:
+          <li><i class="fa-li fa fa-hacker-news"></i><?= _("Send Newsletter") ?>:
             <span id="NewsLetterSend"></span>
           </li>
       <?php
         }
     if ($sEmail != '') {
   ?>
-          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
+          <li><i class="fa-li fa fa-envelope"></i><?= _('Email') ?>: <span><a href="mailto:<?= $sUnformattedEmail ?>"><?= $sEmail ?></a></span></li>
         <?php 
           if ($isMailChimpActive) {
         ?>
@@ -506,13 +506,13 @@ foreach ($ormNextPersons as $ormNextPerson) {
     
     if ($sWorkPhone) {
   ?>
-          <li><i class="fa-li fa fa-phone"></i><?= gettext('Work Phone') ?>: <span><a href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
+          <li><i class="fa-li fa fa-phone"></i><?= _('Work Phone') ?>: <span><a href="tel:<?= $sWorkPhoneUnformatted ?>"><?= $sWorkPhone ?></a></span></li>
   <?php
     } 
    
     if ($person->getWorkEmail() != '') {
   ?>
-          <li><i class="fa-li fa fa-envelope"></i><?= gettext('Work/Other Email') ?>: <span><a href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span></li>
+          <li><i class="fa-li fa fa-envelope"></i><?= _('Work/Other Email') ?>: <span><a href="mailto:<?= $person->getWorkEmail() ?>"><?= $person->getWorkEmail() ?></a></span></li>
   <?php 
      if ($isMailChimpActive) {
   ?>
@@ -523,19 +523,19 @@ foreach ($ormNextPersons as $ormNextPerson) {
 
     if ($person->getFacebookID() > 0) {
   ?>
-        <li><i class="fa-li fa fa-facebook-official"></i><?= gettext('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= gettext('Facebook') ?></a></span></li>
+        <li><i class="fa-li fa fa-facebook-official"></i><?= _('Facebook') ?>: <span><a href="https://www.facebook.com/<?= InputUtils::FilterInt($person->getFacebookID()) ?>"><?= _('Facebook') ?></a></span></li>
   <?php
     }
 
     if (strlen($person->getTwitter()) > 0) {
   ?>
-        <li><i class="fa-li fa fa-twitter"></i><?= gettext('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= gettext('Twitter') ?></a></span></li>
+        <li><i class="fa-li fa fa-twitter"></i><?= _('Twitter') ?>: <span><a href="https://www.twitter.com/<?= InputUtils::FilterString($person->getTwitter()) ?>"><?= _('Twitter') ?></a></span></li>
   <?php
     }
 
     if (strlen($person->getLinkedIn()) > 0) {
   ?>
-        <li><i class="fa-li fa fa-linkedin"></i><?= gettext('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= gettext('LinkedIn') ?></a></span></li>
+        <li><i class="fa-li fa fa-linkedin"></i><?= _('LinkedIn') ?>: <span><a href="https://www.linkedin.com/in/<?= InputUtils::FiltersTring($person->getLinkedIn()) ?>"><?= _('LinkedIn') ?></a></span></li>
   <?php
     }
     
@@ -564,7 +564,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       </div>
     </div>
     <div class="alert alert-info alert-dismissable">
-        <i class="fa fa-fw fa-tree"></i> <?php echo gettext('indicates items inherited from the associated family record.'); ?>
+        <i class="fa fa-fw fa-tree"></i> <?php echo _('indicates items inherited from the associated family record.'); ?>
     </div>
     
   </div>
@@ -573,11 +573,11 @@ foreach ($ormNextPersons as $ormNextPerson) {
       <?php
         if (Cart::PersonInCart($iPersonID) && SessionUser::getUser()->isShowCartEnabled()) {
       ?>
-        <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= gettext("Remove from Cart") ?></span></a>
+        <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
       <?php 
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
       ?>
-          <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= gettext("Add to Cart") ?></span></a>
+          <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
       <?php 
        }
       ?>
@@ -585,8 +585,8 @@ foreach ($ormNextPersons as $ormNextPerson) {
       <?php       
        if ( SessionUser::getUser()->isEmailEnabled() ) {
       ?>
-        <a class="btn btn-app" href="mailto:<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send-o"></i><?= gettext('Email') ?></a>
-        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send"></i><?= gettext('Email (BCC)') ?></a>
+        <a class="btn btn-app" href="mailto:<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send-o"></i><?= _('Email') ?></a>
+        <a class="btn btn-app" href="mailto:?bcc=<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
       <?php
        }
       ?>
@@ -594,34 +594,34 @@ foreach ($ormNextPersons as $ormNextPerson) {
         if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
           if ($person->getId() == SessionUser::getUser()->getPersonId()) {
       ?>
-            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= gettext("Change Settings") ?></a>
-            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= gettext("Change Password") ?></a>
+            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= _("Change Settings") ?></a>
+            <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= _("Change Password") ?></a>
       <?php
           }
       ?>
-        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= gettext("Printable Page") ?></a>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-print"></i> <?= _("Printable Page") ?></a>
       <?php
        } 
       
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
       ?>
-        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= gettext("Pastoral Care") ?></a>
+        <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
       <?php
        }
       ?>
       <?php 
         if (($previous_id > 0)) {
       ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= gettext('Previous Person') ?></a>
+          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= _('Previous Person') ?></a>
       <?php
         } 
       ?>
       
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonList.php"><i class="fa fa-list-ul"></i><?= gettext('Person List') ?></a>
+      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonList.php"><i class="fa fa-list-ul"></i><?= _('Person List') ?></a>
       <?php 
          if (($next_id > 0)) {
       ?>
-          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= gettext('Next Person') ?> </a>
+          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= _('Next Person') ?> </a>
       <?php
         } 
       ?>
@@ -630,33 +630,33 @@ foreach ($ormNextPersons as $ormNextPerson) {
        if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
          if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
     ?>        
-        <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= gettext("Delete this Record") ?></a>
+        <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= _("Delete this Record") ?></a>
     <?php
       } else {
     ?>
-        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= gettext("Delete this Record") ?></a>
+        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= _("Delete this Record") ?></a>
   <?php
       }
     }
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
   ?>
-        <a class="btn btn-app bg-green"  href="<?= SystemURLs::getRootPath() ?>/DocumentEditor.php?PersonID=<?= $iPersonID ?>&documents=true"  data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a document") ?>"><i class="fa fa-file-o"></i><?= gettext("Create a document") ?></a>
+        <a class="btn btn-app bg-green"  href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
   <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
   ?>
-        <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= gettext("Assign New Group") ?></a>
+        <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= _("Assign New Group") ?></a>
   <?php
     }
 
     if (SessionUser::getUser()->isAdmin()) {
         if (!$person->isUser()) {
   ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= gettext('Make User') ?></a>
+          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= _('Make User') ?></a>
       <?php
         } else {
       ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= gettext('Edit User') ?></a>
+          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?PersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= _('Edit User') ?></a>
       <?php
         }
     } 
@@ -665,7 +665,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
     ?>
         <button class="btn btn-app bg-orange" id="activateDeactivate">
-            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? gettext('Deactivate') : gettext('Activate')) . " " .gettext(' this Person')); ?>
+            <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " ._(' this Person')); ?>
         </button>
     <?php
       } 
@@ -685,14 +685,14 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
-          <li role="presentation" <?= (!$bDocuments && !$bEDrive && !$bGroup)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= gettext('Timeline') ?></a></li>
+          <li role="presentation" <?= (!$bDocuments && !$bEDrive && !$bGroup)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= _('Timeline') ?></a></li>
         <?php
           }
         ?>
         <?php
           if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  count($person->getOtherFamilyMembers()) > 0 && SessionUser::getUser()->isEditRecordsEnabled() ) {
         ?>
-        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= gettext('Family') ?></a></li>
+        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#family" aria-controls="family" role="tab" data-toggle="tab"><?= _('Family') ?></a></li>
         <?php
           if (empty($activeTab)) {
             $activeTab = 'family';
@@ -702,7 +702,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
         <?php
           if ( SessionUser::getUser()->isManageGroupsEnabled() || $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ) {
         ?>
-        <li role="presentation" <?= ($bGroup)?'class="active"':'' ?>><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><i class="fa fa-group"></i> <?= gettext('Assigned Groups') ?></a></li>
+        <li role="presentation" <?= ($bGroup)?'class="active"':'' ?>><a href="#groups" aria-controls="groups" role="tab" data-toggle="tab"><i class="fa fa-group"></i> <?= _('Assigned Groups') ?></a></li>
         <?php
           if (empty($activeTab)) {
             $activeTab = 'group';
@@ -712,8 +712,8 @@ foreach ($ormNextPersons as $ormNextPerson) {
         <?php
           if ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isEditRecordsEnabled() ) {
         ?>
-        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= gettext('Assigned Properties') ?></a></li>
-        <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= gettext('Volunteer Opportunities') ?></a></li>
+        <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><?= _('Assigned Properties') ?></a></li>
+        <li role="presentation"><a href="#volunteer" aria-controls="volunteer" role="tab" data-toggle="tab"><?= _('Volunteer Opportunities') ?></a></li>
         <?php
             if (empty($activeTab)) {
               $activeTab = 'properties';
@@ -725,8 +725,8 @@ foreach ($ormNextPersons as $ormNextPerson) {
         <?php
           if (count($person->getOtherFamilyMembers()) == 0 && SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance')) {
         ?>
-            <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= gettext("Automatic Payments") ?></a></li>
-            <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= gettext("Pledges and Payments") ?></a></li>
+            <li role="presentation" <?= (empty($activeTab))?'class="active"':'' ?>><a href="#finance" aria-controls="finance" role="tab" data-toggle="tab"><i class="fa fa-credit-card"></i> <?= _("Automatic Payments") ?></a></li>
+            <li role="presentation"><a href="#pledges" aria-controls="pledges" role="tab" data-toggle="tab"><i class="fa fa-bank"></i> <?= _("Pledges and Payments") ?></a></li>
         <?php
             if (empty($activeTab)) {
               $activeTab = 'finance';
@@ -737,7 +737,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isNotesEnabled() ) {
             if ($bDocuments) $activeTab = 'notes';
         ?>
-        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= gettext("Documents") ?></a></li>
+        <li role="presentation" <?= ($bDocuments)?"class=\"active\"":""?>><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-files-o"></i> <?= _("Documents") ?></a></li>
         <?php
           }
         ?>
@@ -745,7 +745,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           if ( !is_null($user) && ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isNotesEnabled() ) ) {
             if ($bEDrive) $activeTab = 'edrive';
         ?>        
-        <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= gettext("EDrive") ?></a></li>
+        <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= _("EDrive") ?></a></li>
         <?php
           }
         ?>
@@ -837,7 +837,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                      <?php 
                        } else {
                       ?>
-                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").'<a href="'.SystemURLs::getRootPath().'/api/filemanager/getFile/'.$item['perID']."/".$item['text'].'"><i class="fa '.$item['style2'].'share-type-2"></i> "'.gettext("click to download").'"</a>' ?></pre>
+                       <pre style="line-height: 1.2;"><?= ((!empty($item['info']))?$item['info']." : ":"").'<a href="'.SystemURLs::getRootPath().'/api/filemanager/getFile/'.$item['perID']."/".$item['text'].'"><i class="fa '.$item['style2'].'share-type-2"></i> "'._("click to download").'"</a>' ?></pre>
                       <?php 
                         } 
                       ?>
@@ -860,10 +860,10 @@ foreach ($ormNextPersons as $ormNextPerson) {
           <table class="table user-list table-hover">
             <thead>
             <tr>
-              <th><span><?= gettext('Family Members') ?></span></th>
-              <th class="text-center"><span><?= gettext('Role') ?></span></th>
-              <th><span><?= gettext('Birthday') ?></span></th>
-              <th><span><?= gettext('Email') ?></span></th>
+              <th><span><?= _('Family Members') ?></span></th>
+              <th class="text-center"><span><?= _('Role') ?></span></th>
+              <th><span><?= _('Birthday') ?></span></th>
+              <th><span><?= _('Email') ?></span></th>
               <th>&nbsp;</th>
             </tr>
             </thead>
@@ -944,7 +944,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
             ?>
                 <br>
                 <div class="alert alert-warning">
-                  <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No group assignments.') ?></span>
+                  <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= _('No group assignments.') ?></span>
                 </div>
             <?php
               } else {
@@ -966,7 +966,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                           <h3 class="box-title" style="font-size:small"><a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>"><?= $ormAssignedGroup->getGroupName() ?></a></h3>
 
                           <div class="box-tools pull-right">
-                            <div class="label bg-aqua"><?= gettext($ormAssignedGroup->getRoleName()) ?></div>
+                            <div class="label bg-aqua"><?= _($ormAssignedGroup->getRoleName()) ?></div>
                           </div>
                         </div>
                         <div class="box-footer" style="width:275px">
@@ -976,17 +976,17 @@ foreach ($ormNextPersons as $ormNextPerson) {
                              <code>
                               <a href="<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>" class="btn btn-default" role="button"><i class="fa fa-list"></i></a>
                               <div class="btn-group">
-                                <button type="button" class="btn btn-default"><?= gettext('Action') ?></button>
+                                <button type="button" class="btn btn-default"><?= _('Action') ?></button>
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                   <span class="caret"></span>
                                   <span class="sr-only">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
-                                  <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= gettext('Change Role') ?></a></li>
+                                  <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= _('Change Role') ?></a></li>
                                   <?php 
                                     if ($grp_hasSpecialProps) {
                                   ?>
-                                    <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= gettext('Update Properties') ?></a></li>
+                                    <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= _('Update Properties') ?></a></li>
                                   <?php
                                     } 
                                   ?>
@@ -1014,7 +1014,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                             if ( $ormPropLists->count() > 0 ) {
                         ?>
                           
-                            <h4><?= gettext("Group Informations") ?></h4>
+                            <h4><?= _("Group Informations") ?></h4>
                             <ul>
                         <?php
                               foreach ($ormPropLists as $ormPropList) {
@@ -1040,7 +1040,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
 
                             if ( $ormPropLists->count() > 0 ) {
                         ?>
-                            <h4><?= gettext("Person Informations") ?></h4>
+                            <h4><?= _("Person Informations") ?></h4>
                             <ul>
                             <?php
                               foreach ($ormPropLists as $ormPropList) {
@@ -1057,7 +1057,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                           
                         ?>
                             </ul>
-                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= gettext("Modify Specific Properties")?></a>
+                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= _("Modify Specific Properties")?></a>
                         <?php
                             }
                         ?>
@@ -1090,7 +1090,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
           <div class="main-box clearfix">
           <div class="main-box-body clearfix">
             <div class="alert alert-warning" id="properties-warning" <?= ($ormAssignedProperties->count() > 0)?'style="display: none;"':''?>>
-                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No property assignments.') ?></span>
+                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= _('No property assignments.') ?></span>
             </div>
             <?php
                $sAssignedProperties = ','; 
@@ -1103,12 +1103,12 @@ foreach ($ormNextPersons as $ormNextPerson) {
               <?php if (SessionUser::getUser()->isEditRecordsEnabled() && $bOkToEdit && $ormProperties->count() != 0): ?>
                 <div class="alert alert-info">
                   <div>
-                    <h4><strong><?= gettext('Assign a New Property') ?>:</strong></h4>
+                    <h4><strong><?= _('Assign a New Property') ?>:</strong></h4>
                         <div class="row">
                             <div class="form-group col-xs-12 col-md-7">
                                 <select name="PropertyId" id="input-person-properties" class="form-control input-person-properties select2"
-                                    style="width:100%" data-placeholder="<?= gettext("Select") ?> ..."  data-personID="<?= $iPersonID ?>">
-                                <option disabled selected> -- <?= gettext('select an option') ?> -- </option>
+                                    style="width:100%" data-placeholder="<?= _("Select") ?> ..."  data-personID="<?= $iPersonID ?>">
+                                <option disabled selected> -- <?= _('select an option') ?> -- </option>
                                 <?php
                                   foreach ($ormProperties as $ormProperty) {
                                       $attributes = "value=\"{$ormProperty->getProId()}\" ";
@@ -1124,7 +1124,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
 
                             </div>
                             <div class="form-group col-xs-12 col-md-7">
-                                <input id="assign-property-btn" type="submit" class="btn btn-primary  assign-property-btn" value="<?= gettext('Assign') ?>">
+                                <input id="assign-property-btn" type="submit" class="btn btn-primary  assign-property-btn" value="<?= _('Assign') ?>">
                             </div>
                         </div>
                   </div>
@@ -1146,7 +1146,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
            //Was anything returned?
            ?>
               <div class="alert alert-warning" id="volunter-warning" <?= ($ormAssignedVolunteerOpps->count() > 0)?'style="display: none;"':''?>>
-                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= gettext('No volunteer opportunity assignments.') ?></span>
+                <i class="fa fa-question-circle fa-fw fa-lg"></i> <span><?= _('No volunteer opportunity assignments.') ?></span>
               </div>
         
               <div id="volunter-table" <?= ($ormAssignedVolunteerOpps->count() == 0)?'style="display: none;"':''?>>
@@ -1158,11 +1158,11 @@ foreach ($ormNextPersons as $ormNextPerson) {
               ?>
                 <div class="alert alert-info">
                   <div>
-                    <h4><strong><?= gettext('Assign a New Volunteer Opportunity') ?>:</strong></h4>
+                    <h4><strong><?= _('Assign a New Volunteer Opportunity') ?>:</strong></h4>
 
                     <div class="row">
                     <div class="form-group col-xs-12 col-md-7">
-                      <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple class="form-control select2" style="width:100%" data-placeholder="<?= gettext("Select") ?>...">
+                      <select id="input-volunteer-opportunities" name="VolunteerOpportunityIDs[]" multiple class="form-control select2" style="width:100%" data-placeholder="<?= _("Select") ?>...">
                       <?php
                         foreach ($ormVolunteerOpps as $ormVolunteerOpp) {
                             //If the property doesn't already exist for this Person, write the <OPTION> tag
@@ -1176,7 +1176,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                         </select>
                       </div>
                       <div class="form-group col-xs-12 col-md-7">
-                          <input type="submit" value="<?= gettext('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary VolunteerOpportunityAssign">
+                          <input type="submit" value="<?= _('Assign') ?>" name="VolunteerOpportunityAssign" class="btn btn-primary VolunteerOpportunityAssign">
                       </div>
                     </div>
                 </div>
@@ -1204,7 +1204,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
             ?>
                   <p align="center">
                       <a class="btn btn-primary"
-                         href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= gettext("Add a new automatic payment") ?></a>
+                         href="AutoPaymentEditor.php?AutID=-1&FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= _("Add a new automatic payment") ?></a>
                   </p>
             <?php
               } else {
@@ -1224,20 +1224,20 @@ foreach ($ormNextPersons as $ormNextPerson) {
 
                   if ( ($_SESSION['sshowPledges'] || $_SESSION['sshowPayments']) && !is_null ($person->getFamily())) {
                 ?>
-                  <input type="checkbox" name="ShowPledges" id="ShowPledges" value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= gettext("Show Pledges") ?>
+                  <input type="checkbox" name="ShowPledges" id="ShowPledges" value="1" <?= ($_SESSION['sshowPledges'])?" checked":"" ?>><?= _("Show Pledges") ?>
                   <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input type="checkbox" name="ShowPayments" id="ShowPayments"
-                        value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= gettext("Show Payments") ?>
+                        value="1" <?= ($_SESSION['sshowPayments'])?" checked":"" ?>><?= _("Show Payments") ?>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1">
-                      <label for="ShowSinceDate"><?= gettext("From") ?>:</label>
+                      <label for="ShowSinceDate"><?= _("From") ?>:</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input class="form-control date-picker" type="text" id="Min" Name="ShowSinceDate" value="<?= SessionUser::getUser()->getShowSince()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1">
-                      <label for="ShowToDate"><?= gettext("To") ?>:</label>
+                      <label for="ShowToDate"><?= _("To") ?>:</label>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                       <input class="form-control date-picker" type="text" id="Max" Name="ShowToDate" value="<?= SessionUser::getUser()->getShowTo()->format(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
@@ -1246,9 +1246,9 @@ foreach ($ormNextPersons as $ormNextPerson) {
                   <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
                   <p align="center">
                       <a class="btn btn-primary"
-                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= gettext("Add a new pledge") ?></a>
+                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                       <a class="btn btn-default"
-                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= gettext("Add a new payment") ?></a>
+                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                   </p>
                 <?php
                   } else {
@@ -1264,7 +1264,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
               ?>
                   <p align="center">
                       <a class="btn btn-default"
-                         href="CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . gettext(" Canvass Entry") ?></a>
+                         href="CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
               <?php
                 } 
@@ -1286,16 +1286,16 @@ foreach ($ormNextPersons as $ormNextPerson) {
                     </span>
                     </td>
                     <td style="vertical-align: middle;">
-                        <labe><?= gettext("Show") ?> : </label>
+                        <labe><?= _("Show") ?> : </label>
                     </td>
                     <td>
-                        <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= gettext("Select") ?> ...">
-                            <option value="all"><?= gettext("All type") ?></option>
+                        <select name="PropertyId" class="filter-timeline form-control input-sm" style="width:170px" data-placeholder="<?= _("Select") ?> ...">
+                            <option value="all"><?= _("All type") ?></option>
                             <option value="note"><?= MiscUtils::noteType("note") ?></option>
                             <option value="video"><?= MiscUtils::noteType("video") ?></option>
                             <option value="audio"><?= MiscUtils::noteType("audio") ?></option>
                             <option disabled="disabled">_____________________________</option>
-                            <option value="shared"><?= gettext("Shared documents") ?></option>
+                            <option value="shared"><?= _("Shared documents") ?></option>
                         </select>
                     </td>
                   </tr>
@@ -1325,11 +1325,11 @@ foreach ($ormNextPersons as $ormNextPerson) {
                      <i class="fa fa-clock-o"></i> <?= $item['datetime'] ?>
                       &nbsp;
                      <?php 
-                     
                      if ( $item['slim'] && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                        if ($item['editLink'] != '' || (isset($item['sharePersonID']) && $item['shareRights'] == 2 ) ) {
                      ?>
-                      <a href="<?= $item['editLink'] ?>">
+                      <!--<a href="<?= $item['editLink'] ?>">-->
+                      <?= $item['editLink'] ?>
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
@@ -1339,7 +1339,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                         }
                         if ($item['deleteLink'] != '' && !isset($item['sharePersonID']) && ( !isset($item['currentUserName']) || $item['userName'] == $person->getFullName() ) ) {
                       ?>
-                      <a href="<?= $item['deleteLink'] ?>">
+                      <?= $item['deleteLink'] ?>
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                           <i class="fa fa-trash fa-stack-1x fa-inverse" ></i>
@@ -1415,15 +1415,15 @@ foreach ($ormNextPersons as $ormNextPerson) {
                     if (!$item['slim']) {
                       if ($item['editLink'] != '') {
                   ?>
-                        <a href="<?= $item['editLink'] ?>">
-                          <button type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                        <?= $item['editLink'] ?>
+                          <button type="button" class="btn btn-primary editDocument" data-id="<?= $item['id'] ?>" data-perid="<?= $item['perID'] ?>" data-famid="0"><i class="fa fa-edit"></i></button>
                         </a>
                   <?php
                       }
                             
                       if ($item['deleteLink'] != '') {
                   ?>
-                        <a href="<?= $item['deleteLink'] ?>">
+                        <?= $item['deleteLink'] ?>
                           <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                         </a>
                   <?php
@@ -1458,14 +1458,14 @@ foreach ($ormNextPersons as $ormNextPerson) {
                   <tr>
                     <td>
                       <span class="time-line-head-red">
-                        <?= gettext("All Files") ?>
+                        <?= _("All Files") ?>
                       </span>
                       &nbsp;&nbsp;&nbsp;
                       <?php 
                         if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
                       ?>
                         <a href="#" id="uploadFile">
-                          <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Upload a file in EDrive") ?>">
+                          <span class="fa-stack fa-special-icon drag-elements" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Upload a file in EDrive") ?>">
                             <i class="fa fa-square fa-stack-2x" style="color:green"></i>
                             <i class="fa fa-cloud-upload fa-stack-1x fa-inverse"></i>
                           </span>
@@ -1474,27 +1474,27 @@ foreach ($ormNextPersons as $ormNextPerson) {
                         }
                       ?>
 
-                      <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Create a Folder") ?>">
+                      <a class="new-folder" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a Folder") ?>">
                       <span class="fa-stack fa-special-icon drag-elements">
                         <i class="fa fa-square fa-stack-2x" style="color:blue"></i>
                         <i class="fa fa-folder-o fa-stack-1x fa-inverse"></i>
                       </span>
                       </a>
 
-                      <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Delete") ?>">
+                      <a class="trash-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Delete") ?>">
                       <span class="fa-stack fa-special-icon drag-elements">
                         <i class="fa fa-square fa-stack-2x" style="color:red"></i>
                         <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
                       </span>
                       </a>
 
-                      <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
+                      <a class="folder-back-drop" data-personid="<?= $iPersonID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Up One Level") ?>" <?= ( !is_null ($user) && $user->getCurrentpath() != "/")?"":'style="display: none;"' ?>>
                         <span class="fa-stack fa-special-icon drag-elements">
                           <i class="fa fa-square fa-stack-2x" style="color:navy"></i>
                           <i class="fa fa-level-up fa-stack-1x fa-inverse"></i>
                         </span>
                       </a>
-                      <a class="filemanager-refresh" data-toggle="tooltip" data-placement="top" data-original-title="<?= gettext("Actualize files") ?>">
+                      <a class="filemanager-refresh" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Actualize files") ?>">
                         <span class="fa-stack fa-special-icon drag-elements">
                           <i class="fa fa-square fa-stack-2x" style="color:gray"></i>
                           <i class="fa  fa-refresh fa-stack-1x fa-inverse"></i>
@@ -1512,7 +1512,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
                 <table class="table table-striped table-bordered" id="edrive-table" width="100%"></table>
               </div>
               <div class="col-md-3 filmanager-right" style="display: none;">
-                 <h3><?= gettext("Preview") ?><button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button></h3>
+                 <h3><?= _("Preview") ?><button type="button" class="close close-file-preview" data-dismiss="alert" aria-hidden="true">×</button></h3>
                  <span class="preview"></span>
               </div>
           </div>
@@ -1544,18 +1544,18 @@ foreach ($ormNextPersons as $ormNextPerson) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="delete-Image-label"><?= gettext('Confirm Delete') ?></h4>
+        <h4 class="modal-title" id="delete-Image-label"><?= _('Confirm Delete') ?></h4>
       </div>
 
       <div class="modal-body">
-        <p><?= gettext('You are about to delete the profile photo, this procedure is irreversible.') ?></p>
+        <p><?= _('You are about to delete the profile photo, this procedure is irreversible.') ?></p>
 
-        <p><?= gettext('Do you want to proceed?') ?></p>
+        <p><?= _('Do you want to proceed?') ?></p>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext("Cancel") ?></button>
-        <button class="btn btn-danger danger" id="deletePhoto"><?= gettext("Delete") ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?= _("Cancel") ?></button>
+        <button class="btn btn-danger danger" id="deletePhoto"><?= _("Delete") ?></button>
       </div>
     </div>
   </div>
@@ -1566,6 +1566,12 @@ foreach ($ormNextPersons as $ormNextPerson) {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonView.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/filemanager.js"></script>
 
+<!-- Document editor -->
+<script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/document.js"></script>
+<!-- !Document editor -->
+
 <!-- Drag and drop -->
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui/jquery-ui.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
@@ -1574,6 +1580,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   window.CRM.currentPersonID = <?= $iPersonID ?>;
   window.CRM.currentFamily   = <?= $iFamilyID ?>;
+  window.CRM.docType         = 'person';
   window.CRM.iPhotoHeight    = <?= SystemConfig::getValue("iPhotoHeight") ?>;
   window.CRM.iPhotoWidth     = <?= SystemConfig::getValue("iPhotoWidth") ?>;
   window.CRM.currentActive   = <?= (empty($person->getDateDeactivated()) ? 'true' : 'false') ?>;

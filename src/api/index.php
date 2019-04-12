@@ -50,6 +50,7 @@ require __DIR__.'/routes/calendar/calendar-calendarV2.php';
 require __DIR__.'/routes/calendar/calendar-eventsV2.php';
 
 // file manager documents routes
+require __DIR__.'/routes/documents/documents-document.php';
 require __DIR__.'/routes/documents/documents-ckeditor.php';
 require __DIR__.'/routes/documents/documents-filemanager.php';
 require __DIR__.'/routes/documents/documents-sharedocument.php';

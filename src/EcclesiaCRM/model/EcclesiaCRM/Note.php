@@ -30,12 +30,12 @@ class Note extends BaseNote
 
     public function getEditLink()
     {
-        $url = SystemURLs::getRootPath().'/DocumentEditor.php?NoteID='.$this->getId().'&';
+        $url = '<a href="#" data-id="' . $this->getId() . '" data-perid="';
 
         if ($this->getPerId() != '') {
-            $url = $url.'PersonID='.$this->getPerId();
+            $url .= $this->getPerId().'" data-famid="0" class="editDocument">';
         } else {
-            $url = $url.'FamilyID='.$this->getFamId();
+            $url .= '0" data-famid="' . $this->getFamId() . '" class="editDocument">';
         }
 
         return $url;
@@ -43,7 +43,7 @@ class Note extends BaseNote
 
     public function getDeleteLink()
     {
-        return SystemURLs::getRootPath().'/DocumentDelete.php?NoteID='.$this->getId();
+        return '<a href="#" data-id="' . $this->getId() . '" data-perid="' . $this->getPerId() .'" data-famid="' . $this->getFamId() . '" class="deleteDocument">';
     }
 
     public function getDisplayEditedDate($format = 'Y-m-d H:i:s')// you have to set the time to 0-23, if not all the time are set to AM.

@@ -8,6 +8,7 @@ use EcclesiaCRM\NoteQuery;
 use EcclesiaCRM\NoteShareQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\MiscUtils;
@@ -199,19 +200,24 @@ class TimelineService
         $item     = null;
         $userName = null;
         $perID    = $dbNote->getPerId();
+        $famID    = $dbNote->getFamId();
         $person   = PersonQuery::create()->findPk($dbNote->getPerId());
-        
+        $family   = FamilyQuery::create()->findPk($dbNote->getFamId());
         
         if (!is_null($person)) {
+          // in the case of the Person notes
           $userName = $person->getFullName();
+        } else if (!is_null($family) ){
+          // in the case of a family note
+          $userName = _('Family').' '.$family->getName();
         }
         
         if ( $this->currentUser->isAdmin() || $dbNote->isVisable($this->currentUser->getPersonId()) || !is_null($sharePerson) ) {
-            $displayEditedBy = gettext('Unknown');
+            $displayEditedBy = _('Unknown');
             if ($dbNote->getDisplayEditedBy() == Person::SELF_REGISTER) {
-                $displayEditedBy = gettext('Self Registration');
+                $displayEditedBy = _('Self Registration');
             } else if ($dbNote->getDisplayEditedBy() == Person::SELF_VERIFY) {
-                $displayEditedBy = gettext('Self Verification');
+                $displayEditedBy = _('Self Verification');
             } else {
                 $editor = PersonQuery::create()->findPk($dbNote->getDisplayEditedBy());
                 if ($editor != null) {
@@ -237,7 +243,7 @@ class TimelineService
               if ( $min < SystemConfig::getValue('iDocumentTimeLeft') ) {
                 $editor = PersonQuery::create()->findPk($dbNote->getCurrentEditedBy());
                 if ($editor != null) {
-                    $currentUserName = gettext("This document is opened by")." : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." ".gettext("Minutes left").")";
+                    $currentUserName = _("This document is opened by")." : ".$editor->getFullName()." (".(SystemConfig::getValue('iDocumentTimeLeft')-$min)." "._("Minutes left").")";
                 }
               } else {// we reset the count
                  $dbNote->setCurrentEditedDate(null);
@@ -246,23 +252,32 @@ class TimelineService
               }
             }
             
+            if ($dbNote->getType() == 'video' || $dbNote->getType() == 'audio' || $dbNote->getType() == 'note' || $dbNote->getType() == 'document' ){
+              // only in this case : the header title in the timeline should be in function of the note owner
+              $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $userName;
+            } else {
+              // in all other cases the header title should be the person who had made the modifications
+              $title_message = $title.((!empty($title))?" : ":"")._('by') . ' ' . $displayEditedBy;
+            }
+            
             $item = $this->createTimeLineItem($dbNote->getId(), $dbNote->getType(), $dbNote->getDisplayEditedDate(),
-                $dbNote->getDisplayEditedDate("Y"),$title.((!empty($title))?" : ":"").gettext('by') . ' ' . $displayEditedBy/*$userName*/, '', $dbNote->getText(),
+                $dbNote->getDisplayEditedDate("Y"),$title_message, '', $dbNote->getText(),
                 (!is_null($shareEditLink)?$shareEditLink:$dbNote->getEditLink()), $dbNote->getDeleteLink(),$dbNote->getInfo(),$dbNote->isShared(),
-                $sharePerson,$shareRights,$currentUserName,$userName,$perID,$displayEditedBy);
+                $sharePerson,$shareRights,$currentUserName,$userName,$perID,$famID,$displayEditedBy);
         }
 
         return $item;
     }
 
-    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null,$perID = 0,$displayEditedBy = "")
+    public function createTimeLineItem($id, $type, $datetime, $year, $header, $headerLink, $text, $editLink = '', $deleteLink = '',$info = '',$isShared = 0,$sharePerson = null, $shareRights = 0,$currentUserName = null,$userName = null,$perID = 0,$famID = 0,$displayEditedBy = "")
     {
-        $item['id']       = $id;
-        $item['slim']     = false;
-        $item['type']     = $type;
-        $item['isShared'] = $isShared;
-        $item['userName'] = $userName;
-        $item['perID']    = $perID;
+        $item['id']              = $id;
+        $item['slim']            = false;
+        $item['type']            = $type;
+        $item['isShared']        = $isShared;
+        $item['userName']        = $userName;
+        $item['perID']           = $perID;
+        $item['famID']           = $famID;
         $item['lastEditedBy']    = $displayEditedBy;
         
         switch ($type) {
@@ -334,7 +349,7 @@ class TimelineService
           $item['sharePersonID']   = $sharePerson->getId();
           $item['shareRights']     = $shareRights;
           $item['headerLink']      = '';
-          $item['header']          = gettext("Shared by") . ' : ' . $sharePerson->getFullName();
+          $item['header']          = _("Shared by") . ' : ' . $sharePerson->getFullName();
           
           $item['deleteLink']      = '';
           

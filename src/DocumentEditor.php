@@ -204,7 +204,7 @@ if (isset($_POST['Submit'])) {
      
      if (!empty($note)) {
        $note->setCurrentEditedBy(0);
-       $note->setCurrentEditedDate(NULL);          
+       $note->setCurrentEditedDate(NULL);
           
        $note->save();
      }
