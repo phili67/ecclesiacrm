@@ -193,7 +193,10 @@ $rawQry =  PersonCustomQuery::create();
 foreach ($ormPersonCustomFields as $customfield ) {
    $rawQry->withColumn($customfield->getCustomField());
 }
-$aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+
+if (!is_null($rawQry->findOneByPerId($iPersonID))) {
+  $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+}
 
 // Get the Groups this Person is assigned to
 $ormAssignedGroups = Person2group2roleP2g2rQuery::Create()

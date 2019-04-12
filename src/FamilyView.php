@@ -130,7 +130,10 @@ $rawQry =  FamilyCustomQuery::create();
 foreach ($ormFamCustomFields as $customfield ) {
    $rawQry->withColumn($customfield->getCustomField());
 }
-$aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
+
+if (!is_null ($rawQry->findOneByFamId($iFamilyID))) {
+  $aFamCustomDataArr = $rawQry->findOneByFamId($iFamilyID)->toArray();
+}
 
 
 $family = FamilyQuery::create()->findPk($iFamilyID);
