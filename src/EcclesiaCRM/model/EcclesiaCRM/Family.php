@@ -229,21 +229,21 @@ class Family extends BaseFamily implements iPhoto
 
         switch ($type) {
             case "create":
-              $note->setText(gettext('Created'));
+              $note->setText(_('Created'));
               $note->setEnteredBy($this->getEnteredBy());
               $note->setDateEntered($this->getDateEntered());
               break;
             case "edit":
-              $note->setText(gettext('Updated'));
+              $note->setText(_('Updated'));
                 $note->setEnteredBy($this->getEditedBy());
                 $note->setDateEntered($this->getDateLastEdited());
                 break;
             case "verify":
-                $note->setText(gettext('Family Data Verified'));
+                $note->setText(_('Family Data Verified'));
                 $note->setEnteredBy(SessionUser::getUser()->getPersonId());
                 break;
             case "verify-link":
-              $note->setText(gettext('Verification email sent'));
+              $note->setText(_('Verification email sent'));
               $note->setEnteredBy(SessionUser::getUser()->getPersonId());
               break;
         }
@@ -320,7 +320,7 @@ class Family extends BaseFamily implements iPhoto
         if ( $this->getPhoto()->delete() )
         {
           $note = new Note();
-          $note->setText(gettext("Profile Image Deleted"));
+          $note->setText(_("Profile Image Deleted"));
           $note->setType("photo");
           $note->setEntered(SessionUser::getUser()->getPersonId());
           $note->setPerId($this->getId());
@@ -333,7 +333,7 @@ class Family extends BaseFamily implements iPhoto
     public function setImageFromBase64($base64) {
       if (SessionUser::getUser()->isAddRecordsEnabled() || $bOkToEdit ) {
         $note = new Note();
-        $note->setText(gettext("Profile Image uploaded"));
+        $note->setText(_("Profile Image uploaded"));
         $note->setType("photo");
         $note->setEntered(SessionUser::getUser()->getPersonId());
         $this->getPhoto()->setImageFromBase64($base64);
