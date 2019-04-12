@@ -339,7 +339,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             
               <div class="col-sm-3">
                 <label class="checkbox-inline">
-                  <a href="<?= SystemURLs::getRootPath() . "/PastoralCare.php?PersonID=".$care->getPersonId() ?>" class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getPersonRelatedByPersonId()->getFullName() ?> (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong'))?>)</a>
+                  <a href="<?= SystemURLs::getRootPath() . "/v2/pastoralcare/".$care->getPersonId() ?>" class="btn btn-link-menu" style="text-decoration: none;"><?= $care->getPersonRelatedByPersonId()->getFullName() ?> (<?= $care->getDate()->format(SystemConfig::getValue('sDateFormatLong'))?>)</a>
                 </label>
               </div>
 
