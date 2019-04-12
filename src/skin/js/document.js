@@ -118,6 +118,7 @@ $(document).ready(function () {
       } else {
         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.message));
       }
+    });
   });  
 
 
@@ -235,10 +236,17 @@ $(document).ready(function () {
             }
           }
          ],
-         show: false/*,
+         show: false,
          onEscape: function() {
-            modal.modal("hide");
-         }*/
+            window.CRM.APIRequest({
+              method: 'POST',
+              path: 'document/leave',
+              data: JSON.stringify({"docID" : docID})
+            }).done(function(data) {
+              console.log("we just close the doc ! ");
+              modal.modal("hide");
+            });
+         }
        });
        
        // this will ensure that image and table can be focused

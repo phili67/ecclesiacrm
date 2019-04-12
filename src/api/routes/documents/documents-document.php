@@ -52,7 +52,7 @@ function getDocument(Request $request, Response $response, array $args) {
   if ( isset ($input->docID) && isset ($input->personID) && isset ($input->famID) ){
     $note = NoteQuery::Create()->findOneById ($input->docID);
     
-    if ($note->getCurrentEditedBy() > 0) {
+    if ( $note->getCurrentEditedBy() > 0 && !( SessionUser::getUser()->isAdmin() || $note->isVisualableBy ($input->personID) ) ) {
       $currentDate = new DateTime();
     
       $since_start = $currentDate->diff($note->getCurrentEditedDate());
