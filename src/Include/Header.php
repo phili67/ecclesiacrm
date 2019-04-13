@@ -85,7 +85,7 @@ $MenuFirst = 1;
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only"><?= gettext('Toggle navigation') ?></span>
+        <span class="sr-only"><?= _('Toggle navigation') ?></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -98,7 +98,7 @@ $MenuFirst = 1;
                if (SessionUser::getUser()->isShowCartEnabled()) { 
             ?>
             <li class="dropdown notifications-menu" id="CartBlock" >
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your Cart') ?>">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="<?= _('Your Cart') ?>">
                     <i class="fa fa-shopping-cart"></i>
                     <span id="iconCount" class="label label-success"><?= Cart::CountPeople() ?></span>
                 </a>
@@ -109,7 +109,7 @@ $MenuFirst = 1;
             ?>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Your settings and more') ?>">
+            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= _('Your settings and more') ?>">
               <img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="user-image initials-image" alt="User Image">
               <span class="hidden-xs"><?= SessionUser::getUser()->getName() ?> </span>
 
@@ -122,16 +122,16 @@ $MenuFirst = 1;
                   <img width="80" src="<?= SystemURLs::getRootPath()?>/api/persons/<?= SessionUser::getUser()->getPersonId() ?>/thumbnail" class="initials-image profile-user-img img-responsive img-circle" alt="User Image" style="width:85px;height:85px">                
                 </td>
                 <td valign="middle" align="left" style="padding-top:10px">   
-                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= gettext("For your documents family etc ...")?>" data-placement="right">
-                      <p ><i class="fa fa fa-user"></i> <?= gettext("Private Space") ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("You can change here your password")?>" data-placement="right">
-                      <p ><i class="fa fa fa-key"></i> <?= gettext('Change Password') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Change Custom Settings")?>" data-placement="right">
-                      <p ><i class="fa fa fa-gear"></i> <?= gettext('Change Settings') ?></p></a>
-                  <a href="Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= gettext("Lock your session")?>" data-placement="right">
-                      <p ><i class="fa fa fa-pause"></i> <?= gettext('Lock') ?></p></a>
-                  <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= gettext("Quit EcclesiaCRM and close your session")?>" data-placement="right">
-                      <p ><i class="fa fa fa-sign-out"></i> <?= gettext('Sign out') ?></p></a>
+                  <a href="<?= SystemURLs::getRootPath()?>/PersonView.php?PersonID=<?= SessionUser::getUser()->getPersonId() ?>" class="item_link" data-toggle="tooltip" title="<?= _("For your documents family etc ...")?>" data-placement="right">
+                      <p ><i class="fa fa fa-user"></i> <?= _("Private Space") ?></p></a>
+                  <a href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php" class="item_link"  data-toggle="tooltip" title="<?= _("You can change here your password")?>" data-placement="right">
+                      <p ><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
+                  <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= _("Change Custom Settings")?>" data-placement="right">
+                      <p ><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
+                  <a href="Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= _("Lock your session")?>" data-placement="right">
+                      <p ><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
+                  <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= _("Quit EcclesiaCRM and close your session")?>" data-placement="right">
+                      <p ><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
                 </td>
                 </tr>
                 </table>
@@ -140,28 +140,28 @@ $MenuFirst = 1;
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= gettext('Help & Support') ?>">
+            <a href="#" class="dropdown-toggle" id="dropdown-toggle" data-toggle="dropdown" title="<?= _('Help & Support') ?>">
               <i class="fa fa-support"></i>
             </a>
             <ul class="dropdown-menu">
               <li class="hidden-xxs">
-                <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= gettext('Help & Manual') ?>" class="main-help-menu">
-                  <i class="fa fa-question-circle"></i> <?= gettext('Help & Manual') ?>
+                <a href="<?= SystemURLs::getSupportURL() ?>" target="_blank" title="<?= _('Help & Manual') ?>" class="main-help-menu">
+                  <i class="fa fa-question-circle"></i> <?= _('Help & Manual') ?>
                 </a>
               </li>
               <li class="hidden-xxs">
-                <a href="#" data-toggle="modal" data-target="#IssueReportModal" title="<?= gettext('Report an issue') ?>">
-                  <i class="fa fa-bug"></i> <?= gettext('Report an issue') ?>
+                <a href="#" data-toggle="modal" data-target="#IssueReportModal" title="<?= _('Report an issue') ?>">
+                  <i class="fa fa-bug"></i> <?= _('Report an issue') ?>
                 </a>
               </li>
               <li class="hidden-xxs">
-                <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= gettext('Developer Chat') ?>">
-                  <i class="fa fa-commenting-o"></i> <?= gettext('Developer Chat') ?>
+                <a href="https://gitter.im/ecclesiacrm/Lobby" target="_blank" title="<?= _('Developer Chat') ?>">
+                  <i class="fa fa-commenting-o"></i> <?= _('Developer Chat') ?>
                 </a>
               </li>              
               <li class="hidden-xxs">
-                <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank" title="<?= gettext('Contributing') ?>">
-                  <i class="fa fa-github"></i> <?= gettext('Contributing') ?>
+                <a href="https://github.com/phili67/ecclesiacrm/issues/" target="_blank" title="<?= _('Contributing') ?>">
+                  <i class="fa fa-github"></i> <?= _('Contributing') ?>
                 </a>
               </li>              
             </ul>
@@ -171,7 +171,7 @@ $MenuFirst = 1;
           $taskSize = count($tasks);
           ?>
           <li class="dropdown settings-dropdown">
-            <a href="#" data-toggle="control-sidebar" title="<?= gettext('Your tasks') ?>">
+            <a href="#" data-toggle="control-sidebar" title="<?= _('Your tasks') ?>">
               <i class="fa fa-gears"></i>
               <span class="label label-danger"><?= $taskSize ?></span>
             </a>
@@ -198,7 +198,7 @@ $MenuFirst = 1;
       <ul class="sidebar-menu">
         <li>
           <a href="<?= SystemURLs::getRootPath() ?>/Menu.php">
-            <i class="fa fa-dashboard"></i> <span><?= gettext('Dashboard') ?></span>
+            <i class="fa fa-dashboard"></i> <span><?= _('Dashboard') ?></span>
           </a>
         </li>
         <?php MenuRenderer::RenderMenu() ?>

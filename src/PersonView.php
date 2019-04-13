@@ -31,10 +31,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\VolunteerOpportunityQuery;
@@ -46,15 +43,12 @@ use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\Map\GroupTableMap;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
-// Set the page title and include HTML header
-$sPageTitle = _('Person Profile');
-require 'Include/Header.php';
+
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -324,7 +318,35 @@ foreach ($ormNextPersons as $ormNextPerson) {
     }
 }
 
+// Set the page title and include HTML header
+$sPageTitle = _('Person Profile');
+$sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
+if ( $previous_id > 0 ) {
+  $sPageTitleSpan .= '<button title="' . _('Previous Person') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $previous_id . '\'">
+<span class="mat-button-wrapper"><i class="fa fa-hand-o-left"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>';
+}
 
+$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/PersonList.php\'">
+<span class="mat-button-wrapper"><i class="fa fa-list-ul"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>';
+
+if ( $next_id > 0 ) {
+	$sPageTitleSpan .= '<button title="' . _('Next Person') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/PersonView.php?PersonID=' . $next_id . '\'">
+<span class="mat-button-wrapper"><i class="fa fa-hand-o-right"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>
+</div>';
+}
+
+$sPageTitleSpan .= '</span>';
+
+require 'Include/Header.php';
 ?>
 
 <div class="row">
@@ -612,22 +634,7 @@ foreach ($ormNextPersons as $ormNextPerson) {
       <?php
        }
       ?>
-      <?php 
-        if (($previous_id > 0)) {
-      ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= _('Previous Person') ?></a>
-      <?php
-        } 
-      ?>
       
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonList.php"><i class="fa fa-list-ul"></i><?= _('Person List') ?></a>
-      <?php 
-         if (($next_id > 0)) {
-      ?>
-          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= _('Next Person') ?> </a>
-      <?php
-        } 
-      ?>
     <?php
 
        if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
