@@ -56,7 +56,7 @@ class Group extends BaseGroup
 
       $addressbook = $carddavBackend->getAddressBookForGroup ($groupId);
       
-      if ( $addressbook == false && !$carddavBackend->getCardForPerson($addressbook['id'], $personId) ) {
+      if ( $addressbook['id'] != 0 && !$carddavBackend->getCardForPerson($addressbook['id'], $personId) ) {
         // we've checked that we'll insert only one card per user
       
         // now we'll create all the cards
@@ -95,7 +95,7 @@ FN:'.$person->getFirstName().' '.$person->getLastName();
 UID:".\Sabre\DAV\UUIDUtil::getUUID().'
 END:VCARD';
         
-        $carddavBackend->createCard($addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
+        $carddavBackend->createCard($addressbook['id'], 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
       }
       
       return parent::addPerson2group2roleP2g2r($l);
@@ -154,8 +154,14 @@ END:VCARD';
         
         // We set the BackEnd for sabre Backends
         $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+        $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
         
+        // we delete the calendar
         $calendarBackend->deleteCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()]);
+        
+        // we delete the address book
+        $addressbook = $carddavBackend->getAddressBookForGroup ( $this->getId() );
+        $carddavBackend->deleteAddressBook($addressbook['id']);
         
         parent::preDelete($con);
 
@@ -262,6 +268,7 @@ END:VCARD';
         
             // We set the BackEnd for sabre Backends
             $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
+            $carddavBackend  = new CardDavPDO($pdo->getWrappedConnection());
         
             // Updating the calendar
             $propPatch = new PropPatch([
@@ -271,6 +278,16 @@ END:VCARD';
             $calendarBackend->updateCalendar([$calendarInstance->getCalendarid(),$calendarInstance->getId()], $propPatch);
          
             $result = $propPatch->commit();
+            
+            $addressbookId = $carddavBackend->createAddressBook(
+              'principals/admin',
+              \Sabre\DAV\UUIDUtil::getUUID(),
+              [
+                  '{DAV:}displayname'                                       => $this->getName(),
+                  '{urn:ietf:params:xml:ns:carddav}addressbook-description' => 'AddressBook description',
+              ],
+              $this->getId()
+            );
         }
     }
 

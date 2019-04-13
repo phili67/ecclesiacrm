@@ -103,6 +103,56 @@ class GroupService
                 RunQuery($sSQL);
             }
         }
+        
+        // we get the person info
+        $person = PersonQuery::create()->findPk($iPersonID);
+        
+        // We set the BackEnd for sabre Backends
+        // we'll connect to sabre to create the group
+        // we'll delete the card from the member
+        $pdo = Propel::getConnection();
+    
+        $carddavBackend = new CardDavPDO($pdo->getWrappedConnection());
+      
+        $addressbookId = $carddavBackend->getAddressBookForGroup ($groupID)['id'];
+      
+         // now we'll create all the cards
+        $card = 'BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.12.6//EN
+N:'.$person->getLastName().';'.$person->getFirstName().';'.$person->getMiddleName().';;
+FN:'.$person->getFirstName().' '.$person->getLastName();
+
+        if ( !empty($person->getWorkEmail()) ) {
+          $card .="\nEMAIL;type=INTERNET;type=WORK;type=pref:".$person->getWorkEmail();
+        }
+        if ( !empty($person->getEmail()) ) {
+          $card .="\nEMAIL;type=INTERNET;type=HOME;type=pref:".$person->getEmail();
+        }
+
+        if ( !empty($person->getHomePhone()) ) {
+          $card .="\nTEL;type=HOME;type=VOICE;type=pref:".$person->getHomePhone();
+        }
+
+        if ( !empty($person->getCellPhone()) ) {
+          $card .="\nTEL;type=CELL;type=VOICE:".$person->getCellPhone();
+        }
+
+        if ( !empty($person->getWorkPhone()) ) {
+          $card .="\nTEL;type=WORK;type=VOICE:".$person->getWorkPhone();
+        }
+
+        if ( !empty($person->getAddress1()) || !empty($person->getCity()) || !empty($person->getZip()) ) {
+          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getAddress1().';'.$person->getCity().';;'.$person->getZip();
+        } else if (!is_null ($person->getFamily())) {
+          $card .="\nitem1.ADR;type=HOME;type=pref:;;".$person->getFamily()->getAddress1().';'.$person->getFamily()->getCity().';;'.$person->getFamily()->getZip();        
+        }
+
+        $card .= "\nitem1.X-ABADR:fr
+UID:".\Sabre\DAV\UUIDUtil::getUUID().'
+END:VCARD';
+        
+        $carddavBackend->createCard(addressbookId, 'UUID-'.\Sabre\DAV\UUIDUtil::getUUID(), $card, $person->getId());
 
         return $this->getGroupMembers($iGroupID, $iPersonID);
     }
