@@ -538,6 +538,109 @@ margin-bottom: 20px;
 width: 100%;
 }
 
+/* the btn-grp */
+
+.btn-info {
+    color: #fff !important;
+    background-color: #00bcd4!important;
+    border-color: #00bcd4 !important;
+    box-shadow: none !important
+}
+
+.btn-info:hover {
+    color: #fff !important;
+    background-color: #009aae !important;
+    border-color: #008fa1 !important
+}
+
+.btn-info.focus, .btn-info:focus {
+    box-shadow: none, 0 0 0 .2rem rgba(0, 188, 212, .5) !important
+}
+
+.btn-info.disabled, .btn-info:disabled {
+    color: #fff !important;
+    background-color: #00bcd4 !important;
+    border-color: #00bcd4 !important
+}
+
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active,
+.show > .btn-info.dropdown-toggle {
+    color: #fff !important;
+    background-color: #008fa1 !important;
+    border-color: #008394 !important
+}
+
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus,
+.show > .btn-info.dropdown-toggle:focus {
+    box-shadow: none, 0 0 0 .2rem rgba(0, 188, 212, .5) !important
+}
+.mat-raised-button,{
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important
+}
+
+.mat-ripple {
+    position: relative !important
+}
+
+.mat-button.mat-accent .mat-button-focus-overlay, .mat-icon-button.mat-accent .mat-button-focus-overlay,
+.mat-stroked-button.mat-accent .mat-button-focus-overlay {
+    background-color: #ff4081 !important
+}
+
+.mat-button.mat-warn .mat-button-focus-overlay, .mat-icon-button.mat-warn .mat-button-focus-overlay,
+.mat-stroked-button.mat-warn .mat-button-focus-overlay {
+    background-color: #f44336 !important
+}
+
+.mat-button-focus-overlay {
+    background: #000 !important
+}
+
+.mat-button[disabled] .mat-button-focus-overlay, .mat-icon-button[disabled] .mat-button-focus-overlay,
+.mat-stroked-button[disabled] .mat-button-focus-overlay {
+    background-color: transparent !important
+}
+
+.btn.btn-round, .mat-raised-button.btn.btn-round,
+.mat-raised-button.btn.btn-round
+{
+    border-radius: 30px !important
+}
+
+
+
+.btn.btn-info.active, .btn.btn-info:active, .mat-button.btn.btn-info.active,
+.mat-button.btn.btn-info:active, .mat-raised-button.btn.btn-info.active,
+.mat-raised-button.btn.btn-info:active, .mat-raised-button.btn.btn-info.active,
+.mat-raised-button.btn.btn-info:active {
+    color: #fff !important;
+    background-color: #00aec5 !important;
+    border-color: #008697 !important;
+    box-shadow: 0 2px 2px 0 rgba(0, 188, 212, .14), 0 3px 1px -2px rgba(0, 188, 212, .2), 0 1px 5px 0 rgba(0, 188, 212, .12) !important
+}
+
+.btn-group > .mat-raised-button.btn:not(:first-child), .mat-button-ripple {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important
+}
+
+.btn-group > .mat-raised-button.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important
+}
+
+
+.btn.btn-info:active, .btn.btn-info:focus, .btn.btn-info:hover,
+.mat-button.btn.btn-info:active, .mat-button.btn.btn-info:focus,
+.mat-button.btn.btn-info:hover, .mat-raised-button.btn.btn-info:active,
+.mat-raised-button.btn.btn-info:focus, .mat-raised-button.btn.btn-info:hover,
+.mat-raised-button.btn.btn-info:active,
+.mat-raised-button.btn.btn-info:focus,
+.mat-raised-button.btn.btn-info:hover {
+    box-shadow: 0 14px 26px -12px rgba(0, 188, 212, .42), 0 4px 23px 0 rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 188, 212, .2) !important
+}
 
 /* the tabs */
 .nav-tabs-custom {
