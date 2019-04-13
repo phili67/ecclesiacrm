@@ -36,10 +36,6 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
-//Set the page title
-$sPageTitle = _("Family View");
-require "Include/Header.php";
-
 //Get the FamilyID out of the querystring
 if (!empty($_GET['FamilyID'])) {
     $iFamilyID = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
@@ -196,6 +192,35 @@ $sFamilyEmails = array();
 
 $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && ($iFamilyID == SessionUser::getUser()->getPerson()->getFamId())));
 
+
+// Set the page title and include HTML header
+$sPageTitle = _("Family View");
+$sPageTitleSpan = $sPageTitle . '<span style="float:right"><div class="btn-group">';
+if ( $previous_id > 0 ) {
+  $sPageTitleSpan .= '<button title="' . _('Previous Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $previous_id . '\'">
+<span class="mat-button-wrapper"><i class="fa fa-hand-o-left"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>';
+}
+
+$sPageTitleSpan .= '<button title="' . _('Family List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/FamilyList.php\'">
+<span class="mat-button-wrapper"><i class="fa fa-list-ul"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>';
+
+if ( $next_id > 0 ) {
+	$sPageTitleSpan .= '<button title="' . _('Next Family') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/FamilyView.php?FamilyID=' . $next_id . '\'">
+<span class="mat-button-wrapper"><i class="fa fa-hand-o-right"></i></span>
+<div class="mat-button-ripple mat-ripple" matripple=""></div>
+<div class="mat-button-focus-overlay"></div>
+</button>
+</div>';
+}
+
+$sPageTitleSpan .= '</span>';
+require 'Include/Header.php';
 ?>
 
 <?php if (!empty($family->getDateDeactivated())) {
@@ -403,23 +428,6 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() || (SessionUser::ge
          <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
       <?php
         }
-      ?>
-      
-      <?php 
-        if (($previous_id > 0)) {
-      ?>
-          <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $previous_id ?>"><i class="fa fa-hand-o-left"></i><?= _('Previous Family') ?></a>
-      <?php
-        } 
-      ?>
-      
-      <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyList.php"><i class="fa fa-list-ul"></i><?= _('Family List') ?></a>
-      <?php 
-         if (($next_id > 0)) {
-      ?>
-          <a class="btn btn-app" role="button" href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID=<?= $next_id ?>"><i class="fa fa-hand-o-right"></i><?= _('Next Family') ?> </a>
-      <?php
-        } 
       ?>
       <?php 
          if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
