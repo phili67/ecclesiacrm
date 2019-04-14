@@ -50,7 +50,12 @@ $(document).ready(function () {
          window.CRM.editor = CKEDITOR.replace('NoteText',{
            customConfig: window.CRM.root+'/skin/js/ckeditor/configs/calendar_event_editor_config.js',
            language : window.CRM.lang,
-           width : '100%'
+           width : '100%',
+           extraPlugins : 'uploadfile,uploadimage,filebrowser',
+           uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+           imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+           filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+           filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
          });
    
          add_ckeditor_buttons(window.CRM.editor);
@@ -165,6 +170,7 @@ $(document).ready(function () {
 
     var modal = bootbox.dialog({
        message: BootboxContent(typeDesc,visible),
+       size: 'large',
        buttons: [
         {
          label: i18next.t("Close"),
