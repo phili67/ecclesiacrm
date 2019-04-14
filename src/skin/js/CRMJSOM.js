@@ -177,8 +177,8 @@
       'deactivate' : function (callback)
       {
         bootbox.confirm({
-            title: i18next.t("Do you really want to deactivate the persons in the cart?"),
-            message: i18next.t("This action can never be undone !!!!"),
+            title: i18next.t("Do you really want to deactivate the persons?"),
+            message: i18next.t("This action can be undone !!!!"),
             buttons: {
                 cancel: {
                     label:  i18next.t('No'),
@@ -216,8 +216,8 @@
       'delete' : function (callback)
       {
         bootbox.confirm({
-            title: i18next.t("Do you really want to delete the persons in the cart and from the CRM?"),
-            message: i18next.t("This action can never be undone !!!!"),
+            title: i18next.t("Do you really want to delete the persons from the CRM?"),
+            message: i18next.t("This action cannot be undone !!!!"),
             buttons: {
                 cancel: {
                     label:  i18next.t('No'),
