@@ -82,11 +82,6 @@ if (!is_null($user)) {
   $directories = MiscUtils::getDirectoriesInPath($currentNoteDir.$currentpath);
 }
 
-$iRemoveVO = 0;
-if (array_key_exists('RemoveVO', $_GET)) {
-    $iRemoveVO = InputUtils::LegacyFilterInput($_GET['RemoveVO'], 'int');
-}
-
 $bDocuments = false;
 
 if (array_key_exists('documents', $_GET)) {
@@ -218,12 +213,8 @@ $ormProperties = PropertyQuery::Create()
                   ->filterByProClass('p')
                   ->orderByProName()
                   ->find();
-
               
 $dBirthDate = OutputUtils::FormatBirthDate($person->getBirthYear(), $person->getBirthMonth(), $person->getBirthDay(), '-', $person->getFlags());
-
-$sFamilyInfoBegin = '<span style="color: red;">';
-$sFamilyInfoEnd = '</span>';
 
 // Assign the values locally, after selecting whether to display the family or person information
 
@@ -994,7 +985,7 @@ require 'Include/Header.php';
                                 <ul class="dropdown-menu" role="menu">
                                   <li><a  class="changeRole" data-groupid="<?= $ormAssignedGroup->getGroupID() ?>"><?= _('Change Role') ?></a></li>
                                   <?php 
-                                    if ($grp_hasSpecialProps) {
+                                    if ($ormAssignedGroup->getHasSpecialProps()) {
                                   ?>
                                     <li><a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupID() ?>&PersonID=<?= $iPersonID ?>"><?= _('Update Properties') ?></a></li>
                                   <?php
@@ -1019,7 +1010,7 @@ require 'Include/Header.php';
                         ?>
 
                         <div class="box-body">
-
+                        <small>
                         <?php  
                             if ( $ormPropLists->count() > 0 ) {
                         ?>
@@ -1067,11 +1058,12 @@ require 'Include/Header.php';
                           
                         ?>
                             </ul>
-                          <a href="GroupPersonPropsFormEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary"><?= _("Modify Specific Properties")?></a>
+                          <a href="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?GroupID=<?= $ormAssignedGroup->getGroupId() ?>&PersonID=<?= $iPersonID ?>" class="btn btn-primary btn-xs"><?= _("Modify Specific Properties")?></a>
                         <?php
                             }
                         ?>
-
+                          </small>
+ 
                           </div><!-- /.box-body -->
                         <?php
                           } 
@@ -1256,9 +1248,9 @@ require 'Include/Header.php';
                   <table id="pledgePaymentTable" class="table table-striped table-bordered"  cellspacing="0" width="100%"></table>
                   <p align="center">
                       <a class="btn btn-primary"
-                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Pledge"><?= _("Add a new pledge") ?></a>
                       <a class="btn btn-default"
-                         href="PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/PledgeEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>&amp;PledgeOrPayment=Payment"><?= _("Add a new payment") ?></a>
                   </p>
                 <?php
                   } else {
@@ -1274,7 +1266,7 @@ require 'Include/Header.php';
               ?>
                   <p align="center">
                       <a class="btn btn-default"
-                         href="CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
               <?php
                 } 

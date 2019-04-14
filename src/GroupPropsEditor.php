@@ -18,6 +18,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemURLs;
 
 // Security: user must be allowed to edit records to use this page.
 if (!SessionUser::getUser()->isEditRecordsEnabled()) {
@@ -25,7 +26,7 @@ if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     exit;
 }
 
-$sPageTitle = gettext('Group Member Properties Editor');
+$sPageTitle = _('Group Member Properties Editor');
 
 // Get the Group and Person IDs from the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
@@ -102,7 +103,7 @@ if (isset($_POST['GroupPropSubmit'])) {
         RunQuery($sSQL);
 
         // Return to the Person View
-        RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID);
+        RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID.'&group=true');
     }
 } else {
     // First Pass
@@ -119,20 +120,21 @@ require 'Include/Header.php';
 if (mysqli_num_rows($rsPropList) == 0) {
     ?>
   <form>
-    <h3><?= gettext('This group currently has no properties!  You can add them in the Group Editor.') ?></h3>
+    <h3><?= _('This group currently has no properties!  You can add them in the Group Editor.') ?></h3>
     <BR>
-    <input type="button" class="btn" value="<?= gettext('Return to Person Record') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>';">
+    <input type="button" class="btn" value="<?= _('Return to Person Record') ?>" Name="Cancel" onclick="javascript:document.location='<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>';">
   </form>
   <?php
 } else {
-        ?>
+  ?>
+  <p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
   <div class="box ">
-    <div class="box-header">
-      <h3 class="box-title"><?= gettext('Editing') ?> <i> <?= $grp_Name ?> </i> <?= gettext('data for member') ?> <i> <?= $per_FirstName.' '.$per_LastName ?> </i></h3>
+    <div class="box-header  with-border">
+      <h3 class="box-title"><?= _('Editing') ?> : <i> <?= $grp_Name ?> </i> <?= _('data for member') ?> <i> <?= $per_FirstName.' '.$per_LastName ?> </i></h3>
     </div>
     <div class="box-body">
-      <form method="post" action="GroupPropsEditor.php?<?= 'PersonID='.$iPersonID.'&GroupID='.$iGroupID ?>" name="GroupPropEditor">
+      <form method="post" action="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?<?= 'PersonID='.$iPersonID.'&GroupID='.$iGroupID ?>" name="GroupPropEditor">
 
         <table class="table">
           <?php
@@ -141,7 +143,9 @@ if (mysqli_num_rows($rsPropList) == 0) {
           mysqli_data_seek($rsPropList, 0);
 
         while ($rowPropList = mysqli_fetch_array($rsPropList, MYSQLI_BOTH)) {
-            extract($rowPropList); ?>
+            extract($rowPropList); 
+            if ($prop_PersonDisplay == 'false') continue;
+            ?>
             <tr>
               <td><?= $prop_Name ?>: </td>
               <td>
@@ -158,16 +162,16 @@ if (mysqli_num_rows($rsPropList) == 0) {
                 echo '<span style="color: red; ">'.$aPropErrors[$prop_Field].'</span>';
             } ?>
               </td>
-              <td><?= $prop_Description ?></td>
+              <td><?= OutputUtils::displayCustomField($type_ID, $prop_Description, $prop_Special) ?></td>
             </tr>
           <?php
         } ?>
           <tr>
             <td align="center" colspan="3">
               <br><br>
-              <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" Name="GroupPropSubmit">
+              <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" Name="GroupPropSubmit">
               &nbsp;
-              <input type="button" class="btn" value="<?= gettext('Cancel') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>';">
+              <input type="button" class="btn" value="<?= _('Cancel') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>&group=true';">
             </td>
           </tr>
         </table>
