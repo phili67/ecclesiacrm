@@ -1,7 +1,7 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//  Updated     : 2018/10/3
+//  Updated     : 2019/04/14
 //
   
   var anniversary    = true;
@@ -672,7 +672,7 @@
                   var EventCalendarID   = e.options[e.selectedIndex].value;
                   
                   if (EventCalendarID == -1) {
-                    window.CRM.DisplayAlert("Error","You've to chose a calendar.");
+                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to chose a calendar."));
                     
                     return false;                    
                   }
@@ -776,7 +776,7 @@
 
                   return add;  
               } else {
-                  window.CRM.DisplayAlert("Error","You have to set a Title for your event");
+                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Title for your event"));
                 
                   return false;
               }    
