@@ -633,7 +633,7 @@
         ],
         "dbVersion": "5.6.0"
     },
-    "current": {
+    "5.6.1": {
         "versions": [
             "5.6.0"
         ],
@@ -641,5 +641,13 @@
           "/mysql/upgrade/5.6.1-upgrade.php"
         ],
         "dbVersion": "5.6.1"
+    },
+    "current": {
+        "versions": [
+            "5.6.1"
+        ],
+        "scripts": [
+        ],
+        "dbVersion": "5.6.2"
     }
 }
