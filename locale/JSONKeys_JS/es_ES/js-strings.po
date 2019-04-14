@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-12T15:52:18.000Z\n"
+"POT-Creation-Date: 2019-04-14T19:26:15.862Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -624,6 +624,14 @@ msgstr "Activo"
 
 msgid "inactive"
 msgstr "Inactivo"
+
+#, fuzzy
+msgid "You've to chose a calendar."
+msgstr "Tienes que seleccione al menos un usuario."
+
+#, fuzzy
+msgid "You have to set a Title for your event"
+msgstr "Debe configurar un Título e una descripción para su Problema."
 
 msgid "CKEditor Template Creation"
 msgstr "CKEditor creación Modelos"
