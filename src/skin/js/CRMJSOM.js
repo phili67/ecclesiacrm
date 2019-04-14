@@ -554,7 +554,7 @@
                       </li>\
                       <li>\
                           <a href="#" id="deleteCart">\
-                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From CRM")+ '\
+                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From the CRM")+ '\
                           </a>\
                       </li>\
                   </ul>\
