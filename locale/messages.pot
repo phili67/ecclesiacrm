@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 21:28+0200\n"
+"POT-Creation-Date: 2019-04-14 22:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,31 +70,39 @@ msgstr ""
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/cart.php:68
+#: api/routes/cart.php:69
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:82 api/routes/cart.php:95
+#: api/routes/cart.php:83 api/routes/cart.php:96
 msgid "records(s) successfully added to selected Group."
 msgstr ""
 
-#: api/routes/cart.php:123 api/routes/cart.php:136 api/routes/cart.php:149
+#: api/routes/cart.php:124 api/routes/cart.php:137 api/routes/cart.php:150
 msgid "records(s) successfully deleted from the selected Group."
 msgstr ""
 
-#: api/routes/cart.php:165 api/routes/cart.php:195
+#: api/routes/cart.php:166 api/routes/cart.php:199 api/routes/cart.php:230
 msgid "Your cart is empty"
 msgstr ""
 
-#: api/routes/cart.php:173
+#: api/routes/cart.php:174
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:176
+#: api/routes/cart.php:177
 msgid "Your cart and CRM has been successfully deleted"
 msgstr ""
 
-#: api/routes/cart.php:198
+#: api/routes/cart.php:207
+msgid "You can't deactivate admin through the cart"
+msgstr ""
+
+#: api/routes/cart.php:210
+msgid "Your cart and CRM has been successfully deactivated"
+msgstr ""
+
+#: api/routes/cart.php:233
 msgid "Your cart has been successfully emptied"
 msgstr ""
 
@@ -258,6 +266,7 @@ msgid "Added to group"
 msgstr ""
 
 #: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
+#: EcclesiaCRM/dto/Cart.php:283
 msgid "Deactivate account"
 msgstr ""
 
@@ -267,6 +276,7 @@ msgid "The same as before"
 msgstr ""
 
 #: api/routes/people/people-persons.php:445 api/routes/user/user-users.php:128
+#: EcclesiaCRM/dto/Cart.php:277
 msgid "User Deactivated"
 msgstr ""
 
@@ -3236,15 +3246,15 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:103 EcclesiaCRM/dto/Cart.php:166
+#: EcclesiaCRM/dto/Cart.php:104 EcclesiaCRM/dto/Cart.php:167
 msgid "PersonID for Cart must be numeric"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:123 EcclesiaCRM/dto/Cart.php:273
+#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:309
 msgid "GroupID for Cart must be numeric"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:141 EcclesiaCRM/dto/Cart.php:223
+#: EcclesiaCRM/dto/Cart.php:142 EcclesiaCRM/dto/Cart.php:224
 msgid "FamilyID for Cart must be numeric"
 msgstr ""
 
@@ -6689,7 +6699,7 @@ msgstr ""
 msgid "Show in"
 msgstr ""
 
-#: GroupPropsFormEditor.php:320 PersonView.php:313
+#: GroupPropsFormEditor.php:320 PersonView.php:304
 msgid "Person Profile"
 msgstr ""
 
@@ -8150,7 +8160,7 @@ msgstr ""
 msgid "Friend Date"
 msgstr ""
 
-#: PersonList.php:79 PersonView.php:323
+#: PersonList.php:79 PersonView.php:314
 msgid "Person List"
 msgstr ""
 
@@ -8180,16 +8190,16 @@ msgstr ""
 msgid "Not assigned"
 msgstr ""
 
-#: PersonView.php:285
-msgid "This Person is Deactivated"
-msgstr ""
-
-#: PersonView.php:316
+#: PersonView.php:307
 msgid "Previous Person"
 msgstr ""
 
-#: PersonView.php:330
+#: PersonView.php:321
 msgid "Next Person"
+msgstr ""
+
+#: PersonView.php:336
+msgid "This Person is Deactivated"
 msgstr ""
 
 #: PersonView.php:384 v2/templates/user/userlist.php:116

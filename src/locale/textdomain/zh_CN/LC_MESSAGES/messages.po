@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 21:22+0200\n"
+"POT-Creation-Date: 2019-04-14 22:36+0200\n"
 "Language: zh-CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,35 +63,44 @@ msgstr "其他设置"
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/cart.php:68
+#: api/routes/cart.php:69
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:82 api/routes/cart.php:95
+#: api/routes/cart.php:83 api/routes/cart.php:96
 #, fuzzy
 msgid "records(s) successfully added to selected Group."
 msgstr "集团已成功添加到购物车。"
 
-#: api/routes/cart.php:123 api/routes/cart.php:136 api/routes/cart.php:149
+#: api/routes/cart.php:124 api/routes/cart.php:137 api/routes/cart.php:150
 #, fuzzy
 msgid "records(s) successfully deleted from the selected Group."
 msgstr "成功地从购物车中删除选定的记录。"
 
-#: api/routes/cart.php:165 api/routes/cart.php:195
+#: api/routes/cart.php:166 api/routes/cart.php:199 api/routes/cart.php:230
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "您的购物车是空的！"
 
-#: api/routes/cart.php:173
+#: api/routes/cart.php:174
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:176
+#: api/routes/cart.php:177
 #, fuzzy
 msgid "Your cart and CRM has been successfully deleted"
 msgstr "您的购物车已成功清空。"
 
-#: api/routes/cart.php:198
+#: api/routes/cart.php:207
+msgid "You can't deactivate admin through the cart"
+msgstr ""
+
+#: api/routes/cart.php:210
+#, fuzzy
+msgid "Your cart and CRM has been successfully deactivated"
+msgstr "您的购物车已成功清空。"
+
+#: api/routes/cart.php:233
 #, fuzzy
 msgid "Your cart has been successfully emptied"
 msgstr "您的购物车已成功清空。"
@@ -275,6 +284,7 @@ msgid "Added to group"
 msgstr "添加到组"
 
 #: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
+#: EcclesiaCRM/dto/Cart.php:283
 #, fuzzy
 msgid "Deactivate account"
 msgstr "待用"
@@ -285,6 +295,7 @@ msgid "The same as before"
 msgstr ""
 
 #: api/routes/people/people-persons.php:445 api/routes/user/user-users.php:128
+#: EcclesiaCRM/dto/Cart.php:277
 #, fuzzy
 msgid "User Deactivated"
 msgstr "此值是必需的。"
@@ -3379,17 +3390,17 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:103 EcclesiaCRM/dto/Cart.php:166
+#: EcclesiaCRM/dto/Cart.php:104 EcclesiaCRM/dto/Cart.php:167
 #, fuzzy
 msgid "PersonID for Cart must be numeric"
 msgstr "此值必须是数字。"
 
-#: EcclesiaCRM/dto/Cart.php:123 EcclesiaCRM/dto/Cart.php:273
+#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:309
 #, fuzzy
 msgid "GroupID for Cart must be numeric"
 msgstr "此值必须是数字。"
 
-#: EcclesiaCRM/dto/Cart.php:141 EcclesiaCRM/dto/Cart.php:223
+#: EcclesiaCRM/dto/Cart.php:142 EcclesiaCRM/dto/Cart.php:224
 #, fuzzy
 msgid "FamilyID for Cart must be numeric"
 msgstr "此值必须是数字。"
@@ -7100,7 +7111,7 @@ msgstr "添加联系人到组“"
 msgid "Show in"
 msgstr "显示在"
 
-#: GroupPropsFormEditor.php:320 PersonView.php:313
+#: GroupPropsFormEditor.php:320 PersonView.php:304
 #, fuzzy
 msgid "Person Profile"
 msgstr "人称视角"
@@ -8717,7 +8728,7 @@ msgstr "会员日期"
 msgid "Friend Date"
 msgstr "友情日期"
 
-#: PersonList.php:79 PersonView.php:323
+#: PersonList.php:79 PersonView.php:314
 #, fuzzy
 msgid "Person List"
 msgstr "人上市"
@@ -8750,20 +8761,20 @@ msgstr "添加到组"
 msgid "Not assigned"
 msgstr "未分配"
 
-#: PersonView.php:285
-#, fuzzy
-msgid "This Person is Deactivated"
-msgstr "此值是必需的。"
-
-#: PersonView.php:316
+#: PersonView.php:307
 #, fuzzy
 msgid "Previous Person"
 msgstr "上一页"
 
-#: PersonView.php:330
+#: PersonView.php:321
 #, fuzzy
 msgid "Next Person"
 msgstr "添加新事件"
+
+#: PersonView.php:336
+#, fuzzy
+msgid "This Person is Deactivated"
+msgstr "此值是必需的。"
 
 #: PersonView.php:384 v2/templates/user/userlist.php:116
 msgid "Undefined"

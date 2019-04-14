@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-14T19:26:15.862Z\n"
+"POT-Creation-Date: 2019-04-14T20:36:23.776Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Il y a eu un problème lors de la récupération de l'objet demandé"
 
-msgid "Do you really want to delete the persons in the cart and from the CRM?"
-msgstr "Êtes-vous sûr de vouloir supprimer les personnes du Panier et du CRM ?"
+msgid "Do you really want to deactivate the persons?"
+msgstr "Etes-vous sûr de vouloir désactiver les personnes ?"
 
-msgid "This action can never be undone !!!!"
+msgid "This action can be undone !!!!"
 msgstr "Cette action ne peut être annulée !!!!"
 
 msgid "No"
@@ -47,6 +47,12 @@ msgstr "Non"
 
 msgid "Yes : if you're sure"
 msgstr "Oui : si vous êtes certain"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Êtes-vous sûr de vouloir supprimer les personnes du CRM ?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Cette action ne peut être annulée !!!!"
 
 msgid "Select the event to which you would like to add your cart"
 msgstr "Sélectionner l'événement auquel vous voulez ajouter le panier"
@@ -98,8 +104,11 @@ msgstr "Vider le panier dans l'événement"
 msgid "Map Cart"
 msgstr "Visualiser le panier sur la carte"
 
-msgid "Delete Persons From Cart and CRM"
-msgstr "Supprimer les Personnes du Panier et du CRM"
+msgid "Deactivate Persons From Cart"
+msgstr "Supprimer les Personnes du Panier"
+
+msgid "Delete Persons From the CRM"
+msgstr "Supprimer les Personnes du CRM"
 
 msgid "View all"
 msgstr "Tout afficher"
@@ -759,6 +768,9 @@ msgstr "Êtes-vous sûr de vouloir SUPPRIMER ce participant de l'Événement ID 
 
 msgid "Delete Event Type"
 msgstr "Supprimer ce type d'événement"
+
+msgid "This action can never be undone !!!!"
+msgstr "Cette action ne peut être annulée !!!!"
 
 msgid ""
 "Deleting an event will also delete all attendance counts for that event."

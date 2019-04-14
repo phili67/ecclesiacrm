@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 21:22+0200\n"
+"POT-Creation-Date: 2019-04-14 22:36+0200\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -63,35 +63,44 @@ msgstr "Cilësimet tjera"
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/cart.php:68
+#: api/routes/cart.php:69
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:82 api/routes/cart.php:95
+#: api/routes/cart.php:83 api/routes/cart.php:96
 #, fuzzy
 msgid "records(s) successfully added to selected Group."
 msgstr "Grupi shtua me sukses në qerre."
 
-#: api/routes/cart.php:123 api/routes/cart.php:136 api/routes/cart.php:149
+#: api/routes/cart.php:124 api/routes/cart.php:137 api/routes/cart.php:150
 #, fuzzy
 msgid "records(s) successfully deleted from the selected Group."
 msgstr "Të dhënat e zgjedhur është larguar me sukses nga Cart."
 
-#: api/routes/cart.php:165 api/routes/cart.php:195
+#: api/routes/cart.php:166 api/routes/cart.php:199 api/routes/cart.php:230
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Shporta juaj është bosh!"
 
-#: api/routes/cart.php:173
+#: api/routes/cart.php:174
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:176
+#: api/routes/cart.php:177
 #, fuzzy
 msgid "Your cart and CRM has been successfully deleted"
 msgstr "Shporta juaj ka qenë i zbrazur me sukses"
 
-#: api/routes/cart.php:198
+#: api/routes/cart.php:207
+msgid "You can't deactivate admin through the cart"
+msgstr ""
+
+#: api/routes/cart.php:210
+#, fuzzy
+msgid "Your cart and CRM has been successfully deactivated"
+msgstr "Shporta juaj ka qenë i zbrazur me sukses"
+
+#: api/routes/cart.php:233
 #, fuzzy
 msgid "Your cart has been successfully emptied"
 msgstr "Shporta juaj ka qenë i zbrazur me sukses"
@@ -275,6 +284,7 @@ msgid "Added to group"
 msgstr "Shtoni në të Grupit"
 
 #: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
+#: EcclesiaCRM/dto/Cart.php:283
 #, fuzzy
 msgid "Deactivate account"
 msgstr "joaktiv"
@@ -285,6 +295,7 @@ msgid "The same as before"
 msgstr ""
 
 #: api/routes/people/people-persons.php:445 api/routes/user/user-users.php:128
+#: EcclesiaCRM/dto/Cart.php:277
 #, fuzzy
 msgid "User Deactivated"
 msgstr "Kjo vlerë është e nevojshme."
@@ -3373,17 +3384,17 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:103 EcclesiaCRM/dto/Cart.php:166
+#: EcclesiaCRM/dto/Cart.php:104 EcclesiaCRM/dto/Cart.php:167
 #, fuzzy
 msgid "PersonID for Cart must be numeric"
 msgstr "Kjo vlerë duhet të jetë një numër."
 
-#: EcclesiaCRM/dto/Cart.php:123 EcclesiaCRM/dto/Cart.php:273
+#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:309
 #, fuzzy
 msgid "GroupID for Cart must be numeric"
 msgstr "Kjo vlerë duhet të jetë një numër."
 
-#: EcclesiaCRM/dto/Cart.php:141 EcclesiaCRM/dto/Cart.php:223
+#: EcclesiaCRM/dto/Cart.php:142 EcclesiaCRM/dto/Cart.php:224
 #, fuzzy
 msgid "FamilyID for Cart must be numeric"
 msgstr "Kjo vlerë duhet të jetë një numër."
@@ -7076,7 +7087,7 @@ msgstr "Shto person të Grupit"
 msgid "Show in"
 msgstr "Shoqëroj"
 
-#: GroupPropsFormEditor.php:320 PersonView.php:313
+#: GroupPropsFormEditor.php:320 PersonView.php:304
 #, fuzzy
 msgid "Person Profile"
 msgstr "Person Shiko"
@@ -8697,7 +8708,7 @@ msgstr "Anëtarësia Data"
 msgid "Friend Date"
 msgstr "Mik Data"
 
-#: PersonList.php:79 PersonView.php:323
+#: PersonList.php:79 PersonView.php:314
 #, fuzzy
 msgid "Person List"
 msgstr "Person Listing"
@@ -8731,20 +8742,20 @@ msgstr "Shtoni në të Grupit"
 msgid "Not assigned"
 msgstr "Nuk është caktuar"
 
-#: PersonView.php:285
-#, fuzzy
-msgid "This Person is Deactivated"
-msgstr "Kjo vlerë është e nevojshme."
-
-#: PersonView.php:316
+#: PersonView.php:307
 #, fuzzy
 msgid "Previous Person"
 msgstr "Faqja e kaluar"
 
-#: PersonView.php:330
+#: PersonView.php:321
 #, fuzzy
 msgid "Next Person"
 msgstr "Shto person i ri"
+
+#: PersonView.php:336
+#, fuzzy
+msgid "This Person is Deactivated"
+msgstr "Kjo vlerë është e nevojshme."
 
 #: PersonView.php:384 v2/templates/user/userlist.php:116
 msgid "Undefined"

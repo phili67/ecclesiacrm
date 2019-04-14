@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-14T19:26:15.862Z\n"
+"POT-Creation-Date: 2019-04-14T20:36:23.776Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,10 +36,10 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Problem beim das angeforderte Objekt Abrufen "
 
-msgid "Do you really want to delete the persons in the cart and from the CRM?"
-msgstr "Wollen Sie wirklich dieser person von Korb und CRM Löschen ?"
+msgid "Do you really want to deactivate the persons?"
+msgstr "Soll diese personen wirklich deaktivieren werden?"
 
-msgid "This action can never be undone !!!!"
+msgid "This action can be undone !!!!"
 msgstr "Dieser Vorgang kann nicht rückgängig gemacht werden !!!!"
 
 msgid "No"
@@ -47,6 +47,12 @@ msgstr "Nein"
 
 msgid "Yes : if you're sure"
 msgstr "Ja : ob Sie einverstanden sind"
+
+msgid "Do you really want to delete the persons from the CRM?"
+msgstr "Wollen Sie wirklich dieser person von CRM Löschen ?"
+
+msgid "This action cannot be undone !!!!"
+msgstr "Dieser Vorgang kann nicht rückgängig gemacht werden !!!!"
 
 msgid "Select the event to which you would like to add your cart"
 msgstr "Wähle die Veranstaltung aus zu der du den Korb hinzufügen willst"
@@ -97,8 +103,11 @@ msgstr "Korb in Veranstaltung  leeren"
 msgid "Map Cart"
 msgstr "Karte für Korb einsehen"
 
-msgid "Delete Persons From Cart and CRM"
-msgstr "Persons von Korb und CRM zu löschen"
+msgid "Deactivate Persons From Cart"
+msgstr "Persons von Korb deaktivieren"
+
+msgid "Delete Persons From the CRM"
+msgstr "Persons von CRM löschen"
 
 msgid "View all"
 msgstr "Alle einsehen"
@@ -748,6 +757,9 @@ msgstr "Wollen Sie diese Person wirklich löschen aus Ereignis ID :"
 
 msgid "Delete Event Type"
 msgstr "Ereignis Typ Löschen "
+
+msgid "This action can never be undone !!!!"
+msgstr "Dieser Vorgang kann nicht rückgängig gemacht werden !!!!"
 
 msgid ""
 "Deleting an event will also delete all attendance counts for that event."
