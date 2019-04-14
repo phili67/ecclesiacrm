@@ -277,15 +277,6 @@ $bOkToEdit = (SessionUser::getUser()->isEditRecordsEnabled() ||
     (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId()) ||
     (SessionUser::getUser()->isEditSelfEnabled() && $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())
     );
-?>
-
-<?php if (!empty($person->getDateDeactivated())) {
-    ?>
-    <div class="alert alert-warning">
-        <strong><?= _("This Person is Deactivated") ?> </strong>
-    </div>
-    <?php
-} 
 
 $ormNextPersons = PersonQuery::Create ()
                     ->orderByLastName()
@@ -338,7 +329,16 @@ if ( $next_id > 0 ) {
 $sPageTitleSpan .= '</span>';
 
 require 'Include/Header.php';
+
+if (!empty($person->getDateDeactivated())) {
+    ?>
+    <div class="alert alert-warning">
+        <strong><?= _("This Person is Deactivated") ?> </strong>
+    </div>
+    <?php
+} 
 ?>
+
 
 <div class="row">
   <div class="col-lg-3 col-md-3 col-sm-3">

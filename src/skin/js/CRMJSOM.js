@@ -174,6 +174,45 @@
           }
         });
       },
+      'deactivate' : function (callback)
+      {
+        bootbox.confirm({
+            title: i18next.t("Do you really want to deactivate the persons in the cart?"),
+            message: i18next.t("This action can never be undone !!!!"),
+            buttons: {
+                cancel: {
+                    label:  i18next.t('No'),
+                    className: 'btn-success'
+                },
+                confirm: {
+                    label:  i18next.t("Yes : if you're sure"),
+                    className: 'btn-danger'
+                }
+            },
+            callback: function (result) {
+              if (result) {
+                window.CRM.APIRequest({
+                  method: "POST",
+                  path: "cart/deactivate"
+                }).done(function (data) {
+                  if (callback)
+                  {
+                    callback(data);
+                    window.CRM.cart.refresh();
+                    window.CRM.cart.updateLocalePage();// sometimes we've to reload the page or something else
+                  }
+                  else
+                  {
+                    window.CRM.cart.refresh();
+                  }
+                });
+              } else {
+                callback('nothing was done');
+              }
+            }
+        });
+        
+      },
       'delete' : function (callback)
       {
         bootbox.confirm({
@@ -509,8 +548,13 @@
                           </a>\
                       </li>\
                       <li>\
+                          <a href="#" id="deactivateCart">\
+                             <i class="fa fa-trash text-warning"></i>'+ i18next.t("Deactivate Persons From Cart")+ '\
+                          </a>\
+                      </li>\
+                      <li>\
                           <a href="#" id="deleteCart">\
-                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From Cart and CRM")+ '\
+                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From CRM")+ '\
                           </a>\
                       </li>\
                   </ul>\
