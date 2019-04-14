@@ -169,9 +169,9 @@ if (mysqli_num_rows($rsPropList) == 0) {
           <tr>
             <td align="center" colspan="3">
               <br><br>
-              <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" Name="GroupPropSubmit">
+              <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="GroupPropSubmit">
               &nbsp;
-              <input type="button" class="btn" value="<?= _('Cancel') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>&group=true';">
+              <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>&group=true';">
             </td>
           </tr>
         </table>
