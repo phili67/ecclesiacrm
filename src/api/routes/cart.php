@@ -20,6 +20,7 @@ $app->group('/cart', function () {
     $this->post('/removeStudentGroup', 'removeStudentsGroupFromCart' );
     $this->post('/removeTeacherGroup', 'removeTeachersGroupFromCart' );
     $this->post('/delete', 'deletePersonCart' );
+    $this->post('/deactivate', 'deactivatePersonCart' );
 
     /**
      * delete. This will empty the cart
@@ -65,7 +66,7 @@ function cartOperation ($request, $response, $args) {
       }          
       else
       {
-        throw new \Exception(gettext("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
+        throw new \Exception(_("POST to cart requires a Persons array, FamilyID, or GroupID"),500);
       }
       return $response->withJson(['status' => "success"]);
   }
@@ -79,7 +80,7 @@ function emptyCartToGroup ($request, $response, $args) {
     Cart::EmptyToGroup($cartPayload->groupID, $cartPayload->groupRoleID);
     return $response->withJson([
         'status' => "success",
-        'message' => $iCount.' '.gettext('records(s) successfully added to selected Group.')
+        'message' => $iCount.' '._('records(s) successfully added to selected Group.')
     ]);
 }
 
@@ -92,7 +93,7 @@ function emptyCartToEvent ($request, $response, $args) {
     Cart::EmptyToEvent($cartPayload->eventID);
     return $response->withJson([
         'status' => "success",
-        'message' => $iCount.' '.gettext('records(s) successfully added to selected Group.')
+        'message' => $iCount.' '._('records(s) successfully added to selected Group.')
     ]);
 }
 
@@ -120,7 +121,7 @@ function removeGroupFromCart($request, $response, $args) {
     Cart::RemoveGroup($cartPayload->Group);
     return $response->withJson([
         'status' => "success",
-        'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
     ]);
 }
 
@@ -133,7 +134,7 @@ function removeStudentsGroupFromCart ($request, $response, $args) {
     Cart::RemoveStudents($cartPayload->Group);
     return $response->withJson([
         'status' => "success",
-        'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
     ]);
 }
 
@@ -146,7 +147,7 @@ function removeTeachersGroupFromCart ($request, $response, $args) {
     Cart::RemoveTeachers($cartPayload->Group);
     return $response->withJson([
         'status' => "success",
-        'message' => $iCount.' '.gettext('records(s) successfully deleted from the selected Group.')
+        'message' => $iCount.' '._('records(s) successfully deleted from the selected Group.')
     ]);
 }
 
@@ -162,7 +163,7 @@ function deletePersonCart ($request, $response, $args) {
     }
     else
     {
-      $sMessage = gettext('Your cart is empty');
+      $sMessage = _('Your cart is empty');
       if(sizeof($_SESSION['aPeopleCart'])>0) {
           Cart::DeletePersonArray ($_SESSION['aPeopleCart']);
           //$_SESSION['aPeopleCart'] = [];
@@ -170,10 +171,10 @@ function deletePersonCart ($request, $response, $args) {
     }
     
     if (!empty($_SESSION['aPeopleCart'])) {
-      $sMessage = gettext("You can't delete admin through the cart");
+      $sMessage = _("You can't delete admin through the cart");
       $status = "failure";
     } else {
-      $sMessage = gettext('Your cart and CRM has been successfully deleted');
+      $sMessage = _('Your cart and CRM has been successfully deleted');
       $status = "success";
     }
     
@@ -182,6 +183,40 @@ function deletePersonCart ($request, $response, $args) {
         'message' => $sMessage
     ]);
 }
+
+function deactivatePersonCart ($request, $response, $args) {
+    if (!SessionUser::getUser()->isAdmin()) {
+        return $response->withStatus(401);
+    }
+    
+    $cartPayload = (object)$request->getParsedBody();
+    if ( isset ($cartPayload->Persons) && count($cartPayload->Persons) > 0 )
+    {
+      Cart::DeactivatePersonArray($cartPayload->Persons);
+    }
+    else
+    {
+      $sMessage = _('Your cart is empty');
+      if(sizeof($_SESSION['aPeopleCart'])>0) {
+          Cart::DeactivatePersonArray ($_SESSION['aPeopleCart']);
+          //$_SESSION['aPeopleCart'] = [];
+      }
+    }
+    
+    if (!empty($_SESSION['aPeopleCart'])) {
+      $sMessage = _("You can't deactivate admin through the cart");
+      $status = "failure";
+    } else {
+      $sMessage = _('Your cart and CRM has been successfully deactivated');
+      $status = "success";
+    }
+    
+    return $response->withJson([
+        'status' => $status,
+        'message' => $sMessage
+    ]);
+}
+
 
 function removePersonCart ($request, $response, $args) {
   
@@ -192,10 +227,10 @@ function removePersonCart ($request, $response, $args) {
     }
     else
     {
-      $sMessage = gettext('Your cart is empty');
+      $sMessage = _('Your cart is empty');
       if(sizeof($_SESSION['aPeopleCart'])>0) {
           $_SESSION['aPeopleCart'] = [];
-          $sMessage = gettext('Your cart has been successfully emptied');
+          $sMessage = _('Your cart has been successfully emptied');
       }
     }
     return $response->withJson([

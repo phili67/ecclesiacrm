@@ -12,7 +12,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\Emails\UpdateAccountEmail;
+use EcclesiaCRM\Note;
 
 class Cart
 {
@@ -252,6 +253,41 @@ class Cart
                 
             unset($personsID[$key]);
         }
+      }
+    }
+  }
+
+  public static function DeactivatePersonArray(&$personsID)
+  {
+    foreach ($personsID as $key => $personID) {
+      if (SessionUser::getUser()->getId() != $personID && $personID != 1) {
+        $person = PersonQuery::create()
+                ->findOneById($personID);
+                
+        $user = UserQuery::create()
+              ->findOneByPersonId($personID);
+
+        if (!is_null ($user)) {
+          $user->setIsDeactivated(true);
+          $user->save();
+          
+          //Create a note to record the status change
+          $note = new Note();
+          $note->setPerId($user->getPersonId());
+          $note->setText(_('User Deactivated'));
+          $note->setType('edit');
+          $note->setEntered(SessionUser::getUser()->getPersonId());
+          $note->save();
+
+          // a mail is notified
+          $email = new UpdateAccountEmail($user, _("Deactivate account"));
+          $email->send();
+        }
+        
+        $person->setDateDeactivated(date('YmdHis'));
+        $person->save();
+              
+        unset($personsID[$key]);
       }
     }
   }
