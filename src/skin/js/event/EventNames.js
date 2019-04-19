@@ -1,9 +1,9 @@
 //
 //  This code is under copyright not under MIT Licence
 //  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-//                This code can't be incoprorated in another software without any authorizaion
+//                This code can't be incoprorated in another software without authorizaion
 //
-//  Updated : 2018/05/30
+//  Updated : 2019/04/19
 //
 
 window.CRM.editor = null;
@@ -54,10 +54,10 @@ $(document).ready(function () {
         language : window.CRM.lang,
         width : '100%',
         extraPlugins : 'uploadfile,uploadimage,filebrowser',
-        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
+        uploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
+        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateImages',
+        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=privateDocuments',
+        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=privateDocuments'
        });
    
        add_ckeditor_buttons(window.CRM.editor);
