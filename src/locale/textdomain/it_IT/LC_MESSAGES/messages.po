@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-14 22:36+0200\n"
+"POT-Creation-Date: 2019-04-19 19:22+0200\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -302,7 +302,7 @@ msgstr "Questo valore è richiesto."
 
 #: api/routes/search.php:112 AutoPaymentEditor.php:917
 #: AutoPaymentEditor.php:925 CartToFamily.php:315 CartToFamily.php:320
-#: CartView.php:312 CSVExport.php:87 CSVExport.php:92 CSVImport.php:243
+#: CartView.php:315 CSVExport.php:87 CSVExport.php:92 CSVImport.php:243
 #: CSVImport.php:244 DirectoryReports.php:188 DirectoryReports.php:274
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:37 FamilyEditor.php:700
@@ -440,14 +440,14 @@ msgstr ""
 msgid "The people and families has been cleared from the database."
 msgstr ""
 
-#: api/routes/system/system-gdrp.php:65 CartView.php:332 CartView.php:352
+#: api/routes/system/system-gdrp.php:65 CartView.php:335 CartView.php:355
 #: EcclesiaCRM/utils/OutputUtils.php:189 EcclesiaCRM/utils/OutputUtils.php:291
 #: FinancialReports.php:407 ListEvents.php:569 Reports/ConfirmReport.php:236
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Sì"
 
-#: api/routes/system/system-gdrp.php:65 CartView.php:345 CartView.php:354
+#: api/routes/system/system-gdrp.php:65 CartView.php:348 CartView.php:357
 #: EcclesiaCRM/utils/OutputUtils.php:191 EcclesiaCRM/utils/OutputUtils.php:292
 #: FinancialReports.php:408 ListEvents.php:569 Reports/ConfirmReport.php:238
 #: Reports/GDPR/GDPRListExport.php:88
@@ -610,7 +610,7 @@ msgstr "Nazione"
 msgid "Phone"
 msgstr "Telefono"
 
-#: AutoPaymentEditor.php:973 CartToFamily.php:394 CartView.php:313
+#: AutoPaymentEditor.php:973 CartToFamily.php:394 CartView.php:316
 #: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:297
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
@@ -1153,7 +1153,7 @@ msgstr "Nessuna famiglia inserita!"
 msgid "Add Cart to Family"
 msgstr "Aggiungi il contenitore alla famiglia"
 
-#: CartToFamily.php:221 CartView.php:311 Checkin.php:550 Checkin.php:551
+#: CartToFamily.php:221 CartView.php:314 Checkin.php:550 Checkin.php:551
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:56 EditEventAttendees.php:70 EventAttendance.php:184
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:337
@@ -1329,46 +1329,52 @@ msgid "Create Directory From Cart"
 msgstr "Crea directory"
 
 #: CartView.php:219
-msgid "Delete Persons From Cart and CRM"
-msgstr ""
+#, fuzzy
+msgid "Delete Persons From CRM"
+msgstr "Elimina questa scheda"
 
-#: CartView.php:246 CartView.php:284
+#: CartView.php:222
+#, fuzzy
+msgid "Deactivate Persons From Cart"
+msgstr "Elimina questa Famiglia"
+
+#: CartView.php:249 CartView.php:287
 msgid "Generate Labels"
 msgstr "Crea le etichette"
 
-#: CartView.php:255
+#: CartView.php:258
 msgid "Bulk Mail Presort"
 msgstr "Bulk ordinamento preliminare posta"
 
-#: CartView.php:263
+#: CartView.php:266
 msgid "Quiet Presort"
 msgstr "Directory dei rapporti"
 
-#: CartView.php:304
+#: CartView.php:307
 msgid "Your cart contains"
 msgstr "Il contenitore è vuoto!"
 
-#: CartView.php:304
+#: CartView.php:307
 msgid "persons from"
 msgstr "Persona dal gruppo"
 
-#: CartView.php:304 Include/Functions.php:113
+#: CartView.php:307 Include/Functions.php:113
 msgid "families"
 msgstr "Famiglie"
 
-#: CartView.php:314 CartView.php:369 EditEventTypes.php:207 FamilyList.php:113
+#: CartView.php:317 CartView.php:372 EditEventTypes.php:207 FamilyList.php:113
 #: FamilyList.php:162 PersonList.php:122 PersonList.php:172
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: CartView.php:315 CSVExport.php:162 CSVExport.php:263 CSVImport.php:403
+#: CartView.php:318 CSVExport.php:162 CSVExport.php:263 CSVImport.php:403
 #: FamilyEditor.php:1025 FamilyView.php:468 FinancialReports.php:138
 #: OptionManager.php:105 PeopleDashboard.php:339 PersonEditor.php:1458
 #: PrintPastoralCare.php:316 PrintView.php:318 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Classificazione"
 
-#: CartView.php:316 CSVExport.php:167 CSVExport.php:288 OptionManager.php:98
+#: CartView.php:319 CSVExport.php:167 CSVExport.php:288 OptionManager.php:98
 #: PrintPastoralCare.php:276 PrintView.php:278 queryparameters_qrp.php:5
 msgid "Family Role"
 msgstr "Ruolo famigliare"
@@ -2237,7 +2243,7 @@ msgstr "Privata"
 
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:23
 #: EcclesiaCRM/Dashboard/PersonDemographicDashboardItem.php:37
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:585
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:600
 #: EcclesiaCRM/Service/DashboardService.php:73
 #: EcclesiaCRM/Service/DashboardService.php:87
 #: EcclesiaCRM/Service/TimelineService.php:216
@@ -4629,13 +4635,13 @@ msgid "Witness"
 msgstr ""
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:232
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:245 FamilyList.php:109 Menu.php:532
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:260 FamilyList.php:109 Menu.php:532
 #: PersonList.php:118
 msgid "Created"
 msgstr "Creata"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:237
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:250 Menu.php:559
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:265 Menu.php:559
 msgid "Updated"
 msgstr "Aggiorna"
 
@@ -4648,29 +4654,29 @@ msgid "Verification email sent"
 msgstr "Verifica email inviata"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:323
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:413
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:428
 msgid "Profile Image Deleted"
 msgstr "Conferma"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Family.php:336
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:437
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:452
 msgid "Profile Image uploaded"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:592 Include/Functions.php:559
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:607 Include/Functions.php:559
 msgid "mos old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:594 Include/Functions.php:561
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:609 Include/Functions.php:561
 msgid "mo old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:598 Include/Functions.php:534
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:613 Include/Functions.php:534
 #: Include/Functions.php:536 Include/Functions.php:565
 msgid "yrs old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/Person.php:600 Include/Functions.php:567
+#: EcclesiaCRM/model/EcclesiaCRM/Person.php:615 Include/Functions.php:567
 msgid "yr old"
 msgstr ""
 
@@ -11731,10 +11737,6 @@ msgstr ""
 
 #~ msgid "Number of groups:"
 #~ msgstr "Numero di donazioni"
-
-#, fuzzy
-#~ msgid "Deactivated the Person"
-#~ msgstr "Elimina questa Famiglia"
 
 #, fuzzy
 #~ msgid "Activated the Person"
