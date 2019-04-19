@@ -47,7 +47,7 @@ class CardDavPDO extends SabreCardDavBase\PDO {
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             $person = PersonQuery::create()->findOneById ($row['personId']);
             
-            if (!$person->isDeactivated()) {
+            if (!is_null ($person) && !$person->isDeactivated()) {
               $output .= $row['carddata']."\n";
             }
         }
