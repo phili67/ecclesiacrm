@@ -230,11 +230,14 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/external/fullcalendar/fullcalendar.min.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/fullcalendar/locale-all.js"></script>
 
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
+
 <script src="<?= $sRootPath ?>/skin/js/calendar/CalendarSideBar.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/EventEditor.js" ></script>
 <script src="<?= $sRootPath ?>/skin/js/calendar/CalendarV2.js" ></script>
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
+
 <?php
   if ($sMapProvider == 'OpenStreetMap') {
 ?>

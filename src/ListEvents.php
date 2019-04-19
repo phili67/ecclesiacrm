@@ -782,6 +782,8 @@ foreach ($allMonths as $mVal) {
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/ckeditorextension.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/ListEvent.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
+
 <?php
   if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
 ?>
