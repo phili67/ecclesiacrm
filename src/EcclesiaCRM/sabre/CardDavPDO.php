@@ -10,6 +10,8 @@
 
 namespace EcclesiaCRM\MyPDO;
 
+use EcclesiaCRM\PersonQuery;
+
 use Sabre\CardDAV;
 use Sabre\DAV;
 use Sabre\VObject;
@@ -43,9 +45,11 @@ class CardDavPDO extends SabreCardDavBase\PDO {
         $output = "";
         
         while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+            $person = PersonQuery::create()->findOneById ($row['personId']);
             
-            $output .= $row['carddata']."\n";
-
+            if (!is_null ($person) && !$person->isDeactivated()) {
+              $output .= $row['carddata']."\n";
+            }
         }
         
         return $output;
