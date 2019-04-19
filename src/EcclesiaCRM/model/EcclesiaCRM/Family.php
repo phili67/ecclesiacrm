@@ -258,7 +258,7 @@ class Family extends BaseFamily implements iPhoto
       $foundPeople = [];
       
       foreach ($this->getPeople() as $person) {
-        if (empty($person->getDateDeactivated()) || SessionUser::getUser()->isGdrpDpoEnabled()) {
+        if (empty($person->getDateDeactivated()) /*|| SessionUser::getUser()->isGdrpDpoEnabled()*/) {
           array_push($foundPeople, $person);
         }
       }
