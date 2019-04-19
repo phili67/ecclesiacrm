@@ -385,6 +385,7 @@ if (InputUtils::LegacyFilterInput($_POST['Action']) != 'NEW') {
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/EventNames.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
 
 <?php
   if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {

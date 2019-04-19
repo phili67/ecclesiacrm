@@ -829,10 +829,9 @@ function loadPerson($iPersonID)
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
 
-<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
-
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/calendar/EventEditor.js" ></script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/event/Checkin.js" ></script>
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/publicfolder.js"></script>
 
 <?php
   if (SystemConfig::getValue('sMapProvider') == 'OpenStreetMap') {
