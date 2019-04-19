@@ -158,4 +158,4 @@ require $sRootDocument . '/Include/Header.php';
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Campaign.js"></script>
 <script src="<?= $sRootPath ?>/skin/external/ckeditor/ckeditor.js"></script>
 <script src="<?= $sRootPath ?>/skin/js/ckeditor/ckeditorextension.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/publicfolder.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>

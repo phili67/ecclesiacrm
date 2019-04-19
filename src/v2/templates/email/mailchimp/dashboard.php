@@ -93,4 +93,4 @@ require $sRootDocument . '/Include/Header.php';
 </script>
 
 <script src="<?= $sRootPath ?>/skin/js/email/MailChimp/Dashboard.js"></script>
-<script src="<?= $sRootPath ?>/skin/js/email/MailChimp/publicfolder.js"></script>
+<script src="<?= $sRootPath ?>/skin/js/publicfolder.js"></script>
