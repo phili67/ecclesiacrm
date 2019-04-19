@@ -107,7 +107,7 @@ use EcclesiaCRM\Bootstrapper;
              if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled() ) {
           ?>
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/PropertyList.php?Type=m">
+                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/m">
                         <i class="fa fa-cog"></i> <?= _('Sunday School Menu Properties') ?>
                     </a>
                 </li>
