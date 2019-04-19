@@ -40,6 +40,10 @@
       });
     }
     
+    window.CRM.DisplayNormalAlert = function(title,message,callback) {
+      alert(title + "\n\n" + message);
+    }
+    
     window.CRM.renderMailchimpLists = function  () {
         
         window.CRM.APIRequest({

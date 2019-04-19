@@ -71,7 +71,7 @@ $(document).ready(function () {
         $("#private").prop("checked", data.note.Private);
         CKEDITOR.instances['documentText'].setData(data.note.Text);
       } else {
-        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.message));
+        window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t(data.message));
       }
     });
   });
@@ -116,7 +116,7 @@ $(document).ready(function () {
           });
         });
       } else {
-        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.message));
+        window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t(data.message));
       }
     });
   });  
@@ -229,7 +229,7 @@ $(document).ready(function () {
                   });
                 }
               } else {
-                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Title for your document"));
+                  window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You have to set a Title for your document"));
                 
                   return false;
               }    

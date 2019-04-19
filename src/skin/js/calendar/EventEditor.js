@@ -672,7 +672,7 @@
                   var EventCalendarID   = e.options[e.selectedIndex].value;
                   
                   if (EventCalendarID == -1) {
-                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to chose a calendar."));
+                    window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You've to chose a calendar."));
                     
                     return false;                    
                   }
@@ -776,7 +776,7 @@
 
                   return add;  
               } else {
-                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You have to set a Title for your event"));
+                  window.CRM.DisplayNormalAlert(i18next.t("Error"),i18next.t("You have to set a Title for your event"));
                 
                   return false;
               }    
