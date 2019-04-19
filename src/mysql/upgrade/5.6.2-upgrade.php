@@ -13,6 +13,7 @@ require '../../Include/Config.php';*/
   $logger->info("Start to delete : all unusefull files");
 
   unlink(SystemURLs::getDocumentRoot()."/GroupPersonPropsFormEditor.php");
+  unlink(SystemURLs::getDocumentRoot()."/skin/js/email/MailChimp/publicfolder.js");
   
   $logger->info("End of delete :  all unusefull files");
 ?>
