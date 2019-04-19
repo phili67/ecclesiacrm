@@ -217,6 +217,9 @@ if (!Cart::HasPeople()) {
             ?>
                 <a href="#" id="deleteCart" class="btn btn-app bg-red"><i
                             class="fa fa-trash"></i><?= _('Delete Persons From Cart and CRM') ?></a>
+                            
+                <a href="#" id="deactivateCart" class="btn btn-app bg-orange"><i
+                            class="fa fa-trash"></i><?= _('Deactivate Persons From Cart') ?></a>
                 <?php
             } ?>
 
