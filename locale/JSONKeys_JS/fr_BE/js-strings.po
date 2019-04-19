@@ -40,7 +40,7 @@ msgid "Do you really want to deactivate the persons?"
 msgstr "Etes-vous sûr de vouloir désactiver les personnes ?"
 
 msgid "This action can be undone !!!!"
-msgstr "Cette action ne peut être annulée !!!!"
+msgstr "Cette action peut être annulée !!!!"
 
 msgid "No"
 msgstr "Non"
