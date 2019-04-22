@@ -119,7 +119,7 @@ function addPastoralCare (Request $request, Response $response, array $args) {
    
   if (isset ($input->typeID)  && isset ($input->personID) && isset ($input->currentPastorId) 
     && isset ($input->visibilityStatus) && isset ($input->noteText)
-    && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+    && SessionUser::getUser()->isPastoralCareEnabled() ){
     $pstCare = new PastoralCare();
     
     $pstCare->setTypeId($input->typeID);
@@ -151,7 +151,7 @@ function addPastoralCare (Request $request, Response $response, array $args) {
 function deletePastoralCare (Request $request, Response $response, array $args) {
    $input = (object)$request->getParsedBody();
    
-  if (isset ($input->ID)  && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+  if (isset ($input->ID)  && SessionUser::getUser()->isPastoralCareEnabled() ){
     $pstCare = PastoralCareQuery::create()->findOneByID ($input->ID);
             
     if ($pstCare != null) {
@@ -168,7 +168,7 @@ function deletePastoralCare (Request $request, Response $response, array $args) 
 function getPastoralCareInfo (Request $request, Response $response, array $args) {
   $input = (object)$request->getParsedBody();
    
-  if (isset ($input->ID) && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+  if (isset ($input->ID) && SessionUser::getUser()->isPastoralCareEnabled() ){
     $pstCare = PastoralCareQuery::create()->leftJoinWithPastoralCareType()->findOneByID ($input->ID);
     
     $typeDesc = $pstCare->getPastoralCareType()->getTitle().((!empty($pstCare->getPastoralCareType()->getDesc()))?" (".$pstCare->getPastoralCareType()->getDesc().")":"");
@@ -186,7 +186,7 @@ function modifyPastoralCare (Request $request, Response $response, array $args) 
   if (isset ($input->ID) && isset ($input->typeID)  && isset ($input->personID) 
     && isset ($input->currentPastorId) 
     && isset ($input->visibilityStatus) && isset ($input->noteText)
-    && SessionUser::getUser()->isPastoralCareEnabled() && SessionUser::getUser()->isMenuOptionsEnabled() ){
+    && SessionUser::getUser()->isPastoralCareEnabled() ){
     $pstCare = PastoralCareQuery::create()->findOneByID($input->ID);
           
     $pstCare->setTypeId($input->typeID);
