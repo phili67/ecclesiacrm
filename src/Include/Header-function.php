@@ -158,7 +158,7 @@ function Header_body_scripts()
             showTooltip:<?= (SessionUser::getUser()->isShowTooltipEnabled())?"true":"false" ?>,
             showCart:<?= (SessionUser::getUser()->isShowCartEnabled())?"true":"false" ?>,
             sMapProvider:"<?= SystemConfig::getValue('sMapProvider')?>",
-            sMapExternalProvider:"<?= SystemConfig::getValue('sMapExternalProvider')?>",
+            sMapExternalProvider:"<?= SessionUser::getUser()->MapExternalProvider() ?>",
             iGoogleMapKey:"<?= SystemConfig::getValue('sGoogleMapKey')?>",
             sBingMapKey:"<?= SystemConfig::getValue('sBingMapKey')?>",
             iLittleMapZoom:<?= SystemConfig::getValue('iLittleMapZoom')?>,
