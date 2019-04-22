@@ -973,7 +973,7 @@
         <column name="ucfg_name" phpName="Name" type="VARCHAR" size="50" required="true" defaultValue=""/>
         <column name="ucfg_value" phpName="Value" type="LONGVARCHAR"/>
         <column name="ucfg_type" phpName="Type" type="CHAR" sqlType="enum('text','number','date','boolean','textarea','choice')" required="true" defaultValue="text"/>
-        <column name="ucfg_map_choices" phpName="MapChoices" type="VARCHAR" size="50" required="true" defaultValue="GoogleMaps,Map Apple,BingMaps"/>
+        <column name="ucfg_map_choices" phpName="MapChoices" type="VARCHAR" size="50" required="true" defaultValue="GoogleMaps,AppleMaps,BingMaps"/>
         <column name="ucfg_tooltip" phpName="Tooltip" type="LONGVARCHAR" required="true"/>
         <column name="ucfg_permission" phpName="Permission" type="CHAR" sqlType="enum('FALSE','TRUE')" required="true" defaultValue="FALSE"/>
         <column name="ucfg_cat" phpName="Cat" type="VARCHAR" size="20" required="true"/>
