@@ -266,7 +266,7 @@ $(document).ready(function () {
                      path: 'events/',
                      data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
                     }).done(function(data) {
-                       location.href = window.CRM.root + 'EditEventAttendees.php';
+                       location.href = window.CRM.root + '/EditEventAttendees.php';
                     });
                  }
               },
@@ -279,7 +279,7 @@ $(document).ready(function () {
                      path: 'events/',
                      data: JSON.stringify({"evntAction":'attendeesCheckinEvent',"eventID":calEvent.eventID})
                     }).done(function(data) {
-                       location.href = window.CRM.root + 'Checkin.php';
+                       location.href = window.CRM.root + '/Checkin.php';
                     });
                   
                  }
@@ -572,14 +572,14 @@ events: function(start, end, timezone, callback) {
                  label: i18next.t('Add More Attendees'),
                  className: 'btn btn-info',
                  callback: function () {
-                    location.href = window.CRM.root + 'EditEventAttendees.php';
+                    location.href = window.CRM.root + '/EditEventAttendees.php';
                  }
               },
               confirm: {
                  label: i18next.t('Make Attendance'),
                  className: 'btn btn-success',
                  callback: function () {
-                    location.href = window.CRM.root + 'Checkin.php';
+                    location.href = window.CRM.root + '/Checkin.php';
                  }
               }
             }
