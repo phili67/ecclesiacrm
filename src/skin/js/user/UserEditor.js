@@ -220,9 +220,13 @@ function addRolesToMainDropdown()
                 select2 = td2.children('input');
                 
                 select2.val(flag[1]);
-               } else {               
-                 jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select').prop('selectedIndex',Number(flag[1]));
-                }
+               } else {
+                 if ( isNaN(Number(flag[1])) ){
+                   jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select').val(flag[1]);
+                 } else {
+                   jQuery("tr[data-name='"+flag[0]+"']").children('td:eq(2)').children('select').prop('selectedIndex',Number(flag[1]));
+                 }
+               }
              });
           });
         });
