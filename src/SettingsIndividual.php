@@ -43,7 +43,10 @@ if (isset($_POST['save'])) {
             } else {
                 $value = '1';
             }
+        } elseif ($current_type == 'choice') {
+          $value = $new_value[$id];
         }
+        
         // We can't update unless values already exist.
         $sSQL = 'SELECT * FROM userconfig_ucfg '
         ."WHERE ucfg_id=$id AND ucfg_per_id=$iPersonID ";
@@ -87,7 +90,7 @@ if (isset($_POST['save'])) {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('My User Settings');
+$sPageTitle = _('My User Settings');
 require 'Include/Header.php';
 
 // Get settings
@@ -102,16 +105,16 @@ $rsConfigs = RunQuery($sSQL);
 <table class="table table-hover data-person data-table no-footer dtr-inline dataTable" id="user-listing-table" style="width:100%;">
 <thead>
 <tr>
-  <th><?= gettext('Variable name') ?></th>
-  <th><?= gettext('Current Value')?></th>
-  <th><?= gettext('Notes')?></h3></th>
+  <th><?= _('Variable name') ?></th>
+  <th><?= _('Current Value')?></th>
+  <th><?= _('Notes')?></h3></th>
 </tr>
 </thead>
 <tbody>
 <?php
 $r = 1;
 // List Individual Settings
-while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_tooltip, $ucfg_permission) = mysqli_fetch_row($rsConfigs)) {
+while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_map_choices, $ucfg_tooltip, $ucfg_permission) = mysqli_fetch_row($rsConfigs)) {
     if (!(($ucfg_permission == 'TRUE') || SessionUser::getUser()->isAdmin())) {
         continue;
     } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
@@ -119,8 +122,8 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
     // Cancel, Save Buttons every 20 rows
     if ($r == 20) {
         echo "<tr><td>&nbsp;</td>
-      <input type=submit class='btn btn-default' name=cancel value='".gettext('Cancel')."'>
-      <td><input type=submit class='btn btn-primary' name=save value='".gettext('Save Settings')."'>
+      <input type=submit class='btn btn-default' name=cancel value='"._('Cancel')."'>
+      <td><input type=submit class='btn btn-primary' name=save value='"._('Save Settings')."'>
       </td></tr>";
         $r = 1;
     }
@@ -150,13 +153,21 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
             $sel2 = '';
         }
         echo "<td class=TextColumnWithBottomBorder><select class=\"form-control input-sm \" name=\"new_value[$ucfg_id]\">";
-        echo "<option value='' $sel1>".gettext('False');
-        echo "<option value='1' $sel2>".gettext('True');
+        echo "<option value='' $sel1>"._('False');
+        echo "<option value='1' $sel2>"._('True');
         echo '</select></td>';
-    }
+    } elseif ($ucfg_type == 'choice') {
+                      $choices = explode(",", $ucfg_map_choices);
+                      echo "<td><select class=\"form-control input-sm\" name=\"new_value[$ucfg_id]\">";
+                      
+                      foreach ($choices as $choice) {
+                        echo "<option value=\"$choice\"".(($ucfg_value == $choice)?' selected':'').">" . $choice;
+                      }
+                      echo '</select></td>';
+                    }
 
     // Notes
-    echo '<td>'.gettext($ucfg_tooltip).'</td>  </tr>';
+    echo '<td>'._($ucfg_tooltip).'</td>  </tr>';
     $r++;
 }
 ?>
@@ -168,8 +179,8 @@ while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_t
   <div class="col-md-2">
   </div>
   <div class="col-md-6">
-      <input type=submit class='btn btn-default' name=cancel value="<?= gettext('Cancel') ?>">
-      <input type=submit class='btn btn-primary'  name=save value="<?= gettext('Save Settings') ?>">
+      <input type=submit class='btn btn-default' name=cancel value="<?= _('Cancel') ?>">
+      <input type=submit class='btn btn-primary'  name=save value="<?= _('Save Settings') ?>">
   </div>
 </div>
 </form>
