@@ -42,9 +42,7 @@ use EcclesiaCRM\SessionUser;
 //Get the GroupID out of the querystring
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
-// check if the user belongs to the group
-$currentUserBelongToGroup = SessionUser::getUser()->belongsToGroup($iGroupID);
-    
+
 //Get the data on this group
 $thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
 
@@ -94,7 +92,7 @@ require 'Include/Header.php';
   </div>
   <div class="box-body">
     <?php 
-      if (SessionUser::getUser()->isShowMapEnabled() || $currentUserBelongToGroup == 1) {
+      if ( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($iGroupID) ) {
     ?>
         <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/v2/map/<?= $thisGroup->getId() ?>"><i class="fa fa-map-marker"></i><?= _('Map this group') ?></a>
     <?php
@@ -115,7 +113,7 @@ require 'Include/Header.php';
     <?php
       if ( SessionUser::getUser()->isManageGroupsEnabled() ) {
     ?>
-        <a class="btn btn-app" href="GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
+        <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/GroupEditor.php?GroupID=<?= $thisGroup->getId()?>"><i class="fa fa-pencil"></i><?= _("Edit this Group") ?></a>
         <button class="btn btn-app bg-maroon"  id="deleteGroupButton"><i class="fa fa-trash"></i><?= _("Delete this Group") ?></button>
     <?php
       }
@@ -449,7 +447,7 @@ require 'Include/Header.php';
               <?php
                  if ($thisGroup->getHasSpecialProps() && (SessionUser::getUser()->isManageGroupsEnabled() || $is_group_manager == true) ) {
               ?>
-                  <a class="btn btn-primary" href="GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
+                  <a class="btn btn-primary" href="<?= SystemURLs::getRootPath() ?>/GroupPropsFormEditor.php?GroupID=<?= $thisGroup->getId() ?>"><?= _('Edit Group-Specific Properties Form') ?></a>
               <?php
                  }
               ?>

@@ -43,7 +43,7 @@ $app->group('/map', function () {
 function renderMap (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/map/');
     
-    if ( !( SessionUser::getUser()->isShowMapEnabled() ) ) {
+    if ( !( SessionUser::getUser()->isShowMapEnabled() || SessionUser::getUser()->belongsToGroup($args['GroupID']) ) ) {
       return $response->withStatus(302)->withHeader('Location', SystemURLs::getRootPath() . '/Menu.php');
     }
     
