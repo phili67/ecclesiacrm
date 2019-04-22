@@ -921,6 +921,10 @@
         <column name="usr_showPledges" phpName="ShowPledges" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showPayments" phpName="ShowPayments" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showMenuQuery" phpName="ShowMenuQuery" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_CreateDirectory" phpName="Createdirectory" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_ExportCSV" phpName="ExportCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_ExportSundaySchoolCSV" phpName="ExportSundaySchoolCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_ExportSundaySchoolPDF" phpName="ExportSundaySchoolPDF" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showSince" phpName="ShowSince" type="DATE" required="true" defaultValue="2018-01-01"/>
         <column name="usr_showTo" phpName="ShowTo" type="DATE" required="true" defaultValue="2019-01-01"/>
         <column name="usr_defaultFY" phpName="DefaultFY" type="SMALLINT" size="9" required="true" defaultValue="10"/>
