@@ -80,7 +80,10 @@ class MenuBar {
                       $menuItemItem = new Menu ($str,"fa fa-circle-o","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
                       $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                       $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
-                      $menuItemItem->addLink("v2/map/" . $group->getID());
+                      
+                      if ( SessionUser::getUser()->isShowMapEnabled() ) {
+                        $menuItemItem->addLink("v2/map/" . $group->getID());
+                      }
                   }
               }
           }
@@ -245,7 +248,10 @@ class MenuBar {
           $menu->addBadge('label bg-yellow pull-right','EventsNumber',0);
 
           $menuItem = new Menu (_("Calendar"),"fa fa-calendar fa-calendar pull-left&quot;","v2/calendar",true,$menu);
-          $menuItem = new Menu (_("View on Map"),"fa fa-map-o","v2/map/-2",true,$menu);
+
+          if ( SessionUser::getUser()->isShowMapEnabled() ) {
+            $menuItem = new Menu (_("View on Map"),"fa fa-map-o","v2/map/-2",true,$menu);
+          }
 
           $menuItem = new Menu (_("List Church Events"),"fa fa-circle-o","ListEvents.php",true,$menu);
           $menuItem = new Menu (_("List Event Types"),"fa fa-circle-o","EventNames.php",SessionUser::getUser()->isAdmin(),$menu);
@@ -258,7 +264,10 @@ class MenuBar {
       $menu = new Menu (_("People")." & "._("Families"),"fa fa-users","#",true);
       
         $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
-        $menuItem->addLink("v2/map/-1");
+
+        if ( SessionUser::getUser()->isShowMapEnabled() ) {
+          $menuItem->addLink("v2/map/-1");
+        }
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
         
