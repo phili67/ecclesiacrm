@@ -565,6 +565,11 @@ class User extends BaseUser
         return $this->getUserConfigString('bShowTooltip');
     }
     
+    public function MapExternalProvider()
+    {
+        return $this->getUserConfigString('sMapExternalProvider');
+    }
+    
     public function CSVExportDelemiter()
     {
         return $this->getUserConfigString('sCSVExportDelemiter');
