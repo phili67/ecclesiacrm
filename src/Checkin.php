@@ -724,8 +724,13 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
        });
      
      var editor = CKEDITOR.replace('NoteText',{
-       customConfig: '<?= SystemURLs::getRootPath() ?>/skin/js/ckeditor/configs/note_editor_config.js',
-       language : window.CRM.lang
+        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
+        language : window.CRM.lang,
+        extraPlugins : 'uploadfile,uploadimage,filebrowser',
+        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
      });  
      
      add_ckeditor_buttons(editor);
