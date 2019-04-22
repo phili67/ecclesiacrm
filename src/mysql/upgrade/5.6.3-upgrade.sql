@@ -1,7 +1,7 @@
 ALTER TABLE userconfig_ucfg MODIFY COLUMN ucfg_type ENUM('text','number','date','boolean','textarea','choice');
 
 
-ALTER TABLE `userconfig_ucfg` ADD `ucfg_map_choices` varchar(50) NOT NULL default 'GoogleMaps,Map Apple,BingMaps' AFTER `ucfg_type` ;
+ALTER TABLE `userconfig_ucfg` ADD `ucfg_map_choices` varchar(50) NOT NULL default 'GoogleMaps,AppleMaps,BingMaps' AFTER `ucfg_type` ;
 
 
 INSERT INTO `userconfig_ucfg` (`ucfg_per_id`, `ucfg_id`, `ucfg_name`, `ucfg_value`, `ucfg_type`, `ucfg_tooltip`, `ucfg_permission`, `ucfg_cat`) VALUES

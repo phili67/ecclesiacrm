@@ -1194,7 +1194,7 @@ CREATE TABLE `userconfig_ucfg` (
   `ucfg_name` varchar(50) NOT NULL default '',
   `ucfg_value` text,
   `ucfg_type` enum('text','number','date','boolean','textarea','choice') NOT NULL default 'text',
-  `ucfg_map_choices` varchar(50) NOT NULL default 'GoogleMaps,Map Apple,BingMaps',
+  `ucfg_map_choices` varchar(50) NOT NULL default 'GoogleMaps,AppleMaps,BingMaps',
   `ucfg_tooltip` text NOT NULL,
   `ucfg_permission` enum('FALSE','TRUE') NOT NULL default 'FALSE',
   `ucfg_cat` varchar(20) NOT NULL,
