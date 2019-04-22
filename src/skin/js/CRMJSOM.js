@@ -863,8 +863,8 @@
     
     window.CRM.tools = {
       'getLinkMapFromAddress' : function(address) {
-         if (window.CRM.sMapExternalProvider == "OpenStreetMap") {
-           return '<a href="https://nominatim.openstreetmap.org/search.php?q=' + address + '&polygon_geojson=1&viewbox=" target="_blank">' + address + '</a>';
+         if (window.CRM.sMapExternalProvider == "AppleMaps") {
+           return '<a href="http://maps.apple.com/?q=' + address + '" target="_blank">' + address + '</a>';
          } else if (window.CRM.sMapExternalProvider == "GoogleMaps") {
            return '<a href="http://maps.google.com/?q=1  ' + address + '" target="_blank">' + address + '</a>';
          } else if (window.CRM.sMapExternalProvider == "BingMaps") {
