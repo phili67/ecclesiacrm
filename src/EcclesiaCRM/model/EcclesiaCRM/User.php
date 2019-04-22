@@ -537,22 +537,22 @@ class User extends BaseUser
     
     public function isExportSundaySchoolCSVEnabled()
     {
-        return $this->isAdmin() || $this->getUserConfigString('bExportSundaySchoolCSV');
+        return $this->isAdmin() || $this->isExportSundaySchoolCSV();
     }
     
     public function isExportSundaySchoolPDFEnabled()
     {
-        return $this->isAdmin() || $this->getUserConfigString('bExportSundaySchoolPDF');
+        return $this->isAdmin() || $this->isExportSundaySchoolPDF();
     }
     
     public function isCreateDirectoryEnabled()
     {
-        return $this->isAdmin() || $this->getUserConfigString('bCreateDirectory');
+        return $this->isAdmin() || $this->isCreatedirectory();
     }
 
     public function isCSVExportEnabled()
     {
-        return $this->isAdmin() || $this->getUserConfigString('bExportCSV');
+        return $this->isAdmin() || $this->isExportCSV();
     }
 
     public function isUSAddressVerificationEnabled()
