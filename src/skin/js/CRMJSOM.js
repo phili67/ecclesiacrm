@@ -863,7 +863,7 @@
     
     window.CRM.tools = {
       'getLinkMapFromAddress' : function(address) {
-         if (window.CRM.sMapExternalProvider == "Map Apple") {
+         if (window.CRM.sMapExternalProvider == "AppleMaps") {
            return '<a href="http://maps.apple.com/?q=' + address + '" target="_blank">' + address + '</a>';
          } else if (window.CRM.sMapExternalProvider == "GoogleMaps") {
            return '<a href="http://maps.google.com/?q=1  ' + address + '" target="_blank">' + address + '</a>';
