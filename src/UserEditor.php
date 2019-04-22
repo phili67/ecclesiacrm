@@ -163,6 +163,30 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $QueryMenu = 0;
         }
         
+        if (isset($_POST['ExportCSV'])) {
+            $ExportCSV = 1;
+        } else {
+            $ExportCSV = 0;
+        }
+        
+        if (isset($_POST['CreateDirectory'])) {
+            $CreateDirectory = 1;
+        } else {
+            $CreateDirectory = 0;
+        }        
+
+        if (isset($_POST['ExportSundaySchoolPDF'])) {
+            $ExportSundaySchoolPDF = 1;
+        } else {
+            $ExportSundaySchoolPDF = 0;
+        }        
+        
+        if (isset($_POST['ExportSundaySchoolCSV'])) {
+            $ExportSundaySchoolCSV = 1;
+        } else {
+            $ExportSundaySchoolCSV = 0;
+        }        
+        
         if (isset($_POST['PastoralCare'])) {
             $PastoralCare = 1;
         } else {
@@ -236,6 +260,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
+                    $user->setExportCSV($ExportCSV);
+                    $user->setCreatedirectory($CreateDirectory);
+                    $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
+                    $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
                     $user->setStyle($Style);
                     //$user->setDefaultFY($usr_defaultFY);
                     $user->setUserName($sUserName);
@@ -286,6 +314,10 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setNotes($Notes);                    
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
+                    $user->setExportCSV($ExportCSV);
+                    $user->setCreatedirectory($CreateDirectory);
+                    $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
+                    $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
                     $user->setStyle($Style);
                     
                     if (strtolower($oldUserName) != "admin") {
@@ -702,7 +734,35 @@ if ($usr_role_id == null) {
               echo ' checked';
           } ?>>&nbsp;<span class="SmallText"><?= _('(Allow to manage the query menu)') ?></span></td>
           </tr>
+
+          <tr>
+              <td><?= _('CSV Export') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?php if ($usr_ExportCSV) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span></td>
+          </tr>
           
+          <tr>
+              <td><?= _('Create Directory') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="CreateDirectory" value="1"<?php if ($usr_CreateDirectory) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to create directories') ?>)</span></td>
+          </tr>
+
+          <tr>
+              <td><?= _('Sunday school PDF') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF" value="1"<?php if ($usr_ExportSundaySchoolPDF) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span></td>
+          </tr>
+
+          <tr>
+              <td><?= _('Sunday school CSV') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV" value="1"<?php if ($usr_ExportSundaySchoolCSV) {
+              echo ' checked';
+          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span></td>
+          </tr>
+
           <tr>
               <td><?= _('Main Dashboard') ?>:</td>
               <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
