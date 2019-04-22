@@ -11,24 +11,41 @@ class OutputUtils {
   
   public static function GetLinkMapFromAddress ($address)
   {
-     if (SystemConfig::getValue("sMapExternalProvider") == "OpenStreetMap") {
-       return '<a href="https://nominatim.openstreetmap.org/search.php?q='.$address.'&polygon_geojson=1&viewbox=" target="_blank">'.$address.'</a>';
-     } elseif (SystemConfig::getValue("sMapExternalProvider") == "GoogleMaps") {
+     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+       return '<a href="http://maps.apple.com/?q='.$address.'&z=' . SystemConfig::getValue("iLittleMapZoom") . '" target="_blank">'.$address.'</a>';
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
        return '<a href="http://maps.google.com/?q=1  '.$address.'" target="_blank">'.$address.'</a>';
-     } elseif (SystemConfig::getValue("sMapExternalProvider") == "BingMaps") {
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "BingMaps") {
        return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
      }
   }
   
   public static function GetLinkMapFromCoordinates ($lat,$lng,$address)
   {
-     if (SystemConfig::getValue("sMapExternalProvider") == "OpenStreetMap") {
-       return '<a href="https://www.openstreetmap.org/?mlat='. $lat .'&mlon=' . $lng .'#map=' . SystemConfig::getValue("iLittleMapZoom") . '/'. $lat .'/' . $lng .'"  target="_blank">' . $address . '</a>';
-     } elseif (SystemConfig::getValue("sMapExternalProvider") == "GoogleMaps") {
+     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+       return '<a href="http://maps.apple.com/?daddr=' . $lat . ',' . $lng . '&z=' . SystemConfig::getValue("iLittleMapZoom") . '"  target="_blank">' . $address . '</a>';
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
        return '<a href="http://maps.google.com/maps?q='. $lat .',' . $lng .'" target="_blank">' . $address . '</a>';
-     } elseif (SystemConfig::getValue("sMapExternalProvider") == "BingMaps") {
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "BingMaps") {
        //return '<a href="https://www.bing.com/maps?cp=' . $lat . '~' . $lng . '&lvl='. SystemConfig::getValue("iLittleMapZoom"). '&style=c" target="_blank">'.$address.'</a>';
        return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
+     }
+  }
+  
+  public static function GetRouteFromCoordinates ($lat_to,$lng_to)
+  {
+     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+       return '<a href="http://maps.apple.com/?daddr=' . $lat_to . ',' . $lng_to . '&z=' . SystemConfig::getValue("iLittleMapZoom") . '"  target="_blank">' . _('Direct me') . '</a>';
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
+       return '<a target="_blank" href="https://www.google.com/maps/dir/Current+Location/' . $lat_to . ',' . $lng_to .'">'. _('Direct me') . '</a>';
+     } elseif (SessionUser::getUser()->MapExternalProvider() == "BingMaps") {
+       //return '<a href="https://www.bing.com/maps?cp=' . $lat . '~' . $lng . '&lvl='. SystemConfig::getValue("iLittleMapZoom"). '&style=c" target="_blank">'.$address.'</a>';
+       /*
+      https://www.bing.com/maps?Rtp=adr.Seattle,WA~adr.One%20Microsoft%20Way,Redmond,WA
+      https://www.bing.com/maps?Rtp=~adr.One%20Microsoft%20Way,Redmond,WA
+      https://www.bing.com/maps?rtp=pos.42.2_-122.3~pos.55.2_-127.0
+       */
+       return '<a href="https://www.bing.com/maps?Rtp=~pos.'.$lat_to.'_'.$lng_to.'" target="_blank">'. _('Direct me') . '</a>';
      }
   }
 
@@ -45,7 +62,7 @@ class OutputUtils {
   public static function translate_text_fpdf($string)
   {
     if (!empty($string))
-      return utf8_decode($string);//iconv('UTF-8', 'windows-1252', gettext($string));
+      return utf8_decode($string);//iconv('UTF-8', 'windows-1252', _($string));
     
     return "";
   }
@@ -186,9 +203,9 @@ class OutputUtils {
       // Handler for boolean fields
       case 1:
         if ($data == 'true') {
-            return gettext('Yes');
+            return _('Yes');
         } elseif ($data == 'false') {
-            return gettext('No');
+            return _('No');
         }
         break;
 
@@ -227,9 +244,9 @@ class OutputUtils {
       // Handler for season.  Capitalize the word for nicer display.
       case 7:
         if ($data != null) {
-          return gettext(ucfirst(gettext($data)));
+          return _(ucfirst(_($data)));
         } else {
-          return gettext("None");
+          return _("None");
         }
         break;
       // Handler for "person from group"
@@ -272,7 +289,7 @@ class OutputUtils {
 
       // Otherwise, display error for debugging.
       default:
-        return gettext('Invalid Editor ID!');
+        return _('Invalid Editor ID!');
         break;
     }
   }
@@ -288,9 +305,9 @@ class OutputUtils {
     // Handler for boolean fields
     case 1:
       echo '<div class="form-group">'.
-        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value="true"'.($data == 'true' ? 'checked' : '').'>'.gettext('Yes').'</label></div>'.
-        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value="false"'.($data == 'false' ? 'checked' : '').'>'.gettext('No').'</label></div>'.
-        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value=""'.(strlen($data) == 0 ? 'checked' : '').'>'.gettext('Unknown').'</label></div>'.
+        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value="true"'.($data == 'true' ? 'checked' : '').'>'._('Yes').'</label></div>'.
+        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value="false"'.($data == 'false' ? 'checked' : '').'>'._('No').'</label></div>'.
+        '<div class="radio"><label><input type="radio" Name="'.$fieldname.'" value=""'.(strlen($data) == 0 ? 'checked' : '').'>'._('Unknown').'</label></div>'.
         '</div>';
       break;
     // Handler for date fields
@@ -327,27 +344,27 @@ class OutputUtils {
     // Handler for season (drop-down selection)
     case 7:
       echo "<select name=\"$fieldname\" class=\"form-control input-sm\" >";
-      echo '  <option value="none">'.gettext('Select Season').'</option>';
+      echo '  <option value="none">'._('Select Season').'</option>';
       echo '  <option value="winter"';
       if ($data == 'winter') {
           echo ' selected';
       }
-      echo '>'.gettext('Winter').'</option>';
+      echo '>'._('Winter').'</option>';
       echo '  <option value="spring"';
       if ($data == 'spring') {
           echo ' selected';
       }
-      echo '>'.gettext('Spring').'</option>';
+      echo '>'._('Spring').'</option>';
       echo '  <option value="summer"';
       if ($data == 'summer') {
           echo 'selected';
       }
-      echo '>'.gettext('Summer').'</option>';
+      echo '>'._('Summer').'</option>';
       echo '  <option value="fall"';
       if ($data == 'fall') {
           echo ' selected';
       }
-      echo '>'.gettext('Fall').'</option>';
+      echo '>'._('Fall').'</option>';
       echo '</select>';
       break;
 
@@ -375,7 +392,7 @@ class OutputUtils {
         if ($data <= 0) {
             echo ' selected';
         }
-        echo '>'.gettext('Unassigned').'</option>';
+        echo '>'._('Unassigned').'</option>';
         echo '<option value="0">-----------------------</option>';
 
         while ($aRow = mysqli_fetch_array($rsGroupPeople)) {
@@ -390,7 +407,7 @@ class OutputUtils {
 
         echo '</select>';
       } else {
-        echo gettext("This custom field isn't configured correctly");
+        echo _("This custom field isn't configured correctly");
       }
       break;
 
@@ -421,7 +438,7 @@ class OutputUtils {
       if ($bNoFormat_Phone) {
           echo ' checked';
       }
-      echo '>'.gettext('Do not auto-format');
+      echo '>'._('Do not auto-format');
       echo '</div>';
       break;
 
@@ -431,7 +448,7 @@ class OutputUtils {
       $rsListOptions = RunQuery($sSQL);
       
       echo '<select class="form-control input-sm" name="'.$fieldname.'">';
-      echo '<option value="0" selected>'.gettext('Unassigned').'</option>';
+      echo '<option value="0" selected>'._('Unassigned').'</option>';
       echo '<option value="0">-----------------------</option>';
 
       while ($aRow = mysqli_fetch_array($rsListOptions)) {
@@ -448,7 +465,7 @@ class OutputUtils {
 
     // Otherwise, display error for debugging.
     default:
-      echo '<b>'.gettext('Error: Invalid Editor ID!').'</b>';
+      echo '<b>'._('Error: Invalid Editor ID!').'</b>';
       break;
   }
 }
