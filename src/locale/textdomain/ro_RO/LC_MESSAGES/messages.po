@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-19 19:22+0200\n"
+"POT-Creation-Date: 2019-04-23 17:21+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10,7 +10,7 @@ msgstr ""
 "X-Generator: POEditor.com\n"
 
 #: api/routes/calendar/calendar-calendarV2.php:204 AutoPaymentEditor.php:887
-#: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:232
+#: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:249
 #: EditEventTypes.php:119 EditEventTypes.php:131 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:67
 #: GroupReports.php:165 PersonToGroup.php:68 PrintPastoralCare.php:514
@@ -216,14 +216,14 @@ msgstr "Trimite Newsletter"
 
 #: api/routes/mailchimp.php:119 api/routes/people/people.php:68
 #: api/routes/people/people.php:116 api/routes/search.php:66
-#: EcclesiaCRM/MenuBar/MenuBar.php:273
+#: EcclesiaCRM/MenuBar/MenuBar.php:282
 #, fuzzy
 msgid "Persons"
 msgstr "Persoană"
 
 #: api/routes/mailchimp.php:159 api/routes/people/people.php:155
-#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:258
-#: EcclesiaCRM/MenuBar/MenuBar.php:278 members/online-pending-verify.php:24
+#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:264
+#: EcclesiaCRM/MenuBar/MenuBar.php:287 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:384
 #: PeopleDashboard.php:141 sundayschool/SundaySchoolDashboard.php:118
 msgid "Families"
@@ -290,7 +290,7 @@ msgid "Deactivate account"
 msgstr "inactiv"
 
 #: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
-#: UserEditor.php:311
+#: UserEditor.php:343
 msgid "The same as before"
 msgstr ""
 
@@ -321,7 +321,7 @@ msgstr "Este nevoie de această valoare."
 #: CSVImport.php:244 DirectoryReports.php:188 DirectoryReports.php:274
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:37 FamilyEditor.php:700
-#: FamilyEditor.php:704 FamilyList.php:105 FamilyView.php:279 GeoPage.php:359
+#: FamilyEditor.php:704 FamilyList.php:105 FamilyView.php:279 GeoPage.php:358
 #: GroupReports.php:146 Menu.php:531 Menu.php:558 PersonEditor.php:991
 #: PersonEditor.php:995 PersonEditor.php:1073 PersonEditor.php:1097
 #: PersonList.php:114 PersonView.php:463 Register.php:43
@@ -343,7 +343,7 @@ msgstr "Toate plățile"
 
 #: api/routes/search.php:364 Menu.php:327 PersonView.php:624
 #: PrintPastoralCare.php:498 Reports/GDPR/GDPRDataStructureExport.php:158
-#: UserEditor.php:733 v2/templates/gdpr/gdprdatastructure.php:141
+#: UserEditor.php:795 v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr ""
 
@@ -465,14 +465,14 @@ msgid "The people and families has been cleared from the database."
 msgstr ""
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:335 CartView.php:355
-#: EcclesiaCRM/utils/OutputUtils.php:189 EcclesiaCRM/utils/OutputUtils.php:291
+#: EcclesiaCRM/utils/OutputUtils.php:206 EcclesiaCRM/utils/OutputUtils.php:308
 #: FinancialReports.php:407 ListEvents.php:569 Reports/ConfirmReport.php:236
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Da"
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:348 CartView.php:357
-#: EcclesiaCRM/utils/OutputUtils.php:191 EcclesiaCRM/utils/OutputUtils.php:292
+#: EcclesiaCRM/utils/OutputUtils.php:208 EcclesiaCRM/utils/OutputUtils.php:309
 #: FinancialReports.php:408 ListEvents.php:569 Reports/ConfirmReport.php:238
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
@@ -512,10 +512,10 @@ msgstr ""
 #: CartView.php:58 CartView.php:69 CSVImport.php:389 DirectoryReports.php:94
 #: DonatedItemEditor.php:188 DonatedItemEditor.php:239
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:96 EcclesiaCRM/MenuBar/MenuBar.php:163
-#: EcclesiaCRM/utils/OutputUtils.php:378 EcclesiaCRM/utils/OutputUtils.php:434
-#: eGive.php:344 FamilyEditor.php:1172 GeoPage.php:96 GeoPage.php:108
-#: GroupEditor.php:105 GroupEditor.php:163 GroupList.php:41 GroupView.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:166
+#: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:451
+#: eGive.php:344 FamilyEditor.php:1172 GeoPage.php:95 GeoPage.php:107
+#: GroupEditor.php:105 GroupEditor.php:163 GroupList.php:41 GroupView.php:52
 #: PaddleNumEditor.php:178 PersonEditor.php:942 PersonEditor.php:957
 #: PersonEditor.php:1460 PrintPastoralCare.php:271 PrintPastoralCare.php:281
 #: PrintView.php:273 PrintView.php:283 SelectDelete.php:232 SelectList.php:38
@@ -642,7 +642,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: AutoPaymentEditor.php:973 CartToFamily.php:394 CartView.php:316
-#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:297
+#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:306
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 EditEventAttendees.php:71
@@ -708,7 +708,7 @@ msgstr ""
 #: GroupEditor.php:245 PaddleNumEditor.php:149 PersonEditor.php:802
 #: PersonEditor.php:935 PersonEditor.php:1053 PersonEditor.php:1452
 #: PersonEditor.php:1525 PersonEditor.php:1611 PledgeEditor.php:729
-#: UserEditor.php:750 UserPasswordChange.php:224
+#: UserEditor.php:812 UserPasswordChange.php:224
 msgid "Save"
 msgstr "Salva"
 
@@ -721,10 +721,10 @@ msgstr "Salva"
 #: LettersAndLabels.php:83 ManageEnvelopes.php:134 MemberRoleChange.php:121
 #: MemberRoleChange.php:123 PersonEditor.php:1619 PersonView.php:1559
 #: PledgeEditor.php:736 Register.php:56 ReminderReport.php:54
-#: SettingsIndividual.php:122 SettingsIndividual.php:171
+#: SettingsIndividual.php:125 SettingsIndividual.php:182
 #: sundayschool/SundaySchoolDashboard.php:280
-#: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:751
-#: UserEditor.php:857
+#: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:813
+#: UserEditor.php:927
 msgid "Cancel"
 msgstr "Anula"
 
@@ -1202,9 +1202,9 @@ msgstr "Adauga in cos pentru a Familiei"
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:56 EditEventAttendees.php:70 EventAttendance.php:184
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:337
-#: FamilyCustomFieldsEditor.php:459 FamilyList.php:104 GeoPage.php:358
+#: FamilyCustomFieldsEditor.php:459 FamilyList.php:104 GeoPage.php:357
 #: GroupEditor.php:81 GroupPropsFormEditor.php:317 GroupPropsFormEditor.php:443
-#: GroupView.php:419 ListEvents.php:300 ListEvents.php:302
+#: GroupView.php:417 ListEvents.php:300 ListEvents.php:302
 #: PersonCustomFieldsEditor.php:327 PersonCustomFieldsEditor.php:454
 #: PersonList.php:112 PrintPastoralCare.php:344 PrintPastoralCare.php:471
 #: PrintView.php:346 PrintView.php:477 Reports/CanvassReports.php:68
@@ -1278,7 +1278,7 @@ msgid "Home Phone"
 msgstr "Telefon acasă"
 
 #: CartToFamily.php:369 CartToFamily.php:379 CartToFamily.php:389
-#: EcclesiaCRM/utils/OutputUtils.php:424 FamilyEditor.php:782
+#: EcclesiaCRM/utils/OutputUtils.php:441 FamilyEditor.php:782
 #: FamilyEditor.php:792 FamilyEditor.php:802 PersonEditor.php:1272
 #: PersonEditor.php:1298 PersonEditor.php:1323
 msgid "Do not auto-format"
@@ -1340,7 +1340,7 @@ msgstr "Coșul la Eveniment"
 msgid "Map Cart"
 msgstr "Harta Cart"
 
-#: CartView.php:122 CSVExport.php:49
+#: CartView.php:122 CSVExport.php:49 UserEditor.php:739
 msgid "CSV Export"
 msgstr "CSV Export"
 
@@ -1357,7 +1357,7 @@ msgstr "Label Type"
 msgid "Email Cart"
 msgstr "E-mail Cosul"
 
-#: CartView.php:167 FamilyView.php:414 GroupView.php:186 PersonView.php:605
+#: CartView.php:167 FamilyView.php:414 GroupView.php:184 PersonView.php:605
 #: sundayschool/SundaySchoolClassView.php:111
 msgid "Email (BCC)"
 msgstr "E-mail (CCA)"
@@ -1549,8 +1549,8 @@ msgstr "Listarea utilizator"
 #: Checkin.php:552 CSVExport.php:313 CSVImport.php:241 FamilyEditor.php:1020
 #: PersonEditor.php:809 PrintPastoralCare.php:245 PrintPastoralCare.php:345
 #: PrintView.php:247 PrintView.php:347
-#: sundayschool/SundaySchoolClassView.php:243
-#: sundayschool/SundaySchoolClassView.php:390 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:248
+#: sundayschool/SundaySchoolClassView.php:395 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Gen"
 
@@ -1607,22 +1607,22 @@ msgstr "Creați foaia de prezență"
 msgid "Return to Events"
 msgstr "Revenirea la meniul Query"
 
-#: Checkin.php:803 Include/Functions.php:1039 PersonView.php:406
+#: Checkin.php:808 Include/Functions.php:1039 PersonView.php:406
 #: Reports/CanvassReports.php:240 Reports/VotingMembers.php:83
 #: SelectDelete.php:371 queryparameteroptions_qpo.php:15
 msgid "Member"
 msgstr "Membru"
 
-#: Checkin.php:805 EcclesiaCRM/Service/PersonService.php:39
+#: Checkin.php:810 EcclesiaCRM/Service/PersonService.php:39
 msgid " of the"
 msgstr "de"
 
-#: Checkin.php:805 EcclesiaCRM/Service/PersonService.php:39
+#: Checkin.php:810 EcclesiaCRM/Service/PersonService.php:39
 #, fuzzy
 msgid "family"
 msgstr "Familie"
 
-#: Checkin.php:807 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:452
+#: Checkin.php:812 EcclesiaCRM/Service/PersonService.php:41 PersonView.php:452
 msgid "(No assigned family)"
 msgstr "(Nicio familie alocate)"
 
@@ -1837,7 +1837,7 @@ msgstr "Munca / Alte e-mail"
 
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:260
 #: PrintView.php:262 sundayschool/SundaySchoolClassListExport.php:49
-#: sundayschool/SundaySchoolClassView.php:389
+#: sundayschool/SundaySchoolClassView.php:394
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Birth Date"
 msgstr "Data nașterii"
@@ -2142,7 +2142,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:270
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:279
 msgid "Directory reports"
 msgstr "Rapoarte Director"
 
@@ -2261,7 +2261,7 @@ msgstr "Numele Bisericii"
 msgid "Disclaimer"
 msgstr "Act de renunțare"
 
-#: DirectoryReports.php:313
+#: DirectoryReports.php:313 UserEditor.php:746
 msgid "Create Directory"
 msgstr "Creați Director"
 
@@ -2320,7 +2320,7 @@ msgstr "Merge"
 
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
 #: GroupEditor.php:87 GroupPropsFormEditor.php:318 GroupPropsFormEditor.php:444
-#: GroupView.php:420 ListEvents.php:360
+#: GroupView.php:418 ListEvents.php:360
 msgid "Description"
 msgstr "Descriere"
 
@@ -2352,7 +2352,7 @@ msgstr "Privat"
 #: EcclesiaCRM/Service/DashboardService.php:73
 #: EcclesiaCRM/Service/DashboardService.php:87
 #: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/utils/OutputUtils.php:293 FamilyEditor.php:1097
+#: EcclesiaCRM/utils/OutputUtils.php:310 FamilyEditor.php:1097
 #: Include/Functions.php:539 Include/Functions.php:552
 msgid "Unknown"
 msgstr "Necunoscut"
@@ -4269,89 +4269,85 @@ msgstr ""
 msgid "Add Address, Phone."
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:260
-msgid "Open map links in external page with the provider you fix."
-msgstr ""
-
-#: EcclesiaCRM/dto/SystemConfig.php:267
+#: EcclesiaCRM/dto/SystemConfig.php:266
 msgid "Church Information"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:268
+#: EcclesiaCRM/dto/SystemConfig.php:267
 #, fuzzy
 msgid "User setup"
 msgstr "Listarea utilizator"
 
-#: EcclesiaCRM/dto/SystemConfig.php:269
+#: EcclesiaCRM/dto/SystemConfig.php:268
 #, fuzzy
 msgid "Email Setup"
 msgstr "E-mail Group"
 
-#: EcclesiaCRM/dto/SystemConfig.php:270
+#: EcclesiaCRM/dto/SystemConfig.php:269
 #, fuzzy
 msgid "People Setup"
 msgstr "Oameni"
 
-#: EcclesiaCRM/dto/SystemConfig.php:271
+#: EcclesiaCRM/dto/SystemConfig.php:270
 msgid "Enabled Features"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:272
+#: EcclesiaCRM/dto/SystemConfig.php:271
 #, fuzzy
 msgid "Map Settings"
 msgstr "Salvare setări"
 
-#: EcclesiaCRM/dto/SystemConfig.php:273
+#: EcclesiaCRM/dto/SystemConfig.php:272
 #, fuzzy
 msgid "Report Settings"
 msgstr "Alte setări"
 
-#: EcclesiaCRM/dto/SystemConfig.php:274
+#: EcclesiaCRM/dto/SystemConfig.php:273
 #, fuzzy
 msgid "Financial Settings"
 msgstr "Rapoarte financiare"
 
-#: EcclesiaCRM/dto/SystemConfig.php:275 Include/Footer.php:192
+#: EcclesiaCRM/dto/SystemConfig.php:274 Include/Footer.php:192
 #, fuzzy
 msgid "System Settings"
 msgstr "Salvare setări"
 
-#: EcclesiaCRM/dto/SystemConfig.php:276
+#: EcclesiaCRM/dto/SystemConfig.php:275
 msgid "Quick Search"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:277
+#: EcclesiaCRM/dto/SystemConfig.php:276
 #, fuzzy
 msgid "Backup"
 msgstr "Înapoi"
 
-#: EcclesiaCRM/dto/SystemConfig.php:278
+#: EcclesiaCRM/dto/SystemConfig.php:277
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:279 EcclesiaCRM/MenuBar/MenuBar.php:230
+#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:233
 #: Menu.php:98
 msgid "GDPR"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:280
+#: EcclesiaCRM/dto/SystemConfig.php:279
 msgid "Integration"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:281
+#: EcclesiaCRM/dto/SystemConfig.php:280
 msgid "Users Specific Schedule Tasks"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:282
+#: EcclesiaCRM/dto/SystemConfig.php:281
 msgid "Sundayschool Attendance"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:334 EcclesiaCRM/dto/SystemConfig.php:346
-#: EcclesiaCRM/dto/SystemConfig.php:359
+#: EcclesiaCRM/dto/SystemConfig.php:333 EcclesiaCRM/dto/SystemConfig.php:345
+#: EcclesiaCRM/dto/SystemConfig.php:358
 msgid "An invalid configuration name has been requested"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:377
+#: EcclesiaCRM/dto/SystemConfig.php:376
 msgid "An invalid configuration id has been requested"
 msgstr ""
 
@@ -4499,83 +4495,83 @@ msgstr ""
 msgid "List Groups"
 msgstr "Toate grupurile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:105 SelectList.php:177
+#: EcclesiaCRM/MenuBar/MenuBar.php:108 SelectList.php:177
 msgid "Group Assignment Helper"
 msgstr "Grupa Helper Temă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:137 GroupEditor.php:119
+#: EcclesiaCRM/MenuBar/MenuBar.php:140 GroupEditor.php:119
 #: sundayschool/SundaySchoolClassView.php:41
 #, fuzzy
 msgid "Sunday School"
 msgstr "Nu Școală Duminicală"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:139 EcclesiaCRM/MenuBar/MenuBar.php:204
-#: EcclesiaCRM/MenuBar/MenuBar.php:231 EcclesiaCRM/MenuBar/MenuBar.php:260
-#: EcclesiaCRM/MenuBar/MenuBar.php:303 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:207
+#: EcclesiaCRM/MenuBar/MenuBar.php:234 EcclesiaCRM/MenuBar/MenuBar.php:266
+#: EcclesiaCRM/MenuBar/MenuBar.php:312 Include/Header.php:201
 msgid "Dashboard"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:185 EcclesiaCRM/MenuBar/MenuBar.php:192
+#: EcclesiaCRM/MenuBar/MenuBar.php:188 EcclesiaCRM/MenuBar/MenuBar.php:195
 #: Include/Footer.php:170
 msgid "Global Custom Menus"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:203
+#: EcclesiaCRM/MenuBar/MenuBar.php:206
 #, fuzzy
 msgid "Custom Menus"
 msgstr "Câmpuri personalizate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:214 Include/Header.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:217 Include/Header.php:126
 #, fuzzy
 msgid "Private Space"
 msgstr "Privat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:216 EcclesiaCRM/utils/MiscUtils.php:82
+#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/utils/MiscUtils.php:82
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:217 Include/Header.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:220 Include/Header.php:128
 #: PersonView.php:614
 #, fuzzy
 msgid "Change Password"
 msgstr "Parolă"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:218 Include/Header.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:221 Include/Header.php:130
 #: PersonView.php:613
 #, fuzzy
 msgid "Change Settings"
 msgstr "Salvare setări"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 FamilyView.php:578 PersonView.php:741
+#: EcclesiaCRM/MenuBar/MenuBar.php:222 FamilyView.php:578 PersonView.php:741
 #, fuzzy
 msgid "Documents"
 msgstr "Comentariu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:220 PersonView.php:749
+#: EcclesiaCRM/MenuBar/MenuBar.php:223 PersonView.php:749
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:232
+#: EcclesiaCRM/MenuBar/MenuBar.php:235
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:233 EcclesiaCRM/MenuBar/MenuBar.php:276
+#: EcclesiaCRM/MenuBar/MenuBar.php:236 EcclesiaCRM/MenuBar/MenuBar.php:285
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:234 EcclesiaCRM/MenuBar/MenuBar.php:281
+#: EcclesiaCRM/MenuBar/MenuBar.php:237 EcclesiaCRM/MenuBar/MenuBar.php:290
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:241
+#: EcclesiaCRM/MenuBar/MenuBar.php:244
 #, fuzzy
 msgid "Events"
 msgstr "Eveniment Desc"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:247 ListEvents.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:250 ListEvents.php:362
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
 #: v2/templates/map/MapUsingGoogle.php:72
 #: v2/templates/map/MapUsingGoogle.php:118
@@ -4585,140 +4581,140 @@ msgstr "Eveniment Desc"
 msgid "Calendar"
 msgstr "An calendaristic"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:267
+#: EcclesiaCRM/MenuBar/MenuBar.php:253 EcclesiaCRM/MenuBar/MenuBar.php:276
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
 msgstr "Vezi Cosul"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:250
+#: EcclesiaCRM/MenuBar/MenuBar.php:256
 #, fuzzy
 msgid "List Church Events"
 msgstr "Listarea Toate evenimentele Bisericii"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:251
+#: EcclesiaCRM/MenuBar/MenuBar.php:257
 #, fuzzy
 msgid "List Event Types"
 msgstr "Editare Tipuri de evenimente"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:252
+#: EcclesiaCRM/MenuBar/MenuBar.php:258
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:258 Menu.php:403 PeopleDashboard.php:162
+#: EcclesiaCRM/MenuBar/MenuBar.php:264 Menu.php:403 PeopleDashboard.php:162
 msgid "People"
 msgstr "Oameni"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:265
+#: EcclesiaCRM/MenuBar/MenuBar.php:274
 #, fuzzy
 msgid "View All Persons"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:274 PersonList.php:87
+#: EcclesiaCRM/MenuBar/MenuBar.php:283 PersonList.php:87
 #, fuzzy
 msgid "Add New Person"
 msgstr "Adaugă eveniment nou"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:275
+#: EcclesiaCRM/MenuBar/MenuBar.php:284
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:279
+#: EcclesiaCRM/MenuBar/MenuBar.php:288
 #, fuzzy
 msgid "Add New Family"
 msgstr "Adăugare câmp nou"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:280
+#: EcclesiaCRM/MenuBar/MenuBar.php:289
 #, fuzzy
 msgid "View Active Families"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:301 FamilyView.php:355 UserEditor.php:719
+#: EcclesiaCRM/MenuBar/MenuBar.php:310 FamilyView.php:355 UserEditor.php:781
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:308
+#: EcclesiaCRM/MenuBar/MenuBar.php:317
 #, fuzzy
 msgid "Email Lists"
 msgstr "Editor de familie"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:332 FinancialReports.php:419
+#: EcclesiaCRM/MenuBar/MenuBar.php:341 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
 #: Reports/AdvancedDeposit.php:415 Reports/AdvancedDeposit.php:427
 #: Reports/AdvancedDeposit.php:518
 msgid "Deposit"
 msgstr "Depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:346
+#: EcclesiaCRM/MenuBar/MenuBar.php:355
 #, fuzzy
 msgid "Current"
 msgstr "Rolul curent"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:349 ManageEnvelopes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:358 ManageEnvelopes.php:22
 msgid "Envelope Manager"
 msgstr "Plic Manager de"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:350
+#: EcclesiaCRM/MenuBar/MenuBar.php:359
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Vezi toate"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:351 ElectronicPaymentList.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:360 ElectronicPaymentList.php:54
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "Electronice detaliile tranzactiei"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:352
+#: EcclesiaCRM/MenuBar/MenuBar.php:361
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Depozit Raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:353
+#: EcclesiaCRM/MenuBar/MenuBar.php:362
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Slip depozit"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:360 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:369 FundRaiserEditor.php:32
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Strangere de fonduri Listarea"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Toate fondurile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:363
+#: EcclesiaCRM/MenuBar/MenuBar.php:372
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Crearea de noi strângerea de fonduri"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:373
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "Editare utilizator"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:365
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 #, fuzzy
 msgid "View Buyers"
 msgstr "Cumpărător"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:366
+#: EcclesiaCRM/MenuBar/MenuBar.php:375
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:372
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
 #, fuzzy
 msgid "Data/Reports"
 msgstr "A crea un raport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Raportul Meniu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:375 UserEditor.php:698
+#: EcclesiaCRM/MenuBar/MenuBar.php:384 UserEditor.php:732
 #, fuzzy
 msgid "Query Menu"
 msgstr "Vezi interogare"
@@ -4870,53 +4866,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:633
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:638
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:636
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:641
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:639
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:644
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:642
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:647
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:645
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:650
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:648
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:653
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:651
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:656
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:657
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:662
 #, fuzzy
 msgid "Dav create file"
 msgstr "Creați fișiere"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:663
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:668
 #, fuzzy
 msgid "Dav create directory"
 msgstr "Creați Director"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:669
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:674
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:682
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:689
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
 msgid "Dav delete file"
 msgstr ""
 
@@ -4967,7 +4963,7 @@ msgstr "Director"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:102
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:177
+#: sundayschool/SundaySchoolClassView.php:182
 #: sundayschool/SundaySchoolDashboard.php:95
 #: sundayschool/SundaySchoolDashboard.php:167
 #, fuzzy
@@ -4988,7 +4984,7 @@ msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:198
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:266
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:271
 #: sundayschool/SundaySchoolDashboard.php:106
 #: sundayschool/SundaySchoolDashboard.php:168
 #, fuzzy
@@ -5341,35 +5337,41 @@ msgstr "Clear Filtre"
 msgid "Classic Audio"
 msgstr "Clasificare"
 
-#: EcclesiaCRM/utils/OutputUtils.php:275
+#: EcclesiaCRM/utils/OutputUtils.php:38 EcclesiaCRM/utils/OutputUtils.php:40
+#: EcclesiaCRM/utils/OutputUtils.php:48
+#, fuzzy
+msgid "Direct me"
+msgstr "Direcție"
+
+#: EcclesiaCRM/utils/OutputUtils.php:292
 msgid "Invalid Editor ID!"
 msgstr "ID-ul Editor invalid!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:330
+#: EcclesiaCRM/utils/OutputUtils.php:347
 msgid "Select Season"
 msgstr "Alege sezon"
 
-#: EcclesiaCRM/utils/OutputUtils.php:335
+#: EcclesiaCRM/utils/OutputUtils.php:352
 msgid "Winter"
 msgstr "Iarnă"
 
-#: EcclesiaCRM/utils/OutputUtils.php:340
+#: EcclesiaCRM/utils/OutputUtils.php:357
 msgid "Spring"
 msgstr "Primăvară"
 
-#: EcclesiaCRM/utils/OutputUtils.php:345
+#: EcclesiaCRM/utils/OutputUtils.php:362
 msgid "Summer"
 msgstr "Vară"
 
-#: EcclesiaCRM/utils/OutputUtils.php:350
+#: EcclesiaCRM/utils/OutputUtils.php:367
 msgid "Fall"
 msgstr "Cădea"
 
-#: EcclesiaCRM/utils/OutputUtils.php:393
+#: EcclesiaCRM/utils/OutputUtils.php:410
 msgid "This custom field isn't configured correctly"
 msgstr ""
 
-#: EcclesiaCRM/utils/OutputUtils.php:451
+#: EcclesiaCRM/utils/OutputUtils.php:468
 msgid "Error: Invalid Editor ID!"
 msgstr "Eroare: ID Editor invalida!"
 
@@ -5402,7 +5404,7 @@ msgid "Delele All Attendees"
 msgstr "Participanții la eveniment"
 
 #: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:493
-#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:131
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:136
 #, fuzzy
 msgid "Make Check-out"
 msgstr "CheckOut"
@@ -5533,7 +5535,7 @@ msgstr "Edita"
 
 #: ElectronicPaymentList.php:217 FamilyCustomFieldsEditor.php:336
 #: FamilyCustomFieldsEditor.php:456 GroupPropsFormEditor.php:316
-#: GroupPropsFormEditor.php:442 GroupView.php:418 OptionManager.php:113
+#: GroupPropsFormEditor.php:442 GroupView.php:416 OptionManager.php:113
 #: PersonCustomFieldsEditor.php:326 PersonCustomFieldsEditor.php:451
 #: Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:307
@@ -5588,7 +5590,7 @@ msgstr ""
 msgid "Bank ACH"
 msgstr "Bancă"
 
-#: ElectronicPaymentList.php:270 GroupEditor.php:236 GroupView.php:286
+#: ElectronicPaymentList.php:270 GroupEditor.php:236 GroupView.php:284
 msgid "Disabled"
 msgstr ""
 
@@ -5829,8 +5831,8 @@ msgstr "Familie Ștergere Confirmarea"
 msgid "Reset your password"
 msgstr "Re-introdu parola"
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:556
-#: UserEditor.php:609
+#: external/templates/password/enter-username.php:30 UserEditor.php:590
+#: UserEditor.php:643
 #, fuzzy
 msgid "Login Name"
 msgstr "Login"
@@ -6349,11 +6351,11 @@ msgstr "Mesaj"
 msgid "EcclesiaCRM text message"
 msgstr ""
 
-#: FamilyView.php:395 GroupView.php:107 PersonView.php:592
+#: FamilyView.php:395 GroupView.php:105 PersonView.php:592
 msgid "Remove from Cart"
 msgstr "Elimină din coș"
 
-#: FamilyView.php:399 GroupView.php:111 PersonView.php:596
+#: FamilyView.php:399 GroupView.php:109 PersonView.php:596
 msgid "Add to Cart"
 msgstr "Adauga in cos"
 
@@ -6396,7 +6398,7 @@ msgstr "Adauga la Family"
 msgid "Timeline"
 msgstr ""
 
-#: FamilyView.php:569 GroupView.php:345 GroupView.php:403 PersonView.php:716
+#: FamilyView.php:569 GroupView.php:343 GroupView.php:401 PersonView.php:716
 #: PrintPastoralCare.php:456 PrintView.php:462
 #, fuzzy
 msgid "Assigned Properties"
@@ -6411,7 +6413,7 @@ msgstr "Tipul de plată automată"
 msgid "Pledges and Payments"
 msgstr "Angajamente și plăți"
 
-#: FamilyView.php:709 GroupView.php:358 PersonView.php:1108
+#: FamilyView.php:709 GroupView.php:356 PersonView.php:1108
 #, fuzzy
 msgid "Assign a New Property"
 msgstr "Atribui o nouă proprietate"
@@ -6421,13 +6423,13 @@ msgstr "Atribui o nouă proprietate"
 msgid "Select"
 msgstr "Selecta"
 
-#: FamilyView.php:715 GroupView.php:363 PersonView.php:1113 QueryView.php:332
+#: FamilyView.php:715 GroupView.php:361 PersonView.php:1113 QueryView.php:332
 #: QueryView.php:349
 #, fuzzy
 msgid "select an option"
 msgstr "Opțiune specială"
 
-#: FamilyView.php:730 GroupEditor.php:179 GroupView.php:379 PersonView.php:1129
+#: FamilyView.php:730 GroupEditor.php:179 GroupView.php:377 PersonView.php:1129
 #: PersonView.php:1181 SelectList.php:1154
 msgid "Assign"
 msgstr "Atribui"
@@ -6669,7 +6671,7 @@ msgstr "Genera:"
 msgid "Only Families with unpaid pledges"
 msgstr "Numai familiile cu angajamentele neplătite"
 
-#: FinancialReports.php:388 GeoPage.php:313 PeopleDashboard.php:118
+#: FinancialReports.php:388 GeoPage.php:312 PeopleDashboard.php:118
 msgid "All Families"
 msgstr "Toate familiile"
 
@@ -6866,91 +6868,86 @@ msgstr "Vanzare Pret"
 msgid "Estimated value"
 msgstr "Valoarea estimată"
 
-#: GeoPage.php:87
+#: GeoPage.php:86
 msgid "Family Geographic Utilities"
 msgstr "Familie Geographic Utilități"
 
-#: GeoPage.php:212
+#: GeoPage.php:211
 msgid "Select Family:"
 msgstr "Selectați familia:"
 
-#: GeoPage.php:214
+#: GeoPage.php:213
 #, fuzzy
 msgid "Select a family"
 msgstr "Selectați familia:"
 
-#: GeoPage.php:231
+#: GeoPage.php:230
 msgid "Maximum number of neighbors:"
 msgstr "Numărul maxim de vecini:"
 
-#: GeoPage.php:238
+#: GeoPage.php:237
 msgid "Maximum distance"
 msgstr "Distanța maximă"
 
-#: GeoPage.php:246
+#: GeoPage.php:245
 msgid "Show neighbors with these classifications:"
 msgstr ""
 
-#: GeoPage.php:266
+#: GeoPage.php:265
 msgid "Show Neighbors"
 msgstr "Arata Vecinii"
 
-#: GeoPage.php:275
+#: GeoPage.php:274
 #, fuzzy
 msgid "Please select a Family."
 msgstr "Selectați familia:"
 
-#: GeoPage.php:284 GeoPage.php:332
+#: GeoPage.php:283 GeoPage.php:331
 msgid "Make Data File"
 msgstr "Face fișier de date"
 
-#: GeoPage.php:292
+#: GeoPage.php:291
 msgid "Data file format:"
 msgstr "Formatul de fișier de date:"
 
-#: GeoPage.php:297
+#: GeoPage.php:296
 msgid "GPS Visualizer"
 msgstr "GPS-ul Visualizer"
 
-#: GeoPage.php:302
+#: GeoPage.php:301
 msgid "Street Atlas USA"
 msgstr "Street Atlas Statele Unite ale Americii"
 
-#: GeoPage.php:308
+#: GeoPage.php:307
 msgid "Include families in coordinate file:"
 msgstr "Includeți familii din fișierul de coordonate:"
 
-#: GeoPage.php:318
+#: GeoPage.php:317
 msgid "Neighbor Families"
 msgstr "Familiile vecine"
 
-#: GeoPage.php:324
+#: GeoPage.php:323
 msgid "Coordinate data base file name:"
 msgstr ""
 
-#: GeoPage.php:356
+#: GeoPage.php:355
 msgid "Distance"
 msgstr "Distanță"
 
-#: GeoPage.php:357
+#: GeoPage.php:356
 msgid "Direction"
 msgstr "Direcție"
 
-#: GeoPage.php:383
-#, fuzzy
-msgid "Direct me"
-msgstr "Direcție"
-
-#: GeoPage.php:417 SelectList.php:743
+#: GeoPage.php:414 SelectList.php:743
 #, fuzzy
 msgid "Add All to Cart"
 msgstr "Adauga in cos"
 
-#: GeoPage.php:421 SelectList.php:744
+#: GeoPage.php:418 SelectList.php:744
 msgid "Intersect with Cart"
 msgstr "Se intersectează cu Coșul"
 
-#: GeoPage.php:424 SelectList.php:745
+#: GeoPage.php:421 SelectList.php:745
 #, fuzzy
 msgid "Remove All from Cart"
 msgstr "Elimină din coș"
@@ -7031,7 +7028,7 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupEditor.php:231 GroupView.php:452
+#: GroupEditor.php:231 GroupView.php:450
 msgid "Edit Group-Specific Properties Form"
 msgstr "Editare grup proprietăți specifice Form"
 
@@ -7118,7 +7115,7 @@ msgstr "Date de membru"
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Specific de grup Form Properties Editor:"
 
-#: GroupPropsFormEditor.php:62 GroupView.php:397
+#: GroupPropsFormEditor.php:62 GroupView.php:395
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
@@ -7151,7 +7148,7 @@ msgstr "Persoana Vezi"
 msgid "Add Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupReports.php:38 GroupView.php:129
+#: GroupReports.php:38 GroupView.php:127
 msgid "Group reports"
 msgstr "Rapoarte de grup"
 
@@ -7211,177 +7208,177 @@ msgstr "GroupRole"
 msgid "Group-Specific Property Fields"
 msgstr "Specific de grup câmpuri de proprietate"
 
-#: GroupView.php:86
+#: GroupView.php:84
 msgid "Group View"
 msgstr "Group Vezi"
 
-#: GroupView.php:93
+#: GroupView.php:91
 #, fuzzy
 msgid "Group Functions"
 msgstr "Listarea grup"
 
-#: GroupView.php:99
+#: GroupView.php:97
 msgid "Map this group"
 msgstr "Harta acestui grup"
 
-#: GroupView.php:118
+#: GroupView.php:116
 msgid "Edit this Group"
 msgstr "Editează acest grup"
 
-#: GroupView.php:119
+#: GroupView.php:117
 msgid "Delete this Group"
 msgstr "Șterge acest grup"
 
-#: GroupView.php:175
+#: GroupView.php:173
 msgid "Email Group"
 msgstr "E-mail Group"
 
-#: GroupView.php:229
+#: GroupView.php:227
 #, fuzzy
 msgid "Text Group"
 msgstr "Selectați Grupa"
 
-#: GroupView.php:230
+#: GroupView.php:228
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 
-#: GroupView.php:241
+#: GroupView.php:239
 #, fuzzy
 msgid "Type of Group"
 msgstr "Tipul Grupa"
 
-#: GroupView.php:247
+#: GroupView.php:245
 #, fuzzy
 msgid "Default Role"
 msgstr "Implicit Rol"
 
-#: GroupView.php:253
+#: GroupView.php:251
 #, fuzzy
 msgid "Total Members"
 msgstr "Total membri"
 
-#: GroupView.php:259
+#: GroupView.php:257
 #, fuzzy
 msgid "Address Book"
 msgstr "Adresa"
 
-#: GroupView.php:279
+#: GroupView.php:277
 #, fuzzy
 msgid "Quick Settings"
 msgstr "Salvare setări"
 
-#: GroupView.php:286 v2/templates/user/userlist.php:55
+#: GroupView.php:284 v2/templates/user/userlist.php:55
 #, fuzzy
 msgid "Status"
 msgstr "De stat"
 
-#: GroupView.php:286 KioskManager.php:30 ListEvents.php:367
+#: GroupView.php:284 KioskManager.php:30 ListEvents.php:367
 msgid "Active"
 msgstr "Activ"
 
-#: GroupView.php:287
+#: GroupView.php:285
 #, fuzzy
 msgid "Email export"
 msgstr "E-mail Cosul"
 
-#: GroupView.php:287
+#: GroupView.php:285
 #, fuzzy
 msgid "Include"
 msgstr "Includ:"
 
-#: GroupView.php:287
+#: GroupView.php:285
 #, fuzzy
 msgid "Exclude"
 msgstr "Includ:"
 
-#: GroupView.php:295
+#: GroupView.php:293
 msgid ""
 "Assign a group manager only for This Group. He can add or remove member from "
 "This Group, but not create Members."
 msgstr ""
 
-#: GroupView.php:295
+#: GroupView.php:293
 #, fuzzy
 msgid "Group Managers"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:301
+#: GroupView.php:299
 #, fuzzy
 msgid "Assigned Managers"
 msgstr "Atribuirea colportori"
 
-#: GroupView.php:316
+#: GroupView.php:314
 #, fuzzy
 msgid "No assigned Manager"
 msgstr "Nu este alocat"
 
-#: GroupView.php:321
+#: GroupView.php:319
 #, fuzzy
 msgid "Add Manager"
 msgstr "Adauga Cumparator"
 
-#: GroupView.php:339
+#: GroupView.php:337
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
-#: GroupView.php:339 Include/Footer.php:101
+#: GroupView.php:337 Include/Footer.php:101
 #, fuzzy
 msgid "Group Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupView.php:397
+#: GroupView.php:395
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: GroupView.php:411
+#: GroupView.php:409
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Nici o proprietate au fost încă adăugate"
 
-#: GroupView.php:443
+#: GroupView.php:441
 msgid "Disabled for this group."
 msgstr "Dezactivată pentru acest grup."
 
-#: GroupView.php:443
+#: GroupView.php:441
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: GroupView.php:467
+#: GroupView.php:465
 msgid "Group Members:"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:481
+#: GroupView.php:479
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Membrii grupului:"
 
-#: GroupView.php:486 sundayschool/SundaySchoolClassView.php:362
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:367
 #: sundayschool/SundaySchoolDashboard.php:282
 #, fuzzy
 msgid "Add"
 msgstr "Adresa"
 
-#: GroupView.php:492
+#: GroupView.php:490
 msgid "Remove Selected Members from group"
 msgstr ""
 
-#: GroupView.php:499
+#: GroupView.php:497
 #, fuzzy
 msgid "Add Selected Members to Cart"
 msgstr "Adauga Membrii grupului in cos"
 
-#: GroupView.php:505
+#: GroupView.php:503
 #, fuzzy
 msgid "Add Selected Members to Group"
 msgstr "Adauga Persoana de grup"
 
-#: GroupView.php:506
+#: GroupView.php:504
 msgid "Move Selected Members to Group"
 msgstr ""
 
@@ -9334,7 +9331,7 @@ msgstr "Atribui"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:685
+#: Reports/CanvassReports.php:169 UserEditor.php:719
 #, fuzzy
 msgid "Canvasser"
 msgstr "Colportor"
@@ -10052,35 +10049,35 @@ msgstr "Fotografii"
 msgid "Cart"
 msgstr "Cart"
 
-#: SettingsIndividual.php:90
+#: SettingsIndividual.php:93
 msgid "My User Settings"
 msgstr "Mi Setări utilizator"
 
-#: SettingsIndividual.php:105 SystemSettings.php:138 UserEditor.php:768
+#: SettingsIndividual.php:108 SystemSettings.php:138 UserEditor.php:830
 msgid "Variable name"
 msgstr "Denumirea variabilei"
 
-#: SettingsIndividual.php:106 UserEditor.php:769
+#: SettingsIndividual.php:109 UserEditor.php:831
 msgid "Current Value"
 msgstr "Valoare curent"
 
-#: SettingsIndividual.php:107 UserEditor.php:770
+#: SettingsIndividual.php:110 UserEditor.php:832
 #, fuzzy
 msgid "Notes"
 msgstr "Note:"
 
-#: SettingsIndividual.php:123 SettingsIndividual.php:172 SystemSettings.php:254
-#: UserEditor.php:856
+#: SettingsIndividual.php:126 SettingsIndividual.php:183 SystemSettings.php:254
+#: UserEditor.php:926
 msgid "Save Settings"
 msgstr "Salvare setări"
 
-#: SettingsIndividual.php:153 SystemSettings.php:198 UserEditor.php:806
-#: UserEditor.php:834
+#: SettingsIndividual.php:156 SystemSettings.php:198 UserEditor.php:868
+#: UserEditor.php:896
 msgid "False"
 msgstr ""
 
-#: SettingsIndividual.php:154 SystemSettings.php:199 UserEditor.php:807
-#: UserEditor.php:835
+#: SettingsIndividual.php:157 SystemSettings.php:199 UserEditor.php:869
+#: UserEditor.php:897
 msgid "True"
 msgstr ""
 
@@ -10167,121 +10164,121 @@ msgstr ""
 msgid "Add Students"
 msgstr "Elevii Extra"
 
-#: sundayschool/SundaySchoolClassView.php:127
+#: sundayschool/SundaySchoolClassView.php:129
 #, fuzzy
 msgid "Edit this Class"
 msgstr "Editează acest grup"
 
-#: sundayschool/SundaySchoolClassView.php:138
 #: sundayschool/SundaySchoolClassView.php:143
+#: sundayschool/SundaySchoolClassView.php:148
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Creați foaia de prezență"
 
-#: sundayschool/SundaySchoolClassView.php:145
+#: sundayschool/SundaySchoolClassView.php:150
 #, fuzzy
 msgid "Student Badges"
 msgstr "Elevii Extra"
 
-#: sundayschool/SundaySchoolClassView.php:152
+#: sundayschool/SundaySchoolClassView.php:157
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Elimină din coș"
 
-#: sundayschool/SundaySchoolClassView.php:156
+#: sundayschool/SundaySchoolClassView.php:161
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Adauga in cos Rezultate"
 
-#: sundayschool/SundaySchoolClassView.php:163
+#: sundayschool/SundaySchoolClassView.php:168
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Elimină din coș"
 
-#: sundayschool/SundaySchoolClassView.php:167
+#: sundayschool/SundaySchoolClassView.php:172
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Adauga Membrii grupului in cos"
 
-#: sundayschool/SundaySchoolClassView.php:196
-#: sundayschool/SundaySchoolClassView.php:343
+#: sundayschool/SundaySchoolClassView.php:201
+#: sundayschool/SundaySchoolClassView.php:348
 #, fuzzy
 msgid "Send Message"
 msgstr "Mesaj"
 
-#: sundayschool/SundaySchoolClassView.php:198
+#: sundayschool/SundaySchoolClassView.php:203
 #, fuzzy
 msgid "View Profile"
 msgstr "Vezi toate"
 
-#: sundayschool/SundaySchoolClassView.php:213
+#: sundayschool/SundaySchoolClassView.php:218
 msgid "Quick Status"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:228
+#: sundayschool/SundaySchoolClassView.php:233
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "Data nasterii Data"
 
-#: sundayschool/SundaySchoolClassView.php:255
+#: sundayschool/SundaySchoolClassView.php:260
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:268
+#: sundayschool/SundaySchoolClassView.php:273
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Expirare Luna"
 
-#: sundayschool/SundaySchoolClassView.php:268
+#: sundayschool/SundaySchoolClassView.php:273
 #, fuzzy
 msgid "On"
 msgstr "Dată"
 
-#: sundayschool/SundaySchoolClassView.php:268
+#: sundayschool/SundaySchoolClassView.php:273
 msgid "Off"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:278
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:274
+#: sundayschool/SundaySchoolClassView.php:279
 msgid "Showing students with gender"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:305
+#: sundayschool/SundaySchoolClassView.php:310
 msgid "Compose New Message"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:310
+#: sundayschool/SundaySchoolClassView.php:315
 #, fuzzy
 msgid "Kids Emails"
 msgstr "E-mail"
 
-#: sundayschool/SundaySchoolClassView.php:315
+#: sundayschool/SundaySchoolClassView.php:320
 #, fuzzy
 msgid "Parents Emails"
 msgstr "E-mail personal"
 
-#: sundayschool/SundaySchoolClassView.php:320
+#: sundayschool/SundaySchoolClassView.php:325
 #, fuzzy
 msgid "Teachers Emails"
 msgstr "Alte e-mail"
 
-#: sundayschool/SundaySchoolClassView.php:330
+#: sundayschool/SundaySchoolClassView.php:335
 msgid "Attachment"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:333
+#: sundayschool/SundaySchoolClassView.php:338
 msgid "Max. 32MB"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:340
+#: sundayschool/SundaySchoolClassView.php:345
 #, fuzzy
 msgid "Discard"
 msgstr "Act de renunțare"
 
-#: sundayschool/SundaySchoolClassView.php:357
+#: sundayschool/SundaySchoolClassView.php:362
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Adauga Persoana de grup"
@@ -10572,153 +10569,179 @@ msgstr ""
 msgid "Login must be a least 3 characters!"
 msgstr ""
 
-#: UserEditor.php:259 UserEditor.php:315
+#: UserEditor.php:287 UserEditor.php:347
 msgid "Login already in use, please select a different login!"
 msgstr ""
 
-#: UserEditor.php:484
+#: UserEditor.php:518
 msgid "User Editor"
 msgstr "Utilizator Editor"
 
-#: UserEditor.php:501
+#: UserEditor.php:535
 #, fuzzy
 msgid "Role management"
 msgstr "Proprietate Unassignment"
 
-#: UserEditor.php:504
+#: UserEditor.php:538
 #, fuzzy
 msgid "Add Role"
 msgstr "Noul rol"
 
-#: UserEditor.php:505
+#: UserEditor.php:539
 #, fuzzy
 msgid "Manage Roles"
 msgstr "Gestionarea grupurilor și roluri"
 
-#: UserEditor.php:507
+#: UserEditor.php:541
 #, fuzzy
 msgid "Add Role to Current User"
 msgstr "Adauga in cos"
 
-#: UserEditor.php:542
+#: UserEditor.php:576
 #, fuzzy
 msgid "Person to Make User"
 msgstr "Persoana pentru a face Utilizator"
 
-#: UserEditor.php:571
+#: UserEditor.php:605
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Notă: Modificările nu vor avea efect până la următoarea conectare."
 
-#: UserEditor.php:585
+#: UserEditor.php:619
 #, fuzzy
 msgid "User"
 msgstr "Utilizator"
 
-#: UserEditor.php:616
+#: UserEditor.php:650
 #, fuzzy
 msgid "Add Records"
 msgstr "Adauga Records"
 
-#: UserEditor.php:623
+#: UserEditor.php:657
 #, fuzzy
 msgid "Edit Records"
 msgstr "Editare Records"
 
-#: UserEditor.php:630
+#: UserEditor.php:664
 #, fuzzy
 msgid "Delete Records"
 msgstr "Șterge înregistrări"
 
-#: UserEditor.php:637
+#: UserEditor.php:671
 #, fuzzy
 msgid "Show Cart"
 msgstr "Arata Plăți"
 
-#: UserEditor.php:644
+#: UserEditor.php:678
 #, fuzzy
 msgid "Show Map"
 msgstr "Arată în"
 
-#: UserEditor.php:651
+#: UserEditor.php:685
 #, fuzzy
 msgid "Manage Properties and Classifications"
 msgstr "Gestionarea proprietăților și clasificări"
 
-#: UserEditor.php:658
+#: UserEditor.php:692
 #, fuzzy
 msgid "Manage Groups and Roles"
 msgstr "Gestionarea grupurilor și roluri"
 
-#: UserEditor.php:665
+#: UserEditor.php:699
 #, fuzzy
 msgid "Manage Donations and Finance"
 msgstr "Gestionați Donații și Finanțe"
 
-#: UserEditor.php:672
+#: UserEditor.php:706
 #, fuzzy
 msgid "View, Add and Edit Notes"
 msgstr "Vizualizați, adăugați și editați Note"
 
-#: UserEditor.php:679
+#: UserEditor.php:713
 #, fuzzy
 msgid "Edit Self"
 msgstr "Editare Auto"
 
-#: UserEditor.php:682
+#: UserEditor.php:716
 msgid "(Edit own family only.)"
 msgstr "(Editare propria familie numai.)"
 
-#: UserEditor.php:688
+#: UserEditor.php:722
 msgid "(Canvass volunteer.)"
 msgstr "(Cercetați voluntar.)"
 
-#: UserEditor.php:691
+#: UserEditor.php:725
 msgid "Admin"
 msgstr ""
 
-#: UserEditor.php:694
+#: UserEditor.php:728
 msgid "(Grants all privileges.)"
 msgstr "(Granturi toate privilegiile.)"
 
-#: UserEditor.php:701
+#: UserEditor.php:735
 msgid "(Allow to manage the query menu)"
 msgstr ""
 
-#: UserEditor.php:705
+#: UserEditor.php:742
+msgid "User permission to export CSV files"
+msgstr ""
+
+#: UserEditor.php:749
+msgid "User permission to create directories"
+msgstr ""
+
+#: UserEditor.php:753
+#, fuzzy
+msgid "Sunday school PDF"
+msgstr "Nu Școală Duminicală"
+
+#: UserEditor.php:756
+msgid "User permission to export PDF files for the sunday school"
+msgstr ""
+
+#: UserEditor.php:760
+#, fuzzy
+msgid "Sunday school CSV"
+msgstr "Nu Școală Duminicală"
+
+#: UserEditor.php:763
+msgid "User permission to export CSV files for the sunday school"
+msgstr ""
+
+#: UserEditor.php:767
 msgid "Main Dashboard"
 msgstr ""
 
-#: UserEditor.php:708
+#: UserEditor.php:770
 msgid "(Main Dashboard and the birthdates in the calendar are visible.)"
 msgstr ""
 
-#: UserEditor.php:712
+#: UserEditor.php:774
 #, fuzzy
 msgid "See Privacy Data"
 msgstr "Privat"
 
-#: UserEditor.php:715
+#: UserEditor.php:777
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
-#: UserEditor.php:722
+#: UserEditor.php:784
 msgid "Allow a user to use MailChimp tool"
 msgstr ""
 
-#: UserEditor.php:726
+#: UserEditor.php:788
 msgid "GRPD Data Protection Officer"
 msgstr ""
 
-#: UserEditor.php:729
+#: UserEditor.php:791
 msgid "General Data Protection Regulation in UE"
 msgstr ""
 
-#: UserEditor.php:740
+#: UserEditor.php:802
 #, fuzzy
 msgid "Style"
 msgstr "Stil"
 
-#: UserEditor.php:762
+#: UserEditor.php:824
 #, fuzzy
 msgid ""
 "Set Permission True to give this user the ability to change their current "
@@ -10727,7 +10750,7 @@ msgstr ""
 "Setați permisiunea Adevărat pentru a da noi utilizatori posibilitatea de a "
 "schimba valoarea lor actuală. <BR>"
 
-#: UserEditor.php:767
+#: UserEditor.php:829
 msgid "Permission"
 msgstr "Permisiune"
 
@@ -11866,46 +11889,34 @@ msgid "Delimiter to separate emails in mailto: links"
 msgstr "SUA Adresa de verificare"
 
 #: userconfig_ucfg.php:4
-msgid "User permission to export CSV files for the sunday school"
-msgstr ""
-
-#: userconfig_ucfg.php:5
-msgid "User permission to export PDF files for the sunday school"
-msgstr ""
-
-#: userconfig_ucfg.php:6
-msgid "User permission to create directories"
-msgstr ""
-
-#: userconfig_ucfg.php:7
-msgid "User permission to export CSV files"
-msgstr ""
-
-#: userconfig_ucfg.php:8
 #, fuzzy
 msgid "User permission to use IST Address Verification"
 msgstr "SUA Adresa de verificare"
 
-#: userconfig_ucfg.php:9
+#: userconfig_ucfg.php:5
 msgid "Allow to see ballon Help"
 msgstr ""
 
-#: userconfig_ucfg.php:10
+#: userconfig_ucfg.php:6
 msgid "To export to another For european CharSet use ;"
 msgstr ""
 
-#: userconfig_ucfg.php:11
+#: userconfig_ucfg.php:7
 msgid ""
 "Default is UTF-8, For european CharSet use Windows-1252 for example for "
 "French language."
 msgstr ""
 
-#: userconfig_ucfg.php:12
+#: userconfig_ucfg.php:8
 msgid "Enable sidebar expand on hover effect for sidebar mini"
 msgstr ""
 
-#: userconfig_ucfg.php:13
+#: userconfig_ucfg.php:9
 msgid "The sidebar is collapse by default"
+msgstr ""
+
+#: userconfig_ucfg.php:10
+msgid "Map providers for external view"
 msgstr ""
 
 #, fuzzy
