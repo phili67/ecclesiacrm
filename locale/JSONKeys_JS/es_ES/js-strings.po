@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-14T20:36:23.776Z\n"
+"POT-Creation-Date: 2019-04-23T15:21:10.151Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -360,6 +360,12 @@ msgstr "Debe seleccionar uno Grupo e une rol de grupo si quiere"
 
 msgid "You have to set a Group Name"
 msgstr "Tienes que uno Grupo Nombre"
+
+msgid "Attention"
+msgstr "Atención"
+
+msgid "The current images folder is now the public folder !!!"
+msgstr ""
 
 msgid "Remove from Cart"
 msgstr "Remover del Carrito"
@@ -763,9 +769,6 @@ msgstr "Ausente"
 
 msgid "Attendance"
 msgstr "Participantes"
-
-msgid "Attention"
-msgstr "Atención"
 
 msgid "Are you sure you want to DELETE all persons from Event ID:"
 msgstr "¿Está seguro de que desea borrar todos personas del Evento ID:"
@@ -1727,9 +1730,6 @@ msgstr "Debe configurar un Título e una descripción para su Problema."
 #, fuzzy
 msgid "List Name"
 msgstr "Nombre"
-
-msgid "The current images folder is now the public folder !!!"
-msgstr ""
 
 #, fuzzy
 #~ msgid "Note Delete Confirmation"
