@@ -11,7 +11,7 @@ class OutputUtils {
   
   public static function GetLinkMapFromAddress ($address)
   {
-     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+     if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
        return '<a href="http://maps.apple.com/?q='.$address.'&z=' . SystemConfig::getValue("iLittleMapZoom") . '" target="_blank">'.$address.'</a>';
      } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
        return '<a href="http://maps.google.com/?q=1  '.$address.'" target="_blank">'.$address.'</a>';
@@ -22,7 +22,7 @@ class OutputUtils {
   
   public static function GetLinkMapFromCoordinates ($lat,$lng,$address)
   {
-     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+     if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
        return '<a href="http://maps.apple.com/?daddr=' . $lat . ',' . $lng . '&z=' . SystemConfig::getValue("iLittleMapZoom") . '"  target="_blank">' . $address . '</a>';
      } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
        return '<a href="http://maps.google.com/maps?q='. $lat .',' . $lng .'" target="_blank">' . $address . '</a>';
@@ -34,7 +34,7 @@ class OutputUtils {
   
   public static function GetRouteFromCoordinates ($lat_to,$lng_to)
   {
-     if (SessionUser::getUser()->MapExternalProvider() == "Map Apple") {
+     if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
        return '<a href="http://maps.apple.com/?daddr=' . $lat_to . ',' . $lng_to . '&z=' . SystemConfig::getValue("iLittleMapZoom") . '"  target="_blank">' . _('Direct me') . '</a>';
      } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
        return '<a target="_blank" href="https://www.google.com/maps/dir/Current+Location/' . $lat_to . ',' . $lng_to .'">'. _('Direct me') . '</a>';
