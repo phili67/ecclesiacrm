@@ -12,7 +12,7 @@
  *
  *  Additional Contributors:
  *  2006 Ed Davis
- *  2018 Philippe Logel All right reserved
+ *  2019 Philippe Logel All right reserved
  *
  ******************************************************************************/
 // Include the function library
@@ -31,6 +31,8 @@ use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\UserConfig;
 
 
 // Security: User must be an Admin to access this page.
@@ -227,7 +229,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         if (!$bErrorFlag) {
             $undupCount = UserQuery::create()->filterByUserName($sUserName)->_and()->filterByPersonId($iPersonID, Criteria::NOT_EQUAL)->count();
 
-            // Write the SQL depending on whether we're adding or editing
+            // Write the ORM depending on whether we're adding or editing
             if ($sAction == 'add') {
                 if ($undupCount == 0) {
                     $rawPassword = User::randomPassword();
@@ -305,13 +307,13 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setSeePrivacyData($SeePrivacyData);
                     $user->setGdrpDpo($GdrpDpo);
                     $user->setEditRecords($EditRecords);
-                    $user->setDeleteRecords($DeleteRecords);                    
+                    $user->setDeleteRecords($DeleteRecords);
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
-                    $user->setMenuOptions($MenuOptions);                    
+                    $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setFinance($Finance);
-                    $user->setNotes($Notes);                    
+                    $user->setNotes($Notes);
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
                     $user->setExportCSV($ExportCSV);
@@ -357,12 +359,39 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 
         if (!$bNewUser) {
             // Get the data on this user
-            $sSQL = 'SELECT * FROM user_usr INNER JOIN person_per ON person_per.per_ID = user_usr.usr_per_ID WHERE usr_per_ID = '.$iPersonID;
-            $rsUser = RunQuery($sSQL);
-            $aUser = mysqli_fetch_array($rsUser);
-            extract($aUser);
-            $sUser = $per_LastName.', '.$per_FirstName;
-            $sUserName = $usr_UserName;
+            $user = UserQuery::create()
+                    ->innerJoinWithPerson()
+                      ->withColumn('Person.FirstName','FirstName')
+                      ->withColumn('Person.LastName','LastName')
+                    ->findOneByPersonId($iPersonID);
+
+            $sUser = $user->getLastName().', '.$user->getFirstName();
+            $sUserName = $user->getUserName();
+
+            $usr_AddRecords             = $user->getAddRecords();
+            $usr_PastoralCare           = $user->getPastoralCare();
+            $usr_GDRP_DPO               = $user->getGdrpDpo();
+            $usr_MailChimp              = $user->getMailChimp();
+            $usr_MainDashboard          = $user->getMainDashboard();
+            $usr_SeePrivacyData         = $user->getSeePrivacyData();
+            $usr_EditRecords            = $user->getEditRecords();
+            $usr_DeleteRecords          = $user->getDeleteRecords();
+            $usr_ShowCart               = $user->getShowCart();
+            $usr_ShowMap                = $user->getShowMap();
+            $usr_MenuOptions            = $user->getMenuOptions();
+            $usr_ManageGroups           = $user->getManageGroups();
+            $usr_Finance                = $user->getFinance();
+            $usr_Notes                  = $user->getNotes();
+            $usr_Admin                  = $user->getAdmin();
+            $usr_showMenuQuery          = $user->getShowMenuQuery();
+            $usr_ExportCSV              = $user->getExportCSV();
+            $usr_CreateDirectory        = $user->getCreatedirectory();
+            $usr_ExportSundaySchoolPDF  = $user->getExportSundaySchoolPDF();
+            $usr_ExportSundaySchoolCSV  = $user->getExportSundaySchoolCSV();
+            $usr_EditSelf               = $user->getEditSelf();
+            $usr_Canvasser              = $user->getCanvasser();
+            $usr_Style                  = $user->getStyle();
+
             $sAction = 'edit';
         } else {
             $dbPerson = PersonQuery::create()->findPk($iPersonID);
@@ -375,25 +404,29 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $sAction = 'add';
             $vNewUser = 'true';
 
-            $usr_AddRecords = 0;
-            $usr_PastoralCare = 0;
-            $usr_GDRP_DPO = 0;
-            $usr_MailChimp = 0;
-            $usr_MainDashboard = 0;
-            $usr_SeePrivacyData = 0;
-            $usr_EditRecords = 0;
-            $usr_DeleteRecords = 0;
-            $usr_ShowCart = 0;
-            $usr_ShowMap = 0;
-            $usr_MenuOptions = 0;
-            $usr_ManageGroups = 0;
-            $usr_Finance = 0;
-            $usr_Notes = 0;
-            $usr_Admin = 0;
-            $usr_showMenuQuery = 0;
-            $usr_EditSelf = 1;
-            $usr_Canvasser = 0;
-            $usr_Style = 'skin-blue-light';
+            $usr_AddRecords             = 0;
+            $usr_PastoralCare           = 0;
+            $usr_GDRP_DPO               = 0;
+            $usr_MailChimp              = 0;
+            $usr_MainDashboard          = 0;
+            $usr_SeePrivacyData         = 0;
+            $usr_EditRecords            = 0;
+            $usr_DeleteRecords          = 0;
+            $usr_ShowCart               = 0;
+            $usr_ShowMap                = 0;
+            $usr_MenuOptions            = 0;
+            $usr_ManageGroups           = 0;
+            $usr_Finance                = 0;
+            $usr_Notes                  = 0;
+            $usr_Admin                  = 0;
+            $usr_showMenuQuery          = 0;
+            $usr_ExportCSV              = 0;
+            $usr_CreateDirectory        = 0;
+            $usr_ExportSundaySchoolPDF  = 0;
+            $usr_ExportSundaySchoolCSV  = 0;
+            $usr_EditSelf               = 1;
+            $usr_Canvasser              = 0;
+            $usr_Style                  = 'skin-blue-light';
         }
 
         // New user without person selected yet
@@ -401,31 +434,39 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $sAction = 'add';
         $bShowPersonSelect = true;
 
-        $usr_AddRecords = 0;
-        $usr_PastoralCare = 0;
-        $usr_GDRP_DPO = 0;
-        $usr_MailChimp = 0;
-        $usr_MainDashboard = 0;
-        $usr_SeePrivacyData = 0;
-        $usr_EditRecords = 0;
-        $usr_DeleteRecords = 0;
-        $usr_ShowCart = 0;
-        $usr_ShowMap = 0;
-        $usr_MenuOptions = 0;
-        $usr_ManageGroups = 0;
-        $usr_Finance = 0;
-        $usr_Notes = 0;
-        $usr_Admin = 0;
-        $usr_showMenuQuery = 0;
-        $usr_EditSelf = 1;
-        $usr_Canvasser = 0;
-        $sUserName = '';
-        $usr_Style = 'skin-blue-light';
-        $vNewUser = 'true';
+        $usr_AddRecords             = 0;
+        $usr_PastoralCare           = 0;
+        $usr_GDRP_DPO               = 0;
+        $usr_MailChimp              = 0;
+        $usr_MainDashboard          = 0;
+        $usr_SeePrivacyData         = 0;
+        $usr_EditRecords            = 0;
+        $usr_DeleteRecords          = 0;
+        $usr_ShowCart               = 0;
+        $usr_ShowMap                = 0;
+        $usr_MenuOptions            = 0;
+        $usr_ManageGroups           = 0;
+        $usr_Finance                = 0;
+        $usr_Notes                  = 0;
+        $usr_Admin                  = 0;
+        $usr_showMenuQuery          = 0;
+        $usr_ExportCSV              = 0;
+        $usr_CreateDirectory        = 0;
+        $usr_ExportSundaySchoolPDF  = 0;
+        $usr_ExportSundaySchoolCSV  = 0;
+        $usr_EditSelf               = 1;
+        $usr_Canvasser              = 0;
+        $usr_Style                  = 'skin-blue-light';
 
-        // Get all the people who are NOT currently users
-        $sSQL = 'SELECT * FROM person_per LEFT JOIN user_usr ON person_per.per_ID = user_usr.usr_per_ID WHERE usr_per_ID IS NULL ORDER BY per_LastName';
-        $rsPeople = RunQuery($sSQL);
+        $sUserName                  = '';
+        $vNewUser                   = 'true';
+        
+        
+        $people = PersonQuery::create()
+           ->leftJoinUser()
+           ->withColumn('User.PersonId','UserPersonId')
+           ->orderByLastName()
+           ->find();
     }
 }
 
@@ -433,11 +474,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
 function StyleSheetOptions($currentStyle)
 {
     foreach (['skin-blue-light','skin-yellow-light', 'skin-green-light', 'skin-purple-light', 'skin-red-light'] as $stylename) {
-        echo '<option value="' . $stylename . '"';
-        if ($stylename == $currentStyle) {
-            echo ' selected';
-        }
-        echo '>' . $stylename . '</option>';
+  ?>
+<option value="<?= $stylename ?>"<?= ($stylename == $currentStyle)?' selected':'' ?>><?= $stylename ?></option>
+<?php
     }
 }
 
@@ -456,7 +495,8 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         } elseif ($current_type == 'number') {
             $value = InputUtils::LegacyFilterInput($new_value[$id], 'float');
         } elseif ($current_type == 'date') {
-            $value = InputUtils::LegacyFilterInput($new_value[$id], 'date');
+           // todo dates !!!! PL
+           $value = InputUtils::LegacyFilterInput($new_value[$id], 'date');
         } elseif ($current_type == 'boolean') {
             if ($new_value[$id] != '1') {
                 $value = '';
@@ -474,39 +514,39 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         }
 
         // We can't update unless values already exist.
-        $sSQL = 'SELECT * FROM userconfig_ucfg '
-            . "WHERE ucfg_id=$id AND ucfg_per_id=$iPersonID ";
-        $bRowExists = true;
-        $iNumRows = mysqli_num_rows(RunQuery($sSQL));
-        if ($iNumRows == 0) {
-            $bRowExists = false;
+        $userConf = UserConfigQuery::create()->filterById($id)->findOneByPersonId ($iPersonID);
+        
+        if ( is_null ($userConf) ) { // If Row does not exist then insert default values.
+          // Defaults will be replaced in the following Update
+          $userDefault = UserConfigQuery::create()->filterById($id)->findOneByPersonId (0);
+          
+          if ( !is_null ($userDefault) ) {
+            $userConf = new UserConfig();
+            
+            $userConf->setPersonId ($iPersonID);
+            $userConf->setId ($id);
+            $userConf->setName($userDefault->getName());
+            $userConf->setValue($value);
+            $userConf->setType($userDefault->getType());
+            $userConf->setMapChoices($userDefault->getMapChoices());
+            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+            $userConf->setPermission($permission);
+            $userConf->setCat($userDefault->getCat());
+            
+            $userConf->save();
+          } else {
+            echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
+            exit;
+          }
+        } else {
+          
+          $userConf->setValue($value);
+          $userConf->setPermission($permission);
+              
+          $userConf->save();
+          
         }
 
-        if (!$bRowExists) { // If Row does not exist then insert default values.
-            // Defaults will be replaced in the following Update
-            $sSQL = 'SELECT * FROM userconfig_ucfg '
-                . "WHERE ucfg_id=$id AND ucfg_per_id=0 ";
-            $rsDefault = RunQuery($sSQL);
-            $aDefaultRow = mysqli_fetch_row($rsDefault);
-            if ($aDefaultRow) {
-                list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_map_choices,
-                    $ucfg_tooltip, $ucfg_permission, $ucfg_cat) = $aDefaultRow;
-
-                $sSQL = "INSERT INTO userconfig_ucfg VALUES ($iPersonID, $id, "
-                    . "'$ucfg_name', '$ucfg_value', '$ucfg_type', '$ucfg_map_choices', '" . htmlentities(addslashes($ucfg_tooltip), ENT_NOQUOTES, 'UTF-8') . "', "
-                    . "'$ucfg_permission', '$ucfg_cat')";
-                $rsResult = RunQuery($sSQL);
-            } else {
-                echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
-                exit;
-            }
-        }
-
-        // Save new setting
-        $sSQL = 'UPDATE userconfig_ucfg '
-            . "SET ucfg_value='$value', ucfg_permission='$permission' "
-            . "WHERE ucfg_id='$id' AND ucfg_per_id=$iPersonID ";
-        $rsUpdate = RunQuery($sSQL);
         next($type);
     }
 
@@ -546,13 +586,13 @@ if ($usr_role_id == null) {
         <ul class="dropdown-menu" role="menu" id="AllRoles">
             <?php 
                foreach ($userRoles as $userRole) {
-            ?>               
+            ?>
                <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
             <?php
                }
             ?>
         </ul>
-      </div>                                        
+      </div>
   </div>
 <!-- /.box-body -->
 </div><!-- Default box -->
@@ -577,13 +617,16 @@ if ($usr_role_id == null) {
           </div>
           <div class="col-lg-3 col-md-3 col-sm-3">
               <select name="PersonID" size="30" id="personSelect" class="form-control input-sm">
-                  <?php
+                <?php
                   // Loop through all the people
-                  while ($aRow = mysqli_fetch_array($rsPeople)) {
-                      extract($aRow); ?>
-                      <option value="<?= $per_ID ?>"<?= ($per_ID == $iPersonID)?' selected':'' ?> data-email="<?= $per_Email ?>"><?= $per_LastName . ', ' . $per_FirstName ?></option>
-                      <?php
-                  } ?>
+                  foreach ($people as $member) {
+                    if ( is_null($member->getUserPersonId() ) ) {
+                ?> 
+                <option value="<?= $member->getId() ?>"<?= ($member->getId() == $iPersonID)?' selected':'' ?> data-email="<?= $member->getEmail() ?>"><?= $member->getLastName() . ', ' . $member->getFirstName() ?></option>
+                <?php 
+                    }
+                  }
+                ?>
               </select>
           </div>
           <div class="col-lg-2 col-md-2 col-sm-2">
@@ -626,7 +669,7 @@ if ($usr_role_id == null) {
               ?>
               <tr>
                   <td>
-                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
+                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?>)</span>
                   </td>
                   <td>
                   </td>
@@ -648,154 +691,148 @@ if ($usr_role_id == null) {
           ?>
           <tr>
               <td><?= _('Add Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?php if ($usr_AddRecords) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="AddRecords" value="1"<?= ($usr_AddRecords)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Edit Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?php if ($usr_EditRecords) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="EditRecords" value="1"<?= ($usr_EditRecords)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Delete Records') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?php if ($usr_DeleteRecords) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="DeleteRecords" value="1"<?= ($usr_DeleteRecords)?' checked':'' ?>></td>
           </tr>
           
           <tr>
               <td><?= _('Show Cart') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?php if ($usr_ShowCart) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="ShowCart" value="1"<?= ($usr_ShowCart)?' checked':'' ?>></td>
           </tr>
           
           <tr>
               <td><?= _('Show Map') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?php if ($usr_ShowMap) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?= ($usr_ShowMap)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Manage Properties and Classifications') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?php if ($usr_MenuOptions) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="MenuOptions" value="1"<?= ($usr_MenuOptions)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Manage Groups and Roles') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?php if ($usr_ManageGroups) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="ManageGroups" value="1"<?= ($usr_ManageGroups)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Manage Donations and Finance') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?php if ($usr_Finance) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="Finance" value="1"<?= ($usr_Finance)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('View, Add and Edit Notes') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?php if ($usr_Notes) {
-              echo ' checked';
-          } ?>></td>
+              <td><input type="checkbox" class="global_settings" name="Notes" value="1"<?= ($usr_Notes)?' checked':'' ?>></td>
           </tr>
 
           <tr>
               <td><?= _('Edit Self') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="EditSelf" value="1"<?php if ($usr_EditSelf) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('(Edit own family only.)') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="EditSelf" value="1"<?= ($usr_EditSelf)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
+                </td>
           </tr>
           <tr>
               <td><?= _('Canvasser') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Canvasser" value="1"<?php if ($usr_Canvasser) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('(Canvass volunteer.)') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="Canvasser" value="1"<?= ($usr_Canvasser)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
+              </td>
           </tr>
           <tr>
               <td><?= _('Admin') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="Admin" value="1"<?php if ($usr_Admin) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('(Grants all privileges.)') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="Admin" value="1"<?= ($usr_Admin)?' checked':''?>>
+                  &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('Query Menu') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?php if ($usr_showMenuQuery) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('(Allow to manage the query menu)') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?= ($usr_showMenuQuery)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('CSV Export') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?php if ($usr_ExportCSV) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?= ($usr_ExportCSV)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files') ?>)</span>
+              </td>
           </tr>
           
           <tr>
               <td><?= _('Create Directory') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="CreateDirectory" value="1"<?php if ($usr_CreateDirectory) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to create directories') ?>)</span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="CreateDirectory" value="1"<?= ($usr_CreateDirectory)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('User permission to create directories') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('Sunday school PDF') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF" value="1"<?php if ($usr_ExportSundaySchoolPDF) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="ExportSundaySchoolPDF" value="1"<?= ($usr_ExportSundaySchoolPDF)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('User permission to export PDF files for the sunday school') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('Sunday school CSV') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV" value="1"<?php if ($usr_ExportSundaySchoolCSV) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="ExportSundaySchoolCSV" value="1"<?= ($usr_ExportSundaySchoolCSV)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('User permission to export CSV files for the sunday school') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('Main Dashboard') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?php if ($usr_MainDashboard) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('(Main Dashboard and the birthdates in the calendar are visible.)') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?= ($usr_MainDashboard)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('See Privacy Data') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?php if ($usr_SeePrivacyData) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?= ($usr_SeePrivacyData)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('MailChimp') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="MailChimp" value="1"<?php if ($usr_MailChimp) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('Allow a user to use MailChimp tool') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="MailChimp" value="1"<?= ($usr_MailChimp)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
+                </td>
           </tr>
 
           <tr>
               <td><?= _("GRPD Data Protection Officer") ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?php if ($usr_GDRP_DPO) {
-              echo ' checked';
-          } ?>>&nbsp;<span class="SmallText"><?= _('General Data Protection Regulation in UE') ?></span></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?= ($usr_GDRP_DPO)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
+              </td>
           </tr>
 
           <tr>
               <td><?= _('Pastoral Care') ?>:</td>
-              <td><input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?php if ($usr_PastoralCare) {
-              echo ' checked';
-          } ?>></td>
+              <td>
+                <input type="checkbox" class="global_settings" name="PastoralCare" value="1"<?= ($usr_PastoralCare)?' checked':'' ?>>
+              </td>
           </tr>
 
           <tr>
@@ -832,85 +869,116 @@ if ($usr_role_id == null) {
                     <th><?= _('Notes') ?></th>
                 </tr>
               </thead>
-              <tbody>              
+              <tbody>
 
-                <?php
+              <?php
                 //First get default settings, then overwrite with settings from this user
 
                 // Get default settings
-                $sSQL = "SELECT * FROM userconfig_ucfg WHERE ucfg_per_id='0' ORDER BY ucfg_id";
-                $rsDefault = RunQuery($sSQL);
+                $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId (0);
+                
                 $r = 1;
                 // List Default Settings
-                while ($aDefaultRow = mysqli_fetch_row($rsDefault)) {
-                    list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type,
-                        $ucfg_tooltip, $ucfg_permission) = $aDefaultRow;
-
-                    // Overwrite with user settings if they already exist
-                    $sSQL = "SELECT * FROM userconfig_ucfg WHERE ucfg_per_id='$usr_per_ID' "
-                        . "AND ucfg_id='$ucfg_id' ";
-                    $rsUser = RunQuery($sSQL);
-                    while ($aUserRow = mysqli_fetch_row($rsUser)) {
-                        list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_map_choices,
-                            $ucfg_tooltip, $ucfg_permission) = $aUserRow;
+                foreach ($defaultConfigs as $defaultConfig) {
+                    $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId ($usr_per_ID);
+                    
+                    if ( is_null ($userConfig) ) {// when the user is created there isn't any settings: so we load the default one
+                      $userConfig = $defaultConfig;
                     }
-
+                    
                     // Default Permissions
-                    if ($ucfg_permission == 'TRUE') {
+                    if ($userConfig->getPermission() == 'TRUE') {
                         $sel2 = 'SELECTED';
                         $sel1 = '';
                     } else {
                         $sel1 = 'SELECTED';
                         $sel2 = '';
                     }
-                    echo "\n<tr class='user_settings' data-name='".$ucfg_name."'>";
-                    echo "<td><select class=\"form-control input-sm\"  name=\"new_permission[$ucfg_id]\">";
-                    echo "<option value=\"FALSE\" $sel1>" . _('False');
-                    echo "<option value=\"TRUE\" $sel2>" . _('True');
-                    echo '</select></td>';
+                  ?>
+                    <tr class="user_settings" data-name="<?= $userConfig->getName() ?>">
+                    <td>
+                      <select class="form-control input-sm"  name="new_permission[<?= $userConfig->getId() ?>]">
+                        <option value="FALSE" <?= $sel1 ?>><?= _('False') ?>
+                        <option value="TRUE" <?= $sel2 ?>><?= _('True') ?>
+                      </select>
+                    </td>
 
+                  <?php
                     // Variable Name & Type
-                    echo "<td>$ucfg_name</td>";
+                  ?>
 
+                    <td>
+                      <?= $userConfig->getName() ?>
+                    </td>
+
+                  <?php
                     // Current Value
-                    if ($ucfg_type == 'text') {
-                        echo "<td>
-            <input class=\"form-control input-md\" type=\"text\" size=\"30\" maxlength=\"255\" name=\"new_value[$ucfg_id]\"
-            value=\"" . htmlspecialchars($ucfg_value, ENT_QUOTES) . '"></td>';
-                    } elseif ($ucfg_type == 'textarea') {
-                        echo "<td>
-            <textarea rows=\"4\" cols=\"30\" name=\"new_value[$ucfg_id]\">"
-                            . htmlspecialchars($ucfg_value, ENT_QUOTES) . '</textarea></td>';
-                    } elseif ($ucfg_type == 'number' || $ucfg_type == 'date') {
-                        echo '<td><input class="form-control input-md" type="text" size="15"'
-                            . " maxlength=\"15\" name=\"new_value[$ucfg_id]\" value=\"$ucfg_value\"></td>";
-                    } elseif ($ucfg_type == 'boolean') {
-                        if ($ucfg_value) {
+                    if ($userConfig->getType() == 'text') {
+                  ?>
+                    <td>
+                       <input class="form-control input-md" type="text" size="30" maxlength="255" name="new_value[<?= $userConfig->getId() ?>]"
+            value="<?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>">
+                    </td>
+                  <?php
+                    } elseif ($userConfig->getType() == 'textarea') {
+                  ?>
+                    <td>
+                      <textarea rows="4" cols="30" name="new_value[<?= $userConfig->getId() ?>]\">
+                            <?= htmlspecialchars($userConfig->getValue(), ENT_QUOTES) ?>
+                      </textarea>
+                    </td>
+                  <?php
+                    } elseif ($userConfig->getType() == 'number' || $userConfig->getType() == 'date') {
+                     // todo dates !!!! PL
+                  ?>
+                    <td>
+                      <input class="form-control input-md" type="text" size="15"
+                           maxlength="15" name="new_value[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getValue() ?>">
+                    </td>
+                  <?php
+                    } elseif ($userConfig->getType() == 'boolean') {
+                        if ( $userConfig->getValue() ) {
                             $sel2 = 'SELECTED';
                             $sel1 = '';
                         } else {
                             $sel1 = 'SELECTED';
                             $sel2 = '';
                         }
-                        echo "<td><select class=\"form-control input-sm\" name=\"new_value[$ucfg_id]\">";
-                        echo "<option value=\"\" $sel1>" . _('False');
-                        echo "<option value=\"1\" $sel2>" . _('True');
-                        echo '</select></td>';
-                    } elseif ($ucfg_type == 'choice') {
-                      $choices = explode(",", $ucfg_map_choices);
-                      echo "<td><select class=\"form-control input-sm\" name=\"new_value[$ucfg_id]\">";
-                      
+                  ?>
+                    <td>
+                      <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
+                        <option value="" <?= $sel1 ?>><?= _('False') ?>
+                        <option value="1" <?= $sel2 ?>><?= _('True') ?>
+                      </select>
+                    </td>
+                  <?php
+                    } elseif ($userConfig->getType() == 'choice') {
+                      $choices = explode(",", $userConfig->getMapChoices());
+                  ?>
+                    <td>
+                      <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
+                    <?php
                       foreach ($choices as $choice) {
-                        echo "<option value=\"$choice\"".(($ucfg_value == $choice)?' selected':'').">" . $choice;
+                    ?>
+                        <option value="<?= $choice ?>" <?= (($userConfig->getValue() == $choice)?' selected':'') ?>> <?= $choice ?>
+                    <?php
                       }
-                      echo '</select></td>';
+                    ?>
+                      </select>
+                    </td>
+                  <?php
                     }
 
                     // Notes
-                    echo "<td><input type=\"hidden\" name=\"type[$ucfg_id]\" value=\"$ucfg_type\">
-            " . _($ucfg_tooltip) . '</td></tr>';
+                  ?>
+                    <td>
+                      <input type="hidden" name="type[<?= $userConfig->getId() ?>]\" value="<?= $userConfig->getType() ?>">
+                        <?= _($userConfig->getTooltip()) ?>
+                    </td>
+                  </tr>
+                <?php
 
-                    $r++;
+                  $r++;
                 }
 
                 // Cancel, Save Buttons
