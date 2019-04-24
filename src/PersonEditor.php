@@ -951,7 +951,7 @@ require 'Include/Header.php';
                 </select>
             </div>
 
-            <div class="form-group col-md-9">
+            <div class="form-group col-md-9"  <?= (!SessionUser::getUser()->isEditRecordsEnabled())?'style="display: none;"':''?>>
                 <label><?= gettext('Person or Family address'); ?>:</label>
                 <select name="Family" size="8" class="form-control" id="optionFamily">
                     <option value="0" selected><?= gettext('Unassigned') ?></option>
