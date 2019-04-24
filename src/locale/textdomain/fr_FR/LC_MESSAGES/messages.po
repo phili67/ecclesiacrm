@@ -10230,7 +10230,7 @@ msgstr "Visualiser les Données privées"
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 "Autoriser les utilisateurs à voir les données privées des membres (Année de "
-"naissance, Âge"
+"naissance, Âge)"
 
 #: UserEditor.php:819
 msgid "Allow a user to use MailChimp tool"
