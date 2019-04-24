@@ -537,7 +537,7 @@ class User extends BaseUser
 
     public function isEmailToEnabled()
     {
-        return $this->isAdmin() || $this->getUserConfigString('bEmailMailto');
+        return $this->getUserConfigString('bEmailMailto');
     }
     
     public function isExportSundaySchoolCSVEnabled()
