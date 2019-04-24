@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-23T15:21:10.151Z\n"
+"POT-Creation-Date: 2019-04-24T15:30:20.545Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1462,11 +1462,15 @@ msgstr ""
 msgid "You've to check at least one user."
 msgstr "Sie müssen mindestens ein Benutzer wählen."
 
-msgid "WebDav key"
-msgstr "WebDav Schlüssel"
-
 msgid "The WebDav Key is"
 msgstr "Der WebDav Schlüssel ist"
+
+#, fuzzy
+msgid "The public WebDav Key is"
+msgstr "Der WebDav Schlüssel ist"
+
+msgid "WebDav key"
+msgstr "WebDav Schlüssel"
 
 msgid "User"
 msgstr "Benutzer"
