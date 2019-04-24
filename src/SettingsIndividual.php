@@ -68,7 +68,7 @@ if (isset($_POST['save'])) {
             $userConf->setType($userDefault->getType());
             $userConf->setMapChoices($userDefault->getMapChoices());
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
-            $userConf->setPermission($permission);
+            $userConf->setPermission($userDefault->getPermission());
             $userConf->setCat($userDefault->getCat());
             
             $userConf->save();
@@ -79,7 +79,6 @@ if (isset($_POST['save'])) {
         } else {
           
           $userConf->setValue($value);
-          $userConf->setPermission($permission);
               
           $userConf->save();
           
