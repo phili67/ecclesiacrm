@@ -669,7 +669,7 @@ if ($usr_role_id == null) {
               ?>
               <tr>
                   <td>
-                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?></span>
+                      <span style="color:red;" id="PasswordError"><?= $sErrorText ?>)</span>
                   </td>
                   <td>
                   </td>
@@ -738,21 +738,21 @@ if ($usr_role_id == null) {
               <td><?= _('Edit Self') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="EditSelf" value="1"<?= ($usr_EditSelf)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('(Edit own family only.)') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Edit own family only.') ?>)</span>
                 </td>
           </tr>
           <tr>
               <td><?= _('Canvasser') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="Canvasser" value="1"<?= ($usr_Canvasser)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('(Canvass volunteer.)') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Canvass volunteer.') ?>)</span>
               </td>
           </tr>
           <tr>
               <td><?= _('Admin') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="Admin" value="1"<?= ($usr_Admin)?' checked':''?>>
-                  &nbsp;<span class="SmallText"><?= _('(Grants all privileges.)') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Grants all privileges.') ?>)</span>
               </td>
           </tr>
 
@@ -760,7 +760,7 @@ if ($usr_role_id == null) {
               <td><?= _('Query Menu') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="QueryMenu" value="1"<?= ($usr_showMenuQuery)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('(Allow to manage the query menu)') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Allow to manage the query menu') ?>)</span>
               </td>
           </tr>
 
@@ -800,7 +800,7 @@ if ($usr_role_id == null) {
               <td><?= _('Main Dashboard') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="MainDashboard" value="1"<?= ($usr_MainDashboard)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('(Main Dashboard and the birthdates in the calendar are visible.)') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Main Dashboard and the birthdates in the calendar are visible.') ?>)</span>
               </td>
           </tr>
 
@@ -808,7 +808,7 @@ if ($usr_role_id == null) {
               <td><?= _('See Privacy Data') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="SeePrivacyData" value="1"<?= ($usr_SeePrivacyData)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Allow user to see member privacy data, e.g. Birth Year, Age.') ?>)</span>
               </td>
           </tr>
 
@@ -816,7 +816,7 @@ if ($usr_role_id == null) {
               <td><?= _('MailChimp') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="MailChimp" value="1"<?= ($usr_MailChimp)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('Allow a user to use MailChimp tool') ?></span>
+                  &nbsp;<span class="SmallText">(<?= _('Allow a user to use MailChimp tool') ?>)</span>
                 </td>
           </tr>
 
@@ -824,8 +824,7 @@ if ($usr_role_id == null) {
               <td><?= _("GRPD Data Protection Officer") ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="GdrpDpo" value="1"<?= ($usr_GDRP_DPO)?' checked':'' ?>>
-                  &nbsp;<span class="SmallText"><?= _('General Data Protection Regulation in UE') ?>
-                </span>
+                  &nbsp;<span class="SmallText">(<?= _('General Data Protection Regulation in UE') ?>)</span>
               </td>
           </tr>
 
