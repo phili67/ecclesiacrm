@@ -69,11 +69,21 @@ $(document).ready(function () {
        data: JSON.stringify({"userID": userID})
     }).done(function(data) {
       if (data.status == 'success') {
+        var message = i18next.t("The WebDav Key is")+" : ";
         if (data.token != null) {
-          window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+data.token+"<br>"+i18next.t("The public WebDav Key is")+" : "+data.token2);
+          message += data.token;
         } else {
-          window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+i18next.t("None"));
+          message += i18next.t("None");
         }
+        
+        message += "<br>"+i18next.t("The public WebDav Key is")+" : ";
+        
+        if (data.token2 != null) {
+          message += data.token2;
+        } else {
+          message += i18next.t("None");
+        }
+        window.CRM.DisplayAlert(i18next.t("WebDav key"),message);
       }
     });
   });
