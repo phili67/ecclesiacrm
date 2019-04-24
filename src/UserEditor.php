@@ -896,7 +896,6 @@ if ($usr_role_id == null) {
                 // Get default settings
                 $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId (0);
                 
-                $r = 1;
                 // List Default Settings
                 foreach ($defaultConfigs as $defaultConfig) {
                     $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId ($usr_per_ID);
@@ -995,14 +994,11 @@ if ($usr_role_id == null) {
                         <?= _($userConfig->getTooltip()) ?>
                     </td>
                   </tr>
-                <?php
-
-                  $r++;
+              <?php
                 }
 
                 // Cancel, Save Buttons
-                ?>
-
+              ?>
               </tbody>
             </table>
             <div class="row">
