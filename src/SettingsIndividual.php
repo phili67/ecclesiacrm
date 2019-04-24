@@ -8,7 +8,8 @@
 *
 *  Contributors:
 *  2006 Ed Davis
-
+*  2019 Philippe Logel All rights reserved
+*
 ******************************************************************************/
 
 // Include the function library
@@ -19,6 +20,9 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\UserConfig;
+
 
 $iPersonID = SessionUser::getUser()->getPersonId();
 
@@ -48,41 +52,38 @@ if (isset($_POST['save'])) {
         }
         
         // We can't update unless values already exist.
-        $sSQL = 'SELECT * FROM userconfig_ucfg '
-        ."WHERE ucfg_id=$id AND ucfg_per_id=$iPersonID ";
-        $bRowExists = true;
-        $iNumRows = mysqli_num_rows(RunQuery($sSQL));
-        if ($iNumRows == 0) {
-            $bRowExists = false;
+        $userConf = UserConfigQuery::create()->filterById($id)->findOneByPersonId ($iPersonID);
+        
+        if ( is_null ($userConf) ) { // If Row does not exist then insert default values.
+          // Defaults will be replaced in the following Update
+          $userDefault = UserConfigQuery::create()->filterById($id)->findOneByPersonId (0);
+          
+          if ( !is_null ($userDefault) ) {
+            $userConf = new UserConfig();
+            
+            $userConf->setPersonId ($iPersonID);
+            $userConf->setId ($id);
+            $userConf->setName($userDefault->getName());
+            $userConf->setValue($value);
+            $userConf->setType($userDefault->getType());
+            $userConf->setMapChoices($userDefault->getMapChoices());
+            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+            $userConf->setPermission($permission);
+            $userConf->setCat($userDefault->getCat());
+            
+            $userConf->save();
+          } else {
+            echo '<br> Error on line ' . __LINE__ . ' of file ' . __FILE__;
+            exit;
+          }
+        } else {
+          
+          $userConf->setValue($value);
+          $userConf->setPermission($permission);
+              
+          $userConf->save();
+          
         }
-
-        if (!$bRowExists) { // If Row does not exist then insert default values.
-            // Defaults will be replaced in the following Update
-            $sSQL = 'SELECT * FROM userconfig_ucfg '
-            ."WHERE ucfg_id=$id AND ucfg_per_id=0 ";
-            $rsDefault = RunQuery($sSQL);
-            $aDefaultRow = mysqli_fetch_row($rsDefault);
-            if ($aDefaultRow) {
-                list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type,
-                    $ucfg_tooltip, $ucfg_permission) = $aDefaultRow;
-
-                $sSQL = "INSERT INTO userconfig_ucfg VALUES ($iPersonID, $id, "
-                ."'$ucfg_name', '$ucfg_value', '$ucfg_type', '$ucfg_tooltip', "
-                ."$ucfg_permission, ' ')";
-                
-                $rsResult = RunQuery($sSQL);
-            } else {
-                echo '<BR> Error: Software BUG 3216';
-                exit;
-            }
-        }
-
-        // Save new setting
-        $sSQL = 'UPDATE userconfig_ucfg '
-        ."SET ucfg_value='$value' "
-        ."WHERE ucfg_id=$id AND ucfg_per_id=$iPersonID ";
-
-        $rsUpdate = RunQuery($sSQL);
         next($type);
     }
     
@@ -94,9 +95,7 @@ $sPageTitle = _('My User Settings');
 require 'Include/Header.php';
 
 // Get settings
-$sSQL = 'SELECT * FROM userconfig_ucfg WHERE ucfg_per_id='.$iPersonID
-.' ORDER BY ucfg_id';
-$rsConfigs = RunQuery($sSQL);
+$configs = UserConfigQuery::create()->orderById()->findByPersonId ($iPersonID);
 ?>
 <div class="box box-body">
 <form method=post action=SettingsIndividual.php>
@@ -114,60 +113,93 @@ $rsConfigs = RunQuery($sSQL);
 <?php
 $r = 1;
 // List Individual Settings
-while (list($ucfg_per_id, $ucfg_id, $ucfg_name, $ucfg_value, $ucfg_type, $ucfg_map_choices, $ucfg_tooltip, $ucfg_permission) = mysqli_fetch_row($rsConfigs)) {
-    if (!(($ucfg_permission == 'TRUE') || SessionUser::getUser()->isAdmin())) {
+foreach ($configs as $config) {
+    if (!(($config->getPermission() == 'TRUE') || SessionUser::getUser()->isAdmin())) {
         continue;
     } // Don't show rows that can't be changed : BUG, you must continue the loop, and not break it PL
 
     // Cancel, Save Buttons every 20 rows
     if ($r == 20) {
-        echo "<tr><td>&nbsp;</td>
-      <input type=submit class='btn btn-default' name=cancel value='"._('Cancel')."'>
-      <td><input type=submit class='btn btn-primary' name=save value='"._('Save Settings')."'>
-      </td></tr>";
+?>
+    <tr>
+      <td>
+        <input type=submit class="btn btn-default" name=cancel value="<?= _('Cancel') ?>">&nbsp;
+      </td>
+      <td>
+        <input type=submit class="btn btn-primary" name=save value="<?= _('Save Settings') ?>">
+      </td>
+    </tr>
+  <?php
         $r = 1;
     }
-
     // Variable Name & Type
-    echo '<tr><td class=LabelColumn>'.$ucfg_name;
-    echo '<input type=hidden name="type['.$ucfg_id.']" value="'.$ucfg_type.'"></td>';
-
+  ?>
+    <tr>
+      <td class=LabelColumn>
+        <?= $config->getName() ?>
+        <input type=hidden name="type[<?= $config->getId() ?>]" value="<?= $config->getType() ?>">
+      </td>
+  <?php
     // Current Value
-    if ($ucfg_type == 'text') {
-        echo "<td class=TextColumnWithBottomBorder>
-      <input class=\"form-control input-md\" type=text size=30 maxlength=255 name='new_value[$ucfg_id]'
-      value='".htmlspecialchars($ucfg_value, ENT_QUOTES)."'></td>";
-    } elseif ($ucfg_type == 'textarea') {
-        echo "<td class=TextColumnWithBottomBorder>
-      <textarea rows=4 cols=30 name='new_value[$ucfg_id]'>"
-            .htmlspecialchars($ucfg_value, ENT_QUOTES).'</textarea></td>';
-    } elseif ($ucfg_type == 'number' || $ucfg_type == 'date') {
-        echo '<td class=TextColumnWithBottomBorder><input type=text size=15 maxlength=15 name='
-            ."'new_value[$ucfg_id]' value='$ucfg_value'></td>";
-    } elseif ($ucfg_type == 'boolean') {
-        if ($ucfg_value) {
+    if ($config->getType() == 'text') {
+  ?>
+      <td class=TextColumnWithBottomBorder>
+         <input class="form-control input-md" type=text size=30 maxlength=255 name="new_value[<?= $config->getId() ?>]"
+            value="<?= htmlspecialchars($config->getValue(), ENT_QUOTES) ?>">
+      </td>
+  <?php
+    } elseif ($config->getType() == 'textarea') {
+  ?>
+      <td class=TextColumnWithBottomBorder>
+        <textarea rows=4 cols=30 name="new_value[<?= $config->getId() ?>]">
+            <?= htmlspecialchars($config->getValue(), ENT_QUOTES) ?>
+        </textarea>
+      </td>
+  <?php
+    } elseif ($config->getType() == 'number' || $config->getType() == 'date') {
+  ?>
+      <td class=TextColumnWithBottomBorder>
+         <input type=text size=15 maxlength=15 name="new_value[<?= $config->getId() ?>]" value="<?= $config->getValue() ?>">
+      </td>
+  <?php  
+    } elseif ($config->getType() == 'boolean') {
+        if ($config->getValue()) {
             $sel2 = 'SELECTED';
             $sel1 = '';
         } else {
             $sel1 = 'SELECTED';
             $sel2 = '';
         }
-        echo "<td class=TextColumnWithBottomBorder><select class=\"form-control input-sm \" name=\"new_value[$ucfg_id]\">";
-        echo "<option value='' $sel1>"._('False');
-        echo "<option value='1' $sel2>"._('True');
-        echo '</select></td>';
-    } elseif ($ucfg_type == 'choice') {
-                      $choices = explode(",", $ucfg_map_choices);
-                      echo "<td><select class=\"form-control input-sm\" name=\"new_value[$ucfg_id]\">";
-                      
-                      foreach ($choices as $choice) {
-                        echo "<option value=\"$choice\"".(($ucfg_value == $choice)?' selected':'').">" . $choice;
+  ?>
+      <td class=TextColumnWithBottomBorder>
+        <select class="form-control input-sm" name="new_value[<?= $config->getId() ?>]">
+          <option value='' <?= $sel1 ?>><?=_('False') ?>
+          <option value='1' <?= $sel2 ?>><?= _('True') ?>
+        </select>
+      </td>
+  <?php
+    } elseif ($config->getType() == 'choice') {
+      $choices = explode(",", $config->getMapChoices());
+  ?>
+      <td>
+        <select class="form-control input-sm" name="new_value[<?= $config->getId() ?>]">
+  <?php
+        foreach ($choices as $choice) {
+  ?>
+          <option value="<?= $choice ?>"<?= (($config->getValue() == $choice)?' selected':'')?>><?= $choice ?>
+  <?php
                       }
-                      echo '</select></td>';
+  ?>
+        </select>
+     </td>
+  <?php
                     }
 
     // Notes
-    echo '<td>'._($ucfg_tooltip).'</td>  </tr>';
+  ?>
+      <td><?= _($config->getTooltip()) ?></td>
+    </tr>
+  <?php
     $r++;
 }
 ?>
