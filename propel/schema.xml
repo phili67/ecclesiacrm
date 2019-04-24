@@ -921,6 +921,7 @@
         <column name="usr_showPledges" phpName="ShowPledges" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showPayments" phpName="ShowPayments" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showMenuQuery" phpName="ShowMenuQuery" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
+        <column name="usr_CanSendEmail" phpName="CanSendEmail" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_CreateDirectory" phpName="Createdirectory" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_ExportCSV" phpName="ExportCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_ExportSundaySchoolCSV" phpName="ExportSundaySchoolCSV" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
