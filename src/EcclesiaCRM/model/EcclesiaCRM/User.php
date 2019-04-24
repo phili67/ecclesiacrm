@@ -532,6 +532,11 @@ class User extends BaseUser
     
     public function isEmailEnabled()
     {
+        return $this->isAdmin() || $this->getCanSendEmail();
+    }
+
+    public function isEmailToEnabled()
+    {
         return $this->isAdmin() || $this->getUserConfigString('bEmailMailto');
     }
     

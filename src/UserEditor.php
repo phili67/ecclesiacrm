@@ -164,6 +164,12 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $QueryMenu = 0;
         }
+
+        if (isset($_POST['CanSendEmail'])) {
+            $CanSendEmail = 1;
+        } else {
+            $CanSendEmail = 0;
+        }
         
         if (isset($_POST['ExportCSV'])) {
             $ExportCSV = 1;
@@ -262,6 +268,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
+                    $user->setCanSendEmail($CanSendEmail);
                     $user->setExportCSV($ExportCSV);
                     $user->setCreatedirectory($CreateDirectory);
                     $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
@@ -316,6 +323,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setNotes($Notes);
                     $user->setAdmin($Admin);
                     $user->setShowMenuQuery($QueryMenu);
+                    $user->setCanSendEmail($CanSendEmail);
                     $user->setExportCSV($ExportCSV);
                     $user->setCreatedirectory($CreateDirectory);
                     $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
@@ -384,6 +392,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_Notes                  = $user->getNotes();
             $usr_Admin                  = $user->getAdmin();
             $usr_showMenuQuery          = $user->getShowMenuQuery();
+            $usr_CanSendEmail           = $user->getCanSendEmail();
             $usr_ExportCSV              = $user->getExportCSV();
             $usr_CreateDirectory        = $user->getCreatedirectory();
             $usr_ExportSundaySchoolPDF  = $user->getExportSundaySchoolPDF();
@@ -420,6 +429,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_Notes                  = 0;
             $usr_Admin                  = 0;
             $usr_showMenuQuery          = 0;
+            $usr_CanSendEmail           = 0;
             $usr_ExportCSV              = 0;
             $usr_CreateDirectory        = 0;
             $usr_ExportSundaySchoolPDF  = 0;
@@ -450,6 +460,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_Notes                  = 0;
         $usr_Admin                  = 0;
         $usr_showMenuQuery          = 0;
+        $usr_CanSendEmail           = 0;
         $usr_ExportCSV              = 0;
         $usr_CreateDirectory        = 0;
         $usr_ExportSundaySchoolPDF  = 0;
@@ -765,6 +776,14 @@ if ($usr_role_id == null) {
           </tr>
 
           <tr>
+              <td><?= _('Can Send Email') ?>:</td>
+              <td>
+                <input type="checkbox" class="global_settings" name="CanSendEmail" value="1"<?= ($usr_CanSendEmail)?' checked':'' ?>>
+                  &nbsp;<span class="SmallText">(<?= _('Allow to use the mail function and button in the CRM') ?>)</span>
+              </td>
+          </tr>
+
+          <tr>
               <td><?= _('CSV Export') ?>:</td>
               <td>
                 <input type="checkbox" class="global_settings" name="ExportCSV" value="1"<?= ($usr_ExportCSV)?' checked':'' ?>>
@@ -877,7 +896,6 @@ if ($usr_role_id == null) {
                 // Get default settings
                 $defaultConfigs = UserConfigQuery::create()->orderById()->findByPersonId (0);
                 
-                $r = 1;
                 // List Default Settings
                 foreach ($defaultConfigs as $defaultConfig) {
                     $userConfig = UserConfigQuery::create()->filterById($defaultConfig->getId())->findOneByPersonId ($usr_per_ID);
@@ -976,14 +994,11 @@ if ($usr_role_id == null) {
                         <?= _($userConfig->getTooltip()) ?>
                     </td>
                   </tr>
-                <?php
-
-                  $r++;
+              <?php
                 }
 
                 // Cancel, Save Buttons
-                ?>
-
+              ?>
               </tbody>
             </table>
             <div class="row">
