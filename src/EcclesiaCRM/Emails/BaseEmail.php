@@ -15,7 +15,7 @@ abstract class BaseEmail
     /** @var \PHPMailer */
     protected $mail;
     protected $mustache;
-    protected $isActiv;
+    protected $isActiv;// now only a user who has given authorization can receive email notifications
 
     public function __construct($toAddresses)
     {
@@ -57,7 +57,7 @@ abstract class BaseEmail
 
     public function send()
     {
-        if (SystemConfig::hasValidMailServerSettings() && $this->isActiv) {
+        if (SystemConfig::hasValidMailServerSettings() && $this->isActiv) {// $this->isActiv : now only a user who has given authorization can receive email notifications
             return $this->mail->send();
         }
         return false; // we don't have a valid setting so let us make sure we don't crash.
