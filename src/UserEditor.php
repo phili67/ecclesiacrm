@@ -586,13 +586,13 @@ if ($usr_role_id == null) {
         <ul class="dropdown-menu" role="menu" id="AllRoles">
             <?php 
                foreach ($userRoles as $userRole) {
-            ?>               
+            ?>
                <li> <a href="#" class="changeRole" data-id="<?= $userRole->getId() ?>"><i class="fa fa-arrow-circle-o-down"></i><?= $userRole->getName() ?></a></li>
             <?php
                }
             ?>
         </ul>
-      </div>                                        
+      </div>
   </div>
 <!-- /.box-body -->
 </div><!-- Default box -->
