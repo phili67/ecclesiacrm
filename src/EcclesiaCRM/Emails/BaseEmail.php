@@ -15,9 +15,11 @@ abstract class BaseEmail
     /** @var \PHPMailer */
     protected $mail;
     protected $mustache;
+    protected $isActiv;
 
     public function __construct($toAddresses)
     {
+        $this->isActiv = true;
         $this->setConnection();
         $this->mail->setFrom(ChurchMetaData::getChurchEmail(), ChurchMetaData::getChurchName());
         foreach ($toAddresses as $email) {
@@ -31,7 +33,7 @@ abstract class BaseEmail
             'loader' => new Mustache_Loader_FilesystemLoader(SystemURLs::getDocumentRoot() . '/views/email', $options),
         ));
     }
-
+    
     private function setConnection()
     {
 
@@ -55,7 +57,7 @@ abstract class BaseEmail
 
     public function send()
     {
-        if (SystemConfig::hasValidMailServerSettings()) {
+        if (SystemConfig::hasValidMailServerSettings() && $this->isActiv) {
             return $this->mail->send();
         }
         return false; // we don't have a valid setting so let us make sure we don't crash.

@@ -17,6 +17,7 @@ abstract class BaseUserEmail extends BaseEmail
     public function __construct($user)
     {
         parent::__construct([$user->getEmail()]);
+        $this->isActiv = $user->isEmailToEnabled();
         $this->user = $user;
         $this->mail->Subject = SystemConfig::getValue("sChurchName") . ": " . $this->getSubSubject();
         $this->mail->isHTML(true);
