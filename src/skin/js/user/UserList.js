@@ -70,7 +70,7 @@ $(document).ready(function () {
     }).done(function(data) {
       if (data.status == 'success') {
         if (data.token != null) {
-          window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+data.token);
+          window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+data.token+"<br>"+i18next.t("The public WebDav Key is")+" : "+data.token2);
         } else {
           window.CRM.DisplayAlert(i18next.t("WebDav key"),i18next.t("The WebDav Key is")+" : "+i18next.t("None"));
         }

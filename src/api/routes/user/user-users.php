@@ -86,7 +86,7 @@ function webDavKey (Request $request, Response $response, array $args) {
     
       $user = UserQuery::create()->findPk($params->userID);
       if (!is_null($user)) {
-        return $response->withJson(['status' => "success", "token" => $user->getWebdavkey()]);
+        return $response->withJson(['status' => "success", "token" => $user->getWebdavkey(),"token2" => $user->getWebdavPublickey()]);
       }
     }
     
