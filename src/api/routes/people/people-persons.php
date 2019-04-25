@@ -428,14 +428,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
             $user = UserQuery::create()->findPk($personId);
             
             if (!is_null($user)) {
-              $newAccountStatus = (empty($user->getIsDeactivated()) ? true : false);
-
-              //update only if the value is different
-              if ($newAccountStatus) {
-                  $user->setIsDeactivated(true);
-              } else {
-                  $user->setIsDeactivated(false);
-              }
+              $user->setIsDeactivated(true);
         
               $user->save();
         
@@ -443,15 +436,11 @@ function activateDeacticate (Request $request, Response $response, array $args) 
               $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
               $email->send();
 
-
               //Create a note to record the status change
               $note = new Note();
               $note->setPerId($user->getPersonId());
-              if ($newAccountStatus == 'false') {
-                  $note->setText(_('User Deactivated'));
-              } else {
-                  $note->setText(_('User Activated'));
-              }
+              
+              $note->setText(_('User Deactivated'));
               $note->setType('edit');
               $note->setEntered(SessionUser::getUser()->getPersonId());
               $note->save();

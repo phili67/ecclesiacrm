@@ -108,7 +108,7 @@ function lockUnlock (Request $request, Response $response, array $args) {
     
       $user = UserQuery::create()->findPk($params->userID);
       
-      if (!is_null($user) && $user->getPersonId() != 1) {            
+      if (!is_null($user) && $user->getPersonId() != 1) {
         $newStatus = (empty($user->getIsDeactivated()) ? true : false);
 
         //update only if the value is different
