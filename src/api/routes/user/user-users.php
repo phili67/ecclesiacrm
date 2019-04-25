@@ -117,7 +117,7 @@ function lockUnlock (Request $request, Response $response, array $args) {
         $user->save();
         
         // a mail is notified
-        $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
+        $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"),2);
         $email->send();
 
 
