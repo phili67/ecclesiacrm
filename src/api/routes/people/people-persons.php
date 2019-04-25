@@ -429,18 +429,17 @@ function activateDeacticate (Request $request, Response $response, array $args) 
             
             if (!is_null($user)) {
               $user->setIsDeactivated(true);
-        
               $user->save();
         
               // a mail is notified
-              $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
+              $email = new UpdateAccountEmail($user, _("Account Deactivated"));
               $email->send();
 
               //Create a note to record the status change
               $note = new Note();
               $note->setPerId($user->getPersonId());
               
-              $note->setText(_('User Deactivated'));
+              $note->setText(_('Account Deactivated'));
               $note->setType('edit');
               $note->setEntered(SessionUser::getUser()->getPersonId());
               $note->save();
@@ -456,22 +455,14 @@ function activateDeacticate (Request $request, Response $response, array $args) 
         
         // a one person family is deactivated too
         if ($person->getFamily()->getPeople()->count() == 1) {
-          if ($newStatus == "false") {
-              $person->getFamily()->setDateDeactivated(date('YmdHis'));
-          } elseif ($newStatus == "true") {
-              $person->getFamily()->setDateDeactivated(Null);
-          }
+          $person->getFamily()->setDateDeactivated(($newStatus == "false")?date('YmdHis'):Null);
           $person->getFamily()->save();
         }
 
         //Create a note to record the status change
         $note = new Note();
         $note->setPerId($personId);
-        if ($newStatus == 'false') {
-            $note->setText(_('Person Deactivated'));
-        } else {
-            $note->setText(_('Person Activated'));
-        }
+        $note->setText(($newStatus == 'false')?_('Person Deactivated'):_('Person Activated'));
         $note->setType('edit');
         $note->setEntered(SessionUser::getUser()->getPersonId());
         $note->save();

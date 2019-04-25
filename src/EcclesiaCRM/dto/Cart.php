@@ -275,17 +275,17 @@ class Cart
           $user->setIsDeactivated(true);
           $user->save();
           
-          //Create a note to record the status change
-          $note = new Note();
-          $note->setPerId($user->getPersonId());
-          $note->setText(_('User Deactivated'));
-          $note->setType('edit');
-          $note->setEntered(SessionUser::getUser()->getPersonId());
-          $note->save();
-
           // a mail is notified
           $email = new UpdateAccountEmail($user, _("Account Deactivated"));
           $email->send();
+
+          //Create a note to record the status change
+          $note = new Note();
+          $note->setPerId($user->getPersonId());
+          $note->setText(_('Account Deactivated'));
+          $note->setType('edit');
+          $note->setEntered(SessionUser::getUser()->getPersonId());
+          $note->save();
         }
         
         $person->setDateDeactivated(date('YmdHis'));

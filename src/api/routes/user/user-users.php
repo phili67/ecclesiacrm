@@ -124,15 +124,10 @@ function lockUnlock (Request $request, Response $response, array $args) {
         $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
         $email->send();
 
-
         //Create a note to record the status change
         $note = new Note();
         $note->setPerId($user->getPersonId());
-        if ($newStatus == 'false') {
-            $note->setText(_('User Deactivated'));
-        } else {
-            $note->setText(_('User Activated'));
-        }
+        $note->setText(($newStatus)?_('Account Deactivated'):_("Account Activated"));
         $note->setType('edit');
         $note->setEntered(SessionUser::getUser()->getPersonId());
         $note->save();
