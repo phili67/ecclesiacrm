@@ -100,6 +100,10 @@ function lockUnlock (Request $request, Response $response, array $args) {
     
     $params = (object)$request->getParsedBody();
       
+    // note : When a user is deactivated the associated person is deactivated too
+    //        but when a person is deactivated the user is deactivated too.
+    //        Important : a person re-activated don't reactivate the user
+    
     if (isset ($params->userID)) {
     
       $user = UserQuery::create()->findPk($params->userID);

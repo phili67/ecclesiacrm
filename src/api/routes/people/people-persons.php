@@ -36,6 +36,7 @@ use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\dto\SystemConfig;
 
 
+
 $app->group('/persons', function () {
     // search person by Name
     $this->get('/search/{query}', "searchPerson");
@@ -416,16 +417,21 @@ function activateDeacticate (Request $request, Response $response, array $args) 
     $person = PersonQuery::create()->findPk($personId);
     $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
 
-    //update only if the value is different
+    //update only if the status is different
+    
+    // note : When a user is deactivated the associated person is deactivated too
+    //        but when a person is deactivated the user is deactivated too.
+    //        Important : a person re-activated don't reactivate the user
+    
     if ($currentStatus != $newStatus) {
-        if ($newStatus == "false") {
+        if ($newStatus == 'false') {
             $user = UserQuery::create()->findPk($personId);
             
             if (!is_null($user)) {
-              $newStatus = (empty($user->getIsDeactivated()) ? true : false);
+              $newAccountStatus = (empty($user->getIsDeactivated()) ? true : false);
 
               //update only if the value is different
-              if ($newStatus) {
+              if ($newAccountStatus) {
                   $user->setIsDeactivated(true);
               } else {
                   $user->setIsDeactivated(false);
@@ -441,7 +447,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
               //Create a note to record the status change
               $note = new Note();
               $note->setPerId($user->getPersonId());
-              if ($newStatus == 'false') {
+              if ($newAccountStatus == 'false') {
                   $note->setText(_('User Deactivated'));
               } else {
                   $note->setText(_('User Activated'));
@@ -453,7 +459,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
 
             $person->setDateDeactivated(date('YmdHis'));
 
-        } elseif ($newStatus == "true") {
+        } elseif ($newStatus == 'true') {
             $person->setDateDeactivated(Null);
         }
         

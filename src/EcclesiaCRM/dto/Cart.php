@@ -267,6 +267,10 @@ class Cart
         $user = UserQuery::create()
               ->findOneByPersonId($personID);
 
+        // note : When a user is deactivated the associated person is deactivated too
+        //        but when a person is deactivated the user is deactivated too.
+        //        Important : a person re-activated don't reactivate the user
+        
         if (!is_null ($user)) {
           $user->setIsDeactivated(true);
           $user->save();
