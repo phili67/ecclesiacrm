@@ -16,12 +16,12 @@ class NewAccountEmail extends BaseUserEmail
 
     protected function getSubSubject()
     {
-        return gettext("Your New Account");
+        return _("Your New Account");
     }
 
     protected function buildMessageBody()
     {
-        return gettext("A EcclesiaCRM account was created for you").":";
+        return _("A EcclesiaCRM account was created for you").":";
     }
 
     public function getTokens()
@@ -29,7 +29,7 @@ class NewAccountEmail extends BaseUserEmail
         $parentTokens = parent::getTokens();
         $myTokens = ["password" => $this->password,
             "confirmSigner" => SessionUser::getUser()->getPerson()->getFullName(),
-            "passwordText" => gettext('New Password')];
+            "passwordText" => _('New Password')];
         return array_merge($parentTokens, $myTokens);
     }
 }
