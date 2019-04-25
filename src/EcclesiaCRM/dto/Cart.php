@@ -267,21 +267,25 @@ class Cart
         $user = UserQuery::create()
               ->findOneByPersonId($personID);
 
+        // note : When a user is deactivated the associated person is deactivated too
+        //        but when a person is deactivated the user is deactivated too.
+        //        Important : a person re-activated don't reactivate the user
+        
         if (!is_null ($user)) {
           $user->setIsDeactivated(true);
           $user->save();
           
+          // a mail is notified
+          $email = new UpdateAccountEmail($user, _("Account Deactivated"));
+          $email->send();
+
           //Create a note to record the status change
           $note = new Note();
           $note->setPerId($user->getPersonId());
-          $note->setText(_('User Deactivated'));
+          $note->setText(_('Account Deactivated'));
           $note->setType('edit');
           $note->setEntered(SessionUser::getUser()->getPersonId());
           $note->save();
-
-          // a mail is notified
-          $email = new UpdateAccountEmail($user, _("Deactivate account"));
-          $email->send();
         }
         
         $person->setDateDeactivated(date('YmdHis'));

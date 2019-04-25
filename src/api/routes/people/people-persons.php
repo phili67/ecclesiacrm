@@ -36,6 +36,7 @@ use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\dto\SystemConfig;
 
 
+
 $app->group('/persons', function () {
     // search person by Name
     $this->get('/search/{query}', "searchPerson");
@@ -416,36 +417,29 @@ function activateDeacticate (Request $request, Response $response, array $args) 
     $person = PersonQuery::create()->findPk($personId);
     $currentStatus = (empty($person->getDateDeactivated()) ? 'true' : 'false');
 
-    //update only if the value is different
+    //update only if the status is different
+    
+    // note : When a user is deactivated the associated person is deactivated too
+    //        but when a person is deactivated the user is deactivated too.
+    //        Important : a person re-activated don't reactivate the user
+    
     if ($currentStatus != $newStatus) {
-        if ($newStatus == "false") {
+        if ($newStatus == 'false') {
             $user = UserQuery::create()->findPk($personId);
             
             if (!is_null($user)) {
-              $newStatus = (empty($user->getIsDeactivated()) ? true : false);
-
-              //update only if the value is different
-              if ($newStatus) {
-                  $user->setIsDeactivated(true);
-              } else {
-                  $user->setIsDeactivated(false);
-              }
-        
+              $user->setIsDeactivated(true);
               $user->save();
         
               // a mail is notified
-              $email = new UpdateAccountEmail($user, ($newStatus)?gettext("Deactivate account"):gettext("The same as before"));
+              $email = new UpdateAccountEmail($user, _("Account Deactivated"));
               $email->send();
-
 
               //Create a note to record the status change
               $note = new Note();
               $note->setPerId($user->getPersonId());
-              if ($newStatus == 'false') {
-                  $note->setText(gettext('User Deactivated'));
-              } else {
-                  $note->setText(gettext('User Activated'));
-              }
+              
+              $note->setText(_('Account Deactivated'));
               $note->setType('edit');
               $note->setEntered(SessionUser::getUser()->getPersonId());
               $note->save();
@@ -453,7 +447,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
 
             $person->setDateDeactivated(date('YmdHis'));
 
-        } elseif ($newStatus == "true") {
+        } elseif ($newStatus == 'true') {
             $person->setDateDeactivated(Null);
         }
         
@@ -461,22 +455,14 @@ function activateDeacticate (Request $request, Response $response, array $args) 
         
         // a one person family is deactivated too
         if ($person->getFamily()->getPeople()->count() == 1) {
-          if ($newStatus == "false") {
-              $person->getFamily()->setDateDeactivated(date('YmdHis'));
-          } elseif ($newStatus == "true") {
-              $person->getFamily()->setDateDeactivated(Null);
-          }
+          $person->getFamily()->setDateDeactivated(($newStatus == "false")?date('YmdHis'):Null);
           $person->getFamily()->save();
         }
 
         //Create a note to record the status change
         $note = new Note();
         $note->setPerId($personId);
-        if ($newStatus == 'false') {
-            $note->setText(gettext('Person Deactivated'));
-        } else {
-            $note->setText(gettext('Person Activated'));
-        }
+        $note->setText(($newStatus == 'false')?_('Person Deactivated'):_('Person Activated'));
         $note->setType('edit');
         $note->setEntered(SessionUser::getUser()->getPersonId());
         $note->save();
@@ -527,7 +513,7 @@ function saveNoteAsWordFile ($request, $res, $args) {
         $note->setText($userName . $currentpath . $title.".docx");
         $note->setType('file');
         $note->setEntered(SessionUser::getUser()->getPersonId());
-        $note->setInfo(gettext('Create file'));
+        $note->setInfo(_('Create file'));
       
         $note->save();
 
