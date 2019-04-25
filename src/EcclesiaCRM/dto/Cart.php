@@ -280,7 +280,7 @@ class Cart
           $note->save();
 
           // a mail is notified
-          $email = new UpdateAccountEmail($user, _("Deactivate account"));
+          $email = new UpdateAccountEmail($user, _("Account Deactivated"));
           $email->send();
         }
         

@@ -434,7 +434,7 @@ function activateDeacticate (Request $request, Response $response, array $args) 
               $user->save();
         
               // a mail is notified
-              $email = new UpdateAccountEmail($user, ($newStatus)?gettext("Deactivate account"):gettext("The same as before"));
+              $email = new UpdateAccountEmail($user, ($newStatus)?_("Account Deactivated"):_("Account Activated"));
               $email->send();
 
 
@@ -442,9 +442,9 @@ function activateDeacticate (Request $request, Response $response, array $args) 
               $note = new Note();
               $note->setPerId($user->getPersonId());
               if ($newStatus == 'false') {
-                  $note->setText(gettext('User Deactivated'));
+                  $note->setText(_('User Deactivated'));
               } else {
-                  $note->setText(gettext('User Activated'));
+                  $note->setText(_('User Activated'));
               }
               $note->setType('edit');
               $note->setEntered(SessionUser::getUser()->getPersonId());
@@ -473,9 +473,9 @@ function activateDeacticate (Request $request, Response $response, array $args) 
         $note = new Note();
         $note->setPerId($personId);
         if ($newStatus == 'false') {
-            $note->setText(gettext('Person Deactivated'));
+            $note->setText(_('Person Deactivated'));
         } else {
-            $note->setText(gettext('Person Activated'));
+            $note->setText(_('Person Activated'));
         }
         $note->setType('edit');
         $note->setEntered(SessionUser::getUser()->getPersonId());
@@ -527,7 +527,7 @@ function saveNoteAsWordFile ($request, $res, $args) {
         $note->setText($userName . $currentpath . $title.".docx");
         $note->setType('file');
         $note->setEntered(SessionUser::getUser()->getPersonId());
-        $note->setInfo(gettext('Create file'));
+        $note->setInfo(_('Create file'));
       
         $note->save();
 

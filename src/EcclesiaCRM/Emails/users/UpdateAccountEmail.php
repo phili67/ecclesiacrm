@@ -6,12 +6,10 @@ use EcclesiaCRM\SessionUser;
 
 class UpdateAccountEmail extends BaseUserEmail
 {
-    protected $type; // 1 : password; 2: update account (activated deactivated)
-    protected $password;
+    protected $update;
 
-    public function __construct($user, $password,$type=1) {
-        $this->password = $password;
-        $this->type     = $type;
+    public function __construct($user, $update) {
+        $this->update = $update;
         parent::__construct($user);
     }
 
@@ -28,9 +26,9 @@ class UpdateAccountEmail extends BaseUserEmail
     public function getTokens()
     {
         $parentTokens = parent::getTokens();
-        $myTokens = ["update" => $this->password,
+        $myTokens = ["update" => $this->update,
             "confirmSigner" => SessionUser::getUser()->getPerson()->getFullName(),
-            "updateText" => (($this->type == 1)?_('New Password'):_('Status'))];
+            "updateText" => _('Status')];
         return array_merge($parentTokens, $myTokens);
     }
 }
