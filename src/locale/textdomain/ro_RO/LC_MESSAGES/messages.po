@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 17:30+0200\n"
+"POT-Creation-Date: 2019-04-25 18:24+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,7 +107,7 @@ msgstr "Cosul tau a fost golit cu succes"
 
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:626
-#: api/routes/people/people-persons.php:530 uploader/upload.php:80
+#: api/routes/people/people-persons.php:516 uploader/upload.php:80
 #, fuzzy
 msgid "Create file"
 msgstr "Creați fișiere"
@@ -283,34 +283,20 @@ msgstr "din grup"
 msgid "Added to group"
 msgstr "Adauga la grup"
 
-#: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
-#: EcclesiaCRM/dto/Cart.php:283
+#: api/routes/people/people-persons.php:435
+#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:124
+#: api/routes/user/user-users.php:130 EcclesiaCRM/dto/Cart.php:279
+#: EcclesiaCRM/dto/Cart.php:285
 #, fuzzy
-msgid "Deactivate account"
-msgstr "inactiv"
-
-#: api/routes/people/people-persons.php:437 api/routes/user/user-users.php:120
-#: UserEditor.php:345
-msgid "The same as before"
-msgstr ""
-
-#: api/routes/people/people-persons.php:445 api/routes/user/user-users.php:128
-#: EcclesiaCRM/dto/Cart.php:277
-#, fuzzy
-msgid "User Deactivated"
+msgid "Account Deactivated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-persons.php:447 api/routes/user/user-users.php:130
-#, fuzzy
-msgid "User Activated"
-msgstr "Este nevoie de această valoare."
-
-#: api/routes/people/people-persons.php:476
+#: api/routes/people/people-persons.php:465
 #, fuzzy
 msgid "Person Deactivated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-persons.php:478
+#: api/routes/people/people-persons.php:465
 #, fuzzy
 msgid "Person Activated"
 msgstr "Este nevoie de această valoare."
@@ -343,7 +329,7 @@ msgstr "Toate plățile"
 
 #: api/routes/search.php:364 Menu.php:327 PersonView.php:624
 #: PrintPastoralCare.php:498 Reports/GDPR/GDPRDataStructureExport.php:158
-#: UserEditor.php:832 v2/templates/gdpr/gdprdatastructure.php:141
+#: UserEditor.php:851 v2/templates/gdpr/gdprdatastructure.php:141
 msgid "Pastoral Care"
 msgstr ""
 
@@ -482,6 +468,11 @@ msgstr "Nu"
 #: api/routes/user/user-role.php:94 api/routes/user/user-role.php:123
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
+
+#: api/routes/user/user-users.php:124 api/routes/user/user-users.php:130
+#, fuzzy
+msgid "Account Activated"
+msgstr "Este nevoie de această valoare."
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
 #: Include/Functions.php:257
@@ -708,7 +699,7 @@ msgstr ""
 #: GroupEditor.php:245 PaddleNumEditor.php:149 PersonEditor.php:802
 #: PersonEditor.php:935 PersonEditor.php:1053 PersonEditor.php:1452
 #: PersonEditor.php:1525 PersonEditor.php:1611 PledgeEditor.php:729
-#: UserEditor.php:849 UserPasswordChange.php:224
+#: UserEditor.php:868 UserPasswordChange.php:224
 msgid "Save"
 msgstr "Salva"
 
@@ -721,10 +712,10 @@ msgstr "Salva"
 #: LettersAndLabels.php:83 ManageEnvelopes.php:134 MemberRoleChange.php:121
 #: MemberRoleChange.php:123 PersonEditor.php:1619 PersonView.php:1559
 #: PledgeEditor.php:736 Register.php:56 ReminderReport.php:54
-#: SettingsIndividual.php:126 SettingsIndividual.php:214
+#: SettingsIndividual.php:125 SettingsIndividual.php:213
 #: sundayschool/SundaySchoolDashboard.php:280
-#: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:850
-#: UserEditor.php:995
+#: sundayschool/SundaySchoolReports.php:320 TaxReport.php:53 UserEditor.php:869
+#: UserEditor.php:1010
 msgid "Cancel"
 msgstr "Anula"
 
@@ -1340,7 +1331,7 @@ msgstr "Coșul la Eveniment"
 msgid "Map Cart"
 msgstr "Harta Cart"
 
-#: CartView.php:122 CSVExport.php:49 UserEditor.php:768
+#: CartView.php:122 CSVExport.php:49 UserEditor.php:787
 msgid "CSV Export"
 msgstr "CSV Export"
 
@@ -2261,7 +2252,7 @@ msgstr "Numele Bisericii"
 msgid "Disclaimer"
 msgstr "Act de renunțare"
 
-#: DirectoryReports.php:313 UserEditor.php:776
+#: DirectoryReports.php:313 UserEditor.php:795
 msgid "Create Directory"
 msgstr "Creați Director"
 
@@ -3415,7 +3406,7 @@ msgstr ""
 msgid "PersonID for Cart must be numeric"
 msgstr "Această valoare trebuie să fie numeric."
 
-#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:309
+#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:313
 #, fuzzy
 msgid "GroupID for Cart must be numeric"
 msgstr "Această valoare trebuie să fie numeric."
@@ -4393,7 +4384,7 @@ msgstr ""
 msgid "Your EcclesiaCRM Account was Deleted."
 msgstr ""
 
-#: EcclesiaCRM/Emails/users/BaseUserEmail.php:30 Login.php:246
+#: EcclesiaCRM/Emails/users/BaseUserEmail.php:31 Login.php:246
 msgid "Email/Username"
 msgstr ""
 
@@ -4432,7 +4423,6 @@ msgstr ""
 #: EcclesiaCRM/Emails/users/NewAccountEmail.php:32
 #: EcclesiaCRM/Emails/users/PasswordChangeEmail.php:29
 #: EcclesiaCRM/Emails/users/ResetPasswordEmail.php:29
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:32
 #: UserPasswordChange.php:213
 #, fuzzy
 msgid "New Password"
@@ -4477,14 +4467,20 @@ msgstr ""
 msgid "Your EcclesiaCRM account was unlocked."
 msgstr ""
 
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:19
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:18
 #, fuzzy
 msgid "Your Account"
 msgstr "Valoare"
 
-#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:24
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:23
 msgid "Your EcclesiaCRM account was updated"
 msgstr ""
+
+#: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31 GroupView.php:284
+#: v2/templates/user/userlist.php:55
+#, fuzzy
+msgid "Status"
+msgstr "De stat"
 
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:17
 msgid "Please verify your family's information"
@@ -4630,7 +4626,7 @@ msgstr "Adăugare câmp nou"
 msgid "View Active Families"
 msgstr "CSV Combine Familiile"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:310 FamilyView.php:355 UserEditor.php:816
+#: EcclesiaCRM/MenuBar/MenuBar.php:310 FamilyView.php:355 UserEditor.php:835
 msgid "MailChimp"
 msgstr ""
 
@@ -4714,7 +4710,7 @@ msgstr "A crea un raport"
 msgid "Reports Menu"
 msgstr "Raportul Meniu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384 UserEditor.php:760
+#: EcclesiaCRM/MenuBar/MenuBar.php:384 UserEditor.php:771
 #, fuzzy
 msgid "Query Menu"
 msgstr "Vezi interogare"
@@ -4866,53 +4862,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:638
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:643
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:641
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:646
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:644
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:649
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:647
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:652
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:650
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:655
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:653
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:658
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:656
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:661
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:662
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:667
 #, fuzzy
 msgid "Dav create file"
 msgstr "Creați fișiere"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:668
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:673
 #, fuzzy
 msgid "Dav create directory"
 msgstr "Creați Director"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:674
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:679
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:687
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:692
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:694
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:699
 msgid "Dav delete file"
 msgstr ""
 
@@ -5831,8 +5827,8 @@ msgstr "Familie Ștergere Confirmarea"
 msgid "Reset your password"
 msgstr "Re-introdu parola"
 
-#: external/templates/password/enter-username.php:30 UserEditor.php:633
-#: UserEditor.php:686
+#: external/templates/password/enter-username.php:30 UserEditor.php:644
+#: UserEditor.php:697
 #, fuzzy
 msgid "Login Name"
 msgstr "Login"
@@ -7266,11 +7262,6 @@ msgstr "Adresa"
 #, fuzzy
 msgid "Quick Settings"
 msgstr "Salvare setări"
-
-#: GroupView.php:284 v2/templates/user/userlist.php:55
-#, fuzzy
-msgid "Status"
-msgstr "De stat"
 
 #: GroupView.php:284 KioskManager.php:30 ListEvents.php:367
 msgid "Active"
@@ -9331,7 +9322,7 @@ msgstr "Atribui"
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:169 UserEditor.php:745
+#: Reports/CanvassReports.php:169 UserEditor.php:756
 #, fuzzy
 msgid "Canvasser"
 msgstr "Colportor"
@@ -10049,35 +10040,35 @@ msgstr "Fotografii"
 msgid "Cart"
 msgstr "Cart"
 
-#: SettingsIndividual.php:94
+#: SettingsIndividual.php:93
 msgid "My User Settings"
 msgstr "Mi Setări utilizator"
 
-#: SettingsIndividual.php:107 SystemSettings.php:138 UserEditor.php:867
+#: SettingsIndividual.php:106 SystemSettings.php:138 UserEditor.php:886
 msgid "Variable name"
 msgstr "Denumirea variabilei"
 
-#: SettingsIndividual.php:108 UserEditor.php:868
+#: SettingsIndividual.php:107 UserEditor.php:887
 msgid "Current Value"
 msgstr "Valoare curent"
 
-#: SettingsIndividual.php:109 UserEditor.php:869
+#: SettingsIndividual.php:108 UserEditor.php:888
 #, fuzzy
 msgid "Notes"
 msgstr "Note:"
 
-#: SettingsIndividual.php:129 SettingsIndividual.php:215 SystemSettings.php:254
-#: UserEditor.php:994
+#: SettingsIndividual.php:128 SettingsIndividual.php:214 SystemSettings.php:254
+#: UserEditor.php:1009
 msgid "Save Settings"
 msgstr "Salvare setări"
 
-#: SettingsIndividual.php:176 SystemSettings.php:198 UserEditor.php:901
-#: UserEditor.php:950
+#: SettingsIndividual.php:175 SystemSettings.php:198 UserEditor.php:919
+#: UserEditor.php:968
 msgid "False"
 msgstr ""
 
-#: SettingsIndividual.php:177 SystemSettings.php:199 UserEditor.php:902
-#: UserEditor.php:951
+#: SettingsIndividual.php:176 SystemSettings.php:199 UserEditor.php:920
+#: UserEditor.php:969
 msgid "True"
 msgstr ""
 
@@ -10569,182 +10560,195 @@ msgstr ""
 msgid "Login must be a least 3 characters!"
 msgstr ""
 
-#: UserEditor.php:289 UserEditor.php:349
+#: UserEditor.php:296 UserEditor.php:357
 msgid "Login already in use, please select a different login!"
 msgstr ""
 
-#: UserEditor.php:558
+#: UserEditor.php:353
+msgid "The same as before"
+msgstr ""
+
+#: UserEditor.php:569
 msgid "User Editor"
 msgstr "Utilizator Editor"
 
-#: UserEditor.php:575
+#: UserEditor.php:586
 #, fuzzy
 msgid "Role management"
 msgstr "Proprietate Unassignment"
 
-#: UserEditor.php:578
+#: UserEditor.php:589
 #, fuzzy
 msgid "Add Role"
 msgstr "Noul rol"
 
-#: UserEditor.php:579
+#: UserEditor.php:590
 #, fuzzy
 msgid "Manage Roles"
 msgstr "Gestionarea grupurilor și roluri"
 
-#: UserEditor.php:581
+#: UserEditor.php:592
 #, fuzzy
 msgid "Add Role to Current User"
 msgstr "Adauga in cos"
 
-#: UserEditor.php:616
+#: UserEditor.php:627
 #, fuzzy
 msgid "Person to Make User"
 msgstr "Persoana pentru a face Utilizator"
 
-#: UserEditor.php:648
+#: UserEditor.php:659
 msgid "Note: Changes will not take effect until next logon."
 msgstr "Notă: Modificările nu vor avea efect până la următoarea conectare."
 
-#: UserEditor.php:662
+#: UserEditor.php:673
 #, fuzzy
 msgid "User"
 msgstr "Utilizator"
 
-#: UserEditor.php:693
+#: UserEditor.php:704
 #, fuzzy
 msgid "Add Records"
 msgstr "Adauga Records"
 
-#: UserEditor.php:698
+#: UserEditor.php:709
 #, fuzzy
 msgid "Edit Records"
 msgstr "Editare Records"
 
-#: UserEditor.php:703
+#: UserEditor.php:714
 #, fuzzy
 msgid "Delete Records"
 msgstr "Șterge înregistrări"
 
-#: UserEditor.php:708
+#: UserEditor.php:719
 #, fuzzy
 msgid "Show Cart"
 msgstr "Arata Plăți"
 
-#: UserEditor.php:713
+#: UserEditor.php:724
 #, fuzzy
 msgid "Show Map"
 msgstr "Arată în"
 
-#: UserEditor.php:718
+#: UserEditor.php:729
 #, fuzzy
 msgid "Manage Properties and Classifications"
 msgstr "Gestionarea proprietăților și clasificări"
 
-#: UserEditor.php:723
+#: UserEditor.php:734
 #, fuzzy
 msgid "Manage Groups and Roles"
 msgstr "Gestionarea grupurilor și roluri"
 
-#: UserEditor.php:728
+#: UserEditor.php:739
 #, fuzzy
 msgid "Manage Donations and Finance"
 msgstr "Gestionați Donații și Finanțe"
 
-#: UserEditor.php:733
+#: UserEditor.php:744
 #, fuzzy
 msgid "View, Add and Edit Notes"
 msgstr "Vizualizați, adăugați și editați Note"
 
-#: UserEditor.php:738
+#: UserEditor.php:749
 #, fuzzy
 msgid "Edit Self"
 msgstr "Editare Auto"
 
-#: UserEditor.php:741
+#: UserEditor.php:752
 #, fuzzy
 msgid "Edit own family only."
 msgstr "(Editare propria familie numai.)"
 
-#: UserEditor.php:748
+#: UserEditor.php:759
 #, fuzzy
 msgid "Canvass volunteer."
 msgstr "(Cercetați voluntar.)"
 
-#: UserEditor.php:752
+#: UserEditor.php:763
 msgid "Admin"
 msgstr ""
 
-#: UserEditor.php:755
+#: UserEditor.php:766
 #, fuzzy
 msgid "Grants all privileges."
 msgstr "(Granturi toate privilegiile.)"
 
-#: UserEditor.php:763
+#: UserEditor.php:774
 msgid "Allow to manage the query menu"
 msgstr ""
 
-#: UserEditor.php:771
+#: UserEditor.php:779
+#, fuzzy
+msgid "Can Send Email"
+msgstr "E-mail"
+
+#: UserEditor.php:782
+msgid "Allow to use the mail function and button in the CRM"
+msgstr ""
+
+#: UserEditor.php:790
 msgid "User permission to export CSV files"
 msgstr ""
 
-#: UserEditor.php:779
+#: UserEditor.php:798
 msgid "User permission to create directories"
 msgstr ""
 
-#: UserEditor.php:784
+#: UserEditor.php:803
 #, fuzzy
 msgid "Sunday school PDF"
 msgstr "Nu Școală Duminicală"
 
-#: UserEditor.php:787
+#: UserEditor.php:806
 msgid "User permission to export PDF files for the sunday school"
 msgstr ""
 
-#: UserEditor.php:792
+#: UserEditor.php:811
 #, fuzzy
 msgid "Sunday school CSV"
 msgstr "Nu Școală Duminicală"
 
-#: UserEditor.php:795
+#: UserEditor.php:814
 msgid "User permission to export CSV files for the sunday school"
 msgstr ""
 
-#: UserEditor.php:800
+#: UserEditor.php:819
 msgid "Main Dashboard"
 msgstr ""
 
-#: UserEditor.php:803
+#: UserEditor.php:822
 msgid "Main Dashboard and the birthdates in the calendar are visible."
 msgstr ""
 
-#: UserEditor.php:808
+#: UserEditor.php:827
 #, fuzzy
 msgid "See Privacy Data"
 msgstr "Privat"
 
-#: UserEditor.php:811
+#: UserEditor.php:830
 msgid "Allow user to see member privacy data, e.g. Birth Year, Age."
 msgstr ""
 
-#: UserEditor.php:819
+#: UserEditor.php:838
 msgid "Allow a user to use MailChimp tool"
 msgstr ""
 
-#: UserEditor.php:824
+#: UserEditor.php:843
 msgid "GRPD Data Protection Officer"
 msgstr ""
 
-#: UserEditor.php:827
+#: UserEditor.php:846
 msgid "General Data Protection Regulation in UE"
 msgstr ""
 
-#: UserEditor.php:839
+#: UserEditor.php:858
 #, fuzzy
 msgid "Style"
 msgstr "Stil"
 
-#: UserEditor.php:861
+#: UserEditor.php:880
 #, fuzzy
 msgid ""
 "Set Permission True to give this user the ability to change their current "
@@ -10753,7 +10757,7 @@ msgstr ""
 "Setați permisiunea Adevărat pentru a da noi utilizatori posibilitatea de a "
 "schimba valoarea lor actuală. <BR>"
 
-#: UserEditor.php:866
+#: UserEditor.php:885
 msgid "Permission"
 msgstr "Permisiune"
 
@@ -12022,6 +12026,18 @@ msgstr "Programa"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Deactivate account"
+#~ msgstr "inactiv"
+
+#, fuzzy
+#~ msgid "User Deactivated"
+#~ msgstr "Este nevoie de această valoare."
+
+#, fuzzy
+#~ msgid "User Activated"
+#~ msgstr "Este nevoie de această valoare."
 
 #, fuzzy
 #~ msgid "Group-Person-Specific Properties"
