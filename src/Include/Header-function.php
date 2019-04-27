@@ -61,6 +61,7 @@ function Header_fav_icons ()
 
 function Header_head_metatag($sPageTitle)
 {
+    if (empty($sPageTitle)) return;
 ?>
     <title>EcclesiaCRM: <?= $sPageTitle ?></title>
 <?php
