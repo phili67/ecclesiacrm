@@ -656,7 +656,8 @@
             "5.6.2"
         ],
         "scripts": [
-          "/mysql/upgrade/5.6.3-upgrade.sql"
+          "/mysql/upgrade/5.6.3-upgrade.sql",
+          "/mysql/upgrade/5.6.3-upgrade.php"
         ],
         "dbVersion": "5.6.3"
     }

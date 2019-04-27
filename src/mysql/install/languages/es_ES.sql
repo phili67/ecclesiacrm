@@ -93,6 +93,14 @@ INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
 (2, 'Usuario  Mínimo')
 ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
+INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
+(1, 'Usuario Administrador'),
+(2, 'Usuario Mínimo'),
+(3, 'Usuario Maximo pero no Administrador'),
+(4, 'Usuario Maximo pero no DPO e pero no Atención Pastoral'),
+(5, 'Usuario DPO')
+ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
+
 
 --
 -- last update for the new CRM 4.4.0
