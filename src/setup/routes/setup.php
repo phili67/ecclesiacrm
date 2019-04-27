@@ -71,27 +71,30 @@ $app->group('/', function () {
         }
         $connection->set_charset("utf8");
         
+        $logger->info("Step1 : SystemService\n");
+        
         $systemService = new SystemService();
         $version = SystemService::getInstalledVersion();
         
         $date = (new DateTime())->format('Y-m-d H:i:s');
         
-        SQLUtils::sqlImport(SystemURLs::getDocumentRoot().'/mysql/install/Install.sql', $connection);
+        SystemURLs::init($setupDate['ROOT_PATH'], $setupDate['URL'], dirname(dirname(dirname(__FILE__))));
+        
+        $logger->info("Step2 : Install.sql\n");
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/mysql/install/Install.sql';
+        $logger->info("filename sql : \n".  $filename);
+        
+        SQLUtils::sqlImport($filename, $connection);
+
+        $logger->info("Step3 : Version\n");
         
         // now we install the version
         $sql = "INSERT INTO `version_ver` (`ver_version`, `ver_update_start`, `ver_update_end`) VALUES ('".$version."', '".$date."', '".$date."');";
         
-        $logger->info("Version : \n". $sql);
+        $logger->info("Step4 : configuration\n". $sql);
         
         $connection->query($sql);
-
-        // we install the language
-        $filename = SystemURLs::getDocumentRoot().'/mysql/install/languages/'.$setupDate['sLanguage'].'.sql';
-
-        if (file_exists($filename)) {
-          SQLUtils::sqlImport($filename, $connection);
-        }
-        
         
         // and the info for the church Administration
         $sql = "INSERT INTO `config_cfg` (`cfg_id`, `cfg_name`, `cfg_value`) VALUES 
@@ -124,6 +127,20 @@ $app->group('/', function () {
 (2046, 'sPHPMailerSMTPSecure', '".$connection->real_escape_string($setupDate['sPHPMailerSMTPSecure'])."') ON DUPLICATE KEY UPDATE cfg_id=VALUES(cfg_id)";
 
         $connection->query($sql);
+        
+
+        // we install the language
+        $logger->info("Step5 : language\n sql : ". $sql);
+
+        $filename = SystemURLs::getURLs().SystemURLs::getRootPath().'/mysql/install/languages/'.$setupDate['sLanguage'].'.sql';
+        $logger->info("filename language : \n".  $filename );
+        
+        //if (file_exists($filename)) {
+        SQLUtils::sqlImport($filename, $connection);
+        //}
+        
+        $logger->info("Setup : End");
+
         
         $connection->close();
 
