@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 18:24+0200\n"
+"POT-Creation-Date: 2019-04-27 18:34+0200\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -284,8 +284,8 @@ msgid "Added to group"
 msgstr "Добавить в группу "
 
 #: api/routes/people/people-persons.php:435
-#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:124
-#: api/routes/user/user-users.php:130 EcclesiaCRM/dto/Cart.php:279
+#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:127
+#: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:279
 #: EcclesiaCRM/dto/Cart.php:285
 #, fuzzy
 msgid "Account Deactivated"
@@ -469,7 +469,11 @@ msgstr "Нет"
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
 
-#: api/routes/user/user-users.php:124 api/routes/user/user-users.php:130
+#: api/routes/user/user-users.php:71
+msgid "Your user role has changed"
+msgstr ""
+
+#: api/routes/user/user-users.php:127 api/routes/user/user-users.php:133
 #, fuzzy
 msgid "Account Activated"
 msgstr "Этот параметр обязателен."
@@ -11908,6 +11912,10 @@ msgstr ""
 msgid "Map providers for external view"
 msgstr ""
 
+#: userconfig_ucfg.php:11
+msgid "choice"
+msgstr ""
+
 #, fuzzy
 msgid "Jan"
 msgstr "и"
@@ -12009,6 +12017,18 @@ msgstr "Сроки"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "(Edit own family only.)"
+#~ msgstr "(Edit собственную семью только.)"
+
+#, fuzzy
+#~ msgid "(Canvass volunteer.)"
+#~ msgstr "(Canvass на общественных началах)."
+
+#, fuzzy
+#~ msgid "(Grants all privileges.)"
+#~ msgstr "(Гранты все права.)"
 
 #, fuzzy
 #~ msgid "Deactivate account"

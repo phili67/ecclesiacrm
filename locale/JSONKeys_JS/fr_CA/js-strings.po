@@ -1482,9 +1482,8 @@ msgstr "Vous devez choisir au moins un utilisateur."
 msgid "The WebDav Key is"
 msgstr "La clé WebDav est"
 
-#, fuzzy
 msgid "The public WebDav Key is"
-msgstr "La clé WebDav est"
+msgstr "La clé WebDav publique est"
 
 msgid "WebDav key"
 msgstr "Clé WebDav"
