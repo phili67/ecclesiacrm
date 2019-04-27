@@ -119,7 +119,10 @@ INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pr
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
 (1, 'Utilisateur Administrateur'),
-(2, 'Utilisateur Minimum')
+(2, 'Utilisateur Minimum'),
+(3, 'Utilisateur Max mais non Admin'),
+(4, 'Utilisateur Max mais non DPO et non Suivi pastoral'),
+(5, 'Utilisateur DPO')
 ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
 --

@@ -118,9 +118,16 @@ INSERT INTO `property_pro` (`pro_ID`, `pro_Class`, `pro_prt_ID`, `pro_Name`, `pr
 
 INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
 (1, 'Administrator Benutzer'),
-(2, 'Normal Benutzer ')
+(2, 'Normal Benutzer')
 ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 
+INSERT INTO `userrole_usrrol` (`usrrol_id`, `usrrol_name`) VALUES
+(1, 'Administrator Benutzer'),
+(2, 'Normal Benutzer'),
+(3, 'Max aber nicht Admin Benutzer'),
+(4, 'Max aber nicht Dpo und nicht Pastoral Pflege Benutzer'),
+(5, 'DPO Benutzer')
+ON DUPLICATE KEY UPDATE usrrol_name=VALUES(usrrol_name);
 --
 -- last update for the new CRM 4.4.0
 --
