@@ -24,7 +24,7 @@ msgid "ERROR"
 msgstr "ERROR"
 
 msgid "Mailchimp"
-msgstr ""
+msgstr "Mailchimp"
 
 msgid ""
 "All the lists are now loaded in Ecclesia<b>CRM</b>.<br><b>If you want to "
@@ -34,11 +34,9 @@ msgstr ""
 msgid "There was a problem retrieving the requested object"
 msgstr "Hubo un problema al obtener el objeto solicitado"
 
-#, fuzzy
 msgid "Do you really want to deactivate the persons?"
-msgstr "¿Está seguro de que desea borrar esto foto ?"
+msgstr "¿Está seguro que desactivar todas las personas?"
 
-#, fuzzy
 msgid "This action can be undone !!!!"
 msgstr "Esto action no puede jamás deshacerse !!!!"
 
@@ -187,43 +185,35 @@ msgstr "para este campo. Eligió otro."
 msgid "Error"
 msgstr "Error"
 
-#, fuzzy
 msgid "Please confirm deletion of this document"
-msgstr "Por favor confirme que desea borrar este grupo de registros"
+msgstr "Por favor confirme que desea borrar esto documento"
 
-#, fuzzy
 msgid "Document Delete Confirmation"
-msgstr "Confirmación de Eliminación del Usuario"
+msgstr "Confirmación de Eliminación del documento"
 
-#, fuzzy
 msgid "Document Editor"
-msgstr "Editar Fondo"
+msgstr "Editar documento"
 
 msgid "Document Title"
-msgstr ""
+msgstr "Título Del Documento"
 
-#, fuzzy
 msgid "Set your Document title"
-msgstr "Compartir archivos"
+msgstr "Inserte el Título Del Documento"
 
-#, fuzzy
 msgid "Choose your Document Type"
-msgstr "Compartir archivos"
+msgstr "Elegir el typo del Documento"
 
-#, fuzzy
 msgid "document"
-msgstr "Comentario"
+msgstr "Documento"
 
-#, fuzzy
 msgid "video"
 msgstr "Vídeo"
 
 msgid "audio"
-msgstr ""
+msgstr "audio"
 
-#, fuzzy
 msgid "Private"
-msgstr "Datos Personales"
+msgstr "Privado"
 
 msgid "Close"
 msgstr "Cerrar"
@@ -231,9 +221,8 @@ msgstr "Cerrar"
 msgid "Save"
 msgstr "Guardar"
 
-#, fuzzy
 msgid "You have to set a Title for your document"
-msgstr "Debe configurar un Título e una descripción para su Problema."
+msgstr "Tienes un Título para su Documento"
 
 msgid "Icon"
 msgstr "Icono"

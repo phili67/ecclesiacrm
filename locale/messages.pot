@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-26 23:17+0200\n"
+"POT-Creation-Date: 2019-04-27 18:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,8 +266,8 @@ msgid "Added to group"
 msgstr ""
 
 #: api/routes/people/people-persons.php:435
-#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:124
-#: api/routes/user/user-users.php:130 EcclesiaCRM/dto/Cart.php:279
+#: api/routes/people/people-persons.php:442 api/routes/user/user-users.php:127
+#: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:279
 #: EcclesiaCRM/dto/Cart.php:285
 msgid "Account Deactivated"
 msgstr ""
@@ -439,7 +439,11 @@ msgstr ""
 msgid "POST to UserRole name, global variable, userPerms and userValues"
 msgstr ""
 
-#: api/routes/user/user-users.php:124 api/routes/user/user-users.php:130
+#: api/routes/user/user-users.php:71
+msgid "Your user role has changed"
+msgstr ""
+
+#: api/routes/user/user-users.php:127 api/routes/user/user-users.php:133
 msgid "Account Activated"
 msgstr ""
 
@@ -10989,6 +10993,10 @@ msgstr ""
 
 #: userconfig_ucfg.php:10
 msgid "Map providers for external view"
+msgstr ""
+
+#: userconfig_ucfg.php:11
+msgid "choice"
 msgstr ""
 
 # extra changes
