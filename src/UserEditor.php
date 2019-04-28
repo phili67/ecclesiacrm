@@ -117,6 +117,11 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         } else {
             $ShowMap = 0;
         }
+        if (isset($_POST['EDrive'])) {
+            $EDrive = 1;
+        } else {
+            $EDrive = 0;
+        }
         if (isset($_POST['DeleteRecords'])) {
             $DeleteRecords = 1;
         } else {
@@ -260,6 +265,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
+                    $user->setEDrive($EDrive);
                     $user->setMenuOptions($MenuOptions);
                     
                     $user->setManageGroups($ManageGroups);
@@ -317,6 +323,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setDeleteRecords($DeleteRecords);
                     $user->setShowCart($ShowCart);
                     $user->setShowMap($ShowMap);
+                    $user->setEDrive($EDrive);
                     $user->setMenuOptions($MenuOptions);
                     $user->setManageGroups($ManageGroups);
                     $user->setFinance($Finance);
@@ -386,6 +393,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_DeleteRecords          = $user->getDeleteRecords();
             $usr_ShowCart               = $user->getShowCart();
             $usr_ShowMap                = $user->getShowMap();
+            $usr_EDrive                 = $user->getEdrive();
             $usr_MenuOptions            = $user->getMenuOptions();
             $usr_ManageGroups           = $user->getManageGroups();
             $usr_Finance                = $user->getFinance();
@@ -423,6 +431,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_DeleteRecords          = 0;
             $usr_ShowCart               = 0;
             $usr_ShowMap                = 0;
+            $usr_EDrive                 = 0;
             $usr_MenuOptions            = 0;
             $usr_ManageGroups           = 0;
             $usr_Finance                = 0;
@@ -454,6 +463,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_DeleteRecords          = 0;
         $usr_ShowCart               = 0;
         $usr_ShowMap                = 0;
+        $usr_EDrive                 = 0;
         $usr_MenuOptions            = 0;
         $usr_ManageGroups           = 0;
         $usr_Finance                = 0;
@@ -723,6 +733,11 @@ if ($usr_role_id == null) {
           <tr>
               <td><?= _('Show Map') ?>:</td>
               <td><input type="checkbox" class="global_settings" name="ShowMap" value="1"<?= ($usr_ShowMap)?' checked':'' ?>></td>
+          </tr>
+
+          <tr>
+              <td><?= _('EDrive') ?>:</td>
+              <td><input type="checkbox" class="global_settings" name="EDrive" value="1"<?= ($usr_EDrive)?' checked':'' ?>></td>
           </tr>
 
           <tr>

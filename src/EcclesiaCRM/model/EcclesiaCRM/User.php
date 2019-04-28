@@ -422,6 +422,25 @@ class User extends BaseUser
     {
         return $this->isAdmin() || $this->isShowMap();
     }
+    
+    public function isEDriveEnabled($iPersonID=0)
+    {
+        if ($iPersonID == 0) {
+          $iPersonID = SessionUser::getUser()->getPersonId();
+        }
+        
+        if (SystemConfig::getBooleanValue('bGDPR')) {
+          // GDPR : only the user can see his EDRIVE
+          return $this->isEDrive() && SessionUser::getUser()->getPersonId() == $iPersonID;
+        } else {
+          // not GDPR
+          $user = UserQuery::Create()->findPk($iPersonID);
+          
+          return ( !is_null($user) && 
+              ( $user->getPerson()->getId() == SessionUser::getUser()->getPersonId() 
+              || $user->getPerson()->getFamId() == SessionUser::getUser()->getPerson()->getFamId() )) || $this->isAdmin();
+        }
+    }
 
     public function isAddRecordsEnabled()
     {

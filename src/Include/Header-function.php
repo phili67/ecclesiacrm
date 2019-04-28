@@ -168,6 +168,7 @@ function Header_body_scripts()
             sChurchName:"<?= SystemConfig::getValue('sChurchName') ?>",
             sLogLevel:<?= SystemConfig::getValue('sLogLevel') ?>,
             sChurchCountry:"<?= SystemConfig::getValue('sChurchCountry') ?>",
+            bEDrive:<?= (SessionUser::getUser()->isEDrive())?"true":"false" ?>,
             plugin: {
                 dataTable : {
                    "language": {

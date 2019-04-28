@@ -723,15 +723,22 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
          order: [[ 1, "asc" ]]
        });
      
-     var editor = CKEDITOR.replace('NoteText',{
-        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
-        language : window.CRM.lang,
-        extraPlugins : 'uploadfile,uploadimage,filebrowser',
-        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
-     });  
+     if (window.CRM.bEDrive) {
+       var editor = CKEDITOR.replace('NoteText',{
+          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
+          language : window.CRM.lang,
+          extraPlugins : 'uploadfile,uploadimage,filebrowser',
+          uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+          imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+          filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+          filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
+       });  
+     } else {
+        var editor = CKEDITOR.replace('NoteText',{
+          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/note_editor_config.js',
+          language : window.CRM.lang
+       });
+     }
      
      add_ckeditor_buttons(editor);
      
