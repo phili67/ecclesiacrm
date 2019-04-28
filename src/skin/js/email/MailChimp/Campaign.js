@@ -4,16 +4,25 @@
   
     // this will create the toolbar for the textarea
     if (editor == null) {
-       editor = CKEDITOR.replace('campaignContent',{
-        customConfig: window.CRM.root+'/skin/js/ckeditor/configs/campaign_editor_config.js',
-        language : window.CRM.lang,
-        width : '100%',
-        extraPlugins : 'uploadfile,uploadimage,filebrowser',
-        uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
-        filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
-        filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
-       });
+      if (window.CRM.bEDrive) {
+        editor = CKEDITOR.replace('campaignContent',{
+          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/campaign_editor_config.js',
+          language : window.CRM.lang,
+          width : '100%',
+          extraPlugins : 'uploadfile,uploadimage,filebrowser',
+          uploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+          imageUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicImages',
+          filebrowserUploadUrl: window.CRM.root+'/uploader/upload.php?type=publicDocuments',
+          filebrowserBrowseUrl: window.CRM.root+'/browser/browse.php?type=publicDocuments'
+        });
+      } else {
+        editor = CKEDITOR.replace('campaignContent',{
+          customConfig: window.CRM.root+'/skin/js/ckeditor/configs/campaign_editor_config.js',
+          language : window.CRM.lang,
+          width : '100%'
+        });
+      }
+      
    
        add_ckeditor_buttons(editor);
        add_ckeditor_buttons_merge_tag_mailchimp(editor);
