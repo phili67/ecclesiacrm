@@ -794,9 +794,14 @@ class User extends BaseUser
           
           rename(dirname(__FILE__)."/../../../".$old_dir,dirname(__FILE__)."/../../../".$new_dir);
         }
+      } else { // in the case the public folder is referenced in the DB but not present on the hard drive
+        if ( !is_dir ($this->public_path.$this->getWebdavPublickey() ) ) {// we've to create it
+          $new_dir = $this->public_path.$this->getWebdavPublickey()."/";
+          mkdir(dirname(__FILE__)."/../../../".$new_dir, 0755, true);
+        }
       }
       
-      // now we create the symlink in the real home folder
+      // now we can create the symlink in the real home folder
       symlink(dirname(__FILE__)."/../../../".$this->public_path.$this->getWebdavPublickey()."/", dirname(__FILE__)."/../../../".$this->getUserDir()."/public");
 
       
