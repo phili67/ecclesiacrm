@@ -948,6 +948,7 @@
         <column name="usr_Canvasser" phpName="Canvasser" type="BOOLEAN" size="1" required="true" defaultValue="0"/>
         <column name="usr_ShowCart" phpName="ShowCart" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_ShowMap" phpName="ShowMap" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
+        <column name="usr_EDrive" phpName="EDrive" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <column name="usr_IsDeactivated" phpName="IsDeactivated" type="BOOLEAN" size="1" sqlType="tinyint(1) unsigned" required="true" defaultValue="0"/>
         <index name="usr_per_ID">
             <index-column name="usr_per_ID"/>
