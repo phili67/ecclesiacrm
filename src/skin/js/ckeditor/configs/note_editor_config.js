@@ -40,7 +40,7 @@ CKEDITOR.editorConfig = function( config ) {
 
   config.toolbar = [
     { name: 'document', items: [ 'Source','-', 'Preview', 'Print', '-' /*, 'mergeTagsMailChimp'*/ ] },
-    { name: 'export', items: [ 'export', 'SaveAsWordFileButton' ] },
+    { name: 'export', items: [ 'export', ((window.CRM.bEDrive)?'SaveAsWordFileButton':'none') ] },
     { name: 'template', items: [ 'document', 'ApplyTemplateButton','ManageTemplateButton','SaveTemplateButton'] },//'source',
     { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
     { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll'] },

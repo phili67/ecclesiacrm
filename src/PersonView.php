@@ -683,7 +683,9 @@ if (!empty($person->getDateDeactivated())) {
       <ul class="nav nav-tabs" role="tablist">
         <?php 
           $activeTab = "";
-          if ( ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isSeePrivacyDataEnabled()) ) {
+          if ( ($person->getId() == SessionUser::getUser()->getPersonId() 
+               || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() 
+               ||  SessionUser::getUser()->isSeePrivacyDataEnabled()) ) {
             $activeTab = "timeline";
         ?>
           <li role="presentation" <?= (!$bDocuments && !$bEDrive && !$bGroup)?"class=\"active\"":""?>><a href="#timeline" aria-controls="timeline" role="tab" data-toggle="tab"><?= _('Timeline') ?></a></li>
@@ -743,7 +745,7 @@ if (!empty($person->getDateDeactivated())) {
           }
         ?>
         <?php
-          if ( !is_null($user) && ( $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() ||  SessionUser::getUser()->isNotesEnabled() ) ) {
+          if ( SessionUser::getUser()->isEDriveEnabled($iPersonID) ) {
             if ($bEDrive) $activeTab = 'edrive';
         ?>        
         <li role="presentation" <?= ($bEDrive)?"class=\"active\"":""?>><a href="#edrive" aria-controls="edrive" role="tab" data-toggle="tab" <?= ($bDocuments)?"aria-expanded=\"true\"":""?>><i class="fa fa-cloud"></i> <?= _("EDrive") ?></a></li>
@@ -1453,6 +1455,9 @@ if (!empty($person->getDateDeactivated())) {
             <!-- END timeline item -->
           </ul>
         </div>
+      <?php
+          if ( SessionUser::getUser()->isEDriveEnabled($iPersonID) ) {
+      ?>
         <div role="tab-pane fade" class="tab-pane <?= ($activeTab == 'edrive')?"active":"" ?>" id="edrive">
           <div class="row filter-note-type" style="line-height:54px">
               <div class="col-md-8" style="line-height:27px">
@@ -1527,6 +1532,9 @@ if (!empty($person->getDateDeactivated())) {
               </div>
             </div>
         </div>
+      <?php
+          }
+      ?>
       </div>
     </div>
   </div>

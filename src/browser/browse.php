@@ -14,7 +14,7 @@ use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 
-if ( !SessionUser::isActive() ) {
+if ( ! ( SessionUser::isActive() && SessionUser::getUser()->isEDrive() ) ) {
   RedirectUtils::Redirect('members/404.php?type=Upload');
   return;
 }

@@ -220,7 +220,10 @@ class MenuBar {
         $menuItem = new Menu (_("Change Password"),"fa fa-key","UserPasswordChange.php",true,$menu);
         $menuItem = new Menu (_("Change Settings"),"fa fa-gear","SettingsIndividual.php",true,$menu);
         $menuItem = new Menu (_("Documents"),"fa fa fa-files-o","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId()."&documents=true",true,$menu);
-        $menuItem = new Menu (_("EDrive"),"fa fa-cloud","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId()."&edrive=true",true,$menu);
+        
+        if (SessionUser::getUser()->isEDrive()) {
+          $menuItem = new Menu (_("EDrive"),"fa fa-cloud","PersonView.php?PersonID=".SessionUser::getUser()->getPersonId()."&edrive=true",true,$menu);
+        }
         
         if (SystemConfig::getBooleanValue("bEnabledMenuLinks")) {
            $this->addPersonMenuLinks($menu);
