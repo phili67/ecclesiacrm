@@ -352,6 +352,9 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->createTimeLineNote("updated");// the calendars are moved from one username to another in the function : renameHomeDir
                     
                     if ($ManageGroups || $Admin) {
+                      if ( !$old_ManageGroups ) {// only when the user has now the role group manager
+                        $user->deleteGroupAdminCalendars();
+                      }
                       $user->createGroupAdminCalendars();
                     } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
                       $user->deleteGroupAdminCalendars();
