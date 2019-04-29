@@ -22,6 +22,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
+use EcclesiaCRM\UserConfigChoicesQuery;
 
 
 $iPersonID = SessionUser::getUser()->getPersonId();
@@ -66,7 +67,7 @@ if (isset($_POST['save'])) {
             $userConf->setName($userDefault->getName());
             $userConf->setValue($value);
             $userConf->setType($userDefault->getType());
-            $userConf->setMapChoices($userDefault->getMapChoices());
+            $userConf->setChoicesId($userDefault->getChoicesId());
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
             $userConf->setPermission($userDefault->getPermission());
             $userConf->setCat($userDefault->getCat());
@@ -111,6 +112,7 @@ $configs = UserConfigQuery::create()->orderById()->findByPersonId ($iPersonID);
 <tbody>
 <?php
 $r = 1;
+
 // List Individual Settings
 foreach ($configs as $config) {
     if (!(($config->getPermission() == 'TRUE') || SessionUser::getUser()->isAdmin())) {
@@ -178,7 +180,9 @@ foreach ($configs as $config) {
       </td>
   <?php
     } elseif ($config->getType() == 'choice') {
-      $choices = explode(",", $config->getMapChoices());
+      $userChoices = UserConfigChoicesQuery::create()->findOneById ($config->getChoicesId());
+                      
+      $choices = explode(",", $userChoices->getChoices());
   ?>
       <td>
         <select class="form-control input-sm" name="new_value[<?= $config->getId() ?>]">
@@ -206,6 +210,7 @@ foreach ($configs as $config) {
 </table>
 </div>
 </div>
+<br>
 <div class="row">
   <div class="col-md-2">
   </div>
