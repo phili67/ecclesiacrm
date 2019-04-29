@@ -174,7 +174,7 @@ function renderMailChimpDuplicateEmails (Request $request, Response $response, a
 
 function mailchimpDuplicateEmailsArgumentsArray ()
 {
-   $sPageTitle = _('Duplicate Emails');
+   $sPageTitle = _('Find Duplicate Emails');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
