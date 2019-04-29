@@ -15,6 +15,7 @@ use EcclesiaCRM\PrincipalsQuery;
 use EcclesiaCRM\Principals;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserConfigQuery;
+use EcclesiaCRM\UserConfig;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\DAV\Sharing;
@@ -42,6 +43,36 @@ class User extends BaseUser
     public function getId()
     {
         return $this->getPersonId();
+    }
+    
+    public function getStyle()
+    { 
+        // we search if the config exist
+        $userConf = UserConfigQuery::Create()->filterById(15)->findOneByPersonId($this->getPersonId());
+        
+        if ( is_null($userConf) ) {
+          $userDefault = UserConfigQuery::create()->filterById(15)->findOneByPersonId (0);
+          
+          if ( !is_null ($userDefault) ) {
+            $userConf = new UserConfig();
+            
+            $userConf->setPersonId ($this->getPersonId());
+            $userConf->setId (15);
+            $userConf->setName($userDefault->getName());
+            $userConf->setValue($userDefault->getValue());
+            $userConf->setType($userDefault->getType());
+            $userConf->setChoicesId($userDefault->getChoicesId());
+            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+            $userConf->setPermission('FALSE');
+            $userConf->setCat($userDefault->getCat());
+            
+            $userConf->save();
+          } else {
+            return 'skin-blue-light';
+          } 
+        }
+        
+        return $userConf->getValue();
     }
     
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = NULL)
@@ -260,10 +291,24 @@ class User extends BaseUser
             case 'ShowMap':
                $this->setShowMap($res[1]);
                break;
+            case 'EDrive':
+               $this->setEDrive($res[1]);
+               break;
             case 'MenuOptions':
                $this->setMenuOptions($res[1]);
                break;
             case 'ManageGroups':
+               $old_ManageGroups = $this->isManageGroupsEnabled();
+               $ManageGroups = $res[1];
+               
+               if ( $ManageGroups || $this->isAdmin() ) {
+                 if ( !$old_ManageGroups ) {// only when the user has now the role group manager
+                    $this->deleteGroupAdminCalendars();
+                    $this->createGroupAdminCalendars();
+                 }
+               } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
+                 $this->deleteGroupAdminCalendars();
+               }
                $this->setManageGroups($res[1]);
                break;
             case 'Finance':
@@ -281,6 +326,24 @@ class User extends BaseUser
             case 'Admin':
                $this->setAdmin($res[1]);
                break;
+            case 'QueryMenu':
+               $this->setShowMenuQuery($res[1]);
+               break;
+            case 'CanSendEmail':
+               $this->setCanSendEmail($res[1]);
+               break;
+            case 'ExportCSV':
+               $this->setExportCSV($res[1]);
+               break;
+            case 'CreateDirectory':
+               $this->setCreatedirectory($res[1]);
+               break;
+            case 'ExportSundaySchoolPDF':
+               $this->setExportSundaySchoolPDF($res[1]);
+               break;
+            case 'ExportSundaySchoolCSV':
+               $this->setExportSundaySchoolCSV($res[1]);
+               break;
             case 'MainDashboard':
                $this->setMainDashboard($res[1]);
                break;
@@ -293,20 +356,13 @@ class User extends BaseUser
             case 'GdrpDpo':
                $this->setGdrpDpo($res[1]);
                break;
-            case 'QueryMenu':
-               $this->setShowMenuQuery($res[1]);
-               break;
             case 'PastoralCare':
-               $this->setShowMenuQuery($res[1]);
-               break;
-            case 'Style':
-               $this->setStyle($res[1]);
+               $this->setPastoralCare($res[1]);
                break;
           }
         }
         
         $this->setRoleId($roleID);
-        
         $this->save();
         
         // now we loop to the permissions
@@ -320,12 +376,12 @@ class User extends BaseUser
           
           $global_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId(0);
           
-          if (is_null($global_cfg)) continue;
+          if ( is_null($global_cfg) ) continue;
           
           // we search if the config exist
           $user_cfg = UserConfigQuery::Create()->filterByName($permission[0])->findOneByPersonId($this->getPersonId());
           
-          if (is_null($user_cfg)) {
+          if ( is_null($user_cfg) ) {
             $user_cfg = new UserConfig();
             
             $user_cfg->setPersonId($this->getPersonId());
@@ -333,9 +389,9 @@ class User extends BaseUser
             $user_cfg->setName($global_cfg->getName());
             $user_cfg->setType($global_cfg->getType());
             $user_cfg->setTooltip($global_cfg->getType());
-            $user_cfg->setTooltip($global_cfg->getType());
           }
           
+          $user_cfg->setChoicesId($global_cfg->getChoicesId());
           $user_cfg->setPermission($permission[1]);
           
           if ($value[1] == 'semi_colon'){
@@ -866,10 +922,29 @@ class User extends BaseUser
     }
     
     public function getUserConfigString($userConfigName) {
-      foreach ($this->getUserConfigs() as $userConfig) {
-        if ($userConfig->getName() == $userConfigName) {
-          return $userConfig->getValue();
-        }
+      // we search if the config exist
+        $userConf = UserConfigQuery::Create()->filterByName($userConfigName)->findOneByPersonId($this->getPersonId());
+        
+        if ( is_null($userConf) ) {
+          $userDefault = UserConfigQuery::create()->filterByName($userConfigName)->findOneByPersonId (0);
+          
+          if ( !is_null ($userDefault) ) {
+            $userConf = new UserConfig();
+            
+            $userConf->setPersonId ($this->getPersonId());
+            $userConf->setId ($userDefault->getId());
+            $userConf->setName($userConfigName);
+            $userConf->setValue($userDefault->getValue());
+            $userConf->setType($userDefault->getType());
+            $userConf->setChoicesId($userDefault->getChoicesId());
+            $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
+            $userConf->setPermission('FALSE');
+            $userConf->setCat($userDefault->getCat());
+            
+            $userConf->save();
+          }
       }
+      
+      return $userConf->getValue();
     }   
 }

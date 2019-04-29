@@ -917,7 +917,6 @@
         <column name="usr_SeePrivacyData" phpName="SeePrivacyData" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_GDRP_DPO" phpName="GdrpDpo" type="BOOLEAN" size="1" defaultValue="false"/>
         <column name="usr_SearchLimit" phpName="SearchLimit" type="TINYINT" defaultValue="10"/>
-        <column name="usr_Style" phpName="Style" type="VARCHAR" size="50" defaultValue="Style.css"/>
         <column name="usr_showPledges" phpName="ShowPledges" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showPayments" phpName="ShowPayments" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
         <column name="usr_showMenuQuery" phpName="ShowMenuQuery" type="BOOLEAN" size="1" required="true" defaultValue="false"/>
@@ -972,6 +971,15 @@
             <parameter name="Engine" value="InnoDB"/>
         </vendor>
     </table>
+    
+    <table name="userconfig_choices_ucfg_ch" idMethod="native" phpName="UserConfigChoices">
+      <column name="ucfg_ch_id" phpName="Id" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true"/>
+      <column name="ucfg_name" phpName="Name" type="LONGVARCHAR"/>
+      <column name="ucfg_choices" phpName="Choices" type="VARCHAR" size="200" required="true"/>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
+    </table>
 
     <table name="userconfig_ucfg" idMethod="native" phpName="UserConfig">
         <column name="ucfg_per_id" phpName="PersonId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned" primaryKey="true" required="true"/>
@@ -979,13 +987,17 @@
         <column name="ucfg_name" phpName="Name" type="VARCHAR" size="50" required="true" defaultValue=""/>
         <column name="ucfg_value" phpName="Value" type="LONGVARCHAR"/>
         <column name="ucfg_type" phpName="Type" type="CHAR" sqlType="enum('text','number','date','boolean','textarea','choice')" required="true" defaultValue="text"/>
-        <column name="ucfg_map_choices" phpName="MapChoices" type="VARCHAR" size="50" required="true" defaultValue="GoogleMaps,AppleMaps,BingMaps"/>
+        <column name="ucfg_choices_id" phpName="ChoicesId" type="SMALLINT" size="9" sqlType="mediumint(9) unsigned"/>
         <column name="ucfg_tooltip" phpName="Tooltip" type="LONGVARCHAR" required="true"/>
         <column name="ucfg_permission" phpName="Permission" type="CHAR" sqlType="enum('FALSE','TRUE')" required="true" defaultValue="FALSE"/>
         <column name="ucfg_cat" phpName="Cat" type="VARCHAR" size="20" required="true"/>
 
         <foreign-key foreignTable="user_usr">
             <reference local="ucfg_per_id" foreign="usr_per_ID"/>
+        </foreign-key>
+        
+        <foreign-key foreignTable="userconfig_choices_ucfg_ch" name="fk_ucfg_choices_id" onDelete="SET NULL">
+           <reference local="ucfg_choices_id" foreign="ucfg_ch_id"/>
         </foreign-key>
 
         <vendor type="mysql">
