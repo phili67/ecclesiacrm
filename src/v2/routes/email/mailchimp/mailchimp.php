@@ -138,8 +138,8 @@ function mailchimpManageListArgumentsArray ($listId,$mailchimp)
    
    $list = $mailchimp->getListFromListId($listId);
    
-   $sPageTitle     = gettext('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  ('._("GDPR List").')':'');
-   $sPageTitleSpan = gettext('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR List"):'');
+   $sPageTitle     = _('Email List')." : ". $list['name'].(($list['marketing_permissions'])?'  ('._("GDPR List").')':'');
+   $sPageTitleSpan = _('Email List')." : <span  id=\"ListTitle\">". $list['name'].(($list['marketing_permissions'])?'</span>  <span style="float:right">'._("GDPR List"):'');
 
    $paramsArguments = ['sRootPath'         => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
@@ -174,7 +174,7 @@ function renderMailChimpDuplicateEmails (Request $request, Response $response, a
 
 function mailchimpDuplicateEmailsArgumentsArray ()
 {
-   $sPageTitle = gettext('Manage List');
+   $sPageTitle = _('Duplicate Emails');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
@@ -200,7 +200,7 @@ function renderMailChimpNotInMailchimpEmails (Request $request, Response $respon
 
 function mailchimpNotInMailchimpEmailsArgumentsArray ()
 {
-   $sPageTitle = gettext('Families Not In MailChimp');
+   $sPageTitle = _('Families Not In MailChimp');
 
    $paramsArguments = ['sRootPath'       => SystemURLs::getRootPath(),
                        'sRootDocument'   => SystemURLs::getDocumentRoot(),
