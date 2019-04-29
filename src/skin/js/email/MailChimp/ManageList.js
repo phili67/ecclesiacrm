@@ -455,13 +455,13 @@ $(document).ready(function () {
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Campaign Title') + ":</div>"
               +'<div class="col-md-9">'
-                +"<input type='text' id='CampaignTitle' placeholder='" + i18next.t("Your Campaign Title") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                +"<input type='text' id='CampaignTitle' placeholder=\"" + i18next.t("Your Campaign Title") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
             +'<div class="row div-title">'
               +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Mail Subject') + ":</div>"
               +'<div class="col-md-9">'
-                +"<input type='text' id='Subject' placeholder='" + i18next.t("Your Mail Subject") + "' size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                +"<input type='text' id='Subject' placeholder=\"" + i18next.t("Your Mail Subject") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
               +'</div>'
             +'</div>'
             +'<div class="row  eventNotes">'
