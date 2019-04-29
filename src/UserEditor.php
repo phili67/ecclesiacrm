@@ -33,6 +33,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
+use EcclesiaCRM\UserConfigChoicesQuery;
 
 
 // Security: User must be an Admin to access this page.
@@ -231,8 +232,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $GdrpDpo = 0;
         }
         
-        $Style = InputUtils::LegacyFilterInput($_POST['Style']);
-
         // Initialize error flag
         $bErrorFlag = false;
 
@@ -279,7 +278,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setCreatedirectory($CreateDirectory);
                     $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
                     $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
-                    $user->setStyle($Style);
                     //$user->setDefaultFY($usr_defaultFY);
                     $user->setUserName($sUserName);
                     
@@ -307,7 +305,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user = UserQuery::create()->findPk($iPersonID);
                     
                     $old_ManageGroups = $user->isManageGroupsEnabled();
-                    
                     $oldUserName = $user->getUserName();
                     
                     $user->setAddRecords($AddRecords);
@@ -335,7 +332,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     $user->setCreatedirectory($CreateDirectory);
                     $user->setExportSundaySchoolPDF($ExportSundaySchoolPDF);
                     $user->setExportSundaySchoolCSV($ExportSundaySchoolCSV);
-                    $user->setStyle($Style);
                     
                     if (strtolower($oldUserName) != "admin") {
                       $user->setUserName($sUserName);
@@ -354,8 +350,8 @@ if (isset($_POST['save']) && $iPersonID > 0) {
                     if ($ManageGroups || $Admin) {
                       if ( !$old_ManageGroups ) {// only when the user has now the role group manager
                         $user->deleteGroupAdminCalendars();
+                        $user->createGroupAdminCalendars();
                       }
-                      $user->createGroupAdminCalendars();
                     } else if ($old_ManageGroups) {// only delete group calendars in the case He was a group manager
                       $user->deleteGroupAdminCalendars();
                     }
@@ -410,7 +406,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ExportSundaySchoolCSV  = $user->getExportSundaySchoolCSV();
             $usr_EditSelf               = $user->getEditSelf();
             $usr_Canvasser              = $user->getCanvasser();
-            $usr_Style                  = $user->getStyle();
 
             $sAction = 'edit';
         } else {
@@ -448,7 +443,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
             $usr_ExportSundaySchoolCSV  = 0;
             $usr_EditSelf               = 1;
             $usr_Canvasser              = 0;
-            $usr_Style                  = 'skin-blue-light';
         }
 
         // New user without person selected yet
@@ -480,7 +474,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
         $usr_ExportSundaySchoolCSV  = 0;
         $usr_EditSelf               = 1;
         $usr_Canvasser              = 0;
-        $usr_Style                  = 'skin-blue-light';
 
         $sUserName                  = '';
         $vNewUser                   = 'true';
@@ -491,16 +484,6 @@ if (isset($_POST['save']) && $iPersonID > 0) {
            ->withColumn('User.PersonId','UserPersonId')
            ->orderByLastName()
            ->find();
-    }
-}
-
-// Style sheet (CSS) file selection options
-function StyleSheetOptions($currentStyle)
-{
-    foreach (['skin-blue-light','skin-yellow-light', 'skin-green-light', 'skin-purple-light', 'skin-red-light'] as $stylename) {
-  ?>
-<option value="<?= $stylename ?>"<?= ($stylename == $currentStyle)?' selected':'' ?>><?= $stylename ?></option>
-<?php
     }
 }
 
@@ -552,7 +535,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
             $userConf->setName($userDefault->getName());
             $userConf->setValue($value);
             $userConf->setType($userDefault->getType());
-            $userConf->setMapChoices($userDefault->getMapChoices());
+            $userConf->setChoicesId($userDefault->getChoicesId());
             $userConf->setTooltip(htmlentities(addslashes($userDefault->getTooltip()), ENT_NOQUOTES, 'UTF-8'));
             $userConf->setPermission($permission);
             $userConf->setCat($userDefault->getCat());
@@ -872,10 +855,6 @@ if ($usr_role_id == null) {
               </td>
           </tr>
 
-          <tr>
-              <td><?= _('Style') ?>:</td>
-              <td class="TextColumnWithBottomBorder"><select class="form-control input-sm global_settings" name="Style"><?php StyleSheetOptions($usr_Style); ?></select></td>
-          </tr>
         </tbody>
       </table>
       <br>
@@ -989,7 +968,10 @@ if ($usr_role_id == null) {
                     </td>
                   <?php
                     } elseif ($userConfig->getType() == 'choice') {
-                      $choices = explode(",", $userConfig->getMapChoices());
+                      // we seach ever the default settings
+                      $userChoices = UserConfigChoicesQuery::create()->findOneById (($defaultConfig->getChoicesId() == null)?0:$defaultConfig->getChoicesId());
+                      
+                      $choices = explode(",", $userChoices->getChoices());
                   ?>
                     <td>
                       <select class="form-control input-sm" name="new_value[<?= $userConfig->getId() ?>]">
