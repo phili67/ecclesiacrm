@@ -587,28 +587,32 @@ if (!empty($person->getDateDeactivated())) {
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-primary box-body">
       <?php
+        $buttons = 0;
+        
         if (Cart::PersonInCart($iPersonID) && SessionUser::getUser()->isShowCartEnabled()) {
+           $buttons++;
       ?>
         <a class="btn btn-app RemoveOneFromPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
       <?php 
         } else if (SessionUser::getUser()->isShowCartEnabled()) {
+           $buttons++;
       ?>
           <a class="btn btn-app AddOneToPeopleCart" id="AddPersonToCart" data-onecartpersonid="<?= $iPersonID ?>"><i class="fa fa-cart-plus"></i><span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
       <?php 
        }
-      ?>
-      
-      <?php       
+
        if ( SessionUser::getUser()->isEmailEnabled() ) {
+           $buttons++;
       ?>
         <a class="btn btn-app" href="mailto:<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send-o"></i><?= _('Email') ?></a>
         <a class="btn btn-app" href="mailto:?bcc=<?= urlencode(str_replace("<i class='fa fa-fw fa-tree'></i>","",$sEmail)) ?>"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
       <?php
        }
-      ?>
-      <?php 
-        if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+
+       if ($person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId() || SessionUser::getUser()->isSeePrivacyDataEnabled()) {
           if ($person->getId() == SessionUser::getUser()->getPersonId()) {
+          
+            $buttons++;
       ?>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php"><i class="fa fa-cog"></i> <?= _("Change Settings") ?></a>
             <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserPasswordChange.php"><i class="fa fa-key"></i> <?= _("Change Password") ?></a>
@@ -620,17 +624,20 @@ if (!empty($person->getDateDeactivated())) {
        } 
       
        if (SessionUser::getUser()->isPastoralCareEnabled()) {
+          $buttons++;
       ?>
         <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
       <?php
        }
 
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
+          $buttons++;
   ?>
         <a class="btn btn-app bg-green"  href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
   <?php
     }
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
+          $buttons++;
   ?>
         <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= _("Assign New Group") ?></a>
   <?php
@@ -638,6 +645,7 @@ if (!empty($person->getDateDeactivated())) {
 
     if (SessionUser::getUser()->isAdmin()) {
         if (!$person->isUser()) {
+          $buttons++;
   ?>
           <a class="btn btn-app" href="<?= SystemURLs::getRootPath() ?>/UserEditor.php?NewPersonID=<?= $iPersonID ?>"><i class="fa fa-user-secret"></i> <?= _('Make User') ?></a>
       <?php
@@ -647,10 +655,10 @@ if (!empty($person->getDateDeactivated())) {
       <?php
         }
     } 
-?>
-    <?php 
-      if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
-    ?>
+
+    if ($bOkToEdit && SessionUser::getUser()->isAdmin() && $iPersonID != 1) {// the super user can't be deleted
+       $buttons++;
+  ?>
         <button class="btn btn-app bg-orange" id="activateDeactivate">
             <i class="fa <?= (empty($person->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($person->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . " " ._(' this Person')); ?>
         </button>
@@ -658,17 +666,25 @@ if (!empty($person->getDateDeactivated())) {
       } 
       
     if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
+      $buttons++;
+      
       if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
     ?>        
         <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= _("Delete this Record") ?></a>
-    <?php
+  <?php
       } else {
-    ?>
+  ?>
         <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= _("Delete this Record") ?></a>
-    <?php
+  <?php
       }
     }
-    ?>
+    
+    if ( !$buttons ) {
+  ?>
+       <?= _("Private Data") ?>
+  <?php
+    }
+  ?>
     </div>
   </div>
   
