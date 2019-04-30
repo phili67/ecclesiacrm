@@ -390,7 +390,10 @@ require 'Include/Header.php';
   <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="box box-success box-body">
       <?php
+        $buttons = 0;
+        
         if (Cart::FamilyInCart($iFamilyID) && SessionUser::getUser()->isShowCartEnabled()) {
+          $buttons++;
       ?>
         <a class="btn btn-app RemoveFromFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove from Cart") ?></span></a>
       <?php 
@@ -399,10 +402,9 @@ require 'Include/Header.php';
         <a class="btn btn-app AddToFamilyCart" id="AddToFamilyCart" data-cartfamilyid="<?= $iFamilyID ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add to Cart") ?></span></a>
       <?php 
        }
-      ?>
 
-      <?php
        if ( SessionUser::getUser()->isEmailEnabled() ) {
+          $buttons++;
           $emails = "";
           foreach ($family->getActivatedPeople() as $person) {
             $emails .= $person->getEmail().SessionUser::getUser()->MailtoDelimiter();
@@ -413,10 +415,10 @@ require 'Include/Header.php';
           <a class="btn btn-app" href="mailto:<?= urlencode($emails) ?>"><i class="fa fa-send-o"></i><?= _('Email') ?></a>
           <a class="btn btn-app" href="mailto:?bcc=<?= urlencode($emails) ?>"><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
       <?php
-       }
-      ?>
-      <?php
+        }
+
         if (SessionUser::getUser()->isAdmin()) {
+          $buttons++;
       ?>
       <a class="btn btn-app" href="#" data-toggle="modal" data-target="#confirm-verify"><i class="fa fa-check-square"></i> <?= _("Verify Info") ?></a>
       <?php
@@ -424,34 +426,41 @@ require 'Include/Header.php';
       ?>
       <?php
         if (SessionUser::getUser()->isAddRecordsEnabled() || $iCurrentUserFamID == $iFamilyID) {
-      ?>
+          $buttons++;
+    ?>
          <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-plus-square"></i> <?= _('Add New Member') ?></a>
       <?php
         }
+
+        if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
+          $buttons++;
       ?>
-      <?php 
-         if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
-      ?>
-          <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
+          <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
       <?php
         } 
-      ?>
-      <?php                 
-       
-      if (SessionUser::getUser()->isNotesEnabled() || $iCurrentUserFamID == $iFamilyID) {
-          ?>
-          <a class="btn btn-app bg-green" href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
-          <?php
-      } ?>
-              
 
-      <?php if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
-          ?>
+      if ($bOkToEdit && SessionUser::getUser()->isAdmin()) {
+        $buttons++;
+      ?>
           <button class="btn btn-app bg-orange" id="activateDeactivate">
               <i class="fa <?= (empty($family->getDateDeactivated()) ? 'fa-times-circle-o' : 'fa-check-circle-o') ?> "></i><?php echo((empty($family->getDateDeactivated()) ? _('Deactivate') : _('Activate')) . _(' this Family')); ?>
           </button>
           <?php
-      } ?>
+      } 
+      
+      if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
+        $buttons++;
+    ?>
+          <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $iFamilyID ?>"><i class="fa fa-trash-o"></i><?= _('Delete this Family') ?></a>
+    <?php
+      }
+      
+      if ( !$buttons ) {
+    ?>
+       <?= _("Private Data") ?>
+    <?php
+      }
+    ?>
   </div>
 </div>
 
