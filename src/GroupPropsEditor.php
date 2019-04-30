@@ -2,185 +2,316 @@
 /*******************************************************************************
  *
  *  filename    : GroupPropsEditor.php
- *  last change : 2013-02-07
+ *  last change : 2019-05-01
  *  website     : http://www.ecclesiacrm.com
- *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
- *                Copyright 2013 Michael Wilt
+ *  copyright   : Copyright 2019 Philippe Logel
  *
- *  function    : Editor for the special properties of a group member
-  *
- ******************************************************************************/
+ *  function    : Editor for group-person-specific properties form
+ *
+******************************************************************************/
 
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\GroupManagerPersonQuery;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\SystemURLs;
+
+
+// Get the Group from the querystring
+$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
+$iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
+
+$person = PersonQuery::Create()->findOneById($iPersonID);
 
 // Security: user must be allowed to edit records to use this page.
-if (!SessionUser::getUser()->isEditRecordsEnabled()) {
+if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser()->getPersonId() == $iPersonID ) ) {
     RedirectUtils::Redirect('Menu.php');
     exit;
 }
 
-$sPageTitle = _('Group Member Properties Editor');
 
-// Get the Group and Person IDs from the querystring
-$iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
-$iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
-
-// Get some info about this person.  per_Country is needed in case there are phone numbers.
-$sSQL = 'SELECT per_FirstName, per_LastName, per_Country, per_fam_ID FROM person_per WHERE per_ID = '.$iPersonID;
-$rsPersonInfo = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsPersonInfo));
-
-$fam_Country = '';
-
-if ($per_fam_ID > 0) {
-    $sSQL = 'SELECT fam_Country FROM family_fam WHERE fam_ID = '.$per_fam_ID;
-    $rsFam = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsFam));
-}
-
-$sPhoneCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-
-// Get the name of this group.
-$sSQL = 'SELECT grp_Name FROM group_grp WHERE grp_ID = '.$iGroupID;
+// Get the group information
+$sSQL = 'SELECT * FROM group_grp WHERE grp_ID = '.$iGroupID;
 $rsGroupInfo = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsGroupInfo));
 
-// We assume that the group selected has a special properties table and that it is populated
-//  with values for each group member.
+// Abort if user tries to load with group having no special properties.
+if ($grp_hasSpecialProps == false) {
+    RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
+}
 
-// Get the properties list for this group: names, descriptions, types and prop_ID for ordering;  will process later..
+$sPageTitle = gettext('Group-Specific Properties Form Editor:').'  : "'.$grp_Name.'" '.gettext("for")." : ".$person->getFullName();
 
-$sSQL = 'SELECT groupprop_master.* FROM groupprop_master
-			WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-$rsPropList = RunQuery($sSQL);
+require 'Include/Header.php'; ?>
 
-$aPropErrors = [];
+<p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= gettext("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
-// Is this the second pass?
-if (isset($_POST['GroupPropSubmit'])) {
-    // Process all HTTP post data based upon the list of properties data we are expecting
-    // If there is an error message, it gets assigned to an array of strings, $aPropErrors, for use in the form.
+<div class="box">
+<div class="box-header with-border">
+    <h3 class="box-title"><?= gettext('Group-Person-Specific Properties') ?></h3>
+</div>
 
-    $bErrorFlag = false;
+<?php
+$bErrorFlag = false;
+$aNameErrors = [];
+$bNewNameError = false;
+$bDuplicateNameError = false;
 
-    while ($rowPropList = mysqli_fetch_array($rsPropList, MYSQLI_BOTH)) {
-        extract($rowPropList);
+// Does the user want to save changes to text fields?
+if (isset($_POST['SaveChanges'])) {
 
-        $currentFieldData = InputUtils::LegacyFilterInput($_POST[$prop_Field]);
+    // Fill in the other needed property data arrays not gathered from the form submit
+    $sSQL = 'SELECT prop_ID, prop_Field, type_ID, prop_Special, prop_PersonDisplay, prop_Name FROM groupprop_master WHERE prop_PersonDisplay = "true" AND grp_ID = '.$iGroupID.' ORDER BY prop_ID';
+    $rsPropList = RunQuery($sSQL);
+    $numRows = mysqli_num_rows($rsPropList);
 
-        $bErrorFlag |= !validateCustomField($type_ID, $currentFieldData, $prop_Field, $aPropErrors);
+    for ($row = 1; $row <= $numRows; $row++) {
+        $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
+        extract($aRow);
+        
+        $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
+        $rsPersonProps = RunQuery($sSQL);
+        $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
 
-        // assign processed value locally to $aPersonProps so we can use it to generate the form later
-        $aPersonProps[$prop_Field] = $currentFieldData;
+        $aFieldFields[$row] = $prop_Field;
+        $aTypeFields[$row] = $type_ID;
+        $aDescFields[$row] = $aPersonProps[$prop_Field];
+        $aSpecialFields[$row] = $prop_Special;
+        $aPropFields[$row] = $prop_Field;
+        $aNameFields[$row] = $prop_Name;
+        
+        
+        if (isset($prop_Special)) {
+          if ($type_ID == 9) {
+            $aSpecialFields[$row] = $grp_ID;
+          } else {
+            $aSpecialFields[$row] = $prop_Special;
+          }
+        } else {
+            $aSpecialFields[$row] = 'NULL';
+        }
+    }
+    
+    for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
+        $aDescFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'desc']);
+
+        if (isset($_POST[$iPropID.'special'])) {
+            $aSpecialFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'special'], 'int');
+            
+            if ($aSpecialFields[$iPropID] == 0) {
+                $aSpecialErrors[$iPropID] = true;
+                $bErrorFlag = true;
+            } else {
+                $aSpecialErrors[$iPropID] = false;
+            }
+        }
+
+        if (isset($_POST[$iPropID.'show'])) {
+            $aPersonDisplayFields[$iPropID] = true;
+        } else {
+            $aPersonDisplayFields[$iPropID] = false;
+        }
     }
 
     // If no errors, then update.
     if (!$bErrorFlag) {
-        mysqli_data_seek($rsPropList, 0);
-
-        $sSQL = 'UPDATE groupprop_'.$iGroupID.' SET ';
-
-        while ($rowPropList = mysqli_fetch_array($rsPropList, MYSQLI_BOTH)) {
-            extract($rowPropList);
-            $currentFieldData = trim($aPersonProps[$prop_Field]);
-
-            sqlCustomField($sSQL, $type_ID, $currentFieldData, $prop_Field, $sPhoneCountry);
+        // We can't update unless values already exist.
+        $sSQL = "SELECT * FROM groupprop_".$iGroupID."
+                 WHERE `per_ID` = '".$iPersonID."';";
+                 
+        $bRowExists = true;
+        $iNumRows = mysqli_num_rows(RunQuery($sSQL));
+        if ($iNumRows == 0) {
+            $bRowExists = false;
         }
 
-        // chop off the last 2 characters (comma and space) added in the last while loop iteration.
-        $sSQL = mb_substr($sSQL, 0, -2);
-
-        $sSQL .= ' WHERE per_ID = '.$iPersonID;
-
-        //Execute the SQL
-        RunQuery($sSQL);
-
-        // Return to the Person View
-        RedirectUtils::Redirect('PersonView.php?PersonID='.$iPersonID.'&group=true');
+        if (!$bRowExists) { // If Row does not exist then insert default values.
+            // Defaults will be replaced in the following Update                 
+            $sSQL = "INSERT INTO groupprop_".$iGroupID." (per_ID) VALUES (".$iPersonID.")";
+            $rsResult = RunQuery($sSQL);
+        }
+        
+        for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
+            if ($aPersonDisplayFields[$iPropID]) {
+                $temp = 'true';
+            } else {
+                $temp = 'false';
+            }
+            
+            if ($aTypeFields[$iPropID] == 2) {            
+               $aDescFields[$iPropID] = InputUtils::FilterDate($aDescFields[$iPropID]);
+            }
+            
+            $sSQL = "UPDATE groupprop_".$iGroupID." 
+              SET `".$aPropFields[$iPropID]."` = '".$aDescFields[$iPropID]."'
+              WHERE `per_ID` = '".$iPersonID."';";
+          
+            RunQuery($sSQL);
+        }
     }
 } else {
-    // First Pass
-    // we are always editing, because the record for a group member was created when they were added to the group
 
-    // Get the existing data for this group member
-    $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
-    $rsPersonProps = RunQuery($sSQL);
-    $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
+    // Get data for the form as it now exists..
+    $sSQL = 'SELECT * FROM groupprop_master WHERE prop_PersonDisplay = "true" AND grp_ID = '.$iGroupID.' ORDER BY prop_ID';
+
+    $rsPropList = RunQuery($sSQL);
+    $numRows = mysqli_num_rows($rsPropList);
+
+    // Create arrays of the properties.
+    for ($row = 1; $row <= $numRows; $row++) {
+        $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
+        extract($aRow);
+        
+        $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
+        $rsPersonProps = RunQuery($sSQL);
+        $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
+
+        // This is probably more clear than using a multi-dimensional array
+        $aTypeFields[$row] = $type_ID;
+        $aNameFields[$row] = $prop_Name;
+        $aDescFields[$row] = $aPersonProps[$prop_Field];
+        $aSpecialFields[$row] = $prop_Special;
+        $aFieldFields[$row] = $prop_Field;
+        
+        if ($type_ID == 9) {
+          $aSpecialFields[$row] = $iGroupID;
+        }
+        
+        $aPersonDisplayFields[$row] = ($prop_PersonDisplay == 'true');
+    }
 }
 
-require 'Include/Header.php';
+// Construct the form
+?>
 
-if (mysqli_num_rows($rsPropList) == 0) {
+<form method="post" action="GroupPropsEditor.php?GroupID=<?= $iGroupID ?>&PersonID=<?= $iPersonID ?>" name="GroupPersonPropsFormEditor">
+
+<center>
+<div class="table-responsive">
+<table class="table" >
+
+<?php
+if ($numRows == 0) {
     ?>
-  <form>
-    <h3><?= _('This group currently has no properties!  You can add them in the Group Editor.') ?></h3>
-    <BR>
-    <input type="button" class="btn" value="<?= _('Return to Person Record') ?>" Name="Cancel" onclick="javascript:document.location='<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>';">
-  </form>
-  <?php
+  <center><h2><?= gettext('No properties have been added yet') ?></h2>
+      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
+  </center>
+<?php
 } else {
+        ?>
+
+  <tr><td colspan="7" align="center">
+  <?php
+    if ($bErrorFlag) {
   ?>
-  <p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+     <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= gettext("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
+  <?php
+    } 
+  ?>
+  </td></tr>
 
-  <div class="box ">
-    <div class="box-header  with-border">
-      <h3 class="box-title"><?= _('Editing') ?> : <i> <?= $grp_Name ?> </i> <?= _('data for member') ?> <i> <?= $per_FirstName.' '.$per_LastName ?> </i></h3>
-    </div>
-    <div class="box-body">
-      <form method="post" action="<?= SystemURLs::getRootPath() ?>/GroupPropsEditor.php?<?= 'PersonID='.$iPersonID.'&GroupID='.$iGroupID ?>" name="GroupPropEditor">
+    <tr>
+      <th></th>
+      <th></th>
+      <th><?= gettext('Name') ?></th>
+      <th><?= gettext('Description') ?></th>
+      <th><?= gettext('Special option') ?></th>
+    </tr>
 
-        <table class="table">
+  <?php
+  
+    for ($row = 1; $row <= $numRows; $row++) {
+        ?>
+    <tr>
+      <td class="LabelColumn"><h2><b><?= $row ?></b></h2></td>
+      <td class="TextColumn" width="5%" nowrap></td>
+      <td class="TextColumn" style="font-size:70%;">
+          <?= $aPropTypes[$aTypeFields[$row]]; ?>
+      </td>
+      <td class="TextColumn">
+         <?= htmlentities(stripslashes($aNameFields[$row]), ENT_NOQUOTES, 'UTF-8') ?>        
+      </td>
+      <td class="TextColumn">
+         <?php 
+            OutputUtils::formCustomField($aTypeFields[$row], $row."desc", htmlentities(stripslashes($aDescFields[$row]), ENT_NOQUOTES, 'UTF-8') , $aSpecialFields[$row], $bFirstPassFlag)
+         ?>
+      </td>
+
+      <td class="TextColumn">
+      <?php
+
+            if ($aTypeFields[$row] == 9) {
+      ?>
+              <select name="<?= $row ?>special"  class="form-control input-sm">
+                <option value="0" selected><?= gettext("Select a group") ?></option>
+      <?php
+                $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
+
+                $rsGroupList = RunQuery($sSQL);
+
+                while ($aRow = mysqli_fetch_array($rsGroupList)) {
+                    extract($aRow);
+
+                    echo '<option value="'.$grp_ID.'"';
+                    if ($aSpecialFields[$row] == $grp_ID) {
+                        echo ' selected';
+                    }
+                    echo '>'.$grp_Name;
+                }
+
+                echo '</select>';
+
+                if ($aSpecialErrors[$row]) {
+                    echo '<span style="color: red;"><BR>'.gettext('You must select a group.').'</span>';
+                }
+            } elseif ($aTypeFields[$row] == 12) {
+          ?>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
           <?php
+            } else {
+                echo '&nbsp;';
+            } ?></td>
 
-          // Make sure we're at the beginning of the properties list resource (2nd pass code used it)
-          mysqli_data_seek($rsPropList, 0);
-
-        while ($rowPropList = mysqli_fetch_array($rsPropList, MYSQLI_BOTH)) {
-            extract($rowPropList); 
-            if ($prop_PersonDisplay == 'false') continue;
-            ?>
-            <tr>
-              <td><?= $prop_Name ?>: </td>
-              <td>
-                <?php
-                $currentFieldData = trim($aPersonProps[$prop_Field]);
-
-            if ($type_ID == 11) {
-                $prop_Special = $sPhoneCountry;
-            }  // ugh.. an argument with special cases!
-
-            OutputUtils::formCustomField($type_ID, $prop_Field, $currentFieldData, $prop_Special, !isset($_POST['GroupPropSubmit']));
-
-            if (array_key_exists($prop_Field, $aPropErrors)) {
-                echo '<span style="color: red; ">'.$aPropErrors[$prop_Field].'</span>';
-            } ?>
-              </td>
-              <td><?= OutputUtils::displayCustomField($type_ID, $prop_Description, $prop_Special) ?></td>
-            </tr>
-          <?php
-        } ?>
-          <tr>
-            <td align="center" colspan="3">
-              <br><br>
-              <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="GroupPropSubmit">
-              &nbsp;
-              <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" Name="Cancel" onclick="javascript:document.location='PersonView.php?PersonID=<?= $iPersonID ?>&group=true';">
-            </td>
-          </tr>
-        </table>
-      </form>
-    </div>
-  </div>
+    </tr>
   <?php
     } ?>
 
-<?php 
-require 'Include/Footer.php';
+    <tr>
+      <td colspan="7">
+      <table width="100%">
+        <tr>
+          <td width="10%"></td>
+          <td width="40%" align="center" valign="bottom">
+            <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
+          </td>
+          <td width="40%" align="center" valign="bottom">
+            <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
+          </td>
+          <td width="10%"></td>
+        </tr>
+      </table>
+      </td>
+      <td>
+    </tr>
+<?php
+    } 
 ?>
+   </table>
+</div>
+</center>
+</div>
+</form>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+  $(function() {
+    $("[data-mask]").inputmask();
+  });
+</script>
+
+<?php require 'Include/Footer.php' ?>
