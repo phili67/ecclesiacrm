@@ -624,21 +624,7 @@ if (!empty($person->getDateDeactivated())) {
         <a class="btn btn-app bg-purple" href="<?= SystemURLs::getRootPath() ?>/v2/pastoralcare/<?= $iPersonID ?>"><i class="fa fa-question-circle"></i> <?= _("Pastoral Care") ?></a>
       <?php
        }
-      ?>
-      
-    <?php
 
-       if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
-         if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
-    ?>        
-        <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= _("Delete this Record") ?></a>
-    <?php
-      } else {
-    ?>
-        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= _("Delete this Record") ?></a>
-  <?php
-      }
-    }
       if (SessionUser::getUser()->isNotesEnabled() || (SessionUser::getUser()->isEditSelfEnabled() && $person->getId() == SessionUser::getUser()->getPersonId() || $person->getFamId() == SessionUser::getUser()->getPerson()->getFamId())) {
   ?>
         <a class="btn btn-app bg-green"  href="#" id="createDocument" data-toggle="tooltip" data-placement="top" data-original-title="<?= _("Create a document") ?>"><i class="fa fa-file-o"></i><?= _("Create a document") ?></a>
@@ -670,6 +656,18 @@ if (!empty($person->getDateDeactivated())) {
         </button>
     <?php
       } 
+      
+    if (SessionUser::getUser()->isDeleteRecordsEnabled() && $iPersonID != 1) {// the super user can't be deleted
+      if ( count($person->getOtherFamilyMembers()) > 0 || is_null($person->getFamily()) ) {
+    ?>        
+        <a class="btn btn-app bg-maroon delete-person" data-person_name="<?= $person->getFullName()?>" data-person_id="<?= $iPersonID ?>"><i class="fa fa-trash-o"></i> <?= _("Delete this Record") ?></a>
+    <?php
+      } else {
+    ?>
+        <a class="btn btn-app bg-maroon" href="<?= SystemURLs::getRootPath() ?>/SelectDelete.php?FamilyID=<?= $person->getFamily()->getId() ?>"><i class="fa fa-trash-o"></i><?= _("Delete this Record") ?></a>
+    <?php
+      }
+    }
     ?>
     </div>
   </div>
