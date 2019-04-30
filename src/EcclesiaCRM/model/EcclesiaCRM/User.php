@@ -589,8 +589,7 @@ class User extends BaseUser
       if ($this->getIsDeactivated()) {
         return false;
       }
-      
-        
+
       return $this->getPassword() == $this->hashPassword($password);
     }
 
@@ -599,22 +598,11 @@ class User extends BaseUser
         return hash('sha256', $password . $this->getPersonId());
     }
     
-    
-    public function MailtoDelimiter()
-    {
-        return $this->getUserConfigString('sMailtoDelimiter');
-    }
-    
     public function isEmailEnabled()
     {
         return $this->isAdmin() || $this->getCanSendEmail();
     }
 
-    public function isEmailToEnabled()
-    {
-        return $this->getUserConfigString('bEmailMailto');
-    }
-    
     public function isExportSundaySchoolCSVEnabled()
     {
         return $this->isAdmin() || $this->isExportSundaySchoolCSV();
@@ -635,6 +623,16 @@ class User extends BaseUser
         return $this->isAdmin() || $this->isExportCSV();
     }
 
+    public function MailtoDelimiter()
+    {
+        return $this->getUserConfigString('sMailtoDelimiter');
+    }
+
+    public function isEmailToEnabled()
+    {
+        return $this->getUserConfigString('bEmailMailto');
+    }
+    
     public function isUSAddressVerificationEnabled()
     {
         return $this->isAdmin() || $this->getUserConfigString('bUSAddressVerification');
@@ -669,7 +667,6 @@ class User extends BaseUser
     {
         return $this->getUserConfigString('bSidebarCollapse');
     }
-    
 
     public function isLocked()
     {
