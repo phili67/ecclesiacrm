@@ -1,13 +1,13 @@
 //
 //  This code is under copyright not under MIT Licence
-//  copyright   : 2018 Philippe Logel all right reserved not MIT licence
+//  copyright   : 2019 Philippe Logel all right reserved not MIT licence
 //                This code can't be incoprorated in another software without authorizaion
 //
-//  Updated : 2019/04/19
+//  Updated : 2019/04/30
 //
 
 window.CRM.editor = null;
-  
+
 $(document).ready(function () {
   //
   // initialize calendar
@@ -39,22 +39,21 @@ $(document).ready(function () {
         $('#calendar').fullCalendar( 'refetchEvents' );
         return false;
       }
-      
+
       if (event.writeable == false) {
         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
         $('#calendar').fullCalendar( 'refetchEvents' );
         return;
       }
-      
+
       var fmt = 'YYYY-MM-DD HH:mm:ss';
 
       var dateStart = moment(event.start).format(fmt);
       var dateEnd = moment(event.end).format(fmt);
-      
+
       if (event.end == null) {
          dateEnd = dateStart;
       }
-      
 
       if (event.type == 'event' && event.recurrent == 0) {
         bootbox.confirm({
@@ -78,19 +77,19 @@ $(document).ready(function () {
               }).done(function(data) {
                 // now we can refresh the calendar
                 $('#calendar').fullCalendar('refetchEvents');
-                $('#calendar').fullCalendar('unselect'); 
+                $('#calendar').fullCalendar('unselect');
               });
             } else {
               revertFunc();
             }
-            
+
             console.log('This was logged in the callback: ' + result);
-          }        
+          }
       });
      } else {
       var reccurenceID = moment(event.reccurenceID).format(fmt);
       var origStart   = moment(event.origStart).format(fmt);
-      
+
       if (origStart == reccurenceID) {
          var box = bootbox.dialog({
            title: i18next.t("Move Event") + "?",
@@ -115,8 +114,8 @@ $(document).ready(function () {
                   }).done(function(data) {
                     // now we can refresh the calendar
                     $('#calendar').fullCalendar('refetchEvents');
-                    $('#calendar').fullCalendar('unselect'); 
-                  }); 
+                    $('#calendar').fullCalendar('unselect');
+                  });
                 }
               },
             allEvents: {
@@ -131,9 +130,9 @@ $(document).ready(function () {
                   }).done(function(data) {
                     // now we can refresh the calendar
                     $('#calendar').fullCalendar('refetchEvents');
-                    $('#calendar').fullCalendar('unselect'); 
-                  }); 
-                }                    
+                    $('#calendar').fullCalendar('unselect');
+                  });
+                }
               }
             }
         });
@@ -159,14 +158,14 @@ $(document).ready(function () {
               }).done(function(data) {
                 // now we can refresh the calendar
                 $('#calendar').fullCalendar('refetchEvents');
-                $('#calendar').fullCalendar('unselect'); 
+                $('#calendar').fullCalendar('unselect');
               });
             } else {
               revertFunc();
             }
-            
+
             console.log('This was logged in the callback: ' + result);
-          }        
+          }
         });
       }
      }
@@ -174,15 +173,15 @@ $(document).ready(function () {
   eventClick: function(calEvent, jsEvent, view) {
     if (calEvent.writeable == false) {
         window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("This event isn't modifiable !!!"));
-        
+
         return;
     }
-  
+
     var fmt = 'YYYY-MM-DD HH:mm:ss';
 
     var dateStart = moment(calEvent.start).format(fmt);
     var dateEnd = moment(calEvent.end).format(fmt);
-    
+
     if (calEvent.type == "event" && window.CRM.isModifiable) {
        // only with group event We create the dialog,
        if (calEvent.type == "event") {
@@ -203,13 +202,13 @@ $(document).ready(function () {
                            data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
                         }).done(function(data) {
                            $('#calendar').fullCalendar( 'refetchEvents' );
-                           $('#calendar').fullCalendar('unselect'); 
+                           $('#calendar').fullCalendar('unselect');
                         });
                        }
                       });
                    } else if (calEvent.type == "event" && calEvent.recurrent == 1) {
                      var reccurenceID = moment(calEvent.reccurenceID).format(fmt);
-                     
+
                      var box = bootbox.dialog({
                        title: i18next.t("Delete all repeated Events"),
                        message: i18next.t("You are about to delete all the repeated Events linked to this event. Are you sure? This can't be undone."),
@@ -217,7 +216,7 @@ $(document).ready(function () {
                           cancel: {
                             label:  i18next.t('No'),
                             className: 'btn btn-success'
-                          },     
+                          },
                           add: {
                              label: i18next.t('Only this event'),
                              className: 'btn btn-info',
@@ -228,7 +227,7 @@ $(document).ready(function () {
                                  data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID,"dateStart":dateStart,"reccurenceID":reccurenceID})
                               }).done(function(data) {
                                  $('#calendar').fullCalendar( 'refetchEvents' );
-                                 $('#calendar').fullCalendar('unselect'); 
+                                 $('#calendar').fullCalendar('unselect');
                               });
                              }
                           },
@@ -242,13 +241,13 @@ $(document).ready(function () {
                                    data: JSON.stringify({"calendarID":calEvent.calendarID,"evntAction":'suppress',"eventID":calEvent.eventID})
                                 }).done(function(data) {
                                    $('#calendar').fullCalendar( 'refetchEvents' );
-                                   $('#calendar').fullCalendar('unselect'); 
+                                   $('#calendar').fullCalendar('unselect');
                                 });
                              }
                           }
                         }
                     });
-                    
+
                     window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
 
                     //box.show();
@@ -256,7 +255,7 @@ $(document).ready(function () {
                     // the other event type
                   }
                 }
-              },     
+              },
               add: {
                  label: i18next.t('Add More Attendees'),
                  className: 'btn btn-info',
@@ -281,7 +280,7 @@ $(document).ready(function () {
                     }).done(function(data) {
                        location.href = window.CRM.root + '/Checkin.php';
                     });
-                  
+
                  }
               },
               Edit: {
@@ -292,37 +291,37 @@ $(document).ready(function () {
                       CKEDITOR.remove(window.CRM.editor);
                       window.CRM.editor = null;
                    }
-                   
+
                    modal = createEventEditorWindow (calEvent.start,calEvent.end,'modifyEvent',calEvent.eventID,calEvent.reccurenceID);
- 
+
                    $('form #EventTitle').val(calEvent.title);
                    $('form #EventDesc').val(calEvent.Desc);
                    $('form #eventNotes').val(calEvent.Text);
                    $('form #EventLocation').val(calEvent.location);
-     
+
                    // we add the calendars and the types
                    addCalendars(calEvent.calendarID);
                    addCalendarEventTypes(calEvent.eventTypeID,false);
                    addAttendees(calEvent.eventTypeID,true,calEvent.eventID);
-     
+
                    //Timepicker
                    $('.timepicker').timepicker({
                      showInputs: false,
                      showMeridian: (window.CRM.timeEnglish == "true")?true:false
                    });
- 
+
                    $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
- 
+
                    $('.date-picker').click('focus', function (e) {
                      e.preventDefault();
                      $(this).datepicker('show');
                    });
-  
+
                    $('.date-start').hide();
                    $('.date-end').hide();
                    $('.date-recurrence').hide();
                    $(".eventNotes").hide();
- 
+
                    // this will create the toolbar for the textarea
                    if (window.CRM.editor == null) {
                      if (window.CRM.bEDrive) {
@@ -343,15 +342,17 @@ $(document).ready(function () {
                           width : '100%'
                        });
                      }
-                   
+
                      add_ckeditor_buttons(window.CRM.editor);
                    }
 
                    $(".ATTENDENCES").hide();
- 
+
                    initMap(calEvent.longitude,calEvent.latitude,calEvent.title+'('+calEvent.Desc+')',calEvent.location,calEvent.title+'('+calEvent.Desc+')',calEvent.Text);
 
-                   modal.modal("show");                   
+                   box.modal("hide");
+
+                   modal.modal("show");
                 }
               }
             }
@@ -361,7 +362,7 @@ $(document).ready(function () {
       } else {
         // we are with other event type
       }
-        
+
       // change the border color just for fun
       $(this).css('border-color', 'red');
 
@@ -373,7 +374,7 @@ $(document).ready(function () {
       $('#calendar').fullCalendar( 'refetchEvents' );
       return;
     }
-      
+
     var fmt = 'YYYY-MM-DD HH:mm:ss';
 
     var dateStart = moment(event.start).format(fmt);
@@ -402,13 +403,13 @@ $(document).ready(function () {
             }).done(function(data) {
                // now we can refresh the calendar
                $('#calendar').fullCalendar( 'refetchEvents' );
-               $('#calendar').fullCalendar('unselect'); 
-            });                  
+               $('#calendar').fullCalendar('unselect');
+            });
          } else {
           revertFunc();
          }
          console.log('This was logged in the callback: ' + result);
-        }        
+        }
       });
     } else {
       var box = bootbox.dialog({
@@ -433,8 +434,8 @@ $(document).ready(function () {
                 }).done(function(data) {
                    // now we can refresh the calendar
                    $('#calendar').fullCalendar( 'refetchEvents' );
-                   $('#calendar').fullCalendar('unselect'); 
-                });  
+                   $('#calendar').fullCalendar('unselect');
+                });
               }
             },
           allEvents: {
@@ -448,54 +449,54 @@ $(document).ready(function () {
                 }).done(function(data) {
                    // now we can refresh the calendar
                    $('#calendar').fullCalendar( 'refetchEvents' );
-                   $('#calendar').fullCalendar('unselect'); 
+                   $('#calendar').fullCalendar('unselect');
                 });
-              }                    
+              }
             }
           }
       });
-   }         
+   }
 },
-selectHelper: true,        
+selectHelper: true,
 select: function(start, end) {
   window.CRM.APIRequest({
       method: 'POST',
       path: 'calendar/numberofcalendar',
-  }).done(function(data) {         
+  }).done(function(data) {
     if (data.CalendarNumber > 0){
        // We create the dialog
        if (window.CRM.editor != null) {
           CKEDITOR.remove(window.CRM.editor);
           window.CRM.editor = null;
        }
-      
+
        modal = createEventEditorWindow (start,end);
- 
+
        // we add the calendars and the types
        addCalendars();
        addCalendarEventTypes(-1,true);
- 
+
        //Timepicker
        $('.timepicker').timepicker({
          showInputs: false,
          showMeridian: (window.CRM.timeEnglish == "true")?true:false
        });
- 
+
        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
- 
+
        $('.date-picker').click('focus', function (e) {
          e.preventDefault();
          $(this).datepicker('show');
        });
-  
+
        $('.date-start').hide();
        $('.date-end').hide();
        $('.date-recurrence').hide();
        $(".eventNotes").hide();
-   
+
        $("#typeEventrecurrence").prop("disabled", true);
        $("#endDateEventrecurrence").prop("disabled", true);
- 
+
        // this will create the toolbar for the textarea
        if (window.CRM.editor == null) {
          if (window.CRM.bEDrive) {
@@ -516,16 +517,16 @@ select: function(start, end) {
               width : '100%'
              });
           }
-       
+
          add_ckeditor_buttons(window.CRM.editor);
        }
 
        $(".ATTENDENCES").hide();
- 
+
        initMap();
 
        modal.modal("show");
-       
+
     } else {
        window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("To add an event, You have to create a calendar or activate one first."));
     }
@@ -536,17 +537,17 @@ locale: window.CRM.lang,
 eventRender: function (event, element, view) {
   calendarFilterID = window.calendarFilterID;
   EventTypeFilterID = window.EventTypeFilterID;
-  
+
   element.find('.fc-title').html(event.icon+event.title);
 
   if (event.hasOwnProperty('type')){
-    if (event.type == 'event'  
+    if (event.type == 'event'
       && (EventTypeFilterID == 0 || (EventTypeFilterID>0 && EventTypeFilterID == event.eventTypeID) ) ) {
       return true;
-    } else if(event.type == 'event' 
+    } else if(event.type == 'event'
       && (EventTypeFilterID>0 && EventTypeFilterID != event.eventTypeID) ) {
       return false;
-    } else if ((event.allDay || event.type != 'event')){// we are in a allDay event          
+    } else if ((event.allDay || event.type != 'event')){// we are in a allDay event
      if (event.type == 'anniversary' && anniversary == true || event.type == 'birthday' && birthday == true){
       var evStart = moment(view.intervalStart).subtract(1, 'days');
       var evEnd = moment(view.intervalEnd).subtract(1, 'days');
@@ -562,7 +563,7 @@ eventRender: function (event, element, view) {
 events: function(start, end, timezone, callback) {
   var real_start = moment.unix(start.unix()).format('YYYY-MM-DD HH:mm:ss');
   var real_end = moment.unix(end.unix()).format('YYYY-MM-DD HH:mm:ss');
-  
+
   window.CRM.APIRequest({
     method: 'POST',
     path: 'calendar/getallevents',
@@ -572,9 +573,15 @@ events: function(start, end, timezone, callback) {
   });
 }
 });
-  
+
   $(document).on('hidden.bs.modal','.bootbox.modal', function (e) {
-    if (eventCreated) {   
+    // solve a bug a bootbox is over another box
+    if($('.modal').hasClass('in')) {
+    $('body').addClass('modal-open');
+    }
+    // end of bug resolution
+
+    if (eventCreated) {
       if (eventAttendees) {
         var box = bootbox.dialog({
            title: i18next.t('Event added'),
@@ -583,7 +590,7 @@ events: function(start, end, timezone, callback) {
               cancel: {
                 label:  i18next.t('No'),
                 className: 'btn btn-default'
-              },     
+              },
               add: {
                  label: i18next.t('Add More Attendees'),
                  className: 'btn btn-info',
@@ -609,8 +616,8 @@ events: function(start, end, timezone, callback) {
           // be careful not to call box.hide() here, which will invoke jQuery's hide method
           box.modal('hide');
         }, 3000);
-      }                
-        
+      }
+
       eventAttendees = false;
       eventCreated = false;
     }
