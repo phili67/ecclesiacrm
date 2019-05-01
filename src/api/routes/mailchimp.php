@@ -549,6 +549,8 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
       $list           = $mailchimp->getListFromListId($input->list_id);
       $listID         = $input->list_id;
       
+      $count = 0;
+      
       foreach ($persons as $person) {
         if (strlen($person->getEmail()) > 0) {
           $numberOfPerson++;
@@ -585,6 +587,8 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
               "body" => $json_data
           );
         }
+        
+        $count++;
       }
       
       $array = array(
@@ -596,6 +600,10 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
       if ( array_key_exists ('title',$res) ) {
         $resError[] = $res;
       }
+      
+      sleep ( (int)($count*3)/10 );
+      
+      $mailchimp->reloadAllMailChimp();
 
       if ( count($resError) > 0) {
         return $response->withJson(['success' => false, "error" => $resError]);
@@ -681,6 +689,10 @@ function addallpersons(Request $request, Response $response, array $args) {
       if ( array_key_exists ('title',$res) ) {
         $resError[] = $res;
       }
+      
+      sleep ( (int)($count*3)/10 );
+      
+      $mailchimp->reloadAllMailChimp();
 
       if ( count($resError) > 0) {
         return $response->withJson(['success' => false, "error" => $resError]);
