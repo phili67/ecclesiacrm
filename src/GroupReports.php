@@ -35,7 +35,7 @@ if (isset($_POST['GroupID'])) {
 
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Group reports').$groupName;
+$sPageTitle = _('Group reports').$groupName;
 require 'Include/Header.php';
 ?>
 
@@ -54,17 +54,17 @@ require 'Include/Header.php';
         <div class="col-lg-12">
             <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Select the group you would like to report') ?>:</h3>
+                <h3 class="box-title"><?= _('Select the group you would like to report') ?>:</h3>
             </div>
             <div class="box-body">
                 <form method="POST" action="<?= SystemURLs::getRootPath() ?>/GroupReports.php">
                     <div class="row">
                         <div class="col-xs-6">
-                            <label for="GroupID"><?= gettext('Select Group') ?>:</label>
+                            <label for="GroupID"><?= _('Select Group') ?>:</label>
                             <select id="GroupID" class="form-control input-sm" name="GroupID" onChange="UpdateRoles();">
                                 <?php
                                 // Create the group select drop-down
-                                echo '<option value="0">'.gettext('None').'</option>';
+                                echo '<option value="0">'._('None').'</option>';
     while ($aRow = mysqli_fetch_array($rsGroups)) {
         extract($aRow);
         echo '<option value="'.$grp_ID.'">'.$grp_Name.'</option>';
@@ -74,33 +74,32 @@ require 'Include/Header.php';
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <label for=""><?= gettext('Select Role') ?>:</label>
+                            <label for=""><?= _('Select Role') ?>:</label>
                             <select name="GroupRole" class="form-control input-sm" id="GroupRole">
-                                <option><?= gettext('No Role Selected') ?></option>
+                                <option><?= _('No Role Selected') ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <label for="OnlyCart"><?= gettext('Only cart persons?') ?>:</label>
+                            <label for="OnlyCart"><?= _('Only cart persons?') ?>:</label>
                             <input type="checkbox" Name="OnlyCart" value="1">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <label for="ReportModel"><?= gettext('Report Model') ?>:</label>
-                            <input type="radio" Name="ReportModel" value="1" checked><?= gettext('Report for group and role selected') ?>
-                            <input type="radio" Name="ReportModel" value="2"><?= gettext('Report for any role in group selected') ?>
+                            <label for="ReportModel"><?= _('Report Model') ?>:</label>
+                            <input type="radio" Name="ReportModel" value="1" checked><?= _('Report for group and role selected') ?>
+                            <input type="radio" Name="ReportModel" value="2"><?= _('Report for any role in group selected') ?>
                             <?php
-                            //<input type="radio" Name="ReportModel" value="3"><?= gettext("Report any group and role")
+                            //<input type="radio" Name="ReportModel" value="3"><?= _("Report any group and role")
                             ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
-                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Next') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'ReportList.php';">
-
+                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Next') ?>">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/ReportList.php';">
                         </div>
                     </div>
                 </form>
@@ -119,11 +118,11 @@ require 'Include/Header.php';
         <div class="col-lg-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= gettext('Select which information you want to include') ?></h3>
+                    <h3 class="box-title"><?= _('Select which information you want to include') ?></h3>
                 </div>
                 <div class="box-body">
 
-                    <form method="POST" action="Reports/GroupReport.php">
+                    <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Reports/GroupReport.php">
                         <input type="hidden" Name="GroupID" <?= 'value="'.$iGroupID.'"' ?>>
                         <input type="hidden" Name="GroupRole" <?php
                         if (array_key_exists('GroupRole', $_POST)) {
@@ -141,19 +140,21 @@ require 'Include/Header.php';
 
                         <table align="center">
                             <tr>
-                                <td class="LabelColumn"><?= gettext('Standard Info') ?>:</td>
+                                <td class="LabelColumn" valign="top"><?= _('Standard Info') ?></td>
+                                <td valign="top">&nbsp;:&nbsp;</td>
                                 <td class="TextColumn">
-                                    <input type="checkbox" Name="AddressEnable" value="1"> <?= gettext('Address') ?> <br>
-                                    <input type="checkbox" Name="HomePhoneEnable" value="1"> <?= gettext('Home Phone') ?> <br>
-                                    <input type="checkbox" Name="WorkPhoneEnable" value="1"> <?= gettext('Work Phone') ?> <br>
-                                    <input type="checkbox" Name="CellPhoneEnable" value="1"> <?= gettext('Cell Phone') ?> <br>
-                                    <input type="checkbox" Name="EmailEnable" value="1"> <?= gettext('Email') ?> <br>
-                                    <input type="checkbox" Name="OtherEmailEnable" value="1"> <?= gettext('Other Email') ?> <br>
-                                    <input type="checkbox" Name="GroupRoleEnable" value="1"> <?= gettext('GroupRole') ?> <br>
+                                    <input type="checkbox" Name="AddressEnable" value="1"> <?= _('Address') ?> <br>
+                                    <input type="checkbox" Name="HomePhoneEnable" value="1"> <?= _('Home Phone') ?> <br>
+                                    <input type="checkbox" Name="WorkPhoneEnable" value="1"> <?= _('Work Phone') ?> <br>
+                                    <input type="checkbox" Name="CellPhoneEnable" value="1"> <?= _('Cell Phone') ?> <br>
+                                    <input type="checkbox" Name="EmailEnable" value="1"> <?= _('Email') ?> <br>
+                                    <input type="checkbox" Name="OtherEmailEnable" value="1"> <?= _('Other Email') ?> <br>
+                                    <input type="checkbox" Name="GroupRoleEnable" value="1"> <?= _('GroupRole') ?> <br>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="LabelColumn"><?= gettext('Group-Specific Property Fields') ?>:</td>
+                                <td class="LabelColumn" valign="top"><?= _('Group-Specific Property Fields') ?></td>
+                                <td valign="top">&nbsp;:&nbsp;</td>
                                 <td class="TextColumn">
                                     <?php
                                     if (mysqli_num_rows($rsPropFields) > 0) {
@@ -162,7 +163,7 @@ require 'Include/Header.php';
                                             echo '<input type="checkbox" Name="'.$prop_Field.'enable" value="1">'.$prop_Name.'<br>';
                                         }
                                     } else {
-                                        echo gettext('None');
+                                        echo _('None');
                                     } ?>
                                 </td>
                             </tr>
@@ -170,8 +171,8 @@ require 'Include/Header.php';
 
                         <p align="center">
                             <BR>
-                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= gettext('Create Report') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = 'Menu.php';">
+                            <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Create Report') ?>">
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/GroupView.php?GroupID=<?= $iGroupID ?>';">
                         </p>
                     </form>
 
