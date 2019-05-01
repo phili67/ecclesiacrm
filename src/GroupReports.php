@@ -99,8 +99,7 @@ require 'Include/Header.php';
                     <div class="row">
                         <div class="col-xs-6">
                             <input type="submit" class="btn btn-primary" name="Submit" value="<?= _('Next') ?>">
-                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = 'ReportList.php';">
-
+                            <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/ReportList.php';">
                         </div>
                     </div>
                 </form>
@@ -123,7 +122,7 @@ require 'Include/Header.php';
                 </div>
                 <div class="box-body">
 
-                    <form method="POST" action="Reports/GroupReport.php">
+                    <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Reports/GroupReport.php">
                         <input type="hidden" Name="GroupID" <?= 'value="'.$iGroupID.'"' ?>>
                         <input type="hidden" Name="GroupRole" <?php
                         if (array_key_exists('GroupRole', $_POST)) {
