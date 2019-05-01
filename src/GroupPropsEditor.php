@@ -46,15 +46,15 @@ if ($grp_hasSpecialProps == false) {
     RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
 }
 
-$sPageTitle = gettext('Group-Specific Properties Form Editor:').'  : "'.$grp_Name.'" '.gettext("for")." : ".$person->getFullName();
+$sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$grp_Name.'" '._("for")." : ".$person->getFullName();
 
 require 'Include/Header.php'; ?>
 
-<p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= gettext("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
+<p class="alert alert-warning"><span class="fa fa-exclamation-triangle"> <?= _("Warning: Field changes will be lost if you do not 'Save Changes' before using an up, down, delete, or 'add new' button!") ?></span></p>
 
 <div class="box">
 <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Group-Person-Specific Properties') ?></h3>
+    <h3 class="box-title"><?= _('Group-Person-Specific Properties') ?></h3>
 </div>
 
 <?php
@@ -199,8 +199,8 @@ if (isset($_POST['SaveChanges'])) {
 <?php
 if ($numRows == 0) {
     ?>
-  <center><h2><?= gettext('No properties have been added yet') ?></h2>
-      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
+  <center><h2><?= _('No properties have been added yet') ?></h2>
+      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
   </center>
 <?php
 } else {
@@ -210,7 +210,7 @@ if ($numRows == 0) {
   <?php
     if ($bErrorFlag) {
   ?>
-     <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= gettext("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
+     <p class="alert alert-danger"><span class="fa fa-exclamation-triangle"> <?= _("Invalid fields or selections. Changes not saved! Please correct and try again!") ?></span></p>
   <?php
     } 
   ?>
@@ -219,9 +219,9 @@ if ($numRows == 0) {
     <tr>
       <th></th>
       <th></th>
-      <th><?= gettext('Name') ?></th>
-      <th><?= gettext('Description') ?></th>
-      <th><?= gettext('Special option') ?></th>
+      <th><?= _('Name') ?></th>
+      <th><?= _('Description') ?></th>
+      <th><?= _('Special option') ?></th>
     </tr>
 
   <?php
@@ -249,7 +249,7 @@ if ($numRows == 0) {
             if ($aTypeFields[$row] == 9) {
       ?>
               <select name="<?= $row ?>special"  class="form-control input-sm">
-                <option value="0" selected><?= gettext("Select a group") ?></option>
+                <option value="0" selected><?= _("Select a group") ?></option>
       <?php
                 $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
 
@@ -268,11 +268,11 @@ if ($numRows == 0) {
                 echo '</select>';
 
                 if ($aSpecialErrors[$row]) {
-                    echo '<span style="color: red;"><BR>'.gettext('You must select a group.').'</span>';
+                    echo '<span style="color: red;"><BR>'._('You must select a group.').'</span>';
                 }
             } elseif ($aTypeFields[$row] == 12) {
           ?>
-                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= gettext("Edit List Options") ?></a>
+                <a class="btn btn-success" href="javascript:void(0)" onClick="Newwin=window.open('OptionManager.php?mode=groupcustom&ListID=<?= $aSpecialFields[$row]?>','Newwin','toolbar=no,status=no,width=400,height=500')"><?= _("Edit List Options") ?></a>
           <?php
             } else {
                 echo '&nbsp;';
@@ -288,10 +288,10 @@ if ($numRows == 0) {
         <tr>
           <td width="10%"></td>
           <td width="40%" align="center" valign="bottom">
-            <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= gettext("Return to Person") ?></a>
+            <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
           </td>
           <td width="40%" align="center" valign="bottom">
-            <input type="submit" class="btn btn-primary" value="<?= gettext('Save Changes') ?>" Name="SaveChanges">
+            <input type="submit" class="btn btn-primary" value="<?= _('Save Changes') ?>" Name="SaveChanges">
           </td>
           <td width="10%"></td>
         </tr>
