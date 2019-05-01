@@ -62,6 +62,20 @@ class MailChimpService
       }
       return $_SESSION['MailChimpLists'];
     }
+    public  function reloadAllMailChimp ()
+    {
+        LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
+        $lists = $this->myMailchimp->get("lists")['lists'];
+        foreach($lists as &$list) {
+          $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
+          $list['members'] = $listmembers['members'];
+        }
+        $_SESSION['MailChimpLists'] = $lists;
+
+        LoggerUtils::getAppLogger()->info("Updating MailChimp Campaigns Cache");
+        $campaigns = $this->myMailchimp->get("campaigns")['campaigns'];
+        $_SESSION['MailChimpCampaigns'] = $campaigns;
+    }
     private function getCampaignsFromCache(){
       if (!isset($_SESSION['MailChimpCampaigns']) ){// the second part can be used to force update
         LoggerUtils::getAppLogger()->info("Updating MailChimp Campaigns Cache");
