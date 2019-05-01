@@ -210,7 +210,7 @@ $("document").ready(function()
       contentType: "application/json; charset=utf-8",
       dataType: "json"
     }).done(function(data) {
-      alert(i18next.t("Modified"));
+      window.CRM.DisplayAlert(i18next.t("Role Name"),i18next.t("The role name is now modified."));
     });
 
   });
