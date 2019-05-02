@@ -68,3 +68,8 @@ DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bExportSundaySchoolCSV';
 DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bExportSundaySchoolPDF';
 DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bCreateDirectory';
 DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bExportCSV';
+
+-- sunday school real group
+ALTER TABLE  `list_lst` ADD `lst_Type` enum('normal','sunday_school') NOT NULL default 'normal' AFTER `lst_OptionSequence`;
+
+UPDATE `list_lst` SET lst_Type = 'sunday_school' WHERE lst_ID = 3 AND lst_OptionID = 4 AND lst_OptionSequence = 4;
