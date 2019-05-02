@@ -47,7 +47,7 @@ switch ($mode) {
 
     case 'grptypes':
         $listID = 3;
-    case 'grproles':
+    case 'grproles':// dead code : http://ip/OptionManager.php?mode=grproles&ListID=22
         if (!$listID) {
           $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         }
@@ -347,7 +347,7 @@ if ($mode == 'classes') {
 ?>
 <div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all menus with the assignment!') ?></div>
 <?php
-} else if ($mode == 'grproles'){
+} else if ($mode == 'grproles'){//dead code
 ?>
 <div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all group roles with the assignment!') ?></div>
 <?php
@@ -385,7 +385,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         <td class="LabelColumn">
             <b>
             <?php
-            if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {
+            if ($mode == 'grproles' && $aIDs[$row] == $iDefaultRole) {//dead code
             ?>
                 <?= _('Default').' '?>
             <?php
@@ -441,7 +441,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             } ?>
         </td>
         <?php
-        if ($mode == 'grproles') {
+        if ($mode == 'grproles') {//dead code
         ?>
             <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
         <?php
@@ -483,7 +483,7 @@ for ($row = 1; $row <= $numRows; $row++) {
             ?>
         <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:window.close();">
     <?php
-        } elseif ($mode != 'grproles') {
+        } elseif ($mode != 'grproles') {// dead code
             ?>
         <input type="button" class="btn btn-default" value="<?= _('Exit') ?>" Name="Exit" onclick="javascript:document.location='<?= 'Menu.php' ?>';">
     <?php
