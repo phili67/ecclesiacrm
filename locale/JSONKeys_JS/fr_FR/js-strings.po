@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-04-24T15:30:20.545Z\n"
+"POT-Creation-Date: 2019-05-01T20:45:26.473Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -898,6 +898,9 @@ msgstr "Les enfants de l&#39;école du dimanche"
 msgid "Role Name"
 msgstr "Nom du rôle"
 
+msgid "The role name is now modified."
+msgstr "Le nom de rôle est maintenant modifié."
+
 msgid "Make Default"
 msgstr "Rendre par défaut"
 
@@ -1482,9 +1485,8 @@ msgstr "Vous devez choisir au moins un utilisateur."
 msgid "The WebDav Key is"
 msgstr "La clé WebDav est"
 
-#, fuzzy
 msgid "The public WebDav Key is"
-msgstr "La clé WebDav est"
+msgstr "La clé  WebDav publique est"
 
 msgid "WebDav key"
 msgstr "Clé WebDav"
