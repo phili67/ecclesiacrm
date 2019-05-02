@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-01 22:45+0200\n"
+"POT-Creation-Date: 2019-05-02 08:56+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4197,7 +4197,8 @@ msgid "Localization"
 msgstr "Lokalisierung"
 
 #: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:236
-#: Menu.php:98
+#: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:141
+#: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr "GDPR"
 
@@ -10229,11 +10230,6 @@ msgstr "Email Kampagne"
 msgid "Email List"
 msgstr "Email liste"
 
-#: v2/routes/email/mailchimp/mailchimp.php:141
-#: v2/routes/email/mailchimp/mailchimp.php:142
-msgid "GDPR List"
-msgstr "GDPR Liste"
-
 #: v2/routes/email/mailchimp/mailchimp.php:177
 #: v2/templates/email/mailchimp/dashboard.php:68
 msgid "Find Duplicate Emails"
@@ -11283,6 +11279,9 @@ msgstr "Zeitplan"
 
 msgid "paused"
 msgstr "pausiert"
+
+#~ msgid "GDPR List"
+#~ msgstr "GDPR Liste"
 
 #~ msgid "Group Member Properties Editor"
 #~ msgstr "Einstellungseditor für Gruppenmitglieder Editieren"

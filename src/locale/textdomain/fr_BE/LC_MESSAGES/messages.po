@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-01 22:45+0200\n"
+"POT-Creation-Date: 2019-05-02 08:56+0200\n"
 "Language: fr-BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4274,7 +4274,8 @@ msgid "Localization"
 msgstr "Localisation"
 
 #: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:236
-#: Menu.php:98
+#: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:141
+#: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr "RGPD"
 
@@ -6826,8 +6827,8 @@ msgstr "Rôles du groupe"
 #: GroupEditor.php:268
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
-"Les modifications des noms de rôle du groupe sont enregistrées que le champ "
-"de texte est quitté."
+"Les modifications des noms de rôle du groupe sont enregistrées quand le "
+"champ de texte est quitté."
 
 #: GroupEditor.php:273 MemberRoleChange.php:94
 msgid "New Role"
@@ -10363,11 +10364,6 @@ msgstr "Campagne de publipostage"
 msgid "Email List"
 msgstr "Liste de Diffusion"
 
-#: v2/routes/email/mailchimp/mailchimp.php:141
-#: v2/routes/email/mailchimp/mailchimp.php:142
-msgid "GDPR List"
-msgstr "Liste RGPD"
-
 #: v2/routes/email/mailchimp/mailchimp.php:177
 #: v2/templates/email/mailchimp/dashboard.php:68
 msgid "Find Duplicate Emails"
@@ -11471,6 +11467,9 @@ msgstr "Planifiée"
 
 msgid "paused"
 msgstr "En pause"
+
+#~ msgid "GDPR List"
+#~ msgstr "Liste RGPD"
 
 #~ msgid "Group Member Properties Editor"
 #~ msgstr "Gestionnaire des Propriétés des membres du groupe"

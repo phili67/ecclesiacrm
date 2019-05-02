@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-02 08:01+0200\n"
+"POT-Creation-Date: 2019-05-02 08:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4111,7 +4111,8 @@ msgid "Localization"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:236
-#: Menu.php:98
+#: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:141
+#: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
 msgstr ""
 
@@ -10026,11 +10027,6 @@ msgstr ""
 #: v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "Email List"
-msgstr ""
-
-#: v2/routes/email/mailchimp/mailchimp.php:141
-#: v2/routes/email/mailchimp/mailchimp.php:142
-msgid "GDPR List"
 msgstr ""
 
 #: v2/routes/email/mailchimp/mailchimp.php:177
