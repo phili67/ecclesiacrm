@@ -844,6 +844,7 @@
         <column name="lst_ID" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the list.  Since this is a composite primary key, there may be multiple List IDs"/>
         <column name="lst_OptionID" phpName="OptionId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the option in this list.  ***List ID + List Option ID must be unique***"/>
         <column name="lst_OptionSequence" phpName="OptionSequence" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true" defaultValue="0" description="The order in which to display items in this list" />
+        <column name="lst_Type" phpName="Type" type="CHAR" sqlType="enum('normal','sunday_school')" required="true" defaultValue="normal"/>
         <column name="lst_OptionName" phpName="OptionName" type="VARCHAR" size="50" required="true" defaultValue="" description="The actual value for this list option"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
