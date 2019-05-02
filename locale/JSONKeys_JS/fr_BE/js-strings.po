@@ -893,7 +893,7 @@ msgid "Disable Group Specific Properties"
 msgstr "Désactiver les Propriétés Spécifiques du Groupe"
 
 msgid "Sunday School"
-msgstr "Les enfants de l&#39;école du dimanche"
+msgstr "École du dimanche"
 
 msgid "Role Name"
 msgstr "Nom du rôle"
