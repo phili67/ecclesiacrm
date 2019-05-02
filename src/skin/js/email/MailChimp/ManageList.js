@@ -288,26 +288,28 @@ $(document).ready(function () {
       }
     );
   }
-
-  window.CRM.dataListTable = $("#memberListTable").DataTable({
+  
+  
+  var  dataTableConfig = {
     ajax:{
       url: window.CRM.root + "/api/mailchimp/listmembers/" + window.CRM.list_ID,
       type: 'GET',
       contentType: "application/json",
       dataSrc: "MailChimpMembers"
     },
-    "language": {
-      "url": window.CRM.plugin.dataTable.language.url
-    },
     columns: columns,
     responsive: true,
     createdRow : function (row,data,index) {
       $(row).addClass("duplicateRow");
     }
-  });
+  }
   
+  $.extend(dataTableConfig,window.CRM.plugin.dataTable);
   
-    $(document).on("click",".edit-subscriber", function(){
+  window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
+    
+  
+  $(document).on("click",".edit-subscriber", function(){
       var email = $(this).data("id");
       
       bootbox.prompt({

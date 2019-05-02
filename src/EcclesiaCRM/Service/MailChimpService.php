@@ -62,7 +62,7 @@ class MailChimpService
       }
       return $_SESSION['MailChimpLists'];
     }
-    public  function reloadAllMailChimp ()
+    public  function reloadMailChimpDatas ()
     {
         LoggerUtils::getAppLogger()->info("Updating MailChimp List Cache");
         $lists = $this->myMailchimp->get("lists")['lists'];

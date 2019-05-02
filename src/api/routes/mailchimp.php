@@ -562,7 +562,7 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
              $numberOfPerson = 0;
           }
         
-          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getFirstName()];
+          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
         
           if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
             $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
@@ -603,7 +603,7 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
       
       sleep ( (int)($count*3)/10 );
       
-      $mailchimp->reloadAllMailChimp();
+      $mailchimp->reloadMailChimpDatas();
 
       if ( count($resError) > 0) {
         return $response->withJson(['success' => false, "error" => $resError]);
@@ -653,7 +653,7 @@ function addallpersons(Request $request, Response $response, array $args) {
              $numberOfPerson = 0;
           }
         
-          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getFirstName()];
+          $merge_fields = ['FNAME'=>$person->getFirstName(), 'LNAME'=>$person->getLastName()];
         
           if ( !is_null ($address) && SystemConfig::getBooleanValue('bMailChimpWithAddressPhone') ) {
             $merge_fields['ADDRESS'] = $person->getAddressForMailChimp();
@@ -692,7 +692,7 @@ function addallpersons(Request $request, Response $response, array $args) {
       
       sleep ( (int)($count*3)/10 );
       
-      $mailchimp->reloadAllMailChimp();
+      $mailchimp->reloadMailChimpDatas();
 
       if ( count($resError) > 0) {
         return $response->withJson(['success' => false, "error" => $resError]);
