@@ -96,11 +96,11 @@ $("document").ready(function()
     {
       if (data.groupType == i18next.t("Sunday School"))
       {
-        window.location.href = CRM.root + "/sundayschool/SundaySchoolDashboard.php";
+        window.location.href = window.CRM.root + "/sundayschool/SundaySchoolClassView.php?groupId=" + groupID;
       }
       else
       {
-        window.location.href = CRM.root + "/GroupList.php";
+        window.location.href = window.CRM.root + "/GroupView.php?GroupID=" + groupID;
       }
     });
 
