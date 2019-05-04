@@ -4,6 +4,12 @@
 /*define("webdav", "1");
 require '../../Include/Config.php';*/
 
+/*
+*
+* Important : this update can only be done if you're login to the crm
+*
+*/
+
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\dto\SystemConfig;

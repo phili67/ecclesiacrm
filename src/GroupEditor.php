@@ -42,9 +42,17 @@ if (array_key_exists('GroupID', $_GET)) {
     RedirectUtils::Redirect('GroupList.php');
 }
 
-$thisGroup = GroupQuery::create()->findOneById($iGroupID);   //get this group from the group service.
-$rsGroupTypes = ListOptionQuery::create()->filterById('3')->find();     // Get Group Types for the drop-down
-$rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0], $comparison)->find();     //Group Group Role List
+$theCurrentGroup = GroupQuery::create()
+   ->findOneById($iGroupID);   //get this group from the group service.
+   
+$optionId = $theCurrentGroup->getListOptionId();
+
+$rsGroupTypes = ListOptionQuery::create()
+   ->filterById('3') // only the groups
+   ->orderByOptionSequence()
+   ->filterByOptionType(($theCurrentGroup->isSundaySchool())?'sunday_school':'normal')->find();     // Get Group Types for the drop-down
+
+$rsGroupRoleSeed = GroupQuery::create()->filterByRoleListId(['min'=>0], $comparison)->find();         //Group Group Role List
 require 'Include/Header.php';
 ?>
 <!-- GROUP SPECIFIC PROPERTIES MODAL-->
@@ -69,7 +77,7 @@ require 'Include/Header.php';
 
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title"><?= (($thisGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
+    <h3 class="box-title"><?= (($theCurrentGroup->isSundaySchool())?_("Special Group Settings : Sunday School Type"):_('Group Settings')) ?></h3>
   </div>
   <div class="box-body">
     <form name="groupEditForm" id="groupEditForm">
@@ -79,13 +87,13 @@ require 'Include/Header.php';
             <div class="row">
               <div class="col-sm-12">
                 <label for="Name"><?= _('Name') ?>:</label>
-                <input class="form-control" type="text" Name="Name" value="<?= htmlentities(stripslashes($thisGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
+                <input class="form-control" type="text" Name="Name" value="<?= htmlentities(stripslashes($theCurrentGroup->getName()), ENT_NOQUOTES, 'UTF-8') ?>">
               </div>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <label for="Description"><?= _('Description') ?>:</label>
-                <textarea  class="form-control" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($thisGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea></td>
+                <textarea  class="form-control" name="Description" cols="40" rows="5"><?= htmlentities(stripslashes($theCurrentGroup->getDescription()), ENT_NOQUOTES, 'UTF-8') ?></textarea></td>
               </div>
             </div>
             <br>
@@ -94,99 +102,17 @@ require 'Include/Header.php';
             <div class="row">
               <div class="col-sm-12">
                 <label for="GroupType"><?= _('Type of Group and Menu Category') ?>:</label>
-                <?php 
-                    if ($thisGroup->isSundaySchool()) {
-                        $hide = "style=\"display:none;\"";
-                    } else {
-                        $hide = "";
-                    }
-                ?>
-                <select class="form-control input-small" name="GroupType" <?= $hide ?>>
+                <select class="form-control input-small" name="GroupType">
                   <option value="0"><?= _('Unassigned') ?></option>
                   <option value="0">-----------------------</option>
                 <?php
                   foreach ($rsGroupTypes as $groupType) {
                 ?>
-                  <option value="<?= $groupType->getOptionId() ?>" <?= ($thisGroup->getType() == $groupType->getOptionId())?' selected':'' ?>><?= $groupType->getOptionName() ?></option>
+                  <option value="<?= $groupType->getOptionId() ?>" <?= ($theCurrentGroup->getListOptionId() == $groupType->getOptionId())?' selected':'' ?>><?= $groupType->getOptionName() ?></option>
                 <?php
                   } 
                 ?>
                 </select>
-                <?php
-                  if ($thisGroup->isSundaySchool()) {
-                    ?>
-                  <b><?= _("Sunday School") ?></b>
-                  <p><?= _("Sunday School group can't be modified, only in this two cases :")?></p>
-                  <ul>
-                    <li>
-                      <?= _("You can create/delete sunday school group. ")?>
-                    </li>
-                    <li>
-                      <?= _("Add new roles, but not modify or rename the Student and the Teacher roles.")?>
-                    </li>
-                  </ul>
-                <?php
-                   //Get all the Menu properties from the group ID
-
-                  if (SessionUser::getUser()->isManageGroupsEnabled()) {
-                        //Get the Properties assigned to this Group
-                        $sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
-                                FROM record2property_r2p
-                                LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
-                                LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-                                WHERE pro_Class = 'm' AND r2p_record_ID = ".$iGroupID.
-                                ' ORDER BY prt_Name, pro_Name';
-                        $rsAssignedProperties = RunQuery($sSQL);
-                        
-                        // we call the properties
-                        $properties = PropertyQuery::Create()
-                                      ->filterByProClass('m')
-                                      ->orderByProName()
-                                      ->find();
-                                      
-                        // we search the menu property to get the R2pProId
-                        $groupProperty = Record2propertyR2pQuery::create()
-                          ->filterByR2pRecordId($iGroupID)
-                          ->filterByR2pValue('Menu')
-                          ->findOne();
-
-                        $oldPropertyIDAssignement = (!empty($groupProperty))?$groupProperty->getR2pProId():0;
-                 ?>
-                    <input type="hidden" id="grouID" value="<?= $iGroupID ?>" />
-                    <input type="hidden" id="oldPropertyIDAssignement" value="<?= $oldPropertyIDAssignement ?>" />
-                    <p>
-                    <label for="GroupType"><?= _('Assign a New Menu Sunday School Category')?> :</label>
-                      <div class="row">
-                        <div class="col-sm-8">
-                        <select class="form-control input-small" id="PropertyIDAssignement" >
-                           <option value="0"><?= _('Unassigned') ?></option>
-                            <option value="0">-----------------------</option>
-                            <?php
-                            foreach ($properties as $property) {
-                                //If the property doesn't already exist for this Person, write the <OPTION> tag
-                                $selected = (!empty($groupProperty) && ($property->getProId() == $oldPropertyIDAssignement))?"selected":"";
-                            ?>
-                                    <option value="<?= $property->getProId() ?>" <?= $selected ?>> <?= $property->getProName() ?></option>
-                            <?php
-                            }
-                        
-                            ?>
-
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <input type="button" id="menuAssignement" class="btn btn-success" value="<?= _('Assign') ?>" name="Submit">
-                        </div>
-                      </div>
-                    </p>
-                <?php
-                    } else {
-                ?>
-                    <br><br><br>
-                 <?php
-                    }
-                  } 
-                ?>
               </div>
             </div>
             <div class="row">
@@ -226,7 +152,7 @@ require 'Include/Header.php';
             <label for="UseGroupProps"><?= _('Group Specific Properties') ?>:</label>
 
             <?php
-            if ($thisGroup->getHasSpecialProps()) {
+            if ($theCurrentGroup->getHasSpecialProps()) {
             ?>
                 <?= _('Enabled') ?><br/>
                 <div class="row">
@@ -277,7 +203,7 @@ require 'Include/Header.php';
 </div>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   //setup some document-global variables for later on in the javascript
-  var defaultRoleID = <?= ($thisGroup->getDefaultRole() ? $thisGroup->getDefaultRole() : 1) ?>;
+  var defaultRoleID = <?= ($theCurrentGroup->getDefaultRole() ? $theCurrentGroup->getDefaultRole() : 1) ?>;
   var dataT = 0;
   var groupRoleData = <?= json_encode($groupService->getGroupRoles($iGroupID)); ?>;
   var roleCount = groupRoleData.length;

@@ -35,6 +35,8 @@ $mode = trim($_GET['mode']);
 
 $listID = 0;
 
+$list_type = 'normal';
+
 // Check security for the mode selected.
 switch ($mode) {
     case 'famroles':
@@ -44,9 +46,12 @@ switch ($mode) {
             exit;
         }
         break;
-
     case 'grptypes':
+    case 'grptypesSundSchool':
+        // optionId is used in ListID=3 for both the two lists in the same list !!!!
+        // the difference between the grptypes and the grptypesSundSchool is the optionType : 'grptypes' and 'grptypesSundSchool'
         $listID = 3;
+        $list_type = ($mode == 'grptypesSundSchool')?'sunday_school':'normal';
     case 'grproles':// dead code : http://ip/OptionManager.php?mode=grproles&ListID=22
         if (!$listID) {
           $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
@@ -107,6 +112,14 @@ switch ($mode) {
         $adjplusnameplural = _('Person Classifications');
         $sPageTitle = _('Person Classifications Editor');
         $listID = 1;
+        $embedded = false;
+        break;
+    case 'grptypesSundSchool':
+        $noun = _('Type');
+        $adjplusname = _('Sunday School Group Type');
+        $adjplusnameplural = _('Sunday School Group Types');
+        $sPageTitle = _('Sunday School Group Types Editor');
+        $listID = 3;
         $embedded = false;
         break;
     case 'grptypes':
@@ -205,13 +218,14 @@ if (isset($_POST['AddField'])) {
         $iNewNameError = 1;
     } else {
         // Check for a duplicate option name
-        $list = ListOptionQuery::Create()->filterByOptionName($newFieldName)->findById ($listID);
+        $list = ListOptionQuery::Create()->filterByOptionType($list_type)->filterByOptionName($newFieldName)->findById ($listID);
         
         if (!is_null ($list) && $list->count() > 0) {
             $iNewNameError = 2;
         } else {
             // Get count of the options
-            $list = ListOptionQuery::Create()->findById ($listID);
+            $list = ListOptionQuery::Create()->filterByOptionType($list_type)->findById ($listID);
+            
             $numRows = $list->count();
             $newOptionSequence = $numRows + 1;
 
@@ -220,6 +234,7 @@ if (isset($_POST['AddField'])) {
                         ->addAsColumn('MaxOptionID', 'MAX('.ListOptionTableMap::COL_LST_OPTIONID.')')
                         ->findOneById ($listID);
             
+            // this ensure that the group list and sundaygroup list has ever an unique optionId.
             $max = $listMax->getMaxOptionID();
             
             $newOptionID = $max+1;
@@ -231,6 +246,7 @@ if (isset($_POST['AddField'])) {
             $lst->setOptionId($newOptionID);
             $lst->setOptionSequence($newOptionSequence);
             $lst->setOptionName($newFieldName);
+            $lst->setOptionType($list_type);
             
             $lst->save();
                     
@@ -245,11 +261,12 @@ $bDuplicateFound = false;
 // Get the original list of options..
 //ADDITION - get Sequence Also
 $ormLists = ListOptionQuery::Create()
+                ->filterByOptionType($list_type)
                 ->orderByOptionSequence()
                 ->findById ($listID);
-
+                
 $numRows =  $ormLists->count();
-              
+
 $aNameErrors = [];
 
 for ($row = 1; $row <= $numRows; $row++) {
@@ -295,8 +312,7 @@ if (isset($_POST['SaveChanges'])) {
         for ($row = 1; $row <= $numRows; $row++) {
             // Update the type's name if it has changed from what was previously stored
             if ($aOldNameFields[$row] != $aNameFields[$row]) {
-                $list = ListOptionQuery::Create()->filterByOptionSequence($row)->findOneById($listID);
-                
+                $list = ListOptionQuery::Create()->filterByOptionId ($aIDs[$row])->filterByOptionSequence($row)->filterByOptionType($list_type)->findOneById($listID);
                 $list->setOptionName($aNameFields[$row]);
                 $list->save();
             }
@@ -306,6 +322,7 @@ if (isset($_POST['SaveChanges'])) {
 
 // Get data for the form as it now exists..
 $ormLists = ListOptionQuery::Create()
+                ->filterByOptionType($list_type)
                 ->orderByOptionSequence()
                 ->findById ($listID);
 
@@ -343,7 +360,7 @@ if ($mode == 'classes') {
 ?>
 <div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all family roles with the assignment!') ?></div>
 <?php
-} else if ($mode == 'grptypes'){
+} else if ($mode == 'grptypes' || $mode == 'grptypesSundSchool'){
 ?>
 <div class="callout callout-danger"><?= _('Warning: Removing will reset all assignments for all menus with the assignment!') ?></div>
 <?php

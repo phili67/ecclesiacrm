@@ -56,42 +56,47 @@ class MenuBar {
       $menuItem = new Menu (_("List Groups"),"fa fa-circle-o","GroupList.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
       
       $listOptions = ListOptionQuery::Create()
-                    ->filterById(3)
+                    ->filterById(3) // the group category
+                    ->filterByOptionType('normal')
                     ->orderByOptionSequence()
                     ->find();
 
       foreach ($listOptions as $listOption) {
-          if ($listOption->getOptionId() != 4) {// we avoid the sundaySchool, it's done under
-              $groups=GroupQuery::Create()
-                  ->filterByType($listOption->getOptionId())
-                  ->orderByName()
-                  ->find();
+        $groups=GroupQuery::Create()
+            ->useGroupTypeQuery()
+              ->filterByListOptionId($listOption->getOptionId())
+            ->endUse()
+            ->filterByType (3)// normal groups
+            ->orderByName()
+            ->find();
 
-              if ($groups->count()>0) {// only if the groups exist : !empty doesn't work !
-                 
-                  $menuItem = new Menu ($listOption->getOptionName(),"fa fa-user-o","#",true,$menu);
-                  
-                  foreach ($groups as $group) {
-                      $str = $group->getName();
-                      if (strlen($str)>$this->_maxStr) {
-                          $str = substr($str, 0, $this->_maxStr-3)." ...";
-                      }
+        if ($groups->count()>0) {// only if the groups exist : !empty doesn't work !
+           
+            $menuItem = new Menu ($listOption->getOptionName(),"fa fa-user-o","#",true,$menu);
+            
+            foreach ($groups as $group) {
+                $str = $group->getName();
+                if (strlen($str)>$this->_maxStr) {
+                    $str = substr($str, 0, $this->_maxStr-3)." ...";
+                }
 
-                      $menuItemItem = new Menu ($str,"fa fa-circle-o","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
-                      $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
-                      $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
-                      
-                      if ( SessionUser::getUser()->isShowMapEnabled() ) {
-                        $menuItemItem->addLink("v2/map/" . $group->getID());
-                      }
-                  }
-              }
-          }
+                $menuItemItem = new Menu ($str,"fa fa-circle-o","GroupView.php?GroupID=" . $group->getID(),true,$menuItem);
+                $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
+                
+                if ( SessionUser::getUser()->isShowMapEnabled() ) {
+                  $menuItemItem->addLink("v2/map/" . $group->getID());
+                }
+            }
+        }
       }
       
       // now we're searching the unclassified groups
       $groups=GroupQuery::Create()
-                  ->filterByType(0)
+                  ->useGroupTypeQuery()
+                     ->filterByListOptionId (0)
+                  ->endUse()
+                  ->filterByType (3) // normal groups
                   ->orderByName()
                   ->find();
 
@@ -112,68 +117,69 @@ class MenuBar {
     
     private function addSundaySchoolGroups()
     {
-      //Get the Properties assigned to all the sunday Group
-      $ormAssignedProperties = Record2propertyR2pQuery::Create()
-                      ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
-                      ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                      ->addJoin(Record2propertyR2pTableMap::COL_R2P_RECORD_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
-                      ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
-                      ->addAsColumn("GroupId",GroupTableMap::COL_GRP_ID)
-                      ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
-                      ->where(PropertyTableMap::COL_PRO_CLASS." = 'm' AND ".GroupTableMap::COL_GRP_TYPE." = '4' AND ". PropertyTypeTableMap::COL_PRT_NAME." = 'MENU'")
-                      ->addAscendingOrderByColumn('ProName')
-                      ->addAscendingOrderByColumn('groupName')
-                      ->find();
-
-      //Get the sunday groups not assigned by properties
-      $ormWithoutAssignedProperties = GroupQuery::Create()
-                      ->addJoin(GroupTableMap::COL_GRP_ID,Record2propertyR2pTableMap::COL_R2P_RECORD_ID,Criteria::LEFT_JOIN)
-                      ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
-                      ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
-                      ->addAsColumn('PrtName',PropertyTypeTableMap::COL_PRT_NAME)
-                      ->addAsColumn("GroupId",GroupTableMap::COL_GRP_ID)
-                      ->addAsColumn("GroupName",GroupTableMap::COL_GRP_NAME)
-                      ->where("((".Record2propertyR2pTableMap::COL_R2P_RECORD_ID." IS NULL) OR (".PropertyTypeTableMap::COL_PRT_NAME." != 'Menu')) AND ".GroupTableMap::COL_GRP_TYPE." = '4'")
-                      ->addAscendingOrderByColumn('groupName')
-                      ->find();
-                      
       $menu = new Menu (_("Sunday School"),"fa fa-child","#",true);
       
       $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","sundayschool/SundaySchoolDashboard.php",true,$menu);
       
       
-      $property = '';
-      foreach ($ormAssignedProperties as $ormAssignedProperty) {
-          if ($ormAssignedProperty->getProName() != $property) {
-            $menuItem = new Menu ($ormAssignedProperty->getProName(),"fa fa-user-o","#",true,$menu);
-            
-            $property = $ormAssignedProperty->getProName();
-          }
+      $listOptions = ListOptionQuery::Create()
+                    ->filterById(3) // the group category
+                    ->filterByOptionType('sunday_school')
+                    ->orderByOptionSequence()
+                    ->find();
 
-          $str = _($ormAssignedProperty->getGroupName());
-          if (strlen($str)>$this->_maxStr) {
-              $str = substr($str, 0, $this->_maxStr-3)." ...";
-          }
-          
-          $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $ormAssignedProperty->getGroupId(),true,$menuItem);
-          $menuItemItem->addLink("GroupEditor.php?GroupID=" . $ormAssignedProperty->getGroupId());
-          $menuItemItem->addLink("GroupView.php?GroupID=" . $ormAssignedProperty->getGroupId());
-          $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $ormAssignedProperty->getGroupId());
+      foreach ($listOptions as $listOption) {
+        $groups=GroupQuery::Create()
+            ->useGroupTypeQuery()
+              ->filterByListOptionId($listOption->getOptionId())
+            ->endUse()
+            ->filterByType (4)// sunday groups
+            ->orderByName()
+            ->find();
+
+        if ($groups->count()>0) {// only if the groups exist : !empty doesn't work !
+           
+            $menuItem = new Menu ($listOption->getOptionName(),"fa fa-user-o","#",true,$menu);
+            
+            foreach ($groups as $group) {
+                $str = $group->getName();
+                if (strlen($str)>$this->_maxStr) {
+                    $str = substr($str, 0, $this->_maxStr-3)." ...";
+                }
+
+                $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+                $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+                $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
+                $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $group->getID());
+                                
+                if ( SessionUser::getUser()->isShowMapEnabled() ) {
+                  $menuItemItem->addLink("v2/map/" . $group->getID());
+                }
+            }
+        }
       }
       
-      // the non assigned group to a group property
-      if ($ormWithoutAssignedProperties->count()>0) {// only if the groups exist : !empty doesn't work !
+      // now we're searching the unclassified groups
+      $groups=GroupQuery::Create()
+                  ->useGroupTypeQuery()
+                     ->filterByListOptionId (0)
+                  ->endUse()
+                  ->filterByType (4) // sunday group groups
+                  ->orderByName()
+                  ->find();
+
+      if ($groups->count()>0) {// only if the groups exist : !empty doesn't work !
           $menuItem = new Menu (_("Unassigned"),"fa fa-user-o","#",true,$menu);
-          
-          foreach ($ormWithoutAssignedProperties as $ormWithoutAssignedProperty) {
-              $str = _($ormWithoutAssignedProperty->getGroupName());
+
+          foreach ($groups as $group) {
+              $str = _($group->getName());
               if (strlen($str)>$this->_maxStr) {
                   $str = substr($str, 0, $this->_maxStr-3)." ...";
               }
               
-              $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $ormWithoutAssignedProperty->getGroupId(),true,$menuItem);
-              $menuItemItem->addLink("GroupEditor.php?GroupID=" . $ormWithoutAssignedProperty->getGroupId());
-              $menuItemItem->addLink("GroupView.php?GroupID=" . $ormWithoutAssignedProperty->getGroupId());
+              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+              $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
+              $menuItemItem->addLink("GroupView.php?GroupID=" . $group->getID());
           }
       }
       

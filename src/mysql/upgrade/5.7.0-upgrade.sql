@@ -1,3 +1,9 @@
+--
+--
+-- Important : this update can only be done if you're login to the crm
+--
+--
+
 ALTER TABLE `user_usr` DROP COLUMN usr_Style;
 
 ALTER TABLE userconfig_ucfg MODIFY COLUMN ucfg_type ENUM('text','number','date','boolean','textarea','choice');
