@@ -18,6 +18,8 @@ use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\GroupTypeQuery;
+use EcclesiaCRM\GroupType;
 
 use Sabre\CalDAV;
 use Sabre\CardDAV;
@@ -229,6 +231,9 @@ $app->group('/groups', function () {
         $group = new Group();
         if ($groupSettings->isSundaySchool) {
             $group->makeSundaySchool();
+            $group->setType(4);// now each sunday school group has a type of 4
+        } else {
+          $group->setType(3);// now each normal group has a type of 3
         }
         $group->setName($groupSettings->groupName);
         $group->save();
@@ -239,12 +244,26 @@ $app->group('/groups', function () {
         $input = (object) $request->getParsedBody();
         $group = GroupQuery::create()->findOneById($groupID);
         $group->setName($input->groupName);
-        $group->setType($input->groupType);
-        $group->setDescription($input->description);
         
-        if ($input->groupType == 4) {
+        if ($group->getType() == 4) {
             $group->makeSundaySchool();
         }
+        
+        $groupType = GroupTypeQuery::Create()->findOneByGroupId ($groupID);
+        
+        if (!is_null($groupType)) {
+          $groupType->setListOptionId ($input->groupType);
+          $groupType->save();
+        } else {
+          $groupType = new GroupType();
+          
+          $groupType->setGroupId ($groupID);
+          $groupType->setListOptionId ($input->groupType);
+      
+          $groupType->save();
+        }
+        
+        $group->setDescription($input->description);
         
         $group->save();
         

@@ -35,7 +35,9 @@ use Propel\Runtime\Propel;
  */
 class Group extends BaseGroup
 {
-    protected $typeSundaySchool = 4;
+    protected $typeSundaySchool = 4;// historically a sunday group is of type of 4
+    protected $typeNormal       = 3;// the other types are normally the type of the group : list_lst ->  lst_OptionID
+                        // but, now erverything is in the table : group_type -> grptp_lst_OptionID
 
     public function isSundaySchool()
     {

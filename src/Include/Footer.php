@@ -107,8 +107,8 @@ use EcclesiaCRM\Bootstrapper;
              if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled() ) {
           ?>
                 <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/v2/propertylist/m">
-                        <i class="fa fa-cog"></i> <?= _('Sunday School Menu Properties') ?>
+                    <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypesSundSchool">
+                        <i class="fa fa-cog"></i> <?= _('Sunday School Group Types') ?>
                     </a>
                 </li>
           <?php
@@ -118,7 +118,7 @@ use EcclesiaCRM\Bootstrapper;
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
-                        <i class="fa fa-cog"></i> <?= _('Edit Group Types') ?>
+                        <i class="fa fa-cog"></i> <?= _('Group Types') ?>
                     </a>
                 </li>
           <?php

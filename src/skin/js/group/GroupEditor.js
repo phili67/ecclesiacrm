@@ -94,7 +94,7 @@ $("document").ready(function()
       dataType: "json"
     }).done(function(data)
     {
-      if (data.groupType == i18next.t("Sunday School"))
+      if (data.Type == 4)
       {
         window.location.href = window.CRM.root + "/sundayschool/SundaySchoolClassView.php?groupId=" + groupID;
       }

@@ -19,6 +19,8 @@ use EcclesiaCRM\ListOptionIconQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\GroupTypeQuery;
+use EcclesiaCRM\GroupType;
 use EcclesiaCRM\SessionUser;
 
 
@@ -41,6 +43,7 @@ switch ($mode) {
         break;
 
     case 'grptypes':
+    case 'grptypesSundSchool':
     case 'grproles':
         if (!SessionUser::getUser()->isManageGroupsEnabled()) {
             RedirectUtils::Redirect('Menu.php');
@@ -61,6 +64,8 @@ switch ($mode) {
 }
 
 // Set appropriate table and field names for the editor mode
+$list_type = 'normal';
+
 switch ($mode) {
     case 'famroles':
         $deleteCleanupTable = 'person_per';
@@ -75,10 +80,12 @@ switch ($mode) {
         $listID = 1;
         break;
     case 'grptypes':
+    case 'grptypesSundSchool':
         $deleteCleanupTable = 'group_grp';
         $deleteCleanupColumn = 'grp_Type';
         $deleteCleanupResetTo = 0;
         $listID = 3;
+        $list_type = ($mode == 'grptypesSundSchool')?'sunday_school':'normal';
         break;
     case 'grproles':
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
@@ -101,19 +108,19 @@ switch ($mode) {
 switch ($sAction) {
     // Move a field up:  Swap the OptionSequence (ordering) of the selected row and the one above it
     case 'up':
-        $list1 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder - 1);
+        $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder - 1);
         $list1->setOptionSequence($iOrder)->save();
         
-        $list2 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionId($iID);
+        $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
         $list2->setOptionSequence($iOrder - 1)->save();
         break;
 
     // Move a field down:  Swap the OptionSequence (ordering) of the selected row and the one below it
     case 'down':
-        $list1 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder + 1);
+        $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder + 1);
         $list1->setOptionSequence($iOrder)->save();
         
-        $list2 = ListOptionQuery::Create()->filterById($listID)->findOneByOptionId($iID);
+        $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
         $list2->setOptionSequence($iOrder + 1)->save();
         break;
 
@@ -124,12 +131,12 @@ switch ($sAction) {
 
         // Make sure we never delete the only option
         if ($list->count() > 1) {
-            $list = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($iOrder);
+            $list = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder);
             $list->delete();
 
             
             if ($listID == 1) { // we are in the case of custom icon for person classification, so we have to delete the icon in list_icon
-              $icon = ListOptionIconQuery::Create()->filterByListId($listID)->findOneByListOptionId ($iID);
+              $icon = ListOptionIconQuery::Create()->filterByOptionType($list_type)->filterByListId($listID)->findOneByListOptionId ($iID);
               
               if (!is_null($icon)) {
                 $icon->delete();
@@ -138,7 +145,7 @@ switch ($sAction) {
 
             // Shift the remaining rows up by one
             for ($reorderRow = $iOrder + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
-                $list_upd = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($reorderRow);
+                $list_upd = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($reorderRow);
                 if (!is_null($list_upd)) {
                   $list_upd->setOptionSequence($reorderRow - 1)->save();
                 }
@@ -168,7 +175,17 @@ switch ($sAction) {
                 
                 /*$sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = ".$grp->getDefaultRole()." WHERE p2g2r_grp_ID = ".$grp->getId()." AND p2g2r_rle_ID = $iID";
                 RunQuery($sSQL);*/
+            } else if ($mode == 'grptypes' || $mode == 'grptypesSundSchool') {
+              // we've to delete the
+              
+              $groupTypes = GroupTypeQuery::Create ()->findByListOptionId ($iID);
+              
+              foreach ($groupTypes as $groupType) {
+                $groupType->setListOptionId (0);
+                $groupType->save();
+              }
             }
+
 
             // Otherwise, for other types of assignees having a deleted option, reset them to default of 0 (undefined).
             else {
