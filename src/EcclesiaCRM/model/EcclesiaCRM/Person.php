@@ -89,7 +89,7 @@ class Person extends BasePerson implements iPhoto
     
     public function isDeactivated()
     {
-      if ($this->getDateDeactivated() != '' || $this->getFamily()->getDateDeactivated() != '') {
+      if ($this->getDateDeactivated() != '' || (!is_null ($this->getFamily()) && $this->getFamily()->getDateDeactivated() != '')) {
         return true;
       }
       
