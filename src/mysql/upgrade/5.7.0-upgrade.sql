@@ -69,7 +69,31 @@ DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bExportSundaySchoolPDF';
 DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bCreateDirectory';
 DELETE FROM `userconfig_ucfg` WHERE `ucfg_name`='bExportCSV';
 
+--
 -- sunday school real group
+--
+
+--
+-- Table structure for table `addressbooks`
+--
+CREATE TABLE `group_type` (
+    `grptp_id` INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `grptp_grp_ID` mediumint(8) unsigned NOT NULL,
+    `grptp_lst_OptionID` mediumint(8) unsigned NOT NULL default '0',
+    CONSTRAINT fk_grptp_grp_ID FOREIGN KEY (grptp_grp_ID) REFERENCES group_grp(grp_ID) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 ALTER TABLE  `list_lst` ADD `lst_Type` enum('normal','sunday_school') NOT NULL default 'normal' AFTER `lst_OptionSequence`;
 
-UPDATE `list_lst` SET lst_Type = 'sunday_school' WHERE lst_ID = 3 AND lst_OptionID = 4 AND lst_OptionSequence = 4;
+-- UPDATE `list_lst` SET lst_Type = 'sunday_school' WHERE lst_ID = 3 AND lst_OptionID = 4 AND lst_OptionSequence = 4;
+
+
+--
+-- bug in the addressbookshare table, addressbooksid foreign key : Solution change the name of the column addressbooksid to addressbookid
+--
+ALTER TABLE `addressbookshare` DROP FOREIGN KEY `fk_addressbooksid`;
+ALTER TABLE `addressbookshare` CHANGE COLUMN `addressbooksid` `addressbookid` INT(11) UNSIGNED NOT NULL;
+
+ALTER TABLE `addressbookshare`
+ADD CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE;
+

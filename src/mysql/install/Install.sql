@@ -17,15 +17,15 @@ CREATE TABLE addressbooks (
 --
 CREATE TABLE IF NOT EXISTS addressbookshare (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    addressbooksid INT(11) UNSIGNED NOT NULL,
+    addressbookid INT(11) UNSIGNED NOT NULL,
     principaluri VARBINARY(255),
     displayname VARCHAR(255),
     description TEXT,
     href VARBINARY(100),
     access TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1 = owner, 2 = read, 3 = readwrite',
     UNIQUE(principaluri(100)),
-    UNIQUE(addressbooksid, principaluri),
-    CONSTRAINT fk_addressbooksid FOREIGN KEY (addressbooksid) REFERENCES addressbooks(id) ON DELETE CASCADE
+    UNIQUE(addressbookid, principaluri),
+    CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -621,6 +621,23 @@ CREATE TABLE `group_grp` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `group_type`
+--
+
+CREATE TABLE `group_type` (
+    `grptp_id` INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    `grptp_grp_ID` mediumint(8) unsigned NOT NULL,
+    `grptp_lst_OptionID` mediumint(8) unsigned NOT NULL default '0',
+    CONSTRAINT fk_grptp_grp_ID FOREIGN KEY (grptp_grp_ID) REFERENCES group_grp(grp_ID) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `group_type`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `istlookup_lu`
 --
 
@@ -684,7 +701,8 @@ INSERT INTO `list_lst` (`lst_ID`, `lst_OptionID`, `lst_OptionSequence`, `lst_Typ
   (3, 1, 1, 'normal', 'Ministry'),
   (3, 2, 2, 'normal', 'Team'),
   (3, 3, 3, 'normal', 'Bible Study'),
-  (3, 4, 4, 'sunday_school', 'Sunday School Class'),
+  (3, 4, 1, 'sunday_school', 'Group 1'),
+  (3, 5, 2, 'sunday_school', 'Group 2'),
   (4, 1, 1, 'normal', 'True / False'),
   (4, 2, 2, 'normal', 'Date'),
   (4, 3, 3, 'normal', 'Text Field (50 char)'),
@@ -911,8 +929,7 @@ CREATE TABLE `propertytype_prt` (
 INSERT INTO `propertytype_prt` (`prt_ID`, `prt_Class`, `prt_Name`, `prt_Description`) VALUES
   (1, 'p', 'Person', 'General Person Properties'),
   (2, 'f', 'Family', 'General Family Properties'),
-  (3, 'g', 'Group', 'General Group Properties'),
-  (4, 'm', 'Menu', 'To customise the sunday school menu.');
+  (3, 'g', 'Group', 'General Group Properties');
 
 -- --------------------------------------------------------
 
