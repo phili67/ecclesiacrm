@@ -20,17 +20,17 @@
 
   <table name="addressbookshare" idMethod="native" phpName="Addressbookshare">
     <column name="id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="addressbooksid" phpName="Addressbooksid" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
-    <column name="principaluri" phpName="Principaluri" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
+    <column name="addressbookid" phpName="AddressbookId" type="INTEGER" sqlType="int(11) unsigned" required="true"/>
+    <column name="principaluri" phpName="PrincipalURI" type="VARCHAR" size="255" sqlType="varbinary(255)"/>
     <column name="displayname" phpName="Displayname" type="VARCHAR" size="255"/>
     <column name="description" phpName="Description" type="LONGVARCHAR"/>
     <column name="href" phpName="Href" type="VARCHAR" size="100" sqlType="varbinary(100)"/>
     <column name="access" phpName="Access" type="SMALLINT" size="1" required="true" defaultValue="true"/>
-    <foreign-key foreignTable="addressbooks" name="fk_addressbooksid" onDelete="CASCADE">
-      <reference local="addressbooksid" foreign="id"/>
+    <foreign-key foreignTable="addressbooks" name="fk_addressbookid" onDelete="CASCADE">
+      <reference local="addressbookid" foreign="id"/>
     </foreign-key>
-    <unique name="addressbooksid">
-      <unique-column name="addressbooksid"/>
+    <unique name="addressbookid">
+      <unique-column name="addressbookid"/>
       <unique-column name="principaluri"/>
     </unique>
     <unique name="principaluri">
@@ -427,6 +427,21 @@
         </vendor>
     </table>
     
+    <table name="group_type" idMethod="native" phpName="GroupType">
+      <column name="grptp_id" phpName="Id" type="INTEGER" sqlType="int(11) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+      <column name="grptp_grp_ID" phpName="GroupId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true"/>
+      <column name="grptp_lst_OptionID" phpName="ListOptionId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0"/>
+      <foreign-key foreignTable="group_grp" name="fk_grptp_grp_ID" onDelete="CASCADE">
+        <reference local="grptp_grp_ID" foreign="grp_ID"/>
+      </foreign-key>
+      <index name="fk_grptp_grp_ID">
+        <index-column name="grptp_grp_ID"/>
+      </index>
+      <vendor type="mysql">
+        <parameter name="Engine" value="InnoDB"/>
+      </vendor>
+    </table>
+
     <table name="groupmembers" idMethod="native" phpName="Groupmembers" description="Calendar management">
       <column name="id" phpName="Id" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
       <column name="principal_id" phpName="PrincipalId" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
@@ -844,7 +859,7 @@
         <column name="lst_ID" phpName="Id" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the list.  Since this is a composite primary key, there may be multiple List IDs"/>
         <column name="lst_OptionID" phpName="OptionId" type="SMALLINT" size="8" sqlType="mediumint(8) unsigned" required="true" defaultValue="0" primaryKey="true" description="The ID of the option in this list.  ***List ID + List Option ID must be unique***"/>
         <column name="lst_OptionSequence" phpName="OptionSequence" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true" defaultValue="0" description="The order in which to display items in this list" />
-        <column name="lst_Type" phpName="Type" type="CHAR" sqlType="enum('normal','sunday_school')" required="true" defaultValue="normal"/>
+        <column name="lst_Type" phpName="OptionType" type="CHAR" sqlType="enum('normal','sunday_school')" required="true" defaultValue="normal"/>
         <column name="lst_OptionName" phpName="OptionName" type="VARCHAR" size="50" required="true" defaultValue="" description="The actual value for this list option"/>
         <vendor type="mysql">
             <parameter name="Engine" value="InnoDB"/>
