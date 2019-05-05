@@ -104,21 +104,21 @@ use EcclesiaCRM\Bootstrapper;
           <?php
              }
 
-             if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled() ) {
-          ?>
-                <li>
-                    <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypesSundSchool">
-                        <i class="fa fa-cog"></i> <?= _('Sunday School Group Types') ?>
-                    </a>
-                </li>
-          <?php
-             }
-
              if (SessionUser::getUser()->isManageGroupsEnabled()) {
           ?>
                 <li>
                     <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypes">
                         <i class="fa fa-cog"></i> <?= _('Group Types') ?>
+                    </a>
+                </li>
+          <?php
+             }
+
+             if (SystemConfig::getBooleanValue("bEnabledSundaySchool") || SessionUser::getUser()->isManageGroupsEnabled() ) {
+          ?>
+                <li>
+                    <a href="<?= SystemURLs::getRootPath() ?>/OptionManager.php?mode=grptypesSundSchool">
+                        <i class="fa fa-cog"></i> <?= _('Sunday School Group Types') ?>
                     </a>
                 </li>
           <?php
