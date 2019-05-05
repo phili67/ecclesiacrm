@@ -30,8 +30,6 @@ $app->group('/properties', function() {
     $this->post('/groups/assign', 'propertiesGroupsAssign' );
     $this->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
     
-    $this->post('/sundayschoolmenu/unassign', 'propertiesSundayschoolMenuUnAssign' );
-
     $this->post('/propertytypelists', 'getAllPropertyTypes' );
     $this->post('/propertytypelists/edit', 'editPropertyType' );
     $this->post('/propertytypelists/set', 'setPropertyType' );
