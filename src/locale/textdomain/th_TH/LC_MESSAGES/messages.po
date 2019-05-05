@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-02 08:56+0200\n"
+"POT-Creation-Date: 2019-05-05 08:55+0200\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,13 +204,13 @@ msgstr ""
 
 #: api/routes/mailchimp.php:119 api/routes/people/people.php:68
 #: api/routes/people/people.php:116 api/routes/search.php:66
-#: EcclesiaCRM/MenuBar/MenuBar.php:285
+#: EcclesiaCRM/MenuBar/MenuBar.php:291
 msgid "Persons"
 msgstr ""
 
 #: api/routes/mailchimp.php:159 api/routes/people/people.php:155
-#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:267
-#: EcclesiaCRM/MenuBar/MenuBar.php:290 members/online-pending-verify.php:24
+#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:273
+#: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:384
 #: PeopleDashboard.php:141 sundayschool/SundaySchoolDashboard.php:118
 #, fuzzy
@@ -259,11 +259,11 @@ msgstr "บทบาทในครอบครัว"
 msgid "Family Activated"
 msgstr "บทบาทในครอบครัว"
 
-#: api/routes/people/people-groups.php:322
+#: api/routes/people/people-groups.php:341
 msgid "Deleted from group"
 msgstr ""
 
-#: api/routes/people/people-groups.php:354
+#: api/routes/people/people-groups.php:373
 msgid "Added to group"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr "บทบาทในครอบครัว"
 
 #: api/routes/sidebar/sidebar-properties.php:75
 #: api/routes/sidebar/sidebar-properties.php:214 Include/Footer.php:94
-#: OptionManager.php:121 v2/routes/sidebar/propertylist.php:40
+#: OptionManager.php:134 v2/routes/sidebar/propertylist.php:40
 msgid "Group"
 msgstr ""
 
@@ -482,10 +482,10 @@ msgstr ""
 #: CartView.php:58 CartView.php:69 CSVImport.php:389 DirectoryReports.php:94
 #: DonatedItemEditor.php:188 DonatedItemEditor.php:239
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:166
+#: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:172
 #: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:451
 #: eGive.php:344 FamilyEditor.php:1172 GeoPage.php:95 GeoPage.php:107
-#: GroupEditor.php:105 GroupEditor.php:162 GroupList.php:41 GroupView.php:52
+#: GroupEditor.php:106 GroupList.php:41 GroupView.php:52
 #: PaddleNumEditor.php:178 PersonEditor.php:942 PersonEditor.php:957
 #: PersonEditor.php:1461 PrintPastoralCare.php:271 PrintPastoralCare.php:281
 #: PrintView.php:273 PrintView.php:283 SelectDelete.php:232 SelectList.php:38
@@ -615,7 +615,7 @@ msgid "Phone"
 msgstr "โทรศัพท์"
 
 #: AutoPaymentEditor.php:973 CartToFamily.php:394 CartView.php:316
-#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:309
+#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:315
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 EditEventAttendees.php:71
@@ -678,7 +678,7 @@ msgstr ""
 #: DonatedItemEditor.php:295 FamilyEditor.php:683 FamilyEditor.php:770
 #: FamilyEditor.php:830 FamilyEditor.php:905 FamilyEditor.php:925
 #: FamilyEditor.php:999 FamilyEditor.php:1198 FundRaiserEditor.php:143
-#: GroupEditor.php:253 PaddleNumEditor.php:149 PersonEditor.php:802
+#: GroupEditor.php:179 PaddleNumEditor.php:149 PersonEditor.php:802
 #: PersonEditor.php:935 PersonEditor.php:1054 PersonEditor.php:1453
 #: PersonEditor.php:1526 PersonEditor.php:1612 PledgeEditor.php:729
 #: UserEditor.php:865 UserPasswordChange.php:224
@@ -1142,7 +1142,7 @@ msgstr ""
 #: EditEventAttendees.php:56 EditEventAttendees.php:70 EventAttendance.php:184
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:337
 #: FamilyCustomFieldsEditor.php:459 FamilyList.php:104 GeoPage.php:357
-#: GroupEditor.php:81 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
+#: GroupEditor.php:89 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
 #: GroupPropsFormEditor.php:443 GroupView.php:417 ListEvents.php:300
 #: ListEvents.php:302 PersonCustomFieldsEditor.php:327
 #: PersonCustomFieldsEditor.php:454 PersonList.php:112
@@ -1359,12 +1359,12 @@ msgstr ""
 
 #: CartView.php:318 CSVExport.php:162 CSVExport.php:263 CSVImport.php:403
 #: FamilyEditor.php:1025 FamilyView.php:477 FinancialReports.php:138
-#: OptionManager.php:105 PeopleDashboard.php:339 PersonEditor.php:1459
+#: OptionManager.php:110 PeopleDashboard.php:339 PersonEditor.php:1459
 #: PrintPastoralCare.php:316 PrintView.php:318 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr ""
 
-#: CartView.php:319 CSVExport.php:167 CSVExport.php:288 OptionManager.php:98
+#: CartView.php:319 CSVExport.php:167 CSVExport.php:288 OptionManager.php:103
 #: PrintPastoralCare.php:276 PrintView.php:278 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
@@ -2040,11 +2040,11 @@ msgstr ""
 msgid "Please ensure this what you want to do.</p>"
 msgstr ""
 
-#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:62
+#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:70
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:282
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:288
 msgid "Directory reports"
 msgstr ""
 
@@ -2223,7 +2223,7 @@ msgid "Go"
 msgstr ""
 
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
-#: GroupEditor.php:87 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
+#: GroupEditor.php:95 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
 #: GroupPropsFormEditor.php:444 GroupView.php:418 ListEvents.php:360
 msgid "Description"
 msgstr ""
@@ -4180,7 +4180,7 @@ msgstr ""
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:242
 #: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
@@ -4349,76 +4349,76 @@ msgstr ""
 msgid "List Groups"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 SelectList.php:177
+#: EcclesiaCRM/MenuBar/MenuBar.php:113 SelectList.php:177
 msgid "Group Assignment Helper"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 GroupEditor.php:118
+#: EcclesiaCRM/MenuBar/MenuBar.php:120
 #: sundayschool/SundaySchoolClassView.php:41
 msgid "Sunday School"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:207
-#: EcclesiaCRM/MenuBar/MenuBar.php:237 EcclesiaCRM/MenuBar/MenuBar.php:269
-#: EcclesiaCRM/MenuBar/MenuBar.php:315 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:122 EcclesiaCRM/MenuBar/MenuBar.php:213
+#: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/MenuBar/MenuBar.php:275
+#: EcclesiaCRM/MenuBar/MenuBar.php:321 Include/Header.php:201
 msgid "Dashboard"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:188 EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:194 EcclesiaCRM/MenuBar/MenuBar.php:201
 #: Include/Footer.php:170
 msgid "Global Custom Menus"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 #, fuzzy
 msgid "Custom Menus"
 msgstr "เลือกฟิลด์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:217 Include/Header.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:223 Include/Header.php:126
 msgid "Private Space"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/utils/MiscUtils.php:82
+#: EcclesiaCRM/MenuBar/MenuBar.php:225 EcclesiaCRM/utils/MiscUtils.php:82
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:220 Include/Header.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 Include/Header.php:128
 #: PersonView.php:618
 #, fuzzy
 msgid "Change Password"
 msgstr "พิมพ์รหัสผ่านอีกครั้ง"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 Include/Header.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:227 Include/Header.php:130
 #: PersonView.php:617
 msgid "Change Settings"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 FamilyView.php:587 PersonView.php:757
+#: EcclesiaCRM/MenuBar/MenuBar.php:228 FamilyView.php:587 PersonView.php:757
 msgid "Documents"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:225 PersonView.php:765 UserEditor.php:725
+#: EcclesiaCRM/MenuBar/MenuBar.php:231 PersonView.php:765 UserEditor.php:725
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:238
+#: EcclesiaCRM/MenuBar/MenuBar.php:244
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/MenuBar/MenuBar.php:288
+#: EcclesiaCRM/MenuBar/MenuBar.php:245 EcclesiaCRM/MenuBar/MenuBar.php:294
 msgid "View Inactive Persons"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:240 EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:246 EcclesiaCRM/MenuBar/MenuBar.php:299
 msgid "View Inactive Families"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:247
+#: EcclesiaCRM/MenuBar/MenuBar.php:253
 msgid "Events"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:253 ListEvents.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:259 ListEvents.php:362
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
 #: v2/templates/map/MapUsingGoogle.php:72
 #: v2/templates/map/MapUsingGoogle.php:118
@@ -4427,122 +4427,122 @@ msgstr ""
 msgid "Calendar"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:256 EcclesiaCRM/MenuBar/MenuBar.php:279
+#: EcclesiaCRM/MenuBar/MenuBar.php:262 EcclesiaCRM/MenuBar/MenuBar.php:285
 #: v2/routes/map/map.php:62
 msgid "View on Map"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:259
+#: EcclesiaCRM/MenuBar/MenuBar.php:265
 msgid "List Church Events"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:260
+#: EcclesiaCRM/MenuBar/MenuBar.php:266
 msgid "List Event Types"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:261
+#: EcclesiaCRM/MenuBar/MenuBar.php:267
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:267 Menu.php:403 PeopleDashboard.php:162
+#: EcclesiaCRM/MenuBar/MenuBar.php:273 Menu.php:403 PeopleDashboard.php:162
 msgid "People"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:277
+#: EcclesiaCRM/MenuBar/MenuBar.php:283
 msgid "View All Persons"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:286 PersonList.php:87
+#: EcclesiaCRM/MenuBar/MenuBar.php:292 PersonList.php:87
 msgid "Add New Person"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:287
+#: EcclesiaCRM/MenuBar/MenuBar.php:293
 msgid "View Active Persons"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:291
+#: EcclesiaCRM/MenuBar/MenuBar.php:297
 msgid "Add New Family"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:292
+#: EcclesiaCRM/MenuBar/MenuBar.php:298
 msgid "View Active Families"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:313 FamilyView.php:355 UserEditor.php:836
+#: EcclesiaCRM/MenuBar/MenuBar.php:319 FamilyView.php:355 UserEditor.php:836
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:320
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #, fuzzy
 msgid "Email Lists"
 msgstr "บทบาทในครอบครัว"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 FinancialReports.php:419
+#: EcclesiaCRM/MenuBar/MenuBar.php:350 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
 #: Reports/AdvancedDeposit.php:415 Reports/AdvancedDeposit.php:427
 #: Reports/AdvancedDeposit.php:518
 msgid "Deposit"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:358
+#: EcclesiaCRM/MenuBar/MenuBar.php:364
 msgid "Current"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361 ManageEnvelopes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:367 ManageEnvelopes.php:22
 #, fuzzy
 msgid "Envelope Manager"
 msgstr "ซอง"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:368
 msgid "View All Deposits"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:363 ElectronicPaymentList.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:369 ElectronicPaymentList.php:54
 msgid "Electronic Payment Listing"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:370
 msgid "Deposit Reports"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:365
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 msgid "Edit Deposit Slip"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:372 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:378 FundRaiserEditor.php:32
 msgid "Fundraiser"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374
+#: EcclesiaCRM/MenuBar/MenuBar.php:380
 msgid "View All Fundraisers"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:375
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "สร้างไฟล์"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376
+#: EcclesiaCRM/MenuBar/MenuBar.php:382
 msgid "Edit Fundraiser"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 msgid "View Buyers"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:378
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384
+#: EcclesiaCRM/MenuBar/MenuBar.php:390
 msgid "Data/Reports"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:386
+#: EcclesiaCRM/MenuBar/MenuBar.php:392
 msgid "Reports Menu"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:387 UserEditor.php:772
+#: EcclesiaCRM/MenuBar/MenuBar.php:393 UserEditor.php:772
 msgid "Query Menu"
 msgstr ""
 
@@ -5322,9 +5322,9 @@ msgstr ""
 
 #: ElectronicPaymentList.php:217 FamilyCustomFieldsEditor.php:336
 #: FamilyCustomFieldsEditor.php:456 GroupPropsFormEditor.php:316
-#: GroupPropsFormEditor.php:442 GroupView.php:416 OptionManager.php:113
-#: PersonCustomFieldsEditor.php:326 PersonCustomFieldsEditor.php:451
-#: Reports/GDPR/GDPRDataStructureExport.php:74
+#: GroupPropsFormEditor.php:442 GroupView.php:416 OptionManager.php:118
+#: OptionManager.php:126 PersonCustomFieldsEditor.php:326
+#: PersonCustomFieldsEditor.php:451 Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:307
 #: v2/templates/gdpr/gdprdatastructure.php:42
 msgid "Type"
@@ -5375,7 +5375,7 @@ msgstr ""
 msgid "Bank ACH"
 msgstr "ชื่อธนาคาร"
 
-#: ElectronicPaymentList.php:270 GroupEditor.php:243 GroupView.php:284
+#: ElectronicPaymentList.php:270 GroupEditor.php:169 GroupView.php:284
 msgid "Disabled"
 msgstr ""
 
@@ -5537,7 +5537,7 @@ msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 
 #: EventNames.php:264 FamilyCustomFieldsEditor.php:438 GroupPropsEditor.php:294
-#: GroupPropsFormEditor.php:415 OptionManager.php:479
+#: GroupPropsFormEditor.php:415 OptionManager.php:496
 #: PersonCustomFieldsEditor.php:428
 msgid "Save Changes"
 msgstr ""
@@ -5769,7 +5769,7 @@ msgid "No custom Family fields have been added yet"
 msgstr ""
 
 #: FamilyCustomFieldsEditor.php:329 GroupPropsEditor.php:213
-#: GroupPropsFormEditor.php:307 OptionManager.php:373
+#: GroupPropsFormEditor.php:307 OptionManager.php:390
 #: PersonCustomFieldsEditor.php:316 PersonEditor.php:794
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
@@ -5792,12 +5792,12 @@ msgstr ""
 
 #: FamilyCustomFieldsEditor.php:370 FamilyCustomFieldsEditor.php:493
 #: FamilyEditor.php:254 GroupPropsFormEditor.php:352
-#: GroupPropsFormEditor.php:467 OptionManager.php:435
+#: GroupPropsFormEditor.php:467 OptionManager.php:452
 #: PersonCustomFieldsEditor.php:363 PersonCustomFieldsEditor.php:488
 msgid "You must enter a name"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:381 GroupEditor.php:206
+#: FamilyCustomFieldsEditor.php:381 GroupEditor.php:132
 #: GroupPropsEditor.php:252 GroupPropsFormEditor.php:370
 #: PersonCustomFieldsEditor.php:373
 #, fuzzy
@@ -5947,8 +5947,8 @@ msgstr "ชื่อกลาง"
 msgid "Last"
 msgstr "นามสกุล"
 
-#: FamilyEditor.php:1021 FamilyView.php:476 OptionManager.php:96
-#: OptionManager.php:129 PersonView.php:881 PrintPastoralCare.php:346
+#: FamilyEditor.php:1021 FamilyView.php:476 OptionManager.php:101
+#: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:346
 #: PrintPastoralCare.php:400 PrintView.php:348 PrintView.php:406
 #: Reports/CanvassReports.php:238 Reports/GroupReport.php:103
 #: sundayschool/SundaySchoolClassListExport.php:46
@@ -6179,8 +6179,8 @@ msgstr ""
 msgid "select an option"
 msgstr ""
 
-#: FamilyView.php:739 GroupEditor.php:178 GroupView.php:377 PersonView.php:1145
-#: PersonView.php:1197 SelectList.php:1154
+#: FamilyView.php:739 GroupView.php:377 PersonView.php:1145 PersonView.php:1197
+#: SelectList.php:1154
 #, fuzzy
 msgid "Assign"
 msgstr "ยังไม่ได้กำหนด"
@@ -6701,82 +6701,65 @@ msgstr ""
 msgid "Group Editor"
 msgstr ""
 
-#: GroupEditor.php:72
+#: GroupEditor.php:80
 msgid "Special Group Settings : Sunday School Type"
 msgstr ""
 
-#: GroupEditor.php:72
+#: GroupEditor.php:80
 msgid "Group Settings"
 msgstr ""
 
-#: GroupEditor.php:96
+#: GroupEditor.php:104
 msgid "Type of Group and Menu Category"
 msgstr ""
 
-#: GroupEditor.php:119
-msgid "Sunday School group can't be modified, only in this two cases :"
-msgstr ""
-
-#: GroupEditor.php:122
-msgid "You can create/delete sunday school group. "
-msgstr ""
-
-#: GroupEditor.php:125
-msgid ""
-"Add new roles, but not modify or rename the Student and the Teacher roles."
-msgstr ""
-
-#: GroupEditor.php:158
-msgid "Assign a New Menu Sunday School Category"
-msgstr ""
-
-#: GroupEditor.php:198 OptionManager.php:131
+#: GroupEditor.php:124 OptionManager.php:144
 #, fuzzy
 msgid "Group Member Roles"
 msgstr "สมาชิกกลุ่ม"
 
-#: GroupEditor.php:200
+#: GroupEditor.php:126
 msgid "Clone roles"
 msgstr ""
 
-#: GroupEditor.php:204
+#: GroupEditor.php:130
 msgid "from group"
 msgstr ""
 
-#: GroupEditor.php:226
+#: GroupEditor.php:152
 #, fuzzy
 msgid "Group Specific Properties"
 msgstr "บทบาทในครอบครัว"
 
-#: GroupEditor.php:231
+#: GroupEditor.php:157
 msgid "Enabled"
 msgstr ""
 
-#: GroupEditor.php:234
+#: GroupEditor.php:160
 msgid "Disable Group Specific Properties"
 msgstr ""
 
-#: GroupEditor.php:237 GroupView.php:450
+#: GroupEditor.php:163 GroupView.php:450
 msgid "Edit Group-Specific Properties Form"
 msgstr ""
 
-#: GroupEditor.php:244
+#: GroupEditor.php:170
 msgid "Enable Group Specific Properties"
 msgstr ""
 
-#: GroupEditor.php:262
+#: GroupEditor.php:188
 msgid "Group Roles"
 msgstr ""
 
-#: GroupEditor.php:268
+#: GroupEditor.php:194
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 
-#: GroupEditor.php:273 MemberRoleChange.php:94
+#: GroupEditor.php:199 MemberRoleChange.php:94
 msgid "New Role"
 msgstr ""
 
-#: GroupEditor.php:275
+#: GroupEditor.php:201
 msgid "Add New Role"
 msgstr ""
 
@@ -7097,7 +7080,7 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: Include/Footer.php:62 OptionManager.php:99 PeopleDashboard.php:289
+#: Include/Footer.php:62 OptionManager.php:104 PeopleDashboard.php:289
 #, fuzzy
 msgid "Family Roles"
 msgstr "บทบาทในครอบครัว"
@@ -7123,12 +7106,12 @@ msgstr ""
 msgid "Edit Custom Person Fields"
 msgstr ""
 
-#: Include/Footer.php:111
-msgid "Sunday School Menu Properties"
+#: Include/Footer.php:111 OptionManager.php:120
+msgid "Sunday School Group Types"
 msgstr ""
 
-#: Include/Footer.php:121
-msgid "Edit Group Types"
+#: Include/Footer.php:121 OptionManager.php:128
+msgid "Group Types"
 msgstr ""
 
 #: Include/Footer.php:132
@@ -7871,167 +7854,171 @@ msgstr ""
 msgid "Tracking"
 msgstr ""
 
-#: OptionManager.php:100
+#: OptionManager.php:105
 #, fuzzy
 msgid "Family Roles Editor"
 msgstr "บทบาทในครอบครัว"
 
-#: OptionManager.php:106
+#: OptionManager.php:111
 msgid "Person Classification"
 msgstr ""
 
-#: OptionManager.php:107
+#: OptionManager.php:112
 msgid "Person Classifications"
 msgstr ""
 
-#: OptionManager.php:108
+#: OptionManager.php:113
 msgid "Person Classifications Editor"
 msgstr ""
 
-#: OptionManager.php:114
+#: OptionManager.php:119
+msgid "Sunday School Group Type"
+msgstr ""
+
+#: OptionManager.php:121
+msgid "Sunday School Group Types Editor"
+msgstr ""
+
+#: OptionManager.php:127
 msgid "Group Type"
 msgstr ""
 
-#: OptionManager.php:115
-msgid "Group Types"
-msgstr ""
-
-#: OptionManager.php:116
+#: OptionManager.php:129
 msgid "Group Types Editor"
 msgstr ""
 
-#: OptionManager.php:122
+#: OptionManager.php:135
 msgid "Security Group"
 msgstr ""
 
-#: OptionManager.php:123
+#: OptionManager.php:136
 msgid "Security Groups"
 msgstr ""
 
-#: OptionManager.php:124
+#: OptionManager.php:137
 msgid "Security Groups Editor"
 msgstr ""
 
-#: OptionManager.php:130
+#: OptionManager.php:143
 #, fuzzy
 msgid "Group Member Role"
 msgstr "สมาชิกกลุ่ม"
 
-#: OptionManager.php:132
+#: OptionManager.php:145
 #, fuzzy
 msgid "Group Member Roles Editor"
 msgstr "สมาชิกกลุ่ม"
 
-#: OptionManager.php:146 OptionManager.php:162 OptionManager.php:178
+#: OptionManager.php:159 OptionManager.php:175 OptionManager.php:191
 msgid "Option"
 msgstr ""
 
-#: OptionManager.php:147
+#: OptionManager.php:160
 msgid "Person Custom List Option"
 msgstr ""
 
-#: OptionManager.php:148
+#: OptionManager.php:161
 msgid "Person Custom List Options"
 msgstr ""
 
-#: OptionManager.php:149
+#: OptionManager.php:162
 msgid "Person Custom List Options Editor"
 msgstr ""
 
-#: OptionManager.php:163
+#: OptionManager.php:176
 msgid "Custom List Option"
 msgstr ""
 
-#: OptionManager.php:164
+#: OptionManager.php:177
 msgid "Custom List Options"
 msgstr ""
 
-#: OptionManager.php:165
+#: OptionManager.php:178
 msgid "Custom List Options Editor"
 msgstr ""
 
-#: OptionManager.php:179
+#: OptionManager.php:192
 msgid "Family Custom List Option"
 msgstr ""
 
-#: OptionManager.php:180
+#: OptionManager.php:193
 msgid "Family Custom List Options"
 msgstr ""
 
-#: OptionManager.php:181
+#: OptionManager.php:194
 msgid "Family Custom List Options Editor"
 msgstr ""
 
-#: OptionManager.php:340
+#: OptionManager.php:357
 msgid ""
 "Warning: Removing will reset all assignments for all persons with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:344
+#: OptionManager.php:361
 msgid ""
 "Warning: Removing will reset all assignments for all family roles with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:348
+#: OptionManager.php:365
 msgid ""
 "Warning: Removing will reset all assignments for all menus with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:352
+#: OptionManager.php:369
 msgid ""
 "Warning: Removing will reset all assignments for all group roles with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:369
+#: OptionManager.php:386
 msgid "Error: Duplicate"
 msgstr ""
 
-#: OptionManager.php:369
+#: OptionManager.php:386
 msgid "are not allowed."
 msgstr ""
 
-#: OptionManager.php:390
+#: OptionManager.php:407
 msgid "Default"
 msgstr ""
 
-#: OptionManager.php:439
+#: OptionManager.php:456
 msgid "Duplicate name found."
 msgstr ""
 
-#: OptionManager.php:446
+#: OptionManager.php:463
 msgid "Make Default"
 msgstr ""
 
-#: OptionManager.php:457 OptionManager.php:465
+#: OptionManager.php:474 OptionManager.php:482
 msgid "Visible only in PersonView"
 msgstr ""
 
-#: OptionManager.php:484 OptionManager.php:488
+#: OptionManager.php:501 OptionManager.php:505
 #: sundayschool/SundaySchoolClassView.php:72
 msgid "Exit"
 msgstr ""
 
-#: OptionManager.php:496
+#: OptionManager.php:513
 msgid "Name for New"
 msgstr ""
 
-#: OptionManager.php:501
+#: OptionManager.php:518
 msgid "Add New"
 msgstr ""
 
-#: OptionManager.php:509
+#: OptionManager.php:526
 msgid "Error: You must enter a name"
 msgstr ""
 
-#: OptionManager.php:513
+#: OptionManager.php:530
 msgid "Error: A "
 msgstr ""
 
-#: OptionManager.php:513
+#: OptionManager.php:530
 msgid " by that name already exists."
 msgstr ""
 
@@ -11277,10 +11264,6 @@ msgstr ""
 
 #: userconfig_ucfg.php:11
 msgid "AdminLTE style "
-msgstr ""
-
-#: userconfig_ucfg.php:12
-msgid "choice"
 msgstr ""
 
 msgid "Jan"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-02 08:56+0200\n"
+"POT-Creation-Date: 2019-05-05 08:55+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -216,14 +216,14 @@ msgstr "Küldés Hírlevél"
 
 #: api/routes/mailchimp.php:119 api/routes/people/people.php:68
 #: api/routes/people/people.php:116 api/routes/search.php:66
-#: EcclesiaCRM/MenuBar/MenuBar.php:285
+#: EcclesiaCRM/MenuBar/MenuBar.php:291
 #, fuzzy
 msgid "Persons"
 msgstr "Személy"
 
 #: api/routes/mailchimp.php:159 api/routes/people/people.php:155
-#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:267
-#: EcclesiaCRM/MenuBar/MenuBar.php:290 members/online-pending-verify.php:24
+#: api/routes/search.php:163 EcclesiaCRM/MenuBar/MenuBar.php:273
+#: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:384
 #: PeopleDashboard.php:141 sundayschool/SundaySchoolDashboard.php:118
 msgid "Families"
@@ -273,12 +273,12 @@ msgstr "Ez az érték szükséges."
 msgid "Family Activated"
 msgstr "Ez az érték szükséges."
 
-#: api/routes/people/people-groups.php:322
+#: api/routes/people/people-groups.php:341
 #, fuzzy
 msgid "Deleted from group"
 msgstr "a csoportból"
 
-#: api/routes/people/people-groups.php:354
+#: api/routes/people/people-groups.php:373
 #, fuzzy
 msgid "Added to group"
 msgstr "Add hozzá a Csoport"
@@ -365,7 +365,7 @@ msgstr "Család"
 
 #: api/routes/sidebar/sidebar-properties.php:75
 #: api/routes/sidebar/sidebar-properties.php:214 Include/Footer.php:94
-#: OptionManager.php:121 v2/routes/sidebar/propertylist.php:40
+#: OptionManager.php:134 v2/routes/sidebar/propertylist.php:40
 msgid "Group"
 msgstr "Csoport"
 
@@ -507,10 +507,10 @@ msgstr ""
 #: CartView.php:58 CartView.php:69 CSVImport.php:389 DirectoryReports.php:94
 #: DonatedItemEditor.php:188 DonatedItemEditor.php:239
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:166
+#: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:172
 #: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:451
 #: eGive.php:344 FamilyEditor.php:1172 GeoPage.php:95 GeoPage.php:107
-#: GroupEditor.php:105 GroupEditor.php:162 GroupList.php:41 GroupView.php:52
+#: GroupEditor.php:106 GroupList.php:41 GroupView.php:52
 #: PaddleNumEditor.php:178 PersonEditor.php:942 PersonEditor.php:957
 #: PersonEditor.php:1461 PrintPastoralCare.php:271 PrintPastoralCare.php:281
 #: PrintView.php:273 PrintView.php:283 SelectDelete.php:232 SelectList.php:38
@@ -638,7 +638,7 @@ msgid "Phone"
 msgstr "Telefon"
 
 #: AutoPaymentEditor.php:973 CartToFamily.php:394 CartView.php:316
-#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:309
+#: CSVExport.php:137 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:315
 #: EcclesiaCRM/Reports/PDF_Directory.php:327
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460 EditEventAttendees.php:71
@@ -701,7 +701,7 @@ msgstr ""
 #: DonatedItemEditor.php:295 FamilyEditor.php:683 FamilyEditor.php:770
 #: FamilyEditor.php:830 FamilyEditor.php:905 FamilyEditor.php:925
 #: FamilyEditor.php:999 FamilyEditor.php:1198 FundRaiserEditor.php:143
-#: GroupEditor.php:253 PaddleNumEditor.php:149 PersonEditor.php:802
+#: GroupEditor.php:179 PaddleNumEditor.php:149 PersonEditor.php:802
 #: PersonEditor.php:935 PersonEditor.php:1054 PersonEditor.php:1453
 #: PersonEditor.php:1526 PersonEditor.php:1612 PledgeEditor.php:729
 #: UserEditor.php:865 UserPasswordChange.php:224
@@ -1196,7 +1196,7 @@ msgstr "Add kosárba Family"
 #: EditEventAttendees.php:56 EditEventAttendees.php:70 EventAttendance.php:184
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:337
 #: FamilyCustomFieldsEditor.php:459 FamilyList.php:104 GeoPage.php:357
-#: GroupEditor.php:81 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
+#: GroupEditor.php:89 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
 #: GroupPropsFormEditor.php:443 GroupView.php:417 ListEvents.php:300
 #: ListEvents.php:302 PersonCustomFieldsEditor.php:327
 #: PersonCustomFieldsEditor.php:454 PersonList.php:112
@@ -1411,12 +1411,12 @@ msgstr "Eltávolít"
 
 #: CartView.php:318 CSVExport.php:162 CSVExport.php:263 CSVImport.php:403
 #: FamilyEditor.php:1025 FamilyView.php:477 FinancialReports.php:138
-#: OptionManager.php:105 PeopleDashboard.php:339 PersonEditor.php:1459
+#: OptionManager.php:110 PeopleDashboard.php:339 PersonEditor.php:1459
 #: PrintPastoralCare.php:316 PrintView.php:318 queryparameters_qrp.php:19
 msgid "Classification"
 msgstr "Besorolás"
 
-#: CartView.php:319 CSVExport.php:167 CSVExport.php:288 OptionManager.php:98
+#: CartView.php:319 CSVExport.php:167 CSVExport.php:288 OptionManager.php:103
 #: PrintPastoralCare.php:276 PrintView.php:278 queryparameters_qrp.php:5
 #, fuzzy
 msgid "Family Role"
@@ -2131,11 +2131,11 @@ msgstr "FIGYELEM: Ez a művelet nem vonható vissza, és jogi hatásai lehetnek!
 msgid "Please ensure this what you want to do.</p>"
 msgstr ""
 
-#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:62
+#: DepositSlipEditor.php:285 FindDepositSlip.php:128 GroupEditor.php:70
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:282
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:288
 msgid "Directory reports"
 msgstr "Directory jelentések"
 
@@ -2312,7 +2312,7 @@ msgid "Go"
 msgstr "Megy"
 
 #: DonatedItemEditor.php:276 EditEventAttendees.php:58 FundRaiserEditor.php:175
-#: GroupEditor.php:87 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
+#: GroupEditor.php:95 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
 #: GroupPropsFormEditor.php:444 GroupView.php:418 ListEvents.php:360
 msgid "Description"
 msgstr "Leírás"
@@ -4318,7 +4318,7 @@ msgstr "Vissza"
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:236
+#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:242
 #: Menu.php:98 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
@@ -4494,83 +4494,83 @@ msgstr ""
 msgid "List Groups"
 msgstr "Minden csoport"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 SelectList.php:177
+#: EcclesiaCRM/MenuBar/MenuBar.php:113 SelectList.php:177
 msgid "Group Assignment Helper"
 msgstr "Csoportos Megbízás Helper"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:140 GroupEditor.php:118
+#: EcclesiaCRM/MenuBar/MenuBar.php:120
 #: sundayschool/SundaySchoolClassView.php:41
 #, fuzzy
 msgid "Sunday School"
 msgstr "No Vasárnapi Iskola"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:142 EcclesiaCRM/MenuBar/MenuBar.php:207
-#: EcclesiaCRM/MenuBar/MenuBar.php:237 EcclesiaCRM/MenuBar/MenuBar.php:269
-#: EcclesiaCRM/MenuBar/MenuBar.php:315 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:122 EcclesiaCRM/MenuBar/MenuBar.php:213
+#: EcclesiaCRM/MenuBar/MenuBar.php:243 EcclesiaCRM/MenuBar/MenuBar.php:275
+#: EcclesiaCRM/MenuBar/MenuBar.php:321 Include/Header.php:201
 msgid "Dashboard"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:188 EcclesiaCRM/MenuBar/MenuBar.php:195
+#: EcclesiaCRM/MenuBar/MenuBar.php:194 EcclesiaCRM/MenuBar/MenuBar.php:201
 #: Include/Footer.php:170
 msgid "Global Custom Menus"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:206
+#: EcclesiaCRM/MenuBar/MenuBar.php:212
 #, fuzzy
 msgid "Custom Menus"
 msgstr "Egyéni mezők"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:217 Include/Header.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:223 Include/Header.php:126
 #, fuzzy
 msgid "Private Space"
 msgstr "Magán"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 EcclesiaCRM/utils/MiscUtils.php:82
+#: EcclesiaCRM/MenuBar/MenuBar.php:225 EcclesiaCRM/utils/MiscUtils.php:82
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:220 Include/Header.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:226 Include/Header.php:128
 #: PersonView.php:618
 #, fuzzy
 msgid "Change Password"
 msgstr "Új jelszó"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 Include/Header.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:227 Include/Header.php:130
 #: PersonView.php:617
 #, fuzzy
 msgid "Change Settings"
 msgstr "Beállítások mentése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 FamilyView.php:587 PersonView.php:757
+#: EcclesiaCRM/MenuBar/MenuBar.php:228 FamilyView.php:587 PersonView.php:757
 #, fuzzy
 msgid "Documents"
 msgstr "Megjegyzés"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:225 PersonView.php:765 UserEditor.php:725
+#: EcclesiaCRM/MenuBar/MenuBar.php:231 PersonView.php:765 UserEditor.php:725
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:238
+#: EcclesiaCRM/MenuBar/MenuBar.php:244
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/MenuBar/MenuBar.php:288
+#: EcclesiaCRM/MenuBar/MenuBar.php:245 EcclesiaCRM/MenuBar/MenuBar.php:294
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "CSV Combine Családok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:240 EcclesiaCRM/MenuBar/MenuBar.php:293
+#: EcclesiaCRM/MenuBar/MenuBar.php:246 EcclesiaCRM/MenuBar/MenuBar.php:299
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "CSV Combine Családok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:247
+#: EcclesiaCRM/MenuBar/MenuBar.php:253
 #, fuzzy
 msgid "Events"
 msgstr "Event Leírás"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:253 ListEvents.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:259 ListEvents.php:362
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
 #: v2/templates/map/MapUsingGoogle.php:72
 #: v2/templates/map/MapUsingGoogle.php:118
@@ -4580,140 +4580,140 @@ msgstr "Event Leírás"
 msgid "Calendar"
 msgstr "Naptári év"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:256 EcclesiaCRM/MenuBar/MenuBar.php:279
+#: EcclesiaCRM/MenuBar/MenuBar.php:262 EcclesiaCRM/MenuBar/MenuBar.php:285
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
 msgstr "Mind Ön kosara"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:259
+#: EcclesiaCRM/MenuBar/MenuBar.php:265
 #, fuzzy
 msgid "List Church Events"
 msgstr "Felsorolja az összes Church Events"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:260
+#: EcclesiaCRM/MenuBar/MenuBar.php:266
 #, fuzzy
 msgid "List Event Types"
 msgstr "Szerkesztése Esemény típusok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:261
+#: EcclesiaCRM/MenuBar/MenuBar.php:267
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:267 Menu.php:403 PeopleDashboard.php:162
+#: EcclesiaCRM/MenuBar/MenuBar.php:273 Menu.php:403 PeopleDashboard.php:162
 msgid "People"
 msgstr "Emberek"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:277
+#: EcclesiaCRM/MenuBar/MenuBar.php:283
 #, fuzzy
 msgid "View All Persons"
 msgstr "Az összes megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:286 PersonList.php:87
+#: EcclesiaCRM/MenuBar/MenuBar.php:292 PersonList.php:87
 #, fuzzy
 msgid "Add New Person"
 msgstr "Új esemény hozzáadása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:287
+#: EcclesiaCRM/MenuBar/MenuBar.php:293
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Az összes megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:291
+#: EcclesiaCRM/MenuBar/MenuBar.php:297
 #, fuzzy
 msgid "Add New Family"
 msgstr "Új mező hozzáadása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:292
+#: EcclesiaCRM/MenuBar/MenuBar.php:298
 #, fuzzy
 msgid "View Active Families"
 msgstr "CSV Combine Családok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:313 FamilyView.php:355 UserEditor.php:836
+#: EcclesiaCRM/MenuBar/MenuBar.php:319 FamilyView.php:355 UserEditor.php:836
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:320
+#: EcclesiaCRM/MenuBar/MenuBar.php:326
 #, fuzzy
 msgid "Email Lists"
 msgstr "Family szerkesztő"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:344 FinancialReports.php:419
+#: EcclesiaCRM/MenuBar/MenuBar.php:350 FinancialReports.php:419
 #: Reports/AdvancedDeposit.php:264 Reports/AdvancedDeposit.php:384
 #: Reports/AdvancedDeposit.php:415 Reports/AdvancedDeposit.php:427
 #: Reports/AdvancedDeposit.php:518
 msgid "Deposit"
 msgstr "Letét"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:358
+#: EcclesiaCRM/MenuBar/MenuBar.php:364
 #, fuzzy
 msgid "Current"
 msgstr "Jelenlegi Szerep"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:361 ManageEnvelopes.php:22
+#: EcclesiaCRM/MenuBar/MenuBar.php:367 ManageEnvelopes.php:22
 msgid "Envelope Manager"
 msgstr "Boríték menedzser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:368
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Az összes megtekintése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:363 ElectronicPaymentList.php:54
+#: EcclesiaCRM/MenuBar/MenuBar.php:369 ElectronicPaymentList.php:54
 #, fuzzy
 msgid "Electronic Payment Listing"
 msgstr "Electronic Transaction Details"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:370
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Befizetési Jelentés"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:365
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Befizetési nyomtatvány"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:372 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:378 FundRaiserEditor.php:32
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Adománygyűjtő Listing"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374
+#: EcclesiaCRM/MenuBar/MenuBar.php:380
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Összes alapok"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:375
+#: EcclesiaCRM/MenuBar/MenuBar.php:381
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Új Fund Raiser"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376
+#: EcclesiaCRM/MenuBar/MenuBar.php:382
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "Felhasználó szerkesztése"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 #, fuzzy
 msgid "View Buyers"
 msgstr "Vevő"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:378
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384
+#: EcclesiaCRM/MenuBar/MenuBar.php:390
 #, fuzzy
 msgid "Data/Reports"
 msgstr "Jelentés létrehozása"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:386
+#: EcclesiaCRM/MenuBar/MenuBar.php:392
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Jelentés Menu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:387 UserEditor.php:772
+#: EcclesiaCRM/MenuBar/MenuBar.php:393 UserEditor.php:772
 #, fuzzy
 msgid "Query Menu"
 msgstr "Lekérdezés megnézése"
@@ -5534,9 +5534,9 @@ msgstr "Szerkeszt"
 
 #: ElectronicPaymentList.php:217 FamilyCustomFieldsEditor.php:336
 #: FamilyCustomFieldsEditor.php:456 GroupPropsFormEditor.php:316
-#: GroupPropsFormEditor.php:442 GroupView.php:416 OptionManager.php:113
-#: PersonCustomFieldsEditor.php:326 PersonCustomFieldsEditor.php:451
-#: Reports/GDPR/GDPRDataStructureExport.php:74
+#: GroupPropsFormEditor.php:442 GroupView.php:416 OptionManager.php:118
+#: OptionManager.php:126 PersonCustomFieldsEditor.php:326
+#: PersonCustomFieldsEditor.php:451 Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:307
 #: v2/templates/gdpr/gdprdatastructure.php:42
 msgid "Type"
@@ -5589,7 +5589,7 @@ msgstr ""
 msgid "Bank ACH"
 msgstr "Bank"
 
-#: ElectronicPaymentList.php:270 GroupEditor.php:243 GroupView.php:284
+#: ElectronicPaymentList.php:270 GroupEditor.php:169 GroupView.php:284
 msgid "Disabled"
 msgstr ""
 
@@ -5757,7 +5757,7 @@ msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 
 #: EventNames.php:264 FamilyCustomFieldsEditor.php:438 GroupPropsEditor.php:294
-#: GroupPropsFormEditor.php:415 OptionManager.php:479
+#: GroupPropsFormEditor.php:415 OptionManager.php:496
 #: PersonCustomFieldsEditor.php:428
 msgid "Save Changes"
 msgstr "Változtatások mentése"
@@ -6001,7 +6001,7 @@ msgid "No custom Family fields have been added yet"
 msgstr "Nincs egyéni Family mezők kerültek még"
 
 #: FamilyCustomFieldsEditor.php:329 GroupPropsEditor.php:213
-#: GroupPropsFormEditor.php:307 OptionManager.php:373
+#: GroupPropsFormEditor.php:307 OptionManager.php:390
 #: PersonCustomFieldsEditor.php:316 PersonEditor.php:794
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
@@ -6026,12 +6026,12 @@ msgstr "Család-View Side"
 
 #: FamilyCustomFieldsEditor.php:370 FamilyCustomFieldsEditor.php:493
 #: FamilyEditor.php:254 GroupPropsFormEditor.php:352
-#: GroupPropsFormEditor.php:467 OptionManager.php:435
+#: GroupPropsFormEditor.php:467 OptionManager.php:452
 #: PersonCustomFieldsEditor.php:363 PersonCustomFieldsEditor.php:488
 msgid "You must enter a name"
 msgstr "Meg kell adnia egy nevet"
 
-#: FamilyCustomFieldsEditor.php:381 GroupEditor.php:206
+#: FamilyCustomFieldsEditor.php:381 GroupEditor.php:132
 #: GroupPropsEditor.php:252 GroupPropsFormEditor.php:370
 #: PersonCustomFieldsEditor.php:373
 msgid "Select a group"
@@ -6180,8 +6180,8 @@ msgstr "Középső"
 msgid "Last"
 msgstr "Utolsó"
 
-#: FamilyEditor.php:1021 FamilyView.php:476 OptionManager.php:96
-#: OptionManager.php:129 PersonView.php:881 PrintPastoralCare.php:346
+#: FamilyEditor.php:1021 FamilyView.php:476 OptionManager.php:101
+#: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:346
 #: PrintPastoralCare.php:400 PrintView.php:348 PrintView.php:406
 #: Reports/CanvassReports.php:238 Reports/GroupReport.php:103
 #: sundayschool/SundaySchoolClassListExport.php:46
@@ -6427,8 +6427,8 @@ msgstr "Választ"
 msgid "select an option"
 msgstr "Különleges lehetőség"
 
-#: FamilyView.php:739 GroupEditor.php:178 GroupView.php:377 PersonView.php:1145
-#: PersonView.php:1197 SelectList.php:1154
+#: FamilyView.php:739 GroupView.php:377 PersonView.php:1145 PersonView.php:1197
+#: SelectList.php:1154
 msgid "Assign"
 msgstr "Kijelöl"
 
@@ -6966,89 +6966,72 @@ msgstr ""
 msgid "Group Editor"
 msgstr "Csoport szerkesztő"
 
-#: GroupEditor.php:72
+#: GroupEditor.php:80
 msgid "Special Group Settings : Sunday School Type"
 msgstr ""
 
-#: GroupEditor.php:72
+#: GroupEditor.php:80
 #, fuzzy
 msgid "Group Settings"
 msgstr "Group Listing"
 
-#: GroupEditor.php:96
+#: GroupEditor.php:104
 msgid "Type of Group and Menu Category"
 msgstr ""
 
-#: GroupEditor.php:119
-msgid "Sunday School group can't be modified, only in this two cases :"
-msgstr ""
-
-#: GroupEditor.php:122
-msgid "You can create/delete sunday school group. "
-msgstr ""
-
-#: GroupEditor.php:125
-msgid ""
-"Add new roles, but not modify or rename the Student and the Teacher roles."
-msgstr ""
-
-#: GroupEditor.php:158
-msgid "Assign a New Menu Sunday School Category"
-msgstr ""
-
-#: GroupEditor.php:198 OptionManager.php:131
+#: GroupEditor.php:124 OptionManager.php:144
 #, fuzzy
 msgid "Group Member Roles"
 msgstr "Csoport tag Szerep"
 
-#: GroupEditor.php:200
+#: GroupEditor.php:126
 #, fuzzy
 msgid "Clone roles"
 msgstr "Clone szerepek"
 
-#: GroupEditor.php:204
+#: GroupEditor.php:130
 #, fuzzy
 msgid "from group"
 msgstr "a csoportból"
 
-#: GroupEditor.php:226
+#: GroupEditor.php:152
 #, fuzzy
 msgid "Group Specific Properties"
 msgstr "Group-specifikus tulajdonságok"
 
-#: GroupEditor.php:231
+#: GroupEditor.php:157
 msgid "Enabled"
 msgstr ""
 
-#: GroupEditor.php:234
+#: GroupEditor.php:160
 #, fuzzy
 msgid "Disable Group Specific Properties"
 msgstr "Group-specifikus tulajdonságok"
 
-#: GroupEditor.php:237 GroupView.php:450
+#: GroupEditor.php:163 GroupView.php:450
 msgid "Edit Group-Specific Properties Form"
 msgstr "Szerkesztése Group-specifikus tulajdonságai Form"
 
-#: GroupEditor.php:244
+#: GroupEditor.php:170
 #, fuzzy
 msgid "Enable Group Specific Properties"
 msgstr "Group-specifikus tulajdonságok"
 
-#: GroupEditor.php:262
+#: GroupEditor.php:188
 #, fuzzy
 msgid "Group Roles"
 msgstr "Csoport Szerep"
 
-#: GroupEditor.php:268
+#: GroupEditor.php:194
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 
-#: GroupEditor.php:273 MemberRoleChange.php:94
+#: GroupEditor.php:199 MemberRoleChange.php:94
 #, fuzzy
 msgid "New Role"
 msgstr "Új Szerep"
 
-#: GroupEditor.php:275
+#: GroupEditor.php:201
 #, fuzzy
 msgid "Add New Role"
 msgstr "Új Szerep"
@@ -7400,7 +7383,7 @@ msgstr ""
 msgid "Version"
 msgstr "Engedély"
 
-#: Include/Footer.php:62 OptionManager.php:99 PeopleDashboard.php:289
+#: Include/Footer.php:62 OptionManager.php:104 PeopleDashboard.php:289
 #, fuzzy
 msgid "Family Roles"
 msgstr "Család Szerep"
@@ -7430,14 +7413,14 @@ msgstr "Tulajdon"
 msgid "Edit Custom Person Fields"
 msgstr "Egyéni Személy mezők"
 
-#: Include/Footer.php:111
+#: Include/Footer.php:111 OptionManager.php:120
 #, fuzzy
-msgid "Sunday School Menu Properties"
+msgid "Sunday School Group Types"
 msgstr "Vasárnapi Iskola jelentések"
 
-#: Include/Footer.php:121
+#: Include/Footer.php:121 OptionManager.php:128
 #, fuzzy
-msgid "Edit Group Types"
+msgid "Group Types"
 msgstr "Minden csoport típus"
 
 #: Include/Footer.php:132
@@ -8237,116 +8220,121 @@ msgstr "Résztvevő tagok"
 msgid "Tracking"
 msgstr "Befizetési Listing"
 
-#: OptionManager.php:100
+#: OptionManager.php:105
 #, fuzzy
 msgid "Family Roles Editor"
 msgstr "Family szerkesztő"
 
-#: OptionManager.php:106
+#: OptionManager.php:111
 #, fuzzy
 msgid "Person Classification"
 msgstr "Besorolás"
 
-#: OptionManager.php:107
+#: OptionManager.php:112
 #, fuzzy
 msgid "Person Classifications"
 msgstr "Minden Csoportosítási"
 
-#: OptionManager.php:108
+#: OptionManager.php:113
 #, fuzzy
 msgid "Person Classifications Editor"
 msgstr "Minden Csoportosítási"
 
-#: OptionManager.php:114
+#: OptionManager.php:119
+#, fuzzy
+msgid "Sunday School Group Type"
+msgstr "Vasárnapi Iskola jelentések"
+
+#: OptionManager.php:121
+#, fuzzy
+msgid "Sunday School Group Types Editor"
+msgstr "Csoport szerkesztő"
+
+#: OptionManager.php:127
 #, fuzzy
 msgid "Group Type"
 msgstr "Minden csoport típus"
 
-#: OptionManager.php:115
-#, fuzzy
-msgid "Group Types"
-msgstr "Minden csoport típus"
-
-#: OptionManager.php:116
+#: OptionManager.php:129
 #, fuzzy
 msgid "Group Types Editor"
 msgstr "Csoport szerkesztő"
 
-#: OptionManager.php:122
+#: OptionManager.php:135
 #, fuzzy
 msgid "Security Group"
 msgstr "Válassza Csoport"
 
-#: OptionManager.php:123
+#: OptionManager.php:136
 #, fuzzy
 msgid "Security Groups"
 msgstr "Válassza Csoport"
 
-#: OptionManager.php:124
+#: OptionManager.php:137
 #, fuzzy
 msgid "Security Groups Editor"
 msgstr "Csoport szerkesztő"
 
-#: OptionManager.php:130
+#: OptionManager.php:143
 #, fuzzy
 msgid "Group Member Role"
 msgstr "Csoport tag Szerep"
 
-#: OptionManager.php:132
+#: OptionManager.php:145
 #, fuzzy
 msgid "Group Member Roles Editor"
 msgstr "Csoport tag Szerep"
 
-#: OptionManager.php:146 OptionManager.php:162 OptionManager.php:178
+#: OptionManager.php:159 OptionManager.php:175 OptionManager.php:191
 msgid "Option"
 msgstr "Opció"
 
-#: OptionManager.php:147
+#: OptionManager.php:160
 #, fuzzy
 msgid "Person Custom List Option"
 msgstr "Személy Listing"
 
-#: OptionManager.php:148
+#: OptionManager.php:161
 #, fuzzy
 msgid "Person Custom List Options"
 msgstr "Lista szerkesztése opciók"
 
-#: OptionManager.php:149
+#: OptionManager.php:162
 #, fuzzy
 msgid "Person Custom List Options Editor"
 msgstr "Egyéni Személy Fields Editor"
 
-#: OptionManager.php:163
+#: OptionManager.php:176
 #, fuzzy
 msgid "Custom List Option"
 msgstr "Lista szerkesztése opciók"
 
-#: OptionManager.php:164
+#: OptionManager.php:177
 #, fuzzy
 msgid "Custom List Options"
 msgstr "Lista szerkesztése opciók"
 
-#: OptionManager.php:165
+#: OptionManager.php:178
 #, fuzzy
 msgid "Custom List Options Editor"
 msgstr "Egyéni Family Fields Editor"
 
-#: OptionManager.php:179
+#: OptionManager.php:192
 #, fuzzy
 msgid "Family Custom List Option"
 msgstr "Lista szerkesztése opciók"
 
-#: OptionManager.php:180
+#: OptionManager.php:193
 #, fuzzy
 msgid "Family Custom List Options"
 msgstr "Lista szerkesztése opciók"
 
-#: OptionManager.php:181
+#: OptionManager.php:194
 #, fuzzy
 msgid "Family Custom List Options Editor"
 msgstr "Egyéni Family Fields Editor"
 
-#: OptionManager.php:340
+#: OptionManager.php:357
 msgid ""
 "Warning: Removing will reset all assignments for all persons with the "
 "assignment!"
@@ -8354,7 +8342,7 @@ msgstr ""
 "Figyelmeztetés: eltávolítása visszaállítja az összes feladatot minden "
 "személy számára a feladat!"
 
-#: OptionManager.php:344
+#: OptionManager.php:361
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all family roles with the "
@@ -8363,7 +8351,7 @@ msgstr ""
 "Figyelmeztetés: eltávolítása visszaállítja az összes feladatot minden "
 "személy számára a feladat!"
 
-#: OptionManager.php:348
+#: OptionManager.php:365
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all menus with the "
@@ -8372,7 +8360,7 @@ msgstr ""
 "Figyelmeztetés: eltávolítása visszaállítja az összes feladatot minden "
 "személy számára a feladat!"
 
-#: OptionManager.php:352
+#: OptionManager.php:369
 #, fuzzy
 msgid ""
 "Warning: Removing will reset all assignments for all group roles with the "
@@ -8381,53 +8369,53 @@ msgstr ""
 "Figyelmeztetés: eltávolítása visszaállítja az összes feladatot minden "
 "személy számára a feladat!"
 
-#: OptionManager.php:369
+#: OptionManager.php:386
 msgid "Error: Duplicate"
 msgstr "Hiba: Ismétlődő"
 
-#: OptionManager.php:369
+#: OptionManager.php:386
 msgid "are not allowed."
 msgstr ""
 
-#: OptionManager.php:390
+#: OptionManager.php:407
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: OptionManager.php:439
+#: OptionManager.php:456
 msgid "Duplicate name found."
 msgstr "Ismétlődő név található."
 
-#: OptionManager.php:446
+#: OptionManager.php:463
 msgid "Make Default"
 msgstr "Legyen alapértelmezett"
 
-#: OptionManager.php:457 OptionManager.php:465
+#: OptionManager.php:474 OptionManager.php:482
 msgid "Visible only in PersonView"
 msgstr ""
 
-#: OptionManager.php:484 OptionManager.php:488
+#: OptionManager.php:501 OptionManager.php:505
 #: sundayschool/SundaySchoolClassView.php:72
 msgid "Exit"
 msgstr "Kijárat"
 
-#: OptionManager.php:496
+#: OptionManager.php:513
 msgid "Name for New"
 msgstr ""
 
-#: OptionManager.php:501
+#: OptionManager.php:518
 msgid "Add New"
 msgstr "Új"
 
-#: OptionManager.php:509
+#: OptionManager.php:526
 #, fuzzy
 msgid "Error: You must enter a name"
 msgstr "Meg kell adnia egy nevet"
 
-#: OptionManager.php:513
+#: OptionManager.php:530
 msgid "Error: A "
 msgstr "Hiba: A"
 
-#: OptionManager.php:513
+#: OptionManager.php:530
 msgid " by that name already exists."
 msgstr "ezen a néven már létezik."
 
@@ -11891,10 +11879,6 @@ msgstr ""
 msgid "AdminLTE style "
 msgstr ""
 
-#: userconfig_ucfg.php:12
-msgid "choice"
-msgstr ""
-
 #, fuzzy
 msgid "Jan"
 msgstr "és"
@@ -11995,6 +11979,14 @@ msgstr "Menetrend"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Sunday School Menu Properties"
+#~ msgstr "Vasárnapi Iskola jelentések"
+
+#, fuzzy
+#~ msgid "Edit Group Types"
+#~ msgstr "Minden csoport típus"
 
 #, fuzzy
 #~ msgid "GDPR List"
@@ -12167,10 +12159,6 @@ msgstr ""
 
 #~ msgid "Property Type Editor"
 #~ msgstr "Ingatlan típusa szerkesztő"
-
-#, fuzzy
-#~ msgid "Sunday School Sub Menu"
-#~ msgstr "Vasárnapi Iskola jelentések"
 
 #, fuzzy
 #~ msgid "List Members"
