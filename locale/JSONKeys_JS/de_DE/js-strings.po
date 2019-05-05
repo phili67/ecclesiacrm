@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-05-05T06:55:37.173Z\n"
+"POT-Creation-Date: 2019-05-05T18:19:17.894Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -847,9 +847,6 @@ msgstr "Bearbeitet von Name"
 msgid "Deactivated"
 msgstr "Deaktiviert"
 
-msgid "Sunday School Menu assignement"
-msgstr "Sonntagsschule Menu zugewiesen"
-
 msgid "Confirm Enable Group Specific Properties"
 msgstr "Aktivieren Gruppe spezifischen Eigenschaften Bestätigen"
 
@@ -1310,9 +1307,6 @@ msgstr "Neue Daten hinzufügen"
 msgid "Class"
 msgstr "Klass"
 
-msgid "Sunday School Sub Menu"
-msgstr "Sonntagsschule submenu"
-
 msgid "Group"
 msgstr "Gruppe"
 
@@ -1706,6 +1700,12 @@ msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
 
 msgid "List Name"
 msgstr "Mailingliste Name"
+
+#~ msgid "Sunday School Menu assignement"
+#~ msgstr "Sonntagsschule Menu zugewiesen"
+
+#~ msgid "Sunday School Sub Menu"
+#~ msgstr "Sonntagsschule submenu"
 
 #~ msgid "Sunday School"
 #~ msgstr "Sonntagsschule"

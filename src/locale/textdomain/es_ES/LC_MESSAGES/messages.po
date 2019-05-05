@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 08:55+0200\n"
+"POT-Creation-Date: 2019-05-05 20:19+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,14 +310,8 @@ msgstr "Pagos"
 msgid "Pastoral Care"
 msgstr "Atención Pastoral"
 
-#: api/routes/sidebar/sidebar-properties.php:75
-#: api/routes/sidebar/sidebar-properties.php:214
-#: v2/routes/sidebar/propertylist.php:44
-msgid "Menu"
-msgstr "Menú"
-
-#: api/routes/sidebar/sidebar-properties.php:75
-#: api/routes/sidebar/sidebar-properties.php:214 AutoPaymentEditor.php:801
+#: api/routes/sidebar/sidebar-properties.php:72
+#: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:801
 #: AutoPaymentEditor.php:810 Include/Footer.php:76 PledgeEditor.php:544
 #: Reports/GDPR/GDPRDataStructureExport.php:84
 #: v2/routes/sidebar/propertylist.php:32
@@ -325,8 +319,8 @@ msgstr "Menú"
 msgid "Person"
 msgstr "Persona"
 
-#: api/routes/sidebar/sidebar-properties.php:75
-#: api/routes/sidebar/sidebar-properties.php:214 AutoPaymentEditor.php:801
+#: api/routes/sidebar/sidebar-properties.php:72
+#: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:801
 #: AutoPaymentEditor.php:810
 #: EcclesiaCRM/Emails/verify/FamilyVerificationEmail.php:24
 #: EcclesiaCRM/Service/TimelineService.php:212 ElectronicPaymentList.php:216
@@ -340,65 +334,51 @@ msgstr "Persona"
 msgid "Family"
 msgstr "Familia"
 
-#: api/routes/sidebar/sidebar-properties.php:75
-#: api/routes/sidebar/sidebar-properties.php:214 Include/Footer.php:94
+#: api/routes/sidebar/sidebar-properties.php:72
+#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:94
 #: OptionManager.php:134 v2/routes/sidebar/propertylist.php:40
 msgid "Group"
 msgstr "Grupo"
 
-#: api/routes/sidebar/sidebar-properties.php:339
-#: api/routes/sidebar/sidebar-properties.php:402
-#: api/routes/sidebar/sidebar-properties.php:437
-#: api/routes/sidebar/sidebar-properties.php:486
-#: api/routes/sidebar/sidebar-properties.php:507
-#: api/routes/sidebar/sidebar-properties.php:556
-#: api/routes/sidebar/sidebar-properties.php:578
-#: api/routes/sidebar/sidebar-properties.php:616
+#: api/routes/sidebar/sidebar-properties.php:336
+#: api/routes/sidebar/sidebar-properties.php:399
+#: api/routes/sidebar/sidebar-properties.php:434
+#: api/routes/sidebar/sidebar-properties.php:483
+#: api/routes/sidebar/sidebar-properties.php:504
+#: api/routes/sidebar/sidebar-properties.php:553
 #: api/routes/sidebar/sidebar-roles.php:43
 msgid "The record could not be found."
 msgstr "El registro no pudo ser encontrado."
 
-#: api/routes/sidebar/sidebar-properties.php:349
-#: api/routes/sidebar/sidebar-properties.php:447
-#: api/routes/sidebar/sidebar-properties.php:517
+#: api/routes/sidebar/sidebar-properties.php:346
+#: api/routes/sidebar/sidebar-properties.php:444
+#: api/routes/sidebar/sidebar-properties.php:514
 msgid "The property is already assigned."
 msgstr "La propiedad ya fue asignada."
 
-#: api/routes/sidebar/sidebar-properties.php:354
-#: api/routes/sidebar/sidebar-properties.php:384
-#: api/routes/sidebar/sidebar-properties.php:452
-#: api/routes/sidebar/sidebar-properties.php:468
-#: api/routes/sidebar/sidebar-properties.php:522
-#: api/routes/sidebar/sidebar-properties.php:538
+#: api/routes/sidebar/sidebar-properties.php:351
+#: api/routes/sidebar/sidebar-properties.php:381
+#: api/routes/sidebar/sidebar-properties.php:449
+#: api/routes/sidebar/sidebar-properties.php:465
+#: api/routes/sidebar/sidebar-properties.php:519
+#: api/routes/sidebar/sidebar-properties.php:535
 msgid "The property is successfully assigned."
 msgstr "La propiedad ha sido asignada exitosamente."
 
-#: api/routes/sidebar/sidebar-properties.php:356
-#: api/routes/sidebar/sidebar-properties.php:367
-#: api/routes/sidebar/sidebar-properties.php:454
-#: api/routes/sidebar/sidebar-properties.php:465
-#: api/routes/sidebar/sidebar-properties.php:524
-#: api/routes/sidebar/sidebar-properties.php:535
+#: api/routes/sidebar/sidebar-properties.php:353
+#: api/routes/sidebar/sidebar-properties.php:364
+#: api/routes/sidebar/sidebar-properties.php:451
+#: api/routes/sidebar/sidebar-properties.php:462
+#: api/routes/sidebar/sidebar-properties.php:521
+#: api/routes/sidebar/sidebar-properties.php:532
 msgid "The property could not be assigned."
 msgstr "La propiedad no pudo ser asignada."
 
-#: api/routes/sidebar/sidebar-properties.php:421
-#: api/routes/sidebar/sidebar-properties.php:491
-#: api/routes/sidebar/sidebar-properties.php:561
+#: api/routes/sidebar/sidebar-properties.php:418
+#: api/routes/sidebar/sidebar-properties.php:488
+#: api/routes/sidebar/sidebar-properties.php:558
 msgid "The property is successfully unassigned."
 msgstr "La propiedad ha sido desasignada exitosamente."
-
-#: api/routes/sidebar/sidebar-properties.php:596
-msgid "The menu could not be assigned."
-msgstr "El menú no pudo ser asignado."
-
-#: api/routes/sidebar/sidebar-properties.php:599
-msgid "The menu is successfully assigned."
-msgstr "El menú ha sido exitosamente asignado."
-
-#: api/routes/sidebar/sidebar-properties.php:628
-msgid "The menu is successfully unassigned."
-msgstr "El menú ha sido exitosamente asignado."
 
 #: api/routes/sidebar/sidebar-roles.php:47
 msgid "The role is already assigned."
@@ -7111,14 +7091,14 @@ msgstr "Propiedades de Personas"
 msgid "Edit Custom Person Fields"
 msgstr "Editar Campos personalizados para Personas"
 
-#: Include/Footer.php:111 OptionManager.php:120
+#: Include/Footer.php:111 OptionManager.php:128
+msgid "Group Types"
+msgstr "Tipos de Grupo"
+
+#: Include/Footer.php:121 OptionManager.php:120
 #, fuzzy
 msgid "Sunday School Group Types"
 msgstr "submenú Escuela Dominical"
-
-#: Include/Footer.php:121 OptionManager.php:128
-msgid "Group Types"
-msgstr "Tipos de Grupo"
 
 #: Include/Footer.php:132
 msgid "Property Types"
@@ -10324,7 +10304,7 @@ msgstr "Lista de Menús personalizados"
 msgid "Pastoral Care Type Editor"
 msgstr "Editor de tipo de Atención Pastoral"
 
-#: v2/routes/sidebar/propertylist.php:59
+#: v2/routes/sidebar/propertylist.php:55
 msgid "Property List"
 msgstr "Lista de propiedades"
 
@@ -11373,6 +11353,18 @@ msgstr "Agendar"
 
 msgid "paused"
 msgstr ""
+
+#~ msgid "Menu"
+#~ msgstr "Menú"
+
+#~ msgid "The menu could not be assigned."
+#~ msgstr "El menú no pudo ser asignado."
+
+#~ msgid "The menu is successfully assigned."
+#~ msgstr "El menú ha sido exitosamente asignado."
+
+#~ msgid "The menu is successfully unassigned."
+#~ msgstr "El menú ha sido exitosamente asignado."
 
 #~ msgid "Sunday School group can't be modified, only in this two cases :"
 #~ msgstr ""
