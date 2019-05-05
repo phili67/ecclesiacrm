@@ -235,8 +235,19 @@ $app->group('/groups', function () {
         } else {
           $group->setType(3);// now each normal group has a type of 3
         }
+        
         $group->setName($groupSettings->groupName);
         $group->save();
+        
+        
+        $groupType = new GroupType();
+        
+        if (!is_null($groupType)) {
+          $groupType->setGroupId ($group->getId());
+          $groupType->setListOptionId (0);
+          $groupType->save();
+        }
+
         echo $group->toJSON();
     });
     $this->post('/{groupID:[0-9]+}', function ($request, $response, $args) {
