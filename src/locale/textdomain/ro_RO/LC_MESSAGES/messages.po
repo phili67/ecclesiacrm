@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 20:19+0200\n"
+"POT-Creation-Date: 2019-05-05 22:03+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -273,12 +273,12 @@ msgstr "Este nevoie de această valoare."
 msgid "Family Activated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-groups.php:341
+#: api/routes/people/people-groups.php:352
 #, fuzzy
 msgid "Deleted from group"
 msgstr "din grup"
 
-#: api/routes/people/people-groups.php:373
+#: api/routes/people/people-groups.php:384
 #, fuzzy
 msgid "Added to group"
 msgstr "Adauga la grup"
