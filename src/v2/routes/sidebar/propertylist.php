@@ -40,10 +40,6 @@ function renderPropertyList (Request $request, Response $response, array $args) 
             $sTypeName = _('Group');
             break;
 
-        case 'm':
-            $sTypeName = _('Menu');
-            break;
-
         default:
             RedirectUtils::Redirect('Menu.php');
             exit;
