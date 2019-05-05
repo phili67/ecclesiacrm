@@ -19,13 +19,9 @@ $(document).ready(function () {
           if (window.CRM.menuOptionEnabled == false)
             return '';
             
-          if (full.PrtName != 'Menu') {
-            var res = '<a href="#" data-typeid="' + full.PrtId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-            res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" data-warn="' + full.Properties + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
-            return res;
-          } else {
-            return '';
-          }
+          var res = '<a href="#" data-typeid="' + full.PrtId + '" class="edit-prop"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+          res += '&nbsp;&nbsp;&nbsp;<a href="#" data-typeid="' + full.PrtId + '" data-warn="' + full.Properties + '" class="delete-prop"><i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>';
+          return res;
         }
       },      
       {
@@ -41,11 +37,7 @@ $(document).ready(function () {
         title:i18next.t('Class'),
         data:'PrtClass',
         render: function(data, type, full, meta) {
-          if (full.PrtName == 'Menu') {
-            return i18next.t("Sunday School Sub Menu");
-          } else {
-            return i18next.t(data);
-          }
+          return i18next.t(data);
         }
       },
       {

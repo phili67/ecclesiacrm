@@ -30,9 +30,6 @@ $app->group('/properties', function() {
     $this->post('/groups/assign', 'propertiesGroupsAssign' );
     $this->delete('/groups/unassign', 'propertiesGroupsUnAssign' );
     
-    $this->post('/sundayschoolmenu/assign', 'propertiesSundayschoolMenuAssign' );
-    $this->post('/sundayschoolmenu/unassign', 'propertiesSundayschoolMenuUnAssign' );
-
     $this->post('/propertytypelists', 'getAllPropertyTypes' );
     $this->post('/propertytypelists/edit', 'editPropertyType' );
     $this->post('/propertytypelists/set', 'setPropertyType' );
@@ -72,7 +69,7 @@ function getAllPropertyTypes (Request $request, Response $response, array $args)
       $new_elt = "{";
       foreach ($elt as $key => $value) {
         if ($key == 'PrtClass') {
-          switch ($value) { case 'm': $value = _('Menu'); break; case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
+          switch ($value) { case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
           $new_elt .= "\"".$key."\":".json_encode($value).",";
         } else {
           $new_elt .= "\"".$key."\":".json_encode($value).",";
@@ -211,7 +208,7 @@ function getAllProperties (Request $request, Response $response, array $args) {
     foreach ($arr as $elt) {
       $new_elt = "{";
       foreach ($elt as $key => $value) {
-        switch ($value) { case 'm': $value = _('Menu'); break; case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
+        switch ($value) { case 'p': $value = _('Person'); break; case 'f': $value = _('Family'); break; case 'g': $value =  _('Group'); break;}
         $new_elt .= "\"".$key."\":".json_encode($value).",";
       }
       
@@ -559,71 +556,4 @@ function propertiesGroupsUnAssign (Request $request, Response $response, array $
   $groupProperty->delete();
   
   return $response->withJson(['success' => true, 'msg' => _('The property is successfully unassigned.')]);
-}
-
-function propertiesSundayschoolMenuAssign (Request $request, Response $response, array $args) {
-  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-      return $response->withStatus(401);
-  }
-
-  $data = (object)$request->getParsedBody();
-  
-  $groupID = $data->groupID;
-  $propertyID = $data->propertyID;
-  $oldDropertyID = $data->oldDropertyID;
-
-  $group = GroupQuery::create()->findPk($groupID);
-  $property = PropertyQuery::create()->findPk($propertyID);
-  if (!$group || !$property) {
-      return $response->withStatus(404, _('The record could not be found.'));
-  }
-  
-  $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
-      ->filterByR2pRecordId($groupID)
-      ->find();
-      
-  if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
-      $groupProperty->delete();
-  }
-
-  $groupProperty = new Record2propertyR2p();
-  
-  $groupProperty->setR2pValue('Menu');
-  $groupProperty->setR2pRecordId($groupID);
-  $groupProperty->setR2pProId($propertyID);
-  
-  if (!$groupProperty->save()) {
-      return $response->withJson(['success' => false, 'msg' => _('The menu could not be assigned.')]);
-  }
-
-  return $response->withJson(['success' => true, 'msg' => _('The menu is successfully assigned.')]);
-}
-
-function propertiesSundayschoolMenuUnAssign (Request $request, Response $response, array $args) {
-  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-      return $response->withStatus(401);
-  }
-
-  $data = (object)$request->getParsedBody();
-  
-  $groupID = $data->groupID;
-  $propertyID = $data->propertyID;
-  $oldDropertyID = $data->oldDropertyID;
-
-  $group = GroupQuery::create()->findPk($groupID);
-  $property = PropertyQuery::create()->findPk($oldDropertyID);
-  if (!$group || !$property) {
-      return $response->withStatus(404, _('The record could not be found.'));
-  }
-  
-  $groupProperty = Record2propertyR2pQuery::create()// we loop to find the good record
-      ->filterByR2pRecordId($groupID)
-      ->filterByR2pProId($oldDropertyID)
-      ->findOne();
-      
-  if ($groupProperty) { // we can delete the last property a sunday group menu is only affected to one group
-      $groupProperty->delete();
-  }
-
-  return $response->withJson(['success' => true, 'msg' => _('The menu is successfully unassigned.')]);
 }
