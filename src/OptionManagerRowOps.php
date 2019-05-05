@@ -2,9 +2,10 @@
 /*******************************************************************************
  *
  *  filename    : OptionManagerRowOps.php
- *  last change : 2003-04-09
+ *  last change : 2019-05-05
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
+ *                Philippe Logel 2019
  *
  *  function    : Row operations for the option manager
  *******************************************************************************/
