@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-05-01T20:45:26.473Z\n"
+"POT-Creation-Date: 2019-05-05T06:55:37.173Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -878,9 +878,6 @@ msgstr ""
 msgid "Disable Group Specific Properties"
 msgstr "Deaktivieren Gruppe spezifischen Eigenschaften"
 
-msgid "Sunday School"
-msgstr "Sonntagsschule"
-
 msgid "Role Name"
 msgstr "Rolle Name"
 
@@ -1709,6 +1706,9 @@ msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
 
 msgid "List Name"
 msgstr "Mailingliste Name"
+
+#~ msgid "Sunday School"
+#~ msgstr "Sonntagsschule"
 
 #, fuzzy
 #~ msgid "Note Delete Confirmation"
