@@ -103,3 +103,10 @@ ALTER TABLE `addressbookshare` CHANGE COLUMN `addressbooksid` `addressbookid` IN
 ALTER TABLE `addressbookshare`
 ADD CONSTRAINT fk_addressbookid FOREIGN KEY (addressbookid) REFERENCES addressbooks(id) ON DELETE CASCADE;
 
+
+--
+
+DELETE FROM `query_qry` WHERE `qry_ID`=1;
+
+INSERT INTO `query_qry` (`qry_ID`, `qry_SQL`, `qry_Name`, `qry_Description`, `qry_Count`, `qry_Type_ID`) VALUES
+  (1, 'SELECT CONCAT(''<a href=FamilyView.php?FamilyID='',fam_ID,''>'',fam_Name,''</a>'') AS ''Family Name''   FROM family_fam Where fam_WorkPhone != ""', 'Family With Work Phone', 'Returns each family with a work phone', 0, 2);
