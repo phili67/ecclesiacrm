@@ -557,7 +557,7 @@ if (isset($_POST['save']) && ($iPersonID > 0)) {
         next($type);
     }
 
-    RedirectUtils::Redirect('v2/user');
+    RedirectUtils::Redirect('v2/users');
     exit;
 }
 
@@ -863,7 +863,7 @@ if ($usr_role_id == null) {
           </div>
           <div class="col-md-6">
              <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="save">&nbsp;
-             <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location='v2/user';">
+             <input type="button" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location='v2/users';">
           </div>
       </div>
     </div>
