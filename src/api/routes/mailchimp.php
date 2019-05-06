@@ -221,6 +221,10 @@ function oneList (Request $request, Response $response, array $args) {
 }
 
 function lists(Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withJSON(['isActive' => false]);
+  } 
+  
   $mailchimp = new MailChimpService();
 
   $isActive = $mailchimp->isActive();
