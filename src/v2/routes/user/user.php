@@ -13,7 +13,7 @@ use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/user', function () {
+$app->group('/users', function () {
     $this->get('', 'renderUserList');
     $this->get('/', 'renderUserList');
 });

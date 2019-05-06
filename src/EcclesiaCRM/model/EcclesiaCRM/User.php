@@ -269,7 +269,6 @@ class User extends BaseUser
       $role = UserRoleQuery::Create()->findOneById($roleID);
       
       if (!is_null($role)) {
-        $roleName = $role->getName();
         // we first apply the global settings to the user
         $globals = explode(";",$role->getGlobal());
         
@@ -361,8 +360,6 @@ class User extends BaseUser
                $this->setPastoralCare($res[1]);
                break;
           }
-          
-          return $roleName;
         }
         
         $this->setRoleId($roleID);
@@ -405,6 +402,8 @@ class User extends BaseUser
           
           $user_cfg->save();
         }
+        
+        return $role->getName();
       }
       
       return false;
