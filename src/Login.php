@@ -42,13 +42,13 @@ if (isset($_POST['User'])) {
     $currentUser = UserQuery::create()->findOneByUserName($UserName);
     if ($currentUser == null) {
         // Set the error text
-        $sErrorText = gettext('Invalid login or password');
+        $sErrorText = _('Invalid login or password');
     } // Block the login if a maximum login failure count has been reached
     elseif ($currentUser->isLocked()) {
-        $sErrorText = gettext('Too many failed logins: your account has been locked.  Please contact an administrator.');
+        $sErrorText = _('Too many failed logins: your account has been locked.  Please contact an administrator.');
     } // test if the account has been deactivated
     elseif ($currentUser->getIsDeactivated()) {
-        $sErrorText = gettext('This account has been deactiveted by an administrator.');
+        $sErrorText = _('This account has been deactiveted by an administrator.');
     } // Does the password match?
     elseif (!$currentUser->isPasswordValid($_POST['Password'])) {
         // Increment the FailedLogins
@@ -60,7 +60,7 @@ if (isset($_POST['User'])) {
         }
 
         // Set the error text
-        $sErrorText = gettext('Invalid login or password');
+        $sErrorText = _('Invalid login or password');
     } else {
         // manage the token for the secret JWT UUID
         $token = TokenQuery::Create()->findOneByType("secret");
@@ -210,7 +210,7 @@ if ($type == "Lock" && $id > 0) {// this point is important for the photo in a l
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Login');
+$sPageTitle = _('Login');
 require 'Include/HeaderNotLoggedIn.php';
 
 ?>
@@ -223,12 +223,12 @@ require 'Include/HeaderNotLoggedIn.php';
     <div class="login-box-body">
         <p class="login-box-msg">
             <b><?= ChurchMetaData::getChurchName() ?></b><br/>
-            <?= gettext('Please Login') ?>
+            <?= _('Please Login') ?>
         </p>
 
         <?php
         if (isset($_GET['Timeout'])) {
-            $loginPageMsg = gettext('Your previous session timed out.  Please login again.');
+            $loginPageMsg = _('Your previous session timed out.  Please login again.');
         }
 
         // output warning and error messages
@@ -243,16 +243,16 @@ require 'Include/HeaderNotLoggedIn.php';
         <form class="form-signin" role="form" method="post" name="LoginForm" action="Login.php">
             <div class="form-group has-feedback">
                 <input type="text" id="UserBox" name="User" class="form-control" value="<?= $urlUserName ?>"
-                   placeholder="<?= gettext('Email/Username') ?>" required autofocus>
+                   placeholder="<?= _('Email/Username') ?>" required autofocus>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" id="PasswordBox" name="Password" class="form-control" data-toggle="password"
-                   placeholder="<?= gettext('Password') ?>" required autofocus>
+                   placeholder="<?= _('Password') ?>" required autofocus>
                 <br/>
                 <?php if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
             ?>
                     <span class="text-right"><a
-                                href="external/password/"><?= gettext("I forgot my password") ?></a></span>
+                                href="external/password/"><?= _("I forgot my password") ?></a></span>
                     <?php
         } ?>
             </div>
@@ -260,7 +260,7 @@ require 'Include/HeaderNotLoggedIn.php';
                 <!-- /.col -->
                 <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat"><i
-                                class="fa fa-sign-in"></i> <?= gettext('Login') ?></button>
+                                class="fa fa-sign-in"></i> <?= _('Login') ?></button>
                 </div>
             </div>
         </form>
@@ -268,7 +268,7 @@ require 'Include/HeaderNotLoggedIn.php';
         <?php if (SystemConfig::getBooleanValue('bEnableSelfRegistration')) {
             ?>
             <a href="external/register/" class="text-center btn bg-olive"><i
-                        class="fa fa-user-plus"></i> <?= gettext('Register a new Family'); ?></a><br>
+                        class="fa fa-user-plus"></i> <?= _('Register a new Family'); ?></a><br>
             <?php
         } ?>
         <!--<a href="external/family/verify" class="text-center">Verify Family Info</a> -->
@@ -285,7 +285,7 @@ require 'Include/HeaderNotLoggedIn.php';
 
     <p class="login-box-msg">
         <b><?= ChurchMetaData::getChurchName() ?></b><br/>
-            <?= gettext('Please Login') ?>
+            <?= _('Please Login') ?>
     </p>
 
 
@@ -293,7 +293,7 @@ require 'Include/HeaderNotLoggedIn.php';
     <div>
     <?php
         if (isset($_GET['Timeout'])) {
-            $loginPageMsg = gettext('Your previous session timed out.  Please login again.');
+            $loginPageMsg = _('Your previous session timed out.  Please login again.');
         }
 
         // output warning and error messages
@@ -325,7 +325,7 @@ require 'Include/HeaderNotLoggedIn.php';
       <div class="input-group">
         <input type="hidden" id="UserBox" name="User" class="form-control" value="<?= $urlUserName ?>">
 
-        <input type="password" id="PasswordBox" name="Password" class="form-control" placeholder="<?= gettext('Password')?>">
+        <input type="password" id="PasswordBox" name="Password" class="form-control" placeholder="<?= _('Password')?>">
 
         <div class="input-group-btn">
           <button type="submit"  class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
@@ -336,18 +336,19 @@ require 'Include/HeaderNotLoggedIn.php';
   </div>
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
-    <?= gettext("Enter your password to retrieve your session") ?>
+    <?= _("Enter your password to retrieve your session") ?>
   </div>
   <div class="text-center">
-    <a href="#" id="Login-div-appear"><?= gettext("Or sign in as a different user") ?></a>
+    <a href="#" id="Login-div-appear"><?= _("Or sign in as a different user") ?></a>
   </div>
 <!-- /.login-box-body -->
 </div>
 <!-- /.lockscreen-wrapper -->
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/external/bootstrap-show-password/bootstrap-show-password.min.js"></script>
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  <?php if ($_SESSION['iLoginType'] == "Lock") {
-            ?>
+  <?php 
+    if ($_SESSION['iLoginType'] == "Lock") {
+  ?>
     $(document).ready(function () {
         $("#Login").hide();
         document.title = 'Lock';
@@ -362,16 +363,15 @@ require 'Include/HeaderNotLoggedIn.php';
       });
     });
   <?php
-        } else {
-            ?>
+    } else {
+  ?>
     $(document).ready(function () {
         $("#Lock").hide();
         document.title = 'Login';
     });
   <?php
-        } ?>
-</script>
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+    } 
+  ?>
     var $buoop = {vs: {i: 13, f: -2, o: -2, s: 9, c: -2}, unsecure: true, api: 4};
     function $buo_f() {
         var e = document.createElement("script");
@@ -392,6 +392,5 @@ require 'Include/HeaderNotLoggedIn.php';
         eyeCloseClass: 'glyphicon-eye-close'
     });
 </script>
-
 
 <?php require 'Include/FooterNotLoggedIn.php'; ?>
