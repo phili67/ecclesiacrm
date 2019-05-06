@@ -66,12 +66,12 @@ function applyRole (Request $request, Response $response, array $args) {
       $user = UserQuery::create()->findPk($params->userID);
        
       if (!is_null($user)) {
-         $user->ApplyRole($params->roleID);
+         $roleName = $user->ApplyRole($params->roleID);
          
          $email = new UpdateAccountEmail($user, _("Your user role has changed"));
          $email->send();
 
-         return $response->withJson(['success' => true,'userID' => $params->userID]);
+         return $response->withJson(['success' => true,'userID' => $params->userID,'roleName' => $roleName]);
       }
     }
         

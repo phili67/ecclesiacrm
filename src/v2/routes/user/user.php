@@ -13,7 +13,7 @@ use EcclesiaCRM\SessionUser;
 
 use Slim\Views\PhpRenderer;
 
-$app->group('/user', function () {
+$app->group('/users', function () {
     $this->get('', 'renderUserList');
     $this->get('/', 'renderUserList');
 });
@@ -51,6 +51,7 @@ function argumentsrenderUserListArray ()
     $paramsArguments = ['sRootPath'        => SystemURLs::getRootPath(),
                        'sRootDocument'     => SystemURLs::getDocumentRoot(),
                        'sPageTitle'        => _('System Users Listing'),
+                       'first_roleID'      => $first_roleID,
                        'rsUsers'           => $rsUsers,
                        'userRoles'         => $userRoles,
                        'usr_role_id'       => $usr_role_id,

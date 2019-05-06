@@ -48,7 +48,7 @@ $(document).ready(function () {
           }).done(function(data) {
             if (data.success == true) {
                // à terminer !!!
-               $('.role'+data.userID).html(roleName);
+               $('.role'+data.userID).html(data.roleName);
             }
           });
         }

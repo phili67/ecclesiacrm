@@ -402,6 +402,8 @@ class User extends BaseUser
           
           $user_cfg->save();
         }
+        
+        return $role->getName();
       }
       
       return false;
