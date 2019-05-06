@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-05 22:03+0200\n"
+"POT-Creation-Date: 2019-05-06 09:53+0200\n"
 "Language: zh-TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4832,53 +4832,53 @@ msgstr ""
 msgid "yr old"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:715
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:717
 msgid "system user created"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:718
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:720
 msgid "system user updated"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:721
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:723
 msgid "system user deleted"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:724
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:726
 msgid "system user password reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:727
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:729
 msgid "system user changed password"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:730
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:732
 msgid "system user password changed by admin"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:733
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:735
 msgid "system user login reset"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:739
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:741
 #, fuzzy
 msgid "Dav create file"
 msgstr "創建文件"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:745
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:747
 #, fuzzy
 msgid "Dav create directory"
 msgstr "創建目錄"
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:751
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:753
 msgid "Dav update file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:764
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:766
 msgid "Dav move copy file"
 msgstr ""
 
-#: EcclesiaCRM/model/EcclesiaCRM/User.php:771
+#: EcclesiaCRM/model/EcclesiaCRM/User.php:773
 msgid "Dav delete file"
 msgstr ""
 
@@ -11303,7 +11303,7 @@ msgstr "三月"
 msgid "Field"
 msgstr "估價值"
 
-#: queryparameters_qrp.php:13 query_qry.php:9 query_qry.php:52
+#: queryparameters_qrp.php:13 query_qry.php:10 query_qry.php:55
 #, fuzzy
 msgid "Registered students"
 msgstr "額外的學生"
@@ -11467,196 +11467,205 @@ msgstr "自定義聯繫人字段"
 msgid "Match custom field to this value"
 msgstr ""
 
-#: query_qry.php:2 query_qry.php:45
+#: query_qry.php:2 query_qry.php:47
+#, fuzzy
+msgid "Family With Work Phone"
+msgstr "家庭辦公電話"
+
+#: query_qry.php:3 query_qry.php:48
 #, fuzzy
 msgid "Family Member Count"
 msgstr "家庭成員"
 
-#: query_qry.php:3 query_qry.php:46
+#: query_qry.php:4 query_qry.php:49
 #, fuzzy
 msgid "Person by Age"
 msgstr "人"
 
-#: query_qry.php:4 query_qry.php:47
+#: query_qry.php:5 query_qry.php:50
 #, fuzzy
 msgid "Total By Gender"
 msgstr "選擇性別"
 
-#: query_qry.php:5 query_qry.php:48
+#: query_qry.php:6 query_qry.php:51
 #, fuzzy
 msgid "Person by Role and Gender"
 msgstr "選擇性別"
 
-#: query_qry.php:6 query_qry.php:49
+#: query_qry.php:7 query_qry.php:52
 #, fuzzy
 msgid "Person by Property"
 msgstr "人"
 
-#: query_qry.php:7 query_qry.php:50
+#: query_qry.php:8 query_qry.php:53
 msgid "Advanced Search"
 msgstr ""
 
-#: query_qry.php:8 query_qry.php:51
+#: query_qry.php:9 query_qry.php:54
 #, fuzzy
 msgid "Birthdays"
 msgstr "生日"
 
-#: query_qry.php:10 query_qry.php:53
+#: query_qry.php:11 query_qry.php:56
 #, fuzzy
 msgid "Membership anniversaries"
 msgstr "會員日期"
 
-#: query_qry.php:11 query_qry.php:54
+#: query_qry.php:12 query_qry.php:57
 #, fuzzy
 msgid "Select database users"
 msgstr "數據文件"
 
-#: query_qry.php:12 query_qry.php:55
+#: query_qry.php:13 query_qry.php:58
 #, fuzzy
 msgid "Select all members"
 msgstr "選擇所有"
 
-#: query_qry.php:13 query_qry.php:56
+#: query_qry.php:14 query_qry.php:59
 #, fuzzy
 msgid "Volunteers"
 msgstr "義工機會編輯器"
 
-#: query_qry.php:14 query_qry.php:57
+#: query_qry.php:15 query_qry.php:60
 #, fuzzy
 msgid "Recent friends"
 msgstr "最近編輯"
 
-#: query_qry.php:15 query_qry.php:58
+#: query_qry.php:16 query_qry.php:61
 #, fuzzy
 msgid "Families to Canvass"
 msgstr "OK（確定）招商"
 
-#: query_qry.php:16 query_qry.php:59
+#: query_qry.php:17 query_qry.php:62
 #, fuzzy
 msgid "Pledge comparison"
 msgstr "質押摘要"
 
-#: query_qry.php:17 query_qry.php:60
+#: query_qry.php:18 query_qry.php:63
 #, fuzzy
 msgid "Missing pledges"
 msgstr "鄰居的家庭"
 
-#: query_qry.php:18 query_qry.php:61
+#: query_qry.php:19 query_qry.php:64
 #, fuzzy
 msgid "Credit Card People"
 msgstr "信用卡"
 
-#: query_qry.php:19 query_qry.php:62
+#: query_qry.php:20 query_qry.php:65
 #, fuzzy
 msgid "Family Pledge by Fiscal Year"
 msgstr "選擇會計年度"
 
-#: query_qry.php:20 query_qry.php:63
+#: query_qry.php:21 query_qry.php:66
 #, fuzzy
 msgid "Person not assigned to a group"
 msgstr "未分配"
 
-#: query_qry.php:21 query_qry.php:64
+#: query_qry.php:22 query_qry.php:67
 #, fuzzy
 msgid "Person assigned to a group"
 msgstr "未分配"
 
-#: query_qry.php:22 query_qry.php:65
+#: query_qry.php:23 query_qry.php:68
 msgid "CustomSearch"
 msgstr ""
 
-#: query_qry.php:23 query_qry.php:66
+#: query_qry.php:24 query_qry.php:69
+msgid "Returns each family with a work phone"
+msgstr ""
+
+#: query_qry.php:25 query_qry.php:70
 msgid "Returns each family and the total number of people assigned to them."
 msgstr ""
 
-#: query_qry.php:24 query_qry.php:67
+#: query_qry.php:26 query_qry.php:71
 msgid "Returns any person records with ages between two given ages."
 msgstr ""
 
-#: query_qry.php:25 query_qry.php:68
+#: query_qry.php:27 query_qry.php:72
 msgid "Total of records matching a given gender."
 msgstr ""
 
-#: query_qry.php:26 query_qry.php:69
+#: query_qry.php:28 query_qry.php:73
 msgid "Selects person records with the family role and gender specified."
 msgstr ""
 
-#: query_qry.php:27 query_qry.php:70
+#: query_qry.php:29 query_qry.php:74
 msgid "Returns person records which are assigned the given property."
 msgstr ""
 
-#: query_qry.php:28 query_qry.php:71
+#: query_qry.php:30 query_qry.php:75
 msgid ""
 "Search by any part of Name, City, State, Zip, Home Phone, Email, or Work "
 "Email."
 msgstr ""
 
-#: query_qry.php:29 query_qry.php:72
+#: query_qry.php:31 query_qry.php:76
 msgid "People with birthdays in a particular month"
 msgstr ""
 
-#: query_qry.php:30 query_qry.php:73
+#: query_qry.php:32 query_qry.php:77
 msgid "Find Registered students"
 msgstr ""
 
-#: query_qry.php:31 query_qry.php:74
+#: query_qry.php:33 query_qry.php:78
 msgid "Members who joined in a particular month"
 msgstr ""
 
-#: query_qry.php:32 query_qry.php:75
+#: query_qry.php:34 query_qry.php:79
 #, fuzzy
 msgid "People who are registered as database users"
 msgstr "選擇所有"
 
-#: query_qry.php:33 query_qry.php:76
+#: query_qry.php:35 query_qry.php:80
 #, fuzzy
 msgid "People who are members"
 msgstr "選擇所有"
 
-#: query_qry.php:34 query_qry.php:77
+#: query_qry.php:36 query_qry.php:81
 msgid "Find volunteers for a particular opportunity"
 msgstr ""
 
-#: query_qry.php:35 query_qry.php:78
+#: query_qry.php:37 query_qry.php:82
 msgid "Friends who signed up in previous months"
 msgstr ""
 
-#: query_qry.php:36 query_qry.php:79
+#: query_qry.php:38 query_qry.php:83
 msgid "People in families that are ok to canvass."
 msgstr ""
 
-#: query_qry.php:37 query_qry.php:80
+#: query_qry.php:39 query_qry.php:84
 msgid "Compare pledges between two fiscal years"
 msgstr ""
 
-#: query_qry.php:38 query_qry.php:81
+#: query_qry.php:40 query_qry.php:85
 msgid "Find people who pledged one year but not another"
 msgstr ""
 
-#: query_qry.php:39 query_qry.php:82
+#: query_qry.php:41 query_qry.php:86
 msgid "People who are configured to pay by credit card."
 msgstr ""
 
-#: query_qry.php:40 query_qry.php:83
+#: query_qry.php:42 query_qry.php:87
 msgid ""
 "Pledge summary by family name for each fund for the selected fiscal year"
 msgstr ""
 
-#: query_qry.php:41 query_qry.php:84
+#: query_qry.php:43 query_qry.php:88
 #, fuzzy
 msgid "Returns all the persons not assigned to a group."
 msgstr "未分配"
 
-#: query_qry.php:42 query_qry.php:85
+#: query_qry.php:44 query_qry.php:89
 #, fuzzy
 msgid "Returns all persons assigned to a group."
 msgstr "未分配"
 
-#: query_qry.php:43 query_qry.php:86
+#: query_qry.php:45 query_qry.php:90
 msgid "Find volunteers for who match two specific opportunity codes"
 msgstr ""
 
-#: query_qry.php:44 query_qry.php:87
+#: query_qry.php:46 query_qry.php:91
 msgid "Find people with a custom field value"
 msgstr ""
 
