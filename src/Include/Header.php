@@ -128,7 +128,7 @@ $MenuFirst = 1;
                       <p ><i class="fa fa fa-key"></i> <?= _('Change Password') ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/SettingsIndividual.php" class="item_link"  data-toggle="tooltip" title="<?= _("Change Custom Settings")?>" data-placement="right">
                       <p ><i class="fa fa fa-gear"></i> <?= _('Change Settings') ?></p></a>
-                  <a href="Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= _("Lock your session")?>" data-placement="right">
+                  <a href="<?= SystemURLs::getRootPath() ?>/Login.php?session=Lock" class="item_link" data-toggle="tooltip" title="<?= _("Lock your session")?>" data-placement="right">
                       <p ><i class="fa fa fa-pause"></i> <?= _('Lock') ?></p></a>
                   <a href="<?= SystemURLs::getRootPath() ?>/Logoff.php" class="item_link"  data-toggle="tooltip" title="<?= _("Quit EcclesiaCRM and close your session")?>" data-placement="right">
                       <p ><i class="fa fa fa-sign-out"></i> <?= _('Sign out') ?></p></a>
