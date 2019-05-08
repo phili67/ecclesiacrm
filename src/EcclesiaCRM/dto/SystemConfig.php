@@ -71,7 +71,7 @@ class SystemConfig
     private static function buildConfigs()
   {
     return array(
-        "sLogLevel" => new ConfigItem(4, "sLogLevel", "choice", "100", _("Event Log severity to write, used by ORM and App Logs"), "", json_encode(SystemConfig::getMonoLogLevels())),
+        "sLogLevel" => new ConfigItem(4, "sLogLevel", "choice", "100", _("Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is set in debug mode."), "", json_encode(SystemConfig::getMonoLogLevels())),
         "sDirClassifications" => new ConfigItem(5, "sDirClassifications", "text", "1,2,4,5", _("Include only these classifications in the directory, comma seperated")),
         "sDirRoleHead" => new ConfigItem(6, "sDirRoleHead", "text", "1", _("These are the family role numbers designated as head of house")),
         "sDirRoleSpouse" => new ConfigItem(7, "sDirRoleSpouse", "text", "2", _("These are the family role numbers designated as spouse")),
