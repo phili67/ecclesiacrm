@@ -721,13 +721,18 @@
             "title": "bEnabledDav &amp;&amp; bEnabledDavWebBrowser"
         }, 
         {
+            "location": "/user-guide/doc-admin/doc-tips/doc-restauration-bdd-bug/", 
+            "text": "Ici vous pourrez r\u00e9gler les param\u00e8tres d'int\u00e9gration avec d'autres applications\n\n\n\n\n\n\nDans certain cas \u00e0 la restauration d'une base de donn\u00e9es, vous pourriez avoir un message concernant : \nemail_list\n ou \nemail_list\n, il faut dans ce cas supprimer les deux tables dans la sauvegarde\n\n\n\n\n\n\nDans le cas de \nMail-\nMailChimp-\nTableau de bord-\nEmail en doublon\n si vous rencontrez un probl\u00e8me pour extraire les doublons\n\n\n\n\n\n\nCe bug apparait, suite au transfert d'une base de donn\u00e9es d'un serveur \u00e0 un autre.\n\n\n\n\n\n\nLa solution est d'appliquer sur la base de donn\u00e9es ce patch :\n\n\n\n\n\n\n\n\n\n\n-- drop view in case of existence\nDROP VIEW IF EXISTS `email_list`;\nDROP VIEW IF EXISTS  `email_count`;\n\n-- method for dup emails\nCREATE VIEW email_list AS\n    SELECT fam_Email AS email, \nfamily\n AS type, fam_id AS id FROM family_fam WHERE fam_email IS NOT NULL AND fam_email != \n\n    UNION\n    SELECT per_email AS email, \nperson_home\n AS type, per_id AS id FROM person_per WHERE per_email IS NOT NULL AND per_email != \n\n    UNION\n    SELECT per_WorkEmail AS email, \nperson_work\n AS type, per_id AS id FROM person_per WHERE per_WorkEmail IS NOT NULL AND per_WorkEmail != \n;\n\nCREATE VIEW email_count AS\n    SELECT email, COUNT(*) AS total FROM email_list group by email;", 
+            "title": "Bugs \u00e0 la restauration d'une BDD"
+        }, 
+        {
             "location": "/user-guide/doc-person/doc-person-profile/", 
-            "text": "Un utilisateur dispose d'un espace personnel ou il peut stoquer ses documents.\n\n\n\n\n\n\nPour y acc\u00e9der :\n\n\n\n\n\n\n\n\nIl dispose d'un espace personnel :\n\n\n\n\n\n\n\n\nIl pourra modifier :\n\n\n\n\nses documents\n\n\nson profile\n\n\nsa famille\n\n\npartager des documents avec tout utilisateur du syst\u00e8me.", 
+            "text": "Un utilisateur dispose d'un espace personnel ou il peut stoquer ses documents.\n\n\n\n\n\n\nPour y acc\u00e9der :\n\n\n\n\n\n\n\n\nIl dispose d'un espace personnel :\n\n\n\n\n\n\n\n\nIl pourra modifier :\n\n\n\n\nses documents\n\n\nson profile\n\n\nsa famille\n\n\npartager des documents avec tout utilisateur du syst\u00e8me.\n\n\netc ....", 
             "title": "Espace Personnel"
         }, 
         {
-            "location": "/user-guide/doc-person/doc-person/", 
-            "text": "Un utilisateur a les droits suivants octroy\u00e9s par l'administrateur\n\n\n\n\n\n\nPour modifier ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nNote : selon votre administrateur, vous n'aurez pas forc\u00e9ment acc\u00e8s \u00e0 tous ces r\u00e9glages.\n\n\n\n\nLes exports CSV\n\n\nLes annuaires\n\n\netc ...\n\n\n\n\nSeront affect\u00e9s par l'administrateur du CRM.", 
+            "location": "/user-guide/doc-person/doc-person-settings/", 
+            "text": "Un utilisateur a les droits suivants octroy\u00e9s par l'administrateur\n\n\n\n\n\n\nPour modifier ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nNote : selon votre administrateur, vous n'aurez pas forc\u00e9ment acc\u00e8s \u00e0 tous ces r\u00e9glages.\n\n\n\n\nbEmailMailto : Permission de l'utilisateur pour lui envoyer des email via des liens Mailto\n\n\nsMailtoDelimiter :    Permission de l'utilisateur pour lui envoyer des email via des liens Mailto\n\n\nbUSAddressVerification :Permission de l'utilisateur d'utiliser la V\u00e9rification d'Adresse IST\n\n\nbShowTooltip : Permission pour faire appara\u00eetre les bulles d'aide\n\n\nsCSVExportDelemiter : Pour exporter dans dans un autre encodage de texte par exemple en Europe utiliser ;\n\n\nsCSVExportCharset : Par d\u00e9faut en UTF-8, Pour l'encodage Europ\u00e9en utiliser Windows-1252 pour l'encodage dans le langage Fran\u00e7ais.\n\n\nbSidebarExpandOnHover : La barre lat\u00e9rale se d\u00e9ploie par d\u00e9faut au survol de la souris\n\n\nbSidebarCollapse : La barre lat\u00e9rale est referm\u00e9e par d\u00e9faut\n\n\nsMapExternalProvider : quand vous voulez visualiser l'adresse d'une personne sur une carte de votre Smartphone, vous pourrez choisir le type de carte \u00e0 utiliser (Apple Maps, GoogleMaps, BingMaps). \n\n\nsStyle : le style de th\u00e8me que vous voulez mettre en place\n\n\n\n\nSeront affect\u00e9s par l'administrateur du CRM.", 
             "title": "R\u00e9glages personnels"
         }, 
         {
@@ -954,6 +959,21 @@
             "location": "/user-guide/doc-webdav-file/doc-webdav-use/#sous-windows", 
             "text": "Dans l'explorateur de fichiers, fa\u00eetes un clic droit sur l'ic\u00f4ne r\u00e9seau     Il faudra ensuite saisir l'adresse sous la forme :  https://url_serveur/server.php/home/nom_utilisateur/     Renseignez l'identifiant de l'utilisateur, en cochant les deux cases      Une fen\u00eatre s'ouvrira sur le dossier de partage    Il est possible maintenant d'ajouter les documents que vous voulez dans ce dossier et ils se retrouveront dans profile utilisateur.  Un fichier rajout\u00e9 via ce moyen aura une mention DAV :", 
             "title": "Sous Windows"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-tips/doc-export-CSV/", 
+            "text": "Dans le cas d'un export CSV on peut avoir un probl\u00e8me d'encodage et de d\u00e9limiteur. Vous recontrerez ce probl\u00e8me \u00e9ventuel, en exportant un Dictionnaire, les classes d'\u00e9coles du dimanche ou \u00e0 chaque que vous chercherez \u00e0 exporter des donn\u00e9es sous forme de tableau.\n\n\nExcel\n ou \nLibreOffice\n par exemple auront du mal \u00e0 lire alors le document exporter.\n\n\nPour r\u00e9soudre le probl\u00e8me \n\n\n\n\n\n\nAller dans ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nPuis r\u00e9gler comme ci-contre :\n\n\n\n\nbSidebarExpandOnHover : La barre lat\u00e9rale se d\u00e9ploie par d\u00e9faut au survol de la souris\n\n\nbSidebarCollapse : La barre lat\u00e9rale est referm\u00e9e par d\u00e9faut\n\n\n\n\nLe probl\u00e8me devrait maintenant \u00eatre r\u00e9gl\u00e9.", 
+            "title": "Probl\u00e8me Export de Tableau (CSV)"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-tips/doc-export-sidebar/", 
+            "text": "La barre des menus peut-\u00eatre repli\u00e9e par d\u00e9faut ou appara\u00eetre au survol.\n\n\n\n\ndans le cas d'un iPad il peut-\u00eatre utile d'avoir une barre des menus repli\u00e9e.\n\n\ndans le cas d'un ordinateur, il est pr\u00e9f\u00e9rable qu'elle soit ouverte.\n\n\n\n\nPour g\u00e9rer cette probl\u00e9matique\n\n\n\n\n\n\nAller dans ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nPuis r\u00e9gler comme ci-contre :\n\n\n\n\nsCSVExportDelemiter : en europe on choisirait plut\u00f4t \n;\n autre part le \n,\n.\n\n\nsCSVExportCharset : Par d\u00e9faut en \nUTF-8\n, Pour l'encodage Europ\u00e9en utiliser \nWindows-1252\n pour l'encodage dans le langage Fran\u00e7ais.\n\n\n\n\nLe probl\u00e8me devrait maintenant \u00eatre r\u00e9gl\u00e9.", 
+            "title": "Barre de Menu"
+        }, 
+        {
+            "location": "/user-guide/doc-person/doc-tips/doc-export-export-address-smartphone/", 
+            "text": "Quand vous cliquez une adresse, vous aimeriez ouvrir l'adresse dans \nAppleMap\n plut\u00f4t que \nGoogleMap\n, cela peut-\u00eatre utile sous\n\n\n\n\nsous Android : GoogleMap\n\n\nsous iPhone  : AppleMap\n\n\n\n\nPour g\u00e9rer cette probl\u00e9matique\n\n\n\n\n\n\nAller dans ses r\u00e9glages personnels\n\n\n\n\n\n\n\n\nModifier les r\u00e9glages ci-dessous\n\n\n\n\n\n\n\n\nPuis r\u00e9gler comme ci-contre :\n\n\n\n\nsMapExternalProvider : quand vous voulez visualiser l'adresse d'une personne sur une carte de votre Smartphone, vous pourrez choisir le type de carte \u00e0 utiliser (Apple Maps, GoogleMaps, BingMaps).\n\n\n\n\nLe probl\u00e8me devrait maintenant \u00eatre r\u00e9gl\u00e9.", 
+            "title": "Visualiser les addresses dans AppleMap, GoogleMap"
         }, 
         {
             "location": "/user-guide/doc-pastoral-care/doc-pastoral-care/", 
