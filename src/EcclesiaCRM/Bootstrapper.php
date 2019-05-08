@@ -246,10 +246,10 @@ namespace EcclesiaCRM
           $ormLogger = new Logger('ormLogger');
           self::$bootStrapLogger->debug("Configuring ORM logs at :" .$ormLogPath);
           
-          if (LoggerUtils::getLogLevel() == 0) {
-            self::$dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";//DebugPDO for debugging
+          if (LoggerUtils::getLogLevel() <= 250) {
+            self::$dbClassName = "\\Propel\\Runtime\\Connection\\PropelPDO";// no debugging Propel will work at it full speed
           } else {
-            self::$dbClassName = "\\Propel\\Runtime\\Connection\\DebugPDO"; // for debugging
+            self::$dbClassName = "\\Propel\\Runtime\\Connection\\DebugPDO"; // DebugPDO for debugging
           }
 
           self::$manager->setConfiguration(self::buildConnectionManagerConfig());
