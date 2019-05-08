@@ -13,5 +13,5 @@ Un utilisateur dispose d'un espace personnel ou il peut stoquer ses documents.
 - son profile
 - sa famille
 - partager des documents avec tout utilisateur du système.
-
+- etc ....
 
