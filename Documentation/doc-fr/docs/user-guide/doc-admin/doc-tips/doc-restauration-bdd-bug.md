@@ -1,6 +1,6 @@
 Ici vous pourrez régler les paramètres d'intégration avec d'autres applications
 
-1. Dans certain cas à la restauration d'une base de données, vous pourriez avoir un message concernant : `email_list` ou `email_list`, il faut dans ce cas supprimer les deux tables dans la sauvegarde
+1. Dans certain cas à la restauration d'une base de données, vous pourriez avoir un message concernant : `email_list` ou `email_count`, il faut dans ce cas supprimer les deux tables dans la sauvegarde
 
 2. Dans le cas de `Mail->MailChimp->Tableau de bord->Email en doublon` si vous rencontrez un problème pour extraire les doublons
 

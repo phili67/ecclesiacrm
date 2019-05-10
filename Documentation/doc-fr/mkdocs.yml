@@ -43,7 +43,7 @@ markdown_extensions:
       
 # the site map
     
-site_name: Ecclesia<b>CRM</b>
+site_name: EcclesiaCRM
 pages:
 - "Accueil": 'index.md'
 - "Manuel : Administrateur":
@@ -109,11 +109,14 @@ pages:
         - 'Problème Export de Tableau (CSV)': 'user-guide/doc-person/doc-tips/doc-export-CSV.md'
         - 'Barre de Menu': 'user-guide/doc-person/doc-tips/doc-export-sidebar.md'
         - 'Visualiser les addresses dans AppleMap, GoogleMap': 'user-guide/doc-person/doc-tips/doc-export-export-address-smartphone.md'
+
+- "Manuel : DPO & RGPD":
+    - 'Introduction': 'user-guide/doc-gdpr/doc-gdpr-introduction.md'
+    - 'Activation & Gestion': 'user-guide/doc-gdpr/doc-gdpr-activation.md'
         
 - "Manuel : pasteur & conseiller":
     - "Suivi Pastoral": 'user-guide/doc-pastoral-care/doc-pastoral-care.md'
-    - 'Personnalisation': 
-        - "Personnalisation suivi pastoral": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+    - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 - "Campagne de Publipostage":
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
