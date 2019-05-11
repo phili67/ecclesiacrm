@@ -10,11 +10,11 @@ Un utilisateur a la possibilité de partager ses documents avec tous les autres 
 
       ![Screenshot](../../img/person/user32.png)
 
-3. Vous constatez que vous avez une icône à côté de la date de création
+3. Sélectionnez l'icône ci-contre
 
       ![Screenshot](../../img/person/user43.png)
       
-4. Sélectionnez la dernière icône
+4. Vous obtiendrez la fenêtre suivante
 
       ![Screenshot](../../img/person/user44.png)
       
@@ -24,14 +24,19 @@ Un utilisateur a la possibilité de partager ses documents avec tous les autres 
     - d'une famille
     - d'un groupe
 
-      Vous constaterez qu'un document partagé a une icône qui est passée au vert.
+      Vous constaterez qu'un document est partagé à une icône qui est passée au vert.
       
       ![Screenshot](../../img/person/user46.png)
-    
+      
 6. Il est possible ensuite de fixer les droits pour chacune des personnes affectées.
 
       ![Screenshot](../../img/person/user45.png)
 
+## Modifier le partage ou les droits
+
+Il suffit de recliquer l'icône ci-contre
+
+![Screenshot](../../img/person/user46.png)
 
 ## Remarque
 

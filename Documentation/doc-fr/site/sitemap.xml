@@ -82,12 +82,6 @@
     </url>
         
     <url>
-     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-person/doc-person-document-edrive/</loc>
-     <lastmod>2019-05-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>https://github.com/phili67/ecclesiacrm/releases/</loc>
      <lastmod></lastmod>
      <changefreq>daily</changefreq>
@@ -121,6 +115,22 @@
         
     <url>
      <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-pastoral-care/doc-pastoral-care/</loc>
+     <lastmod>2019-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care/</loc>
+     <lastmod>2019-05-11</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://github.com/phili67/ecclesiacrm/releases//user-guide/doc-sunday-school/doc-sunday-school-introduction/</loc>
      <lastmod>2019-05-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
