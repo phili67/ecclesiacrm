@@ -127,6 +127,7 @@ require '../Include/Header.php';
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
   ?>
   <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= _("Edit this Class") ?></a>
+  <button class="btn btn-app bg-maroon"  id="deleteClassButton"><i class="fa fa-trash"></i><?= _("Delete this Class") ?></button>
   <?php
     }
   ?>
@@ -396,6 +397,7 @@ function implodeUnique($array, $withQuotes)
   var sundayGroupId          = <?= $iGroupId ?>;
   var canSeePrivacyData      = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId))?1:0 ?>;
   var canDeleteMembers       = <?= SessionUser::getUser()->isDeleteRecordsEnabled()?1:0 ?>;
+  var sundayGroupName        = "<?= $ormSundaySchoolClass->getName() ?>";
 </script>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/sundayschool/SundaySchoolClassView.js" ></script>
