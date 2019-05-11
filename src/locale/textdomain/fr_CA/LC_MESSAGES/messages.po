@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-11 17:45+0200\n"
+"POT-Creation-Date: 2019-05-11 17:53+0200\n"
 "Language: fr-CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3387,11 +3387,11 @@ msgid "Address zip city state"
 msgstr "Adresse code postal ville région"
 
 #: EcclesiaCRM/dto/SystemConfig.php:74
-#, fuzzy
 msgid ""
-"Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is "
-"set in debug mode."
-msgstr "Écrire la gravité des événements Log, utilisé par ORM et App Logs"
+"Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
+"ORM is set in debug mode."
+msgstr "Écrire la gravité des événements Log, utilisé par ORM et App Logs. sLogLevel >= 300 : "
+"ORM est en mode debogage"
 
 #: EcclesiaCRM/dto/SystemConfig.php:75
 msgid "Include only these classifications in the directory, comma seperated"
@@ -9680,9 +9680,8 @@ msgid "Edit this Class"
 msgstr "Editer la classe"
 
 #: sundayschool/SundaySchoolClassView.php:130
-#, fuzzy
 msgid "Delete this Class"
-msgstr "Editer la classe"
+msgstr "Supprimer la classe"
 
 #: sundayschool/SundaySchoolClassView.php:144
 #: sundayschool/SundaySchoolClassView.php:149
