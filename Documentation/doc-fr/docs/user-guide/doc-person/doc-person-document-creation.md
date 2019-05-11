@@ -31,11 +31,26 @@ Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de do
     
        ![Screenshot](../../img/person/user23.png)
 
+## Edition
+
+Cliquez l'icône
+
+![Screenshot](../../img/person/docedit.png)
+
+## Suppression
+
+Cliquez l'icône
+
+![Screenshot](../../img/person/docdel.png)
+
+![Screenshot](../../img/person/docedit.png)
+
 ## Il est possible de créer trois types de document
    
 ![Screenshot](../../img/person/user30.png)
    
-1. les documents classiques<br>Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein écran.<br>![Screenshot](../../img/person/user31.png)
+1. les documents classiques<br>Vous disposez ici d'un vrai traitement de texte. Il est possible de travailler en plein écran.<br>
+     ![Screenshot](../../img/person/user31.png)
       c'est un document CKeditor visible que dans le cas du CRM.<br>Vous pourrez le formater comme bon vous semble.
     
 2. les vidéos

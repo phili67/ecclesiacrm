@@ -12,19 +12,19 @@ Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de do
     
        ![Screenshot](../../img/person/user23.png)
 
-3. Vous disposerez de toute une série d'icônes, notamment les trois permettant de gérer les modèles
+3. Vous disposerez de toute une série d'icônes, notamment les trois premières permettant de gérer les modèles
 
        ![Screenshot](../../img/person/user24.png)
       
 4. Le créer
 
     - dans un premier temps, formater votre document comme bon vous semble.
+      
 
-       ![Screenshot](../../img/person/user27.png)
-       
     - Vous pourrez ensuite le rajouter à la liste de vos Modèles
-    
-       ![Screenshot](../../img/person/user29.png)
+          
+          - On clique l'icône<br>![Screenshot](../../img/person/user27.png)
+          - On donne un nom au modèle et une description<br>![Screenshot](../../img/person/user29.png)
      
 
 5. Gestion des profiles
@@ -45,4 +45,5 @@ Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de do
 
 - Vous faire de même avec les calendriers groupes et partagé.
 - Un calendrier groupe ne peut être rajouté que par un admin.
+- Les modèles sont très utiles dans le cas de MailChimp pour créer des campagnes.
 
