@@ -278,58 +278,15 @@ $(document).ready(function () {
   }
   
   
-  function BootboxContentShare(){
-    var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Share your Document")+'</h3>'
-       + '<div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4">'
-              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
-              +'</div>'
-              +'<div class="col-md-8">'
-              +'<select size="6" style="width:100%" id="select-share-persons" multiple>'
-              +'</select>'
-             +'</div>'
-            +'</div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Set Rights") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-rights" class="form-control input-sm"'
-                    +'style="width:100%" data-placeholder="text to place">'
-                    +'<option value="0">'+i18next.t("Select your rights")+" [👀  ]"+i18next.t("or")+"[👀 ✐]"+' -- </option>'
-                    +'<option value="1">'+i18next.t("[👀  ]")+' -- '+i18next.t("[R ]")+'</option>'
-                    +'<option value="2">'+i18next.t("[👀 ✐]")+' -- '+i18next.t("[RW]")+'</option>'
-                +'</select>'
-              +'</div>'
-            +'</div>'
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Send email notification") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<input id="sendEmail" type="checkbox">'
-              +'</div>'
-            +'</div>'            
-            +'<div class="row div-title">'
-              +'<div class="col-md-4"><span style="color: red">*</span>' + i18next.t("Add persons/Family/groups") + ":</div>"
-              +'<div class="col-md-8">'
-                +'<select name="person-group-Id" id="person-group-Id" class="form-control select2"'
-                    +'style="width:100%">'
-                +'</select>'
-              +'</div>'
-            +'</div>'
-          +'</div>';
-          
-          var object = $('<div/>').html(frm_str).contents();
-
-        return object
-  }
-  
   $(".shareNote").click(function(event){
     var noteId = event.currentTarget.dataset.id;
     var isShared = event.currentTarget.dataset.shared;
     
     var button = $(this); //Assuming first tab is selected by default
+    var state  = button.find('.fa-stack-2x');
         
     var modal = bootbox.dialog({
-       message: BootboxContentShare(),
+       message: window.CRM.BootboxContentShareFiles(),
        buttons: [
         {
          label: i18next.t("Delete"),
@@ -348,8 +305,8 @@ $(document).ready(function () {
                     $("#select-share-persons option[value='"+personID+"']").remove(); 
                     
                     if (data.count == 0) {
-                      $(button).addClass("btn-default");
-                      $(button).removeClass("btn-success");
+                      $(state).css('color', '#777');
+                      $(button).data('shared',0);
                     }
                     
                     $("#person-group-Id").val("").trigger("change");
@@ -372,8 +329,8 @@ $(document).ready(function () {
                  data: JSON.stringify({"noteId":noteId})
               }).done(function(data) {
                 addPersonsFromNotes(noteId);
-                $(button).addClass("btn-default");
-                $(button).removeClass("btn-success");
+                $(state).css('color', '#777');
+                $(button).data('shared',0);
                 modal.modal("hide");
               });
             }
@@ -384,7 +341,7 @@ $(document).ready(function () {
         {
          label: i18next.t("Ok"),
          className: "btn btn-primary",
-         callback: function() {               
+         callback: function() {
            modal.modal("hide");
            return true;
          }
@@ -396,111 +353,7 @@ $(document).ready(function () {
        }
      });
      
-     $("#person-group-Id").select2({ 
-        language: window.CRM.shortLocale,
-        minimumInputLength: 2,
-        placeholder: " -- "+i18next.t("Person or Family or Group")+" -- ",
-        allowClear: true, // This is for clear get the clear button if wanted 
-        ajax: {
-            url: function (params){
-              return window.CRM.root + "/api/people/search/" + params.term;
-            },
-            dataType: 'json',
-            delay: 250,
-            data: "",
-            processResults: function (data, params) {
-              return {results: data};
-            },
-            cache: true
-        }
-      });
-      
-     $("#person-group-rights").change(function() {
-       var rightAccess = $(this).val();
-       var deferreds = [];
-       var i = 0;
-       
-       $('#select-share-persons :selected').each(function(i, sel){ 
-          var personID = $(sel).val();
-          var str = $(sel).text();
-          
-          deferreds.push(          
-            window.CRM.APIRequest({
-               method: 'POST',
-               path: 'sharedocument/setrights',
-               data: JSON.stringify({"noteId":noteId,"personID": personID,"rightAccess":rightAccess})
-            }).done(function(data) {
-              if (rightAccess == 1) {
-                res = str.replace(i18next.t("[👀 ✐]"), i18next.t("[👀  ]"));
-              } else {
-                res = str.replace(i18next.t("[👀  ]"), i18next.t("[👀 ✐]"));
-              }
-            
-              var elt = [personID,res];
-              deferreds[i++] = elt;
-            })
-          );
-          
-        });
-        
-        $.when.apply($, deferreds).done(function(data) {
-         // all images are now prefetched
-         //addPersonsFromNotes(noteId);
-         
-         deferreds.forEach(function(element) {
-           $('#select-share-persons option[value="'+element[0]+'"]').text(element[1]);
-         }); 
-         
-         $("#person-group-rights option:first").attr('selected','selected');
-        });
-     });
-     
-     $("#select-share-persons").change(function() {
-       $("#person-group-rights").val(0);
-     });
-          
-      
-     $("#person-group-Id").on("select2:select",function (e) { 
-       var notification = ($("#sendEmail").is(':checked'))?1:0;
-       
-       if (e.params.data.personID !== undefined) {
-           window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addperson',
-                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"personID": e.params.data.personID,"notification":notification})
-           }).done(function(data) { 
-             addPersonsFromNotes(noteId);
-             $(button).addClass("btn-success");
-             $(button).removeClass("btn-default");
-           });
-        } else if (e.params.data.groupID !== undefined) {
-           window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addgroup',
-                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"groupID": e.params.data.groupID,"notification":notification})
-           }).done(function(data) { 
-             addPersonsFromNotes(noteId);
-             $(button).addClass("btn-success");
-             $(button).removeClass("btn-default");
-           });
-        } else if (e.params.data.familyID !== undefined) {
-           window.CRM.APIRequest({
-                method: 'POST',
-                path: 'sharedocument/addfamily',
-                data: JSON.stringify({"noteId":noteId,"currentPersonID":window.CRM.currentPersonID,"familyID": e.params.data.familyID,"notification":notification})
-           }).done(function(data) { 
-             addPersonsFromNotes(noteId);
-             $(button).addClass("btn-success");
-             $(button).removeClass("btn-default");
-           });
-        }
-     });
-     
-     addPersonsFromNotes(noteId);
-     modal.modal('show');
-     
-    // this will ensure that image and table can be focused
-    $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+    window.CRM.addSharedButtonsActions(noteId,isShared,button,state,modal);
   });
   
   $(".filter-timeline").change(function() {
