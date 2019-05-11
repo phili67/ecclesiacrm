@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-05-05T18:19:17.894Z\n"
+"POT-Creation-Date: 2019-05-11T15:45:49.198Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -303,6 +303,9 @@ msgstr "Senden von E-Mail-Benachrichtigungen"
 msgid "Add persons/Family/groups"
 msgstr "Personen/Familien/gruppen hinzuzufügen"
 
+msgid "Person or Family or Group"
+msgstr "Person oder Familie oder Gruppe"
+
 msgid "Delete"
 msgstr "Löschen"
 
@@ -317,9 +320,6 @@ msgstr "Soll diese Gemeinsam wirklich beendet werden?"
 
 msgid "Ok"
 msgstr "Ok"
-
-msgid "Person or Family or Group"
-msgstr "Person oder Familie oder Gruppe"
 
 msgid "Select the method to add to a group"
 msgstr "Wählen Sie ein methode für ein Gruppe Hinzufügen"
@@ -1174,9 +1174,6 @@ msgstr "Photo"
 msgid "Are you sure you want to remove this person's membership from"
 msgstr "Soll dieses Person wirklich von seine Mitgliedschaft entfernt werden"
 
-msgid "Share your Document"
-msgstr "Dokumente freizugeben"
-
 msgid "Change role"
 msgstr "Rolle ändern"
 
@@ -1700,6 +1697,9 @@ msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
 
 msgid "List Name"
 msgstr "Mailingliste Name"
+
+#~ msgid "Share your Document"
+#~ msgstr "Dokumente freizugeben"
 
 #~ msgid "Sunday School Menu assignement"
 #~ msgstr "Sonntagsschule Menu zugewiesen"

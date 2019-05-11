@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 09:53+0200\n"
+"POT-Creation-Date: 2019-05-11 17:45+0200\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,7 +237,7 @@ msgstr "Families"
 msgid "Groups"
 msgstr "Groep"
 
-#: api/routes/mailchimp.php:821
+#: api/routes/mailchimp.php:825
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -1511,8 +1511,8 @@ msgstr "Gebruiker Lijst"
 #: Checkin.php:552 CSVExport.php:313 CSVImport.php:241 FamilyEditor.php:1020
 #: PersonEditor.php:809 PrintPastoralCare.php:245 PrintPastoralCare.php:345
 #: PrintView.php:247 PrintView.php:347
-#: sundayschool/SundaySchoolClassView.php:248
-#: sundayschool/SundaySchoolClassView.php:395 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:396 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Geslacht"
 
@@ -1790,7 +1790,7 @@ msgstr "Werk / Ander Email"
 
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:260
 #: PrintView.php:262 sundayschool/SundaySchoolClassListExport.php:49
-#: sundayschool/SundaySchoolClassView.php:394
+#: sundayschool/SundaySchoolClassView.php:395
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Birth Date"
 msgstr "Geboortedatum"
@@ -3448,7 +3448,9 @@ msgid "Address zip city state"
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:74
-msgid "Event Log severity to write, used by ORM and App Logs"
+msgid ""
+"Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is "
+"set in debug mode."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:75
@@ -4908,7 +4910,7 @@ msgstr "Adresboek"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:102
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:182
+#: sundayschool/SundaySchoolClassView.php:183
 #: sundayschool/SundaySchoolDashboard.php:95
 #: sundayschool/SundaySchoolDashboard.php:167
 #, fuzzy
@@ -4929,7 +4931,7 @@ msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:198
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:271
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:272
 #: sundayschool/SundaySchoolDashboard.php:106
 #: sundayschool/SundaySchoolDashboard.php:168
 msgid "Students"
@@ -5342,7 +5344,7 @@ msgid "Delele All Attendees"
 msgstr "Evenement bezoekers"
 
 #: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:493
-#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:136
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:137
 #, fuzzy
 msgid "Make Check-out"
 msgstr "CheckOut"
@@ -7244,7 +7246,7 @@ msgstr "Groep Leden:"
 msgid "Manage Group Members"
 msgstr "Groep Leden:"
 
-#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:367
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:368
 #: sundayschool/SundaySchoolDashboard.php:282
 #, fuzzy
 msgid "Add"
@@ -10040,116 +10042,121 @@ msgstr "Voer Betaling in"
 msgid "Edit this Class"
 msgstr "Bewerk deze Groep"
 
-#: sundayschool/SundaySchoolClassView.php:143
-#: sundayschool/SundaySchoolClassView.php:148
+#: sundayschool/SundaySchoolClassView.php:130
+#, fuzzy
+msgid "Delete this Class"
+msgstr "Bewerk deze Groep"
+
+#: sundayschool/SundaySchoolClassView.php:144
+#: sundayschool/SundaySchoolClassView.php:149
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Voer bezoekers-aantallen in"
 
-#: sundayschool/SundaySchoolClassView.php:150
+#: sundayschool/SundaySchoolClassView.php:151
 #, fuzzy
 msgid "Student Badges"
 msgstr "Voer Betaling in"
 
-#: sundayschool/SundaySchoolClassView.php:157
+#: sundayschool/SundaySchoolClassView.php:158
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Verwijder uit mandje "
 
-#: sundayschool/SundaySchoolClassView.php:161
+#: sundayschool/SundaySchoolClassView.php:162
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Voeg resultaten toe aan mandje"
 
-#: sundayschool/SundaySchoolClassView.php:168
+#: sundayschool/SundaySchoolClassView.php:169
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Verwijder uit mandje "
 
-#: sundayschool/SundaySchoolClassView.php:172
+#: sundayschool/SundaySchoolClassView.php:173
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Voeg Groep Lidmaatschap toe aan dit mandje"
 
-#: sundayschool/SundaySchoolClassView.php:201
-#: sundayschool/SundaySchoolClassView.php:348
+#: sundayschool/SundaySchoolClassView.php:202
+#: sundayschool/SundaySchoolClassView.php:349
 #, fuzzy
 msgid "Send Message"
 msgstr "Bericht"
 
-#: sundayschool/SundaySchoolClassView.php:203
+#: sundayschool/SundaySchoolClassView.php:204
 #, fuzzy
 msgid "View Profile"
 msgstr "Bekijk Alles"
 
-#: sundayschool/SundaySchoolClassView.php:218
+#: sundayschool/SundaySchoolClassView.php:219
 msgid "Quick Status"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:233
+#: sundayschool/SundaySchoolClassView.php:234
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "Verjaardagsdatum"
 
-#: sundayschool/SundaySchoolClassView.php:260
+#: sundayschool/SundaySchoolClassView.php:261
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Vervaldatum maand"
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 #, fuzzy
 msgid "On"
 msgstr "Eenmalig"
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 msgid "Off"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:278
+#: sundayschool/SundaySchoolClassView.php:279
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:279
+#: sundayschool/SundaySchoolClassView.php:280
 msgid "Showing students with gender"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:310
+#: sundayschool/SundaySchoolClassView.php:311
 msgid "Compose New Message"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:315
+#: sundayschool/SundaySchoolClassView.php:316
 #, fuzzy
 msgid "Kids Emails"
 msgstr "Email"
 
-#: sundayschool/SundaySchoolClassView.php:320
+#: sundayschool/SundaySchoolClassView.php:321
 #, fuzzy
 msgid "Parents Emails"
 msgstr "Persoonlijke Email"
 
-#: sundayschool/SundaySchoolClassView.php:325
+#: sundayschool/SundaySchoolClassView.php:326
 #, fuzzy
 msgid "Teachers Emails"
 msgstr "Andere Email"
 
-#: sundayschool/SundaySchoolClassView.php:335
+#: sundayschool/SundaySchoolClassView.php:336
 msgid "Attachment"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:338
+#: sundayschool/SundaySchoolClassView.php:339
 msgid "Max. 32MB"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:345
+#: sundayschool/SundaySchoolClassView.php:346
 #, fuzzy
 msgid "Discard"
 msgstr "Ontkenning"
 
-#: sundayschool/SundaySchoolClassView.php:362
+#: sundayschool/SundaySchoolClassView.php:363
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Voeg persoon toe aan Groep"
