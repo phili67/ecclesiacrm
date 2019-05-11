@@ -1,5 +1,32 @@
 $("document").ready(function(){
 
+  $("#deleteClassButton").click(function() {
+    console.log("click");
+    bootbox.setDefaults({
+    locale: window.CRM.shortLocale}),
+    bootbox.confirm({
+      title: i18next.t("Confirm Delete Group"),
+      message: '<p style="color: red">'+
+        i18next.t("Please confirm deletion of this group record")+" "+sundayGroupName+"</p>"+
+        "<p>"+
+        i18next.t("This will also delete all Roles and Group-Specific Property data associated with this Group record.")+
+        "</p><p>"+
+        i18next.t("All group membership and properties will be destroyed.  The group members themselves will not be altered.")+"</p>",
+      callback: function (result) {
+        if (result)
+        {
+            window.CRM.APIRequest({
+              method: "DELETE",
+              path: "groups/" + sundayGroupId,
+            }).done(function (data) {
+              if (data.status == "success")
+                window.location.href = window.CRM.root + "/sundayschool/SundaySchoolDashboard.php";
+            });
+        }
+      }
+    });
+  });
+
   function edition_mode()
   {
     $(".edition-mode").fadeIn(300);
