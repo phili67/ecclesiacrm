@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-11 17:45+0200\n"
+"POT-Creation-Date: 2019-05-11 17:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3317,8 +3317,8 @@ msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:74
 msgid ""
-"Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is "
-"set in debug mode."
+"Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
+"ORM is set in debug mode."
 msgstr ""
 
 #: EcclesiaCRM/dto/SystemConfig.php:75

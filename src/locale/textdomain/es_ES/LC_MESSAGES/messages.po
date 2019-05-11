@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-11 17:45+0200\n"
+"POT-Creation-Date: 2019-05-11 17:53+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3365,8 +3365,8 @@ msgstr "Dirección postal Ciudad state"
 #: EcclesiaCRM/dto/SystemConfig.php:74
 #, fuzzy
 msgid ""
-"Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is "
-"set in debug mode."
+"Event Log severity to write, used by ORM and App Logs. sLogLevel >= 300 : "
+"ORM is set in debug mode."
 msgstr "Log de eventos de gravedad a escribir, usado por ORM y Logs de App"
 
 #: EcclesiaCRM/dto/SystemConfig.php:75
