@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 09:53+0200\n"
+"POT-Creation-Date: 2019-05-11 17:45+0200\n"
 "Language: fr-FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,7 +223,7 @@ msgstr "Familles"
 msgid "Groups"
 msgstr "Groupes"
 
-#: api/routes/mailchimp.php:821
+#: api/routes/mailchimp.php:825
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "L'hôte SMTP est non configuré, aller dans la page de réglages"
 
@@ -1467,8 +1467,8 @@ msgstr "Liste"
 #: Checkin.php:552 CSVExport.php:313 CSVImport.php:241 FamilyEditor.php:1020
 #: PersonEditor.php:809 PrintPastoralCare.php:245 PrintPastoralCare.php:345
 #: PrintView.php:247 PrintView.php:347
-#: sundayschool/SundaySchoolClassView.php:248
-#: sundayschool/SundaySchoolClassView.php:395 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:249
+#: sundayschool/SundaySchoolClassView.php:396 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Sexe"
 
@@ -1735,7 +1735,7 @@ msgstr "Email professionnel ou autre"
 
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:260
 #: PrintView.php:262 sundayschool/SundaySchoolClassListExport.php:49
-#: sundayschool/SundaySchoolClassView.php:394
+#: sundayschool/SundaySchoolClassView.php:395
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Birth Date"
 msgstr "Date de naissance"
@@ -3387,7 +3387,10 @@ msgid "Address zip city state"
 msgstr "Adresse code postal ville région"
 
 #: EcclesiaCRM/dto/SystemConfig.php:74
-msgid "Event Log severity to write, used by ORM and App Logs"
+#, fuzzy
+msgid ""
+"Event Log severity to write, used by ORM and App Logs. sLogLevel >= ORM is "
+"set in debug mode."
 msgstr "Écrire la gravité des événements Log, utilisé par ORM et App Logs"
 
 #: EcclesiaCRM/dto/SystemConfig.php:75
@@ -4841,7 +4844,7 @@ msgstr "Classique"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:102
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:182
+#: sundayschool/SundaySchoolClassView.php:183
 #: sundayschool/SundaySchoolDashboard.php:95
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Teachers"
@@ -4861,7 +4864,7 @@ msgstr "Fille"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:198
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:271
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:272
 #: sundayschool/SundaySchoolDashboard.php:106
 #: sundayschool/SundaySchoolDashboard.php:168
 msgid "Students"
@@ -5257,7 +5260,7 @@ msgid "Delele All Attendees"
 msgstr "Supprimer tous les participants"
 
 #: EditEventAttendees.php:146 EditEventAttendees.php:148 ListEvents.php:493
-#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:136
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:137
 msgid "Make Check-out"
 msgstr "Faire l'appel"
 
@@ -7066,7 +7069,7 @@ msgstr "Membres du Groupe:"
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
-#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:367
+#: GroupView.php:484 sundayschool/SundaySchoolClassView.php:368
 #: sundayschool/SundaySchoolDashboard.php:282
 msgid "Add"
 msgstr "Ajouter"
@@ -7450,7 +7453,7 @@ msgstr "Signaler un problème"
 
 #: Include/Header.php:158 Include/Header.php:159
 msgid "Developer Chat"
-msgstr "Chat pour développeurs"
+msgstr "Tchat développeurs"
 
 #: Include/Header.php:163 Include/Header.php:164
 msgid "Contributing"
@@ -9676,103 +9679,108 @@ msgstr "Ajouter des étudiants"
 msgid "Edit this Class"
 msgstr "Editer la classe"
 
-#: sundayschool/SundaySchoolClassView.php:143
-#: sundayschool/SundaySchoolClassView.php:148
+#: sundayschool/SundaySchoolClassView.php:130
+#, fuzzy
+msgid "Delete this Class"
+msgstr "Editer la classe"
+
+#: sundayschool/SundaySchoolClassView.php:144
+#: sundayschool/SundaySchoolClassView.php:149
 msgid "Export Attendance"
 msgstr "Fichiers des présents"
 
-#: sundayschool/SundaySchoolClassView.php:150
+#: sundayschool/SundaySchoolClassView.php:151
 msgid "Student Badges"
 msgstr "Badges Etudiants"
 
-#: sundayschool/SundaySchoolClassView.php:157
+#: sundayschool/SundaySchoolClassView.php:158
 msgid "Remove Students from Cart"
 msgstr "Supprimer les Etudiants du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:161
+#: sundayschool/SundaySchoolClassView.php:162
 msgid "Add Students to Cart"
 msgstr "Ajouter les Etudiants au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:168
+#: sundayschool/SundaySchoolClassView.php:169
 msgid "Remove Teachers from Cart"
 msgstr "Supprimer les Moniteurs du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:172
+#: sundayschool/SundaySchoolClassView.php:173
 msgid "Add Teachers to Cart"
 msgstr "Ajouter les Moniteurs au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:201
-#: sundayschool/SundaySchoolClassView.php:348
+#: sundayschool/SundaySchoolClassView.php:202
+#: sundayschool/SundaySchoolClassView.php:349
 msgid "Send Message"
 msgstr "Envoyer un message"
 
-#: sundayschool/SundaySchoolClassView.php:203
+#: sundayschool/SundaySchoolClassView.php:204
 msgid "View Profile"
 msgstr "Voir le profil"
 
-#: sundayschool/SundaySchoolClassView.php:218
+#: sundayschool/SundaySchoolClassView.php:219
 msgid "Quick Status"
 msgstr "Statut rapide"
 
-#: sundayschool/SundaySchoolClassView.php:233
+#: sundayschool/SundaySchoolClassView.php:234
 msgid "Birthdays by Month"
 msgstr "Anniversaires par mois"
 
-#: sundayschool/SundaySchoolClassView.php:260
+#: sundayschool/SundaySchoolClassView.php:261
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Cliquer les parties du diagramme en bâtons ou circulaire pour interagir avec "
 "le tableau ci-dessous."
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 msgid "Edition Mode"
 msgstr "Mode édition"
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 msgid "On"
 msgstr "Actif"
 
-#: sundayschool/SundaySchoolClassView.php:273
+#: sundayschool/SundaySchoolClassView.php:274
 msgid "Off"
 msgstr "Inactif"
 
-#: sundayschool/SundaySchoolClassView.php:278
+#: sundayschool/SundaySchoolClassView.php:279
 msgid "Showing students with birthdays in"
 msgstr "Afficher les étudiants dont l'anniversaire est en"
 
-#: sundayschool/SundaySchoolClassView.php:279
+#: sundayschool/SundaySchoolClassView.php:280
 msgid "Showing students with gender"
 msgstr "Afficher les étudiants dont le sexe est"
 
-#: sundayschool/SundaySchoolClassView.php:310
+#: sundayschool/SundaySchoolClassView.php:311
 msgid "Compose New Message"
 msgstr "Composer un nouveau message"
 
-#: sundayschool/SundaySchoolClassView.php:315
+#: sundayschool/SundaySchoolClassView.php:316
 msgid "Kids Emails"
 msgstr "Emails des enfants"
 
-#: sundayschool/SundaySchoolClassView.php:320
+#: sundayschool/SundaySchoolClassView.php:321
 msgid "Parents Emails"
 msgstr "Email des Parents"
 
-#: sundayschool/SundaySchoolClassView.php:325
+#: sundayschool/SundaySchoolClassView.php:326
 msgid "Teachers Emails"
 msgstr "Email des Moniteurs"
 
-#: sundayschool/SundaySchoolClassView.php:335
+#: sundayschool/SundaySchoolClassView.php:336
 msgid "Attachment"
 msgstr "Pièce jointe"
 
-#: sundayschool/SundaySchoolClassView.php:338
+#: sundayschool/SundaySchoolClassView.php:339
 msgid "Max. 32MB"
 msgstr "Maximum 32MB"
 
-#: sundayschool/SundaySchoolClassView.php:345
+#: sundayschool/SundaySchoolClassView.php:346
 msgid "Discard"
 msgstr "Rejeter"
 
-#: sundayschool/SundaySchoolClassView.php:362
+#: sundayschool/SundaySchoolClassView.php:363
 msgid "Add Members to Sunday Group"
 msgstr "Ajouter des membres au groupe école du dimanche"
 
