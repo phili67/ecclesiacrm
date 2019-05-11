@@ -1,25 +1,11 @@
-Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de document.
+Il est possible depuis la version 5.5.0 d'EcclesiaCRM de gérer dans la zone de texte vos documents
 
-## Visualiser tous ses documents
+- le glisser déposer d'images
+- les boites de gestion d'images et de lien intègre maintenant l'EDrive
 
-1. Pour cela aller dans votre espace personnel
+Pour cela
 
-      ![Screenshot](../../img/person/user22.png)
-
-2. Cliquez l'onglet Documents
-
-      ![Screenshot](../../img/person/user32.png)
-
-3. Voici la liste des documents
-
-      ![Screenshot](../../img/person/user33.png)
-
-4. Il est possible de les trier par type
-
-      ![Screenshot](../../img/person/user34.png)
-
-
-## Création
+## Créer ou Editer un document
 
 1. Aller dans un document, CKEditor
 
@@ -30,20 +16,6 @@ Il est possible depuis la version 4.1 d'EcclesiaCRM de gérer les modèles de do
 2. Ajouter un document
     
        ![Screenshot](../../img/person/user23.png)
-
-## Edition
-
-Cliquez l'icône
-
-![Screenshot](../../img/person/docedit.png)
-
-## Suppression
-
-Cliquez l'icône
-
-![Screenshot](../../img/person/docdel.png)
-
-![Screenshot](../../img/person/docedit.png)
 
 ## Il est possible de créer trois types de document
    

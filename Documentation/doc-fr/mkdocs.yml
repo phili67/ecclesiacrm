@@ -97,10 +97,12 @@ pages:
         - 'Partager son calendrier': 'user-guide/doc-person/doc-person-share-calendar.md'
         - 'Partager avec le Mac': 'user-guide/doc-person/doc-person-share-mac.md'
         - 'Créer un événement': 'user-guide/doc-person/doc-person-events.md'
-    - "Documents & Modèles": 
+    - "Documents": 
         - 'Gérer-créer': 'user-guide/doc-person/doc-person-document-creation.md'
         - 'Les partager': 'user-guide/doc-person/doc-person-document-share.md'
-        - 'Modèles de documents': 'user-guide/doc-person/doc-person-document-templates.md'
+        - 'Images et Fichiers': 'user-guide/doc-person/doc-person-document-images-files.md'
+    - "Documents & Modèles": 
+        - 'Modèles de document': 'user-guide/doc-person/doc-person-document-templates.md'
     - "EDrive dans le CRM": 'user-guide/doc-person/doc-person-document-edrive.md'
     - 'EDrive en dehors du CRM': 
         - 'Introduction': 'user-guide/doc-webdav-file/doc-webdav-intro.md'
