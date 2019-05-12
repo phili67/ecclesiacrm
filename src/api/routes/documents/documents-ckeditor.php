@@ -22,12 +22,12 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/ckeditor', function () {
 
-    $this->get('/{personId:[0-9]+}/templates', 'templates');
-    $this->post('/alltemplates'   , 'alltemplates');
-    $this->post('/deletetemplate' , 'deleteTemplate');
-    $this->post('/renametemplate' , 'renametemplate');
-    $this->post('/savetemplate'   , 'saveTemplate');
-    $this->post('/saveAsWordFile' , 'saveAsWordFile');
+    $this->get('/{personId:[0-9]+}/templates', 'templates' );
+    $this->post('/alltemplates', 'alltemplates' );
+    $this->post('/deletetemplate', 'deleteTemplate' );
+    $this->post('/renametemplate', 'renametemplate' );
+    $this->post('/savetemplate', 'saveTemplate' );
+    $this->post('/saveAsWordFile', 'saveAsWordFile' );
     
 });
 

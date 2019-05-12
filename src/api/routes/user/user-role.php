@@ -11,8 +11,8 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/userrole', function () {
   
-    $this->post('/add','addUserRole' );
-    $this->post('/get','getUserRole' );
+    $this->post('/add', 'addUserRole' );
+    $this->post('/get', 'getUserRole' );
     $this->post('/rename', 'renameUserRole' );
     $this->post('/getall', 'getAllUserRoles' );
     $this->post('/delete', 'deleteUserRole' );

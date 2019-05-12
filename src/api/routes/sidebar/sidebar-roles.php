@@ -12,7 +12,7 @@ use LogicException;
 $app->group('/roles', function () {
     
     $this->get('/all', 'getAllRoles' );
-    $this->post('/persons/assign', 'rolePersonAssign');
+    $this->post('/persons/assign', 'rolePersonAssign' );
     
 });
 

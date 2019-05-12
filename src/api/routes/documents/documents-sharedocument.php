@@ -30,13 +30,13 @@ use EcclesiaCRM\UserQuery;
 // Routes sharedocument
 $app->group('/sharedocument', function () {
   
-  $this->post('/getallperson','getAllShareForPerson' );
-  $this->post('/addperson','addPersonToShare');
-  $this->post('/addfamily','addFamilyToShare' );
+  $this->post('/getallperson', 'getAllShareForPerson' );
+  $this->post('/addperson', 'addPersonToShare' );
+  $this->post('/addfamily', 'addFamilyToShare' );
   $this->post('/addgroup', 'addGroupToShare' );
-  $this->post('/deleteperson', 'deletePersonFromShare');  
-  $this->post('/setrights','setRightsForPerson');  
-  $this->post('/cleardocument','clearDocument' );
+  $this->post('/deleteperson', 'deletePersonFromShare' );  
+  $this->post('/setrights', 'setRightsForPerson' );  
+  $this->post('/cleardocument', 'clearDocument' );
 
 });
 

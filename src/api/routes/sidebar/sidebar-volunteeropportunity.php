@@ -29,7 +29,7 @@ $app->group('/volunteeropportunity', function () {
   $this->post('/', 'getAllVolunteerOpportunities' );
   $this->post('/delete', 'deleteVolunteerOpportunity' );
   $this->post('/upaction', 'upActionVolunteerOpportunity' );
-  $this->post('/downaction', 'downActionVolunteerOpportunity');  
+  $this->post('/downaction', 'downActionVolunteerOpportunity' );  
   $this->post('/create', 'createVolunteerOpportunity' );
   $this->post('/set', 'setVolunteerOpportunity' );
   $this->post('/edit', 'editVolunteerOpportunity' );

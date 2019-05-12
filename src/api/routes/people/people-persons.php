@@ -39,28 +39,28 @@ use EcclesiaCRM\dto\SystemConfig;
 
 $app->group('/persons', function () {
     // search person by Name
-    $this->get('/search/{query}', "searchPerson");
+    $this->get('/search/{query}', "searchPerson" );
 
     /**
      *
      * VolunteerOpportunity 
      *
      **/
-    $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId");
-    $this->post('/volunteers/delete', "volunteersDelete");
-    $this->post('/volunteers/add', "volunteersAdd");
+    $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId" );
+    $this->post('/volunteers/delete', "volunteersDelete" );
+    $this->post('/volunteers/add', "volunteersAdd" );
     
-    $this->post('/isMailChimpActive', "isMailChimpActivePerson");
+    $this->post('/isMailChimpActive', "isMailChimpActivePerson" );
 
     /**
      * Update the person status to activated or deactivated with :familyId and :status true/false.
      * Pass true to activate and false to deactivate.     *
      */
-    $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate");
+    $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate" );
     
     // api for person properties
-    $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId");
-    $this->get('/numbers', "numbersOfBirthDates");
+    $this->post('/personproperties/{personID:[0-9]+}', "personpropertiesPerPersonId" );
+    $this->get('/numbers', "numbersOfBirthDates" );
 
     $this->get('/{personId:[0-9]+}/photo', function ($request, $response, $args ) {
       $res=$this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
@@ -74,31 +74,31 @@ $app->group('/persons', function () {
       return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
-    $this->post('/{personId:[0-9]+}/photo', "postPersonPhoto");
-    $this->delete('/{personId:[0-9]+}/photo', "deletePersonPhoto");
+    $this->post('/{personId:[0-9]+}/photo', "postPersonPhoto" );
+    $this->delete('/{personId:[0-9]+}/photo', "deletePersonPhoto" );
 
-    $this->post('/{personId:[0-9]+}/addToCart', "addPersonToCart");
+    $this->post('/{personId:[0-9]+}/addToCart', "addPersonToCart" );
 
     /**
      * @var $response \Psr\Http\Message\ResponseInterface
      */
-    $this->delete('/{personId:[0-9]+}', "deletePerson");
+    $this->delete('/{personId:[0-9]+}', "deletePerson" );
     
-    $this->post('/deletefield', "deletePersonField");
-    $this->post('/upactionfield', "upactionPersonfield");
-    $this->post('/downactionfield', "downactionPersonfield");
+    $this->post('/deletefield', "deletePersonField" );
+    $this->post('/upactionfield', "upactionPersonfield" );
+    $this->post('/downactionfield', "downactionPersonfield" );
     
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
  
- $this->get('/duplicate/emails', "duplicateEmails");
- $this->get('/NotInMailChimp/emails', "notInMailChimpEmails");
+    $this->get('/duplicate/emails', "duplicateEmails" );
+    $this->get('/NotInMailChimp/emails', "notInMailChimpEmails" );
   
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
- $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile'); 
+    $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' ); 
 });
 
 function searchPerson (Request $request, Response $response, array $args) {

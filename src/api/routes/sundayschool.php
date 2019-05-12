@@ -18,8 +18,8 @@ use EcclesiaCRM\dto\Cart;
 // Routes sundayschool
 $app->group('/sundayschool', function () {
   
-  $this->post('/getallstudents/{groupId:[0-9]+}','getallstudentsForGroup' );
-  $this->post('/getAllGendersForDonut/{groupId:[0-9]+}','getAllGendersForDonut' );
+  $this->post('/getallstudents/{groupId:[0-9]+}', 'getallstudentsForGroup' );
+  $this->post('/getAllGendersForDonut/{groupId:[0-9]+}', 'getAllGendersForDonut' );
   $this->post('/getAllStudentsForChart/{groupId:[0-9]+}', 'getAllStudentsForChart' );
 
 });

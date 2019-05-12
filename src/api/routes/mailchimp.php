@@ -26,30 +26,30 @@ use EcclesiaCRM\Utils\LoggerUtils;
 
 $app->group('/mailchimp', function () {
 
-    $this->get('/search/{query}','searchList');
-    $this->get('/list/{listID}','oneList');
-    $this->get('/lists','lists');
-    $this->get('/listmembers/{listID}','listmembers');
-    $this->post('/createlist', 'createList');
-    $this->post('/modifylist', 'modifyList');
-    $this->post('/deleteallsubscribers', 'deleteallsubscribers');
-    $this->post('/deletelist', 'deleteList');
+    $this->get('/search/{query}', 'searchList' );
+    $this->get('/list/{listID}', 'oneList' );
+    $this->get('/lists', 'lists' );
+    $this->get('/listmembers/{listID}', 'listmembers' );
+    $this->post('/createlist', 'createList' );
+    $this->post('/modifylist', 'modifyList' );
+    $this->post('/deleteallsubscribers', 'deleteallsubscribers' );
+    $this->post('/deletelist', 'deleteList' );
     
-    $this->post('/campaign/actions/create', 'campaignCreate');
-    $this->post('/campaign/actions/delete', 'campaignDelete');
-    $this->post('/campaign/actions/send', 'campaignSend');
-    $this->post('/campaign/actions/save', 'campaignSave');
-    $this->get('/campaign/{campaignID}/content', 'campaignContent');
+    $this->post('/campaign/actions/create', 'campaignCreate' );
+    $this->post('/campaign/actions/delete', 'campaignDelete' );
+    $this->post('/campaign/actions/send', 'campaignSend' );
+    $this->post('/campaign/actions/save', 'campaignSave' );
+    $this->get('/campaign/{campaignID}/content', 'campaignContent' );
     
-    $this->post('/status', 'statusList');
-    $this->post('/suppress', 'suppress');
-    $this->post('/addallnewsletterpersons', 'addallnewsletterpersons');
-    $this->post('/addallpersons', 'addallpersons');
-    $this->post('/addperson', 'addPerson');
-    $this->post('/addfamily', 'addFamily');
-    $this->post('/addgroup', 'addGroup');
+    $this->post('/status', 'statusList' );
+    $this->post('/suppress', 'suppress' );
+    $this->post('/addallnewsletterpersons', 'addallnewsletterpersons' );
+    $this->post('/addallpersons', 'addallpersons' );
+    $this->post('/addperson', 'addPerson' );
+    $this->post('/addfamily', 'addFamily' );
+    $this->post('/addgroup', 'addGroup' );
 
-    $this->post('/testConnection', 'testEmailConnectionMVC');
+    $this->post('/testConnection', 'testEmailConnectionMVC' );
 
 });
 

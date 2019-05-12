@@ -14,10 +14,10 @@ use EcclesiaCRM\PersonQuery;
 $app->group('/document', function () {
     
     $this->post('/create', 'createDocument' );
-    $this->post('/get',    'getDocument' );
+    $this->post('/get', 'getDocument' );
     $this->post('/update', 'updateDocument' );
     $this->post('/delete', 'deleteDocument' );
-    $this->post('/leave',  'leaveDocument' );
+    $this->post('/leave', 'leaveDocument' );
 
 });
 

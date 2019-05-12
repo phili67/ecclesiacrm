@@ -5,8 +5,8 @@ use Slim\Http\Response;
 use EcclesiaCRM\PersonCustomMasterQuery;
 
 $app->group('/system/custom-fields', function () {
-    $this->get('/person', 'getPersonFieldsByType');
-    $this->get('/person/', 'getPersonFieldsByType');
+    $this->get('/person', 'getPersonFieldsByType' );
+    $this->get('/person/', 'getPersonFieldsByType' );
 });
 
 
