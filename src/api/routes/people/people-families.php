@@ -39,10 +39,10 @@ $app->group('/families', function () {
     $this->post('/familyproperties/{familyID:[0-9]+}', "postfamilyproperties" );
     $this->post('/isMailChimpActive', "isMailChimpActiveFamily" );
     $this->get('/{familyId:[0-9]+}', "getFamily" );
-    $this->post('/info', "familyInfo");
+    $this->post('/info', "familyInfo" );
     $this->get('/numbers', "numbersOfAnniversaries" );
     $this->get('/search/{query}', "searchFamily" );
-    $this->get('/self-register', "selfRegisterFamily");
+    $this->get('/self-register', "selfRegisterFamily" );
     $this->get('/self-verify', "selfVerifyFamily" );
     $this->get('/pending-self-verify', "pendingSelfVerify" );
     $this->get('/byCheckNumber/{scanString}', "byCheckNumberScan" );
@@ -62,7 +62,7 @@ $app->group('/families', function () {
     $this->post('/{familyId:[0-9]+}/photo', "postFamilyPhoto" );
     $this->delete('/{familyId:[0-9]+}/photo', "deleteFamilyPhoto" );
     $this->post('/{familyId}/verify', "verifyFamily" );
-    $this->post('/verify/{familyId}/now', "verifyFamilyNow");
+    $this->post('/verify/{familyId}/now', "verifyFamilyNow" );
 
     /**
      * Update the family status to activated or deactivated with :familyId and :status true/false.

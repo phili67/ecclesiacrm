@@ -31,10 +31,10 @@ $app->group('/payments', function () {
     $this->post('/info', 'getAutoPaymentInfo' );
     
     // this can be used only as an admin or in finance in pledgeEditor
-    $this->post('/families','getAllPayementsForFamilies' ); 
-    $this->post('/delete','deletePaymentForFamily' );
-    $this->get('/delete/{authID:[0-9]+}','deleteAutoPayment' );
-    $this->post('/invalidate', 'invalidatePledge');
+    $this->post('/families', 'getAllPayementsForFamilies' ); 
+    $this->post('/delete', 'deletePaymentForFamily' );
+    $this->get('/delete/{authID:[0-9]+}', 'deleteAutoPayment' );
+    $this->post('/invalidate', 'invalidatePledge' );
     $this->post('/validate', 'validatePledge' );
     $this->post('/getchartsarrays', 'getDepositSlipChartsArrays' );
 

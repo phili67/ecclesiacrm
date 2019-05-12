@@ -15,9 +15,9 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/pledges', function () {
   
-    $this->post('/detail','pledgeDetail' );
+    $this->post('/detail', 'pledgeDetail' );
     $this->post('/family', 'familyPledges' );
-    $this->post('/delete','deletePledge' );
+    $this->post('/delete', 'deletePledge' );
     
 });
 

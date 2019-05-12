@@ -11,7 +11,19 @@ use EcclesiaCRM\SessionUser;
 
 $app->group('/cart', function () {
   
+/*
+ * @! Get all people in Cart
+ */
     $this->get('/', 'getAllPeopleInCart' );
+/*
+ * @! Get user info by id
+ * #! param: ref->array :: Persons id in array ref
+ * #! param: id->int :: Family id
+ * #! param: id->int :: Group id
+ * #! param: id->int :: removeFamily id
+ * #! param: id->int :: studentGroup id
+ * #! param: id->int :: teacherGroup id
+ */
     $this->post('/', 'cartOperation' );
     $this->post('/emptyToGroup', 'emptyCartToGroup' );
     $this->post('/emptyToEvent', 'emptyCartToEvent' );
@@ -22,9 +34,9 @@ $app->group('/cart', function () {
     $this->post('/delete', 'deletePersonCart' );
     $this->post('/deactivate', 'deactivatePersonCart' );
 
-    /**
-     * delete. This will empty the cart
-     */
+/*
+ * @! Remove all People in the Cart
+ */
     $this->delete('/', 'removePersonCart' );
 
 });
