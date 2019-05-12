@@ -21,14 +21,14 @@ use EcclesiaCRM\Utils\LoggerUtils;
 
 
 $app->group('/users', function () {
-    $this->post('/{userId:[0-9]+}/password/reset', 'passwordReset');
-    $this->post('/applyrole' , 'applyRole');
-    $this->post('/webdavKey' , 'webDavKey');
-    $this->post('/lockunlock', 'lockUnlock');
-    $this->post('/showsince', 'showSince');
-    $this->post('/showto', 'showTo');
-    $this->post('/{userId:[0-9]+}/login/reset', 'loginReset');
-    $this->delete('/{userId:[0-9]+}', 'deleteUser');
+    $this->post('/{userId:[0-9]+}/password/reset', 'passwordReset' );
+    $this->post('/applyrole' , 'applyRole' );
+    $this->post('/webdavKey' , 'webDavKey' );
+    $this->post('/lockunlock', 'lockUnlock' );
+    $this->post('/showsince', 'showSince' );
+    $this->post('/showto', 'showTo' );
+    $this->post('/{userId:[0-9]+}/login/reset', 'loginReset' );
+    $this->delete('/{userId:[0-9]+}', 'deleteUser' );
 });
 
 function passwordReset (Request $request, Response $response, array $args ) {
