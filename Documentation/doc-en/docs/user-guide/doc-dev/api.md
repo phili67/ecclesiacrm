@@ -3,30 +3,6 @@
 
 EcclesiaCRM leverages Slim 3.9.2 to provide REST access to the data elements.
 
-## People
-
-* [GET] /api/persons/search/:query
-* Returns a list of the members who's first name or last name matches the :query parameter
-* [POST] /api/persons/volunteers/:personID
-* Returns all the volunteers opportunities
-* [POST] /volunteers/delete
-* delete a volunteer opportunity for a user
-
-
-
-##Families
-
-* [GET] /families/byCheckNumber/:tScanString
-* Returns a family string based on the scan string of an MICR reader containing a routing and account number
-* [GET] /families/byEnvelopeNumber/:tEnvelopeNumber
-* Returns a family string based on the the requested envelope number
-* [GET] /api/families/search/:query
-* Returns a list of the families who's name matches the :query parameter
-* [GET] /api/families/lastedited
-* Returns a the last 10 updated families
-* [POST] /api/families/:familyId/activate/:status
-* Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
-
 ##Groups
 
 * [POST] /api/groups
@@ -103,10 +79,6 @@ EcclesiaCRM leverages Slim 3.9.2 to provide REST access to the data elements.
 * Deleted the payment with the specified GroupKey
 
 
-##Search
-
-* [GET] /api/search/:query
-* a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
 
 ## Events
 
