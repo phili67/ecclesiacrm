@@ -29,7 +29,7 @@ use EcclesiaCRM\UserQuery;
 
 $app->group('/people', function () {
 
-    $this->get('/searchonlyperson/{query}',function($request,$response,$args) {
+  $this->get('/searchonlyperson/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
     
@@ -78,7 +78,7 @@ $app->group('/people', function () {
       return $response->withJson(array_filter($resultsArray));
   });
   
-    $this->get('/search/{query}',function($request,$response,$args) {
+  $this->get('/search/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
     

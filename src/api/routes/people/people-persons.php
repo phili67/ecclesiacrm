@@ -39,7 +39,7 @@ use EcclesiaCRM\dto\SystemConfig;
 
 $app->group('/persons', function () {
     // search person by Name
-    $this->get('/search/{query}', "searchPerson");
+    $this->get('/search/{query}', "searchPerson" );
 
     /**
      *
@@ -92,13 +92,13 @@ $app->group('/persons', function () {
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
  
- $this->get('/duplicate/emails', "duplicateEmails" );
- $this->get('/NotInMailChimp/emails', "notInMailChimpEmails" );
+    $this->get('/duplicate/emails', "duplicateEmails" );
+    $this->get('/NotInMailChimp/emails', "notInMailChimpEmails" );
   
 /**
  * A method that review dup emails in the db and returns families and people where that email is used.
  */
- $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' ); 
+    $this->post('/saveNoteAsWordFile', 'saveNoteAsWordFile' ); 
 });
 
 function searchPerson (Request $request, Response $response, array $args) {
