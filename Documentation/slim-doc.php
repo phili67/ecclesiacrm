@@ -35,7 +35,7 @@
             }
 
             /* Matches route parameters ( #! ) */
-            preg_match("/\*\s+#!\s+param:\s+([a-zA-Z_]*)->([a-z]*)\s+::\s+(.*)/", $line, $params);
+            preg_match("/\*\s+#!\s+param:\s+([a-zA-Z_1-2]*)->([a-z]*)\s+::\s+(.*)/", $line, $params);
             if($params){
                 array_push($doc_temp["params"], $params);
                 continue;
