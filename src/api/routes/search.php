@@ -20,6 +20,12 @@ use EcclesiaCRM\SessionUser;
 // Routes search
 
 // search for a string in Persons, families, groups, Financial Deposits and Payments
+
+/*
+ * @! a search query. Returns all instances of Persons, Families, Groups, Deposits, Checks, Payments that match the search query
+ * #! param: ref->string :: query string as ref
+ */  
+
 $app->get('/search/{query}', function ($request, $response, $args) {
     $query = $args['query'];
     $resultsArray = [];

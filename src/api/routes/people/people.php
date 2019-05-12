@@ -29,6 +29,10 @@ use EcclesiaCRM\UserQuery;
 
 $app->group('/people', function () {
 
+/*
+ * @! Returns a list of the person who's first name or last name matches the :query parameter
+ * #! param: ref->string :: query string ref
+ */
   $this->get('/searchonlyperson/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
@@ -78,6 +82,10 @@ $app->group('/people', function () {
       return $response->withJson(array_filter($resultsArray));
   });
   
+/*
+ * @! Returns a list of the members/families/groups who's first name or last name matches the :query parameter
+ * #! param: ref->string :: query string ref
+ */
   $this->get('/search/{query}', function($request,$response,$args) {
       $query = $args['query'];
       $resultsArray = [];
