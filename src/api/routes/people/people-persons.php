@@ -38,54 +38,24 @@ use EcclesiaCRM\dto\SystemConfig;
 
 
 $app->group('/persons', function () {
-  
-/*
- * @! Returns a list of the persons who's first name or last name matches the :query parameter
- * #! param: ref->string :: query string ref
- */  
+    // search person by Name
     $this->get('/search/{query}', "searchPerson" );
 
-/**
- *
- * VolunteerOpportunity 
- *
- **/
-
-/*
- * @! Returns all the volunteers opportunities
- * #! param: id->int :: personId as id
- */  
+    /**
+     *
+     * VolunteerOpportunity 
+     *
+     **/
     $this->post('/volunteers/{personID:[0-9]+}', "volunteersPerPersonId" );
-/*
- * @! delete a volunteer opportunity for a user
- * #! param: id1->int :: personId as id1
- * #! param: id2->int :: volunteerOpportunityId as id2
- */  
     $this->post('/volunteers/delete', "volunteersDelete" );
-/*
- * @! Add volunteers opportunity
- * #! param: id1->int :: personId as id1
- * #! param: id2->int :: volID as id2
- */  
     $this->post('/volunteers/add', "volunteersAdd" );
     
-/*
- * @! Return if MailChimp is activated
- * #! param: id->int :: personId as id
- * #! param: ref->string :: email as ref
- */  
     $this->post('/isMailChimpActive', "isMailChimpActivePerson" );
 
-/**
- * Update the person status to activated or deactivated with :familyId and :status true/false.
- * Pass true to activate and false to deactivate.     *
- */
-
-/*
- * @! Return if MailChimp is activated
- * #! param: id->int :: personId as id
- * #! param: ref->string :: email as ref
- */  
+    /**
+     * Update the person status to activated or deactivated with :familyId and :status true/false.
+     * Pass true to activate and false to deactivate.     *
+     */
     $this->post('/{personId:[0-9]+}/activate/{status}', "activateDeacticate" );
     
     // api for person properties
