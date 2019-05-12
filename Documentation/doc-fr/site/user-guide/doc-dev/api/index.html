@@ -1296,18 +1296,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../doc-pastoral-care/doc-settings/doc-settings-pastoral-care/" title="Personnalisation" class="md-nav__link">
-      Personnalisation
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -1578,6 +1566,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#api-cart" title="API "Cart"" class="md-nav__link">
+    API "Cart"
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1728,6 +1723,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#api-cart" title="API "Cart"" class="md-nav__link">
+    API "Cart"
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1860,6 +1862,225 @@
 <li>Actions:</li>
 <li>Returns:</li>
 </ul>
+<h2 id="api-cart">API "Cart"<a class="headerlink" href="#api-cart" title="Permanent link">&para;</a></h2>
+<p>in route : "/api/routes/cart.php</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>GET</td>
+<td>getAllPeopleInCart</td>
+<td>Get all people in Cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>POST</td>
+<td>cartOperation</td>
+<td>Get user info by id</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>{ref}</code>-&gt;<code>array</code> :: Persons id in array ref</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Family id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: Group id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: removeFamily id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: studentGroup id</li>
+<li><code>{id}</code>-&gt;<code>int</code> :: teacherGroup id</li>
+</ul>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToGroup</code></td>
+<td>POST</td>
+<td>emptyCartToGroup</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToEvent</code></td>
+<td>POST</td>
+<td>emptyCartToEvent</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/emptyToNewGroup</code></td>
+<td>POST</td>
+<td>emptyCartToNewGroup</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeGroup</code></td>
+<td>POST</td>
+<td>removeGroupFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeStudentGroup</code></td>
+<td>POST</td>
+<td>removeStudentsGroupFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/removeTeacherGroup</code></td>
+<td>POST</td>
+<td>removeTeachersGroupFromCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/delete</code></td>
+<td>POST</td>
+<td>deletePersonCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/deactivate</code></td>
+<td>POST</td>
+<td>deactivatePersonCart</td>
+<td>No description</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Method</th>
+<th>function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>DELETE</td>
+<td>removePersonCart</td>
+<td>Remove all People in the Cart</td>
+</tr>
+</tbody>
+</table>
+<hr />
                 
                   
                 

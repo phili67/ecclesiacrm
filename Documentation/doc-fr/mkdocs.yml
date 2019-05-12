@@ -124,7 +124,7 @@ pages:
 
 - "Manuel : Ecole du dimanche":
     - "Introduction": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
-    - "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+    #- "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
 - "Campagne de Publipostage":
     - "MailChimp":
