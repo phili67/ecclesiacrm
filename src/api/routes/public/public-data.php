@@ -8,10 +8,10 @@ use EcclesiaCRM\data\States;
 
 
 $app->group('/public/data', function () {
-    $this->get('/countries', 'getCountries');
-    $this->get('/countries/', 'getCountries');
-    $this->get('/countries/{countryCode}/states', 'getStates');
-    $this->get('/countries/{countryCode}/states/', 'getStates');
+    $this->get('/countries', 'getCountries' );
+    $this->get('/countries/', 'getCountries' );
+    $this->get('/countries/{countryCode}/states', 'getStates' );
+    $this->get('/countries/{countryCode}/states/', 'getStates' );
 });
 
 

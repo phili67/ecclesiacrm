@@ -32,11 +32,11 @@ $app->group('/pastoralcare', function () {
   $this->post('/', 'getAllPastoralCare' );
   $this->post('/deletetype', 'deletePastoralCareType' );
   $this->post('/createtype', 'createPastoralCareType' );
-  $this->post('/settype', 'setPastoralCareType');  
+  $this->post('/settype', 'setPastoralCareType' );  
   $this->post('/edittype', 'editPastoralCareType' );
   
   $this->post('/add', 'addPastoralCare' );
-  $this->post('/delete', 'deletePastoralCare');
+  $this->post('/delete', 'deletePastoralCare' );
   $this->post('/getinfo', 'getPastoralCareInfo' );
   $this->post('/modify', 'modifyPastoralCare' );
 
