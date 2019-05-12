@@ -46,7 +46,6 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/finance/finance-pledges.php -o output_file.md -n"pledges"
 cat output_file.md >> api.md
 
-
 #geocoder
 php slim-doc.php -i ../src/api/routes/geocoder.php -o output_file.md -n"geocoder"
 cat output_file.md >> api.md
@@ -75,7 +74,71 @@ cat output_file.md >> api.md
 php slim-doc.php -i ../src/api/routes/people/people-persons.php -o output_file.md -n"persons"
 cat output_file.md >> api.md
 
+# public
+php slim-doc.php -i ../src/api/routes/public/public-data.php  -o output_file.md -n"data"
+cat output_file.md >> api.md
 
+php slim-doc.php -i ../src/api/routes/public/public-register.php  -o output_file.md -n"register"
+cat output_file.md >> api.md
 
+#search nothing
+php slim-doc.php -i ../src/api/routes/search.php -o output_file.md -n"search"
+cat output_file.md >> api.md
+
+#sidebar
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-mapicons.php -o output_file.md -n"mapicons"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-menulinks.php -o output_file.md -n"menulinks"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-pastoralcare.php -o output_file.md -n"pastoralcare"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-properties.php -o output_file.md -n"properties"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-roles.php -o output_file.md -n"roles"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/sidebar/sidebar-volunteeropportunity.php -o output_file.md -n"volunteeropportunity"
+cat output_file.md >> api.md
+
+#sundayschool
+php slim-doc.php -i ../src/api/routes/sundayschool.php -o output_file.md -n"sundayschool"
+cat output_file.md >> api.md
+
+#system
+php slim-doc.php -i ../src/api/routes/system/system.php -o output_file.md -n"system"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-custom-fields.php -o output_file.md -n"custom-fields"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-dashboard.php -o output_file.md -n"dashboard"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-database.php -o output_file.md -n"database"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-gdrp.php -o output_file.md -n"gdrp"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-issues.php -o output_file.md -n"issues"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-system-upgrade.php -o output_file.md -n"systemupgrade"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/system/system-timerjobs.php -o output_file.md -n"timerjobs"
+cat output_file.md >> api.md
+
+#user
+php slim-doc.php -i ../src/api/routes/user/user-role.php -o output_file.md -n"userrole"
+cat output_file.md >> api.md
+
+php slim-doc.php -i ../src/api/routes/user/user-users.php -o output_file.md -n"users"
+cat output_file.md >> api.md
 
 rm output_file.md
+rm api.md
