@@ -1,6 +1,11 @@
 Il est possible depuis la version 5.0 d'Ecclesia**CRM** de gérer des fichiers via un gestionnaire de fichiers.
 
-Voici sa présentation.
+EDrive possède une partie publique (public) et privée qui sont deux dossiers foncièrement différents et qui 
+
+- permettent dans tout ce qui est public d'avoir le lien en clair (utile pour MailChimp pour ses images et ses documents, pour les événements, et pour partager un fichier avec quelqu'un en dehors du CRM).
+
+- dans tous les autres cas, les fichiers ont une url qui ne sera valable que durant la connexion et inactive déconnecté.
+
 
 ## Visualiser tous ses documents dans son Edrive
 
@@ -41,6 +46,11 @@ Ce dossier sera utile pour joindre des images ou document avec vos campagnes de 
       
 6. Attendez un peu et ils seront présents sur le serveur<br>
        ![Screenshot](../../img/person/edrive6.png)
+       
+
+**Remarque** 
+
+Vous constaterez que le dossier public est utilisé ici.
        
 ## Visualiser le contenu du fichier
        
