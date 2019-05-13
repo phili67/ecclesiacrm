@@ -218,6 +218,8 @@
         <column name="per_Twitter" phpName="Twitter" type="VARCHAR" size="50" Description="Twitter username" />
         <column name="per_LinkedIn" phpName="LinkedIn" type="VARCHAR" size="50" Description="LinkedIn name" />
         <column name="per_DateDeactivated" phpName="DateDeactivated" type="TIMESTAMP"/>
+        <column name="per_SendNewsLetter" phpName="SendNewsletter" type="CHAR" sqlType="enum('FALSE','TRUE')"
+                required="true" defaultValue="FALSE"/>
         <index name="per_ID">
             <index-column name="per_ID"/>
         </index>
