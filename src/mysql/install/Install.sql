@@ -15,7 +15,7 @@ CREATE TABLE addressbooks (
 --
 -- Table structure for table `addressbooks`
 --
-CREATE TABLE IF NOT EXISTS addressbookshare (
+CREATE TABLE addressbookshare (
     id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     addressbookid INT(11) UNSIGNED NOT NULL,
     principaluri VARBINARY(255),
@@ -859,6 +859,7 @@ CREATE TABLE `person_per` (
   `per_Twitter` varchar(50) default NULL,
   `per_LinkedIn` varchar(50) default NULL,
   `per_DateDeactivated` datetime default NULL,
+  `per_SendNewsLetter` enum('FALSE','TRUE') NOT NULL default 'FALSE',
   PRIMARY KEY  (`per_ID`),
   KEY `per_ID` (`per_ID`)
 ) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci  AUTO_INCREMENT=2 ;
