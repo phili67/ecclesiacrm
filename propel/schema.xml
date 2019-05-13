@@ -979,8 +979,8 @@
         <unique name="usr_webDavKey">
           <unique-column name="usr_webDavKey"/>
         </unique>
-        <foreign-key foreignTable="person_per">
-            <reference local="usr_per_ID" foreign="per_ID"/>
+        <foreign-key foreignTable="person_per" name="fk_usr_per_ID">
+          <reference local="usr_per_ID" foreign="per_ID"/>
         </foreign-key>
         <foreign-key foreignTable="userrole_usrrol" name="fk_usr_role_id" onDelete="SET NULL">
           <reference local="usr_role_id" foreign="usrrol_id"/>

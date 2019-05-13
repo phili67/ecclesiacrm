@@ -1361,6 +1361,8 @@ CREATE TABLE `user_usr` (
   UNIQUE KEY `usr_UserName` (`usr_UserName`),
   UNIQUE KEY `usr_apiKey` (`usr_webDavKey`),
   KEY `usr_per_ID` (`usr_per_ID`),
+  CONSTRAINT fk_usr_per_ID
+    FOREIGN KEY (usr_per_ID) REFERENCES person_per(per_ID),
   CONSTRAINT fk_usr_role_id
     FOREIGN KEY (usr_role_id) REFERENCES userrole_usrrol(usrrol_id)
     ON DELETE SET NULL
