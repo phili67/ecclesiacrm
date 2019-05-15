@@ -14,6 +14,7 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_CanvassBriefingReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\dto\CanvassUtilities;
 
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
@@ -31,8 +32,6 @@ function TopPledgersLevel($iFYID, $iPercent)
 
     return $aLastTop['plg_Amount'];
 }
-
-require '../Include/CanvassUtilities.php';
 
 function CanvassProgressReport($iFYID)
 {
@@ -78,7 +77,7 @@ function CanvassProgressReport($iFYID)
     // Get all the canvassers
     $canvassGroups = ['Canvassers', 'BraveCanvassers'];
     foreach ($canvassGroups as $cgName) {
-        $rsCanvassers = CanvassGetCanvassers(_($cgName));
+        $rsCanvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
         if ($rsCanvassers == 0) {
             continue;
         }

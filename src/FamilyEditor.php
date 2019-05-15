@@ -12,7 +12,6 @@
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/CanvassUtilities.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
@@ -35,6 +34,7 @@ use EcclesiaCRM\dto\CountryDropDown;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\dto\CanvassUtilities;
 
 
 //Set the page title
@@ -72,8 +72,8 @@ if ($iFamilyID > 0) {
 }
 
 // Get the lists of canvassers
-$rsCanvassers = CanvassGetCanvassers(_('Canvassers'));
-$rsBraveCanvassers = CanvassGetCanvassers(_('BraveCanvassers'));
+$rsCanvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 
 // Get the list of custom person fields
 $ormCustomFields = FamilyCustomMasterQuery::Create()
