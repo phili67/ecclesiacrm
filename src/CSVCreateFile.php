@@ -12,7 +12,6 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
-require 'Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
@@ -21,6 +20,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\ReportFunctions;
 
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();
@@ -435,7 +435,7 @@ if ($sFormat == 'addtocart') {
                     }
                 } elseif ($sFormat == 'rollup') {
                     if ($memberCount > 1) {
-                        $sString = '"'.MakeSalutationUtility($fam_ID);
+                        $sString = '"'.ReportFunctions::MakeSalutationUtility($fam_ID);
                     } else {
                         $sString = '"'.$per_LastName.', '.$per_FirstName;
                     }

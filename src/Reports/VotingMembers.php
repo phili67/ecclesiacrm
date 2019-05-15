@@ -9,7 +9,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -41,7 +40,7 @@ $pdf = new PDF_VotingMembers();
 $topY = 10;
 $curY = $topY;
 
-$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (gettext('Voting members ').MakeFYString($iFYID)));
+$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (_('Voting members ').MakeFYString($iFYID)));
 $curY += 10;
 
 $votingMemberCount = 0;
@@ -80,7 +79,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         $sSQL = 'SELECT per_FirstName, per_LastName, cls.lst_OptionName AS sClassName
 				FROM person_per
 				INNER JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
-				WHERE per_fam_ID = '.$fam_ID." AND cls.lst_OptionName='".gettext('Member')."'";
+				WHERE per_fam_ID = '.$fam_ID." AND cls.lst_OptionName='"._('Member')."'";
 
         $rsFamilyMembers = RunQuery($sSQL);
 

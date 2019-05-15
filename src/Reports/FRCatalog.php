@@ -10,7 +10,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -92,13 +91,13 @@ while ($oneItem = mysqli_fetch_array($rsItems)) {
     $pdf->SetFont('Times', '', 12);
     $pdf->Write(6, stripslashes($di_description)."\n");
     if ($di_minimum > 0) {
-        $pdf->Write(6, gettext('Minimum bid ').'$'.$di_minimum.'.  ');
+        $pdf->Write(6, _('Minimum bid ').'$'.$di_minimum.'.  ');
     }
     if ($di_estprice > 0) {
-        $pdf->Write(6, gettext('Estimated value ').'$'.$di_estprice.'.  ');
+        $pdf->Write(6, _('Estimated value ').'$'.$di_estprice.'.  ');
     }
     if ($per_LastName != '') {
-        $pdf->Write(6, gettext('Donated by ').$per_FirstName.' '.$per_LastName.".\n");
+        $pdf->Write(6, _('Donated by ').$per_FirstName.' '.$per_LastName.".\n");
     }
     $pdf->Write(6, "\n");
 }

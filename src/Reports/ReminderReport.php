@@ -9,7 +9,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -153,13 +152,13 @@ if (!empty($_POST['funds'])) {
 // Make the string describing the fund filter
 if ($fundCount > 0) {
     if ($fundCount == 1) {
-        if ($fund[0] == gettext('All Funds')) {
-            $fundOnlyString = gettext(' for all funds');
+        if ($fund[0] == _('All Funds')) {
+            $fundOnlyString = _(' for all funds');
         } else {
-            $fundOnlyString = gettext(' for fund ');
+            $fundOnlyString = _(' for fund ');
         }
     } else {
-        $fundOnlyString = gettext('for funds ');
+        $fundOnlyString = _('for funds ');
     }
     for ($i = 0; $i < $fundCount; $i++) {
         $sSQL = 'SELECT fun_Name FROM donationfund_fun WHERE fun_ID='.$fund[$i];
@@ -300,14 +299,14 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
     } else {
         $curY += $summaryIntervalY;
         $pdf->SetFont('Times', 'B', 10);
-        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, gettext("Pledge"));
+        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, _("Pledge"));
         $curY += $summaryIntervalY;
 
         $pdf->SetFont('Times', 'B', 9);
 
-        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, gettext("Date"));
-        $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, gettext("Fund"));
-        $pdf->WriteAtCell($summaryAmountX, $curY, $summaryAmountWid, gettext("Amount"));
+        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, _("Date"));
+        $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, _("Fund"));
+        $pdf->WriteAtCell($summaryAmountX, $curY, $summaryAmountWid, _("Amount"));
 
         $curY += $summaryIntervalY;
 
@@ -342,7 +341,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         }
         $pdf->SetFont('Times', '', 10);
         if ($cnt > 1) {
-            $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, gettext("Total pledges"));
+            $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, _("Total pledges"));
             $pdf->SetFont('Courier', '', 8);
             $totalAmountStr = OutputUtils::money_localized($totalAmount);
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, $totalAmountStr);
@@ -381,17 +380,17 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
         $curY += $summaryIntervalY;
         $pdf->SetFont('Times', 'B', 10);
-        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, gettext("Payments"));
+        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, _("Payments"));
         $curY += $summaryIntervalY;
 
         $pdf->SetFont('Times', 'B', 9);
 
-        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, gettext("Date"));
-        $pdf->WriteAtCell($summaryCheckNoX, $curY, $summaryCheckNoWid, gettext("Chk No."));
-        $pdf->WriteAtCell($summaryMethodX, $curY, $summaryMethodWid, gettext("PmtMethod"));
-        $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, gettext("Fund"));
-        $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, gettext("Memo"));
-        $pdf->WriteAtCell($summaryAmountX, $curY, $summaryAmountWid, gettext("Amount"));
+        $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, _("Date"));
+        $pdf->WriteAtCell($summaryCheckNoX, $curY, $summaryCheckNoWid, _("Chk No."));
+        $pdf->WriteAtCell($summaryMethodX, $curY, $summaryMethodWid, _("PmtMethod"));
+        $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, _("Fund"));
+        $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, _("Memo"));
+        $pdf->WriteAtCell($summaryAmountX, $curY, $summaryAmountWid, _("Amount"));
 
         $curY += $summaryIntervalY;
 
@@ -415,7 +414,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
             $pdf->WriteAtCell($summaryDateX, $curY, $summaryDateWid, date(SystemConfig::getValue('sDateFormatLong'), strtotime($plg_date)));
             $pdf->PrintRightJustifiedCell($summaryCheckNoX, $curY, $summaryCheckNoWid, $plg_CheckNo);
-            $pdf->WriteAtCell($summaryMethodX, $curY, $summaryMethodWid, gettext($plg_method));
+            $pdf->WriteAtCell($summaryMethodX, $curY, $summaryMethodWid, _($plg_method));
             $pdf->WriteAtCell($summaryFundX, $curY, $summaryFundWid, $fundName);
             $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, $plg_comment);
 
@@ -440,7 +439,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
         }
         $pdf->SetFont('Times', '', 10);
         if ($cnt > 1) {
-            $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, gettext("Total payments"));
+            $pdf->WriteAtCell($summaryMemoX, $curY, $summaryMemoWid, _("Total payments"));
             $pdf->SetFont('Courier', '', 8);
             $totalAmountString = OutputUtils::money_localized($totalAmount);
             $pdf->PrintRightJustifiedCell($summaryAmountX, $curY, $summaryAmountWid, $totalAmountString);
@@ -465,7 +464,7 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
                 if ($amountDue < 0) {
                     $amountDue = 0;
                 }
-                $amountStr = sprintf(gettext("Amount due for")." ".$fun_name." : ".OutputUtils::money_localized($amountDue));
+                $amountStr = sprintf(_("Amount due for")." ".$fun_name." : ".OutputUtils::money_localized($amountDue));
                 $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, $amountStr);
                 $curY += $summaryIntervalY;
             }

@@ -10,7 +10,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -89,7 +88,7 @@ while ($row = mysqli_fetch_array($rsPaddleNums)) {
         // Start page for this paddle number
         $curY = $pdf->StartNewPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country);
 
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('Donated Items:'));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _('Donated Items:'));
         $curY += 2 * SystemConfig::getValue('incrementY');
 
         $ItemWid = 10;
@@ -140,7 +139,7 @@ while ($row = mysqli_fetch_array($rsPaddleNums)) {
         // Get purchased items and make the table
         $curY += 2 * $tableCellY;
         $pdf->SetFont('Times', '', 10);
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('Purchased Items:'));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _('Purchased Items:'));
         $curY += 2 * SystemConfig::getValue('incrementY');
 
         $totalAmount = 0.0;
@@ -212,18 +211,18 @@ while ($row = mysqli_fetch_array($rsPaddleNums)) {
         }
 
         // Report total purchased items
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (gettext('Total of all purchases: $').$totalAmount));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (_('Total of all purchases: $').$totalAmount));
         $curY += 2 * SystemConfig::getValue('incrementY');
 
         // Make the tear-off record for the bottom of the page
         $curY = 240;
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('-----------------------------------------------------------------------------------------------------------------------------------------------'));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _('-----------------------------------------------------------------------------------------------------------------------------------------------'));
         $curY += 2 * SystemConfig::getValue('incrementY');
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (gettext('Buyer # ').$pn_Num.' : '.$paddleFirstName.' '.$paddleLastName.' : '.gettext('Total purchases: $').$totalAmount.' : '.gettext('Amount paid: ________________')));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (_('Buyer # ').$pn_Num.' : '.$paddleFirstName.' '.$paddleLastName.' : '._('Total purchases: $').$totalAmount.' : '._('Amount paid: ________________')));
         $curY += 2 * SystemConfig::getValue('incrementY');
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('Paid by (  ) Cash    (  ) Check    (  ) Credit card __ __ __ __    __ __ __ __    __ __ __ __    __ __ __ __  Exp __ / __'));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _('Paid by (  ) Cash    (  ) Check    (  ) Credit card __ __ __ __    __ __ __ __    __ __ __ __    __ __ __ __  Exp __ / __'));
         $curY += 2 * SystemConfig::getValue('incrementY');
-        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, gettext('                                        Signature ________________________________________________________________'));
+        $pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, _('                                        Signature ________________________________________________________________'));
 
         $pdf->FinishPage($curY);
     }

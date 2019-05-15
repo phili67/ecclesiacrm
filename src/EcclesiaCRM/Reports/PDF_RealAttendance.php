@@ -6,14 +6,10 @@
 *  Udpdated    : 2018-05-09
 *  This code is under copyright not under MIT Licence
 *  copyright   : 2018 Philippe Logel all right reserved not MIT licence
-*                This code can't be incoprorated in another software without any authorizaion
+*                This code can't be incoprorated in another software without authorizaion
 ******************************************************************************/
 
 namespace EcclesiaCRM\Reports;
-
-//require '../../Include/Config.php';
-//require '../../Include/Functions.php';
-//require '../../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
@@ -99,7 +95,7 @@ class PDF_RealAttendance extends PDF_Attendance
           }
 
           // Build the teacher string- first teachers, then the liaison
-          $teacherString = gettext('Teachers').': ';
+          $teacherString = _('Teachers').': ';
           $bFirstTeacher = true;
           $iTeacherCnt = 0;
           $iMaxTeachersFit = 4;
@@ -177,7 +173,7 @@ class PDF_RealAttendance extends PDF_Attendance
                 $lineArr['firstName'] = $person->getFirstName();
                 $lineArr['lastName']  = $person->getLastName();
                 $lineArr['birthDate'] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
-                $lineArr['gender']    = ($person->getGender() == 1)?gettext("Boy"):gettext("Girl");
+                $lineArr['gender']    = ($person->getGender() == 1)?_("Boy"):_("Girl");
                 $lineArr['age']       = $person->getAge(false);
                 $lineArr['homePhone'] = $homePhone;
                 $lineArr['groupName'] = $group->getName();
@@ -195,7 +191,7 @@ class PDF_RealAttendance extends PDF_Attendance
               }
               }
     
-              $y = $this->DrawRealAttendanceCalendar($nameX, $y + 6, $labelArr, $aStudents, gettext('Students'), $this->iExtraStudents,
+              $y = $this->DrawRealAttendanceCalendar($nameX, $y + 6, $labelArr, $aStudents, _('Students'), $this->iExtraStudents,
                                              $this->startDate, $this->endDate, $reportHeader, $this->withPictures,$maxNbrEvents);
                                              
               $nbrGroup--;

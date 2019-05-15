@@ -12,7 +12,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Directory;
@@ -181,7 +180,7 @@ if ($mysqlversion >= 4) {
     $rsRecords = mysqli_query($cnInfoCentral, $sSQL) or die(mysqli_error($cnInfoCentral));
     $sSQL = 'SELECT DISTINCT * FROM tmp ORDER BY SortMe';
 } else {
-    die(gettext('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM.'));
+    die(_('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM.'));
 }
 
 $rsRecords = RunQuery($sSQL);
@@ -287,21 +286,21 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
         }
         if (($bDirFamilyPhone || $bDirPersonalPhone) && strlen($sHomePhone)) {
             $TempStr = ExpandPhoneNumber($sHomePhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '   '.gettext('Phone').': '.$TempStr."\n";
+            $OutStr .= '   '._('Phone').': '.$TempStr."\n";
         }
         if (($bDirFamilyWork || $bDirPersonalWork) && strlen($sWorkPhone)) {
             $TempStr = ExpandPhoneNumber($sWorkPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '   '.gettext('Work').': '.$TempStr."\n";
+            $OutStr .= '   '._('Work').': '.$TempStr."\n";
         }
         if (($bDirFamilyCell || $bDirPersonalCell) && strlen($sCellPhone)) {
             $TempStr = ExpandPhoneNumber($sCellPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '   '.gettext('Cell').': '.$TempStr."\n";
+            $OutStr .= '   '._('Cell').': '.$TempStr."\n";
         }
         if (($bDirFamilyEmail || $bDirPersonalEmail) && strlen($sEmail)) {
-            $OutStr .= '   '.gettext('Email').': '.$sEmail."\n";
+            $OutStr .= '   '._('Email').': '.$sEmail."\n";
         }
         if ($bDirPersonalWorkEmail && strlen($per_WorkEmail)) {
-            $OutStr .= '   '.gettext('Work/Other Email').': '.$per_WorkEmail .= "\n";
+            $OutStr .= '   '._('Work/Other Email').': '.$per_WorkEmail .= "\n";
         }
 
         // Custom Fields
