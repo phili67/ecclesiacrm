@@ -17,7 +17,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Badge;
@@ -112,7 +111,7 @@ if ($startrow < 1) {
 
 $sLabelType = InputUtils::LegacyFilterInput($_POST['labeltype'], 'char', 10);
 
-if ($sLabelType == gettext('Tractor') ) {
+if ($sLabelType == _('Tractor') ) {
   $sLabelType = 'Tractor';
 }
 
@@ -128,7 +127,7 @@ $sFontSize = $_POST['labelfontsize'];
 setcookie('labelfontsize', $sFontSize, time() + 60 * 60 * 24 * 90, '/');
 $pdf->SetFont($sFontInfo[0], $sFontInfo[1]);
 
-if ($sFontSize == gettext('default')) {
+if ($sFontSize == _('default')) {
     $sFontSize = '20';
 }
 

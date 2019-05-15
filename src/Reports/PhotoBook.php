@@ -9,7 +9,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
@@ -65,9 +64,9 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->SetFont('Times', '', 14);
         $this->SetAutoPageBreak(false);
         $this->AddPage();
-        $this->drawGroupMebersByRole("Teacher", gettext("Teachers"));
+        $this->drawGroupMebersByRole("Teacher", _("Teachers"));
         $this->AddPage();
-        $this->drawGroupMebersByRole("Student", gettext("Students"));
+        $this->drawGroupMebersByRole("Student", _("Students"));
     }
     
     public function setFontSizeLastName($ifontSize)
@@ -156,7 +155,7 @@ class PDF_PhotoBook extends ChurchInfoReport
                             ->orderBy(PersonTableMap::COL_PER_LASTNAME)
                             ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME)
                             ->find();
-        $this->drawPageHeader((gettext("PhotoBook").' - '.$this->group->getName().' - '.$roleDisplayName." (".$groupRoleMemberships->count().")"));
+        $this->drawPageHeader((_("PhotoBook").' - '.$this->group->getName().' - '.$roleDisplayName." (".$groupRoleMemberships->count().")"));
         $this->currentX = $this->pageMarginL;
         $this->currentY += 10;
         foreach ($groupRoleMemberships as $roleMembership) {
@@ -168,7 +167,7 @@ class PDF_PhotoBook extends ChurchInfoReport
             }
             if ($this->currentY + $this->personImageHeight+10 >= $this->GetPageHeight() - $this->pageMarginB) {
                 $this->AddPage();
-                $this->drawPageHeader((gettext("PhotoBook").' - '.$this->group->getName().' - '.$roleDisplayName." (".$groupRoleMemberships->count().")"));
+                $this->drawPageHeader((_("PhotoBook").' - '.$this->group->getName().' - '.$roleDisplayName." (".$groupRoleMemberships->count().")"));
                 $this->currentX = $this->pageMarginL;
                 $this->currentY += 10;
             }

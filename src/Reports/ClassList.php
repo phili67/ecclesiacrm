@@ -9,7 +9,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
@@ -139,8 +138,8 @@ for ($i = 0; $i < $nGrps; $i++) {
                 $bFirstTeacher1 = false;
             //}
             ++$teacherCount;
-        } elseif ($lst_OptionName == gettext('Liaison')) {
-            $liaisonString .= gettext('Liaison').':'.$person->getFullName().' '.$phone.' ';
+        } elseif ($lst_OptionName == _('Liaison')) {
+            $liaisonString .= _('Liaison').':'.$person->getFullName().' '.$phone.' ';
         } elseif ($lst_OptionName == 'Student') {
             $elt = ['perID' => $groupRoleMembership->getPersonId()];
                                  
@@ -170,7 +169,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     $numMembers = count($students);
     
     
-    $pdf->WriteAt($nameX, $yTitle-7, gettext("Students")." - (".$numMembers.")                  ".gettext("Teachers")." - (".$teacherCount.")");
+    $pdf->WriteAt($nameX, $yTitle-7, _("Students")." - (".$numMembers.")                  "._("Teachers")." - (".$teacherCount.")");
 
     for ($row = 0; $row < $numMembers; $row++) {
         $student = $students[$row];

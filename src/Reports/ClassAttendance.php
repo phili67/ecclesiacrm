@@ -10,7 +10,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\Reports\PDF_Attendance;
 use EcclesiaCRM\dto\SystemConfig;
@@ -99,7 +98,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     $reportHeader = str_pad($group->getName(), 95).$FYString;
     
     // Build the teacher string- first teachers, then the liaison
-    $teacherString = gettext('Teachers').': ';
+    $teacherString = _('Teachers').': ';
     $bFirstTeacher = true;
     $iTeacherCnt = 0;
     $iMaxTeachersFit = 4;
@@ -215,7 +214,7 @@ for ($i = 0; $i < $nGrps; $i++) {
               $lineArr['lastName']  = $person->getLastName();
               $lineArr['fullName']  = $person->getFullName();
               $lineArr['birthDate'] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
-              $lineArr['gender']    = ($person->getGender() == 1)?gettext("Boy"):gettext("Girl");
+              $lineArr['gender']    = ($person->getGender() == 1)?_("Boy"):_("Girl");
               $lineArr['age']       = $person->getAge(false);
               $lineArr['homePhone'] = $homePhone;
               $lineArr['groupName'] = $group->getName();
@@ -225,8 +224,8 @@ for ($i = 0; $i < $nGrps; $i++) {
               $lineArr = array_merge($lineArr,$lineDates);
   
               $aStudents[] = $lineArr;
-            } elseif ($lst_OptionName == gettext('Liaison')) {
-                $liaisonString .= gettext('Liaison').':'.$person->getFullName().' '.$pdf->StripPhone($homePhone).' ';
+            } elseif ($lst_OptionName == _('Liaison')) {
+                $liaisonString .= _('Liaison').':'.$person->getFullName().' '.$pdf->StripPhone($homePhone).' ';
             }
         }
         
@@ -246,7 +245,7 @@ for ($i = 0; $i < $nGrps; $i++) {
             $y += 4;
         }
 
-        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, gettext('Students'), $iExtraStudents,
+        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, _('Students'), $iExtraStudents,
                                           $tFirstSunday, $tLastSunday,
                                           $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
                                           $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $withPictures);
@@ -258,7 +257,7 @@ for ($i = 0; $i < $nGrps; $i++) {
         }
                                                                         
         $y = $yTeachers;
-        $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aTeachers, gettext('Teachers'), $iExtraTeachers,
+        $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aTeachers, _('Teachers'), $iExtraTeachers,
                                      $tFirstSunday, $tLastSunday,
                                      $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
                                      $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, '', $withPictures);
@@ -303,7 +302,7 @@ for ($i = 0; $i < $nGrps; $i++) {
             $lineArr['lastName']  = $person->getLastName();
             $lineArr['fullName']  = $person->getFullName();
             $lineArr['birthDate'] = OutputUtils::FormatDate($person->getBirthDate()->format("Y-m-d"));
-            $lineArr['gender']    = ($person->getGender() == 1)?gettext("Boy"):gettext("Girl");
+            $lineArr['gender']    = ($person->getGender() == 1)?_("Boy"):_("Girl");
             $lineArr['age']       = $person->getAge(false);
             $lineArr['homePhone'] = $homePhone;
             $lineArr['groupName'] = $group->getName();
@@ -320,7 +319,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 
         $y = $yTeachers;
 
-        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, gettext('All Members'), $iExtraStudents+$iExtraTeachers,
+        $y = $pdf->DrawAttendanceCalendar($nameX, $y + 6, $aStudents, _('All Members'), $iExtraStudents+$iExtraTeachers,
                                           $tFirstSunday, $tLastSunday,
                                           $tNoSchool1, $tNoSchool2, $tNoSchool3, $tNoSchool4,
                                           $tNoSchool5, $tNoSchool6, $tNoSchool7, $tNoSchool8, $reportHeader, $withPictures);

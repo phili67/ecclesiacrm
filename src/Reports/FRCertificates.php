@@ -9,7 +9,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_CertificatesReport;
@@ -42,10 +41,10 @@ while ($oneItem = mysqli_fetch_array($rsItems)) {
     $pdf->SetFont('Times', '', 16);
     $pdf->Write(8, stripslashes($di_description)."\n");
     if ($di_estprice > 0) {
-        $pdf->Write(8, gettext('Estimated value ').'$'.$di_estprice.'.  ');
+        $pdf->Write(8, _('Estimated value ').'$'.$di_estprice.'.  ');
     }
     if ($per_LastName != '') {
-        $pdf->Write(8, gettext('Donated by ').$per_FirstName.' '.$per_LastName.".\n\n");
+        $pdf->Write(8, _('Donated by ').$per_FirstName.' '.$per_LastName.".\n\n");
     }
 }
 

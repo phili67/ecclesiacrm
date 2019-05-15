@@ -10,7 +10,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -141,13 +140,13 @@ if (!empty($_POST['funds'])) {
 // Make the string describing the fund filter
 if ($fundCount > 0) {
     if ($fundCount == 1) {
-        if ($fund[0] == gettext('All Funds')) {
-            $fundOnlyString = gettext(' for all funds');
+        if ($fund[0] == _('All Funds')) {
+            $fundOnlyString = _(' for all funds');
         } else {
-            $fundOnlyString = gettext(' for fund ');
+            $fundOnlyString = _(' for fund ');
         }
     } else {
-        $fundOnlyString = gettext('for funds ');
+        $fundOnlyString = _('for funds ');
     }
     for ($i = 0; $i < $fundCount; $i++) {
         $sSQL = 'SELECT fun_Name FROM donationfund_fun WHERE fun_ID='.$fund[$i];
@@ -212,15 +211,15 @@ $pageTop = 10;
 $y = $pageTop;
 $lineInc = 4;
 
-$pdf->WriteAt($leftX, $y, gettext('Pledge Family Summary'));
+$pdf->WriteAt($leftX, $y, _('Pledge Family Summary'));
 $y += $lineInc;
 
-$pdf->WriteAtCell($famNameX, $y, $famNameWid, gettext('Name'));
-$pdf->WriteAtCell($famMethodX, $y, $famMethodWid, gettext('Method'));
-$pdf->WriteAtCell($famFundX, $y, $famFundWid, gettext('Fund'));
-$pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, gettext('Pledge'));
-$pdf->WriteAtCell($famPayX, $y, $famPayWid, gettext('Paid'));
-$pdf->WriteAtCell($famOweX, $y, $famOweWid, gettext('Owe'));
+$pdf->WriteAtCell($famNameX, $y, $famNameWid, _('Name'));
+$pdf->WriteAtCell($famMethodX, $y, $famMethodWid, _('Method'));
+$pdf->WriteAtCell($famFundX, $y, $famFundWid, _('Fund'));
+$pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, _('Pledge'));
+$pdf->WriteAtCell($famPayX, $y, $famPayWid, _('Paid'));
+$pdf->WriteAtCell($famOweX, $y, $famOweWid, _('Owe'));
 $y += $lineInc;
 
 // Loop through families
@@ -332,8 +331,8 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
                 $pdf->WriteAtCell($famNameX, $y, $famNameWid, $pdf->MakeSalutation($fam_ID));
                 $pdf->WriteAtCell($famPledgeX, $y, $famPledgeWid, $fundPledgeTotal[$fun_name]);
-                $pdf->WriteAtCell($famMethodX, $y, $famMethodWid, gettext($fundPledgeMethod[$fun_name]));
-                $pdf->WriteAtCell($famFundX, $y, $famFundWid, gettext($fun_name));
+                $pdf->WriteAtCell($famMethodX, $y, $famMethodWid, _($fundPledgeMethod[$fun_name]));
+                $pdf->WriteAtCell($famFundX, $y, $famFundWid, _($fun_name));
                 $pdf->WriteAtCell($famPayX, $y, $famPayWid, $fundPaymentTotal[$fun_name]);
                 $pdf->WriteAtCell($famOweX, $y, $famOweWid, $amountDue);
                 $y += $lineInc;

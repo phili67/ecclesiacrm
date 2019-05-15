@@ -7,7 +7,6 @@
 ******************************************************************************/
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
@@ -66,7 +65,7 @@ class PDF_EnvelopeReport extends ChurchInfoReport
         $this->incrementY = 10;
 
         $this->Set_Char_Size(20);
-        $this->WriteAt(12, 12, gettext('Envelope Numbers for all Families'));
+        $this->WriteAt(12, 12, _('Envelope Numbers for all Families'));
         $this->Set_Char_Size(12);
     }
 
@@ -108,7 +107,7 @@ class PDF_EnvelopeReport extends ChurchInfoReport
         $_PosX = $this->_Margin_Left + ($this->_Column * 108);
         $_PosY = $this->_Margin_Top + ($this->_CurLine * 5);
         $this->SetXY($_PosX, $_PosY);
-        $this->MultiCell(0, 5, gettext($text)); // set width to 0 prints to right margin
+        $this->MultiCell(0, 5, _($text)); // set width to 0 prints to right margin
         $this->_CurLine += $numlines;
     }
 }

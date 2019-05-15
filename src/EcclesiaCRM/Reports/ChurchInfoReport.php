@@ -13,6 +13,7 @@
 namespace EcclesiaCRM\Reports;
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\ReportFunctions;
 use FPDF;
 
 // This class definition contains a bunch of configuration stuff and utitilities
@@ -153,6 +154,6 @@ class ChurchInfoReport extends FPDF
 
     public function MakeSalutation($famID)
     {
-        return MakeSalutationUtility($famID);
+        return ReportFunctions::MakeSalutationUtility($famID);
     }
 }

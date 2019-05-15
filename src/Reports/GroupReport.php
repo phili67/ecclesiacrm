@@ -12,7 +12,6 @@
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
-require '../Include/ReportFunctions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_GroupDirectory;
@@ -100,7 +99,7 @@ if ($iMode == 1) {
         $sEmail = SelectWhichInfo($aRow['per_Email'], $aRow['fam_Email'], false);
 
         if (isset($_POST['GroupRoleEnable'])) {
-            $OutStr = gettext('Role').': '.$aRoleNames[$aRow['p2g2r_rle_ID']]."\n";
+            $OutStr = _('Role').': '.$aRoleNames[$aRow['p2g2r_rle_ID']]."\n";
         }
 
         if (isset($_POST['AddressEnable'])) {
@@ -117,25 +116,25 @@ if ($iMode == 1) {
 
         if (isset($_POST['HomePhoneEnable']) && strlen($sHomePhone)) {
             $TempStr = ExpandPhoneNumber($sHomePhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '  '.gettext('Phone').': '.$TempStr."\n";
+            $OutStr .= '  '._('Phone').': '.$TempStr."\n";
         }
 
         if (isset($_POST['WorkPhoneEnable']) && strlen($sWorkPhone)) {
             $TempStr = ExpandPhoneNumber($sWorkPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '  '.gettext('Work').': '.$TempStr."\n";
+            $OutStr .= '  '._('Work').': '.$TempStr."\n";
         }
 
         if (isset($_POST['CellPhoneEnable']) && strlen($sCellPhone)) {
             $TempStr = ExpandPhoneNumber($sCellPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
-            $OutStr .= '  '.gettext('Cell').': '.$TempStr."\n";
+            $OutStr .= '  '._('Cell').': '.$TempStr."\n";
         }
 
         if (isset($_POST['EmailEnable']) && strlen($sEmail)) {
-            $OutStr .= '  '.gettext('Email').': '.$sEmail."\n";
+            $OutStr .= '  '._('Email').': '.$sEmail."\n";
         }
 
         if (isset($_POST['OtherEmailEnable']) && strlen($aRow['per_WorkEmail'])) {
-            $OutStr .= '  '.gettext('Other Email').': '.$aRow['per_WorkEmail'] .= "\n";
+            $OutStr .= '  '._('Other Email').': '.$aRow['per_WorkEmail'] .= "\n";
         }
 
         if ($bHasProps) {
