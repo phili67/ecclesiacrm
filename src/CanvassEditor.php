@@ -12,9 +12,12 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\CanvassUtilities;
 
 // Security: User must have canvasser permission to use this form
 if (!SessionUser::getUser()->isCanvasserEnabled()) {
@@ -22,7 +25,7 @@ if (!SessionUser::getUser()->isCanvasserEnabled()) {
     exit;
 }
 
-require 'Include/CanvassUtilities.php';
+//require 'Include/CanvassUtilities.php';
 
 $iCanvassID = 0;
 if (array_key_exists('CanvassID', $_GET)) {
@@ -42,7 +45,7 @@ extract(mysqli_fetch_array($rsFamily));
 
 $fyStr = MakeFYString($iFYID);
 
-$sPageTitle = gettext($fyStr.' Canvass Input for the '.$fam_Name.' family');
+$sPageTitle = _($fyStr.' '._('Canvass Input for the').' '.$fam_Name.' '._('family'));
 
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
@@ -50,7 +53,7 @@ if (isset($_POST['Submit'])) {
     if (!$iCanvasser) {
         $iCanvasser = 0;
     }
-    $dDate = InputUtils::LegacyFilterInput($_POST['Date']);
+    $dDate = InputUtils::FilterDate($_POST['Date']);
     $tPositive = InputUtils::LegacyFilterInput($_POST['Positive']);
     $tCritical = InputUtils::LegacyFilterInput($_POST['Critical']);
     $tInsightful = InputUtils::LegacyFilterInput($_POST['Insightful']);
@@ -65,9 +68,9 @@ if (isset($_POST['Submit'])) {
     // New canvas input (add)
     if ($iCanvassID < 1) {
         $sSQL = 'INSERT INTO canvassdata_can (can_famID, can_Canvasser, can_FYID, can_date, can_Positive,
-		                                      can_Critical, can_Insightful, can_Financial, can_Suggestion,
-											  can_NotInterested, can_WhyNotInterested)
-					VALUES ('.$iFamily.','.
+                                          can_Critical, can_Insightful, can_Financial, can_Suggestion,
+                        can_NotInterested, can_WhyNotInterested)
+          VALUES ('.$iFamily.','.
                             $iCanvasser.','.
                             $iFYID.','.
                             '"'.$dDate.'",'.
@@ -143,101 +146,122 @@ if (isset($_POST['Submit'])) {
 }
 
 // Get the lists of canvassers for the drop-down
-$rsCanvassers = CanvassGetCanvassers(gettext('Canvassers'));
-$rsBraveCanvassers = CanvassGetCanvassers(gettext('BraveCanvassers'));
+$rsCanvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 
 require 'Include/Header.php';
 ?>
 
 <div class="box box-body">
 <form method="post" action="CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
-<div class="table-responsive">
-<table class="table" cellpadding="3" align="center">
 
-	<tr>
-
-		<td>
-
-			<?php
-            if (($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) ||
-                ($rsCanvassers != 0 && mysqli_num_rows($rsCanvassers) > 0)) {
-                echo "<tr><td class='LabelColumn'>".gettext('Canvasser:')."</td>\n";
-                echo "<td class='TextColumnWithBottomBorder'>";
-                // Display all canvassers
-                echo "<select name='Canvasser'><option value=\"0\">None selected</option>";
-                if ($rsBraveCanvassers != 0) {
-                    while ($aCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
-                        echo '<option value="'.$aCanvasser['per_ID'].'"';
-                        if ($aCanvasser['per_ID'] == $iCanvasser) {
-                            echo ' selected';
-                        }
-                        echo '>';
-                        echo $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'];
-                        echo '</option>';
-                    }
-                }
-                if ($rsCanvassers != 0) {
-                    while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
-                        echo '<option value="'.$aCanvasser['per_ID'].'"';
-                        if ($aCanvasser['per_ID'] == $iCanvasser) {
-                            echo ' selected';
-                        }
-                        echo '>';
-                        echo $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'];
-                        echo '</option>';
-                    }
-                }
-                echo '</select></td></tr>';
-            }
+<?php
+    if (($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) ||
+        ($rsCanvassers != 0 && mysqli_num_rows($rsCanvassers) > 0)) {
+?>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Canvasser') ?>:
+        </div>
+        <div class="col-lg-9">
+           <select name='Canvasser'><option value="0"><?= _('None selected') ?></option>
+           <?php
+              if ($rsBraveCanvassers != 0) {
+                  while ($aCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
             ?>
+              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
+                <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
+              </option>
+            <?php
+                  }
+              }
+              if ($rsCanvassers != 0) {
+                  while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+              ?>
+              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
+                  <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
+              </option>
+            <?php
+                  }
+              }
+            ?>
+            </select>
+        </div>
+    </div>
+<?php
+  }
+?>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Date') ?>:
+        </div>
+        <div class="col-lg-9">
+          <input type="text" name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" 
+            maxlength="10" id="sel1" size="11"  class="form-control pull-right active date-picker" 
+            placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"?><font color="red"><?= $sDateError ?></font>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Positive') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="Positive" rows="3" style="width:100%"><?= $tPositive ?></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Critical') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="Critical" rows="3" style="width:100%"><?= $tCritical ?></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Insightful') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="Insightful" rows="3" style="width:100%"><?= $tInsightful ?></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Financial') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="Financial" rows="3" style="width:100%"><?= $tFinancial ?></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Suggestions') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="Suggestion" rows="3" style="width:100%"><?= $tSuggestion ?></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Not Interested') ?>
+        </div>
+        <div class="col-lg-9">
+          <input type="checkbox" Name="NotInterested" value="1" <?= ($bNotInterested)?' checked':'' ?>>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+          <?= _('Why Not Interested?') ?>
+        </div>
+        <div class="col-lg-9">
+          <textarea name="WhyNotInterested" rows="3" style="width:100%"><?= $tWhyNotInterested ?></textarea>
+        </div>
+    </div>
 
-			<tr>
-                <td class="LabelColumn"><?= gettext('Date') ?>:</td>
-				<td class="TextColumn"><input type="text" name="Date" value="<?= $dDate ?>" maxlength="10" id="sel1" size="11"  class="form-control pull-right active date-picker" ?><font color="red"><?= $sDateError ?></font></td>
-			</tr>
-
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Positive') ?></td>
-				<td><textarea name="Positive" rows="3" cols="90"><?= $tPositive ?></textarea></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Critical') ?></td>
-				<td><textarea name="Critical" rows="3" cols="90"><?= $tCritical ?></textarea></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Insightful') ?></td>
-				<td><textarea name="Insightful" rows="3" cols="90"><?= $tInsightful ?></textarea></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Financial') ?></td>
-				<td><textarea name="Financial" rows="3" cols="90"><?= $tFinancial ?></textarea></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Suggestions') ?></td>
-				<td><textarea name="Suggestion" rows="3" cols="90"><?= $tSuggestion ?></textarea></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Not Interested') ?></td>
-				<td class="TextColumn"><input type="checkbox" Name="NotInterested" value="1" <?php if ($bNotInterested) {
-                echo ' checked';
-            } ?>></td>
-			</tr>
-
-			<tr>
-				<td class="LabelColumn"><?= gettext('Why Not Interested?') ?></td>
-				<td><textarea name="WhyNotInterested" rows="1" cols="90"><?= $tWhyNotInterested ?></textarea></td>
-			</tr>
-    </table>
-</div>
     <div>
-            <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="Submit">
-            <input type="button" class="btn" value="<?= gettext('Cancel') ?>" name="Cancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+            <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="Submit">
+            <input type="button" class="btn" value="<?= _('Cancel') ?>" name="Cancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
                 echo $linkBack;
             } else {
                 echo 'Menu.php';
@@ -245,7 +269,7 @@ require 'Include/Header.php';
 
     </div>
 
-	</form>
+  </form>
 </div>
 
 <?php require 'Include/Footer.php'; ?>

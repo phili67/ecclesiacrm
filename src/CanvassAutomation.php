@@ -12,15 +12,13 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-require 'Include/CanvassUtilities.php';
-
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-
+use EcclesiaCRM\dto\CanvassUtilities;
 
 //Set the page title
-$sPageTitle = gettext('Canvass Automation');
+$sPageTitle = _('Canvass Automation');
 
 // Security: User must have canvasser permission to use this form
 if (!SessionUser::getUser()->isCanvasserEnabled()) {
@@ -40,50 +38,52 @@ $_SESSION['idefaultFY'] = $iFYID; // Remember default fiscal year
 
 $processNews = '';
 
+
 // Service the action buttons
 if (isset($_POST['SetDefaultFY'])) {
     if (isset($_POST['SetDefaultFYConfirm'])) {
-        $processNews = CanvassSetDefaultFY($iFYID);
+        $processNews = CanvassUtilities::CanvassSetDefaultFY($iFYID);
     } else {
-        $processNews = gettext('Not confirmed.');
+        $processNews = _('Not confirmed.');
     }
 }
 if (isset($_POST['AssignCanvassers'])) {
     if (isset($_POST['AssignCanvassersConfirm'])) {
-        $processNews = CanvassAssignCanvassers(gettext('Canvassers'));
+        $processNews = CanvassUtilities::CanvassAssignCanvassers('Canvassers');
     } else {
-        $processNews = gettext('Not confirmed.');
+        $processNews = _('Not confirmed.');
     }
 }
+
 if (isset($_POST['AssignNonPledging'])) {
     if (isset($_POST['AssignNonPledgingConfirm'])) {
-        $processNews = CanvassAssignNonPledging(gettext('BraveCanvassers'), $iFYID);
+        $processNews = CanvassUtilities::CanvassAssignNonPledging('BraveCanvassers', $iFYID);
     } else {
-        $processNews = gettext('Not confirmed.');
+        $processNews = _('Not confirmed.');
     }
 }
 if (isset($_POST['ClearCanvasserAssignments'])) {
     if (isset($_POST['ClearCanvasserAssignmentsConfirm'])) {
-        CanvassClearCanvasserAssignments();
-        $processNews = gettext('Cleared all canvasser assignments.');
+        CanvassUtilities::CanvassClearCanvasserAssignments();
+        $processNews = _('Cleared all canvasser assignments.');
     } else {
-        $processNews = gettext('Not confirmed.');
+        $processNews = _('Not confirmed.');
     }
 }
 if (isset($_POST['SetAllOkToCanvass'])) {
     if (isset($_POST['SetAllOkToCanvassConfirm'])) {
-        CanvassSetAllOkToCanvass();
-        $processNews = gettext('Set Ok To Canvass for all families.');
+        CanvassUtilities::CanvassSetAllOkToCanvass();
+        $processNews = _('Set Ok To Canvass for all families.');
     } else {
-        $processNews = gettext('Not confirmed.');
+        $processNews = _('Not confirmed.');
     }
 }
 if (isset($_POST['ClearAllOkToCanvass'])) {
     if (isset($_POST['ClearAllOkToCanvassConfirm'])) {
-        CanvassClearAllOkToCanvass();
-        $processNews = gettext('Disabled Ok To Canvass for all families.');
+        CanvassUtilities::CanvassClearAllOkToCanvass();
+        $processNews = _('Disabled Ok To Canvass for all families.');
     } else {
-        $processNews = gettext('ClearAllOkToCanvass button not confimed.');
+        $processNews = _('ClearAllOkToCanvass button not confimed.');
     }
 }
 if (isset($_POST['BriefingSheets'])) {
@@ -116,118 +116,118 @@ if ($processNews != '') {
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?= gettext('Report Details') ?></h3>
+        <h3 class="box-title"><?= _('Report Details') ?></h3>
       </div>
       <div class="box-body">
         <form method="post" action="CanvassAutomation.php" name="CanvassAutomation">
 
-          <p><?= gettext('Fiscal Year:') ?>
+          <p><?= _('Fiscal Year:') ?>
             <?php PrintFYIDSelect($iFYID, 'FYID') ?>
           </p>
 
           <table border width="100%" align="left">
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Set default fiscal year') ?>"
+                <input type="submit" class="btn" value="<?= _('Set default fiscal year') ?>"
                        name="SetDefaultFY">
               </td>
               <td align="left" width="75%">
-                <p><input type="checkbox" name="SetDefaultFYConfirm"><?= gettext('Check to confirm') ?></p>
+                <p><input type="checkbox" name="SetDefaultFYConfirm"><?= _('Check to confirm') ?></p>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Assign Canvassers') ?>"
+                <input type="submit" class="btn" value="<?= _('Assign Canvassers') ?>"
                        name="AssignCanvassers">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Randomly assign canvassers to all Families.  The Canvassers are taken from the &quot;Canvassers&quot; Group.') ?>
-                <p><input type="checkbox" name="AssignCanvassersConfirm"><?= gettext('Check to confirm') ?></p>
+                <?= _('Randomly assign canvassers to all Families.  The Canvassers are taken from the &quot;Canvassers&quot; Group.') ?>
+                <p><input type="checkbox" name="AssignCanvassersConfirm"><?= _('Check to confirm') ?></p>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Assign To Non Pledging') ?>"
+                <input type="submit" class="btn" value="<?= _('Assign To Non Pledging') ?>"
                        name="AssignNonPledging">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Randomly assign canvassers to non-pledging Families.  The Canvassers are taken from the &quot;BraveCanvassers&quot; Group.') ?>
-                <p><input type="checkbox" name="AssignNonPledgingConfirm"><?= gettext('Check to confirm') ?></p>
+                <?= _('Randomly assign canvassers to non-pledging Families.  The Canvassers are taken from the &quot;BraveCanvassers&quot; Group.') ?>
+                <p><input type="checkbox" name="AssignNonPledgingConfirm"><?= _('Check to confirm') ?></p>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Clear Canvasser Assignments') ?>"
+                <input type="submit" class="btn" value="<?= _('Clear Canvasser Assignments') ?>"
                        name="ClearCanvasserAssignments">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Clear all the canvasser assignments for all families.') ?>  <p><?= gettext('Important note: this will lose any canvasser assignments that have been made by hand.') ?></p>
-                <input type="checkbox" name="ClearCanvasserAssignmentsConfirm"><?= gettext('Check to confirm') ?>
+                <?= _('Clear all the canvasser assignments for all families.') ?>  <p><?= _('Important note: this will lose any canvasser assignments that have been made by hand.') ?></p>
+                <input type="checkbox" name="ClearCanvasserAssignmentsConfirm"><?= _('Check to confirm') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Enable Canvass for All Families') ?>"
+                <input type="submit" class="btn" value="<?= _('Enable Canvass for All Families') ?>"
                        name="SetAllOkToCanvass">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Turn on the &quot;Ok To Canvass&quot; field for all Families.') ?>  <p><?= gettext('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
-                <input type="checkbox" name="SetAllOkToCanvassConfirm"><?= gettext('Check to confirm') ?>
+                <?= _('Turn on the &quot;Ok To Canvass&quot; field for all Families.') ?>  <p><?= _('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
+                <input type="checkbox" name="SetAllOkToCanvassConfirm"><?= _('Check to confirm') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Disable Canvass for All Families') ?>"
+                <input type="submit" class="btn" value="<?= _('Disable Canvass for All Families') ?>"
                        name="ClearAllOkToCanvass">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Turn off the &quot;Ok To Canvass&quot; field for all Families') ?>  <p><?= gettext('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
-                <input type="checkbox" name="ClearAllOkToCanvassConfirm"><?= gettext('Check to confirm') ?>
+                <?= _('Turn off the &quot;Ok To Canvass&quot; field for all Families') ?>  <p><?= _('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
+                <input type="checkbox" name="ClearAllOkToCanvassConfirm"><?= _('Check to confirm') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Briefing Sheets') ?>"
+                <input type="submit" class="btn" value="<?= _('Briefing Sheets') ?>"
                        name="BriefingSheets">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Generate a PDF containing briefing sheets for all Families, sorted by canvasser.') ?>
+                <?= _('Generate a PDF containing briefing sheets for all Families, sorted by canvasser.') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Progress Report') ?>"
+                <input type="submit" class="btn" value="<?= _('Progress Report') ?>"
                        name="ProgressReport">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Generate a PDF containing a progress report.  The progress report includes information on the overall progress of the canvass, and the progress of individual canvassers.') ?>
+                <?= _('Generate a PDF containing a progress report.  The progress report includes information on the overall progress of the canvass, and the progress of individual canvassers.') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Summary Report') ?>"
+                <input type="submit" class="btn" value="<?= _('Summary Report') ?>"
                        name="SummaryReport">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Generate a PDF containing a summary report.  The summary report includes comments extracted from the canvass data.') ?>
+                <?= _('Generate a PDF containing a summary report.  The summary report includes comments extracted from the canvass data.') ?>
               </td>
             </tr>
 
             <tr>
               <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= gettext('Not Interested Report') ?>"
+                <input type="submit" class="btn" value="<?= _('Not Interested Report') ?>"
                        name="NotInterestedReport">
               </td>
               <td align="left" width="75%">
-                <?= gettext('Generate a PDF containing a report of the families marked &quot;Not Interested&quot; by the canvasser.') ?>
+                <?= _('Generate a PDF containing a report of the families marked &quot;Not Interested&quot; by the canvasser.') ?>
               </td>
             </tr>
           </table>
