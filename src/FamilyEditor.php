@@ -257,7 +257,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
     // Validate Wedding Date if one was entered
     if ((strlen($dWeddingDate) > 0) && ($dWeddingDate != '')) {
-        $dateString = parseAndValidateDate($dWeddingDate, Bootstrapper::getCurrentLocale()->getCountryCode(), $pasfut = 'past');
+        $dateString = InputUtils::parseAndValidateDate($dWeddingDate, Bootstrapper::getCurrentLocale()->getCountryCode(), $pasfut = 'past');
         if ($dateString === false) {
             $sWeddingDateError = '<span style="color: red; ">'
                                 ._('Not a valid Wedding Date').'</span>';
@@ -287,7 +287,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
             
-            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
+            $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
 
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
             $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;

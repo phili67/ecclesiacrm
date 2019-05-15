@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : ReportFunctions.php
+ *  filename    : /EcclesiaCRM/dto/ReportFunctions.php
  *  last change : 2019-05-19
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt
@@ -21,7 +21,7 @@ class ReportFunctions
 
   // MakeSalutation: this utility is used to figure out how to address a family
   // for correspondence.
-  static function MakeSalutationUtility($famID)
+  public static function MakeSalutationUtility($famID)
   {
       // Make it put the name if there is only one individual in the family
       // Make it put two first names and the last name when there are exactly two people in the family (e.g. "Nathaniel and Jeanette Brooks")

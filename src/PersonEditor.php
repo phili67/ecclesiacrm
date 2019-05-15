@@ -285,7 +285,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     
     // Validate Friend Date if one was entered
     if (strlen($dFriendDate) > 0) {
-        $dateString = parseAndValidateDate($dFriendDate, $locale = 'US', $pasfut = 'past');
+        $dateString = InputUtils::parseAndValidateDate($dFriendDate, $locale = 'US', $pasfut = 'past');
         if ($dateString === false) {
             $sFriendDateError = '<span style="color: red; ">'
                 ._('Not a valid Friend Date').'</span>';
@@ -296,7 +296,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     }
     // Validate Membership Date if one was entered
     if (strlen($dMembershipDate) > 0) {
-        $dateString = parseAndValidateDate($dMembershipDate, $locale = 'US', $pasfut = 'past');
+        $dateString = InputUtils::parseAndValidateDate($dMembershipDate, $locale = 'US', $pasfut = 'past');
         if ($dateString === false) {
             $sMembershipDateError = '<span style="color: red; ">'
                 ._('Not a valid Membership Date').'</span>';
@@ -335,7 +335,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
             
-            $bErrorFlag |= !validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
+            $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
             
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
             $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
@@ -513,7 +513,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setSendNewsletter($bSendNewsLetterString);
 
             // bSendNewsLetterString : When you activated a single person the family is deactivated
-            if ($bSendNewsLetterString == "TRUE") {
+            if ( $bSendNewsLetterString == "TRUE" && !is_null ($person->getFamily()) ) {
               $person->getFamily()->setSendNewsletter("FALSE");
             }
 
