@@ -339,6 +339,13 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             $family->setSendNewsletter($bSendNewsLetterString);
             
+            // bSendNewsLetterString : When you activate the family all members are deactivated
+            if ($bSendNewsLetterString == "TRUE") {
+              foreach ($family->getPeople() as $person) {
+                $person->setSendNewsletter("FALSE");
+              }
+            }
+            
             if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
                 $family->setCanvasser($iCanvasser);
@@ -349,6 +356,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $family->setEnvelope($nEnvelope);
             
             $family->updateLanLng();
+            
+            $family->save();
             
             $bGetKeyBack = true;
         } else {// edition family
@@ -376,6 +385,13 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $family->setEditedBy(SessionUser::getUser()->getPersonId());
             
             $family->setSendNewsletter($bSendNewsLetterString);
+
+            // bSendNewsLetterString : When you activate the family all members are deactivated
+            if ($bSendNewsLetterString == "TRUE") {
+              foreach ($family->getPeople() as $person) {
+                $person->setSendNewsletter("FALSE");
+              }
+            }            
             
             if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
@@ -387,6 +403,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $family->setEnvelope($nEnvelope);
             
             $family->updateLanLng();
+            
+            $family->save();
             
             $bGetKeyBack = false;
         }
@@ -635,7 +653,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $sCellPhone = '';
         $bNoFormat_CellPhone = isset($_POST['NoFormat_CellPhone']);
         $sEmail = '';
-        $bSendNewsLetter = 'TRUE';
+        $bSendNewsLetter = false;
         $iCanvasser = -1;
         $dWeddingDate = '';
         $nLatitude = 0.0;
@@ -819,7 +837,8 @@ require 'Include/Header.php';
           <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?>>
         </div>
         <?php
-              } ?>
+          } 
+        ?>
       </div>
     </div>
   </div>
