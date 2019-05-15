@@ -89,67 +89,67 @@ if (!isset($_SESSION['bHasMagicQuotes'])) {
 
 // Constants
 $aPropTypes = [
-  1  => gettext('True / False'),
-  2  => gettext('Date'),
-  3  => gettext('Text Field (50 char)'),
-  4  => gettext('Text Field (100 char)'),
-  5  => gettext('Text Field (Long)'),
-  6  => gettext('Year'),
-  7  => gettext('Season'),
-  8  => gettext('Number'),
-  9  => gettext('Person from Group'),
-  10 => gettext('Money'),
-  11 => gettext('Phone Number'),
-  12 => gettext('Custom Drop-Down List'),
+  1  => _('True / False'),
+  2  => _('Date'),
+  3  => _('Text Field (50 char)'),
+  4  => _('Text Field (100 char)'),
+  5  => _('Text Field (Long)'),
+  6  => _('Year'),
+  7  => _('Season'),
+  8  => _('Number'),
+  9  => _('Person from Group'),
+  10 => _('Money'),
+  11 => _('Phone Number'),
+  12 => _('Custom Drop-Down List'),
 ];
 
 $sGlobalMessageClass = 'success';
 
 if (isset($_GET['Registered'])) {
-    $sGlobalMessage = gettext('Thank you for registering your EcclesiaCRM installation.');
+    $sGlobalMessage = _('Thank you for registering your EcclesiaCRM installation.');
 }
 
 if (isset($_GET['AllPDFsEmailed'])) {
-    $sGlobalMessage = gettext('PDFs successfully emailed ').$_GET['AllPDFsEmailed'].' '.gettext('families').".";
+    $sGlobalMessage = _('PDFs successfully emailed ').$_GET['AllPDFsEmailed'].' '._('families').".";
 }
 
 if (isset($_GET['PDFEmailed'])) {
     if ($_GET['PDFEmailed'] == 1) {
-        $sGlobalMessage = gettext('PDF successfully emailed to family members.');
+        $sGlobalMessage = _('PDF successfully emailed to family members.');
     } else {
-        $sGlobalMessage = gettext('Failed to email PDF to family members.');
+        $sGlobalMessage = _('Failed to email PDF to family members.');
     }
 }
 
 // Are they adding an entire group to the cart?
 if (isset($_GET['AddGroupToPeopleCart'])) {
     AddGroupToPeopleCart(InputUtils::LegacyFilterInput($_GET['AddGroupToPeopleCart'], 'int'));
-    $sGlobalMessage = gettext('Group successfully added to the Cart.');
+    $sGlobalMessage = _('Group successfully added to the Cart.');
 }
 
 // Are they removing an entire group from the Cart?
 if (isset($_GET['RemoveGroupFromPeopleCart'])) {
     RemoveGroupFromPeopleCart(InputUtils::LegacyFilterInput($_GET['RemoveGroupFromPeopleCart'], 'int'));
-    $sGlobalMessage = gettext('Group successfully removed from the Cart.');
+    $sGlobalMessage = _('Group successfully removed from the Cart.');
 }
 
 if (isset($_GET['ProfileImageDeleted'])) {
-    $sGlobalMessage = gettext('Profile Image successfully removed.');
+    $sGlobalMessage = _('Profile Image successfully removed.');
 }
 
 if (isset($_GET['ProfileImageUploaded'])) {
-    $sGlobalMessage = gettext('Profile Image successfully updated.');
+    $sGlobalMessage = _('Profile Image successfully updated.');
 }
 
 if (isset($_GET['ProfileImageUploadedError'])) {
-    $sGlobalMessage = gettext('Profile Image upload Error.');
+    $sGlobalMessage = _('Profile Image upload Error.');
     $sGlobalMessageClass = 'danger';
 }
 
 // Are they removing a person from the Cart?
 if (isset($_GET['RemoveFromPeopleCart'])) {
     RemoveFromPeopleCart(InputUtils::LegacyFilterInput($_GET['RemoveFromPeopleCart'], 'int'));
-    $sGlobalMessage = gettext('Selected record successfully removed from the Cart.');
+    $sGlobalMessage = _('Selected record successfully removed from the Cart.');
 }
 
 if (isset($_POST['BulkAddToCart'])) {
@@ -167,7 +167,7 @@ if (isset($_POST['BulkAddToCart'])) {
         for ($iCount = 0; $iCount < count($aItemsToProcess); $iCount++) {
             Cart::AddPerson(str_replace(',', '', $aItemsToProcess[$iCount]));
         }
-        $sGlobalMessage = $iCount.' '.gettext('item(s) added to the Cart.');
+        $sGlobalMessage = $iCount.' '._('item(s) added to the Cart.');
     }
 }
 
@@ -219,7 +219,7 @@ function CurrentFY()
 function PrintFYIDSelect($iFYID, $selectName)
 {
     echo '<select class="form-control" name="'.$selectName.'">';
-    echo '<option value="0">'.gettext('Select Fiscal Year').'</option>';
+    echo '<option value="0">'._('Select Fiscal Year').'</option>';
 
     for ($fy = 1; $fy < CurrentFY() + 2; $fy++) {
         echo '<option value="'.$fy.'"';
@@ -254,7 +254,7 @@ function RunQuery($sSQL, $bStopOnError = true)
         return $result;
     } elseif ($bStopOnError) {
         if (SystemConfig::getValue('sLogLevel') == "100") { // debug level
-            die(gettext('Cannot execute query.')."<p>$sSQL<p>".mysqli_error());
+            die(_('Cannot execute query.')."<p>$sSQL<p>".mysqli_error());
         } else {
             die('Database error or invalid data');
         }
@@ -514,9 +514,9 @@ function FormatAge($Month, $Day, $Year, $Flags)
                 $monthCount--;
             }
             if ($monthCount == 1) {
-                return gettext('1 m old');
+                return _('1 m old');
             } else {
-                return $monthCount.' '.gettext('m old');
+                return $monthCount.' '._('m old');
             }
         } elseif ($Year == date('Y') - 1) {
             $monthCount = 12 - $Month + date('m');
@@ -524,19 +524,19 @@ function FormatAge($Month, $Day, $Year, $Flags)
                 $monthCount--;
             }
             if ($monthCount >= 12) {
-                return gettext('1 yr old');
+                return _('1 yr old');
             } elseif ($monthCount == 1) {
-                return gettext('1 m old');
+                return _('1 m old');
             } else {
-                return $monthCount.' '.gettext('m old');
+                return $monthCount.' '._('m old');
             }
         } elseif ($Month > date('m') || ($Month == date('m') && $Day > date('d'))) {
-            return date('Y') - 1 - $Year.' '.gettext('yrs old');
+            return date('Y') - 1 - $Year.' '._('yrs old');
         } else {
-            return date('Y') - $Year.' '.gettext('yrs old');
+            return date('Y') - $Year.' '._('yrs old');
         }
     } else {
-        return gettext('Unknown');
+        return _('Unknown');
     }
 }
 
@@ -549,22 +549,22 @@ function FormatAgeSuffix($birthDate, $Flags)
         return '';
     }
 
-    $ageSuffix = gettext('Unknown');
+    $ageSuffix = _('Unknown');
 
     $now = new DateTime();
     $age = $now->diff($birthDate);
 
     if ($age->y < 1) {
         if ($age->m > 1) {
-            $ageSuffix = gettext('mos old');
+            $ageSuffix = _('mos old');
         } else {
-            $ageSuffix = gettext('mo old');
+            $ageSuffix = _('mo old');
         }
     } else {
         if ($age->y > 1) {
-            $ageSuffix = gettext('yrs old');
+            $ageSuffix = _('yrs old');
         } else {
-            $ageSuffix = gettext('yr old');
+            $ageSuffix = _('yr old');
         }
     }
 
@@ -672,258 +672,6 @@ function FormatAddressLine($Address, $City, $State)
     return $sText;
 }
 
-function assembleYearMonthDay($sYear, $sMonth, $sDay, $pasfut = 'future')
-{
-    // This function takes a year, month and day from parseAndValidateDate.  On success this
-    // function returns a string in the form "YYYY-MM-DD".  It returns FALSE on failure.
-    // The year can be either 2 digit or 4 digit.  If a 2 digit year is passed the $passfut
-    // indicates whether to return a 4 digit year in the past or the future.  The parameter
-    // $passfut is not needed for the current year.  If unspecified it assumes the two digit year
-    // is either this year or one of the next 99 years.
-
-    // Parse the year
-    // Take a 2 or 4 digit year and return a 4 digit year.  Use $pasfut to determine if
-    // two digit year maps to past or future 4 digit year.
-    if (strlen($sYear) == 2) {
-        $thisYear = date('Y');
-        $twoDigit = mb_substr($thisYear, 2, 2);
-        if ($sYear == $twoDigit) {
-            // Assume 2 digit year is this year
-            $sYear = mb_substr($thisYear, 0, 4);
-        } elseif ($pasfut == 'future') {
-            // Assume 2 digit year is in next 99 years
-            if ($sYear > $twoDigit) {
-                $sYear = mb_substr($thisYear, 0, 2).$sYear;
-            } else {
-                $sNextCentury = $thisYear + 100;
-                $sYear = mb_substr($sNextCentury, 0, 2).$sYear;
-            }
-        } else {
-            // Assume 2 digit year was is last 99 years
-            if ($sYear < $twoDigit) {
-                $sYear = mb_substr($thisYear, 0, 2).$sYear;
-            } else {
-                $sLastCentury = $thisYear - 100;
-                $sYear = mb_substr($sLastCentury, 0, 2).$sYear;
-            }
-        }
-    } elseif (strlen($sYear) == 4) {
-        $sYear = $sYear;
-    } else {
-        return false;
-    }
-
-    // Parse the Month
-    // Take a one or two character month and return a two character month
-    if (strlen($sMonth) == 1) {
-        $sMonth = '0'.$sMonth;
-    } elseif (strlen($sMonth) == 2) {
-        $sMonth = $sMonth;
-    } else {
-        return false;
-    }
-
-    // Parse the Day
-    // Take a one or two character day and return a two character day
-    if (strlen($sDay) == 1) {
-        $sDay = '0'.$sDay;
-    } elseif (strlen($sDay) == 2) {
-        $sDay = $sDay;
-    } else {
-        return false;
-    }
-
-    $sScanString = $sYear.'-'.$sMonth.'-'.$sDay;
-    list($iYear, $iMonth, $iDay) = sscanf($sScanString, '%04d-%02d-%02d');
-
-    if (checkdate($iMonth, $iDay, $iYear)) {
-        return $sScanString;
-    } else {
-        return false;
-    }
-}
-
-function parseAndValidateDate($data, $locale = 'US', $pasfut = 'future')
-{
-    // This function was written because I had no luck finding a PHP
-    // function that would reliably parse a human entered date string for
-    // dates before 1/1/1970 or after 1/19/2038 on any Operating System.
-    //
-    // This function has hooks for US English M/D/Y format as well as D/M/Y.  The
-    // default is M/D/Y for date.  To change to D/M/Y use anything but "US" for
-    // $locale.
-    //
-    // Y-M-D is allowed if the delimiter is "-" instead of "/"
-    //
-    // In order to help this function guess a two digit year a "past" or "future" flag is
-    // passed to this function.  If no flag is passed the function assumes that two digit
-    // years are in the future (or the current year).
-    //
-    // Month and day may be either 1 character or two characters (leading zeroes are not
-    // necessary)
-
-    // Determine if the delimiter is "-" or "/".  The delimiter must appear
-    // twice or a FALSE will be returned.
-
-    if (mb_substr_count($data, '-') == 2) {
-        // Assume format is Y-M-D
-        $iFirstDelimiter = strpos($data, '-');
-        $iSecondDelimiter = strpos($data, '-', $iFirstDelimiter + 1);
-
-        // Parse the year.
-        $sYear = mb_substr($data, 0, $iFirstDelimiter);
-
-        // Parse the month
-        $sMonth = mb_substr($data, $iFirstDelimiter + 1, $iSecondDelimiter - $iFirstDelimiter - 1);
-
-        // Parse the day
-        $sDay = mb_substr($data, $iSecondDelimiter + 1);
-
-        // Put into YYYY-MM-DD form
-        return assembleYearMonthDay($sYear, $sMonth, $sDay, $pasfut);
-    } elseif ((mb_substr_count($data, '/') == 2) && ($locale == 'US')) {
-        // Assume format is M/D/Y
-        $iFirstDelimiter = strpos($data, '/');
-        $iSecondDelimiter = strpos($data, '/', $iFirstDelimiter + 1);
-
-        // Parse the month
-        $sMonth = mb_substr($data, 0, $iFirstDelimiter);
-
-        // Parse the day
-        $sDay = mb_substr($data, $iFirstDelimiter + 1, $iSecondDelimiter - $iFirstDelimiter - 1);
-
-        // Parse the year
-        $sYear = mb_substr($data, $iSecondDelimiter + 1);
-
-        // Put into YYYY-MM-DD form
-        return assembleYearMonthDay($sYear, $sMonth, $sDay, $pasfut);
-    } elseif (mb_substr_count($data, '/') == 2) {
-        // Assume format is D/M/Y
-        $iFirstDelimiter = strpos($data, '/');
-        $iSecondDelimiter = strpos($data, '/', $iFirstDelimiter + 1);
-
-        // Parse the day
-        $sDay = mb_substr($data, 0, $iFirstDelimiter);
-
-        // Parse the month
-        $sMonth = mb_substr($data, $iFirstDelimiter + 1, $iSecondDelimiter - $iFirstDelimiter - 1);
-
-        // Parse the year
-        $sYear = mb_substr($data, $iSecondDelimiter + 1);
-
-        // Put into YYYY-MM-DD form
-        return assembleYearMonthDay($sYear, $sMonth, $sDay, $pasfut);
-    }
-
-    // If we made it this far it means the above logic was unable to parse the date.
-    // Now try to parse using the function strtotime().  The strtotime() function does
-    // not gracefully handle dates outside the range 1/1/1970 to 1/19/2038.  For this
-    // reason consider strtotime() as a function of last resort.
-    $timeStamp = strtotime($data);
-    if ($timeStamp == false || $timeStamp <= 0) {
-        // Some Operating Sytems and older versions of PHP do not gracefully handle
-        // negative timestamps.  Bail if the timestamp is negative.
-        return false;
-    }
-
-    // Now use the date() function to convert timestamp into YYYY-MM-DD
-    $dateString = date('Y-m-d', $timeStamp);
-
-    if (strlen($dateString) != 10) {
-        // Common sense says we have a 10 charater string.  If not, something is wrong
-        // and it's time to bail.
-        return false;
-    }
-
-    if ($dateString > '1970-01-01' && $dateString < '2038-01-19') {
-        // Success!
-        return $dateString;
-    }
-
-    // Should not have made it this far.  Something is wrong so bail.
-    return false;
-}
-
-// Processes and Validates custom field data based on its type.
-//
-// Returns false if the data is not valid, true otherwise.
-//
-function validateCustomField($type, &$data, $col_Name, &$aErrors)
-{
-    global $aLocaleInfo;
-    $bErrorFlag = false;
-    $aErrors[$col_Name] = '';
-
-    switch ($type) {
-    // Validate a date field
-    case 2:
-        // this part will work with each date format
-        // Philippe logel
-        $data = InputUtils::FilterDate($data);
-        
-      if (strlen($data) > 0) {
-          $dateString = parseAndValidateDate($data);
-          if ($dateString === false) {
-              $aErrors[$col_Name] = gettext('Not a valid date');
-              $bErrorFlag = true;
-          } else {
-              $data = $dateString;
-          }
-      }
-      break;
-
-    // Handler for 4-digit year
-    case 6:
-      if (strlen($data) != 0) {
-          if (!is_numeric($data) || strlen($data) != 4) {
-              $aErrors[$col_Name] = gettext('Invalid Year');
-              $bErrorFlag = true;
-          } elseif ($data > 2155 || $data < 1901) {
-              $aErrors[$col_Name] = gettext('Out of range: Allowable values are 1901 to 2155');
-              $bErrorFlag = true;
-          }
-      }
-      break;
-
-    // Handler for integer numbers
-    case 8:
-      if (strlen($data) != 0) {
-          if ($aLocalInfo['thousands_sep']) {
-              $data = preg_replace('/'.$aLocaleInfo['thousands_sep'].'/i', '', $data);  // remove any thousands separators
-          }
-          if (!is_numeric($data)) {
-              $aErrors[$col_Name] = gettext('Invalid Number');
-              $bErrorFlag = true;
-          } elseif ($data < -2147483648 || $data > 2147483647) {
-              $aErrors[$col_Name] = gettext('Number too large. Must be between -2147483648 and 2147483647');
-              $bErrorFlag = true;
-          }
-      }
-      break;
-
-    // Handler for money amounts
-    case 10:
-      if (strlen($data) != 0) {
-          if ($aLocaleInfo['mon_thousands_sep']) {
-              $data = preg_replace('/'.$aLocaleInfo['mon_thousands_sep'].'/i', '', $data);
-          }
-          if (!is_numeric($data)) {
-              $aErrors[$col_Name] = gettext('Invalid Number');
-              $bErrorFlag = true;
-          } elseif ($data > 999999999.99) {
-              $aErrors[$col_Name] = gettext('Money amount too large. Maximum is $999999999.99');
-              $bErrorFlag = true;
-          }
-      }
-      break;
-
-    // Otherwise ignore.. some types do not need validation or filtering
-    default:
-      break;
-  }
-
-    return !$bErrorFlag;
-}
 
 // Generates SQL for custom field update
 //
@@ -1036,7 +784,7 @@ function FindMemberClassID()
 
     while ($aRow = mysqli_fetch_array($rsClassifications)) {
         extract($aRow);
-        if ($lst_OptionName == gettext('Member')) {
+        if ($lst_OptionName == _('Member')) {
             return $lst_OptionID;
         }
     }
@@ -1312,9 +1060,7 @@ function generateGroupRoleEmailDropdown($roleEmails, $href)
         }
         $Email = urlencode($Email);  // Mailto should comply with RFC 2368
     ?>
-      <li> <a href="<?= $href.mb_substr($Email, 0, -3) ?>"><?= gettext($role) ?></a></li>
+      <li> <a href="<?= $href.mb_substr($Email, 0, -3) ?>"><?= _($role) ?></a></li>
     <?php
     }
 }
-
-?>
