@@ -15,6 +15,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_NewsletterLabels;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
@@ -33,11 +35,40 @@ if ($sFontSize != 'default') {
     $pdf->Set_Char_Size($sFontSize);
 }
 
+// get only the persons who wants the news letter
+$onlyPersons = PersonQuery::Create()// Get the persons and not the family with the news letter
+             ->filterBySendNewsletter('TRUE')
+             ->_and()
+             ->useFamilyQuery()
+               ->filterBySendNewsletter('FALSE')
+             ->endUse()
+             ->find();
+
 // Get all the families which receive the newsletter by mail
 $families = FamilyQuery::create()
         ->filterBySendNewsletter("TRUE")
         ->orderByZip()
         ->find();
+        
+foreach ($onlyPersons as $person) {
+    if ( is_null ($person->getFamily()) ) continue;
+    
+    $labelText = $person->getFamily()->getName(). " " . $person->getFirstName() . ' (' . _('Person') . ')';
+
+    if ($person->getFamily()->getAddress1() != '') {
+        $labelText .= "\n".$person->getFamily()->getAddress1();
+    }
+    if ($person->getFamily()->getAddress2() != '') {
+        $labelText .= "\n".$person->getFamily()->getAddress2();
+    }
+    $labelText .= sprintf("\n%s, %s  %s", $person->getFamily()->getCity(), $person->getFamily()->getState(), $person->getFamily()->getZip());
+
+    if ($person->getFamily()->getCountry() != '' && $person->getFamily()->getCountry() != 'USA' && $person->getFamily()->getCountry() != 'United States') {
+        $labelText .= "\n".$person->getFamily()->getCountry();
+    }
+
+    $pdf->Add_PDF_Label($labelText);
+}
 
 foreach ($families as $family) {
     if ($bRecipientNamingMethod == "familyname") {
@@ -59,6 +90,7 @@ foreach ($families as $family) {
 
     $pdf->Add_PDF_Label($labelText);
 }
+
 
 header('Pragma: public');  // Needed for IE when using a shared SSL certificate
 if (SystemConfig::getValue('iPDFOutputType') == 1) {

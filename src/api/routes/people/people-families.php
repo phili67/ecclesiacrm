@@ -36,43 +36,127 @@ use EcclesiaCRM\Utils\LoggerUtils;
 
 $app->group('/families', function () {
 
+/*
+ * @! Return family properties for familyID
+ * #! param: id->int   :: familyId as id
+ */
     $this->post('/familyproperties/{familyID:[0-9]+}', "postfamilyproperties" );
+/*
+ * @! Return if mailchimp is activated for family
+ * #! param: id->int   :: familyId as id
+ * #! param: ref->string :: email as ref
+ */
     $this->post('/isMailChimpActive', "isMailChimpActiveFamily" );
+/*
+ * @! Return the family as json
+ * #! param: id->int   :: familyId as id
+ */
     $this->get('/{familyId:[0-9]+}', "getFamily" );
+/*
+ * @! Return the family info as json
+ * #! param: id->int   :: familyId as id
+ */
     $this->post('/info', "familyInfo" );
+/*
+ * @! Return the numbers of Anniversaries for MenuEvent
+ */
     $this->get('/numbers', "numbersOfAnniversaries" );
+/*
+ * @! Returns a list of the families who's name matches the :query parameter
+ * #! param: ref->string :: query as ref
+ */
     $this->get('/search/{query}', "searchFamily" );
+/*
+ * @! Returns a list of the self-registered families
+ */
     $this->get('/self-register', "selfRegisterFamily" );
+/*
+ * @! Returns a list of the self-verified families
+ */
     $this->get('/self-verify', "selfVerifyFamily" );
+/*
+ * @! Returns a list of the pending self-verified families
+ */
     $this->get('/pending-self-verify', "pendingSelfVerify" );
+/*
+ * @! Returns a family string based on the scan string of an MICR reader containing a routing and account number
+ * #! param: ref->string :: scanString as ref
+ */
     $this->get('/byCheckNumber/{scanString}', "byCheckNumberScan" );
 
+ /*
+ * @! Returns the photo for the familyId
+ * #! param: id->int :: familyId as id
+ */
     $this->get('/{familyId:[0-9]+}/photo', function ($request, $response, $args) {
         $res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
         return $res->write($photo->getPhotoBytes())->withHeader('Content-type', $photo->getPhotoContentType());
     });
 
+ /*
+ * @! Returns the thumbnail for the familyId
+ * #! param: id->int :: familyId as id
+ */
     $this->get('/{familyId:[0-9]+}/thumbnail', function ($request, $response, $args) {
         $res = $this->cache->withExpires($response, MiscUtils::getPhotoCacheExpirationTimestamp());
         $photo = new Photo("Family", $args['familyId']);
         return $res->write($photo->getThumbnailBytes())->withHeader('Content-type', $photo->getThumbnailContentType());
     });
 
+ /*
+ * @! Post the photo for the familyId
+ * #! param: id->int :: familyId as id
+ */
     $this->post('/{familyId:[0-9]+}/photo', "postFamilyPhoto" );
+
+ /*
+ * @! Delete the photo for the familyId
+ * #! param: id->int :: familyId as id
+ */
     $this->delete('/{familyId:[0-9]+}/photo', "deleteFamilyPhoto" );
+
+ /*
+ * @! Verify the family for the familyId
+ * #! param: id->int :: familyId as id
+ */
     $this->post('/{familyId}/verify', "verifyFamily" );
+
+ /*
+ * @! Verify the family for the familyId now
+ * #! param: id->int :: familyId as id
+ */
     $this->post('/verify/{familyId}/now', "verifyFamilyNow" );
 
-    /**
-     * Update the family status to activated or deactivated with :familyId and :status true/false.
-     * Pass true to activate and false to deactivate.     *
-     */
+/*
+ * @! Update the family status to activated or deactivated with :familyId and :status true/false. Pass true to activate and false to deactivate.
+ * #! param: id->int   :: familyId as id
+ * #! param: ref->bool :: status as ref
+ */
     $this->post('/{familyId:[0-9]+}/activate/{status}', "familyActivateStatus" );
+ /*
+ * @! Return the location for the family 
+ * #! param: id->int :: familyId as id
+ */
     $this->get('/{familyId:[0-9]+}/geolocation', "familyGeolocation" );
     
+ /*
+ * @! delete familyField custom field
+ * #! param: id->int :: orderID as id
+ * #! param: id->int :: field as id
+ */
     $this->post('/deletefield', "deleteFamilyField" );
+ /*
+ * @! Move up the family custom field
+ * #! param: id->int :: orderID as id
+ * #! param: id->int :: field as id
+ */
     $this->post('/upactionfield', "upactionFamilyField" );
+ /*
+ * @! Move down the family custom field
+ * #! param: id->int :: orderID as id
+ * #! param: id->int :: field as id
+ */
     $this->post('/downactionfield', "downactionFamilyField" );
 
 });

@@ -536,26 +536,43 @@ function addallnewsletterpersons (Request $request, Response $response, array $a
     $mailchimp = new MailChimpService();
 
     if ( !is_null ($mailchimp) && $mailchimp->isActive() /*&& !is_null($person) && $mailchimp->isEmailInMailChimp($person->getEmail()) == ''*/ ) {
-      $persons = PersonQuery::Create()
-          ->leftJoinFamily()
-          ->addAsColumn('FamName',FamilyTableMap::COL_FAM_NAME)
-          ->addAsColumn('FamEmail',FamilyTableMap::COL_FAM_EMAIL)
-          ->filterByFmrId (SystemConfig::getValue("sDirRoleHead"))
-          ->_or()->filterByFmrId (SystemConfig::getValue("sDirRoleSpouse"))
-          ->useFamilyQuery()
-            ->filterBySendNewsletter('TRUE')
-          ->endUse()
-          ->find();
+      $list           = $mailchimp->getListFromListId($input->list_id);
+      $listID         = $input->list_id;
+
+      $onlyPersons = PersonQuery::Create()// Get the persons and not the family with the news letter
+             ->leftJoinFamily()
+             ->addAsColumn('FamName',FamilyTableMap::COL_FAM_NAME)
+             ->addAsColumn('FamEmail',FamilyTableMap::COL_FAM_EMAIL)
+             ->filterBySendNewsletter('TRUE')
+             ->_and()
+             ->useFamilyQuery()
+               ->filterBySendNewsletter('FALSE')
+             ->endUse()
+             ->find();
+
+      $onlyFamilyPersons = PersonQuery::Create() // Get only the head and spouse of each families when they don't want to have the newsletter as a family
+             ->leftJoinFamily()
+             ->addAsColumn('FamName',FamilyTableMap::COL_FAM_NAME)
+             ->addAsColumn('FamEmail',FamilyTableMap::COL_FAM_EMAIL)
+             ->filterBySendNewsletter('FALSE')
+             ->filterByFmrId (SystemConfig::getValue("sDirRoleHead"))// get the Head
+             ->_or()->filterByFmrId (SystemConfig::getValue("sDirRoleSpouse")) // get spouse
+             ->_and()
+             ->useFamilyQuery()
+               ->filterBySendNewsletter('TRUE')
+             ->endUse()
+             ->find();
+             
+      $persons = array_merge ($onlyPersons->toArray(),$onlyFamilyPersons->toArray());
+
 
       $resError = [];
 
       $numberOfPerson = 0;
-      $list           = $mailchimp->getListFromListId($input->list_id);
-      $listID         = $input->list_id;
-      
       $count = 0;
       
-      foreach ($persons as $person) {
+      foreach ($persons as $per) {
+        $person = PersonQuery::Create()->findOneById ($per['Id']);
         if (strlen($person->getEmail()) > 0) {
           $numberOfPerson++;
         

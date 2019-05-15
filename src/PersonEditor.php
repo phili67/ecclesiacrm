@@ -381,7 +381,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->setEmail($sEmail);
             $family->setDateEntered(date('YmdHis'));
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-            $family->setSendNewsletter($bSendNewsLetterString);
             
             $family->save();
             
@@ -406,7 +405,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
               $family->setEmail($sEmail);
               $family->setDateEntered(date('YmdHis'));
               $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-              $family->setSendNewsletter($bSendNewsLetterString);
             
               $family->save();
             }
@@ -443,6 +441,12 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthMonth($iBirthMonth);
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
+            $person->setSendNewsletter($bSendNewsLetterString);
+            
+            // bSendNewsLetterString : When you activated a single person the family is deactivated
+            if ($bSendNewsLetterString == "TRUE") {
+              $person->getFamily()->setSendNewsletter("FALSE");
+            }
             
             if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
@@ -506,7 +510,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $person->setBirthMonth($iBirthMonth);
             $person->setBirthDay($iBirthDay);
             $person->setBirthYear($iBirthYear);
-            
+            $person->setSendNewsletter($bSendNewsLetterString);
+
+            // bSendNewsLetterString : When you activated a single person the family is deactivated
+            if ($bSendNewsLetterString == "TRUE") {
+              $person->getFamily()->setSendNewsletter("FALSE");
+            }
+
             if ( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) {
                 $person->setEnvelope($iEnvelope);
             }
@@ -634,6 +644,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $dFriendDate = ($person->getFriendDate() != null)?$person->getFriendDate()->format('Y-m-d'):"";
         $iClassification = $person->getClsId();
         $iViewAgeFlag = $person->getFlags();
+        $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
+
         
         $iFacebookID = $person->getFacebookID();
         $sTwitter = $person->getTwitter();
@@ -709,7 +721,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $iClassification = '0';
         $iViewAgeFlag = 0;
         $sPhoneCountry = '';
-        $bSendNewsLetter = 'TRUE';
+        $bSendNewsLetter = false;
 
         $iFacebookID = 0;
         $sTwitter = '';
@@ -772,7 +784,6 @@ if ($iFamily != 0) {
     $sState          = $theFamily->getState();
     $sCountry        = $theFamily->getCountry();
     $sZip            = $theFamily->getZip();
-    $bSendNewsLetter = ($theFamily->getSendNewsletter() == 'TRUE');
   }
 }
 
@@ -1035,16 +1046,6 @@ require 'Include/Header.php';
             </div>
           </div>            
           <!-- end of the new code PL -->
-          <div class="form-group">
-            <div class="row">
-                <div class="form-group col-md-2">
-                    <label><?= _('Send Newsletter') ?>:</label>
-                </div>
-                <div class="form-group col-md-4">
-                    <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?> style="margin-top:10px">
-                </div>
-            </div>
-          </div>
       </div>
     </div>
     <div class="box box-info clearfix">
@@ -1324,6 +1325,16 @@ require 'Include/Header.php';
                         <br><input type="checkbox" name="NoFormat_CellPhone" value="1" <?= ($bNoFormat_CellPhone)?' checked':'' ?>><?= _('Do not auto-format') ?>
                     </div>
                 </div>
+                <div class="form-group col-md-3">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label><?= _('Send Newsletter') ?>:</label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?> style="margin-top:10px">
+                        </div>
+                    </div>
+              </div>
             </div>
             <p/>
             <div class="row">
