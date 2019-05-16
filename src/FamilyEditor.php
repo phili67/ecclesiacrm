@@ -20,6 +20,9 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\ListOptionQuery;
@@ -28,10 +31,8 @@ use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustom;
 use EcclesiaCRM\FamilyCustomQuery;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Bootstrapper;
 use EcclesiaCRM\dto\CanvassUtilities;
@@ -271,7 +272,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
     // Validate Email
     if (strlen($sEmail) > 0) {
-        if (checkEmail($sEmail) == false) {
+        if (MiscUtils::checkEmail($sEmail) == false) {
             $sEmailError = '<span style="color: red; ">'
                                 ._('Email is Not Valid').'</span>';
             $bErrorFlag = true;
