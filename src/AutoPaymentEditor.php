@@ -24,6 +24,7 @@ use EcclesiaCRM\DonationFund;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
 $iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID'], 'int');
 $iAutID   = InputUtils::LegacyFilterInput($_GET['AutID'], 'int');
@@ -278,6 +279,10 @@ $ormFunds = DonationFundQuery::Create()->findByActive('true');
 
 if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     include 'Include/VancoConfig.php';
+    
+    echo "toto".$VancoUrltoredirect;
+
+
     $customerid = "$iAutID"; // This is an optional value that can be used to indicate a unique customer ID that is used in your system
     // put aut_ID into the $customerid field
     // Create object to preform API calls
@@ -286,7 +291,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     // Call Login API to receive a session ID to be used in future API calls
     $sessionid = $workingobj->vancoLoginRequest();
     // Create content to be passed in the nvpvar variable for a TransparentRedirect API call
-    $nvpvarcontent = $workingobj->vancoEFTTransparentRedirectNVPGenerator(RedirectURL('CatchCreatePayment.php'), $customerid, '', 'NO');
+    $nvpvarcontent = $workingobj->vancoEFTTransparentRedirectNVPGenerator(RedirectUtils::RedirectURL('CatchCreatePayment.php'), $customerid, '', 'NO');
 }
 ?>
 
@@ -776,7 +781,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                                 for (var i = 0; i < errorArr.length; i++)
                                     errorStr += "Error " + errorArr[i] + ": " + VancoErrorString(Number(errorArr[i])) + "\n";
                                 alert(errorStr);
-                                window.location = "<?= RedirectURL('AutoPaymentEditor.php') . "?AutID=$iAutID&FamilyID=$aut_FamID$&linkBack=$linkBack" ?>";
+                                window.location = "<?= RedirectUtils::RedirectURL('AutoPaymentEditor.php') . "?AutID=$iAutID&FamilyID=$aut_FamID$&linkBack=$linkBack" ?>";
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown, nashuadata) {
