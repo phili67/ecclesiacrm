@@ -16,7 +16,6 @@ use EcclesiaCRM\Utils\OutputUtils;
 
 class MiscUtils {
 
-
 /**
  * Remove the directory and its content (all files and subdirectories), useFull in system upgrade.
  * @param string $path the directory name
@@ -599,5 +598,34 @@ public static function FileSizeConvert($bytes)
         return [$fontinfo[0], mb_substr($fontinfo[1], 0, 1).mb_substr($fontinfo[2], 0, 1)];
     }
   }
+  
+  // Returns the current fiscal year
+  public static function CurrentFY()
+  {
+      $yearNow = date('Y');
+      $monthNow = date('m');
+      $FYID = $yearNow - 1996;
+      if ($monthNow >= SystemConfig::getValue('iFYMonth') && SystemConfig::getValue('iFYMonth') > 1) {
+          $FYID += 1;
+      }
+
+      return $FYID;
+  }
+
+  // PrintFYIDSelect: make a fiscal year selection menu.
+  public static function PrintFYIDSelect($iFYID, $selectName)
+  {
+      echo '<select class="form-control" name="'.$selectName.'">';
+      echo '<option value="0">'._('Select Fiscal Year').'</option>';
+
+      for ($fy = 1; $fy < MiscUtils::CurrentFY() + 2; $fy++) {
+          echo '<option value="'.$fy.'"';
+          if ($iFYID == $fy) {
+              echo ' selected';
+          }
+          echo '>';
+          echo MakeFYString($fy);
+      }
+      echo '</select>';
+  }
 }
-?>

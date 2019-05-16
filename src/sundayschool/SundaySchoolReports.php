@@ -15,12 +15,13 @@ require '../Include/Config.php';
 require '../Include/Functions.php';
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\GroupQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 // Get all the sunday school classes
@@ -30,7 +31,7 @@ $groups = GroupQuery::create()
                     ->find();
                     
 // Set the page title and include HTML header
-$sPageTitle = gettext('Sunday School Reports');
+$sPageTitle = _('Sunday School Reports');
 require '../Include/Header.php';
 
 if (! SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
@@ -139,7 +140,7 @@ if ( isset($_POST['SubmitPhotoBook']) || isset($_POST['SubmitClassList']) || iss
 
         RedirectUtils::Redirect($toStr);
     } elseif (!$bAtLeastOneGroup || $aGrpID == 0) {
-        echo "<p class=\"alert alert-danger\"><span class=\"fa fa-exclamation-triangle\"> ".gettext('At least one group must be selected to make class lists or attendance sheets.')."</span></p>";
+        echo "<p class=\"alert alert-danger\"><span class=\"fa fa-exclamation-triangle\"> "._('At least one group must be selected to make class lists or attendance sheets.')."</span></p>";
     }
 } else {
     $iFYID = $_SESSION['idefaultFY'];
@@ -195,18 +196,18 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
 ?>
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Report Details')?></h3>
+    <h3 class="box-title"><?= _('Report Details')?></h3>
   </div>
   <div class="box-body">
     <form method="post" action="SundaySchoolReports.php">
 
       <table class="table table-simple-padding" align="left">
         <tr>
-          <td><?= gettext('Select Group')?>: <br/><?=gettext('To select multiple hold CTL') ?></td>
+          <td><?= _('Select Group')?>: <br/><?=_('To select multiple hold CTL') ?></td>
           <td>
             <!-- Create the group select drop-down -->
             <select id="GroupID" name="GroupID[]" multiple size="8" style="width:100%">
-               <option value="0"><?= gettext('None') ?></option>
+               <option value="0"><?= _('None') ?></option>
           <?php
             foreach ($groups as $group) {
           ?>
@@ -216,77 +217,77 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
           ?>
             </select>
             <br>
-            <?= gettext('Multiple groups will have a Page Break between Groups<br>') ?>
+            <?= _('Multiple groups will have a Page Break between Groups<br>') ?>
             <input type="checkbox" Name="allroles" value="1" checked>
-            <?= gettext('List all Roles (unchecked will list Teacher/Student roles only)') ?><br>
+            <?= _('List all Roles (unchecked will list Teacher/Student roles only)') ?><br>
             <input type="checkbox" Name="withPictures" value="1" checked>
-            <?= gettext('With Photos') ?>
+            <?= _('With Photos') ?>
           </td>
         </tr>
 
         <tr>
-          <td><?= gettext('Fiscal Year') ?>:</td>
+          <td><?= _('Fiscal Year') ?>:</td>
           <td class="TextColumnWithBottomBorder">
-            <?php PrintFYIDSelect($iFYID, 'FYID') ?>
+            <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
           </td>
         </tr>
 
         <tr>
-          <td><?= gettext('First Sunday') ?>:</td>
+          <td><?= _('First Sunday') ?>:</td>
           <td><input type="text" name="FirstSunday" value="<?= $dFirstSunday ?>" maxlength="10" id="FirstSunday" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('Last Sunday') ?>:</td>
+          <td><?= _('Last Sunday') ?>:</td>
           <td><input type="text" name="LastSunday" value="<?= $dLastSunday ?>" maxlength="10" id="LastSunday" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool1" value="<?= $dNoSchool1 ?>" maxlength="10" id="NoSchool1" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool2" value="<?= $dNoSchool2 ?>" maxlength="10" id="NoSchool2" size="11"  class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool3" value="<?= $dNoSchool3 ?>" maxlength="10" id="NoSchool3" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool4" value="<?= $dNoSchool4 ?>" maxlength="10" id="NoSchool4" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool5" value="<?= $dNoSchool5 ?>" maxlength="10" id="NoSchool5" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool6" value="<?= $dNoSchool6 ?>" maxlength="10" id="NoSchool6" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool7" value="<?= $dNoSchool7 ?>" maxlength="10" id="NoSchool7" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('No Sunday School') ?>:</td>
+          <td><?= _('No Sunday School') ?>:</td>
           <td><input type="text" name="NoSchool8" value="<?= $dNoSchool8 ?>" maxlength="10" id="NoSchool8" size="11" class="date-picker form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
         </tr>
 
         <tr>
-          <td><?= gettext('Extra Students') ?>:</td>
+          <td><?= _('Extra Students') ?>:</td>
           <td><input type="text" name="ExtraStudents" class="form-control" value="<?= $iExtraStudents ?>" id="ExtraStudents" size="11">&nbsp;</td>
         </tr>
         <tr>
-          <td><?= gettext('Extra Teachers') ?>:</td>
+          <td><?= _('Extra Teachers') ?>:</td>
           <td><input type="text" name="ExtraTeachers" class="form-control" value="<?= $iExtraTeachers ?>" id="ExtraTeachers" size="11">&nbsp;</td>
         </tr>
         <tr>
@@ -299,16 +300,16 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
       ?>
          <div class="row">
               <div class="col-md-3">
-                  <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= gettext('Class List') ?>">
+                  <input type="submit" class="btn btn-primary" name="SubmitClassList" value="<?= _('Class List') ?>">
               </div>
               <div class="col-md-3">
-                  <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= gettext('Attendance Sheet') ?>">
+                  <input type="submit" class="btn btn-info" name="SubmitClassAttendance" value="<?= _('Attendance Sheet') ?>">
               </div>
               <div class="col-md-3">
-                  <button type="button" class="btn btn-info exportCheckOutPDF" id="exportCheckOutPDF" data-makecheckoutgroupid="0"><?= gettext('Real Attendance Sheet') ?></button>
+                  <button type="button" class="btn btn-info exportCheckOutPDF" id="exportCheckOutPDF" data-makecheckoutgroupid="0"><?= _('Real Attendance Sheet') ?></button>
               </div>
               <div class="col-md-3">
-                <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= gettext('PhotoBook') ?>">
+                <input type="submit" class="btn btn-danger" name="SubmitPhotoBook" value="<?= _('PhotoBook') ?>">
               </div>
           </div>
       <?php
@@ -317,7 +318,7 @@ $dNoSchool8   = OutputUtils::change_date_for_place_holder($dNoSchool6);
         </td>
         <td width="25%">
           <div class="col-rd-12">
-          <input type="button" style="align=right" class="btn btn-default" name="Cancel" value="<?= gettext('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/Menu.php';">
+          <input type="button" style="align=right" class="btn btn-default" name="Cancel" value="<?= _('Cancel') ?>" onclick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/Menu.php';">
         </div>
         </td>
         </tr>

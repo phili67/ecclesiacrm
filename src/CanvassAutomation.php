@@ -16,6 +16,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\utils\MiscUtils;
 
 //Set the page title
 $sPageTitle = _('Canvass Automation');
@@ -26,7 +27,7 @@ if (!SessionUser::getUser()->isCanvasserEnabled()) {
     exit;
 }
 
-$iFYID = CurrentFY();
+$iFYID = MiscUtils::CurrentFY();
 if (array_key_exists('idefaultFY', $_SESSION)) {
     $iFYID = $_SESSION['idefaultFY'];
 }
@@ -122,7 +123,7 @@ if ($processNews != '') {
         <form method="post" action="CanvassAutomation.php" name="CanvassAutomation">
 
           <p><?= _('Fiscal Year:') ?>
-            <?php PrintFYIDSelect($iFYID, 'FYID') ?>
+            <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
           </p>
 
           <table border width="100%" align="left">

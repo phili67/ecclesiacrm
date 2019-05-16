@@ -15,6 +15,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\MiscUtils;
+
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
@@ -26,7 +28,7 @@ $now = time();
 $dDate = date('Y-m-d', $now);
 $lwDate = date('Y-m-d', $now - (6 * 24 * 60 * 60));
 
-$iFYID = CurrentFY();
+$iFYID = MiscUtils::CurrentFY();
 $iDepositSlipID = InputUtils::LegacyFilterInput($_GET['DepositSlipID']);
 
 include 'Include/eGiveConfig.php'; // Specific account information is in here
@@ -75,7 +77,7 @@ while ($aRow = mysqli_fetch_array($rsPlgIDs)) {
 } // end while
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('eGive Import');
+$sPageTitle = _('eGive Import');
 require 'Include/Header.php';
 
 if (isset($_POST['ApiGet'])) {
@@ -263,11 +265,11 @@ if (isset($_POST['ApiGet'])) {
 	<table cellpadding="3" align="left">
 	<tr><td>
 		<form method="post" action="eGive.php?DepositSlipID=<?php echo $iDepositSlipID ?>" enctype="multipart/form-data">
-		<class="LabelColumn"><b><?= gettext('Start Date: ') ?></b>
+		<class="LabelColumn"><b><?= _('Start Date: ') ?></b>
 			<class="TextColumn"><input type="text" name="StartDate" value="<?= $lwDate ?>" maxlength="10" id="StartDate" size="11" class="date-picker"><font color="red"><?php echo $sDateError ?></font><br>
-			<class="LabelColumn"><b><?= gettext('End Date: ') ?></b>
+			<class="LabelColumn"><b><?= _('End Date: ') ?></b>
 			<class="TextColumn"><input type="text" name="EndDate" value="<?= $dDate ?>" maxlength="10" id="EndDate" size="11" class="date-picker"><font color="red"><?php echo $sDateError ?></font><br><br>
-		<input type="submit" class="btn" value="<?= gettext('Import eGive') ?>" name="ApiGet">
+		<input type="submit" class="btn" value="<?= _('Import eGive') ?>" name="ApiGet">
 		<br><br><br>
 		</form>
 		</td>
@@ -341,7 +343,7 @@ function importDoneFixOrContinue()
 			<td><class="TextColumn"><input type="text" name="MissingEgive_ID_<?= $nameWithUnderscores ?>" value="<?= $egiveID ?>" maxlength="10"></td>
 			<td class="TextColumn">
 			<select name="MissingEgive_FamID_<?= $nameWithUnderscores ?>">
-			<option value="0" selected><?= gettext('Unassigned') ?></option>
+			<option value="0" selected><?= _('Unassigned') ?></option>
 			<?php
             echo $familySelectHtml; ?>
 			</select>
@@ -352,12 +354,12 @@ function importDoneFixOrContinue()
         } ?>
 		</table><br>
 
-		<input type="submit" class="btn" value="<?= gettext('Re-import to selected family') ?>" name="ReImport">
+		<input type="submit" class="btn" value="<?= _('Re-import to selected family') ?>" name="ReImport">
 	<?php
     } ?>
 
-	<p class="MediumLargeText"> <?= gettext('Data import results: ').$importCreated.gettext(' gifts were imported, ').$importNoChange.gettext(' gifts unchanged, and ').$importError.gettext(' gifts not imported due to problems') ?></p>
-	<input type="button" class="btn" value="<?= gettext('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+	<p class="MediumLargeText"> <?= _('Data import results: ').$importCreated._(' gifts were imported, ').$importNoChange._(' gifts unchanged, and ').$importError._(' gifts not imported due to problems') ?></p>
+	<input type="button" class="btn" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
 <?php
 }
 
@@ -385,8 +387,8 @@ function get_api_data($json)
         return $result;
     } else {
         ?>
-		<font color="red"><?= gettext("Fatal error in eGive API datastream: '").$error ?>"'</font><br><br>
- 		<input type="button" class="btn" value="<?= gettext('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
+		<font color="red"><?= _("Fatal error in eGive API datastream: '").$error ?>"'</font><br><br>
+ 		<input type="button" class="btn" value="<?= _('Back to Deposit Slip') ?>" onclick="javascript:document.location='DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>'"
 	<?php
         return 0;
     }
