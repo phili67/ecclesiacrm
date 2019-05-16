@@ -14,6 +14,7 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_CanvassBriefingReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\CanvassUtilities;
 
 //Get the Fiscal Year ID out of the querystring
@@ -248,7 +249,7 @@ function CanvassBriefingSheets($iFYID)
             } else {
                 $sGender = 'F';
             }
-            $sAge = FormatAge($aFamilyMember['per_BirthMonth'], $aFamilyMember['per_BirthDay'], $aFamilyMember['per_BirthYear'], $aFamilyMember['per_Flags']);
+            $sAge = OutputUtils::FormatAge($aFamilyMember['per_BirthMonth'], $aFamilyMember['per_BirthDay'], $aFamilyMember['per_BirthYear'], $aFamilyMember['per_Flags']);
             $pdf->WriteAt($memberNameX, $curY, $aFamilyMember['per_FirstName'].' '.$aFamilyMember['per_LastName']);
             $pdf->WriteAt($memberGenderX, $curY, $sGender);
             $pdf->WriteAt($memberRoleX, $curY, $aFamilyMember['sFamRole']);

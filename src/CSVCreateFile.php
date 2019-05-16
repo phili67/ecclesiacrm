@@ -495,8 +495,8 @@ if ($sFormat == 'addtocart') {
                     if (isset($_POST['Age'])) {
                         if (isset($per_BirthYear)) {
                             $birthdate = $per_BirthYear.'-'.$per_BirthMonth.'-'.$per_BirthDay.' 00:00:00';
-                            $age = FormatAge($per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags);
-                            //$age = FormatAgeSuffix($birthDate, 0);
+                            $age = OutputUtils::FormatAge($per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags);
+                            //$age = OutputUtils::FormatAgeSuffix($birthDate, 0);
                         } else {
                             $age = '';
                         }
