@@ -476,7 +476,7 @@ if (!empty($person->getDateDeactivated())) {
           <?php 
             if (!$person->hideAge()) {
           ?>
-            (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?=FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
+            (<span data-birth-date="<?= $person->getBirthDate()->format('Y-m-d') ?>"></span> <?= OutputUtils::FormatAgeSuffix($person->getBirthDate(), $person->getFlags()) ?>)
           <?php
             } 
           ?>
