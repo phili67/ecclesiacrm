@@ -185,9 +185,9 @@ $ormClassifications = ListOptionQuery::Create()
 $iTableSpacerWidth = 10;
 
 // Format the phone numbers
-$sHomePhone = ExpandPhoneNumber($family->getHomePhone(), $family->getCountry(), $dummy);
-$sWorkPhone = ExpandPhoneNumber($family->getWorkPhone(), $family->getCountry(), $dummy);
-$sCellPhone = ExpandPhoneNumber($family->getCellPhone(), $family->getCountry(), $dummy);
+$sHomePhone = MiscUtils::ExpandPhoneNumber($family->getHomePhone(), $family->getCountry(), $dummy);
+$sWorkPhone = MiscUtils::ExpandPhoneNumber($family->getWorkPhone(), $family->getCountry(), $dummy);
+$sCellPhone = MiscUtils::ExpandPhoneNumber($family->getCellPhone(), $family->getCountry(), $dummy);
 
 $sFamilyEmails = array();
 

@@ -347,13 +347,13 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
         
         if (!$bNoFormat_HomePhone) {
-            $sHomePhone = CollapsePhoneNumber($sHomePhone, $sPhoneCountry);
+            $sHomePhone = MiscUtils::CollapsePhoneNumber($sHomePhone, $sPhoneCountry);
         }
         if (!$bNoFormat_WorkPhone) {
-            $sWorkPhone = CollapsePhoneNumber($sWorkPhone, $sPhoneCountry);
+            $sWorkPhone = MiscUtils::CollapsePhoneNumber($sWorkPhone, $sPhoneCountry);
         }
         if (!$bNoFormat_CellPhone) {
-            $sCellPhone = CollapsePhoneNumber($sCellPhone, $sPhoneCountry);
+            $sCellPhone = MiscUtils::CollapsePhoneNumber($sCellPhone, $sPhoneCountry);
         }
         
         //If no birth year, set to NULL
@@ -653,9 +653,9 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
         $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
 
-        $sHomePhone = ExpandPhoneNumber($sHomePhone, $sPhoneCountry, $bNoFormat_HomePhone);
-        $sWorkPhone = ExpandPhoneNumber($sWorkPhone, $sPhoneCountry, $bNoFormat_WorkPhone);
-        $sCellPhone = ExpandPhoneNumber($sCellPhone, $sPhoneCountry, $bNoFormat_CellPhone);
+        $sHomePhone = MiscUtils::ExpandPhoneNumber($sHomePhone, $sPhoneCountry, $bNoFormat_HomePhone);
+        $sWorkPhone = MiscUtils::ExpandPhoneNumber($sWorkPhone, $sPhoneCountry, $bNoFormat_WorkPhone);
+        $sCellPhone = MiscUtils::ExpandPhoneNumber($sCellPhone, $sPhoneCountry, $bNoFormat_CellPhone);
 
         //The following values are True booleans if the family record has a value for the
         //indicated field.  These are used to highlight field headers in red.

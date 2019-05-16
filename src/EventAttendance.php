@@ -15,6 +15,7 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 
 
 if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
@@ -29,7 +30,7 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3, family_fam AS t4
                 WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND t1.per_fam_ID = t4.fam_ID AND per_cls_ID IN ('1','2','5')
                 ORDER BY t1.per_LastName, t1.per_ID";
-        $sPageTitle = gettext('Event Attendees');
+        $sPageTitle = _('Event Attendees');
     } elseif ($_POST['Choice'] == 'Nonattendees') {
         $aSQL = 'SELECT DISTINCT(person_id) FROM event_attend WHERE event_id = '.$_POST['Event'];
         $raOpps = RunQuery($aSQL);
@@ -49,25 +50,25 @@ if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !emp
                         WHERE t1.per_fam_ID = t2.fam_ID AND per_cls_ID IN ('1','2','5')
                         ORDER BY t1.per_LastName, t1.per_ID";
         }
-        $sPageTitle = gettext('Event Nonattendees');
+        $sPageTitle = _('Event Nonattendees');
     } elseif ($_POST['Choice'] == 'Guests') {
         $sSQL = 'SELECT t1.per_ID, t1.per_Title, t1.per_FirstName, t1.per_MiddleName, t1.per_LastName, t1.per_Suffix, t1.per_HomePhone, t1.per_Country
                 FROM person_per AS t1, events_event AS t2, event_attend AS t3
                 WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$_POST['Event']." AND per_cls_ID IN ('0','3')
                 ORDER BY t1.per_LastName, t1.per_ID";
-        $sPageTitle = gettext('Event Guests');
+        $sPageTitle = _('Event Guests');
     }
 } elseif (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && !empty($_GET['Event'])) {
     $sSQL = 'SELECT * FROM events_event WHERE event_type = '.$_GET['Event'].' ORDER BY event_start';
 
     //I change textt from All $_GET['Type'] Events to All Events of type . $_GET['Type'], because it don´t work for protuguese, spanish, french and so on
-    $sPageTitle = gettext('All Events of Type').': '.$_GET['Type'];
+    $sPageTitle = _('All Events of Type').': '.$_GET['Type'];
 }
 require 'Include/Header.php';
 ?>
 <table cellpadding="4" align="center" cellspacing="0" width="100%">
   <tr>
-    <td align="center"><input type="button" class="btn" value="<?= gettext('Back to Report Menu') ?>" Name="Exit" onclick="javascript:document.location='ReportList.php';"></td>
+    <td align="center"><input type="button" class="btn" value="<?= _('Back to Report Menu') ?>" Name="Exit" onclick="javascript:document.location='ReportList.php';"></td>
   </tr>
 </table>
 <?php
@@ -92,7 +93,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         $aLastName[$row] = $per_LastName;
         $aSuffix[$row] = $per_Suffix;
         $aEmail[$row] = $per_Email;
-        $aHomePhone[$row] = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $per_Country, $dummy), ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
+        $aHomePhone[$row] = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $per_Country, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
     }
 }
 
@@ -104,12 +105,12 @@ for ($row = 1; $row <= $numRows; $row++) {
 if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows > 0) {
     ?>
        <caption>
-               <h3><?= ($numRows == 1 ? gettext('There is') : gettext('There are')).' '.$numRows.' '.($numRows == 1 ? gettext('event') : gettext('events')).gettext(' in this category.') ?></h3>
+               <h3><?= ($numRows == 1 ? _('There is') : _('There are')).' '.$numRows.' '.($numRows == 1 ? _('event') : _('events'))._(' in this category.') ?></h3>
        </caption>
          <tr class="TableHeader">
-           <td width="33%"><strong><?= gettext('Event Title') ?></strong></td>
-           <td width="33%"><strong><?= gettext('Event Date') ?></strong></td>
-           <td colspan="3" width="34%" align="center"><strong><?= gettext('Generate Report') ?></strong></td>
+           <td width="33%"><strong><?= _('Event Title') ?></strong></td>
+           <td width="33%"><strong><?= _('Event Date') ?></strong></td>
+           <td colspan="3" width="34%" align="center"><strong><?= _('Generate Report') ?></strong></td>
         </tr>
          <?php
          //Set the initial row color
@@ -141,7 +142,7 @@ $cSQL = 'SELECT COUNT(per_ID) AS cCount
          WHERE per_cls_ID IN ('1','2','5')";
         $tOpps = RunQuery($tSQL);
         $tNumTotal = mysqli_fetch_row($tOpps)[0]; ?>
-               <input type="submit" name="Type" value="<?= gettext('Attending Members').' ['.$cNumAttend.']' ?>" class="btn">
+               <input type="submit" name="Type" value="<?= _('Attending Members').' ['.$cNumAttend.']' ?>" class="btn">
              </form>
            </td>
            <td class="TextColumn">
@@ -152,7 +153,7 @@ $cSQL = 'SELECT COUNT(per_ID) AS cCount
                <input type="hidden" name="Choice" value="Nonattendees">
 <?php
 ?>
-               <input type="submit" name="Type" value="<?= gettext('Non-Attending Members').' ['.($tNumTotal - $cNumAttend).']' ?>" class="btn">
+               <input type="submit" name="Type" value="<?= _('Non-Attending Members').' ['.($tNumTotal - $cNumAttend).']' ?>" class="btn">
              </form>
            </td>
            <td class="TextColumn">
@@ -167,7 +168,7 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
          WHERE t1.per_ID = t3.person_id AND t2.event_id = t3.event_id AND t3.event_id = '.$aEventID[$row].' AND per_cls_ID = 3';
         $gOpps = RunQuery($gSQL);
         $gNumGuestAttend = mysqli_fetch_row($gOpps)[0]; ?>
-               <input <?= ($gNumGuestAttend == 0 ? 'type="button"' : 'type="submit"') ?> name="Type" value="<?= gettext('Guests').' ['.$gNumGuestAttend.']' ?>" class="btn">
+               <input <?= ($gNumGuestAttend == 0 ? 'type="button"' : 'type="submit"') ?> name="Type" value="<?= _('Guests').' ['.$gNumGuestAttend.']' ?>" class="btn">
              </form>
            </td>
          </tr>
@@ -178,13 +179,13 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
 } elseif ($_POST['Action'] == 'Retrieve' && $numRows > 0) {
         ?>
        <caption>
-         <h3><?= gettext('There '.($numRows == 1 ? 'was '.$numRows.' '.$_POST['Choice'] : 'were '.$numRows.' '.$_POST['Choice'])).' for this Event' ?></h3>
+         <h3><?= _('There '.($numRows == 1 ? 'was '.$numRows.' '.$_POST['Choice'] : 'were '.$numRows.' '.$_POST['Choice'])).' for this Event' ?></h3>
        </caption>
          <tr class="TableHeader">
-           <td width="35%"><strong><?= gettext('Name') ?></strong></td>
-           <td width="25%"><strong><?= gettext('Email') ?></strong></td>
-           <td width="25%"><strong><?= gettext('Home Phone') ?></strong></td>
-           <td width="15%" nowrap><strong><?php /* echo gettext("Cart"); */ ?>&nbsp;</strong></td>
+           <td width="35%"><strong><?= _('Name') ?></strong></td>
+           <td width="25%"><strong><?= _('Email') ?></strong></td>
+           <td width="25%"><strong><?= _('Home Phone') ?></strong></td>
+           <td width="15%" nowrap><strong><?php /* echo _("Cart"); */ ?>&nbsp;</strong></td>
         </tr>
 <?php
          //Set the initial row color
@@ -204,14 +205,14 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
 <?php
 // AddToCart call to go here
 ?>
-           <td class="TextColumn"><?php /* echo '<a onclick="return AddToCart('.$aPersonID[$row].');" href="blank.html">'.gettext("Add to Cart").'</a>'; */ ?>&nbsp;</td>
+           <td class="TextColumn"><?php /* echo '<a onclick="return AddToCart('.$aPersonID[$row].');" href="blank.html">'._("Add to Cart").'</a>'; */ ?>&nbsp;</td>
          </tr>
 <?php
         }
     } else {
         ?>
        <caption>
-         <h3><?= $_GET ? gettext('There are no events in this category') : gettext('There are no Records') ?><br><br></h3>
+         <h3><?= $_GET ? _('There are no events in this category') : _('There are no Records') ?><br><br></h3>
        </caption>
        <tr><td>&nbsp;</td></tr>
 <?php

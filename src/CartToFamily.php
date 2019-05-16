@@ -18,6 +18,8 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Map\FamilyTableMap;
@@ -26,7 +28,6 @@ use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\StateDropDown;
 use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -100,13 +101,13 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         $sWorkPhone = InputUtils::LegacyFilterInput($_POST['WorkPhone']);
         $sCellPhone = InputUtils::LegacyFilterInput($_POST['CellPhone']);
         if (!isset($_POST['NoFormat_HomePhone'])) {
-            $sHomePhone = CollapsePhoneNumber($sHomePhone, $sCountry);
+            $sHomePhone = MiscUtils::CollapsePhoneNumber($sHomePhone, $sCountry);
         }
         if (!isset($_POST['NoFormat_WorkPhone'])) {
-            $sWorkPhone = CollapsePhoneNumber($sWorkPhone, $sCountry);
+            $sWorkPhone = MiscUtils::CollapsePhoneNumber($sWorkPhone, $sCountry);
         }
         if (!isset($_POST['NoFormat_CellPhone'])) {
-            $sCellPhone = CollapsePhoneNumber($sCellPhone, $sCountry);
+            $sCellPhone = MiscUtils::CollapsePhoneNumber($sCellPhone, $sCountry);
         }
 
         $sHomePhone = SelectWhichInfo($sHomePhone, $per_HomePhone);

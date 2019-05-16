@@ -14,11 +14,12 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PastoralCareQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -119,17 +120,17 @@ $sState = SelectWhichInfo($per_State, $fam_State, false);
 $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
 $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
 
-$sHomePhone = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $sCountry, $dummy),
-  ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
-$sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $sCountry, $dummy),
-  ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
-$sCellPhone = SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $sCountry, $dummy),
-  ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
+$sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $dummy),
+  MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
+$sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sCountry, $dummy),
+  MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
+$sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sCountry, $dummy),
+  MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
 
 $sUnformattedEmail = SelectWhichInfo($per_Email, $fam_Email, false);
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Printable View');
+$sPageTitle = _('Printable View');
 $iTableSpacerWidth = 10;
 require 'Include/Header-Short.php';
 ?>
@@ -203,17 +204,17 @@ if ($fam_ID) {
   <td width="33%" valign="top" align="left">
     <table cellspacing="1" cellpadding="4">
     <tr>
-      <td class="LabelColumn"><?= gettext('Home Phone') ?>:</td>
+      <td class="LabelColumn"><?= _('Home Phone') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sHomePhone ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= gettext('Work Phone') ?>:</td>
+      <td class="LabelColumn"><?= _('Work Phone') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sWorkPhone ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= gettext('Mobile Phone') ?>:</td>
+      <td class="LabelColumn"><?= _('Mobile Phone') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
     </tr>
@@ -242,43 +243,43 @@ if ($fam_ID) {
   <td width="33%" valign="top" align="left">
     <table cellspacing="1" cellpadding="4">
     <tr>
-      <td class="LabelColumn"><?= gettext('Gender') ?>:</td>
+      <td class="LabelColumn"><?= _('Gender') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
         <?php
                 switch (strtolower($per_Gender)) {
                     case 1:
-                        echo gettext('Male');
+                        echo _('Male');
                         break;
                     case 2:
-                        echo gettext('Female');
+                        echo _('Female');
                         break;
                 } ?>
       </td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= gettext('Birth Date') ?>:</td>
+      <td class="LabelColumn"><?= _('Birth Date') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $dBirthDate ?>&nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= gettext('Family') ?>:</td>
+      <td class="LabelColumn"><?= _('Family') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
       <?php if ($fam_Name != '') {
                     echo $fam_Name;
                 } else {
-                    echo gettext('Unassigned');
+                    echo _('Unassigned');
                 } ?>
       &nbsp;</td>
     </tr>
     <tr>
-      <td class="LabelColumn"><?= gettext('Family Role') ?>:</td>
+      <td class="LabelColumn"><?= _('Family Role') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumnWithBottomBorder"><?php if ($sFamRole != '') {
                     echo $sFamRole;
                 } else {
-                    echo gettext('Unassigned');
+                    echo _('Unassigned');
                 } ?>&nbsp;</td>
     </tr>
     <?php
@@ -298,22 +299,22 @@ if ($fam_ID) {
   <td width="33%" valign="top" align="left">
     <table cellspacing="1" cellpadding="4">
       <tr>
-        <td class="LabelColumn"><?= gettext('Email') ?>:</td>
+        <td class="LabelColumn"><?= _('Email') ?>:</td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sUnformattedEmail ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= gettext('Work / Other Email') ?>:</td>
+        <td class="LabelColumn"><?= _('Work / Other Email') ?>:</td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sWorkEmail ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= gettext('Membership Date') ?>:</td>
+        <td class="LabelColumn"><?= _('Membership Date') ?>:</td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumn"><?= OutputUtils::FormatDate($per_MembershipDate, false) ?>&nbsp;</td>
       </tr>
       <tr>
-        <td class="LabelColumn"><?= gettext('Classification') ?>:</td>
+        <td class="LabelColumn"><?= _('Classification') ?>:</td>
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
       </tr>
@@ -338,13 +339,13 @@ if ($fam_ID) {
 <?php if ($fam_ID) {
             ?>
 
-<b><?= gettext('Family Members') ?>:</b>
+<b><?= _('Family Members') ?>:</b>
 <table cellpadding=5 cellspacing=0 width="100%">
   <tr class="TableHeader">
-    <td><?= gettext('Name') ?></td>
-    <td><?= gettext('Gender') ?></td>
-    <td><?= gettext('Role') ?></td>
-    <td><?= gettext('Age') ?></td>
+    <td><?= _('Name') ?></td>
+    <td><?= _('Gender') ?></td>
+    <td><?= _('Role') ?></td>
+    <td><?= _('Age') ?></td>
   </tr>
 <?php
     $sRowClass = 'RowColorA';
@@ -367,7 +368,7 @@ if ($fam_ID) {
         <br>
       </td>
       <td>
-        <?php switch ($per_Gender) {case 1: echo gettext('Male'); break; case 2: echo gettext('Female'); break; default: echo ''; } ?>&nbsp;
+        <?php switch ($per_Gender) {case 1: echo _('Male'); break; case 2: echo _('Female'); break; default: echo ''; } ?>&nbsp;
       </td>
       <td>
         <?= $sFamRole ?>&nbsp;
@@ -381,7 +382,7 @@ if ($fam_ID) {
         }
 ?>
 <BR>
-<b><?= gettext('Assigned Groups') ?>:</b>
+<b><?= _('Assigned Groups') ?>:</b>
 
 <?php
 
@@ -392,12 +393,12 @@ $sAssignedGroups = ',';
 
 //Was anything returned?
 if (mysqli_num_rows($rsAssignedGroups) == 0) {
-    echo '<p align"center">'.gettext('No group assignments.').'</p>';
+    echo '<p align"center">'._('No group assignments.').'</p>';
 } else {
     echo '<table width="100%" cellpadding="4" cellspacing="0">';
     echo '<tr class="TableHeader">';
-    echo '<td width="15%"><b>'.gettext('Group Name').'</b>';
-    echo '<td><b>'.gettext('Role').'</b></td>';
+    echo '<td width="15%"><b>'._('Group Name').'</b>';
+    echo '<td><b>'._('Role').'</b></td>';
     echo '</tr>';
 
     //Loop through the rows
@@ -410,7 +411,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
         // DISPLAY THE ROW
         echo '<tr class="'.$sRowClass.'">';
         echo ' <td>'.$grp_Name.'</td>';
-        echo ' <td>'.gettext($roleName).'</td>';
+        echo ' <td>'._($roleName).'</td>';
         echo '</tr>';
 
         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
@@ -432,7 +433,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
                     // only create the properties table if it's actually going to be used
                     if ($firstRow) {
                         echo '<tr><td colspan="2"><table width="50%"><tr><td width="15%"></td><td><table width="90%" cellspacing="0">';
-                        echo '<tr class="TinyTableHeader"><td>'.gettext('Property').'</td><td>'.gettext("Value").'</td></tr>';
+                        echo '<tr class="TinyTableHeader"><td>'._('Property').'</td><td>'._("Value").'</td></tr>';
                         $firstRow = false;
                     }
                     $sRowClass = AlternateRowStyle($sRowClass);
@@ -453,7 +454,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
 }
 ?>
 <BR>
-<b><?= gettext('Assigned Properties') ?>:</b>
+<b><?= _('Assigned Properties') ?>:</b>
 
 <?php
 
@@ -464,12 +465,12 @@ $sAssignedProperties = ',';
 
 //Was anything returned?
 if (mysqli_num_rows($rsAssignedProperties) == 0) {
-    echo '<p align"center">'.gettext('No property assignments.').'</p>';
+    echo '<p align"center">'._('No property assignments.').'</p>';
 } else {
     echo '<table width="100%" cellpadding="4" cellspacing="0">';
     echo '<tr class="TableHeader">';
-    echo '<td width="25%" valign="top"><b>'.gettext('Name').'</b>';
-    echo '<td valign="top"><b>'.gettext('Value').'</td>';
+    echo '<td width="25%" valign="top"><b>'._('Name').'</b>';
+    echo '<td valign="top"><b>'._('Value').'</td>';
     echo '</tr>';
 
     while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
@@ -482,7 +483,7 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
 
         //Display the row
         echo '<tr class="'.$sRowClass.'">';
-        echo '<td valign="top">'.gettext($pro_Name).'&nbsp;</td>';
+        echo '<td valign="top">'._($pro_Name).'&nbsp;</td>';
         echo '<td valign="top">'.$r2p_Value.'&nbsp;</td>';
 
         echo '</tr>';
@@ -495,7 +496,7 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
 $currentPastorId = SessionUser::getUser()->getPerson()->getID();
 
 if (SessionUser::getUser()->isPastoralCareEnabled()) {
-  echo '<br><br><p style="text-transform: uppercase;font-size:24px"><b>'.gettext('Pastoral Care').'</b></p>';
+  echo '<br><br><p style="text-transform: uppercase;font-size:24px"><b>'._('Pastoral Care').'</b></p>';
   
   if ($ormPastoralCares->count() > 0) {
 
@@ -504,14 +505,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
        if ($ormPastoralCare->getVisible() || $ormPastoralCare->getPastorId() == $currentPastorId) {
          echo '<p class="ShadedBox">'.$ormPastoralCare->getText().'</p>';
        } else {
-         echo '<p class="ShadedBox">'.gettext("Private Data").'</p>';
+         echo '<p class="ShadedBox">'._("Private Data").'</p>';
        }
-       echo '<span class="SmallText"><small>'.gettext('Entered:').($ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s')).'</small></span><br>';
+       echo '<span class="SmallText"><small>'._('Entered:').($ormPastoralCare->getDate()->format(SystemConfig::getValue('sDateFormatLong').' H:i:s')).'</small></span><br>';
        echo '<br>';
     }
     
   } else {
-    echo gettext("None");
+    echo _("None");
   }
 }
 require 'Include/Footer-Short.php';

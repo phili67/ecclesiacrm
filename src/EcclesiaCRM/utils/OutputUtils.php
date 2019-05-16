@@ -268,9 +268,9 @@ class OutputUtils {
       // Handler for phone numbers
       case 11:
         if ($with_link) {
-          return '<a href="tel:'.$data.'">'.ExpandPhoneNumber($data, $special, $dummy).'</a>';
+          return '<a href="tel:'.$data.'">'.MiscUtils::ExpandPhoneNumber($data, $special, $dummy).'</a>';
         } else {
-          return ExpandPhoneNumber($data, $special, $dummy);
+          return MiscUtils::ExpandPhoneNumber($data, $special, $dummy);
         }
         break;
 
@@ -419,11 +419,11 @@ class OutputUtils {
     // Handler for phone numbers
     case 11:
 
-      // This is silly. Perhaps ExpandPhoneNumber before this function is called!
+      // This is silly. Perhaps MiscUtils::ExpandPhoneNumber before this function is called!
       // this business of overloading the special field is really troublesome when trying to follow the code.
       if ($bFirstPassFlag) {
           // in this case, $special is the phone country
-          $data = ExpandPhoneNumber($data, $special, $bNoFormat_Phone);
+          $data = MiscUtils::ExpandPhoneNumber($data, $special, $bNoFormat_Phone);
       }
       if (isset($_POST[$fieldname.'noformat'])) {
           $bNoFormat_Phone = true;

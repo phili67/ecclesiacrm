@@ -15,16 +15,16 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -120,12 +120,12 @@ class Family
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('CSV Import');
+$sPageTitle = _('CSV Import');
 require 'Include/Header.php'; ?>
 
 <div class="box import-users" style="display: box;">
 <div class="box-header with-border">
-   <h3 class="box-title"><?= gettext('Import Data')?></h3>
+   <h3 class="box-title"><?= _('Import Data')?></h3>
 </div>
 <div class="box-body">
 
@@ -148,7 +148,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
     
     // Check if a valid CSV file was actually uploaded
     if ($_FILES['CSVfile']['name'] == '' && !isset($_POST['iSelectedValues'])) {
-        $csvError = gettext('No file selected for upload.');
+        $csvError = _('No file selected for upload.');
     }
 
     // Valid file, so save it and display the import mapping form.
@@ -175,7 +175,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           <input type="hidden" name="sSeperator" value="<?= $generalCSVSeparator ?>">
           <input type="hidden" name="iSelectedValues" value="0" id="selectedValues">
 
-        <label><?= gettext('Total number of rows in the CSV file:') ?></label> <b><?= $iNumRows ?></b>
+        <label><?= _('Total number of rows in the CSV file:') ?></label> <b><?= $iNumRows ?></b>
         <BR>
         <table class="table horizontal-scroll" id="importTable" border=1 rules="all">
       <?php
@@ -232,28 +232,28 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             ?>
             <td>
             <select name="<?= 'col'.$col ?>" class="columns" class="form-control" id="col<?= $col ?>"  data-col="<?= $col ?>" data-numcol="<?= $numCol ?>">
-                <option value="0"><?= gettext('Ignore this Field') ?></option>
-                <option value="1"><?= gettext('Title') ?></option>
-                <option value="2"><?= gettext('First Name') ?></option>
-                <option value="3"><?= gettext('Middle Name') ?></option>
-                <option value="4"><?= gettext('Last Name') ?></option>
-                <option value="5"><?= gettext('Suffix') ?></option>
-                <option value="6"><?= gettext('Gender') ?></option>
-                <option value="7"><?= gettext('Donation Envelope') ?></option>
-                <option value="8"><?= gettext('Address') ?> 1</option>
-                <option value="9"><?= gettext('Address') ?> 2</option>
-                <option value="10"><?= gettext('City') ?></option>
-                <option value="11"><?= gettext('State') ?></option>
-                <option value="12"><?= gettext('Zip') ?></option>
-                <option value="13"><?= gettext('Country') ?></option>
-                <option value="14"><?= gettext('Home Phone') ?></option>
-                <option value="15"><?= gettext('Work Phone') ?></option>
-                <option value="16"><?= gettext('Mobile Phone') ?></option>
-                <option value="17"><?= gettext('Email') ?></option>
-                <option value="18"><?= gettext('Work / Other Email') ?></option>
-                <option value="19"><?= gettext('Birth Date') ?></option>
-                <option value="20"><?= gettext('Membership Date') ?></option>
-                <option value="21"><?= gettext('Wedding Date') ?></option>
+                <option value="0"><?= _('Ignore this Field') ?></option>
+                <option value="1"><?= _('Title') ?></option>
+                <option value="2"><?= _('First Name') ?></option>
+                <option value="3"><?= _('Middle Name') ?></option>
+                <option value="4"><?= _('Last Name') ?></option>
+                <option value="5"><?= _('Suffix') ?></option>
+                <option value="6"><?= _('Gender') ?></option>
+                <option value="7"><?= _('Donation Envelope') ?></option>
+                <option value="8"><?= _('Address') ?> 1</option>
+                <option value="9"><?= _('Address') ?> 2</option>
+                <option value="10"><?= _('City') ?></option>
+                <option value="11"><?= _('State') ?></option>
+                <option value="12"><?= _('Zip') ?></option>
+                <option value="13"><?= _('Country') ?></option>
+                <option value="14"><?= _('Home Phone') ?></option>
+                <option value="15"><?= _('Work Phone') ?></option>
+                <option value="16"><?= _('Mobile Phone') ?></option>
+                <option value="17"><?= _('Email') ?></option>
+                <option value="18"><?= _('Work / Other Email') ?></option>
+                <option value="19"><?= _('Birth Date') ?></option>
+                <option value="20"><?= _('Membership Date') ?></option>
+                <option value="21"><?= _('Wedding Date') ?></option>
                 <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
             </select>
             </td>
@@ -265,7 +265,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           if (isset($_POST['iSelectedValues']) && $iSelectedValues < 3) {
         ?>
             <div class="callout callout-danger">
-              <?= gettext("An error occurs when you import the CSV file. You've to select values above in the select fields.") ?>
+              <?= _("An error occurs when you import the CSV file. You've to select values above in the select fields.") ?>
             </div>
             <br>
              
@@ -274,20 +274,20 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
         ?>
         <div class="row" style="margin-top:-10px">
           <div class="col-lg-12">
-            <span style="color:blue;float:right"><?= gettext("Scroll right to see the other columns") ?></span>
-            <span style="color:red;float:left">• <?= gettext("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
-            <span style="color:red;float:left">• <?= gettext("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
+            <span style="color:blue;float:right"><?= _("Scroll right to see the other columns") ?></span>
+            <span style="color:red;float:left">• <?= _("Check the right <b>Date format</b> and to chose it below !!!!!") ?></span><br>
+            <span style="color:red;float:left">• <?= _("<b>IMPORTANT !</b> Associate the <b>gender</b> to a column.") ?></span>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= gettext("Important Options") ?></h3>
+            <h3  class="box-title"><?= _("Important Options") ?></h3>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-10" style="color:green">
-            <input type="checkbox" value="1" name="IgnoreFirstRow"> &nbsp;&nbsp;&nbsp;&nbsp; <?= gettext('Ignore first CSV row (to exclude a header)') ?>
+            <input type="checkbox" value="1" name="IgnoreFirstRow"> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Ignore first CSV row (to exclude a header)') ?>
           </div>
         </div>
 
@@ -299,7 +299,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           </div>
           <div class="col-lg-3">
             <select name="MakeFamilyRecordsMode" class="form-control input-sm">
-                <option value="0"><?= gettext('Make Family records based on last name and address') ?></option>
+                <option value="0"><?= _('Make Family records based on last name and address') ?></option>
                 <?= $sPerCustomFieldList.$sFamCustomFieldList ?>
             </select>
           </div>
@@ -324,7 +324,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
               </select>
           </div>
           <div class="col-lg-5">
-            <span style="color:red"><b><?= gettext("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= gettext('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
+            <span style="color:red"><b><?= _("Date Format") ?></b></span>&nbsp;&nbsp;&nbsp;&nbsp;(<?= _('NOTE: Separators (dashes, etc.) or lack thereof do not matter') ?>)
           </div>
         </div>
         
@@ -334,14 +334,14 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
 
         <div class="row">
           <div class="col-lg-10" style="color:green">
-            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= gettext('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
+            <input type="checkbox" value="1" name="PutInCart" checked> &nbsp;&nbsp;&nbsp;&nbsp; <?= _('Put all the persons in the cart, to import them in a group, sundayschool group, etc....') ?>
           </div>
         </div>
 
 
         <div class="row">
           <div class="col-lg-10">
-            <h3  class="box-title"><?= gettext("Not usefull options") ?></h3>
+            <h3  class="box-title"><?= _("Not usefull options") ?></h3>
           </div>
         </div>
 
@@ -350,12 +350,12 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           </div>
           <div class="col-lg-3">
             <select name="FamilyMode"  class="form-control input-sm">
-                <option value="0"><?= gettext('Patriarch') ?></option>
-                <option value="1"><?= gettext('Matriarch') ?></option>
+                <option value="0"><?= _('Patriarch') ?></option>
+                <option value="1"><?= _('Matriarch') ?></option>
             </select>
           </div>
           <div class="col-lg-5">
-             <?= gettext('Family Type: used with Make Family records... option above') ?>
+             <?= _('Family Type: used with Make Family records... option above') ?>
           </div>
         </div>
           
@@ -371,7 +371,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             ?>
           </div>
           <div class="col-lg-5">
-            <?= gettext('Default country if none specified otherwise') ?>
+            <?= _('Default country if none specified otherwise') ?>
           </div>
         </div>
 
@@ -386,7 +386,7 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
           </div>
           <div class="col-lg-3">
             <select name="Classification" class="form-control input-sm">
-               <option value="0"><?= gettext('Unassigned') ?></option>
+               <option value="0"><?= _('Unassigned') ?></option>
                <option value="0">-----------------------</option>
 
             <?php
@@ -400,11 +400,11 @@ if (isset($_POST['UploadCSV']) || isset($_POST['iSelectedValues']) && $iSelected
             </select>
           </div>
           <div class="col-lg-5">
-             <?= gettext('Classification') ?>
+             <?= _('Classification') ?>
           </div>
         </div>
         <BR><BR>
-        <input type="submit" class="btn btn-primary" value="<?= gettext('Perform Import') ?>" name="DoImport">
+        <input type="submit" class="btn btn-primary" value="<?= _('Perform Import') ?>" name="DoImport">
       </form>
 
   <?php
@@ -670,7 +670,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     switch ($currentType) {
                         // Phone numbers..
                         case 14: case 15: case 16:
-                            $sSQLpersonData .= "'".addslashes(CollapsePhoneNumber($aData[$col], $sCountry))."',";
+                            $sSQLpersonData .= "'".addslashes(MiscUtils::CollapsePhoneNumber($aData[$col], $sCountry))."',";
                             $sSQLpersonFields .= $aPersonTableFields[$currentType].', ';
                             break;
                         default:
@@ -772,7 +772,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                     $famid = $aFid[0];
                     $note = new Note();
                     $note->setFamId($famid);
-                    $note->setText(gettext('Imported'));
+                    $note->setText(_('Imported'));
                     $note->setType('create');
                     $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
@@ -850,7 +850,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
             
             $note = new Note();
             $note->setPerId($iPersonID);
-            $note->setText(gettext('Imported'));
+            $note->setText(_('Imported'));
             $note->setType('create');
             $note->setEntered(SessionUser::getUser()->getPersonId());
             $note->save();
@@ -945,7 +945,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
         $iStage = 3;
     } else {
   ?>
-        <?=  gettext('ERROR: the uploaded CSV file no longer exists!') ?>
+        <?=  _('ERROR: the uploaded CSV file no longer exists!') ?>
   <?php
     }
 }
@@ -955,48 +955,48 @@ if ($iStage == 1) {
       <form method="post" action="CSVImport.php" enctype="multipart/form-data">
         <div class="row">
           <div class="col-lg-12">      
-            <h2><?= gettext("Steps to import users") ?></h2>
+            <h2><?= _("Steps to import users") ?></h2>
             <ul>
               <li>
-                 <?= gettext("Your CSV file should be prepared like") ?> : <br>             
+                 <?= _("Your CSV file should be prepared like") ?> : <br>             
                  - <b>Title;Name;First Name;Gender;Suffix;Middle Name;Address 1;Address 2;City;State ....</b><br>
                  - or : <b>Title,Name,First Name,Gender,Suffix,Middle Name,Address 1,Address 2,City,State ....</b><br>             
-                 <?= gettext("So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in the second one.") ?><br>
+                 <?= _("So the CSV delimiter are <b>';'</b> in the first example and <b>','</b> in the second one.") ?><br>
               </li>
               <li>
-                <?= gettext("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>
-                <?= gettext("You can format your columns in Excel LibreOffice Calc and <b>duplicate the Title column and rename the label header to gender</b>") ?>.<br>
-                <?= gettext("The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for a women, girl, female</b> ...") ?>
+                <?= _("Don't forget the <b>gender</b> and the <b>title</b>") ?> : <br>
+                <?= _("You can format your columns in Excel LibreOffice Calc and <b>duplicate the Title column and rename the label header to gender</b>") ?>.<br>
+                <?= _("The gender column must be set to <b>1 for a man, boy, male</b> and <b>2 for a women, girl, female</b> ...") ?>
               </li>
               <li>
-                 <?= gettext("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php"><?= gettext("here") ?></a></b><br>
+                 <?= _("Prepare your CRM and add enough custom Person Fields, to do this click") ?> : <b><a href="<?= SystemURLs::getRootPath() ?>/PersonCustomFieldsEditor.php"><?= _("here") ?></a></b><br>
               </li>
               <li>
-                 <p style="color: red"><?= gettext("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
+                 <p style="color: red"><?= _("All dates should be formated like : 2018-7-1 or 1/7/2018 or 7-1-2018 or 7/1/2018") ?></p>
               </li>
             </ul>        
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <h3><?= gettext("The next step should be, if not select the other CSV seperator") ?></h3>
+            <h3><?= _("The next step should be, if not select the other CSV seperator") ?></h3>
             <img src="<?= SystemURLs::getRootPath() ?>/Images/csvimport.png" width=50%>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <h3><?= gettext("Upload CSV File") ?></h3>
+            <h3><?= _("Upload CSV File") ?></h3>
             <p style="color: red"> <?= $csvError ?></p>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <div class="callout callout-info"><?= gettext("<b>DON'T FORGET</b> 
+            <div class="callout callout-info"><?= _("<b>DON'T FORGET</b> 
               <br>• your CSV file must have a <b>Title</b> header name column (with M. Mr. Mlle. etc ...),
               <br>• and a <b>gender</b> header name column (with 1 for a men, 2 for a women)") ?>
               <div class="row">
                 <div class="col-lg-3">
-                  • <?= gettext("Select <b>NOW</b> your <b>CSV separator</b>") ?>
+                  • <?= _("Select <b>NOW</b> your <b>CSV separator</b>") ?>
                 </div>
                 <div class="col-lg-2">        
                   <select name="sSeperator" class="form-control input-sm">
@@ -1007,10 +1007,10 @@ if ($iStage == 1) {
               </div>
               <div class="row">
                 <div class="col-lg-5">        
-                  <?= gettext("• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</b> ......... ") ?>
+                  <?= _("• Last set correctly all the dates like : <b>YYYY-MM-DD or DD/MM/YYYY</b> ......... ") ?>
                 </div>
                 <div class="col-lg-4">                        
-                  <span style="color: red"><?= gettext("This is proposed in the next step, read carefully your table.") ?></span>
+                  <span style="color: red"><?= _("This is proposed in the next step, read carefully your table.") ?></span>
                 </div>
              </div>
           </div>
@@ -1023,7 +1023,7 @@ if ($iStage == 1) {
         </div>
         <div class="row">
           <div class="col-lg-3">
-            <input type="submit" class="btn btn-primary" value=" <?= gettext('Upload CSV File') ?> " name="UploadCSV">
+            <input type="submit" class="btn btn-primary" value=" <?= _('Upload CSV File') ?> " name="UploadCSV">
           </div>
         </div>
       </form>
@@ -1031,17 +1031,17 @@ if ($iStage == 1) {
 </div>
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title"><?= gettext('Clear Data')?></h3>
+    <h3 class="box-title"><?= _('Clear Data')?></h3>
   </div>
   <div class="box-body">
-    <button type="button" class="btn btn-danger" id="clear-people"><?= gettext('Clear Persons and Families') ?></button>
+    <button type="button" class="btn btn-danger" id="clear-people"><?= _('Clear Persons and Families') ?></button>
     <span id="import-success" style="color:green"></label>
 <?php
 }
 
 if ($iStage == 3) {
 ?>
-    <p class="MediumLargeText"><?= gettext('Data import successful.').' '.$importCount.' '.gettext('persons were imported') ?></p>
+    <p class="MediumLargeText"><?= _('Data import successful.').' '.$importCount.' '._('persons were imported') ?></p>
 <?php
 }
 

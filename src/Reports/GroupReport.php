@@ -17,6 +17,7 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_GroupDirectory;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 
 $bOnlyCartMembers = $_POST['OnlyCart'];
 $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
@@ -115,17 +116,17 @@ if ($iMode == 1) {
         }
 
         if (isset($_POST['HomePhoneEnable']) && strlen($sHomePhone)) {
-            $TempStr = ExpandPhoneNumber($sHomePhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
+            $TempStr = MiscUtils::ExpandPhoneNumber($sHomePhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
             $OutStr .= '  '._('Phone').': '.$TempStr."\n";
         }
 
         if (isset($_POST['WorkPhoneEnable']) && strlen($sWorkPhone)) {
-            $TempStr = ExpandPhoneNumber($sWorkPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
+            $TempStr = MiscUtils::ExpandPhoneNumber($sWorkPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
             $OutStr .= '  '._('Work').': '.$TempStr."\n";
         }
 
         if (isset($_POST['CellPhoneEnable']) && strlen($sCellPhone)) {
-            $TempStr = ExpandPhoneNumber($sCellPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
+            $TempStr = MiscUtils::ExpandPhoneNumber($sCellPhone, SystemConfig::getValue('sDefaultCountry'), $bWierd);
             $OutStr .= '  '._('Cell').': '.$TempStr."\n";
         }
 

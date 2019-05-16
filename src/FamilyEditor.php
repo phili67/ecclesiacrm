@@ -299,13 +299,13 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     if (!$bErrorFlag) {
         // Format the phone numbers before we store them
         if (!$bNoFormat_HomePhone) {
-            $sHomePhone = CollapsePhoneNumber($sHomePhone, $sCountry);
+            $sHomePhone = MiscUtils::CollapsePhoneNumber($sHomePhone, $sCountry);
         }
         if (!$bNoFormat_WorkPhone) {
-            $sWorkPhone = CollapsePhoneNumber($sWorkPhone, $sCountry);
+            $sWorkPhone = MiscUtils::CollapsePhoneNumber($sWorkPhone, $sCountry);
         }
         if (!$bNoFormat_CellPhone) {
-            $sCellPhone = CollapsePhoneNumber($sCellPhone, $sCountry);
+            $sCellPhone = MiscUtils::CollapsePhoneNumber($sCellPhone, $sCountry);
         }
 
         //Write the base SQL depending on the Action
@@ -587,9 +587,9 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $nLongitude = $family->getLongitude();
 
         // Expand the phone number
-        $sHomePhone = ExpandPhoneNumber($sHomePhone, $sCountry, $bNoFormat_HomePhone);
-        $sWorkPhone = ExpandPhoneNumber($sWorkPhone, $sCountry, $bNoFormat_WorkPhone);
-        $sCellPhone = ExpandPhoneNumber($sCellPhone, $sCountry, $bNoFormat_CellPhone);
+        $sHomePhone = MiscUtils::ExpandPhoneNumber($sHomePhone, $sCountry, $bNoFormat_HomePhone);
+        $sWorkPhone = MiscUtils::ExpandPhoneNumber($sWorkPhone, $sCountry, $bNoFormat_WorkPhone);
+        $sCellPhone = MiscUtils::ExpandPhoneNumber($sCellPhone, $sCountry, $bNoFormat_CellPhone);
 
         $sSQL = 'SELECT * FROM family_custom WHERE fam_ID = '.$iFamilyID;
         $rsCustomData = RunQuery($sSQL);

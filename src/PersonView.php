@@ -248,18 +248,18 @@ $sCountry = SelectWhichInfo($person->getCountry(), $famCountry, true);
 $formattedMailingAddress = $person->getAddress();
 
 $sPhoneCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
-$sHomePhone = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
-$sHomePhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
-$sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
-$sWorkPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
-$sCellPhone = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
-$sCellPhoneUnformatted = SelectWhichInfo(ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
-ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
+$sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
+$sHomePhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
+$sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
+$sWorkPhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
+$sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
+$sCellPhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
 $sEmail = SelectWhichInfo($person->getEmail(), $famEmail, true);
 $sUnformattedEmail = SelectWhichInfo($person->getEmail(), $famEmail, false);
 

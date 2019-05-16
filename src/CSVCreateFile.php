@@ -16,9 +16,10 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\ReportUtilities;
 
@@ -389,9 +390,9 @@ if ($sFormat == 'addtocart') {
         // If we are doing a family roll-up, we want to favor available family address / phone numbers over the individual data returned
         if ($sFormat == 'rollup') {
             $sPhoneCountry = SelectWhichInfo($fam_Country, $per_Country, false);
-            $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), false);
-            $sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), false);
-            $sCellPhone = SelectWhichInfo(ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), false);
+            $sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), false);
+            $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), false);
+            $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), false);
             $sCountry = SelectWhichInfo($fam_Country, $per_Country, false);
             SelectWhichAddress($sAddress1, $sAddress2, $fam_Address1, $fam_Address2, $per_Address1, $per_Address2, false);
             $sCity = SelectWhichInfo($fam_City, $per_City, false);
@@ -402,9 +403,9 @@ if ($sFormat == 'addtocart') {
         // Otherwise, the individual data gets precedence over the family data
         else {
             $sPhoneCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-            $sHomePhone = SelectWhichInfo(ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
-            $sWorkPhone = SelectWhichInfo(ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
-            $sCellPhone = SelectWhichInfo(ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
+            $sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
+            $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
+            $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
             $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
             SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
             $sCity = SelectWhichInfo($per_City, $fam_City, false);
