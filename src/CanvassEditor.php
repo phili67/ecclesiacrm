@@ -12,9 +12,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\CanvassUtilities;
@@ -43,7 +44,7 @@ $sSQL = 'SELECT fam_Name FROM family_fam where fam_ID = '.$iFamily;
 $rsFamily = RunQuery($sSQL);
 extract(mysqli_fetch_array($rsFamily));
 
-$fyStr = MakeFYString($iFYID);
+$fyStr = MiscUtils::MakeFYString($iFYID);
 
 $sPageTitle = _($fyStr.' '._('Canvass Input for the').' '.$fam_Name.' '._('family'));
 

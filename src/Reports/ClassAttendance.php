@@ -14,6 +14,8 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Reports\PDF_Attendance;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
@@ -22,7 +24,6 @@ use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\PropertyQuery;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
@@ -93,7 +94,7 @@ for ($i = 0; $i < $nGrps; $i++) {
     //Get the data on this group
     $group = GroupQuery::Create()->findOneById($iGroupID);
     
-    $FYString = MakeFYString($iFYID);
+    $FYString = MiscUtils::MakeFYString($iFYID);
     
     $reportHeader = str_pad($group->getName(), 95).$FYString;
     

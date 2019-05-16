@@ -13,6 +13,7 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\ListOptionQuery;
@@ -52,7 +53,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->personMarginR = 2.5;
         $this->personImageHeight = 30;
         $this->personImageWidth = 30;
-        $this->FYIDString = MakeFYString($iFYID);
+        $this->FYIDString = MiscUtils::MakeFYString($iFYID);
         $this->fontSizeLastName = 8;
         $this->fontSizeFirstName = 8;
     }

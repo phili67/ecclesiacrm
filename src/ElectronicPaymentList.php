@@ -20,7 +20,8 @@ use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\Map\FamilyTableMap;
 use EcclesiaCRM\Map\DonationFundTableMap;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -271,7 +272,7 @@ foreach ($ormAutopayments as $payment) {
       } ?>
     </td>
 
-    <td><?= MakeFYString($payment->getFyid()) ?></td>
+    <td><?= MiscUtils::MakeFYString($payment->getFyid()) ?></td>
     <td><?= $payment->getNextPayDate()->format(SystemConfig::getValue('sDateFormatLong')) ?></td>
     <td><?= OutputUtils::number_localized($payment->getAmount()) ?></td>
     <td><?= $payment->getInterval() ?></td>

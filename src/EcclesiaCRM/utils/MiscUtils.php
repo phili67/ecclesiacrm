@@ -598,6 +598,18 @@ public static function FileSizeConvert($bytes)
         return [$fontinfo[0], mb_substr($fontinfo[1], 0, 1).mb_substr($fontinfo[2], 0, 1)];
     }
   }
+
+  // Formats a fiscal year string
+  public static function MakeFYString($iFYID)
+  {
+      $monthNow = date('m');
+
+      if (SystemConfig::getValue('iFYMonth') == 1) {
+          return 1996 + $iFYID;
+      } else {
+          return 1995 + $iFYID.'/'.mb_substr(1996 + $iFYID, 2, 2);
+      }
+  }
   
   // Returns the current fiscal year
   public static function CurrentFY()
@@ -624,7 +636,7 @@ public static function FileSizeConvert($bytes)
               echo ' selected';
           }
           echo '>';
-          echo MakeFYString($fy);
+          echo MiscUtils::MakeFYString($fy);
       }
       echo '</select>';
   }

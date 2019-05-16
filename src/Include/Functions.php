@@ -170,17 +170,6 @@ if (isset($_POST['BulkAddToCart'])) {
         $sGlobalMessage = $iCount.' '._('item(s) added to the Cart.');
     }
 }
-// Formats a fiscal year string
-function MakeFYString($iFYID)
-{
-    $monthNow = date('m');
-
-    if (SystemConfig::getValue('iFYMonth') == 1) {
-        return 1996 + $iFYID;
-    } else {
-        return 1995 + $iFYID.'/'.mb_substr(1996 + $iFYID, 2, 2);
-    }
-}
 
 // Runs an SQL query.  Returns the result resource.
 // By default stop on error, unless a second (optional) argument is passed as false.

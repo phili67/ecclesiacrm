@@ -13,6 +13,7 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
@@ -214,7 +215,7 @@ if ($output == 'pdf') {
     $curY += 2 * SystemConfig::getValue('incrementY');
 
     $blurb = SystemConfig::getValue('sPledgeSummary1').' ';
-    $blurb .= MakeFYString($iFYID);
+    $blurb .= MiscUtils::MakeFYString($iFYID);
     $blurb .= " ".SystemConfig::getValue('sPledgeSummary2').' '.date(SystemConfig::getValue('sDatePickerFormat')).'.';
     $pdf->WriteAt($nameX, $curY, $blurb);
 
