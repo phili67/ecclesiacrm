@@ -308,7 +308,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     
     // Validate Email
     if (strlen($sEmail) > 0) {
-        if (checkEmail($sEmail) == false) {
+        if (MiscUtils::checkEmail($sEmail) == false) {
             $sEmailError = '<span style="color: red; ">'
                 ._('Email is Not Valid').'</span>';
             $bErrorFlag = true;
@@ -319,7 +319,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     
     // Validate Work Email
     if (strlen($sWorkEmail) > 0) {
-        if (checkEmail($sWorkEmail) == false) {
+        if (MiscUtils::checkEmail($sWorkEmail) == false) {
             $sWorkEmailError = '<span style="color: red; ">'
                 ._('Work Email is Not Valid').'</span>';
             $bErrorFlag = true;
