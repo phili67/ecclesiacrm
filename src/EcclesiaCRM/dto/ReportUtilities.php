@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : /EcclesiaCRM/dto/ReportFunctions.php
+ *  filename    : /EcclesiaCRM/dto/ReportUtilities.php
  *  last change : 2019-05-19
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt
@@ -14,7 +14,7 @@ namespace EcclesiaCRM\dto;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 
-class ReportFunctions
+class ReportUtilities
 {
   // Finds and loads the base JPGraph library and any components specified as arguments
   //

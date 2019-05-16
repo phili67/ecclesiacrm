@@ -20,7 +20,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\dto\ReportFunctions;
+use EcclesiaCRM\dto\ReportUtilities;
 
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();
@@ -435,7 +435,7 @@ if ($sFormat == 'addtocart') {
                     }
                 } elseif ($sFormat == 'rollup') {
                     if ($memberCount > 1) {
-                        $sString = '"'.ReportFunctions::MakeSalutationUtility($fam_ID);
+                        $sString = '"'.ReportUtilities::MakeSalutationUtility($fam_ID);
                     } else {
                         $sString = '"'.$per_LastName.', '.$per_FirstName;
                     }
