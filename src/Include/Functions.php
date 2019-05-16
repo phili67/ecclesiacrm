@@ -121,37 +121,6 @@ if (isset($_GET['PDFEmailed'])) {
     }
 }
 
-// Are they adding an entire group to the cart?
-if (isset($_GET['AddGroupToPeopleCart'])) {
-    AddGroupToPeopleCart(InputUtils::LegacyFilterInput($_GET['AddGroupToPeopleCart'], 'int'));
-    $sGlobalMessage = _('Group successfully added to the Cart.');
-}
-
-// Are they removing an entire group from the Cart?
-if (isset($_GET['RemoveGroupFromPeopleCart'])) {
-    RemoveGroupFromPeopleCart(InputUtils::LegacyFilterInput($_GET['RemoveGroupFromPeopleCart'], 'int'));
-    $sGlobalMessage = _('Group successfully removed from the Cart.');
-}
-
-if (isset($_GET['ProfileImageDeleted'])) {
-    $sGlobalMessage = _('Profile Image successfully removed.');
-}
-
-if (isset($_GET['ProfileImageUploaded'])) {
-    $sGlobalMessage = _('Profile Image successfully updated.');
-}
-
-if (isset($_GET['ProfileImageUploadedError'])) {
-    $sGlobalMessage = _('Profile Image upload Error.');
-    $sGlobalMessageClass = 'danger';
-}
-
-// Are they removing a person from the Cart?
-if (isset($_GET['RemoveFromPeopleCart'])) {
-    RemoveFromPeopleCart(InputUtils::LegacyFilterInput($_GET['RemoveFromPeopleCart'], 'int'));
-    $sGlobalMessage = _('Selected record successfully removed from the Cart.');
-}
-
 if (isset($_POST['BulkAddToCart'])) {
     $aItemsToProcess = explode(',', $_POST['BulkAddToCart']);
 
