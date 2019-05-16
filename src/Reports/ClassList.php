@@ -13,6 +13,8 @@ require '../Include/Functions.php';
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
@@ -23,7 +25,6 @@ use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Utils\OutputUtils;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
 $aGrp = explode(',', $iGroupID);
@@ -77,7 +78,7 @@ for ($i = 0; $i < $nGrps; $i++) {
 
     $pdf->WriteAt($nameX, $yTitle, ($group->getName().' - '));
 
-    $FYString = MakeFYString($iFYID);
+    $FYString = MiscUtils::MakeFYString($iFYID);
     $pdf->WriteAt($phoneX, $yTitle, $FYString);
 
     $pdf->SetLineWidth(0.5);

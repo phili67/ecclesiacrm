@@ -13,6 +13,9 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\PledgeQuery;
@@ -22,8 +25,6 @@ use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -337,7 +338,7 @@ require 'Include/Header.php';
                 <tr>
                     <td><?= _($plg_PledgeOrPayment) ?></td>
                     <td><?= _($fundName) ?></td>
-                    <td><?= MakeFYString($plg_FYID) ?></td>
+                    <td><?= MiscUtils::MakeFYString($plg_FYID) ?></td>
                     <td><?= OutputUtils::change_date_for_place_holder($plg_date) ?></td>
                     <td><?= OutputUtils::money_localized($plg_amount) ?></td>
                     <td><?= _($plg_schedule) ?></td>

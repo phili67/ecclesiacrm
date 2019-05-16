@@ -11,6 +11,7 @@
 
 // Include the function library
 require 'Include/Config.php';
+
 $bSuppressSessionTests = true; // DO NOT MOVE
 require 'Include/Functions.php';
 
@@ -147,7 +148,7 @@ if (isset($_POST['User'])) {
           $currentUser->save();
         }
 
-        $_SESSION['idefaultFY']      = CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
+        $_SESSION['idefaultFY']      = MiscUtils::CurrentFY(); // Improve the chance of getting the correct fiscal year assigned to new transactions
         $_SESSION['iCurrentDeposit'] = $currentUser->getCurrentDeposit();
 
         $systemService = new SystemService();

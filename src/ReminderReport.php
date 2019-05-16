@@ -13,7 +13,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -24,7 +25,7 @@ if (!SessionUser::getUser()->isAdmin() && SystemConfig::getValue('bCSVAdminOnly'
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Pledge Reminder Report');
+$sPageTitle = _('Pledge Reminder Report');
 require 'Include/Header.php';
 
 // Is this the second pass?
@@ -41,17 +42,17 @@ if (isset($_POST['Submit'])) {
 <div class="box box-body">
     <form class="form-horizontal" method="post" action="Reports/ReminderReport.php">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="FYID"><?= gettext('Fiscal Year') ?>:</label>
+            <label class="control-label col-sm-2" for="FYID"><?= _('Fiscal Year') ?>:</label>
             <div class="col-sm-2">
-                <?php PrintFYIDSelect($iFYID, 'FYID') ?>
+                <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-8">
-                <button type="submit" class="btn btn-primary" name="Submit"><?= gettext('Create Report') ?></button>
+                <button type="submit" class="btn btn-primary" name="Submit"><?= _('Create Report') ?></button>
                 <button type="button" class="btn btn-default" name="Cancel"
-                        onclick="javascript:document.location='Menu.php';"><?= gettext('Cancel') ?></button>
+                        onclick="javascript:document.location='Menu.php';"><?= _('Cancel') ?></button>
             </div>
         </div>
 

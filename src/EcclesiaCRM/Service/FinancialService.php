@@ -10,6 +10,7 @@ use EcclesiaCRM\MICRReader;
 use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\MiscUtils;
 
 class FinancialService
 {
@@ -362,7 +363,7 @@ class FinancialService
             $values->plg_FamID = $plg_FamID;
             $values->familyString = $family->getFamilyString();
             $values->plg_FYID = $plg_FYID;
-            $values->FiscalYear = MakeFYString($plg_FYID);
+            $values->FiscalYear = MiscUtils::MakeFYString($plg_FYID);
             $values->plg_date = $plg_date;
             $values->plg_amount = $plg_amount;
             $values->plg_schedule = $plg_schedule;

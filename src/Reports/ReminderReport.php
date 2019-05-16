@@ -14,7 +14,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 // Security
@@ -194,7 +195,7 @@ class PDF_ReminderReport extends ChurchInfoReport
     {
         $curY = $this->StartLetterPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country);
         $curY += 2 * SystemConfig::getValue('incrementY');
-        $blurb = SystemConfig::getValue('sReminder1')." ".MakeFYString($iFYID).$fundOnlyString.'.';
+        $blurb = SystemConfig::getValue('sReminder1')." ".MiscUtils::MakeFYString($iFYID).$fundOnlyString.'.';
         $this->WriteAt(SystemConfig::getValue('leftX'), $curY, $blurb);
         $curY += 2 * SystemConfig::getValue('incrementY');
 

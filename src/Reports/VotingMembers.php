@@ -13,6 +13,8 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+
 
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_POST['FYID'], 'int');
@@ -40,7 +42,7 @@ $pdf = new PDF_VotingMembers();
 $topY = 10;
 $curY = $topY;
 
-$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (_('Voting members ').MakeFYString($iFYID)));
+$pdf->WriteAt(SystemConfig::getValue('leftX'), $curY, (_('Voting members ').MiscUtils::MakeFYString($iFYID)));
 $curY += 10;
 
 $votingMemberCount = 0;

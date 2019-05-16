@@ -26,10 +26,11 @@ use EcclesiaCRM\Emails\NewAccountEmail;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\User;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\UserRoleQuery;
 use EcclesiaCRM\UserRole;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserConfigQuery;
 use EcclesiaCRM\UserConfig;
@@ -80,7 +81,7 @@ if (isset($_POST['save']) && $iPersonID > 0) {
     // Assign all variables locally
     $sAction = $_POST['Action'];
 
-    $defaultFY = CurrentFY();
+    $defaultFY = MiscUtils::CurrentFY();
     $sUserName = strtolower(InputUtils::LegacyFilterInput($_POST['UserName']));
 
     if (strlen($sUserName) < 3) {

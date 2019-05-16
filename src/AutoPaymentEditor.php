@@ -15,13 +15,14 @@ require 'bin/vancowebservices.php';
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Family;
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
 use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\DonationFund;
-use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -71,7 +72,7 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
     $bEnableCreditCard = 0;
 
     // Default to the current fiscal year ID
-    $FYID = CurrentFY();
+    $FYID = MiscUtils::CurrentFY();
     $iFYID = $FYID;
 
     $tCreditCard      = '';
@@ -119,14 +120,15 @@ if ($iAutID <= 0) {  // Need to create the record so there is a place to store t
       $autoPayment->setSerial(1);
       $autoPayment->setDateLastEdited(date('YmdHis'));
       $autoPayment->getEditedby(SessionUser::getUser()->getPersonId());
-    
+
+
       $autoPayment->save();
     
       $iAutID = $autoPayment->getId();
     }
 }
 
-$sPageTitle = gettext('Automatic payment configuration');
+$sPageTitle = _('Automatic payment configuration');
 
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
@@ -803,7 +805,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext("For the").' '.(($onePersonFamily == true)?gettext('Person'):gettext('Family'))?> : <?=  $fam_Name ?></h3>
+    <h3 class="box-title"><?= _("For the").' '.(($onePersonFamily == true)?_('Person'):_('Family'))?> : <?=  $fam_Name ?></h3>
   </div>
   <div class="body-text">
     <form method="post"  style="padding:10px"
@@ -812,12 +814,12 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
 
           <div class="row">
             <div class="col-md-3">
-                <label><?= gettext('Person').' '.gettext('or').' '.gettext('Family') ?>:</label>
+                <label><?= _('Person').' '._('or').' '._('Family') ?>:</label>
             </div>
             <div class="col-md-4">
-                <div class="callout callout-danger"><?= gettext("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
+                <div class="callout callout-danger"><?= _("WARNING ! You've to select a person or a family to create an auto-payment.") ?></div>
                 <select name="Family" id="optionFamily" style="width:100%">
-                   <option value="0" selected><?= gettext('Unassigned') ?></option>
+                   <option value="0" selected><?= _('Unassigned') ?></option>
                    <option value="0">-----------------------</option>
 
                 <?php
@@ -833,25 +835,25 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
             <div class="col-md-3">
-                <label><?= gettext('Automatic payment type') ?></label>
+                <label><?= _('Automatic payment type') ?></label>
             </div>
             <div class="col-md-9">
                <input type="radio" Name="EnableButton" value="1" id="EnableBankDraft"<?php if ($bEnableBankDraft) {
                                         echo ' checked';
-                                    } ?>> <?= gettext("Bank Draft ") ?>
+                                    } ?>> <?= _("Bank Draft ") ?>
                <input type="radio" Name="EnableButton" value="2"
                                        id="EnableCreditCard" <?php if ($bEnableCreditCard) {
                                         echo ' checked';
-                                    } ?>> <?= gettext("Credit Card ") ?>
+                                    } ?>> <?= _("Credit Card ") ?>
                <input type="radio" Name="EnableButton" value="3"
                                        id="Disable" <?php if ((!$bEnableBankDraft) && (!$bEnableCreditCard)) {
                                         echo ' checked';
-                                    } ?>> <?= gettext("Disable ") ?>
+                                    } ?>> <?= _("Disable ") ?>
               </div>  
            </div>                   
            <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Date') ?>:</label>
+                 <label><?= _('Date') ?>:</label>
              </div>
              <div class="col-md-4">             
                  <input type="text" name="NextPayDate" value="<?= OutputUtils::change_date_for_place_holder($dNextPayDate) ?>"
@@ -861,15 +863,15 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
            <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Fiscal Year') ?>:</label>
+                <label><?= _('Fiscal Year') ?>:</label>
              </div>
              <div class="col-md-4">             
-                <?php PrintFYIDSelect($iFYID, 'FYID') ?>
+                <?php MiscUtils::PrintFYIDSelect($iFYID, 'FYID') ?>
              </div>
           </div>
           <div class="row">
              <div class="col-md-3">
-                  <label><?= gettext('Payment amount') ?></label>
+                  <label><?= _('Payment amount') ?></label>
              </div>
              <div class="col-md-4">                            
                   <input type="number" step="any" name="Amount" value="<?= $nAmount ?>" class="form-control">
@@ -877,7 +879,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Payment interval (months)') ?></label>
+                 <label><?= _('Payment interval (months)') ?></label>
              </div>
              <div class="col-md-4">                            
                <input type="text" name="Interval" value="<?= $iInterval ?>" class="form-control">
@@ -885,15 +887,15 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Fund') ?>:</label>
+                 <label><?= _('Fund') ?>:</label>
              </div>
              <div class="col-md-4">                            
                   <select name="Fund" class="form-control">
-                      <option value="0"><?= gettext('None') ?></option>
+                      <option value="0"><?= _('None') ?></option>
                       <?php
                       foreach ($ormFunds as $fund) {
                           ?>
-                          <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . gettext('inactive') . ')':'') ?> 
+                          <option value="<?= $fund->getId()?>" <?= (($iFund == $fund->getId())?' selected':'').">".$fund->getName().(($fund->getActive() != 'true')?' (' . _('inactive') . ')':'') ?> 
                           </option>
                       <?php
                       }
@@ -903,7 +905,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('First Name') ?></label>
+                 <label><?= _('First Name') ?></label>
              </div>
              <div class="col-md-4">                                             
                  <input type="text" id="FirstName" name="FirstName" value="<?= $tFirstName ?>" class="form-control">
@@ -911,7 +913,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Last Name') ?></label>
+                 <label><?= _('Last Name') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="LastName" name="LastName" value="<?= $tLastName ?>" class="form-control">
@@ -919,7 +921,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Address') ?> 1</label>
+                 <label><?= _('Address') ?> 1</label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="Address1" name="Address1" value="<?= $tAddress1 ?>" class="form-control">
@@ -927,7 +929,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Address') ?> 2</label>
+                <label><?= _('Address') ?> 2</label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="Address2" name="Address2" value="<?= $tAddress2 ?>" class="form-control">
@@ -935,7 +937,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('City') ?></label>
+                <label><?= _('City') ?></label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="City" name="City" value="<?= $tCity ?>" class="form-control">
@@ -943,7 +945,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('State') ?></label>
+                <label><?= _('State') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="State" name="State" value="<?= $tState ?>" class="form-control">
@@ -951,7 +953,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Zip') ?></label>
+                 <label><?= _('Zip') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="Zip" name="Zip" value="<?= $tZip ?>" class="form-control">
@@ -959,7 +961,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Country') ?></label>
+                 <label><?= _('Country') ?></label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="Country" name="Country" value="<?= $tCountry ?>" class="form-control">
@@ -967,7 +969,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Phone') ?></label>
+                <label><?= _('Phone') ?></label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="Phone" name="Phone" value="<?= $tPhone ?>" class="form-control">
@@ -975,7 +977,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Email') ?></label>
+                <label><?= _('Email') ?></label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="Email" name="Email" value="<?= $tEmail ?>" class="form-control">
@@ -983,7 +985,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Credit Card') ?></label>
+                <label><?= _('Credit Card') ?></label>
              </div>
              <div class="col-md-4"> 
                 <input type="text" id="CreditCard" name="CreditCard" value="<?= $tCreditCard ?>" class="form-control">
@@ -994,7 +996,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
         ?>
           <div class="row">
              <div class="col-md-3">
-                  <label><?= gettext('Vanco Credit Card Method') ?></label>
+                  <label><?= _('Vanco Credit Card Method') ?></label>
              </div>
              <div class="col-md-4"> 
                     <input type="text" id="CreditCardVanco" name="CreditCardVanco" value="<?= $tCreditCardVanco ?>" readonly class="form-control">
@@ -1005,7 +1007,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
         ?>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Expiration Month') ?></label>
+                <label><?= _('Expiration Month') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="ExpMonth" name="ExpMonth" value="<?= $tExpMonth ?>" class="form-control">
@@ -1013,7 +1015,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Expiration Year') ?></label>
+                 <label><?= _('Expiration Year') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="ExpYear" name="ExpYear" value="<?= $tExpYear ?>" class="form-control">
@@ -1021,7 +1023,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Bank Name') ?></label>
+                <label><?= _('Bank Name') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="BankName" name="BankName" value="<?= $tBankName ?>" class="form-control">
@@ -1029,7 +1031,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                <label><?= gettext('Bank Route Number') ?></label>
+                <label><?= _('Bank Route Number') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="Route" name="Route" value="<?= $tRoute ?>" class="form-control">
@@ -1037,7 +1039,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           </div>
           <div class="row">
              <div class="col-md-3">
-                 <label><?= gettext('Bank Account Number') ?></label>
+                 <label><?= _('Bank Account Number') ?></label>
              </div>
              <div class="col-md-4"> 
                  <input type="text" id="Account" name="Account" value="<?= $tAccount ?>" class="form-control">
@@ -1048,7 +1050,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
         ?>
           <div class="row">
              <div class="col-md-3">
-                  <label><?= gettext('Vanco Bank Account Method') ?></label>
+                  <label><?= _('Vanco Bank Account Method') ?></label>
              </div>
              <div class="col-md-4"> 
                   <input type="text" id="AccountVanco" name="AccountVanco" value="<?= $tAccountVanco ?>" readonly class="form-control">
@@ -1066,7 +1068,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 <?php
                   if ($iAutID > 0) {
                 ?>
-                  <input type="button" id="PressToCreatePaymentMethod" value="<?= gettext("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethod();"/>
+                  <input type="button" id="PressToCreatePaymentMethod" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethod();"/>
                 <?php
                   } else {
                 ?>
@@ -1088,10 +1090,10 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
              <div class="col-md-1">
              </div>
              <div class="col-md-4"> 
-                    <input type="submit" class="btn btn-primary" value="<?= gettext('Save') ?>" name="Submit">
+                    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" name="Submit">
              </div>
              <div class="col-md-4"> 
-                    <input type="button" class="btn btn-default" value="<?= gettext('Cancel') ?>" name="Cancel"
+                    <input type="button" class="btn btn-default" value="<?= _('Cancel') ?>" name="Cancel"
                            onclick="javascript:document.location='<?= (strlen($linkBack) > 0)?:'Menu.php' ?>';">
              </div>
              <div class="col-md-4"> 

@@ -668,11 +668,9 @@ class OutputUtils {
       return date_create();
   }
   
-  public 
-
-// Added for AddEvent.php
-function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
-{ 
+  // Added for AddEvent.php
+  public static function createTimeDropdown($start, $stop, $mininc, $hoursel, $minsel)
+  { 
 
     $bTimeEnglish = SystemConfig::getBooleanValue("bTimeEnglish");
 

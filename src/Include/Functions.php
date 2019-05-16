@@ -171,48 +171,6 @@ if (isset($_POST['BulkAddToCart'])) {
     }
 }
 
-// Returns the current fiscal year
-function CurrentFY()
-{
-    $yearNow = date('Y');
-    $monthNow = date('m');
-    $FYID = $yearNow - 1996;
-    if ($monthNow >= SystemConfig::getValue('iFYMonth') && SystemConfig::getValue('iFYMonth') > 1) {
-        $FYID += 1;
-    }
-
-    return $FYID;
-}
-
-// PrintFYIDSelect: make a fiscal year selection menu.
-function PrintFYIDSelect($iFYID, $selectName)
-{
-    echo '<select class="form-control" name="'.$selectName.'">';
-    echo '<option value="0">'._('Select Fiscal Year').'</option>';
-
-    for ($fy = 1; $fy < CurrentFY() + 2; $fy++) {
-        echo '<option value="'.$fy.'"';
-        if ($iFYID == $fy) {
-            echo ' selected';
-        }
-        echo '>';
-        echo MakeFYString($fy);
-    }
-    echo '</select>';
-}
-
-// Formats a fiscal year string
-function MakeFYString($iFYID)
-{
-    $monthNow = date('m');
-
-    if (SystemConfig::getValue('iFYMonth') == 1) {
-        return 1996 + $iFYID;
-    } else {
-        return 1995 + $iFYID.'/'.mb_substr(1996 + $iFYID, 2, 2);
-    }
-}
-
 // Runs an SQL query.  Returns the result resource.
 // By default stop on error, unless a second (optional) argument is passed as false.
 function RunQuery($sSQL, $bStopOnError = true)

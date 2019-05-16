@@ -29,9 +29,10 @@ use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\VolunteerOpportunityQuery;
@@ -45,7 +46,6 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\PersonCustomQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -1282,7 +1282,7 @@ if (!empty($person->getDateDeactivated())) {
               ?>
                   <p align="center">
                       <a class="btn btn-default"
-                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
+                         href="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?FamilyID=<?= $person->getFamily()->getId() ?>&amp;FYID=<?= $_SESSION['idefaultFY'] ?>&amp;linkBack=PersonView.php?PersonID=<?= $iPersonID ?>"><?= MiscUtils::MakeFYString($_SESSION['idefaultFY']) . _(" Canvass Entry") ?></a>
                   </p>
               <?php
                 } 

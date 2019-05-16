@@ -12,9 +12,10 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -255,7 +256,7 @@ if ($sReportType == '') {
     <tr>
       <td class=LabelColumn><?= _("Fiscal Year:") ?></td>
       <td class=TextColumn>
-        <?= PrintFYIDSelect($iFYID, 'FYID')?>
+        <?= MiscUtils::PrintFYIDSelect($iFYID, 'FYID')?>
       </td>
     </tr>
     <?php
