@@ -13,7 +13,8 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\EnvelopeUtilities;
 
@@ -52,7 +53,7 @@ $envelopesToWrite = [];
 $envelopesByFamID = EnvelopeUtilities::getEnvelopes($iClassification);
 
 // get the array of family name/description strings, also indexed by family id
-$familyArray = getFamilyList(SystemConfig::getValue('sDirRoleHead'), SystemConfig::getValue('sDirRoleSpouse'), $iClassification);
+$familyArray = MiscUtils::getFamilyList(SystemConfig::getValue('sDirRoleHead'), SystemConfig::getValue('sDirRoleSpouse'), $iClassification);
 asort($familyArray);
 
 if (isset($_POST['Confirm'])) {

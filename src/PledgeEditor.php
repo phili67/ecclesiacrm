@@ -516,7 +516,7 @@ if ($dep_Closed) {
     $sPageTitle .= ' &nbsp; <font color=red>'._('Deposit closed').'</font>';
 }
 
-//$familySelectHtml = buildFamilySelect($iFamily, $sDirRoleHead, $sDirRoleSpouse);
+//$familySelectHtml = MiscUtils::buildFamilySelect($iFamily, $sDirRoleHead, $sDirRoleSpouse);
 $sFamilyName = '';
 if ($iFamily) {
     $sSQL = 'SELECT fam_Name, fam_Address1, fam_City, fam_State FROM family_fam WHERE fam_ID ='.$iFamily;
