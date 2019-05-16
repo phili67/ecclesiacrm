@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
@@ -44,7 +45,7 @@ if ($iCurrentFundraiser) {
 $sMultibuyItemsSQL = "SELECT di_ID, di_title FROM donateditem_di WHERE di_multibuy='1' AND di_FR_ID=".$iCurrentFundraiser;
 
 //Set the page title
-$sPageTitle = gettext('Buyer Number Editor');
+$sPageTitle = _('Buyer Number Editor');
 
 //Is this the second pass?
 if (isset($_POST['PaddleNumSubmit']) || isset($_POST['PaddleNumSubmitAndAdd']) || isset($_POST['GenerateStatement'])) {
@@ -146,12 +147,12 @@ require 'Include/Header.php';
 <table class="table" cellpadding="3" align="center">
 	<tr>
 		<td align="center">
-			<input type="submit" class="btn" value="<?= gettext('Save') ?>" name="PaddleNumSubmit">
-			<input type="submit" class="btn" value="<?= gettext('Generate Statement') ?>" name="GenerateStatement">
+			<input type="submit" class="btn" value="<?= _('Save') ?>" name="PaddleNumSubmit">
+			<input type="submit" class="btn" value="<?= _('Generate Statement') ?>" name="GenerateStatement">
 			<?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-    echo '<input type="submit" class="btn" value="'.gettext('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
+    echo '<input type="submit" class="btn" value="'._('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
 } ?>
-			<input type="button" class="btn" value="<?= gettext('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+			<input type="button" class="btn" value="<?= _('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
     echo $linkBack;
 } else {
     echo 'Menu.php';
@@ -166,16 +167,16 @@ require 'Include/Header.php';
 			<td width="50%" valign="top" align="left">
 			<table cellpadding="3">
 				<tr>
-					<td class="LabelColumn"><?= gettext('Number') ?>:</td>
+					<td class="LabelColumn"><?= _('Number') ?>:</td>
 					<td class="TextColumn"><input type="text" name="Num" id="Num" value="<?= $iNum ?>"></td>
 				</tr>
 				
 				<tr>
-					<td class="LabelColumn"><?= gettext('Buyer') ?>:
+					<td class="LabelColumn"><?= _('Buyer') ?>:
 					</td>
 					<td class="TextColumn">
 						<select name="PerID">
-							<option value="0" selected><?= gettext('Unassigned') ?></option>
+							<option value="0" selected><?= _('Unassigned') ?></option>
 							<?php
                             $rsPeople = RunQuery($sPeopleSQL);
                             while ($aRow = mysqli_fetch_array($rsPeople)) {
@@ -185,7 +186,7 @@ require 'Include/Header.php';
                                     echo ' selected';
                                 }
                                 echo '>'.$per_LastName.', '.$per_FirstName;
-                                echo ' '.FormatAddressLine($fam_Address1, $fam_City, $fam_State);
+                                echo ' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
                             }
                             ?>
 	

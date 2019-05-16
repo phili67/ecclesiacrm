@@ -16,8 +16,8 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\Utils\InputUtils;
-
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
@@ -971,7 +971,7 @@ require 'Include/Header.php';
                 <?php 
                   foreach ($ormFamilies as $ormFamily) {
                 ?>
-                    <option value="<?= $ormFamily->getId() ?>" <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId())?' selected':'' ?>><?= $ormFamily->getName() ?>&nbsp;<?= FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
+                    <option value="<?= $ormFamily->getId() ?>" <?= ($iFamily == $ormFamily->getId() || $_GET['FamilyID'] == $ormFamily->getId())?' selected':'' ?>><?= $ormFamily->getName() ?>&nbsp;<?= MiscUtils::FormatAddressLine($ormFamily->getAddress1(), $ormFamily->getCity(), $ormFamily->getState()) ?>
                 <?php
                   }
                 ?>

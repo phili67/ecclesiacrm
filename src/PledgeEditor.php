@@ -523,7 +523,7 @@ if ($iFamily) {
     $rsFindFam = RunQuery($sSQL);
     while ($aRow = mysqli_fetch_array($rsFindFam)) {
         extract($aRow);
-        $sFamilyName = $fam_Name.' '.FormatAddressLine($fam_Address1, $fam_City, $fam_State);
+        $sFamilyName = $fam_Name.' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
     }
 }
 

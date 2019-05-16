@@ -265,7 +265,7 @@ require 'Include/Header.php';
                     if ($family->getId() == $iFamilyID) {
                         echo ' -- ' . (!is_null ($theFamily)?_('CURRENT FAMILY WITH DONATIONS'):_('CURRENT PERSON WITH DONATIONS'));
                     } else {
-                        echo ' ' . FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState());
+                        echo ' ' . MiscUtils::FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState());
                     }
                 }
               ?>

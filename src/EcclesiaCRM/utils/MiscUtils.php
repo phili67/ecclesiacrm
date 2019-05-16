@@ -28,6 +28,27 @@ class MiscUtils {
     rmdir($path);
     return;
   }
+  
+  // Generate a nicely formatted string for "FamilyName - Address / City, State" with available data
+  public static function FormatAddressLine($Address, $City, $State)
+  {
+      $sText = '';
+
+      if ($Address != '' || $City != '' || $State != '') {
+          $sText = ' - ';
+      }
+      $sText .= $Address;
+      if ($Address != '' && ($City != '' || $State != '')) {
+          $sText .= ' / ';
+      }
+      $sText .= $City;
+      if ($City != '' && $State != '') {
+          $sText .= ', ';
+      }
+      $sText .= $State;
+
+      return $sText;
+  }
 
   
 /**
