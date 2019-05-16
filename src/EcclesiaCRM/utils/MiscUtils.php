@@ -115,7 +115,7 @@ class MiscUtils {
       case 11:
         if (strlen($data) > 0) {
             if (!isset($_POST[$col_Name.'noformat'])) {
-                $sSQL .= $col_Name." = '".CollapsePhoneNumber($data, $special)."', ";
+                $sSQL .= $col_Name." = '".MiscUtils::CollapsePhoneNumber($data, $special)."', ";
             } else {
                 $sSQL .= $col_Name." = '".$data."', ";
             }
@@ -954,5 +954,93 @@ public static function FileSizeConvert($bytes)
           echo MiscUtils::MakeFYString($fy);
       }
       echo '</select>';
+  }
+  
+  //
+  // Collapses a formatted phone number as long as the Country is known
+  // Eg. for United States:  555-555-1212 Ext. 123 ==> 5555551212e123
+  //
+  // Need to add other countries besides the US...
+  //
+  public static function CollapsePhoneNumber($sPhoneNumber, $sPhoneCountry)
+  {
+      switch ($sPhoneCountry) {
+      case 'United States':
+        $sCollapsedPhoneNumber = '';
+        $bHasExtension = false;
+
+        // Loop through the input string
+        for ($iCount = 0; $iCount <= strlen($sPhoneNumber); $iCount++) {
+
+          // Take one character...
+            $sThisCharacter = mb_substr($sPhoneNumber, $iCount, 1);
+
+            // Is it a number?
+            if (ord($sThisCharacter) >= 48 && ord($sThisCharacter) <= 57) {
+                // Yes, add it to the returned value.
+                $sCollapsedPhoneNumber .= $sThisCharacter;
+            } // Is the user trying to add an extension?
+            elseif (!$bHasExtension && ($sThisCharacter == 'e' || $sThisCharacter == 'E')) {
+                // Yes, add the extension identifier 'e' to the stored string.
+                $sCollapsedPhoneNumber .= 'e';
+                // From now on, ignore other non-digits and process normally
+                $bHasExtension = true;
+            }
+        }
+        break;
+
+      default:
+        $sCollapsedPhoneNumber = $sPhoneNumber;
+        break;
+    }
+
+      return $sCollapsedPhoneNumber;
+  }
+
+  //
+  // Expands a collapsed phone number into the proper format for a known country.
+  //
+  // If, during expansion, an unknown format is found, the original will be returned
+  // and the a boolean flag $bWeird will be set.  Unfortunately, because PHP does not
+  // allow for pass-by-reference in conjunction with a variable-length argument list,
+  // a dummy variable will have to be passed even if this functionality is unneeded.
+  //
+  // Need to add other countries besides the US...
+  //
+  public static  function ExpandPhoneNumber($sPhoneNumber, $sPhoneCountry, &$bWeird)
+  {
+    // this is normally unusefull
+  
+    /*$bWeird = false;
+    $length = strlen($sPhoneNumber);
+
+    switch ($sPhoneCountry) {
+      case 'United States':
+        if ($length == 0) {
+            return '';
+        } // 7 digit phone # with extension
+        elseif (mb_substr($sPhoneNumber, 7, 1) == 'e') {
+            return mb_substr($sPhoneNumber, 0, 3).'-'.mb_substr($sPhoneNumber, 3, 4).' Ext.'.mb_substr($sPhoneNumber, 8, 6);
+        } // 10 digit phone # with extension
+        elseif (mb_substr($sPhoneNumber, 10, 1) == 'e') {
+            return mb_substr($sPhoneNumber, 0, 3).'-'.mb_substr($sPhoneNumber, 3, 3).'-'.mb_substr($sPhoneNumber, 6, 4).' Ext.'.mb_substr($sPhoneNumber, 11, 6);
+        } elseif ($length == 7) {
+            return mb_substr($sPhoneNumber, 0, 3).'-'.mb_substr($sPhoneNumber, 3, 4);
+        } elseif ($length == 10) {
+            return mb_substr($sPhoneNumber, 0, 3).'-'.mb_substr($sPhoneNumber, 3, 3).'-'.mb_substr($sPhoneNumber, 6, 4);
+        } // Otherwise, there is something weird stored, so just leave it untouched and set the flag
+        else {
+            $bWeird = true;
+
+            return $sPhoneNumber;
+        }
+        break;
+
+      // If the country is unknown, we don't know how to format it, so leave it untouched
+      default:
+        return $sPhoneNumber;
+    }*/
+  
+    return $sPhoneNumber;
   }
 }
