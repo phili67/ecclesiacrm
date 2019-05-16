@@ -13,9 +13,11 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+
 
 
 $iDonatedItemID = InputUtils::LegacyFilterInputArr($_GET, 'DonatedItemID', 'int');
@@ -195,7 +197,7 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
         echo ' selected';
     }
     echo '>'.$per_LastName.', '.$per_FirstName;
-    echo ' '.FormatAddressLine($fam_Address1, $fam_City, $fam_State);
+    echo ' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
 }
 ?>
                             </select>

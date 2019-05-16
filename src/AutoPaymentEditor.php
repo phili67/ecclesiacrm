@@ -825,7 +825,7 @@ if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
                 <?php
                   foreach ($ormFamilies as $family) {
                 ?>
-                    <option value="<?= $family->getId() ?>" <?= ($iFamily == $family->getId())?' selected':'' ?>> <?= $family->getName() . '&nbsp;' . FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState()) ?>
+                    <option value="<?= $family->getId() ?>" <?= ($iFamily == $family->getId())?' selected':'' ?>> <?= $family->getName() . '&nbsp;' . MiscUtils::FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState()) ?>
                 <?php
                    }
                 ?>

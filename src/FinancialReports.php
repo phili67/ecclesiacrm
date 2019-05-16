@@ -198,7 +198,7 @@ if ($sReportType == '') {
             <?php
             }
             ?>
-            <?= FormatAddressLine($fam_Address1, $fam_City, $fam_State) ?>
+            <?= MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State) ?>
         <?php
         }
         ?>
