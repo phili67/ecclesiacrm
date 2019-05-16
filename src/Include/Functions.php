@@ -600,23 +600,6 @@ function sqlCustomField(&$sSQL, $type, $data, $col_Name, $special)
   }
 }
 
-// Figure out the class ID for "Member", should be one (1) unless they have been playing with the
-// classification manager.
-function FindMemberClassID()
-{
-    //Get Classifications
-    $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-    $rsClassifications = RunQuery($sSQL);
-
-    while ($aRow = mysqli_fetch_array($rsClassifications)) {
-        extract($aRow);
-        if ($lst_OptionName == _('Member')) {
-            return $lst_OptionID;
-        }
-    }
-
-    return 1; // Should not get here, but if we do get here use the default value.
-}
 
 // Prepare data for entry into MySQL database.
 // This function solves the problem of inserting a NULL value into MySQL since

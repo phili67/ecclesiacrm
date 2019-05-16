@@ -12,11 +12,10 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-require 'Include/EnvelopeFunctions.php';
-
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\EnvelopeUtilities;
 
 //Set the page title
 $sPageTitle = _('Envelope Manager');
@@ -50,7 +49,7 @@ if (isset($_POST['AssignStartNum'])) {
 
 $envelopesToWrite = [];
 // get the array of envelopes of interest, indexed by family id
-$envelopesByFamID = getEnvelopes($iClassification);
+$envelopesByFamID = EnvelopeUtilities::getEnvelopes($iClassification);
 
 // get the array of family name/description strings, also indexed by family id
 $familyArray = getFamilyList(SystemConfig::getValue('sDirRoleHead'), SystemConfig::getValue('sDirRoleSpouse'), $iClassification);
@@ -219,26 +218,5 @@ foreach ($arrayToLoop as $fam_ID => $value) {
 </div>
 
 <?php
-
-// make an array of envelopes indexed by family id, subject to the classification filter if specified.
-function getEnvelopes($classification)
-{
-    if ($classification) {
-        $sSQL = "SELECT fam_ID, fam_Envelope FROM family_fam LEFT JOIN person_per ON fam_ID = per_fam_ID WHERE per_cls_ID='".$classification."'";
-    } else {
-        $sSQL = 'SELECT fam_ID, fam_Envelope FROM family_fam';
-    }
-
-    $sSQL .= ' ORDER by fam_Envelope';
-    $dEnvelopes = RunQuery($sSQL);
-    $envelopes = [];
-    while ($aRow = mysqli_fetch_array($dEnvelopes)) {
-        extract($aRow);
-        $envelopes[$fam_ID] = $fam_Envelope;
-    }
-
-    return $envelopes;
-}
-
 require 'Include/Footer.php';
 ?>
