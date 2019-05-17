@@ -175,36 +175,6 @@ function ConvertCartToString($aCartArray)
     return $sCartString;
 }
 
-/******************************************************************************
- * Returns the proper information to use for a field.
- * Person info overrides Family info if they are different.
- * If using family info and bFormat set, generate HTML tags for text color red.
- * If neither family nor person info is available, return an empty string.
- *****************************************************************************/
-
-function SelectWhichInfo($sPersonInfo, $sFamilyInfo, $bFormat = false)
-{
-    $finalData = '';
-    $isFamily = false;
-
-    if (SystemConfig::getValue('bShowFamilyData')) {
-        if ($sPersonInfo != '') {
-            $finalData = $sPersonInfo;
-        } elseif ($sFamilyInfo != '') {
-            $isFamily = true;
-            $finalData = $sFamilyInfo;
-        }
-    } elseif ($sPersonInfo != '') {
-        $finalData = $sPersonInfo;
-    }
-
-    if ($bFormat && $isFamily) {
-        $finalData = $finalData."<i class='fa fa-fw fa-tree'></i>";
-    }
-
-    return $finalData;
-}
-
 function ChopLastCharacter($sText)
 {
     return mb_substr($sText, 0, strlen($sText) - 1);

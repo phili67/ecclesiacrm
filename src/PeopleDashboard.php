@@ -11,6 +11,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Utils\MiscUtils;
+
+
 
 // Set the page title
 $sPageTitle = _('People Dashboard');
@@ -59,7 +62,7 @@ $sSQL = "SELECT per_Email, fam_Email, lst_OptionName as virt_RoleName FROM perso
 $rsEmailList = RunQuery($sSQL);
 $sEmailLink = '';
 while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailList)) {
-    $sEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+    $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
     if ($sEmail) {
         /* if ($sEmailLink) // Don't put delimiter before first email
             $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */

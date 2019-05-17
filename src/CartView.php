@@ -17,8 +17,9 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\utils\LabelUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\LabelUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 // Set the page title and include HTML header
@@ -140,7 +141,7 @@ if (!Cart::HasPeople()) {
                 $rsEmailList = RunQuery($sSQL);
                 $sEmailLink = '';
                 while (list($per_Email, $fam_Email) = mysqli_fetch_row($rsEmailList)) {
-                    $sEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+                    $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
                     if ($sEmail) {
                         /* if ($sEmailLink) // Don't put delimiter before first email
                             $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
@@ -181,7 +182,7 @@ if (!Cart::HasPeople()) {
                 $sCommaDelimiter = ', ';
 
                 while (list($per_CellPhone, $fam_CellPhone) = mysqli_fetch_row($rsPhoneList)) {
-                    $sPhone = SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
+                    $sPhone = MiscUtils::SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
                     if ($sPhone) {
                         /* if ($sPhoneLink) // Don't put delimiter before first phone
                             $sPhoneLink .= $sCommaDelimiter;  */
@@ -327,7 +328,7 @@ if (!Cart::HasPeople()) {
                     $email_array = [];
 
                     foreach ($ormCartItems as $person) {
-                        $sEmail = SelectWhichInfo($person->getEmail(), !is_null($person->getFamily())?$person->getFamily()->getEmail():null, false);
+                        $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), !is_null($person->getFamily())?$person->getFamily()->getEmail():null, false);
                         if (strlen($sEmail) == 0 && strlen($person->getWorkEmail()) > 0) {
                             $sEmail = $person->getWorkEmail();
                         }
@@ -349,8 +350,8 @@ if (!Cart::HasPeople()) {
                             $sValidEmail = _('No');
                         }
 
-                        $sAddress1 = SelectWhichInfo($person->getAddress1(), !is_null($person->getFamily())?$person->getFamily()->getAddress1():null, false);
-                        $sAddress2 = SelectWhichInfo($person->getAddress2(), !is_null($person->getFamily())?$person->getFamily()->getAddress2():null, false);
+                        $sAddress1 = MiscUtils::SelectWhichInfo($person->getAddress1(), !is_null($person->getFamily())?$person->getFamily()->getAddress1():null, false);
+                        $sAddress2 = MiscUtils::SelectWhichInfo($person->getAddress2(), !is_null($person->getFamily())?$person->getFamily()->getAddress2():null, false);
 
                         if (strlen($sAddress1) > 0 || strlen($sAddress2) > 0) {
                             $sValidAddy = _('Yes');

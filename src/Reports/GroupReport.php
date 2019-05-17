@@ -91,13 +91,13 @@ if ($iMode == 1) {
 
         MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
 
-        $sCity = SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
-        $sState = SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);
-        $sZip = SelectWhichInfo($aRow['per_Zip'], $aRow['fam_Zip'], false);
-        $sHomePhone = SelectWhichInfo($aRow['per_HomePhone'], $aRow['fam_HomePhone'], false);
-        $sWorkPhone = SelectWhichInfo($aRow['per_WorkPhone'], $aRow['fam_WorkPhone'], false);
-        $sCellPhone = SelectWhichInfo($aRow['per_CellPhone'], $aRow['fam_CellPhone'], false);
-        $sEmail = SelectWhichInfo($aRow['per_Email'], $aRow['fam_Email'], false);
+        $sCity = MiscUtils::SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
+        $sState = MiscUtils::SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);
+        $sZip = MiscUtils::SelectWhichInfo($aRow['per_Zip'], $aRow['fam_Zip'], false);
+        $sHomePhone = MiscUtils::SelectWhichInfo($aRow['per_HomePhone'], $aRow['fam_HomePhone'], false);
+        $sWorkPhone = MiscUtils::SelectWhichInfo($aRow['per_WorkPhone'], $aRow['fam_WorkPhone'], false);
+        $sCellPhone = MiscUtils::SelectWhichInfo($aRow['per_CellPhone'], $aRow['fam_CellPhone'], false);
+        $sEmail = MiscUtils::SelectWhichInfo($aRow['per_Email'], $aRow['fam_Email'], false);
 
         if (isset($_POST['GroupRoleEnable'])) {
             $OutStr = _('Role').': '.$aRoleNames[$aRow['p2g2r_rle_ID']]."\n";

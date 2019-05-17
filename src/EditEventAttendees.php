@@ -100,9 +100,9 @@ if ($numAttRows != 0) {
       $fam = $per_fam->getFamily();
     }
    
-   $sPhoneCountry = SelectWhichInfo($person->getCountry(), (!empty($fam))?$fam->getCountry():"", false);
-   $sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber((!empty($fam))?$fam->getHomePhone():"", (!empty($fam))?$fam->getCountry():"", $dummy), true);
-   $sEmail = SelectWhichInfo($person->getEmail(), (!empty($fam))?$fam->getEmail():"", false);?>
+   $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!empty($fam))?$fam->getCountry():"", false);
+   $sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber((!empty($fam))?$fam->getHomePhone():"", (!empty($fam))?$fam->getCountry():"", $dummy), true);
+   $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), (!empty($fam))?$fam->getEmail():"", false);?>
     <tr>
         <td class="TextColumn"><?= OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 3) ?></td>
         <td class="TextColumn"><?= $sEmail ? '<a href="mailto:'.$sEmail.'" title="Send Email">'.$sEmail.'</a>' : _('Not Available') ?></td>

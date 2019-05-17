@@ -86,16 +86,16 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
         }
 
         MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, InputUtils::LegacyFilterInput($_POST['Address1']), InputUtils::LegacyFilterInput($_POST['Address2']), $per_Address1, $per_Address2, false);
-        $sCity = SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['City']), $per_City);
-        $sZip = SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Zip']), $per_Zip);
-        $sCountry = SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Country']), $per_Country);
+        $sCity = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['City']), $per_City);
+        $sZip = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Zip']), $per_Zip);
+        $sCountry = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Country']), $per_Country);
 
         if ($sCountry == 'United States' || $sCountry == 'Canada') {
             $sState = InputUtils::LegacyFilterInput($_POST['State']);
         } else {
             $sState = InputUtils::LegacyFilterInput($_POST['StateTextbox']);
         }
-        $sState = SelectWhichInfo($sState, $per_State);
+        $sState = MiscUtils::SelectWhichInfo($sState, $per_State);
 
         // Get and format any phone data from the form.
         $sHomePhone = InputUtils::LegacyFilterInput($_POST['HomePhone']);
@@ -111,10 +111,10 @@ if (isset($_POST['Submit']) && count($_SESSION['aPeopleCart']) > 0) {
             $sCellPhone = MiscUtils::CollapsePhoneNumber($sCellPhone, $sCountry);
         }
 
-        $sHomePhone = SelectWhichInfo($sHomePhone, $per_HomePhone);
-        $sWorkPhone = SelectWhichInfo($sWorkPhone, $per_WorkPhone);
-        $sCellPhone = SelectWhichInfo($sCellPhone, $per_CellPhone);
-        $sEmail = SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
+        $sHomePhone = MiscUtils::SelectWhichInfo($sHomePhone, $per_HomePhone);
+        $sWorkPhone = MiscUtils::SelectWhichInfo($sWorkPhone, $per_WorkPhone);
+        $sCellPhone = MiscUtils::SelectWhichInfo($sCellPhone, $per_CellPhone);
+        $sEmail = MiscUtils::SelectWhichInfo(InputUtils::LegacyFilterInput($_POST['Email']), $per_Email);
 
         if (strlen($sFamilyName) == 0) {
             $sError = '<p class="callout callout-warning" align="center" style="color:red;">'._('No family name entered!').'</p>';

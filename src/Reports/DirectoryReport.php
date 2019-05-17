@@ -262,14 +262,14 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
         }
 
         MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
-        $sAddress2 = SelectWhichInfo($per_Address2, $fam_Address2, false);
-        $sCity = SelectWhichInfo($per_City, $fam_City, false);
-        $sState = SelectWhichInfo($per_State, $fam_State, false);
-        $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
-        $sHomePhone = SelectWhichInfo($per_HomePhone, $fam_HomePhone, false);
-        $sWorkPhone = SelectWhichInfo($per_WorkPhone, $fam_WorkPhone, false);
-        $sCellPhone = SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
-        $sEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+        $sAddress2 = MiscUtils::SelectWhichInfo($per_Address2, $fam_Address2, false);
+        $sCity = MiscUtils::SelectWhichInfo($per_City, $fam_City, false);
+        $sState = MiscUtils::SelectWhichInfo($per_State, $fam_State, false);
+        $sZip = MiscUtils::SelectWhichInfo($per_Zip, $fam_Zip, false);
+        $sHomePhone = MiscUtils::SelectWhichInfo($per_HomePhone, $fam_HomePhone, false);
+        $sWorkPhone = MiscUtils::SelectWhichInfo($per_WorkPhone, $fam_WorkPhone, false);
+        $sCellPhone = MiscUtils::SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
+        $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
 
         if ($bDirAddress) {
             //            if (strlen($sAddress1)) { $OutStr .= $sAddress1 . "\n";  }
