@@ -18,6 +18,7 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\ListOptionQuery;
@@ -229,7 +230,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
         ?>
         <tr class="<?= $sRowClass ?>">
           <td align="center"><?= $count++ ?></td>
-          <td><img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail" class="direct-chat-img"> &nbsp <a href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a></td>
+          <td><img src="<?= SystemURLs::getRootPath()?>/api/persons/<?= $ormCartItem->getId() ?>/thumbnail" class="direct-chat-img"> &nbsp <a href="PersonView.php?PersonID=<?= $ormCartItem->getId() ?>"><?= OutputUtils::FormatFullName($ormCartItem->getTitle(), $ormCartItem->getFirstName(), $ormCartItem->getMiddleName(), $ormCartItem->getLastName(), $ormCartItem->getSuffix(), 1) ?></a></td>
           <td align="center">
           <?php
             if ($ormCartItem->getFamId() == 0) {

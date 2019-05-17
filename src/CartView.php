@@ -16,6 +16,7 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\LabelUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -364,7 +365,7 @@ if (!Cart::HasPeople()) {
                             <td>
                                 <img src="<?= $thumbnail ?>" class="direct-chat-img initials-image">&nbsp
                                 <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $person->getId() ?>">
-                                    <?= FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 1) ?>
+                                    <?= OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 1) ?>
                                 </a>
                             </td>
                             <td><?= $sValidAddy ?></td>

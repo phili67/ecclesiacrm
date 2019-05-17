@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : Attendance.php
+ *  filename    : EventAttendance.php
  *  last change : 2005-09-18
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2005 Todd Pillars
@@ -14,15 +14,14 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-
 
 if ( !SystemConfig::getBooleanValue('bEnabledSundaySchool') ) {
   RedirectUtils::Redirect('Menu.php');
   exit;
 }
-use EcclesiaCRM\Utils\OutputUtils;
 
 if (array_key_exists('Action', $_POST) && $_POST['Action'] == 'Retrieve' && !empty($_POST['Event'])) {
     if ($_POST['Choice'] == 'Attendees') {
@@ -199,7 +198,7 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
             //Display the row
          ?>
          <tr class="<?= $sRowClass ?>">
-           <td class="TextColumn"><?= FormatFullName($aTitle[$row], $aFistName[$row], $aMiddleName[$row], $aLastName[$row], $aSuffix[$row], 3) ?></td>
+           <td class="TextColumn"><?= OutputUtils::FormatFullName($aTitle[$row], $aFistName[$row], $aMiddleName[$row], $aLastName[$row], $aSuffix[$row], 3) ?></td>
            <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email">'.$aEmail[$row].'</a>' : 'Not Available' ?></td>
            <td class="TextColumn"><?= $aHomePhone[$row] ? $aHomePhone[$row] : 'Not Available' ?></td>
 <?php

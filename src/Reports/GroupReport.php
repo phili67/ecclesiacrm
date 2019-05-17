@@ -87,7 +87,7 @@ if ($iMode == 1) {
     while ($aRow = mysqli_fetch_array($rsRecords)) {
         $OutStr = '';
 
-        $pdf->sFamily = FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], $aRow['per_MiddleName'], $aRow['per_LastName'], $aRow['per_Suffix'], 3);
+        $pdf->sFamily = OutputUtils::FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], $aRow['per_MiddleName'], $aRow['per_LastName'], $aRow['per_Suffix'], 3);
 
         SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
 
