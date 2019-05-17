@@ -191,7 +191,7 @@ if (isset($_POST['ApiGet'])) {
                 if ($amount) { // eGive records can be 'zero' for two reasons:  a) intentional zero to suspend giving, or b) rejected bank transfer
                     ksort($amount, SORT_NUMERIC);
                     $fundIds = implode(',', array_keys($amount));
-                    $groupKey = genGroupKey($transId, $famID, $fundIds, $date);
+                    $groupKey = MiscUtils::genGroupKey($transId, $famID, $fundIds, $date);
 
                     foreach ($amount as $fundId => $am) {
                         $comment = $eGiveFund[$fundId];

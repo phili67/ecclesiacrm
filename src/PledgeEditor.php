@@ -377,19 +377,19 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
                 }
                 if (!$sGroupKey) {
                     if ($iMethod == 'CHECK') {
-                        $sGroupKey = genGroupKey($iCheckNo, $iFamily, $fun_id, $dDate);
+                        $sGroupKey = MiscUtils::genGroupKey($iCheckNo, $iFamily, $fun_id, $dDate);
                     } elseif ($iMethod == 'BANKDRAFT') {
                         if (!$iAutID) {
                             $iAutID = 'draft';
                         }
-                        $sGroupKey = genGroupKey($iAutID, $iFamily, $fun_id, $dDate);
+                        $sGroupKey = MiscUtils::genGroupKey($iAutID, $iFamily, $fun_id, $dDate);
                     } elseif ($iMethod == 'CREDITCARD') {
                         if (!$iAutID) {
                             $iAutID = 'credit';
                         }
-                        $sGroupKey = genGroupKey($iAutID, $iFamily, $fun_id, $dDate);
+                        $sGroupKey = MiscUtils::genGroupKey($iAutID, $iFamily, $fun_id, $dDate);
                     } else {
-                        $sGroupKey = genGroupKey('cash', $iFamily, $fun_id, $dDate);
+                        $sGroupKey = MiscUtils::genGroupKey('cash', $iFamily, $fun_id, $dDate);
                     }
                 }
                 
