@@ -11,12 +11,9 @@
  *
  ******************************************************************************/
 
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\PersonService;
 use EcclesiaCRM\Service\SystemService;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\Cart;
@@ -156,22 +153,6 @@ function RunQuery($sSQL, $bStopOnError = true)
         }
     } else {
         return false;
-    }
-}
-
-function genGroupKey($methodSpecificID, $famID, $fundIDs, $date)
-{
-    $uniqueNum = 0;
-    while (1) {
-        $GroupKey = $methodSpecificID.'|'.$uniqueNum.'|'.$famID.'|'.$fundIDs.'|'.$date;
-        $sSQL = "SELECT COUNT(plg_GroupKey) FROM pledge_plg WHERE plg_PledgeOrPayment='Payment' AND plg_GroupKey='".$GroupKey."'";
-        $rsResults = RunQuery($sSQL);
-        list($numGroupKeys) = mysqli_fetch_row($rsResults);
-        if ($numGroupKeys) {
-            ++$uniqueNum;
-        } else {
-            return $GroupKey;
-        }
     }
 }
 

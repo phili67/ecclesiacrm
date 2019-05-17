@@ -1191,5 +1191,21 @@ public static function FileSizeConvert($bytes)
         return 'RowColorA';
     }
   }
+  
+  public static function genGroupKey($methodSpecificID, $famID, $fundIDs, $date)
+  {
+    $uniqueNum = 0;
+    while (1) {
+        $GroupKey = $methodSpecificID.'|'.$uniqueNum.'|'.$famID.'|'.$fundIDs.'|'.$date;
+        $sSQL = "SELECT COUNT(plg_GroupKey) FROM pledge_plg WHERE plg_PledgeOrPayment='Payment' AND plg_GroupKey='".$GroupKey."'";
+        $rsResults = RunQuery($sSQL);
+        list($numGroupKeys) = mysqli_fetch_row($rsResults);
+        if ($numGroupKeys) {
+            ++$uniqueNum;
+        } else {
+            return $GroupKey;
+        }
+    }
+  }
 
 }
