@@ -688,7 +688,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
         if ($mode == 'fam') {
             $aName = GroupBySalutation($aRow['per_fam_ID'], $aAdultRole, $aChildRole);
         } else {
-            $sName = FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], '',
+            $sName = OutputUtils::FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], '',
                 $aRow['per_LastName'], $aRow['per_Suffix'], 1);
 
             $bChild = false;

@@ -730,4 +730,84 @@ class OutputUtils {
         }
     }
   }
+  
+  // Returns a string of a person's full name, formatted as specified by $Style
+  // $Style = 0  :  "Title FirstName MiddleName LastName, Suffix"
+  // $Style = 1  :  "Title FirstName MiddleInitial. LastName, Suffix"
+  // $Style = 2  :  "LastName, Title FirstName MiddleName, Suffix"
+  // $Style = 3  :  "LastName, Title FirstName MiddleInitial., Suffix"
+  //
+  public static function FormatFullName($Title, $FirstName, $MiddleName, $LastName, $Suffix, $Style)
+  {
+      $nameString = '';
+
+      switch ($Style) {
+
+      case 0:
+        if ($Title) {
+            $nameString .= $Title.' ';
+        }
+        $nameString .= $FirstName;
+        if ($MiddleName) {
+            $nameString .= ' '.$MiddleName;
+        }
+        if ($LastName) {
+            $nameString .= ' '.$LastName;
+        }
+        if ($Suffix) {
+            $nameString .= ', '.$Suffix;
+        }
+        break;
+
+      case 1:
+        if ($Title) {
+            $nameString .= $Title.' ';
+        }
+        $nameString .= $FirstName;
+        if ($MiddleName) {
+            $nameString .= ' '.strtoupper(mb_substr($MiddleName, 0, 1, 'UTF-8')).'.';
+        }
+        if ($LastName) {
+            $nameString .= ' '.$LastName;
+        }
+        if ($Suffix) {
+            $nameString .= ', '.$Suffix;
+        }
+        break;
+
+      case 2:
+        if ($LastName) {
+            $nameString .= $LastName.', ';
+        }
+        if ($Title) {
+            $nameString .= $Title.' ';
+        }
+        $nameString .= $FirstName;
+        if ($MiddleName) {
+            $nameString .= ' '.$MiddleName;
+        }
+        if ($Suffix) {
+            $nameString .= ', '.$Suffix;
+        }
+        break;
+
+      case 3:
+        if ($LastName) {
+            $nameString .= $LastName.', ';
+        }
+        if ($Title) {
+            $nameString .= $Title.' ';
+        }
+        $nameString .= $FirstName;
+        if ($MiddleName) {
+            $nameString .= ' '.strtoupper(mb_substr($MiddleName, 0, 1, 'UTF-8')).'.';
+        }
+        if ($Suffix) {
+            $nameString .= ', '.$Suffix;
+        }
+        break;
+    }
+
+      return $nameString;
+  }
 }
