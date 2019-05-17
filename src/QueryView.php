@@ -15,7 +15,8 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -26,7 +27,7 @@ if ( !( SessionUser::getUser()->isShowMenuQueryEnabled() ) ) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Query View');
+$sPageTitle = _('Query View');
 
 //Get the QueryID from the querystring
 $iQueryID = InputUtils::LegacyFilterInput($_GET['QueryID'], 'int');
@@ -96,7 +97,7 @@ function ValidateInput()
         //Is the value required?
         if ($qrp_Required && strlen(trim($_POST[$qrp_Alias])) < 1) {
             $bError = true;
-            $aErrorText[$qrp_Alias] = gettext('This value is required.');
+            $aErrorText[$qrp_Alias] = _('This value is required.');
         }
 
         //Assuming there was no error above...
@@ -109,17 +110,17 @@ function ValidateInput()
                     //Is it a number?
                     if (!is_numeric($_POST[$qrp_Alias])) {
                         $bError = true;
-                        $aErrorText[$qrp_Alias] = gettext('This value must be numeric.');
+                        $aErrorText[$qrp_Alias] = _('This value must be numeric.');
                     } else {
                         //Is it more than the minimum?
                         if ($_POST[$qrp_Alias] < $qrp_NumericMin) {
                             $bError = true;
-                            $aErrorText[$qrp_Alias] = gettext('This value must be at least ').$qrp_NumericMin;
+                            $aErrorText[$qrp_Alias] = _('This value must be at least ').$qrp_NumericMin;
                         }
                         //Is it less than the maximum?
                         elseif ($_POST[$qrp_Alias] > $qrp_NumericMax) {
                             $bError = true;
-                            $aErrorText[$qrp_Alias] = gettext('This value cannot be more than ').$qrp_NumericMax;
+                            $aErrorText[$qrp_Alias] = _('This value cannot be more than ').$qrp_NumericMax;
                         }
                     }
 
@@ -132,12 +133,12 @@ function ValidateInput()
                     //Is the length less than the maximum?
                     if (strlen($_POST[$qrp_Alias]) > $qrp_AlphaMaxLength) {
                         $bError = true;
-                        $aErrorText[$qrp_Alias] = gettext('This value cannot be more than ').$qrp_AlphaMaxLength.gettext(' characters long');
+                        $aErrorText[$qrp_Alias] = _('This value cannot be more than ').$qrp_AlphaMaxLength._(' characters long');
                     }
                     //is the length more than the minimum?
                     elseif (strlen($_POST[$qrp_Alias]) < $qrp_AlphaMinLength) {
                         $bError = true;
-                        $aErrorText[$qrp_Alias] = gettext('This value cannot be less than ').$qrp_AlphaMinLength.gettext(' characters long');
+                        $aErrorText[$qrp_Alias] = _('This value cannot be less than ').$qrp_AlphaMinLength._(' characters long');
                     }
 
                     $vPOST[$qrp_Alias] = InputUtils::LegacyFilterInput($_POST[$qrp_Alias]);
@@ -183,7 +184,7 @@ function DisplayRecordCount()
     if ($qry_Count == 1) {
         //Display the count of the recordset
         echo '<p align="center">';
-        echo mysqli_num_rows($rsQueryResults).gettext(' record(s) returned');
+        echo mysqli_num_rows($rsQueryResults)._(' record(s) returned');
         echo '</p>';
     }
 }
@@ -213,7 +214,7 @@ function DoQuery()
                         //If this field is called "AddToCart", don't display this field...
                         $fieldInfo = mysqli_fetch_field_direct($rsQueryResults, $iCount);
                         if ($fieldInfo->name != 'AddToCart' && $fieldInfo->name != 'GDPR') {
-                            echo '<th>'.gettext($fieldInfo->name).'</th>';
+                            echo '<th>'._($fieldInfo->name).'</th>';
                         }
                     } ?>
             </thead>
@@ -229,7 +230,7 @@ function DoQuery()
         $qry_real_Count++;
 
         //Alternate the background color of the row
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         echo '<tr class="'.$sRowClass.'">';
 
@@ -254,7 +255,7 @@ function DoQuery()
         </div>
         
         <p class="text-right">
-            <?= $qry_Count ? $qry_real_Count.gettext(' record(s) returned') : ''; ?>
+            <?= $qry_Count ? $qry_real_Count._(' record(s) returned') : ''; ?>
         </p>
     </div>
     
@@ -264,16 +265,16 @@ function DoQuery()
             <form method="post" action="CartView.php">
             <div class="col-sm-offset-1">
                 <input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
-                <input type="submit" class="btn btn-primary btn-sm" name="AddToCartSubmit" value="<?= gettext('Add To Cart') ?>">
-                <input type="submit" class="btn btn-warning btn-sm" name="AndToCartSubmit" value="<?= gettext('Intersect With Cart') ?>">
-                <input type="submit" class="btn btn-danger btn-sm" name="NotToCartSubmit" value="<?= gettext('Remove From Cart') ?>">
+                <input type="submit" class="btn btn-primary btn-sm" name="AddToCartSubmit" value="<?= _('Add To Cart') ?>">
+                <input type="submit" class="btn btn-warning btn-sm" name="AndToCartSubmit" value="<?= _('Intersect With Cart') ?>">
+                <input type="submit" class="btn btn-danger btn-sm" name="NotToCartSubmit" value="<?= _('Remove From Cart') ?>">
             </div>
             </form>
         <?php endif; ?>
         </p>
         
         <p class="text-right">
-            <?= '<a href="QueryView.php?QueryID='.$iQueryID.'">'.gettext('Run Query Again').'</a>'; ?>
+            <?= '<a href="QueryView.php?QueryID='.$iQueryID.'">'._('Run Query Again').'</a>'; ?>
         </p>
     </div>
 
@@ -298,8 +299,8 @@ function DisplayQueryInfo()
     global $qry_Description; ?>
 <div class="box box-info">
     <div class="box-body">
-        <p><strong><?= gettext($qry_Name); ?></strong></p>
-        <p><?= gettext($qry_Description); ?></p>
+        <p><strong><?= _($qry_Name); ?></strong></p>
+        <p><?= _($qry_Description); ?></p>
     </div>
 </div>
 <?php
@@ -313,8 +314,8 @@ function getQueryFormInput($queryParameters)
     extract($queryParameters);
     
     $input = '';
-    $label = '<label>' . gettext($qrp_Name) . '</label>';
-    $helpMsg = '<div>' . gettext($qrp_Description) . '</div>';
+    $label = '<label>' . _($qrp_Name) . '</label>';
+    $helpMsg = '<div>' . _($qrp_Description) . '</div>';
 
     switch ($qrp_Type) {
         //Standard INPUT box
@@ -329,12 +330,12 @@ function getQueryFormInput($queryParameters)
             $rsParameterOptions = RunQuery($sSQL);
 
             $input = '<select name="'.$qrp_Alias.'" class="form-control">';
-            $input .= '<option disabled selected value> -- ' . gettext("select an option"). ' -- </option>';
+            $input .= '<option disabled selected value> -- ' . _("select an option"). ' -- </option>';
             
             //Loop through the parameter options
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
-                $input .= '<option value="'.$qpo_Value.'">'.gettext($qpo_Display).'</option>';
+                $input .= '<option value="'.$qpo_Value.'">'._($qpo_Display).'</option>';
             }
 
             $input .= '</select>';
@@ -346,7 +347,7 @@ function getQueryFormInput($queryParameters)
             $rsParameterOptions = RunQuery($qrp_OptionSQL);
 
             $input .= '<select name="'.$qrp_Alias.'" class="form-control">';
-            $input .= '<option disabled selected value> -- '.gettext('select an option').' -- </option>';
+            $input .= '<option disabled selected value> -- '._('select an option').' -- </option>';
 
             while ($ThisRow = mysqli_fetch_array($rsParameterOptions)) {
                 extract($ThisRow);
@@ -391,7 +392,7 @@ if (mysqli_num_rows($rsParameters)) {
     } ?>
                     
                     <div class="form-group text-right">
-                        <input class="btn btn-primary" type="Submit" value="<?= gettext("Execute Query") ?>" name="Submit">
+                        <input class="btn btn-primary" type="Submit" value="<?= _("Execute Query") ?>" name="Submit">
                     </div>
                 </form>
                 

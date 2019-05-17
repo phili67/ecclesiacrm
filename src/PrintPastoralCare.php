@@ -358,7 +358,7 @@ if ($fam_ID) {
                 extract($aRow);
                 
                 // Alternate the row style
-                $sRowClass = AlternateRowStyle($sRowClass)
+                $sRowClass = MiscUtils::AlternateRowStyle($sRowClass)
 
         // Display the family member
     ?>
@@ -406,7 +406,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
         extract($aRow);
 
         //Alternate the row style
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         // DISPLAY THE ROW
         echo '<tr class="'.$sRowClass.'">';
@@ -436,7 +436,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
                         echo '<tr class="TinyTableHeader"><td>'._('Property').'</td><td>'._("Value").'</td></tr>';
                         $firstRow = false;
                     }
-                    $sRowClass = AlternateRowStyle($sRowClass);
+                    $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
                     if ($type_ID == 11) {
                         $prop_Special = $sCountry;
                     }
@@ -479,7 +479,7 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
         extract($aRow);
 
         //Alternate the row style
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         //Display the row
         echo '<tr class="'.$sRowClass.'">';

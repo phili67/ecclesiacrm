@@ -48,7 +48,7 @@ if (!SessionUser::getUser()->isAdmin()) {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('US Address Verification');
+$sPageTitle = _('US Address Verification');
 require 'Include/Header.php';
 
 if (strlen(SystemConfig::getValue('sISTusername')) && strlen(SystemConfig::getValue('sISTpassword'))) {
@@ -101,7 +101,7 @@ if ($myISTReturnCode == '4') {
           Search Technology, Ltd.  For information about CorrectAddress(R) Online Address
           Verification Service visit the following URL. This software was written to work
           best with the service CorrectAddress(R) with Addons. <br><br>
-          <a href="http://www.intelligentsearch.com/address_verification/verify_address.html"> <?= gettext('http://www.intelligentsearch.com/address_verification/verify_address.html') ?></a>
+          <a href="http://www.intelligentsearch.com/address_verification/verify_address.html"> <?= _('http://www.intelligentsearch.com/address_verification/verify_address.html') ?></a>
         </div>
       </div>
     </div>

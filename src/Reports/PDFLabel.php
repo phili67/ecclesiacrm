@@ -671,7 +671,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
         // At most one label for all others (for example, another church or a landscape
         // company)
 
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         if (($aRow['per_fam_ID'] == 0) && ($mode == 'fam')) {
             // Skip people with no family ID

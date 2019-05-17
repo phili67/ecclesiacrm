@@ -118,7 +118,7 @@ if (array_key_exists('Action', $_GET) && $_GET['Action'] == 'List' && $numRows >
     for ($row = 1; $row <= $numRows; $row++) {
 
          //Alternate the row color
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         //Display the row?>
          <tr class="<?= $sRowClass ?>">
@@ -193,7 +193,7 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
         for ($row = 1; $row <= $numRows; $row++) {
 
          //Alternate the row color
-            $sRowClass = AlternateRowStyle($sRowClass);
+            $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
             //Display the row
          ?>
