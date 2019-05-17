@@ -18,6 +18,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ISTAddressLookup;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\SQLUtils;
+
 
 
 function XMLparseIST($xmlstr, $xmlfield)
@@ -284,23 +286,23 @@ if ($myISTReturnCode == '4') {
 
                 $ret = $myISTAddressLookup->wsCorrectA(SystemConfig::getValue('sISTusername'), SystemConfig::getValue('sISTpassword'));
 
-                $lu_fam_ID = MySQLquote(addslashes($fam_ID));
-                $lu_LookupDateTime = MySQLquote(addslashes(date('Y-m-d H:i:s')));
-                $lu_DeliveryLine1 = MySQLquote(addslashes($myISTAddressLookup->GetAddress1()));
-                $lu_DeliveryLine2 = MySQLquote(addslashes($myISTAddressLookup->GetAddress2()));
-                $lu_City = MySQLquote(addslashes($myISTAddressLookup->GetCity()));
-                $lu_State = MySQLquote(addslashes($myISTAddressLookup->GetState()));
-                $lu_ZipAddon = MySQLquote(addslashes($myISTAddressLookup->GetZip()));
-                $lu_Zip = MySQLquote(addslashes($myISTAddressLookup->GetZip5()));
-                $lu_Addon = MySQLquote(addslashes($myISTAddressLookup->GetZip4()));
-                $lu_LOTNumber = MySQLquote(addslashes($myISTAddressLookup->GetLOTNumber()));
-                $lu_DPCCheckdigit = MySQLquote(addslashes($myISTAddressLookup->GetDPCCheckdigit()));
-                $lu_RecordType = MySQLquote(addslashes($myISTAddressLookup->GetRecordType()));
-                $lu_LastLine = MySQLquote(addslashes($myISTAddressLookup->GetLastLine()));
-                $lu_CarrierRoute = MySQLquote(addslashes($myISTAddressLookup->GetCarrierRoute()));
-                $lu_ReturnCodes = MySQLquote(addslashes($myISTAddressLookup->GetReturnCodes()));
-                $lu_ErrorCodes = MySQLquote(addslashes($myISTAddressLookup->GetErrorCodes()));
-                $lu_ErrorDesc = MySQLquote(addslashes($myISTAddressLookup->GetErrorDesc()));
+                $lu_fam_ID = SQLUtils::MySQLquote(addslashes($fam_ID));
+                $lu_LookupDateTime = SQLUtils::MySQLquote(addslashes(date('Y-m-d H:i:s')));
+                $lu_DeliveryLine1 = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetAddress1()));
+                $lu_DeliveryLine2 = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetAddress2()));
+                $lu_City = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetCity()));
+                $lu_State = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetState()));
+                $lu_ZipAddon = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetZip()));
+                $lu_Zip = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetZip5()));
+                $lu_Addon = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetZip4()));
+                $lu_LOTNumber = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetLOTNumber()));
+                $lu_DPCCheckdigit = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetDPCCheckdigit()));
+                $lu_RecordType = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetRecordType()));
+                $lu_LastLine = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetLastLine()));
+                $lu_CarrierRoute = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetCarrierRoute()));
+                $lu_ReturnCodes = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetReturnCodes()));
+                $lu_ErrorCodes = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetErrorCodes()));
+                $lu_ErrorDesc = SQLUtils::MySQLquote(addslashes($myISTAddressLookup->GetErrorDesc()));
 
                 //echo "<br>" . $lu_ErrorCodes;
 
