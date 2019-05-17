@@ -27,6 +27,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\Cart;
+
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 {
@@ -54,7 +56,7 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
 
     // Only get family members that are in the cart
     $sSQL = 'SELECT * FROM person_per WHERE per_fam_ID='.$famID.' AND per_ID IN ('
-    .ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName, per_FirstName';
+    .Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName, per_FirstName';
 
     $rsMembers = RunQuery($sSQL);
     $numMembers = mysqli_num_rows($rsMembers);
@@ -654,7 +656,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
 
     $sSQL = 'SELECT * FROM person_per LEFT JOIN family_fam ';
     $sSQL .= 'ON person_per.per_fam_ID = family_fam.fam_ID ';
-    $sSQL .= 'WHERE per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).') ';
+    $sSQL .= 'WHERE per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ';
     $sSQL .= 'ORDER BY fam_Zip, per_LastName, per_FirstName';
     $rsCartItems = RunQuery($sSQL);
     $sRowClass = 'RowColorA';

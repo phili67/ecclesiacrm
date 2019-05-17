@@ -337,14 +337,14 @@ class Cart
     $sCartString = implode(',', $aCartArray);
 
     // Make sure the comma is chopped off the end
-    if (mb_substr($sCartString, strlen($sCartString) - 1, 1) == ',') {
-        $sCartString = mb_substr($sCartString, 0, strlen($sCartString) - 1);
+    if (mb_substr($sCartString, mb_strlen($sCartString) - 1, 1) == ',') {
+        $sCartString = mb_substr($sCartString, 0, mb_strlen($sCartString) - 1);
     }
 
     // Make sure there are no duplicate commas
     $sCartString = str_replace(',,', '', $sCartString);
 
-      return $sCartString;
+    return $sCartString;
   }
 
   public static function CountFamilies()

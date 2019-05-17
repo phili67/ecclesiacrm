@@ -159,25 +159,9 @@ function RunQuery($sSQL, $bStopOnError = true)
     }
 }
 
-function ConvertCartToString($aCartArray)
-{
-    // Implode the array
-    $sCartString = implode(',', $aCartArray);
-
-    // Make sure the comma is chopped off the end
-    if (mb_substr($sCartString, strlen($sCartString) - 1, 1) == ',') {
-        $sCartString = mb_substr($sCartString, 0, strlen($sCartString) - 1);
-    }
-
-    // Make sure there are no duplicate commas
-    $sCartString = str_replace(',,', '', $sCartString);
-
-    return $sCartString;
-}
-
 function ChopLastCharacter($sText)
 {
-    return mb_substr($sText, 0, strlen($sText) - 1);
+    return mb_substr($sText, 0, mb_strlen($sText) - 1);
 }
 
 function AlternateRowStyle($sCurrentStyle)
@@ -208,7 +192,7 @@ function MySQLquote($sfield)
     } elseif ($sfield == "''") {
         return 'NULL';
     } else {
-        if ((mb_substr($sfield, 0, 1) == "'") && (mb_substr($sfield, strlen($sfield) - 1, 1)) == "'") {
+        if ((mb_substr($sfield, 0, 1) == "'") && (mb_substr($sfield, mb_strlen($sfield) - 1, 1)) == "'") {
             return $sfield;
         } else {
             return "'".$sfield."'";

@@ -19,6 +19,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\Cart;
+
 
 // Check for Create Directory user permission.
 if (!SessionUser::getUser()->isCreateDirectoryEnabled()) {
@@ -145,7 +147,7 @@ if ($bExcludeInactive && SessionUser::getUser()->isGdrpDpoEnabled()) {// only DP
 }
 
 if (array_key_exists('cartdir', $_POST)) {
-    $sWhereExt .= 'AND per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')';
+    $sWhereExt .= 'AND per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')';
 }
 
 //Exclude inactive families GDRP
