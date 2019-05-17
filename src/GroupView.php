@@ -177,7 +177,7 @@ require 'Include/Header.php';
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <?php generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
+            <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
           </ul>
         </div>
 
@@ -188,7 +188,7 @@ require 'Include/Header.php';
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <?php generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
+            <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
           </ul>
         </div>
 
@@ -212,7 +212,7 @@ require 'Include/Header.php';
     $sPhoneLink = '';
     $sCommaDelimiter = ', ';
     while (list($per_CellPhone, $fam_CellPhone) = mysqli_fetch_row($rsPhoneList)) {
-        $sPhone = SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
+        $sPhone = MiscUtils::SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
         if ($sPhone) {
             /* if ($sPhoneLink) // Don't put delimiter before first phone
           $sPhoneLink .= $sCommaDelimiter; */

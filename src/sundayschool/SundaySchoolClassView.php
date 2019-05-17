@@ -8,6 +8,7 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\SessionUser;
@@ -102,7 +103,7 @@ require '../Include/Header.php';
           <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <?php generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
+          <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
         </ul>
       </div>
 
@@ -114,7 +115,7 @@ require '../Include/Header.php';
           <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <?php generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
+          <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
         </ul>
       </div>
       <?php

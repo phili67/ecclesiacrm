@@ -287,16 +287,3 @@ function requireUserGroupMembership($allowedRoles = null)
     //if we get to this point in the code, then the user is not authorized.
     throw new Exception('User is not authorized to access '.debug_backtrace()[1]['function'], 401);
 }
-
-function generateGroupRoleEmailDropdown($roleEmails, $href)
-{
-    foreach ($roleEmails as $role => $Email) {
-        if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($Email, SystemConfig::getValue('sToEmailAddress'))) {
-            $Email .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
-        }
-        $Email = urlencode($Email);  // Mailto should comply with RFC 2368
-    ?>
-      <li> <a href="<?= $href.mb_substr($Email, 0, -3) ?>"><?= _($role) ?></a></li>
-    <?php
-    }
-}
