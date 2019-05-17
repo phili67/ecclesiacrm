@@ -395,7 +395,7 @@ class MiscUtils {
     $first = true;
     for ($i=0;$i<$len;$i++) {
       if ($first == true) {
-        $res = "<i class='fa fa-home text-aqua'></i> ".gettext("Home");
+        $res = "<i class='fa fa-home text-aqua'></i> "._("Home");
         
         if ($len > 2) {
            $res .= " <i class='fa fa-caret-right'></i>";
@@ -588,7 +588,7 @@ public static function FileSizeConvert($bytes)
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = ($extension == "")?(gettext("Folder")." : ".$filename):(gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>");
+    $res = ($extension == "")?(_("Folder")." : ".$filename):(_("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>");
     
     switch (strtolower($extension)) {
       /*case "doc":
@@ -636,36 +636,36 @@ public static function FileSizeConvert($bytes)
       case "pdf":
         $res .= "<object data=\"".$realPath."\" type=\"application/pdf\" style=\"width: 100%;height:300px\">";
         $res .= "<embed src=\"".$realPath."\" type=\"application/pdf\" />\n";
-        $res .= "<p>".gettext("You've to use a PDF viewer or download the file here ").': <a href="'.$realPath.'">télécharger le fichier.</a></p>';
+        $res .= "<p>"._("You've to use a PDF viewer or download the file here ").': <a href="'.$realPath.'">télécharger le fichier.</a></p>';
         $res .= "</object>";
         break;
       case "mp3":
         $res .= " type : $extension<br>";
-        //$res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\" type=\"audio/mp3\">".gettext("Your browser does not support the audio element.")."</audio>";
-        //$res .= "<audio><source src=\"".$path."\" type=\"audio/mpeg\"><p>".gettext("Your browser does not support the audio element.")."</p></source></audio>";
-        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        //$res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\" type=\"audio/mp3\">"._("Your browser does not support the audio element.")."</audio>";
+        //$res .= "<audio><source src=\"".$path."\" type=\"audio/mpeg\"><p>"._("Your browser does not support the audio element.")."</p></source></audio>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 100%;\">"._("Your browser does not support the audio element.")."</audio>";
         break;
       case "oga":
       case "wav":
         $res .= " type : $extension<br>";
-        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">"._("Your browser does not support the audio element.")."</audio>";
         break;
       case "m4a":
         $res .= " type : $extension<br>";
-        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "<audio src=\"".$realPath."\" controls=\"controls\" preload=\"auto\" style=\"width: 100%;\">"._("Your browser does not support the audio element.")."</audio>";
         break;
       case  "mp4":
         $res .= "type : $extension<br>";
         $res .= "<video width=\"100%\" controls  preload=\"auto\">\n";
         $res .= "<source src=\"".$realPath."\" type=\"video/mp4\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;
       case  "ogg":
         $res .= "type : $extension<br>";
         $res .= "<video width=\"100%\" height=\"240\" controls  preload=\"auto\">\n";
         $res .= "<source src=\"".$realPath."\" type=\"video/ogg\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;
       case "mov":
@@ -674,7 +674,7 @@ public static function FileSizeConvert($bytes)
         $res .= "     controls\n";
         $res .= "     autoplay\n";
         $res .= "     height=\"270\" width=\"100%\"  preload=\"none\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         break;
     }
@@ -689,7 +689,7 @@ public static function FileSizeConvert($bytes)
     $filename = basename($path);
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     
-    $res = gettext("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
+    $res = _("File")." : <a href=\"".$path."\">\"".$filename."\"</a><br>";
     
     if (!$isexpandable) return;
     
@@ -698,7 +698,7 @@ public static function FileSizeConvert($bytes)
       case "jpeg":
       case "png":
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
         $res .= '<img src="'.$path.'" style="width: 500px"/>';
         if ($isexpandable) {
@@ -730,7 +730,7 @@ public static function FileSizeConvert($bytes)
         $content = nl2br(mb_convert_encoding($content, 'UTF-8',mb_detect_encoding($content, 'UTF-8, ISO-8859-1', true)));
         
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
         $res .= $content;
         if ($isexpandable) {
@@ -739,7 +739,7 @@ public static function FileSizeConvert($bytes)
         break;
       case "pdf":
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
         $res .= "<object data=\"".$path."\" type=\"application/pdf\" style=\"width: 500px;height:500px\">";
         $res .= "<embed src=\"".$path."\" type=\"application/pdf\" />\n";
@@ -754,30 +754,30 @@ public static function FileSizeConvert($bytes)
       case "wav":
         $res .= " type : $extension<br>";
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
-        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">".gettext("Your browser does not support the audio element.")."</audio>";
+        $res .= "<audio src=\"".$path."\" controls=\"controls\" preload=\"none\" style=\"width: 200px;\">"._("Your browser does not support the audio element.")."</audio>";
         if ($isexpandable) {
           $res .= "</div>";
         }
         break;
       case  "mp4":
         $res .= "type : $extension<br>";
-        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+        $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         $res .= "<video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
         $res .= "<source src=\"".$path."\" type=\"video/mp4\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         $res .= "</div>";
         break;
       case  "ogg":
         $res .= "type : $extension<br>";
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
         $res .= "<video width=\"320\" height=\"240\" controls  preload=\"none\">\n";
         $res .= "<source src=\"".$path."\" type=\"video/ogg\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         if ($isexpandable) {
           $res .= "</div>";
@@ -786,13 +786,13 @@ public static function FileSizeConvert($bytes)
       case "mov":
         $res .= "type : $extension<br>";
         if ($isexpandable) {
-          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . gettext("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
+          $res .= '<a href="#'. $uuid . '" data-toggle="collapse" class="btn btn-xs btn-warning">' . _("Expand") . '</a><br><div id="' . $uuid . '" class="collapse" style="font-size:12px">';
         }
         $res .= "<video src=\"".$path."\"\n";
         $res .= "     controls\n";
         $res .= "     autoplay\n";
         $res .= "     height=\"270\" width=\"480\"  preload=\"none\">\n";
-        $res .= gettext("Your browser does not support the video tag.")."\n";
+        $res .= _("Your browser does not support the video tag.")."\n";
         $res .= "</video>";
         if ($isexpandable) {
           $res .= "</div>";
@@ -832,16 +832,16 @@ public static function FileSizeConvert($bytes)
     switch ($notetype) {
       case 'note':
       case 'document':
-        $type = gettext("Classic Document");
+        $type = _("Classic Document");
         break;
       case 'video':
-        $type = gettext("Classic Video");
+        $type = _("Classic Video");
         break;
       case 'file':
-        $type = gettext("Classic File");
+        $type = _("Classic File");
         break;
       case 'audio':
-        $type = gettext("Classic Audio");
+        $type = _("Classic Audio");
         break;
     }
     
@@ -1177,4 +1177,19 @@ public static function FileSizeConvert($bytes)
           return 0;
       }
   }
+  
+  public static function ChopLastCharacter($sText)
+  {
+    return mb_substr($sText, 0, mb_strlen($sText) - 1);
+  }
+  
+  public static function AlternateRowStyle($sCurrentStyle)
+  {
+    if ($sCurrentStyle == 'RowColorA') {
+        return 'RowColorB';
+    } else {
+        return 'RowColorA';
+    }
+  }
+
 }

@@ -226,7 +226,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     <?php
     $count = 1;    
     foreach ($ormCartItems as $ormCartItem) {
-        $sRowClass = AlternateRowStyle($sRowClass);
+        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
         ?>
         <tr class="<?= $sRowClass ?>">
           <td align="center"><?= $count++ ?></td>

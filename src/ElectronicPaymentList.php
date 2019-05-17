@@ -52,7 +52,7 @@ $ormAutopayments = AutoPaymentQuery::Create()
                  ->find();
                  
 // Set the page title and include HTML header
-$sPageTitle = gettext('Electronic Payment Listing');
+$sPageTitle = _('Electronic Payment Listing');
 require 'Include/Header.php';
 ?>
 
@@ -60,7 +60,7 @@ require 'Include/Header.php';
   function ConfirmDeleteAutoPayment (AutID)
 {
   var FamName = document.getElementById("FamName"+AutID).innerHTML;
-  var r = confirm("<?= gettext('Delete automatic payment for') ?> " + FamName );
+  var r = confirm("<?= _('Delete automatic payment for') ?> " + FamName );
   if (r == true) {
     DeleteAutoPayment (AutID);
   }
@@ -69,7 +69,7 @@ require 'Include/Header.php';
 function ConfirmClearAccounts (AutID)
 {
   var FamName = document.getElementById("FamName"+AutID).innerHTML;
-  var r = confirm("<?= gettext('Clear account numbers for')?> "+FamName);
+  var r = confirm("<?= _('Clear account numbers for')?> "+FamName);
   if (r == true) {
     ClearAccounts (AutID);
   }
@@ -204,7 +204,7 @@ function CreatePaymentMethodsForChecked()
 </script>
 <div class="box box-body">
 
-<p align="center"><a href="AutoPaymentEditor.php?linkBack=ElectronicPaymentList.php" class="btn btn-primary"><?= gettext('Add a New Electronic Payment Method') ?></a></p>
+<p align="center"><a href="AutoPaymentEditor.php?linkBack=ElectronicPaymentList.php" class="btn btn-primary"><?= _('Add a New Electronic Payment Method') ?></a></p>
 <div class="table-responsive">
 <table class="table table-hover dt-responsive" id="PaymentMethodTable"  style="width:100%;">
   <thead>
@@ -212,29 +212,29 @@ function CreatePaymentMethodsForChecked()
       <th>
         <input type=checkbox onclick="toggle(this, 'SelectForAction')" />
       </th>
-      <th><b><?= gettext('Edit') ?></b></th>
-      <th><b><?= gettext('Delete') ?></b></th>    
-      <th align="center"><b><?= gettext('Family') ?></b></th>
-      <th align="center"><b><?= gettext('Type') ?></b></th>
-      <th align="center"><b><?= gettext('Fiscal Year') ?></b></th>
-      <th align="center"><b><?= gettext('Next Date') ?></b></th>
-      <th align="center"><b><?= gettext('Amount') ?></b></th>
-      <th align="center"><b><?= gettext('Interval') ?></b></th>
-      <th align="center"><b><?= gettext('Fund') ?></b></th>
-      <th align="center"><b><?= gettext('Bank') ?></b></th>
-      <th align="center"><b><?= gettext('Routing') ?></b></th>
-      <th align="center"><b><?= gettext('Account') ?></b></th>
+      <th><b><?= _('Edit') ?></b></th>
+      <th><b><?= _('Delete') ?></b></th>    
+      <th align="center"><b><?= _('Family') ?></b></th>
+      <th align="center"><b><?= _('Type') ?></b></th>
+      <th align="center"><b><?= _('Fiscal Year') ?></b></th>
+      <th align="center"><b><?= _('Next Date') ?></b></th>
+      <th align="center"><b><?= _('Amount') ?></b></th>
+      <th align="center"><b><?= _('Interval') ?></b></th>
+      <th align="center"><b><?= _('Fund') ?></b></th>
+      <th align="center"><b><?= _('Bank') ?></b></th>
+      <th align="center"><b><?= _('Routing') ?></b></th>
+      <th align="center"><b><?= _('Account') ?></b></th>
       <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           ?>
-      <th align="center"><b><?= gettext('Vanco ACH') ?></b></th>
+      <th align="center"><b><?= _('Vanco ACH') ?></b></th>
       <?php
       }?>
-      <th align="center"><b><?= gettext('Credit Card') ?></b></th>
-      <th align="center"><b><?= gettext('Month') ?></b></th>
-      <th align="center"><b><?= gettext('Year') ?></b></th>
+      <th align="center"><b><?= _('Credit Card') ?></b></th>
+      <th align="center"><b><?= _('Month') ?></b></th>
+      <th align="center"><b><?= _('Year') ?></b></th>
       <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
           ?>
-      <th align="center"><b><?= gettext('Vanco CC') ?></b></th>
+      <th align="center"><b><?= _('Vanco CC') ?></b></th>
       <?php
       }?>
     </tr>
@@ -248,27 +248,27 @@ $sRowClass = 'RowColorA';
 //Loop through the autopayment records
 foreach ($ormAutopayments as $payment) {
   //Alternate the row color
-  $sRowClass = AlternateRowStyle($sRowClass);
+  $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
     //Display the row?>
   <tr id="PaymentMethodRow<?= $payment->getId() ?>" class="<?= $sRowClass ?>">
     <td>
       <input type=checkbox id=Select<?= $payment->getId() ?> name="SelectForAction" />
     </td>
-    <td><a href="AutoPaymentEditor.php?AutID=<?= $payment->getId() ?>&amp;FamilyID=<?php echo $payment->getFamilyid() ?>&amp;linkBack=ElectronicPaymentList.php" class="btn btn-success"><?= gettext('Edit') ?></a></td>
+    <td><a href="AutoPaymentEditor.php?AutID=<?= $payment->getId() ?>&amp;FamilyID=<?php echo $payment->getFamilyid() ?>&amp;linkBack=ElectronicPaymentList.php" class="btn btn-success"><?= _('Edit') ?></a></td>
     <td>
-      <button onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)" class="btn btn-danger"><?= gettext('Delete') ?></button>
+      <button onclick="ConfirmDeleteAutoPayment(<?= $payment->getId() ?>)" class="btn btn-danger"><?= _('Delete') ?></button>
     </td>
     <td>
         <a id="FamName<?= $payment->getId() ?>" href="FamilyView.php?FamilyID=<?= $payment->getFamilyid() ?>"><?= $payment->getFamName().' '.$payment->getFamAddress1().', '.$payment->getFamCity().', '.$payment->getFamState() ?></a>
     <td>
     <?php
       if ($payment->getEnableBankDraft()) {
-          echo gettext('Bank ACH');
+          echo _('Bank ACH');
       } elseif ($payment->getEnableCreditCard()) {
-          echo gettext('Credit Card');
+          echo _('Credit Card');
       } else {
-          echo gettext('Disabled');
+          echo _('Disabled');
       } ?>
     </td>
 
@@ -309,14 +309,14 @@ foreach ($ormAutopayments as $payment) {
 </div>
 <div>
 
-<b><?= gettext("With checked") ?>:</b><br>
+<b><?= _("With checked") ?>:</b><br>
 <?php if (SystemConfig::getValue('sElectronicTransactionProcessor') == 'Vanco') {
     ?>
-<input type="button" class="btn" id="CreatePaymentMethodsForChecked" value="<?= gettext("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
+<input type="button" class="btn" id="CreatePaymentMethodsForChecked" value="<?= _("Store Private Data at Vanco") ?>" onclick="CreatePaymentMethodsForChecked();" />
 <?php
 } ?>
-<input type="button" class="btn btn-warning" id="DeleteChecked" value="<?= gettext("Delete") ?>" onclick="DeleteChecked();" />
-<input type="button" class="btn" id="DeleteChecked" value="<?= gettext("Clear Account Numbers") ?>" onclick="ClearAccountsChecked();" />
+<input type="button" class="btn btn-warning" id="DeleteChecked" value="<?= _("Delete") ?>" onclick="DeleteChecked();" />
+<input type="button" class="btn" id="DeleteChecked" value="<?= _("Clear Account Numbers") ?>" onclick="ClearAccountsChecked();" />
     </div>
 </div>
 <?php require 'Include/Footer.php' ?>

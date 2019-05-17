@@ -422,7 +422,7 @@ require 'Include/Header.php';
                       $sRowClass = 'RowColorA';
                 
                       foreach ($ormPropList as $prop) {
-                          $sRowClass = AlternateRowStyle($sRowClass);
+                          $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
                           if ( SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isManageGroupsEnabled()  || $is_group_manager == true || $prop->getPersonDisplay() == "true") {
                           ?>
                         <tr class="<?= $sRowClass ?>">

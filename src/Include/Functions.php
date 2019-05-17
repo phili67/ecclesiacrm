@@ -159,20 +159,6 @@ function RunQuery($sSQL, $bStopOnError = true)
     }
 }
 
-function ChopLastCharacter($sText)
-{
-    return mb_substr($sText, 0, mb_strlen($sText) - 1);
-}
-
-function AlternateRowStyle($sCurrentStyle)
-{
-    if ($sCurrentStyle == 'RowColorA') {
-        return 'RowColorB';
-    } else {
-        return 'RowColorA';
-    }
-}
-
 function genGroupKey($methodSpecificID, $famID, $fundIDs, $date)
 {
     $uniqueNum = 0;

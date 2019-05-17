@@ -13,12 +13,12 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 
-
 //Set the page title
-$sPageTitle = gettext('Free-Text Query');
+$sPageTitle = _('Free-Text Query');
 
 // Security: User must be an Admin to access this page.  It allows unrestricted database access!
 // Otherwise, re-direct them to the main menu.
@@ -45,7 +45,7 @@ require 'Include/Header.php';
 <form method="post">
 
 <center><table><tr>
-    <td class="LabelColumn"> <?= gettext('Export Results to CSV file') ?> </td>
+    <td class="LabelColumn"> <?= _('Export Results to CSV file') ?> </td>
     <td class="TextColumn"><input name="CSV" type="checkbox" id="CSV" value="1"></td>
 </tr></table></center>
 
@@ -53,7 +53,7 @@ require 'Include/Header.php';
 	<textarea style="font-family:courier,fixed; font-size:9pt; padding:1;" cols="60" rows="10" name="SQL"><?= $sSQL ?></textarea>
 </p>
 <p align="center">
-	<input type="submit" class="btn" name="Submit" value="<?= gettext('Execute SQL') ?>">
+	<input type="submit" class="btn" name="Submit" value="<?= _('Execute SQL') ?>">
 </p>
 
 </form>
@@ -81,7 +81,7 @@ function ExportQueryResults()
     $rsQueryResults = RunQuery($sSQL);
 
     if (mysqli_error($cnInfoCentral) != '') {
-        $sCSVstring = gettext('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
+        $sCSVstring = _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
     } else {
 
         //Loop through the fields and write the header row
@@ -116,7 +116,7 @@ function ExportQueryResults()
 
 //Display the count of the recordset
     echo '<p align="center">';
-    echo mysqli_num_rows($rsQueryResults).gettext(' record(s) returned');
+    echo mysqli_num_rows($rsQueryResults)._(' record(s) returned');
     echo '</p>';
 
 function RunFreeQuery()
@@ -131,7 +131,7 @@ function RunFreeQuery()
     $rsQueryResults = RunQuery($sSQL);
 
     if (mysqli_error($cnInfoCentral) != '') {
-        echo gettext('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
+        echo _('An error occured: ').mysqli_errno($cnInfoCentral).'--'.mysqli_error($cnInfoCentral);
     } else {
         $sRowClass = 'RowColorA';
 
@@ -154,7 +154,7 @@ function RunFreeQuery()
 
         //Loop through the recordsert
         while ($aRow = mysqli_fetch_array($rsQueryResults)) {
-            $sRowClass = AlternateRowStyle($sRowClass);
+            $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
             echo '<tr class="'.$sRowClass.'">';
 
@@ -181,14 +181,14 @@ function RunFreeQuery()
             ?>
 			<form method="post" action="CartView.php"><p align="center">
 				<input type="hidden" value="<?= implode(',', $aHiddenFormField) ?>" name="BulkAddToCart">
-				<input type="submit" class="btn" name="AddToCartSubmit" value="<?php echo gettext('Add Results To Cart'); ?>">&nbsp;
-				<input type="submit" class="btn" name="AndToCartSubmit" value="<?php echo gettext('Intersect Results With Cart'); ?>">&nbsp;
-				<input type="submit" class="btn" name="NotToCartSubmit" value="<?php echo gettext('Remove Results From Cart'); ?>">
+				<input type="submit" class="btn" name="AddToCartSubmit" value="<?php echo _('Add Results To Cart'); ?>">&nbsp;
+				<input type="submit" class="btn" name="AndToCartSubmit" value="<?php echo _('Intersect Results With Cart'); ?>">&nbsp;
+				<input type="submit" class="btn" name="NotToCartSubmit" value="<?php echo _('Remove Results From Cart'); ?>">
 			</p></form>
 			<?php
         }
 
-        echo '<p align="center"><a href="QueryList.php">'.gettext('Return to Query Menu').'</a></p>';
+        echo '<p align="center"><a href="QueryList.php">'._('Return to Query Menu').'</a></p>';
         echo '<br><p class="ShadedBox" style="border-style: solid; margin-left: 50px; margin-right: 50 px; border-width: 1px;"><span class="SmallText">'.str_replace(chr(13), '<br>', htmlspecialchars($sSQL)).'</span></p>';
     }
 }

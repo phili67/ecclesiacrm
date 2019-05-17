@@ -1225,7 +1225,7 @@ if (!isset($sPersonColumn5)) {
       } // end switch
 
       //Alternate the row color
-      $sRowClass = AlternateRowStyle($sRowClass);
+      $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
       //Display the row
       echo '<tr class="'.$sRowClass.'">'; ?>
