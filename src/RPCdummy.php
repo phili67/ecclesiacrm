@@ -3,9 +3,10 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 
@@ -56,7 +57,7 @@ switch ($mode) {
         $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
         $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
 
-        SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
+        MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
 
         $sGeneratedHTML = '<b>'.gettext('Address Info:').'</b><br>';
         if ($sAddress1 != '') {

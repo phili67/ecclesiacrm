@@ -249,7 +249,7 @@ if (!Cart::HasPeople()) {
                 <div class="box-header with-border">
                     <h3 class="box-title"><?= _('Generate Labels') ?></h3>
                 </div>
-                <form method="get" action="Reports/PDFLabel.php" name="labelform">
+                <form method="get" action="<?= SystemURLs::getRootPath()?>/Reports/PDFLabel.php" name="labelform">
                   <div class="box-body">
                       <?php
                         LabelUtils::LabelGroupSelect('groupbymode');

@@ -716,7 +716,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
                 $sName = _("To the parents of").":\n".$sName;
             }
 
-            SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
+            MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
 
             $sCity = SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
             $sState = SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);

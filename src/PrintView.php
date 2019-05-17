@@ -18,10 +18,10 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
 // Get the person ID from the querystring
@@ -111,7 +111,7 @@ $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per
 
 // Assign the values locally, after selecting whether to display the family or person information
 
-SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
+MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
 $sCity = SelectWhichInfo($per_City, $fam_City, false);
 $sState = SelectWhichInfo($per_State, $fam_State, false);
 $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);

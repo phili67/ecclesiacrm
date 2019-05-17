@@ -232,7 +232,7 @@ if ( !is_null ($person->getFamily()) ) {
 }
 
 //Get an unformatted mailing address to pass as a parameter to a google maps search
-SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
+MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
 $sCity = SelectWhichInfo($person->getCity(), $famCity, false);
 $sState = SelectWhichInfo($person->getState(), $famSate, false);
 $sZip = SelectWhichInfo($person->getZip(), $famZip, false);
@@ -240,7 +240,7 @@ $sCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
 $plaintextMailingAddress = $person->getAddress();
 
 //Get a formatted mailing address to use as display to the user.
-SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
+MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
 $sCity = SelectWhichInfo($person->getCity(), $famCity, true);
 $sState = SelectWhichInfo($person->getState(), $famSate, true);
 $sZip = SelectWhichInfo($person->getZip(), $famZip, true);
