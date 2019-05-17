@@ -73,7 +73,7 @@ $sPerTable = 'person_per';
 
 // If our source is the cart contents, we don't need to build a WHERE filter string
 if ($sSource == 'cart') {
-    $sWhereExt = 'AND per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')';
+    $sWhereExt = 'AND per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')';
 } else {
     // If we're filtering by groups, include the p2g2r table
     if (!empty($_POST['GroupID'])) {

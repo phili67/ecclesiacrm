@@ -14,6 +14,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\Cart;
+
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
 setcookie('labeltype', $sLabelFormat, time() + 60 * 60 * 24 * 90, '/');
@@ -32,7 +34,7 @@ if ($sFontSize != 'default') {
 //if($sFontSize != "default")
 //	$pdf->SetFontSize($sFontSize);
 
-$sSQL = 'SELECT * FROM person_per WHERE per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName';
+$sSQL = 'SELECT * FROM person_per WHERE per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName';
 $rsPersons = RunQuery($sSQL);
 
 while ($aPer = mysqli_fetch_array($rsPersons)) {

@@ -213,7 +213,7 @@ if (count($_SESSION['aPeopleCart']) > 0) {
     }
 
     $ormCartItems = PersonQuery::Create()
-                ->Where('per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')')
+                ->Where('per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')')
                 ->orderByLastName()
                 ->find();
     ?>

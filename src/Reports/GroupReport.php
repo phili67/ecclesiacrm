@@ -18,6 +18,8 @@ use EcclesiaCRM\Reports\PDF_GroupDirectory;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\Cart;
+
 
 $bOnlyCartMembers = $_POST['OnlyCart'];
 $iGroupID = InputUtils::LegacyFilterInput($_POST['GroupID'], 'int');
@@ -73,7 +75,7 @@ if ($iMode == 1) {
     }
 
     if ($bOnlyCartMembers && count($_SESSION['aPeopleCart']) > 0) {
-        $sSQL .= ' AND person_per.per_ID IN ('.ConvertCartToString($_SESSION['aPeopleCart']).')';
+        $sSQL .= ' AND person_per.per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).')';
     }
 
     $sSQL .= ' ORDER BY per_LastName';
