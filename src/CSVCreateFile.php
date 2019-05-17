@@ -394,7 +394,7 @@ if ($sFormat == 'addtocart') {
             $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), false);
             $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), false);
             $sCountry = SelectWhichInfo($fam_Country, $per_Country, false);
-            SelectWhichAddress($sAddress1, $sAddress2, $fam_Address1, $fam_Address2, $per_Address1, $per_Address2, false);
+            MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $fam_Address1, $fam_Address2, $per_Address1, $per_Address2, false);
             $sCity = SelectWhichInfo($fam_City, $per_City, false);
             $sState = SelectWhichInfo($fam_State, $per_State, false);
             $sZip = SelectWhichInfo($fam_Zip, $per_Zip, false);
@@ -407,7 +407,7 @@ if ($sFormat == 'addtocart') {
             $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
             $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
             $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-            SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
+            MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
             $sCity = SelectWhichInfo($per_City, $fam_City, false);
             $sState = SelectWhichInfo($per_State, $fam_State, false);
             $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);

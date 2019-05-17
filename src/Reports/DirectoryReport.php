@@ -261,7 +261,7 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
             $pdf->sRecordName .= " ". date(SystemConfig::getValue("sDateFormatNoYear"), mktime(0, 0, 0, $per_BirthMonth, $per_BirthDay, $per_BirthYear));
         }
 
-        SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
+        MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
         $sAddress2 = SelectWhichInfo($per_Address2, $fam_Address2, false);
         $sCity = SelectWhichInfo($per_City, $fam_City, false);
         $sState = SelectWhichInfo($per_State, $fam_State, false);
