@@ -13,6 +13,8 @@ use EcclesiaCRM\MyVCalendar;
 use Sabre\DAV\PropPatch;
 use Sabre\DAVACL;
 use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\SessionUser;
+
 
 class MiscUtils {
 
@@ -1130,5 +1132,18 @@ public static function FileSizeConvert($bytes)
       }
 
       return $finalData;
+  }
+  
+  public static function generateGroupRoleEmailDropdown($roleEmails, $href)
+  {
+      foreach ($roleEmails as $role => $Email) {
+          if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($Email, SystemConfig::getValue('sToEmailAddress'))) {
+              $Email .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
+          }
+          $Email = urlencode($Email);  // Mailto should comply with RFC 2368
+      ?>
+        <li> <a href="<?= $href.mb_substr($Email, 0, -3) ?>"><?= _($role) ?></a></li>
+      <?php
+      }
   }
 }
