@@ -1146,4 +1146,35 @@ public static function FileSizeConvert($bytes)
       <?php
       }
   }
+  
+  public static function ConvertToBoolean($sInput)
+  {
+      if (empty($sInput)) {
+          return false;
+      } else {
+          if (is_numeric($sInput)) {
+              if ($sInput == 1) {
+                  return true;
+              } else {
+                  return false;
+              }
+          } else {
+              $sInput = strtolower($sInput);
+              if (in_array($sInput, ['true', 'yes', 'si'])) {
+                  return true;
+              } else {
+                  return false;
+              }
+          }
+      }
+  }
+
+  public static function ConvertFromBoolean($sInput)
+  {
+      if ($sInput) {
+          return 1;
+      } else {
+          return 0;
+      }
+  }
 }

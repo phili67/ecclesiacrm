@@ -189,37 +189,6 @@ function AlternateRowStyle($sCurrentStyle)
     }
 }
 
-function ConvertToBoolean($sInput)
-{
-    if (empty($sInput)) {
-        return false;
-    } else {
-        if (is_numeric($sInput)) {
-            if ($sInput == 1) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            $sInput = strtolower($sInput);
-            if (in_array($sInput, ['true', 'yes', 'si'])) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-}
-
-function ConvertFromBoolean($sInput)
-{
-    if ($sInput) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 // Prepare data for entry into MySQL database.
 // This function solves the problem of inserting a NULL value into MySQL since
 // MySQL will not accept 'NULL'.  One drawback is that it is not possible

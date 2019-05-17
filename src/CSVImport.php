@@ -821,7 +821,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                             // If boolean, convert to the expected values for custom field
                             elseif ($currentType == 1) {
                                 if (strlen($currentFieldData)) {
-                                    $currentFieldData = ConvertToBoolean($currentFieldData);
+                                    $currentFieldData = MiscUtils::ConvertToBoolean($currentFieldData);
                                 }
                             } else {
                                 $currentFieldData = addslashes($currentFieldData);
@@ -877,7 +877,7 @@ if (isset($_POST['DoImport']) && $iSelectedValues >= 3) {
                         // If boolean, convert to the expected values for custom field
                         elseif ($currentType == 1) {
                             if (strlen($currentFieldData)) {
-                                $currentFieldData = ConvertToBoolean($currentFieldData);
+                                $currentFieldData = MiscUtils::ConvertToBoolean($currentFieldData);
                             }
                         } else {
                             $currentFieldData = addslashes($currentFieldData);
