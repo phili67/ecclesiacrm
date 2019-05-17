@@ -718,9 +718,9 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
 
             MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
 
-            $sCity = SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
-            $sState = SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);
-            $sZip = SelectWhichInfo($aRow['per_Zip'], $aRow['fam_Zip'], false);
+            $sCity = MiscUtils::SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
+            $sState = MiscUtils::SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);
+            $sZip = MiscUtils::SelectWhichInfo($aRow['per_Zip'], $aRow['fam_Zip'], false);
 
             $sAddress = $sAddress1;
             if ($sAddress2 != '') {

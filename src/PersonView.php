@@ -233,35 +233,35 @@ if ( !is_null ($person->getFamily()) ) {
 
 //Get an unformatted mailing address to pass as a parameter to a google maps search
 MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, false);
-$sCity = SelectWhichInfo($person->getCity(), $famCity, false);
-$sState = SelectWhichInfo($person->getState(), $famSate, false);
-$sZip = SelectWhichInfo($person->getZip(), $famZip, false);
-$sCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
+$sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, false);
+$sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, false);
+$sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, false);
+$sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
 $plaintextMailingAddress = $person->getAddress();
 
 //Get a formatted mailing address to use as display to the user.
 MiscUtils::SelectWhichAddress($Address1, $Address2, $person->getAddress1(), $person->getAddress2(), $famAddress1, $famAddress2, true);
-$sCity = SelectWhichInfo($person->getCity(), $famCity, true);
-$sState = SelectWhichInfo($person->getState(), $famSate, true);
-$sZip = SelectWhichInfo($person->getZip(), $famZip, true);
-$sCountry = SelectWhichInfo($person->getCountry(), $famCountry, true);
+$sCity = MiscUtils::SelectWhichInfo($person->getCity(), $famCity, true);
+$sState = MiscUtils::SelectWhichInfo($person->getState(), $famSate, true);
+$sZip = MiscUtils::SelectWhichInfo($person->getZip(), $famZip, true);
+$sCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, true);
 $formattedMailingAddress = $person->getAddress();
 
-$sPhoneCountry = SelectWhichInfo($person->getCountry(), $famCountry, false);
-$sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+$sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $famCountry, false);
+$sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), true);
-$sHomePhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
+$sHomePhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getHomePhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famHompePhone, $famCountry, $dummy), false);
-$sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+$sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), true);
-$sWorkPhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
+$sWorkPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getWorkPhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famWorkPhone, $famCountry, $dummy), false);
-$sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+$sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), true);
-$sCellPhoneUnformatted = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
+$sCellPhoneUnformatted = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($person->getCellPhone(), $sPhoneCountry, $dummy),
 MiscUtils::ExpandPhoneNumber($famCellPhone, $famCountry, $dummy), false);
-$sEmail = SelectWhichInfo($person->getEmail(), $famEmail, true);
-$sUnformattedEmail = SelectWhichInfo($person->getEmail(), $famEmail, false);
+$sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, true);
+$sUnformattedEmail = MiscUtils::SelectWhichInfo($person->getEmail(), $famEmail, false);
 
 if ($person->getEnvelope() > 0) {
     $sEnvelope = $person->getEnvelope();

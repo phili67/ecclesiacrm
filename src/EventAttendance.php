@@ -92,7 +92,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         $aLastName[$row] = $per_LastName;
         $aSuffix[$row] = $per_Suffix;
         $aEmail[$row] = $per_Email;
-        $aHomePhone[$row] = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $per_Country, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
+        $aHomePhone[$row] = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $per_Country, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), true);
     }
 }
 
@@ -199,8 +199,8 @@ $gSQL = 'SELECT COUNT(per_ID) AS gCount
          ?>
          <tr class="<?= $sRowClass ?>">
            <td class="TextColumn"><?= OutputUtils::FormatFullName($aTitle[$row], $aFistName[$row], $aMiddleName[$row], $aLastName[$row], $aSuffix[$row], 3) ?></td>
-           <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email">'.$aEmail[$row].'</a>' : 'Not Available' ?></td>
-           <td class="TextColumn"><?= $aHomePhone[$row] ? $aHomePhone[$row] : 'Not Available' ?></td>
+           <td class="TextColumn"><?= $aEmail[$row] ? '<a href="mailto:'.$aEmail[$row].'" title="Send Email">'.$aEmail[$row].'</a>' : _('Not Available') ?></td>
+           <td class="TextColumn"><?= $aHomePhone[$row] ? $aHomePhone[$row] : _('Not Available') ?></td>
 <?php
 // AddToCart call to go here
 ?>

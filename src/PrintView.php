@@ -112,19 +112,19 @@ $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per
 // Assign the values locally, after selecting whether to display the family or person information
 
 MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
-$sCity = SelectWhichInfo($per_City, $fam_City, false);
-$sState = SelectWhichInfo($per_State, $fam_State, false);
-$sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
-$sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+$sCity = MiscUtils::SelectWhichInfo($per_City, $fam_City, false);
+$sState = MiscUtils::SelectWhichInfo($per_State, $fam_State, false);
+$sZip = MiscUtils::SelectWhichInfo($per_Zip, $fam_Zip, false);
+$sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
 
-$sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $dummy),
+$sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $dummy),
   MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
-$sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sCountry, $dummy),
+$sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sCountry, $dummy),
   MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
-$sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sCountry, $dummy),
+$sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sCountry, $dummy),
   MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
 
-$sUnformattedEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+$sUnformattedEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
 
 // Set the page title and include HTML header
 $sPageTitle = _('Printable View');

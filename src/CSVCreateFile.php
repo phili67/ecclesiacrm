@@ -389,29 +389,29 @@ if ($sFormat == 'addtocart') {
 
         // If we are doing a family roll-up, we want to favor available family address / phone numbers over the individual data returned
         if ($sFormat == 'rollup') {
-            $sPhoneCountry = SelectWhichInfo($fam_Country, $per_Country, false);
-            $sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), false);
-            $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), false);
-            $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), false);
-            $sCountry = SelectWhichInfo($fam_Country, $per_Country, false);
+            $sPhoneCountry = MiscUtils::SelectWhichInfo($fam_Country, $per_Country, false);
+            $sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), false);
+            $sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), false);
+            $sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), false);
+            $sCountry = MiscUtils::SelectWhichInfo($fam_Country, $per_Country, false);
             MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $fam_Address1, $fam_Address2, $per_Address1, $per_Address2, false);
-            $sCity = SelectWhichInfo($fam_City, $per_City, false);
-            $sState = SelectWhichInfo($fam_State, $per_State, false);
-            $sZip = SelectWhichInfo($fam_Zip, $per_Zip, false);
-            $sEmail = SelectWhichInfo($fam_Email, $per_Email, false);
+            $sCity = MiscUtils::SelectWhichInfo($fam_City, $per_City, false);
+            $sState = MiscUtils::SelectWhichInfo($fam_State, $per_State, false);
+            $sZip = MiscUtils::SelectWhichInfo($fam_Zip, $per_Zip, false);
+            $sEmail = MiscUtils::SelectWhichInfo($fam_Email, $per_Email, false);
         }
         // Otherwise, the individual data gets precedence over the family data
         else {
-            $sPhoneCountry = SelectWhichInfo($per_Country, $fam_Country, false);
-            $sHomePhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
-            $sWorkPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
-            $sCellPhone = SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
-            $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+            $sPhoneCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
+            $sHomePhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_HomePhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_HomePhone, $fam_Country, $dummy), false);
+            $sWorkPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_WorkPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_WorkPhone, $fam_Country, $dummy), false);
+            $sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellPhone, $sPhoneCountry, $dummy), MiscUtils::ExpandPhoneNumber($fam_CellPhone, $fam_Country, $dummy), false);
+            $sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
             MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
-            $sCity = SelectWhichInfo($per_City, $fam_City, false);
-            $sState = SelectWhichInfo($per_State, $fam_State, false);
-            $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
-            $sEmail = SelectWhichInfo($per_Email, $fam_Email, false);
+            $sCity = MiscUtils::SelectWhichInfo($per_City, $fam_City, false);
+            $sState = MiscUtils::SelectWhichInfo($per_State, $fam_State, false);
+            $sZip = MiscUtils::SelectWhichInfo($per_Zip, $fam_Zip, false);
+            $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
         }
 
         // Check if we're filtering out people with incomplete addresses

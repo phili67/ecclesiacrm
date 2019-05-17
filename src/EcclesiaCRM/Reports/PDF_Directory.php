@@ -386,7 +386,7 @@ class PDF_Directory extends ChurchInfoReport
         
         $sHeadStr .= " " . $this->getBirthdayString($bDirBirthday, $per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags) . "\n";
 
-        $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+        $sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
 
         if ($bDirPersonalPhone && strlen($per_HomePhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $bWierd);
@@ -443,7 +443,7 @@ class PDF_Directory extends ChurchInfoReport
 
         $sMemberStr .= " " . $this->getBirthdayString($bDirBirthday, $per_BirthMonth, $per_BirthDay, $per_BirthYear, $per_Flags) . "\n";
 
-        $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+        $sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
 
         if ($bDirPersonalPhone && strlen($per_HomePhone)) {
             $TempStr = MiscUtils::ExpandPhoneNumber($per_HomePhone, $sCountry, $bWierd);

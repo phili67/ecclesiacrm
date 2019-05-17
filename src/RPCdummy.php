@@ -52,10 +52,10 @@ switch ($mode) {
     } else {
         extract(mysqli_fetch_array($rsQuery));
 
-        $sCity = SelectWhichInfo($per_City, $fam_City, false);
-        $sState = SelectWhichInfo($per_State, $fam_State, false);
-        $sZip = SelectWhichInfo($per_Zip, $fam_Zip, false);
-        $sCountry = SelectWhichInfo($per_Country, $fam_Country, false);
+        $sCity = MiscUtils::SelectWhichInfo($per_City, $fam_City, false);
+        $sState = MiscUtils::SelectWhichInfo($per_State, $fam_State, false);
+        $sZip = MiscUtils::SelectWhichInfo($per_Zip, $fam_Zip, false);
+        $sCountry = MiscUtils::SelectWhichInfo($per_Country, $fam_Country, false);
 
         MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $per_Address1, $per_Address2, $fam_Address1, $fam_Address2, false);
 

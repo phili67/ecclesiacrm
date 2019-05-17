@@ -211,7 +211,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $fam_Country = $fam->getCountry();
     }
     
-    $sCountryTest = SelectWhichInfo($sCountry, $fam_Country, false);
+    $sCountryTest = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
     $sState = '';
     if ($sCountryTest == 'United States' || $sCountryTest == 'Canada') {
         if (array_key_exists('State', $_POST)) {
@@ -344,7 +344,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     
     //If no errors, then let's update...
     if (!$bErrorFlag) {
-        $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
+        $sPhoneCountry = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
         
         if (!$bNoFormat_HomePhone) {
             $sHomePhone = MiscUtils::CollapsePhoneNumber($sHomePhone, $sPhoneCountry);
@@ -651,7 +651,7 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
         $sTwitter = $person->getTwitter();
         $sLinkedIn = $person->getLinkedIn();
 
-        $sPhoneCountry = SelectWhichInfo($sCountry, $fam_Country, false);
+        $sPhoneCountry = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
 
         $sHomePhone = MiscUtils::ExpandPhoneNumber($sHomePhone, $sPhoneCountry, $bNoFormat_HomePhone);
         $sWorkPhone = MiscUtils::ExpandPhoneNumber($sWorkPhone, $sPhoneCountry, $bNoFormat_WorkPhone);
