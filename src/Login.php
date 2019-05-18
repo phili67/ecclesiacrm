@@ -102,7 +102,7 @@ if (isset($_POST['User'])) {
         $currentUser->createHomeDir();
 
         // If user has administrator privilege, override other settings and enable all permissions.
-        // this is usefull for : requireUserGroupMembership in Include/Functions.php
+        // this is usefull for : MiscUtils::requireUserGroupMembership in Include/Functions.php
         
         $_SESSION['bAdmin']          = $currentUser->isAdmin();                       //ok
         $_SESSION['bPastoralCare']   = $currentUser->isPastoralCareEnabled();         //ok
@@ -121,6 +121,9 @@ if (isset($_POST['User'])) {
         $_SESSION['bEditSelf']       = $currentUser->isEditSelfEnabled();             //ok
         $_SESSION['bShowCart']       = $currentUser->isShowCartEnabled();             //ok
         $_SESSION['bShowMap']        = $currentUser->isShowMapEnabled();              //ok
+        $_SESSION['bEDrive']         = $currentUser->isEDriveEnabled();               //ok
+        $_SESSION['bShowMenuQuery']  = $currentUser->isShowMenuQueryEnabled();        //ok
+        
         
 
         // Create the Cart

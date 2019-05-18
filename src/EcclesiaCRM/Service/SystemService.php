@@ -7,14 +7,16 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FileSystemUtils;
 use EcclesiaCRM\VersionQuery;
 use EcclesiaCRM\SQLUtils;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\SessionUser;
+
 use Exception;
 use Github\Client;
 use Ifsnop\Mysqldump\Mysqldump;
 use PharData;
 use Propel\Runtime\Propel;
 use PDO;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\SessionUser;
 
 require SystemURLs::getDocumentRoot() . '/vendor/ifsnop/mysqldump-php/src/Ifsnop/Mysqldump/Mysqldump.php';
 
@@ -73,7 +75,7 @@ class SystemService
     
     public function restoreDatabaseFromBackup($file)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         $restoreResult = new \stdClass();
         $restoreResult->Messages = [];
         $connection = Propel::getConnection();
@@ -103,7 +105,7 @@ class SystemService
                 else
                 {
                   FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupDir,true);
-                  throw new Exception(gettext("Backup archive does not contain a database").": " . $file['name']);
+                  throw new Exception(_("Backup archive does not contain a database").": " . $file['name']);
                 }
 
             } elseif ($restoreResult->type2 == 'sql') {
@@ -115,14 +117,14 @@ class SystemService
             SQLUtils::sqlImport($restoreResult->uploadedFileDestination, $connection);
         } else {
             FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupDir,true);
-            throw new Exception(gettext("Unknown File Type").": " . $restoreResult->type . " ".gettext("from file").": " . $file['name']);
+            throw new Exception(_("Unknown File Type").": " . $restoreResult->type . " "._("from file").": " . $file['name']);
         }
         FileSystemUtils::recursiveRemoveDirectory($restoreResult->backupRoot,true);
         $restoreResult->UpgradeStatus = UpgradeService::upgradeDatabaseVersion();
         //When restoring a database, do NOT let the database continue to create remote backups.
         //This can be very troublesome for users in a testing environment.
         SystemConfig::setValue('bEnableExternalBackupTarget', '0');
-        array_push($restoreResult->Messages, gettext('As part of the restore, external backups have been disabled.  If you wish to continue automatic backups, you must manuall re-enable the bEnableExternalBackupTarget setting.'));
+        array_push($restoreResult->Messages, _('As part of the restore, external backups have been disabled.  If you wish to continue automatic backups, you must manuall re-enable the bEnableExternalBackupTarget setting.'));
         SystemConfig::setValue('sLastIntegrityCheckTimeStamp', null);
 
         return $restoreResult;
@@ -130,7 +132,7 @@ class SystemService
 
     public function getDatabaseBackup($params)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         global $sSERVERNAME, $sDATABASE, $sUSER, $sPASSWORD;
         $backup = new \stdClass();
         $backup->backupRoot = SystemURLs::getDocumentRoot() . "/tmp_attach";
@@ -242,7 +244,7 @@ class SystemService
 
     public function download($filename)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         set_time_limit(0);
         $path = SystemURLs::getDocumentRoot() . "/tmp_attach/EcclesiaCRMBackups/$filename";
         if (file_exists($path)) {
@@ -291,12 +293,12 @@ class SystemService
 
     public function getConfigurationSetting($settingName, $settingValue)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
     }
 
     public function setConfigurationSetting($settingName, $settingValue)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
     }
 
     static public function getDBVersion()// get the DB version

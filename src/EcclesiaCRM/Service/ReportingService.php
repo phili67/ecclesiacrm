@@ -4,12 +4,13 @@ namespace EcclesiaCRM\Service;
 
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
 
 class ReportingService
 {
     public function queryDatabase($queryRequest)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         global $cnInfoCentral;
         $returnObject = new \stdClass();
         $returnObject->query = $queryRequest;
@@ -64,7 +65,7 @@ class ReportingService
 
     public function getQuerySQL($qry_ID, $qry_Parameters)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         $sSQL = 'SELECT qry_SQL FROM query_qry where qry_ID='.InputUtils::LegacyFilterInput($qry_ID, 'int');
         $rsQueries = RunQuery($sSQL);
         $query = mysqli_fetch_assoc($rsQueries);
@@ -78,7 +79,7 @@ class ReportingService
 
     public function getQuery($qry_ID = null, $qry_Args = null)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         if ($qry_ID == null) {
             $sSQL = 'SELECT qry_ID,qry_Name,qry_Description FROM query_qry ORDER BY qry_Name';
             $rsQueries = RunQuery($sSQL);
@@ -105,7 +106,7 @@ class ReportingService
 
     public function getQueryParameters($qry_ID = null)
     {
-        requireUserGroupMembership('bAdmin');
+        MiscUtils::requireUserGroupMembership('bAdmin');
         $sSQL = 'SELECT * FROM queryparameters_qrp WHERE qrp_qry_ID='.InputUtils::LegacyFilterInput($qry_ID, 'int');
         $rsQueries = RunQuery($sSQL);
         $result = [];
