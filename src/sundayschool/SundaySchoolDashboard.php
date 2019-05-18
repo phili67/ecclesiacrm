@@ -37,37 +37,37 @@ foreach ($classStats as $class) {
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('Sunday School Dashboard');
+$sPageTitle = _('Sunday School Dashboard');
 require '../Include/Header.php';
 
 ?>
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Functions') ?></h3>
+    <h3 class="box-title"><?= _('Functions') ?></h3>
   </div>
   <div class="box-body">
     <?php if (SessionUser::getUser()->isManageGroupsEnabled()) {
     ?>
       <button class="btn btn-app" data-toggle="modal" data-target="#add-class"><i
-          class="fa fa-plus-square"></i><?= gettext('Add New Class') ?></button>
+          class="fa fa-plus-square"></i><?= _('Add New Class') ?></button>
     <?php
       } 
     ?>
     <?php 
       if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) { 
     ?>  
-     <a href="SundaySchoolReports.php" class="btn btn-app"
-       title="<?= gettext('Generate class lists and attendance sheets'); ?>"><i
-        class="fa fa-file-pdf-o"></i><?= gettext('Reports'); ?></a>
+     <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolReports.php" class="btn btn-app bg-red"
+       title="<?= _('Generate class lists and attendance sheets'); ?>"><i
+        class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
     <?php
       }
     ?>
     <?php 
       if (SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) { 
     ?>
-     <a href="SundaySchoolClassListExport.php" class="btn btn-app"
-       title="<?= gettext('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
-        class="fa fa-file-excel-o"></i><?= gettext('Export to CSV') ?></a><br/>
+     <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolClassListExport.php" class="btn btn-app bg-green"
+       title="<?= _('Export All Classes, Kids, and Parent to CSV file'); ?>"><i
+        class="fa fa-file-excel-o"></i><?= _('Export to CSV') ?></a><br/>
     <?php 
       } 
     ?>
@@ -80,7 +80,7 @@ require '../Include/Header.php';
       <span class="info-box-icon bg-aqua"><i class="fa fa-gg"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Classes') ?></span>
+        <span class="info-box-text"><?= _('Classes') ?></span>
         <span class="info-box-number"> <?= $classes ?> <br/></span>
       </div>
       <!-- /.info-box-content -->
@@ -92,7 +92,7 @@ require '../Include/Header.php';
       <span class="info-box-icon bg-olive"><i class="fa fa-group"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Teachers') ?></span>
+        <span class="info-box-text"><?= _('Teachers') ?></span>
         <span class="info-box-number"> <?= $teachers ?></span>
       </div>
       <!-- /.info-box-content -->
@@ -103,7 +103,7 @@ require '../Include/Header.php';
     <div class="info-box">
       <span class="info-box-icon bg-orange"><i class="fa fa-child"></i></span>
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Students') ?></span>
+        <span class="info-box-text"><?= _('Students') ?></span>
         <span class="info-box-number"> <?= $kids ?></span>
       </div>
       <!-- /.info-box-content -->
@@ -115,7 +115,7 @@ require '../Include/Header.php';
       <span class="info-box-icon bg-gray"><i class="fa fa-user"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Families') ?></span>
+        <span class="info-box-text"><?= _('Families') ?></span>
         <span class="info-box-number"> <?= count(array_unique($familyIds)) ?></span>
       </div>
       <!-- /.info-box-content -->
@@ -127,7 +127,7 @@ require '../Include/Header.php';
       <span class="info-box-icon bg-blue"><i class="fa fa-male"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Boys') ?></span>
+        <span class="info-box-text"><?= _('Boys') ?></span>
         <span class="info-box-number"> <?= $maleKids ?></span>
       </div>
       <!-- /.info-box-content -->
@@ -139,7 +139,7 @@ require '../Include/Header.php';
       <span class="info-box-icon bg-fuchsia"><i class="fa fa-female"></i></span>
 
       <div class="info-box-content">
-        <span class="info-box-text"><?= gettext('Girls') ?></span>
+        <span class="info-box-text"><?= _('Girls') ?></span>
         <span class="info-box-number"> <?= $femaleKids ?></span>
       </div>
       <!-- /.info-box-content -->
@@ -150,7 +150,7 @@ require '../Include/Header.php';
 <!-- on continue -->
 <div class="box box-info">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Sunday School Classes') ?></h3>
+    <h3 class="box-title"><?= _('Sunday School Classes') ?></h3>
       <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
@@ -163,9 +163,9 @@ require '../Include/Header.php';
       <thead>
       <tr>
         <th></th>
-        <th><?= gettext('Class') ?></th>
-        <th><?= gettext('Teachers') ?></th>
-        <th><?= gettext('Students') ?></th>
+        <th><?= _('Class') ?></th>
+        <th><?= _('Teachers') ?></th>
+        <th><?= _('Students') ?></th>
       </tr>
       </thead>
       <tbody>
@@ -173,13 +173,13 @@ require '../Include/Header.php';
         ?>
         <tr>
           <td style="width:80px">
-            <a href='SundaySchoolClassView.php?groupId=<?= $class['id'] ?>'>
+            <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolClassView.php?groupId=<?= $class['id'] ?>">
             <span class="fa-stack">
               <i class="fa fa-square fa-stack-2x"></i>
               <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
             </span>
             </a>
-            <a href='/GroupEditor.php?GroupID=<?= $class['id'] ?>'>
+            <a href="<?= SystemURLs::getRootPath() ?>/GroupEditor.php?GroupID=<?= $class['id'] ?>">
             <span class="fa-stack">
               <i class="fa fa-square fa-stack-2x"></i>
               <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
@@ -200,7 +200,7 @@ require '../Include/Header.php';
 
 <div class="box box-danger">
   <div class="box-header with-border">
-    <h3 class="box-title"><?= gettext('Students not in a Sunday School Class') ?></h3>
+    <h3 class="box-title"><?= _('Students not in a Sunday School Class') ?></h3>
       <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
           </button>
@@ -214,11 +214,11 @@ require '../Include/Header.php';
       <thead>
       <tr>
         <th></th>
-        <th><?= gettext('First Name') ?></th>
-        <th><?= gettext('Last Name') ?></th>
-        <th><?= gettext('Birth Date') ?></th>
-        <th><?= gettext('Age') ?></th>
-        <th><?= gettext('Home Address') ?></th>
+        <th><?= _('First Name') ?></th>
+        <th><?= _('Last Name') ?></th>
+        <th><?= _('Birth Date') ?></th>
+        <th><?= _('Age') ?></th>
+        <th><?= _('Home Address') ?></th>
       </tr>
       </thead>
       <tbody>
@@ -230,29 +230,38 @@ require '../Include/Header.php';
           $hideAge = $flags == 1 || $birthYear == '' || $birthYear == '0';
           $birthDate = OutputUtils::FormatBirthDate($birthYear, $birthMonth, $birthDay, '-', $flags);
           $birthDateDate = OutputUtils::BirthDate($birthYear, $birthMonth, $birthDay, $hideAge);
-
-          echo '<tr>';
-          echo "<td><a href='../PersonView.php?PersonID=".$kidId."'>";
-          echo '  <span class="fa-stack">';
-          echo '  <i class="fa fa-square fa-stack-2x"></i>';
-          echo '  <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>';
-          echo '  </span></a></td>';
-          echo '<td>'.$firstName.'</td>';
-          echo '<td>'.$LastName.'</td>';
-          if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {          
-            echo '<td>'.$birthDate.'</td>';
-            echo "<td data-birth-date='".($hideAge ? '' : $birthDateDate->format('Y-m-d'))."'></td>";
-            echo '<td>'.$Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip.'</td>';
-            echo '</tr>';
-          } else {
-            echo '<td>'.gettext("Private Data").'</td>';
-            echo "<td>".gettext("Private Data")."</td>";
-            echo '<td>'.gettext("Private Data").'</td>';
-            echo '</tr>';
-          }
-      }
-
       ?>
+
+          <tr>
+            <td>
+              <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $kidId ?>">
+                <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </td>
+            <td><?= $firstName ?></td>
+            <td><?= $LastName ?></td>
+        <?php
+          if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
+        ?>
+            <td><?= $birthDate ?></td>
+            <td data-birth-date="<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>"></td>
+            <td><?= $Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip ?></td>
+        <?php
+          } else {
+        ?>
+            <td><?= _("Private Data") ?></td>
+            <td><?= _("Private Data") ?></td>
+            <td><?= _("Private Data") ?></td>
+        <?php
+          }
+        ?>
+        </tr>
+    <?php
+      }
+    ?>
       </tbody>
     </table>
   </div>
@@ -266,20 +275,20 @@ require '../Include/Header.php';
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title"
-              id="delete-Image-label"><?= gettext("Add Sunday School Class") ?> </h4>
+              id="delete-Image-label"><?= _("Add Sunday School Class") ?> </h4>
         </div>
 
         <div class="modal-body">
           <div class="form-group">
-            <input type="text" id="new-class-name" class="form-control" placeholder="<?= gettext('Enter Name') ?>"
+            <input type="text" id="new-class-name" class="form-control" placeholder="<?= _('Enter Name') ?>"
                    maxlength="20" required>
           </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext('Cancel') ?></button>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><?= _('Cancel') ?></button>
           <button type="button" id="addNewClassBtn" class="btn btn-primary"
-                  data-dismiss="modal"><?= gettext('Add') ?></button>
+                  data-dismiss="modal"><?= _('Add') ?></button>
         </div>
       </div>
     </div>
