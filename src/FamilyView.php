@@ -13,12 +13,10 @@
 require "Include/Config.php";
 require "Include/Functions.php";
 
-use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\AutoPaymentQuery;
-use EcclesiaCRM\PledgeQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Service\TimelineService;
@@ -31,8 +29,6 @@ use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyCustomQuery;
 use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\Map\PersonTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
