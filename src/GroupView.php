@@ -26,17 +26,10 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
-use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Property;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
 
 
