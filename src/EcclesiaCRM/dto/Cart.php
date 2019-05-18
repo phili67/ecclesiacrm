@@ -14,7 +14,7 @@ use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
 use EcclesiaCRM\Note;
-
+  
 class Cart
 {
   public static function PersonInCart($PersonID)
@@ -377,7 +377,7 @@ class Cart
             $eventAttent->setEventId($eventID);
             $eventAttent->setCheckinId(SessionUser::getUser()->getPersonId());
             $eventAttent->setCheckinDate(date("Y-m-d H:i:s"));
-            $eventAttent->setPersonId($_SESSION['aPeopleCart'][$element['key']]);
+            $eventAttent->setPersonId($element);
             $eventAttent->save();
         } catch (\Exception $ex) {
            $errorMessage = $ex->getMessage();
@@ -403,7 +403,7 @@ class Cart
     foreach ($_SESSION['aPeopleCart'] as $element) {
       $personGroupRole = Person2group2roleP2g2rQuery::create()
         ->filterByGroupId($GroupID)
-        ->filterByPersonId($_SESSION['aPeopleCart'][$element['key']])
+        ->filterByPersonId($element)
         ->findOneOrCreate()
         ->setRoleId($RoleID)
         ->save();  
