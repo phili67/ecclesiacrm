@@ -395,7 +395,7 @@ require 'Include/Header.php';
 <div class="row">
   <div class="col-lg-6">
     <div class="box box-info">
-      <div class="box-header">
+      <div class="box-header with-border">
         <i class="fa fa-address-card-o"></i>
 
         <h3 class="box-title"><?= _('Gender Demographics') ?></h3>
@@ -412,7 +412,7 @@ require 'Include/Header.php';
   </div>
   <div class="col-lg-6">
     <div class="box box-info">
-        <div class="box-header">
+        <div class="box-header with-border">
           <i class="fa fa-birthday-cake"></i>  
           
           <h3 class="box-title"><?= _('# Age Histogram')?></h3>
