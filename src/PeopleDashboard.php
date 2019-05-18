@@ -224,8 +224,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
       <div class="box-header with-border">
         <h3 class="box-title"><?= _('Reports') ?></h3>
           <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
           </div>
       </div>
@@ -234,13 +233,25 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
         <br>
         <?php echo _('Report on group and roles selected (it may be a multi-page PDF).'); ?>
         </p>
-        <?php if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
-         ?>
+        <?php 
+          if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
+        ?>
           <p><a class="MediumText"
                 href="DirectoryReports.php"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
           </p>
         <?php
-     } ?>
+          } 
+        ?>
+        <?php 
+          if (SessionUser::getUser()->isFinanceEnabled()) {
+        ?>
+          <p><a class="MediumText"
+                href="ReminderReport.php"><?= _('Pledge Reminder Report') ?></a><br><?= _('Printable Pledge Reminder of all people, grouped by family where assigned') ?>
+          </p>
+        <?php
+          } 
+        ?>
+        
         <a class="MediumText" href="LettersAndLabels.php"><?php echo _('Letters and Mailing Labels'); ?></a>
         <br><?php echo _('Generate letters and mailing labels.'); ?>
         </p>
