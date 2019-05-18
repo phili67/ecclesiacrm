@@ -1,24 +1,23 @@
 <?php
 /**
  * User: George Dawoud
- * Date: 1/17/2016
+ * Philippe Logel 
+ * Date: 5/19/2019
  * Time: 8:01 AM.
  */
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\DashboardService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\ListOptionQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
-
-
-// Set the page title
-$sPageTitle = _('People Dashboard');
-
-require 'Include/Header.php';
 
 $dashboardService = new DashboardService();
 $personCount      = $dashboardService->getPersonCount();
@@ -28,26 +27,37 @@ $groupStats       = $dashboardService->getGroupStats();
 $demographicStats = $dashboardService->getDemographic();
 $ageStats         = $dashboardService->getAgeStats();
 
-$sSQL = 'select count(*) as numb, per_Gender from person_per, family_fam
-        where fam_ID =per_fam_ID and fam_DateDeactivated is  null
-        and per_Gender in (1,2) and
-        per_fmr_ID not in (' . SystemConfig::getValue('sDirRoleChild') . ')
-        group by per_Gender ;';
-$rsAdultsGender = RunQuery($sSQL);
+$adultsGender = PersonQuery::Create()
+  ->filterByGender(array('1', '2'), Criteria::IN)
+  ->_and()->filterByFmrId(SystemConfig::getValue('sDirRoleChild'), Criteria::NOT_IN)
+  ->_and()->useFamilyQuery()
+    ->filterByDateDeactivated(null,Criteria::EQUAL)
+  ->endUse()
+  ->groupByGender()
+  ->withColumn('COUNT(*)', 'Numb')
+  ->find();
+  
+$kidsGender = PersonQuery::Create()
+  ->filterByGender(array('1', '2'), Criteria::IN)
+  ->_and()->filterByFmrId(SystemConfig::getValue('sDirRoleChild'), Criteria::IN)
+  ->_and()->useFamilyQuery()
+    ->filterByDateDeactivated(null,Criteria::EQUAL)
+  ->endUse()
+  ->groupByGender()
+  ->withColumn('COUNT(*)', 'Numb')
+  ->find();
 
-$sSQL = 'select count(*) as numb, per_Gender from person_per , family_fam
-          where fam_ID =per_fam_ID and fam_DateDeactivated is  null
-          and per_Gender in (1,2)
-          and per_fmr_ID in (' . SystemConfig::getValue('sDirRoleChild') . ')
-          group by per_Gender ;';
-$rsKidsGender = RunQuery($sSQL);
-
-$sSQL = 'select lst_OptionID,lst_OptionName from list_lst where lst_ID = 1;';
-$rsClassification = RunQuery($sSQL);
+$ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+              
 $classifications = new stdClass();
-while (list($lst_OptionID, $lst_OptionName) = mysqli_fetch_row($rsClassification)) {
-    $classifications->$lst_OptionName = $lst_OptionID;
+foreach ($ormClassifications as $classification) {
+  $lst_OptionName = $classification->getOptionName();
+  $classifications->$lst_OptionName = $classification->getOptionId();
 }
+
+$connection = Propel::getConnection();
 
 $sSQL = "SELECT per_Email, fam_Email, lst_OptionName as virt_RoleName FROM person_per
           LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
@@ -59,21 +69,30 @@ $sSQL = "SELECT per_Email, fam_Email, lst_OptionName as virt_RoleName FROM perso
               INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
               INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email')";
 
-$rsEmailList = RunQuery($sSQL);
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+
+$emailList = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 $sEmailLink = '';
-while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailList)) {
-    $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
+foreach ($emailList as $emailAccount) {
+    $sEmail = MiscUtils::SelectWhichInfo($emailAccount['per_Email'], $emailAccount['fam_Email'], false);
     if ($sEmail) {
         /* if ($sEmailLink) // Don't put delimiter before first email
             $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
         // Add email only if email address is not already in string
         if (!stristr($sEmailLink, $sEmail)) {
             $sEmailLink .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
+            $virt_RoleName = $emailAccount['virt_RoleName'];
             $roleEmails->$virt_RoleName .= $sEmail .= SessionUser::getUser()->MailtoDelimiter();
         }
     }
 }
 
+// Set the page title
+$sPageTitle = _('People Dashboard');
+
+require 'Include/Header.php';
 ?>
 
 <!-- Default box -->
@@ -376,7 +395,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
 <div class="row">
   <div class="col-lg-6">
     <div class="box box-info">
-      <div class="box-header">
+      <div class="box-header with-border">
         <i class="fa fa-address-card-o"></i>
 
         <h3 class="box-title"><?= _('Gender Demographics') ?></h3>
@@ -393,7 +412,7 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
   </div>
   <div class="col-lg-6">
     <div class="box box-info">
-        <div class="box-header">
+        <div class="box-header with-border">
           <i class="fa fa-birthday-cake"></i>  
           
           <h3 class="box-title"><?= _('# Age Histogram')?></h3>
@@ -423,31 +442,29 @@ while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailL
             $BackgroundColor = [];
             $borderColor     = [];
             
-            while ($row = mysqli_fetch_array($rsAdultsGender)) {
-              if ($row['per_Gender'] == 1) {
+            foreach ($adultsGender as $adultGender) {
+              if ($adultGender->getGender() == 1) {
                 $Labels[]           = _('Men');
-                $Datas[]            = $row['numb'];
+                $Datas[]            = $adultGender->getNumb();
                 $BackgroundColor[]  = "#003399";
                 $borderColor[]      = "#3366ff";
-              }
-              if ($row['per_Gender'] == 2) {
+              } else if ($adultGender->getGender() == 2) {
                 $Labels[]           = _('Women');
-                $Datas[]            = $row['numb'];
+                $Datas[]            = $adultGender->getNumb();
                 $BackgroundColor[]  = "#9900ff";
                 $borderColor[]      = "#ff66cc";
               }
             }
             
-            while ($row = mysqli_fetch_array($rsKidsGender)) {
-              if ($row['per_Gender'] == 1) {
+            foreach ($kidsGender as $kidGender) {
+              if ($kidGender->getGender() == 1) {
                 $Labels[]           = _('Boys');
-                $Datas[]            = $row['numb'];
+                $Datas[]            = $kidGender->getNumb();
                 $BackgroundColor[]  = "#3399ff";
                 $borderColor[]      = "#99ccff";
-              }
-              if ($row['per_Gender'] == 2) {
+              } else if ($kidGender->getGender() == 2) {
                 $Labels[]           = _('Girls');
-                $Datas[]            = $row['numb'];
+                $Datas[]            = $kidGender->getNumb();
                 $BackgroundColor[]  = "#009933";
                 $borderColor[]      = "#99cc00";
               }
