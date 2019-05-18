@@ -25,6 +25,7 @@ class DashboardService
     public function getPersonCount()
     {
         $personCount = PersonQuery::Create('per')
+            ->filterByDateDeactivated(null)
             ->useFamilyQuery('fam','left join')
                 ->filterByDateDeactivated(null)
             ->endUse()
@@ -40,7 +41,7 @@ class DashboardService
         $sSQL = 'select lst_OptionName as Classification, count(*) as count
                 from person_per INNER JOIN list_lst ON  per_cls_ID = lst_OptionID
                 LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
-                WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null
+                WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null and person_per.per_DateDeactivated is null
                 group by per_cls_ID, lst_OptionName order by count desc;';
                 
         $connection = Propel::getConnection();
@@ -60,7 +61,7 @@ class DashboardService
         $stats = [];
         $sSQL = 'select count(*) as numb, per_Gender, per_fmr_ID
                 from person_per LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
-                where family_fam.fam_DateDeactivated is  null
+                where family_fam.fam_DateDeactivated is null and person_per.per_DateDeactivated is null
                 group by per_Gender, per_fmr_ID order by per_fmr_ID;';
         $connection = Propel::getConnection();
 
@@ -70,33 +71,33 @@ class DashboardService
         while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             switch ($row['per_Gender']) {
               case 0:
-                $gender = gettext('Unknown');
+                $gender = _('Unknown');
                 break;
               case 1:
-                $gender = gettext('Male');
+                $gender = _('Male');
                 break;
               case 2:
-                $gender = gettext('Female');
+                $gender = _('Female');
                 break;
               default:
-                $gender = gettext('Other');
+                $gender = _('Other');
             }
 
             switch ($row['per_fmr_ID']) {
               case 0:
-                $role = gettext('Unknown');
+                $role = _('Unknown');
                 break;
               case 1:
-                $role = gettext('Head of Household');
+                $role = _('Head of Household');
                 break;
               case 2:
-                $role = gettext('Spouse');
+                $role = _('Spouse');
                 break;
               case 3:
-                $role = gettext('Child');
+                $role = _('Child');
                 break;
               default:
-                $role = gettext('Other');
+                $role = _('Other');
             }
 
             array_push($stats, array(
@@ -119,7 +120,7 @@ class DashboardService
           INNER JOIN person2group2role_p2g2r ON p2g2r_per_ID = per_ID
           INNER JOIN group_grp ON grp_ID = p2g2r_grp_ID
           LEFT JOIN family_fam ON fam_ID = per_fam_ID
-          where fam_DateDeactivated is  null and
+          where fam_DateDeactivated is null and person_per.per_DateDeactivated is null and 
               p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount
         from dual ;
         ';
@@ -174,8 +175,9 @@ class DashboardService
     public function getUpdatedMembers($limit = 12)
     {
         return PersonQuery::create()
+            ->filterByDateDeactivated(null)
             ->leftJoinWithFamily()
-            ->where('Family.DateDeactivated is null')
+              ->where('Family.DateDeactivated is null')
             ->orderByDateLastEdited('DESC')
             ->limit($limit)
             ->find();
@@ -189,6 +191,7 @@ class DashboardService
     public function getLatestMembers($limit = 12)
     {
         return PersonQuery::create()
+            ->filterByDateDeactivated(null)
             ->leftJoinWithFamily()
             ->where('Family.DateDeactivated is null')
             ->filterByDateLastEdited(null)
