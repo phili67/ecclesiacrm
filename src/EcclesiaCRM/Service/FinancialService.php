@@ -16,7 +16,7 @@ class FinancialService
 {
     public function processAuthorizeNet()
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         global $cnInfoCentral;
         $donation = new \AuthorizeNetAIM();
         $donation->amount = "$plg_amount";
@@ -166,7 +166,7 @@ class FinancialService
 
     public function processVanco()
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $customerid = "$aut_ID";  // This is an optional value that can be used to indicate a unique customer ID that is used in your system
     // put aut_ID into the $customerid field
     // Create object to preform API calls
@@ -266,13 +266,13 @@ class FinancialService
 
     public function deletePayment($groupKey)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         PledgeQuery::create()->findByGroupkey($groupKey)->delete();
     }
 
     public function getMemberByScanString($sstrnig)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         if (SystemConfig::getValue('bUseScannedChecks')) {
             require '../Include/MICRFunctions.php';
             $micrObj = new MICRReader(); // Instantiate the MICR class
@@ -318,7 +318,7 @@ class FinancialService
 
     public function getDepositTotal($id, $type = null)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $sqlClause = '';
         if ($type) {
             $sqlClause = "AND plg_method = '".$type."'";
@@ -342,7 +342,7 @@ class FinancialService
 
     public function getPayments($depID)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $sSQL = 'SELECT * from pledge_plg
             INNER JOIN 
             donationfund_fun 
@@ -392,7 +392,7 @@ class FinancialService
 
     public function searchDeposits($searchTerm)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $fetch = 'SELECT dep_ID, dep_Comment, dep_Date, dep_EnteredBy, dep_Type
             FROM deposit_dep
             LEFT JOIN pledge_plg ON
@@ -420,7 +420,7 @@ class FinancialService
 
     public function searchPayments($searchTerm)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $fetch = 'SELECT dep_ID, dep_Comment, dep_Date, dep_EnteredBy, dep_Type, plg_FamID, plg_amount, plg_CheckNo, plg_plgID, plg_GroupKey
             FROM deposit_dep
             LEFT JOIN pledge_plg ON
@@ -478,12 +478,12 @@ class FinancialService
                 if (SystemConfig::getValue('bEnableNonDeductible') && isset($fund->NonDeductible)) {
                     //Validate the NonDeductible Amount
           if ($fund->NonDeductible > $fund->Amount) { //Validate the NonDeductible Amount
-            throw new \Exception(gettext("NonDeductible amount can't be greater than total amount."));
+            throw new \Exception(_("NonDeductible amount can't be greater than total amount."));
           }
                 }
             } // end foreach
       if (!$nonZeroFundAmountEntered) {
-          throw new \Exception(gettext('At least one fund must have a non-zero amount.'));
+          throw new \Exception(_('At least one fund must have a non-zero amount.'));
       }
         } else {
             throw new \Exception('Must select a valid fund');
@@ -492,7 +492,7 @@ class FinancialService
 
     public function locateFamilyCheck($checkNumber, $fam_ID)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $sSQL = 'SELECT count(plg_FamID) from pledge_plg
                  WHERE plg_CheckNo = '.$checkNumber.' AND
                  plg_FamID = '.$fam_ID;
@@ -503,17 +503,17 @@ class FinancialService
 
     public function validateChecks($payment)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
     //validate that the payment options are valid
     //If the payment method is a check, then the check nubmer must be present, and it must not already have been used for this family
     //if the payment method is cash, there must not be a check number
     if ($payment->type == 'Payment' and $payment->iMethod == 'CHECK' and !isset($payment->iCheckNo)) {
-        throw new \Exception(gettext('Must specify non-zero check number'));
+        throw new \Exception(_('Must specify non-zero check number'));
     }
     // detect check inconsistencies
     if ($payment->type == 'Payment' and isset($payment->iCheckNo)) {
         if ($payment->iMethod == 'CASH') {
-            throw new \Exception(gettext("Check number not valid for 'CASH' payment"));
+            throw new \Exception(_("Check number not valid for 'CASH' payment"));
         } //build routine to make sure this check number hasn't been used by this family yet (look at group key)
       elseif ($payment->iMethod == 'CHECK' and $this->locateFamilyCheck($payment->iCheckNo, $payment->FamilyID)) {
           throw new \Exception("Check number '".$payment->iCheckNo."' for selected family already exists.");
@@ -536,7 +536,7 @@ class FinancialService
 
     public function insertPledgeorPayment($payment)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
     // Only set PledgeOrPayment when the record is first created
     // loop through all funds and create non-zero amount pledge records
     unset($sGroupKey);
@@ -609,7 +609,7 @@ class FinancialService
 
     public function submitPledgeOrPayment($payment)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $this->validateFund($payment);
         $this->validateChecks($payment);
         $this->validateDate($payment);
@@ -620,7 +620,7 @@ class FinancialService
 
     public function getPledgeorPayment($GroupKey)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $total = 0;
         $sSQL = 'SELECT plg_plgID, plg_FamID, plg_date, plg_fundID, plg_amount, plg_NonDeductible,plg_comment, plg_FYID, plg_method, plg_EditedBy from pledge_plg where plg_GroupKey="'.$GroupKey.'"';
         $rsKeys = RunQuery($sSQL);
@@ -850,7 +850,7 @@ class FinancialService
 
     public function getDepositCSV($depID)
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $retstring = '';
         $line = [];
         $firstLine = true;
@@ -912,7 +912,7 @@ class FinancialService
 
     public function getActiveFunds()
     {
-        requireUserGroupMembership('bFinance');
+        MiscUtils::requireUserGroupMembership('bFinance');
         $funds = [];
         $sSQL = 'SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun';
         $sSQL .= " WHERE fun_Active = 'true'"; // New donations should show only active funds.

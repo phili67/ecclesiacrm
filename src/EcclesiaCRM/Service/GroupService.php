@@ -9,6 +9,7 @@ use Sabre\DAV;
 
 use EcclesiaCRM\MyPDO\CardDavPDO;
 use Propel\Runtime\Propel;
+use EcclesiaCRM\Utils\MiscUtils;
 
 class GroupService
 {
@@ -21,7 +22,7 @@ class GroupService
      */
     public function removeUserFromGroup($groupID, $personID)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $sSQL = 'DELETE FROM person2group2role_p2g2r WHERE p2g2r_per_ID = '.$personID.' AND p2g2r_grp_ID = '.$groupID;
         RunQuery($sSQL);
 
@@ -73,7 +74,7 @@ class GroupService
      */
     public function addUserToGroup($iGroupID, $iPersonID, $iRoleID)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         //
         // Adds a person to a group with specified role.
         // Returns false if the operation fails. (such as person already in group)
@@ -190,7 +191,7 @@ END:VCARD';
 
     public function setGroupRoleOrder($groupID, $groupRoleID, $groupRoleOrder)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $sSQL = 'UPDATE list_lst
                  INNER JOIN group_grp
                     ON group_grp.grp_RoleListID = list_lst.lst_ID
@@ -216,7 +217,7 @@ END:VCARD';
 
     public function deleteGroupRole($groupID, $groupRoleID)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $sSQL = 'SELECT * FROM list_lst
                 INNER JOIN group_grp
                     ON group_grp.grp_RoleListID = list_lst.lst_ID
@@ -281,7 +282,7 @@ END:VCARD';
 
     public function addGroupRole($groupID, $groupRoleName)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         if (strlen($groupRoleName) == 0) {
             throw new \Exception('New field name cannot be blank');
         } else {
@@ -325,7 +326,7 @@ END:VCARD';
 
     public function enableGroupSpecificProperties($groupID)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $sSQL = 'UPDATE group_grp SET grp_hasSpecialProps = true
             WHERE grp_ID = '.$groupID;
         RunQuery($sSQL);
@@ -346,7 +347,7 @@ END:VCARD';
 
     public function disableGroupSpecificProperties($groupID)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $sSQLp = 'DROP TABLE groupprop_'.$groupID;
         RunQuery($sSQLp);
 

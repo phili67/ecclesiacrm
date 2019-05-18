@@ -6,6 +6,8 @@ use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
 use EcclesiaCRM\Person2group2roleP2g2r as ChildPerson2group2roleP2g2r;
 use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\Utils\MiscUtils;
+
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\CalDAV;
@@ -23,6 +25,7 @@ use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
+
 
 /**
  * Skeleton subclass for representing a row from the 'group_grp' table.
@@ -130,7 +133,7 @@ END:VCARD';
 
     public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         parent::preSave($con);
 
         return true;
@@ -138,7 +141,7 @@ END:VCARD';
 
     public function preUpdate(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         parent::preUpdate($con);
 
         return true;
@@ -146,7 +149,7 @@ END:VCARD';
 
     public function preDelete(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         
         // we first delete the calendar
         $calendarInstance = CalendarinstancesQuery::Create()->findOneByGroupId( $this->getId() );
@@ -172,7 +175,7 @@ END:VCARD';
 
     public function preInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
-        requireUserGroupMembership('bManageGroups');
+        MiscUtils::requireUserGroupMembership('bManageGroups');
         $defaultRole = 1;
         if ($this->isSundaySchool()) {
             $defaultRole = 2;
