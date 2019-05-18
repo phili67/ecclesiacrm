@@ -3,7 +3,7 @@
 /*******************************************************************************
 *
 *  filename    : EcclesiaCRM/Reports/PDF_Attendance.php
-*  last change : 2017-10-23
+*  last change : 2019-05-18
 *  description : Creates a PDF for a Sunday School Class Attendance List
 *  Udpdated    : 2018-02-26
 *                Philippe Logel
@@ -164,7 +164,7 @@ class PDF_Attendance extends ChurchInfoReport
         // we draw the gender
         $this->SetFont('Times', 'B', $fontTitleNormal-3);
         if ($genderDateList[$row] != '') {
-          $this->WriteAt($nameX+24, $y+0.75, "(".substr($genderDateList[$row],0,1).")");
+          $this->WriteAt($nameX+24, $y+0.75, "(".mb_substr($genderDateList[$row],0,1).")");
         }
         $this->SetFont('Times', '', $fontTitleNormal);
         
@@ -221,7 +221,7 @@ class PDF_Attendance extends ChurchInfoReport
   // write a totals text at the bottom
   //
       $this->SetFont('Times', 'B', $fontTitleNormal);
-      $this->WriteAt($nameX, $y + 1, gettext('Totals'));
+      $this->WriteAt($nameX, $y + 1, _('Totals'));
       $this->SetFont('Times', '', $fontTitleNormal);
 
       $bottomY = $y + $yIncrement;
@@ -275,7 +275,7 @@ class PDF_Attendance extends ChurchInfoReport
         }
       
         if (date('n', $dWhichSunday) != $whichMonth) { // Finish the previous month
-          $this->WriteAt($monthX, $yMonths + 1, substr(gettext(date('F', $dWhichMonthDate)),0,3));
+          $this->WriteAt($monthX, $yMonths + 1, mb_substr(_(date('F', $dWhichMonthDate)),0,3));
           $aHeavyVerticalX[$heavyVerticalXCnt++] = $monthX;
           $whichMonth = date('n', $dWhichSunday);
           $dWhichMonthDate = $dWhichSunday;
@@ -304,7 +304,7 @@ class PDF_Attendance extends ChurchInfoReport
         $tWhichSunday = date('Y-m-d', $dWhichSunday);
       }
       $aHeavyVerticalX[$heavyVerticalXCnt++] = $monthX;
-      $this->WriteAt($monthX, $yMonths + 1, substr(gettext(date('F', $dWhichMonthDate)),0,3));
+      $this->WriteAt($monthX, $yMonths + 1, mb_substr(_(date('F', $dWhichMonthDate)),0,3));
 
       $rightEdgeX = $dayX;
 
@@ -567,7 +567,7 @@ class PDF_Attendance extends ChurchInfoReport
             case 'gender':
               $this->SetFont('Times', 'B', $fontTitleNormal-3);
               if ($value != OutputUtils::translate_text_fpdf("Gender")) {
-                $this->WriteAt($nameX+24, $y+0.75, "(".substr($value,0,1).")");
+                $this->WriteAt($nameX+24, $y+0.75, "(".mb_substr($value,0,1).")");
               }
               $this->SetFont('Times', '', $fontTitleNormal);
               break;
@@ -626,7 +626,7 @@ class PDF_Attendance extends ChurchInfoReport
   // write a totals text at the bottom
   //
       $this->SetFont('Times', 'B', $fontTitleNormal);
-      $this->WriteAt($nameX, $y + 1, gettext('Totals'));
+      $this->WriteAt($nameX, $y + 1, _('Totals'));
       $this->SetFont('Times', '', $fontTitleNormal);
       
       $datePlace = 0;
