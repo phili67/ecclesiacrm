@@ -1,6 +1,7 @@
 <?php
-
 namespace EcclesiaCRM\Service;
+
+use Propel\Runtime\Propel;
 
 class SundaySchoolService
 {
@@ -10,16 +11,22 @@ class SundaySchoolService
               from person_per,group_grp grp, person2group2role_p2g2r person_grp, list_lst lst
             where grp_Type = 4
               and grp.grp_ID = person_grp.p2g2r_grp_ID
+              and person_per.per_DateDeactivated is null
               and person_grp.p2g2r_per_ID = per_ID
               and lst.lst_ID = grp.grp_RoleListID
               and lst.lst_OptionID = person_grp.p2g2r_rle_ID
               group by grp.grp_name, lst.lst_OptionName
               order by grp.grp_name, lst.lst_OptionName';
-        $rsClassCounts = RunQuery($sSQL);
+        
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
         $classInfo = [];
         $lastClassId = 0;
         $curClass = [];
-        while ($row = mysqli_fetch_assoc($rsClassCounts)) {
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             if ($lastClassId != $row['grp_id']) {
                 if ($lastClassId != 0) {
                     array_push($classInfo, $curClass);
@@ -47,10 +54,11 @@ class SundaySchoolService
 
     public function getClassByRole($groupId, $role)
     {
-        $sql = 'select person_per.*
+        $sSQL = 'select person_per.*
               from person_per,group_grp grp, person2group2role_p2g2r person_grp, list_lst lst
             where grp.grp_ID = '.$groupId."
               and grp_Type = 4
+              and person_per.per_DateDeactivated is null
               and grp.grp_ID = person_grp.p2g2r_grp_ID
               and person_grp.p2g2r_per_ID = per_ID
               and lst.lst_ID = grp.grp_RoleListID
@@ -61,10 +69,14 @@ class SundaySchoolService
             
         // GDRP, when a person is completely deactivated : and per_DateDeactivated is null 
 
-        $rsMembers = RunQuery($sql);
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
         $members = [];
-        while ($row = mysqli_fetch_assoc($rsMembers)) {
-            array_push($members, $row);
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+           array_push($members, $row);
         }
 
         return $members;
@@ -151,24 +163,24 @@ class SundaySchoolService
         }
 
         return ['Jan' => $Jan,
-      'Feb'       => $Feb,
-      'Mar'       => $Mar,
-      'Apr'       => $Apr,
-      'May'       => $May,
-      'June'      => $June,
-      'July'      => $July,
-      'Aug'       => $Aug,
-      'Sept'      => $Sept,
-      'Oct'       => $Oct,
-      'Nov'       => $Nov,
-      'Dec'       => $Dec,
-    ];
+                'Feb'       => $Feb,
+                'Mar'       => $Mar,
+                'Apr'       => $Apr,
+                'May'       => $May,
+                'June'      => $June,
+                'July'      => $July,
+                'Aug'       => $Aug,
+                'Sept'      => $Sept,
+                'Oct'       => $Oct,
+                'Nov'       => $Nov,
+                'Dec'       => $Dec,
+              ];
     }
 
     public function getKidsFullDetails($groupId)
     {
         // Get all the groups
-    $sSQL = 'select grp.grp_Name sundayschoolClass, kid.per_ID kidId, kid.per_Gender kidGender, 
+        $sSQL = 'select grp.grp_Name sundayschoolClass, kid.per_ID kidId, kid.per_Gender kidGender, 
                 kid.per_FirstName firstName, kid.per_Email kidEmail, kid.per_LastName LastName, 
                   kid.per_BirthDay birthDay,  kid.per_BirthMonth birthMonth, kid.per_BirthYear birthYear, 
                   kid.per_CellPhone mobilePhone, kid.per_Flags flags, 
@@ -194,9 +206,13 @@ class SundaySchoolService
             
             // GDRP, when a person is completely deactivated : and kid.per_DateDeactivated is null 
 
-        $rsKids = RunQuery($sSQL);
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
         $kids = [];
-        while ($row = mysqli_fetch_assoc($rsKids)) {
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             array_push($kids, $row);
         }
 
@@ -206,7 +222,7 @@ class SundaySchoolService
     public function getTeacherFullDetails($groupId)
     {
         // Get all the groups
-    $sSQL = 'select grp.grp_Name sundayschoolClass, teacher.per_ID teacherId, teacher.per_Gender teacherGender, 
+        $sSQL = 'select grp.grp_Name sundayschoolClass, teacher.per_ID teacherId, teacher.per_Gender teacherGender, 
                 teacher.per_FirstName firstName, teacher.per_Email teacherEmail, teacher.per_LastName LastName, 
                   teacher.per_BirthDay birthDay,  teacher.per_BirthMonth birthMonth, teacher.per_BirthYear birthYear, 
                   teacher.per_CellPhone mobilePhone, teacher.per_Flags flags, 
@@ -230,11 +246,15 @@ class SundaySchoolService
 
             order by grp.grp_Name, fam.fam_Name";
             
-            // GDRP, when a person is completely deactivated : and teacher.per_DateDeactivated is null 
+        // GDRP, when a person is completely deactivated : and teacher.per_DateDeactivated is null 
 
-        $rsteachers = RunQuery($sSQL);
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
         $teachers = [];
-        while ($row = mysqli_fetch_assoc($rsteachers)) {
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             array_push($teachers, $row);
         }
 
@@ -251,9 +271,14 @@ class SundaySchoolService
               per_ID not in
                 (select per_id from person_per,group_grp grp, person2group2role_p2g2r person_grp
                   where person_grp.p2g2r_rle_ID = 2 and grp_Type = 4 and grp.grp_ID = person_grp.p2g2r_grp_ID  and person_grp.p2g2r_per_ID = kid.per_ID)';
-        $rsKidsMissing = RunQuery($sSQL);
+
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
         $kids = [];
-        while ($row = mysqli_fetch_array($rsKidsMissing)) {
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
             array_push($kids, $row);
         }
 
