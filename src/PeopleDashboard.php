@@ -101,7 +101,7 @@ require 'Include/Header.php';
     <h3 class="box-title"><?= _('People Functions') ?></h3>
   </div>
   <div class="box-body">
-    <a href="SelectList.php?mode=person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
+    <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person" class="btn btn-app"><i class="fa fa-user"></i><?= _('All People') ?></a>
     <?php
     if ($sEmailLink) {
         // Add default email if default email has been set and is not already in string
@@ -137,7 +137,7 @@ require 'Include/Header.php';
     }
      ?>
     <br/>
-    <a href="FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
+    <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
     <?php
       if (SessionUser::getUser()->isShowMapEnabled()) {
     ?>
@@ -248,15 +248,15 @@ require 'Include/Header.php';
           </div>
       </div>
       <div class="box-body">
-        <a class="MediumText" href="GroupReports.php"><?php echo _('Reports on groups and roles'); ?></a>
+        <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/GroupReports.php"><?= _('Reports on groups and roles') ?></a>
         <br>
-        <?php echo _('Report on group and roles selected (it may be a multi-page PDF).'); ?>
+        <?= _('Report on group and roles selected (it may be a multi-page PDF).') ?>
         </p>
         <?php 
           if (SessionUser::getUser()->isCreateDirectoryEnabled()) {
         ?>
           <p><a class="MediumText"
-                href="DirectoryReports.php"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
+                href="<?= SystemURLs::getRootPath() ?>/DirectoryReports.php"><?= _('People Directory') ?></a><br><?= _('Printable directory of all people, grouped by family where assigned') ?>
           </p>
         <?php
           } 
@@ -265,23 +265,28 @@ require 'Include/Header.php';
           if (SessionUser::getUser()->isFinanceEnabled()) {
         ?>
           <p><a class="MediumText"
-                href="ReminderReport.php"><?= _('Pledge Reminder Report') ?></a><br><?= _('Printable Pledge Reminder of all people, grouped by family where assigned') ?>
+                href="<?= SystemURLs::getRootPath() ?>/ReminderReport.php"><?= _('Pledge Reminder Report') ?></a><br><?= _('Printable Pledge Reminder of all people, grouped by family where assigned') ?>
           </p>
         <?php
           } 
         ?>
         
-        <a class="MediumText" href="LettersAndLabels.php"><?php echo _('Letters and Mailing Labels'); ?></a>
-        <br><?php echo _('Generate letters and mailing labels.'); ?>
+        <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/LettersAndLabels.php"><?= _('Letters and Mailing Labels') ?></a>
+        <br><?= _('Generate letters and mailing labels.') ?>
         </p>
         <?php
-        if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
-            echo '<p>';
-            echo '<a class="MediumText" href="USISTAddressVerification.php">';
-            echo _('US Address Verification Report')."</a><br>\n";
-            echo _('Generate report comparing all US family addresses '.
-              'with United States Postal Service Standard Address Format.<br>')."\n";
-        }
+          if (SessionUser::getUser()->isUSAddressVerificationEnabled()) {
+        ?>
+            <p>
+              <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/USISTAddressVerification.php">
+                <?= _('US Address Verification Report') ?>
+              </a>
+              <br>
+              <?= _('Generate report comparing all US family addresses '.
+              'with United States Postal Service Standard Address Format.<br>') ?>
+            </p>
+        <?php
+          }
         ?>
       </div>
     </div>
@@ -297,17 +302,17 @@ require 'Include/Header.php';
                 </div>
             </div>
             <div class="box-body">
-               <p> <a class="MediumText" href="members/self-register.php"><?php echo _('Self Register') ?> <?= _('Reports') ?></a>
+               <p> <a class="MediumText" href="<?= SystemURLs::getRootPath() ?>/members/self-register.php"><?= _('Self Register') ?> <?= _('Reports') ?></a>
                 <br>
-                <?php echo _('List families that were created via self registration.') ?>
+                <?= _('List families that were created via self registration.') ?>
                </p>
                 <p>
                     <a class="MediumText"
-                      href="members/self-verify-updates.php"><?= _('Self Verify Updates') ?></a><br><?= _('Families who commented via self verify links') ?>
+                      href="<?= SystemURLs::getRootPath() ?>/members/self-verify-updates.php"><?= _('Self Verify Updates') ?></a><br><?= _('Families who commented via self verify links') ?>
                 </p>
                 <p>
                     <a class="MediumText"
-                      href="members/online-pending-verify.php"><?= _('Pending Self Verify') ?></a><br><?= _('Families with valid self verify links') ?>
+                      href="<?= SystemURLs::getRootPath() ?>/members/online-pending-verify.php"><?= _('Pending Self Verify') ?></a><br><?= _('Families with valid self verify links') ?>
                 </p>
             </div>
         </div>
@@ -338,7 +343,7 @@ require 'Include/Header.php';
             ?>
             <tr>
                 <td>
-                    <a href="SelectList.php?mode=person&Gender=<?= $demStat['gender'] ?>&FamilyRole=<?= $demStat['role'] ?>"><?= _($demStat['key']) ?></a>
+                    <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person&Gender=<?= $demStat['gender'] ?>&FamilyRole=<?= $demStat['role'] ?>"><?= _($demStat['key']) ?></a>
                 </td>
               <td>
                 <div class="progress progress-xs progress-striped active">
@@ -376,7 +381,7 @@ require 'Include/Header.php';
         <?php foreach ($personStats as $key => $value) {
             ?>
           <tr>
-            <td><a href='SelectList.php?Sort=name&Filter=&mode=person&Classification=<?= $classifications->$key ?>'><?= _($key) ?></a></td>
+            <td><a href='<?= SystemURLs::getRootPath() ?>/SelectList.php?Sort=name&Filter=&mode=person&Classification=<?= $classifications->$key ?>'><?= _($key) ?></a></td>
             <td>
               <div class="progress progress-xs progress-striped active">
                 <div class="progress-bar progress-bar-success"
