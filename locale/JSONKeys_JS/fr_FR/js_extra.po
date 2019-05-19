@@ -144,3 +144,6 @@ msgstr "Planifiée"
 
 msgid "paused"
 msgstr "En pause"
+
+msgid "cleaned"
+msgstr "nettoyé"

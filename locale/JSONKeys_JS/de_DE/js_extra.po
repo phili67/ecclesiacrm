@@ -142,3 +142,6 @@ msgstr "zeitplan"
 
 msgid "paused"
 msgstr "pausiert"
+
+msgid "cleaned"
+msgstr "geleert"
