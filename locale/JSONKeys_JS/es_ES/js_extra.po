@@ -144,3 +144,6 @@ msgstr ""
 
 msgid "paused"
 msgstr ""
+
+msgid "cleaned"
+msgstr ""
