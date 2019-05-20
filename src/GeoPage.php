@@ -18,11 +18,16 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\OutputUtils;
+
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\ActiveQuery\ModelCriteria;
 
 function CompareDistance($elem1, $elem2)
 {
@@ -121,7 +126,7 @@ if (array_key_exists('NumNeighbors', $_GET)) {
 }
 
 $bClassificationPost = false;
-$sClassificationList = '';
+$sClassificationList = [];
 $sCoordFileFormat = '';
 $sCoordFileFamilies = '';
 $sCoordFileName = '';
@@ -144,10 +149,7 @@ if (isset($_POST['FindNeighbors']) || isset($_POST['DataFile']) || isset($_POST[
         $sClassNum = 'Classification' . $key;
         if (isset($_POST["$sClassNum"])) {
             $bClassificationPost = true;
-            if (strlen($sClassificationList)) {
-                $sClassificationList .= ',';
-            }
-            $sClassificationList .= $key;
+            $sClassificationList[] = $key;
         }
     }
 }
@@ -215,11 +217,10 @@ $families = FamilyQuery::create()
                         <option></option>
                         <?php
                         foreach ($families as $family) {
-                            echo "\n<option value=\"" . $family->getId() . '"';
-                            if ($iFamily == $family->getId()) {
-                                echo ' selected';
-                            }
-                            echo '>' . $family->getName() . '&nbsp;-&nbsp;' . $family->getAddress();
+                    ?>
+                        <option value="<?= $family->getId() ?>" <?= ($iFamily == $family->getId())?' selected':'' ?>>
+                          <?= $family->getName() ?> - <?=  $family->getAddress() ?>
+                      <?php
                         }
                         ?>
                     </select>
@@ -364,17 +365,18 @@ $families = FamilyQuery::create()
                 if ($counter >= $iNumNeighbors || $oneResult['Distance'] > $nMaxDistance) {
                     break;
                 } // Determine how many people in this family will be listed
-                $sSQL = 'SELECT * FROM person_per WHERE per_fam_ID=' . $oneResult['fam_ID'];
+                $persons = PersonQuery::Create()->filterByFamId($oneResult['fam_ID']);
                 if ($bClassificationPost) {
-                    $sSQL .= ' AND per_cls_ID IN (' . $sClassificationList . ')';
+                   $persons->_and()->filterByClsId($sClassificationList, Criteria::IN);
                 }
-                $rsPeople = RunQuery($sSQL);
-                $numListed = mysqli_num_rows($rsPeople);
+                $persons->find();
 
+                $numListed = $persons->count();
                 if (!$numListed) { // skip familes with zero members
                     continue;
                 }
-                $counter++; ?>
+                $counter++; 
+            ?>
                 <tr class="info">
                     <td><?= OutputUtils::number_localized($oneResult['Distance']) ?> </td>
                     <td><?= $oneResult['Bearing'] ?> <?= OutputUtils::GetRouteFromCoordinates($oneResult['fam_Latitude'], $oneResult['fam_Longitude']) ?>
@@ -385,17 +387,15 @@ $families = FamilyQuery::create()
                     </td>
                 </tr>
                 <?php
-                while ($aRow = mysqli_fetch_array($rsPeople)) {
-                    extract($aRow);
-
-                    if (!in_array($per_ID, $aPersonIDs)) {
-                        $aPersonIDs[] = $per_ID;
+                foreach ($persons as $person) {
+                    if (!in_array($person->getId(), $aPersonIDs)) {
+                        $aPersonIDs[] = $person->getId();
                     } ?>
                     <tr>
                         <td><BR></td>
                         <td><BR></td>
-                        <td align="right"><?= $per_FirstName . ' ' . $per_LastName ?> </td>
-                        <td align="left"><?= $aClassificationName[$per_cls_ID] ?></td>
+                        <td align="right"><?= $person->getFirstName() . ' ' . $person->getLastName() ?> </td>
+                        <td align="left"><?= $aClassificationName[$person->getClsId()] ?></td>
                     </tr>
                     <?php
                 }
