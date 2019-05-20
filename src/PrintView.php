@@ -14,6 +14,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -23,6 +24,25 @@ use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\PersonCustomQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use EcclesiaCRM\Map\Person2group2roleP2g2rTableMap;
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
+use EcclesiaCRM\Map\GroupTableMap;
+use EcclesiaCRM\Map\ListOptionTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Map\NoteTableMap;
+use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\Service\TimelineService;
+
+
+use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\NoteQuery;
+
 
 // Get the person ID from the querystring
 $iPersonID = InputUtils::LegacyFilterInput($_GET['PersonID'], 'int');
@@ -32,6 +52,8 @@ if ( !(SessionUser::getUser()->isEditRecordsEnabled() ||
   RedirectUtils::Redirect('Menu.php');
   exit;
 }
+
+$connection = Propel::getConnection();
 
 // Get this person
 $sSQL = 'SELECT a.*, family_fam.*, cls.lst_OptionName AS sClassName, fmr.lst_OptionName AS sFamRole, b.per_FirstName AS EnteredFirstName,
@@ -43,52 +65,78 @@ $sSQL = 'SELECT a.*, family_fam.*, cls.lst_OptionName AS sClassName, fmr.lst_Opt
       LEFT JOIN person_per b ON a.per_EnteredBy = b.per_ID
       LEFT JOIN person_per c ON a.per_EditedBy = c.per_ID
       WHERE a.per_ID = '.$iPersonID;
-$rsPerson = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsPerson));
+
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+$prpPerson = $statement->fetch(PDO::FETCH_BOTH);
+extract($prpPerson);
+
 
 // Save for later
 $sWorkEmail = trim($per_WorkEmail);
 
 // Get the list of custom person fields
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
+$ormPersonCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->find()
+                     ->toArray();
+                     
+$numCustomFields = count($ormPersonCustomFields);
 
-// Get the actual custom field data
-$sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$iPersonID;
-$rsCustomData = RunQuery($sSQL);
-$aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
+// Get the custom field data for this person.
+$rawQry =  PersonCustomQuery::create();
+foreach ($ormPersonCustomFields as $customfield ) {
+   $rawQry->withColumn($customfield['CustomField']);
+}
+
+if (!is_null($rawQry->findOneByPerId($iPersonID))) {
+  $aCustomData = $rawQry->findOneByPerId($iPersonID)->toArray();
+}
 
 // Get the notes for this person
-$sSQL = 'SELECT nte_Private, nte_ID, nte_Text, nte_DateEntered, nte_EnteredBy, nte_DateLastEdited, nte_EditedBy, a.per_FirstName AS EnteredFirstName, a.Per_LastName AS EnteredLastName, b.per_FirstName AS EditedFirstName, b.per_LastName AS EditedLastName ';
-$sSQL = $sSQL.'FROM note_nte ';
-$sSQL = $sSQL.'LEFT JOIN person_per a ON nte_EnteredBy = a.per_ID ';
-$sSQL = $sSQL.'LEFT JOIN person_per b ON nte_EditedBy = b.per_ID ';
-$sSQL = $sSQL.'WHERE nte_per_ID = '.$iPersonID.' ';
-$sSQL = $sSQL.'AND (nte_Private = 0 OR nte_Private = '.SessionUser::getUser()->getPersonId().')';
-$rsNotes = RunQuery($sSQL);
+$ormNotes = NoteQuery::Create()
+       ->addAlias('a', PersonTableMap::TABLE_NAME)
+       ->addJoin(NoteTableMap::COL_NTE_ENTEREDBY,PersonTableMap::alias('a', PersonTableMap::COL_PER_ID),Criteria::LEFT_JOIN)
+       ->addAlias('b', PersonTableMap::TABLE_NAME)
+       ->addJoin(NoteTableMap::COL_NTE_EDITEDBY,PersonTableMap::alias('b', PersonTableMap::COL_PER_ID),Criteria::LEFT_JOIN)
+         ->filterByPerId($iPersonID)
+       ->_and()
+         ->filterByPrivate(array(0,SessionUser::getUser()->getPersonId()))
+       ->find();
 
 // Get the Groups this Person is assigned to
-$sSQL = 'SELECT grp_ID, grp_Name, grp_hasSpecialProps, role.lst_OptionName AS roleName
-    FROM group_grp
-    LEFT JOIN person2group2role_p2g2r ON p2g2r_grp_ID = grp_ID
-    LEFT JOIN list_lst role ON lst_OptionID = p2g2r_rle_ID AND lst_ID = grp_RoleListID
-    WHERE person2group2role_p2g2r.p2g2r_per_ID = '.$iPersonID.'
-    ORDER BY grp_Name';
-$rsAssignedGroups = RunQuery($sSQL);
+$ormAssignedGroups = Person2group2roleP2g2rQuery::Create()
+       ->addJoin(Person2group2roleP2g2rTableMap::COL_P2G2R_GRP_ID,GroupTableMap::COL_GRP_ID,Criteria::LEFT_JOIN)
+       ->addMultipleJoin(array(array(Person2group2roleP2g2rTableMap::COL_P2G2R_RLE_ID,ListOptionTableMap::COL_LST_OPTIONID),array(GroupTableMap::COL_GRP_ROLELISTID,ListOptionTableMap::COL_LST_ID)),Criteria::LEFT_JOIN)
+       ->add(ListOptionTableMap::COL_LST_OPTIONNAME, null, Criteria::ISNOTNULL)
+       ->Where(Person2group2roleP2g2rTableMap::COL_P2G2R_PER_ID.' = '.$iPersonID.' ORDER BY grp_Name')
+       ->addAsColumn('roleName',ListOptionTableMap::COL_LST_OPTIONNAME)
+       ->addAsColumn('groupName',GroupTableMap::COL_GRP_NAME)
+       ->addAsColumn('groupID',GroupTableMap::COL_GRP_ID)
+       ->addAsColumn('hasSpecialProps',GroupTableMap::COL_GRP_HASSPECIALPROPS)
+       ->find();
+
 
 // Get the Properties assigned to this Person
-$sSQL = "SELECT pro_Name, pro_ID, pro_Prompt, r2p_Value, prt_Name, pro_prt_ID
-    FROM record2property_r2p
-    LEFT JOIN property_pro ON pro_ID = r2p_pro_ID
-    LEFT JOIN propertytype_prt ON propertytype_prt.prt_ID = property_pro.pro_prt_ID
-    WHERE pro_Class = 'p' AND r2p_record_ID = ".$iPersonID.
-        ' ORDER BY prt_Name, pro_Name';
-$rsAssignedProperties = RunQuery($sSQL);
+$ormAssignedProperties = Record2propertyR2pQuery::Create()
+                            ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)
+                            ->addJoin(PropertyTableMap::COL_PRO_PRT_ID,PropertyTypeTableMap::COL_PRT_ID,Criteria::LEFT_JOIN)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProId',PropertyTableMap::COL_PRO_ID)
+                            ->addAsColumn('ProPrtId',PropertyTableMap::COL_PRO_PRT_ID)
+                            ->addAsColumn('ProPrompt',PropertyTableMap::COL_PRO_PROMPT)
+                            ->addAsColumn('ProName',PropertyTableMap::COL_PRO_NAME)
+                            ->addAsColumn('ProTypeName',PropertyTypeTableMap::COL_PRT_NAME)
+                            ->where(PropertyTableMap::COL_PRO_CLASS."='p'")
+                            ->addAscendingOrderByColumn('ProName')
+                            ->addAscendingOrderByColumn('ProTypeName')
+                            ->findByR2pRecordId($iPersonID);
 
 // Get Field Security List Matrix
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 5 ORDER BY lst_OptionSequence';
-$rsSecurityGrp = RunQuery($sSQL);
+/*$ormSecurityGrp = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(5);*/
+
 
 // Format the BirthDate
 $dBirthDate = OutputUtils::FormatBirthDate($per_BirthYear, $per_BirthMonth, $per_BirthDay, '-', $per_Flags);
@@ -187,14 +235,13 @@ $iFamilyID = $fam_ID;
 
 if ($fam_ID) {
     //Get the family members for this family
-    $sSQL = 'SELECT per_ID, per_DateDeactivated, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
+    $sSQLFamilyMembers = 'SELECT per_ID, per_DateDeactivated, per_Title, per_FirstName, per_LastName, per_Suffix, per_Gender,
     per_BirthMonth, per_BirthDay, per_BirthYear, per_Flags, cls.lst_OptionName AS sClassName,
     fmr.lst_OptionName AS sFamRole
     FROM person_per
     LEFT JOIN list_lst cls ON per_cls_ID = cls.lst_OptionID AND cls.lst_ID = 1
     LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
     WHERE per_fam_ID = '.$iFamilyID.' ORDER BY fmr.lst_OptionSequence';
-    $rsFamilyMembers = RunQuery($sSQL);
 }
 ?>
 
@@ -221,22 +268,28 @@ if ($fam_ID) {
       <td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
     </tr>
     <?php
-            $numColumn3Fields = floor($numCustomFields / 3);
-            $leftOverFields = $numCustomFields - $numColumn3Fields;
-            $numColumn1Fields = ceil($leftOverFields / 2);
-            $numColumn2Fields = $leftOverFields - $numColumn1Fields;
+            $numColumn1Fields = ceil((float)$numCustomFields / 3.0);
+            $numColumn2Fields = $numColumn1Fields;
+            $numColumn3Fields = $numCustomFields - $numColumn1Fields*2;
+            
+            for ($i = 0 ; $i < $numColumn1Fields ; $i++) {
+              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
 
-            for ($i = 1; $i <= $numColumn1Fields; $i++) {
-                $Row = mysqli_fetch_array($rsCustomFields);
-                extract($Row);
-                if (OutputUtils::securityFilter($custom_FieldSec)) {
-                    $currentData = trim($aCustomData[$custom_Field]);
-                    if ($type_ID == 11) {
-                        $custom_Special = $sCountry;
+                  if ($currentData != '') {
+                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+                      $custom_Special = $sPhoneCountry;
+                    } else {
+                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
                     }
-                    echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
-                }
+              
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
+                  } else {
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn"></td></tr>';
+                  }
+              }    
             }
         ?>
     </table>
@@ -284,17 +337,27 @@ if ($fam_ID) {
                     echo _('Unassigned');
                 } ?>&nbsp;</td>
     </tr>
-    <?php
-            for ($i = 1; $i <= $numColumn2Fields; $i++) {
-                $Row = mysqli_fetch_array($rsCustomFields);
-                extract($Row);
-                $currentData = trim($aCustomData[$custom_Field]);
-                if ($type_ID == 11) {
-                    $custom_Special = $sCountry;
-                }
-                echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
+    <?php            
+            for ($i = $numColumn1Fields ; $i < $numColumn1Fields+$numColumn2Fields ; $i++) {
+              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
+
+                  if ($currentData != '') {
+                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+                      $custom_Special = $sPhoneCountry;
+                    } else {
+                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
+                    }
+              
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
+                  } else {
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn"></td></tr>';
+                  }
+              }    
             }
+
         ?>
     </table>
   </td>
@@ -321,15 +384,24 @@ if ($fam_ID) {
         <td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
       </tr>
     <?php
-            for ($i = 1; $i <= $numColumn3Fields; $i++) {
-                $Row = mysqli_fetch_array($rsCustomFields);
-                extract($Row);
-                $currentData = trim($aCustomData[$custom_Field]);
-                if ($type_ID == 11) {
-                    $custom_Special = $sCountry;
-                }
-                echo '<tr><td class="LabelColumn">'.$custom_Name.'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                echo '<td class="TextColumn">'.OutputUtils::displayCustomField($type_ID, $currentData, $custom_Special,false).'</td></tr>';
+            for ($i = $numColumn1Fields+$numColumn2Fields ; $i < $numColumn1Fields+$numColumn2Fields+$numColumn3Fields ; $i++) {
+              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
+
+                  if ($currentData != '') {
+                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+                      $custom_Special = $sPhoneCountry;
+                    } else {
+                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
+                    }
+              
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
+                  } else {
+                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
+                    echo '<td class="TextColumn"></td></tr>';
+                  }
+              }    
             }
         ?>
     </table>
@@ -353,7 +425,10 @@ if ($fam_ID) {
     $sRowClass = 'RowColorA';
 
     // Loop through all the family members
-    while ($aRow = mysqli_fetch_array($rsFamilyMembers)) {
+    $statement = $connection->prepare($sSQLFamilyMembers);
+    $statement->execute();
+
+    while ($aRow = $statement->fetch(PDO::FETCH_BOTH)) {
          
         $per_BirthYear = '';
         $agr_Description = '';
@@ -398,7 +473,7 @@ $sRowClass = 'RowColorA';
 $sAssignedGroups = ',';
 
 //Was anything returned?
-if (mysqli_num_rows($rsAssignedGroups) == 0) {
+if ($ormAssignedGroups->count() == 0) {
     echo '<p align"center">'._('No group assignments.').'</p>';
 } else {
     echo '<table width="100%" cellpadding="4" cellspacing="0">';
@@ -408,33 +483,30 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
     echo '</tr>';
 
     //Loop through the rows
-    while ($aRow = mysqli_fetch_array($rsAssignedGroups)) {
-        extract($aRow);
-
+    foreach ($ormAssignedGroups as $ormAssignedGroup) {
         //Alternate the row style
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         // DISPLAY THE ROW
         echo '<tr class="'.$sRowClass.'">';
-        echo ' <td>'.$grp_Name.'</td>';
-        echo ' <td>'._($roleName).'</td>';
+        echo ' <td>'.$ormAssignedGroup->getGroupName().'</td>';
+        echo ' <td>'._($ormAssignedGroup->getRoleName()).'</td>';
         echo '</tr>';
 
         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
-        if ($grp_hasSpecialProps) {
+        if ($ormAssignedGroup->getHasSpecialProps()) {
             $firstRow = true;
             // Get the special properties for this group
-            $sSQL = 'SELECT groupprop_master.* FROM groupprop_master
-                  WHERE grp_ID = '.$grp_ID." AND prop_PersonDisplay = 'true' ORDER BY prop_ID";
-            $rsPropList = RunQuery($sSQL);
+            $ormPropLists = GroupPropMasterQuery::Create()->filterByPersonDisplay('true')->orderByPropId()->findByGroupId($ormAssignedGroup->getGroupId());
+                          
+            $sSQL = 'SELECT * FROM groupprop_'.$ormAssignedGroup->getGroupId().' WHERE per_ID = '.$iPersonID;
+            
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
+            $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );
 
-            $sSQL = 'SELECT * FROM groupprop_'.$grp_ID.' WHERE per_ID = '.$iPersonID;
-            $rsPersonProps = RunQuery($sSQL);
-            $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
-
-            while ($aProps = mysqli_fetch_array($rsPropList)) {
-                extract($aProps);
-                $currentData = trim($aPersonProps[$prop_Field]);
+            foreach ($ormPropLists as $ormPropList) {
+                $currentData = trim($aPersonProps[$ormPropList->getField()]);
                 if (strlen($currentData) > 0) {
                     // only create the properties table if it's actually going to be used
                     if ($firstRow) {
@@ -446,7 +518,7 @@ if (mysqli_num_rows($rsAssignedGroups) == 0) {
                     if ($type_ID == 11) {
                         $prop_Special = $sCountry;
                     }
-                    echo "<tr class=\"$sRowClass\"><td>".$prop_Name.'</td><td>'.OutputUtils::displayCustomField($type_ID, $currentData, $prop_Special,false).'</td></tr>';
+                    echo "<tr class=\"$sRowClass\"><td>".$ormPropList->getName().'</td><td>'.OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()).'</td></tr>';
                 }
             }
             if (!$firstRow) {
@@ -470,7 +542,7 @@ $sRowClass = 'RowColorA';
 $sAssignedProperties = ',';
 
 //Was anything returned?
-if (mysqli_num_rows($rsAssignedProperties) == 0) {
+if ($ormAssignedProperties->count() == 0) {
     echo '<p align"center">'._('No property assignments.').'</p>';
 } else {
     echo '<table width="100%" cellpadding="4" cellspacing="0">';
@@ -479,37 +551,32 @@ if (mysqli_num_rows($rsAssignedProperties) == 0) {
     echo '<td valign="top"><b>'._('Value').'</td>';
     echo '</tr>';
 
-    while ($aRow = mysqli_fetch_array($rsAssignedProperties)) {
-        $pro_Prompt = '';
-        $r2p_Value = '';
-        extract($aRow);
-
+    foreach ($ormAssignedProperties as $ormAssignedProperty) {
         //Alternate the row style
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         //Display the row
         echo '<tr class="'.$sRowClass.'">';
-        echo '<td valign="top">'._($pro_Name).'&nbsp;</td>';
-        echo '<td valign="top">'.$r2p_Value.'&nbsp;</td>';
+        echo '<td valign="top">'._($ormAssignedProperty->getProName()).'&nbsp;</td>';
+        echo '<td valign="top">'.$ormAssignedProperty->getR2pValue().'&nbsp;</td>';
 
         echo '</tr>';
 
-        $sAssignedProperties .= $pro_ID.',';
+        $sAssignedProperties .= $ormAssignedProperty->getR2pId().',';
     }
-    echo '</table>';
+    echo '</table><br>';
 }
 
 if (SessionUser::getUser()->isNotesEnabled()) {
-    echo '<p><b>'._('Notes:').'</b></p>';
-
     // Loop through all the notes
-    while ($aRow = mysqli_fetch_array($rsNotes)) {
-        extract($aRow);
-        echo '<p class="ShadedBox")>'.$nte_Text.'</p>';
-        echo '<span class="SmallText">'._('Entered:').(OutputUtils::FormatDate($nte_DateEntered, true)).'</span><br>';
+    foreach ($ormNotes as $note) {
+        echo '<p class="ShadedBox")>'.$note->getText().'</p>';
+        if (!is_null($note->getDateEntered())) {
+          echo '<span class="SmallText">'._('Entered:').(OutputUtils::FormatDate($note->getDateEntered()->format('Y-m-d H:i:s'), true)).'</span><br>';
+        }
 
-        if (strlen($nte_DateLastEdited)) {
-            echo '<span class="SmallText">'._('Last Edited').(OutputUtils::FormatDate($nte_DateLastEdited, true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName.'</span><br>';
+        if (strlen($note->getDateLastEdited())) {
+            echo '<span class="SmallText">'._('Last Edited').(OutputUtils::FormatDate($note->getDateLastEdited(), true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName.'</span><br>';
         }
     }
 }
