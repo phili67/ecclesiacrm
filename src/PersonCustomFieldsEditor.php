@@ -7,11 +7,14 @@
  *  copyright   : Copyright 2003 Chris Gebhardt (http://www.openserve.org)
  *
  *  function    : Editor for custom person fields
-  ******************************************************************************/
+ *                copyright 2019-05-19 Philippe Logel
+ ******************************************************************************/
 
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonCustomMasterQuery;
@@ -202,45 +205,49 @@ require 'Include/Header.php'; ?>
                   $sSQL = 'ALTER TABLE person_custom ADD c'.$newFieldNum.' ';
 
                   switch ($newFieldType) {
-            case 1:
-              $sSQL .= "ENUM('false', 'true')";
-              break;
-            case 2:
-              $sSQL .= 'DATE';
-              break;
-            case 3:
-              $sSQL .= 'VARCHAR(50)';
-              break;
-            case 4:
-              $sSQL .= 'VARCHAR(100)';
-              break;
-            case 5:
-              $sSQL .= 'TEXT';
-              break;
-            case 6:
-              $sSQL .= 'YEAR';
-              break;
-            case 7:
-              $sSQL .= "ENUM('winter', 'spring', 'summer', 'fall')";
-              break;
-            case 8:
-              $sSQL .= 'INT';
-              break;
-            case 9:
-              $sSQL .= 'MEDIUMINT(9)';
-              break;
-            case 10:
-              $sSQL .= 'DECIMAL(10,2)';
-              break;
-            case 11:
-              $sSQL .= 'VARCHAR(30)';
-              break;
-            case 12:
-              $sSQL .= 'TINYINT(4)';
-          }
+                    case 1:
+                      $sSQL .= "ENUM('false', 'true')";
+                      break;
+                    case 2:
+                      $sSQL .= 'DATE';
+                      break;
+                    case 3:
+                      $sSQL .= 'VARCHAR(50)';
+                      break;
+                    case 4:
+                      $sSQL .= 'VARCHAR(100)';
+                      break;
+                    case 5:
+                      $sSQL .= 'TEXT';
+                      break;
+                    case 6:
+                      $sSQL .= 'YEAR';
+                      break;
+                    case 7:
+                      $sSQL .= "ENUM('winter', 'spring', 'summer', 'fall')";
+                      break;
+                    case 8:
+                      $sSQL .= 'INT';
+                      break;
+                    case 9:
+                      $sSQL .= 'MEDIUMINT(9)';
+                      break;
+                    case 10:
+                      $sSQL .= 'DECIMAL(10,2)';
+                      break;
+                    case 11:
+                      $sSQL .= 'VARCHAR(30)';
+                      break;
+                    case 12:
+                      $sSQL .= 'TINYINT(4)';
+                  }
 
                   $sSQL .= ' DEFAULT NULL ;';
-                  RunQuery($sSQL);
+                  
+                  $connection = Propel::getConnection();
+                  
+                  $statement = $connection->prepare($sSQL);
+                  $statement->execute();
 
                   $bNewNameError = false;
               }
