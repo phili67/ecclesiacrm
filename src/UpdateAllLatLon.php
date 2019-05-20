@@ -12,42 +12,66 @@ use EcclesiaCRM\FamilyQuery;
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-$sPageTitle = gettext('Update Latitude & Longitude');
+$sPageTitle = _('Update Latitude & Longitude');
 require 'Include/Header.php';
 
-echo '<div class="box box-body box-info">';
+$families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->limit(100)->find();
 
-$families = FamilyQuery::create()->filterByLongitude(0)->limit(100)->find();
-
-echo '<h4>' . gettext('Families without Geo Info') . ": " . $families->count() .'</h4>';
-
-foreach ($families as $family) {
-    $family->updateLanLng();
-    $sNewLatitude = $family->getLatitude();
-    $sNewLongitude = $family->getLongitude();
-    if (!empty($sNewLatitude)) {
-        echo '<li>' . $fam_Name, ' Latitude ' . $sNewLatitude . ' Longitude ' . $sNewLongitude . '</li>';
-    }
-}
-
-?>
-</div>
-<?php $families = FamilyQuery::create()->filterByLongitude(0)->limit(250)->find();
 if ($families->count() > 0) {
+?>
+<div class="box box-body box-info">
+
+  <div class="box-header with-border">
+    <h3 class="box-title"><?= _('Families without Geo Info') ?> : <?= $families->count()  ?></h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div>
+  </div>
+  <div class="box-body ">
+
+  <ul>
+    <?php
+    foreach ($families as $family) {
+        $family->updateLanLng();
+        $sNewLatitude = $family->getLatitude();
+        $sNewLongitude = $family->getLongitude();
+        if (!empty($sNewLatitude)) {
     ?>
+          <li><?=  $family->getName() . ' ' . _('Latitude'). ' ' . $sNewLatitude . ' ' . _('Longitude ') . ' ' . $sNewLongitude ?></li>
+    <?php
+        }
+    }
+  ?>
+  </ul>
+  </div>
+</div>
+<?php 
+}
+  $families = FamilyQuery::create()->filterByLongitude(0)->_and()->filterByLatitude(0)->limit(100)->find();
+  if ($families->count() > 0) {
+?>
     <div class="box box-warning">
-        <div class="box-header">
-            <b><?= gettext('No coordinates found') ?></b>
+        <div class="box-header  with-border">
+            <h3 class="box-title"><?= _('No coordinates found') ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
         </div>
         <div class="box-body ">
+          <ul>
             <?php
-
-            foreach ($families as $family) {
-                echo '<li><a href="'.$family->getViewURI().'">' . $family->getName() . '</a> ' . $family->getAddress() . '</li>';
-            } ?>
+              foreach ($families as $family) {
+            ?>
+                <li><a href="<?= $family->getViewURI() ?>"><?= $family->getName() ?></a> <?= $family->getAddress() ?></li>
+            <?php
+            } 
+            ?>
+          </ul>
         </div>
     </div>
-    <?php
+<?php
 }
 
-require 'Include/Footer.php'; ?>
+require 'Include/Footer.php';
