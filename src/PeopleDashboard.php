@@ -28,8 +28,8 @@ $demographicStats = $dashboardService->getDemographic();
 $ageStats         = $dashboardService->getAgeStats();
 
 $adultsGender = PersonQuery::Create()
-  ->filterByGender(array('1', '2'), Criteria::IN)
-  ->_and()->filterByFmrId(SystemConfig::getValue('sDirRoleChild'), Criteria::NOT_IN)
+  ->filterByGender(array('1', '2'), Criteria::IN) // criteria Criteria::IN not usefull
+  ->_and()->filterByFmrId( explode(",", SystemConfig::getValue('sDirRoleChild')) , Criteria::NOT_IN)
   ->_and()->useFamilyQuery()
     ->filterByDateDeactivated(null,Criteria::EQUAL)
   ->endUse()
@@ -38,8 +38,8 @@ $adultsGender = PersonQuery::Create()
   ->find();
   
 $kidsGender = PersonQuery::Create()
-  ->filterByGender(array('1', '2'), Criteria::IN)
-  ->_and()->filterByFmrId(SystemConfig::getValue('sDirRoleChild'), Criteria::IN)
+  ->filterByGender(array('1', '2'), Criteria::IN) // criteria Criteria::IN not usefull
+  ->_and()->filterByFmrId( explode(",", SystemConfig::getValue('sDirRoleChild')) , Criteria::IN)
   ->_and()->useFamilyQuery()
     ->filterByDateDeactivated(null,Criteria::EQUAL)
   ->endUse()
