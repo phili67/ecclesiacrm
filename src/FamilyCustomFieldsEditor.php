@@ -10,13 +10,13 @@
 *
 *  Additional Contributors:
 *  2007 Ed Davis
-*
-
+*                copyright 2019-05-19 Philippe Logel
 ******************************************************************************/
 
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\FamilyCustomMasterQuery;
@@ -27,6 +27,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+
 
 // Security: user must be administrator to use this page
 if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
@@ -252,7 +253,10 @@ if (isset($_POST['SaveChanges'])) {
                 }
 
                 $sSQL .= ' DEFAULT NULL ;';
-                RunQuery($sSQL);
+                $connection = Propel::getConnection();
+                  
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
 
                 $bNewNameError = false;
             }
