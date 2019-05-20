@@ -20,11 +20,19 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\SessionUser;
+
 use EcclesiaCRM\AutoPaymentQuery;
 use EcclesiaCRM\AutoPayment;
-use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\DonationFundQuery;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\PledgeQuery;
+use EcclesiaCRM\Pledge;
+use EcclesiaCRM\DepositQuery;
+
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+use EcclesiaCRM\map\PledgeTableMap;
 
 
 // Security
@@ -56,23 +64,19 @@ $sComment = [];
 $checkHash = [];
 
 // Get the list of funds
-$sSQL = 'SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun';
-$sSQL .= " WHERE fun_Active = 'true'"; // New donations should show only active funds.
+$funds = DonationFundQuery::Create()->findByActive('true');
 
-$rsFunds = RunQuery($sSQL);
-mysqli_data_seek($rsFunds, 0);
-while ($aRow = mysqli_fetch_array($rsFunds)) {
-    extract($aRow);
-    $fundId2Name[$fun_ID] = $fun_Name;
-    $nAmount[$fun_ID] = 0.0;
-    $nNonDeductible[$fun_ID] = 0.0;
-    $sAmountError[$fun_ID] = '';
-    $sComment[$fun_ID] = '';
+foreach ($funds as $fund) {
+    $fundId2Name[$fund->getId()] = $fund->getName();
+    $nAmount[$fund->getId()] = 0.0;
+    $nNonDeductible[$fund->getId()] = 0.0;
+    $sAmountError[$fund->getId()] = '';
+    $sComment[$fund->getId()] = '';
     if (!isset($defaultFundID)) {
-        $defaultFundID = $fun_ID;
+        $defaultFundID = $fund->getId();
     }
-    $fundIdActive[$fun_ID] = $fun_Active;
-} // end while
+    $fundIdActive[$fund->getId()] = $fund->getActive();
+}
 
 // Handle URL via _GET first
 if (array_key_exists('PledgeOrPayment', $_GET)) {
@@ -100,17 +104,17 @@ if (isset($_SESSION['iCurrentDeposit'])) {
 $fund2PlgIds = []; // this will be the array cross-referencing funds to existing plg_plgid's
 
 if ($sGroupKey) {
-    $sSQL = 'SELECT plg_plgID, plg_fundID, plg_EditedBy, plg_depID from pledge_plg where plg_GroupKey="'.$sGroupKey.'"';
-    $rsKeys = RunQuery($sSQL);
-    while ($aRow = mysqli_fetch_array($rsKeys)) {
-        $onePlgID = $aRow['plg_plgID'];
-        $oneFundID = $aRow['plg_fundID'];
-        $oneDepID = $aRow['plg_depID'];
+    $pledges = PledgeQuery::Create()->findByGroupkey ($sGroupKey);
+    
+    foreach ($pledges as $pledge) {
+        $onePlgID = $pledge->getId();
+        $oneFundID = $pledge->getFundid();
+        $oneDepID = $pledge->getDepid();
         $iOriginalSelectedFund = $oneFundID; // remember the original fund in case we switch to splitting
         $fund2PlgIds[$oneFundID] = $onePlgID;
 
         // Security: User must have Finance permission or be the one who entered this record originally
-        if (!(SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $aRow['plg_EditedBy'])) {
+        if (!( SessionUser::getUser()->isFinanceEnabled() || SessionUser::getUser()->getPersonId() == $pledge->getEditedby() )) {
             RedirectUtils::Redirect('Menu.php');
             exit;
         }
@@ -176,18 +180,21 @@ if (isset($_POST['PledgeSubmit']) or
     $iMethod = InputUtils::LegacyFilterInput($_POST['Method']);
     if (!$iMethod) {
         if ($sGroupKey) {
-            $sSQL = "SELECT DISTINCT plg_method FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."'";
-            $rsResults = RunQuery($sSQL);
-            list($iMethod) = mysqli_fetch_row($rsResults);
+            $ormResult = PledgeQuery::Create()
+                  ->setDistinct(PledgeTableMap::COL_PLG_METHOD)
+                  ->findOneByGroupkey($sGroupKey);
+                  
+            $iMethod = $ormResult->getMethod();
         } elseif ($iCurrentDeposit) {
-            $sSQL = 'SELECT plg_method from pledge_plg where plg_depID="'.$iCurrentDeposit.'" ORDER by plg_plgID DESC LIMIT 1';
-            $rsMethod = RunQuery($sSQL);
-            $num = mysqli_num_rows($rsMethod);
-            if ($num) {    // set iMethod to last record's setting
-                extract(mysqli_fetch_array($rsMethod));
-                $iMethod = $plg_method;
+            $ormMethod = PledgeQuery::Create()
+              ->orderById()
+              ->limit(1)
+              ->findOneByDepid($iCurrentDeposit);
+              
+            if (!is_null($ormMethod)) {
+              $iMethod = $ormMethod->getMethod();
             } else {
-                $iMethod = 'CHECK';
+              $iMethod = 'CHECK';
             }
         } else {
             $iMethod = 'CHECK';
@@ -201,27 +208,37 @@ if (isset($_POST['PledgeSubmit']) or
     }
 } else { // Form was not up previously, take data from existing records or make default values
     if ($sGroupKey) {
-        $sSQL = "SELECT COUNT(plg_GroupKey), plg_aut_ID,plg_PledgeOrPayment, plg_fundID, plg_Date, plg_FYID, plg_CheckNo, plg_Schedule, plg_method, plg_depID FROM pledge_plg WHERE plg_GroupKey='".$sGroupKey."' GROUP BY plg_GroupKey";
-        $rsResults = RunQuery($sSQL);
-        list($numGroupKeys, $iAutID, $PledgeOrPayment, $fundId, $dDate, $iFYID, $iCheckNo, $iSchedule, $iMethod, $iCurrentDeposit) = mysqli_fetch_row($rsResults);
+        $pledgeSearch = PledgeQuery::Create()
+                  ->orderByGroupkey()
+                  ->withColumn('COUNT(plg_GroupKey)', 'NumGroupKeys')
+                  ->findOneByGroupkey($sGroupKey);
 
-        $sSQL = "SELECT DISTINCT plg_famID, plg_CheckNo, plg_date, plg_method, plg_FYID from pledge_plg where plg_GroupKey='".$sGroupKey."'";
-        //  don't know if we need plg_date or plg_method here...  leave it here for now
-        $rsFam = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsFam));
-
-        $iFamily = $plg_famID;
-        $iCheckNo = $plg_CheckNo;
-        $iFYID = $plg_FYID;
-
-        $sSQL = "SELECT plg_plgID, plg_fundID, plg_amount, plg_comment, plg_NonDeductible from pledge_plg where plg_GroupKey='".$sGroupKey."'";
-
-        $rsAmounts = RunQuery($sSQL);
-        while ($aRow = mysqli_fetch_array($rsAmounts)) {
-            extract($aRow);
-            $nAmount[$plg_fundID] = $plg_amount;
-            $nNonDeductible[$plg_fundID] = $plg_NonDeductible;
-            $sComment[$plg_fundID] = $plg_comment;
+        $numGroupKeys     = $pledgeSearch->getNumGroupKeys();
+        $iAutID           = $pledgeSearch->getAutId();
+        $PledgeOrPayment  = $pledgeSearch->getPledgeorpayment();
+        $fundId           = $pledgeSearch->getFundid();
+        $dDate            = $pledgeSearch->getDate()->format('Y-m-d');
+        $iFYID            = $pledgeSearch->getFyid();
+        $iCheckNo         = $pledgeSearch->getCheckno();
+        $iSchedule        = $pledgeSearch->getSchedule();
+        $iMethod          = $pledgeSearch->getMethod();
+        $iCurrentDeposit  = $pledgeSearch->getDepid();
+        
+        $ormFam = PledgeQuery::Create()
+                  ->setDistinct(PledgeTableMap::COL_PLG_METHOD)
+                  ->findOneByGroupkey($sGroupKey);
+                  
+        $iFamily = $ormFam->getFamId();
+        $iCheckNo = $ormFam->getCheckno();
+        $iFYID = $ormFam->getFyid();
+        
+        $pledgesAmount = PledgeQuery::Create()
+                   ->findByGroupkey($sGroupKey);
+                   
+        foreach ($pledgesAmount as $pledgeAmount) {
+            $nAmount[$pledgeAmount->getFundid()] = $pledgeAmount->getAmount();
+            $nNonDeductible[$pledgeAmount->getFundid()] = $pledgeAmount->getNondeductible();
+            $sComment[$pledgeAmount->getFundid()] = $pledgeAmount->getComment();
         }
     } else {
         if (array_key_exists('idefaultDate', $_SESSION)) {
@@ -247,11 +264,10 @@ if (isset($_POST['PledgeSubmit']) or
         }
     }
     if (!$iEnvelope && $iFamily) {
-        $sSQL = 'SELECT fam_Envelope FROM family_fam WHERE fam_ID="'.$iFamily.'";';
-        $rsEnv = RunQuery($sSQL);
-        extract(mysqli_fetch_array($rsEnv));
-        if ($fam_Envelope) {
-            $iEnvelope = $fam_Envelope;
+        $fam = FamilyQuery::Create()->findOneById ($iFamily);
+        
+        if ($fam->getEnvelope()) {
+            $iEnvelope = $fam->getEnvelope();
         }
     }
 }
@@ -268,9 +284,11 @@ if ($PledgeOrPayment == 'Pledge') { // Don't assign the deposit slip if this is 
 
 // Get the current deposit slip data
 if ($iCurrentDeposit) {
-    $sSQL = 'SELECT dep_Closed, dep_Date, dep_Type from deposit_dep WHERE dep_ID = '.$iCurrentDeposit;
-    $rsDeposit = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsDeposit));
+    $deposit = DepositQuery::Create()->findOneById ($iCurrentDeposit);
+    
+    $dep_Closed =  $deposit->getClosed();
+    $dep_Date   =  $deposit->getDate()->format('Y-m-d');
+    $dep_Type   =  $deposit->getType();
 }
 
 
@@ -363,13 +381,29 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
             if (!$iCheckNo) {
                 $iCheckNo = 0;
             }
-            unset($sSQL);
             if ($fund2PlgIds && array_key_exists($fun_id, $fund2PlgIds)) {
                 if ($nAmount[$fun_id] > 0) {
-                    $sSQL = "UPDATE pledge_plg SET plg_PledgeOrPayment = '".$PledgeOrPayment."' ,plg_famID = '".$iFamily."',plg_FYID = '".$iFYID."',plg_date = '".$dDate."', plg_amount = '".$nAmount[$fun_id]."', plg_schedule = '".$iSchedule."', plg_method = '".$iMethod."', plg_comment = '".$sComment[$fun_id]."'";
-                    $sSQL .= ", plg_DateLastEdited = '".date('YmdHis')."', plg_EditedBy = ".SessionUser::getUser()->getPersonId().", plg_CheckNo = '".$iCheckNo."', plg_scanString = '".$tScanString."', plg_aut_ID='".$iAutID."', plg_NonDeductible='".$nNonDeductible[$fun_id]."' WHERE plg_plgID='".$fund2PlgIds[$fun_id]."'";
+                    $pledge = PledgeQuery::Create()->findOneById ($fund2PlgIds[$fun_id]);
+                    
+                    $pledge->setPledgeorpayment($PledgeOrPayment);
+                    $pledge->setFamId($iFamily);
+                    $pledge->setFyid($iFYID);
+                    $pledge->setDate($dDate);
+                    $pledge->setAmount($nAmount[$fun_id]);
+                    $pledge->setSchedule($iSchedule);
+                    $pledge->setMethod($iMethod);
+                    $pledge->setComment($sComment[$fun_id]);
+                    $pledge->setDatelastedited(date('YmdHis'));
+                    $pledge->setEditedby(SessionUser::getUser()->getPersonId());
+                    $pledge->setCheckno($iCheckNo);
+                    $pledge->setScanstring($tScanString);
+                    $pledge->setAutId($iAutID);
+                    $pledge->setNondeductible($nNonDeductible[$fun_id]);
+                    
+                    $pledge->save();
                 } else { // delete that record
-                    $sSQL = 'DELETE FROM pledge_plg WHERE plg_plgID ='.$fund2PlgIds[$fun_id];
+                    $pledge = PledgeQuery::Create()->findOneById ($fund2PlgIds[$fun_id]);
+                    $pledge->delete();
                 }
             } elseif ($nAmount[$fun_id] > 0) {
                 if ($iMethod != 'CHECK') {
@@ -397,13 +431,29 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
                   $iCurrentDeposit = $_SESSION['iCurrentDeposit'];
                 }
                 
-                $sSQL = "INSERT INTO pledge_plg (plg_famID, plg_FYID, plg_date, plg_amount, plg_schedule, plg_method, plg_comment, plg_DateLastEdited, plg_EditedBy, plg_PledgeOrPayment, plg_fundID, plg_depID, plg_CheckNo, plg_scanString, plg_aut_ID, plg_NonDeductible, plg_GroupKey)
-      VALUES ('".$iFamily."','".$iFYID."','".$dDate."','".$nAmount[$fun_id]."','".$iSchedule."','".$iMethod."','".$sComment[$fun_id]."'";
-                $sSQL .= ",'".date('YmdHis')."',".SessionUser::getUser()->getPersonId().",'".$PledgeOrPayment."',".$fun_id.','.$iCurrentDeposit.','.$iCheckNo.",'".$tScanString."','".$iAutID."','".$nNonDeductible[$fun_id]."','".$sGroupKey."')";
-            }
-            if (isset($sSQL)) {
-                RunQuery($sSQL);
-                unset($sSQL);
+                
+                $pledge = new Pledge();
+                    
+                $pledge->setFamId($iFamily);
+                $pledge->setFyid($iFYID);
+                $pledge->setDate($dDate);
+                $pledge->setAmount($nAmount[$fun_id]);
+                $pledge->setSchedule($iSchedule);
+                $pledge->setMethod($iMethod);
+                $pledge->setComment($sComment[$fun_id]);
+                $pledge->setDatelastedited(date('YmdHis'));
+                $pledge->setEditedby(SessionUser::getUser()->getPersonId());
+                $pledge->setPledgeorpayment($PledgeOrPayment);
+                $pledge->setFundid ($fun_id);
+                $pledge->setDepid($iCurrentDeposit);
+                $pledge->setCheckno($iCheckNo);
+                $pledge->setScanstring($tScanString);
+                $pledge->setAutId($iAutID);
+                $pledge->setNondeductible($nNonDeductible[$fun_id]);
+                $pledge->setGroupkey($sGroupKey);
+                
+                $pledge->save();
+
             }
         } // end foreach of $fundId2Name
         if (isset($_POST['PledgeSubmit'])) {
@@ -429,11 +479,8 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
         $routeAndAccount = $micrObj->FindRouteAndAccount($tScanString); // use routing and account number for matching
 
         if ($routeAndAccount) {
-            $sSQL = 'SELECT fam_ID FROM family_fam WHERE fam_scanCheck="'.$routeAndAccount.'"';
-            $rsFam = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsFam));
-            $iFamily = $fam_ID;
-
+            $fam  = FamilyQuery::Create()->findOneByScanCheck($routeAndAccount);
+            $iFamily = $fam->getId();
             $iCheckNo = $micrObj->FindCheckNo($tScanString);
         } else {
             $iFamily = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
@@ -444,12 +491,9 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
 
         $iEnvelope = InputUtils::LegacyFilterInput($_POST['Envelope'], 'int');
         if ($iEnvelope && strlen($iEnvelope) > 0) {
-            $sSQL = 'SELECT fam_ID FROM family_fam WHERE fam_Envelope='.$iEnvelope;
-            $rsFam = RunQuery($sSQL);
-            $numRows = mysqli_num_rows($rsFam);
-            if ($numRows) {
-                extract(mysqli_fetch_array($rsFam));
-                $iFamily = $fam_ID;
+            $fam  = FamilyQuery::Create()->findOneByEnvelope($iEnvelope);
+            if (!is_null($fam)) {
+                $iFamily = $fam->getId();
             }
         }
     } else {
@@ -462,8 +506,9 @@ if (isset($_POST['PledgeSubmit']) || isset($_POST['PledgeSubmitAndAdd'])) {
         $tScanString = InputUtils::LegacyFilterInput($_POST['ScanInput']);
         $routeAndAccount = $micrObj->FindRouteAndAccount($tScanString); // use routing and account number for matching
         $iFamily = InputUtils::LegacyFilterInput($_POST['FamilyID'], 'int');
-        $sSQL = 'UPDATE family_fam SET fam_scanCheck="'.$routeAndAccount.'" WHERE fam_ID = '.$iFamily;
-        RunQuery($sSQL);
+        $fam  = FamilyQuery::Create()->findOneById($iFamily);
+        $fam->setScanCheck ($routeAndAccount);
+        $fam->save();
     }
 }
 
@@ -482,20 +527,19 @@ if ($PledgeOrPayment == 'Pledge') {
     $sPageTitle = _('Payment Editor').': '._($dep_Type)._(' Deposit Slip #').$iCurrentDeposit." (".OutputUtils::change_date_for_place_holder($dep_Date).")";
 
     $checksFit = SystemConfig::getValue('iChecksPerDepositForm');
-
-    $sSQL = 'SELECT plg_FamID, plg_plgID, plg_checkNo, plg_method from pledge_plg where plg_method="CHECK" and plg_depID='.$iCurrentDeposit;
-    $rsChecksThisDep = RunQuery($sSQL);
+    
+    $pledges = PledgeQuery::Create()->findByDepid ($iCurrentDeposit);
+    
     $depositCount = 0;
-    while ($aRow = mysqli_fetch_array($rsChecksThisDep)) {
-        extract($aRow);
-        $chkKey = $plg_FamID.'|'.$plg_checkNo;
-        if ($plg_method == 'CHECK' && (!array_key_exists($chkKey, $checkHash))) {
-            $checkHash[$chkKey] = $plg_plgID;
+    foreach ($pledges as $pledge) {
+        $chkKey = $pledge->getFamId().'|'.$pledge->getCheckno();
+        
+        if ($pledge->getMethod() == 'CHECK' && (!array_key_exists($chkKey, $checkHash))) {
+            $checkHash[$chkKey] = $pledge->getId();
             ++$depositCount;
         }
     }
 
-    //$checkCount = mysqli_num_rows ($rsChecksThisDep);
     $roomForDeposits = $checksFit - $depositCount;
     if ($roomForDeposits <= 0) {
         $sPageTitle .= '<font color=red>';
@@ -519,12 +563,8 @@ if ($dep_Closed) {
 //$familySelectHtml = MiscUtils::buildFamilySelect($iFamily, $sDirRoleHead, $sDirRoleSpouse);
 $sFamilyName = '';
 if ($iFamily) {
-    $sSQL = 'SELECT fam_Name, fam_Address1, fam_City, fam_State FROM family_fam WHERE fam_ID ='.$iFamily;
-    $rsFindFam = RunQuery($sSQL);
-    while ($aRow = mysqli_fetch_array($rsFindFam)) {
-        extract($aRow);
-        $sFamilyName = $fam_Name.' '.MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State);
-    }
+    $fam  = FamilyQuery::Create()->findOneById($iFamily);
+    $sFamilyName = $fam->getName().' '.MiscUtils::FormatAddressLine($fam->getAddress1(), $fam->getCity(), $fam->getState());
 }
 
 require 'Include/Header.php';
@@ -805,7 +845,7 @@ require 'Include/Header.php';
  <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
   var dep_Date = "<?= OutputUtils::change_date_for_place_holder($dep_Date) ?>";
   var dep_Type = "<?= $dep_Type ?>";
-  var dep_Closed = <?= $dep_Closed ?>;
+  var dep_Closed = <?= ($dep_Closed)?'1':'0' ?>;
   var CurrentDeposit = <?= $iCurrentDeposit ?>;
   var Closed = "<?= ($dep_Closed && $sGroupKey && $PledgeOrPayment == 'Payment')?' &nbsp; <font color=red>'._('Deposit closed').'</font>':"" ?>";
  
