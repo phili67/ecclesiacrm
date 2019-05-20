@@ -35,6 +35,8 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\UserQuery;
 
+use Propel\Runtime\Propel;
+
 
 //Set the page title
 $sPageTitle = _('Person Editor');
@@ -586,7 +588,11 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             if ($sSQL > '') {
                 $sSQL = 'REPLACE INTO person_custom SET '.$sSQL.' per_ID = '.$iPersonID;
                 //Execute the SQL
-                RunQuery($sSQL);
+                
+                $connection = Propel::getConnection();
+
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
             }
         }
 
