@@ -19,6 +19,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -139,9 +140,14 @@ require 'Include/Header.php';
                 INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
                 INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email')
             AND p2g2r_grp_ID = ".$iGroupID;
-    $rsEmailList = RunQuery($sSQL);
+            
+    $connection = Propel::getConnection();
+
+    $statement = $connection->prepare($sSQL);
+    $statement->execute();
+
     $sEmailLink = '';
-    while (list($per_Email, $fam_Email, $virt_RoleName) = mysqli_fetch_row($rsEmailList)) {
+    while (list($per_Email, $fam_Email, $virt_RoleName) = $statement->fetch( \PDO::FETCH_BOTH )) {
         $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
         if ($sEmail) {
             /* if ($sEmailLink) // Don't put delimiter before first email
@@ -201,10 +207,13 @@ require 'Include/Header.php';
             INNER JOIN record2property_r2p ON r2p_record_ID = per_ID
             INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS')
         AND p2g2r_grp_ID = ".$iGroupID;
-    $rsPhoneList = RunQuery($sSQL);
+    
+    $statement = $connection->prepare($sSQL);
+    $statement->execute();
+
     $sPhoneLink = '';
     $sCommaDelimiter = ', ';
-    while (list($per_CellPhone, $fam_CellPhone) = mysqli_fetch_row($rsPhoneList)) {
+    while (list($per_CellPhone, $fam_CellPhone) = $statement->fetch( \PDO::FETCH_BOTH )) {
         $sPhone = MiscUtils::SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
         if ($sPhone) {
             /* if ($sPhoneLink) // Don't put delimiter before first phone
