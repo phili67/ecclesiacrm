@@ -5,7 +5,7 @@ $(document).ready(function () {
      
      bootbox.confirm({
       title: i18next.t("Attention"),
-      message: i18next.t("Warning:  By deleting this field, you will irrevocably lose all family data assigned for this field!"),
+      message: i18next.t("Warning: By deleting this field, you will irrevocably lose all family data assigned for this field!"),
       callback: function(result){
         if (result) {
           window.CRM.APIRequest({
