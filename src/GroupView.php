@@ -227,8 +227,10 @@ require 'Include/Header.php';
     if ($sPhoneLink) {
         if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
             // Display link
-            echo '<a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i>'._('Text Group').'</a>';
-            echo '<script nonce="'. SystemURLs::getCSPNonce() .'">function allPhonesCommaD() {prompt("'._("Press CTRL + C to copy all group members\' phone numbers").'", "'.mb_substr($sPhoneLink, 0, -2).'")};</script>';
+      ?>
+          <a class="btn btn-app" href="javascript:void(0)" onclick="allPhonesCommaD()"><i class="fa fa-mobile-phone"></i><?= _('Text Group') ?></a>
+          <script nonce="<?= SystemURLs::getCSPNonce() ?>">function allPhonesCommaD() {prompt("<?= _("Press CTRL + C to copy all group members\' phone numbers") ?>", "<?= mb_substr($sPhoneLink, 0, -2) ?>")};</script>
+    <?php
         }
     }
     ?>
@@ -479,7 +481,7 @@ require 'Include/Header.php';
 ?>
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?php echo _("Manage Group Members"); ?>:</h3>
+    <h3 class="box-title"><?= _("Manage Group Members") ?>:</h3>
   </div>
   <div class="box-body">
     <div class="row">
