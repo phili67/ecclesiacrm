@@ -37,12 +37,6 @@ if (array_key_exists('DepositSlipID', $_GET)) {
 
 // Get the current deposit slip data
 if ($iDepositSlipID) {
-    $sSQL = 'SELECT dep_Closed, dep_Date, dep_Type from deposit_dep WHERE dep_ID = '.$iDepositSlipID;
-    $rsDeposit = RunQuery($sSQL);
-    extract(mysqli_fetch_array($rsDeposit));
-}
-
-if ($iDepositSlipID) {
     $thisDeposit = DepositQuery::create()->findOneById($iDepositSlipID);
     // Set the session variable for default payment type so the new payment form will come up correctly
     if ($thisDeposit->getType() == 'Bank') {
@@ -68,10 +62,10 @@ if ($iDepositSlipID) {
 $funds = $thisDeposit->getFundTotals();
 
 //Set the page title
-$sPageTitle = gettext($thisDeposit->getType()).' : '.gettext('Deposit Slip Number: ')."#".$iDepositSlipID;
+$sPageTitle = _($thisDeposit->getType()).' : '._('Deposit Slip Number: ')."#".$iDepositSlipID;
 
-if ($dep_Closed) {
-    $sPageTitle .= ' &nbsp; <font color=red>'.gettext('Deposit closed').'</font>';
+if ($thisDeposit->getClosed()) {
+    $sPageTitle .= ' &nbsp; <font color=red>'._('Deposit closed')." (".$thisDeposit->getDate()->format(SystemConfig::getValue('sDateFormatLong')).')</font>';
 }
 
 //Is this the second pass?
@@ -95,44 +89,47 @@ require 'Include/Header.php';
   <div class="col-lg-7">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo gettext('Deposit Details: '); ?></h3>
+        <h3 class="box-title"><?= _('Deposit Details: ') ?></h3>
       </div>
       <div class="box-body">
         <form method="post" action="#" name="DepositSlipEditor" id="DepositSlipEditor">
           <div class="row">
             <div class="col-lg-4">
-              <label for="Date"><?= gettext('Date'); ?>:</label>
+              <label for="Date"><?= _('Date'); ?>:</label>
               <input type="text" class="form-control date-picker" name="Date" value="<?= $thisDeposit->getDate(SystemConfig::getValue('sDatePickerFormat')); ?>" id="DepositDate" >
             </div>
             <div class="col-lg-4">
-              <label for="Comment"><?php echo gettext('Comment:'); ?></label>
-              <input type="text" class="form-control" name="Comment" id="Comment" value="<?php echo $thisDeposit->getComment(); ?>"/>
+              <label for="Comment"><?= _('Comment:') ?></label>
+              <input type="text" class="form-control" name="Comment" id="Comment" value="<?= $thisDeposit->getComment() ?>"/>
             </div>
             <div class="col-lg-4">
-              <label for="Closed"><?php echo gettext('Closed:'); ?></label>
-              <input type="checkbox"  name="Closed" id="Closed" value="1" <?php if ($thisDeposit->getClosed()) {
-    echo ' checked';
-} ?>/><?php echo gettext('Close deposit slip (remember to press Save)'); ?>
+              <label for="Closed"><?= _('Closed:') ?></label>
+              <input type="checkbox"  name="Closed" id="Closed" value="1" <?= ($thisDeposit->getClosed())?' checked':'' ?>/>
+                <?= _('Close deposit slip (remember to press Save)') ?>
             </div>
           </div>
           <div class="row p-2">
             <div class="col-lg-5 m-2" style="text-align:center">
-              <input type="submit" class="btn btn-primary" id="DepositSlipSubmit" value="<?php echo gettext('Save'); ?>" name="DepositSlipSubmit">
+              <input type="submit" class="btn btn-primary" id="DepositSlipSubmit" value="<?= _('Save') ?>" name="DepositSlipSubmit">
             </div>
             <div class="col-lg-5 m-2" style="text-align:center">
               <?php
                  if (count($funds)) {
               ?>
-              <a href="<?= SystemURLs::getRootPath() ?>/api/deposits/<?php echo $thisDeposit->getId() ?>/pdf" class="btn btn-default" name="DepositSlipGeneratePDF"><?php echo gettext('Deposit Slip Report'); ?></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/api/deposits/<?= $thisDeposit->getId() ?>/pdf" class="btn btn-default" name="DepositSlipGeneratePDF">
+                  <?= _('Deposit Slip Report') ?>
+                </a>
               <?php
                 }
               ?>
             </div>
           </div>
           <?php
-          if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
-              echo '<p>'.gettext('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.').'</p>';
-          }
+            if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
+          ?>
+            <p><?= _('Important note: failed transactions will be deleted permanantly when the deposit slip is closed.') ?></p>
+          <?php
+            }
           ?>
       </div>
     </div>
@@ -140,16 +137,18 @@ require 'Include/Header.php';
   <div class="col-lg-5">
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo gettext('Deposit Summary: '); ?></h3>
+        <h3 class="box-title"><?= _('Deposit Summary: ') ?></h3>
       </div>
       <div class="box-body">        
          <div class="col-lg-6">
           <canvas id="fund-donut" style="height:250px"></canvas>
           <ul style="margin:0px; border:0px; padding:0px;" id="mainFundTotals">
           <?php
-          foreach ($thisDeposit->getFundTotals() as $fund) {
-              echo '<li><b>'.gettext($fund['Name']).'</b>: '.SystemConfig::getValue('sCurrency').OutputUtils::money_localized($fund['Total']).'</li>';
-          }
+            foreach ($thisDeposit->getFundTotals() as $fund) {
+          ?>
+             <li><b><?= _($fund['Name'])?> </b>: <?= SystemConfig::getValue('sCurrency').OutputUtils::money_localized($fund['Total']) ?></li>
+          <?php
+            }
           ?>
           </ul>
         </div>
@@ -164,20 +163,24 @@ require 'Include/Header.php';
 </div>
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"><?php echo gettext('Payments on this deposit slip:'); ?></h3>
+    <h3 class="box-title"><?= _('Payments on this deposit slip:') ?></h3>
     <div class="pull-right">
       <?php
       if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
           if ($thisDeposit->getType() == 'eGive') {
-              echo '<input type=button class="btn btn-default" value="'.gettext('Import eGive')."\" name=ImporteGive onclick=\"javascript:document.location='eGive.php?DepositSlipID=$iDepositSlipID&linkBack=DepositSlipEditor.php?DepositSlipID=$iDepositSlipID&PledgeOrPayment=Payment&CurrentDeposit=$iDepositSlipID';\">";
+      ?>
+            <input type=button class="btn btn-default" value="<?= _('Import eGive') ?>" name=ImporteGive onclick="javascript:document.location='eGive.php?DepositSlipID=$iDepositSlipID&linkBack=DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+      <?php
           } else {
-              echo '<input type=button class="btn btn-success" value="'.gettext('Add Payment')."\" name=AddPayment onclick=\"javascript:document.location='PledgeEditor.php?CurrentDeposit=$iDepositSlipID&PledgeOrPayment=Payment&linkBack=DepositSlipEditor.php?DepositSlipID=$iDepositSlipID&PledgeOrPayment=Payment&CurrentDeposit=$iDepositSlipID';\">";
+      ?>
+            <input type=button class="btn btn-success" value="<?= _('Add Payment')?> " name=AddPayment onclick="javascript:document.location='PledgeEditor.php?CurrentDeposit=$iDepositSlipID&PledgeOrPayment=Payment&linkBack=DepositSlipEditor.php?DepositSlipID=<?= $iDepositSlipID ?>&PledgeOrPayment=Payment&CurrentDeposit=<?= $iDepositSlipID ?>';">
+      <?php
           }
           if ($thisDeposit->getType() == 'BankDraft' || $thisDeposit->getType() == 'CreditCard') {
-              ?>
-             <input type="submit" class="btn btn-success" value="<?php echo gettext('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
-             <input type="submit" class="btn btn-warning" value="<?php echo gettext('Run Transactions'); ?>" name="DepositSlipRunTransactions">
-          <?php
+      ?>
+             <input type="submit" class="btn btn-success" value="<?php echo _('Load Authorized Transactions'); ?>" name="DepositSlipLoadAuthorized">
+             <input type="submit" class="btn btn-warning" value="<?php echo _('Run Transactions'); ?>" name="DepositSlipRunTransactions">
+      <?php
           }
       }
       ?>
@@ -193,8 +196,8 @@ require 'Include/Header.php';
         if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
             //if ($thisDeposit->getType() == 'Bank') {
                 ?>
-            <label><?= gettext("Action") ?> : </label>
-            <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled><?= gettext("Delete Selected Rows") ?></button>
+            <label><?= _("Action") ?> : </label>
+            <button type="button" id="deleteSelectedRows"  class="btn btn-danger" disabled><?= _("Delete Selected Rows") ?></button>
             <?php
             //}
         }
@@ -205,9 +208,9 @@ require 'Include/Header.php';
         <?php
           if ($iDepositSlipID and $thisDeposit->getType() and !$thisDeposit->getClosed()) {
         ?>
-          <label><?= gettext("Statut") ?> : </label>
-          <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= gettext("Payment") ?> (0) <?= gettext("Selected Rows") ?></button>          
-          <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= gettext("Pledge") ?> (0) <?= gettext("Selected Rows") ?></button>
+          <label><?= _("Statut") ?> : </label>
+          <button type="button" id="validateSelectedRows" class="btn btn-success exportButton" disabled><?= _("Payment") ?> (0) <?= _("Selected Rows") ?></button>          
+          <button type="button" id="invalidateSelectedRows" class="btn btn-info" disabled><?= _("Pledge") ?> (0) <?= _("Selected Rows") ?></button>
         <?php
           }
         ?>      
@@ -221,7 +224,7 @@ require 'Include/Header.php';
 <div>
   <a href="<?= SystemURLs::getRootPath() ?>/FindDepositSlip.php" class="btn btn-default">
     <i class="fa fa-chevron-left"></i>
-    <?= gettext('Return to Deposit Listing') ?></a>
+    <?= _('Return to Deposit Listing') ?></a>
 </div>
 
 <script  src="<?= SystemURLs::getRootPath() ?>/skin/js/finance/DepositSlipEditor.js"></script>
@@ -276,16 +279,16 @@ require 'Include/Header.php';
     $('#deleteSelectedRows').click(function() {
       var deletedRows = dataT.rows('.selected').data();
       bootbox.confirm({
-        title:'<?= gettext("Confirm Delete")?>',
-        message: "<p><?= gettext("Are you sure ? You're about to delete the selected")?> " + deletedRows.length + " <?= gettext("payments(s)?") ?></p>" +
-        "<p><?= gettext("This action CANNOT be undone, and may have legal implications!") ?></p>"+
-        "<p><?= gettext("Please ensure this what you want to do.</p>") ?>",
+        title:'<?= _("Confirm Delete")?>',
+        message: "<p><?= _("Are you sure ? You're about to delete the selected")?> " + deletedRows.length + " <?= _("payments(s)?") ?></p>" +
+        "<p><?= _("This action CANNOT be undone, and may have legal implications!") ?></p>"+
+        "<p><?= _("Please ensure this what you want to do.</p>") ?>",
         buttons: {
           cancel : {
-            label: '<?= gettext("Close"); ?>'
+            label: '<?= _("Close"); ?>'
           },
           confirm: {
-            label: '<?php echo gettext("Delete"); ?>'
+            label: '<?php echo _("Delete"); ?>'
           }
         },
         callback: function ( result ) {
