@@ -174,62 +174,6 @@ $sCellPhone = MiscUtils::SelectWhichInfo(MiscUtils::ExpandPhoneNumber($per_CellP
 
 $sUnformattedEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
 
-// Set the page title and include HTML header
-$sPageTitle = _('Printable View');
-$iTableSpacerWidth = 10;
-require 'Include/Header-Short.php';
-?>
-
-<table width="400"><tr><td>
-<p class="ShadedBox">
-
-<?php
-
-$personSheet = PersonQuery::create()->findPk($per_ID);
-
-if ($personSheet->getDateDeactivated() != null) {
-  RedirectUtils::Redirect('members/404.php?type=Person');
-}    
-
-
-if ($personSheet) {
-    echo "<table>";
-    echo "  <tr>";
-    echo "  <td  style=\"padding:5px;\">";
-    $imgName = str_replace(SystemURLs::getDocumentRoot(), "", $personSheet->getPhoto()->getPhotoURI());
-    
-    echo "<img src=\"".$imgName."\" width=110/>";
-    echo "</td><td>";
-    echo '<b><font size="4">'.$personSheet->getFullName().'</font></b><br>';
-    echo "</td></tr></table>";
-} else {
-    echo '<b><font size="4">'.$personSheet->getFullName().'</font></b><br>';
-}
-
-// Print the name and address header
-echo '<font size="3">';
-if ($sAddress1 != '') {
-    echo $sAddress1.'<br>';
-}
-if ($sAddress2 != '') {
-    echo $sAddress2.'<br>';
-}
-if ($sCity != '') {
-    echo $sCity.', ';
-}
-if ($sState != '') {
-    echo $sState;
-}
-
-// bevand10 2012-04-28 Replace space with &nbsp; in zip/postcodes, to ensure they do not wrap on output.
-if ($sZip != '') {
-    echo ' '.str_replace(' ', '&nbsp;', trim($sZip));
-}
-
-if ($sCountry != '') {
-    echo '<br>'.$sCountry;
-}
-echo '</font>';
 
 $iFamilyID = $fam_ID;
 
@@ -243,10 +187,81 @@ if ($fam_ID) {
     LEFT JOIN list_lst fmr ON per_fmr_ID = fmr.lst_OptionID AND fmr.lst_ID = 2
     WHERE per_fam_ID = '.$iFamilyID.' ORDER BY fmr.lst_OptionSequence';
 }
+
+// Set the page title and include HTML header
+$sPageTitle = _('Printable View');
+$iTableSpacerWidth = 10;
+require 'Include/Header-Short.php';
 ?>
 
-</p></td></tr></table>
-<BR>
+<table width="400">
+  <tr>
+    <td>
+        <p class="ShadedBox">
+
+        <?php
+
+        $personSheet = PersonQuery::create()->findPk($per_ID);
+
+        if ($personSheet->getDateDeactivated() != null) {
+          RedirectUtils::Redirect('members/404.php?type=Person');
+        }    
+
+
+        if ($personSheet) {
+            $imgName = str_replace(SystemURLs::getDocumentRoot(), "", $personSheet->getPhoto()->getPhotoURI());
+        ?>
+          <table>
+            <tr>
+               <td  style="padding:5px;">
+                 <img src=<?= $imgName ?> width=110/>
+               </td>
+               <td>
+                 <b><font size="4"><?= $personSheet->getFullName() ?></font></b><br>
+               </td>
+            </tr>
+          </table>
+        <?php
+        } else {
+        ?>
+            <b><font size="4"><?= $personSheet->getFullName() ?></font></b><br>
+        <?php
+        }
+
+        // Print the name and address header
+        ?>
+        <font size="3">
+        <?php
+        if ($sAddress1 != '') {
+            echo $sAddress1.'<br>';
+        }
+        if ($sAddress2 != '') {
+            echo $sAddress2.'<br>';
+        }
+        if ($sCity != '') {
+            echo $sCity.', ';
+        }
+        if ($sState != '') {
+            echo $sState;
+        }
+
+        // bevand10 2012-04-28 Replace space with &nbsp; in zip/postcodes, to ensure they do not wrap on output.
+        if ($sZip != '') {
+            echo ' '.str_replace(' ', '&nbsp;', trim($sZip));
+        }
+
+        if ($sCountry != '') {
+        ?>
+            <br><?= $sCountry ?>
+        <?php
+        }
+        ?>
+        </font>
+      </p>
+    </td>
+  </tr>
+</table>
+<BR/>
 
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 <tr>
@@ -267,31 +282,40 @@ if ($fam_ID) {
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn"><?= $sCellPhone ?>&nbsp;</td>
     </tr>
-    <?php
-            $numColumn1Fields = ceil((float)$numCustomFields / 3.0);
-            $numColumn2Fields = $numColumn1Fields;
-            $numColumn3Fields = $numCustomFields - $numColumn1Fields*2;
-            
-            for ($i = 0 ; $i < $numColumn1Fields ; $i++) {
-              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
-                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
+<?php
+  $numColumn1Fields = ceil((float)$numCustomFields / 3.0);
+  $numColumn2Fields = $numColumn1Fields;
+  $numColumn3Fields = $numCustomFields - $numColumn1Fields*2;
+  
+  for ($i = 0 ; $i < $numColumn1Fields ; $i++) {
+    if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+        $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
 
-                  if ($currentData != '') {
-                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
-                      $custom_Special = $sPhoneCountry;
-                    } else {
-                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
-                    }
-              
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
-                  } else {
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn"></td></tr>';
-                  }
-              }    
-            }
-        ?>
+        if ($currentData != '') {
+          if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+            $custom_Special = $sPhoneCountry;
+          } else {
+            $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
+          }
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
+      </tr>
+<?php
+        } else {
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"></td>
+      </tr>
+    <?php
+        }
+    }    
+  }
+?>
     </table>
   </td>
 
@@ -302,14 +326,8 @@ if ($fam_ID) {
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
         <?php
-                switch (strtolower($per_Gender)) {
-                    case 1:
-                        echo _('Male');
-                        break;
-                    case 2:
-                        echo _('Female');
-                        break;
-                } ?>
+          switch (strtolower($per_Gender)) {case 1:echo _('Male');break; case 2: echo _('Female');break;} 
+        ?>
       </td>
     </tr>
     <tr>
@@ -321,44 +339,58 @@ if ($fam_ID) {
       <td class="LabelColumn"><?= _('Family') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
       <td class="TextColumn">
-      <?php if ($fam_Name != '') {
-                    echo $fam_Name;
-                } else {
-                    echo _('Unassigned');
-                } ?>
+      <?php 
+        if ($fam_Name != '') {
+          echo $fam_Name;
+        } else {
+          echo _('Unassigned');
+        } 
+      ?>
       &nbsp;</td>
     </tr>
     <tr>
       <td class="LabelColumn"><?= _('Family Role') ?>:</td>
       <td width="<?= $iTableSpacerWidth ?>"></td>
-      <td class="TextColumnWithBottomBorder"><?php if ($sFamRole != '') {
-                    echo $sFamRole;
-                } else {
-                    echo _('Unassigned');
-                } ?>&nbsp;</td>
+      <td class="TextColumnWithBottomBorder">
+      <?php 
+        if ($sFamRole != '') {
+          echo $sFamRole;
+        } else {
+          echo _('Unassigned');
+        } 
+      ?>&nbsp;
+      </td>
     </tr>
-    <?php            
-            for ($i = $numColumn1Fields ; $i < $numColumn1Fields+$numColumn2Fields ; $i++) {
-              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
-                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
+<?php
+  for ($i = $numColumn1Fields ; $i < $numColumn1Fields+$numColumn2Fields ; $i++) {
+    if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+        $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
 
-                  if ($currentData != '') {
-                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
-                      $custom_Special = $sPhoneCountry;
-                    } else {
-                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
-                    }
-              
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
-                  } else {
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn"></td></tr>';
-                  }
-              }    
-            }
-
-        ?>
+        if ($currentData != '') {
+          if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+            $custom_Special = $sPhoneCountry;
+          } else {
+            $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
+          }
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
+      </tr>
+<?php
+        } else {
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"></td>
+      </tr>
+    <?php
+        }
+    }    
+  }
+?>
     </table>
   </td>
   <td width="33%" valign="top" align="left">
@@ -383,35 +415,45 @@ if ($fam_ID) {
         <td width="<?= $iTableSpacerWidth ?>"></td>
         <td class="TextColumnWithBottomBorder"><?= $sClassName ?>&nbsp;</td>
       </tr>
-    <?php
-            for ($i = $numColumn1Fields+$numColumn2Fields ; $i < $numColumn1Fields+$numColumn2Fields+$numColumn3Fields ; $i++) {
-              if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
-                  $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
+<?php
+  for ($i = $numColumn1Fields+$numColumn2Fields ; $i < $numColumn1Fields+$numColumn2Fields+$numColumn3Fields ; $i++) {
+    if (OutputUtils::securityFilter($ormPersonCustomFields[$i]['CustomFieldSec'])) {
+        $currentData = trim($aCustomData[$ormPersonCustomFields[$i]['CustomField']]);
 
-                  if ($currentData != '') {
-                    if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
-                      $custom_Special = $sPhoneCountry;
-                    } else {
-                      $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
-                    }
-              
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn">'.OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false).'</td></tr>';
-                  } else {
-                    echo '<tr><td class="LabelColumn">'.$ormPersonCustomFields[$i]['CustomName'].'</td><td width="'.$iTableSpacerWidth.'"></td>';
-                    echo '<td class="TextColumn"></td></tr>';
-                  }
-              }    
-            }
-        ?>
-    </table>
+        if ($currentData != '') {
+          if ($ormPersonCustomFields[$i]['TypeId'] == 11) {
+            $custom_Special = $sPhoneCountry;
+          } else {
+            $custom_Special = $ormPersonCustomFields[$i]['CustomSpecial'];
+          }
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"><?= OutputUtils::displayCustomField($ormPersonCustomFields[$i]['TypeId'], $currentData, $custom_Special,false)?></td>
+      </tr>
+<?php
+        } else {
+?>
+      <tr>
+        <td class="LabelColumn"><?= $ormPersonCustomFields[$i]['CustomName'] ?></td>
+        <td width="<?= $iTableSpacerWidth ?>"></td>
+        <td class="TextColumn"></td>
+      </tr>
+    <?php
+        }
+    }    
+  }
+?>    
+      </table>
     </td>
 </tr>
 </table>
 <br>
 
-<?php if ($fam_ID) {
-            ?>
+<?php 
+  if ($fam_ID) {
+?>
 
 <b><?= _('Family Members') ?>:</b>
 <table cellpadding=5 cellspacing=0 width="100%">
@@ -429,7 +471,6 @@ if ($fam_ID) {
     $statement->execute();
 
     while ($aRow = $statement->fetch(PDO::FETCH_BOTH)) {
-         
         $per_BirthYear = '';
         $agr_Description = '';
         
@@ -459,7 +500,9 @@ if ($fam_ID) {
     </tr>
   <?php
             }
-            echo '</table>';
+  ?>
+  </table>
+<?php
         }
 ?>
 <BR>
@@ -474,25 +517,29 @@ $sAssignedGroups = ',';
 
 //Was anything returned?
 if ($ormAssignedGroups->count() == 0) {
-    echo '<p align"center">'._('No group assignments.').'</p>';
+?>
+  <p align"center"><?= _('No group assignments.') ?></p>
+<?php
 } else {
-    echo '<table width="100%" cellpadding="4" cellspacing="0">';
-    echo '<tr class="TableHeader">';
-    echo '<td width="15%"><b>'._('Group Name').'</b>';
-    echo '<td><b>'._('Role').'</b></td>';
-    echo '</tr>';
-
+?>
+  <table width="100%" cellpadding="4" cellspacing="0">
+    <tr class="TableHeader">
+      <td width="15%"><b><?= _('Group Name') ?></b>
+      <td><b><?= _('Role') ?></b></td>
+    </tr>
+<?php
     //Loop through the rows
     foreach ($ormAssignedGroups as $ormAssignedGroup) {
         //Alternate the row style
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         // DISPLAY THE ROW
-        echo '<tr class="'.$sRowClass.'">';
-        echo ' <td>'.$ormAssignedGroup->getGroupName().'</td>';
-        echo ' <td>'._($ormAssignedGroup->getRoleName()).'</td>';
-        echo '</tr>';
-
+?>
+    <tr class="<?= $sRowClass ?>">
+      <td><?= $ormAssignedGroup->getGroupName() ?></td>
+      <td><?= _($ormAssignedGroup->getRoleName()) ?></td>
+    </tr>
+<?php
         // If this group has associated special properties, display those with values and prop_PersonDisplay flag set.
         if ($ormAssignedGroup->getHasSpecialProps()) {
             $firstRow = true;
@@ -510,25 +557,49 @@ if ($ormAssignedGroups->count() == 0) {
                 if (strlen($currentData) > 0) {
                     // only create the properties table if it's actually going to be used
                     if ($firstRow) {
-                        echo '<tr><td colspan="2"><table width="50%"><tr><td width="15%"></td><td><table width="90%" cellspacing="0">';
-                        echo '<tr class="TinyTableHeader"><td>'._('Property').'</td><td>'._("Value").'</td></tr>';
+          ?>
+      <tr>
+         <td colspan="2">
+            <table width="50%">
+               <tr><td width="15%"></td>
+               <td>
+                 <table width="90%" cellspacing="0">
+                    <tr class="TinyTableHeader">
+                      <td><?= _('Property')?></td>
+                      <td><?= _("Value") ?></td>
+                    </tr>
+                <?php
                         $firstRow = false;
                     }
                     $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
                     if ($type_ID == 11) {
                         $prop_Special = $sCountry;
                     }
-                    echo "<tr class=\"$sRowClass\"><td>".$ormPropList->getName().'</td><td>'.OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()).'</td></tr>';
+                ?>
+                    <tr class="<?= $sRowClass ?>">
+                       <td><?= $ormPropList->getName() ?></td>
+                       <td><?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?></td>
+                    </tr>
+                <?php
                 }
             }
             if (!$firstRow) {
-                echo '</table></td></tr></table></td></tr>';
+        ?>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    <?php
             }
         }
 
         $sAssignedGroups .= $grp_ID.',';
     }
-    echo '</table>';
+  ?>
+    </table>
+<?php
 }
 ?>
 <BR>
@@ -543,43 +614,55 @@ $sAssignedProperties = ',';
 
 //Was anything returned?
 if ($ormAssignedProperties->count() == 0) {
-    echo '<p align"center">'._('No property assignments.').'</p>';
+?>
+    <p align"center"><?= _('No property assignments.') ?></p>
+<?php
 } else {
-    echo '<table width="100%" cellpadding="4" cellspacing="0">';
-    echo '<tr class="TableHeader">';
-    echo '<td width="25%" valign="top"><b>'._('Name').'</b>';
-    echo '<td valign="top"><b>'._('Value').'</td>';
-    echo '</tr>';
-
+?>
+    <table width="100%" cellpadding="4" cellspacing="0">
+      <tr class="TableHeader">
+        <td width="25%" valign="top"><b><?= _('Name') ?></b>
+        <td valign="top"><b><?=_('Value') ?></td>
+      </tr>
+<?php
     foreach ($ormAssignedProperties as $ormAssignedProperty) {
         //Alternate the row style
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
         //Display the row
-        echo '<tr class="'.$sRowClass.'">';
-        echo '<td valign="top">'._($ormAssignedProperty->getProName()).'&nbsp;</td>';
-        echo '<td valign="top">'.$ormAssignedProperty->getR2pValue().'&nbsp;</td>';
-
-        echo '</tr>';
-
+?>
+      <tr class="<?= $sRowClass ?>">
+        <td valign="top"><?= _($ormAssignedProperty->getProName()) ?>&nbsp;</td>
+        <td valign="top"><?= $ormAssignedProperty->getR2pValue() ?>&nbsp;</td>
+      </tr>
+<?php
         $sAssignedProperties .= $ormAssignedProperty->getR2pId().',';
     }
-    echo '</table><br>';
+?>
+  </table>
+<br>
+<?php
 }
 
 if (SessionUser::getUser()->isNotesEnabled()) {
     // Loop through all the notes
     foreach ($ormNotes as $note) {
-        echo '<p class="ShadedBox")>'.$note->getText().'</p>';
-        if (!is_null($note->getDateEntered())) {
-          echo '<span class="SmallText">'._('Entered:').(OutputUtils::FormatDate($note->getDateEntered()->format('Y-m-d H:i:s'), true)).'</span><br>';
+?>
+      <p class="ShadedBox")><?= $note->getText() ?></p>
+<?php
+    if (!is_null($note->getDateEntered())) {
+?>
+      <span class="SmallText"><?= _('Entered:').(OutputUtils::FormatDate($note->getDateEntered()->format('Y-m-d H:i:s'), true)) ?></span><br>
+<?php
         }
 
         if (strlen($note->getDateLastEdited())) {
-            echo '<span class="SmallText">'._('Last Edited').(OutputUtils::FormatDate($note->getDateLastEdited(), true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName.'</span><br>';
+?>
+      <span class="SmallText"><?= _('Last Edited').(OutputUtils::FormatDate($note->getDateLastEdited(), true)).' '._('by').' '.$EditedFirstName.' '.$EditedLastName ?></span><br>
+
+<?php
         }
     }
 }
 
 require 'Include/Footer-Short.php';
-?>
