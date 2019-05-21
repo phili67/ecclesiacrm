@@ -17,6 +17,8 @@ use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\EnvelopeUtilities;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\FamilyQuery;
 
 //Set the page title
 $sPageTitle = _('Envelope Manager');
@@ -69,17 +71,19 @@ if (isset($_POST['Confirm'])) {
         }
     }
     foreach ($envelopesToWrite as $fam_ID => $envelope) {
-        $dSQL = "UPDATE family_fam SET fam_Envelope='".$envelope."' WHERE fam_ID='".$fam_ID."'";
-        RunQuery($dSQL);
+        $fam = FamilyQuery::Create()->findOneById ($fam_ID);
+        $fam->setEnvelope ($envelope);
+        $fam->save();
     }
 }
 
 //Get Classifications for the drop-down
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-$rsClassifications = RunQuery($sSQL);
-while ($aRow = mysqli_fetch_array($rsClassifications)) {
-    extract($aRow);
-    $classification[$lst_OptionID] = $lst_OptionName;
+$ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+
+foreach ($ormClassifications as $ormClassification) {
+  $classification[$ormClassification->getOptionId()] = $ormClassification->getOptionName();
 }
 
 require 'Include/Header.php';
