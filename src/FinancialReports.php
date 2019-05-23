@@ -11,12 +11,21 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\DepositQuery;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\DonationFundQuery;
+
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 
 // Security
@@ -133,18 +142,25 @@ if ($sReportType == '') {
     if ($sReportType == 'Giving Report' || $sReportType == 'Pledge Reminders' || $sReportType == 'Pledge Family Summary' || $sReportType == 'Advanced Deposit Report') {
 
         //Get Classifications for the drop-down
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL); ?>
+        $ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+         ?>
+        
+        
+
     <tr>
       <td class="LabelColumn"><?= _("Classification") ?>:<br></td>
-      <td class=TextColumnWithBottomBorder><div class=SmallText>
-          </div><select name="classList[]" style="width:100%" multiple id="classList">
-          <?php
-          while ($aRow = mysqli_fetch_array($rsClassifications)) {
-              extract($aRow);
-              echo '<option value="'.$lst_OptionID.'"';
-              echo '>'.$lst_OptionName.'&nbsp;';
-          } ?>
+      <td class=TextColumnWithBottomBorder>
+          <div class=SmallText></div>
+          <select name="classList[]" style="width:100%" multiple id="classList">
+        <?php
+          foreach ($ormClassifications as $ormClassification) {
+        ?>
+            <option value="<?= $ormClassification->getOptionID() ?>"><?= $ormClassification->getOptionName() ?>&nbsp;
+        <?php
+          } 
+        ?>
           </select>
       </td>
     </tr>
@@ -157,8 +173,7 @@ if ($sReportType == '') {
       </td>
     </tr>
         <?php
-          $sSQL = 'SELECT fam_ID, fam_Name, fam_Address1, fam_City, fam_State FROM family_fam ORDER BY fam_Name';
-          $rsFamilies = RunQuery($sSQL); 
+          $families = FamilyQuery::Create()->orderByName()->find();
         ?>
     <tr>
       <td class=LabelColumn><?= _("Filter by Family") ?>:<br></td>
@@ -178,31 +193,37 @@ if ($sReportType == '') {
         }
         // Build array of Head of Households and Spouses with fam_ID as the key
         $sSQL = 'SELECT per_FirstName, per_fam_ID FROM person_per WHERE per_fam_ID > 0 AND ('.$head_criteria.') ORDER BY per_fam_ID';
-        $rs_head = RunQuery($sSQL);
+        
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        
+        
         $aHead = [];
-        while (list($head_firstname, $head_famid) = mysqli_fetch_row($rs_head)) {
-            if ($head_firstname && array_key_exists($head_famid, $aHead)) {
-                $aHead[$head_famid] .= ' & '.$head_firstname;
-            } elseif ($head_firstname) {
-                $aHead[$head_famid] = $head_firstname;
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+            if ($row['per_FirstName'] && array_key_exists($row['per_fam_ID'], $aHead)) {
+                $aHead[$row['per_fam_ID']] .= ' & '.$row['per_FirstName'];
+            } elseif ($row['per_FirstName']) {
+                $aHead[$row['per_fam_ID']] = $row['per_FirstName'];
             }
+        
         }
-        while ($aRow = mysqli_fetch_array($rsFamilies)) {
-            extract($aRow);
-            ?>
-            <option value=<?= $fam_ID ?>><?= $fam_Name ?>
+        
+        foreach ($families as $family) {
+      ?>
+            <option value=<?= $family->getId() ?>><?= $family->getName() ?>
             <?php
-            if (array_key_exists($fam_ID, $aHead)) {
+            if (array_key_exists($family->getId(), $aHead)) {
             ?>
-                , <?= $aHead[$fam_ID]?>
+                , <?= $aHead[$family->getId()]?>
             <?php
             }
             ?>
-            <?= MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State) ?>
+            <?= MiscUtils::FormatAddressLine($family->getAddress1(), $family->getCity(), $family->getState()) ?>
         <?php
         }
         ?>
-
         </select>
       </td>
     </tr>
@@ -264,8 +285,7 @@ if ($sReportType == '') {
 
   // Filter by Deposit
   if ($sReportType == 'Giving Report' || $sReportType == 'Individual Deposit Report' || $sReportType == 'Advanced Deposit Report') {
-      $sSQL = 'SELECT dep_ID, dep_Date, dep_Type FROM deposit_dep ORDER BY dep_ID DESC LIMIT 0,200';
-      $rsDeposits = RunQuery($sSQL);
+      $deposits = DepositQuery::Create()->orderById(Criteria::DESC)->limit(200)->find();
   ?>
     <tr>
       <td class=LabelColumn><?= _("Filter by Deposit:")?><br></td>
@@ -286,10 +306,9 @@ if ($sReportType == '') {
             <option value=0 selected><?= _("All deposits within date range")?></option>
         <?php
         }
-        while ($aRow = mysqli_fetch_array($rsDeposits)) {
-            extract($aRow);
+        foreach ($deposits as $deposit) {
         ?>
-            <option value=<?= $dep_ID ?>">#<?= $dep_ID ?> &nbsp; (<?= date(SystemConfig::getValue('sDateFormatLong'), strtotime($dep_Date)) ?>) &nbsp;-&nbsp;<?= _($dep_Type) ?>
+          <option value=<?= $deposit->getId() ?>">#<?= $deposit->getId() ?> &nbsp; (<?= date(SystemConfig::getValue('sDateFormatLong'), strtotime($deposit->getDate()->format('Y-m-d'))) ?>) &nbsp;-&nbsp;<?= _($deposit->getType()) ?>
         <?php
         }
         ?>
@@ -301,20 +320,18 @@ if ($sReportType == '') {
 
     // Filter by Account
     if ($sReportType == 'Pledge Summary' || $sReportType == 'Pledge Family Summary' || $sReportType == 'Giving Report' || $sReportType == 'Advanced Deposit Report' || $sReportType == 'Pledge Reminders') {
-        $sSQL = 'SELECT fun_ID, fun_Name, fun_Active FROM donationfund_fun ORDER BY fun_Active, fun_Name';
-        $rsFunds = RunQuery($sSQL); 
+        $funds = DonationFundQuery::Create()->orderByActive()->orderByName()->find();
    ?>
     <tr>
        <td class="LabelColumn"><?= _("Filter by Fund") ?>:<br></td>
        <td>
          <select name="funds[]" multiple id="fundsList" style="width:100%">
     <?php
-      while ($aRow = mysqli_fetch_array($rsFunds)) {
-        extract($aRow);
+      foreach ($funds as $fund) {
     ?>
-           <option value=<?= $fun_ID?>><?= $fun_Name.(($fun_Active == 'false')?' &nbsp; '._("INACTIVE"):"")?>
+           <option value=<?= $fund->getId()?>><?= $fund->getName().(($fund->getActive() == 'false')?' &nbsp; '._("INACTIVE"):"")?>
     <?php
-      } 
+      }
     ?>
          </select>
       </td>
