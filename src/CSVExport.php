@@ -15,7 +15,13 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
+
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\SessionUser;
 
 
@@ -26,148 +32,148 @@ if (!SessionUser::getUser()->isCSVExportEnabled()) {
 }
 
 //Get Classifications for the drop-down
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-$rsClassifications = RunQuery($sSQL);
+$ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
 
 //Get Family Roles for the drop-down
-$sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 2 ORDER BY lst_OptionSequence';
-$rsFamilyRoles = RunQuery($sSQL);
+$ormFamilyRoles = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(2);
 
 // Get all the Groups
-$sSQL = 'SELECT * FROM group_grp ORDER BY grp_Name';
-$rsGroups = RunQuery($sSQL);
+$groups = GroupQuery::Create()->orderByName()->find();
 
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
+// the custom fields
+$customFields = PersonCustomMasterQuery::Create()->orderByCustomOrder()->find();
+$numCustomFields = $customFields->count();
 
-$sSQL = 'SELECT family_custom_master.* FROM family_custom_master ORDER BY fam_custom_Order';
-$rsFamCustomFields = RunQuery($sSQL);
-$numFamCustomFields = mysqli_num_rows($rsFamCustomFields);
+$famCustomFields = FamilyCustomMasterQuery::Create()->orderByCustomOrder()->find();
+$numFamCustomFields = $famCustomFields->count();
 
 // Set the page title and include HTML header
-$sPageTitle = gettext('CSV Export');
+$sPageTitle = _('CSV Export');
 require 'Include/Header.php';
 ?>
-<form method="post" action="CSVCreateFile.php">
+<form method="post" action="<?= SystemURLs::getRootPath() ?>/CSVCreateFile.php">
   <div class="row">
     <div class="col-lg-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= gettext('Field Selection') ?></h3>
+          <h3 class="box-title"><?= _('Field Selection') ?></h3>
         </div>
         <div class="box-body">
           <div class="col-md-4">
-            <label><?= gettext('Last Name') ?>:</label>
-            <?= gettext('Required') ?>
+            <label><?= _('Last Name') ?>:</label>
+            <?= _('Required') ?>
           </div>
 
 
           <div class="col-md-4">
-            <label><?= gettext('Title') ?>:</label>
+            <label><?= _('Title') ?>:</label>
             <input type="checkbox" name="Title" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('First Name') ?>:</label>
+            <label><?= _('First Name') ?>:</label>
             <input type="checkbox" name="FirstName" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Middle Name') ?>:</label>
+            <label><?= _('Middle Name') ?>:</label>
             <input type="checkbox" name="MiddleName" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Suffix') ?>:</label>
+            <label><?= _('Suffix') ?>:</label>
             <input type="checkbox" name="Suffix" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Address') ?> 1:</label>
+            <label><?= _('Address') ?> 1:</label>
             <input type="checkbox" name="Address1" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Address') ?> 2:</label>
+            <label><?= _('Address') ?> 2:</label>
             <input type="checkbox" name="Address2" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('City') ?>:</label>
+            <label><?= _('City') ?>:</label>
             <input type="checkbox" name="City" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('State') ?>:</label>
+            <label><?= _('State') ?>:</label>
             <input type="checkbox" name="State" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Zip') ?>:</label>
+            <label><?= _('Zip') ?>:</label>
             <input type="checkbox" name="Zip" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Envelope') ?>:</label>
+            <label><?= _('Envelope') ?>:</label>
             <input type="checkbox" name="Envelope" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Country') ?>:</label>
+            <label><?= _('Country') ?>:</label>
             <input type="checkbox" name="Country" value="1" checked>
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Home Phone') ?>:</label>
+            <label><?= _('Home Phone') ?>:</label>
             <input type="checkbox" name="HomePhone" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Work Phone') ?>:</label>
+            <label><?= _('Work Phone') ?>:</label>
             <input type="checkbox" name="WorkPhone" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Mobile Phone') ?>:</label>
+            <label><?= _('Mobile Phone') ?>:</label>
             <input type="checkbox" name="CellPhone" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Email') ?>:</label>
+            <label><?= _('Email') ?>:</label>
             <input type="checkbox" name="Email" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Work/Other Email') ?>:</label>
+            <label><?= _('Work/Other Email') ?>:</label>
             <input type="checkbox" name="WorkEmail" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Membership Date') ?>:</label>
+            <label><?= _('Membership Date') ?>:</label>
             <input type="checkbox" name="MembershipDate" value="1">
           </div>
 
           <div class="col-md-4">
-            <label>* <?= gettext('Birth / Anniversary Date') ?>:</label>
+            <label>* <?= _('Birth / Anniversary Date') ?>:</label>
             <input type="checkbox" name="BirthdayDate" value="1">
           </div>
 
           <div class="col-md-4">
-            <label>* <?= gettext('Age / Years Married') ?>:</label>
+            <label>* <?= _('Age / Years Married') ?>:</label>
             <input type="checkbox" name="Age" value="1">
           </div>
 
           <div class="col-md-4">
-            <label><?= gettext('Classification') ?>:</label>
+            <label><?= _('Classification') ?>:</label>
             <input type="checkbox" name="PrintMembershipStatus" value="1">
           </div>
           
           <div class="col-md-4">
-            <label><?= gettext('Family Role') ?>:</label>
+            <label><?= _('Family Role') ?>:</label>
             <input type="checkbox" name="PrintFamilyRole" value="1">
           </div>
-          * <?= gettext('Depends whether using person or family output method') ?>
+          * <?= _('Depends whether using person or family output method') ?>
         </div>
       </div>
 
@@ -180,7 +186,7 @@ require 'Include/Header.php';
       <div class="col-lg-12">
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><?= gettext('Custom Field Selection') ?></h3>
+            <h3 class="box-title"><?= _('Custom Field Selection') ?></h3>
           </div>
           <div class="box-body">
             <table border="0">
@@ -188,58 +194,72 @@ require 'Include/Header.php';
               if ($numCustomFields > 0) {
                   ?>
                 <tr><td width="100%" valign="top" align="left">
-                    <h3><?= gettext('Custom Person Fields') ?></h3>
+                    <h3><?= _('Custom Person Fields') ?></h3>
                     <table cellpadding="4" align="left">
                       <?php
                       // Display the custom fields
-                      while ($Row = mysqli_fetch_array($rsCustomFields)) {
-                          extract($Row);
-                          if (OutputUtils::securityFilter($custom_FieldSec)) {
-                              echo '<tr><td class="LabelColumn">'.$custom_Name.'</td>';
-                              echo '<td class="TextColumn"><input type="checkbox" name='.$custom_Field.' value="1"></td></tr>';
+                        foreach ($customFields as $customField) {
+                          if (OutputUtils::securityFilter($customField->getCustomFieldSec())) {
+                      ?>
+                              <tr>
+                                <td class="LabelColumn"><?= $customField->getCustomName() ?></td>
+                                <td class="TextColumn"><input type="checkbox" name="<?= $customField->getCustomField() ?>" value="1"></td>
+                              </tr>
+                      <?php
                           }
                       } ?>
                     </table>
                   </td></tr>
-                <?php
+            <?php
               }
-      if ($numFamCustomFields > 0) {
-          ?>
+              
+              if ($numFamCustomFields > 0) {
+            ?>
                 <tr><td width="100%" valign="top" align="left">
-                    <h3><?= gettext('Custom Family Fields') ?></h3>
+                    <h3><?= _('Custom Family Fields') ?></h3>
                     <table cellpadding="4" align="left">
                       <?php
-                      // Display the family custom fields
-                      while ($Row = mysqli_fetch_array($rsFamCustomFields)) {
-                          extract($Row);
-                          if (OutputUtils::securityFilter($fam_custom_FieldSec)) {
-                              echo '<tr><td class="LabelColumn">'.$fam_custom_Name.'</td>';
-                              echo '<td class="TextColumn"><input type="checkbox" name='.$fam_custom_Field.' value="1"></td></tr>';
+                        // Display the family custom fields
+                        foreach ($famCustomFields as $famCustomField) {
+                          if (OutputUtils::securityFilter($famCustomField->getCustomFieldSec())) {
+                      ?>
+                            <tr>
+                              <td class="LabelColumn"><?= $famCustomField->getCustomName() ?></td>
+                              <td class="TextColumn"><input type="checkbox" name="<?= $famCustomField->getCustomField() ?>" value="1"></td>
+                            </tr>
+                      <?php
                           }
                       } ?>
                     </table>
-                  </td></tr>
-              <?php
-      } ?>
+                  </td>
+                </tr>
+            <?php
+              } 
+            ?>
             </table>
           </div>
         </div>
       </div>
     </div>
   <?php
-  } ?>
+  } 
+  ?>
 
   <div class="row">
     <div class="col-lg-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= gettext('Filters') ?></h3>
+          <h3 class="box-title"><?= _('Filters').' ('._('Ignored if you come from the CartView').')' ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+              </button>
+            </div>
         </div>
         <div class="box-body">
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Records to export') ?>:</h3>
+                <h3 class="box-title"><?= _('Records to export') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -248,10 +268,10 @@ require 'Include/Header.php';
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <select name="Source" class="form-control input-sm">
-                  <option value="filters"><?= gettext('Based on filters below..') ?></option>
-                  <option value="cart" <?php if (array_key_exists('Source', $_GET) && $_GET['Source'] == 'cart') {
-      echo 'selected';
-  } ?>><?= gettext('People in Cart (filters ignored)') ?></option>
+                  <option value="filters"><?= _('Based on filters below..') ?></option>
+                  <option value="cart" <?= (array_key_exists('Source', $_GET) && $_GET['Source'] == 'cart')?'selected':'' ?>>
+                    <?= _('People in Cart (filters ignored)') ?>
+                  </option>
                 </select>
               </div>
             </div>
@@ -260,7 +280,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Classification') ?>:</h3>
+                <h3 class="box-title"><?= _('Classification') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -269,15 +289,15 @@ require 'Include/Header.php';
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <select name="Classification[]" size="5" multiple class="form-control input-sm">
-                  <?php
-                  while ($aRow = mysqli_fetch_array($rsClassifications)) {
-                      extract($aRow); ?>
-                    <option value="<?= $lst_OptionID ?>"><?= $lst_OptionName ?></option>
-                    <?php
+                <?php
+                  foreach ($ormClassifications as $rsClassification) {
+                ?>
+                    <option value="<?= $rsClassification->getOptionID() ?>"><?= $rsClassification->getOptionName() ?></option>
+                <?php
                   }
-                  ?>
+                ?>
                 </select>
-                <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
+                <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
               </div>
             </div>
           </div>
@@ -285,7 +305,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Family Role') ?>:</h3>
+                <h3 class="box-title"><?= _('Family Role') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -294,15 +314,15 @@ require 'Include/Header.php';
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <select name="FamilyRole[]" size="5" multiple class="form-control input-sm">
-                  <?php
-                  while ($aRow = mysqli_fetch_array($rsFamilyRoles)) {
-                      extract($aRow); ?>
-                    <option value="<?= $lst_OptionID ?>"><?= $lst_OptionName ?></option>
-                    <?php
+                <?php
+                  foreach ($ormFamilyRoles as $ormFamilyRole) {
+                ?>
+                    <option value="<?= $ormFamilyRole->getOptionID() ?>"><?= $ormFamilyRole->getOptionName() ?></option>
+                <?php
                   }
-                  ?>
+                ?>
                 </select>
-                <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
+                <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
               </div>
             </div>
           </div>
@@ -310,7 +330,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Gender') ?>:</h3>
+                <h3 class="box-title"><?= _('Gender') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -319,9 +339,9 @@ require 'Include/Header.php';
               <!-- /.box-header -->
               <div class="box-body no-padding">
                 <select name="Gender" class="form-control input-sm">
-                  <option value="0"><?= gettext("Don't Filter") ?></option>
-                  <option value="1"><?= gettext('Male') ?></option>
-                  <option value="2"><?= gettext('Female') ?></option>
+                  <option value="0"><?= _("Don't Filter") ?></option>
+                  <option value="1"><?= _('Male') ?></option>
+                  <option value="2"><?= _('Female') ?></option>
                 </select>
               </div>
             </div>
@@ -330,7 +350,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Group Membership') ?>:</h3>
+                <h3 class="box-title"><?= _('Group Membership') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -338,13 +358,14 @@ require 'Include/Header.php';
               </div>
               <!-- /.box-header -->
               <div class="box-body no-padding">
-                <div class="SmallText"><?= gettext('Use Ctrl Key to select multiple') ?></div>
+                <div class="SmallText"><?= _('Use Ctrl Key to select multiple') ?></div>
                 <select name="GroupID[]" size="5" multiple class="form-control input-sm">
                   <?php
-                  while ($aRow = mysqli_fetch_array($rsGroups)) {
-                      extract($aRow);
-                      echo '<option value="'.$grp_ID.'">'.$grp_Name.'</option>';
-                  }
+                    foreach ($groups as $group) {
+                  ?>
+                    <option value="<?= $group->getId()?>"><?= $group->getName() ?></option>
+                  <?php
+                    }
                   ?>
                 </select>
               </div>
@@ -354,7 +375,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Membership Date') ?>:</h3>
+                <h3 class="box-title"><?= _('Membership Date') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -364,9 +385,9 @@ require 'Include/Header.php';
               <div class="box-body no-padding">
                 <table>
                   <tr>
-                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                      <td><input id="MembershipDate1" class="date-picker form-control" type="text" name="MembershipDate1" size="11" maxlength="10" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
-                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                      <td><input id="MembershipDate2" class="date-picker form-control" type="text" name="MembershipDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                   </tr>
                 </table>
@@ -377,7 +398,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Birthday Date') ?>:</h3>
+                <h3 class="box-title"><?= _('Birthday Date') ?>:</h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -387,9 +408,9 @@ require 'Include/Header.php';
               <div class="box-body no-padding">
                 <table>
                   <tr>
-                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                      <td><input type="text" name="BirthDate1" class="date-picker  form-control" size="11" maxlength="10" id="BirthdayDate1" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
-                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                      <td><input type="text" name="BirthDate2" class="date-picker  form-control" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>"  id="BirthdayDate2" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                   </tr>
                 </table>
@@ -400,7 +421,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Anniversary Date:') ?></h3>
+                <h3 class="box-title"><?= _('Anniversary Date:') ?></h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -410,9 +431,9 @@ require 'Include/Header.php';
               <div class="box-body no-padding">
                 <table>
                   <tr>
-                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                      <td><input type="text" class="date-picker  form-control" name="AnniversaryDate1" size="11" maxlength="10" id="AnniversaryDate1" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
-                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                      <td><input type="text" class="date-picker  form-control" name="AnniversaryDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" id="AnniversaryDate2" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                   </tr>
                 </table>
@@ -423,7 +444,7 @@ require 'Include/Header.php';
           <div class="col-lg-4">
             <div class="box box-danger collapsed-box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?= gettext('Date Entered:') ?></h3>
+                <h3 class="box-title"><?= _('Date Entered:') ?></h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
                   </button>
@@ -433,9 +454,9 @@ require 'Include/Header.php';
               <div class="box-body no-padding">
                 <table>
                   <tr>
-                     <td><b><?= gettext('From:') ?>&nbsp;</b></td>
+                     <td><b><?= _('From:') ?>&nbsp;</b></td>
                      <td><input id="EnterDate1" type="text" name="EnterDate1" size="11" maxlength="10" class="date-picker  form-control" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
-                     <td><b><?= gettext('To:') ?>&nbsp;</b></td>
+                     <td><b><?= _('To:') ?>&nbsp;</b></td>
                      <td><input id="EnterDate2" type="text" name="EnterDate2" size="11" maxlength="10" value="<?= date(SystemConfig::getValue("sDatePickerFormat")) ?>" class="date-picker  form-control"  placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>"></td>
                   </tr>
                 </table>
@@ -450,22 +471,22 @@ require 'Include/Header.php';
     <div class="col-lg-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title"><?= gettext('Output Method:') ?></h3>
+          <h3 class="box-title"><?= _('Output Method:') ?></h3>
         </div>
         <div class="box-body">
           <div class="row">
             <div class="col-lg-3">
               <select name="Format" class="form-control input-sm">
-                <option value="Default"><?= gettext('CSV Individual Records') ?></option>
-                <option value="Rollup"><?= gettext('CSV Combine Families') ?></option>
-                <option value="AddToCart"><?= gettext('Add Individuals to Cart') ?></option>
+                <option value="Default"><?= _('CSV Individual Records') ?></option>
+                <option value="Rollup"><?= _('CSV Combine Families') ?></option>
+                <option value="AddToCart"><?= _('Add Individuals to Cart') ?></option>
               </select>
             </div>
             <div class="col-lg-4">
-              <label><?= gettext('Skip records with incomplete mail address') ?></label><input type="checkbox" name="SkipIncompleteAddr" value="1">
+              <label><?= _('Skip records with incomplete mail address') ?></label><input type="checkbox" name="SkipIncompleteAddr" value="1">
             </div>
             <div class="col-lg-5">
-              <input type="submit" class="btn btn-primary" value=<?= '"'.gettext('Create File').'"' ?> name="Submit">
+              <input type="submit" class="btn btn-primary" value=<?= '"'._('Create File').'"' ?> name="Submit">
             </div>
           </div>
         </div>
