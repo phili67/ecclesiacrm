@@ -22,6 +22,10 @@ use EcclesiaCRM\Utils\LabelUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use Propel\Runtime\Propel;
+
+$connection = Propel::getConnection();
+
 // Set the page title and include HTML header
 $sPageTitle = _('View Your Cart');
 require 'Include/Header.php'; ?>
@@ -138,10 +142,13 @@ if (!Cart::HasPeople()) {
                         LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID
                         LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
                     WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
-                $rsEmailList = RunQuery($sSQL);
+                
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+
                 $sEmailLink = '';
-                while (list($per_Email, $fam_Email) = mysqli_fetch_row($rsEmailList)) {
-                    $sEmail = MiscUtils::SelectWhichInfo($per_Email, $fam_Email, false);
+                while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+                    $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $per_Email['fam_Email'], false);
                     if ($sEmail) {
                         /* if ($sEmailLink) // Don't put delimiter before first email
                             $sEmailLink .= SessionUser::getUser()->MailtoDelimiter(); */
@@ -176,13 +183,16 @@ if (!Cart::HasPeople()) {
                             FROM person_per LEFT 
                             JOIN family_fam ON person_per.per_fam_ID = family_fam.fam_ID 
                         WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not SMS') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
-                $rsPhoneList = RunQuery($sSQL);
+                
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+
                 $sPhoneLink = '';
                 $sPhoneLinkSMS = '';
                 $sCommaDelimiter = ', ';
 
-                while (list($per_CellPhone, $fam_CellPhone) = mysqli_fetch_row($rsPhoneList)) {
-                    $sPhone = MiscUtils::SelectWhichInfo($per_CellPhone, $fam_CellPhone, false);
+                while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+                    $sPhone = MiscUtils::SelectWhichInfo($row['per_CellPhone'], $row['fam_CellPhone'], false);
                     if ($sPhone) {
                         /* if ($sPhoneLink) // Don't put delimiter before first phone
                             $sPhoneLink .= $sCommaDelimiter;  */
