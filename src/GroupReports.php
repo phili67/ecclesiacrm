@@ -20,11 +20,11 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\GroupPropMasterQuery;
 
 
 // Get all the groups
-$sSQL = 'SELECT * FROM group_grp ORDER BY grp_Name';
-$rsGroups = RunQuery($sSQL);
+$groups = GroupQuery::Create()->orderByName()->find();
 
 $groupName = "";
 
@@ -62,13 +62,15 @@ require 'Include/Header.php';
                         <div class="col-xs-6">
                             <label for="GroupID"><?= _('Select Group') ?>:</label>
                             <select id="GroupID" class="form-control input-sm" name="GroupID" onChange="UpdateRoles();">
-                                <?php
                                 // Create the group select drop-down
-                                echo '<option value="0">'._('None').'</option>';
-    while ($aRow = mysqli_fetch_array($rsGroups)) {
-        extract($aRow);
-        echo '<option value="'.$grp_ID.'">'.$grp_Name.'</option>';
-    } ?>
+                                <option value="0"><?= _('None') ?></option>
+                              <?php
+                                foreach ($groups as $group) {
+                              ?>
+                                <option value="<?= $group->getId()?>"><?= $group->getName() ?></option>
+                              <?php
+                                }
+                              ?>
                             </select>
                         </div>
                     </div>
@@ -134,9 +136,9 @@ require 'Include/Header.php';
                         } ?>>
                         <input type="hidden" Name="ReportModel" <?= 'value="'.$_POST['ReportModel'].'"' ?>>
 
-                        <?php
-                        $sSQL = 'SELECT prop_Field, prop_Name FROM groupprop_master WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-                                $rsPropFields = RunQuery($sSQL); ?>
+                      <?php
+                        $propFields = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId($iGroupID);
+                      ?>
 
                         <table align="center">
                             <tr>
@@ -157,10 +159,11 @@ require 'Include/Header.php';
                                 <td valign="top">&nbsp;:&nbsp;</td>
                                 <td class="TextColumn">
                                     <?php
-                                    if (mysqli_num_rows($rsPropFields) > 0) {
-                                        while ($aRow = mysqli_fetch_array($rsPropFields)) {
-                                            extract($aRow);
-                                            echo '<input type="checkbox" Name="'.$prop_Field.'enable" value="1">'.$prop_Name.'<br>';
+                                      if ($propFields->count() > 0) {
+                                        foreach ($propFields as $propField) {
+                                    ?>
+                                            <input type="checkbox" Name="<?= $propField->getField() ?>enable" value="1"><?= $propField->getName() ?><br>
+                                    <?php
                                         }
                                     } else {
                                         echo _('None');
@@ -181,7 +184,8 @@ require 'Include/Header.php';
         </div>
     </div>
 
-            <?php
-                            } ?>
+  <?php
+    } 
+  ?>
 
 <?php require 'Include/Footer.php' ?>

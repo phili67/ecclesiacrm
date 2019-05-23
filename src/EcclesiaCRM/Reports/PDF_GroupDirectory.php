@@ -9,19 +9,39 @@ class PDF_GroupDirectory extends ChurchInfoReport
 {
     // Private properties
     public $_Margin_Left = 0;         // Left Margin
-    public $_Margin_Top = 0;         // Top margin
-    public $_Char_Size = 12;        // Character size
+    public $_Margin_Top = 0;          // Top margin
+    public $_Char_Size = 12;          // Character size
     public $_CurLine = 0;
     public $_Column = 0;
     public $_Font = 'Times';
     public $sFamily;
     public $sLastName;
+    
+    protected $sGroupName = "";
+    protected $sRoleName  = "";
+
+    // Constructor
+    public function __construct($GroupName, $RoleName)
+    {
+        parent::__construct('P', 'mm', $this->paperFormat);
+
+        $this->sGroupName = $GroupName;
+        $this->sRoleName  = $RoleName;
+        $this->_Column = 0;
+        $this->_CurLine = 2;
+        $this->_Font = 'Times';
+        $this->SetMargins(0, 0);
+        $this->Set_Char_Size(12);
+        $this->AddPage();
+        $this->SetAutoPageBreak(false);
+
+        $this->_Margin_Left = 12;
+        $this->_Margin_Top = 12;
+    }
 
     public function Header()
     {
         if ($this->PageNo() == 1) {
-            global $sGroupName;
-            global $sRoleName;
             //Select Arial bold 15
             $this->SetFont($this->_Font, 'B', 15);
             //Line break
@@ -29,9 +49,9 @@ class PDF_GroupDirectory extends ChurchInfoReport
             //Move to the right
             $this->Cell(10);
             //Framed title
-            $sTitle = $sGroupName.' - '. OutputUtils::translate_text_fpdf(gettext('Group Directory'));
-            if (strlen($sRoleName)) {
-                $sTitle .= ' ('.OutputUtils::translate_text_fpdf(gettext($sRoleName)).')';
+            $sTitle = OutputUtils::translate_text_fpdf($this->sGroupName).' - '. OutputUtils::translate_text_fpdf(_('Group Directory'));
+            if (strlen($this->sRoleName)) {
+                $sTitle .= ' ('.OutputUtils::translate_text_fpdf(_($this->sRoleName)).')';
             }
             $this->Cell(197, 10, $sTitle, 1, 0, 'C');
         }
@@ -55,23 +75,6 @@ class PDF_GroupDirectory extends ChurchInfoReport
             $this->_Char_Size = $pt;
             $this->SetFont($this->_Font, '', $this->_Char_Size);
         }
-    }
-
-    // Constructor
-    public function __construct()
-    {
-        parent::__construct('P', 'mm', $this->paperFormat);
-
-        $this->_Column = 0;
-        $this->_CurLine = 2;
-        $this->_Font = 'Times';
-        $this->SetMargins(0, 0);
-        $this->Set_Char_Size(12);
-        $this->AddPage();
-        $this->SetAutoPageBreak(false);
-
-        $this->_Margin_Left = 12;
-        $this->_Margin_Top = 12;
     }
 
     public function Check_Lines($numlines)
