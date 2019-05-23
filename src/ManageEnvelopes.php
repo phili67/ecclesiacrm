@@ -48,8 +48,6 @@ if (isset($_POST['ClassificationFamily'])) {
   $iClassificationFamily = 0;
 }
 
-echo $iClassificationFamily;
-
 if (isset($_POST['SortBy'])) {
     $sSortBy = $_POST['SortBy'];
 } else {
