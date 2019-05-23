@@ -10,7 +10,6 @@
 namespace EcclesiaCRM\dto;
 
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonQuery;
 
 class EnvelopeUtilities
