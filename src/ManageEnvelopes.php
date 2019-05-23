@@ -13,6 +13,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
@@ -37,6 +38,17 @@ if (isset($_POST['Classification'])) {
 } else {
     $iClassification = 0;
 }
+
+if (isset($_POST['ClassificationFamily'])) {
+  $iClassificationFamily = $_POST['ClassificationFamily'];
+  $_SESSION['ClassificationFamily'] = $iClassificationFamily;
+} elseif (isset($_SESSION['ClassificationFamily'])) {
+    $iClassificationFamily = $_SESSION['ClassificationFamily'];
+} else {
+  $iClassificationFamily = 0;
+}
+
+echo $iClassificationFamily;
 
 if (isset($_POST['SortBy'])) {
     $sSortBy = $_POST['SortBy'];
@@ -91,7 +103,7 @@ require 'Include/Header.php';
 ?>
 
 <div class="box box-body">
-<form method="post" action="ManageEnvelopes.php" name="ManageEnvelopes">
+<form method="post" action="<?= SystemURLs::getRootPath() ?>/ManageEnvelopes.php" name="ManageEnvelopes">
 <?php
 
 $duplicateEnvelopeHash = [];
@@ -101,12 +113,8 @@ $updateEnvelopes = 0;
 if (isset($_POST['PrintReport'])) {
     RedirectUtils::Redirect('Reports/EnvelopeReport.php');
 } elseif (isset($_POST['AssignAllFamilies'])) {
-    $newEnvNum = $iAssignStartNum;
-    $envelopesToWrite = []; // zero it out
-    foreach ($familyArray as $fam_ID => $fam_Data) {
-        $envelopesByFamID[$fam_ID] = $newEnvNum;
-        $envelopesToWrite[$fam_ID] = $newEnvNum++;
-    }
+    EnvelopeUtilities::EnvelopeAssignAllFamilies($iClassificationFamily);
+    RedirectUtils::Redirect('ManageEnvelopes.php');
 } elseif (isset($_POST['ZeroAll'])) {
     $envelopesByFamID = []; // zero it out
     foreach ($familyArray as $fam_ID => $fam_Data) {
@@ -117,37 +125,37 @@ if (isset($_POST['PrintReport'])) {
 
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEnvelopesModal"><?= gettext('Update Family Records') ?></button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateEnvelopesModal"><?= _('Update Family Records') ?></button>
 <button type="submit" class="btn btn-success" name="PrintReport"><i class="fa fa-print"></i></button>
 
 <br><br>
 
 <!-- Modal -->
 <div class="modal fade" id="updateEnvelopesModal" tabindex="-1" role="dialog" aria-labelledby="updateEnvelopesModal" aria-hidden="true">
-    <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="upload-Image-label"><?= gettext('Update Envelopes') ?></h4>
-                </div>
-                <div class="modal-body">
-                <span style="color:red"><?= gettext('This will overwrite the family envelope numbers in the database with those selected on this page.  Continue?')?></span>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="<?= gettext('Confirm') ?>" name="Confirm">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><?= gettext('Cancel') ?></button>
-                </div>
-            </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="upload-Image-label"><?= _('Update Envelopes') ?></h4>
+        </div>
+        <div class="modal-body">
+        <span style="color:red"><?= _('This will overwrite the family envelope numbers in the database with those selected on this page.  Continue?')?></span>
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="<?= _('Confirm') ?>" name="Confirm">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><?= _('Cancel') ?></button>
+        </div>
     </div>
+  </div>
 </div>
 
 <div class="row">
-   <div class="col-md-2">
-      <b><?= gettext('Family Select')?></b> <?= gettext('with at least one:'); ?>
-   </div>
    <div class="col-md-1">
+      <b><?= _('Family Select')?></b> <?= _('with at least one:'); ?>
+   </div>
+   <div class="col-md-2">
         <select class="form-control" name="Classification">
-          <option value="0"><?= gettext('All') ?></option>
+          <option value="0"><?= _('All') ?></option>
         <?php
           foreach ($classification as $lst_OptionID => $lst_OptionName) {
         ?>
@@ -158,26 +166,38 @@ if (isset($_POST['PrintReport'])) {
         </select>
    </div>
    <div class="col-md-3">
-        <input type="submit" class="btn btn-default" value="<?= gettext('Sort by') ?>" name="Sort">
+        <input type="submit" class="btn btn-default" value="<?= _('Sort by') ?>" name="Sort">
         <input type="radio" Name="SortBy" value="name"
         <?php if ($sSortBy == 'name') {
             echo ' checked';
-        } ?>><?= gettext('Last Name') ?>
+        } ?>><?= _('Last Name') ?>
         <input type="radio" Name="SortBy" value="envelope"
         <?php if ($sSortBy == 'envelope') {
             echo ' checked';
-        } ?>><?= gettext('Envelope Number') ?>
+        } ?>><?= _('Envelope Number') ?>
     </div>
    <div class="col-md-2">
         <b>Envelope</b>
-        <input type="submit" class="btn  btn-default" value="<?= gettext('Zero') ?>"
+        <input type="submit" class="btn  btn-default" value="<?= _('Zero') ?>"
                  name="ZeroAll">
    </div>
-   <div class="col-md-2">
-        <input type="submit" class="btn btn-default" value="<?= gettext('Assign starting at #') ?>"
-                 name="AssignAllFamilies">
+   <div class="col-md-1">
+        <select class="form-control" name="ClassificationFamily">
+          <option value="0"><?= _('All') ?></option>
+        <?php
+          foreach ($classification as $lst_OptionID => $lst_OptionName) {
+        ?>
+          <option value="<?= $lst_OptionID ?>" <?= ($iClassificationFamily == $lst_OptionID)?' selected':"" ?>><?= $lst_OptionName ?>&nbsp;
+        <?php
+          }
+        ?>
+        </select>
    </div>
    <div class="col-md-2">
+        <input type="submit" class="btn btn-default" value="<?= _('Assign starting at #') ?>"
+                 name="AssignAllFamilies">
+   </div>
+   <div class="col-md-1">
         <input type="text" class="form-control" name="AssignStartNum" value="<?= $iAssignStartNum ?>">
     </div>
 </div>

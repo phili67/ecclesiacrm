@@ -11,52 +11,46 @@ namespace EcclesiaCRM\dto;
 
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonQuery;
 
 class EnvelopeUtilities
 {
 
-  // Figure out the class ID for "Member", should be one (1) unless they have been playing with the
-  // classification manager.
-  public static function FindMemberClassID()// in public static function.php at the beginning
+  public static function EnvelopeAssignAllFamilies($member_type)
   {
-      $lists = ListOptionQuery::Create()->orderByOptionSequence()->findById (1);
-    
-      foreach ($lists as $list) {
-        if ($list->getOptionName() == _('Member')) {
-          return $lst_OptionID;
-        }
+      $persons = PersonQuery::Create();
+      if ($member_type) {
+          $persons->filterByClsId ($member_type);
       }
-    
-      return 1;
-  }
-
-  public static function EnvelopeAssignAllFamilies($bMembersOnly)
-  {
-      $sSQL = 'SELECT per_fam_ID, per_LastName FROM person_per';
-      if ($bMembersOnly) {
-          $sSQL .= ' WHERE per_cls_ID='.EnvelopeUtilities::FindMemberClassID();
-      }
-      $sSQL .= ' ORDER BY per_LastName';
-      $rsPeople = RunQuery($sSQL);
-
+      
+      $persons->orderByLastName()->find();
+      
       $ind = 0;
       $famArr = [];
+      foreach ($persons as $person) {
+        $famArr[$ind++] = $person->getFamId();
+      }
       while ($aRow = mysqli_fetch_array($rsPeople)) {
           extract($aRow);
           $famArr[$ind++] = $per_fam_ID;
       }
-
+      
       $famUnique = array_unique($famArr);
-
-      $envelopeNo = 1;
+      
+      $maxFamily = FamilyQuery::Create()->withColumn('MAX(fam_Envelope)','Max')->findOne();
+      
+      $envelopeNo = $maxFamily->getMax()+1;
       foreach ($famUnique as $oneFam) {
-          $sSQL = "UPDATE family_fam SET fam_Envelope='".$envelopeNo++."' WHERE fam_ID='".$oneFam."';";
-          RunQuery($sSQL);
+          $family = FamilyQuery::Create()->findOneById ($oneFam);
+          if (!is_null($family) && $family->getEnvelope() == 0) {
+             $family->setEnvelope($envelopeNo++);
+             $family->save();
+          }
       }
-      if ($bMembersOnly) {
-          return gettext('Assigned envelope numbers to all families with at least one member.');
+      if ($member_type) {
+          return _('Assigned envelope numbers to all families with at least one member.');
       } else {
-          return gettext('Assigned envelope numbers to all families.');
+          return _('Assigned envelope numbers to all families.');
       }
   }
 
@@ -64,7 +58,7 @@ class EnvelopeUtilities
   public static function getEnvelopes ($classification) 
   {
     if ($classification) {
-          $families = FamilyQuery::Create()->usePerson()->filterByClsId ($classification)->endUse();
+          $families = FamilyQuery::Create()->usePersonQuery()->filterByDateDeactivated(null)->filterByClsId ($classification)->endUse();// GDPR
     } else {
           $families = FamilyQuery::Create();
     }
