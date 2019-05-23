@@ -18,7 +18,11 @@ use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\CanvassDataQuery;
+use EcclesiaCRM\CanvassData;
+use EcclesiaCRM\FamilyQuery;
 
 // Security: User must have canvasser permission to use this form
 if (!SessionUser::getUser()->isCanvasserEnabled()) {
@@ -40,13 +44,11 @@ $sDateError = '';
 $bNotInterested = false;
 
 //Get Family name
-$sSQL = 'SELECT fam_Name FROM family_fam where fam_ID = '.$iFamily;
-$rsFamily = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsFamily));
+$family = FamilyQuery::Create()->findOneById ($iFamily);
 
 $fyStr = MiscUtils::MakeFYString($iFYID);
 
-$sPageTitle = _($fyStr.' '._('Canvass Input for the').' '.$fam_Name.' '._('family'));
+$sPageTitle = _($fyStr.' '._('Canvass Input for the').' '.$family->getName().' '._('family'));
 
 //Is this the second pass?
 if (isset($_POST['Submit'])) {
@@ -68,41 +70,40 @@ if (isset($_POST['Submit'])) {
 
     // New canvas input (add)
     if ($iCanvassID < 1) {
-        $sSQL = 'INSERT INTO canvassdata_can (can_famID, can_Canvasser, can_FYID, can_date, can_Positive,
-                                          can_Critical, can_Insightful, can_Financial, can_Suggestion,
-                        can_NotInterested, can_WhyNotInterested)
-          VALUES ('.$iFamily.','.
-                            $iCanvasser.','.
-                            $iFYID.','.
-                            '"'.$dDate.'",'.
-                            '"'.$tPositive.'",'.
-                            '"'.$tCritical.'",'.
-                            '"'.$tInsightful.'",'.
-                            '"'.$tFinancial.'",'.
-                            '"'.$tSuggestion.'",'.
-                            '"'.$bNotInterested.'",'.
-                            '"'.$tWhyNotInterested.'")';
+        $canvas = new CanvassData();
+        
+        $canvas->setFamilyId($iFamily);
+        $canvas->setCanvasser($iCanvasser);
+        $canvas->setFyid($iFYID);
+        $canvas->setDate($dDate);
+        $canvas->setPositive($tPositive);
+        $canvas->setCritical($tCritical);
+        $canvas->setInsightful($tInsightful);
+        $canvas->setFinancial($tFinancial);
+        $canvas->setSuggestion($tSuggestion);
+        $canvas->setNotInterested($bNotInterested);
+        $canvas->setWhyNotInterested($tWhyNotInterested);
+        
+        $canvas->save();
+
         //Execute the SQL
-        RunQuery($sSQL);
-        $sSQL = 'SELECT MAX(can_ID) AS iCanvassID FROM canvassdata_can';
-        $rsLastEntry = RunQuery($sSQL);
-        $newRec = mysqli_fetch_array($rsLastEntry);
-        $iCanvassID = $newRec['iCanvassID'];
+        $iCanvassID = $canvas->getId();
     } else {
-        $sSQL = 'UPDATE canvassdata_can SET can_famID='.$iFamily.','.
-                                          'can_Canvasser='.$iCanvasser.','.
-                                          'can_FYID='.$iFYID.','.
-                                          'can_date="'.$dDate.'",'.
-                                          'can_Positive="'.$tPositive.'",'.
-                                          'can_Critical="'.$tCritical.'",'.
-                                          'can_Insightful="'.$tInsightful.'",'.
-                                          'can_Financial="'.$tFinancial.'",'.
-                                          'can_Suggestion="'.$tSuggestion.'",'.
-                                          'can_NotInterested="'.$bNotInterested.'",'.
-                                          'can_WhyNotInterested="'.$tWhyNotInterested.
-                                          '" WHERE can_FamID = '.$iFamily;
-        //Execute the SQL
-        RunQuery($sSQL);
+        $canvas = CanvassDataQuery::Create()->findOneByFamilyId ($iFamily);
+        
+        $canvas->setFamilyId($iFamily);
+        $canvas->setCanvasser($iCanvasser);
+        $canvas->setFyid($iFYID);
+        $canvas->setDate($dDate);
+        $canvas->setPositive($tPositive);
+        $canvas->setCritical($tCritical);
+        $canvas->setInsightful($tInsightful);
+        $canvas->setFinancial($tFinancial);
+        $canvas->setSuggestion($tSuggestion);
+        $canvas->setNotInterested($bNotInterested);
+        $canvas->setWhyNotInterested($tWhyNotInterested);
+        
+        $canvas->save();
     }
 
     if (isset($_POST['Submit'])) {
@@ -114,22 +115,20 @@ if (isset($_POST['Submit'])) {
         }
     }
 } else {
-    $sSQL = 'SELECT * FROM canvassdata_can WHERE can_famID = '.$iFamily.' AND can_FYID='.$iFYID;
-    $rsCanvass = RunQuery($sSQL);
-    if (mysqli_num_rows($rsCanvass) > 0) {
-        extract(mysqli_fetch_array($rsCanvass));
-
-        $iCanvassID = $can_ID;
-        $iCanvasser = $can_Canvasser;
-        $iFYID = $can_FYID;
-        $dDate = $can_date;
-        $tPositive = $can_Positive;
-        $tCritical = $can_Critical;
-        $tInsightful = $can_Insightful;
-        $tFinancial = $can_Financial;
-        $tSuggestion = $can_Suggestion;
-        $bNotInterested = $can_NotInterested;
-        $tWhyNotInterested = $can_WhyNotInterested;
+    $canvas = CanvassDataQuery::Create()->filterByFyid($iFYID)->findOneByFamilyId ($iFamily);
+    
+    if (!is_null ($canvas)) {
+        $iCanvassID         = $canvas->getId();
+        $iCanvasser         = $canvas->getCanvasser();
+        $iFYID              = $canvas->getFyid();
+        $dDate              = $canvas->getDate()->format('Y-m-d');
+        $tPositive          = $canvas->getPositive();
+        $tCritical          = $canvas->getCritical();
+        $tInsightful        = $canvas->getInsightful();
+        $tFinancial         = $canvas->getFinancial();
+        $tSuggestion        = $canvas->getSuggestion();
+        $bNotInterested     = $canvas->getNotInterested();
+        $tWhyNotInterested  = $canvas->getWhyNotInterested();
     } else {
         // Set some default values
         $iCanvasser = SessionUser::getUser()->getPersonId();
@@ -154,7 +153,7 @@ require 'Include/Header.php';
 ?>
 
 <div class="box box-body">
-<form method="post" action="CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
+<form method="post" action="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
 
 <?php
     if (($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) ||
