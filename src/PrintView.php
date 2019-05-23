@@ -20,8 +20,6 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\Reports\ChurchInfoReport;
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\PersonCustomMasterQuery;
@@ -36,7 +34,6 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Map\NoteTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\Service\TimelineService;
 
 
 use EcclesiaCRM\GroupPropMasterQuery;
@@ -503,7 +500,7 @@ require 'Include/Header-Short.php';
   ?>
   </table>
 <?php
-        }
+  }
 ?>
 <BR>
 <b><?= _('Assigned Groups') ?>:</b>
