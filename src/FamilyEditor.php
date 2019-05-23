@@ -14,28 +14,33 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\dto\StateDropDown;
+use EcclesiaCRM\dto\CountryDropDown;
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\Bootstrapper;
+use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
+
 use EcclesiaCRM\Note;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person;
 use EcclesiaCRM\Family;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\Utils\RedirectUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Emails\NewPersonOrFamilyEmail;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\PersonCustom;
 use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\FamilyCustom;
 use EcclesiaCRM\FamilyCustomQuery;
-use EcclesiaCRM\dto\StateDropDown;
-use EcclesiaCRM\dto\CountryDropDown;
-use EcclesiaCRM\SessionUser;
-use EcclesiaCRM\Bootstrapper;
-use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\Record2propertyR2pQuery;
+use EcclesiaCRM\Record2propertyR2p;
+
+use Propel\Runtime\Propel;
 
 
 //Set the page title
@@ -80,7 +85,6 @@ $rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 $ormCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->find();
-
 
 // only the left custom fields
 $ormLeftCustomFields = FamilyCustomMasterQuery::Create()
@@ -360,6 +364,8 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             
             $family->save();
             
+            $iFamilyID = $family->getId();
+            
             $bGetKeyBack = true;
         } else {// edition family
             $family = FamilyQuery::Create()
@@ -413,18 +419,18 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         //If the user added a new record, we need to key back to the route to the FamilyView page
         if ($bGetKeyBack) {
             //Get the key back
-            $sSQL = 'SELECT MAX(fam_ID) AS iFamilyID FROM family_fam';
-            $rsLastEntry = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsLastEntry));
-
             $familyCustom=new FamilyCustom();
             $familyCustom->setFamId($iFamilyID);
             $familyCustom->save();
 
             // Add property if assigned
             if ($iPropertyID) {
-                $sSQL = "INSERT INTO record2property_r2p (r2p_pro_ID, r2p_record_ID) VALUES ($iPropertyID, $iFamilyID)";
-                RunQuery($sSQL);
+                $familyProperty = new Record2propertyR2p();
+                
+                $familyProperty->setR2pRecordId($iFamilyID);
+                $familyProperty->setR2pProId($iPropertyID);
+                
+                $familyProperty->save();
             }
 
             //Run through the family member arrays...
@@ -441,7 +447,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                         $sLastNameToEnter = $sName;
                     }
                     
-                    //RunQuery('LOCK TABLES person_per WRITE, person_custom WRITE');
+                    //RunKuery('LOCK TABLES person_per WRITE, person_custom WRITE');
                     $person = new Person();
                     $person->setFirstName($aFirstNames[$iCount]);
                     $person->setMiddleName($aMiddleNames[$iCount]);
@@ -471,10 +477,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $personCustom->setPerId($dbPersonId);
                     $personCustom->save();
                         
-                    /*$sSQL = 'INSERT INTO person_custom (per_ID) VALUES ('
-                                .$dbPersonId.')';
-                    RunQuery($sSQL);*/
-                    //RunQuery('UNLOCK TABLES');
+                    //RunKuery('UNLOCK TABLES');
                 }
             }
             $family = FamilyQuery::create()->findPk($iFamilyID);
@@ -501,7 +504,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                         $sLastNameToEnter = $sName;
                     }
                     $sBirthYearScript = ($aUpdateBirthYear[$iCount] & 1) ? 'per_BirthYear='.$aBirthYears[$iCount].', ' : '';
-                    //RunQuery("LOCK TABLES person_per WRITE, person_custom WRITE");
+                    //RunKuery("LOCK TABLES person_per WRITE, person_custom WRITE");
                     $person = PersonQuery::Create()
                                 ->findOneById($aPersonIDs[$iCount]);
                                 
@@ -518,7 +521,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $person->setDateEntered(date('YmdHis'));
                     $person->setEnteredBy(SessionUser::getUser()->getPersonId());
                     $person->save();
-                    //RunQuery("UNLOCK TABLES");
+                    //RunKuery("UNLOCK TABLES");
 
                     $note = new Note();
                     $note->setPerId($aPersonIDs[$iCount]);
@@ -546,8 +549,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
 
             $sSQL .= ', fam_ID = '.$iFamilyID;
 
-            //Execute the SQL
-            RunQuery($sSQL);
+            $connection = Propel::getConnection();
+
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
         }
 
         //Which submit button did they press?
@@ -565,25 +570,24 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     if ($iFamilyID > 0) {
         //Editing....
         //Get the information on this family
-        $family = FamilyQuery::Create()
-                  ->findOneById($iFamilyID);
-        $iFamilyID = $family->getId();
-        $sName = $family->getName();
-        $sAddress1 = $family->getAddress1();
-        $sAddress2 = $family->getAddress2();
-        $sCity = $family->getCity();
-        $sState = $family->getState();
-        $sZip = $family->getZip();
-        $sCountry = $family->getCountry();
+        $family = FamilyQuery::Create()->findOneById($iFamilyID);
+        $iFamilyID  = $family->getId();
+        $sName      = $family->getName();
+        $sAddress1  = $family->getAddress1();
+        $sAddress2  = $family->getAddress2();
+        $sCity      = $family->getCity();
+        $sState     = $family->getState();
+        $sZip       = $family->getZip();
+        $sCountry   = $family->getCountry();
         $sHomePhone = $family->getHomePhone();
         $sWorkPhone = $family->getWorkPhone();
         $sCellPhone = $family->getCellPhone();
-        $sEmail = $family->getEmail();
+        $sEmail     = $family->getEmail();
         $bSendNewsLetter = ($family->getSendNewsletter() == 'TRUE');
         $bOkToCanvass = ($family->getOkToCanvass() == 'TRUE');
         $iCanvasser = $family->getCanvasser();
         $dWeddingDate = ($family->getWeddingdate() != null)?$family->getWeddingdate()->format("Y-M-d"):"";
-        $nLatitude = $family->getLatitude();
+        $nLatitude  = $family->getLatitude();
         $nLongitude = $family->getLongitude();
 
         // Expand the phone number
@@ -591,10 +595,18 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $sWorkPhone = MiscUtils::ExpandPhoneNumber($sWorkPhone, $sCountry, $bNoFormat_WorkPhone);
         $sCellPhone = MiscUtils::ExpandPhoneNumber($sCellPhone, $sCountry, $bNoFormat_CellPhone);
 
-        $sSQL = 'SELECT * FROM family_custom WHERE fam_ID = '.$iFamilyID;
-        $rsCustomData = RunQuery($sSQL);
-        $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
+        $famCustom  = FamilyCustomQuery::Create()->findOneByFamId($iFamilyID);
+        
+        // get family with all the extra columns created
+        $rawQry =  FamilyCustomQuery::create();
+        foreach ($ormCustomFields as $customfield ) {
+           $rawQry->withColumn($customfield->getCustomField());
+        }
 
+        if (!is_null($rawQry->findOneByFamId($iFamilyID))) {
+          $aCustomData = $rawQry->findOneByFamId($iFamilyID)->toArray();
+        }
+      
         $aCustomErrors = [];
 
         if ($numCustomFields > 0) {
@@ -1028,8 +1040,9 @@ require 'Include/Header.php';
     <td colspan="2">
     <div class="MediumText">
       <center><b><?= $iFamilyID < 0 ? _('You may create family members now or add them later.  All entries will become <i>new</i> person records.') : '' ?></b></center>
-    </div><br><br>
-            <div class="table-responsive">
+    </div>
+    <br><br>
+    <div class="table-responsive">
     <table cellpadding="3" cellspacing="0" width="100%">
     <thead>
     <tr class="TableHeader" align="center">
@@ -1191,33 +1204,40 @@ require 'Include/Header.php';
                     echo 'selected';
                 } ?>><?= _('Unassigned') ?></option>
           <option value="0" disabled>-----------------------</option>
-          <?php
-            //Get Classifications for the drop-down
-            $ormClassifications = ListOptionQuery::Create()
-                    ->orderByOptionSequence()
-                    ->findById(1);
-        
-            foreach ($ormClassifications as $rowClassification) {
-                echo '<option value="'.$rowClassification->getOptionId().'"';
-                if ($aClassification[$iCount] == $rowClassification->getOptionId()) {
-                    echo ' selected';
-                }
-                echo '>'.$rowClassification->getOptionName().'&nbsp;';            
-            }
-
-            echo '</select></td></tr>';
+        <?php
+          //Get Classifications for the drop-down
+          $ormClassifications = ListOptionQuery::Create()
+                  ->orderByOptionSequence()
+                  ->findById(1);
+      
+          foreach ($ormClassifications as $rowClassification) {
+        ?>
+          <option value="<?= $rowClassification->getOptionId() ?>"<?= ($aClassification[$iCount] == $rowClassification->getOptionId())?' selected':''?>>
+            <?= $rowClassification->getOptionName()?>&nbsp;
+        <?php
+          }
+        ?>
+        </select>
+      </td>
+    </tr>
+  <?php
         }
-        echo '</table></div>';
-
-        echo '</div></div>';
+  ?>
+  </table>
+</div>
+</div></div>
+<?php
     }
+?>
 
-    echo '<td colspan="2" align="center">';
-    echo '<input type="hidden" Name="UpdateBirthYear" value="'.$UpdateBirthYear.'">';
-
-    echo '<input type="submit" class="btn btn-primary" value="'._('Save').'" Name="FamilySubmit"> ';
-    if (SessionUser::getUser()->isAddRecordsEnabled()) {
-        echo ' <input type="submit" class="btn btn-info" value="'._('Save and Add').'" name="FamilySubmitAndAdd"> ';
+  <td colspan="2" align="center">
+    <input type="hidden" Name="UpdateBirthYear" value="<?= $UpdateBirthYear ?>">
+    <input type="submit" class="btn btn-primary" value="<?= _('Save') ?>" Name="FamilySubmit">
+<?php
+  if (SessionUser::getUser()->isAddRecordsEnabled()) {
+?>
+    <input type="submit" class="btn btn-info" value="<?= _('Save and Add') ?>" name="FamilySubmitAndAdd">
+<?php
     }
     echo ' <input type="button" class="btn" value="'._('Cancel').'" Name="FamilyCancel"';
     if ($iFamilyID > 0) {
@@ -1225,8 +1245,8 @@ require 'Include/Header.php';
     } else {
         echo " onclick=\"javascript:document.location='FamilyList.php';\">";
     }
-    echo '</td></tr></form></table>';
 ?>
+</td></tr></form></table>
 
   <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
     $(function() {
