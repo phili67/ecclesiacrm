@@ -19,6 +19,10 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\GroupPropMasterQuery;
+use Propel\Runtime\Propel;
 
 
 $bOnlyCartMembers = $_POST['OnlyCart'];
@@ -31,31 +35,32 @@ if ($iMode == 1) {
     $iRoleID = 0;
 }
 
+    $connection = Propel::getConnection();
+    
+    
     // Get the group name
-    $sSQL = 'SELECT grp_Name, grp_RoleListID FROM group_grp WHERE grp_ID = '.$iGroupID;
-    $rsGroupName = RunQuery($sSQL);
-    $aRow = mysqli_fetch_array($rsGroupName);
-    $sGroupName = $aRow[0];
-    $iRoleListID = $aRow[1];
-
+    $group = GroupQuery::Create()->findOneById ($iGroupID);
+    $sGroupName  = $group->getName();
+    $iRoleListID = $group->getRoleListId();
+    
     // Get the selected role name
     if ($iRoleID > 0) {
-        $sSQL = 'SELECT lst_OptionName FROM list_lst WHERE lst_ID = '.$iRoleListID.' AND lst_OptionID = '.$iRoleID;
-        $rsTemp = RunQuery($sSQL);
-        $aRow = mysqli_fetch_array($rsTemp);
-        $sRoleName = $aRow[0];
+        $list      = ListOptionQuery::Create()->filterById ($iRoleListID)->findOneByOptionId($iRoleID);
+        $sRoleName = $list->getOptionName();
     } elseif (isset($_POST['GroupRoleEnable'])) {
-        $sSQL = 'SELECT lst_OptionName,lst_OptionID FROM list_lst WHERE lst_ID = '.$iRoleListID;
-        $rsTemp = RunQuery($sSQL);
-
-        while ($aRow = mysqli_fetch_array($rsTemp)) {
-            $aRoleNames[$aRow[1]] = $aRow[0];
+        $lists = ListOptionQuery::Create()->findById ($iRoleListID);
+        
+        foreach ($lists as $list) {
+          $aRoleNames[$list->getOptionId()] = $list->getOptionName();
         }
     }
 
-    $pdf = new PDF_GroupDirectory();
+    $pdf = new PDF_GroupDirectory($sGroupName,$sRoleName);
 
     // See if this group has special properties.
+    $props = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId ($iGroupID);
+    $bHasProps = ($props->count() > 0);
+    
     $sSQL = 'SELECT * FROM groupprop_master WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
     $rsProps = RunQuery($sSQL);
     $bHasProps = (mysqli_num_rows($rsProps) > 0);
@@ -80,13 +85,14 @@ if ($iMode == 1) {
 
     $sSQL .= ' ORDER BY per_LastName';
 
-    $rsRecords = RunQuery($sSQL);
+    $statement = $connection->prepare($sSQL);
+    $statement->execute();
 
     // This is used for the headings for the letter changes.
     // Start out with something that isn't a letter to force the first one to work
     // $sLastLetter = "0";
 
-    while ($aRow = mysqli_fetch_array($rsRecords)) {
+    while ($aRow = $statement->fetch( \PDO::FETCH_BOTH )) {
         $OutStr = '';
 
         $pdf->sFamily = OutputUtils::FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], $aRow['per_MiddleName'], $aRow['per_LastName'], $aRow['per_Suffix'], 3);
@@ -141,15 +147,14 @@ if ($iMode == 1) {
         }
 
         if ($bHasProps) {
-            while ($aPropRow = mysqli_fetch_array($rsProps)) {
-                if (isset($_POST[$aPropRow['prop_Field'].'enable'])) {
-                    $currentData = trim($aRow[$aPropRow['prop_Field']]);
+            foreach ($props as $prop) {
+                if (isset($_POST[$prop->getField().'enable'])) {
+                    $currentData = trim($aRow[$prop->getField()]);
                     if (!empty($currentData)) {
-                      $OutStr .= $aPropRow['prop_Name'].': '.OutputUtils::displayCustomField($aPropRow['type_ID'], $currentData, $aPropRow['prop_Special'],false)."\n";
+                      $OutStr .= $prop->getName().': '.OutputUtils::displayCustomField($prop->getTypeId(), $currentData, $prop->getSpecial(),false)."\n";
                     }
                 }
             }
-            mysqli_data_seek($rsProps, 0);
         }
 
         // Count the number of lines in the output string
