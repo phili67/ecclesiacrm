@@ -94,7 +94,7 @@ if ($classList[0] && $notInClassList != '()' && $inClassList != '()') {
 if (!$criteria) {
     $criteria = ' 1';
 }
-$sSQL .= $criteria.' ORDER BY fam_Name';
+$sSQL .= $criteria;
 
 // Filter by Family
 if (!empty($_POST['family'])) {
@@ -114,6 +114,9 @@ if (!empty($_POST['family'])) {
         $sSQL .= ') ';
     }
 }
+
+$sSQL .= ' ORDER BY fam_Name';
+
 $rsFamilies = RunQuery($sSQL);
 
 $sSQLFundCriteria = '';
