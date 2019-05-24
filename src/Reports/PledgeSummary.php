@@ -90,7 +90,7 @@ if (!empty($_POST['funds'])) {
 }
  
 $pledges->useDonationFundQuery()
-        //->orderByActive() // this can be done due to the algorithm below
+        //->orderByActive() // this can't be done due to the algorithm below
         //->orderByName()
         ->endUse()
         ->orderByFamId()
