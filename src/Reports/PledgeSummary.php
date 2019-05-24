@@ -4,18 +4,24 @@
 *  filename    : Reports/ReminderReport.php
 *  last change : 2005-03-26
 *  description : Creates a PDF of the current deposit slip
-
+*  Copyright   : Philippe Logel 2019 all rights reserved
+*
 ******************************************************************************/
 
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+
+use EcclesiaCRM\DonationFundQuery;
+use EcclesiaCRM\PledgeQuery;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
@@ -37,59 +43,61 @@ if (!SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getValue('bCSVA
     exit;
 }
 
+$connection = Propel::getConnection();
+
 // Get the list of funds
-$sSQL = "SELECT fun_ID,fun_Name,fun_Description,fun_Active FROM donationfund_fun WHERE fun_Active = 'true' ORDER BY fun_Active, fun_Name";
-$rsFunds = RunQuery($sSQL);
+$funds = DonationFundQuery::Create()->orderByActive()->orderByName()->findByActive('true');
 
 $overpaid = [];
 $underpaid = [];
 $pledgeFundTotal = [];
 $paymentFundTotal = [];
 
-while ($row = mysqli_fetch_array($rsFunds)) {
-    $fun_name = $row['fun_Name'];
+foreach ($funds as $fund) {
+    $fun_name = $fund->getName();
     $overpaid[$fun_name] = 0;
     $underpaid[$fun_name] = 0;
     $paymentCnt[$fun_name] = 0;
     $pledgeCnt[$fun_name] = 0;
     $pledgeFundTotal[$fun_name] = 0;
-    $paymentFundTotal[$fun_name] = 0;
+    $paymentFundTotal[$fun_name] = 0;  
 }
+
 $pledgeFundTotal['Unassigned'] = 0;
 $paymentFundTotal['Unassigned'] = 0;
 $paymentCnt['Unassigned'] = 0;
 $pledgeCnt['Unassigned'] = 0;
 
 // Get pledges and payments for this fiscal year
-$sSQL = 'SELECT plg_plgID, plg_FYID, plg_amount, plg_PledgeOrPayment, plg_fundID, plg_famID, b.fun_Name AS fundName, b.fun_Active AS fundActive FROM pledge_plg 
-		 LEFT JOIN donationfund_fun b ON plg_fundID = b.fun_ID
-		 WHERE plg_FYID = '.$iFYID;
+$pledges = PledgeQuery::Create()
+            ->leftJoinDonationFund()
+              ->withColumn('donationfund_fun.fun_Active', 'fundActive')
+              ->withColumn('donationfund_fun.fun_Name', 'fundName')
+            ->filterByFyid ($iFYID);
 
- // Filter by Fund
- if (!empty($_POST['funds'])) {
+if (!empty($_POST['funds'])) {
      $count = 0;
      foreach ($_POST['funds'] as $fundID) {
-         $fund[$count++] = InputUtils::LegacyFilterInput($fundID, 'int');
+         $fund_buf[$count++] = InputUtils::LegacyFilterInput($fundID, 'int');
      }
      if ($count == 1) {
-         if ($fund[0]) {
-             $sSQL .= " AND plg_fundID='$fund[0]' ";
+         if ($fund_buf[0]) {
+             $pledges->filterByFundid ($fund_buf[0]);
          }
      } else {
-         $sSQL .= " AND (plg_fundID ='$fund[0]'";
-         for ($i = 1; $i < $count; $i++) {
-             $sSQL .= " OR plg_fundID='$fund[$i]'";
-         }
-         $sSQL .= ') ';
+         $pledges->filterByFundid ($fund_buf);
      }
- }
-// Order by Fund Active, Fund Name
-//$sSQL .= " ORDER BY fundActive, fundName";
-// Order by Family so the related pledges and payments will be together
-$sSQL .= ' ORDER BY plg_famID';
+}
+ 
+$pledges->useDonationFundQuery()
+        //->orderByActive() // this can't be done due to the algorithm below
+        //->orderByName()
+        ->endUse()
+        ->orderByFamId()
+        ->find();
+        
+        
 
-// Run Query
-$rsPledges = RunQuery($sSQL);
 
 // Create PDF Report
 // *****************
@@ -122,27 +130,23 @@ if ($output == 'pdf') {
     $curFam = 0;
     $paidThisFam = [];
     $pledgeThisFam = [];
-    $totRows = mysqli_num_rows($rsPledges);
+    $totRows = $pledges->count();
     $thisRow = 0;
     $fundName = '';
     $plg_famID = 0;
 
-    for ($thisRow = 0; $thisRow <= $totRows; $thisRow += 1) { // go through the loop one extra time
-        if ($thisRow < $totRows) {
-            $aRow = mysqli_fetch_array($rsPledges);
-            extract($aRow);
-        }
+    foreach ($pledges as $pledge) {
+        $fundName = $pledge->getFundName();
 
         if ($fundName == '') {
             $fundName = 'Unassigned';
         }
 
-        if ($plg_famID != $curFam || $thisRow == $totRows) {
+        if ($pledge->getFamId() != $curFam) {
             // Switching families.  Post the results for the previous family and initialize for the new family
 
-            mysqli_data_seek($rsFunds, 0);
-            while ($row = mysqli_fetch_array($rsFunds)) {
-                $fun_name = $row['fun_Name'];
+            foreach ($funds as $fund) {
+                $fun_name = $fund->getName();
                 if (array_key_exists($fun_name, $pledgeThisFam) && $pledgeThisFam[$fun_name] > 0) {
                     $thisPledge = $pledgeThisFam[$fun_name];
                 } else {
@@ -162,37 +166,58 @@ if ($output == 'pdf') {
             }
             $paidThisFam = [];
             $pledgeThisFam = [];
-            $curFam = $plg_famID;
+            $curFam = $pledge->getFamId();
         }
 
-        if ($thisRow < $totRows) {
-            if ($plg_PledgeOrPayment == 'Pledge') {
-                if (array_key_exists($fundName, $pledgeFundTotal)) {
-                    $pledgeFundTotal[$fundName] += $plg_amount;
-                    $pledgeCnt[$fundName] += 1;
-                } else {
-                    $pledgeFundTotal[$fundName] = $plg_amount;
-                    $pledgeCnt[$fundName] = 1;
-                }
-                if (array_key_exists($fundName, $pledgeThisFam)) {
-                    $pledgeThisFam[$fundName] += $plg_amount;
-                } else {
-                    $pledgeThisFam[$fundName] = $plg_amount;
-                }
-            } elseif ($plg_PledgeOrPayment == 'Payment') {
-                if (array_key_exists($fundName, $paymentFundTotal)) {
-                    $paymentFundTotal[$fundName] += $plg_amount;
-                    $paymentCnt[$fundName] += 1;
-                } else {
-                    $paymentFundTotal[$fundName] = $plg_amount;
-                    $paymentCnt[$fundName] = 1;
-                }
-                if (array_key_exists($fundName, $paidThisFam)) {
-                    $paidThisFam[$fundName] += $plg_amount;
-                } else {
-                    $paidThisFam[$fundName] = $plg_amount;
-                }
+        if ($pledge->getPledgeorpayment() == 'Pledge') {
+            if (array_key_exists($fundName, $pledgeFundTotal)) {
+                $pledgeFundTotal[$fundName] += $pledge->getAmount();
+                $pledgeCnt[$fundName] += 1;
+            } else {
+                $pledgeFundTotal[$fundName] = $pledge->getAmount();
+                $pledgeCnt[$fundName] = 1;
             }
+            if (array_key_exists($fundName, $pledgeThisFam)) {
+                $pledgeThisFam[$fundName] += $pledge->getAmount();
+            } else {
+                $pledgeThisFam[$fundName] = $pledge->getAmount();
+            }
+        } elseif ($pledge->getPledgeorpayment() == 'Payment') {
+            if (array_key_exists($fundName, $paymentFundTotal)) {
+                $paymentFundTotal[$fundName] += $pledge->getAmount();
+                $paymentCnt[$fundName] += 1;
+            } else {
+                $paymentFundTotal[$fundName] = $pledge->getAmount();
+                $paymentCnt[$fundName] = 1;
+            }
+            if (array_key_exists($fundName, $paidThisFam)) {
+                $paidThisFam[$fundName] += $pledge->getAmount();
+            } else {
+                $paidThisFam[$fundName] = $pledge->getAmount();
+            }
+        }
+        
+        $thisRow++;
+    }
+    
+    // we loop a last time in the fund to finish the work
+    foreach ($funds as $fund) {
+        $fun_name = $fund->getName();
+        if (array_key_exists($fun_name, $pledgeThisFam) && $pledgeThisFam[$fun_name] > 0) {
+            $thisPledge = $pledgeThisFam[$fun_name];
+        } else {
+            $thisPledge = 0.0;
+        }
+        if (array_key_exists($fun_name, $paidThisFam) && $paidThisFam[$fun_name] > 0) {
+            $thisPay = $paidThisFam[$fun_name];
+        } else {
+            $thisPay = 0.0;
+        }
+        $pledgeDiff = $thisPay - $thisPledge;
+        if ($pledgeDiff > 0) {
+            $overpaid[$fun_name] += $pledgeDiff;
+        } else {
+            $underpaid[$fun_name] -= $pledgeDiff;
         }
     }
 
@@ -232,9 +257,8 @@ if ($output == 'pdf') {
     $pdf->SetFont('Times', '', 10);
     $curY += SystemConfig::getValue('incrementY');
 
-    mysqli_data_seek($rsFunds, 0); // Change this to print out funds in active / alpha order.
-    while ($row = mysqli_fetch_array($rsFunds)) {
-        $fun_name = $row['fun_Name'];
+    foreach ($funds as $fund) {
+        $fun_name = $fund->getName();
         if ($pledgeFundTotal[$fun_name] > 0 || $paymentFundTotal[$fun_name] > 0) {
             if (strlen($fun_name) > 30) {
                 $short_fun_name = mb_substr($fun_name, 0, 30).'...';
@@ -284,8 +308,7 @@ if ($output == 'pdf') {
     $eol = "\r\n";
 
     // Build headings row
-    preg_match('/SELECT (.*) FROM /i', $sSQL, $result);
-    $headings = explode(',', $result[1]);
+    $headings = explode(',', "plg_plgID, plg_FYID, plg_amount, plg_PledgeOrPayment, plg_fundID, plg_famID, b.fun_Name AS fundName, b.fun_Active AS fundActive");
     $buffer = '';
     foreach ($headings as $heading) {
         $buffer .= trim($heading).$delimiter;
@@ -294,13 +317,11 @@ if ($output == 'pdf') {
     $buffer = mb_substr($buffer, 0, -1).$eol;
 
     // Add data
-    while ($row = mysqli_fetch_row($rsPledges)) {
-        foreach ($row as $field) {
-            $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
-            $buffer .= _($field).$delimiter;
-        }
-        // Remove trailing delimiter and add eol
-        $buffer = mb_substr($buffer, 0, -1).$eol;
+    foreach ($pledges as $pledge) {
+      $buffer .= $pledge->getId().$delimiter.$pledge->getFyid().$delimiter.OutputUtils::money_localized($pledge->getAmount()).$delimiter;
+      $buffer .= _($pledge->getPledgeorpayment()).$delimiter.$pledge->getFundid().$delimiter.$pledge->getFamId().$delimiter;
+      $buffer .= _($pledge->getFundName()).$delimiter._($pledge->getFundActive());
+      $buffer .= $eol;
     }
 
     // Export file
@@ -314,5 +335,6 @@ if ($output == 'pdf') {
     //add BOM to fix UTF-8 in Excel 2016 but not under, so the problem is solved with the charset variable
     if ($charset == "UTF-8") {
         echo "\xEF\xBB\xBF";
-    }    echo $buffer;
+    }    
+    echo $buffer;
 }
