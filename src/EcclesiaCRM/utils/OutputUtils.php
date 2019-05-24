@@ -4,8 +4,11 @@
 
 namespace EcclesiaCRM\Utils;
 
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\SessionUser;
+use Propel\Runtime\Propel;
 
 class OutputUtils {
   
@@ -252,13 +255,11 @@ class OutputUtils {
       // Handler for "person from group"
       case 9:
         if ($data > 0) {
-            $sSQL = 'SELECT per_FirstName, per_LastName FROM person_per WHERE per_ID ='.$data;
-            $rsTemp = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsTemp));
+            $person = PersonQuery::Create()->findOneById ($data);
             if ($with_link) {
-              return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$per_FirstName.' '.$per_LastName.'</a>';
+              return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$person->getFirstName().' '.$person->getLastName().'</a>';
             } else {
-              return $per_FirstName.' '.$per_LastName;
+              return $person->getFirstName().' '.$person->getLastName();
             }
         } else {
             return '';
@@ -277,11 +278,8 @@ class OutputUtils {
       // Handler for custom lists
       case 12:
         if ($data > 0) {
-            $sSQL = "SELECT lst_OptionName FROM list_lst WHERE lst_ID = $special AND lst_OptionID = $data";
-            $rsTemp = RunQuery($sSQL);
-            extract(mysqli_fetch_array($rsTemp));
-
-            return $lst_OptionName;
+            $list = ListOptionQuery::Create()->filterById ($special)->findOneByOptionId ($data);
+            return $list->getOptionName();
         } else {
             return '';
         }
@@ -385,7 +383,9 @@ class OutputUtils {
                           LEFT JOIN person_per ON person2group2role_p2g2r.p2g2r_per_ID = person_per.per_ID
                           WHERE p2g2r_grp_ID = '.$special.' AND per_DateDeactivated IS NULL ORDER BY per_FirstName';// GDPR per_DateDeactivated IS NULL
 
-        $rsGroupPeople = RunQuery($sSQL);
+        $connection = Propel::getConnection();
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
 
         echo '<select name="'.$fieldname.'" class="form-control input-sm" >';
         echo '<option value="0"';
@@ -395,7 +395,7 @@ class OutputUtils {
         echo '>'._('Unassigned').'</option>';
         echo '<option value="0">-----------------------</option>';
 
-        while ($aRow = mysqli_fetch_array($rsGroupPeople)) {
+        while ($aRow = $statement->fetch( \PDO::FETCH_BOTH )) {
             extract($aRow);
 
             echo '<option value="'.$per_ID.'"';
@@ -444,20 +444,21 @@ class OutputUtils {
 
     // Handler for custom lists
     case 12:
-      $sSQL = "SELECT * FROM list_lst WHERE lst_ID = $special ORDER BY lst_OptionSequence";
-      $rsListOptions = RunQuery($sSQL);
-      
+      // Get Field Security List Matrix
+      $listOptions = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById($special);
+
       echo '<select class="form-control input-sm" name="'.$fieldname.'">';
       echo '<option value="0" selected>'._('Unassigned').'</option>';
       echo '<option value="0">-----------------------</option>';
-
-      while ($aRow = mysqli_fetch_array($rsListOptions)) {
-          extract($aRow);
-          echo '<option value="'.$lst_OptionID.'"';
-          if ($data == $lst_OptionID) {
+      
+      foreach ($listOptions as $listOption) {
+          echo '<option value="'.$listOption->getOptionId().'"';
+          if ($data == $listOption->getOptionId()) {
               echo ' selected';
           }
-          echo '>'.$lst_OptionName.'</option>';
+          echo '>'.$listOption->getOptionName().'</option>';
       }
 
       echo '</select>';
