@@ -73,10 +73,10 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
 if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
-  // when a family is completely deactivated : we seek the families with more than one member. A one person family = a fmaily with an address
   $time = new DateTime('now');
   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
     
+  // when a family is completely deactivated : we seek the families with more than one member. A one person family = a fmaily with an address
   $subQuery = FamilyQuery::create()
       ->withColumn('Family.Id','FamId')
       ->leftJoinPerson()
@@ -91,10 +91,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
   
   $numFamilies = $families->count();
 
-  // for the persons
-  $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getBooleanValue('iGdprExpirationDate').' year')->format('Y-m-d');
- 
+  // for the persons 
   $persons = PersonQuery::create()
           ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
           ->_or() // or : this part is unusefull, it's only for debugging
