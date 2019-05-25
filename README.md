@@ -48,6 +48,7 @@ To test out the demo, you may login to the https://demo.ecclesiacrm.com  with th
 - **Username:** admin
 - **Password:** contact us to have the password.
 
+
 ## New UI
 
 ![Menu](https://www.ecclesiacrm.com/screenshots/menuNew.PNG)
