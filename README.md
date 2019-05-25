@@ -32,9 +32,7 @@
 
 ## Project Metrics 
 
-[![Throughput Graph](https://www.gitcharts.ecclesiacrm.com)](https://www.gitcharts.ecclesiacrm.com)
-
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/phili67/ecclesiacrm.svg?columns=all)](https://waffle.io/phili67/ecclesiacrm)
+[![Throughput Graph](https://www.gitcharts.ecclesiacrm.com/)](https://www.gitcharts.ecclesiacrm.com/)
 
 see [Download Stats](http://www.somsubhra.com/github-release-stats/?username=phili67&repository=ecclesiacrm)
 
