@@ -32,7 +32,7 @@
 
 ## Project Metrics 
 
-<!--[![Throughput Graph](https://www.gitcharts.ecclesiacrm.com/index.php)](https://www.gitcharts.ecclesiacrm.com/index.php)-->
+[![Graph](https://www.gitcharts.ecclesiacrm.com/index.php)](https://www.gitcharts.ecclesiacrm.com/index.php)
 
 
 see [Download Stats](http://www.somsubhra.com/github-release-stats/?username=phili67&repository=ecclesiacrm)
