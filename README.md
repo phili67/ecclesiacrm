@@ -12,8 +12,8 @@
 [![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
 [![POEditor](https://img.shields.io/badge/Languages-22-green.svg)](https://poeditor.com/join/project/RABdnDSqAt)-->
 
-[![POEditor](https://zenhub.com//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png)](https://zenhub.com)
-<a href="https://zenhub.com"><img src="//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png" alt="ZenHub logo"></a>
+[![POEditor](https://www.zenhub.com/img/external/zenhub-badge.png)](https://zenhub.com)
+<!--<a href="https://zenhub.com"><img src="//dxssrr2j0sq4w.cloudfront.net/3.2.0/img/external/zenhub-badge.png" alt="ZenHub logo"></a>-->
 
 
 
