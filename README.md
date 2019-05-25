@@ -34,6 +34,8 @@
 
 [![Throughput Graph](https://www.gitcharts.ecclesiacrm.com/index.php)](https://www.gitcharts.ecclesiacrm.com/index.php)
 
+<iframe width="560" height="315" src="https://www.gitcharts.ecclesiacrm.com/index.php" frameborder="0" allowfullscreen></iframe>
+
 see [Download Stats](http://www.somsubhra.com/github-release-stats/?username=phili67&repository=ecclesiacrm)
 
 ##  Change Log
