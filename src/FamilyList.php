@@ -37,28 +37,8 @@ if (strtolower($sMode) == 'gdrp') {
       
   $families = FamilyQuery::create()
        ->addSelectQuery($subQuery, 'res')
-       ->where('res.cnt>1 AND Family.Id=res.FamId')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
        ->find();
-       
-  /*$connection = Propel::getConnection();
-    
-    // TO DO : there's really a propel way to query with request
-    $sSQL = "SELECT c.fam_id
-        FROM  family_fam c,
-        (
-        SELECT 
-        fam_id, 
-        COUNT(b.per_Id) AS cnt
-        FROM family_fam a 
-        LEFT JOIN person_per b ON a.fam_ID = b.per_fam_ID 
-        WHERE a.fam_DateDeactivated < (NOW() - INTERVAL " . SystemConfig::getBooleanValue('iGdprExpirationDate') . " YEAR)
-        GROUP BY a.fam_id
-        ) AS res
-        WHERE res.cnt>1 AND c.fam_id=res.fam_id";
-
-    $statement = $connection->prepare($sSQL);
-    $statement->execute();
-    $familiesArr = $statement->fetchAll(\PDO::FETCH_ASSOC);*/
 
 } else if (strtolower($sMode) == 'inactive') {
   if (!SessionUser::getUser()->isEditRecordsEnabled()) {
@@ -74,13 +54,38 @@ if (strtolower($sMode) == 'gdrp') {
               ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person is completely deactivated, we only can see the person who are over a certain date
               ->orderByName()
               ->find();
+
+    $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)
+      ->groupById();//groupBy('Family.Id');
+      
+    $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
+       ->find();
   } else {
     $time = new DateTime('now');
     
-     $families = FamilyQuery::create()
+    $families = FamilyQuery::create()
               ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)// GDRP, when a person is completely deactivated, we only can see the person who are over a certain date
               ->orderByName()
               ->find();
+              
+    $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)
+      ->groupById();//groupBy('Family.Id');
+      
+    $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
+       ->find();
+
   }
 } else if (strtolower($sMode) == 'empty') {
   if (!SessionUser::getUser()->isEditRecordsEnabled()) {
@@ -88,9 +93,18 @@ if (strtolower($sMode) == 'gdrp') {
     exit;
   }
 
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated(NULL)
+      ->groupById();//groupBy('Family.Id');
+      
   $families = FamilyQuery::create()
-              ->orderByName()
-              ->find();
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt=0 AND Family.Id=res.FamId') // The emptied addresses
+       ->find();
+
 } else {
   if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect("Menu.php");
@@ -98,10 +112,17 @@ if (strtolower($sMode) == 'gdrp') {
   }
   
   $sMode = 'Active';
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated(NULL)
+      ->groupById();//groupBy('Family.Id');
+      
   $families = FamilyQuery::create()
-        ->filterByDateDeactivated(null)
-        ->orderByName()
-        ->find();
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId') // only real family with more than one member will be showed here
+       ->find();
 }
 
 // Set the page title and include HTML header
@@ -163,13 +184,6 @@ require 'Include/Header.php'; ?>
             <!--Populate the table with family details -->
             <?php 
               foreach ($families as $family) {
-                if (strtolower($sMode) == 'empty') {
-                  if ($family->getPeople()->count() > 0) {// we want here only the empty families : Addresses
-                    continue;
-                  }
-                } else if ($family->getPeople()->count() <= 1) {// only real family with more than one member will be showed here
-                  continue;
-                }
             ?>
             <tr>
                 <td><a href='FamilyView.php?FamilyID=<?= $family->getId() ?>'>
