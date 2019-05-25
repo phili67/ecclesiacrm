@@ -32,7 +32,7 @@
 
 ## Project Metrics 
 
-[![Throughput Graph](http://192.168.151.205/git/)](http://192.168.151.205/git/)
+[![Throughput Graph](https://www.gitcharts.ecclesiacrm.com)](https://www.gitcharts.ecclesiacrm.com)
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/phili67/ecclesiacrm.svg?columns=all)](https://waffle.io/phili67/ecclesiacrm)
 
