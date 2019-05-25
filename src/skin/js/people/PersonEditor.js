@@ -5,7 +5,7 @@ $(document).ready(function () {
   });
 
   // we hide by default the familyAddress
-  if (window.CRM.iFamily == 0) {
+  if (!window.CRM.bShowAddress) {
     $("#familyAddress").hide();
   } else {
     $("#personAddress").hide();

@@ -718,7 +718,7 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
             }
 
             if (!$bOnlyComplete || ((strlen($sAddress)) && strlen($sCity) && (SystemConfig::getValue('bStateUnusefull') || strlen($sState)) && strlen($sZip))) {
-                $sLabelList[] = ['Name'=>$sName, 'Address'=>$sAddress, 'City'=>$sCity, 'State'=>$sState, 'Zip'=>$sZip]; //,'fam_ID'=>$aRow['fam_ID']);
+                $sLabelList[] = ['Name'=>$sName, 'Address'=>$sAddress, 'City'=>$sCity, 'State'=>$sState, 'Zip'=>$sZip]; //,'fam_ID'=>$person->getFamId());
             }
         } // end of foreach loop
     } // end of while loop
