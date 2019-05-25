@@ -11,6 +11,8 @@
 <!--[![Build Status](https://travis-ci.org/ChurchCRM/CRM.svg?branch=master)](https://travis-ci.org/ChurchCRM/CRM)
 [![StyleCI](https://styleci.io/repos/30856851/shield?branch=master)](https://styleci.io/repos/30856851)
 [![POEditor](https://img.shields.io/badge/Languages-22-green.svg)](https://poeditor.com/join/project/RABdnDSqAt)-->
+[ZenHub](https://img.shields.io/badge/Languages-22-green.svg)](https://app.zenhub.com/workspaces/ecclesiacrm-workspace-5ce9590d7f230434befef632/reports/overview)
+
 
 
 ## Website
