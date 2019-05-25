@@ -266,8 +266,8 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $sLastNameError = _('You must enter a Last Name if no Family is selected.');
             $bErrorFlag = true;
         } else {
-            $fam = FamilyQuery::Create()->findOneById($iFamily);        
-            $sLastName = $fam->getName();            
+            $fam = FamilyQuery::Create()->findOneById($iFamily);
+            $sLastName = $fam->getName();
         }
     }
     // If they entered a full date, see if it's valid
@@ -387,8 +387,10 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             $family->save();
             
             //Get the key back You use the same code in CartView.php
-            $iFamily = $family->getId();            
+            $iFamily = $family->getId();
         } else {// the Family still exist
+            // in the case the family is changing we have to check if the old family has still a member.
+            // maybe we have to deactivate the family
             $family = FamilyQuery::Create()
                   ->findOneById($iFamily);
             
@@ -622,40 +624,40 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
             ->leftJoinWithFamily()
             ->findOneById($iPersonID);
 
-        $sTitle = $person->getTitle();
-        $sFirstName = $person->getFirstName();
-        $sMiddleName = $person->getMiddleName();
-        $sLastName = $person->getLastName();
-        $sSuffix = $person->getSuffix();
-        $iGender = $person->getGender();
-        $sAddress1 = $person->getAddress1();
-        $sAddress2 = $person->getAddress2();
-        $sCity = $person->getCity();
-        $sState = $person->getState();
-        $sZip = $person->getZip();
-        $sCountry = $person->getCountry();
-        $sHomePhone = $person->getHomePhone();
-        $sWorkPhone = $person->getWorkPhone();
-        $sCellPhone = $person->getCellPhone();
-        $sEmail = $person->getEmail();
-        $sWorkEmail = $person->getWorkEmail();
-        $iBirthMonth = $person->getBirthMonth();
-        $iBirthDay = $person->getBirthDay();
-        $iBirthYear = $person->getBirthYear();
-        $bHideAge = ($person->getFlags() & 1) != 0;
+        $sTitle          = $person->getTitle();
+        $sFirstName      = $person->getFirstName();
+        $sMiddleName     = $person->getMiddleName();
+        $sLastName       = $person->getLastName();
+        $sSuffix         = $person->getSuffix();
+        $iGender         = $person->getGender();
+        $sAddress1       = $person->getAddress1();
+        $sAddress2       = $person->getAddress2();
+        $sCity           = $person->getCity();
+        $sState          = $person->getState();
+        $sZip            = $person->getZip();
+        $sCountry        = $person->getCountry();
+        $sHomePhone      = $person->getHomePhone();
+        $sWorkPhone      = $person->getWorkPhone();
+        $sCellPhone      = $person->getCellPhone();
+        $sEmail          = $person->getEmail();
+        $sWorkEmail      = $person->getWorkEmail();
+        $iBirthMonth     = $person->getBirthMonth();
+        $iBirthDay       = $person->getBirthDay();
+        $iBirthYear      = $person->getBirthYear();
+        $bHideAge        = ($person->getFlags() & 1) != 0;
         $iOriginalFamily = $person->getFamId();
-        $iFamily = $person->getFamId();
-        $iFamilyRole = $person->getFmrId();
+        $iFamily         = $person->getFamId();
+        $iFamilyRole     = $person->getFmrId();
         $dMembershipDate = ($person->getMembershipDate() != null)?$person->getMembershipDate()->format('Y-m-d'):"";
-        $dFriendDate = ($person->getFriendDate() != null)?$person->getFriendDate()->format('Y-m-d'):"";
+        $dFriendDate     = ($person->getFriendDate() != null)?$person->getFriendDate()->format('Y-m-d'):"";
         $iClassification = $person->getClsId();
-        $iViewAgeFlag = $person->getFlags();
+        $iViewAgeFlag    = $person->getFlags();
         $bSendNewsLetter = ($person->getSendNewsletter() == 'TRUE');
 
         
         $iFacebookID = $person->getFacebookID();
-        $sTwitter = $person->getTwitter();
-        $sLinkedIn = $person->getLinkedIn();
+        $sTwitter    = $person->getTwitter();
+        $sLinkedIn   = $person->getLinkedIn();
 
         $sPhoneCountry = MiscUtils::SelectWhichInfo($sCountry, $fam_Country, false);
 
@@ -665,20 +667,20 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
 
         //The following values are True booleans if the family record has a value for the
         //indicated field.  These are used to highlight field headers in red.
-        $bFamilyAddress1 = strlen($fam_Address1);
-        $bFamilyAddress2 = strlen($fam_Address2);
-        $bFamilyCity = strlen($fam_City);
-        $bFamilyState = strlen($fam_State);
-        $bFamilyZip = strlen($fam_Zip);
-        $bFamilyCountry = strlen($fam_Country);
+        $bFamilyAddress1  = strlen($fam_Address1);
+        $bFamilyAddress2  = strlen($fam_Address2);
+        $bFamilyCity      = strlen($fam_City);
+        $bFamilyState     = strlen($fam_State);
+        $bFamilyZip       = strlen($fam_Zip);
+        $bFamilyCountry   = strlen($fam_Country);
         $bFamilyHomePhone = strlen($fam_HomePhone);
         $bFamilyWorkPhone = strlen($fam_WorkPhone);
         $bFamilyCellPhone = strlen($fam_CellPhone);
-        $bFamilyEmail = strlen($fam_Email);
+        $bFamilyEmail     = strlen($fam_Email);
 
         $bFacebookID = $iFacebookID != 0;
-        $bTwitter =  strlen($sTwitter);
-        $bLinkedIn = strlen($sLinkedIn);
+        $bTwitter    =  strlen($sTwitter);
+        $bLinkedIn   = strlen($sLinkedIn);
 
         $aCustomData = [];
         
@@ -778,7 +780,14 @@ $ormFamilyRoles = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(2);
 
+
+$bShowAddress = false;
+if ($iFamily == 0 && isset($_GET['FamilyID'])) {
+  $iFamily      = $_GET['FamilyID'];
+}
+
 if ($iFamily != 0) {
+  $bShowAddress = true;
   $theFamily = FamilyQuery::Create()
                   ->findOneById($iFamily);
   
@@ -1639,7 +1648,7 @@ require 'Include/Header.php';
 </form>
 
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-  window.CRM.iFamily  = <?= $iFamily ?>;
+  window.CRM.bShowAddress = <?= ($bShowAddress)?'true':'false' ?>;
 </script>
 
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/PersonEditor.js"></script>
