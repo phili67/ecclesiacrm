@@ -28,6 +28,8 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\PersonQuery;
 
 
 function GroupBySalutation($famID, $aAdultRole, $aChildRole)
@@ -43,23 +45,20 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
     // use the family name.  This is helpful for sending newsletters to places
     // such as "All Souls Church"
     // Similar logic is applied if mailing to Sunday School children.
-
-    $sSQL = 'SELECT * FROM family_fam WHERE fam_ID='.$famID;
-    $rsFamInfo = RunQuery($sSQL);
-
-    if (mysqli_num_rows($rsFamInfo) == 0) {
+    $fam = FamilyQuery::Create()->findOneById ($famID);
+    
+    if (is_null ($fam)) {
         return 'Invalid Family'.$famID;
     }
 
-    $aFam = mysqli_fetch_array($rsFamInfo);
-    extract($aFam);
 
     // Only get family members that are in the cart
-    $sSQL = 'SELECT * FROM person_per WHERE per_fam_ID='.$famID.' AND per_ID IN ('
-    .Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName, per_FirstName';
-
-    $rsMembers = RunQuery($sSQL);
-    $numMembers = mysqli_num_rows($rsMembers);
+    $members = PersonQuery::Create()
+                ->filterByFamId($famID)
+                ->filterById($_SESSION['aPeopleCart'])
+                ->orderByLastName()
+                ->orderByFirstName()
+                ->find();
 
     // Initialize to "Nothing to return"  If this value is returned
     // the calling program knows to skip this mode and try the next
@@ -72,16 +71,13 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
     $numChild = 0;
     $numOther = 0;
 
-    for ($ind = 0; $ind < $numMembers; $ind++) {
-        $member = mysqli_fetch_array($rsMembers);
-        extract($member);
-
+    foreach ($members as $member) {
         $bAdult = false;
         $bChild = false;
 
         // check if this person is adult
         foreach ($aAdultRole as $value) {
-            if ($per_fmr_ID == $value) {
+            if ($member->getFmrId() == $value) {
                 $aAdult[$numAdult++] = $member;
                 $bAdult = true;
             }
@@ -92,7 +88,7 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
         // child simultaneously ... even if directory roles suggest otherwise)
         if (!$bAdult) {
             foreach ($aChildRole as $value) {
-                if ($per_fmr_ID == $value) {
+                if ($member->getFmrId() == $value) {
                     $aChild[$numChild++] = $member;
                     $bChild = true;
                 }
@@ -107,17 +103,13 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
     }
 
     if ($numAdult == 1) { // Generate Salutation for Adults in family
-        extract($aAdult[0]);
-        $sNameAdult = $per_FirstName.' '.$per_LastName;
+        $aAdult[0];
+        $sNameAdult = $aAdult[0]->getFirstName().' '.$aAdult[0]->getLastName();
     } elseif ($numAdult == 2) {
-        $firstMember = mysqli_fetch_array($rsMembers);
-        extract($aAdult[0]);
-        $firstFirstName = $per_FirstName;
-        $firstLastName = $per_LastName;
-        $secondMember = mysqli_fetch_array($rsMembers);
-        extract($aAdult[1]);
-        $secondFirstName = $per_FirstName;
-        $secondLastName = $per_LastName;
+        $firstFirstName = $aAdult[0]->getFirstName();
+        $firstLastName = $aAdult[0]->getLastName();
+        $secondFirstName = $aAdult[1]->getFirstName();
+        $secondLastName = $aAdult[1]->getLastName();
         if ($firstLastName == $secondLastName) {
             $sNameAdult = $firstFirstName.' & '.$secondFirstName.' '.$firstLastName;
         } else {
@@ -125,40 +117,32 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
                             $secondFirstName.' '.$secondLastName;
         }
     } elseif ($numAdult > 2) {
-        $sNameAdult = $fam_Name;
+        $sNameAdult = $fam->getName();
     } // end if ($numAdult ...)
 
     $bSameLastNames = true;  // Assume all last names are the same
 
     if ($numChild > 0) { // Salutation for children grouped together
-        $firstMember = mysqli_fetch_array($rsMembers);
-        extract($aChild[0]);
-        $firstFirstName = $per_FirstName;
-        $firstLastName = $per_LastName;
+        $firstFirstName = $aChild[0]->getFirstName();
+        $firstLastName = $aChild[0]->getLastName();
     }
     if ($numChild > 1) {
-        $secondMember = mysqli_fetch_array($rsMembers);
-        extract($aChild[1]);
-        $secondFirstName = $per_FirstName;
-        $secondLastName = $per_LastName;
-        $bSameLastNames = $bSameLastNames && ($firstLastName == $secondLastName);
+        $secondFirstName = $aChild[1]->getFirstName();
+        $secondLastName  = $aChild[1]->getLastName();
+        $bSameLastNames  = $bSameLastNames && ($firstLastName == $secondLastName);
     }
     if ($numChild > 2) {
-        $thirdMember = mysqli_fetch_array($rsMembers);
-        extract($aChild[2]);
-        $thirdFirstName = $per_FirstName;
-        $thirdLastName = $per_LastName;
+        $thirdFirstName = $aChild[2]->getFirstName();
+        $thirdLastName  = $aChild[2]->getLastName();
         $bSameLastNames = $bSameLastNames && ($secondLastName == $thirdLastName);
     }
     if ($numChild > 3) {
-        $fourthMember = mysqli_fetch_array($rsMembers);
-        extract($aChild[3]);
-        $fourthFirstName = $per_FirstName;
-        $fourthLastName = $per_LastName;
-        $bSameLastNames = $bSameLastNames && ($thirdLastName == $fourthLastName);
+        $fourthFirstName = $aChild[3]->getFirstName();
+        $fourthLastName  = $aChild[3]->getLastName();
+        $bSameLastNames  = $bSameLastNames && ($thirdLastName == $fourthLastName);
     }
     if ($numChild == 1) {
-        $sNameChild = $per_FirstName.' '.$per_LastName;
+        $sNameChild = $firstFirstName.' '.$firstLastName;
     }
     if ($numChild == 2) {
         if ($bSameLastNames) {
@@ -174,7 +158,7 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
                                             $thirdFirstName.' '.$firstLastName;
         } else {
             $sNameChild = $firstFirstName.', '.$secondFirstName.' & '.
-                                            $thirdFirstName.' '.$fam_Name;
+                                            $thirdFirstName.' '.$fam->getName();
         }
     }
     if ($numChild == 4) {
@@ -183,15 +167,15 @@ function GroupBySalutation($famID, $aAdultRole, $aChildRole)
                         $thirdFirstName.' & '.$fourthFirstName.' '.$firstLastName;
         } else {
             $sNameChild = $firstFirstName.', '.$secondFirstName.', '.
-                        $thirdFirstName.' & '.$fourthFirstName.' '.$fam_Name;
+                        $thirdFirstName.' & '.$fourthFirstName.' '.$fam->getName();
         }
     }
     if ($numChild > 4) {
-        $sNameChild = 'The '.$fam_Name.' Family';
+        $sNameChild = _('The').' '.$fam->getName().' '._('Family');
     }
 
     if ($numOther) {
-        $sNameOther = $fam_Name;
+        $sNameOther = $fam->getName();
     }
 
     unset($aName);
@@ -654,15 +638,19 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
     $aChildRole = array_unique($aChildRole);
     sort($aChildRole);
 
-    $sSQL = 'SELECT * FROM person_per LEFT JOIN family_fam ';
-    $sSQL .= 'ON person_per.per_fam_ID = family_fam.fam_ID ';
-    $sSQL .= 'WHERE per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ';
-    $sSQL .= 'ORDER BY fam_Zip, per_LastName, per_FirstName';
-    $rsCartItems = RunQuery($sSQL);
+    $persons = PersonQuery::Create()
+                ->filterById ($_SESSION['aPeopleCart'])
+                ->useFamilyQuery()
+                  ->orderByZip()
+                ->endUse()
+                ->orderByLastName()
+                ->orderByFirstName()
+                ->find();
+    
     $sRowClass = 'RowColorA';
     $didFam = [];
 
-    while ($aRow = mysqli_fetch_array($rsCartItems)) {
+    foreach ($persons as $person) {
 
     // It's possible (but unlikely) that three labels can be generated for a
         // family even when they are grouped.
@@ -673,29 +661,29 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
 
         $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
 
-        if (($aRow['per_fam_ID'] == 0) && ($mode == 'fam')) {
+        if (($person->getFamId() == 0) && ($mode == 'fam')) {
             // Skip people with no family ID
             continue;
         }
 
         // Skip if mode is fam and we have already printed labels
-        if (array_key_exists($aRow['per_fam_ID'], $didFam) and $didFam[$aRow['per_fam_ID']] && ($mode == 'fam')) {
+        if (array_key_exists($person->getFamId(), $didFam) and $didFam[$person->getFamId()] && ($mode == 'fam')) {
             continue;
         }
 
-        $didFam[$aRow['per_fam_ID']] = 1;
+        $didFam[$person->getFamId()] = 1;
 
         unset($aName);
 
         if ($mode == 'fam') {
-            $aName = GroupBySalutation($aRow['per_fam_ID'], $aAdultRole, $aChildRole);
+            $aName = GroupBySalutation($person->getFamId(), $aAdultRole, $aChildRole);
         } else {
-            $sName = OutputUtils::FormatFullName($aRow['per_Title'], $aRow['per_FirstName'], '',
-                $aRow['per_LastName'], $aRow['per_Suffix'], 1);
+            $sName = OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), '',
+                $person->getLastName(), $person->getSuffix(), 1);
 
             $bChild = false;
             foreach ($aChildRole as $value) {
-                if ($aRow['per_fmr_ID'] == $value) {
+                if ($person->getFmrId() == $value) {
                     $bChild = true;
                 }
             }
@@ -718,11 +706,11 @@ function GenerateLabels(&$pdf, $mode, $iBulkMailPresort, $bToParents, $bOnlyComp
                 $sName = _("To the parents of").":\n".$sName;
             }
 
-            MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $aRow['per_Address1'], $aRow['per_Address2'], $aRow['fam_Address1'], $aRow['fam_Address2'], false);
+            MiscUtils::SelectWhichAddress($sAddress1, $sAddress2, $person->getAddress1(), $person->getAddress2(), $person->getFamily()->getAddress1(), $person->getFamily()->getAddress2(), false);
 
-            $sCity = MiscUtils::SelectWhichInfo($aRow['per_City'], $aRow['fam_City'], false);
-            $sState = MiscUtils::SelectWhichInfo($aRow['per_State'], $aRow['fam_State'], false);
-            $sZip = MiscUtils::SelectWhichInfo($aRow['per_Zip'], $aRow['fam_Zip'], false);
+            $sCity  = MiscUtils::SelectWhichInfo($person->getCity(), $person->getFamily()->getCity(), false);
+            $sState = MiscUtils::SelectWhichInfo($person->getState(), $person->getFamily()->getState(), false);
+            $sZip   = MiscUtils::SelectWhichInfo($person->getZip(), $person->getFamily()->getZip(), false);
 
             $sAddress = $sAddress1;
             if ($sAddress2 != '') {
