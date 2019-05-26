@@ -297,6 +297,8 @@ class MenuBar {
             $menuItemItem = new Menu (_("Add New Family"),"fa fa-circle-o","FamilyEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);
             $menuItemItem = new Menu (_("View Active Families"),"fa fa-circle-o","FamilyList.php",true,$menuItem);
             $menuItemItem = new Menu (_("View Inactive Families"),"fa fa-circle-o","FamilyList.php?mode=inactive",true,$menuItem);
+            
+          $menuItem = new Menu (_("Empty Addresses"),"fa fa-angle-double-right","FamilyList.php?mode=empty",true,$menu);
         }
 
       $this->addMenu($menu);

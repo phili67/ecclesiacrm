@@ -36,7 +36,7 @@ use EcclesiaCRM\SessionUser;
 
 // we place this part to avoid a problem during the upgrade process
 // Set the page title
-$sPageTitle = gettext('Welcome to').' '. ChurchMetaData::getChurchName();
+$sPageTitle = _('Welcome to').' '. ChurchMetaData::getChurchName();
 
 require 'Include/Header.php';
 
@@ -73,15 +73,25 @@ $AnniversariesCount = MenuEventsCount::getNumberAnniversaries();
 
 
 if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue('bGDPR')) {
-  // when a person is completely deactivated
   $time = new DateTime('now');
-  $newtime = $time->modify('-'.SystemConfig::getBooleanValue('iGdprExpirationDate').' year')->format('Y-m-d');
- 
+  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+    
+  // when a family is completely deactivated : we seek the families with more than one member. A one person family = a fmaily with an address
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+      ->groupById();//groupBy('Family.Id');
+      
   $families = FamilyQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
-        ->orderByName()
-        ->find();
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')
+       ->find();
+  
+  $numFamilies = $families->count();
 
+  // for the persons 
   $persons = PersonQuery::create()
           ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)// GDRP
           ->_or() // or : this part is unusefull, it's only for debugging
@@ -90,57 +100,59 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
           ->endUse()
           ->orderByLastName()
           ->find();
+  
+  $numPersons = $persons->count();
               
-  if ($persons->count()+$families->count() > 0) {
+  if ($numPersons+$numFamilies > 0) {
 ?>
   <div class="alert alert-gpdr alert-dismissible " id="Menu_GDRP">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-       <h4 class="alert-heading"><?= gettext("GDPR") ?>  (<?= gettext("message for the DPO") ?>)</h4>
+       <h4 class="alert-heading"><?= _("GDPR") ?>  (<?= _("message for the DPO") ?>)</h4>
        <div class="row">
            <div class="col-sm-1">
            </div>
            <div class="col-sm-5">
             <?php
-               if ($persons->count()) {
+               if ($numPersons) {
             ?>
              <?php
-                if ( $persons->count() == 1 ) {
+                if ( $numPersons == 1 ) {
              ?>
-                <?= $persons->count()." ".gettext("person must be deleted from the CRM.") ?>
+                <?= $numPersons." "._("person must be deleted from the CRM.") ?>
             <?php } else { ?>
-                <?= $persons->count()." ".gettext("persons must be deleted from the CRM.") ?>
+                <?= $numPersons." "._("persons must be deleted from the CRM.") ?>
             <?php
                 }
             ?>
               <br>
-                <b><?= gettext("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/PersonList.php?mode=GDRP"><?= gettext("link") ?></a> <?= gettext("to solve the problem.") ?></b>
+                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/PersonList.php?mode=GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
             <?php
              } else {
             ?>
-                <?= gettext("No Person to remove in the CRM.") ?>
+                <?= _("No Person to remove in the CRM.") ?>
             <?php
              }
             ?>
         </div>
         <div class="col-sm-5">
             <?php
-               if ($families->count()) {
+               if ($numFamilies) {
             ?>
            <?php
-                if ( $families->count() == 1 ) {
+                if ( $numFamilies == 1 ) {
              ?>
-                <?= $families->count()." ".gettext("family must be deleted from the CRM.") ?>
+                <?= $numFamilies." "._("family must be deleted from the CRM.") ?>
             <?php } else { ?>
-                <?= $families->count()." ".gettext("families must be deleted from the CRM.") ?>
+                <?= $numFamilies." "._("families must be deleted from the CRM.") ?>
             <?php
                 }
             ?>
               <br>
-                <b><?= gettext("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php?mode=GDRP"><?= gettext("link") ?></a> <?= gettext("to solve the problem.") ?></b>
+                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php?mode=GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
             <?php
              } else {
             ?>
-                <?= gettext("No Family to remove in the CRM.") ?>
+                <?= _("No Family to remove in the CRM.") ?>
             <?php
              }
             ?>
@@ -231,7 +243,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
 
       if (!empty($classified)) {
      ?>
-        <h4 class="alert-heading"><?= gettext("Birthdates of the day") ?></h4>
+        <h4 class="alert-heading"><?= _("Birthdates of the day") ?></h4>
         <div class="row">
           <?php
              echo $classified;
@@ -247,7 +259,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
     <?php
         } ?>
 
-        <h4 class="alert-heading"><?= gettext("Anniversaries of the day")?></h4>
+        <h4 class="alert-heading"><?= _("Anniversaries of the day")?></h4>
         <div class="row">
 
     <?php
@@ -295,7 +307,7 @@ if ($showBanner && ($peopleWithBirthDaysCount > 0 || $AnniversariesCount > 0) &&
           <?php
               } ?>
 
-              <h4 class="alert-heading"><?= gettext("Unclassified birthdates")?></h4>
+              <h4 class="alert-heading"><?= _("Unclassified birthdates")?></h4>
               <div class="row">
 
               <?php
@@ -324,7 +336,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
   ?>
     <div class="alert alert-pastoral-care alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4 class="alert-heading"><?= gettext("Pastoral Care")?></h4>
+      <h4 class="alert-heading"><?= _("Pastoral Care")?></h4>
           <?php
             $count_care = 0;
             $new_row = false;
@@ -381,14 +393,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                     0
                 </h3>
                 <p>
-                    <?= gettext('Families') ?>
+                    <?= _('Families') ?>
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-users"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="small-box-footer">
-                <?= gettext('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
+                <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
@@ -400,14 +412,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                     0
                 </h3>
                 <p>
-                    <?= gettext('People') ?>
+                    <?= _('People') ?>
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-user"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=person" class="small-box-footer">
-                <?= gettext('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
+                <?= _('See All People') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
@@ -422,14 +434,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                    0
                 </h3>
                 <p>
-                    <?= gettext('Sunday School Classes') ?>
+                    <?= _('Sunday School Classes') ?>
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-child"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolDashboard.php" class="small-box-footer">
-                <?= gettext('More info') ?> <i class="fa fa-arrow-circle-right"></i>
+                <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
@@ -444,14 +456,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                   0
                 </h3>
                 <p>
-                    <?= gettext('Groups') ?>
+                    <?= _('Groups') ?>
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-gg"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/GroupList.php" class="small-box-footer">
-                <?= gettext('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
+                <?= _('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
@@ -471,14 +483,14 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
                   <?= $countAttend ?>
                 </h3>
                 <p>
-                    <?= gettext('Attendees Checked In') ?>
+                    <?= _('Attendees Checked In') ?>
                 </p>
             </div>
             <div class="icon">
                 <i class="fa fa-gg"></i>
             </div>
             <a href="<?= SystemURLs::getRootPath() ?>/ListEvents.php" class="small-box-footer">
-                <?= gettext('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
+                <?= _('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
     </div><!-- ./col -->
@@ -495,7 +507,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-info">
             <div class="box-header">
                 <i class="fa fa-money fa-5x" style="font-size:26px"></i>
-                <h3 class="box-title"><?= gettext('Deposit Tracking') ?></h3>
+                <h3 class="box-title"><?= _('Deposit Tracking') ?></h3>
                 <div class="box-tools pull-right">
                     <div id="deposit-graph" class="chart-legend"></div>
                 </div>
@@ -515,7 +527,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box-header with-border">
                 <i class="fa fa-user-plus"></i>
-                <h3 class="box-title"><?= gettext('Latest Families') ?></h3>
+                <h3 class="box-title"><?= _('Latest Families') ?></h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -527,9 +539,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
               <table class="dataTable table table-striped table-condensed" id="latestFamiliesDashboardItem">
                   <thead>
                   <tr>
-                      <th data-field="name"><?= gettext('Family Name') ?></th>
-                      <th data-field="address"><?= gettext('Address') ?></th>
-                      <th data-field="city"><?= gettext('Created') ?></th>
+                      <th data-field="name"><?= _('Family Name') ?></th>
+                      <th data-field="address"><?= _('Address') ?></th>
+                      <th data-field="city"><?= _('Created') ?></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -542,7 +554,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box-header with-border">
                 <i class="fa fa-check"></i>
-                <h3 class="box-title"><?= gettext('Updated Families') ?></h3>
+                <h3 class="box-title"><?= _('Updated Families') ?></h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
@@ -554,9 +566,9 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
               <table class=" dataTable table table-striped table-condensed" id="updatedFamiliesDashboardItem">
                   <thead>
                   <tr>
-                      <th data-field="name"><?= gettext('Family Name') ?></th>
-                      <th data-field="address"><?= gettext('Address') ?></th>
-                      <th data-field="city"><?= gettext('Updated') ?></th>
+                      <th data-field="name"><?= _('Family Name') ?></th>
+                      <th data-field="address"><?= _('Address') ?></th>
+                      <th data-field="city"><?= _('Updated') ?></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -571,7 +583,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= gettext('Latest Members') ?></h3>
+                    <h3 class="box-title"><?= _('Latest Members') ?></h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
@@ -605,7 +617,7 @@ if ($depositData && SystemConfig::getBooleanValue('bEnabledFinance')) { // If th
         <div class="box box-solid">
             <div class="box box-danger">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= gettext('Updated Members') ?></h3>
+                    <h3 class="box-title"><?= _('Updated Members') ?></h3>
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>

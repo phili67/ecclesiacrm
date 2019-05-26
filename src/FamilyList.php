@@ -10,6 +10,7 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use Propel\Runtime\Propel;
 
 
 $sMode = 'Active';
@@ -24,14 +25,21 @@ if (strtolower($sMode) == 'gdrp') {
     exit;
   }
 
-   $time = new DateTime('now');
-   $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
-   
-   $families = FamilyQuery::create()
-        ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
-        ->orderByName()
-        ->find();
-            
+  $time = new DateTime('now');
+  $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
+    
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($newtime, Criteria::LESS_THAN)
+      ->groupById();//groupBy('Family.Id');
+      
+  $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
+       ->find();
+
 } else if (strtolower($sMode) == 'inactive') {
   if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect("Menu.php");
@@ -46,37 +54,87 @@ if (strtolower($sMode) == 'gdrp') {
               ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)// GDRP, when a person is completely deactivated, we only can see the person who are over a certain date
               ->orderByName()
               ->find();
+
+    $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($newtime, Criteria::GREATER_THAN)
+      ->groupById();//groupBy('Family.Id');
+      
+    $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
+       ->find();
   } else {
     $time = new DateTime('now');
     
-     $families = FamilyQuery::create()
+    $families = FamilyQuery::create()
               ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)// GDRP, when a person is completely deactivated, we only can see the person who are over a certain date
               ->orderByName()
               ->find();
+              
+    $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)
+      ->groupById();//groupBy('Family.Id');
+      
+    $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
+       ->find();
+
   }
+} else if (strtolower($sMode) == 'empty') {
+  if (!SessionUser::getUser()->isEditRecordsEnabled()) {
+    RedirectUtils::Redirect("Menu.php");
+    exit;
+  }
+
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated(NULL)
+      ->groupById();//groupBy('Family.Id');
+      
+  $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt=0 AND Family.Id=res.FamId') // The emptied addresses
+       ->find();
+
 } else {
   if (!SessionUser::getUser()->isEditRecordsEnabled()) {
     RedirectUtils::Redirect("Menu.php");
     exit;
   }
   
-    $sMode = 'Active';
-    $families = FamilyQuery::create()
-        ->filterByDateDeactivated(null)
-        ->orderByName()
-        ->find();
+  $sMode = 'Active';
+  $subQuery = FamilyQuery::create()
+      ->withColumn('Family.Id','FamId')
+      ->leftJoinPerson()
+        ->withColumn('COUNT(Person.Id)','cnt')
+      ->filterByDateDeactivated(NULL)
+      ->groupById();//groupBy('Family.Id');
+      
+  $families = FamilyQuery::create()
+       ->addSelectQuery($subQuery, 'res')
+       ->where('res.cnt>1 AND Family.Id=res.FamId') // only real family with more than one member will be showed here
+       ->find();
 }
 
 // Set the page title and include HTML header
-$sPageTitle = gettext(ucfirst($sMode)) . ' : ' . gettext('Family List');
+$sPageTitle = _(ucfirst($sMode)) . ' : ' . ((strtolower($sMode) == 'empty')?_('Addresses'):_('Family List'));
 require 'Include/Header.php'; ?>
 
 <?php
-  if (SessionUser::getUser()->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' ) {
+  if (SessionUser::getUser()->isAddRecordsEnabled() && strtolower($sMode) != 'gdrp' && strtolower($sMode) != 'empty') {
 ?>
 <div class="pull-right">
   <a class="btn btn-success" role="button" href="FamilyEditor.php"> <span class="fa fa-plus"
-                                                                          aria-hidden="true"></span><?= gettext('Add Family') ?>
+                                                                          aria-hidden="true"></span><?= _('Add Family') ?>
   </a>
 </div>
 <p><br/><br/></p>
@@ -88,8 +146,8 @@ require 'Include/Header.php'; ?>
   if (strtolower($sMode) == 'gdrp') { 
 ?>
 <div class="alert alert-warning">
-    <strong> <?= gettext('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
-    <strong> <?= gettext('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
+    <strong> <?= _('WARNING: Some families may have some records of donations and may NOT be deleted until these donations are associated with another person or Family.') ?> </strong><br>
+    <strong> <?= _('WARNING: This action can not be undone and may have legal implications!') ?> </strong>
 </div>
 <?php 
   } 
@@ -101,17 +159,24 @@ require 'Include/Header.php'; ?>
         <table id="families" class="table table-striped table-bordered data-table" cellspacing="0" width="100%">
             <thead>
             <tr>
-                <th><?= gettext('Name') ?></th>
-                <th><?= gettext('Address') ?></th>
-                <th><?= gettext('Home Phone') ?></th>
-                <th><?= gettext('Cell Phone') ?></th>
-                <th><?= gettext('email') ?></th>
-                <th><?= gettext('Created') ?></th>
-                <th><?= gettext('Edited') ?></th>
-            <?php if (strtolower($sMode) == 'gdrp') { ?>
-                <th><?= gettext('Deactivation date') ?></th>
-                <th><?= gettext('Remove') ?></th>
-            <?php } ?>
+                <th><?= _('Name') ?></th>
+                <th><?= _('Address') ?></th>
+                <th><?= _('Home Phone') ?></th>
+                <th><?= _('Cell Phone') ?></th>
+                <th><?= _('email') ?></th>
+                <th><?= _('Created') ?></th>
+                <th><?= _('Edited') ?></th>
+            <?php 
+              if (strtolower($sMode) == 'gdrp') { ?>
+                <th><?= _('Deactivation date') ?></th>
+            <?php 
+              } 
+              if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
+            ?>
+                <th><?= _('Remove') ?></th>
+            <?php
+              }
+            ?>
             </tr>
             </thead>
             <tbody>
@@ -119,8 +184,6 @@ require 'Include/Header.php'; ?>
             <!--Populate the table with family details -->
             <?php 
               foreach ($families as $family) {
-                if ($family->getPeople()->count() <= 1)// only real family with more than one member will be showed
-                  continue;
             ?>
             <tr>
                 <td><a href='FamilyView.php?FamilyID=<?= $family->getId() ?>'>
@@ -147,28 +210,33 @@ require 'Include/Header.php'; ?>
                 <?php
                 } else {
                 ?>
-                  <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
-                  <td> <?= gettext('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
+                  <td> <?= _('Private Data') ?></td>
                 <?php
                 }
-              if (strtolower($sMode) == 'gdrp') { 
                 $pledges  = PledgeQuery::Create()->findByFamId($family->getId());
+                
+                if (strtolower($sMode) == 'gdrp') { 
               ?>
                   <td> <?= date_format($family->getDateDeactivated(), SystemConfig::getValue('sDateFormatLong')) ?></td>
-                  <td><button class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>" <?= ($pledges->count() > 0)?"disabled":"" ?>><?= gettext("Remove") ?></button></td>
               <?php 
                 } 
+                if (SessionUser::getUser()->isDeleteRecordsEnabled()) {
+              ?>
+                <td><button class="btn btn-danger remove-property-btn" data-family_id="<?= $family->getId() ?>" ><?= _("Remove") ?></button></td>
+              <?php
+                }
            }
                 ?>
             </tr>
             </tbody>
         </table>
         <?php if (strtolower($sMode) == 'gdrp') { ?>
-          <a class="btn btn-danger <?= ($families->count() == 0)?"disabled":"" ?>" id="remove-all"><?= gettext("Remove All") ?></a>
+          <a class="btn btn-danger <?= ($families->count() == 0)?"disabled":"" ?>" id="remove-all"><?= _("Remove All") ?></a>
         <?php } ?>
     </div>
 </div>
