@@ -2,6 +2,7 @@
 
 namespace EcclesiaCRM\Dashboard;
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
 
 class PersonDemographicDashboardItem implements DashboardItemInterface {
@@ -16,38 +17,41 @@ class PersonDemographicDashboardItem implements DashboardItemInterface {
                 from person_per LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
                 where family_fam.fam_DateDeactivated is  null
                 group by per_Gender, per_fmr_ID order by per_fmr_ID;';
-        $rsGenderAndRole = RunQuery($sSQL);
-        while ($row = mysqli_fetch_array($rsGenderAndRole)) {
+        $connection = Propel::getConnection();
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        while ($row = $statement->fetch( \PDO::FETCH_ASSOC )) {
             switch ($row['per_Gender']) {
-        case 0:
-          $gender = gettext('Unknown');
-          break;
-        case 1:
-          $gender = gettext('Male');
-          break;
-        case 2:
-          $gender = gettext('Female');
-          break;
-        default:
-          $gender = gettext('Other');
-      }
+              case 0:
+                $gender = _('Unknown');
+                break;
+              case 1:
+                $gender = _('Male');
+                break;
+              case 2:
+                $gender = _('Female');
+                break;
+              default:
+                $gender = _('Other');
+            }
 
             switch ($row['per_fmr_ID']) {
-        case 0:
-          $role = gettext('Unknown');
-          break;
-        case 1:
-          $role = gettext('Head of Household');
-          break;
-        case 2:
-          $role = gettext('Spouse');
-          break;
-        case 3:
-          $role = gettext('Child');
-          break;
-        default:
-          $role = gettext('Other');
-      }
+              case 0:
+                $role = _('Unknown');
+                break;
+              case 1:
+                $role = _('Head of Household');
+                break;
+              case 2:
+                $role = _('Spouse');
+                break;
+              case 3:
+                $role = _('Child');
+                break;
+              default:
+                $role = _('Other');
+            }
 
             array_push($stats, array(
                     "key" => "$role - $gender",

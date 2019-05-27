@@ -1,6 +1,7 @@
 <?php
 
 namespace EcclesiaCRM\Dashboard;
+use Propel\Runtime\Propel;
 
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
 
@@ -19,11 +20,15 @@ class GroupsDashboardItem implements DashboardItemInterface {
           INNER JOIN group_grp ON grp_ID = p2g2r_grp_ID
           LEFT JOIN family_fam ON fam_ID = per_fam_ID
           where fam_DateDeactivated is  null and
-	            p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount
+              p2g2r_rle_ID = 2 and grp_Type = 4) as SundaySchoolKidsCount
         from dual ;
         ';
-        $rsQuickStat = RunQuery($sSQL);
-        $row = mysqli_fetch_array($rsQuickStat);
+        
+        $connection = Propel::getConnection();
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        $row = $statement->fetch(\PDO::FETCH_ASSOC);
+
         $data = ['groups' => $row['Groups'] - $row['SundaySchoolClasses'], 'sundaySchoolClasses' => $row['SundaySchoolClasses'], 'sundaySchoolkids' => $row['SundaySchoolKidsCount']];
 
         return $data;

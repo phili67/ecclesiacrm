@@ -1,6 +1,8 @@
 <?php
 
 namespace EcclesiaCRM\Dashboard;
+
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Dashboard\DashboardItemInterface;
 
 class ClassificationDashboardItem implements DashboardItemInterface {
@@ -10,14 +12,19 @@ class ClassificationDashboardItem implements DashboardItemInterface {
   }
 
   public static function getDashboardItemValue() {
-       $data = [];
+        $data = [];
         $sSQL = 'select lst_OptionName as Classification, count(*) as count
                 from person_per INNER JOIN list_lst ON  per_cls_ID = lst_OptionID
                 LEFT JOIN family_fam ON family_fam.fam_ID = person_per.per_fam_ID
-                WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null
+                WHERE lst_ID =1 and family_fam.fam_DateDeactivated is null and person_per.per_DateDeactivated is null
                 group by per_cls_ID, lst_OptionName order by count desc;';
-        $rsClassification = RunQuery($sSQL);
-        while ($row = mysqli_fetch_array($rsClassification)) {
+        
+        $connection = Propel::getConnection();
+        
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        while ($row = $statement->fetch( \PDO::FETCH_ASSOC )) {
             $data[$row['Classification']] = $row['count'];
         }
 
@@ -25,7 +32,7 @@ class ClassificationDashboardItem implements DashboardItemInterface {
   }
 
   public static function shouldInclude($PageName) {
-    return $PageName=="PeopleDashboard.php"; // this ID would be found on all pages.
+    return $PageName=="/PeopleDashboard.php"; // this ID would be found on all pages.
   }
 
 }
