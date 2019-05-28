@@ -6,6 +6,8 @@ use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\PersonCustomMaster;
+use EcclesiaCRM\PersonCustomQuery;
 
 class PDF_Directory extends ChurchInfoReport
 {
@@ -245,24 +247,28 @@ class PDF_Directory extends ChurchInfoReport
 
     public function sGetCustomString($rsCustomFields, $aRow)
     {
-        $numCustomFields = mysqli_num_rows($rsCustomFields);
+        $numCustomFields = $rsCustomFields->count();
         if ($numCustomFields > 0) {
             extract($aRow);
-            $sSQL = 'SELECT * FROM person_custom WHERE per_ID = '.$per_ID;
-            $rsCustomData = RunQuery($sSQL);
-            $aCustomData = mysqli_fetch_array($rsCustomData, MYSQLI_BOTH);
-            $numCustomData = mysqli_num_rows($rsCustomData);
-            mysqli_data_seek($rsCustomFields, 0);
+            
+            $rawQry =  PersonCustomQuery::create();
+            foreach ($rsCustomFields as $customfield ) {
+               $rawQry->withColumn($customfield->getCustomField());
+            }
+
+            if (!is_null($rawQry->findOneByPerId($per_ID))) {
+              $aCustomData = $rawQry->findOneByPerId($per_ID)->toArray();
+            }
+
             $OutStr = '';
-            while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_BOTH)) {
-                extract($rowCustomField);
-                $sCustom = 'bCustom'.$custom_Order;
-                if ($this->_Custom[$custom_Order]) {
-                    $currentFieldData = OutputUtils::displayCustomField($type_ID, $aCustomData[$custom_Field], $custom_Special,false);
+            foreach ($rsCustomFields as $rsCustomField) {
+                $sCustom = 'bCustom'.$rsCustomField->getCustomOrder();
+                if ($this->_Custom[$rsCustomField->getCustomOrder()]) {
+                    $currentFieldData = OutputUtils::displayCustomField($rsCustomField->getTypeId(), $aCustomData[$rsCustomField->getCustomField()], $rsCustomField->getCustomSpecial(),false);
 
 //                    $currentFieldData = trim($aCustomData[$custom_Field]);
                     if ($currentFieldData != '') {
-                        $OutStr .= '   '.$custom_Name.': '.$currentFieldData .= "\n";
+                        $OutStr .= '   '.$rsCustomField->getCustomName().': '.$currentFieldData .= "\n";
                     }
                 }
             }
@@ -344,7 +350,7 @@ class PDF_Directory extends ChurchInfoReport
         global $bDirPersonalCell;
         global $bDirPersonalEmail;
         global $bDirPersonalWorkEmail;
-
+        
         extract($aHead);
 
         $sHeadStr = '';

@@ -20,6 +20,8 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\PersonCustomMasterQuery;
+use Propel\Runtime\Propel;
 
 
 // Check for Create Directory user permission.
@@ -92,6 +94,8 @@ if ($bPageSize != 'letter' && $bPageSize != 'a4') {
     $bPageSize = 'legal';
 }
 
+$connection = Propel::getConnection();
+
 //echo "ncols={$bNumberofColumns}  page size={$bPageSize}";
 
 // Instantiate the directory class and build the report.
@@ -99,13 +103,15 @@ if ($bPageSize != 'letter' && $bPageSize != 'a4') {
 $pdf = new PDF_Directory($bNumberofColumns, $bPageSize, $bFontSz, $bLineSp);
 
 // Get the list of custom person fields
-$sSQL = 'SELECT person_custom_master.* FROM person_custom_master ORDER BY custom_Order';
-$rsCustomFields = RunQuery($sSQL);
-$numCustomFields = mysqli_num_rows($rsCustomFields);
+$rsCustomFields = PersonCustomMasterQuery::Create()
+                     ->orderByCustomOrder()
+                     ->find();
+
+$numCustomFields = $rsCustomFields->count();
 
 if ($numCustomFields > 0) {
-    while ($rowCustomField = mysqli_fetch_array($rsCustomFields, MYSQLI_ASSOC)) {
-        $pdf->AddCustomField( $rowCustomField['custom_Order'], isset($_POST['bCustom'.$rowCustomField['custom_Order']]) );
+    foreach ($rsCustomFields as $rsCustomField) {
+        $pdf->AddCustomField( $rsCustomField->getCustomOrder(), isset($_POST["bCustom".$rsCustomField->getCustomOrder()]) );
     }
 }
 
@@ -186,13 +192,14 @@ if ($mysqlversion >= 4) {
     die(_('This option requires at least version 3.22 of MySQL!  Hit browser back button to return to EcclesiaCRM.'));
 }
 
-$rsRecords = RunQuery($sSQL);
-
 // This is used for the headings for the letter changes.
 // Start out with something that isn't a letter to force the first one to work
 $sLastLetter = '0';
 
-while ($aRow = mysqli_fetch_array($rsRecords)) {
+$statement = $connection->prepare($sSQL);
+$statement->execute();
+
+while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC)) {
     $OutStr = '';
     extract($aRow);
 
@@ -213,10 +220,12 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
         $sSQL = "SELECT * FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID
             WHERE per_fam_ID = ".$iFamilyID."
             AND per_fmr_ID in ($sDirRoleHeads) $sWhereExt $sClassQualifier $sGroupBy";
-        $rsPerson = RunQuery($sSQL);
 
-        if (mysqli_num_rows($rsPerson) > 0) {
-            $aHead = mysqli_fetch_array($rsPerson);
+        $pdoPersons = $connection->prepare($sSQL);
+        $pdoPersons->execute();
+        
+        if ($pdoPersons->rowCount()) {
+            $aHead = $pdoPersons->fetch(PDO::FETCH_BOTH);
             $OutStr .= $pdf->sGetHeadString($rsCustomFields, $aHead);
             $bNoRecordName = false;
         }
@@ -225,10 +234,12 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
         $sSQL = "SELECT * FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID
             WHERE per_fam_ID = ".$iFamilyID."
             AND per_fmr_ID in ($sDirRoleSpouses) $sWhereExt $sClassQualifier $sGroupBy";
-        $rsPerson = RunQuery($sSQL);
 
-        if (mysqli_num_rows($rsPerson) > 0) {
-            $aSpouse = mysqli_fetch_array($rsPerson);
+        $pdoPersons = $connection->prepare($sSQL);
+        $pdoPersons->execute();
+        
+        if ($pdoPersons->rowCount()) {
+            $aSpouse = $pdoPersons->fetch(PDO::FETCH_BOTH);
             $OutStr .= $pdf->sGetHeadString($rsCustomFields, $aSpouse);
             $bNoRecordName = false;
         }
@@ -242,9 +253,11 @@ while ($aRow = mysqli_fetch_array($rsRecords)) {
         $sSQL = "SELECT * FROM $sGroupTable LEFT JOIN family_fam ON per_fam_ID = fam_ID
             WHERE per_fam_ID = ".$iFamilyID." AND !(per_fmr_ID in ($sDirRoleHeads))
             AND !(per_fmr_ID in ($sDirRoleSpouses))  $sWhereExt $sClassQualifier $sGroupBy ORDER BY per_BirthYear,per_FirstName";
-        $rsPerson = RunQuery($sSQL);
 
-        while ($aRow = mysqli_fetch_array($rsPerson)) {
+        $pdoPersons = $connection->prepare($sSQL);
+        $pdoPersons->execute();
+
+        while ($aRow = $pdoPersons->fetch(PDO::FETCH_BOTH)) {
             $OutStr .= $pdf->sGetMemberString($aRow);
             $OutStr .= $pdf->sGetCustomString($rsCustomFields, $aRow);
         }
