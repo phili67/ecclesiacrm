@@ -16,6 +16,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\ListOptionQuery;
+use Propel\Runtime\Propel;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
@@ -37,29 +39,32 @@ $iDepID = InputUtils::LegacyFilterInput($_POST['deposit'], 'int');
 
 $currency = OutputUtils::translate_currency_fpdf(SystemConfig::getValue("sCurrency"));
 
+$connection = Propel::getConnection();
+
 if (!empty($_POST['classList'])) {
     $classList = $_POST['classList'];
 
     if ($classList[0]) {
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL);
+        $ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+
 
         $inClassList = '(';
         $notInClassList = '(';
 
-        while ($aRow = mysqli_fetch_array($rsClassifications)) {
-            extract($aRow);
-            if (in_array($lst_OptionID, $classList)) {
+        foreach ($ormClassifications as $classification) {
+            if (in_array($classification->getOptionID(), $classList)) {
                 if ($inClassList == '(') {
-                    $inClassList .= $lst_OptionID;
+                    $inClassList .= $classification->getOptionID();
                 } else {
-                    $inClassList .= ','.$lst_OptionID;
+                    $inClassList .= ','.$classification->getOptionID();
                 }
             } else {
                 if ($notInClassList == '(') {
-                    $notInClassList .= $lst_OptionID;
+                    $notInClassList .= $classification->getOptionID();
                 } else {
-                    $notInClassList .= ','.$lst_OptionID;
+                    $notInClassList .= ','.$classification->getOptionID();
                 }
             }
         }
@@ -202,10 +207,11 @@ if ($sort == 'deposit') {
 //var_dump($sSQL);
 
 //Execute SQL Statement
-$rsReport = RunQuery($sSQL);
+$statement = $connection->prepare($sSQL);
+$statement->execute();
 
 // Exit if no rows returned
-$iCountRows = mysqli_num_rows($rsReport);
+$iCountRows = $statement->rowCount();
 if ($iCountRows < 1) {
     header('Location: ../FinancialReports.php?ReturnMessage=NoRows&ReportType=Advanced%20Deposit%20Report');
 }
@@ -368,7 +374,7 @@ if ($output == 'pdf') {
             $curY = $pdf->Headings($curY);
         }
 
-        while ($aRow = mysqli_fetch_array($rsReport)) {
+        while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             extract($aRow);
             if (!$fun_ID) {
                 $fun_ID = -1;
@@ -530,7 +536,7 @@ if ($output == 'pdf') {
             $curY = $pdf->Headings($curY);
         }
 
-        while ($aRow = mysqli_fetch_array($rsReport)) {
+        while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             extract($aRow);
             if (!$fun_ID) {
                 $fun_ID = -1;
@@ -691,7 +697,7 @@ if ($output == 'pdf') {
         // Sort by Family  Report
         // **********************
 
-        while ($aRow = mysqli_fetch_array($rsReport)) {
+        while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
             extract($aRow);
             if (!$fun_ID) {
                 $fun_ID = -1;
@@ -908,7 +914,7 @@ if ($output == 'pdf') {
     $buffer = mb_substr($buffer, 0, -1).$eol;
 
     // Add data
-    while ($row = mysqli_fetch_row($rsReport)) {
+    while ($row = $statement->fetch( \PDO::FETCH_ASSOC )) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
             $buffer .= InputUtils::translate_special_charset($field).$delimiter;
