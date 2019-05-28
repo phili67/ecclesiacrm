@@ -15,6 +15,7 @@ use EcclesiaCRM\Reports\PDF_Label;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\PersonQuery;
 
 
 $sLabelFormat = InputUtils::LegacyFilterInput($_GET['labeltype']);
@@ -34,16 +35,14 @@ if ($sFontSize != 'default') {
 //if($sFontSize != "default")
 //	$pdf->SetFontSize($sFontSize);
 
-$sSQL = 'SELECT * FROM person_per WHERE per_ID IN ('.Cart::ConvertCartToString($_SESSION['aPeopleCart']).') ORDER BY per_LastName';
-$rsPersons = RunQuery($sSQL);
+$persons = PersonQuery::Create()->orderByLastName()->findById ($_SESSION['aPeopleCart']);
 
-while ($aPer = mysqli_fetch_array($rsPersons)) {
-    extract($aPer);
+foreach ($persons as $person) {
 
     $PosX = $pdf->_Margin_Left + ($pdf->_COUNTX * ($pdf->_Width + $pdf->_X_Space));
     $PosY = $pdf->_Margin_Top + ($pdf->_COUNTY * ($pdf->_Height + $pdf->_Y_Space));
 
-    $perimg = '../Images/Person/'.$per_ID.'.jpg';
+    $perimg = '../Images/Person/'.$person->getId().'.jpg';
     if (file_exists($perimg)) {
         $s = getimagesize($perimg);
         $h = ($pdf->_Width / $s[0]) * $s[1];
@@ -55,10 +54,10 @@ while ($aPer = mysqli_fetch_array($rsPersons)) {
 
         $pdf->Image($perimg, $PosX, $PosY, $useWidth);
 
-        $labelStr = sprintf("%s\n%s\n\n%d", $per_FirstName, $per_LastName, $per_ID);
+        $labelStr = sprintf("%s\n%s\n\n%d", $person->getFirstName(), $person->getLastName(), $person->getID());
 
-        $firstWid = $pdf->GetStringWidth($per_FirstName);
-        $lastWid = $pdf->GetStringWidth($per_LastName);
+        $firstWid = $pdf->GetStringWidth($person->getFirstName());
+        $lastWid = $pdf->GetStringWidth($person->getLastName());
         $maxWid = max($firstWid, $lastWid);
         $useWid = $pdf->_Width / 2 - 2;
 
@@ -72,8 +71,8 @@ while ($aPer = mysqli_fetch_array($rsPersons)) {
         $pdf->Set_Char_Size($sFontSize);
         $pdf->Add_PDF_Label('');
     } else {
-        $labelStr = sprintf("%s %s\n\n%d", $per_FirstName, $per_LastName, $per_ID);
-        $nameWid = $pdf->GetStringWidth($per_FirstName.' '.$per_LastName);
+        $labelStr = sprintf("%s %s\n\n%d", $person->getFirstName(), $person->getLastName(), $person->getID());
+        $nameWid = $pdf->GetStringWidth($person->getFirstName().' '.$person->getLastName());
         $useWid = $pdf->_Width - 2;
         if ($nameWid > $useWid) {
             $useFontSize = (int) ($sFontSize * $useWid / $nameWid);
