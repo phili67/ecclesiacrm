@@ -15,6 +15,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/Include/CanvassUtilities.php");
   unlink(SystemURLs::getDocumentRoot()."/Include/ReportFunctions.php");
   unlink(SystemURLs::getDocumentRoot()."/Include/EnvelopeFunctions.php");
+  unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Dashboard/ClassificationDashboardItem.php.php");
   
   $logger->info("End of delete :  all unusefull files");
 ?>
