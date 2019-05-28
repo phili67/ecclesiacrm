@@ -1180,7 +1180,6 @@ msgstr "Rolle ändern"
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Löschen Freiwillige Gelegenheit"
 
-#, fuzzy
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
 "assigned for this field!"
@@ -1281,7 +1280,6 @@ msgstr "Pastoral Pflege Typen Edit"
 msgid "Add Pastoral Care Type"
 msgstr "Pastoral Pflege Typ hinzuzufügen"
 
-#, fuzzy
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
 "assigned for this field!"

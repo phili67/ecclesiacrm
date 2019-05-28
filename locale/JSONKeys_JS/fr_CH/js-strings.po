@@ -1180,7 +1180,7 @@ msgid ""
 "AUTHORIZATION, THE GDPR MAKE YOUR USE OF THIS PERSON ILLEGAL !!!!!"
 msgstr ""
 "Attention avec le RGPD, quand une personne est désactivée, vous devrez "
-"demander lui demander, si vous désirez réactiver ce compte !<br><br>SANS "
+"lui demander, si vous désirez réactiver ce compte !<br><br>SANS "
 "AUTORISATION, L'UTILISATION DE CETTE PERSONNE EST ILLÉGAL !!!!"
 
 msgid "Photo"
@@ -1195,7 +1195,6 @@ msgstr "Changer rôle"
 msgid "Confirm Delete volunteer Opportunity"
 msgstr "Confirmer la suppression du bénévolat"
 
-#, fuzzy
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all family data "
 "assigned for this field!"
@@ -1292,7 +1291,6 @@ msgstr "Editeur de type de suivi pastoral"
 msgid "Add Pastoral Care Type"
 msgstr "Ajouter un type de suivi pastoral"
 
-#, fuzzy
 msgid ""
 "Warning: By deleting this field, you will irrevocably lose all person data "
 "assigned for this field!"

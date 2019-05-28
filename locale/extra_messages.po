@@ -64,6 +64,9 @@ msgstr ""
 msgid "CREDITCARD"
 msgstr ""
 
+msgid "BankDraft"
+msgstr ""
+
 msgid "CreditCard"
 msgstr ""
 
