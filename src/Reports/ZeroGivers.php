@@ -60,7 +60,11 @@ if ($sDateStart > $sDateEnd) {
 
 // Build SQL Query
 // Build SELECT SQL Portion
-$sSQL = "SELECT DISTINCT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country FROM family_fam LEFT OUTER JOIN person_per ON fam_ID = per_fam_ID WHERE per_cls_ID=1 AND fam_ID NOT IN (SELECT DISTINCT plg_FamID FROM pledge_plg WHERE plg_date BETWEEN '$sDateStart' AND '$sDateEnd' AND plg_PledgeOrPayment = 'Payment') ORDER BY fam_ID";
+$sSQL = "SELECT DISTINCT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City, fam_State, fam_Zip, fam_Country 
+       FROM family_fam LEFT OUTER JOIN person_per ON fam_ID = per_fam_ID 
+       WHERE per_cls_ID=1 AND fam_ID NOT IN 
+       (SELECT DISTINCT plg_FamID FROM pledge_plg WHERE plg_date BETWEEN '$sDateStart' AND '$sDateEnd' AND plg_PledgeOrPayment = 'Payment') 
+       ORDER BY fam_ID";
 
 //Execute SQL Statement
 $rsReport = RunQuery($sSQL);
