@@ -16,6 +16,9 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\DepositQuery;
+use Propel\Runtime\Propel;
 
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
@@ -42,29 +45,32 @@ if (!SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getValue('bCSVA
     exit;
 }
 
+$connection = Propel::getConnection();
+
 if (!empty($_POST['classList'])) {
     $classList = $_POST['classList'];
 
     if ($classList[0]) {
-        $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = 1 ORDER BY lst_OptionSequence';
-        $rsClassifications = RunQuery($sSQL);
+        $ormClassifications = ListOptionQuery::Create()
+              ->orderByOptionSequence()
+              ->findById(1);
+
 
         $inClassList = '(';
         $notInClassList = '(';
 
-        while ($aRow = mysqli_fetch_array($rsClassifications)) {
-            extract($aRow);
-            if (in_array($lst_OptionID, $classList)) {
+        foreach ($ormClassifications as $classification) {
+            if (in_array($classification->getOptionID(), $classList)) {
                 if ($inClassList == '(') {
-                    $inClassList .= $lst_OptionID;
+                    $inClassList .= $classification->getOptionID();
                 } else {
-                    $inClassList .= ','.$lst_OptionID;
+                    $inClassList .= ','.$classification->getOptionID();
                 }
             } else {
                 if ($notInClassList == '(') {
-                    $notInClassList .= $lst_OptionID;
+                    $notInClassList .= $classification->getOptionID();
                 } else {
-                    $notInClassList .= ','.$lst_OptionID;
+                    $notInClassList .= ','.$classification->getOptionID();
                 }
             }
         }
@@ -163,10 +169,11 @@ preg_match('/WHERE (plg_PledgeOrPayment.*)/i', $sSQL, $aSQLCriteria);
 $sSQL .= ' ORDER BY plg_FamID, plg_date ';
 
 //Execute SQL Statement
-$rsReport = RunQuery($sSQL);
+$statement = $connection->prepare($sSQL);
+$statement->execute();
 
 // Exit if no rows returned
-$iCountRows = mysqli_num_rows($rsReport);
+$iCountRows = $statement->rowCount();
 if ($iCountRows < 1) {
     header('Location: ../FinancialReports.php?ReturnMessage=NoRows&ReportType=Giving%20Report');
 }
@@ -208,9 +215,9 @@ if ($output == 'pdf') {
             $curY += 2 * SystemConfig::getValue('incrementY');
             if ($iDepID) {
                 // Get Deposit Date
-                $sSQL = "SELECT dep_Date, dep_Date FROM deposit_dep WHERE dep_ID='$iDepID'";
-                $rsDep = RunQuery($sSQL);
-                list($sDateStart, $sDateEnd) = mysqli_fetch_row($rsDep);
+                $dep = DepositQuery::Create()->findOneById($iDepID);
+                $sDateStart = $dep->getDate()->format('Y-m-d');
+                $sDateEnd   = $dep->getDate()->format('Y-m-d');
             }
             if ($sDateStart == $sDateEnd) {
                 $DateString = OutputUtils::FormatDate($sDateStart);
@@ -300,15 +307,18 @@ if ($output == 'pdf') {
 
     // Loop through result array
     $currentFamilyID = 0;
-    while ($row = mysqli_fetch_array($rsReport)) {
+    while ($row = $statement->fetch( \PDO::FETCH_ASSOC )) {
         extract($row);
 
         // Check for minimum amount
         if ($iMinimum > 0) {
             $temp = "SELECT SUM(plg_amount) AS total_gifts FROM pledge_plg
                 WHERE plg_FamID=$fam_ID AND $aSQLCriteria[1]";
-            $rsMinimum = RunQuery($temp);
-            list($total_gifts) = mysqli_fetch_row($rsMinimum);
+
+            $tempPDO = $connection->prepare($temp);
+            $tempPDO->execute();
+            $total_gifts = $tempPDO->fetch(PDO::FETCH_NUM)[0];
+
             if ($iMinimum > $total_gifts) {
                 continue;
             }
@@ -429,19 +439,19 @@ if ($output == 'pdf') {
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(20, $summaryIntervalY / 2, ' ', 0, 1);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, 'Total Payments:');
+    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Total Payments:')));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, 'Goods and Services Rendered:');
+    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Goods and Services Rendered:')));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
     $pdf->SetFont('Times', 'B', 10);
     $pdf->Cell(95, $summaryIntervalY, ' ');
-    $pdf->Cell(50, $summaryIntervalY, 'Tax-Deductible Contribution:');
+    $pdf->Cell(50, $summaryIntervalY, OutputUtils::translate_text_fpdf(_('Tax-Deductible Contribution:')));
     $totalAmountStr = $currency.' '.OutputUtils::money_localized($totalAmount - $totalNonDeductible);
     $pdf->SetFont('Courier', '', 9);
     $pdf->Cell(25, $summaryIntervalY, $totalAmountStr, 0, 1, 'R');
@@ -490,7 +500,7 @@ if ($output == 'pdf') {
     $buffer = mb_substr($buffer, 0, -1).$eol;
 
     // Add data
-    while ($row = mysqli_fetch_row($rsReport)) {
+    while ($row = $statement->fetch( \PDO::FETCH_ASSOC )) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
             $buffer .= InputUtils::translate_special_charset($field).$delimiter;
