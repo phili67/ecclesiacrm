@@ -14,6 +14,9 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\FamilyQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
+
 
 
 // If CSVAdminOnly option is enabled and user is not admin, redirect to the menu.
@@ -91,11 +94,9 @@ class PDF_EnvelopeReport extends ChurchInfoReport
     }
 
     // This function formats the string for a family
-    public function sGetFamilyString($aRow)
+    public function sGetFamilyString($family)
     {
-        extract($aRow); // Get a row from family_fam
-
-        return $fam_Envelope.' '.$this->MakeSalutation($fam_ID);
+        return $family->getEnvelope().' '.$this->MakeSalutation($family->getId());
     }
 
     // Number of lines is only for the $text parameter
@@ -115,14 +116,12 @@ class PDF_EnvelopeReport extends ChurchInfoReport
 // Instantiate the directory class and build the report.
 $pdf = new PDF_EnvelopeReport();
 
-$sSQL = 'SELECT fam_ID, fam_Envelope FROM family_fam WHERE fam_Envelope>0 ORDER BY fam_Envelope';
-$rsRecords = RunQuery($sSQL);
+$families = FamilyQuery::Create()->orderByEnvelope()->filterByEnvelope(0,Criteria::GREATER_THAN)->find();
 
-while ($aRow = mysqli_fetch_array($rsRecords)) {
+foreach ($families as $family) {
     $OutStr = '';
-    extract($aRow);
 
-    $OutStr = OutputUtils::translate_text_fpdf($pdf->sGetFamilyString($aRow));
+    $OutStr = OutputUtils::translate_text_fpdf($pdf->sGetFamilyString($family));
 
     // Count the number of lines in the output string
     if (strlen($OutStr)) {
