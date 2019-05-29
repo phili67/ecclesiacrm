@@ -10,6 +10,7 @@
 // Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
+include 'Include/eGiveConfig.php'; // Specific account information is in here
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\dto\SystemConfig;
@@ -31,9 +32,7 @@ $lwDate = date('Y-m-d', $now - (6 * 24 * 60 * 60));
 $iFYID = MiscUtils::CurrentFY();
 $iDepositSlipID = InputUtils::LegacyFilterInput($_GET['DepositSlipID']);
 
-include 'Include/eGiveConfig.php'; // Specific account information is in here
-
-$familySelectHtml = buildFamilySelect(0, 0, 0);
+$familySelectHtml = MiscUtils::buildFamilySelect(0, 0, 0);
 
 // if a family is deleted, and donations are found, the egive_egv table is updated at the same time that donations are transferred.  But if there aren't donations at the time, and there's still and egive ID, we need to get that changed.  So, we'll build an array of all the family IDs here, and then NOT cache the egiveID to familyID association in the loop below.  There's probably a nicer way to do this with an SQL join,  but this seems more explicit.
 
