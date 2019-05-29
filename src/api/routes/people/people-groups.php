@@ -44,6 +44,12 @@ $app->group('/groups', function () {
         echo GroupQuery::create()->groupByName()->find()->toJSON();
     });
     
+    $this->get('/defaultGroup' ,function ($request, $response, $args) {
+        $res = GroupQuery::create()->orderByName()->findOne()->getId();
+        
+        return $response->withJson($res); 
+    });
+    
     $this->post('/groupproperties/{groupID:[0-9]+}', function ($request, $response, $args) {
       $ormAssignedProperties = Record2propertyR2pQuery::Create()
                             ->addJoin(Record2propertyR2pTableMap::COL_R2P_PRO_ID,PropertyTableMap::COL_PRO_ID,Criteria::LEFT_JOIN)

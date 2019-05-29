@@ -436,15 +436,6 @@ $(document).ready(function () {
   
 // end of note management
   
-  $("#addGroup").click(function() {
-    var target = window.CRM.groups.promptSelection({Type:window.CRM.groups.selectTypes.Group | window.CRM.groups.selectTypes.Role}, function(data){
-      window.CRM.groups.addPerson(data.GroupID,window.CRM.currentPersonID,data.RoleID).done(function(){          
-        window.location.href = window.CRM.root +'/PersonView.php?PersonID=' + window.CRM.currentPersonID + '&group=true';
-      });
-    });
-  });
-  
-  
     $("#input-person-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
         promptBox.removeClass('form-group').html('');
