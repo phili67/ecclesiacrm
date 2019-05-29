@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-28 22:34+0200\n"
+"POT-Creation-Date: 2019-05-29 17:44+0200\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 #: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:252
 #: EditEventTypes.php:119 EditEventTypes.php:131 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:66
-#: GroupReports.php:169 PersonToGroup.php:68 PrintPastoralCare.php:664
+#: GroupReports.php:169 PrintPastoralCare.php:664
 #: sundayschool/SundaySchoolBadge.php:164
 #: sundayschool/SundaySchoolReports.php:210
 msgid "None"
@@ -273,12 +273,12 @@ msgstr "Ez az érték szükséges."
 msgid "Family Activated"
 msgstr "Ez az érték szükséges."
 
-#: api/routes/people/people-groups.php:352
+#: api/routes/people/people-groups.php:358
 #, fuzzy
 msgid "Deleted from group"
 msgstr "a csoportból"
 
-#: api/routes/people/people-groups.php:384
+#: api/routes/people/people-groups.php:390
 #, fuzzy
 msgid "Added to group"
 msgstr "Add hozzá a Csoport"
@@ -487,7 +487,7 @@ msgstr ""
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:172
 #: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:453
-#: eGive.php:346 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
+#: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:106 GroupList.php:41 GroupView.php:47
 #: PaddleNumEditor.php:179 PersonEditor.php:968 PersonEditor.php:983
 #: PersonEditor.php:1487 PrintPastoralCare.php:332 PrintPastoralCare.php:345
@@ -611,7 +611,7 @@ msgstr "Ország"
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
 #: external/templates/registration/family-register-members.php:104
-#: Reports/DirectoryReport.php:305 Reports/GroupReport.php:128
+#: Reports/DirectoryReport.php:305 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "Telefon"
 
@@ -630,7 +630,7 @@ msgstr "Telefon"
 #: PrintPastoralCare.php:385 PrintView.php:396 Reports/CanvassReports.php:241
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:190 Reports/ConfirmReport.php:209
-#: Reports/DirectoryReport.php:316 Reports/GroupReport.php:142
+#: Reports/DirectoryReport.php:316 Reports/GroupReport.php:138
 #: sundayschool/SundaySchoolClassView.php:100 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
@@ -692,10 +692,10 @@ msgstr "Kivéve"
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:144
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 MemberRoleChange.php:121 MemberRoleChange.php:123
-#: PersonEditor.php:1646 PersonView.php:1581 PledgeEditor.php:778
-#: Register.php:56 ReminderReport.php:55 SettingsIndividual.php:127
-#: SettingsIndividual.php:218 sundayschool/SundaySchoolDashboard.php:289
+#: ManageEnvelopes.php:144 PersonEditor.php:1646 PersonView.php:1581
+#: PledgeEditor.php:778 Register.php:56 ReminderReport.php:55
+#: SettingsIndividual.php:127 SettingsIndividual.php:218
+#: sundayschool/SundaySchoolDashboard.php:289
 #: sundayschool/SundaySchoolReports.php:321 TaxReport.php:53 UserEditor.php:867
 #: UserEditor.php:1011
 msgid "Cancel"
@@ -2046,7 +2046,7 @@ msgstr "Fizess Slip száma:"
 msgid "Payments on this deposit slip:"
 msgstr "Kifizetések ezen befizetés:"
 
-#: DepositSlipEditor.php:172 eGive.php:272
+#: DepositSlipEditor.php:172 eGive.php:271
 msgid "Import eGive"
 msgstr "Import eGive"
 
@@ -2317,7 +2317,7 @@ msgstr "Mentés és hozzáadása"
 #: FamilyList.php:218 FamilyView.php:457 PersonList.php:159 PersonList.php:160
 #: PersonList.php:161 PersonList.php:162 PersonList.php:163 PersonList.php:164
 #: PersonView.php:684 PrintPastoralCare.php:654 SelectList.php:1266
-#: SelectList.php:1289 SelectList.php:1372
+#: SelectList.php:1289 SelectList.php:1378
 #: sundayschool/SundaySchoolDashboard.php:255
 #: sundayschool/SundaySchoolDashboard.php:256
 #: sundayschool/SundaySchoolDashboard.php:257
@@ -4955,14 +4955,14 @@ msgstr "Oldal"
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:97
-#: Reports/DirectoryReport.php:309 Reports/GroupReport.php:133
+#: Reports/DirectoryReport.php:309 Reports/GroupReport.php:129
 msgid "Work"
 msgstr "Munka"
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:331
 #: EcclesiaCRM/Reports/PDF_Directory.php:407
 #: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:313
-#: Reports/GroupReport.php:138
+#: Reports/GroupReport.php:134
 msgid "Cell"
 msgstr "Sejt"
 
@@ -5532,46 +5532,46 @@ msgstr "Add Vevő"
 msgid "Return to Event Types"
 msgstr "Szerkesztése Esemény típusok"
 
-#: eGive.php:80
+#: eGive.php:79
 #, fuzzy
 msgid "eGive Import"
 msgstr "Végezze Import"
 
-#: eGive.php:268
+#: eGive.php:267
 #, fuzzy
 msgid "Start Date: "
 msgstr "Kezdő dátum / idő"
 
-#: eGive.php:270
+#: eGive.php:269
 #, fuzzy
 msgid "End Date: "
 msgstr "Esemény dátuma"
 
-#: eGive.php:357
+#: eGive.php:356
 msgid "Re-import to selected family"
 msgstr "Re-import a kiválasztott család"
 
-#: eGive.php:361
+#: eGive.php:360
 msgid "Data import results: "
 msgstr "Adat import eredmények:"
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts were imported, "
 msgstr "ajándékok importálták,"
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts unchanged, and "
 msgstr "ajándékok változatlan marad, és a"
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts not imported due to problems"
 msgstr "ajándékok nem importáltak problémák miatt"
 
-#: eGive.php:362 eGive.php:391
+#: eGive.php:361 eGive.php:390
 msgid "Back to Deposit Slip"
 msgstr "Vissza Befizetés Slip"
 
-#: eGive.php:390
+#: eGive.php:389
 msgid "Fatal error in eGive API datastream: '"
 msgstr "Végzetes hiba eGive API Datastream: \""
 
@@ -5593,7 +5593,7 @@ msgstr "Új automatikus fizetés"
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:258
 #: EventNames.php:321 FamilyView.php:264 FindFundRaiser.php:235
 #: FindFundRaiser.php:243 ListEvents.php:379 PersonView.php:414
-#: SelectList.php:1144
+#: SelectList.php:1144 SelectList.php:1297
 msgid "Edit"
 msgstr "Szerkeszt"
 
@@ -6243,7 +6243,7 @@ msgstr "Utolsó"
 #: FamilyEditor.php:1054 FamilyView.php:473 OptionManager.php:101
 #: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:449
 #: PrintPastoralCare.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:237 Reports/GroupReport.php:111
+#: Reports/CanvassReports.php:237 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:46
 msgid "Role"
 msgstr "Szerep"
@@ -6256,7 +6256,7 @@ msgstr "Nap"
 msgid "Select Gender"
 msgstr "Válassza a nemek"
 
-#: FamilyEditor.php:1114 GroupReports.php:79 PersonToGroup.php:78
+#: FamilyEditor.php:1114 GroupReports.php:79
 msgid "Select Role"
 msgstr "Válassza szerepe"
 
@@ -6418,7 +6418,7 @@ msgstr ""
 msgid "Remove from Cart"
 msgstr "Eltávolítás a kosárba"
 
-#: FamilyView.php:399 GroupView.php:104 PersonView.php:600
+#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1312
 msgid "Add to Cart"
 msgstr "A kosárban"
 
@@ -7087,7 +7087,7 @@ msgstr "Csoport Szerep"
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 
-#: GroupEditor.php:199 MemberRoleChange.php:94
+#: GroupEditor.php:199
 #, fuzzy
 msgid "New Role"
 msgstr "Új Szerep"
@@ -7190,8 +7190,7 @@ msgstr "Group jelentések"
 msgid "Select the group you would like to report"
 msgstr "Válassza ki a csoportot szeretne jelenteni"
 
-#: GroupReports.php:63 PersonToGroup.php:64
-#: sundayschool/SundaySchoolReports.php:206
+#: GroupReports.php:63 sundayschool/SundaySchoolReports.php:206
 #, fuzzy
 msgid "Select Group"
 msgstr "Válassza Csoport"
@@ -7228,7 +7227,7 @@ msgstr "Válassza ki, melyik kívánt adatokat fel"
 msgid "Standard Info"
 msgstr "Normál Info"
 
-#: GroupReports.php:153 Reports/GroupReport.php:146
+#: GroupReports.php:153 Reports/GroupReport.php:142
 msgid "Other Email"
 msgstr "Más E-mail"
 
@@ -7643,7 +7642,7 @@ msgstr ""
 msgid "Change columns"
 msgstr "Új Szerep"
 
-#: Include/Header-function.php:178 SelectList.php:1152
+#: Include/Header-function.php:178 SelectList.php:1152 SelectList.php:1359
 msgid "Print"
 msgstr ""
 
@@ -8023,28 +8022,6 @@ msgstr "Nulla"
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
 msgstr "Rendeljen kezdődnek #"
-
-#: MemberRoleChange.php:27
-msgid "Member Role Change"
-msgstr "Tagállamok szerepe módosítása"
-
-#: MemberRoleChange.php:82 PrintPastoralCare.php:515 PrintView.php:524
-msgid "Group Name"
-msgstr "Csoport neve"
-
-#: MemberRoleChange.php:86
-#, fuzzy
-msgid "Member's Name"
-msgstr "Képviselő neve"
-
-#: MemberRoleChange.php:90
-#, fuzzy
-msgid "Current Role"
-msgstr "Jelenlegi Szerep"
-
-#: MemberRoleChange.php:118
-msgid "Update"
-msgstr "Frissítse"
 
 #: members/404.php:22 members/404.php:31
 #, fuzzy
@@ -8735,23 +8712,6 @@ msgstr ""
 "FIGYELEM: A család nyilvántartást adományok és nem kell hagyni, amíg ezek "
 "adományt társítva van egy másik család."
 
-#: PersonToGroup.php:53
-msgid "Add Person to Group"
-msgstr "Add személy, csoport"
-
-#: PersonToGroup.php:59
-#, fuzzy
-msgid "Select the group to add this person to"
-msgstr "Válassza ki a csoportot, hogy adjunk ennek a személynek, hogy"
-
-#: PersonToGroup.php:81
-msgid "No Group Selected"
-msgstr "Nincs csoport Kiválasztott"
-
-#: PersonToGroup.php:88 SelectList.php:1367
-msgid "Add to Group"
-msgstr "Add hozzá a Csoport"
-
 #: PersonView.php:269
 msgid "Not assigned"
 msgstr "Nincs hozzárendelve"
@@ -9003,6 +8963,10 @@ msgstr "Nyomtatási nézet"
 #: sundayschool/SundaySchoolDashboard.php:220
 msgid "Age"
 msgstr "Életkor"
+
+#: PrintPastoralCare.php:515 PrintView.php:524
+msgid "Group Name"
+msgstr "Csoport neve"
 
 #: PrintPastoralCare.php:556 PrintView.php:565
 #: v2/templates/sidebar/propertylist.php:23 queryparameters_qrp.php:6
@@ -9380,7 +9344,7 @@ msgstr ""
 "Ez a lehetőség szerint legalább verziója 3,22 MySQL! Hit böngésző Vissza "
 "gombot, hogy visszatérjen EcclesiaCRM."
 
-#: Reports/EnvelopeReport.php:68
+#: Reports/EnvelopeReport.php:71
 #, fuzzy
 msgid "Envelope Numbers for all Families"
 msgstr "Célhoz boríték számok minden család."
@@ -9983,6 +9947,10 @@ msgstr "Fotók"
 #: SelectList.php:1148
 msgid "Cart"
 msgstr "Kosár"
+
+#: SelectList.php:1368
+msgid "Add to Group"
+msgstr "Add hozzá a Csoport"
 
 #: SettingsIndividual.php:94
 msgid "My User Settings"
@@ -11981,6 +11949,30 @@ msgstr "Menetrend"
 
 msgid "paused"
 msgstr ""
+
+#~ msgid "Member Role Change"
+#~ msgstr "Tagállamok szerepe módosítása"
+
+#, fuzzy
+#~ msgid "Member's Name"
+#~ msgstr "Képviselő neve"
+
+#, fuzzy
+#~ msgid "Current Role"
+#~ msgstr "Jelenlegi Szerep"
+
+#~ msgid "Update"
+#~ msgstr "Frissítse"
+
+#~ msgid "Add Person to Group"
+#~ msgstr "Add személy, csoport"
+
+#, fuzzy
+#~ msgid "Select the group to add this person to"
+#~ msgstr "Válassza ki a csoportot, hogy adjunk ennek a személynek, hogy"
+
+#~ msgid "No Group Selected"
+#~ msgstr "Nincs csoport Kiválasztott"
 
 #~ msgid "Notes:"
 #~ msgstr "Megjegyzések:"

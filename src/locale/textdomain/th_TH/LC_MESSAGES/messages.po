@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-28 22:34+0200\n"
+"POT-Creation-Date: 2019-05-29 17:44+0200\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 #: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:252
 #: EditEventTypes.php:119 EditEventTypes.php:131 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:66
-#: GroupReports.php:169 PersonToGroup.php:68 PrintPastoralCare.php:664
+#: GroupReports.php:169 PrintPastoralCare.php:664
 #: sundayschool/SundaySchoolBadge.php:164
 #: sundayschool/SundaySchoolReports.php:210
 msgid "None"
@@ -259,11 +259,11 @@ msgstr "บทบาทในครอบครัว"
 msgid "Family Activated"
 msgstr "บทบาทในครอบครัว"
 
-#: api/routes/people/people-groups.php:352
+#: api/routes/people/people-groups.php:358
 msgid "Deleted from group"
 msgstr ""
 
-#: api/routes/people/people-groups.php:384
+#: api/routes/people/people-groups.php:390
 msgid "Added to group"
 msgstr ""
 
@@ -464,7 +464,7 @@ msgstr ""
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:172
 #: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:453
-#: eGive.php:346 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
+#: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:106 GroupList.php:41 GroupView.php:47
 #: PaddleNumEditor.php:179 PersonEditor.php:968 PersonEditor.php:983
 #: PersonEditor.php:1487 PrintPastoralCare.php:332 PrintPastoralCare.php:345
@@ -590,7 +590,7 @@ msgstr "ประเทศ"
 #: EcclesiaCRM/Reports/PDF_Directory.php:399
 #: EcclesiaCRM/Reports/PDF_Directory.php:456
 #: external/templates/registration/family-register-members.php:104
-#: Reports/DirectoryReport.php:305 Reports/GroupReport.php:128
+#: Reports/DirectoryReport.php:305 Reports/GroupReport.php:124
 msgid "Phone"
 msgstr "โทรศัพท์"
 
@@ -609,7 +609,7 @@ msgstr "โทรศัพท์"
 #: PrintPastoralCare.php:385 PrintView.php:396 Reports/CanvassReports.php:241
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:190 Reports/ConfirmReport.php:209
-#: Reports/DirectoryReport.php:316 Reports/GroupReport.php:142
+#: Reports/DirectoryReport.php:316 Reports/GroupReport.php:138
 #: sundayschool/SundaySchoolClassView.php:100 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "อีเมล"
@@ -671,10 +671,10 @@ msgstr "บันทึก"
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:144
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 MemberRoleChange.php:121 MemberRoleChange.php:123
-#: PersonEditor.php:1646 PersonView.php:1581 PledgeEditor.php:778
-#: Register.php:56 ReminderReport.php:55 SettingsIndividual.php:127
-#: SettingsIndividual.php:218 sundayschool/SundaySchoolDashboard.php:289
+#: ManageEnvelopes.php:144 PersonEditor.php:1646 PersonView.php:1581
+#: PledgeEditor.php:778 Register.php:56 ReminderReport.php:55
+#: SettingsIndividual.php:127 SettingsIndividual.php:218
+#: sundayschool/SundaySchoolDashboard.php:289
 #: sundayschool/SundaySchoolReports.php:321 TaxReport.php:53 UserEditor.php:867
 #: UserEditor.php:1011
 msgid "Cancel"
@@ -1961,7 +1961,7 @@ msgstr ""
 msgid "Payments on this deposit slip:"
 msgstr ""
 
-#: DepositSlipEditor.php:172 eGive.php:272
+#: DepositSlipEditor.php:172 eGive.php:271
 msgid "Import eGive"
 msgstr ""
 
@@ -2229,7 +2229,7 @@ msgstr ""
 #: FamilyList.php:218 FamilyView.php:457 PersonList.php:159 PersonList.php:160
 #: PersonList.php:161 PersonList.php:162 PersonList.php:163 PersonList.php:164
 #: PersonView.php:684 PrintPastoralCare.php:654 SelectList.php:1266
-#: SelectList.php:1289 SelectList.php:1372
+#: SelectList.php:1289 SelectList.php:1378
 #: sundayschool/SundaySchoolDashboard.php:255
 #: sundayschool/SundaySchoolDashboard.php:256
 #: sundayschool/SundaySchoolDashboard.php:257
@@ -4780,14 +4780,14 @@ msgstr ""
 #: EcclesiaCRM/Reports/PDF_Directory.php:403
 #: EcclesiaCRM/Reports/PDF_Directory.php:460
 #: external/templates/registration/family-register-members.php:97
-#: Reports/DirectoryReport.php:309 Reports/GroupReport.php:133
+#: Reports/DirectoryReport.php:309 Reports/GroupReport.php:129
 msgid "Work"
 msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_Directory.php:331
 #: EcclesiaCRM/Reports/PDF_Directory.php:407
 #: EcclesiaCRM/Reports/PDF_Directory.php:464 Reports/DirectoryReport.php:313
-#: Reports/GroupReport.php:138
+#: Reports/GroupReport.php:134
 msgid "Cell"
 msgstr ""
 
@@ -5324,44 +5324,44 @@ msgstr ""
 msgid "Return to Event Types"
 msgstr ""
 
-#: eGive.php:80
+#: eGive.php:79
 msgid "eGive Import"
 msgstr ""
 
-#: eGive.php:268
+#: eGive.php:267
 #, fuzzy
 msgid "Start Date: "
 msgstr "วันเกิด"
 
-#: eGive.php:270
+#: eGive.php:269
 msgid "End Date: "
 msgstr ""
 
-#: eGive.php:357
+#: eGive.php:356
 msgid "Re-import to selected family"
 msgstr ""
 
-#: eGive.php:361
+#: eGive.php:360
 msgid "Data import results: "
 msgstr ""
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts were imported, "
 msgstr ""
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts unchanged, and "
 msgstr ""
 
-#: eGive.php:361
+#: eGive.php:360
 msgid " gifts not imported due to problems"
 msgstr ""
 
-#: eGive.php:362 eGive.php:391
+#: eGive.php:361 eGive.php:390
 msgid "Back to Deposit Slip"
 msgstr ""
 
-#: eGive.php:390
+#: eGive.php:389
 msgid "Fatal error in eGive API datastream: '"
 msgstr ""
 
@@ -5382,7 +5382,7 @@ msgstr ""
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:258
 #: EventNames.php:321 FamilyView.php:264 FindFundRaiser.php:235
 #: FindFundRaiser.php:243 ListEvents.php:379 PersonView.php:414
-#: SelectList.php:1144
+#: SelectList.php:1144 SelectList.php:1297
 msgid "Edit"
 msgstr ""
 
@@ -6011,7 +6011,7 @@ msgstr "นามสกุล"
 #: FamilyEditor.php:1054 FamilyView.php:473 OptionManager.php:101
 #: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:449
 #: PrintPastoralCare.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:237 Reports/GroupReport.php:111
+#: Reports/CanvassReports.php:237 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:46
 msgid "Role"
 msgstr ""
@@ -6025,7 +6025,7 @@ msgstr ""
 msgid "Select Gender"
 msgstr "เพศ"
 
-#: FamilyEditor.php:1114 GroupReports.php:79 PersonToGroup.php:78
+#: FamilyEditor.php:1114 GroupReports.php:79
 msgid "Select Role"
 msgstr ""
 
@@ -6180,7 +6180,7 @@ msgstr ""
 msgid "Remove from Cart"
 msgstr ""
 
-#: FamilyView.php:399 GroupView.php:104 PersonView.php:600
+#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1312
 msgid "Add to Cart"
 msgstr ""
 
@@ -6817,7 +6817,7 @@ msgstr ""
 msgid "Group role name changes are saved as soon as the box loses focus"
 msgstr ""
 
-#: GroupEditor.php:199 MemberRoleChange.php:94
+#: GroupEditor.php:199
 msgid "New Role"
 msgstr ""
 
@@ -6908,8 +6908,7 @@ msgstr "สมาชิกกลุ่ม"
 msgid "Select the group you would like to report"
 msgstr ""
 
-#: GroupReports.php:63 PersonToGroup.php:64
-#: sundayschool/SundaySchoolReports.php:206
+#: GroupReports.php:63 sundayschool/SundaySchoolReports.php:206
 msgid "Select Group"
 msgstr ""
 
@@ -6941,7 +6940,7 @@ msgstr ""
 msgid "Standard Info"
 msgstr ""
 
-#: GroupReports.php:153 Reports/GroupReport.php:146
+#: GroupReports.php:153 Reports/GroupReport.php:142
 #, fuzzy
 msgid "Other Email"
 msgstr "อีเมล ที่ทำงาน/ที่อื่นๆ"
@@ -7324,7 +7323,7 @@ msgstr ""
 msgid "Change columns"
 msgstr ""
 
-#: Include/Header-function.php:178 SelectList.php:1152
+#: Include/Header-function.php:178 SelectList.php:1152 SelectList.php:1359
 msgid "Print"
 msgstr ""
 
@@ -7675,28 +7674,6 @@ msgstr ""
 
 #: ManageEnvelopes.php:195
 msgid "Assign starting at #"
-msgstr ""
-
-#: MemberRoleChange.php:27
-msgid "Member Role Change"
-msgstr ""
-
-#: MemberRoleChange.php:82 PrintPastoralCare.php:515 PrintView.php:524
-#, fuzzy
-msgid "Group Name"
-msgstr "สมาชิกกลุ่ม"
-
-#: MemberRoleChange.php:86
-#, fuzzy
-msgid "Member's Name"
-msgstr "วันที่เป็นสมาชิก"
-
-#: MemberRoleChange.php:90
-msgid "Current Role"
-msgstr ""
-
-#: MemberRoleChange.php:118
-msgid "Update"
 msgstr ""
 
 #: members/404.php:22 members/404.php:31
@@ -8323,22 +8300,6 @@ msgid ""
 "deleted until these donations are associated with another person or Family."
 msgstr ""
 
-#: PersonToGroup.php:53
-msgid "Add Person to Group"
-msgstr ""
-
-#: PersonToGroup.php:59
-msgid "Select the group to add this person to"
-msgstr ""
-
-#: PersonToGroup.php:81
-msgid "No Group Selected"
-msgstr ""
-
-#: PersonToGroup.php:88 SelectList.php:1367
-msgid "Add to Group"
-msgstr ""
-
 #: PersonView.php:269
 #, fuzzy
 msgid "Not assigned"
@@ -8581,6 +8542,11 @@ msgstr ""
 #: sundayschool/SundaySchoolDashboard.php:220
 msgid "Age"
 msgstr ""
+
+#: PrintPastoralCare.php:515 PrintView.php:524
+#, fuzzy
+msgid "Group Name"
+msgstr "สมาชิกกลุ่ม"
 
 #: PrintPastoralCare.php:556 PrintView.php:565
 #: v2/templates/sidebar/propertylist.php:23 queryparameters_qrp.php:6
@@ -8937,7 +8903,7 @@ msgid ""
 "button to return to EcclesiaCRM."
 msgstr ""
 
-#: Reports/EnvelopeReport.php:68
+#: Reports/EnvelopeReport.php:71
 msgid "Envelope Numbers for all Families"
 msgstr ""
 
@@ -9502,6 +9468,10 @@ msgstr ""
 
 #: SelectList.php:1148
 msgid "Cart"
+msgstr ""
+
+#: SelectList.php:1368
+msgid "Add to Group"
 msgstr ""
 
 #: SettingsIndividual.php:94
@@ -11362,6 +11332,10 @@ msgstr "เลือกประเภทเก็บ"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Member's Name"
+#~ msgstr "วันที่เป็นสมาชิก"
 
 #, fuzzy
 #~ msgid "Group Member Properties Editor"
