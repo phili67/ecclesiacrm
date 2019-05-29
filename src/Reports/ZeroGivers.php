@@ -18,6 +18,8 @@ use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 
+use Propel\Runtime\Propel;
+
 // Security
 if ( !( SessionUser::getUser()->isFinanceEnabled() && SystemConfig::getBooleanValue('bEnabledFinance') ) ) {
     RedirectUtils::Redirect('Menu.php');
@@ -67,10 +69,13 @@ $sSQL = "SELECT DISTINCT fam_ID, fam_Name, fam_Address1, fam_Address2, fam_City,
        ORDER BY fam_ID";
 
 //Execute SQL Statement
-$rsReport = RunQuery($sSQL);
+$connection = Propel::getConnection();
+$rsReport = $connection->prepare($sSQL);
+$rsReport->execute();
+
 
 // Exit if no rows returned
-$iCountRows = mysqli_num_rows($rsReport);
+$iCountRows = $rsReport->rowCount();
 if ($iCountRows < 1) {
     header('Location: ../FinancialReports.php?ReturnMessage=NoRows&ReportType=Zero%20Givers');
 }
@@ -140,7 +145,7 @@ if ($output == 'pdf') {
     $pdf = new PDF_ZeroGivers();
 
     // Loop through result array
-    while ($row = mysqli_fetch_array($rsReport)) {
+    while ($row = $rsReport->fetch( \PDO::FETCH_ASSOC )) {
         extract($row);
         $curY = $pdf->StartNewPage($fam_ID, $fam_Name, $fam_Address1, $fam_Address2, $fam_City, $fam_State, $fam_Zip, $fam_Country);
 
@@ -173,7 +178,7 @@ if ($output == 'pdf') {
     $buffer = mb_substr($buffer, 0, -1).$eol;
 
     // Add data
-    while ($row = mysqli_fetch_row($rsReport)) {
+    while ($row = $rsReport->fetch( \PDO::FETCH_ASSOC )) {
         foreach ($row as $field) {
             $field = str_replace($delimiter, ' ', $field);    // Remove any delimiters from data
             $buffer .= InputUtils::translate_special_charset($field).$delimiter;
