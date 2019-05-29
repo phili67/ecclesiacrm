@@ -533,7 +533,7 @@
                       </li>\
                       <li>\
                           <a href="#" id="emptyCartToGroup">\
-                              <i class="fa fa-object-ungroup text-info"></i>' + i18next.t("Empty Cart to Group") + '\
+                              <i class="fa fa-tag text-info"></i>' + i18next.t("Empty Cart to Group") + '\
                           </a>\
                       </li>\
                       <li>\
@@ -669,6 +669,14 @@
           method:"GET"
         }); 
       },
+      'defaultGroup': function (callback) {
+        var res = window.CRM.APIRequest({
+          path:"groups/defaultGroup",
+          method:"GET"
+        }).done(function(data) {
+          callback(data);
+        });
+      },
       'getRoles': function(GroupID) {
         return window.CRM.APIRequest({
           path:"groups/"+GroupID+"/roles",
@@ -721,7 +729,7 @@
             };
           }
           
-          if (selectOptions.Type === window.CRM.groups.selectTypes.Role)
+          if (selectOptions.Type === window.CRM.groups.selectTypes.Role || selectOptions.Role === window.CRM.groups.selectTypes.Role)
           {
             if (!selectOptions.GroupID)
             {

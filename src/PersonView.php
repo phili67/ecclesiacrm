@@ -639,7 +639,7 @@ if (!empty($person->getDateDeactivated())) {
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
           $buttons++;
   ?>
-        <a class="btn btn-app" id="addGroup"><i class="fa fa-users"></i> <?= _("Assign New Group") ?></a>
+        <a class="btn btn-app addGroup" data-personid="<?= $iPersonID ?>"><i class="fa fa-users"></i> <?= _("Assign New Group") ?></a>
   <?php
     }
 

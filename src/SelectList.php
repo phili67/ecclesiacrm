@@ -780,7 +780,7 @@ if ($Total == 1) {
 <div align="center" style="margin-top: -25px;">
   <ul class="pagination pagination-sm">
     <li class="<?= empty($sLetter)?"active":"" ?>">
-    <a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr ?>&amp;PersonProperties=<?= $iPersonPropertyStr.(($sSort)?"&amp;Sort=$sSort":"") ?>"><?= _('View All') ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr ?>&amp;PersonProperties=<?= $iPersonPropertyStr.(($sSort)?"&amp;Sort=$sSort":"") ?>"><?= _('View All') ?></a>
     </li>
 
     <?php
@@ -795,7 +795,7 @@ if ($Total == 1) {
         } else {
         ?>
             <li>
-              <a href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr.(($sSort)?"&amp;Sort=$sSort":"")."&amp;Letter=".$aLetter[0] ?>"><?= $aLetter[0] ?></a>
+              <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr.(($sSort)?"&amp;Sort=$sSort":"")."&amp;Letter=".$aLetter[0] ?>"><?= $aLetter[0] ?></a>
             </li>
         <?php
         }
@@ -821,7 +821,7 @@ if ($Total == 1) {
                 $thisLinkResult = $Result_Set - $iPerPage;
         ?>
            <li>
-                <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>"><?= _('Previous Page') ?></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>"><?= _('Previous Page') ?></a>
            </li> 
         <?php
             }
@@ -841,7 +841,7 @@ if ($Total == 1) {
             if ($startpage != 1) {
             ?>
                <li>
-                  <a href="SelectList.php?Result_Set=0&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">1 ...</a>
+                  <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?Result_Set=0&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">1 ...</a>
                </li>
             <?php
             }
@@ -854,7 +854,7 @@ if ($Total == 1) {
                     if ($thisLinkResult != $Result_Set) {
                     ?>
                       <li>
-                        <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode?> &amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr?>"><?= $c ?></a>
+                        <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode?> &amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr?>&amp;grouproleid=<?= $iRoleIDStr?>"><?= $c ?></a>
                       </li>
                     <?php
                     } else {
@@ -872,7 +872,7 @@ if ($Total == 1) {
                 $thisLinkResult = ($Pages - 1) * $iPerPage;
                 ?>
                 <li>
-                  <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">... <?= $Pages ?></a>
+                  <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassification ?>&amp;FamilyRole=<?= $iFamilyRole ?>&amp;Gender=<?= $iGender ?>&amp;grouptype=<?= $iGroupType ?>&amp;groupid=<?= $iGroupID ?>&amp;grouproleid=<?= $iRoleID ?>">... <?= $Pages ?></a>
                 </li>
             <?php      
             }
@@ -882,7 +882,7 @@ if ($Total == 1) {
                 if ($thisLinkResult < $Total) {
                 ?>
                   <li>
-                    <a href="SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr ?>"><?= _('Next Page') ?></a>          
+                    <a href="<?= SystemURLs::getRootPath() ?>/SelectList.php?Result_Set=<?= $thisLinkResult ?>&amp;mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Filter=<?= $sFilter ?>&amp;Sort=<?= $sSort ?>&amp;Letter=<?= $sLetter ?>&amp;Classification=<?= $iClassificationStr ?>&amp;FamilyRole=<?= $iFamilyRoleStr ?>&amp;Gender=<?= $iGenderStr ?>&amp;grouptype=<?= $iGroupTypeStr ?>&amp;groupid=<?= $iGroupIDStr ?>&amp;grouproleid=<?= $iRoleIDStr ?>"><?= _('Next Page') ?></a>          
                   </li>
                 <?php
                 }
@@ -1050,7 +1050,7 @@ if (!isset($sPersonColumn5)) {
   <tr>
   <th><?= _('Photo') ?></th>
   <th>
-        <a class="btn btn-<?= ($sSort == "name")?"info active":"default" ?> btn-sm" href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Sort=name&amp;Filter=<?= $sFilter ?>"><?= _('Name') ?></a>
+        <a class="btn btn-<?= ($sSort == "name")?"info active":"default" ?> btn-sm" href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=<?= $sMode ?>&amp;type=<?= $iGroupTypeMissing ?>&amp;Sort=name&amp;Filter=<?= $sFilter ?>"><?= _('Name') ?></a>
   </th>
 
   <th><input type="hidden" name="mode" value="<?= $sMode ?>">
@@ -1122,7 +1122,7 @@ if (!isset($sPersonColumn5)) {
       </select>
   </th>
   <th>
-     <a class="btn btn-<?= ($sSort == "family")?"info active":"default" ?> btn-sm " href="SelectList.php?mode=<?= $sMode ?>&amp;type=<?=$iGroupTypeMissing ?>&amp;Sort=family&amp;Filter=<?= $sFilter ?>"><?= _('Family') ?></a>
+     <a class="btn btn-<?= ($sSort == "family")?"info active":"default" ?> btn-sm " href="<?= SystemURLs::getRootPath() ?>/SelectList.php?mode=<?= $sMode ?>&amp;type=<?=$iGroupTypeMissing ?>&amp;Sort=family&amp;Filter=<?= $sFilter ?>"><?= _('Family') ?></a>
   </th>
   <th>
    <select class="form-control-min_width input-sm" name="PersonColumn5" onchange="this.form.submit()">
@@ -1232,7 +1232,7 @@ if (!isset($sPersonColumn5)) {
     </td>
       <td><img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $per_ID ?>/thumbnail" class="initials-image direct-chat-img " width="10px" height="10px" /> </td>
     <td>
-        <a href="PersonView.php?PersonID=<?= $per_ID ?>" >
+        <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $per_ID ?>" >
           <?= OutputUtils::FormatFullName($per_Title, $per_FirstName, $per_MiddleName, $per_LastName, $per_Suffix, 3) ?>
         </a>
       </td>
@@ -1258,7 +1258,7 @@ if (!isset($sPersonColumn5)) {
       if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
     
         if ($fam_Name != '') {
-            echo '<a href="FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
+            echo '<a href="<?= SystemURLs::getRootPath() ?>/FamilyView.php?FamilyID='.$fam_ID.'">'.$fam_Name;
             echo MiscUtils::FormatAddressLine($fam_Address1, $fam_City, $fam_State).'</a>';
         }
         echo '&nbsp;</td>';
@@ -1291,23 +1291,25 @@ if (!isset($sPersonColumn5)) {
       ?>
     </td>
       <td>
-    <?php if (SessionUser::getUser()->isEditRecordsEnabled()) {
-          ?>
-      <a href="PersonEditor.php?PersonID=<?= $per_ID ?>">
+    <?php 
+      if (SessionUser::getUser()->isEditRecordsEnabled()) {
+    ?>
+        <a href="<?= SystemURLs::getRootPath() ?>/PersonEditor.php?PersonID=<?= $per_ID ?>" data-toggle="tooltip" data-placement="top" data-original-title="<?= _('Edit') ?>">
           <span class="fa-stack">
                   <i class="fa fa-square fa-stack-2x"></i>
                   <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-              </span>
-          </a>
+          </span>
+        </a>
     <?php
-      } ?>
+      } 
+    ?>
       </td>
     <td>
     <?php 
       if (!isset($_SESSION['aPeopleCart']) || !in_array($per_ID, $_SESSION['aPeopleCart'], false)) {
         if (SessionUser::getUser()->isShowCartEnabled()) {
     ?>
-        <a class="AddToPeopleCart" data-cartpersonid="<?= $per_ID ?>">
+        <a class="AddToPeopleCart" data-cartpersonid="<?= $per_ID ?>" data-toggle="tooltip" title="" data-placement="top" data-original-title="<?= _('Add to Cart') ?>">
       <?php
         }
       ?>
@@ -1354,7 +1356,7 @@ if (!isset($sPersonColumn5)) {
    if(SessionUser::getUser()->isSeePrivacyDataEnabled()) {
       if ($iMode == 1) {
     ?>
-            <a href="PrintView.php?PersonID=<?= $per_ID ?>">
+            <a href="<?= SystemURLs::getRootPath() ?>/PrintView.php?PersonID=<?= $per_ID ?>"  data-toggle="tooltip" data-placement="top" data-original-title="<?= _('Print') ?>">
               <span class="fa-stack">
                   <i class="fa fa-square fa-stack-2x"></i>
                   <i class="fa fa-print fa-stack-1x fa-inverse"></i>
@@ -1362,11 +1364,15 @@ if (!isset($sPersonColumn5)) {
             </a>
     <?php
       } else {
-          echo '<a href="PersonToGroup.php?PersonID='.$per_ID;
-          echo '&amp;prevquery='.rawurlencode($_SERVER['QUERY_STRING']).'">';
-          echo _('Add to Group').'</a>';
+    ?>
+         <a href="#" class="addGroup" data-personid="<?= $per_ID ?>" data-toggle="tooltip" title="" data-placement="left" data-original-title="<?= _('Add to Group') ?>">
+              <span class="fa-stack">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-tag fa-stack-1x fa-inverse"></i>
+              </span>
+         </a>
+    <?php
       }
-    
     } else {
      ?>
       <?= _('Private Data') ?> 
@@ -1393,5 +1399,7 @@ if (!isset($sPersonColumn5)) {
     </div>
   </form>
 </div>
+
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/people/MemberView.js"></script>
 
 <?php require 'Include/Footer.php' ?>
