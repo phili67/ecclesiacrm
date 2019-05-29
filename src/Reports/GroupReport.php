@@ -61,10 +61,6 @@ if ($iMode == 1) {
     $props = GroupPropMasterQuery::Create()->orderByPropId()->findByGroupId ($iGroupID);
     $bHasProps = ($props->count() > 0);
     
-    $sSQL = 'SELECT * FROM groupprop_master WHERE grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-    $rsProps = RunQuery($sSQL);
-    $bHasProps = (mysqli_num_rows($rsProps) > 0);
-
     $sSQL = 'SELECT * FROM person_per
       LEFT JOIN family_fam ON per_fam_ID = fam_ID ';
 
