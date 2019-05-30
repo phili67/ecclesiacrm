@@ -14,11 +14,11 @@ $(document).ready(function () {
       buttons: {
         confirm: {
           label: i18next.t('Yes'),
-            className: 'btn-success'
+            className: 'btn-danger'
         },
         cancel: {
           label: i18next.t('No'),
-          className: 'btn-danger'
+          className: 'btn-primary'
         }
       },
       callback: function (result)
@@ -43,11 +43,11 @@ $(document).ready(function () {
       buttons: {
         confirm: {
           label: i18next.t('Yes'),
-            className: 'btn-success'
+            className: 'btn-danger'
         },
         cancel: {
           label: i18next.t('No'),
-          className: 'btn-danger'
+          className: 'btn-primary'
         }
       },
       callback: function (result)
