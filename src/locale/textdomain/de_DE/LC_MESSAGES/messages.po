@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 17:44+0200\n"
+"POT-Creation-Date: 2019-05-30 16:16+0200\n"
 "Language: de-DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -282,9 +282,8 @@ msgstr "Personaktiviert."
 #: FamilyEditor.php:735 FamilyList.php:163 FamilyView.php:276 GeoPage.php:359
 #: GroupReports.php:148 Menu.php:543 Menu.php:570 PersonEditor.php:1017
 #: PersonEditor.php:1021 PersonEditor.php:1090 PersonEditor.php:1114
-#: PersonList.php:114 PersonView.php:463 Register.php:43
-#: Reports/ConfirmReportEmail.php:125 Reports/ConfirmReportEmail.php:130
-#: Reports/PDFLabel.php:859
+#: PersonList.php:114 PersonView.php:463 Reports/ConfirmReportEmail.php:125
+#: Reports/ConfirmReportEmail.php:130 Reports/PDFLabel.php:859
 msgid "Address"
 msgstr "Adresse"
 
@@ -394,14 +393,14 @@ msgid "The people and families has been cleared from the database."
 msgstr "Menschen und famielien wurde von die Datenbank gelöscht."
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:347 CartView.php:367
-#: EcclesiaCRM/utils/OutputUtils.php:209 EcclesiaCRM/utils/OutputUtils.php:306
+#: EcclesiaCRM/utils/OutputUtils.php:209 EcclesiaCRM/utils/OutputUtils.php:309
 #: FinancialReports.php:425 ListEvents.php:569 Reports/ConfirmReport.php:235
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "Yes"
 msgstr "Ja"
 
 #: api/routes/system/system-gdrp.php:65 CartView.php:360 CartView.php:369
-#: EcclesiaCRM/utils/OutputUtils.php:211 EcclesiaCRM/utils/OutputUtils.php:307
+#: EcclesiaCRM/utils/OutputUtils.php:211 EcclesiaCRM/utils/OutputUtils.php:310
 #: FinancialReports.php:426 ListEvents.php:569 Reports/ConfirmReport.php:237
 #: Reports/GDPR/GDPRListExport.php:88
 msgid "No"
@@ -449,7 +448,7 @@ msgstr ""
 #: DonatedItemEditor.php:190 DonatedItemEditor.php:241
 #: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
 #: EcclesiaCRM/MenuBar/MenuBar.php:104 EcclesiaCRM/MenuBar/MenuBar.php:172
-#: EcclesiaCRM/utils/OutputUtils.php:395 EcclesiaCRM/utils/OutputUtils.php:453
+#: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
 #: GroupEditor.php:106 GroupList.php:41 GroupView.php:47
 #: PaddleNumEditor.php:179 PersonEditor.php:968 PersonEditor.php:983
@@ -536,16 +535,16 @@ msgstr "Nachnahme/Familienname"
 #: AutoPaymentEditor.php:940 CartToFamily.php:327 CSVExport.php:103
 #: CSVImport.php:245 DirectoryReports.php:278
 #: external/templates/registration/family-register.php:43 FamilyEditor.php:739
-#: PersonEditor.php:1025 PersonEditor.php:1138 Register.php:44
-#: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:7
+#: PersonEditor.php:1025 PersonEditor.php:1138 Reports/PDFLabel.php:859
+#: queryparameteroptions_qpo.php:7
 msgid "City"
 msgstr "Stadt"
 
 #: AutoPaymentEditor.php:948 CartToFamily.php:332 CSVExport.php:108
 #: CSVImport.php:246 DirectoryReports.php:282
 #: external/templates/registration/family-register.php:46 FamilyEditor.php:746
-#: PersonEditor.php:1031 PersonEditor.php:1166 Register.php:45
-#: Reports/PDFLabel.php:859 queryparameteroptions_qpo.php:6
+#: PersonEditor.php:1031 PersonEditor.php:1166 Reports/PDFLabel.php:859
+#: queryparameteroptions_qpo.php:6
 msgid "State"
 msgstr "Bundesland"
 
@@ -553,14 +552,13 @@ msgstr "Bundesland"
 #: CSVExport.php:113 CSVImport.php:247 DirectoryReports.php:286
 #: external/templates/registration/family-register.php:57
 #: external/templates/verify/enter-info.php:29 FamilyEditor.php:759
-#: PersonEditor.php:1044 PersonEditor.php:1200 Register.php:46
-#: Reports/PDFLabel.php:859
+#: PersonEditor.php:1044 PersonEditor.php:1200 Reports/PDFLabel.php:859
 msgid "Zip"
 msgstr "PLZ"
 
 #: AutoPaymentEditor.php:964 CartToFamily.php:355 CSVExport.php:123
 #: CSVImport.php:248 FamilyEditor.php:769 PersonEditor.php:1054
-#: PersonEditor.php:1230 Register.php:47
+#: PersonEditor.php:1230
 msgid "Country"
 msgstr "Land"
 
@@ -649,9 +647,8 @@ msgstr "Speichern"
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:144
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
 #: ManageEnvelopes.php:144 PersonEditor.php:1646 PersonView.php:1581
-#: PledgeEditor.php:778 Register.php:56 ReminderReport.php:55
-#: SettingsIndividual.php:127 SettingsIndividual.php:218
-#: sundayschool/SundaySchoolDashboard.php:289
+#: PledgeEditor.php:778 ReminderReport.php:55 SettingsIndividual.php:127
+#: SettingsIndividual.php:218 sundayschool/SundaySchoolDashboard.php:289
 #: sundayschool/SundaySchoolReports.php:321 TaxReport.php:53 UserEditor.php:867
 #: UserEditor.php:1011
 msgid "Cancel"
@@ -1201,7 +1198,7 @@ msgid "Home Phone"
 msgstr "Tel. Privat"
 
 #: CartToFamily.php:371 CartToFamily.php:381 CartToFamily.php:391
-#: EcclesiaCRM/utils/OutputUtils.php:441 FamilyEditor.php:813
+#: EcclesiaCRM/utils/OutputUtils.php:444 FamilyEditor.php:813
 #: FamilyEditor.php:823 FamilyEditor.php:833 PersonEditor.php:1289
 #: PersonEditor.php:1315 PersonEditor.php:1340
 msgid "Do not auto-format"
@@ -2128,7 +2125,6 @@ msgid "Use Title Page"
 msgstr "Gebrauche Titelseite"
 
 #: DirectoryReports.php:270 EcclesiaCRM/dto/SystemConfig.php:142
-#: Register.php:41
 msgid "Church Name"
 msgstr "Kirche Name"
 
@@ -2224,8 +2220,8 @@ msgstr "Private Daten"
 #: EcclesiaCRM/Service/DashboardService.php:74
 #: EcclesiaCRM/Service/DashboardService.php:88
 #: EcclesiaCRM/Service/TimelineService.php:216
-#: EcclesiaCRM/utils/OutputUtils.php:308 EcclesiaCRM/utils/OutputUtils.php:548
-#: EcclesiaCRM/utils/OutputUtils.php:561 FamilyEditor.php:1130
+#: EcclesiaCRM/utils/OutputUtils.php:311 EcclesiaCRM/utils/OutputUtils.php:551
+#: EcclesiaCRM/utils/OutputUtils.php:564 FamilyEditor.php:1130
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -3744,7 +3740,7 @@ msgstr "PLZ der Kirche"
 msgid "Church Phone"
 msgstr "Tel. der Kirche"
 
-#: EcclesiaCRM/dto/SystemConfig.php:148 Register.php:48
+#: EcclesiaCRM/dto/SystemConfig.php:148
 msgid "Church Email"
 msgstr "Kirchenmail"
 
@@ -4698,23 +4694,23 @@ msgid "Profile Image uploaded"
 msgstr "Profilbild hochgeladen"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:607
-#: EcclesiaCRM/utils/OutputUtils.php:568
+#: EcclesiaCRM/utils/OutputUtils.php:571
 msgid "mos old"
 msgstr "Monate alt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:609
-#: EcclesiaCRM/utils/OutputUtils.php:570
+#: EcclesiaCRM/utils/OutputUtils.php:573
 msgid "mo old"
 msgstr "Monat alt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:613
-#: EcclesiaCRM/utils/OutputUtils.php:543 EcclesiaCRM/utils/OutputUtils.php:545
-#: EcclesiaCRM/utils/OutputUtils.php:574
+#: EcclesiaCRM/utils/OutputUtils.php:546 EcclesiaCRM/utils/OutputUtils.php:548
+#: EcclesiaCRM/utils/OutputUtils.php:577
 msgid "yrs old"
 msgstr "Jahre alt"
 
 #: EcclesiaCRM/model/EcclesiaCRM/Person.php:615
-#: EcclesiaCRM/utils/OutputUtils.php:576
+#: EcclesiaCRM/utils/OutputUtils.php:579
 msgid "yr old"
 msgstr "Jährige"
 
@@ -5001,7 +4997,7 @@ msgstr "Vermisst Data Rolen"
 msgid "Unmet Application Prerequisites"
 msgstr "Unerfüllte Anwendungsvoraussetzungen"
 
-#: EcclesiaCRM/tasks/RegisteredTask.php:28
+#: EcclesiaCRM/tasks/RegisteredTask.php:28 Include/Footer.php:300
 msgid "Register Software"
 msgstr "Registriere Die Software"
 
@@ -5198,47 +5194,47 @@ msgstr "Steuerjahr auswählen"
 msgid "Direct me"
 msgstr "Führen Sie mich"
 
-#: EcclesiaCRM/utils/OutputUtils.php:290
+#: EcclesiaCRM/utils/OutputUtils.php:293
 msgid "Invalid Editor ID!"
 msgstr "Ungültige Editor ID!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:345
+#: EcclesiaCRM/utils/OutputUtils.php:348
 msgid "Select Season"
 msgstr "Wählen Sie die Jahreszeit"
 
-#: EcclesiaCRM/utils/OutputUtils.php:350
+#: EcclesiaCRM/utils/OutputUtils.php:353
 msgid "Winter"
 msgstr "Winter"
 
-#: EcclesiaCRM/utils/OutputUtils.php:355
+#: EcclesiaCRM/utils/OutputUtils.php:358
 msgid "Spring"
 msgstr "Frühling"
 
-#: EcclesiaCRM/utils/OutputUtils.php:360
+#: EcclesiaCRM/utils/OutputUtils.php:363
 msgid "Summer"
 msgstr "Sommer"
 
-#: EcclesiaCRM/utils/OutputUtils.php:365
+#: EcclesiaCRM/utils/OutputUtils.php:368
 msgid "Fall"
 msgstr "Herbst"
 
-#: EcclesiaCRM/utils/OutputUtils.php:410
+#: EcclesiaCRM/utils/OutputUtils.php:413
 msgid "This custom field isn't configured correctly"
 msgstr "Benutzerdefinierte Feld ist nicht ordnungsgemäß konfiguriert"
 
-#: EcclesiaCRM/utils/OutputUtils.php:469
+#: EcclesiaCRM/utils/OutputUtils.php:472
 msgid "Error: Invalid Editor ID!"
 msgstr "Fehler: Ungültige Editor ID!"
 
-#: EcclesiaCRM/utils/OutputUtils.php:526 EcclesiaCRM/utils/OutputUtils.php:538
+#: EcclesiaCRM/utils/OutputUtils.php:529 EcclesiaCRM/utils/OutputUtils.php:541
 msgid "1 m old"
 msgstr "1 Monat alt"
 
-#: EcclesiaCRM/utils/OutputUtils.php:528 EcclesiaCRM/utils/OutputUtils.php:540
+#: EcclesiaCRM/utils/OutputUtils.php:531 EcclesiaCRM/utils/OutputUtils.php:543
 msgid "m old"
 msgstr "Monate alt"
 
-#: EcclesiaCRM/utils/OutputUtils.php:536
+#: EcclesiaCRM/utils/OutputUtils.php:539
 msgid "1 yr old"
 msgstr "1 Jahr alt"
 
@@ -7089,7 +7085,7 @@ msgstr "Urheberrecht"
 msgid "All rights reserved"
 msgstr "Alle Rechte vorbehalten"
 
-#: Include/Footer.php:26 Register.php:42
+#: Include/Footer.php:26
 msgid "Version"
 msgstr "Version"
 
@@ -7700,7 +7696,7 @@ msgstr "Personen müssen von der CRM gelöschte werden."
 
 #: Menu.php:128 Menu.php:151
 msgid "Click the"
-msgstr "Klicken Sie auf die"
+msgstr "Klicken Sie auf den folgenden"
 
 #: Menu.php:128 Menu.php:151
 msgid "link"
@@ -8626,43 +8622,6 @@ msgstr "Erneute Abfrage"
 #: QueryView.php:395
 msgid "Execute Query"
 msgstr "Abrage starten"
-
-#: Register.php:18
-msgid "Software Registration"
-msgstr "Software registrieren"
-
-#: Register.php:28
-msgid "If you need to make changes to registration data, go to "
-msgstr "If you need to make changes to registration data, go to "
-
-#: Register.php:28
-msgid "Admin->Edit General Settings"
-msgstr "Editieren General Einstellung"
-
-#: Register.php:35
-msgid ""
-"Please register your copy of EcclesiaCRM by checking over this information "
-"and pressing the Send button.  "
-msgstr ""
-"Bitte registrieren sie ihre Kopie von EcclesiaCRM indem sie diese "
-"Information überprüfend und versenden."
-
-#: Register.php:36
-msgid "This information is used only to track the usage of this software.  "
-msgstr ""
-"Diese Information wird nur nur Nachverfolgung der Softwarenutzung verwendet."
-
-#: Register.php:49
-msgid "Base URL"
-msgstr "Basis-URL "
-
-#: Register.php:50 v2/templates/email/mailchimp/dashboard.php:30
-msgid "Message"
-msgstr "Nachricht"
-
-#: Register.php:55 v2/templates/email/mailchimp/campaign.php:36
-msgid "Send"
-msgstr "Senden"
 
 #: ReportList.php:33
 msgid "Report Menu"
@@ -10305,6 +10264,10 @@ msgstr "Email Kampagne Verwaltung"
 msgid "Save Campaign"
 msgstr "Kampagne speichern"
 
+#: v2/templates/email/mailchimp/campaign.php:36
+msgid "Send"
+msgstr "Senden"
+
 #: v2/templates/email/mailchimp/campaign.php:48
 msgid "Mail Subject"
 msgstr "E-mail Betreff"
@@ -10342,6 +10305,10 @@ msgstr "Backup Status"
 #: v2/templates/email/mailchimp/dashboard.php:30
 msgid "field"
 msgstr "Feld"
+
+#: v2/templates/email/mailchimp/dashboard.php:30
+msgid "Message"
+msgstr "Nachricht"
 
 #: v2/templates/email/mailchimp/dashboard.php:44
 msgid "MailChimp is activated"
@@ -11239,6 +11206,30 @@ msgstr "Zeitplan"
 
 msgid "paused"
 msgstr "pausiert"
+
+#~ msgid "Software Registration"
+#~ msgstr "Software registrieren"
+
+#~ msgid "If you need to make changes to registration data, go to "
+#~ msgstr "If you need to make changes to registration data, go to "
+
+#~ msgid "Admin->Edit General Settings"
+#~ msgstr "Editieren General Einstellung"
+
+#~ msgid ""
+#~ "Please register your copy of EcclesiaCRM by checking over this "
+#~ "information and pressing the Send button.  "
+#~ msgstr ""
+#~ "Bitte registrieren sie ihre Kopie von EcclesiaCRM indem sie diese "
+#~ "Information überprüfend und versenden."
+
+#~ msgid "This information is used only to track the usage of this software.  "
+#~ msgstr ""
+#~ "Diese Information wird nur nur Nachverfolgung der Softwarenutzung "
+#~ "verwendet."
+
+#~ msgid "Base URL"
+#~ msgstr "Basis-URL "
 
 #~ msgid "Member Role Change"
 #~ msgstr "Rolle der Mitglieder ändern"
