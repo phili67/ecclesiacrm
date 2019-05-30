@@ -100,9 +100,12 @@
    }
 
     
-    window.CRM.notify = function(icon,title,message,link,type,place,delay,target) {
+    window.CRM.notify = function(icon,title,message,link,type,place,delay,target,horizontal) {
       if (delay === undefined) {
         delay = 4000;
+      }
+      if (horizontal === undefined) {
+        horizontal = "right";
       }
       if (target === undefined) {
         target = '_self';
@@ -124,7 +127,7 @@
         showProgressbar: false,
         placement: {
           from: place,
-          align: "right"
+          align: horizontal
         },
         offset: 20,
         spacing: 10,
@@ -487,95 +490,105 @@
         });
       },
       'refresh' : function () {
-           window.CRM.APIRequest({
-             method: 'POST',
-             path:"systemupgrade/isUpdateRequired"
-            }).done(function(data) {
-              if (data.Upgrade) {
-                 window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
-              }
-            });
-        if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && window.CRM.showCart) {// the first time it's unusefull
-          return;
-        }
-        
-        if (window.CRM.showCart == false)// in this cas all the broadcast system is deactivated
-          return;
-        
-        window.CRM.APIRequest({
-          method: 'GET',
-          path:"cart/"
-        }).done(function(data) {
-          window.CRM.cart.updatePage(data.PeopleCart);
-          //window.scrollTo(0, 0);
-          $("#iconCount").text(data.PeopleCart.length);
-          
-          // broadcaster
-          $.event.trigger({
-            type: "emptyCartMessage",
-            cartPeople: data.PeopleCart
+          window.CRM.APIRequest({
+            method: 'POST',
+            path:"register/isRegisterRequired"
+          }).done(function(data) {
+            if (data.Register) {
+               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("Register")+".","<br>"+i18next.t("Register your software to EcclesiaCRM team.") + "<br><b>"  + i18next.t("Simply click this") + " <a href=\"#\" id=\"registerSoftware\">" + i18next.t("link") + "</a> " + i18next.t("to register your software") +  ".</b>", null, "warning","top",10000,'_blank',"left");
+            }
           });
-        
-          var cartDropdownMenu;
-          if (data.PeopleCart.length > 0) {
-            cartDropdownMenu = '\
-              <li id="showWhenCartNotEmpty">\
-                  <ul class="menu">\
-                      <li>\
-                          <a href="' + window.CRM.root+ '/CartView.php">\
-                              <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="#" class="emptyCart" >\
-                              <i class="fa fa-eraser"></i>' + i18next.t("Empty Cart") + ' \
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="#" id="emptyCartToGroup">\
-                              <i class="fa fa-tag text-info"></i>' + i18next.t("Empty Cart to Group") + '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="' + window.CRM.root+ '/CartToFamily.php">\
-                              <i class="fa fa fa-users text-info"></i>' + i18next.t("Empty Cart to Family") + '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="#" id="emptyCartToEvent">\
-                              <i class="fa fa fa-ticket text-info"></i>' + i18next.t("Empty Cart to Event") + '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="' + window.CRM.root+ '/v2/map/0">\
-                              <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="#" id="deactivateCart">\
-                             <i class="fa fa-trash text-warning"></i>'+ i18next.t("Deactivate Persons From Cart")+ '\
-                          </a>\
-                      </li>\
-                      <li>\
-                          <a href="#" id="deleteCart">\
-                             <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From the CRM")+ '\
-                          </a>\
-                      </li>\
-                  </ul>\
-              </li>\
-                        <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
-                    '
-        }
-          else {
-            cartDropdownMenu = '\
-              <li class="header">' + i18next.t("Your Cart is Empty" ) + '</li>';
+          
+          window.CRM.APIRequest({
+           method: 'POST',
+           path:"systemupgrade/isUpdateRequired"
+          }).done(function(data) {
+            if (data.Upgrade) {
+               window.CRM.notify('glyphicon glyphicon-info-sign',i18next.t("New Release")+".","<br>"+i18next.t("Installed version")+" : "+data.installedVersion+'      '+i18next.t("New One")+" : "+data.latestVersion.name+'<br><b>'+i18next.t("To upgrade simply click this Notification")+"</b>", window.CRM.root+'/UpgradeCRM.php',"info","bottom",6000,'_blank');
+            }
+          });
+          
+          if (window.CRM.PageName.indexOf("UserPasswordChange.php") !== -1 && window.CRM.showCart) {// the first time it's unusefull
+            return;
           }
-        $("#cart-dropdown-menu").html(cartDropdownMenu);
-        $("#CartBlock")
-          .animate({'left':(-10)+'px'},30)
-          .animate({'left':(+10)+'px'},30)
-          .animate({'left':(0)+'px'},30);
-        });
+        
+          if (window.CRM.showCart == false)// in this cas all the broadcast system is deactivated
+            return;
+        
+          window.CRM.APIRequest({
+            method: 'GET',
+            path:"cart/"
+          }).done(function(data) {
+            window.CRM.cart.updatePage(data.PeopleCart);
+            //window.scrollTo(0, 0);
+            $("#iconCount").text(data.PeopleCart.length);
+          
+            // broadcaster
+            $.event.trigger({
+              type: "emptyCartMessage",
+              cartPeople: data.PeopleCart
+            });
+        
+            var cartDropdownMenu;
+            if (data.PeopleCart.length > 0) {
+              cartDropdownMenu = '\
+                <li id="showWhenCartNotEmpty">\
+                    <ul class="menu">\
+                        <li>\
+                            <a href="' + window.CRM.root+ '/CartView.php">\
+                                <i class="fa fa-shopping-cart text-green"></i>' + i18next.t("View Cart") + '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="#" class="emptyCart" >\
+                                <i class="fa fa-eraser"></i>' + i18next.t("Empty Cart") + ' \
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="#" id="emptyCartToGroup">\
+                                <i class="fa fa-tag text-info"></i>' + i18next.t("Empty Cart to Group") + '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="' + window.CRM.root+ '/CartToFamily.php">\
+                                <i class="fa fa fa-users text-info"></i>' + i18next.t("Empty Cart to Family") + '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="#" id="emptyCartToEvent">\
+                                <i class="fa fa fa-ticket text-info"></i>' + i18next.t("Empty Cart to Event") + '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="' + window.CRM.root+ '/v2/map/0">\
+                                <i class="fa fa-map-marker text-info"></i>' + i18next.t("Map Cart") + '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="#" id="deactivateCart">\
+                               <i class="fa fa-trash text-warning"></i>'+ i18next.t("Deactivate Persons From Cart")+ '\
+                            </a>\
+                        </li>\
+                        <li>\
+                            <a href="#" id="deleteCart">\
+                               <i class="fa fa-trash text-danger"></i>'+ i18next.t("Delete Persons From the CRM")+ '\
+                            </a>\
+                        </li>\
+                    </ul>\
+                </li>\
+                          <!--li class="footer"><a href="#">' + i18next.t("View all") + '</a></li-->\
+                      '
+          }
+            else {
+              cartDropdownMenu = '\
+                <li class="header">' + i18next.t("Your Cart is Empty" ) + '</li>';
+            }
+          $("#cart-dropdown-menu").html(cartDropdownMenu);
+          $("#CartBlock")
+            .animate({'left':(-10)+'px'},30)
+            .animate({'left':(+10)+'px'},30)
+            .animate({'left':(0)+'px'},30);
+          });
       },
       'updatePage' : function (cartPeople){
       

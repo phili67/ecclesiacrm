@@ -290,13 +290,14 @@ use EcclesiaCRM\Bootstrapper;
             <br/><br/>
             <ul class="control-sidebar-menu">
                 <?php foreach ($tasks as $task) {
-        $taskIcon = 'fa-info bg-green';
-        if ($task['admin']) {
-            $taskIcon = 'fa-lock bg-yellow-gradient';
-        } ?>
+                  $taskIcon = 'fa-info bg-green';
+                  if ($task['admin']) {
+                    $taskIcon = 'fa-lock bg-yellow-gradient';
+                  } 
+                ?>
                     <!-- Task item -->
                     <li>
-                        <a href="<?= $task['link'] ?>">
+                        <a href="<?= $task['link'] ?>" <?= ($task['title'] == _('Register Software'))?'id="registerSoftware"':'' ?>>
                             <i class="menu-icon fa fa-fw <?= $taskIcon ?>"></i>
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading"
@@ -306,8 +307,9 @@ use EcclesiaCRM\Bootstrapper;
 
                     </li>
                     <!-- end task item -->
-                    <?php
-    } ?>
+                <?php
+                  } 
+                ?>
             </ul>
             <!-- /.control-sidebar-menu -->
 

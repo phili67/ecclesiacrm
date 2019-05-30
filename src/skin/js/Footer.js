@@ -357,18 +357,96 @@ $(document).on("click", "#deactivateCart", function (e) {
 
 function suspendSession(){
   $.ajax({
-        method: 'HEAD',
-        url: window.CRM.root + "/api/session/lock",
-        statusCode: {
-          200: function() {
-            window.open(window.CRM.root + "/Login.php");
-          },
-          404: function() {
-            window.CRM.DisplayErrorMessage(url, {message: error});
-          },
-          500: function() {
-            window.CRM.DisplayErrorMessage(url, {message: error});
-          }
-        }
-      });     
+    method: 'HEAD',
+    url: window.CRM.root + "/api/session/lock",
+    statusCode: {
+      200: function() {
+        window.open(window.CRM.root + "/Login.php");
+      },
+      404: function() {
+        window.CRM.DisplayErrorMessage(url, {message: error});
+      },
+      500: function() {
+        window.CRM.DisplayErrorMessage(url, {message: error});
+      }
+    }
+  });     
 };
+
+function BootboxContentRegister(data){
+  var frm_str = '<div class="box box-warning">'
+    + '  <div class="box-body">'
+    + '  ' + i18next.t('If you need to make changes to registration data, go to ') + '<a href="'+ window.CRM.root + '/SystemSettings.php">'+ i18next.t('Admin->Edit General Settings') + '</a>'
+    + '  </div>'
+    + '</div>'
+    + '<div class="box box-primary">'
+    + '  <div class="box-header">'
+    +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  ')
+    +    i18next.t('This information is used only to track the usage of this software.  ')
+    + '  </div>'
+    + '  <div class="box-body">'
+    +      i18next.t('Church Name') + ':' + data.ChurchName + '<br>'
+    +      i18next.t('Version') + ':' + data.InstalledVersion + '<br>'
+    +      i18next.t('Address') + ':' + data.ChurchAddress + '<br>'
+    +      i18next.t('City') + ':' + data.ChurchCity + '<br>'
+    +      i18next.t('State') + ':' + data.ChurchState + '<br>'
+    +      i18next.t('Zip') + ':' + data.ChurchZip + '<br>'
+    +      i18next.t('Country') + ':' + data.ChurchCountry + '<br>'
+    +      i18next.t('Church Email') + ':' + data.ChurchEmail + '<br>'
+    +      'EcclesiaCRM ' + i18next.t('Base URL') + ':' + data.EcclesiaCRMURL + '<br>'
+    +      '<br>' + i18next.t('Message')
+    +      '<textarea class="form-control" id="registeremailmessage" name="emailmessage" rows="10" cols="72">' + data.EmailMessage + '</textarea>'
+    +      '<input type="hidden" name="EcclesiaCRMURL" value="' + data.EcclesiaCRMURL + '"/>'
+    + '  </div>'
+    + '</div>';
+
+    var object = $('<div/>').html(frm_str).contents();
+
+    return object
+}
+
+$(document).on("click", "#registerSoftware", function (e) {
+    window.CRM.APIRequest({
+      method: 'POST',
+      path:"register/getRegistredDatas"
+    }).done(function(data) {
+        var modal = bootbox.dialog({
+         message: BootboxContentRegister(data),
+         title: i18next.t("Software Registration"),
+         buttons: [
+          {
+             label: i18next.t("Send"),
+             className: "btn btn-primary pull-left",
+             callback: function() {
+                $.ajax({
+                  type: "POST",
+                  url: window.CRM.root + "/api/register",
+                  data: {
+                    emailmessage: $("#registeremailmessage").val(),
+                    EcclesiaCRMURL: $("input[name=EcclesiaCRMURL]").val()
+                  },
+                  success: function (data) {
+                    alert(i18next.t('Your software is now registered. Thank you !'));
+                    location.reload();
+                  }
+                });
+            }
+          },
+          {
+             label: i18next.t("Cancel"),
+             className: "btn btn-default pull-left",
+             callback: function() {
+                console.log("just do something on close");
+             }
+          }
+         ],
+         show: false,
+         onEscape: function() {
+            modal.modal("hide");
+         }
+       });
+
+       modal.modal("show");
+    });
+});
+

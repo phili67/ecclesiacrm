@@ -18,6 +18,7 @@ require '../../Include/Config.php';*/
   unlink(SystemURLs::getDocumentRoot()."/EcclesiaCRM/Dashboard/ClassificationDashboardItem.php.php");
   unlink(SystemURLs::getDocumentRoot()."/MemberRoleChange.php");
   unlink(SystemURLs::getDocumentRoot()."/PersonToGroup.php");
+  unlink(SystemURLs::getDocumentRoot()."/Register.php");
   
   $logger->info("End of delete :  all unusefull files");
 ?>

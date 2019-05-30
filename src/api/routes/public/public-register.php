@@ -5,9 +5,12 @@ use Slim\Http\Response;
 
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SystemService;
+use EcclesiaCRM\SessionUser;
 
 $app->group('/register', function () {
     $this->post('', 'registerEcclesiaCRM' );
+    $this->post('/isRegisterRequired', 'systemregister');
+    $this->post('/getRegistredDatas', 'getRegistredDatas');
 });
 
 function registerEcclesiaCRM (Request $request, Response $response, array $args) {
@@ -46,3 +49,33 @@ function registerEcclesiaCRM (Request $request, Response $response, array $args)
 
     return $response->withJson(['status'=>'success']);
 }
+
+function systemregister (Request $request, Response $response, array $args) {
+  if (SessionUser::getUser()->isAdmin() && $_SESSION['isSoftwareRegisterTestPassed'] == false) {
+    $isRegisterRequired = !SystemConfig::getBooleanValue('bRegistered');
+    $_SESSION['isSoftwareRegisterTestPassed'] = true;
+  } else {
+    $isRegisterRequired = 0;
+  }
+  
+  return $response->withJson(["Register" => $isRegisterRequired]);
+}
+
+function getRegistredDatas (Request $request, Response $response, array $args) {
+  $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+  $domainName = $_SERVER['HTTP_HOST'].str_replace('api/register/getRegistredDatas', '', $_SERVER['REQUEST_URI']);
+  $EcclesiaCRMURL = $protocol.$domainName;
+
+  return $response->withJson(
+    ['ChurchName'       => SystemConfig::getValue('sChurchName'),
+     'InstalledVersion' => SystemService::getInstalledVersion(),
+     'ChurchAddress'    => SystemConfig::getValue('sChurchAddress'),
+     'ChurchCity'       => SystemConfig::getValue('sChurchCity'),
+     'ChurchState'      => SystemConfig::getValue('sChurchState'),
+     'ChurchZip'        => SystemConfig::getValue('sChurchZip'),
+     'ChurchCountry'    => SystemConfig::getValue('sChurchCountry'),
+     'ChurchEmail'      => SystemConfig::getValue('sChurchEmail'),
+     'EcclesiaCRMURL'   => $EcclesiaCRMURL,
+     'EmailMessage'     => htmlspecialchars($sEmailMessage)]);
+}
+
