@@ -8,6 +8,7 @@ use Slim\Http\Response;
 // Routes
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
@@ -807,7 +808,7 @@ function addGroup (Request $request, Response $response, array $args) {
       // all person from the family should be deactivated too
       $res = [];
       foreach ($members as $member) {
-        $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),$member->getAddressForMailChimp(), $member->getHomePhone(),'subscribed');
+        $res[] = $mailchimp->postMember($input->list_id,32,$member->getPerson()->getFirstName(),$member->getPerson()->getLastName(),$member->getPerson()->getEmail(),$member->getPerson()->getAddressForMailChimp(), $member->getPerson()->getHomePhone(),'subscribed');
       }
       
       return $response->withJson(['success' => true, "result" => $res]);
