@@ -256,6 +256,9 @@ class OutputUtils {
       case 9:
         if ($data > 0) {
             $person = PersonQuery::Create()->findOneById ($data);
+            if (is_null ($person)){
+              return '';
+            }
             if ($with_link) {
               return '<a target="_top" href="PersonView.php?PersonID='.$data.'">'.$person->getFirstName().' '.$person->getLastName().'</a>';
             } else {

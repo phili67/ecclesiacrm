@@ -20,17 +20,17 @@ class RegisteredTask implements iTask
 
   public function getLink()
   {
-    return SystemURLs::getRootPath() . '/Register.php';
+    return "#";
   }
 
   public function getTitle()
   {
-    return gettext('Register Software');
+    return _('Register Software');
   }
 
   public function getDesc()
   {
-    return gettext('Let us know that you are using the software');
+    return _('Let us know that you are using the software');
   }
 
 }
