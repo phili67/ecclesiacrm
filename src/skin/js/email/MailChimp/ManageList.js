@@ -354,12 +354,12 @@ $(document).ready(function () {
         message: i18next.t("You're about to delete a subscriber! Are you sure ?"),
         buttons: {
             confirm: {
-                label: 'Yes',
-                className: 'btn-success'
+                label: i18next.t('Yes'),
+                className: 'btn-danger'
             },
             cancel: {
-                label: 'No',
-                className: 'btn-danger'
+                label: i18next.t('No'),
+                className: 'btn-primary'
             }
         },
         callback: function (result) {
