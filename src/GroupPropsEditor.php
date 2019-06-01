@@ -13,13 +13,17 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\utils\RedirectUtils;
+
 use EcclesiaCRM\SessionUser;
 
 
@@ -37,16 +41,15 @@ if ( !( SessionUser::getUser()->isManageGroupsEnabled() || SessionUser::getUser(
 
 
 // Get the group information
-$sSQL = 'SELECT * FROM group_grp WHERE grp_ID = '.$iGroupID;
-$rsGroupInfo = RunQuery($sSQL);
-extract(mysqli_fetch_array($rsGroupInfo));
+$group = GroupQuery::Create()->findOneById ($iGroupID);
+$groups = GroupQuery::Create()->orderByName()->find();
 
 // Abort if user tries to load with group having no special properties.
-if ($grp_hasSpecialProps == false) {
+if ($group->getHasSpecialProps() == false) {
     RedirectUtils::Redirect('GroupView.php?GroupID='.$iGroupID);
 }
 
-$sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$grp_Name.'" '._("for")." : ".$person->getFullName();
+$sPageTitle = _('Group-Specific Properties Form Editor:').'  : "'.$group->getName().'" '._("for")." : ".$person->getFullName();
 
 require 'Include/Header.php'; ?>
 
@@ -63,41 +66,47 @@ $aNameErrors = [];
 $bNewNameError = false;
 $bDuplicateNameError = false;
 
+$connection = Propel::getConnection();
+
 // Does the user want to save changes to text fields?
 if (isset($_POST['SaveChanges'])) {
 
     // Fill in the other needed property data arrays not gathered from the form submit
-    $sSQL = 'SELECT prop_ID, prop_Field, type_ID, prop_Special, prop_PersonDisplay, prop_Name FROM groupprop_master WHERE prop_PersonDisplay = "true" AND grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-    $rsPropList = RunQuery($sSQL);
-    $numRows = mysqli_num_rows($rsPropList);
-
-    for ($row = 1; $row <= $numRows; $row++) {
-        $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
-        extract($aRow);
+    $propList = GroupPropMasterQuery::Create()
+        ->filterByPersonDisplay("true")
+        ->filterByGroupId ($iGroupID)
+        ->orderByPropId()
+        ->find();
         
-        $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
-        $rsPersonProps = RunQuery($sSQL);
-        $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
-
-        $aFieldFields[$row] = $prop_Field;
-        $aTypeFields[$row] = $type_ID;
-        $aDescFields[$row] = $aPersonProps[$prop_Field];
-        $aSpecialFields[$row] = $prop_Special;
-        $aPropFields[$row] = $prop_Field;
-        $aNameFields[$row] = $prop_Name;
-        
-        
-        if (isset($prop_Special)) {
-          if ($type_ID == 9) {
-            $aSpecialFields[$row] = $grp_ID;
-          } else {
-            $aSpecialFields[$row] = $prop_Special;
-          }
-        } else {
-            $aSpecialFields[$row] = 'NULL';
-        }
-    }
+    $numRows = $propList->count();
     
+    $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
+    $statement = $connection->prepare($sSQL);
+    $statement->execute();
+    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);// permet de récupérer le tableau associatif
+    
+    $row = 1;
+    foreach ($propList as $prop) {
+      $aFieldFields[$row]   = $prop->getField();
+      $aTypeFields[$row]    = $prop->getTypeId();
+      $aDescFields[$row]    = $aPersonProps[$prop->getField()];
+      $aSpecialFields[$row] = $prop->getSpecial();
+      $aPropFields[$row]    = $prop->getField();
+      $aNameFields[$row]    = $prop->getName();
+        
+      if (!is_null($prop->getSpecial())) {
+        if ($type_ID == 9) {
+          $aSpecialFields[$row] = $group->getID();
+        } else {
+          $aSpecialFields[$row] = $prop->getSpecial();
+        }
+      } else {
+          $aSpecialFields[$row] = 'NULL';
+      }
+      
+      $row++;
+    }
+
     for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
         $aDescFields[$iPropID] = InputUtils::LegacyFilterInput($_POST[$iPropID.'desc']);
 
@@ -119,22 +128,26 @@ if (isset($_POST['SaveChanges'])) {
         }
     }
 
-    // If no errors, then update.
+    // If no errors, then update or insert
     if (!$bErrorFlag) {
         // We can't update unless values already exist.
         $sSQL = "SELECT * FROM groupprop_".$iGroupID."
                  WHERE `per_ID` = '".$iPersonID."';";
                  
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        $iNumRows = count($statement->fetchAll(PDO::FETCH_BOTH));
+                 
         $bRowExists = true;
-        $iNumRows = mysqli_num_rows(RunQuery($sSQL));
         if ($iNumRows == 0) {
             $bRowExists = false;
         }
 
         if (!$bRowExists) { // If Row does not exist then insert default values.
-            // Defaults will be replaced in the following Update                 
+            // Defaults will be replaced in the following Update
             $sSQL = "INSERT INTO groupprop_".$iGroupID." (per_ID) VALUES (".$iPersonID.")";
-            $rsResult = RunQuery($sSQL);
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
         }
         
         for ($iPropID = 1; $iPropID <= $numRows; $iPropID++) {
@@ -152,38 +165,39 @@ if (isset($_POST['SaveChanges'])) {
               SET `".$aPropFields[$iPropID]."` = '".$aDescFields[$iPropID]."'
               WHERE `per_ID` = '".$iPersonID."';";
           
-            RunQuery($sSQL);
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
         }
     }
 } else {
 
     // Get data for the form as it now exists..
-    $sSQL = 'SELECT * FROM groupprop_master WHERE prop_PersonDisplay = "true" AND grp_ID = '.$iGroupID.' ORDER BY prop_ID';
-
-    $rsPropList = RunQuery($sSQL);
-    $numRows = mysqli_num_rows($rsPropList);
-
-    // Create arrays of the properties.
-    for ($row = 1; $row <= $numRows; $row++) {
-        $aRow = mysqli_fetch_array($rsPropList, MYSQLI_BOTH);
-        extract($aRow);
+    $propList = GroupPropMasterQuery::Create()
+        ->filterByPersonDisplay("true")
+        ->filterByGroupId ($iGroupID)
+        ->orderByPropId()
+        ->find();
         
-        $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
-        $rsPersonProps = RunQuery($sSQL);
-        $aPersonProps = mysqli_fetch_array($rsPersonProps, MYSQLI_BOTH);
-
-        // This is probably more clear than using a multi-dimensional array
-        $aTypeFields[$row] = $type_ID;
-        $aNameFields[$row] = $prop_Name;
-        $aDescFields[$row] = $aPersonProps[$prop_Field];
-        $aSpecialFields[$row] = $prop_Special;
-        $aFieldFields[$row] = $prop_Field;
+    $numRows = $propList->count();
+    
+    $sSQL = 'SELECT * FROM groupprop_'.$iGroupID.' WHERE per_ID = '.$iPersonID;
+    $statement = $connection->prepare($sSQL);
+    $statement->execute();
+    $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);// permet de récupérer le tableau associatif
+    
+    $row = 1;
+    foreach ($propList as $prop) {
+      $aTypeFields[$row]    = $prop->getTypeId();
+      $aNameFields[$row]    = $prop->getName();
+      $aDescFields[$row]    = $aPersonProps[$prop->getField()];
+      $aSpecialFields[$row] = $prop->getSpecial();
+      $aFieldFields[$row]   = $prop->getField();
         
-        if ($type_ID == 9) {
-          $aSpecialFields[$row] = $iGroupID;
-        }
+      if ($prop->getTypeId() == 9) {
+        $aSpecialFields[$row] = $iGroupID;
+      }
         
-        $aPersonDisplayFields[$row] = ($prop_PersonDisplay == 'true');
+      $aPersonDisplayFields[$row++] = ($prop->getPersonDisplay() == 'true');
     }
 }
 
@@ -200,7 +214,7 @@ if (isset($_POST['SaveChanges'])) {
 if ($numRows == 0) {
     ?>
   <center><h2><?= _('No properties have been added yet') ?></h2>
-      <a href="PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
+      <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $iPersonID ?>" class="btn btn-default"><?= _("Return to Person") ?></a>
   </center>
 <?php
 } else {
@@ -251,18 +265,12 @@ if ($numRows == 0) {
               <select name="<?= $row ?>special"  class="form-control input-sm">
                 <option value="0" selected><?= _("Select a group") ?></option>
       <?php
-                $sSQL = 'SELECT grp_ID,grp_Name FROM group_grp ORDER BY grp_Name';
-
-                $rsGroupList = RunQuery($sSQL);
-
-                while ($aRow = mysqli_fetch_array($rsGroupList)) {
-                    extract($aRow);
-
-                    echo '<option value="'.$grp_ID.'"';
-                    if ($aSpecialFields[$row] == $grp_ID) {
+                foreach ($groups as $grp) {
+                    echo '<option value="'.$grp->getId().'"';
+                    if ($aSpecialFields[$row] == $grp->getId()) {
                         echo ' selected';
                     }
-                    echo '>'.$grp_Name;
+                    echo '>'.$grp->getName();
                 }
 
                 echo '</select>';
