@@ -1,5 +1,9 @@
 <?php
 // Routes
+use Slim\Http\Request;
+use Slim\Http\Response;
+
+
 use EcclesiaCRM\Group;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
@@ -20,6 +24,7 @@ use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\GroupTypeQuery;
 use EcclesiaCRM\GroupType;
+use EcclesiaCRM\GroupPropMasterQuery;
 
 use Sabre\CalDAV;
 use Sabre\CardDAV;
@@ -492,4 +497,118 @@ $app->group('/groups', function () {
             return $response->withStatus(500)->withJson(['status' => "error", 'reason' => 'invalid export value']);
         }
     });
+
+ /*
+ * @! delete Group Specific property custom field
+ * #! param: id->int :: PropID as id
+ * #! param: id->int :: Field as id
+ * #! param: id->int :: GroupId as id
+ */
+    $this->post('/deletefield', "deleteGroupField" );
+ /*
+ * @! delete Group Specific property custom field
+ * #! param: id->int :: PropID as id
+ * #! param: id->int :: Field as id
+ * #! param: id->int :: GroupId as id
+ */
+    $this->post('/upactionfield', "upactionGroupField" );
+ /*
+ * @! delete Group Specific property custom field
+ * #! param: id->int :: PropID as id
+ * #! param: id->int :: Field as id
+ * #! param: id->int :: GroupId as id
+ */
+    $this->post('/downactionfield', "downactionGroupField" );
 });
+
+function deleteGroupField(Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+  
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $groupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
+    
+    if ( !is_null ($groupPropMstr) && $groupPropMstr->getTypeId() == 12 ) {
+       $list = ListOptionQuery::Create()->findById($groupPropMstr->getSpecial());
+       if( !is_null($list) ) {
+         $list->delete();
+       }
+    } 
+
+    // this can't be propeled
+    $connection = Propel::getConnection();
+    $sSQL = 'ALTER TABLE `groupprop_'.$values->GroupID.'` DROP `'.$values->Field.'` ;';
+    $connection->exec($sSQL); 
+
+    // now we can delete the GroupPropMasterQuery
+    $groupPropMstr->delete();
+
+
+    $allGroupPropMstr = GroupPropMasterQuery::Create()->findByGroupId ($values->GroupID);
+    $numRows = $allGroupPropMstr->count();
+
+    // Shift the remaining rows up by one, unless we've just deleted the only row
+    if ($numRows != 0) {
+        for ($reorderRow = $values->PropID + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
+            $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($reorderRow);
+            
+            if ( !is_null ($fisrtGroupPropMstr) ){
+              $fisrtGroupPropMstr->setPropId($reorderRow - 1)->save();
+            }
+        }
+    }
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function upactionGroupField (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID - 1);
+    $fisrtGroupPropMstr->setPropId($values->PropID)->save();
+    
+    $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
+    $secondGroupPropMstr->setPropId($values->PropID - 1)->save();
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function downactionGroupField (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+      return $response->withStatus(404);
+  }
+
+  $values = (object)$request->getParsedBody();
+  
+  if ( isset ($values->PropID) && isset ($values->Field) && isset ($values->GroupID) )
+  {
+    // Check if this field is a custom list type.  If so, the list needs to be deleted from list_lst.
+    $fisrtGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByPropId ($values->PropID + 1);
+    $fisrtGroupPropMstr->setPropId($values->PropID)->save();
+    
+    $secondGroupPropMstr = GroupPropMasterQuery::Create()->filterByGroupId ($values->GroupID)->findOneByField ($values->Field);
+    $secondGroupPropMstr->setPropId($values->PropID+1)->save();
+    
+    return $response->withJson(['success' => true]);
+  }
+  
+  return $response->withJson(['success' => false]);
+}

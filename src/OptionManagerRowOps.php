@@ -54,6 +54,7 @@ switch ($mode) {
 
     case 'custom':
     case 'famcustom':
+    case 'groupcustom':
     if (!SessionUser::getUser()->isAdmin()) {
         RedirectUtils::Redirect('Menu.php');
         exit;
@@ -102,6 +103,7 @@ switch ($mode) {
         break;
     case 'custom':
     case 'famcustom':
+    case 'groupcustom':
         $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
         break;
 }
