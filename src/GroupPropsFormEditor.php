@@ -25,6 +25,7 @@ use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\Map\GroupPropMasterTableMap;
 use EcclesiaCRM\GroupPropMaster;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\ListOptionQuery;
@@ -178,11 +179,15 @@ if (isset($_POST['SaveChanges'])) {
                 
                 // Find the highest existing field number in the group's table to determine the next free one.
                 // This is essentially an auto-incrementing system where deleted numbers are not re-used.
-                $connection = Propel::getConnection();
-                $fieldsNum = $connection->prepare('SELECT * FROM groupprop_'.$iGroupID);
-                $fieldsNum->execute();
                 
-                $newFieldNum = $fieldsNum->columnCount();
+                // SELECT CAST(SUBSTR(groupprop_master.prop_Field, 2) as UNSIGNED) AS field, prop_Field FROM groupprop_master WHERE grp_ID=22 order by field
+                $lastProps = GroupPropMasterQuery::Create()
+                   ->withColumn('CAST(SUBSTR('.GroupPropMasterTableMap::COL_PROP_FIELD.', 2) as UNSIGNED)', 'field')
+                   ->addDescendingOrderByColumn('field')
+                   ->limit(1)
+                   ->findOneByGroupId ($iGroupID);
+                     
+                $newFieldNum = mb_substr($lastProps->getField(), 1) + 1;
                 
                 // If we're inserting a new custom-list type field, create a new list and get its ID
                 if ($newFieldType == 12) {
@@ -274,6 +279,8 @@ if (isset($_POST['SaveChanges'])) {
 
                 $sSQL .= ' DEFAULT NULL ;';
                 
+                $connection = Propel::getConnection();
+
                 $statement = $connection->prepare($sSQL);
                 $statement->execute();
                 $bNewNameError = false;
