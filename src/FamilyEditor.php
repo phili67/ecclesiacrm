@@ -127,12 +127,12 @@ $aperFlags = [];
 //Is this the second pass?
 if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     //Assign everything locally
-    $sName = InputUtils::LegacyFilterInput($_POST['Name']);
+    $sName = InputUtils::FilterString($_POST['Name']);
     // Strip commas out of address fields because they are problematic when
     // exporting addresses to CSV file
-    $sAddress1 = str_replace(',', '', InputUtils::LegacyFilterInput($_POST['Address1']));
-    $sAddress2 = str_replace(',', '', InputUtils::LegacyFilterInput($_POST['Address2']));
-    $sCity = InputUtils::LegacyFilterInput($_POST['City']);
+    $sAddress1 = str_replace(',', '', InputUtils::FilterString($_POST['Address1']));
+    $sAddress2 = str_replace(',', '', InputUtils::FilterString($_POST['Address2']));
+    $sCity = InputUtils::FilterString($_POST['City']);
     $sZip = InputUtils::LegacyFilterInput($_POST['Zip']);
 
     // bevand10 2012-04-26 Add support for uppercase ZIP - controlled by administrator via cfg param
@@ -140,11 +140,11 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $sZip = strtoupper($sZip);
     }
 
-    $sCountry = InputUtils::LegacyFilterInput($_POST['Country']);
+    $sCountry = InputUtils::FilterString($_POST['Country']);
     $iFamilyMemberRows = InputUtils::LegacyFilterInput($_POST['FamCount']);
 
     if ($sCountry == 'United States' || $sCountry == 'Canada' || $sCountry == '' || $sCountry != '') {
-        $sState = InputUtils::LegacyFilterInput($_POST['State']);
+        $sState = InputUtils::FilterString($_POST['State']);
     } else {
         $sState = InputUtils::LegacyFilterInput($_POST['StateTextbox']);
     }
@@ -219,9 +219,9 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     //Loop through the Family Member 'quick entry' form fields
     for ($iCount = 1; $iCount <= $iFamilyMemberRows; $iCount++) {
         // Assign everything to arrays
-        $aFirstNames[$iCount] = InputUtils::LegacyFilterInput($_POST['FirstName'.$iCount]);
-        $aMiddleNames[$iCount] = InputUtils::LegacyFilterInput($_POST['MiddleName'.$iCount]);
-        $aLastNames[$iCount] = InputUtils::LegacyFilterInput($_POST['LastName'.$iCount]);
+        $aFirstNames[$iCount] = InputUtils::FilterString($_POST['FirstName'.$iCount]);
+        $aMiddleNames[$iCount] = InputUtils::FilterString($_POST['MiddleName'.$iCount]);
+        $aLastNames[$iCount] = InputUtils::FilterString($_POST['LastName'.$iCount]);
         $aSuffix[$iCount] = InputUtils::LegacyFilterInput($_POST['Suffix'.$iCount]);
         $aRoles[$iCount] = InputUtils::LegacyFilterInput($_POST['Role'.$iCount], 'int');
         $aGenders[$iCount] = InputUtils::LegacyFilterInput($_POST['Gender'.$iCount], 'int');
