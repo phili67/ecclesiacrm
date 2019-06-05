@@ -17,7 +17,7 @@ class OutputUtils {
      if (SessionUser::getUser()->MapExternalProvider() == "AppleMaps") {
        return '<a href="http://maps.apple.com/?q='.$address.'&z=' . SystemConfig::getValue("iLittleMapZoom") . '" target="_blank">'.$address.'</a>';
      } elseif (SessionUser::getUser()->MapExternalProvider() == "GoogleMaps") {
-       return '<a href="http://maps.google.com/?q=1  '.$address.'" target="_blank">'.$address.'</a>';
+       return '<a href="http://maps.google.com/?q='.$address.'" target="_blank">'.$address.'</a>';
      } elseif (SessionUser::getUser()->MapExternalProvider() == "BingMaps") {
        return '<a href="https://www.bing.com/maps?where1='.$address.'&sty=c" target="_blank">'.$address.'</a>';
      }
