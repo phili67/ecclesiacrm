@@ -13,7 +13,9 @@ $(document).ready(function () {
         if (data.isIncludedInMailing) {
           $("#NewsLetterSend").css('color','green');
           $("#NewsLetterSend").html('<i class="fa fa-check"></i>');
-          $("#mailChimpUserNormal").text(data.mailingList);
+          if (data.mailChimpActiv) {
+            $("#mailChimpUserNormal").text(data.mailingList);
+          }
         } else {
           $("#NewsLetterSend").css('color','red');
           $("#NewsLetterSend").html('<i class="fa fa-times"></i>');

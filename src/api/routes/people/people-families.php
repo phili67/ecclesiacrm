@@ -188,9 +188,12 @@ function isMailChimpActiveFamily (Request $request, Response $response, array $a
     // we get the MailChimp Service
     $mailchimp = new MailChimpService();
     $family = FamilyQuery::create()->findPk($input->familyId);
+    $isIncludedInMailing = $family->getSendNewsletter();
     
     if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
-      return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+    } else {
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($family->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
   }
   
