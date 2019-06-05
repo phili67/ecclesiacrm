@@ -13,6 +13,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use Propel\Runtime\Propel;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -23,10 +24,13 @@ if ( !( SessionUser::getUser()->isShowMenuQueryEnabled() ) ) {
 }
 
 //Set the page title
-$sPageTitle = gettext('Query Listing');
+$sPageTitle = _('Query Listing');
 
 $sSQL = 'SELECT * FROM query_qry LEFT JOIN query_type ON query_qry.qry_Type_ID = query_type.qry_type_id ORDER BY query_qry.qry_Type_ID, query_qry.qry_Name';
-$rsQueries = RunQuery($sSQL);
+
+$connection = Propel::getConnection();
+$statement = $connection->prepare($sSQL);
+$statement->execute();
 
 $aFinanceQueries = explode(',', SystemConfig::getValue('aFinanceQueries'));
 
@@ -39,7 +43,7 @@ require 'Include/Header.php';
             <?php
                 if (SessionUser::getUser()->isAdmin()) {
             ?>
-              <a href="QuerySQL.php" class="text-red"><?= gettext('Run a Free-Text Query') ?></a>
+              <a href="QuerySQL.php" class="text-red"><?= _('Run a Free-Text Query') ?></a>
             <?php
                 }
             ?>
@@ -52,15 +56,14 @@ require 'Include/Header.php';
                 $open_ul = false;
                 $count = 0;
                 
-                while ($aRow = mysqli_fetch_array($rsQueries)) {?>            
-                <?php
+                while ($aRow = $statement->fetch( \PDO::FETCH_ASSOC )) {
                     extract($aRow);
                     
                     if ($qry_Type_ID != $query_type) {
                       if ($first_time == false) {
                         if ($count == 0) {
                 ?>
-                        <li><?= gettext("Forbidden") ?>
+                        <li><?= _("Forbidden") ?>
                 <?php
                         }
                         $count = 0;
@@ -69,7 +72,7 @@ require 'Include/Header.php';
                 <?php
                       }
                 ?>
-                      <li><b><?= mb_convert_case(gettext($qry_type_Category), MB_CASE_UPPER, "UTF-8") ?></b><br>
+                      <li><b><?= mb_convert_case(_($qry_type_Category), MB_CASE_UPPER, "UTF-8") ?></b><br>
                       <ul>
                       <?php
                       $query_type = $qry_Type_ID;
@@ -81,9 +84,9 @@ require 'Include/Header.php';
                         // Display the query name and description
                     ?>
                     <li>
-                        <a href="QueryView.php?QueryID=<?= $qry_ID ?>"><?= gettext($qry_Name) ?></a>:
+                        <a href="QueryView.php?QueryID=<?= $qry_ID ?>"><?= _($qry_Name) ?></a>:
                         <br>
-                        <?= gettext($qry_Description) ?>
+                        <?= _($qry_Description) ?>
                     </li>
                 <?php
                         $count++;
