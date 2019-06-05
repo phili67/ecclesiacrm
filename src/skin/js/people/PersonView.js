@@ -20,7 +20,7 @@ $(document).ready(function () {
         }
       } else {
         $("#NewsLetterSend").css('color','red');
-        $("#NewsLetterSend").html('<i class="fa fa-times"></i>');
+        $("#NewsLetterSend").html('<i class="fa fa-times"></i>'+i18next.t("Problem with MailChimp"));
       }
     });
   }
