@@ -75,7 +75,7 @@ class PDF_Directory extends ChurchInfoReport
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n".SystemConfig::getValue('sChurchName')."\n\n".OutputUtils::translate_text_fpdf(_('Directory'))."\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n".OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName'))."\n\n".OutputUtils::translate_text_fpdf(_('Directory'))."\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
         $this->MultiCell(197, 10, $today."\n\n", 0, 'C');
