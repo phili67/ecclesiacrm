@@ -39,7 +39,7 @@ class PDF_Directory extends ChurchInfoReport
             //Move to the right
             $this->SetX($this->_Margin_Left);
             //Framed title
-            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, SystemConfig::getValue('sChurchName').' - '.OutputUtils::translate_text_fpdf(_('Directory')), 1, 0, 'C');
+            $this->Cell($this->w - ($this->_Margin_Left * 2), 10, OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName')).' - '.OutputUtils::translate_text_fpdf(_('Directory')), 1, 0, 'C');
             $this->SetY(25);
         }
     }
@@ -75,7 +75,7 @@ class PDF_Directory extends ChurchInfoReport
         //Line break
         $this->Ln(5);
         //Move to the right
-        $this->MultiCell(197, 10, "\n\n\n".SystemConfig::getValue('sChurchName')."\n\n".OutputUtils::translate_text_fpdf(_('Directory'))."\n\n", 0, 'C');
+        $this->MultiCell(197, 10, "\n\n\n".OutputUtils::translate_text_fpdf(SystemConfig::getValue('sChurchName'))."\n\n".OutputUtils::translate_text_fpdf(_('Directory'))."\n\n", 0, 'C');
         $this->Ln(5);
         $today = date(SystemConfig::getValue("sDateFormatLong"));
         $this->MultiCell(197, 10, $today."\n\n", 0, 'C');
