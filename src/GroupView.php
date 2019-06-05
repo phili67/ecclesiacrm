@@ -39,7 +39,7 @@ $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 
 
 //Get the data on this group
-$thisGroup = EcclesiaCRM\GroupQuery::create()->findOneById($iGroupID);
+$thisGroup = GroupQuery::create()->findOneById($iGroupID);
 
 //Look up the default role name
 $defaultRole = ListOptionQuery::create()->filterById($thisGroup->getRoleListId())->filterByOptionId($thisGroup->getDefaultRole())->findOne();
@@ -56,10 +56,10 @@ if (!empty($manager)) {
 } else  {
   $_SESSION['bManageGroups'] = SessionUser::getUser()->isManageGroupsEnabled();
 }
-       
+
 //Get the group's type name
 if ($thisGroup->getType() > 0) {
-    $groupeType = ListOptionQuery::create()->filterById(3)->filterByOptionId($thisGroup->getType())->findOne();
+    $groupeType = ListOptionQuery::create()->filterById(3)->filterByOptionId($thisGroup->getListOptionId())->findOne();
     if (!empty($groupeType)) {
       $sGroupType = $groupeType->getOptionName();
     }
