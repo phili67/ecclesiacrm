@@ -190,9 +190,9 @@ END:VCARD';
 
     public function postInsert(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
-        $optionList = ['Member'];
+        $optionList = [_('Member')];
         if ($this->isSundaySchool()) {
-            $optionList = ['Teacher', 'Student'];
+            $optionList = ['Teacher', 'Student'];// this roles are specifics to the CRM and can't be endered
         }
 
         $i = 1;
