@@ -204,10 +204,9 @@ require 'Include/Header.php';
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   //setup some document-global variables for later on in the javascript
   var defaultRoleID = <?= ($theCurrentGroup->getDefaultRole() ? $theCurrentGroup->getDefaultRole() : 1) ?>;
-  var dataT = 0;
   var groupRoleData = <?= json_encode($groupService->getGroupRoles($iGroupID)); ?>;
-  var roleCount = groupRoleData.length;
-  var groupID =<?= $iGroupID ?>;
+  window.CRM.roleCount = groupRoleData.length;
+  window.CRM.groupID =<?= $iGroupID ?>;
 </script>
 <script src="<?= SystemURLs::getRootPath() ?>/skin/js/group/GroupEditor.js"></script>
 
