@@ -228,8 +228,10 @@ function isMailChimpActivePerson (Request $request, Response $response, array $a
     $mailchimp = new MailChimpService();
     $person = PersonQuery::create()->findPk($input->personId);
     
-    if ( !is_null ($mailchimp) && $mailchimp->isActive() && !is_null ($person->getFamily()) ) {
-      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false,'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+    if ( !is_null ($mailchimp) && $mailchimp->isActive() ) {
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => true, 'mailingList' => $mailchimp->isEmailInMailChimp($input->email)]);
+    } else {
+      return $response->withJson(['success' => true,'isIncludedInMailing' => ($person->getSendNewsletter() == 'TRUE')?true:false, 'mailChimpActiv' => false, 'mailingList' => null]);
     }
   }
   
