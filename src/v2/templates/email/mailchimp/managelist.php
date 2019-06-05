@@ -18,7 +18,7 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
-        <h3 class="box-title"><?= _('Manage Email List') ?></h3>
+        <h3 class="box-title"><?= _('Manage Email Audience') ?></h3>
         <div style="float:right">
           <a href="https://mailchimp.com/<?= $lang ?>/" target="_blank"><img src="<?= $sRootPath ?>/Images/Mailchimp_Logo-Horizontal_Black.png" height=25/></a>
         </div>
