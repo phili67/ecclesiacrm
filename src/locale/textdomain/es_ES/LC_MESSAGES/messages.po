@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-30 17:05+0200\n"
+"POT-Creation-Date: 2019-06-06 05:15+0200\n"
 "Language: es-es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,7 +104,7 @@ msgstr "Su carrito ha sido exitosamente suprimido"
 
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:626
-#: api/routes/people/people-persons.php:546 uploader/upload.php:80
+#: api/routes/people/people-persons.php:548 uploader/upload.php:80
 msgid "Create file"
 msgstr "Crear  Ficheros"
 
@@ -191,22 +191,22 @@ msgstr "Efectivo"
 msgid "Checks"
 msgstr "Cheques"
 
-#: api/routes/mailchimp.php:70 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:71 PeopleDashboard.php:104
 msgid "All People"
 msgstr "Todas las Personas"
 
-#: api/routes/mailchimp.php:84
+#: api/routes/mailchimp.php:85
 #, fuzzy
 msgid "newsletter"
 msgstr "Enviar Newsletter"
 
-#: api/routes/mailchimp.php:119 api/routes/people/people.php:72
+#: api/routes/mailchimp.php:120 api/routes/people/people.php:72
 #: api/routes/people/people.php:124 api/routes/search.php:72
 #: EcclesiaCRM/MenuBar/MenuBar.php:291
 msgid "Persons"
 msgstr "Personas"
 
-#: api/routes/mailchimp.php:159 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:160 api/routes/people/people.php:163
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:273
 #: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
@@ -214,14 +214,14 @@ msgstr "Personas"
 msgid "Families"
 msgstr "Familias"
 
-#: api/routes/mailchimp.php:197 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:198 api/routes/people/people.php:200
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:54
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
 #: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
 msgid "Groups"
 msgstr "Grupos"
 
-#: api/routes/mailchimp.php:842
+#: api/routes/mailchimp.php:843
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 "Servidor SMTP no ha sido configurado, por favor visite la página de ajustes"
@@ -248,35 +248,35 @@ msgstr "participación"
 msgid "POST to cart requires a EventID"
 msgstr "POST al carrito requiere un EventID"
 
-#: api/routes/people/people-families.php:352
+#: api/routes/people/people-families.php:355
 msgid "Family Deactivated"
 msgstr "Desactivado Familia"
 
-#: api/routes/people/people-families.php:354
+#: api/routes/people/people-families.php:357
 msgid "Family Activated"
 msgstr "Activado Familia"
 
-#: api/routes/people/people-groups.php:358
+#: api/routes/people/people-groups.php:468
 msgid "Deleted from group"
 msgstr "Borrado del grupo"
 
-#: api/routes/people/people-groups.php:390
+#: api/routes/people/people-groups.php:500
 msgid "Added to group"
 msgstr "Agregado al grupo"
 
-#: api/routes/people/people-persons.php:465
-#: api/routes/people/people-persons.php:472 api/routes/user/user-users.php:127
+#: api/routes/people/people-persons.php:467
+#: api/routes/people/people-persons.php:474 api/routes/user/user-users.php:127
 #: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:279
 #: EcclesiaCRM/dto/Cart.php:285
 #, fuzzy
 msgid "Account Deactivated"
 msgstr "Deactivado persona"
 
-#: api/routes/people/people-persons.php:495
+#: api/routes/people/people-persons.php:497
 msgid "Person Deactivated"
 msgstr "Deactivado persona"
 
-#: api/routes/people/people-persons.php:495
+#: api/routes/people/people-persons.php:497
 msgid "Person Activated"
 msgstr "Activado persona"
 
@@ -1102,9 +1102,9 @@ msgstr "y"
 msgid "Image Position"
 msgstr "Posición de la imagen"
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:428
-#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:422
-#: PersonCustomFieldsEditor.php:507 sundayschool/SundaySchoolBadge.php:190
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:427
+#: FamilyCustomFieldsEditor.php:511 PersonCustomFieldsEditor.php:425
+#: PersonCustomFieldsEditor.php:510 sundayschool/SundaySchoolBadge.php:190
 msgid "Left"
 msgstr "Izquierda"
 
@@ -1112,9 +1112,9 @@ msgstr "Izquierda"
 msgid "Center"
 msgstr "centro"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:429
-#: FamilyCustomFieldsEditor.php:513 PersonCustomFieldsEditor.php:423
-#: PersonCustomFieldsEditor.php:508 sundayschool/SundaySchoolBadge.php:192
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:428
+#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:426
+#: PersonCustomFieldsEditor.php:511 sundayschool/SundaySchoolBadge.php:192
 msgid "Right"
 msgstr "Derecha"
 
@@ -1139,12 +1139,12 @@ msgstr "Agregar el Carrito a Familia"
 #: CartToFamily.php:223 CartView.php:326 Checkin.php:550 Checkin.php:551
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:57 EditEventAttendees.php:71 EventAttendance.php:184
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:341
-#: FamilyCustomFieldsEditor.php:463 FamilyList.php:162 GeoPage.php:358
-#: GroupEditor.php:89 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
-#: GroupPropsFormEditor.php:443 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:334
-#: PersonCustomFieldsEditor.php:461 PersonList.php:112
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:340
+#: FamilyCustomFieldsEditor.php:462 FamilyList.php:162 GeoPage.php:358
+#: GroupEditor.php:89 GroupPropsEditor.php:236 GroupPropsFormEditor.php:346
+#: GroupPropsFormEditor.php:473 GroupView.php:422 ListEvents.php:300
+#: ListEvents.php:302 PersonCustomFieldsEditor.php:337
+#: PersonCustomFieldsEditor.php:464 PersonList.php:112
 #: PrintPastoralCare.php:447 PrintPastoralCare.php:612 PrintView.php:458
 #: PrintView.php:621 Reports/CanvassReports.php:67
 #: Reports/CanvassReports.php:235 Reports/FamilyPledgeSummary.php:220
@@ -1523,7 +1523,8 @@ msgstr "Validar el Asistencia"
 msgid "Return to Events"
 msgstr "Volver a Eventos"
 
-#: Checkin.php:815 PersonView.php:406 Reports/CanvassReports.php:239
+#: Checkin.php:815 EcclesiaCRM/model/EcclesiaCRM/Group.php:193
+#: PersonView.php:406 Reports/CanvassReports.php:239
 #: Reports/VotingMembers.php:84 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -2192,8 +2193,8 @@ msgid "Go"
 msgstr "Ir"
 
 #: DonatedItemEditor.php:278 EditEventAttendees.php:59 FundRaiserEditor.php:175
-#: GroupEditor.php:95 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
-#: GroupPropsFormEditor.php:444 GroupView.php:423 ListEvents.php:360
+#: GroupEditor.php:95 GroupPropsEditor.php:237 GroupPropsFormEditor.php:347
+#: GroupPropsFormEditor.php:474 GroupView.php:423 ListEvents.php:360
 msgid "Description"
 msgstr "Descripción"
 
@@ -5425,11 +5426,11 @@ msgstr "Agregar un Nuevo Método de Pago Electrónico"
 msgid "Edit"
 msgstr "Editar"
 
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:340
-#: FamilyCustomFieldsEditor.php:460 GroupPropsFormEditor.php:316
-#: GroupPropsFormEditor.php:442 GroupView.php:421 OptionManager.php:118
-#: OptionManager.php:126 PersonCustomFieldsEditor.php:333
-#: PersonCustomFieldsEditor.php:458 Reports/GDPR/GDPRDataStructureExport.php:74
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:339
+#: FamilyCustomFieldsEditor.php:459 GroupPropsFormEditor.php:345
+#: GroupPropsFormEditor.php:472 GroupView.php:421 OptionManager.php:118
+#: OptionManager.php:126 PersonCustomFieldsEditor.php:336
+#: PersonCustomFieldsEditor.php:461 Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
 #: v2/templates/gdpr/gdprdatastructure.php:42
 msgid "Type"
@@ -5639,9 +5640,9 @@ msgstr ""
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr "Cada tipo de evento incluye un conteo total, no necesita incluirlo."
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:442 GroupPropsEditor.php:294
-#: GroupPropsFormEditor.php:415 OptionManager.php:496
-#: PersonCustomFieldsEditor.php:435
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:441 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:445 OptionManager.php:496
+#: PersonCustomFieldsEditor.php:438
 msgid "Save Changes"
 msgstr "Guardar cambios"
 
@@ -5845,11 +5846,11 @@ msgstr "Verificar"
 msgid "Visit our Site"
 msgstr "Visite nuestro sitio"
 
-#: FamilyCustomFieldsEditor.php:38
+#: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "Personalizacion de Campos de las familias"
 
-#: FamilyCustomFieldsEditor.php:44 PersonCustomFieldsEditor.php:42
+#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:44
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
@@ -5859,17 +5860,18 @@ msgstr ""
 "de nombre de campo se perderán si no \"Guarda cambios\" antes de usar un "
 "arriba, abajo, borrar o el botón \"Agregar nueva\"!"
 
-#: FamilyCustomFieldsEditor.php:189 PersonCustomFieldsEditor.php:179
+#: FamilyCustomFieldsEditor.php:188 GroupPropsFormEditor.php:217
+#: PersonCustomFieldsEditor.php:182
 msgid "Default Option"
 msgstr "Opción por Defecto"
 
-#: FamilyCustomFieldsEditor.php:324
+#: FamilyCustomFieldsEditor.php:323
 msgid "No custom Family fields have been added yet"
 msgstr "No se han añadido todavía campos personalizados  en la Familia"
 
-#: FamilyCustomFieldsEditor.php:333 GroupPropsEditor.php:213
-#: GroupPropsFormEditor.php:307 OptionManager.php:390
-#: PersonCustomFieldsEditor.php:323 PersonEditor.php:820
+#: FamilyCustomFieldsEditor.php:332 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:336 OptionManager.php:390
+#: PersonCustomFieldsEditor.php:326 PersonEditor.php:820
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -5877,59 +5879,59 @@ msgstr ""
 "Los campos o selecciones no son válidos. ¡No es posible guardar cambios! "
 "¡Por favor, corrija y vuelva a intentarlo!"
 
-#: FamilyCustomFieldsEditor.php:342 GroupPropsEditor.php:224
-#: GroupPropsFormEditor.php:319 PersonCustomFieldsEditor.php:335
+#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:348 PersonCustomFieldsEditor.php:338
 msgid "Special option"
 msgstr "Opción Especial"
 
-#: FamilyCustomFieldsEditor.php:343 FamilyCustomFieldsEditor.php:466
-#: PersonCustomFieldsEditor.php:336 PersonCustomFieldsEditor.php:467
+#: FamilyCustomFieldsEditor.php:342 FamilyCustomFieldsEditor.php:465
+#: PersonCustomFieldsEditor.php:339 PersonCustomFieldsEditor.php:470
 msgid "Security Option"
 msgstr "Opción de Seguridad"
 
-#: FamilyCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:343
 msgid "Family-View Side"
 msgstr "Vista de la Familia"
 
-#: FamilyCustomFieldsEditor.php:374 FamilyCustomFieldsEditor.php:497
-#: FamilyEditor.php:259 GroupPropsFormEditor.php:352
-#: GroupPropsFormEditor.php:467 OptionManager.php:452
-#: PersonCustomFieldsEditor.php:370 PersonCustomFieldsEditor.php:495
+#: FamilyCustomFieldsEditor.php:373 FamilyCustomFieldsEditor.php:496
+#: FamilyEditor.php:259 GroupPropsFormEditor.php:381
+#: GroupPropsFormEditor.php:497 OptionManager.php:452
+#: PersonCustomFieldsEditor.php:373 PersonCustomFieldsEditor.php:498
 msgid "You must enter a name"
 msgstr "Debe ingresar un nombre"
 
-#: FamilyCustomFieldsEditor.php:385 GroupEditor.php:132
-#: GroupPropsEditor.php:252 GroupPropsFormEditor.php:370
-#: PersonCustomFieldsEditor.php:380
+#: FamilyCustomFieldsEditor.php:384 GroupEditor.php:132
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:399
+#: PersonCustomFieldsEditor.php:383
 msgid "Select a group"
 msgstr "Seleccione un grupo"
 
-#: FamilyCustomFieldsEditor.php:399 GroupPropsEditor.php:271
-#: GroupPropsFormEditor.php:389 PersonCustomFieldsEditor.php:394
+#: FamilyCustomFieldsEditor.php:398 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:416 PersonCustomFieldsEditor.php:397
 msgid "You must select a group."
 msgstr "Debe seleccionar un grupo."
 
-#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:275
-#: GroupPropsFormEditor.php:393 PersonCustomFieldsEditor.php:399
+#: FamilyCustomFieldsEditor.php:404 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:421 PersonCustomFieldsEditor.php:402
 msgid "Edit List Options"
 msgstr "Editar lista de Opciones"
 
-#: FamilyCustomFieldsEditor.php:469 PersonCustomFieldsEditor.php:464
+#: FamilyCustomFieldsEditor.php:468 PersonCustomFieldsEditor.php:467
 msgid "Side"
 msgstr "Lado"
 
-#: FamilyCustomFieldsEditor.php:490 GroupPropsFormEditor.php:460
-#: PersonCustomFieldsEditor.php:488
+#: FamilyCustomFieldsEditor.php:489 GroupPropsFormEditor.php:490
+#: PersonCustomFieldsEditor.php:491
 msgid "Help on types.."
 msgstr "Ayuda en tipos.."
 
-#: FamilyCustomFieldsEditor.php:502 GroupPropsFormEditor.php:472
-#: PersonCustomFieldsEditor.php:500
+#: FamilyCustomFieldsEditor.php:501 GroupPropsFormEditor.php:502
+#: PersonCustomFieldsEditor.php:503
 msgid "That field name already exists."
 msgstr "El nombre del Campo, ya existe"
 
-#: FamilyCustomFieldsEditor.php:517 GroupPropsFormEditor.php:483
-#: PersonCustomFieldsEditor.php:515
+#: FamilyCustomFieldsEditor.php:516 GroupPropsFormEditor.php:513
+#: PersonCustomFieldsEditor.php:518
 msgid "Add New Field"
 msgstr "Agregar Nuevo Campo"
 
@@ -6859,15 +6861,15 @@ msgstr "Grupo suma:"
 msgid "Add New Group"
 msgstr "Agregar Nuevo Grupo"
 
-#: GroupPropsEditor.php:49 GroupPropsFormEditor.php:54
+#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:61
 msgid "Group-Specific Properties Form Editor:"
 msgstr "formato de edición de propiedades específicas de grupo"
 
-#: GroupPropsEditor.php:49 ListEvents.php:353
+#: GroupPropsEditor.php:52 ListEvents.php:353
 msgid "for"
 msgstr "para"
 
-#: GroupPropsEditor.php:53 GroupPropsFormEditor.php:58
+#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:65
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -6875,39 +6877,35 @@ msgstr ""
 "Atención: Cambios en los campos se perderán si no hace click en 'salvar "
 "cambios' antes de usar los botones arriba, abajo, borrar o 'Agregar otro'."
 
-#: GroupPropsEditor.php:57
+#: GroupPropsEditor.php:60
 msgid "Group-Person-Specific Properties"
 msgstr "Propiedades Específicas de Persona-Grupo"
 
-#: GroupPropsEditor.php:202 GroupPropsFormEditor.php:296
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:325
 msgid "No properties have been added yet"
 msgstr "no se han añadido propiedades aún"
 
-#: GroupPropsEditor.php:203 GroupPropsEditor.php:291
+#: GroupPropsEditor.php:217 GroupPropsEditor.php:299
 msgid "Return to Person"
 msgstr "Regresar al persona"
 
-#: GroupPropsFormEditor.php:62 GroupView.php:400
+#: GroupPropsFormEditor.php:69 GroupView.php:400
 msgid "Group-Specific Properties"
 msgstr "Propiedades Específicas de Grupo"
 
-#: GroupPropsFormEditor.php:195
-msgid "'Default Option'"
-msgstr "'Opción por defecto'"
-
-#: GroupPropsFormEditor.php:297 GroupPropsFormEditor.php:412
+#: GroupPropsFormEditor.php:326 GroupPropsFormEditor.php:442
 msgid "Return to Group"
 msgstr "Regresar al Grupo"
 
-#: GroupPropsFormEditor.php:320
+#: GroupPropsFormEditor.php:349
 msgid "Show in"
 msgstr "Mostrar en"
 
-#: GroupPropsFormEditor.php:320 PersonView.php:304
+#: GroupPropsFormEditor.php:349 PersonView.php:304
 msgid "Person Profile"
 msgstr "Perfil de Persona"
 
-#: GroupPropsFormEditor.php:432
+#: GroupPropsFormEditor.php:462
 msgid "Add Group-Specific Properties"
 msgstr "Agregar Propiedades Específicas de Grupo"
 
@@ -8191,15 +8189,15 @@ msgstr "Niñas"
 msgid "# number of people"
 msgstr "Número máximo de Personas"
 
-#: PersonCustomFieldsEditor.php:36
+#: PersonCustomFieldsEditor.php:38
 msgid "Custom Person Fields Editor"
 msgstr "Editor de Campos Personalizados de Persona"
 
-#: PersonCustomFieldsEditor.php:314
+#: PersonCustomFieldsEditor.php:317
 msgid "No custom person fields have been added yet"
 msgstr "Aún no han sido añadidos campos peronalizados"
 
-#: PersonCustomFieldsEditor.php:337
+#: PersonCustomFieldsEditor.php:340
 msgid "Person-View Side"
 msgstr "Vista de personas"
 
@@ -8587,15 +8585,15 @@ msgstr "Ingresado:"
 msgid "Last Edited"
 msgstr "Última Edición"
 
-#: QueryList.php:26
+#: QueryList.php:27
 msgid "Query Listing"
 msgstr "Listado de búsqueda"
 
-#: QueryList.php:42
+#: QueryList.php:46
 msgid "Run a Free-Text Query"
 msgstr "Correr una búsqueda de texto libre"
 
-#: QueryList.php:63
+#: QueryList.php:66
 msgid "Forbidden"
 msgstr "Prohibido"
 
@@ -10429,6 +10427,7 @@ msgid "For MailChimp see"
 msgstr "MailChimp"
 
 #: v2/templates/email/mailchimp/dashboard.php:79
+#, fuzzy
 msgid "import subscribers to a list."
 msgstr "importación suscriptores a una lista."
 
@@ -11083,103 +11082,103 @@ msgstr ""
 msgid "Find people with a custom field value"
 msgstr "Buscar personas con un valor de campo personalizado"
 
-#: settings-locales.php:2 settings-locales.php:29
+#: settings-locales.php:2
 msgid "Albanian"
 msgstr "Albanés"
 
-#: settings-locales.php:3 settings-locales.php:30
+#: settings-locales.php:3
 msgid "Arabic - Egypt"
 msgstr "Árabe - Egipto"
 
-#: settings-locales.php:4 settings-locales.php:31
+#: settings-locales.php:4
 msgid "Chinese - China"
 msgstr "Chino - China"
 
-#: settings-locales.php:5 settings-locales.php:32
+#: settings-locales.php:5
 msgid "Chinese - Taiwan"
 msgstr "Chino - Taiwán"
 
-#: settings-locales.php:6 settings-locales.php:33
+#: settings-locales.php:6
 msgid "Dutch - Netherlands"
 msgstr "Holandés - Holanda"
 
-#: settings-locales.php:7 settings-locales.php:34
+#: settings-locales.php:7
 msgid "English - Australia"
 msgstr "Inglés - Australia"
 
-#: settings-locales.php:8 settings-locales.php:35
+#: settings-locales.php:8
 msgid "English - Canada"
 msgstr "Inglés - Canadá"
 
-#: settings-locales.php:9 settings-locales.php:36
+#: settings-locales.php:9
 msgid "English - Great Britain"
 msgstr "Inglés - Reino Unido"
 
-#: settings-locales.php:10 settings-locales.php:37
+#: settings-locales.php:10
 msgid "English - United States"
 msgstr "Inglés - Estados Unidos"
 
-#: settings-locales.php:11 settings-locales.php:38
+#: settings-locales.php:11
 msgid "French - Belgium"
 msgstr "Francés - Bélgica"
 
-#: settings-locales.php:12 settings-locales.php:39
+#: settings-locales.php:12
 msgid "French - Canada"
 msgstr "Francés - Canadá"
 
-#: settings-locales.php:13 settings-locales.php:40
+#: settings-locales.php:13
 msgid "French - France"
 msgstr "Francés - Francia"
 
-#: settings-locales.php:14 settings-locales.php:41
+#: settings-locales.php:14
 msgid "French - Swiss"
 msgstr "Francés - Suizo"
 
-#: settings-locales.php:15 settings-locales.php:42
+#: settings-locales.php:15
 msgid "German - Germany"
 msgstr "Alemán - Alemania"
 
-#: settings-locales.php:16 settings-locales.php:43
+#: settings-locales.php:16
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: settings-locales.php:17 settings-locales.php:44
+#: settings-locales.php:17
 msgid "Indonesian - Indonesia"
 msgstr "Indonesio - Indonesia"
 
-#: settings-locales.php:18 settings-locales.php:45
+#: settings-locales.php:18
 msgid "Italian - Italy"
 msgstr "Italiano - Italia"
 
-#: settings-locales.php:19 settings-locales.php:46
+#: settings-locales.php:19
 msgid "Polish"
 msgstr "Polaco"
 
-#: settings-locales.php:20 settings-locales.php:47
+#: settings-locales.php:20
 msgid "Portuguese - Brazil"
 msgstr "Portugués - Brasil"
 
-#: settings-locales.php:21 settings-locales.php:48
+#: settings-locales.php:21
 msgid "Romanian - Romania"
 msgstr "Rumano - Rumania"
 
-#: settings-locales.php:22 settings-locales.php:49
+#: settings-locales.php:22
 msgid "Russian"
 msgstr "Russo"
 
-#: settings-locales.php:23 settings-locales.php:50
+#: settings-locales.php:23
 msgid "Spanish - Spain"
 msgstr "Español - España"
 
-#: settings-locales.php:24 settings-locales.php:51
+#: settings-locales.php:24
 msgid "Sami (Northern) (Sweden)"
 msgstr "Sami (del Norte) (Suecia)"
 
-#: settings-locales.php:25 settings-locales.php:52
+#: settings-locales.php:25
 msgid "Thai"
 msgstr "Tailandés"
 
-#: settings-locales.php:26 settings-locales.php:53
+#: settings-locales.php:26
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
@@ -11227,6 +11226,10 @@ msgstr ""
 
 #: userconfig_ucfg.php:11
 msgid "AdminLTE style "
+msgstr ""
+
+#: userconfig_ucfg.php:12
+msgid "choice"
 msgstr ""
 
 msgid "Jan"
@@ -11323,6 +11326,25 @@ msgstr "Agendar"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Email Audiences"
+#~ msgstr "Funciones de Email"
+
+#, fuzzy
+#~ msgid "Email Audience"
+#~ msgstr "Funciones de Email"
+
+#, fuzzy
+#~ msgid "Create Audience"
+#~ msgstr "Crear  Ficheros"
+
+#, fuzzy
+#~ msgid "Manage Email Audience"
+#~ msgstr "Gestionar Roles"
+
+#~ msgid "'Default Option'"
+#~ msgstr "'Opción por defecto'"
 
 #~ msgid "Software Registration"
 #~ msgstr "Registro del Software"
@@ -11457,10 +11479,6 @@ msgstr ""
 
 #~ msgid "Style"
 #~ msgstr "Estilo"
-
-#, fuzzy
-#~ msgid "Manage List"
-#~ msgstr "Gestionar Roles"
 
 #, fuzzy
 #~ msgid "(Edit own family only.)"
@@ -12162,9 +12180,6 @@ msgstr ""
 
 #~ msgid "Link Not found"
 #~ msgstr "Enlace No Encontrado"
-
-#~ msgid "Email Functions"
-#~ msgstr "Funciones de Email"
 
 #~ msgid "Family Custom Fields"
 #~ msgstr "Campos Personalizados de Familia"

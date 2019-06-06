@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-05-30T14:16:50.762Z\n"
+"POT-Creation-Date: 2019-06-06T03:44:09.248Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -371,15 +371,14 @@ msgstr "Admin->Editieren General Einstellung"
 
 msgid ""
 "Please register your copy of EcclesiaCRM by checking over this information "
-"and pressing the Send button.  "
+"and pressing the Send button."
 msgstr ""
 "Bitte registrieren sie ihre Kopie von EcclesiaCRM indem sie diese "
 "Information überprüfend und versenden."
 
-msgid "This information is used only to track the usage of this software.  "
+msgid "This information is used only to track the usage of this software."
 msgstr ""
-"Diese Information wird nur nur Nachverfolgung der Softwarenutzung "
-"verwendet."
+"Diese Information wird nur für Nachverfolgung der Softwarenutzung verwendet."
 
 msgid "Church Name"
 msgstr "Kirche Name"
@@ -916,6 +915,13 @@ msgstr "Bearbeitet von Name"
 msgid "Deactivated"
 msgstr "Deaktiviert"
 
+msgid ""
+"Warning: By deleting this field, you will irrevocably lose all group data "
+"assigned for this field!"
+msgstr ""
+"Warnung: Mit dem Löschen dieses Feldes gehen alle gruppe Daten, "
+"die mit diesem Feld verknüpft sind, unwiderruflich verloren!"
+
 msgid "Confirm Enable Group Specific Properties"
 msgstr "Aktivieren Gruppe spezifischen Eigenschaften Bestätigen"
 
@@ -943,6 +949,13 @@ msgstr ""
 
 msgid "Disable Group Specific Properties"
 msgstr "Deaktivieren Gruppe spezifischen Eigenschaften"
+
+msgid "Confirm Delete Role"
+msgstr "Rolle Löschen bestätigen"
+
+msgid "This will also delete all persons membership associated with this role."
+msgstr ""
+"Diese Aktion wird alle personnen Mitgliedschaft mit diesem Rolle löschen."
 
 msgid "Role Name"
 msgstr "Rolle Name"
@@ -1654,7 +1667,7 @@ msgid "List Title"
 msgstr "Liste Titel"
 
 msgid "Your List Title"
-msgstr "Ihre Liste Titel"
+msgstr "Liste Titel"
 
 msgid "Your Subject"
 msgstr "E-Mail-Betreff"
@@ -1767,6 +1780,22 @@ msgstr "Sie müssen ein Kampagne Titel für Ihr Kampagne eMail einzustellen"
 
 msgid "List Name"
 msgstr "Mailingliste Name"
+
+#, fuzzy
+#~ msgid "Audience Creation"
+#~ msgstr "Ereigniserstellung"
+
+#, fuzzy
+#~ msgid "Audience Title"
+#~ msgstr "Dokumente Titel"
+
+#, fuzzy
+#~ msgid "Your Audience Title"
+#~ msgstr "Ihre Liste Titel"
+
+#, fuzzy
+#~ msgid "Audience Name"
+#~ msgstr "Ressource Name Bearbeiten"
 
 #~ msgid "Share your Document"
 #~ msgstr "Dokumente freizugeben"

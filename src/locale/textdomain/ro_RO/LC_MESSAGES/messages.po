@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-30 17:05+0200\n"
+"POT-Creation-Date: 2019-06-06 05:15+0200\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,7 +107,7 @@ msgstr "Cosul tau a fost golit cu succes"
 
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:626
-#: api/routes/people/people-persons.php:546 uploader/upload.php:80
+#: api/routes/people/people-persons.php:548 uploader/upload.php:80
 #, fuzzy
 msgid "Create file"
 msgstr "Creați fișiere"
@@ -204,24 +204,24 @@ msgstr "Numerar"
 msgid "Checks"
 msgstr "Verifica"
 
-#: api/routes/mailchimp.php:70 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:71 PeopleDashboard.php:104
 #, fuzzy
 msgid "All People"
 msgstr "Oameni"
 
-#: api/routes/mailchimp.php:84
+#: api/routes/mailchimp.php:85
 #, fuzzy
 msgid "newsletter"
 msgstr "Trimite Newsletter"
 
-#: api/routes/mailchimp.php:119 api/routes/people/people.php:72
+#: api/routes/mailchimp.php:120 api/routes/people/people.php:72
 #: api/routes/people/people.php:124 api/routes/search.php:72
 #: EcclesiaCRM/MenuBar/MenuBar.php:291
 #, fuzzy
 msgid "Persons"
 msgstr "Persoană"
 
-#: api/routes/mailchimp.php:159 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:160 api/routes/people/people.php:163
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:273
 #: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
@@ -229,7 +229,7 @@ msgstr "Persoană"
 msgid "Families"
 msgstr "Familiile"
 
-#: api/routes/mailchimp.php:197 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:198 api/routes/people/people.php:200
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:54
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
 #: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
@@ -237,7 +237,7 @@ msgstr "Familiile"
 msgid "Groups"
 msgstr "Grup"
 
-#: api/routes/mailchimp.php:842
+#: api/routes/mailchimp.php:843
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -263,40 +263,40 @@ msgstr "Numără participare"
 msgid "POST to cart requires a EventID"
 msgstr ""
 
-#: api/routes/people/people-families.php:352
+#: api/routes/people/people-families.php:355
 #, fuzzy
 msgid "Family Deactivated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-families.php:354
+#: api/routes/people/people-families.php:357
 #, fuzzy
 msgid "Family Activated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-groups.php:358
+#: api/routes/people/people-groups.php:468
 #, fuzzy
 msgid "Deleted from group"
 msgstr "din grup"
 
-#: api/routes/people/people-groups.php:390
+#: api/routes/people/people-groups.php:500
 #, fuzzy
 msgid "Added to group"
 msgstr "Adauga la grup"
 
-#: api/routes/people/people-persons.php:465
-#: api/routes/people/people-persons.php:472 api/routes/user/user-users.php:127
+#: api/routes/people/people-persons.php:467
+#: api/routes/people/people-persons.php:474 api/routes/user/user-users.php:127
 #: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:279
 #: EcclesiaCRM/dto/Cart.php:285
 #, fuzzy
 msgid "Account Deactivated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-persons.php:495
+#: api/routes/people/people-persons.php:497
 #, fuzzy
 msgid "Person Deactivated"
 msgstr "Este nevoie de această valoare."
 
-#: api/routes/people/people-persons.php:495
+#: api/routes/people/people-persons.php:497
 #, fuzzy
 msgid "Person Activated"
 msgstr "Este nevoie de această valoare."
@@ -1138,9 +1138,9 @@ msgstr "și"
 msgid "Image Position"
 msgstr ""
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:428
-#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:422
-#: PersonCustomFieldsEditor.php:507 sundayschool/SundaySchoolBadge.php:190
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:427
+#: FamilyCustomFieldsEditor.php:511 PersonCustomFieldsEditor.php:425
+#: PersonCustomFieldsEditor.php:510 sundayschool/SundaySchoolBadge.php:190
 msgid "Left"
 msgstr "Stânga"
 
@@ -1149,9 +1149,9 @@ msgstr "Stânga"
 msgid "Center"
 msgstr "Iarnă"
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:429
-#: FamilyCustomFieldsEditor.php:513 PersonCustomFieldsEditor.php:423
-#: PersonCustomFieldsEditor.php:508 sundayschool/SundaySchoolBadge.php:192
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:428
+#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:426
+#: PersonCustomFieldsEditor.php:511 sundayschool/SundaySchoolBadge.php:192
 msgid "Right"
 msgstr "Dreapta"
 
@@ -1178,12 +1178,12 @@ msgstr "Adauga in cos pentru a Familiei"
 #: CartToFamily.php:223 CartView.php:326 Checkin.php:550 Checkin.php:551
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:57 EditEventAttendees.php:71 EventAttendance.php:184
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:341
-#: FamilyCustomFieldsEditor.php:463 FamilyList.php:162 GeoPage.php:358
-#: GroupEditor.php:89 GroupPropsEditor.php:222 GroupPropsFormEditor.php:317
-#: GroupPropsFormEditor.php:443 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:334
-#: PersonCustomFieldsEditor.php:461 PersonList.php:112
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:340
+#: FamilyCustomFieldsEditor.php:462 FamilyList.php:162 GeoPage.php:358
+#: GroupEditor.php:89 GroupPropsEditor.php:236 GroupPropsFormEditor.php:346
+#: GroupPropsFormEditor.php:473 GroupView.php:422 ListEvents.php:300
+#: ListEvents.php:302 PersonCustomFieldsEditor.php:337
+#: PersonCustomFieldsEditor.php:464 PersonList.php:112
 #: PrintPastoralCare.php:447 PrintPastoralCare.php:612 PrintView.php:458
 #: PrintView.php:621 Reports/CanvassReports.php:67
 #: Reports/CanvassReports.php:235 Reports/FamilyPledgeSummary.php:220
@@ -1585,7 +1585,8 @@ msgstr "Creați foaia de prezență"
 msgid "Return to Events"
 msgstr "Revenirea la meniul Query"
 
-#: Checkin.php:815 PersonView.php:406 Reports/CanvassReports.php:239
+#: Checkin.php:815 EcclesiaCRM/model/EcclesiaCRM/Group.php:193
+#: PersonView.php:406 Reports/CanvassReports.php:239
 #: Reports/VotingMembers.php:84 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -2295,8 +2296,8 @@ msgid "Go"
 msgstr "Merge"
 
 #: DonatedItemEditor.php:278 EditEventAttendees.php:59 FundRaiserEditor.php:175
-#: GroupEditor.php:95 GroupPropsEditor.php:223 GroupPropsFormEditor.php:318
-#: GroupPropsFormEditor.php:444 GroupView.php:423 ListEvents.php:360
+#: GroupEditor.php:95 GroupPropsEditor.php:237 GroupPropsFormEditor.php:347
+#: GroupPropsFormEditor.php:474 GroupView.php:423 ListEvents.php:360
 msgid "Description"
 msgstr "Descriere"
 
@@ -5596,11 +5597,11 @@ msgstr "Adauga un nou plată automată"
 msgid "Edit"
 msgstr "Edita"
 
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:340
-#: FamilyCustomFieldsEditor.php:460 GroupPropsFormEditor.php:316
-#: GroupPropsFormEditor.php:442 GroupView.php:421 OptionManager.php:118
-#: OptionManager.php:126 PersonCustomFieldsEditor.php:333
-#: PersonCustomFieldsEditor.php:458 Reports/GDPR/GDPRDataStructureExport.php:74
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:339
+#: FamilyCustomFieldsEditor.php:459 GroupPropsFormEditor.php:345
+#: GroupPropsFormEditor.php:472 GroupView.php:421 OptionManager.php:118
+#: OptionManager.php:126 PersonCustomFieldsEditor.php:336
+#: PersonCustomFieldsEditor.php:461 Reports/GDPR/GDPRDataStructureExport.php:74
 #: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
 #: v2/templates/gdpr/gdprdatastructure.php:42
 msgid "Type"
@@ -5820,9 +5821,9 @@ msgstr ""
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:442 GroupPropsEditor.php:294
-#: GroupPropsFormEditor.php:415 OptionManager.php:496
-#: PersonCustomFieldsEditor.php:435
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:441 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:445 OptionManager.php:496
+#: PersonCustomFieldsEditor.php:438
 msgid "Save Changes"
 msgstr "Salvați modificările"
 
@@ -6043,11 +6044,11 @@ msgstr "Verifica"
 msgid "Visit our Site"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:38
+#: FamilyCustomFieldsEditor.php:39
 msgid "Custom Family Fields Editor"
 msgstr "Personalizat de familie Fields Editor"
 
-#: FamilyCustomFieldsEditor.php:44 PersonCustomFieldsEditor.php:42
+#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:44
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
@@ -6057,17 +6058,18 @@ msgstr ""
 "nume vor fi pierdute dacă nu \"Salvați modificările\" înainte de a utiliza o "
 "în sus, în jos, șterge sau adăuga &#39;nou&#39; buton!"
 
-#: FamilyCustomFieldsEditor.php:189 PersonCustomFieldsEditor.php:179
+#: FamilyCustomFieldsEditor.php:188 GroupPropsFormEditor.php:217
+#: PersonCustomFieldsEditor.php:182
 msgid "Default Option"
 msgstr "Opțiunea implicită"
 
-#: FamilyCustomFieldsEditor.php:324
+#: FamilyCustomFieldsEditor.php:323
 msgid "No custom Family fields have been added yet"
 msgstr "Nu câmpuri de familie personalizate au fost încă adăugate"
 
-#: FamilyCustomFieldsEditor.php:333 GroupPropsEditor.php:213
-#: GroupPropsFormEditor.php:307 OptionManager.php:390
-#: PersonCustomFieldsEditor.php:323 PersonEditor.php:820
+#: FamilyCustomFieldsEditor.php:332 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:336 OptionManager.php:390
+#: PersonCustomFieldsEditor.php:326 PersonEditor.php:820
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
@@ -6075,59 +6077,59 @@ msgstr ""
 "Câmpuri nevalide sau selecții. Modificările nu au fost salvate! Vă rugăm să "
 "corectați și încercați din nou!"
 
-#: FamilyCustomFieldsEditor.php:342 GroupPropsEditor.php:224
-#: GroupPropsFormEditor.php:319 PersonCustomFieldsEditor.php:335
+#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:348 PersonCustomFieldsEditor.php:338
 msgid "Special option"
 msgstr "Opțiune specială"
 
-#: FamilyCustomFieldsEditor.php:343 FamilyCustomFieldsEditor.php:466
-#: PersonCustomFieldsEditor.php:336 PersonCustomFieldsEditor.php:467
+#: FamilyCustomFieldsEditor.php:342 FamilyCustomFieldsEditor.php:465
+#: PersonCustomFieldsEditor.php:339 PersonCustomFieldsEditor.php:470
 msgid "Security Option"
 msgstr "Opțiunea de securitate"
 
-#: FamilyCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:343
 msgid "Family-View Side"
 msgstr "Familie-Side View"
 
-#: FamilyCustomFieldsEditor.php:374 FamilyCustomFieldsEditor.php:497
-#: FamilyEditor.php:259 GroupPropsFormEditor.php:352
-#: GroupPropsFormEditor.php:467 OptionManager.php:452
-#: PersonCustomFieldsEditor.php:370 PersonCustomFieldsEditor.php:495
+#: FamilyCustomFieldsEditor.php:373 FamilyCustomFieldsEditor.php:496
+#: FamilyEditor.php:259 GroupPropsFormEditor.php:381
+#: GroupPropsFormEditor.php:497 OptionManager.php:452
+#: PersonCustomFieldsEditor.php:373 PersonCustomFieldsEditor.php:498
 msgid "You must enter a name"
 msgstr "Trebuie să introduceți un nume"
 
-#: FamilyCustomFieldsEditor.php:385 GroupEditor.php:132
-#: GroupPropsEditor.php:252 GroupPropsFormEditor.php:370
-#: PersonCustomFieldsEditor.php:380
+#: FamilyCustomFieldsEditor.php:384 GroupEditor.php:132
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:399
+#: PersonCustomFieldsEditor.php:383
 msgid "Select a group"
 msgstr "Selectați un grup"
 
-#: FamilyCustomFieldsEditor.php:399 GroupPropsEditor.php:271
-#: GroupPropsFormEditor.php:389 PersonCustomFieldsEditor.php:394
+#: FamilyCustomFieldsEditor.php:398 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:416 PersonCustomFieldsEditor.php:397
 msgid "You must select a group."
 msgstr "Trebuie să selectați un grup."
 
-#: FamilyCustomFieldsEditor.php:405 GroupPropsEditor.php:275
-#: GroupPropsFormEditor.php:393 PersonCustomFieldsEditor.php:399
+#: FamilyCustomFieldsEditor.php:404 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:421 PersonCustomFieldsEditor.php:402
 msgid "Edit List Options"
 msgstr "Edita lista de opțiuni"
 
-#: FamilyCustomFieldsEditor.php:469 PersonCustomFieldsEditor.php:464
+#: FamilyCustomFieldsEditor.php:468 PersonCustomFieldsEditor.php:467
 msgid "Side"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:490 GroupPropsFormEditor.php:460
-#: PersonCustomFieldsEditor.php:488
+#: FamilyCustomFieldsEditor.php:489 GroupPropsFormEditor.php:490
+#: PersonCustomFieldsEditor.php:491
 msgid "Help on types.."
 msgstr "Ajuta pe tipuri .."
 
-#: FamilyCustomFieldsEditor.php:502 GroupPropsFormEditor.php:472
-#: PersonCustomFieldsEditor.php:500
+#: FamilyCustomFieldsEditor.php:501 GroupPropsFormEditor.php:502
+#: PersonCustomFieldsEditor.php:503
 msgid "That field name already exists."
 msgstr "Că numele de câmp există deja."
 
-#: FamilyCustomFieldsEditor.php:517 GroupPropsFormEditor.php:483
-#: PersonCustomFieldsEditor.php:515
+#: FamilyCustomFieldsEditor.php:516 GroupPropsFormEditor.php:513
+#: PersonCustomFieldsEditor.php:518
 msgid "Add New Field"
 msgstr "Adăugare câmp nou"
 
@@ -7125,15 +7127,15 @@ msgstr "Listarea grup"
 msgid "Add New Group"
 msgstr "Adauga la grup"
 
-#: GroupPropsEditor.php:49 GroupPropsFormEditor.php:54
+#: GroupPropsEditor.php:52 GroupPropsFormEditor.php:61
 msgid "Group-Specific Properties Form Editor:"
 msgstr "Specific de grup Form Properties Editor:"
 
-#: GroupPropsEditor.php:49 ListEvents.php:353
+#: GroupPropsEditor.php:52 ListEvents.php:353
 msgid "for"
 msgstr ""
 
-#: GroupPropsEditor.php:53 GroupPropsFormEditor.php:58
+#: GroupPropsEditor.php:56 GroupPropsFormEditor.php:65
 msgid ""
 "Warning: Field changes will be lost if you do not 'Save Changes' before "
 "using an up, down, delete, or 'add new' button!"
@@ -7141,45 +7143,40 @@ msgstr ""
 "Atenție: modificările de câmp se vor pierde dacă nu \"Salvați modificările\" "
 "înainte de a utiliza o în sus, în jos, șterge, sau \"adăuga noi\" buton!"
 
-#: GroupPropsEditor.php:57
+#: GroupPropsEditor.php:60
 #, fuzzy
 msgid "Group-Person-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupPropsEditor.php:202 GroupPropsFormEditor.php:296
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:325
 msgid "No properties have been added yet"
 msgstr "Nici o proprietate au fost încă adăugate"
 
-#: GroupPropsEditor.php:203 GroupPropsEditor.php:291
+#: GroupPropsEditor.php:217 GroupPropsEditor.php:299
 #, fuzzy
 msgid "Return to Person"
 msgstr "Return to înregistrare Persoana"
 
-#: GroupPropsFormEditor.php:62 GroupView.php:400
+#: GroupPropsFormEditor.php:69 GroupView.php:400
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
 
-#: GroupPropsFormEditor.php:195
-#, fuzzy
-msgid "'Default Option'"
-msgstr "Opțiunea implicită"
-
-#: GroupPropsFormEditor.php:297 GroupPropsFormEditor.php:412
+#: GroupPropsFormEditor.php:326 GroupPropsFormEditor.php:442
 #, fuzzy
 msgid "Return to Group"
 msgstr "Adauga Persoana de grup"
 
-#: GroupPropsFormEditor.php:320
+#: GroupPropsFormEditor.php:349
 msgid "Show in"
 msgstr "Arată în"
 
-#: GroupPropsFormEditor.php:320 PersonView.php:304
+#: GroupPropsFormEditor.php:349 PersonView.php:304
 #, fuzzy
 msgid "Person Profile"
 msgstr "Persoana Vezi"
 
-#: GroupPropsFormEditor.php:432
+#: GroupPropsFormEditor.php:462
 #, fuzzy
 msgid "Add Group-Specific Properties"
 msgstr "Proprietăți grup-specifice"
@@ -8565,15 +8562,15 @@ msgstr ""
 msgid "# number of people"
 msgstr "Numărul maxim de vecini:"
 
-#: PersonCustomFieldsEditor.php:36
+#: PersonCustomFieldsEditor.php:38
 msgid "Custom Person Fields Editor"
 msgstr "Câmpurile Persoana personalizate Editor"
 
-#: PersonCustomFieldsEditor.php:314
+#: PersonCustomFieldsEditor.php:317
 msgid "No custom person fields have been added yet"
 msgstr "Nu câmpuri persoană personalizate au fost încă adăugate"
 
-#: PersonCustomFieldsEditor.php:337
+#: PersonCustomFieldsEditor.php:340
 msgid "Person-View Side"
 msgstr "Persoana-Side View"
 
@@ -8993,15 +8990,15 @@ msgstr "Au intrat:"
 msgid "Last Edited"
 msgstr "Nume"
 
-#: QueryList.php:26
+#: QueryList.php:27
 msgid "Query Listing"
 msgstr "Listarea interogare"
 
-#: QueryList.php:42
+#: QueryList.php:46
 msgid "Run a Free-Text Query"
 msgstr "Executați o interogare de text liber"
 
-#: QueryList.php:63
+#: QueryList.php:66
 msgid "Forbidden"
 msgstr ""
 
@@ -11685,103 +11682,103 @@ msgstr ""
 msgid "Find people with a custom field value"
 msgstr ""
 
-#: settings-locales.php:2 settings-locales.php:29
+#: settings-locales.php:2
 msgid "Albanian"
 msgstr ""
 
-#: settings-locales.php:3 settings-locales.php:30
+#: settings-locales.php:3
 msgid "Arabic - Egypt"
 msgstr ""
 
-#: settings-locales.php:4 settings-locales.php:31
+#: settings-locales.php:4
 msgid "Chinese - China"
 msgstr ""
 
-#: settings-locales.php:5 settings-locales.php:32
+#: settings-locales.php:5
 msgid "Chinese - Taiwan"
 msgstr ""
 
-#: settings-locales.php:6 settings-locales.php:33
+#: settings-locales.php:6
 msgid "Dutch - Netherlands"
 msgstr ""
 
-#: settings-locales.php:7 settings-locales.php:34
+#: settings-locales.php:7
 msgid "English - Australia"
 msgstr ""
 
-#: settings-locales.php:8 settings-locales.php:35
+#: settings-locales.php:8
 msgid "English - Canada"
 msgstr ""
 
-#: settings-locales.php:9 settings-locales.php:36
+#: settings-locales.php:9
 msgid "English - Great Britain"
 msgstr ""
 
-#: settings-locales.php:10 settings-locales.php:37
+#: settings-locales.php:10
 msgid "English - United States"
 msgstr ""
 
-#: settings-locales.php:11 settings-locales.php:38
+#: settings-locales.php:11
 msgid "French - Belgium"
 msgstr ""
 
-#: settings-locales.php:12 settings-locales.php:39
+#: settings-locales.php:12
 msgid "French - Canada"
 msgstr ""
 
-#: settings-locales.php:13 settings-locales.php:40
+#: settings-locales.php:13
 msgid "French - France"
 msgstr ""
 
-#: settings-locales.php:14 settings-locales.php:41
+#: settings-locales.php:14
 msgid "French - Swiss"
 msgstr ""
 
-#: settings-locales.php:15 settings-locales.php:42
+#: settings-locales.php:15
 msgid "German - Germany"
 msgstr ""
 
-#: settings-locales.php:16 settings-locales.php:43
+#: settings-locales.php:16
 msgid "Hungarian"
 msgstr ""
 
-#: settings-locales.php:17 settings-locales.php:44
+#: settings-locales.php:17
 msgid "Indonesian - Indonesia"
 msgstr ""
 
-#: settings-locales.php:18 settings-locales.php:45
+#: settings-locales.php:18
 msgid "Italian - Italy"
 msgstr ""
 
-#: settings-locales.php:19 settings-locales.php:46
+#: settings-locales.php:19
 msgid "Polish"
 msgstr ""
 
-#: settings-locales.php:20 settings-locales.php:47
+#: settings-locales.php:20
 msgid "Portuguese - Brazil"
 msgstr ""
 
-#: settings-locales.php:21 settings-locales.php:48
+#: settings-locales.php:21
 msgid "Romanian - Romania"
 msgstr ""
 
-#: settings-locales.php:22 settings-locales.php:49
+#: settings-locales.php:22
 msgid "Russian"
 msgstr ""
 
-#: settings-locales.php:23 settings-locales.php:50
+#: settings-locales.php:23
 msgid "Spanish - Spain"
 msgstr ""
 
-#: settings-locales.php:24 settings-locales.php:51
+#: settings-locales.php:24
 msgid "Sami (Northern) (Sweden)"
 msgstr ""
 
-#: settings-locales.php:25 settings-locales.php:52
+#: settings-locales.php:25
 msgid "Thai"
 msgstr ""
 
-#: settings-locales.php:26 settings-locales.php:53
+#: settings-locales.php:26
 #, fuzzy
 msgid "Vietnamese"
 msgstr "Denumirea variabilei"
@@ -11828,6 +11825,10 @@ msgstr ""
 
 #: userconfig_ucfg.php:11
 msgid "AdminLTE style "
+msgstr ""
+
+#: userconfig_ucfg.php:12
+msgid "choice"
 msgstr ""
 
 #, fuzzy
@@ -11934,6 +11935,26 @@ msgstr "Programa"
 
 msgid "paused"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Email Audiences"
+#~ msgstr "Editor de familie"
+
+#, fuzzy
+#~ msgid "Email Audience"
+#~ msgstr "E-mail"
+
+#, fuzzy
+#~ msgid "Create Audience"
+#~ msgstr "Creați fișiere"
+
+#, fuzzy
+#~ msgid "Manage Email Audience"
+#~ msgstr "Gestionarea grupurilor și roluri"
+
+#, fuzzy
+#~ msgid "'Default Option'"
+#~ msgstr "Opțiunea implicită"
 
 #~ msgid ""
 #~ "Please register your copy of EcclesiaCRM by checking over this "
@@ -12042,10 +12063,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Style"
 #~ msgstr "Stil"
-
-#, fuzzy
-#~ msgid "Manage List"
-#~ msgstr "Gestionarea grupurilor și roluri"
 
 #, fuzzy
 #~ msgid "(Edit own family only.)"
