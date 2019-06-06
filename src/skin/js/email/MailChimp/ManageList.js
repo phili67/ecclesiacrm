@@ -24,7 +24,7 @@ $(document).ready(function () {
         var list = data.MailChimpList;
       
         var  listView = '<div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+ i18next.t('Email Audience') + '</h3>'
+          +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3>'
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
@@ -433,7 +433,7 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
-            window.CRM.dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your audience.<br>To delete huge datas, MailChimp API is slow.") );
+            window.CRM.dialogLoadingFunction( i18next.t('Deleting all subscribers...') +'<br>'+i18next.t("In fact, you've better to leave the CRM, and in a quater of an hour re-open it to manage your list.<br>To delete huge datas, MailChimp API is slow.") );
             
             window.CRM.APIRequest({
                   method: 'POST',
@@ -547,7 +547,7 @@ $(document).ready(function () {
        });
        
        // this will ensure that image and table can be focused
-       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
+       $(document).on('focusin', function(e) {e.stopImmediatePropagation();});       
               
        return modal;
     }
@@ -559,7 +559,7 @@ $(document).ready(function () {
     var permission_reminder = $(this).data('permissionreminder');
 
     bootbox.confirm('<form id="infos" action="#">'
-      + i18next.t('Audience Name') + ':<input type="text" class="form-control" id="list_name" value="' + name +'"/><br/>'
+      + i18next.t('List Name') + ':<input type="text" class="form-control" id="list_name" value="' + name +'"/><br/>'
       + i18next.t('Subject') + ':<input type="text" class="form-control" id="list_subject" value="' + subject + '"/><br/>'
       + i18next.t('Permission Reminder') + ':<input type="text" class="form-control" id="list_permission_reminder" value="' + permission_reminder + '"/>'
       + '</form>', function(result) {

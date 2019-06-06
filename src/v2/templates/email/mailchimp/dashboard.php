@@ -59,7 +59,7 @@ require $sRootDocument . '/Include/Header.php';
       <div class="box-body">
         <p>
           <button class="btn btn-app" id="CreateList" <?= ($mailchimp->isActive())?'':'disabled' ?>>
-            <i class="fa fa-list-alt"></i><?= _("Create Audience") ?>
+            <i class="fa fa-list-alt"></i><?= _("Create list") ?>
           </button>
           <a class="btn btn-app bg-green" href="<?= $sRootPath ?>/Reports/MemberEmailExport.php">
             <i class="fa fa fa-table"></i> <?= _('Generate CSV') ?>
@@ -76,7 +76,7 @@ require $sRootDocument . '/Include/Header.php';
         </p>
         <?= _('You can import the generated CSV file to external email system.') ?>
             <?= _("For MailChimp see") ?> <a href="http://kb.mailchimp.com/lists/growth/import-subscribers-to-a-list"
-                                   target="_blank"><?= _('import subscribers to an audience.') ?></a>
+                                   target="_blank"><?= _('import subscribers to a list.') ?></a>
       </div>
     </div>
   </div>

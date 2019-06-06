@@ -11,7 +11,7 @@ $(document).ready(function () {
         }).done(function(data) {
 
           if (data.MailChimpLists == null) {
-            $("#container").html( i18next.t("No audience are created with this account ....") );
+            $("#container").html( i18next.t("No list are created with this account ....") );
 
             return;
           }
@@ -33,7 +33,7 @@ $(document).ready(function () {
       
             listViews += '<div class="box">'
             +'    <div class="box-header   with-border">'
-            +'      <h3 class="box-title">'+i18next.t('Email Audience') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
+            +'      <h3 class="box-title">'+i18next.t('Email List') + ' : '+ list.name + '</h3> <span style="float:right"> (' + ((list.marketing_permissions)?i18next.t('GDPR'):'') + ')'
             +'    </div>'
             +'    <div class="box-body">'
             +'      <div class="row" style="100%">'
@@ -99,12 +99,12 @@ $(document).ready(function () {
   
     // the List Creator
     function BootboxContent(){
-      var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Audience Creation")+'</h3><form id="some-form">'
+      var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("List Creation")+'</h3><form id="some-form">'
          + '<div>'
               +'<div class="row div-title">'
-                +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('Audience Title') + ":</div>"
+                +'<div class="col-md-3"><span style="color: red">*</span>' + i18next.t('List Title') + ":</div>"
                 +'<div class="col-md-9">'
-                  +"<input type='text' id='ListTitle' placeholder=\"" + i18next.t("Your Audience Title") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
+                  +"<input type='text' id='ListTitle' placeholder=\"" + i18next.t("Your List Title") + "\" size='30' maxlength='100' class='form-control input-sm'  width='100%' style='width: 100%' required>"
                 +'</div>'
               +'</div>'
               +'<div class="row div-title">'
@@ -185,7 +185,7 @@ $(document).ready(function () {
                       }
                     });
                 } else {
-                    window.CRM.DisplayAlert("Error","You have to set an Audience Title for your eMail Audience");
+                    window.CRM.DisplayAlert("Error","You have to set a List Title for your eMail List");
                 
                     return false;
                 }    
