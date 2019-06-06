@@ -381,8 +381,9 @@ function BootboxContentRegister(data){
     + '</div>'
     + '<div class="box box-primary">'
     + '  <div class="box-header">'
-    +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.  ')
-    +    i18next.t('This information is used only to track the usage of this software.  ')
+    +    i18next.t('Please register your copy of EcclesiaCRM by checking over this information and pressing the Send button.')
+    + '  '
+    +    i18next.t('This information is used only to track the usage of this software.')
     + '  </div>'
     + '  <div class="box-body">'
     +      i18next.t('Church Name') + ':' + data.ChurchName + '<br>'
