@@ -91,12 +91,9 @@ $("document").ready(function()
       dataType: "json"
     }).done(function(data)
     {
-      var newRole = data.newRole;
-      var newRow = {"OptionName": newRole.roleName, "OptionId": newRole.roleID, "OptionSequence": newRole.sequence};
-      window.CRM.roleCount += 1;
-      var node = window.CRM.dataT.row.add(newRow).node();
-      window.CRM.dataT.rows().invalidate().draw(true);
+      window.CRM.dataT.ajax.reload();
       $("#newRole").val('');
+      window.CRM.roleCount++;
       //location.reload(); // this shouldn't be necessary
     });
 
@@ -121,6 +118,7 @@ $("document").ready(function()
             dataType: "json"
           }).done(function(data) {
             window.CRM.dataT.ajax.reload();
+            window.CRM.roleCount--;
             if(roleID == defaultRoleID)        // if we delete the default group role, set the default group role to 1 before we tell the table to re-render so that the buttons work correctly
               defaultRoleID = 1;
           });
@@ -288,7 +286,6 @@ $("document").ready(function()
         render: function(data, type, full, meta)
         {
           if (full.OptionName === 'Student' || full.OptionName === 'Teacher' )
-          
             return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole" disabled><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
           else
             return '<button type="button" id="roleDelete-' + full.OptionId + '" class="btn  btn-sm btn-danger deleteRole"><i class="fa fa-trash-o" aria-hidden="true"></i></button>';
