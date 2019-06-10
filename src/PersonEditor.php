@@ -255,11 +255,6 @@ if (isset($_POST['PersonSubmit']) || isset($_POST['PersonSubmitAndAdd'])) {
     $bNoFormat_WorkPhone = isset($_POST['NoFormat_WorkPhone']);
     $bNoFormat_CellPhone = isset($_POST['NoFormat_CellPhone']);
     
-    //Adjust variables as needed
-    if ($iFamily == 0) {
-        $iFamilyRole = 0;
-    }
-    
     //Validate the Last Name.  If family selected, but no last name, inherit from family.
     if (strlen($sLastName) < 1 && !SystemConfig::getValue('bAllowEmptyLastName')) {
         if ($iFamily < 1) {
