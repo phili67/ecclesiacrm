@@ -293,6 +293,10 @@ class SystemConfig
         self::scrapeDBConfigs($configs);
       }
   }
+  
+  public static function isInitialized() {
+    return isset(self::$configs);
+  }
 
   public static function getCategories()
   {
