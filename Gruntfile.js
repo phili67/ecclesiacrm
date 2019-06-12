@@ -112,7 +112,7 @@ module.exports = function (grunt) {
                         expand: true,
                         filter: 'isFile',
                         flatten: true,
-                        src: ['node_modules/bootbox/dist/bootbox.min.js'],
+                        src: ['node_modules/bootbox/dist/bootbox.all.min.js'],
                         dest: 'src/skin/external/bootbox/'
                     },
                     {
