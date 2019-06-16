@@ -125,7 +125,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
                 }
             ?>
               <br>
-                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/PersonList.php?mode=GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
+                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/v2/personlist/GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
             <?php
              } else {
             ?>
