@@ -163,7 +163,7 @@ if (isset($_GET['Confirmed'])) {
     }
 
     // Redirect back to the family listing
-    RedirectUtils::Redirect('FamilyList.php');
+    RedirectUtils::Redirect('/v2/familylist');
 }
 
 

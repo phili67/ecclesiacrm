@@ -137,7 +137,7 @@ require 'Include/Header.php';
     }
      ?>
     <br/>
-    <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
+    <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="btn btn-app"><i class="fa fa-users"></i><?= _('All Families') ?></a>
     <?php
       if (SessionUser::getUser()->isShowMapEnabled()) {
     ?>
@@ -166,7 +166,7 @@ require 'Include/Header.php';
       <div class="icon">
         <i class="fa fa-users"></i>
       </div>
-      <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="small-box-footer">
+      <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="small-box-footer">
         <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>

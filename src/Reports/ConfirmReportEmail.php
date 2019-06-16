@@ -349,6 +349,6 @@ while ($aFam = mysqli_fetch_array($rsFamilies)) {
 
 if ($_GET['familyId']) {
     RedirectUtils::Redirect('FamilyView.php?FamilyID='.$_GET['familyId'].'&PDFEmailed='.$familyEmailSent);
-} else {
-    RedirectUtils::Redirect('FamilyList.php?AllPDFsEmailed='.$familiesEmailed);
-}
+} /*else {
+    RedirectUtils::Redirect('v2/familylist/AllPDFsEmailed/'.$familiesEmailed);
+}*/
