@@ -242,7 +242,7 @@ class MenuBar {
         $menu = new Menu (_("GDPR"),"fa fa-get-pocket pull-right&quot;","",true);
           $menuItem = new Menu (_("Dashboard"),"fa fa-rebel","v2/gdpr",true,$menu);
           $menuItem = new Menu (_("Data Structure"),"fa fa-user-secret","v2/gdpr/gdprdatastructure",true,$menu);
-          $menuItem = new Menu (_("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=GDRP",true,$menu);
+          $menuItem = new Menu (_("View Inactive Persons"),"fa fa-circle-o","v2/personlist/GDRP",true,$menu);
           $menuItem = new Menu (_("View Inactive Families"),"fa fa-circle-o","v2/familylist/GDRP",true,$menu);
           
         $this->addMenu($menu);
@@ -290,8 +290,9 @@ class MenuBar {
         if (SessionUser::getUser()->isEditRecordsEnabled()) {
           $menuItem = new Menu (_("Persons"),"fa fa-angle-double-right","#",true,$menu);
             $menuItemItem = new Menu (_("Add New Person"),"fa fa-circle-o","PersonEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);
-            $menuItemItem = new Menu (_("View Active Persons"),"fa fa-circle-o","PersonList.php",true,$menuItem);
-            $menuItemItem = new Menu (_("View Inactive Persons"),"fa fa-circle-o","PersonList.php?mode=inactive",true,$menuItem);
+            $menuItemItem = new Menu (_("View Active Persons"),"fa fa-circle-o","v2/personlist/",true,$menuItem);
+            $menuItemItem->addLink("v2/personlist");
+            $menuItemItem = new Menu (_("View Inactive Persons"),"fa fa-circle-o","v2/personlist/inactive",true,$menuItem);
         
           $menuItem = new Menu (_("Families"),"fa fa-angle-double-right","#",true,$menu);
             $menuItemItem = new Menu (_("Add New Family"),"fa fa-circle-o","FamilyEditor.php",SessionUser::getUser()->isAddRecordsEnabled(),$menuItem);

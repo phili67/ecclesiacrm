@@ -311,7 +311,7 @@ if ( $previous_id > 0 ) {
 </button>';
 }
 
-$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/PersonList.php\'">
+$sPageTitleSpan .= '<button title="' . _('Person List') . '" class="btn btn-round btn-info mat-raised-button" mat-raised-button="" type="button" onclick="location.href=\''.SystemURLs::getRootPath() . '/v2/personlist\'">
 <span class="mat-button-wrapper"><i class="fa fa-list-ul"></i></span>
 <div class="mat-button-ripple mat-ripple" matripple=""></div>
 <div class="mat-button-focus-overlay"></div>
