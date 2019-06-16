@@ -1243,7 +1243,7 @@ require 'Include/Header.php';
     if ($iFamilyID > 0) {
         echo " onclick=\"javascript:document.location='FamilyView.php?FamilyID=$iFamilyID';\">";
     } else {
-        echo " onclick=\"javascript:document.location='FamilyList.php';\">";
+        echo " onclick=\"javascript:document.location='v2/familylist';\">";
     }
 ?>
 </td></tr></form></table>

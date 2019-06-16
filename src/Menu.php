@@ -148,7 +148,7 @@ if (SessionUser::getUser()->isGdrpDpoEnabled() && SystemConfig::getBooleanValue(
                 }
             ?>
               <br>
-                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php?mode=GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
+                <b><?= _("Click the") ?> <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist/GDRP"><?= _("link") ?></a> <?= _("to solve the problem.") ?></b>
             <?php
              } else {
             ?>
@@ -399,7 +399,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             <div class="icon">
                 <i class="fa fa-users"></i>
             </div>
-            <a href="<?= SystemURLs::getRootPath() ?>/FamilyList.php" class="small-box-footer">
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/familylist" class="small-box-footer">
                 <?= _('See all Families') ?> <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>
