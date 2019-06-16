@@ -33,7 +33,7 @@ $app->group('/familylist', function () {
 
 
 function renderFamilyList (Request $request, Response $response, array $args) {
-    $renderer = new PhpRenderer('templates/family/');
+    $renderer = new PhpRenderer('templates/people/');
     
     $sMode = $args['mode'];
 
