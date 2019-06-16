@@ -69,7 +69,7 @@ function argumentsFamilyListArray ($sMode='Active')
 
     } else if (strtolower($sMode) == 'inactive') {
       if (SystemConfig::getValue('bGDPR')) {
-        $time = new DateTime('now');
+        $time = new \DateTime('now');
         $newtime = $time->modify('-'.SystemConfig::getValue('iGdprExpirationDate').' year')->format('Y-m-d');
 
         $families = FamilyQuery::create()
@@ -89,7 +89,7 @@ function argumentsFamilyListArray ($sMode='Active')
            ->where('res.cnt>1 AND Family.Id=res.FamId')// only real family with more than one member will be showed here
            ->find();
       } else {
-        $time = new DateTime('now');
+        $time = new \DateTime('now');
     
         $families = FamilyQuery::create()
                   ->filterByDateDeactivated($time, Criteria::LESS_EQUAL)// GDRP, when a person is completely deactivated, we only can see the person who are over a certain date
@@ -137,7 +137,7 @@ function argumentsFamilyListArray ($sMode='Active')
            ->find();
     }
 
-    $sPageTitle = _(ucfirst($sMode)) . ' : ' . ((strtolower($sMode) == 'empty')?_('Addresses'):_('Family List'));
+    $sPageTitle = _(ucfirst(_($sMode))) . ' : ' . ((strtolower($sMode) == 'empty')?_('Addresses'):_('Family List'));
     
     $sRootDocument   = SystemURLs::getDocumentRoot();
     $sDateFormatLong = SystemConfig::getValue('sDateFormatLong');
