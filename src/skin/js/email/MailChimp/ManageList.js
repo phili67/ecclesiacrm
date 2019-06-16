@@ -41,11 +41,13 @@ $(document).ready(function () {
           +'          </table>'
           +'        </div>'
           +'        <div class="col-lg-3">'
-          +'           <b>' + i18next.t('Campaigns') + '</b><br>';
+          +'           <b><i class="icon fa fa-list-alt"></i> ' + i18next.t('Campaigns') + '</b><br>';
           
           var lenCampaigns = data.MailChimpCampaign.length;
 
           listView += '          <table width="300px">';
+          
+          var tags = '';
 
           for (j=0;j<lenCampaigns;j++) {
             if (data.membersCount == 0) {
@@ -56,13 +58,37 @@ $(document).ready(function () {
           }
           
           if (lenCampaigns == 0) {
-            listView += '<tr><td>&nbsp;&nbsp;0 ' + i18next.t('Campaign') + '</td></tr>';
+            listView += '<tr><td>&nbsp;&nbsp; <i class="icon fa fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
           }
 
           listView += '          </table>';
           
-          listView += '        </div>'
-          +'      </div>'
+          listView += '        </div>';
+          
+          var lenTags = data.MailChimpList.tags.length;
+          
+          if (lenTags) {
+
+              listView += '        <div class="col-lg-3">'
+              +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                    
+              var tags    = data.MailChimpList.tags;
+            
+              var tagsButtons = '';
+            
+              if (lenTags) {
+                for (k=0;k<lenTags;k++) {
+                  tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                }
+              }
+          
+              listView += tagsButtons;
+          
+              listView += '        </div>';
+
+          }
+          
+          listView += '      </div>'
           +'    </div>';
         
           listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
@@ -75,9 +101,38 @@ $(document).ready(function () {
   render_container();
 // end of container
 
-
     window.CRM.editor = null;
+    
+    $(document).on("click",".delete-tag", function(){
+      var tagID  = $(this).data("id");
+      var listID = $(this).data("listid");
+      
+      window.CRM.APIRequest({
+        method: 'POST',
+        path: 'mailchimp/list/removeTag',
+        data: JSON.stringify({"list_id":listID ,"tag_ID": tagID})
+      }).done(function(data) {
+         render_container();
+         window.CRM.dataListTable.ajax.reload();
+      });
+    });
+    
+    $(document).on("click","#addTags", function(){
+      var listID = $(this).data("listid");
+      
+      bootbox.prompt("Add your tag name", function(name){ 
+        console.log(name); 
 
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'mailchimp/list/addTag',
+          data: JSON.stringify({"list_id":listID ,"name": name})
+        }).done(function(data) {
+           render_container();
+        });
+      });
+    });
+    
     $(document).on("click","#CreateCampaign", function(){
       if (window.CRM.editor) {
          CKEDITOR.remove(window.CRM.editor);
@@ -124,7 +179,7 @@ $(document).ready(function () {
               return window.CRM.root + "/api/mailchimp/search/" + params.term;
             },
             dataType: 'json',
-            delay: 250,
+            delay: 50,
             data: "",
             processResults: function (data, params) {
               return {results: data};
@@ -228,6 +283,14 @@ $(document).ready(function () {
    var columns = [
       {
         width: 'auto',
+        title:"",
+        data:'id',
+        render: function(data, type, full, meta) {
+          return '<input type="checkbox" class="checkbox_users checkbox_user' + full.email_address +'" name="AddRecords" data-id="' + full.email_address +'">';
+        }
+      },
+      {
+        width: 'auto',
         title:i18next.t('Actions'),
         data:'id',
         render: function(data, type, full, meta) {
@@ -265,6 +328,18 @@ $(document).ready(function () {
         render: function(data, type, full, meta) {
           return i18next.t(data);
         }
+      },
+      {
+        width: 'auto',
+        title:i18next.t('Tags'),
+        data:'tags',
+        render: function(data, type, full, meta) {
+          var res = '';
+          data.forEach(function(element) {
+            res += element.name + ' ';
+          });
+          return res;
+        }
       }
     ];
       
@@ -299,6 +374,7 @@ $(document).ready(function () {
     },
     columns: columns,
     responsive: true,
+    pageLength: 50,
     createdRow : function (row,data,index) {
       $(row).addClass("duplicateRow");
     }
@@ -308,6 +384,81 @@ $(document).ready(function () {
   
   window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
     
+  $('#memberListTable').on('click', 'tr', function () {
+    if (click_checkbox == true) {
+      click_checkbox = false;
+      return;        
+    }
+    
+    var table = $('#memberListTable').DataTable();
+    var data = table.row( this ).data();
+    
+    if (data != undefined) {
+      click_tr = true;
+      var userID = $(data[0]).data("id");
+      var state = $('.checkbox_user'+userID).prop('checked');
+      $('.checkbox_user'+userID).prop('checked', !state);
+      click_tr = false;
+    }
+  });
+  
+  $(".check_all").click(function() {
+    var state = this.checked;
+    $(".checkbox_users").each(function() {
+      $(this)[0].checked=state;
+    });
+    
+    $("#deleteMembers").prop('disabled', !(state));
+    $(".addTagButton").prop('disabled', !(state));
+    $(".addTagButtonDrop").prop('disabled', !(state));
+    $(".subscribeButton").prop('disabled', !(state));
+    $(".subscribeButtonDrop").prop('disabled', !(state));
+  });
+  
+  $(document).on("click",".checkbox_users", function(){
+    var state = false;
+    $(".checkbox_users").each(function() {
+      res = $(this)[0].checked;
+      if (res == true) {
+        state = true;
+      }
+    });
+      
+    $("#deleteMembers").prop('disabled', !(state));
+    $(".addTagButton").prop('disabled', !(state));
+    $(".addTagButtonDrop").prop('disabled', !(state));
+    $(".subscribeButton").prop('disabled', !(state));
+    $(".subscribeButtonDrop").prop('disabled', !(state));
+  });
+    
+  
+  $(".subscribeButton").click(function() {
+    var roleID = $(this).data("id");
+    var roleName = this.innerText;
+    var userID = -1;
+    
+    $(".checkbox_users").each(function() {
+        if (this.checked) {
+          userID = $(this).data("id");
+          _val = $(this).val();
+
+          window.CRM.APIRequest({
+             method: 'POST',
+             path: 'users/applyrole',
+             data: JSON.stringify({"userID": userID,"roleID" : roleID})
+          }).done(function(data) {
+            if (data.success == true) {
+               // à terminer !!!
+               $('.role'+data.userID).html(data.roleName);
+            }
+          });
+        }
+    });
+    
+    if (userID == -1) {
+      window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to check at least one user."));
+    }
+  });
   
   $(document).on("click",".edit-subscriber", function(){
       var email = $(this).data("id");
