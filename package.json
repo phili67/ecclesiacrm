@@ -1,6 +1,6 @@
 {
   "name": "EcclesiaCRM",
-  "version": "5.8.1",
+  "version": "5.8.2",
   "description": "EcclesiaCRM5 Software",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-confirm": "^1.0.7",
-    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-compress": "^1.5.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-curl": "^2.5.1",
@@ -33,7 +33,7 @@
     "node-sha1": "^1.0.1"
   },
   "dependencies": {
-    "admin-lte": "^2.4.10",
+    "admin-lte": "^2.4.12",
     "bootbox": "^5.1.0",
     "bootstrap": "^3.4.1",
     "bootstrap-colorpicker": "^2.5.3",
@@ -56,7 +56,7 @@
     "datatables.net-responsive": "^2.2.3",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.10.0",
-    "grunt-git": "^1.0.13",
+    "grunt-git": "^1.0.14",
     "grunt-http": "^2.3.2",
     "grunt-sass": "^3.0.2",
     "i18n": "^0.8.3",
@@ -70,7 +70,7 @@
     "jquery-photo-uploader": "^1.0.13",
     "jquery-steps": "^1.1.0",
     "jquery-ui-touch-punch": "^0.2.3",
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.1",
     "jszip": "^3.2.1",
     "leaflet": "^1.5.1",
     "morris.js.so": "^0.5.1",

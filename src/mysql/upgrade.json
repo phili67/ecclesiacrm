@@ -672,7 +672,7 @@
         ],
         "dbVersion": "5.8.0"
     },
-    "current": {
+    "5.8.1": {
         "versions": [
             "5.8.0"
         ],
@@ -680,5 +680,14 @@
           "/mysql/upgrade/5.8.1-upgrade.php"
         ],
         "dbVersion": "5.8.1"
+    },
+    "current": {
+        "versions": [
+            "5.8.1"
+        ],
+        "scripts": [
+          "/mysql/upgrade/5.8.2-upgrade.php"
+        ],
+        "dbVersion": "5.8.2"
     }
 }
