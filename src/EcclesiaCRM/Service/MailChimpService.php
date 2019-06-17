@@ -329,6 +329,28 @@ class MailChimpService
     }
 
 /* segments */
+    private function getMembersFor ($list_id, $tag_id) {
+      $tag_arr = [];
+      
+      $mcLists = $this->getLists();
+      
+      $i = 0;
+      foreach ($mcLists as $list) {
+        if ($list['id'] == $list_id) {
+          foreach ($list['members'] as $member) {// the list is found
+            foreach ($member['tags'] as $tag) {
+              if ($tag['id'] == $tag_id) {
+                $tag_arr[] = $member['email_address'];
+              }
+            }
+          }
+          break;
+        }
+        $i++;
+      }
+      
+      return $tag_arr;
+    }
     
     public function createSegment ($list_id, $name,$membersArr) {
       $data = array(
@@ -338,7 +360,30 @@ class MailChimpService
           
       $result = $this->myMailchimp->post("lists/$list_id/segments", $data);
       
+      $this->reloadMailChimpDatas();
+
       return [$result,"lists/$list_id/segments"];
+    }
+    public function updateSegment ($list_id, $name, $tag, $membersArr, $merge = true) {
+    
+      $old_members = $this->getMembersFor($list_id, $tag);
+      
+      if ($merge) {
+        $arr = array_merge($membersArr,$old_members);
+      } else {
+        $arr = $membersArr;
+      }
+      
+      $data = array(
+            "name" => $name,
+            "static_segment" => $arr /* Maichimp doc : An array of emails to be used for a static segment. Any emails provided that are not present on the list will be ignored. Passing an empty array will create a static segment without any subscribers. This field cannot be provided with the options field.*/
+          );
+          
+      $result = $this->myMailchimp->patch("lists/$list_id/segments/$tag", $data);
+      
+      $this->reloadMailChimpDatas();
+      
+      return [$result,"lists/$list_id/segments/$tag"];
     }
     private function delete_Segment ($list_id, $tag_id) {
       $mcLists = $_SESSION['MailChimpLists'];
@@ -421,6 +466,8 @@ class MailChimpService
               
       $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
       
+      $this->reloadMailChimpDatas();
+      
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
         $resultContent = "coucou";
@@ -428,7 +475,7 @@ class MailChimpService
       
       return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
     }
-    public function removeMembersToSegment ($list_id, $segment_id, $arr_members) {
+    public function removeMembersFromSegment ($list_id, $segment_id, $arr_members) {
       $data = array(
             "members_to_remove" => $arr_members
               );

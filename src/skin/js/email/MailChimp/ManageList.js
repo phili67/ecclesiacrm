@@ -30,8 +30,8 @@ $(document).ready(function () {
           +'    </div>'
           +'    <div class="box-body">'
           +'      <div class="row" style="100%">'
-          +'        <div class="col-lg-6">'
-          +'          <table width="350px">'
+          +'        <div class="col-lg-5">'
+          +'          <table width="300px">'
           +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
           +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
           +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
@@ -47,7 +47,7 @@ $(document).ready(function () {
           
           var lenCampaigns = data.MailChimpCampaign.length;
 
-          listView += '          <table width="300px">';
+          listView += '          <table width="200px">';
           
           var tags = '';
 
@@ -118,23 +118,7 @@ $(document).ready(function () {
          window.CRM.dataListTable.ajax.reload();
       });
     });
-    
-    $(document).on("click","#addTags", function(){
-      var listID = $(this).data("listid");
-      
-      bootbox.prompt("Add your tag name", function(name){ 
-        console.log(name); 
-
-        window.CRM.APIRequest({
-          method: 'POST',
-          path: 'mailchimp/list/addTag',
-          data: JSON.stringify({"list_id":listID ,"name": name})
-        }).done(function(data) {
-           render_container();
-        });
-      });
-    });
-    
+        
     $(document).on("click","#CreateCampaign", function(){
       if (window.CRM.editor) {
          CKEDITOR.remove(window.CRM.editor);
@@ -719,9 +703,11 @@ $(document).ready(function () {
   $(".subscribeButton").click(function() {
     var status = $(this).data("type");
 
+    window.CRM.dialogLoadingFunction( i18next.t('Changing subscribers state...') );
+
     $(".checkbox_users").each(function() {
         if (this.checked) {
-          email = $(this).data("email");
+          var email = $(this).data("email");
 
           window.CRM.APIRequest({
             method: 'POST',
@@ -738,5 +724,93 @@ $(document).ready(function () {
           });
         }
     });
+  });
+  
+  
+  function addTagsToMainDropdown()
+  {
+    $("#allTags").empty();
+    
+    
+    window.CRM.APIRequest({
+      method: 'POST',
+      path: 'mailchimp/list/getAllTags',
+      data: JSON.stringify({"list_id":window.CRM.list_ID})
+    }).done(function(data) {
+      $("#allTags").append('<li><a class="addTagButton" data-id="-1">' + i18next.t("Add a new tag") +  '</a></li>');
+    
+      var len = data.result.length;
+    
+      for (i=0; i<len; ++i) {
+        $("#allTags").append('<li><a class="addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
+      }
+    });  
+  }
+
+  $('body').on('click','.addTagButton', function(){ 
+    var tag  = $(this).data("id");
+    var name = $(this).data("name");
+    
+    var emails = [];
+    
+    $(".checkbox_users").each(function() {
+      if (this.checked) {
+        var email = $(this).data("email");
+
+        emails.push (email);
+      }
+    });
+    
+    if (tag == -1) {
+      bootbox.prompt("Add your tag name", function(name){ 
+        window.CRM.dialogLoadingFunction( i18next.t('Adding tags...') );
+        window.CRM.APIRequest({
+          method: 'POST',
+          path: 'mailchimp/list/addTag',
+          data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails,"merge": true})
+        }).done(function(data) { 
+          if (data.success) {
+            window.CRM.dataListTable.ajax.reload();
+            render_container();
+            addTagsToMainDropdown();
+            changeState ();
+          } else if (data.success ==  false && data.error) {
+            window.CRM.closeDialogLoadingFunction();
+            window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+          }
+        });
+      });
+    } else {
+      bootbox.confirm({
+          title: i18next.t("Merge datas?"),
+          message: i18next.t("This will add the old persons with the new selected persons."),
+          buttons: {
+              cancel: {
+                  label: '<i class="fa fa-times"></i> ' + i18next.t("No")
+              },
+              confirm: {
+                  label: '<i class="fa fa-check"></i> ' + i18next.t("Confirm")
+              }
+          },
+          callback: function (result) {
+            if (result) {
+              window.CRM.dialogLoadingFunction( i18next.t('Adding tags...') );
+              window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/list/addTag',
+                data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails,"merge": result})
+              }).done(function(data) { 
+                if (data.success) {
+                  window.CRM.dataListTable.ajax.reload();
+                  render_container();
+                } else if (data.success ==  false && data.error) {
+                  window.CRM.closeDialogLoadingFunction();
+                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+                }
+              });
+            }
+          }
+      });
+    }
   });
 });

@@ -38,6 +38,7 @@ $app->group('/mailchimp', function () {
     
     $this->post('/list/removeTag', 'removeTag' );
     $this->post('/list/addTag', 'addTag' );
+    $this->post('/list/getAllTags', 'getAllTags' );
     
     $this->post('/campaign/actions/create', 'campaignCreate' );
     $this->post('/campaign/actions/delete', 'campaignDelete' );
@@ -364,18 +365,50 @@ function addTag (Request $request, Response $response, array $args) {
 
   $input = (object)$request->getParsedBody();
 
-  if ( isset ($input->list_id) && isset ($input->name) ){
-     $mailchimp = new MailChimpService();
+  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) && isset ($input->merge) ){
+      $mailchimp = new MailChimpService();
      
-     $res = $mailchimp->createSegment($input->list_id, $input->name);
-     
-     if ( !array_key_exists ('title',$res) ) {
-         return $response->withJson(['success' => true, "result" => $res]);
-    } else {
-         return $response->withJson(['success' => false, "error" => $res]);
-    }
+      if ($input->tag != -1) {
+       $res = $mailchimp->addMembersToSegment($input->list_id, $input->tag, $input->emails);
+
+       if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+       } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+       }
+      } else {
+        $res = $mailchimp->createSegment($input->list_id, $input->name,$input->emails);
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
+      }
   }
+  
+  return $response->withJson(['success' => false]);
 }
+
+function getAllTags (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) ){
+      $mailchimp = new MailChimpService();
+     
+      $list = $mailchimp->getListFromListId ($input->list_id);
+      if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $list['tags']]);
+      }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+
 
 function removeTag (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMailChimpEnabled()) {

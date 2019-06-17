@@ -38,10 +38,6 @@ require $sRootDocument . '/Include/Header.php';
              <i class="fa fa-pencil"></i>
              <?= _('Modify Properties') ?>
           </button>
-          <button class="btn btn-app align-right bg-purple" id="addTags" data-listid="<?= $listId ?>">
-             <i class="fa fa-tags"></i>
-             <?= _('Add Tags') ?>
-          </button>
         </p>
       </div>
     </div>
@@ -89,7 +85,7 @@ require $sRootDocument . '/Include/Header.php';
                 <div class="col-md-3">
                   <select name="person-group-Id-Share" class="person-group-Id-Share" class="form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
                   <button type="button" id="deleteMembers" class="btn btn-danger" disabled><?= _("Delete") ?></button>
                 </div>
                 <div class="col-md-2">
@@ -112,9 +108,17 @@ require $sRootDocument . '/Include/Header.php';
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a class="addTagButton">Ajouter  (1) Membres dans un autre groupe</a></li>
-                      <li><a class="addTagButton">Déplacer  (1) Membres dans un autre groupe</a></li>
+                    <ul class="dropdown-menu" role="menu" id="allTags">
+                      <li><a class="addTagButton" data-id="-1"><?= _("Add a new tag") ?></a></li>
+                      
+                      <?php
+                         foreach ($list['tags'] as $tag) {
+                      ?>
+                            <li><a class="addTagButton" data-id="<?= $tag['id'] ?>" data-name="<?= $tag['name'] ?>"><?= $tag['name'] ?></a></li>
+                      <?php
+                         }
+                      ?>
+                      
                     </ul>
                   </div>
                 </div>

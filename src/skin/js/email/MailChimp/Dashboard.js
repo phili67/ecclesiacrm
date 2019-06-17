@@ -60,17 +60,35 @@ $(document).ready(function () {
               listViews += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaigns[i][j].id + '">' + data.MailChimpCampaigns[i][j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaigns[i][j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaigns[i][j].status) + ')</span></b>  </td></tr>';
             }
           
-            if (lenCampaigns == 0) {
-              listViews += '<tr><td>&nbsp;&nbsp;0 ' + i18next.t('Campaign') + '</td></tr>';
-            }
-
             listViews += '          </table>';
           
-            listViews += '        </div>'
-            +'      </div>'
-            +'      <a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fa fa-pencil"></i> ' + i18next.t('Modify') + '</a>'
-            +'    </div>'
-            +'  </div>';
+            listViews += '        </div>';
+          
+            var lenTags = data.MailChimpLists[i].tags.length;
+          
+            if (lenTags) {
+
+                listViews += '        <div class="col-lg-3">'
+                +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                    
+                var tags    = data.MailChimpLists[i].tags;
+            
+                var tagsButtons = '';
+            
+                if (lenTags) {
+                  for (k=0;k<lenTags;k++) {
+                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpCampaigns[i].id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                  }
+                }
+          
+                listViews += tagsButtons;
+          
+                listViews += '        </div>';
+
+            }
+          
+            listViews += '      </div>'
+            +'    </div>';
         
             listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
           }
