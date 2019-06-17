@@ -108,18 +108,7 @@ require $sRootDocument . '/Include/Header.php';
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu" role="menu" id="allTags">
-                      <li><a class="addTagButton" data-id="-1"><?= _("Add a new tag") ?></a></li>
-                      
-                      <?php
-                         foreach ($list['tags'] as $tag) {
-                      ?>
-                            <li><a class="addTagButton" data-id="<?= $tag['id'] ?>" data-name="<?= $tag['name'] ?>"><?= $tag['name'] ?></a></li>
-                      <?php
-                         }
-                      ?>
-                      
-                    </ul>
+                    <ul class="dropdown-menu" role="menu" id="allTags"></ul>
                   </div>
                 </div>
               </div>

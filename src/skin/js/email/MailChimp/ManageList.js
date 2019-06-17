@@ -1,110 +1,132 @@
 $(document).ready(function () {
- var click_checkbox = false;
+   var click_checkbox = false;
+   window.CRM.editor = null;
+    
  
- function render_container ()
- {
-   if (window.CRM.mailchimpIsActive) {     
+   function addTagsToMainDropdown()
+   {
+      $("#allTags").empty();
+    
+    
       window.CRM.APIRequest({
-        method: 'GET',
-        path: 'mailchimp/list/' + window.CRM.list_ID
+        method: 'POST',
+        path: 'mailchimp/list/getAllTags',
+        data: JSON.stringify({"list_id":window.CRM.list_ID})
       }).done(function(data) {
-        window.CRM.closeDialogLoadingFunction();
-        
-        // we set correctly the buttons
-        if (data.membersCount == 0) {
-          $("#CreateCampaign").prop("disabled",true);
-          $("#deleteAllSubScribers").prop("disabled",true);
-        } else {
-          $("#CreateCampaign").prop("disabled",false);
-          $("#deleteAllSubScribers").prop("disabled",false);
+        $("#allTags").append('<li><a class="addTagButton" data-id="-1">' + i18next.t("Add a new tag") +  '</a></li>');
+        $("#allTags").append('<li><a class="deleteTagButton" data-id="-1">' + i18next.t("Delete tags") +  '</a></li>');
+    
+        var len = data.result.length;
+    
+        for (i=0; i<len; ++i) {
+          $("#allTags").append('<li><a class="addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
         }
-        // we empty first the container
-        $("#container").html( i18next.t( i18next.t("Loading resources ...")) );
-      
-        var listItems  = "";
-    
-        var list = data.MailChimpList;
-      
-        var  listView = '<div class="box-header   with-border">'
-          +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3>'
-          +'    </div>'
-          +'    <div class="box-body">'
-          +'      <div class="row" style="100%">'
-          +'        <div class="col-lg-5">'
-          +'          <table width="300px">'
-          +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
-          +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
-          +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
-          //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
-          +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
-          +'            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
-          +'            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
-          +'            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
-          +'          </table>'
-          +'        </div>'
-          +'        <div class="col-lg-3">'
-          +'           <b><i class="icon fa fa-list-alt"></i> ' + i18next.t('Campaigns') + '</b><br>';
-          
-          var lenCampaigns = data.MailChimpCampaign.length;
+      });  
+   }
 
-          listView += '          <table width="200px">';
-          
-          var tags = '';
-
-          for (j=0;j<lenCampaigns;j++) {
-            if (data.membersCount == 0) {
-              listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
-            } else {
-              listView += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
-            }
-          }
-          
-          if (lenCampaigns == 0) {
-            listView += '<tr><td>&nbsp;&nbsp; <i class="icon fa fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
-          }
-
-          listView += '          </table>';
-          
-          listView += '        </div>';
-          
-          var lenTags = data.MailChimpList.tags.length;
-          
-          if (lenTags) {
-
-              listView += '        <div class="col-lg-3">'
-              +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
-                    
-              var tags    = data.MailChimpList.tags;
-            
-              var tagsButtons = '';
-            
-              if (lenTags) {
-                for (k=0;k<lenTags;k++) {
-                  tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
-                }
-              }
-          
-              listView += tagsButtons;
-          
-              listView += '        </div>';
-
-          }
-          
-          listView += '      </div>'
-          +'    </div>';
+   function render_container ()
+   {
+     if (window.CRM.mailchimpIsActive) {     
+        window.CRM.APIRequest({
+          method: 'GET',
+          path: 'mailchimp/list/' + window.CRM.list_ID
+        }).done(function(data) {
+          window.CRM.closeDialogLoadingFunction();
         
-          listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
+          // we set correctly the buttons
+          if (data.membersCount == 0) {
+            $("#CreateCampaign").prop("disabled",true);
+            $("#deleteAllSubScribers").prop("disabled",true);
+          } else {
+            $("#CreateCampaign").prop("disabled",false);
+            $("#deleteAllSubScribers").prop("disabled",false);
+          }
+          // we empty first the container
+          $("#container").html( i18next.t( i18next.t("Loading resources ...")) );
+      
+          var listItems  = "";
     
-        $("#container").html(listView);
-      });
-    }
-  }
-  
-  render_container();
-// end of container
+          var list = data.MailChimpList;
+      
+          var  listView = '<div class="box-header   with-border">'
+            +'      <h3 class="box-title">'+ i18next.t('Email List') + '</h3>'
+            +'    </div>'
+            +'    <div class="box-body">'
+            +'      <div class="row" style="100%">'
+            +'        <div class="col-lg-5">'
+            +'          <table width="300px">'
+            +'            <tr><td><b>' + i18next.t('Details') + '</b> </td><td></td></tr>'
+            +'            <tr><td>' + i18next.t('Subject') + '</td><td>"' + list.campaign_defaults.subject + '"</td></tr>'
+            +'            <tr><td>' + i18next.t('Members:') + '</td><td>' + list.stats.member_count + '</td></tr>'
+            //+'            <tr><td>' + i18next.t('Campaigns:') + '</td><td>' + list.stats.campaign_count + '</td></tr>'
+            +'            <tr><td>' + i18next.t('Unsubscribed count:') + '</td><td>' + list.stats.unsubscribe_count + '</td></tr>'
+            +'            <tr><td>' + i18next.t('Unsubscribed count since last send:') + '</td><td>' + list.stats.unsubscribe_count_since_send + '</td></tr>'
+            +'            <tr><td>' + i18next.t('Cleaned count:') + '</td><td>' + list.stats.cleaned_count + '</td></tr>'
+            +'            <tr><td>' + i18next.t('Cleaned count since last send:') + '</td><td>' + list.stats.cleaned_count_since_send + '</td></tr>'
+            +'          </table>'
+            +'        </div>'
+            +'        <div class="col-lg-3">'
+            +'           <b><i class="icon fa fa-list-alt"></i> ' + i18next.t('Campaigns') + '</b><br>';
+          
+            var lenCampaigns = data.MailChimpCampaign.length;
 
-    window.CRM.editor = null;
+            listView += '          <table width="200px">';
+          
+            var tags = '';
+
+            for (j=0;j<lenCampaigns;j++) {
+              if (data.membersCount == 0) {
+                listView += '<tr><td>• ' + data.MailChimpCampaign[j].settings.title + '</td></tr>';
+              } else {
+                listView += '<tr><td>• <a href="' + window.CRM.root + '/v2/mailchimp/campaign/'+ data.MailChimpCampaign[j].id + '">' + data.MailChimpCampaign[j].settings.title +'</td><td>' + ' <b><span style="color:' + ((data.MailChimpCampaign[j].status == 'sent')?'green':'gray') + '">(' + i18next.t(data.MailChimpCampaign[j].status) + ')</span></b>  </td></tr>';
+              }
+            }
+          
+            if (lenCampaigns == 0) {
+              listView += '<tr><td>&nbsp;&nbsp; <i class="icon fa fa-tags"></i>' + i18next.t('Campaign') + '</td></tr>';
+            }
+
+            listView += '          </table>';
+          
+            listView += '        </div>';
+          
+            var lenTags = data.MailChimpList.tags.length;
+          
+            if (lenTags) {
+
+                listView += '        <div class="col-lg-3">'
+                +'           <b><i class="icon fa fa-tags"></i> ' + i18next.t('Tags') + '</b><br>';
+                    
+                var tags    = data.MailChimpList.tags;
+            
+                var tagsButtons = '';
+            
+                if (lenTags) {
+                  for (k=0;k<lenTags;k++) {
+                    tagsButtons += '<a class="delete-tag" data-id="' + tags[k].id + '" data-listid="' + data.MailChimpList.id + '"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>' + tags[k].name + '<br>';
+                  }
+                }
+          
+                listView += tagsButtons;
+          
+                listView += '        </div>';
+
+            }
+          
+            listView += '      </div>'
+            +'    </div>';
+        
+            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
     
+          $("#container").html(listView);
+        });
+      }
+    }
+  
+    render_container();
+    addTagsToMainDropdown();
+    // render the main page
+
     $(document).on("click",".delete-tag", function(){
       var tagID  = $(this).data("id");
       var listID = $(this).data("listid");
@@ -727,26 +749,6 @@ $(document).ready(function () {
   });
   
   
-  function addTagsToMainDropdown()
-  {
-    $("#allTags").empty();
-    
-    
-    window.CRM.APIRequest({
-      method: 'POST',
-      path: 'mailchimp/list/getAllTags',
-      data: JSON.stringify({"list_id":window.CRM.list_ID})
-    }).done(function(data) {
-      $("#allTags").append('<li><a class="addTagButton" data-id="-1">' + i18next.t("Add a new tag") +  '</a></li>');
-    
-      var len = data.result.length;
-    
-      for (i=0; i<len; ++i) {
-        $("#allTags").append('<li><a class="addTagButton" data-id="' + data.result[i].id + '" data-name="' +  data.result[i].name + '">' +  data.result[i].name + '</a></li>');
-      }
-    });  
-  }
-
   $('body').on('click','.addTagButton', function(){ 
     var tag  = $(this).data("id");
     var name = $(this).data("name");

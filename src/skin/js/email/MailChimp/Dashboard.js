@@ -88,8 +88,10 @@ $(document).ready(function () {
             }
           
             listViews += '      </div>'
+            +'<a class="btn btn btn-primary" href="'+ window.CRM.root + '/v2/mailchimp/managelist/'+ list.id + '" style="float:right"> <i class="fa fa-pencil"></i> ' + i18next.t('Modify') + '</a>'
             +'    </div>';
         
+            listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
             listItems += '<li><a href="' + window.CRM.root + '/v2/mailchimp/managelist/' + list.id + '"><i class="fa fa-circle-o"></i>'+ list.name + '</a>';
           }
     
