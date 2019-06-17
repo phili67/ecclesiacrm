@@ -100,8 +100,8 @@ require $sRootDocument . '/Include/Header.php';
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a class="subscribeButton"><?= _("Subscribe")?></a></li>
-                      <li><a class="subscribeButton"><?= _("Unsubscribe")?></a></li>
+                      <li><a class="subscribeButton" data-type="subscribed"><?= _("Subscribed")?></a></li>
+                      <li><a class="subscribeButton" data-type="unsubscribed"><?= _("Unsubscribed")?></a></li>
                     </ul>
                   </div>
                 </div>

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+ var click_checkbox = false;
+ 
  function render_container ()
  {
    if (window.CRM.mailchimpIsActive) {     
@@ -286,7 +288,7 @@ $(document).ready(function () {
         title:"",
         data:'id',
         render: function(data, type, full, meta) {
-          return '<input type="checkbox" class="checkbox_users checkbox_user' + full.email_address +'" name="AddRecords" data-id="' + full.email_address +'">';
+          return '<input type="checkbox" class="checkbox_users checkbox_user_' + full.id +'" name="AddRecords" data-id="' + full.id +'" data-email="' + full.email_address +'">';
         }
       },
       {
@@ -384,82 +386,6 @@ $(document).ready(function () {
   
   window.CRM.dataListTable = $("#memberListTable").DataTable(dataTableConfig);
     
-  $('#memberListTable').on('click', 'tr', function () {
-    if (click_checkbox == true) {
-      click_checkbox = false;
-      return;        
-    }
-    
-    var table = $('#memberListTable').DataTable();
-    var data = table.row( this ).data();
-    
-    if (data != undefined) {
-      click_tr = true;
-      var userID = $(data[0]).data("id");
-      var state = $('.checkbox_user'+userID).prop('checked');
-      $('.checkbox_user'+userID).prop('checked', !state);
-      click_tr = false;
-    }
-  });
-  
-  $(".check_all").click(function() {
-    var state = this.checked;
-    $(".checkbox_users").each(function() {
-      $(this)[0].checked=state;
-    });
-    
-    $("#deleteMembers").prop('disabled', !(state));
-    $(".addTagButton").prop('disabled', !(state));
-    $(".addTagButtonDrop").prop('disabled', !(state));
-    $(".subscribeButton").prop('disabled', !(state));
-    $(".subscribeButtonDrop").prop('disabled', !(state));
-  });
-  
-  $(document).on("click",".checkbox_users", function(){
-    var state = false;
-    $(".checkbox_users").each(function() {
-      res = $(this)[0].checked;
-      if (res == true) {
-        state = true;
-      }
-    });
-      
-    $("#deleteMembers").prop('disabled', !(state));
-    $(".addTagButton").prop('disabled', !(state));
-    $(".addTagButtonDrop").prop('disabled', !(state));
-    $(".subscribeButton").prop('disabled', !(state));
-    $(".subscribeButtonDrop").prop('disabled', !(state));
-  });
-    
-  
-  $(".subscribeButton").click(function() {
-    var roleID = $(this).data("id");
-    var roleName = this.innerText;
-    var userID = -1;
-    
-    $(".checkbox_users").each(function() {
-        if (this.checked) {
-          userID = $(this).data("id");
-          _val = $(this).val();
-
-          window.CRM.APIRequest({
-             method: 'POST',
-             path: 'users/applyrole',
-             data: JSON.stringify({"userID": userID,"roleID" : roleID})
-          }).done(function(data) {
-            if (data.success == true) {
-               // à terminer !!!
-               $('.role'+data.userID).html(data.roleName);
-            }
-          });
-        }
-    });
-    
-    if (userID == -1) {
-      window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("You've to check at least one user."));
-    }
-  });
-  
   $(document).on("click",".edit-subscriber", function(){
       var email = $(this).data("id");
       
@@ -738,5 +664,79 @@ $(document).ready(function () {
           }
     });
   });
+  
+  function changeState () {
+    var state = false;
+    $(".checkbox_users").each(function() {
+      res = $(this)[0].checked;
+      if (res == true) {
+        state = true;
+      }
+    });
+    
+    $("#deleteMembers").prop('disabled', !(state));
+    $(".addTagButton").prop('disabled', !(state));
+    $(".addTagButtonDrop").prop('disabled', !(state));
+    $(".subscribeButton").prop('disabled', !(state));
+    $(".subscribeButtonDrop").prop('disabled', !(state));
+  }
+  
+  $(".check_all").click(function() {
+    var state = this.checked;
+    $(".checkbox_users").each(function() {
+      $(this)[0].checked=state;
+    });
+    
+    $("#deleteMembers").prop('disabled', !(state));
+    $(".addTagButton").prop('disabled', !(state));
+    $(".addTagButtonDrop").prop('disabled', !(state));
+    $(".subscribeButton").prop('disabled', !(state));
+    $(".subscribeButtonDrop").prop('disabled', !(state));
+  });
+  
+  $(document).on("click",".checkbox_users", function(){
+    click_checkbox = true;
+    changeState ();
+  });
+  
+  $('#memberListTable').on('click', 'tr', function () {
+    if (click_checkbox == true) {
+      click_checkbox = false;
+      return;
+    }
+    
+    var table = $('#memberListTable').DataTable();
+    var data = table.row( this ).data();
+    
+    if (data != undefined) {
+      var userID = ".checkbox_user_"+data.id;
+      var state = $(userID)[0].checked;
+      $(userID)[0].checked =  !state;
+      changeState ();
+    }
+  });  
+  
+  $(".subscribeButton").click(function() {
+    var status = $(this).data("type");
 
+    $(".checkbox_users").each(function() {
+        if (this.checked) {
+          email = $(this).data("email");
+
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'mailchimp/status',
+            data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
+          }).done(function(data) { 
+            if (data.success) {
+              window.CRM.dataListTable.ajax.reload();
+              render_container();
+            } else if (data.success ==  false && data.error) {
+              window.CRM.closeDialogLoadingFunction();
+              window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+            }
+          });
+        }
+    });
+  });
 });
