@@ -50,6 +50,7 @@ $app->group('/mailchimp', function () {
     
     $this->post('/status', 'statusList' );
     $this->post('/suppress', 'suppress' );
+    $this->post('/suppressMembers', 'suppressMembers' );
     $this->post('/addallnewsletterpersons', 'addallnewsletterpersons' );
     $this->post('/addallpersons', 'addallpersons' );
     $this->post('/addperson', 'addPerson' );
@@ -648,6 +649,33 @@ function suppress (Request $request, Response $response, array $args) {
   
   return $response->withJson(['success' => false]);
 }
+
+function suppressMembers (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->emails) ){
+  
+    // we get the MailChimp Service
+    $mailchimp = new MailChimpService();
+    
+    foreach ($input->emails as $email) {
+      $res = $mailchimp->deleteMember($input->list_id,$email);
+    }
+    
+    if ( !array_key_exists ('title',$res) ) {
+      return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+      return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
 
 function addallnewsletterpersons (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMailChimpEnabled()) {

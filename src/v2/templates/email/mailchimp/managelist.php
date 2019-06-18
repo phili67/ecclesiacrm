@@ -80,8 +80,6 @@ require $sRootDocument . '/Include/Header.php';
                 </ul>
               </div>
               
-              <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-              
               <div class="row">
                 <div class="col-md-2">
                   <input type="checkbox" class="check_all" id="check_all"> 
@@ -119,6 +117,11 @@ require $sRootDocument . '/Include/Header.php';
                   </div>
                 </div>
               </div>
+
+              <br>
+
+              <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5" cellspacing="0"  width="100%"></table>
+
           </div>
         </div>
       </div>
