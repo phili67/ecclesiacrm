@@ -466,11 +466,9 @@ class MailChimpService
               
       $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
       
-      $this->reloadMailChimpDatas();
-      
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
-        $resultContent = "coucou";
+        $this->reloadMailChimpDatas();
       }
       
       return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
@@ -478,13 +476,14 @@ class MailChimpService
     public function removeMembersFromSegment ($list_id, $segment_id, $arr_members) {
       $data = array(
             "members_to_remove" => $arr_members
-              );
-              
+            );
       $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
+      
+      
       
       if ( !array_key_exists ('title',$result) ) {
         // we've to add the modification to the list
-        $resultContent = "coucou";
+        $this->reloadMailChimpDatas();
       }
       
       return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
@@ -545,27 +544,49 @@ class MailChimpService
         $i++;
       }
     }
-    public function createCampaign ($list_id, $subject, $title, $htmlBody) {
+    public function createCampaign ($list_id, $tag_Id, $subject, $title, $htmlBody) {
       $from_name             = SessionUser::getUser()->getPerson()->getFullName();
       $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
-
-      $data = array(
-                "recipients" => 
-                  array(
-                   "list_id" => $list_id
-                  ), 
-                "type"         => "regular", 
-                "settings"     => array(
-                  "subject_line" => $subject, 
-                  "title"        => $title, 
-                  "reply_to"     => $from_email, 
-                  "from_name"    => $from_name, 
-                //"folder_id"    => "8888969b77"
-                )
-              );
+      
+      if ($tag_Id != -1) {
+        $data = array(
+                  "recipients" => 
+                    array(
+                     "list_id" => $list_id,
+                     "segment_opts" => array (
+                        "saved_segment_id" => $tag_Id, //The id for an existing saved segment.
+                        //"prebuilt_segment_id" => $tag_Id, //The prebuilt segment id, if a prebuilt segment has been designated for this campaign.
+                        "match" => "any" // Segment match type. : any all
+                      )
+                    ),
+                  "type"         => "regular", 
+                  "settings"     => array(
+                    "subject_line" => $subject, 
+                    "title"        => $title, 
+                    "reply_to"     => $from_email, 
+                    "from_name"    => $from_name, 
+                  //"folder_id"    => "8888969b77"
+                  )
+                );
+      } else {
+        $data = array(
+                  "recipients" => 
+                    array(
+                     "list_id" => $list_id
+                    ), 
+                  "type"         => "regular", 
+                  "settings"     => array(
+                    "subject_line" => $subject, 
+                    "title"        => $title, 
+                    "reply_to"     => $from_email, 
+                    "from_name"    => $from_name, 
+                  //"folder_id"    => "8888969b77"
+                  )
+                );
+      }
               
       $result = $this->myMailchimp->post("campaigns", $data);
       

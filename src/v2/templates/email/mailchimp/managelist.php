@@ -25,9 +25,16 @@ require $sRootDocument . '/Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <button class="btn btn-app" id="CreateCampaign" data-listid="<?= $listId ?>">
-            <i class="fa fa-list-alt"></i><?= _("Create a Campaign") ?>
-          </button>
+          <div class="btn-group">
+            <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>" data-id="-1" data-name="">
+              <i class="fa fa-list-alt"></i><?= _("Create a Campaign") ?>
+            </button>
+            <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="allCampaignTags"></ul>
+          </div>
           <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
             <i class="fa fa-trash-o"></i><?= _("Delete All Subscribers") ?>
           </button>

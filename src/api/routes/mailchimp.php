@@ -39,6 +39,7 @@ $app->group('/mailchimp', function () {
     $this->post('/list/removeTag', 'removeTag' );
     $this->post('/list/addTag', 'addTag' );
     $this->post('/list/getAllTags', 'getAllTags' );
+    $this->post('/list/removeTagForMembers', 'removeTagForMembers' );
     
     $this->post('/campaign/actions/create', 'campaignCreate' );
     $this->post('/campaign/actions/delete', 'campaignDelete' );
@@ -430,6 +431,29 @@ function removeTag (Request $request, Response $response, array $args) {
   }
 }
 
+function removeTagForMembers (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->emails) ){
+     $mailchimp = new MailChimpService();
+     
+     $res = $mailchimp->removeMembersFromSegment($input->list_id, $input->tag, $input->emails);
+     
+     if ( !array_key_exists ('title',$res) ) {
+         return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+         return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+// Campaigns
 function campaignCreate (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
@@ -437,11 +461,11 @@ function campaignCreate (Request $request, Response $response, array $args) {
 
   $input = (object)$request->getParsedBody();
 
-  if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) ){
+  if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) && isset ($input->tagId) ){
      $mailchimp = new MailChimpService();
   
      if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-       $res = $mailchimp->createCampaign($input->list_id, $input->subject, $input->title, $input->htmlBody);
+       $res = $mailchimp->createCampaign($input->list_id, $input->tagId, $input->subject, $input->title, $input->htmlBody);
        
        if ( !array_key_exists ('title',$res) ) {
          return $response->withJson(['success' => true, "result" => $res]);
