@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-06T03:44:09.248Z\n"
+"POT-Creation-Date: 2019-06-18T19:26:01.765Z\n"
 "PO-Revision-Date: 2018-07-27T18:09:22.966Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1656,6 +1656,9 @@ msgstr ""
 msgid "Campaigns"
 msgstr ""
 
+msgid "Tags"
+msgstr ""
+
 msgid "is not configured"
 msgstr ""
 
@@ -1709,8 +1712,27 @@ msgstr ""
 msgid "Families"
 msgstr "Familia"
 
+msgid "Add a new tag"
+msgstr ""
+
+#, fuzzy
+msgid "Delete tags"
+msgstr "Borrar Administradores"
+
 msgid "Loading resources ..."
 msgstr ""
+
+#, fuzzy
+msgid "You're about to delete a tag!"
+msgstr "Estás a punto de borrar uno fichero"
+
+#, fuzzy
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Esto también borrará todos los roles y propiedades específicas de grupos "
+"asociados a este grupo."
 
 msgid "Loading subscriber"
 msgstr ""
@@ -1783,10 +1805,16 @@ msgstr "Título Calendario"
 msgid "Your Campaign Title"
 msgstr ""
 
+msgid "For Tag"
+msgstr ""
+
 msgid "Mail Subject"
 msgstr ""
 
 msgid "Your Mail Subject"
+msgstr ""
+
+msgid "All list members"
 msgstr ""
 
 msgid "Adding Campaign ..."
@@ -1802,6 +1830,40 @@ msgstr "Debe configurar un Título e una descripción para su Problema."
 #, fuzzy
 msgid "List Name"
 msgstr "Nombre"
+
+msgid "Changing subscribers state..."
+msgstr ""
+
+msgid "All Tags"
+msgstr ""
+
+msgid "Choose the tag you want to delete :"
+msgstr ""
+
+msgid "Removing tags..."
+msgstr ""
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr ""
+
+msgid "Adding tag..."
+msgstr ""
+
+msgid "Add all tags for the selected members in the list..."
+msgstr ""
+
+msgid "Name is empty !!"
+msgstr ""
+
+#, fuzzy
+msgid "Add tag?"
+msgstr "Agregar todo"
+
+msgid "This will add the tag"
+msgstr ""
+
+msgid "to all the current selected members in the list."
+msgstr ""
 
 #, fuzzy
 #~ msgid "Audience Creation"

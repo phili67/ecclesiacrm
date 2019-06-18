@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-06T03:15:52.970Z\n"
+"POT-Creation-Date: 2019-06-18T19:26:01.765Z\n"
 "PO-Revision-Date: 2018-07-19T20:33:42.797Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -373,10 +373,13 @@ msgstr "Admin->Modifier les réglages généraux"
 msgid ""
 "Please register your copy of EcclesiaCRM by checking over this information "
 "and pressing the Send button."
-msgstr "Veuillez enregistrer votre copie de EcclesiaCRM en vérifiant les informations et en appuyant sur le bouton Envoyer."
+msgstr ""
+"Veuillez enregistrer votre copie de EcclesiaCRM en vérifiant les "
+"informations et en appuyant sur le bouton Envoyer."
 
 msgid "This information is used only to track the usage of this software."
-msgstr "Cette information est utilisée uniquement pour faire le suivi de ce logiciel."
+msgstr ""
+"Cette information est utilisée uniquement pour faire le suivi de ce logiciel."
 
 msgid "Church Name"
 msgstr "Nom Église"
@@ -966,7 +969,8 @@ msgstr "Confirmer la suppression du rôle"
 
 msgid "This will also delete all persons membership associated with this role."
 msgstr ""
-"Ceci supprimera également tous les appartenances de personnes associées à ce rôle."
+"Ceci supprimera également tous les appartenances de personnes associées à ce "
+"rôle."
 
 msgid "Role Name"
 msgstr "Nom du rôle"
@@ -1655,6 +1659,9 @@ msgstr "Compte nettoyé depuis le dernier envoi:"
 msgid "Campaigns"
 msgstr "Campagnes"
 
+msgid "Tags"
+msgstr "Etiquettes"
+
 msgid "is not configured"
 msgstr "non configuré"
 
@@ -1703,8 +1710,24 @@ msgstr "Personne"
 msgid "Families"
 msgstr "Familles"
 
+msgid "Add a new tag"
+msgstr "Ajouter une nouvelle étiquette"
+
+msgid "Delete tags"
+msgstr "Effacer Etiquettes"
+
 msgid "Loading resources ..."
 msgstr "Chargement de ressources ..."
+
+msgid "You're about to delete a tag!"
+msgstr "Vous êtes sur le point de supprimer une étiquette"
+
+msgid ""
+"This will also delete the tag for all the members in this list. Are you "
+"sure ?"
+msgstr ""
+"Ceci supprimera également tous les appartenances de personnes associées à cette"
+"étiquette."
 
 msgid "Loading subscriber"
 msgstr "Chargement des abonnés"
@@ -1779,11 +1802,17 @@ msgstr "Titre de la campagne"
 msgid "Your Campaign Title"
 msgstr "Votre titre de campagne"
 
+msgid "For Tag"
+msgstr "Pour Etiquette"
+
 msgid "Mail Subject"
 msgstr "Sujet du mail"
 
 msgid "Your Mail Subject"
 msgstr "Votre Sujet de mail"
+
+msgid "All list members"
+msgstr "Toutes les membres de la liste"
 
 msgid "Adding Campaign ..."
 msgstr "Ajout d'une campagne"
@@ -1796,6 +1825,39 @@ msgstr "Vous devez saisir un titre de Campagne pour cette campagne d'eMailing"
 
 msgid "List Name"
 msgstr "Nom De la liste"
+
+msgid "Changing subscribers state..."
+msgstr "Changement le statut de l'abonnée ..."
+
+msgid "All Tags"
+msgstr "Toutes les Etiquettes"
+
+msgid "Choose the tag you want to delete :"
+msgstr "Choisir l'étiquette à supprimer :"
+
+msgid "Removing tags..."
+msgstr "Chargement des données ..."
+
+msgid "Deleting all tags for the selected members in the list..."
+msgstr "Suppression de toutes les étiquettes pour les membres sélectionnés..."
+
+msgid "Adding tag..."
+msgstr "Ajout étiquette"
+
+msgid "Add all tags for the selected members in the list..."
+msgstr "Ajouter touetes les étiquettes pour les membres sélectionnés ..."
+
+msgid "Name is empty !!"
+msgstr "Nom à saisir !!"
+
+msgid "Add tag?"
+msgstr "Ajouter Etiquette"
+
+msgid "This will add the tag"
+msgstr "Ceci ajoutera l'étiquette"
+
+msgid "to all the current selected members in the list."
+msgstr "à tous les membres sélectionnés dans la liste."
 
 #~ msgid "Share your Document"
 #~ msgstr "Partager Votre document"
