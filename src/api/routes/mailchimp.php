@@ -36,6 +36,12 @@ $app->group('/mailchimp', function () {
     $this->post('/deleteallsubscribers', 'deleteallsubscribers' );
     $this->post('/deletelist', 'deleteList' );
     
+    $this->post('/list/removeTag', 'removeTag' );
+    $this->post('/list/removeAllTagsForMembers', 'removeAllTagsForMembers' );
+    $this->post('/list/addTag', 'addTag' );
+    $this->post('/list/getAllTags', 'getAllTags' );
+    $this->post('/list/removeTagForMembers', 'removeTagForMembers' );
+    
     $this->post('/campaign/actions/create', 'campaignCreate' );
     $this->post('/campaign/actions/delete', 'campaignDelete' );
     $this->post('/campaign/actions/send', 'campaignSend' );
@@ -354,6 +360,125 @@ function deleteList (Request $request, Response $response, array $args) {
   return $response->withJson(['success' => false]);
 }
 
+function addTag (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) ){
+      $mailchimp = new MailChimpService();
+     
+      if ($input->tag != -1) {
+       $res = $mailchimp->addMembersToSegment($input->list_id, $input->tag, $input->emails);
+
+       if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+       } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+       }
+      } else {
+        $res = $mailchimp->createSegment($input->list_id, $input->name,$input->emails);
+        if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $res]);
+        } else {
+          return $response->withJson(['success' => false, "error" => $res]);
+        }
+      }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function getAllTags (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) ){
+      $mailchimp = new MailChimpService();
+     
+      $list = $mailchimp->getListFromListId ($input->list_id);
+      if ( !array_key_exists ('title',$res) ) {
+          return $response->withJson(['success' => true, "result" => $list['tags']]);
+      }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+
+
+function removeTag (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->tag_ID) ){
+     $mailchimp = new MailChimpService();
+     
+     $res = $mailchimp->deleteSegment($input->list_id, $input->tag_ID);
+     
+     if ( !array_key_exists ('title',$res) ) {
+         return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+         return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+}
+
+function removeTagForMembers (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->emails) ){
+     $mailchimp = new MailChimpService();
+     
+     $res = $mailchimp->removeMembersFromSegment($input->list_id, $input->tag, $input->emails);
+     
+     if ( !array_key_exists ('title',$res) ) {
+         return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+         return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+function removeAllTagsForMembers (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->emails) ){
+     $mailchimp = new MailChimpService();
+     
+     $res = $mailchimp->removeMembersFromAllSegments($input->list_id, $input->emails);
+     
+     if ( !array_key_exists ('title',$res) ) {
+         return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+         return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+
+
+// Campaigns
 function campaignCreate (Request $request, Response $response, array $args) {
   if (!SessionUser::getUser()->isMailChimpEnabled()) {
     return $response->withStatus(404);
@@ -361,11 +486,11 @@ function campaignCreate (Request $request, Response $response, array $args) {
 
   $input = (object)$request->getParsedBody();
 
-  if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) ){
+  if ( isset ($input->list_id) && isset ($input->subject) && isset ($input->title) && isset ($input->htmlBody) && isset ($input->tagId) ){
      $mailchimp = new MailChimpService();
   
      if ( !is_null ($mailchimp) && $mailchimp->isActive() ){
-       $res = $mailchimp->createCampaign($input->list_id, $input->subject, $input->title, $input->htmlBody);
+       $res = $mailchimp->createCampaign($input->list_id, $input->tagId, $input->subject, $input->title, $input->htmlBody);
        
        if ( !array_key_exists ('title',$res) ) {
          return $response->withJson(['success' => true, "result" => $res]);

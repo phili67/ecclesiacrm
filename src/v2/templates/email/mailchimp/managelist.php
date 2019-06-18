@@ -25,13 +25,20 @@ require $sRootDocument . '/Include/Header.php';
       </div>
       <div class="box-body">
         <p>
-          <button class="btn btn-app" id="CreateCampaign" data-listid="<?= $list_id ?>">
-            <i class="fa fa-list-alt"></i><?= _("Create a Campaign") ?>
-          </button>
-          <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $list_id ?>">
+          <div class="btn-group">
+            <button class="btn btn-app CreateCampaign" id="CreateCampaign" data-listid="<?= $listId ?>" data-id="-1" data-name="">
+              <i class="fa fa-list-alt"></i><?= _("Create a Campaign") ?>
+            </button>
+            <button type="button" id="addCreateCampaignTagDrop" class="btn btn-app dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="allCampaignTags"></ul>
+          </div>
+          <button id="deleteAllSubScribers" class="btn btn-app bg-orange" data-listid="<?= $listId ?>">
             <i class="fa fa-trash-o"></i><?= _("Delete All Subscribers") ?>
           </button>
-          <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $list_id ?>">
+          <button id="deleteList" class="btn btn-app align-right bg-maroon" data-listid="<?= $listId ?>">
             <i class="fa fa-trash"></i><?= _("Delete") ?>
           </button>
           <button class="btn btn-app align-right bg-blue" id="modifyList" data-name="<?= $list['name'] ?>" data-subject="<?= $list['campaign_defaults']['subject']?>" data-permissionreminder="<?= $list['permission_reminder'] ?>">
@@ -72,8 +79,46 @@ require $sRootDocument . '/Include/Header.php';
                   </li>
                 </ul>
               </div>
+              
               <table class="table table-striped table-bordered" id="memberListTable" cellpadding="5" cellspacing="0"  width="100%"></table>
-              <select name="person-group-Id-Share" class="person-group-Id-Share" class="form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
+              
+              <div class="row">
+                <div class="col-md-2">
+                  <input type="checkbox" class="check_all" id="check_all"> 
+                  <label for="check_all"><?= _("Check all") ?></label>
+                </div>
+                <div class="col-md-1">
+                  Ajouter      </div>
+                <div class="col-md-3">
+                  <select name="person-group-Id-Share" class="person-group-Id-Share" class="form-control select2" style="width:100%" data-listid="<?= $list['id'] ?>"></select>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" id="deleteMembers" class="btn btn-danger" disabled><?= _("Delete") ?></button>
+                </div>
+                <div class="col-md-2">
+                  <div class="btn-group">
+                    <button type="button" class="subscribeButton btn btn-success" disabled><?= _("Sub/Unsubscribe" ) ?></button>
+                    <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a class="subscribeButton" data-type="subscribed"><?= _("Subscribed")?></a></li>
+                      <li><a class="subscribeButton" data-type="unsubscribed"><?= _("Unsubscribed")?></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="btn-group">
+                    <button type="button" class="addTagButton btn btn-success"  data-id="-1" data-name="" disabled><?= _("Add/Remove Tag" ) ?></button>
+                    <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
+                      <span class="caret"></span>
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" id="allTags"></ul>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </div>

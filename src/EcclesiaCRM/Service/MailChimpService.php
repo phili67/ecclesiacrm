@@ -54,6 +54,7 @@ class MailChimpService
         foreach($lists as &$list) {
           $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
           $list['members'] = $listmembers['members'];
+          $list['tags']    = $this->getAllSegments ($list['id'])[1];
         }
         $_SESSION['MailChimpLists'] = $lists;
       }
@@ -69,6 +70,7 @@ class MailChimpService
         foreach($lists as &$list) {
           $listmembers = $this->getMembersFromList($list['id'],SystemConfig::getValue('iMailChimpApiMaxMembersCount'));
           $list['members'] = $listmembers['members'];
+          $list['tags']    = $this->getAllSegments ($list['id'])[1];
         }
         $_SESSION['MailChimpLists'] = $lists;
 
@@ -122,6 +124,9 @@ class MailChimpService
             return $e;
         }
     }
+    
+/* Lists */
+
     public function getLists()
     {
         if (!$this->isActive) {
@@ -322,7 +327,202 @@ class MailChimpService
       
       return $new_list;
     }
+
+/* segments */
+    private function getMembersFor ($list_id, $tag_id) {
+      $tag_arr = [];
+      
+      $mcLists = $this->getLists();
+      
+      $i = 0;
+      foreach ($mcLists as $list) {
+        if ($list['id'] == $list_id) {
+          foreach ($list['members'] as $member) {// the list is found
+            foreach ($member['tags'] as $tag) {
+              if ($tag['id'] == $tag_id) {
+                $tag_arr[] = $member['email_address'];
+              }
+            }
+          }
+          break;
+        }
+        $i++;
+      }
+      
+      return $tag_arr;
+    }
     
+    public function createSegment ($list_id, $name,$membersArr) {
+      $data = array(
+            "name" => $name,
+            "static_segment" => $membersArr /* Maichimp doc : An array of emails to be used for a static segment. Any emails provided that are not present on the list will be ignored. Passing an empty array will create a static segment without any subscribers. This field cannot be provided with the options field.*/
+          );
+          
+      $result = $this->myMailchimp->post("lists/$list_id/segments", $data);
+      
+      $this->reloadMailChimpDatas();
+
+      return [$result,"lists/$list_id/segments"];
+    }
+    public function updateSegment ($list_id, $name, $tag, $membersArr, $merge = true) {
+    
+      $old_members = $this->getMembersFor($list_id, $tag);
+      
+      if ($merge) {
+        $arr = array_merge($membersArr,$old_members);
+      } else {
+        $arr = $membersArr;
+      }
+      
+      $data = array(
+            "name" => $name,
+            "static_segment" => $arr /* Maichimp doc : An array of emails to be used for a static segment. Any emails provided that are not present on the list will be ignored. Passing an empty array will create a static segment without any subscribers. This field cannot be provided with the options field.*/
+          );
+          
+      $result = $this->myMailchimp->patch("lists/$list_id/segments/$tag", $data);
+      
+      $this->reloadMailChimpDatas();
+      
+      return [$result,"lists/$list_id/segments/$tag"];
+    }
+    private function delete_Segment ($list_id, $tag_id) {
+      $mcLists = $_SESSION['MailChimpLists'];
+
+      // we first delete the tags in the list
+      $res = [];
+      foreach ($mcLists as $list) {
+        $break_loop = false;
+        
+        if ($list['id'] == $list_id) {
+          $resTag = [];
+          foreach ($list['tags'] as $tag) {
+            if ($tag['id'] != $tag_id) {
+              $resTag[] = $tag;
+            }
+          }
+        
+          $list['tags'] = $resTag;
+          
+          $resMembers = [];
+          foreach ($list['members'] as $member) {
+            $resTag = [];
+            foreach ($member['tags'] as $tag) {
+              if ($tag['id'] != $tag_id) {
+                $resTag[] = $tag;
+              }
+            }
+            $member['tags'] = $resTag;
+            
+            $resMembers[] = $member;
+          }
+          $list['members'] = $resMembers;
+          
+          $break_loop = true;
+        }
+        
+        $res[] = $list;
+        
+        if ($break_loop) {
+          break;
+        }
+      }
+      
+      // now we delete the tags for each members
+      
+      
+      $_SESSION['MailChimpLists'] = $res;
+    }
+    public function deleteSegment ($list_id, $tag_id) {
+      $result = $this->myMailchimp->delete("lists/$list_id/segments/$tag_id");
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // We've to remove all the segments for each user
+        $this->delete_Segment ($list_id, $tag_id);
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$tag_id"];
+    }
+    public function getAllSegments ($list_id) {
+      $result = $this->myMailchimp->get("lists/$list_id/segments");
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $resultContent = $result['segments'];
+        
+        return [$result,$resultContent,"lists/$list_id/segments"];
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments"];
+    }
+    public function getSegment ($list_id, $segment_id) {
+      $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id", $data);
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+    }
+    public function addMembersToSegment ($list_id, $segment_id, $arr_members) {
+      $data = array(
+            "members_to_add" => $arr_members
+              );
+              
+      $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $this->reloadMailChimpDatas();
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+    }
+    public function removeMembersFromSegment ($list_id, $segment_id, $arr_members) {
+      $data = array(
+            "members_to_remove" => $arr_members
+            );
+      $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
+      
+      
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $this->reloadMailChimpDatas();
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+    }
+    public function removeMembersFromAllSegments($list_id, $arr_members) {
+      $data = array(
+            "members_to_remove" => $arr_members
+            );
+      
+      
+      $list = $this->getListFromListId ($list_id);
+      
+      foreach ($list['tags'] as $tag) {
+        $segment_id = $tag['id'];
+        
+        $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
+      }
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $this->reloadMailChimpDatas();
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+    }
+    
+    public function getMembersFromSegment ($list_id, $segment_id) {
+      $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id/members");
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $resultContent = $result['members'];
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id/members"];
+    }
+
+/* Campaigns */
+
     public function getCampaignFromId($campaignId) {
       $campaigns = $this->getCampaigns();
       
@@ -338,7 +538,6 @@ class MailChimpService
         }
       }
     }
-    
     public function getCampaignsFromListId($list_id) {
       $campaigns = $this->getCampaigns();
       
@@ -367,31 +566,53 @@ class MailChimpService
         $i++;
       }
     }
-    public function createCampaign ($list_id, $subject, $title, $htmlBody) {
+    public function createCampaign ($list_id, $tag_Id, $subject, $title, $htmlBody) {
       $from_name             = SessionUser::getUser()->getPerson()->getFullName();
       $from_email            = ( !empty ( SessionUser::getUser()->getPerson()->getEmail() ) )?SessionUser::getUser()->getPerson()->getEmail():SessionUser::getUser()->getPerson()->getWorkEmail();
       if (empty ($from_email)) {
         $from_email          = SystemConfig::getValue('sChurchEmail');
       }
-
-      $data = array(
-                "recipients" => 
-                  array(
-                   "list_id" => $list_id
-                  ), 
-                "type"         => "regular", 
-                "settings"     => array(
-                  "subject_line" => $subject, 
-                  "title"        => $title, 
-                  "reply_to"     => $from_email, 
-                  "from_name"    => $from_name, 
-                //"folder_id"    => "8888969b77"
-                )
-              );
+      
+      if ($tag_Id != -1) {
+        $data = array(
+                  "recipients" => 
+                    array(
+                     "list_id" => $list_id,
+                     "segment_opts" => array (
+                        "saved_segment_id" => $tag_Id, //The id for an existing saved segment.
+                        //"prebuilt_segment_id" => $tag_Id, //The prebuilt segment id, if a prebuilt segment has been designated for this campaign.
+                        "match" => "any" // Segment match type. : any all
+                      )
+                    ),
+                  "type"         => "regular", 
+                  "settings"     => array(
+                    "subject_line" => $subject, 
+                    "title"        => $title, 
+                    "reply_to"     => $from_email, 
+                    "from_name"    => $from_name, 
+                  //"folder_id"    => "8888969b77"
+                  )
+                );
+      } else {
+        $data = array(
+                  "recipients" => 
+                    array(
+                     "list_id" => $list_id
+                    ), 
+                  "type"         => "regular", 
+                  "settings"     => array(
+                    "subject_line" => $subject, 
+                    "title"        => $title, 
+                    "reply_to"     => $from_email, 
+                    "from_name"    => $from_name, 
+                  //"folder_id"    => "8888969b77"
+                  )
+                );
+      }
               
       $result = $this->myMailchimp->post("campaigns", $data);
       
-      if ( !array_key_exists ('tilte',$result) ) {
+      if ( !array_key_exists ('title',$result) ) {
 
         $campaignID = $result['id'];// we get the campaign ID
       
@@ -426,7 +647,6 @@ class MailChimpService
       
       return $result;
     }
-    
     public function setCampaignSchedule ($campaignID,$schedule_time, $timewarp, $batch_delay) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/schedule", ["schedule_time" => $schedule_time, "timewarp" => $timewarp, "batch_delay" => $batch_delay]);
       
@@ -434,7 +654,6 @@ class MailChimpService
       
       return $resultContent;
     }
-
     public function setCampaignUnschedule ($campaignID) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/unschedule");
       
@@ -442,7 +661,6 @@ class MailChimpService
       
       return $resultContent;
     }
-    
     private function setCampaignStatus ($campaignID,$status,$send_time = nil) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
       
@@ -460,20 +678,16 @@ class MailChimpService
         
       $_SESSION['MailChimpCampaigns'] = $res;
     }
-
-
     public function setCampaignPause ($campaignID,$schedule_time, $timewarp, $batch_delay) {
       $resultContent = $this->myMailchimp->post("campaigns/$campaignID/actions/pause");
       
       return $resultContent;
     }
-
     public function setCampaignContent ($campaignID,$htmlBody) {
       $resultContent = $this->myMailchimp->put("campaigns/$campaignID/content", ["html" => $htmlBody]);
       
       return $resultContent;
     }
-    
     private function set_Campaign_MailSubject ($campaignID,$subject) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
       
@@ -488,7 +702,6 @@ class MailChimpService
         
       $_SESSION['MailChimpCampaigns'] = $res;
     }
-    
     public function setCampaignMailSubject ($campaignID,$subject) {
       $data = array(
                 "settings"     => array(
@@ -503,13 +716,11 @@ class MailChimpService
               
       return $result;
     }
-
     public function getCampaignContent ($campaignID) {
       $result = $this->myMailchimp->get("campaigns/$campaignID/content");
       
       return $result;
     }
-    
     private function send_Campaign ($campaignID) {
       $campaigns = $_SESSION['MailChimpCampaigns'];
       
@@ -524,7 +735,6 @@ class MailChimpService
         
       $_SESSION['MailChimpCampaigns'] = $res;
     }
-    
     public function sendCampaign ($campaignID) {
       
       $result = $this->myMailchimp->post("campaigns/$campaignID/actions/send");
@@ -610,7 +820,6 @@ class MailChimpService
       
       $_SESSION['MailChimpLists'][$i]['members'] = array_values($newMembers);
     }
-    
     public function getMembersFromList ($list_id,$count=500) {
       return $this->myMailchimp->get("lists/$list_id/members",['count' => $count]); 
     }
@@ -626,7 +835,6 @@ class MailChimpService
         
         return $result;
     }
-
     public function deleteAllMembers ($list_id) {
       $members = $this->getListMembersFromListId ($list_id);
       
@@ -638,7 +846,6 @@ class MailChimpService
       
       return $res;
     }
-    
     private function update_list_member ($list_id,$member,$status) {
       $mcLists = $_SESSION['MailChimpLists'];
       
