@@ -37,6 +37,7 @@ $app->group('/mailchimp', function () {
     $this->post('/deletelist', 'deleteList' );
     
     $this->post('/list/removeTag', 'removeTag' );
+    $this->post('/list/removeAllTagsForMembers', 'removeAllTagsForMembers' );
     $this->post('/list/addTag', 'addTag' );
     $this->post('/list/getAllTags', 'getAllTags' );
     $this->post('/list/removeTagForMembers', 'removeTagForMembers' );
@@ -366,7 +367,7 @@ function addTag (Request $request, Response $response, array $args) {
 
   $input = (object)$request->getParsedBody();
 
-  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) && isset ($input->merge) ){
+  if ( isset ($input->list_id) && isset ($input->tag) && isset ($input->name) && isset ($input->emails) ){
       $mailchimp = new MailChimpService();
      
       if ($input->tag != -1) {
@@ -452,6 +453,30 @@ function removeTagForMembers (Request $request, Response $response, array $args)
   
   return $response->withJson(['success' => false]);
 }
+
+function removeAllTagsForMembers (Request $request, Response $response, array $args) {
+  if (!SessionUser::getUser()->isMailChimpEnabled()) {
+    return $response->withStatus(404);
+  }
+
+  $input = (object)$request->getParsedBody();
+
+  if ( isset ($input->list_id) && isset ($input->emails) ){
+     $mailchimp = new MailChimpService();
+     
+     $res = $mailchimp->removeMembersFromAllSegments($input->list_id, $input->emails);
+     
+     if ( !array_key_exists ('title',$res) ) {
+         return $response->withJson(['success' => true, "result" => $res]);
+    } else {
+         return $response->withJson(['success' => false, "error" => $res]);
+    }
+  }
+  
+  return $response->withJson(['success' => false]);
+}
+
+
 
 // Campaigns
 function campaignCreate (Request $request, Response $response, array $args) {

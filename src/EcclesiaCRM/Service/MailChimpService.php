@@ -488,6 +488,28 @@ class MailChimpService
       
       return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
     }
+    public function removeMembersFromAllSegments($list_id, $arr_members) {
+      $data = array(
+            "members_to_remove" => $arr_members
+            );
+      
+      
+      $list = $this->getListFromListId ($list_id);
+      
+      foreach ($list['tags'] as $tag) {
+        $segment_id = $tag['id'];
+        
+        $result = $this->myMailchimp->post("lists/$list_id/segments/$segment_id", $data);
+      }
+      
+      if ( !array_key_exists ('title',$result) ) {
+        // we've to add the modification to the list
+        $this->reloadMailChimpDatas();
+      }
+      
+      return [$result,$resultContent,"lists/$list_id/segments/$segment_id"];
+    }
+    
     public function getMembersFromSegment ($list_id, $segment_id) {
       $result = $this->myMailchimp->get("lists/$list_id/segments/$segment_id/members");
       

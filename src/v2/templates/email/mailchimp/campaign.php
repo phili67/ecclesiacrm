@@ -58,14 +58,27 @@ require $sRootDocument . '/Include/Header.php';
   <div class="col-lg-12">
     <div class="box">
       <div class="box-header   with-border">
+        <h3 class="box-title"><?= _('Tags') ?></h3>
+      </div>
+      <div class="box-body">
+        <?= $campaign['recipients']['segment_text'] ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="box">
+      <div class="box-header   with-border">
         <?php
           if ($campaign['status'] == "schedule") {
         ?>
-            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <?= _('Schedule') ?></h3>
+            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" checked> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
         <?php
           } else {
         ?>
-            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <?= _('Schedule') ?></h3>
+            <h3 class="box-title"><input type="checkbox" id="checkboxaCampaignSchedule" name="checkboxaCampaignSchedule" <?= ( $campaign['status'] == "sent" && !($campaign['status'] == "schedule") )?"disabled":"" ?>> <label for="checkboxaCampaignSchedule"><?= _('Schedule') ?></h3>
         <?php
           }
         ?>

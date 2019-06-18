@@ -1,7 +1,5 @@
 $(document).ready(function () {
-   var click_checkbox = false;
    window.CRM.editor = null;
-    
  
    function addTagsToMainDropdown()
    {
@@ -27,6 +25,13 @@ $(document).ready(function () {
 
    function render_container ()
    {
+     $("#check_all").prop('checked', false);
+     $("#deleteMembers").prop('disabled', true);
+     $(".addTagButton").prop('disabled', true);
+     $(".addTagButtonDrop").prop('disabled', true);
+     $(".subscribeButton").prop('disabled', true);
+     $(".subscribeButtonDrop").prop('disabled', true);
+     
      if (window.CRM.mailchimpIsActive) {     
         window.CRM.APIRequest({
           method: 'GET',
@@ -134,13 +139,31 @@ $(document).ready(function () {
       var tagID  = $(this).data("id");
       var listID = $(this).data("listid");
       
-      window.CRM.APIRequest({
-        method: 'POST',
-        path: 'mailchimp/list/removeTag',
-        data: JSON.stringify({"list_id":listID ,"tag_ID": tagID})
-      }).done(function(data) {
-         render_container();
-         window.CRM.dataListTable.ajax.reload();
+      bootbox.confirm({
+        title : i18next.t("You're about to delete a tag!"),
+        message: i18next.t("This will also delete the tag for all the members in this list. Are you sure ?"),
+        buttons: {
+            confirm: {
+                label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                className: 'btn-danger'
+            },
+            cancel: {
+                label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
+                className: 'btn-primary'
+            }
+        },
+        callback: function (result) {
+          if (result) {
+            window.CRM.APIRequest({
+              method: 'POST',
+              path: 'mailchimp/list/removeTag',
+              data: JSON.stringify({"list_id":listID ,"tag_ID": tagID})
+            }).done(function(data) {
+               render_container();
+               window.CRM.dataListTable.ajax.reload(null, false);
+            });
+          }
+        }
       });
     });
         
@@ -215,7 +238,7 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":list_id ,"personID": e.params.data.personID})
            }).done(function(data) { 
              if (data.success) {
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
@@ -232,7 +255,7 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":list_id ,"groupID": e.params.data.groupID})
            }).done(function(data) {
              if (data.success) {
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
@@ -248,7 +271,7 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":list_id ,"familyID": e.params.data.familyID})
            }).done(function(data) { 
              if (data.success) {
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
@@ -264,11 +287,11 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":list_id})
            }).done(function(data) { 
              if (data.success) {
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              } else if (data.error) {
                 window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              }
            });
@@ -281,11 +304,11 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":list_id})
            }).done(function(data) { 
              if (data.success) {
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              } else if (data.error) {
                 //window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-                window.CRM.dataListTable.ajax.reload();
+                window.CRM.dataListTable.ajax.reload(null, false);
                 render_container();
              }
            });
@@ -424,7 +447,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
             }).done(function(data) { 
                if (data.success) {
-                 window.CRM.dataListTable.ajax.reload();
+                 window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
                } else if (data.success ==  false && data.error) {
                   window.CRM.closeDialogLoadingFunction();
@@ -444,10 +467,10 @@ $(document).ready(function () {
         buttons: {
             confirm: {
                 label: i18next.t('Yes'),
-                className: 'btn-danger'
+                className: '<i class="fa fa-times"></i> ' +'btn-danger'
             },
             cancel: {
-                label: i18next.t('No'),
+                label: '<i class="fa fa-check"></i> ' +i18next.t('No'),
                 className: 'btn-primary'
             }
         },
@@ -460,7 +483,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"email": email})
             }).done(function(data) { 
                if (data.success) {
-                 window.CRM.dataListTable.ajax.reload();
+                 window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
                } else if (data.success ==  false && data.error) {
                   window.CRM.closeDialogLoadingFunction();
@@ -479,11 +502,11 @@ $(document).ready(function () {
         message: i18next.t("Do you really want to delete this mailing list ?"),
         buttons: {
             confirm: {
-                label: i18next.t('Yes'),
+                label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
                 className: 'btn-danger'
             },
             cancel: {
-                label: i18next.t('No'),
+                label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
                 className: 'btn-primary'
             }
         },
@@ -512,11 +535,11 @@ $(document).ready(function () {
         message: i18next.t("Are you sure you want to delete all the subscribers"),
         buttons: {
             confirm: {
-                label: i18next.t('Yes'),
+                label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
                 className: 'btn-danger'
             },
             cancel: {
-                label: i18next.t('No'),
+                label: '<i class="fa fa-check"></i> ' + i18next.t('No'),
                 className: 'btn-primary'
             }
         },
@@ -530,7 +553,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID})
             }).done(function(data) { 
                if (data.success) {
-                 window.CRM.dataListTable.ajax.reload();
+                 window.CRM.dataListTable.ajax.reload(null, false);
                  render_container();
                }
             });
@@ -583,14 +606,14 @@ $(document).ready(function () {
          size: 'large',
          buttons: [
           {
-           label: i18next.t("Close"),
+           label: '<i class="fa fa-times"></i> ' + i18next.t("Close"),
            className: "btn btn-default",
            callback: function() {
               console.log("just do something on close");
            }
           },
           {
-           label: i18next.t("Save"),
+           label: '<i class="fa fa-check"></i> ' + i18next.t("Save"),
            className: "btn btn-primary",
            callback: function() {
               var campaignTitle =  $('form #CampaignTitle').val();
@@ -612,11 +635,11 @@ $(document).ready(function () {
                         message: i18next.t("Would like to manage directly this new campaign ?"),
                         buttons: {
                             confirm: {
-                                label: i18next.t('Yes'),
+                                label: '<i class="fa fa-check"></i> ' + i18next.t('Yes'),
                                 className: 'btn-primary'
                             },
                             cancel: {
-                                label: i18next.t('No'),
+                                label: '<i class="fa fa-times"></i> ' + i18next.t('No'),
                                 className: 'btn-default'
                             }
                         },
@@ -705,6 +728,12 @@ $(document).ready(function () {
     var state = this.checked;
     $(".checkbox_users").each(function() {
       $(this)[0].checked=state;
+      var tr = $(this).closest("tr");
+      if (state) {
+        $(tr).addClass('selected');
+      } else {
+        $(tr).removeClass('selected');
+      }
     });
     
     $("#deleteMembers").prop('disabled', !(state));
@@ -714,24 +743,15 @@ $(document).ready(function () {
     $(".subscribeButtonDrop").prop('disabled', !(state));
   });
   
-  $(document).on("click",".checkbox_users", function(){
-    click_checkbox = true;
-    changeState ();
-  });
-  
   $('#memberListTable').on('click', 'tr', function () {
-    if (click_checkbox == true) {
-      click_checkbox = false;
-      return;
-    }
-    
+    $(this).toggleClass('selected');
     var table = $('#memberListTable').DataTable();
     var data = table.row( this ).data();
     
     if (data != undefined) {
       var userID = ".checkbox_user_"+data.id;
-      var state = $(userID)[0].checked;
-      $(userID)[0].checked =  !state;
+      var state = $(this).hasClass("selected");
+      $(userID)[0].checked = state;
       changeState ();
     }
   });  
@@ -751,7 +771,7 @@ $(document).ready(function () {
             data: JSON.stringify({"list_id":window.CRM.list_ID ,"status": status,"email": email})
           }).done(function(data) { 
             if (data.success) {
-              window.CRM.dataListTable.ajax.reload();
+              window.CRM.dataListTable.ajax.reload(null, false);
               render_container();
             } else if (data.success ==  false && data.error) {
               window.CRM.closeDialogLoadingFunction();
@@ -777,15 +797,16 @@ $(document).ready(function () {
       }
     });
     
+    
     window.CRM.APIRequest({
         method: 'POST',
         path: 'mailchimp/list/getAllTags',
         data: JSON.stringify({"list_id":window.CRM.list_ID})
     }).done(function(data) {
         var len = data.result.length;
-         
+       
         var res = [{text:i18next.t("All Tags"), value : -1}];
-        
+      
         for (i=0; i<len; ++i) {
           res.push({text:data.result[i].name, value : data.result[i].id});
         }
@@ -804,7 +825,7 @@ $(document).ready(function () {
                   data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
                 }).done(function(data) { 
                   if (data.success) {
-                    window.CRM.dataListTable.ajax.reload();
+                    window.CRM.dataListTable.ajax.reload(null, false);
                     render_container();
                     addTagsToMainDropdown();
                     changeState ();
@@ -813,11 +834,21 @@ $(document).ready(function () {
                     window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                   }
                 });
+              } else if (tag != null) {
+                window.CRM.dialogLoadingFunction( i18next.t('Deleting all tags for the selected members in the list...') );
+    
+                window.CRM.APIRequest({
+                  method: 'POST',
+                  path: 'mailchimp/list/removeAllTagsForMembers',
+                  data: JSON.stringify({"list_id": window.CRM.list_ID,"emails": emails})
+                }).done(function(data) {
+                  window.CRM.dataListTable.ajax.reload(null, false);
+                  render_container();
+                });
               }
             }
         });
     });
-    
   });
   
   
@@ -836,28 +867,34 @@ $(document).ready(function () {
     });
     
     if (tag == -1) {
-      bootbox.prompt("Add your tag name", function(name){ 
-        window.CRM.dialogLoadingFunction( i18next.t('Adding tags...') );
-        window.CRM.APIRequest({
-          method: 'POST',
-          path: 'mailchimp/list/addTag',
-          data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails,"merge": true})
-        }).done(function(data) { 
-          if (data.success) {
-            window.CRM.dataListTable.ajax.reload();
-            render_container();
-            addTagsToMainDropdown();
-            changeState ();
-          } else if (data.success ==  false && data.error) {
-            window.CRM.closeDialogLoadingFunction();
-            window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
-          }
-        });
+      bootbox.prompt("Add your tag name", function(name){
+        if (name != null && name != "") {
+          window.CRM.dialogLoadingFunction( i18next.t('Adding tag...') );
+          window.CRM.APIRequest({
+            method: 'POST',
+            path: 'mailchimp/list/addTag',
+            data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
+          }).done(function(data) { 
+            window.CRM.dialogLoadingFunction( i18next.t('Add all tags for the selected members in the list...') );
+          
+            if (data.success) {
+              window.CRM.dataListTable.ajax.reload(null, false);
+              render_container();
+              addTagsToMainDropdown();
+              changeState ();
+            } else if (data.success ==  false && data.error) {
+              window.CRM.closeDialogLoadingFunction();
+              window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+            }
+          });
+        } else if (name != null) {
+          window.CRM.DisplayAlert(i18next.t("Error"),i18next.t("Name is empty !!"));
+        }
       });
     } else {
       bootbox.confirm({
-          title: i18next.t("Merge datas?"),
-          message: i18next.t("This will add the old persons with the new selected persons."),
+          title: i18next.t("Add tag?"),
+          message: i18next.t("This will add the tag") + " \"" + name + "\" " + i18next.t("to all the current selected members in the list."),
           buttons: {
               cancel: {
                   label: '<i class="fa fa-times"></i> ' + i18next.t("No")
@@ -868,14 +905,14 @@ $(document).ready(function () {
           },
           callback: function (result) {
             if (result) {
-              window.CRM.dialogLoadingFunction( i18next.t('Adding tags...') );
+              window.CRM.dialogLoadingFunction( i18next.t('Adding tag...') );
               window.CRM.APIRequest({
                 method: 'POST',
                 path: 'mailchimp/list/addTag',
-                data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails,"merge": result})
+                data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
               }).done(function(data) { 
                 if (data.success) {
-                  window.CRM.dataListTable.ajax.reload();
+                  window.CRM.dataListTable.ajax.reload(null, false);
                   render_container();
                 } else if (data.success ==  false && data.error) {
                   window.CRM.closeDialogLoadingFunction();

@@ -97,7 +97,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <div class="col-md-2">
                   <div class="btn-group">
-                    <button type="button" class="subscribeButton btn btn-success" disabled><?= _("Subscribe" ) ?></button>
+                    <button type="button" class="subscribeButton btn btn-success" disabled><?= _("Sub/Unsubscribe" ) ?></button>
                     <button type="button" class="subscribeButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
@@ -110,7 +110,7 @@ require $sRootDocument . '/Include/Header.php';
                 </div>
                 <div class="col-md-2">
                   <div class="btn-group">
-                    <button type="button" class="addTagButton btn btn-success" disabled><?= _("Add Tag" ) ?></button>
+                    <button type="button" class="addTagButton btn btn-success"  data-id="-1" data-name="" disabled><?= _("Add/Remove Tag" ) ?></button>
                     <button type="button" class="addTagButtonDrop btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" disabled>
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>

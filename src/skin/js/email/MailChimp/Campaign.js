@@ -127,11 +127,11 @@
         message: i18next.t("You're about to send your campaign! Are you sure ?"),
         buttons: {
             confirm: {
-                label: i18next.t('Yes'),
+                label: '<i class="fa fa-check"></i> ' + i18next.t('Yes'),
                 className: 'btn-success'
             },
             cancel: {
-                label: i18next.t('No'),
+                label: '<i class="fa fa-times"></i> ' + i18next.t('No'),
                 className: 'btn-default'
             }
         },
@@ -159,12 +159,12 @@
         message: i18next.t("You're about to delete your campaign! Are you sure ?"),
         buttons: {
             confirm: {
-                label: i18next.t('Yes'),
-                className: 'btn-success'
+                label: '<i class="fa fa-times"></i> ' + i18next.t('Yes'),
+                className: 'btn-danger'
             },
             cancel: {
-                label: i18next.t('No'),
-                className: 'btn-default'
+                label: '<i class="fa fa-check"></i> ' +  i18next.t('No'),
+                className: 'btn-primary'
             }
         },
         callback: function (result) {
