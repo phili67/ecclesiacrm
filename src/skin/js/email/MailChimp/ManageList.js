@@ -913,6 +913,7 @@ $(document).ready(function () {
               }).done(function(data) { 
                 if (data.success) {
                   window.CRM.dataListTable.ajax.reload(null, false);
+                  window.CRM.closeDialogLoadingFunction();
                   render_container();
                 } else if (data.success ==  false && data.error) {
                   window.CRM.closeDialogLoadingFunction();
@@ -923,5 +924,50 @@ $(document).ready(function () {
           }
       });
     }
+  });
+  
+  
+  $("#deleteMembers").click(function() {
+    var emails = [];
+    
+    $(".checkbox_users").each(function() {
+      if (this.checked) {
+        var email = $(this).data("email");
+
+        emails.push (email);
+      }
+    });
+    
+    bootbox.confirm({
+      message: i18next.t("You're about to delete subscribers! Are you sure ?"),
+      buttons: {
+          confirm: {
+              label: i18next.t('Yes'),
+              className: '<i class="fa fa-times"></i> ' +'btn-danger'
+          },
+          cancel: {
+              label: '<i class="fa fa-check"></i> ' +i18next.t('No'),
+              className: 'btn-primary'
+          }
+      },
+      callback: function (result) {
+        if (result) {
+          window.CRM.dialogLoadingFunction( i18next.t('Deleting Subscribers...') );
+          window.CRM.APIRequest({
+                method: 'POST',
+                path: 'mailchimp/suppressMembers',
+                data: JSON.stringify({"list_id":window.CRM.list_ID ,"emails": emails})
+          }).done(function(data) { 
+             if (data.success) {
+               window.CRM.dataListTable.ajax.reload(null, false);
+               render_container();
+             } else if (data.success ==  false && data.error) {
+                window.CRM.closeDialogLoadingFunction();
+                window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+             }
+          });
+        }
+      }
+    });  
   });
 });
