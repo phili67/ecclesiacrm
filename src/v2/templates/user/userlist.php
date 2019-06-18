@@ -167,7 +167,8 @@ require $sRootDocument . '/Include/Header.php';
             </tbody>
         </table>
         
-        <input type="checkbox" class="check_all"> <?= _("Check all") ?>
+        <input type="checkbox" class="check_all" id="check_all">
+        <label for="check_all"><?= _("Check all") ?></label>
     </div>
     <!-- /.box-body -->
 </div>
