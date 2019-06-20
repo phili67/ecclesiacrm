@@ -9502,9 +9502,8 @@ msgid "Add Teachers to Cart"
 msgstr "Lehrer in Korb hinzuzufügen"
 
 #: sundayschool/SundaySchoolClassView.php:157
-#, fuzzy
 msgid "Add Teachers to the Team"
-msgstr "Lehrer in Korb hinzuzufügen"
+msgstr "Lehrer in Team hinzuzufügen"
 
 #: sundayschool/SundaySchoolClassView.php:180
 msgid "Quick Status"

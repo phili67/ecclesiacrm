@@ -9608,9 +9608,8 @@ msgid "Add Teachers to Cart"
 msgstr "Ajouter les Moniteurs au Panier"
 
 #: sundayschool/SundaySchoolClassView.php:157
-#, fuzzy
 msgid "Add Teachers to the Team"
-msgstr "Ajouter les Moniteurs au Panier"
+msgstr "Ajouter Moniteurs à l'équipe"
 
 #: sundayschool/SundaySchoolClassView.php:180
 msgid "Quick Status"
