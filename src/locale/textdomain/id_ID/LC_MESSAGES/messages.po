@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-18 21:26+0200\n"
+"POT-Creation-Date: 2019-06-20 22:54+0200\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,24 +199,24 @@ msgstr ""
 msgid "Checks"
 msgstr "Hadir"
 
-#: api/routes/mailchimp.php:77 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:78 PeopleDashboard.php:104
 #, fuzzy
 msgid "All People"
 msgstr "Orang"
 
-#: api/routes/mailchimp.php:91
+#: api/routes/mailchimp.php:92
 #, fuzzy
 msgid "newsletter"
 msgstr "Buat label"
 
-#: api/routes/mailchimp.php:126 api/routes/people/people.php:72
+#: api/routes/mailchimp.php:127 api/routes/people/people.php:72
 #: api/routes/people/people.php:124 api/routes/search.php:72
 #: EcclesiaCRM/MenuBar/MenuBar.php:291
 #, fuzzy
 msgid "Persons"
 msgstr "orang dari"
 
-#: api/routes/mailchimp.php:166 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:167 api/routes/people/people.php:163
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:273
 #: EcclesiaCRM/MenuBar/MenuBar.php:297 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
@@ -224,14 +224,14 @@ msgstr "orang dari"
 msgid "Families"
 msgstr "Keluarga"
 
-#: api/routes/mailchimp.php:204 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:205 api/routes/people/people.php:200
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:54
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
 #: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
 msgid "Groups"
 msgstr ""
 
-#: api/routes/mailchimp.php:968
+#: api/routes/mailchimp.php:996
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr ""
 
@@ -266,12 +266,13 @@ msgstr "Non-aktif"
 msgid "Family Activated"
 msgstr "Non-aktif"
 
-#: api/routes/people/people-groups.php:468
+#: api/routes/people/people-groups.php:465
 #, fuzzy
 msgid "Deleted from group"
 msgstr "Pilih Group"
 
-#: api/routes/people/people-groups.php:500
+#: api/routes/people/people-groups.php:497
+#: api/routes/people/people-groups.php:531
 #, fuzzy
 msgid "Added to group"
 msgstr "Tambahkan ke Group"
@@ -617,7 +618,7 @@ msgstr "Telepon"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:190 Reports/ConfirmReport.php:209
 #: Reports/DirectoryReport.php:316 Reports/GroupReport.php:138
-#: sundayschool/SundaySchoolClassView.php:100 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:62 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -823,7 +824,7 @@ msgstr "Buat File"
 #: PaddleNumList.php:55 PersonView.php:1505 PersonView.php:1582
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
-#: v2/templates/email/mailchimp/managelist.php:96
+#: v2/templates/email/mailchimp/managelist.php:94
 #: v2/templates/people/pastoralcare.php:107
 #: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
@@ -1314,7 +1315,7 @@ msgid "Email Cart"
 msgstr "Cart Email"
 
 #: CartView.php:176 FamilyView.php:413 GroupView.php:184 PersonView.php:608
-#: sundayschool/SundaySchoolClassView.php:112
+#: sundayschool/SundaySchoolClassView.php:71
 msgid "Email (BCC)"
 msgstr "Email (BCC)"
 
@@ -1499,8 +1500,8 @@ msgstr ""
 #: Checkin.php:552 CSVExport.php:333 CSVImport.php:241 FamilyEditor.php:1053
 #: PersonEditor.php:830 PrintPastoralCare.php:311 PrintPastoralCare.php:448
 #: PrintView.php:322 PrintView.php:459
-#: sundayschool/SundaySchoolClassView.php:250
-#: sundayschool/SundaySchoolClassView.php:397 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:210
+#: sundayschool/SundaySchoolClassView.php:301 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Jenis Kelamin"
 
@@ -1537,7 +1538,7 @@ msgstr ""
 msgid "Uncheck all"
 msgstr ""
 
-#: Checkin.php:677 v2/templates/email/mailchimp/managelist.php:88
+#: Checkin.php:677 v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/user/userlist.php:171
 #, fuzzy
 msgid "Check all"
@@ -1774,7 +1775,7 @@ msgstr "Email Kerja / Lainnya"
 
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:49
-#: sundayschool/SundaySchoolClassView.php:396
+#: sundayschool/SundaySchoolClassView.php:300
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Birth Date"
 msgstr "Tanggal Lahir"
@@ -4421,7 +4422,7 @@ msgid "Group Assignment Helper"
 msgstr ""
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:120
-#: sundayschool/SundaySchoolClassView.php:42
+#: sundayschool/SundaySchoolClassView.php:38
 msgid "Sunday School"
 msgstr ""
 
@@ -4879,7 +4880,7 @@ msgstr ""
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:98
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:184
+#: sundayschool/SundaySchoolClassView.php:141
 #: sundayschool/SundaySchoolDashboard.php:95
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Teachers"
@@ -4899,7 +4900,7 @@ msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:194
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:273
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:233
 #: sundayschool/SundaySchoolDashboard.php:106
 #: sundayschool/SundaySchoolDashboard.php:168
 msgid "Students"
@@ -5351,7 +5352,7 @@ msgid "Delele All Attendees"
 msgstr ""
 
 #: EditEventAttendees.php:147 EditEventAttendees.php:149 ListEvents.php:493
-#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:138
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:95
 #, fuzzy
 msgid "Make Check-out"
 msgstr "Pulang"
@@ -7214,7 +7215,8 @@ msgstr "Keanggotaan Kelompok"
 msgid "Manage Group Members"
 msgstr "Keanggotaan Kelompok"
 
-#: GroupView.php:489 sundayschool/SundaySchoolClassView.php:369
+#: GroupView.php:489 sundayschool/SundaySchoolClassView.php:162
+#: sundayschool/SundaySchoolClassView.php:276
 #: sundayschool/SundaySchoolDashboard.php:291
 #, fuzzy
 msgid "Add"
@@ -7307,7 +7309,7 @@ msgstr ""
 msgid "Please contact your admin to change the system settings."
 msgstr ""
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:135
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:138
 msgid "Edit General Settings"
 msgstr ""
 
@@ -8119,7 +8121,7 @@ msgid "Visible only in PersonView"
 msgstr ""
 
 #: OptionManager.php:501 OptionManager.php:505
-#: sundayschool/SundaySchoolClassView.php:73
+#: sundayschool/SundaySchoolClassView.php:47
 msgid "Exit"
 msgstr ""
 
@@ -9751,144 +9753,108 @@ msgstr "Email"
 msgid "Properties"
 msgstr "Peran Keluarga"
 
-#: sundayschool/SundaySchoolClassView.php:72
+#: sundayschool/SundaySchoolClassView.php:46
 msgid ""
 "To add students to this class, simply add them with the select field at the "
 "bottom of this page."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:73
+#: sundayschool/SundaySchoolClassView.php:47
 msgid ""
 "You're now in edition mode. To see the entire page again, click the button"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:80
+#: sundayschool/SundaySchoolClassView.php:54
 msgid "Sunday School Class Functions"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:103
-#: sundayschool/SundaySchoolClassView.php:115
+#: sundayschool/SundaySchoolClassView.php:65
+#: sundayschool/SundaySchoolClassView.php:74
 msgid "Toggle Dropdown"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:126
+#: sundayschool/SundaySchoolClassView.php:83
 #, fuzzy
 msgid "Add Students"
 msgstr "Tambah Pembayaran"
 
-#: sundayschool/SundaySchoolClassView.php:130
+#: sundayschool/SundaySchoolClassView.php:87
 msgid "Edit this Class"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:131
+#: sundayschool/SundaySchoolClassView.php:88
 #, fuzzy
 msgid "Delete this Class"
 msgstr "Pilih Group"
 
-#: sundayschool/SundaySchoolClassView.php:145
-#: sundayschool/SundaySchoolClassView.php:150
+#: sundayschool/SundaySchoolClassView.php:102
+#: sundayschool/SundaySchoolClassView.php:107
 msgid "Export Attendance"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:152
+#: sundayschool/SundaySchoolClassView.php:109
 #, fuzzy
 msgid "Student Badges"
 msgstr "Tambah Pembayaran"
 
-#: sundayschool/SundaySchoolClassView.php:159
+#: sundayschool/SundaySchoolClassView.php:116
 msgid "Remove Students from Cart"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:163
+#: sundayschool/SundaySchoolClassView.php:120
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: sundayschool/SundaySchoolClassView.php:170
+#: sundayschool/SundaySchoolClassView.php:127
 msgid "Remove Teachers from Cart"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:174
+#: sundayschool/SundaySchoolClassView.php:131
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: sundayschool/SundaySchoolClassView.php:203
-#: sundayschool/SundaySchoolClassView.php:350
-msgid "Send Message"
-msgstr ""
+#: sundayschool/SundaySchoolClassView.php:157
+#, fuzzy
+msgid "Add Teachers to the Team"
+msgstr "Tambahkan Individu ke Keranjang."
 
-#: sundayschool/SundaySchoolClassView.php:205
-msgid "View Profile"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:220
+#: sundayschool/SundaySchoolClassView.php:180
 msgid "Quick Status"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:235
+#: sundayschool/SundaySchoolClassView.php:195
 #, fuzzy
 msgid "Birthdays by Month"
 msgstr "Tanggal Lahir"
 
-#: sundayschool/SundaySchoolClassView.php:262
+#: sundayschool/SundaySchoolClassView.php:222
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Bulan Kadaluarsa"
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 msgid "On"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 msgid "Off"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:280
+#: sundayschool/SundaySchoolClassView.php:240
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:281
+#: sundayschool/SundaySchoolClassView.php:241
 msgid "Showing students with gender"
 msgstr ""
 
-#: sundayschool/SundaySchoolClassView.php:312
-msgid "Compose New Message"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:317
-#, fuzzy
-msgid "Kids Emails"
-msgstr "Email"
-
-#: sundayschool/SundaySchoolClassView.php:322
-#, fuzzy
-msgid "Parents Emails"
-msgstr "E-mail pribadi"
-
-#: sundayschool/SundaySchoolClassView.php:327
-#, fuzzy
-msgid "Teachers Emails"
-msgstr "E-mail pribadi"
-
-#: sundayschool/SundaySchoolClassView.php:337
-msgid "Attachment"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:340
-msgid "Max. 32MB"
-msgstr ""
-
-#: sundayschool/SundaySchoolClassView.php:347
-#, fuzzy
-msgid "Discard"
-msgstr "Penolakan"
-
-#: sundayschool/SundaySchoolClassView.php:364
+#: sundayschool/SundaySchoolClassView.php:271
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Tambahkan Cart di Group"
@@ -10729,45 +10695,45 @@ msgstr ""
 msgid "Increase this value is unstable with MailChimp API."
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:100
+#: v2/templates/email/mailchimp/managelist.php:98
 msgid "Sub/Unsubscribe"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:106
+#: v2/templates/email/mailchimp/managelist.php:104
 msgid "Subscribed"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:107
+#: v2/templates/email/mailchimp/managelist.php:105
 msgid "Unsubscribed"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:111
 #, fuzzy
 msgid "Add/Remove Tag"
 msgstr "Hapus"
 
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:137
 #, fuzzy
 msgid "is not configured"
 msgstr "Belum terkonfirmasi"
 
-#: v2/templates/email/mailchimp/managelist.php:135
+#: v2/templates/email/mailchimp/managelist.php:138
 msgid "Please update the"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:135
+#: v2/templates/email/mailchimp/managelist.php:138
 msgid "API key in Setting->"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "then update"
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "For more info see our "
 msgstr ""
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "support docs."
 msgstr ""
 
@@ -11658,6 +11624,22 @@ msgstr ""
 #, fuzzy
 msgid "Empty"
 msgstr "Kosongkan Cart"
+
+#, fuzzy
+#~ msgid "Kids Emails"
+#~ msgstr "Email"
+
+#, fuzzy
+#~ msgid "Parents Emails"
+#~ msgstr "E-mail pribadi"
+
+#, fuzzy
+#~ msgid "Teachers Emails"
+#~ msgstr "E-mail pribadi"
+
+#, fuzzy
+#~ msgid "Discard"
+#~ msgstr "Penolakan"
 
 #, fuzzy
 #~ msgid "Email Audiences"

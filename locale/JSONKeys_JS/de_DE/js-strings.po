@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-18T19:26:01.765Z\n"
+"POT-Creation-Date: 2019-06-20T20:54:12.707Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1418,6 +1418,23 @@ msgstr "Aktiv"
 msgid "Add New Volunteer Opportunity"
 msgstr "Hinzuzufügen zu Freiwillige Gelegenheit"
 
+msgid "Send Message"
+msgstr "Nachricht senden"
+
+msgid "View Profile"
+msgstr "Ansichtsprofil"
+
+msgid "Teachers"
+msgstr "Lehrer"
+
+msgid "Delete this Teacher?"
+msgstr "Löschen diese Lehrer ?"
+
+msgid "Do you want to delete this teacher? This cannot be undone."
+msgstr ""
+"Wollen Sie diese Lehre löschen ?  Dieser Vorgang kann nicht rückgängig "
+"gemacht werden."
+
 msgid "First name"
 msgstr "Vorname "
 
@@ -1837,6 +1854,12 @@ msgstr "Dass will ein Tag Hinzufügen"
 
 msgid "to all the current selected members in the list."
 msgstr "für alle Mitglieder."
+
+msgid "You're about to delete subscribers! Are you sure ?"
+msgstr "Sie sind im Begriff, eine Teilnehmer zu löschen ! Sind sie sicher?"
+
+msgid "Deleting Subscribers..."
+msgstr "Teilnehmers Löschen ..."
 
 #, fuzzy
 #~ msgid "Audience Creation"
