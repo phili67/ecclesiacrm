@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-18 21:26+0200\n"
+"POT-Creation-Date: 2019-06-20 22:54+0200\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,21 +194,21 @@ msgstr "Espèce"
 msgid "Checks"
 msgstr "Chèques"
 
-#: api/routes/mailchimp.php:77 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:78 PeopleDashboard.php:104
 msgid "All People"
 msgstr "Toutes les personnes"
 
-#: api/routes/mailchimp.php:91
+#: api/routes/mailchimp.php:92
 msgid "newsletter"
 msgstr "newsletter"
 
-#: api/routes/mailchimp.php:126 api/routes/people/people.php:72
+#: api/routes/mailchimp.php:127 api/routes/people/people.php:72
 #: api/routes/people/people.php:124 api/routes/search.php:72
 #: EcclesiaCRM/MenuBar/MenuBar.php:291
 msgid "Persons"
 msgstr "Personnes"
 
-#: api/routes/mailchimp.php:166 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:167 api/routes/people/people.php:163
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:273
 #: EcclesiaCRM/MenuBar/MenuBar.php:297 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
@@ -216,14 +216,14 @@ msgstr "Personnes"
 msgid "Families"
 msgstr "Familles"
 
-#: api/routes/mailchimp.php:204 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:205 api/routes/people/people.php:200
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:54
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
 #: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
 msgid "Groups"
 msgstr "Groupes"
 
-#: api/routes/mailchimp.php:968
+#: api/routes/mailchimp.php:996
 msgid "SMTP Host is not setup, please visit the settings page"
 msgstr "L'hôte SMTP est non configuré, aller dans la page de réglages"
 
@@ -258,11 +258,12 @@ msgstr " Famille désactivée"
 msgid "Family Activated"
 msgstr " Famille désactivée"
 
-#: api/routes/people/people-groups.php:468
+#: api/routes/people/people-groups.php:465
 msgid "Deleted from group"
 msgstr "Supprimé du groupe"
 
-#: api/routes/people/people-groups.php:500
+#: api/routes/people/people-groups.php:497
+#: api/routes/people/people-groups.php:531
 msgid "Added to group"
 msgstr "Ajouté au groupe"
 
@@ -599,7 +600,7 @@ msgstr "Téléphone"
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:190 Reports/ConfirmReport.php:209
 #: Reports/DirectoryReport.php:316 Reports/GroupReport.php:138
-#: sundayschool/SundaySchoolClassView.php:100 queryparameteroptions_qpo.php:13
+#: sundayschool/SundaySchoolClassView.php:62 queryparameteroptions_qpo.php:13
 msgid "Email"
 msgstr "Email"
 
@@ -805,7 +806,7 @@ msgstr "Créer un dossier"
 #: PaddleNumList.php:55 PersonView.php:1505 PersonView.php:1582
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
-#: v2/templates/email/mailchimp/managelist.php:96
+#: v2/templates/email/mailchimp/managelist.php:94
 #: v2/templates/people/pastoralcare.php:107
 #: v2/templates/people/pastoralcare.php:116
 msgid "Delete"
@@ -1300,7 +1301,7 @@ msgid "Email Cart"
 msgstr "Envoyer un Email au panier"
 
 #: CartView.php:176 FamilyView.php:413 GroupView.php:184 PersonView.php:608
-#: sundayschool/SundaySchoolClassView.php:112
+#: sundayschool/SundaySchoolClassView.php:71
 msgid "Email (BCC)"
 msgstr "Email (CCI)"
 
@@ -1475,8 +1476,8 @@ msgstr "Liste"
 #: Checkin.php:552 CSVExport.php:333 CSVImport.php:241 FamilyEditor.php:1053
 #: PersonEditor.php:830 PrintPastoralCare.php:311 PrintPastoralCare.php:448
 #: PrintView.php:322 PrintView.php:459
-#: sundayschool/SundaySchoolClassView.php:250
-#: sundayschool/SundaySchoolClassView.php:397 queryparameters_qrp.php:4
+#: sundayschool/SundaySchoolClassView.php:210
+#: sundayschool/SundaySchoolClassView.php:301 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Sexe"
 
@@ -1513,7 +1514,7 @@ msgstr "Absent"
 msgid "Uncheck all"
 msgstr "Décocher tout"
 
-#: Checkin.php:677 v2/templates/email/mailchimp/managelist.php:88
+#: Checkin.php:677 v2/templates/email/mailchimp/managelist.php:86
 #: v2/templates/user/userlist.php:171
 msgid "Check all"
 msgstr "Tout cocher"
@@ -1745,7 +1746,7 @@ msgstr "Email professionnel ou autre"
 
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:49
-#: sundayschool/SundaySchoolClassView.php:396
+#: sundayschool/SundaySchoolClassView.php:300
 #: sundayschool/SundaySchoolDashboard.php:219
 msgid "Birth Date"
 msgstr "Date de naissance"
@@ -4472,7 +4473,7 @@ msgid "Group Assignment Helper"
 msgstr "Attribuer membre au groupe"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:120
-#: sundayschool/SundaySchoolClassView.php:42
+#: sundayschool/SundaySchoolClassView.php:38
 msgid "Sunday School"
 msgstr "École du dimanche"
 
@@ -4896,7 +4897,7 @@ msgstr "Classique"
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:98
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
 #: Reports/ClassList.php:173 Reports/PhotoBook.php:68
-#: sundayschool/SundaySchoolClassView.php:184
+#: sundayschool/SundaySchoolClassView.php:141
 #: sundayschool/SundaySchoolDashboard.php:95
 #: sundayschool/SundaySchoolDashboard.php:167
 msgid "Teachers"
@@ -4916,7 +4917,7 @@ msgstr "Fille"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:194
 #: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:273
+#: Reports/PhotoBook.php:70 sundayschool/SundaySchoolClassView.php:233
 #: sundayschool/SundaySchoolDashboard.php:106
 #: sundayschool/SundaySchoolDashboard.php:168
 msgid "Students"
@@ -5355,7 +5356,7 @@ msgid "Delele All Attendees"
 msgstr "Supprimer tous les participants"
 
 #: EditEventAttendees.php:147 EditEventAttendees.php:149 ListEvents.php:493
-#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:138
+#: ListEvents.php:494 sundayschool/SundaySchoolClassView.php:95
 msgid "Make Check-out"
 msgstr "Faire l'appel"
 
@@ -7118,7 +7119,8 @@ msgstr "Membres du Groupe:"
 msgid "Manage Group Members"
 msgstr "Gestion des membres du groupe"
 
-#: GroupView.php:489 sundayschool/SundaySchoolClassView.php:369
+#: GroupView.php:489 sundayschool/SundaySchoolClassView.php:162
+#: sundayschool/SundaySchoolClassView.php:276
 #: sundayschool/SundaySchoolDashboard.php:291
 msgid "Add"
 msgstr "Ajouter"
@@ -7204,7 +7206,7 @@ msgid "Please contact your admin to change the system settings."
 msgstr ""
 "Veuillez contacter votre administrateur pour changer les Réglages du Système."
 
-#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:135
+#: Include/Footer.php:201 v2/templates/email/mailchimp/managelist.php:138
 msgid "Edit General Settings"
 msgstr "Modifier les Réglages Généraux"
 
@@ -8002,7 +8004,7 @@ msgid "Visible only in PersonView"
 msgstr "Visible seulement dans PersonView"
 
 #: OptionManager.php:501 OptionManager.php:505
-#: sundayschool/SundaySchoolClassView.php:73
+#: sundayschool/SundaySchoolClassView.php:47
 msgid "Exit"
 msgstr "Quitter"
 
@@ -9546,7 +9548,7 @@ msgstr "Email de la mère"
 msgid "Properties"
 msgstr "Propriétés"
 
-#: sundayschool/SundaySchoolClassView.php:72
+#: sundayschool/SundaySchoolClassView.php:46
 msgid ""
 "To add students to this class, simply add them with the select field at the "
 "bottom of this page."
@@ -9554,130 +9556,98 @@ msgstr ""
 "Pour ajouter des étudiants à cette classe, allez en bas de page et utilisez "
 "le champ de texte de sélection."
 
-#: sundayschool/SundaySchoolClassView.php:73
+#: sundayschool/SundaySchoolClassView.php:47
 msgid ""
 "You're now in edition mode. To see the entire page again, click the button"
 msgstr ""
 "Vous êtes en mode édition. Pour revoir la page en entier, cliquez le button"
 
-#: sundayschool/SundaySchoolClassView.php:80
+#: sundayschool/SundaySchoolClassView.php:54
 msgid "Sunday School Class Functions"
 msgstr "Fonctions de l&#39;école du dimanche"
 
-#: sundayschool/SundaySchoolClassView.php:103
-#: sundayschool/SundaySchoolClassView.php:115
+#: sundayschool/SundaySchoolClassView.php:65
+#: sundayschool/SundaySchoolClassView.php:74
 msgid "Toggle Dropdown"
 msgstr "Menu déroulant"
 
-#: sundayschool/SundaySchoolClassView.php:126
+#: sundayschool/SundaySchoolClassView.php:83
 msgid "Add Students"
 msgstr "Ajouter des étudiants"
 
-#: sundayschool/SundaySchoolClassView.php:130
+#: sundayschool/SundaySchoolClassView.php:87
 msgid "Edit this Class"
 msgstr "Editer la classe"
 
-#: sundayschool/SundaySchoolClassView.php:131
+#: sundayschool/SundaySchoolClassView.php:88
 msgid "Delete this Class"
 msgstr "Supprimer la classe"
 
-#: sundayschool/SundaySchoolClassView.php:145
-#: sundayschool/SundaySchoolClassView.php:150
+#: sundayschool/SundaySchoolClassView.php:102
+#: sundayschool/SundaySchoolClassView.php:107
 msgid "Export Attendance"
 msgstr "Fichiers des présents"
 
-#: sundayschool/SundaySchoolClassView.php:152
+#: sundayschool/SundaySchoolClassView.php:109
 msgid "Student Badges"
 msgstr "Badges Etudiants"
 
-#: sundayschool/SundaySchoolClassView.php:159
+#: sundayschool/SundaySchoolClassView.php:116
 msgid "Remove Students from Cart"
 msgstr "Supprimer les Etudiants du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:163
+#: sundayschool/SundaySchoolClassView.php:120
 msgid "Add Students to Cart"
 msgstr "Ajouter les Etudiants au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:170
+#: sundayschool/SundaySchoolClassView.php:127
 msgid "Remove Teachers from Cart"
 msgstr "Supprimer les Moniteurs du Panier"
 
-#: sundayschool/SundaySchoolClassView.php:174
+#: sundayschool/SundaySchoolClassView.php:131
 msgid "Add Teachers to Cart"
 msgstr "Ajouter les Moniteurs au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:203
-#: sundayschool/SundaySchoolClassView.php:350
-msgid "Send Message"
-msgstr "Envoyer un message"
+#: sundayschool/SundaySchoolClassView.php:157
+#, fuzzy
+msgid "Add Teachers to the Team"
+msgstr "Ajouter les Moniteurs au Panier"
 
-#: sundayschool/SundaySchoolClassView.php:205
-msgid "View Profile"
-msgstr "Voir le profil"
-
-#: sundayschool/SundaySchoolClassView.php:220
+#: sundayschool/SundaySchoolClassView.php:180
 msgid "Quick Status"
 msgstr "Statut rapide"
 
-#: sundayschool/SundaySchoolClassView.php:235
+#: sundayschool/SundaySchoolClassView.php:195
 msgid "Birthdays by Month"
 msgstr "Anniversaires par mois"
 
-#: sundayschool/SundaySchoolClassView.php:262
+#: sundayschool/SundaySchoolClassView.php:222
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 "Cliquer les parties du diagramme en bâtons ou circulaire pour interagir avec "
 "le tableau ci-dessous."
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 msgid "Edition Mode"
 msgstr "Mode édition"
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 msgid "On"
 msgstr "Actif"
 
-#: sundayschool/SundaySchoolClassView.php:275
+#: sundayschool/SundaySchoolClassView.php:235
 msgid "Off"
 msgstr "Inactif"
 
-#: sundayschool/SundaySchoolClassView.php:280
+#: sundayschool/SundaySchoolClassView.php:240
 msgid "Showing students with birthdays in"
 msgstr "Afficher les étudiants dont l'anniversaire est en"
 
-#: sundayschool/SundaySchoolClassView.php:281
+#: sundayschool/SundaySchoolClassView.php:241
 msgid "Showing students with gender"
 msgstr "Afficher les étudiants dont le sexe est"
 
-#: sundayschool/SundaySchoolClassView.php:312
-msgid "Compose New Message"
-msgstr "Composer un nouveau message"
-
-#: sundayschool/SundaySchoolClassView.php:317
-msgid "Kids Emails"
-msgstr "Emails des enfants"
-
-#: sundayschool/SundaySchoolClassView.php:322
-msgid "Parents Emails"
-msgstr "Email des Parents"
-
-#: sundayschool/SundaySchoolClassView.php:327
-msgid "Teachers Emails"
-msgstr "Email des Moniteurs"
-
-#: sundayschool/SundaySchoolClassView.php:337
-msgid "Attachment"
-msgstr "Pièce jointe"
-
-#: sundayschool/SundaySchoolClassView.php:340
-msgid "Max. 32MB"
-msgstr "Maximum 32MB"
-
-#: sundayschool/SundaySchoolClassView.php:347
-msgid "Discard"
-msgstr "Rejeter"
-
-#: sundayschool/SundaySchoolClassView.php:364
+#: sundayschool/SundaySchoolClassView.php:271
 msgid "Add Members to Sunday Group"
 msgstr "Ajouter des membres au groupe école du dimanche"
 
@@ -10507,43 +10477,43 @@ msgstr ""
 msgid "Increase this value is unstable with MailChimp API."
 msgstr "Augmenter cette valeur peut être instable avec l'API MailChimp."
 
-#: v2/templates/email/mailchimp/managelist.php:100
+#: v2/templates/email/mailchimp/managelist.php:98
 msgid "Sub/Unsubscribe"
 msgstr "Abon./désabonné"
 
-#: v2/templates/email/mailchimp/managelist.php:106
+#: v2/templates/email/mailchimp/managelist.php:104
 msgid "Subscribed"
 msgstr "Abonné"
 
-#: v2/templates/email/mailchimp/managelist.php:107
+#: v2/templates/email/mailchimp/managelist.php:105
 msgid "Unsubscribed"
 msgstr "Désabonné"
 
-#: v2/templates/email/mailchimp/managelist.php:113
+#: v2/templates/email/mailchimp/managelist.php:111
 msgid "Add/Remove Tag"
 msgstr "Ajout/Supp. Etiq."
 
-#: v2/templates/email/mailchimp/managelist.php:134
+#: v2/templates/email/mailchimp/managelist.php:137
 msgid "is not configured"
 msgstr "n'est pas configuré"
 
-#: v2/templates/email/mailchimp/managelist.php:135
+#: v2/templates/email/mailchimp/managelist.php:138
 msgid "Please update the"
 msgstr "Veuillez mettre à jour le"
 
-#: v2/templates/email/mailchimp/managelist.php:135
+#: v2/templates/email/mailchimp/managelist.php:138
 msgid "API key in Setting->"
 msgstr "Clé API dans Réglages->"
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "then update"
 msgstr "puis mettre à jour"
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "For more info see our "
 msgstr "Pour plus d'infos voir notre "
 
-#: v2/templates/email/mailchimp/managelist.php:136
+#: v2/templates/email/mailchimp/managelist.php:139
 msgid "support docs."
 msgstr "documentations."
 
@@ -11425,6 +11395,33 @@ msgstr "En pause"
 
 msgid "Empty"
 msgstr "Vide"
+
+#~ msgid "Send Message"
+#~ msgstr "Envoyer un message"
+
+#~ msgid "View Profile"
+#~ msgstr "Voir le profil"
+
+#~ msgid "Compose New Message"
+#~ msgstr "Composer un nouveau message"
+
+#~ msgid "Kids Emails"
+#~ msgstr "Emails des enfants"
+
+#~ msgid "Parents Emails"
+#~ msgstr "Email des Parents"
+
+#~ msgid "Teachers Emails"
+#~ msgstr "Email des Moniteurs"
+
+#~ msgid "Attachment"
+#~ msgstr "Pièce jointe"
+
+#~ msgid "Max. 32MB"
+#~ msgstr "Maximum 32MB"
+
+#~ msgid "Discard"
+#~ msgstr "Rejeter"
 
 #, fuzzy
 #~ msgid "Email Audiences"
