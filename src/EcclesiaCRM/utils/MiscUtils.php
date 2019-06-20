@@ -1136,15 +1136,19 @@ public static function FileSizeConvert($bytes)
   
   public static function generateGroupRoleEmailDropdown($roleEmails, $href)
   {
+      $res = "";
+
       foreach ($roleEmails as $role => $Email) {
           if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($Email, SystemConfig::getValue('sToEmailAddress'))) {
               $Email .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
           }
           $Email = urlencode($Email);  // Mailto should comply with RFC 2368
-      ?>
-        <li> <a href="<?= $href.mb_substr($Email, 0, -3) ?>"><?= _($role) ?></a></li>
-      <?php
+
+        $res .= '<li> <a href="'. $href.mb_substr($Email, 0, -3) .'">'. _($role) . '</a></li>';
+
       }
+
+      return $res;
   }
   
   public static function ConvertToBoolean($sInput)
