@@ -9,15 +9,12 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Note;
-use EcclesiaCRM\ListOption;
 use EcclesiaCRM\ListOptionQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\GroupManagerPerson;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Property;
 use EcclesiaCRM\Map\PropertyTableMap;
 use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Service\GroupService;
@@ -25,21 +22,13 @@ use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\GroupTypeQuery;
 use EcclesiaCRM\GroupType;
 use EcclesiaCRM\GroupPropMasterQuery;
+use EcclesiaCRM\Service\SundaySchoolService;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\Utils\MiscUtils;
 
-use Sabre\CalDAV;
-use Sabre\CardDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 
-use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
-use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
 
 
@@ -94,7 +83,7 @@ $app->group('/groups', function () {
 
       return $response;
     });
-    
+
     $this->get('/search/{query}', "searchGroup" );
     
     $this->post('/deleteAllManagers', "deleteAllManagers" );
@@ -103,7 +92,7 @@ $app->group('/groups', function () {
     $this->post('/addManager', "addManager" );
     
     $this->get('/groupsInCart', "groupsInCart" );
-    
+
     $this->post('/', "newGroup" );
     $this->post('/{groupID:[0-9]+}', "updateGroup" );
     $this->get('/{groupID:[0-9]+}', "groupInfo" );
@@ -112,10 +101,11 @@ $app->group('/groups', function () {
     $this->get('/{groupID:[0-9]+}/members', "groupMembers" );
     
     $this->get('/{groupID:[0-9]+}/events', "groupEvents" );
-    
+
     $this->delete('/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}', "removePersonFromGroup" );
     $this->post('/{groupID:[0-9]+}/addperson/{userID:[0-9]+}', "addPersonToGroup" );
-    
+    $this->post('/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}', "addTeacherToGroup" );
+
     $this->post('/{groupID:[0-9]+}/userRole/{userID:[0-9]+}', "userRoleByUserId" );
     $this->post('/{groupID:[0-9]+}/roles/{roleID:[0-9]+}', "rolesByRoleId" );
     $this->get('/{groupID:[0-9]+}/roles', "allRoles" );
@@ -168,6 +158,13 @@ $app->group('/groups', function () {
  * #! param: id->int :: GroupId as id
  */
     $this->post('/downactionfield', "downactionGroupField" );
+
+    /*
+     * @! get all sundayschool teachers
+     * #! param: id->int :: groupID as id
+     */
+
+    $this->get('/{groupID:[0-9]+}/sundayschool', "groupSundaySchool" );
 });
 
 
@@ -509,6 +506,40 @@ function addPersonToGroup ($request, $response, $args) {
     echo $members->toJSON();
 }
 
+function addTeacherToGroup ($request, $response, $args) {
+    $groupID = $args['groupID'];
+    $userID = $args['userID'];
+    $person = PersonQuery::create()->findPk($userID);
+    $input = (object) $request->getParsedBody();
+    $group = GroupQuery::create()->findPk($groupID);
+    $p2g2r = Person2group2roleP2g2rQuery::create()
+        ->filterByGroupId($groupID)
+        ->filterByPersonId($userID)
+        ->findOneOrCreate();
+    if($input->RoleID)
+    {
+        $p2g2r->setRoleId($input->RoleID);
+    }
+    else
+    {
+        $p2g2r->setRoleId($group->getDefaultRole());
+    }
+
+    $group->addPerson2group2roleP2g2r($p2g2r);
+    $group->save();
+    $note = new Note();
+    $note->setText(gettext("Added to group"). ": " . $group->getName());
+    $note->setType("group");
+    $note->setEntered(SessionUser::getUser()->getPersonId());
+    $note->setPerId($person->getId());
+    $note->save();
+    $members = EcclesiaCRM\Person2group2roleP2g2rQuery::create()
+        ->joinWithPerson()
+        ->filterByPersonId($input->PersonID)
+        ->findByGroupId($GroupID);
+    echo $members->toJSON();
+}
+
 function userRoleByUserId ($request, $response, $args) {
     $groupID = $args['groupID'];
     $userID = $args['userID'];
@@ -679,4 +710,57 @@ function downactionGroupField (Request $request, Response $response, array $args
   }
   
   return $response->withJson(['success' => false]);
+}
+
+function groupSundaySchool (Request $request, Response $response, array $args) {
+    if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+        return $response->withStatus(404);
+    }
+
+    $iGroupId = $args['groupID'];
+
+    $sundaySchoolService = new SundaySchoolService();
+
+    $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
+
+    $TeachersEmails = [];
+    $KidsEmails = [];
+    $ParentsEmails = [];
+
+    $thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
+
+    foreach ($thisClassChildren as $child) {
+        if ($child['dadEmail'] != '') {
+            array_push($ParentsEmails, $child['dadEmail']);
+        }
+        if ($child['momEmail'] != '') {
+            array_push($ParentsEmails, $child['momEmail']);
+        }
+        if ($child['kidEmail'] != '') {
+            array_push($KidsEmails, $child['kidEmail']);
+        }
+    }
+
+    foreach ($rsTeachers as $teacher) {
+        array_push($TeachersEmails, $teacher['per_Email']);
+    }
+
+    $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
+    $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
+    $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
+    $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
+    $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
+
+    // Add default email if default email has been set and is not already in string
+    if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
+        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
+    }
+    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
+
+    $emailLink = mb_substr($sEmailLink, 0, -3);
+
+    $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
+    $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
+
+    return $response->withJson(['success' => true, "teachers" => $rsTeachers, "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
 }

@@ -176,7 +176,7 @@ require 'Include/Header.php';
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
+            <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
           </ul>
         </div>
 
@@ -187,7 +187,7 @@ require 'Include/Header.php';
             <span class="sr-only">Toggle Dropdown</span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
+            <?= MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
           </ul>
         </div>
 

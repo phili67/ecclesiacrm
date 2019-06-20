@@ -3,12 +3,9 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\Utils\OutputUtils;
-use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\SessionUser;
@@ -21,10 +18,9 @@ if (isset($_GET['groupId'])) {
     $iGroupId = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
 }
 
-$ormSundaySchoolClass = GroupQuery::Create()
-                        ->findOneById ($iGroupId);
-
-$iGroupName = $ormSundaySchoolClass->getName();
+$iGroupName = GroupQuery::Create()
+    ->findOneById ($iGroupId)
+    ->getName();
 
 $birthDayMonthChartArray = [];
 foreach ($sundaySchoolService->getKidsBirthdayMonth($iGroupId) as $birthDayMonth => $kidsCount) {
@@ -40,28 +36,6 @@ $genderChartJSON = implode(',', $genderChartArray);
 
 $rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
 $sPageTitle = _('Sunday School').': '.$iGroupName;
-
-$TeachersEmails = [];
-$KidsEmails = [];
-$ParentsEmails = [];
-
-$thisClassChildren = $sundaySchoolService->getKidsFullDetails($iGroupId);
-
-foreach ($thisClassChildren as $child) {
-    if ($child['dadEmail'] != '') {
-        array_push($ParentsEmails, $child['dadEmail']);
-    }
-    if ($child['momEmail'] != '') {
-        array_push($ParentsEmails, $child['momEmail']);
-    }
-    if ($child['kidEmail'] != '') {
-        array_push($KidsEmails, $child['kidEmail']);
-    }
-}
-
-foreach ($rsTeachers as $teacher) {
-    array_push($TeachersEmails, $teacher['per_Email']);
-}
 
 require '../Include/Header.php';
 ?>
@@ -81,42 +55,25 @@ require '../Include/Header.php';
   </div>
   <div class="box-body">
     <?php
-    $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
-    $roleEmails->Parents = implode(SessionUser::getUser()->MailtoDelimiter(), $ParentsEmails).',';
-    $roleEmails->Teachers = implode(SessionUser::getUser()->MailtoDelimiter(), $TeachersEmails).',';
-    $roleEmails->Kids = implode(SessionUser::getUser()->MailtoDelimiter(), $KidsEmails).',';
-    $sEmailLink = implode(SessionUser::getUser()->MailtoDelimiter(), $allEmails).',';
-    // Add default email if default email has been set and is not already in string
-    if (SystemConfig::getValue('sToEmailAddress') != '' && !stristr($sEmailLink, SystemConfig::getValue('sToEmailAddress'))) {
-        $sEmailLink .= SessionUser::getUser()->MailtoDelimiter().SystemConfig::getValue('sToEmailAddress');
-    }
-    $sEmailLink = urlencode($sEmailLink);  // Mailto should comply with RFC 2368
-
     if (SessionUser::getUser()->isEmailEnabled()) { // Does user have permission to email groups
       // Display link
       ?>
       <div class="btn-group">
-        <a class="btn btn-app" href="mailto:<?= mb_substr($sEmailLink, 0, -3) ?>"><i
-            class="fa fa-send-o"></i><?= _('Email') ?></a>
+        <a class="btn btn-app" id="sEmailLink" href=""><i class="fa fa-send-o"></i><?= _('Email') ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
         </button>
-        <ul class="dropdown-menu" role="menu">
-          <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:') ?>
-        </ul>
+        <ul class="dropdown-menu" id="dropDownMail" role="menu"></ul>
       </div>
 
       <div class="btn-group">
-        <a class="btn btn-app" href="mailto:?bcc=<?= mb_substr($sEmailLink, 0, -3) ?>"><i
-            class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
+        <a class="btn btn-app" id ="sEmailLinkBCC" href=""><i class="fa fa-send"></i><?= _('Email (BCC)') ?></a>
         <button type="button" class="btn btn-app dropdown-toggle" data-toggle="dropdown">
           <span class="caret"></span>
           <span class="sr-only"><?= _('Toggle Dropdown') ?></span>
         </button>
-        <ul class="dropdown-menu" role="menu">
-          <?php MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=') ?>
-        </ul>
+        <ul class="dropdown-menu" id="dropDownMailBCC"  role="menu"></ul>
       </div>
       <?php
     }
@@ -135,19 +92,19 @@ require '../Include/Header.php';
   <?php 
   if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
   ?>
-    <a class="btn btn-app bg-aqua makeCheckOut <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= _('Make Check-out') ?></span></a>  
+    <a class="btn btn-app bg-aqua makeCheckOut disabled" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
   <?php 
     }
   ?>
   <?php 
   if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
   ?>
-    <a class="btn btn-app bg-green exportCheckOutCSV <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
+    <a class="btn btn-app bg-green exportCheckOutCSV disabled"  id="exportCheckOutCSV" data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
   <?php
    }
    if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
   ?>  
-    <a class="btn btn-app bg-red exportCheckOutPDF <?= (count($thisClassChildren) == 0)?"disabled":"" ?>"  data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
+    <a class="btn btn-app bg-red exportCheckOutPDF disabled"  id="exportCheckOutPDF" data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
     
     <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= _("Student Badges") ?></span></a>
   <?php 
@@ -160,7 +117,7 @@ require '../Include/Header.php';
   <?php 
     } else if (SessionUser::getUser()->isShowCartEnabled()) {
    ?>
-    <a class="btn btn-app AddStudentsToGroupCart <?= (count($thisClassChildren) == 0)?"disabled":"" ?>" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>    
+    <a class="btn btn-app AddStudentsToGroupCart disabled" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
   <?php
     }
   ?>
@@ -171,7 +128,7 @@ require '../Include/Header.php';
   <?php 
     } else if (SessionUser::getUser()->isShowCartEnabled()) {
   ?>
-    <a class="btn btn-app AddToTeacherGroupCart <?= (count($rsTeachers) == 0)?"disabled":"" ?>" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
+    <a class="btn btn-app AddToTeacherGroupCart disabled" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
   <?php 
    }
 
@@ -189,27 +146,30 @@ require '../Include/Header.php';
     </div>
   </div>
   <!-- /.box-header -->
-  <div class="box-body row">
-    <?php foreach ($rsTeachers as $teacher) {
-        ?>
-      <div class="col-sm-2">
-        <!-- Begin user profile -->
-        <div class="box box-info text-center user-profile-2">
-          <div class="user-profile-inner">
-            <h4 class="white"><?= $teacher['per_FirstName'].' '.$teacher['per_LastName'] ?></h4>
-            <img src="<?= SystemURLs::getRootPath(); ?>/api/persons/<?= $teacher['per_ID'] ?>/thumbnail"
-                  alt="User Image" class="user-image initials-image" width="85" height="85" />
-            <a href="mailto:<?= $teacher['per_Email'] ?>" type="button" class="btn btn-primary btn-sm btn-block"><i
-                class="fa fa-envelope"></i> <?= _('Send Message') ?></a>
-            <a href="../PersonView.php?PersonID=<?= $teacher['per_ID'] ?>" type="button"
-               class="btn btn-primary btn-info btn-block"><i class="fa fa-q"></i><?= _('View Profile') ?></a>
-          </div>
-        </div>
-      </div>
-    <?php
-    } ?>
-  </div>
+  <div class="box-body row teachers_container"></div>
 </div>
+
+<?php
+if (SessionUser::getUser()->isAddRecords()) {
+    ?>
+    <div class="box teachers">
+        <div class="box-header with-border">
+            <h3 class="box-title"><?php echo _("Add Teachers to the Team"); ?>:</h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-1">
+                    <?= _("Add") ?>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control personSearchTeachers  select2" name="addGroupMember" style="width:100%"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
 
 <?php
    if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
@@ -303,59 +263,6 @@ function implodeUnique($array, $withQuotes)
 
 ?>
 
-<!-- COMPOSE MESSAGE MODAL -->
-<div class="modal fade" id="compose-modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content large">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title"><i class="fa fa-envelope-o"></i><?= _('Compose New Message') ?></h4>
-      </div>
-      <form action="SendEmail.php" method="post">
-        <div class="modal-body">
-          <div class="form-group">
-            <label><?= _('Kids Emails') ?></label>
-            <input name="email_to" class="form-control email-recepients-kids"
-                   value="<?= implodeUnique($KidsEmails, false) ?>">
-          </div>
-          <div class="form-group">
-            <label><?= _('Parents Emails') ?></label>
-            <input name="email_to_2" class="form-control email-recepients-parents"
-                   value="<?= implodeUnique($ParentsEmails, false) ?>">
-          </div>
-          <div class="form-group">
-            <label><?= _('Teachers Emails') ?></label>
-            <input name="email_cc" class="form-control email-recepients-teachers"
-                   value="<?= implodeUnique($TeachersEmails, false) ?>">
-          </div>
-          <div class="form-group">
-            <textarea name="message" id="email_message" class="form-control" placeholder="Message"
-                      style="height: 120px;"></textarea>
-          </div>
-          <div class="form-group">
-            <div class="btn btn-success btn-file">
-              <i class="fa fa-paperclip"></i><?= _('Attachment') ?>
-              <input type="file" name="attachment"/>
-            </div>
-            <p class="help-block"><?= _('Max. 32MB') ?></p>
-          </div>
-
-        </div>
-        <div class="modal-footer clearfix">
-
-          <button type="button" class="btn btn-danger" data-dismiss="modal"><i
-              class="fa fa-times"></i><?= _('Discard') ?></button>
-
-          <button type="submit" class="btn btn-primary pull-left"><i
-              class="fa fa-envelope"></i><?= _('Send Message') ?></button>
-        </div>
-      </form>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <?php  
   if (SessionUser::getUser()->isAddRecords()) {
 ?>
@@ -390,15 +297,12 @@ function implodeUnique($array, $withQuotes)
 <script nonce="<?= SystemURLs::getCSPNonce() ?>">
   var birthDayMonthChartJSON = [<?= $birthDayMonthChartJSON ?>];
   var genderChartJSON        = [<?= $genderChartJSON ?>];
-  var KidsEmails             = [<?= implodeUnique($KidsEmails, true) ?>];
-  var TeachersEmails         = [<?= implodeUnique($TeachersEmails, true) ?>];
-  var ParentsEmails          = [<?= implodeUnique($ParentsEmails, true) ?>];
   var birthDateColumnText    = '<?= _("Birth Date") ?>';
   var genderColumnText       = '<?= _("Gender") ?>';
   var sundayGroupId          = <?= $iGroupId ?>;
   var canSeePrivacyData      = <?= (SessionUser::getUser()->isSeePrivacyDataEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId))?1:0 ?>;
   var canDeleteMembers       = <?= SessionUser::getUser()->isDeleteRecordsEnabled()?1:0 ?>;
-  var sundayGroupName        = "<?= $ormSundaySchoolClass->getName() ?>";
+  var sundayGroupName        = "<?= $iGroupName ?>";
 </script>
 
 <script src="<?= SystemURLs::getRootPath(); ?>/skin/js/sundayschool/SundaySchoolClassView.js" ></script>

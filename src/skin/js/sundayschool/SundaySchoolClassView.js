@@ -37,7 +37,63 @@ $("document").ready(function(){
     var oSettings = dataTable.page.len(10).draw();
     window.scrollTo(0, 0);
   }
-  
+
+  function load_SundaySchool ()
+  {
+    window.CRM.APIRequest({
+      method: "GET",
+      path: "groups/" + sundayGroupId + "/sundayschool"
+    }).done(function (data) {
+      var len_teachers = data.teachers.length;
+      var res = '';
+
+      for (i = 0;i < len_teachers;i++) {
+        res += '<div class="col-sm-2">\n' +
+            '        <!-- Begin user profile -->\n' +
+            '        <div class="box box-info text-center user-profile-2">\n' +
+            '            <div class="user-profile-inner">\n' +
+            '            <h4 class="white">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>\n' +
+            '        <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"\n' +
+            '        alt="User Image" class="user-image initials-image" width="85" height="85" />\n' +
+            '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" type="button" class="btn btn-primary btn-sm btn-block"><i\n' +
+            '      class="fa fa-envelope"></i>' + i18next.t('Send Message') + '</a>' +
+            '        <a href="' +  window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" type="button"\n' +
+            '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-q"></i>' + i18next.t('View Profile') +'</a>\n' +
+            '        <a href="#" data-id="' + data.teachers[i]['per_ID'] + '" data-person_name="' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '" "type="button"\n' +
+            '      class="btn btn-primary btn-danger btn-sm btn-block deleteTeacher"><i class="fa fa-q"></i>' + i18next.t('Delete') +'</a>\n' +
+            '        </div>\n' +
+            '        </div>\n' +
+            '        </div>'
+      }
+
+      $('.teachers_container').html(res);
+
+      $('#sEmailLink').attr('href','mailto:' + data.emailLink);
+      $('#sEmailLinkBCC').attr('href','mailto:?bcc=' + data.emailLink);
+
+      $('#dropDownMail').html(data.dropDown.allNormal);
+      $('#dropDownMailBCC').html(data.dropDown.allNormalBCC);
+
+      if (data.kids.length > 0) {
+        $('#makeCheckOut').removeClass( "disabled" );
+        $('#exportCheckOutCSV').removeClass( "disabled" );
+        $('#exportCheckOutPDF').removeClass( "disabled" );
+        $('#AddStudentsToGroupCart').removeClass( "disabled" );
+      } else {
+        $('#makeCheckOut').addClass( "disabled" );
+        $('#exportCheckOutCSV').addClass( "disabled" );
+        $('#exportCheckOutPDF').addClass( "disabled" );
+        $('#AddStudentsToGroupCart').addClass( "disabled" );
+      }
+
+      if (data.teachers.length > 0) {
+        $('#AddToTeacherGroupCart').removeClass("disabled");
+      } else {
+        $('#AddToTeacherGroupCart').addClass("disabled");
+      }
+    });
+  }
+
   function exit_edition_mode()
   {
     window.scrollTo(0, 0);
@@ -57,7 +113,8 @@ $("document").ready(function(){
   
   function updateGraphs()
   {
-    
+    load_SundaySchool();
+
     window.CRM.APIRequest({
       method: "POST",
       path: "sundayschool/getAllGendersForDonut/" + sundayGroupId
@@ -103,7 +160,7 @@ $("document").ready(function(){
     });
   });
 
-  /* the search field*/
+  /* the search fields */
    $(".personSearch").select2({
     minimumInputLength: 2,
     language: window.CRM.shortLocale,
@@ -140,9 +197,77 @@ $("document").ready(function(){
       updateGraphs();
     });
   });
-  
+
+  $(".personSearchTeachers").select2({
+    minimumInputLength: 2,
+    language: window.CRM.shortLocale,
+    minimumInputLength: 2,
+    placeholder: " -- "+i18next.t("Teachers")+" -- ",
+    allowClear: true, // This is for clear get the clear button if wanted
+    ajax: {
+      url: function (params) {
+        return window.CRM.root + "/api/persons/search/" + params.term;
+      },
+      dataType: 'json',
+      delay: 250,
+      data: function (params) {
+        return {
+          q: params.term, // search term
+          page: params.page
+        };
+      },
+      processResults: function (rdata, page) {
+        return {results: rdata};
+      },
+      cache: true
+    }
+  });
+
+  $(".personSearchTeachers").on("select2:select", function (e) {
+    //edition_mode ();
+    window.CRM.APIRequest({
+      method: "POST",
+      path:'groups/' + sundayGroupId + '/addteacher/'+ e.params.data.objid,
+      data: JSON.stringify({"RoleID":1})// only a teacher
+    }).done(function (data) {
+      load_SundaySchool(); // we reload the profiles
+    });
+  });
+
+
   /* the membership deletion */
-  $('body').on('click','.delete-person', function(){ 
+  $('body').on('click','.deleteTeacher', function(){
+    var personId    = $(this).data("id");
+    var person_name = $(this).data("person_name");
+
+    bootbox.confirm({
+      title:i18next.t("Delete this Teacher?"),
+      message: i18next.t("Do you want to delete this teacher? This cannot be undone.") + " <b>" + person_name +'</b>',
+      buttons: {
+        cancel: {
+          className: 'btn-primary',
+          label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
+        },
+        confirm: {
+          className: 'btn-danger',
+          label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
+        }
+      },
+      callback: function (result) {
+        if(result) {
+          window.CRM.APIRequest({
+            method: "DELETE",
+            path: 'groups/' + sundayGroupId + '/removeperson/' + personId,
+          }).done(function (data) {
+            load_SundaySchool(); // we reload the profiles
+          });
+        }
+      }
+    });
+  });
+
+
+  $('body').on('click','.delete-person', function(){
     //edition_mode ();
     event.preventDefault();
     var thisLink = $(this);
@@ -152,11 +277,11 @@ $("document").ready(function(){
         message: i18next.t("Do you want to delete this person? This cannot be undone.") + " <b>" + thisLink.data('person_name')+'</b>',
         buttons: {
             cancel: {
-                className: 'btn-default',
+                className: 'btn-primary',
                 label: '<i class="fa fa-times"></i>' + i18next.t("Cancel")
             },
             confirm: {
-                className: 'btn-primary',
+                className: 'btn-danger',
                 label: '<i class="fa fa-trash-o"></i>' + i18next.t("Delete")
             }
         },
@@ -487,25 +612,8 @@ $("document").ready(function(){
   }
   
   $.extend(dataTableConfig,window.CRM.plugin.dataTable);
-  
 
-   var dataTable = $("#sundayschoolTable").DataTable(dataTableConfig);
-  
-
-
-    // turn the element to select2 select style
-    /*$('.email-recepients-kids').select2({
-      placeholder: 'Enter recepients',
-      tags:KidsEmails
-    });
-    $('.email-recepients-teachers').select2({
-      placeholder: 'Enter recepients',
-      tags: TeachersEmails
-    });
-    $('.email-recepients-parents').select2({
-      placeholder: 'Enter recepients',
-      tags: ParentsEmails
-    });*/
+  var dataTable = $("#sundayschoolTable").DataTable(dataTableConfig);
 
   // the chart donut code 
     var hideBirthDayFilter = function() {
@@ -1031,7 +1139,7 @@ $("document").ready(function(){
           +'<div class="row">'
               +'<div class="col-md-12">'
                   +'<div class="row">'
-                    +'<div class="col-md-3"><span style="color: red">*</span>'
+                    +'<div class="col-md-3"><span style="color: #78ff43">*</span>'
                       + i18next.t('Start Date')+' :'
                     +'</div>'
                      +'<div class="col-md-3">'  
@@ -1121,9 +1229,7 @@ $("document").ready(function(){
             modal.modal("hide");
          }*/
        });
-       
-       
-       
+
        modal.modal("show");
 
        $('.date-picker').datepicker({format:window.CRM.datePickerformat, language: window.CRM.lang});
@@ -1138,4 +1244,6 @@ $("document").ready(function(){
       dataTable.ajax.reload();/* we reload the data no need to add the person inside the dataTable */
       updateGraphs();
     }
+
+  load_SundaySchool();
 });
