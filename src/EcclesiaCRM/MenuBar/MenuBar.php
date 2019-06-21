@@ -119,7 +119,7 @@ class MenuBar {
     {
       $menu = new Menu (_("Sunday School"),"fa fa-child","#",true);
       
-      $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","sundayschool/SundaySchoolDashboard.php",true,$menu);
+      $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/sundayschool/dashboard",true,$menu);
       
       
       $listOptions = ListOptionQuery::Create()
@@ -147,7 +147,7 @@ class MenuBar {
                     $str = substr($str, 0, $this->_maxStr-3)." ...";
                 }
 
-                $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+                $menuItemItem = new Menu ($str,"fa fa-circle-o","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $group->getID());
@@ -177,7 +177,7 @@ class MenuBar {
                   $str = substr($str, 0, $this->_maxStr-3)." ...";
               }
               
-              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/" . $group->getID() . "/view",true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
               $menuItemItem->addLink("GroupView.php?GroupID=" . $group->getID());
           }

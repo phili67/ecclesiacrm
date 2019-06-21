@@ -103,7 +103,7 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
 
   /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
-    //RedirectUtils::Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
+    //RedirectUtils::Redirect('v2/sundayschool/'.$event->getGroupId().'/view');
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
     //RedirectUtils::Redirect('GroupView.php?GroupID='.$event->getGroupId());

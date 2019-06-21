@@ -1,46 +1,22 @@
 <?php
+/*******************************************************************************
+ *
+ *  filename    : sundayschoolview.php
+ *  last change : 2019-06-21
+ *  website     : http://www.ecclesiacrm.com
+ *  copyright   : Copyright 2001, 2002 Deane Barker
+ *                          2019 Philippe Logel
+ *
+ ******************************************************************************/
 
-require '../Include/Config.php';
-require '../Include/Functions.php';
-
-use EcclesiaCRM\Service\SundaySchoolService;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\dto\Cart;
 
-$sundaySchoolService = new SundaySchoolService();
+require $sRootDocument . '/Include/Header.php';
 
-$iGroupId = '-1';
-$iGroupName = 'Unknown';
-if (isset($_GET['groupId'])) {
-    $iGroupId = InputUtils::LegacyFilterInput($_GET['groupId'], 'int');
-}
-
-$iGroupName = GroupQuery::Create()
-    ->findOneById ($iGroupId)
-    ->getName();
-
-$birthDayMonthChartArray = [];
-foreach ($sundaySchoolService->getKidsBirthdayMonth($iGroupId) as $birthDayMonth => $kidsCount) {
-    array_push($birthDayMonthChartArray, "['"._($birthDayMonth)."', ".$kidsCount.' ]');
-}
-$birthDayMonthChartJSON = implode(',', $birthDayMonthChartArray);
-
-$genderChartArray = [];
-foreach ($sundaySchoolService->getKidsGender($iGroupId) as $gender => $kidsCount) {
-    array_push($genderChartArray, "{label: '"._($gender)."', data: ".$kidsCount.'}');
-}
-$genderChartJSON = implode(',', $genderChartArray);
-
-$rsTeachers = $sundaySchoolService->getClassByRole($iGroupId, 'Teacher');
-$sPageTitle = _('Sunday School').': '.$iGroupName;
-
-require '../Include/Header.php';
 ?>
 
-<?php  
+<?php
   if (SessionUser::getUser()->isAddRecords()) {
 ?>
   <div class="callout callout-info info"><?= _("To add students to this class, simply add them with the select field at the bottom of this page.") ?></div>
@@ -79,42 +55,42 @@ require '../Include/Header.php';
     }
     ?>
     <!-- <a class="btn btn-success" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>  This doesn't really work right now...
-    <a class="btn btn-app" href="../GroupView.php?GroupID=<?= $iGroupId ?>"><i
+    <a class="btn btn-app" href="<?= $sRootPath ?>/GroupView.php?GroupID=<?= $iGroupId ?>"><i
         class="fa fa-user-plus"></i><?= _('Add Students') ?> </a>-->
   <?php
     if (SessionUser::getUser()->isManageGroupsEnabled()) {
   ?>
-  <a class="btn btn-app" href="../GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= _("Edit this Class") ?></a>
+  <a class="btn btn-app" href="<?= $sRootPath ?>/GroupEditor.php?GroupID=<?= $iGroupId?>"><i class="fa fa-pencil"></i><?= _("Edit this Class") ?></a>
   <button class="btn btn-app bg-maroon"  id="deleteClassButton"><i class="fa fa-trash"></i><?= _("Delete this Class") ?></button>
   <?php
     }
   ?>
-  <?php 
+  <?php
   if (SessionUser::getUser()->isDeleteRecordsEnabled() || SessionUser::getUser()->isAddRecordsEnabled() || SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId)) {
   ?>
     <a class="btn btn-app bg-aqua makeCheckOut disabled" id="makeCheckOut" data-makecheckoutgroupid="<?= $iGroupId ?>" data-makecheckoutgroupname="<?= $iGroupName ?>"> <i class="fa fa-calendar-check-o"></i> <span class="cartActionDescription"><?= _('Make Check-out') ?></span></a>
-  <?php 
+  <?php
     }
   ?>
-  <?php 
+  <?php
   if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isCSVExportEnabled())) {
   ?>
     <a class="btn btn-app bg-green exportCheckOutCSV disabled"  id="exportCheckOutCSV" data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-excel-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
   <?php
    }
    if (SessionUser::getUser()->isSundayShoolTeacherForGroup($iGroupId) && SessionUser::getUser()->isExportSundaySchoolPDFEnabled() ) {
-  ?>  
+  ?>
     <a class="btn btn-app bg-red exportCheckOutPDF disabled"  id="exportCheckOutPDF" data-makecheckoutgroupid="<?= $iGroupId ?>" > <i class="fa fa-file-pdf-o"></i> <span class="cartActionDescription"><?= _("Export Attendance") ?></span></a>
-    
+
     <a class="btn btn-app bg-purple" id="studentbadge" data-groupid="<?= $iGroupId ?>" > <i class="fa fa-file-picture-o"></i> <span class="cartActionDescription"><?= _("Student Badges") ?></span></a>
-  <?php 
+  <?php
     }
   ?>
   <?php
     if (Cart::StudentInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()){
   ?>
     <a class="btn btn-app RemoveStudentsFromGroupCart" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove Students from Cart") ?></span></a>
-  <?php 
+  <?php
     } else if (SessionUser::getUser()->isShowCartEnabled()) {
    ?>
     <a class="btn btn-app AddStudentsToGroupCart disabled" id="AddStudentsToGroupCart" data-cartstudentgroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Students to Cart") ?></span></a>
@@ -124,12 +100,12 @@ require '../Include/Header.php';
   <?php
     if (Cart::TeacherInCart($iGroupId) && SessionUser::getUser()->isShowCartEnabled()) {
   ?>
-    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>    
-  <?php 
+    <a class="btn btn-app RemoveFromTeacherGroupCart" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-remove"></i> <span class="cartActionDescription"><?= _("Remove Teachers from Cart") ?></span></a>
+  <?php
     } else if (SessionUser::getUser()->isShowCartEnabled()) {
   ?>
     <a class="btn btn-app AddToTeacherGroupCart disabled" id="AddToTeacherGroupCart" data-cartteachergroupid="<?= $iGroupId ?>"> <i class="fa fa-cart-plus"></i> <span class="cartActionDescription"><?= _("Add Teachers to Cart") ?></span></a>
-  <?php 
+  <?php
    }
 
   ?>
@@ -224,7 +200,7 @@ if (SessionUser::getUser()->isAddRecords()) {
   </div>
 </div>
 
-<?php 
+<?php
   }
 ?>
 
@@ -263,7 +239,7 @@ function implodeUnique($array, $withQuotes)
 
 ?>
 
-<?php  
+<?php
   if (SessionUser::getUser()->isAddRecords()) {
 ?>
 <div class="box">
@@ -286,15 +262,15 @@ function implodeUnique($array, $withQuotes)
 ?>
 
 <!-- FLOT CHARTS -->
-<script  src="<?= SystemURLs::getRootPath() ?>/skin/external/flot/jquery.flot.js"></script>
+<script  src="<?= $sRootPath ?>/skin/external/flot/jquery.flot.js"></script>
 <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
-<script  src="<?= SystemURLs::getRootPath() ?>/skin/external/flot/jquery.flot.resize.js"></script>
+<script  src="<?= $sRootPath ?>/skin/external/flot/jquery.flot.resize.js"></script>
 <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
-<script  src="<?= SystemURLs::getRootPath() ?>/skin/external/flot/jquery.flot.pie.js"></script>
+<script  src="<?= $sRootPath ?>/skin/external/flot/jquery.flot.pie.js"></script>
 <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
-<script  src="<?= SystemURLs::getRootPath() ?>/skin/external/flot/jquery.flot.categories.js"></script>
+<script  src="<?= $sRootPath ?>/skin/external/flot/jquery.flot.categories.js"></script>
 
-<script nonce="<?= SystemURLs::getCSPNonce() ?>">
+<script nonce="<?= $CSPNonce ?>">
   var birthDayMonthChartJSON = [<?= $birthDayMonthChartJSON ?>];
   var genderChartJSON        = [<?= $genderChartJSON ?>];
   var birthDateColumnText    = '<?= _("Birth Date") ?>';
@@ -305,10 +281,10 @@ function implodeUnique($array, $withQuotes)
   var sundayGroupName        = "<?= $iGroupName ?>";
 </script>
 
-<script src="<?= SystemURLs::getRootPath(); ?>/skin/js/sundayschool/SundaySchoolClassView.js" ></script>
+<script src="<?= $sRootPath ?>/skin/js/sundayschool/SundaySchoolClassView.js" ></script>
 
 <?php
-require '../Include/Footer.php';
+require $sRootDocument . '/Include/Footer.php';
 ?>
 
 
