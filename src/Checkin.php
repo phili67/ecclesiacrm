@@ -22,7 +22,7 @@ require 'Include/Config.php';
 require 'Include/Functions.php';
 
 
-$sPageTitle = gettext('Event Checkin');
+$sPageTitle = _('Event Checkin');
 require 'Include/Header.php';
 
 use EcclesiaCRM\EventQuery;
@@ -35,10 +35,8 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventCountsQuery;
-use EcclesiaCRM\EventTypesQuery;
 use EcclesiaCRM\EventCounts;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Group;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\ChurchMetaData;
 use EcclesiaCRM\utils\RedirectUtils;
@@ -103,7 +101,7 @@ if (isset($_POST['validateEvent']) && isset($_POST['NoteText']) ) {
 
   /*if (GroupQuery::Create()->findOneById($event->getGroupId())->isSundaySchool()) {
     // in the case you are in a sundayschool group we stay on the same page, for productivity
-    //RedirectUtils::Redirect('v2/sundayschool/'.$event->getGroupId().'/view');
+    //RedirectUtils::Redirect('sundayschool/SundaySchoolClassView.php?groupId='.$event->getGroupId());
   } else */
   if ($bSundaySchool == false && !is_null($event) && $event->getGroupId()) {
     //RedirectUtils::Redirect('GroupView.php?GroupID='.$event->getGroupId());
@@ -184,7 +182,7 @@ if ($FreeAttendees) {
 <div class='text-center'>
   <a class='btn btn-primary' id="add-event">
     <i class='fa fa-ticket'></i>
-    <?= gettext('Add New Event') ?>
+    <?= _('Add New Event') ?>
   </a>
 </div>
 
@@ -200,7 +198,7 @@ if ($FreeAttendees) {
 <div class="box box-primary">
    <div class="box-header  with-border">
        <h3 class="box-title">
-        <?= gettext('Select the event to which you would like to check people in for') ?> :</h3>
+        <?= _('Select the event to which you would like to check people in for') ?> :</h3>
     </div>
     <div class="row">
         <div class="col-md-10 col-xs-12">
@@ -210,13 +208,13 @@ if ($FreeAttendees) {
                     <?php endif; ?>
                    <form name="selectEvent" action="Checkin.php" method="POST">
                     <div class="form-group">
-                        <label class="col-md-2 control-label"><?= gettext('Select Event'); ?></label>
+                        <label class="col-md-2 control-label"><?= _('Select Event'); ?></label>
                         <div class="col-md-10 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
                                 <select name="EventID" class="form-control" onchange="this.form.submit()">
                                     <option value="<?= $EventID; ?>"
-                                            disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= gettext('Select event') ?></option>
+                                            disabled <?= ($EventID == 0) ? " Selected='selected'" : "" ?> ><?= _('Select event') ?></option>
                                     <?php foreach ($activeEvents as $event) {
     ?>
                                         <option
@@ -244,7 +242,7 @@ if ($FreeAttendees) {
     <div class="row">
         <div class="col-md-10 col-xs-12">
                 <div class="box-header">
-                    <h3 class="box-title"><?= "<b>".$event->getTitle()."</b> (".$event->getDesc().")"." ".gettext("From")." : <b>".OutputUtils::FormatDate($event->getStart()->format("Y-m-d H:i:s"),1)."</b> ".gettext("To")." : <b>".OutputUtils::FormatDate($event->getEnd()->format("Y-m-d H:i:s"),1)."</b>" ?> :</h3>
+                    <h3 class="box-title"><?= "<b>".$event->getTitle()."</b> (".$event->getDesc().")"." "._("From")." : <b>".OutputUtils::FormatDate($event->getStart()->format("Y-m-d H:i:s"),1)."</b> "._("To")." : <b>".OutputUtils::FormatDate($event->getEnd()->format("Y-m-d H:i:s"),1)."</b>" ?> :</h3>
                 </div>
                 <div class="box-body">
                     <?php if ($sGlobalMessage): ?>
@@ -266,7 +264,7 @@ if ($FreeAttendees) {
  <div class="panel panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?= gettext('Set your free attendees') ?> <i class="fa fa-chevron-down pull-right"></i></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?= _('Set your free attendees') ?> <i class="fa fa-chevron-down pull-right"></i></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse">
@@ -274,14 +272,14 @@ if ($FreeAttendees) {
         <div class="row">
           <div class="col-md-12 col-xs-12">
             <div class="box-header">
-                    <h3 class="box-title"><?= gettext('You can set here the attendees for some group of persons.') ?></h3>
+                    <h3 class="box-title"><?= _('You can set here the attendees for some group of persons.') ?></h3>
                 </div>
                 <div class="box-body">
                    <form name="addFreeAttendeesEvent" action="Checkin.php" method="POST">
                       <input type="hidden" name="EventID" value="<?= $EventID ?>">
                       <input type="hidden" name="FreeAttendees" value="1">
                       <div class="form-group row">
-                        <label class="col-md-2 control-label"><?= gettext('Set your attendees Event'); ?></label>
+                        <label class="col-md-2 control-label"><?= _('Set your attendees Event'); ?></label>
                         <?php 
                            $desc = "";
                            foreach ($eventCountNames as $eventCountName) {
@@ -307,14 +305,14 @@ if ($FreeAttendees) {
                         ?>
                     </div>
                     <div class="row">
-                        <label class="col-md-2 control-label"><?= gettext('Your description'); ?></label>
+                        <label class="col-md-2 control-label"><?= _('Your description'); ?></label>
                           <div class="col-md-6">
                                <input type="text" id="fieldText" name="desc" data-countid="<?= $eventCountName->getId() ?>" value="<?= $desc ?>" size="8" class="form-control input-sm" width="100%" style="width: 100%">
                           </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12 text-right">
-                           <input type="submit" class="btn btn-primary" value="<?= gettext('Add Free Attendees Count'); ?>"
+                           <input type="submit" class="btn btn-primary" value="<?= _('Add Free Attendees Count'); ?>"
                                        name="Add" tabindex=4>
                         </div>
                     </div>
@@ -346,23 +344,23 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
    <div class="panel panel-primary">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?= gettext('Add single child/parents Attendees') ?><i class="fa fa-chevron-down pull-right"></i></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?= _('Add single child/parents Attendees') ?><i class="fa fa-chevron-down pull-right"></i></a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
         <div class="row">
             <div class="col-xs-12">
                     <div class="box-header">
-                        <h3 class="box-title"><?= gettext('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
+                        <h3 class="box-title"><?= _('Add Attendees for Event'); ?>: <?= $event->getTitle() ?></h3>
                     </div>
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="child" class="col-sm-2 control-label"><?= gettext("Person's Name") ?></label>
+                            <label for="child" class="col-sm-2 control-label"><?= _("Person's Name") ?></label>
                             <div class="col-sm-5 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-child"></i></span>
                                     <input type="text" class="form-control" id="child"
-                                           placeholder="<?= gettext("Person's Name"); ?>" required tabindex=1>
+                                           placeholder="<?= _("Person's Name"); ?>" required tabindex=1>
                                 </div>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 <div class="help-block with-errors"></div>
@@ -372,12 +370,12 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                         <hr>
                         <div class="form-group">
                             <label for="adult"
-                                   class="col-sm-2 control-label"><?= gettext('Adult Name(Optional)') ?></label>
+                                   class="col-sm-2 control-label"><?= _('Adult Name(Optional)') ?></label>
                             <div class="col-sm-5 inputGroupContainer">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                     <input type="text" class="form-control" id="adult"
-                                           placeholder="<?= gettext('Checked in By(Optional)'); ?>" tabindex=2>
+                                           placeholder="<?= _('Checked in By(Optional)'); ?>" tabindex=2>
                                 </div>
                             </div>
                             <div id="adultDetails" class="col-sm-5 text-center"></div>
@@ -385,15 +383,15 @@ if (!$CheckoutOrDelete &&  $EventID > 0) {
                         <hr>
                         <div class="form-group row">
                             <div class="col-md-4">
-                                <input type="submit" class="btn btn-primary" value="<?= gettext('CheckIn'); ?>"
+                                <input type="submit" class="btn btn-primary" value="<?= _('CheckIn'); ?>"
                                        name="CheckIn" tabindex=3>
                             </div>
                             <div class="col-md-4">
-                                <input type="reset" class="btn btn-default" value="<?= gettext('Cancel'); ?>"
+                                <input type="reset" class="btn btn-default" value="<?= _('Cancel'); ?>"
                                        name="Cancel" tabindex=4 onClick="SetPersonHtml($('#childDetails'),null);SetPersonHtml($('#adultDetails'),null);">
                             </div>
                             <div class="col-md-4">
-                                <input type="Add" class="btn btn-success" value="<?= gettext('Add Visitor'); ?>"
+                                <input type="Add" class="btn btn-success" value="<?= _('Add Visitor'); ?>"
                                        name="Add" tabindex=4 onClick="javascript:document.location = '<?= SystemURLs::getRootPath() ?>/PersonEditor.php';">
                             </div>
                         </div>
@@ -415,7 +413,7 @@ if ($EventID && isset($_POST['child-id']) && (isset($_POST['CheckIn']) || isset(
         if ($attendee) {
             ?>
             <script nonce="<?= SystemURLs::getCSPNonce() ?>">
-                $('#errorcallout').text('<?= gettext("Person has been already checked in for this event") ?>').fadeIn();
+                $('#errorcallout').text('<?= _("Person has been already checked in for this event") ?>').fadeIn();
             </script>
             <?php
         } else {
@@ -463,7 +461,7 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
 ) {
     $iChildID = InputUtils::LegacyFilterInput($_POST['child-id'], 'int');
 
-    $formTitle = (isset($_POST['CheckOutBtn']) ? gettext("CheckOut Person") : gettext("Delete Checkin in Entry")); ?>
+    $formTitle = (isset($_POST['CheckOutBtn']) ? _("CheckOut Person") : _("Delete Checkin in Entry")); ?>
 
     <form method="post" action="Checkin.php" id="CheckOut" data-toggle="validator" role="form">
         <input type="hidden" name="EventID" value="<?= $EventID ?>">
@@ -488,18 +486,18 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
                                 ?>
                                 <div class="col-sm-4 col-xs-6">
                                     <div class="form-group">
-                                        <label><?= gettext('Adult Checking Out Person') ?>:</label>
+                                        <label><?= _('Adult Checking Out Person') ?>:</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                             <input type="text" id="adultout" name="adult" class="form-control" value="<?= $person->getFullName() ?>"
-                                               placeholder="<?= gettext('Adult Name (Optional)') ?>">
+                                               placeholder="<?= _('Adult Name (Optional)') ?>">
                                             </div>
                                         <input type="hidden" id="adultout-id" name="adult-id" value="<?= $person->getId() ?>">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-primary"
-                                               value="<?= gettext('CheckOut') ?>" name="CheckOut">
-                                        <input type="submit" class="btn btn-default" value="<?= gettext('Cancel') ?>"
+                                               value="<?= _('CheckOut') ?>" name="CheckOut">
+                                        <input type="submit" class="btn btn-default" value="<?= _('Cancel') ?>"
                                                name="CheckoutCancel">
                                     </div>
                                 </div>
@@ -517,8 +515,8 @@ if ($EventID > 0 && isset($_POST['child-id']) &&
                             } else { // DeleteBtn?>
                                 <div class="form-group">
                                     <input type="submit" class="btn btn-danger"
-                                           value="<?= gettext('Delete') ?>" name="Delete">
-                                    <input type="submit" class="btn btn-default" value="<?= gettext('Cancel') ?>"
+                                           value="<?= _('Delete') ?>" name="Delete">
+                                    <input type="submit" class="btn btn-default" value="<?= _('Cancel') ?>"
                                            name="DeleteCancel">
                                 </div>
                                 <?php
@@ -540,25 +538,25 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
     <div class="box box-primary">
        <div class="box-header  with-border">
          <h3 class="box-title">
-           <?= gettext('Listing') ?> :</h3>
+           <?= _('Listing') ?> :</h3>
         </div>
         <div class="box-body table-responsive">
             <table id="checkedinTable" class="table data-table table-striped " style="width:100%">
                 <thead>
                 <tr>
                     <th></th>
-                    <th><?= ($bSundaySchool)?gettext('First Name'):gettext('Name') ?></th>
-                    <th><?= ($bSundaySchool)?gettext('Name'):gettext('First Name') ?></th>
-                    <th><?= gettext("Gender") ?></th>
-                    <th><?= gettext('Checked In Time') ?></th>
-                    <th><?= gettext('Checked In By') ?></th>
-                    <th><?= gettext('Checked Out Time') ?></th>
-                    <th><?= gettext('Checked Out By') ?></th>
-                    <th nowrap><?= gettext('Action') ?></th>
+                    <th><?= ($bSundaySchool)?_('First Name'):_('Name') ?></th>
+                    <th><?= ($bSundaySchool)?_('Name'):_('First Name') ?></th>
+                    <th><?= _("Gender") ?></th>
+                    <th><?= _('Checked In Time') ?></th>
+                    <th><?= _('Checked In By') ?></th>
+                    <th><?= _('Checked Out Time') ?></th>
+                    <th><?= _('Checked Out By') ?></th>
+                    <th nowrap><?= _('Action') ?></th>
                     <?php
                       if ($bSundaySchool == false) {
                     ?>
-                      <th><?= gettext('Delete') ?></th>
+                      <th><?= _('Delete') ?></th>
                     <?php
                       }
                     ?>
@@ -635,7 +633,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                     <?php
                       }
                     ?>
-                        <td><?= ($checkedInPerson->getGender() == 1)?gettext($genderMale):gettext($genderFem) ?></td>
+                        <td><?= ($checkedInPerson->getGender() == 1)?_($genderMale):_($genderFem) ?></td>
                         <td><?= (!empty($per->getCheckinDate()))?OutputUtils::FormatDate($per->getCheckinDate()->format("Y-m-d H:i:s"),1):"" ?></td>
                         <td><?= $sCheckinby ?></td>
                         <td><span id="checkoutDatePersonID<?= $per->getPersonId() ?>"><?= (!empty($per->getCheckoutDate()))?OutputUtils::FormatDate($per->getCheckoutDate()->format("Y-m-d H:i:s"),1):"" ?></span></td>
@@ -646,7 +644,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                                 <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
                                 <input type="hidden" name="EventID" value="<?= $EventID ?>">
                                 <label>
-                                  <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?gettext("Present"):gettext("Absent") ?></span>
+                                  <input <?= ($per->getCheckoutDate())?"checked":"" ?> type="checkbox" data-personid="<?= $per->getPersonId() ?>" data-eventid="<?= $EventID ?>" class="PersonChangeState" id="PersonChangeState"> <span id="presenceID<?= $per->getPersonId() ?>"> <?= ($per->getCheckoutDate())?_("Present"):_("Absent") ?></span>
                                 </label>
                             </form>
                         </td>
@@ -657,7 +655,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
                           <form method="POST" action="Checkin.php" name="DeletePersonFromEvent">
                             <input type="hidden" name="child-id" value="<?= $per->getPersonId() ?>">
                             <input type="hidden" name="EventID" value="<?= $EventID ?>">
-                            <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn" value="<?= gettext('Delete') ?>">
+                            <input class="btn btn-danger btn-sm" type="submit" name="DeleteBtn" value="<?= _('Delete') ?>">
                           </form>
                         </td>
                         <?php
@@ -671,24 +669,24 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
             <div class="row" style="margin:5px"> 
               <center>
                 <div class="col-sm-6" style="text-align:center">
-                   <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= gettext('Uncheck all') ?>">
+                   <input class="btn btn-success" type="submit" name="uncheckAll" id="uncheckAll" data-id="<?= $EventID ?>" value="<?= _('Uncheck all') ?>">
                 </div>
                 <div class="col-sm-6" style="text-align:center">
-                   <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll" data-id="<?= $EventID ?>" value="<?= gettext('Check all') ?>">
+                   <input class="btn btn-primary" type="submit" name="checkAll" id="checkAll" data-id="<?= $EventID ?>" value="<?= _('Check all') ?>">
                 </div>
               </center>
             </div>
 
             <hr/>
             <div class="row" style="margin:5px"> 
-            <label><?= gettext("Add some notes") ?> : </label>     
+            <label><?= _("Add some notes") ?> : </label>
             <form method="POST" action="<?= SystemURLs::getRootPath() ?>/Checkin.php" name="validateEvent">
             <input type="hidden" name="validateEvent" value="<?= $EventID ?>">
             <input type="hidden" name="EventID" value="<?= $EventID ?>">
             <center>
               <textarea id="NoteText" name="NoteText" style="width: 100%;min-height: 300px;" rows="40"><?= $sNoteText ?></textarea>
               <br>
-              <input class="btn btn-primary" type="submit" name="Validate" value="<?= gettext("Validate Attendance") ?>">
+              <input class="btn btn-primary" type="submit" name="Validate" value="<?= _("Validate Attendance") ?>">
             </center>
             </form>
             <br>
@@ -703,7 +701,7 @@ if ($EventID > 0 || isset($_SESSION['CartToEventEventID'])) {
 <div>
   <a href="ListEvents.php" class='btn btn-default'>
     <i class='fa fa-chevron-left'></i>
-    <?= gettext('Return to Events') ?>
+    <?= _('Return to Events') ?>
   </a>
 </div>
 
@@ -812,11 +810,11 @@ function loadPerson($iPersonID)
         if ($person->getFamilyRole()) {
             $familyRole .= $person->getFamilyRoleName();
         } else {
-            $familyRole .=  gettext('Member');
+            $familyRole .=  _('Member');
         }
-        $familyRole .= gettext(' of the').' <a href="FamilyView.php?FamilyID='. $person->getFamId().'">'.$person->getFamily()->getName().'</a> '.gettext('family').' )';
+        $familyRole .= _(' of the').' <a href="FamilyView.php?FamilyID='. $person->getFamId().'">'.$person->getFamily()->getName().'</a> '._('family').' )';
     } else {
-        $familyRole = gettext('(No assigned family)');
+        $familyRole = _('(No assigned family)');
     }
 
 
