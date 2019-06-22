@@ -20,7 +20,7 @@ $("document").ready(function(){
               path: "groups/" + sundayGroupId,
             }).done(function (data) {
               if (data.status == "success")
-                window.location.href = window.CRM.root + "/v2/sundayschool/dashboard.php";
+                window.location.href = window.CRM.root + "/v2/sundayschool/dashboard";
             });
         }
       }

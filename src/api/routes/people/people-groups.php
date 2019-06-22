@@ -337,10 +337,9 @@ function newGroup ($request, $response, $args) {
     $groupSettings = (object) $request->getParsedBody();
     $group = new Group();
     if ($groupSettings->isSundaySchool) {
-        $group->makeSundaySchool();
         $group->setType(4);// now each sunday school group has a type of 4
     } else {
-      $group->setType(3);// now each normal group has a type of 3
+        $group->setType(3);// now each normal group has a type of 3
     }
     
     $group->setName($groupSettings->groupName);
@@ -363,10 +362,6 @@ function updateGroup ($request, $response, $args) {
     $input = (object) $request->getParsedBody();
     $group = GroupQuery::create()->findOneById($groupID);
     $group->setName($input->groupName);
-    
-    if ($group->getType() == 4) {
-        $group->makeSundaySchool();
-    }
     
     $groupType = GroupTypeQuery::Create()->findOneByGroupId ($groupID);
     

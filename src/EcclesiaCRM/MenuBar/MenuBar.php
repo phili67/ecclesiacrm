@@ -18,11 +18,6 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
-use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
@@ -177,7 +172,7 @@ class MenuBar {
                   $str = substr($str, 0, $this->_maxStr-3)." ...";
               }
               
-              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/" . $group->getID() . "/view",true,$menuItem);
+              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
               $menuItemItem->addLink("GroupView.php?GroupID=" . $group->getID());
           }

@@ -5,25 +5,16 @@ namespace EcclesiaCRM;
 use EcclesiaCRM\calendarInstance;
 use EcclesiaCRM\Base\Group as BaseGroup;
 use EcclesiaCRM\Person2group2roleP2g2r as ChildPerson2group2roleP2g2r;
-use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\MiscUtils;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
 use Sabre\CalDAV;
-use Sabre\CardDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
 use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
 use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\CardDavPDO;
-use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
 
 
@@ -106,31 +97,6 @@ END:VCARD';
       return parent::addPerson2group2roleP2g2r($l);
     }
 
-    public function makeSundaySchool()
-    {
-        $this->setType($this->typeSundaySchool);
-        
-        // we fix first the role
-        $defaultRole = 2;
-        $newListID = ListOptionQuery::create()->withColumn('MAX(ListOption.Id)', 'newListId')->find()->getColumnValues('newListId')[0] + 1;
-        $this->setRoleListId($newListID);
-        $this->setDefaultRole($defaultRole);
-
-        // then we add the role        
-        $optionList = ['Teacher', 'Student'];
-
-        $i = 1;
-        foreach ($optionList as $option) {
-            $listOption = new ListOption();
-            $listOption->setId($this->getRoleListId());
-            $listOption->setOptionId($i);
-            $listOption->setOptionSequence($i);
-            $listOption->setOptionName($option);
-            $listOption->save();
-            $i++;
-        }
-    }
-
     public function preSave(\Propel\Runtime\Connection\ConnectionInterface $con = null)
     {
         MiscUtils::requireUserGroupMembership('bManageGroups');
@@ -167,6 +133,13 @@ END:VCARD';
         // we delete the address book
         $addressbook = $carddavBackend->getAddressBookForGroup ( $this->getId() );
         $carddavBackend->deleteAddressBook($addressbook['id']);
+
+        // we delete the associated listOptions
+        $lists = ListOptionQuery::create()->findById($this->getRoleListId());
+
+        if (!is_null ($lists)) {
+            $lists->delete();
+        }
         
         parent::preDelete($con);
 
