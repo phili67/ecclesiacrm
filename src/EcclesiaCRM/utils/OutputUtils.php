@@ -552,6 +552,11 @@ class OutputUtils {
       }
   }
 
+  public static function FormatAgeFromeDate ($birthDate)
+  {
+      return date_diff(date_create($birthDate), date_create('now'))->y;
+  }
+
   //
   // Formats an age suffix: age in years, or in months if less than one year old
   //
