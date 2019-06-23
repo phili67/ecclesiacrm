@@ -30,8 +30,8 @@ require $sRootDocument . '/Include/Header.php';
             <option value=""><?= _("All") ?></option>
             <option><?= _("Unassigned") ?></option>
             <?php
-            foreach ($rsGroupTypes as $groupType) {
-                ?>
+              foreach ($rsGroupTypes as $groupType) {
+            ?>
                 <option><?= $groupType->getOptionName() ?></option>
                 <?php
             }

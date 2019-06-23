@@ -16,7 +16,7 @@ $app->group('/group', function () {
 function groupList (Request $request, Response $response, array $args) {
     $renderer = new PhpRenderer('templates/group/');
 
-    return $renderer->render($response, 'grouplist.php', renderMapArray());
+    return $renderer->render($response, 'grouplist.php', renderGroupListArray());
 }
 
 function renderGroupListArray ()
