@@ -221,7 +221,7 @@ require $sRootDocument . '/Include/Header.php';
                     if (SessionUser::getUser()->isSeePrivacyDataEnabled()) {
                         ?>
                         <td><?= $birthDate ?></td>
-                        <td data-birth-date="<?= ($hideAge ? '' : $birthDateDate->format('Y-m-d')) ?>"></td>
+                        <td><?= OutputUtils::FormatAgeFromeDate($birthDateDate->format('Y-m-d')) ?></td>
                         <td><?= $Address1.' '.$Address2.' '.$city.' '.$state.' '.$zip ?></td>
                         <?php
                     } else {
