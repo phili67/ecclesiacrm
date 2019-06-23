@@ -2,20 +2,16 @@
 
 namespace EcclesiaCRM
 {
-  use EcclesiaCRM\ConfigQuery;
   use EcclesiaCRM\dto\LocaleInfo;
   use EcclesiaCRM\dto\SystemConfig;
   use EcclesiaCRM\dto\SystemURLs;
   use EcclesiaCRM\Service\SystemService;
-  use EcclesiaCRM\SQLUtils;
-  use EcclesiaCRM\Version;
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
   use Propel\Runtime\Connection\ConnectionManagerSingle;
   use Propel\Runtime\Propel;
   use EcclesiaCRM\Utils\LoggerUtils;
   use EcclesiaCRM\Utils\RedirectUtils;
-  use EcclesiaCRM\SessionUser;
   
   class Bootstrapper
   {
@@ -308,7 +304,7 @@ namespace EcclesiaCRM
           <div class='container'>
               <h3>EcclesiaCRM – <?= _($header) ?></h3>
               <div class='alert alert-danger text-center' style='margin-top: 20px;'>
-                  <?= gettext($message) ?>
+                  <?= _($message) ?>
               </div>
           </div>
           <?php
