@@ -16,6 +16,14 @@ use EcclesiaCRM\Utils\MiscUtils;
 require $sRootDocument . '/Include/Header.php';
 ?>
 
+<?php
+  if (!empty ($message)) {
+?>
+      <?= $message ?>
+<?php
+  }
+?>
+
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title"><?= _('Report Details')?></h3>
