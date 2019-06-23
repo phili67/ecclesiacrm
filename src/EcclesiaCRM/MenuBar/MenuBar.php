@@ -145,7 +145,8 @@ class MenuBar {
                 $menuItemItem = new Menu ($str,"fa fa-circle-o","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
-                $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $group->getID());
+                $menuItemItem->addLink("v2/sundayschool/" . $group->getID() . "/badge/1");
+                $menuItemItem->addLink("v2/sundayschool/" . $group->getID() . "/badge/0");
                                 
                 if ( SessionUser::getUser()->isShowMapEnabled() ) {
                   $menuItemItem->addLink("v2/map/" . $group->getID());
