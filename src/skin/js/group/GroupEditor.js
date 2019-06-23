@@ -69,7 +69,7 @@ $("document").ready(function()
     {
       if (data.Type == 4)
       {
-        window.location.href = window.CRM.root + "/sundayschool/SundaySchoolClassView.php?groupId=" + window.CRM.groupID;
+        window.location.href = window.CRM.root + "/v2/sundayschool/" + window.CRM.groupID + "/view";
       }
       else
       {

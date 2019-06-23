@@ -18,11 +18,6 @@ use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
-use EcclesiaCRM\Map\GroupTableMap;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\DepositQuery;
 use EcclesiaCRM\MenuLinkQuery;
@@ -119,9 +114,9 @@ class MenuBar {
     {
       $menu = new Menu (_("Sunday School"),"fa fa-child","#",true);
       
-      $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","sundayschool/SundaySchoolDashboard.php",true,$menu);
-      
-      
+      $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/sundayschool/dashboard",true,$menu);
+      $menuItem->addLink("v2/sundayschool/reports");
+        
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3) // the group category
                     ->filterByOptionType('sunday_school')
@@ -147,10 +142,11 @@ class MenuBar {
                     $str = substr($str, 0, $this->_maxStr-3)." ...";
                 }
 
-                $menuItemItem = new Menu ($str,"fa fa-circle-o","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+                $menuItemItem = new Menu ($str,"fa fa-circle-o","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
                 $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
                 $menuItemItem->addLink("GroupPropsFormEditor.php?GroupID=" . $group->getID());
-                $menuItemItem->addLink("sundayschool/SundaySchoolBadge.php?groupId=" . $group->getID());
+                $menuItemItem->addLink("v2/sundayschool/" . $group->getID() . "/badge/1");
+                $menuItemItem->addLink("v2/sundayschool/" . $group->getID() . "/badge/0");
                                 
                 if ( SessionUser::getUser()->isShowMapEnabled() ) {
                   $menuItemItem->addLink("v2/map/" . $group->getID());
@@ -177,7 +173,7 @@ class MenuBar {
                   $str = substr($str, 0, $this->_maxStr-3)." ...";
               }
               
-              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","sundayschool/SundaySchoolClassView.php?groupId=" . $group->getID(),true,$menuItem);
+              $menuItemItem = new Menu ($str,"fa fa-angle-double-right","v2/sundayschool/" . $group->getID() . "/view",true,$menuItem);
               $menuItemItem->addLink("GroupEditor.php?GroupID=" . $group->getID());
               $menuItemItem->addLink("GroupView.php?GroupID=" . $group->getID());
           }

@@ -68,4 +68,8 @@ require __DIR__ . '/routes/people/personlist.php';
 // email routes
 // mailchimp
 require __DIR__ . '/routes/email/mailchimp/mailchimp.php';
+
+// sunday school route
+require __DIR__ . '/routes/sundayschool/sundayschool.php';
+
 $app->run();

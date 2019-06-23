@@ -208,7 +208,7 @@ require 'Include/Header.php';
       <div class="icon">
         <i class="fa fa-child"></i>
       </div>
-      <a href="<?= SystemURLs::getRootPath() ?>/sundayschool/SundaySchoolDashboard.php" class="small-box-footer">
+      <a href="<?= SystemURLs::getRootPath() ?>/v2/sundayschool/dashboard" class="small-box-footer">
         <?= _('More info') ?> <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>

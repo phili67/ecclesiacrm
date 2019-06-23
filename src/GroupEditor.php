@@ -19,9 +19,6 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Service\GroupService;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\PropertyQuery;
-use EcclesiaCRM\Property;
-use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 

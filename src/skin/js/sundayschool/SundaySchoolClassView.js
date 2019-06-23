@@ -20,7 +20,7 @@ $("document").ready(function(){
               path: "groups/" + sundayGroupId,
             }).done(function (data) {
               if (data.status == "success")
-                window.location.href = window.CRM.root + "/sundayschool/SundaySchoolDashboard.php";
+                window.location.href = window.CRM.root + "/v2/sundayschool/dashboard";
             });
         }
       }
@@ -153,9 +153,9 @@ $("document").ready(function(){
       path: "cart/"
     }).done(function (data) {
       if (data.PeopleCart.length > 0) {
-        location.href = window.CRM.root + '/sundayschool/SundaySchoolBadge.php?groupId='+sundayGroupId+'&cart=1';
+        location.href = window.CRM.root + '/v2/sundayschool/' + sundayGroupId + '/badge/1';
       } else {
-        location.href = window.CRM.root + '/sundayschool/SundaySchoolBadge.php?groupId='+sundayGroupId+'&cart=0';
+        location.href = window.CRM.root + '/v2/sundayschool/' + sundayGroupId + '/badge/0';
       }
     });
   });

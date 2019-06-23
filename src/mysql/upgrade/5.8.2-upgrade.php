@@ -15,6 +15,10 @@ require '../../Include/Config.php';*/
   
   unlink(SystemURLs::getDocumentRoot()."/FamilyList.php");
   unlink(SystemURLs::getDocumentRoot()."/PersonList.php");
+  unlink(SystemURLs::getDocumentRoot()."/sundayschool/SundaySchoolDashboard.php");
+  unlink(SystemURLs::getDocumentRoot()."/sundayschool/SundaySchoolClassView.php");
+  unlink(SystemURLs::getDocumentRoot()."/SundaySchoolReports.php");
+  unlink(SystemURLs::getDocumentRoot()."/SundaySchoolBadge.php");
   
   $logger->info("End of delete :  all unusefull files");
 ?>

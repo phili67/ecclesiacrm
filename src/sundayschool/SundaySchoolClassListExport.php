@@ -9,19 +9,21 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
-use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\dto\SystemURLs;
-use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
+use EcclesiaCRM\Utils\RedirectUtils;
 use Propel\Runtime\ActiveQuery\Criteria;
 use EcclesiaCRM\SessionUser;
+
+if ( !( SessionUser::getUser()->isCSVExportEnabled() ) ) {
+    RedirectUtils::Redirect('Menu.php');
+    exit;
+}
 
 header('Pragma: no-cache');
 header('Expires: 0');

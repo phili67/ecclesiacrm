@@ -18,9 +18,6 @@ require '../Include/Functions.php';
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventAttendQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
@@ -39,7 +36,7 @@ if ( !( SessionUser::getUser()->isCSVExportEnabled() || SessionUser::getUser()->
 $delimiter = SessionUser::getUser()->CSVExportDelemiter();
 $charset   = SessionUser::getUser()->CSVExportCharset();
 
-$iGroupID = $_GET['groupID'];
+$iGroupID  = $_GET['groupID'];
 
 $startDate = $_GET['start'];
 $endDate   = $_GET['end'];
