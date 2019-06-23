@@ -116,7 +116,7 @@ class MenuBar {
       
       $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/sundayschool/dashboard",true,$menu);
       $menuItem->addLink("v2/sundayschool/reports");
-        
+
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3) // the group category
                     ->filterByOptionType('sunday_school')
