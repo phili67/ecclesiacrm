@@ -552,7 +552,7 @@ class OutputUtils {
       }
   }
 
-  public static function FormatAgeFromeDate ($birthDate)
+  public static function FormatAgeFromDate ($birthDate)
   {
       return date_diff(date_create($birthDate), date_create('now'))->y;
   }
