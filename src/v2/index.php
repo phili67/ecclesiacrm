@@ -65,6 +65,8 @@ require __DIR__ . '/routes/people/pastoralcare.php';
 require __DIR__ . '/routes/people/familylist.php';
 require __DIR__ . '/routes/people/personlist.php';
 
+require __DIR__ . '/routes/group/groups.php';
+
 // email routes
 // mailchimp
 require __DIR__ . '/routes/email/mailchimp/mailchimp.php';

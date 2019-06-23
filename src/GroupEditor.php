@@ -36,7 +36,7 @@ $groupService = new GroupService();
 if (array_key_exists('GroupID', $_GET)) {
     $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID'], 'int');
 } else {
-    RedirectUtils::Redirect('GroupList.php');
+    RedirectUtils::Redirect('v2/group/list');
 }
 
 $theCurrentGroup = GroupQuery::create()

@@ -462,7 +462,7 @@ if (SessionUser::getUser()->isPastoralCareEnabled()) {
             <div class="icon">
                 <i class="fa fa-gg"></i>
             </div>
-            <a href="<?= SystemURLs::getRootPath() ?>/GroupList.php" class="small-box-footer">
+            <a href="<?= SystemURLs::getRootPath() ?>/v2/group/list" class="small-box-footer">
                 <?= _('More info') ?>  <i class="fa fa-arrow-circle-right"></i>
             </a>
         </div>

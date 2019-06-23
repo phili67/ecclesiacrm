@@ -48,7 +48,7 @@ class MenuBar {
       // the assigned Groups
       $menu = new Menu (_("Groups"),"fa fa-tag","#",true);
       
-      $menuItem = new Menu (_("List Groups"),"fa fa-circle-o","GroupList.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
+      $menuItem = new Menu (_("List Groups"),"fa fa-circle-o","v2/group/list",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
       
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3) // the group category
@@ -116,7 +116,7 @@ class MenuBar {
       
       $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/sundayschool/dashboard",true,$menu);
       $menuItem->addLink("v2/sundayschool/reports");
-        
+
       $listOptions = ListOptionQuery::Create()
                     ->filterById(3) // the group category
                     ->filterByOptionType('sunday_school')
