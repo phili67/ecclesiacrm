@@ -284,4 +284,38 @@ class SundaySchoolService
 
         return $kids;
     }
+
+    public function getFamilies ()
+    {
+        $sSQL = 'select * from family_fam 
+WHERE fam_ID IN (
+select * 
+FROM
+(select person_per.per_fam_ID
+              from person_per,group_grp grp, person2group2role_p2g2r person_grp, list_lst lst
+            where grp_Type = 4
+              and person_per.per_DateDeactivated is null
+              and grp.grp_ID = person_grp.p2g2r_grp_ID
+              and person_grp.p2g2r_per_ID = per_ID
+              and lst.lst_ID = grp.grp_RoleListID
+              and lst.lst_OptionID = person_grp.p2g2r_rle_ID
+              and lst.lst_OptionName = \'STUDENT\'
+              and per_DateDeactivated is null
+	      and per_fam_ID!=0
+            GROUP BY per_fam_ID
+) as tmp1
+)';
+
+        $connection = Propel::getConnection();
+
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+
+        $families = [];
+        while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+            array_push($families, $row);
+        }
+
+        return $families;
+    }
 }

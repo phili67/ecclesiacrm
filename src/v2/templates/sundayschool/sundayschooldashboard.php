@@ -12,9 +12,7 @@
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Utils\OutputUtils;
 
-
 require $sRootDocument . '/Include/Header.php';
-
 ?>
 
 <div class="row">
@@ -36,7 +34,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Teachers') ?></span>
-                <span class="info-box-number"> <?= $teachers ?></span>
+                <span class="info-box-number"> <?= $teachersCNT ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -47,7 +45,7 @@ require $sRootDocument . '/Include/Header.php';
             <span class="info-box-icon bg-orange"><i class="fa fa-child"></i></span>
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Students') ?></span>
-                <span class="info-box-number"> <?= $kids ?></span>
+                <span class="info-box-number"> <?= $kidsCNT ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -59,7 +57,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Families') ?></span>
-                <span class="info-box-number"> <?= count(array_unique($familyIds)) ?></span>
+                <span class="info-box-number"> <?= $familiesCNT ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -71,7 +69,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Boys') ?></span>
-                <span class="info-box-number"> <?= $maleKids ?></span>
+                <span class="info-box-number"> <?= $maleKidsCNT ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -83,7 +81,7 @@ require $sRootDocument . '/Include/Header.php';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= _('Girls') ?></span>
-                <span class="info-box-number"> <?= $femaleKids ?></span>
+                <span class="info-box-number"> <?= $femaleKidsCNT ?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -106,7 +104,7 @@ require $sRootDocument . '/Include/Header.php';
         <?php
         if (SessionUser::getUser()->isExportSundaySchoolPDFEnabled() || SessionUser::getUser()->isAdmin()) {
             ?>
-            <a href="<?= $sRootPath ?>/sundayschool/SundaySchoolReports.php" class="btn btn-app bg-red"
+            <a href="<?= $sRootPath ?>/v2/sundayschool/reports" class="btn btn-app bg-red"
                title="<?= _('Generate class lists and attendance sheets'); ?>"><i
                     class="fa fa-file-pdf-o"></i><?= _('Reports'); ?></a>
             <?php

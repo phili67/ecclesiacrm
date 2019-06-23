@@ -1,7 +1,7 @@
 <?php
 /*******************************************************************************
  *
- *  filename    : SundaySchoolReports.php
+ *  filename    : SundaySchoolBadge.php
  *  last change : 2018-09-11
  *  description : form to invoke Sunday School reports
  *
