@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2019-06-20T20:54:12.707Z\n"
+"POT-Creation-Date: 2019-06-24T09:21:40.921Z\n"
 "PO-Revision-Date: 2018-07-24T21:40:53.922Z\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1725,6 +1725,10 @@ msgid ""
 msgstr ""
 "Diese Aktion wird alle personnen Mitgliedschaft mit diesem Etikett löschen."
 
+#, fuzzy
+msgid "Deleting tag"
+msgstr "Etiketten Löschen"
+
 msgid "Loading subscriber"
 msgstr "Abonnenten Laden"
 
@@ -1837,11 +1841,12 @@ msgstr "Etiketten Entfernen..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Alle Etiketten für diese Mitglieder Löschen...."
 
+#, fuzzy
+msgid "Add your tag name"
+msgstr "Gruppe Name hinzuzufügen"
+
 msgid "Adding tag..."
 msgstr "Etikett hinzufügen ... "
-
-msgid "Add all tags for the selected members in the list..."
-msgstr "Alle Etiketten für diesen Mitglieder List Fügen..."
 
 msgid "Name is empty !!"
 msgstr "Lehre Nahme"
@@ -1860,6 +1865,9 @@ msgstr "Sie sind im Begriff, eine Teilnehmer zu löschen ! Sind sie sicher?"
 
 msgid "Deleting Subscribers..."
 msgstr "Teilnehmers Löschen ..."
+
+#~ msgid "Add all tags for the selected members in the list..."
+#~ msgstr "Alle Etiketten für diesen Mitglieder List Fügen..."
 
 #, fuzzy
 #~ msgid "Audience Creation"
