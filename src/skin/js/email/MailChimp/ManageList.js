@@ -154,13 +154,16 @@ $(document).ready(function () {
         },
         callback: function (result) {
           if (result) {
+            window.CRM.dialogLoadingFunction ( i18next.t("Deleting tag") );
+
             window.CRM.APIRequest({
-              method: 'POST',
-              path: 'mailchimp/list/removeTag',
-              data: JSON.stringify({"list_id":listID ,"tag_ID": tagID})
+                method: 'POST',
+                path: 'mailchimp/list/removeTag',
+                data: JSON.stringify({"list_id":listID ,"tag_ID": tagID})
             }).done(function(data) {
-               render_container();
-               window.CRM.dataListTable.ajax.reload(null, false);
+                render_container();
+                addTagsToMainDropdown ();
+                window.CRM.dataListTable.ajax.reload(null, false);
             });
           }
         }
@@ -867,17 +870,18 @@ $(document).ready(function () {
     });
     
     if (tag == -1) {
-      bootbox.prompt("Add your tag name", function(name){
+
+        bootbox.prompt(i18next.t("Add your tag name"), function(name){
         if (name != null && name != "") {
           window.CRM.dialogLoadingFunction( i18next.t('Adding tag...') );
+
           window.CRM.APIRequest({
             method: 'POST',
             path: 'mailchimp/list/addTag',
             data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
           }).done(function(data) { 
-            window.CRM.dialogLoadingFunction( i18next.t('Add all tags for the selected members in the list...') );
-          
             if (data.success) {
+              window.CRM.closeDialogLoadingFunction();
               window.CRM.dataListTable.ajax.reload(null, false);
               render_container();
               addTagsToMainDropdown();
@@ -912,12 +916,12 @@ $(document).ready(function () {
                 data: JSON.stringify({"list_id":window.CRM.list_ID ,"tag": tag, "name": name, "emails": emails})
               }).done(function(data) { 
                 if (data.success) {
-                  window.CRM.dataListTable.ajax.reload(null, false);
-                  window.CRM.closeDialogLoadingFunction();
-                  render_container();
+                    window.CRM.closeDialogLoadingFunction();
+                    window.CRM.dataListTable.ajax.reload(null, false);
+                    render_container();
                 } else if (data.success ==  false && data.error) {
-                  window.CRM.closeDialogLoadingFunction();
-                  window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
+                    window.CRM.closeDialogLoadingFunction();
+                    window.CRM.DisplayAlert(i18next.t("Error"),i18next.t(data.error.detail));
                 }
               });
             }
