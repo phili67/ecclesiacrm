@@ -9,13 +9,13 @@ $(document).ready(function () {
       data: $(window.CRM.groupRoles).map(function () {
         return {
           id: this.OptionId,
-          text: i18next.t(this.OptionName)
+          text: this.OptionName
         };
       })
     });
     initDataTable();
-  });  
-  
+  });
+
   window.CRM.dataPropertiesTable = $("#AssignedPropertiesTable").DataTable({
     ajax:{
       url: window.CRM.root + "/api/groups/groupproperties/"+window.CRM.currentGroup,
@@ -50,7 +50,7 @@ $(document).ready(function () {
         data:'ProId',
         render: function(data, type, full, meta) {
           var ret = '';
-          if (full.ProPrompt != '') {       
+          if (full.ProPrompt != '') {
             ret += '<a class="edit-property-btn" data-group_id="'+window.CRM.currentGroup+'" data-property_id="'+data+'" data-property_Name="'+full.R2pValue+'"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;';
           }
 
@@ -63,10 +63,10 @@ $(document).ready(function () {
       $(row).addClass("paymentRow");
     }
   });
-  
+
   $('#isGroupActive').prop('checked', window.CRM.isActive).change();
   $('#isGroupEmailExport').prop('checked', window.CRM.isIncludeInEmailExport).change();
-  
+
   $("#deleteGroupButton").click(function() {
     console.log("click");
     bootbox.setDefaults({
@@ -93,15 +93,15 @@ $(document).ready(function () {
       }
     });
   });
-  
-  $(".input-group-properties").select2({ 
+
+  $(".input-group-properties").select2({
     language: window.CRM.shortLocale
   });
-  
+
    $('body').on('click','.assign-property-btn',function(){
      var property_id = $('.input-group-properties').val();
-     var property_pro_value = $('.property-value').val();     
-     
+     var property_pro_value = $('.property-value').val();
+
       window.CRM.APIRequest({
         method: 'POST',
         path: 'properties/groups/assign',
@@ -114,8 +114,8 @@ $(document).ready(function () {
       });
     });
 
-  
-  $('body').on('click','.remove-property-btn',function(){ 
+
+  $('body').on('click','.remove-property-btn',function(){
         event.preventDefault();
         var thisLink = $(this);
         var group_id = thisLink.data('group_id');
@@ -149,8 +149,8 @@ $(document).ready(function () {
           }
         });
     });
-    
-    $('body').on('click','.edit-property-btn',function(){ 
+
+    $('body').on('click','.edit-property-btn',function(){
         event.preventDefault();
         var thisLink = $(this);
         var group_id = thisLink.data('group_id');
@@ -168,7 +168,7 @@ $(document).ready(function () {
               className: 'btn btn-default'
             }
           },
-          title: i18next.t('Are you sure you want to change this property?'),          
+          title: i18next.t('Are you sure you want to change this property?'),
           value: property_name,
           callback: function (result) {
             if (result) {
@@ -185,7 +185,7 @@ $(document).ready(function () {
           }
         });
     });
-    
+
     $(".input-group-properties").on("select2:select", function (event) {
         promptBox = $("#prompt-box");
         promptBox.removeClass('form-group').html('');
@@ -211,7 +211,7 @@ $(document).ready(function () {
     language: window.CRM.shortLocale,
     minimumInputLength: 2,
     placeholder: " -- "+i18next.t("Person")+" -- ",
-    allowClear: true, // This is for clear get the clear button if wanted 
+    allowClear: true, // This is for clear get the clear button if wanted
     ajax: {
       url: function (params) {
         return window.CRM.root + "/api/persons/search/" + params.term;
@@ -362,9 +362,9 @@ function initDataTable() {
           thisRole = $(window.CRM.groupRoles).filter(function (index, item) {
             return item.OptionId == data
           })[0];
-          
+
           if (isShowable) {
-            return i18next.t(thisRole.OptionName) + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
+            return ((thisRole != undefined)?thisRole.OptionName:'') + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
           } else {
             return i18next.t("Private Data");
           }
@@ -373,7 +373,7 @@ function initDataTable() {
       {
         width: 'auto',
         title: i18next.t('Address'),
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return full.Person.Address1 + " " + full.Person.Address2;
           } else {
@@ -385,7 +385,7 @@ function initDataTable() {
         width: 'auto',
         title: i18next.t('City'),
         data: 'Person.City',
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return data;
           } else {
@@ -397,7 +397,7 @@ function initDataTable() {
         width: 'auto',
         title: i18next.t('State'),
         data: 'Person.State',
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return data;
           } else {
@@ -409,7 +409,7 @@ function initDataTable() {
         width: 'auto',
         title: i18next.t('Zip Code'),
         data: 'Person.Zip',
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return data;
           } else {
@@ -421,7 +421,7 @@ function initDataTable() {
         width: 'auto',
         title: i18next.t('Cell Phone'),
         data: 'Person.CellPhone',
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return data;
           } else {
@@ -433,7 +433,7 @@ function initDataTable() {
         width: 'auto',
         title: i18next.t('Email'),
         data: 'Person.Email',
-        render: function (data, type, full, meta) {          
+        render: function (data, type, full, meta) {
           if (isShowable) {
             return data;
           } else {
@@ -450,7 +450,7 @@ function initDataTable() {
     }
   };
   $.extend(DataTableOpts,window.CRM.plugin.dataTable);
-  
+
   window.CRM.DataTableGroupView = $("#membersTable").DataTable(DataTableOpts);
 
   $('#isGroupActive').change(function () {
@@ -484,7 +484,7 @@ function initDataTable() {
     $("#moveSelectedToGroup").prop('disabled', !(selectedRows));
     $("#moveSelectedToGroup").html(i18next.t("Move")+"  (" + selectedRows + ") "+i18next.t("Members to another group"));
   });
-  
+
     $(document).on("click",".AddToGroupCart", function(){
       clickedButton = $(this);
       window.CRM.cart.addGroup(clickedButton.data("cartgroupid"),function()
@@ -499,7 +499,7 @@ function initDataTable() {
         }
       });
     });
-    
+
     $(document).on("click",".RemoveFromGroupCart", function(){
       clickedButton = $(this);
       window.CRM.cart.removeGroup(clickedButton.data("cartgroupid"),function()
@@ -514,11 +514,11 @@ function initDataTable() {
         }
       });
     });
-    
-    
+
+
     // newMessage event subscribers : Listener CRJSOM.js
     $(document).on("emptyCartMessage", updateButtons);
-    
+
     // newMessage event handler
     function updateButtons(e) {
       if (e.cartPeople.length == 0) {
@@ -532,17 +532,17 @@ function initDataTable() {
         }
       }
     }
-    
-    
+
+
     // start manager
     $("#add-manager").click(function() {
       createManagerWindow(window.CRM.currentGroup);
     });
-    
-    $('body').on('click','.delete-person-manager', function(){ 
+
+    $('body').on('click','.delete-person-manager', function(){
       var personID = $(this).data('personid');
       var groupID  = $(this).data('groupid');
-      
+
        window.CRM.APIRequest({
          method: 'POST',
          path: 'groups/deleteManager',
@@ -550,13 +550,13 @@ function initDataTable() {
       }).done(function(data) {
         if (data.status == undefined) {
           var len = data.length;
-          
+
           var optionValues = '';
-      
+
           for (i=0; i<len; ++i) {
             optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
           }
-          
+
           if (optionValues != '') {
             $("#Manager-list").html(optionValues);
           } else {
@@ -567,14 +567,14 @@ function initDataTable() {
         }
       });
     });
-    
-    
+
+
     function BootboxContentManager(){
       var frm_str = '<h3 style="margin-top:-5px">'+i18next.t("Manage Group Managers")+'</h3>'
        + '<div>'
             +'<div class="row div-title">'
               +'<div class="col-md-4">'
-              + '<span style="color: red">*</span>' + i18next.t("With") + ":"                    
+              + '<span style="color: red">*</span>' + i18next.t("With") + ":"
               +'</div>'
               +'<div class="col-md-8">'
               +'<select size="6" style="width:100%" id="select-manager-persons" multiple>'
@@ -590,47 +590,47 @@ function initDataTable() {
               +'</div>'
             +'</div>'
           +'</div>';
-          
+
           var object = $('<div/>').html(frm_str).contents();
 
         return object
     }
-    
+
     // the add people to calendar
-  
+
     function addManagersFromGroup(groupID)
     {
         $('#select-manager-persons').find('option').remove();
-      
+
         window.CRM.APIRequest({
           method: 'POST',
           path: 'groups/getmanagers',
           data: JSON.stringify({"groupID": groupID})
-        }).done(function(data) {    
+        }).done(function(data) {
           var elt = document.getElementById("select-manager-persons");
           var len = data.length;
-          
+
           var optionValues = '';
-      
+
           for (i=0; i<len; ++i) {
             var option = document.createElement("option");
 
             option.text = data[i].name;
             option.value = data[i].personID;
-            
+
             optionValues += data[i].name+'<a class="delete-person-manager" data-personid="'+data[i].personID+'" data-groupid="'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>, ';
-      
+
             elt.appendChild(option);
           }
-          
+
           if (optionValues != '') {
             $("#Manager-list").html(optionValues);
           } else {
             $("#Manager-list").html(i18next.t("No assigned Manager")+".");
           }
-        });  
+        });
     }
-    
+
     function createManagerWindow (groupID)
     {
       var modal = bootbox.dialog({
@@ -639,21 +639,21 @@ function initDataTable() {
           {
            label: i18next.t("Delete"),
            className: "btn btn-warning",
-           callback: function() {                        
-              bootbox.confirm(i18next.t("Are you sure, you want to delete this Manager ?"), function(result){ 
+           callback: function() {
+              bootbox.confirm(i18next.t("Are you sure, you want to delete this Manager ?"), function(result){
                 if (result) {
-                  $('#select-manager-persons :selected').each(function(i, sel){ 
+                  $('#select-manager-persons :selected').each(function(i, sel){
                     var personID = $(sel).val();
-                  
+
                     window.CRM.APIRequest({
                        method: 'POST',
                        path: 'groups/deleteManager',
                        data: JSON.stringify({"groupID":groupID,"personID":personID})
                     }).done(function(data) {
                       $("#select-manager-persons option[value='"+personID+"']").remove();
-                      
+
                       var opts = $('#select-manager-persons > option').map(function() { return this.text+'<a class="delete-person-manager" data-personid"'+this.value+'" data-groupid"'+groupID+'"><i style="cursor:pointer; color:red;" class="icon fa fa-close"></i></a>'; }).get();
-                      
+
                       if (opts.length) {
                         $("#Manager-list").html(opts.join(", "));
                       } else {
@@ -670,7 +670,7 @@ function initDataTable() {
            label: i18next.t("Delete Managers"),
            className: "btn btn-danger",
            callback: function() {
-            bootbox.confirm(i18next.t("Are you sure, you want to delete all the managers ?"), function(result){ 
+            bootbox.confirm(i18next.t("Are you sure, you want to delete all the managers ?"), function(result){
               if (result) {
                 window.CRM.APIRequest({
                    method: 'POST',
@@ -699,12 +699,12 @@ function initDataTable() {
             modal.modal("hide");
          }
        });
-     
-       $("#person-manager-Id").select2({ 
+
+       $("#person-manager-Id").select2({
           language: window.CRM.shortLocale,
           minimumInputLength: 2,
           placeholder: " -- "+i18next.t("Person")+" -- ",
-          allowClear: true, // This is for clear get the clear button if wanted 
+          allowClear: true, // This is for clear get the clear button if wanted
           ajax: {
               url: function (params){
                 return window.CRM.root + "/api/people/searchonlyperson/" + params.term;
@@ -718,24 +718,24 @@ function initDataTable() {
               cache: true
           }
         });
-           
-       $("#person-manager-Id").on("select2:select",function (e) { 
+
+       $("#person-manager-Id").on("select2:select",function (e) {
          if (e.params.data.personID !== undefined) {
              window.CRM.APIRequest({
                   method: 'POST',
                   path: 'groups/addManager',
                   data: JSON.stringify({"groupID":window.CRM.currentGroup,"personID": e.params.data.personID})
-             }).done(function(data) { 
+             }).done(function(data) {
                addManagersFromGroup(groupID);
              });
           }
        });
-     
+
        addManagersFromGroup(groupID);
        modal.modal('show');
-     
+
       // this will ensure that image and table can be focused
-      $(document).on('focusin', function(e) {e.stopImmediatePropagation();});  
+      $(document).on('focusin', function(e) {e.stopImmediatePropagation();});
     }
 
     // end manager
@@ -743,7 +743,7 @@ function initDataTable() {
 
     // listener : when the delete member is invocated
     $(document).on("updateLocalePageMessage", updateLocaleSCPage);
-    
+
     // newMessage event handler
     function updateLocaleSCPage(e) {
       window.CRM.DataTableGroupView.ajax.reload();
