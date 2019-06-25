@@ -7,11 +7,15 @@ En effet, toutes les images insérées dans la campagne doivent avoir des liens 
 
 ## Créer sa première campagne
 
-On utilise le bouton suivant
+On utilise le bouton suivant, ou vous pourrez sélectionner tous les membres sans étiquettes
 
 ![Screenshot](../../img/mailchimp/campaignCreation.png)
 
-Avec la boite de dialogue
+Ou vous pourrez choisir une étiquette (tag) pour ne sélectionner que les membres que vous avez trier précédemment
+
+![Screenshot](../../img/mailchimp/campaignCreation_1.png)
+
+Vous pourrez ensuite créer le corps de texte de votre campagne
 
 ![Screenshot](../../img/mailchimp/campaignCreation1.png)
 

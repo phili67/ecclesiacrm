@@ -3,6 +3,11 @@
 
 Ecclesia**CRM** est pleinement compatible avec MailChimp ![Screenshot](../../img/mailchimp/Mailchimp.png)
 
+```
+Mailchimp a changé et ne plus que créer qu'une seule liste (Audience), dans le cas de sa version gratuite.
+Pour contourner le problème il est possible d'utiliser des Etiquettes (Tags).
+```
+
 
 ##Activation
 

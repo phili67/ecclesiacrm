@@ -861,16 +861,16 @@ Route | Method | function | Description
 ------|--------|----------|------------
 `/upactionfield` | POST | upactionFamilyField | Move up the family custom field
 
-* `{id1}`->`int` :: orderID as id
-* `{id2}`->`int` :: field as id
+* `{id}`->`int` :: orderID as id
+* `{id}`->`int` :: field as id
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
 `/downactionfield` | POST | downactionFamilyField | Move down the family custom field
 
-* `{id1}`->`int` :: orderID as id
-* `{id2}`->`int` :: field as id
+* `{id}`->`int` :: orderID as id
+* `{id}`->`int` :: field as id
 
 ---
 ## API "groups"
