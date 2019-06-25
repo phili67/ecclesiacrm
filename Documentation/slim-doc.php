@@ -63,15 +63,15 @@
                 );
                 $doc_temp = emptyTemp();
               } else {
-								preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', (.*) \{/", $line, $route_data);
-								if ($route_data) { 
-									$doc_cache[] = array(
-											"route_data" => $route_data,
-											"doc" => $doc_temp
-									);
-									$doc_temp = emptyTemp();
-								}
-							}
+                preg_match("/\\$[a-z]*->(get|post|put|delete)\(\'(.*)\', (.*) \{/", $line, $route_data);
+                if ($route_data) { 
+                  $doc_cache[] = array(
+                      "route_data" => $route_data,
+                      "doc" => $doc_temp
+                  );
+                  $doc_temp = emptyTemp();
+                }
+              }
             }
         }
         

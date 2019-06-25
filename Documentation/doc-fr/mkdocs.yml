@@ -130,6 +130,7 @@ pages:
     - "MailChimp":
         - 'Tableau de bord': 'user-guide/doc-mailchimp/dashboard.md'
         - 'Gérer les listes': 'user-guide/doc-mailchimp/manage_list.md'
+        - 'Gérer les Tags (étiquettes)': 'user-guide/doc-mailchimp/manage_tag.md'
         - 'Gérer les campagnes': 'user-guide/doc-mailchimp/manage_campaign.md'
 - "Outils":
     - "Recherche Géographique": 'user-guide/doc-tools/doc-geographics.md'

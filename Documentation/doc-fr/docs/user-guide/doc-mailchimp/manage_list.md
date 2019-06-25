@@ -53,9 +53,33 @@ Puis il suffit de sélectionner le statut comme suit
 
 ![Screenshot](../../img/mailchimp/modifyUserStatut1.png)
 
-## supprimer un membre de la liste de diffusion
+## Modifier le statut de plusieurs abonnés
+
+Sélectionner plusieurs membres
+
+![Screenshot](../../img/mailchimp/selectMembers.png)
+
+Puis cliquer le menu et choisir l'option désirée
+
+![Screenshot](../../img/mailchimp/subUnsub.png)
+
+
+## Supprimer un membre de la liste de diffusion
 
 Il suffit de cliquer sur la corbeille figurant à côté de la corbeille
 
 ![Screenshot](../../img/mailchimp/modifyUserStatut.png)
+
+
+## Supprimer plusieurs membres de la liste de diffusion
+
+Sélectionner plusieurs membres
+
+![Screenshot](../../img/mailchimp/selectMembers.png)
+
+Il suffit de cliquer sur le bouton supprimer
+
+![Screenshot](../../img/mailchimp/deleteMembers2.png)
+
+
 
