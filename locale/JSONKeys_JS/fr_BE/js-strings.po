@@ -1745,9 +1745,8 @@ msgstr ""
 "Ceci supprimera également tous les appartenances de personnes associées à "
 "cetteétiquette."
 
-#, fuzzy
 msgid "Deleting tag"
-msgstr "Effacer Etiquettes"
+msgstr "Effacer Etiquette"
 
 msgid "Loading subscriber"
 msgstr "Chargement des abonnés"
@@ -1861,7 +1860,6 @@ msgstr "Chargement des données ..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Suppression de toutes les étiquettes pour les membres sélectionnés..."
 
-#, fuzzy
 msgid "Add your tag name"
 msgstr "Ajouter nom de Groupe"
 

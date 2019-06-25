@@ -1861,9 +1861,8 @@ msgstr "Chargement des données ..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Suppression de toutes les étiquettes pour les membres sélectionnés..."
 
-#, fuzzy
 msgid "Add your tag name"
-msgstr "Ajouter nom de Groupe"
+msgstr "Ajouter étiquette"
 
 msgid "Adding tag..."
 msgstr "Ajout étiquette"
