@@ -1725,9 +1725,8 @@ msgid ""
 msgstr ""
 "Diese Aktion wird alle personnen Mitgliedschaft mit diesem Etikett löschen."
 
-#, fuzzy
 msgid "Deleting tag"
-msgstr "Etiketten Löschen"
+msgstr "Etikette Löschen"
 
 msgid "Loading subscriber"
 msgstr "Abonnenten Laden"
@@ -1841,9 +1840,8 @@ msgstr "Etiketten Entfernen..."
 msgid "Deleting all tags for the selected members in the list..."
 msgstr "Alle Etiketten für diese Mitglieder Löschen...."
 
-#, fuzzy
 msgid "Add your tag name"
-msgstr "Gruppe Name hinzuzufügen"
+msgstr "Etikette Name hinzuzufügen"
 
 msgid "Adding tag..."
 msgstr "Etikett hinzufügen ... "
