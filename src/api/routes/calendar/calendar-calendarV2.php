@@ -41,7 +41,7 @@ use Propel\Runtime\Propel;
 $app->group('/calendar', function () {
 
     $this->post('/getallevents', 'getallCalendarEvents');
-    $this->post('/numberofcalendar', 'numberOfCalendar' );
+    $this->post('/numberofcalendars', 'numberOfCalendars' );
     $this->post('/showhidecalendars', 'showHideCalendars' );
     $this->post('/setDescriptionType', 'setCalendarDescriptionType' );
     $this->post('/getallforuser', 'getAllCalendarsForUser' );
@@ -69,7 +69,7 @@ function getallCalendarEvents (Request $request, Response $response, array $args
     return $response->withJson($calendarService->getEvents($params->start, $params->end));
 }
 
-function numberOfCalendar (Request $request, Response $response, array $args) {
+function numberOfCalendars (Request $request, Response $response, array $args) {
     // we get the PDO for the Sabre connection from the Propel connection
     $pdo = Propel::getConnection();         
   

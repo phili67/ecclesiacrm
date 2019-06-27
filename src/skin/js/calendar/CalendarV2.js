@@ -461,7 +461,7 @@ selectHelper: true,
 select: function(start, end) {
   window.CRM.APIRequest({
       method: 'POST',
-      path: 'calendar/numberofcalendar',
+      path: 'calendar/numberofcalendars',
   }).done(function(data) {
     if (data.CalendarNumber > 0){
        // We create the dialog
