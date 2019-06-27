@@ -64,7 +64,7 @@ $app->group('/events', function () {
     $this->get('/numbers', "numbersOfEventOfToday" );
     $this->get('/types', "getEventTypes" );
     $this->get('/names', "eventNames");
-    $this->post('/deleteeventtype',"deleteeventtype" );
+    $this->post('/deleteeventtype', "deleteeventtype" );
     $this->post('/info', "eventInfo" );
     $this->post('/person', "personCheckIn" );
     $this->post('/group', "groupCheckIn" );

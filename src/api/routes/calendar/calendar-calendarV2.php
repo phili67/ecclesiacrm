@@ -25,13 +25,8 @@ use EcclesiaCRM\PrincipalsQuery;
 
 use Sabre\CalDAV;
 use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
 use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
 use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
 use EcclesiaCRM\MyPDO\PrincipalPDO;
@@ -40,39 +35,103 @@ use Propel\Runtime\Propel;
 
 $app->group('/calendar', function () {
 
-    $this->post('/getallevents', 'getallCalendarEvents');
+    /*
+     * @! Get all events for all calendars for a specified range
+     * #! param: ref->start :: the start date : YYYY-MM-DD
+     * #! param: ref->start :: the end date : YYYY-MM-DD
+     */
+    $this->post('/getallevents', 'getallCalendarEvents' );
+    /*
+     * @! get all the number of calendar for the current user
+     */
     $this->post('/numberofcalendars', 'numberOfCalendars' );
+    /*
+     * @! Show Hide calendar
+     * #! param: ref->array :: calIDs
+     * #! param: id->bool   :: isPresent
+     */
     $this->post('/showhidecalendars', 'showHideCalendars' );
+    /*
+     * @! set Description type for a calendar
+     * #! param: ref->array  :: calIDs
+     * #! param: ref->string :: desc
+     * #! param: ref->string :: type
+     */
     $this->post('/setDescriptionType', 'setCalendarDescriptionType' );
+    /*
+     * @! Get all calendars for a specified user
+     * #! param: ref->string :: type
+     * #! param: ref->bool   :: onlyvisible
+     * #! param: ref->bool   :: allCalendars
+     */
     $this->post('/getallforuser', 'getAllCalendarsForUser' );
+    /*
+     * @! Get infos for a calendar
+     * #! param: ref->array  :: calIDs
+     * #! param: ref->string :: type
+     */
     $this->post('/info', 'calendarInfo' );
+    /*
+    * @! Set color for a calendar
+    * #! param: ref->array  :: calIDs
+    * #! param: ref->hex    :: color : #FFF
+    */
     $this->post('/setcolor', 'setCalendarColor' );
+    /*
+    * @! Check the calendar to make it visible
+    * #! param: ref->array  :: calIDs
+    * #! param: ref->bool   :: isChecked
+    */
     $this->post('/setckecked', 'setCheckedCalendar' );
+    /*
+     * @! Create a new calendar
+     * #! param: ref->string  :: title
+     */
     $this->post('/new', 'newCalendar' );
+    /*
+    * @! Create new calendar reservation
+    * #! param: ref->string :: title
+    * #! param: ref->string :: type
+    * #! param: ref->string :: desc
+    */
     $this->post('/newReservation', 'newCalendarReservation' );
+    /*
+    * @! Change calendar name
+    * #! param: ref->array  :: calIDs
+    * #! param: ref->string :: title
+    */
     $this->post('/modifyname', 'modifyCalendarName' );
-    $this->post('/getinvites', 'getCalendarInvites' ); 
+    /*
+    * @! get attendees for a calendar
+    * #! param: ref->array  :: calIDs
+    */
+    $this->post('/getinvites', 'getCalendarInvites' );
+    /*
+   * @! Delete a share for a calendar
+   * #! param: ref->array  :: calIDs
+   * #! param: ref->int    :: principal
+   */
     $this->post('/sharedelete', 'shareCalendarDelete' );
     $this->post('/shareperson', 'shareCalendarPerson');
     $this->post('/sharefamily', 'shareCalendarFamily' );
     $this->post('/sharegroup', 'shareCalendarGroup' );
     $this->post('/sharestop', 'shareCalendarStop');
     $this->post('/setrights', 'setCalendarRights' );
-    $this->post('/delete', 'deleteCalendar');
-    
+    $this->post('/delete', 'deleteCalendar' );
+
 });
 
 function getallCalendarEvents (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
-    
+
     $calendarService = new CalendarService();
     return $response->withJson($calendarService->getEvents($params->start, $params->end));
 }
 
 function numberOfCalendars (Request $request, Response $response, array $args) {
     // we get the PDO for the Sabre connection from the Propel connection
-    $pdo = Propel::getConnection();         
-  
+    $pdo = Propel::getConnection();
+
     // We set the BackEnd for sabre Backends
     $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
     $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
@@ -87,8 +146,8 @@ function numberOfCalendars (Request $request, Response $response, array $args) {
       $values['calendarColor']      = $calendar['{http://apple.com/ns/ical/}calendar-color'];
       $values['calendarShareAccess']= $calendar['share-access'];
       $values['calendarUri']        = $calendar['uri'];
-    
-      $id                           = $calendar['id'];            
+
+      $id                           = $calendar['id'];
       $values['calendarID']         = $id[0].",".$id[1];;
       $values['visible']            = ($calendar['visible'] == "1")?true:false;
       //$values['present']            = $calendar['present'];
@@ -96,71 +155,70 @@ function numberOfCalendars (Request $request, Response $response, array $args) {
       if ($values['calendarShareAccess'] >= 2) {
         $values['type']               = 'share';
       }
-      
+
       $values['grpid']               = $calendar['grpid'];
-      
+
       if ( $calendar['present'] && $calendar['visible'] ) {
           array_push($return, $values);
       }
     }
-    
-    
+
+
     return $response->withJson(["CalendarNumber" => count($return)]);
 }
 
-
 function showHideCalendars (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
-     
+
     if ( isset ($params->calIDs) && isset($params->isPresent) ) {
 
       $calIDs = explode(",",$params->calIDs);
-      
+
       $calendarId = $calIDs[0];
-      $Id = $calIDs[1];          
-      
+      $Id = $calIDs[1];
+
       $calendar = CalendarinstancesQuery::Create()->filterByCalendarid($calendarId)->findOneById($Id);
-      
+
       $calendar->setPresent ($params->isPresent);
-      
+
       $calendar->save();
-    
+
       return $response->withJson(['status' => "success"]);
     }
-    
+
     return $response->withJson(['status' => "failed"]);
 }
 
-function setCalendarDescriptionType (Request $request, Response $response, array $args) {  
+function setCalendarDescriptionType (Request $request, Response $response, array $args) {
     $params = (object)$request->getParsedBody();
-    
+
     $return = [];
 
     if ( isset ($params->calIDs) && isset ($params->desc) && isset ($params->type) && SessionUser::getUser()->isAdmin() ) { // only an admin can change the calendarinstance description
       $calIDs = explode(",",$params->calIDs);
-      
+
       $calendarInstance = CalendarinstancesQuery::Create()->findOneById( $calIDs[1] );
-      
+
       $calendarInstance->setDescription($params->desc);
       $calendarInstance->setType($params->type);
-      
+
       $calendarInstance->save();
 
       // we'll connect to sabre
-      /*$pdo = Propel::getConnection();         
-  
+      /*$pdo = Propel::getConnection();
+
       // We set the BackEnd for sabre Backends
       $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-      
+
       $calendarInstance = CalendarinstancesQuery::Create()->findOneByCalendarid( $calIDs[0] );
-    
+
       // Updating the calendar
       $propPatch = new PropPatch([
         '{DAV:}description' => $params->desc
       ]);
-    
+
       $calendarBackend->updateCalendar($calIDs, $propPatch);
-   
+
       $result = $propPatch->commit();*/
         
       return $response->withJson(['status' => "success"]);
@@ -180,12 +238,10 @@ function getAllCalendarsForUser (Request $request, Response $response, array $ar
       $pdo = Propel::getConnection();         
     
       // We set the BackEnd for sabre Backends
-      $calendarBackend = new CalDavPDO($pdo->getWrappedConnection());
-      $principalBackend = new PrincipalPDO($pdo->getWrappedConnection());
+      $calendarBackend  = new CalDavPDO($pdo->getWrappedConnection());
 
       // get all the calendars for the current user
       $calendars = $calendarBackend->getCalendarsForUser('principals/'.strtolower(SessionUser::getUser()->getUserName()),($params->type == 'all')?true:false);
-
 
       foreach ($calendars as $calendar) {
         $values['calendarName']       = $calendar['{DAV:}displayname'];
