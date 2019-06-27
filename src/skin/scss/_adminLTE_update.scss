@@ -814,3 +814,21 @@ input[type=search] {
 z-index: 800 !important;
 pointer-events: none;
 }
+
+/* for the password */
+
+.input-group-append {
+  width:1%;
+  position: relative;
+  font-size: 0;
+  white-space: nowrap;
+  display:table-cell;
+  vertical-align:middle
+}
+
+.btn-outline-secondary {
+  margin-top: -2px;
+  background-color: #ddd !important;
+  border-color: #ddd !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 2px 2px -2px rgba(169, 170, 176, 0.4) !important;
+}
