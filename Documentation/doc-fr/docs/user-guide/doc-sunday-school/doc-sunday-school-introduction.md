@@ -14,10 +14,10 @@ puis de mettre "bEnabledSundaySchool" sur vrai
 
 ## Fonctionnalités
 
-Voici en résumé les possibilités du d'EcclesiaCRM dans ce domaine
+Voici en résumé les possibilités du d'Ecclesia**CRM** dans ce domaine
 
-- Par défaut un moniteur peut faire un appel (créer un événement de groupe ecole du dimanche sur le groupe).
-- Il est possible de faire des exports CSV
+- Par défaut un moniteur peut faire un appel (créer un événement de groupe école du dimanche sur le groupe).
+- Il est possible de faire des exports **CSV**
 - On peut ici créer des listes de présent (dynamiquement selon l'appel fait) ou de créer des grilles présence.
 - Il est possible de faire des tries par mois de naissance, par genre, c'est une facilité pour gérer les anniversaires.
 - Il est également possible de créer des badges

@@ -23,7 +23,7 @@ Vous pourrez saisir le titre de votre campagne et le sujet du mail
 
 ## Gestion d'un Mail type (code champ : publipostage)
 
-Il est maintenant d'utiliser les codes champs de Mailchimp, un code champ permet de faire des mail type comme des lettres types (ce que l'on appelle communément le publipostage).
+Il est maintenant possible d'utiliser les codes champs de Mailchimp, un code champ permet de faire des mail type comme des lettres types (ce que l'on appelle communément le publipostage).
 
 ![Screenshot](../../img/mailchimp/campaignCreation3.png)
 

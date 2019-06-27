@@ -11,77 +11,142 @@ Ecclesia**CRM** utilise Slim 3.9.2 qui permet d'accéder de manière restreinte 
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numberofcalendar` | POST | numberOfCalendar | No description
+`/getallevents` | POST | getallCalendarEvents | Get all events for all calendars for a specified range
+
+* `{ref}`->`start` :: the start date : YYYY-MM-DD
+* `{ref}`->`end` :: the end date : YYYY-MM-DD
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/showhidecalendars` | POST | showHideCalendars | No description
+`/numberofcalendars` | POST | numberOfCalendars | get all the number of calendar for the current user
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setDescriptionType` | POST | setCalendarDescriptionType | No description
+`/showhidecalendars` | POST | showHideCalendars | Show Hide calendar
+
+* `{ref}`->`array` :: calIDs
+* `{id}`->`bool` :: isPresent
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getallforuser` | POST | getAllCalendarsForUser | No description
+`/setDescriptionType` | POST | setCalendarDescriptionType | set Description type for a calendar
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`string` :: desc
+* `{ref}`->`string` :: type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | calendarInfo | No description
+`/getallforuser` | POST | getAllCalendarsForUser | Get all calendars for a specified user
+
+* `{ref}`->`string` :: type
+* `{ref}`->`bool` :: onlyvisible
+* `{ref}`->`bool` :: allCalendars
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setcolor` | POST | setCalendarColor | No description
+`/info` | POST | calendarInfo | Get infos for a calendar
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`string` :: type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setckecked` | POST | setCheckedCalendar | No description
+`/setcolor` | POST | setCalendarColor | Set color for a calendar
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`hex` :: color : #FFF
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/new` | POST | newCalendar | No description
+`/setckecked` | POST | setCheckedCalendar | Check the calendar to make it visible
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`bool` :: isChecked
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/newReservation` | POST | newCalendarReservation | No description
+`/new` | POST | newCalendar | Create a new calendar
+
+* `{ref}`->`string` :: title
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/modifyname` | POST | modifyCalendarName | No description
+`/newReservation` | POST | newCalendarReservation | Create new calendar reservation
+
+* `{ref}`->`string` :: title
+* `{ref}`->`string` :: type
+* `{ref}`->`string` :: desc
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getinvites` | POST | getCalendarInvites | No description
+`/modifyname` | POST | modifyCalendarName | Change calendar name
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`string` :: title
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharedelete` | POST | shareCalendarDelete | No description
+`/getinvites` | POST | getCalendarInvites | get attendees for a calendar
+
+* `{ref}`->`array` :: calIDs
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharefamily` | POST | shareCalendarFamily | No description
+`/sharedelete` | POST | shareCalendarDelete | Delete a share calendar for a person
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`int` :: principal
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/sharegroup` | POST | shareCalendarGroup | No description
+`/sharefamily` | POST | shareCalendarFamily | Share a calendar with a person
+
+* `{ref}`->`array` :: calIDs
+* `{id}`->`int` :: person ID
+* `{ref}`->`bool` :: notification
+* `{ref}`->`array` :: calIDs
+* `{id}`->`int` :: family ID
+* `{ref}`->`bool` :: notification
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/setrights` | POST | setCalendarRights | No description
+`/sharegroup` | POST | shareCalendarGroup | Share a calendar with an entire group
+
+* `{ref}`->`array` :: calIDs
+* `{id}`->`int` :: group ID
+* `{ref}`->`bool` :: notification
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/setrights` | POST | setCalendarRights | Set right access for a calendar
+
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`array` :: calIDs
+* `{ref}`->`int` :: principal
+* `{ref}`->`int` :: rightAccess
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/delete` | POST | deleteCalendar | Delete a calendar
+
+* `{ref}`->`array` :: calIDs
 
 ---
 ## API "events"
@@ -90,52 +155,81 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | getAllEvents | No description
+`/` | GET | getAllEvents | Get all events for all calendars for a specified range
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/notDone` | GET | getNotDoneEvents | No description
+`/notDone` | GET | getNotDoneEvents | Get all events after now
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/numbers` | GET | numbersOfEventOfToday | No description
+`/numbers` | GET | numbersOfEventOfToday | Get all events from today
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/types` | GET | getEventTypes | No description
+`/types` | GET | getEventTypes | Get all event type
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/info` | POST | eventInfo | No description
+`/deleteeventtype` | POST | deleteeventtype | delete event type
+
+* `{id}`->`int` :: type ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/person` | POST | personCheckIn | No description
+`/info` | POST | eventInfo | get event info
+
+* `{id}`->`int` :: event ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/group` | POST | groupCheckIn | No description
+`/person` | POST | personCheckIn | Set a person for the event + check
+
+* `{id}`->`int` :: event ID
+* `{id}`->`int` :: person ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/family` | POST | familyCheckIn | No description
+`/group` | POST | groupCheckIn | Set the group persons for the event + check
+
+* `{id}`->`int` :: event ID
+* `{id}`->`int` :: group ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/attendees` | POST | eventCount | No description
+`/family` | POST | familyCheckIn | Set the family persons for the event + check
+
+* `{id}`->`int` :: event ID
+* `{id}`->`int` :: family ID
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | manageEvent | No description
+`/attendees` | POST | eventCount | get event count
+
+* `{id}`->`int` :: event ID
+* `{id}`->`int` :: type ID
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/` | POST | manageEvent | manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+
+* `{id}`->`int` :: eventID
+* `{id}`->`int` :: type ID
+* `{ref}`->`array` :: calendarID
+* `{id}`->`int` :: reccurenceID
+* `{ref}`->`start` :: the start date : YYYY-MM-DD
+* `{ref}`->`start` :: the end date : YYYY-MM-DD
+* `{ref}`->`location` :: location
 
 ---
 ## API "Cart"
@@ -610,6 +704,31 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
+`/list/removeTag` | POST | removeTag | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/removeAllTagsForMembers` | POST | removeAllTagsForMembers | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/addTag` | POST | addTag | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/getAllTags` | POST | getAllTags | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/list/removeTagForMembers` | POST | removeTagForMembers | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
 `/campaign/actions/create` | POST | campaignCreate | No description
 
 ---
@@ -641,6 +760,11 @@ Route | Method | function | Description
 Route | Method | function | Description
 ------|--------|----------|------------
 `/suppress` | POST | suppress | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/suppressMembers` | POST | suppressMembers | No description
 
 ---
 Route | Method | function | Description
@@ -879,107 +1003,117 @@ Route | Method | function | Description
 
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | GET | function () | No description
+`/` | GET | getAllGroups | Get all the Groups
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupproperties/{groupID:[0-9]+}` | POST | function ($request, $response, $args) | No description
+`/groupproperties/{groupID:[0-9]+}` | POST | groupproperties | Get all the properties of a group
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addressbook/extract/{groupId:[0-9]+}` | GET | function ($request, $response, $args) | No description
+`/addressbook/extract/{groupId:[0-9]+}` | GET | function ($request, $response, $args) | get addressbook from a groupID through the url
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/search/{query}` | GET | function ($request, $response, $args) | No description
+`/search/{query}` | GET | searchGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteAllManagers` | POST | function ($request, $response, $args) | No description
+`/deleteAllManagers` | POST | deleteAllManagers | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/deleteManager` | POST | function ($request, $response, $args) | No description
+`/deleteManager` | POST | deleteManager | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/getmanagers` | POST | function ($request, $response, $args) | No description
+`/getmanagers` | POST | getManagers | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/addManager` | POST | function ($request, $response, $args) | No description
+`/addManager` | POST | addManager | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/groupsInCart` | GET | function () | No description
+`/groupsInCart` | GET | groupsInCart | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/` | POST | function ($request, $response, $args) | No description
+`/` | POST | newGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}` | POST | updateGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | GET | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}` | GET | groupInfo | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/cartStatus` | GET | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/cartStatus` | GET | groupCartStatus | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}` | DELETE | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}` | DELETE | deleteGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/members` | GET | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/members` | GET | groupMembers | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/events` | GET | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/events` | GET | groupEvents | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}` | DELETE | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/removeperson/{userID:[0-9]+}` | DELETE | removePersonFromGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/addperson/{userID:[0-9]+}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/addperson/{userID:[0-9]+}` | POST | addPersonToGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/userRole/{userID:[0-9]+}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/addteacher/{userID:[0-9]+}` | POST | addTeacherToGroup | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/userRole/{userID:[0-9]+}` | POST | userRoleByUserId | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/roles` | GET | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/roles/{roleID:[0-9]+}` | POST | rolesByRoleId | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/roles` | GET | allRoles | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/defaultRole` | POST | defaultRoleForGroup | No description
 
 ---
 Route | Method | function | Description
@@ -994,22 +1128,51 @@ Route | Method | function | Description
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/defaultRole` | POST | function ($request, $response, $args) | No description
-
----
-Route | Method | function | Description
-------|--------|----------|------------
 `/{groupID:[0-9]+}/setGroupSpecificPropertyStatus` | POST | function ($request, $response, $args) | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/settings/active/{value}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/settings/active/{value}` | POST | settingsActiveValue | No description
 
 ---
 Route | Method | function | Description
 ------|--------|----------|------------
-`/{groupID:[0-9]+}/settings/email/export/{value}` | POST | function ($request, $response, $args) | No description
+`/{groupID:[0-9]+}/settings/email/export/{value}` | POST | settingsEmailExportVvalue | No description
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/deletefield` | POST | deleteGroupField | delete Group Specific property custom field
+
+* `{id}`->`int` :: PropID as id
+* `{id}`->`int` :: Field as id
+* `{id}`->`int` :: GroupId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/upactionfield` | POST | upactionGroupField | delete Group Specific property custom field
+
+* `{id}`->`int` :: PropID as id
+* `{id}`->`int` :: Field as id
+* `{id}`->`int` :: GroupId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/downactionfield` | POST | downactionGroupField | delete Group Specific property custom field
+
+* `{id}`->`int` :: PropID as id
+* `{id}`->`int` :: Field as id
+* `{id}`->`int` :: GroupId as id
+
+---
+Route | Method | function | Description
+------|--------|----------|------------
+`/{groupID:[0-9]+}/sundayschool` | GET | groupSundaySchool | get all sundayschool teachers
+
+* `{id}`->`int` :: groupID as id
 
 ---
 ## API "persons"
