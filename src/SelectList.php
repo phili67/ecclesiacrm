@@ -8,7 +8,7 @@
 *  Additional Contributors:
 *  2006 Ed Davis
 *  2011 Michael Wilt
-*  2018 : Copyright Philippe Logel All rights reserved
+*  2019 : Copyright Philippe Logel All rights reserved
 
 *  Design notes: this file would benefit from some thoughtful cleanup.  The filter
 *  settings are using badly overloaded values, with positive, negative, and not-set
@@ -30,55 +30,53 @@ use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\ListOptionQuery;
+use EcclesiaCRM\PropertyQuery;
+use EcclesiaCRM\GroupQuery;
+
+use Propel\Runtime\Propel;
 
 $iTenThousand = 10000;  // Constant used to offset negative choices in drop down lists
 
 // Create array with Classification Information (lst_ID = 1)
-$sClassSQL = 'SELECT * FROM list_lst WHERE lst_ID=1 ORDER BY lst_OptionSequence';
-$rsClassification = RunQuery($sClassSQL);
+$ormClassifications = ListOptionQuery::create()->filterById(1)->orderByOptionSequence()->find();
+
 unset($aClassificationName);
 $aClassificationName[0] = _('Unassigned');
-while ($aRow = mysqli_fetch_array($rsClassification)) {
-    extract($aRow);
-    $aClassificationName[intval($lst_OptionID)] = $lst_OptionName;
+foreach ($ormClassifications as $classification) {
+    $aClassificationName[intval($classification->getOptionId())] = $classification->getOptionName();
 }
 
 // Create array with Family Role Information (lst_ID = 2)
-$sFamRoleSQL = 'SELECT * FROM list_lst WHERE lst_ID=2 ORDER BY lst_OptionSequence';
-$rsFamilyRole = RunQuery($sFamRoleSQL);
+$ormFamilyRole =  ListOptionQuery::create()->filterById(2)->orderByOptionSequence()->find();
+
 unset($aFamilyRoleName);
 $aFamilyRoleName[0] = _('Unassigned');
-while ($aRow = mysqli_fetch_array($rsFamilyRole)) {
-    extract($aRow);
-    $aFamilyRoleName[intval($lst_OptionID)] = $lst_OptionName;
+foreach ($ormFamilyRole as $role) {
+    $aFamilyRoleName[intval($role->getOptionId())] = $role->getOptionName();
 }
 
 // Create array with Person Property
 
- // Get the total number of Person Properties (p) in table Property_pro
-$sSQL = 'SELECT * FROM property_pro WHERE pro_Class="p"';
-$rsPro = RunQuery($sSQL);
-$ProRows = mysqli_num_rows($rsPro);
+// Get the total number of Person Properties (p) in table Property_pro
+$ormPro = PropertyQuery::create()->orderByProName()->findByProClass('p');
 
-$sPersonPropertySQL = 'SELECT * FROM property_pro WHERE pro_Class="p" ORDER BY pro_Name';
-$rsPersonProperty = RunQuery($sPersonPropertySQL);
 unset($aPersonPropertyName);
 $aPersonPropertyName[0] = _('Unassigned');
-$i = 1;
-while ($i <= $ProRows) {
-    $aRow = mysqli_fetch_array($rsPersonProperty);
-    extract($aRow);
-    $aPersonPropertyName[intval($pro_ID)] = $pro_Name;
-    $i++;
+foreach ($ormPro as $pro) {
+    $aPersonPropertyName[intval($pro->getProId())] = $pro->getProName();
 }
 
 // Create array with Group Type Information (lst_ID = 3)
-$sGroupTypeSQL = 'SELECT * FROM list_lst WHERE lst_ID=3 ORDER BY lst_OptionSequence';
-$rsGroupTypes = RunQuery($sGroupTypeSQL);
+$ormGroupTypes =  ListOptionQuery::create()
+                        ->filterById(3)
+                        ->filterByOptionType(['normal','sunday_school'])
+                        ->orderByOptionName()
+                        ->find();
+
 unset($aGroupTypes);
-while ($aRow = mysqli_fetch_array($rsGroupTypes)) {
-    extract($aRow);
-    $aGroupTypes[intval($lst_OptionID)] = $lst_OptionName;
+foreach ($ormGroupTypes  as $type) {
+    $aGroupTypes[intval($type->getOptionId())] = $type->getOptionName();
 }
 
 // Filter received user input as needed
@@ -206,6 +204,8 @@ $sLimit100 = '';
 $sLimit200 = '';
 $sLimit500 = '';
 
+$connection = Propel::getConnection();
+
 // SQL for group-assignment helper
 if ($iMode == 2) {
     $sBaseSQL = 'SELECT *, IF(LENGTH(per_Zip) > 0,per_Zip,fam_Zip) AS zip '.
@@ -214,24 +214,26 @@ if ($iMode == 2) {
 
     // Find people who are part of a group of the specified type.
     // MySQL doesn't have subqueries until version 4.1.. for now, do it the hard way
-    $sSQLsub = 'SELECT per_ID FROM person_per LEFT JOIN person2group2role_p2g2r '.
-                'ON p2g2r_per_ID = per_ID LEFT JOIN group_grp '.
-                'ON grp_ID = p2g2r_grp_ID '.
-                "WHERE grp_Type = $iGroupTypeMissing GROUP BY per_ID";
-    $rsSub = RunQuery($sSQLsub);
+    $sSQLsub = 'SELECT per_ID FROM person_per LEFT 
+             JOIN person2group2role_p2g2r  ON p2g2r_per_ID = per_ID 
+             LEFT JOIN group_grp ON grp_ID = p2g2r_grp_ID 
+             LEFT JOIN group_type ON grptp_grp_ID=grp_ID
+            WHERE grptp_lst_OptionID = ' . $iGroupTypeMissing .' GROUP BY per_ID';
+    $pdoSub= $connection->prepare($sSQLsub);
+    $pdoSub->execute();
 
-    if (mysqli_num_rows($rsSub) > 0) {
+    if ($pdoSub->rowCount() > 0) {
         $sExcludedIDs = '';
-        while ($aTemp = mysqli_fetch_row($rsSub)) {
+
+        while ($aTemp = $pdoSub->fetch( \PDO::FETCH_BOTH )) {
             $sExcludedIDs .= $aTemp[0].',';
         }
+
         $sExcludedIDs = mb_substr($sExcludedIDs, 0, -1);
         $sGroupWhereExt = ' AND per_ID NOT IN ('.$sExcludedIDs.')';
     }
-}
-
-// SQL for standard Person List
-if ($iMode == 1) {
+} else if ($iMode == 1) {
+    // SQL for standard Person List
     // Set the base SQL
     $sBaseSQL = 'SELECT *, IF(LENGTH(per_Zip) > 0,per_Zip,fam_Zip) AS zip '.
                 'FROM person_per LEFT JOIN family_fam '.
@@ -400,17 +402,16 @@ if (array_key_exists('PersonProperties', $_GET)) {
 
 $sRedirect = mb_substr($sRedirect, 0, -5); // Chop off last &amp;
 
+$statement = $connection->prepare($sSQL);
+$statement->execute();
 
 $peopleIDArray = array();
-$rsPersons = RunQuery($sSQL);
-while ($aRow = mysqli_fetch_row($rsPersons)) {
+while ($aRow = $statement->fetch( \PDO::FETCH_BOTH )) {
     array_push($peopleIDArray, intval($aRow[0]));
 }
 
-
 // Get the total number of persons
-$rsPer = RunQuery($sSQL);
-$Total = mysqli_num_rows($rsPer);
+$Total = count($peopleIDArray);
 
 // Select the proper sort SQL
 switch ($sSort) {
@@ -487,12 +488,15 @@ $sLimitSQL .= " LIMIT $Result_Set, $iPerPage";
 
 // Run the query with order and limit to get the final result for this list page
 $finalSQL = $sSQL.$sOrderSQL.$sLimitSQL;
-$rsPersons = RunQuery($finalSQL);
+$pdoPersons = $connection->prepare($finalSQL);
+$pdoPersons->execute();
 
 // Run query to get first letters of last name.
 $sSQL = 'SELECT DISTINCT LEFT(per_LastName,1) AS letter FROM person_per LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID '.
         $sJoinExt." WHERE 1 $sWhereExt ORDER BY letter";
-$rsLetters = RunQuery($sSQL);
+
+$pdoLetters= $connection->prepare($sSQL);
+$pdoLetters->execute();
 
 require 'Include/Header.php';
 ?>
@@ -519,21 +523,20 @@ if ($iMode == 1) {
       <p align="center">
 <?php
 } else {
-    $sSQLtemp = 'SELECT * FROM list_lst WHERE lst_ID = 3';
-    $rsGroupTypes = RunQuery($sSQLtemp);
 ?>
-       <p align="center" class="MediumText"><?= _('Show people <b>not</b> in this group type:') ?>
-        <select name="type" onchange="this.form.submit()" class="form-control-min_width input-sm">
-   <?php     
-    while ($aRow = mysqli_fetch_array($rsGroupTypes)) {
-        extract($aRow);
-  ?>
-        <option value="<?= $lst_OptionID ?>" <?= ($iGroupTypeMissing == $lst_OptionID)?' selected':'' ?>><?= $lst_OptionName.'&nbsp;' ?>
-  <?php
+<p align="center" class="MediumText"><?= _('Show people <b>not</b> in this group type:') ?>
+  <select name="type" onchange="this.form.submit()" class="form-control-min_width input-sm">
+<?php
+    $ormGroupTypes =  ListOptionQuery::create()->filterById(3)->find();
+
+    foreach ($ormGroupTypes  as $type) {
+?>
+      <option value="<?= $type->getOptionId() ?>" <?= ($iGroupTypeMissing == $type->getOptionId())?' selected':'' ?>><?= $type->getOptionName().'&nbsp;' ?>
+<?php
     }
-  ?>
-        </select>
-      </p>
+?>
+  </select>
+</p>
 <?php
 }
 ?>
@@ -671,14 +674,17 @@ if ($iMode == 1) {
            <?php
             if (isset($iGroupType) && ($iGroupType > -1)) {
                 // Create array with Group Information
-                $sGroupsSQL = "SELECT * FROM group_grp WHERE grp_Type = $iGroupType ".
-                                'ORDER BY grp_Name ';
+                $groups=GroupQuery::Create()
+                    ->useGroupTypeQuery()
+                      ->filterByListOptionId($iGroupType)
+                    ->endUse()
+                    ->filterByType ([3,4])// normal groups + sunday groups
+                    ->orderByName()
+                    ->find();
 
-                $rsGroups = RunQuery($sGroupsSQL);
                 $aGroupNames = [];
-                while ($aRow = mysqli_fetch_array($rsGroups)) {
-                    extract($aRow);
-                    $aGroupNames[intval($grp_ID)] = $grp_Name;
+                foreach ($groups as $group) {
+                    $aGroupNames[intval($group->getId())] = $group->getName();
                 }
            ?>
             <select class="form-control-min_width input-sm" name="groupid" onchange="this.form.submit()">
@@ -707,19 +713,18 @@ if ($iMode == 1) {
             if (isset($iGroupID) && ($iGroupID > -1)) {
 
                 // Get the group's role list ID
-                $sSQL = 'SELECT grp_RoleListID '.
-                        'FROM group_grp WHERE grp_ID ='.$iGroupID;
-                $aTemp = mysqli_fetch_array(RunQuery($sSQL));
-                $iRoleListID = $aTemp[0];
+                $grp = GroupQuery::create()->findOneById($iGroupID);
+
+                if (!is_null ($grp)) {
+                    $iRoleListID  = $grp->getRoleListId();
+                }
 
                 // Get the roles
-                $sSQL = 'SELECT * FROM list_lst WHERE lst_ID = '.$iRoleListID.
-                        ' ORDER BY lst_OptionSequence';
-                $rsRoles = RunQuery($sSQL);
+                $ormRoles = ListOptionQuery::create()->filterById($iRoleListID)->orderByOptionSequence()->find();
+
                 unset($aGroupRoles);
-                while ($aRow = mysqli_fetch_array($rsRoles)) {
-                    extract($aRow);
-                    $aGroupRoles[intval($lst_OptionID)] = $lst_OptionName;
+                foreach ($ormRoles as $role) {
+                    $aGroupRoles[intval($role->getOptionId())] = $role->getOptionName();
                 }
              ?>
               <select class="form-control-min_width input-sm" name="grouproleid" onchange="this.form.submit()" >
@@ -784,7 +789,7 @@ if ($Total == 1) {
     </li>
 
     <?php
-    while ($aLetter = mysqli_fetch_row($rsLetters)) {
+    while ($aLetter = $pdoLetters->fetch( \PDO::FETCH_BOTH )) {
         $aLetter[0] = mb_strtoupper($aLetter[0]);
         if ($aLetter[0] == $sLetter) {
         ?>
@@ -1175,7 +1180,7 @@ if (!isset($sPersonColumn5)) {
   }
 
   //Loop through the person recordset
-  while ($aRow = mysqli_fetch_array($rsPersons)) {
+  while ($aRow = $pdoPersons->fetch( \PDO::FETCH_BOTH )) {
       $per_Title = '';
       $per_FirstName = '';
       $per_MiddleName = '';
