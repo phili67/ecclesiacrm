@@ -21,55 +21,92 @@ use Slim\Http\Response;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Base\EventQuery;
 use EcclesiaCRM\Base\EventTypesQuery;
-use EcclesiaCRM\Event;
 use EcclesiaCRM\EventCountsQuery;
 use EcclesiaCRM\EventCounts;
-use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\Service\CalendarService;
 use EcclesiaCRM\dto\MenuEventsCount;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\EventCountNameQuery;
 use EcclesiaCRM\EventAttend;
-use EcclesiaCRM\EventAttendQuery;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\Utils\GeoUtils;
 use EcclesiaCRM\SessionUser;
 
 use EcclesiaCRM\CalendarinstancesQuery;
 
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Sharing;
-use Sabre\DAV\Xml\Element\Sharee;
 use Sabre\VObject;
-use EcclesiaCRM\MyVCalendar;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
 
 use EcclesiaCRM\MyPDO\CalDavPDO;
-use EcclesiaCRM\MyPDO\PrincipalPDO;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 
 
 $app->group('/events', function () {
 
+    /*
+      * @! Get all events for all calendars for a specified range
+      */
     $this->get('/', "getAllEvents" );
+    /*
+      * @! Get all events after now
+      */
     $this->get('/notDone', "getNotDoneEvents" );
+    /*
+     * @! Get all events from today
+     */
     $this->get('/numbers', "numbersOfEventOfToday" );
+    /*
+     * @! Get all event type
+     */
     $this->get('/types', "getEventTypes" );
+    /*
+     * @! Get all event names
+     */
     $this->get('/names', "eventNames");
+    /*
+     * @! delete event type
+     * #! param: id->int  :: type ID
+     */
     $this->post('/deleteeventtype', "deleteeventtype" );
+    /*
+     * @! get event info
+     * #! param: id->int  :: event ID
+     */
     $this->post('/info', "eventInfo" );
+    /*
+    * @! Set a person for the event + check
+    * #! param: id->int  :: event ID
+    * #! param: id->int  :: person ID
+    */
     $this->post('/person', "personCheckIn" );
+    /*
+    * @! Set the group persons for the event + check
+    * #! param: id->int  :: event ID
+    * #! param: id->int  :: group ID
+    */
     $this->post('/group', "groupCheckIn" );
+    /*
+    * @! Set the family persons for the event + check
+    * #! param: id->int  :: event ID
+    * #! param: id->int  :: family ID
+    */
     $this->post('/family', "familyCheckIn" );
+    /*
+    * @! get event count
+    * #! param: id->int  :: event ID
+    * #! param: id->int  :: type ID
+    */
     $this->post('/attendees', "eventCount" );
+    /*
+    * @! manage an event evntAction, [createEvent,moveEvent,resizeEvent,attendeesCheckinEvent,suppress,modifyEvent]
+    * #! param: id->int       :: eventID
+    * #! param: id->int       :: type ID
+    * #! param: ref->array    :: calendarID
+    * #! param: id->int       :: reccurenceID
+    * #! param: ref->start    :: the start date : YYYY-MM-DD
+    * #! param: ref->start    :: the end date : YYYY-MM-DD
+    * #! param: ref->location :: location
+    */
     $this->post('/', "manageEvent" );
     
 });
@@ -276,9 +313,9 @@ function eventCount (Request $request, Response $response, array $args) {
     
     if ($numCounts) {
         foreach ($eventCountNames as $eventCountName) {
-            $values['countID'] = $eventCountName->getId();
+            $values['countID']   = $eventCountName->getId();
             $values['countName'] = $eventCountName->getName();
-            $values['typeID'] = $params->typeID;
+            $values['typeID']    = $params->typeID;
             
             $values['count'] = 0;
             $values['notes'] = "";

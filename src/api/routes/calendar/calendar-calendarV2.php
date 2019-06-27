@@ -38,7 +38,7 @@ $app->group('/calendar', function () {
     /*
      * @! Get all events for all calendars for a specified range
      * #! param: ref->start :: the start date : YYYY-MM-DD
-     * #! param: ref->start :: the end date : YYYY-MM-DD
+     * #! param: ref->end   :: the end date : YYYY-MM-DD
      */
     $this->post('/getallevents', 'getallCalendarEvents' );
     /*
@@ -107,16 +107,48 @@ $app->group('/calendar', function () {
     */
     $this->post('/getinvites', 'getCalendarInvites' );
     /*
-   * @! Delete a share for a calendar
+    * @! Delete a share calendar for a person
+    * #! param: ref->array  :: calIDs
+    * #! param: ref->int    :: principal
+    */
+    $this->post('/sharedelete', 'shareCalendarDelete' );
+    /*
+    * @! Share a calendar with a person
+    * #! param: ref->array  :: calIDs
+    * #! param: id->int     :: person ID
+    * #! param: ref->bool   :: notification
+    */
+    $this->post('/shareperson', 'shareCalendarPerson');
+    /*
+    * @! Share a calendar with a person
+    * #! param: ref->array  :: calIDs
+    * #! param: id->int     :: family ID
+    * #! param: ref->bool   :: notification
+    */
+    $this->post('/sharefamily', 'shareCalendarFamily' );
+    /*
+   * @! Share a calendar with an entire group
+   * #! param: ref->array  :: calIDs
+   * #! param: id->int     :: group ID
+   * #! param: ref->bool   :: notification
+   */
+    $this->post('/sharegroup', 'shareCalendarGroup' );
+    /*
+   * @! Share a calendar with an entire group
+   * #! param: ref->array  :: calIDs
+   */
+    $this->post('/sharestop', 'shareCalendarStop');
+    /*
+   * @! Set right access for a calendar
    * #! param: ref->array  :: calIDs
    * #! param: ref->int    :: principal
+   * #! param: ref->int    :: rightAccess
    */
-    $this->post('/sharedelete', 'shareCalendarDelete' );
-    $this->post('/shareperson', 'shareCalendarPerson');
-    $this->post('/sharefamily', 'shareCalendarFamily' );
-    $this->post('/sharegroup', 'shareCalendarGroup' );
-    $this->post('/sharestop', 'shareCalendarStop');
     $this->post('/setrights', 'setCalendarRights' );
+    /*
+   * @! Delete a calendar
+   * #! param: ref->array  :: calIDs
+   */
     $this->post('/delete', 'deleteCalendar' );
 
 });
