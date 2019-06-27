@@ -124,7 +124,12 @@ pages:
 
 - "Manuel : Ecole du dimanche":
     - "Introduction": 'user-guide/doc-sunday-school/doc-sunday-school-introduction.md'
-    #- "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
+    - "Faire l'appel": 'user-guide/doc-sunday-school/doc-sunday-school-attendance.md'
+    - "Créer - Editer - trier": 'user-guide/doc-sunday-school/doc-sunday-school-add-edit.md'
+    - "Export : Bagdes": 'user-guide/doc-sunday-school/doc-sunday-school-export.md'
+    - "Export : Trombinoscope - tableau de présence": 'user-guide/doc-sunday-school/doc-sunday-school-exports.md'
+    - "Barre Latérale": 'user-guide/doc-sunday-school/doc-sunday-school-menu.md'
+      #- "Personnalisation": 'user-guide/doc-pastoral-care/doc-settings/doc-settings-pastoral-care.md'
 
 - "Campagne de Publipostage":
     - "MailChimp":

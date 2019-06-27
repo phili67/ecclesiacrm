@@ -6,7 +6,6 @@ yellow=`tput setaf 3`
 blue=`tput setaf 4`
 reset=`tput sgr0`
 
-
 mkdocs build
 
 echo "${red}Voulez-vous l'envoyer en ligne y/n${reset}"
