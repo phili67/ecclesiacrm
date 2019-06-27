@@ -251,7 +251,7 @@ require 'Include/HeaderNotLoggedIn.php';
             </div>
             <div class="form-group has-feedback">
                 <input type="password" id="PasswordBox" name="Password" class="form-control" data-toggle="password"
-                   placeholder="<?= _('Password') ?>" required autofocus>
+                   placeholder="<?= _('Password') ?>" required>
                 <br/>
                 <?php if (SystemConfig::getBooleanValue('bEnableLostPassword')) {
             ?>
