@@ -128,110 +128,111 @@ if ($processNews != '') {
 
           <table border width="100%" align="left">
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Set default fiscal year') ?>"
-                       name="SetDefaultFY">
-              </td>
               <td align="left" width="75%">
                 <p><input type="checkbox" name="SetDefaultFYConfirm"><?= _('Check to confirm') ?></p>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Set default fiscal year') ?>"
+                           name="SetDefaultFY">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Assign Canvassers') ?>"
-                       name="AssignCanvassers">
-              </td>
               <td align="left" width="75%">
                 <?= _('Randomly assign canvassers to all Families.  The Canvassers are taken from the &quot;Canvassers&quot; Group.') ?>
                 <p><input type="checkbox" name="AssignCanvassersConfirm"><?= _('Check to confirm') ?></p>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Assign Canvassers') ?>"
+                           name="AssignCanvassers">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Assign To Non Pledging') ?>"
-                       name="AssignNonPledging">
-              </td>
               <td align="left" width="75%">
                 <?= _('Randomly assign canvassers to non-pledging Families.  The Canvassers are taken from the &quot;BraveCanvassers&quot; Group.') ?>
                 <p><input type="checkbox" name="AssignNonPledgingConfirm"><?= _('Check to confirm') ?></p>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Assign To Non Pledging') ?>"
+                           name="AssignNonPledging">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Clear Canvasser Assignments') ?>"
-                       name="ClearCanvasserAssignments">
-              </td>
               <td align="left" width="75%">
                 <?= _('Clear all the canvasser assignments for all families.') ?>  <p><?= _('Important note: this will lose any canvasser assignments that have been made by hand.') ?></p>
                 <input type="checkbox" name="ClearCanvasserAssignmentsConfirm"><?= _('Check to confirm') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Clear Canvasser Assignments') ?>"
+                           name="ClearCanvasserAssignments">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Enable Canvass for All Families') ?>"
-                       name="SetAllOkToCanvass">
-              </td>
               <td align="left" width="75%">
                 <?= _('Turn on the &quot;Ok To Canvass&quot; field for all Families.') ?>  <p><?= _('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
                 <input type="checkbox" name="SetAllOkToCanvassConfirm"><?= _('Check to confirm') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Enable Canvass for All Families') ?>"
+                           name="SetAllOkToCanvass">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Disable Canvass for All Families') ?>"
-                       name="ClearAllOkToCanvass">
-              </td>
               <td align="left" width="75%">
                 <?= _('Turn off the &quot;Ok To Canvass&quot; field for all Families') ?>  <p><?= _('Important note: this will lose any &quot;Ok To Canvass&quot; fields that have been set by hand.'); ?></p>
                 <input type="checkbox" name="ClearAllOkToCanvassConfirm"><?= _('Check to confirm') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Disable Canvass for All Families') ?>"
+                           name="ClearAllOkToCanvass">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Briefing Sheets') ?>"
-                       name="BriefingSheets">
-              </td>
               <td align="left" width="75%">
                 <?= _('Generate a PDF containing briefing sheets for all Families, sorted by canvasser.') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Briefing Sheets') ?>"
+                           name="BriefingSheets">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Progress Report') ?>"
-                       name="ProgressReport">
-              </td>
               <td align="left" width="75%">
                 <?= _('Generate a PDF containing a progress report.  The progress report includes information on the overall progress of the canvass, and the progress of individual canvassers.') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Progress Report') ?>"
+                           name="ProgressReport">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Summary Report') ?>"
-                       name="SummaryReport">
-              </td>
               <td align="left" width="75%">
                 <?= _('Generate a PDF containing a summary report.  The summary report includes comments extracted from the canvass data.') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Summary Report') ?>"
+                           name="SummaryReport">
+                </td>
             </tr>
 
             <tr>
-              <td align="center" width="25%">
-                <input type="submit" class="btn" value="<?= _('Not Interested Report') ?>"
-                       name="NotInterestedReport">
-              </td>
               <td align="left" width="75%">
                 <?= _('Generate a PDF containing a report of the families marked &quot;Not Interested&quot; by the canvasser.') ?>
               </td>
+                <td align="center" width="25%">
+                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Not Interested Report') ?>"
+                           name="NotInterestedReport">
+                </td>
             </tr>
           </table>
+            <br>
         </form>
       </div>
     </div>
