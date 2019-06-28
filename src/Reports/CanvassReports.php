@@ -16,6 +16,8 @@ use EcclesiaCRM\Reports\PDF_CanvassBriefingReport;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\CanvassDataQuery;
 
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
@@ -83,7 +85,38 @@ function CanvassProgressReport($iFYID)
             continue;
         }
 
-        while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+        foreach ($rsCanvassers as $canvasser) {
+            $rsCanvassees = FamilyQuery::create()->findByCanvasser($canvasser->getId());
+
+            $thisCanvasserToDo = $rsCanvassees->count();
+            $thisCanvasserDone = 0;
+
+            foreach ($rsCanvassees as $canvassee) {
+                $canvassData = CanvassDataQuery::create()->findByFamilyId($canvasser->getFamId());
+
+                if ($canvassData->count() == 1) {
+                    ++$thisCanvasserDone;
+                }
+            }
+
+            $totalToDo += $thisCanvasserToDo;
+            $totalDone += $thisCanvasserDone;
+
+            // Write the status output line for this canvasser
+            $pdf->WriteAt($nameX, $curY, $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName']);
+            $pdf->WriteAt($doneX, $curY, $thisCanvasserDone);
+            $pdf->WriteAt($toDoX, $curY, $thisCanvasserToDo);
+            if ($thisCanvasserToDo > 0) {
+                $percentStr = sprintf('%.0f%%', ($thisCanvasserDone / $thisCanvasserToDo) * 100);
+            } else {
+                $percentStr = 'N/A';
+            }
+            $pdf->WriteAt($percentX, $curY, $percentStr);
+            $curY += 6;
+
+        }
+
+        /*while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
             // Get all the families for this canvasser
             $sSQL = 'SELECT fam_ID from family_fam WHERE fam_Canvasser = '.$aCanvasser['per_ID'];
             $rsCanvassees = RunQuery($sSQL);
@@ -116,7 +149,7 @@ function CanvassProgressReport($iFYID)
             }
             $pdf->WriteAt($percentX, $curY, $percentStr);
             $curY += 6;
-        }
+        }*/
     }
 
     // Summary status

@@ -11,55 +11,79 @@
 
 namespace EcclesiaCRM\dto;
 
+use EcclesiaCRM\GroupQuery;
+use EcclesiaCRM\PersonQuery;
+use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use Propel\Runtime\Propel;
+use EcclesiaCRM\UserQuery;
+use EcclesiaCRM\FamilyQuery;
 
 class CanvassUtilities
 {
 
     public function CanvassSetDefaultFY($iFYID)
     {
-        $sSQL = "UPDATE user_usr SET usr_defaultFY='".$iFYID."';";
-        RunQuery($sSQL);
+        $users = UserQuery::create()->find();
+
+        foreach ($users as $user) {
+            $user->setDefaultFY($iFYID);
+            $user->save();
+        }
     }
 
     public function CanvassSetAllOkToCanvass()
     {
-        $sSQL = "UPDATE family_fam SET fam_OkToCanvass='TRUE' WHERE 1;";
-        RunQuery($sSQL);
+        $families = FamilyQuery::create()->find();
+
+        foreach ($families as $family) {
+            $family->setOkToCanvass('TRUE');
+            $family->save();
+        }
     }
 
     public function CanvassClearAllOkToCanvass()
     {
-        $sSQL = "UPDATE family_fam SET fam_OkToCanvass='FALSE' WHERE 1;";
-        RunQuery($sSQL);
+        $families = FamilyQuery::create()->find();
+
+        foreach ($families as $family) {
+            $family->setOkToCanvass('FALSE');
+            $family->save();
+        }
     }
 
     public function CanvassClearCanvasserAssignments()
     {
-        $sSQL = 'UPDATE family_fam SET fam_Canvasser=0 WHERE 1;';
-        RunQuery($sSQL);
+        $families = FamilyQuery::create()->find();
+
+        foreach ($families as $family) {
+            $family->save();
+            $family->setCanvasser(0);
+        }
     }
 
     public function CanvassGetCanvassers($groupName)
     {
         // Find the canvassers group
-        $sSQL = 'SELECT grp_ID AS iCanvassGroup FROM group_grp WHERE grp_Name="'.$groupName.'";';
-        $rsGroupData = RunQuery($sSQL);
-        $aGroupData = mysqli_fetch_array($rsGroupData);
-        if (mysqli_num_rows($rsGroupData) == 0) {
-            return 0;
-        }
-        extract($aGroupData);
+        $group = GroupQuery::create()->findOneByName($groupName);
 
-        // Get the canvassers from the Canvassers group
-        $sSQL = 'SELECT per_ID, per_FirstName, per_LastName FROM person_per, person2group2role_p2g2r WHERE per_ID = p2g2r_per_ID AND p2g2r_grp_ID = '.$iCanvassGroup.' ORDER BY per_LastName,per_FirstName;';
-        $rsCanvassers = RunQuery($sSQL);
-        $numCanvassers = mysqli_num_rows($rsCanvassers);
-        if ($numCanvassers == 0) {
+        if ( is_null ($group) ) {
             return 0;
         }
 
-        return $rsCanvassers;
+        $persons = PersonQuery::create()
+                    ->usePerson2group2roleP2g2rQuery()
+                        ->filterByGroupId($group->getId())
+                    ->endUse()
+                    ->orderByLastName()
+                    ->orderByFirstName()
+                    ->find();
+
+
+        if ( $persons->count() == 0 ) {
+            return 0;
+        }
+
+        return $persons;
     }
 
     public function CanvassAssignCanvassers($groupName)
