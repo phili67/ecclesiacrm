@@ -4,12 +4,8 @@ namespace EcclesiaCRM\dto;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
 use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\Person;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\EventQuery;
 use EcclesiaCRM\EventAttend;
-use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\Service\SundaySchoolService;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
@@ -413,13 +409,13 @@ class Cart
       */  
       // Check if this group has special properties
       /*      $sSQL = 'SELECT grp_hasSpecialProps FROM group_grp WHERE grp_ID = '.$iGroupID;
-            $rsTemp = RunQuery($sSQL);
+            $rsTemp = RunKuery($sSQL);
             $rowTemp = mysqli_fetch_row($rsTemp);
             $bHasProp = $rowTemp[0];
 
             if ($bHasProp == 'true') {
                 $sSQL = 'INSERT INTO groupprop_'.$iGroupID." (per_ID) VALUES ('".$iPersonID."')";
-                RunQuery($sSQL);
+                RunKuery($sSQL);
             }  */
       
       $iCount += 1;
