@@ -80,12 +80,12 @@ function CanvassProgressReport($iFYID)
     // Get all the canvassers
     $canvassGroups = ['Canvassers', 'BraveCanvassers'];
     foreach ($canvassGroups as $cgName) {
-        $rsCanvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
-        if ($rsCanvassers == 0) {
+        $canvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
+        if (is_null($canvassers) == 0) {
             continue;
         }
 
-        foreach ($rsCanvassers as $canvasser) {
+        foreach ($canvassers as $canvasser) {
             $rsCanvassees = FamilyQuery::create()->findByCanvasser($canvasser->getId());
 
             $thisCanvasserToDo = $rsCanvassees->count();
@@ -115,41 +115,6 @@ function CanvassProgressReport($iFYID)
             $curY += 6;
 
         }
-
-        /*while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
-            // Get all the families for this canvasser
-            $sSQL = 'SELECT fam_ID from family_fam WHERE fam_Canvasser = '.$aCanvasser['per_ID'];
-            $rsCanvassees = RunQuery($sSQL);
-
-            $thisCanvasserToDo = mysqli_num_rows($rsCanvassees);
-            $thisCanvasserDone = 0;
-
-            while ($aCanvassee = mysqli_fetch_array($rsCanvassees)) {
-                // Get all the canvass input entered so far by this canvasser
-                $sSQL = 'SELECT can_ID from canvassdata_can WHERE can_famID='.$aCanvassee['fam_ID'].
-                            ' AND can_FYID='.$iFYID;
-                $rsCanvassData = RunQuery($sSQL);
-
-                if (mysqli_num_rows($rsCanvassData) == 1) {
-                    ++$thisCanvasserDone;
-                }
-            }
-
-            $totalToDo += $thisCanvasserToDo;
-            $totalDone += $thisCanvasserDone;
-
-            // Write the status output line for this canvasser
-            $pdf->WriteAt($nameX, $curY, $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName']);
-            $pdf->WriteAt($doneX, $curY, $thisCanvasserDone);
-            $pdf->WriteAt($toDoX, $curY, $thisCanvasserToDo);
-            if ($thisCanvasserToDo > 0) {
-                $percentStr = sprintf('%.0f%%', ($thisCanvasserDone / $thisCanvasserToDo) * 100);
-            } else {
-                $percentStr = 'N/A';
-            }
-            $pdf->WriteAt($percentX, $curY, $percentStr);
-            $curY += 6;
-        }*/
     }
 
     // Summary status

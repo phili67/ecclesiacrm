@@ -78,8 +78,8 @@ if ($iFamilyID > 0) {
 }
 
 // Get the lists of canvassers
-$rsCanvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
-$rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
+$canvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 
 // Get the list of custom person fields
 $ormCustomFields = FamilyCustomMasterQuery::Create()
@@ -97,7 +97,7 @@ $ormRightCustomFields = FamilyCustomMasterQuery::Create()
                      ->orderByCustomOrder()
                      ->filterByCustomSide('right')
                      ->find()->toArray();
-                     
+
 $numLeftCustomFields = count($ormLeftCustomFields);
 $numRightCustomFields = count($ormRightCustomFields);
 
@@ -110,7 +110,7 @@ $numCustomFields = $numRightCustomFields+$numLeftCustomFields;
 $securityListOptions = ListOptionQuery::Create()
               ->orderByOptionSequence()
               ->findById(5);
-              
+
 $bErrorFlag = false;
 $sNameError = '';
 $sEmailError = '';
@@ -154,7 +154,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     $sCellPhone = InputUtils::LegacyFilterInput($_POST['CellPhone']);
     $sEmail = InputUtils::LegacyFilterInput($_POST['Email']);
     $bSendNewsLetter = isset($_POST['SendNewsLetter']);
-    
+
     $nLatitude = 0.0;
     $nLongitude = 0.0;
     if (array_key_exists('Latitude', $_POST)) {
@@ -231,7 +231,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $aClassification[$iCount] = InputUtils::LegacyFilterInput($_POST['Classification'.$iCount], 'int');
         $aPersonIDs[$iCount] = InputUtils::LegacyFilterInput($_POST['PersonID'.$iCount], 'int');
         $aUpdateBirthYear[$iCount] = InputUtils::LegacyFilterInput($_POST['UpdateBirthYear'], 'int');
-        
+
         // Make sure first names were entered if editing existing family
         if ($iFamilyID > 0) {
             if (strlen($aFirstNames[$iCount]) == 0) {
@@ -291,12 +291,12 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
     foreach ($ormCustomFields as $rowCustomField) {
         if (OutputUtils::securityFilter($rowCustomField->getCustomFieldSec())) {
             $currentFieldData = InputUtils::LegacyFilterInput($_POST[$rowCustomField->getCustomField()]);
-            
+
             $bErrorFlag |= !InputUtils::validateCustomField($rowCustomField->getTypeId(), $currentFieldData, $rowCustomField->getCustomField(), $aCustomErrors);
 
             // assign processed value locally to $aPersonProps so we can use it to generate the form later
             $aCustomData[$rowCustomField->getCustomField()] = $currentFieldData;
-        }      
+        }
     }
 
     //If no errors, then let's update...
@@ -325,7 +325,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         }
         if ($iFamilyID < 1) { // create a family
             $family = new Family();
-            
+
             $family->setName($sName);
             $family->setAddress1($sAddress1);
             $family->setAddress2($sAddress2);
@@ -343,34 +343,34 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $family->setDateEntered(new DateTime());
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
             $family->setSendNewsletter($bSendNewsLetterString);
-            
+
             // bSendNewsLetterString : When you activate the family all members are deactivated
             if ($bSendNewsLetterString == "TRUE") {
               foreach ($family->getPeople() as $person) {
                 $person->setSendNewsletter("FALSE");
               }
             }
-            
+
             if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
                 $family->setCanvasser($iCanvasser);
             }
-            
+
             $family->setLatitude($nLatitude);
             $family->setLongitude($nLongitude);
             $family->setEnvelope($nEnvelope);
-            
+
             $family->updateLanLng();
-            
+
             $family->save();
-            
+
             $iFamilyID = $family->getId();
-            
+
             $bGetKeyBack = true;
         } else {// edition family
             $family = FamilyQuery::Create()
                 ->findOneByID($iFamilyID);
-                
+
             $family->setName($sName);
             $family->setAddress1($sAddress1);
             $family->setAddress2($sAddress2);
@@ -387,10 +387,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             }
             $family->setDateEntered(new DateTime());
             $family->setEnteredBy(SessionUser::getUser()->getPersonId());
-            
+
             $family->setDateLastEdited(new DateTime());
             $family->setEditedBy(SessionUser::getUser()->getPersonId());
-            
+
             $family->setSendNewsletter($bSendNewsLetterString);
 
             // bSendNewsLetterString : When you activate the family all members are deactivated
@@ -398,21 +398,21 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
               foreach ($family->getPeople() as $person) {
                 $person->setSendNewsletter("FALSE");
               }
-            }            
-            
+            }
+
             if (SessionUser::getUser()->isCanvasserEnabled()) {
                 $family->setOkToCanvass($bOkToCanvassString);
                 $family->setCanvasser($iCanvasser);
             }
-            
+
             $family->setLatitude($nLatitude);
             $family->setLongitude($nLongitude);
             $family->setEnvelope($nEnvelope);
-            
+
             $family->updateLanLng();
-            
+
             $family->save();
-            
+
             $bGetKeyBack = false;
         }
 
@@ -426,10 +426,10 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             // Add property if assigned
             if ($iPropertyID) {
                 $familyProperty = new Record2propertyR2p();
-                
+
                 $familyProperty->setR2pRecordId($iFamilyID);
                 $familyProperty->setR2pProId($iPropertyID);
-                
+
                 $familyProperty->save();
             }
 
@@ -446,7 +446,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     } else {
                         $sLastNameToEnter = $sName;
                     }
-                    
+
                     //RunKuery('LOCK TABLES person_per WRITE, person_custom WRITE');
                     $person = new Person();
                     $person->setFirstName($aFirstNames[$iCount]);
@@ -463,20 +463,20 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     $person->setBirthYear($aBirthYears[$iCount]);
                     $person->setClsId($aClassification[$iCount]);
                     $person->save();
-                    
+
                     $dbPersonId = $person->getID();
-                              
+
                     $note = new Note();
                     $note->setPerId($dbPersonId);
                     $note->setText(_('Created via Family'));
                     $note->setType('create');
                     $note->setEntered(SessionUser::getUser()->getPersonId());
                     $note->save();
-                    
+
                     $personCustom = new PersonCustom();
                     $personCustom->setPerId($dbPersonId);
                     $personCustom->save();
-                        
+
                     //RunKuery('UNLOCK TABLES');
                 }
             }
@@ -507,7 +507,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                     //RunKuery("LOCK TABLES person_per WRITE, person_custom WRITE");
                     $person = PersonQuery::Create()
                                 ->findOneById($aPersonIDs[$iCount]);
-                                
+
                     $person->setFirstName($aFirstNames[$iCount]);
                     $person->setMiddleName($aMiddleNames[$iCount]);
                     $person->setLastName($aLastNames[$iCount]);
@@ -596,7 +596,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         $sCellPhone = MiscUtils::ExpandPhoneNumber($sCellPhone, $sCountry, $bNoFormat_CellPhone);
 
         $famCustom  = FamilyCustomQuery::Create()->findOneByFamId($iFamilyID);
-        
+
         // get family with all the extra columns created
         $rawQry =  FamilyCustomQuery::create();
         foreach ($ormCustomFields as $customfield ) {
@@ -606,7 +606,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
         if (!is_null($rawQry->findOneByFamId($iFamilyID))) {
           $aCustomData = $rawQry->findOneByFamId($iFamilyID)->toArray();
         }
-      
+
         $aCustomErrors = [];
 
         if ($numCustomFields > 0) {
@@ -619,7 +619,7 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
                   ->leftJoinWithFamily()
                   ->orderByFmrId()
                   ->findByFamId($iFamilyID);
-        
+
         $iCount = 0;
         $iFamilyMemberRows = 0;
         foreach ($persons as $person) {
@@ -633,13 +633,13 @@ if (isset($_POST['FamilySubmit']) || isset($_POST['FamilySubmitAndAdd'])) {
             $aRoles[$iCount] = $person->getFmrId();
             $aBirthMonths[$iCount] = $person->getBirthMonth();
             $aBirthDays[$iCount] = $person->getBirthDay();
-            
+
             if ($person->getBirthYear() > 0) {
                 $aBirthYears[$iCount] = $person->getBirthYear();
             } else {
                 $aBirthYears[$iCount] = '';
             }
-            
+
             $aClassification[$iCount] = $person->getClsId();
             $aPersonIDs[$iCount] = $person->getId();
             $aPerFlag[$iCount] = $person->getFlags();
@@ -744,8 +744,8 @@ require 'Include/Header.php';
         <div class="row">
           <div <?= (SystemConfig::getValue('bStateUnusefull'))?"style=\"display: none;\"":"class=\"form-group col-md-3\" "?>>
             <label for="StatleTextBox"><?= _("State")?>: </label>
-             <?php                          
-                $statesDD = new StateDropDown();     
+             <?php
+                $statesDD = new StateDropDown();
                 echo $statesDD->getDropDown($sState);
              ?>
           </div>
@@ -850,7 +850,7 @@ require 'Include/Header.php';
           <input type="checkbox" Name="SendNewsLetter" value="1" <?= ($bSendNewsLetter)?' checked':'' ?>>
         </div>
         <?php
-          } 
+          }
         ?>
       </div>
     </div>
@@ -887,16 +887,16 @@ require 'Include/Header.php';
         <?php
               }
 
-                if ($rsCanvassers != 0 && mysqli_num_rows($rsCanvassers) > 0) {
+                if (!is_null($canvassers)&& $canvassers->count() > 0) {
                     ?>
         <div class="form-group col-md-4">
           <label><?= _('Assign a Canvasser') ?>:</label>
           <select name='Canvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
-              <?php // Display all canvassers 
-                while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+              <?php // Display all canvassers
+                foreach ($canvassers as $canvasser) {
               ?>
-                    <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                    <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
+                    <option value="<?= $canvasser->getId() ?>" <?= ($canvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                    <?= $canvasser->getFirstName().' '.$canvasser->getLastName() ?>
                     </option>
                 <?php
                 }
@@ -906,17 +906,17 @@ require 'Include/Header.php';
         <?php
                 }
 
-                if ($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) {
+                if (!is_null($braveCanvassers ) && $braveCanvassers->count() > 0) {
                     ?>
           <div class="form-group col-md-4">
             <label><?= _('Assign a Brave Canvasser') ?>: </label>
 
             <select name='BraveCanvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
             <?php // Display all canvassers
-                    while ($aBraveCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
+                foreach ($braveCanvassers as $braveCanvasser) {
             ?>
-                <option value="<?= $aBraveCanvasser['per_ID'] ?>" <?= ($aBraveCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                    <?= $aBraveCanvasser['per_FirstName'].' '.$aBraveCanvasser['per_LastName'] ?>
+                <option value="<?= $braveCanvasser->getId() ?>" <?= ($braveCanvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                    <?= $braveCanvasser->getFirstName().' '.$braveCanvasser->getLastName() ?>
                 </option>
             <?php
                     }

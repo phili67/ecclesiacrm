@@ -37,8 +37,8 @@ if (array_key_exists('CanvassID', $_GET)) {
     $iCanvassID = InputUtils::LegacyFilterInput($_GET['CanvassID'], 'int');
 }
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
-$iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID']);
-$iFYID = InputUtils::LegacyFilterInput($_GET['FYID']);
+$iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID']);
+$iFYID    = InputUtils::LegacyFilterInput($_GET['FYID']);
 
 $sDateError = '';
 $bNotInterested = false;

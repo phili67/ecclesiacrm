@@ -67,7 +67,7 @@ class CanvassUtilities
         $group = GroupQuery::create()->findOneByName($groupName);
 
         if ( is_null ($group) ) {
-            return 0;
+            return null;
         }
 
         $persons = PersonQuery::create()
@@ -80,7 +80,7 @@ class CanvassUtilities
 
 
         if ( $persons->count() == 0 ) {
-            return 0;
+            return null;
         }
 
         return $persons;
