@@ -11,12 +11,17 @@
 
 namespace EcclesiaCRM\dto;
 
+use EcclesiaCRM\PledgeQuery;
+
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person2group2roleP2g2rQuery;
-use Propel\Runtime\Propel;
 use EcclesiaCRM\UserQuery;
 use EcclesiaCRM\FamilyQuery;
+
+use EcclesiaCRM\Map\FamilyTableMap;
+use EcclesiaCRM\Map\PersonTableMap;
+
+use Propel\Runtime\ActiveQuery\Criteria;
 
 class CanvassUtilities
 {
@@ -56,8 +61,8 @@ class CanvassUtilities
         $families = FamilyQuery::create()->find();
 
         foreach ($families as $family) {
-            $family->save();
             $family->setCanvasser(0);
+            $family->save();
         }
     }
 
@@ -88,60 +93,81 @@ class CanvassUtilities
 
     public function CanvassAssignCanvassers($groupName)
     {
-        $rsCanvassers = CanvassUtilities::CanvassGetCanvassers($groupName);
+        $ormCanvassers = CanvassUtilities::CanvassGetCanvassers($groupName);
 
-        // Get all the families that need canvassers
-        $sSQL = "SELECT fam_ID FROM family_fam WHERE fam_OkToCanvass='TRUE' AND fam_Canvasser=0 ORDER BY RAND();";
-        $rsFamilies = RunQuery($sSQL);
-        $numFamilies = mysqli_num_rows($rsFamilies);
+        if ( is_null($ormCanvassers) ) {
+            return  _("Group Name") . " : " . _($groupName) . " " . _("doesn't exist !");
+        }
+
+        $canvassers = $ormCanvassers->toArray();
+        $numCanvassers = count($canvassers);
+
+        $families = FamilyQuery::create()
+            ->filterByOkToCanvass('TRUE')
+            ->filterByCanvasser(0)
+            ->addAscendingOrderByColumn('rand()')
+            ->find();
+
+        $numFamilies = $families->count();
+
         if ($numFamilies == 0) {
-            return gettext('No families need canvassers assigned');
+            return _('No families need canvassers assigned');
         }
 
-        while ($aFamily = mysqli_fetch_array($rsFamilies)) {
-            if (!($aCanvasser = mysqli_fetch_array($rsCanvassers))) {
-                mysqli_data_seek($rsCanvassers, 0);
-                $aCanvasser = mysqli_fetch_array($rsCanvassers);
-            }
-            $sSQL = 'UPDATE family_fam SET fam_Canvasser='.$aCanvasser['per_ID'].' WHERE fam_ID= '.$aFamily['fam_ID'];
-            RunQuery($sSQL);
+        $i=0;
+        foreach ($families as $family) {
+          $canvasser_per_ID = $canvassers[($i++)%$numCanvassers]['Id'];
+
+          $family->setCanvasser($canvasser_per_ID);
+          $family->save();
         }
 
-        $ret = sprintf(gettext('Canvassers assigned at random to %d families.'), $numFamilies);
+        $ret = sprintf(_('Canvassers assigned at random to %d families.'), $numFamilies);
 
         return $ret;
     }
 
     public function CanvassAssignNonPledging($groupName, $iFYID)
     {
-        $rsCanvassers = CanvassUtilities::CanvassGetCanvassers($groupName);
+        $ormCanvassers = CanvassUtilities::CanvassGetCanvassers($groupName);
+
+        if ( is_null($ormCanvassers) ) {
+            return  _("Group Name") . " : \"" . _($groupName) . "\" " . _("doesn't exist !");
+        }
+
+        $canvassers = $ormCanvassers->toArray();
+        $numCanvassers = count($canvassers);
 
         // Get all the families which need canvassing
-        $sSQL = 'SELECT *, a.per_FirstName AS CanvasserFirstName, a.per_LastName AS CanvasserLastName FROM family_fam
-               LEFT JOIN person_per a ON fam_Canvasser = a.per_ID
-           WHERE fam_OkToCanvass="TRUE" ORDER BY RAND()';
-        $rsFamilies = RunQuery($sSQL);
+        $families = FamilyQuery::create()
+            ->addJoin(FamilyTableMap::COL_FAM_CANVASSER,PersonTableMap::COL_PER_ID,Criteria::LEFT_JOIN)
+            ->filterByOkToCanvass('TRUE')
+            ->addAscendingOrderByColumn('rand()')
+            ->find();
 
         $numFamilies = 0;
+        $i=0;
+        foreach ($families as $family) {
+            $pledges = PledgeQuery::create()
+                ->filterByFyid($iFYID)
+                ->filterByPledgeorpayment("Pledge")
+                ->filterByFamId($family->getId())
+                ->orderByAmount('desc')
+                ->find();
 
-        while ($aFamily = mysqli_fetch_array($rsFamilies)) {
-            // Get pledges for this fiscal year, this family
-            $sSQL = 'SELECT plg_Amount FROM pledge_plg
-             WHERE plg_FYID = '.$iFYID.' AND plg_PledgeOrPayment="Pledge" AND plg_FamID = '.$aFamily['fam_ID'].' ORDER BY plg_Amount DESC';
-            $rsPledges = RunQuery($sSQL);
+            $pledgeCount = $pledges->count();
 
-            $pledgeCount = mysqli_num_rows($rsPledges);
             if ($pledgeCount == 0) {
                 ++$numFamilies;
-                if (!($aCanvasser = mysqli_fetch_array($rsCanvassers))) {
-                    mysqli_data_seek($rsCanvassers, 0);
-                    $aCanvasser = mysqli_fetch_array($rsCanvassers);
-                }
-                $sSQL = 'UPDATE family_fam SET fam_Canvasser='.$aCanvasser['per_ID'].' WHERE fam_ID= '.$aFamily['fam_ID'];
-                RunQuery($sSQL);
+
+                $canvasser_per_ID = $canvassers[($i++)%$numCanvassers]['Id'];
+
+                $family->setCanvasser($canvasser_per_ID);
+                $family->save();
             }
         }
-        $ret = sprintf(gettext('Canvassers assigned at random to %d non-pledging families.'), $numFamilies);
+
+        $ret = sprintf(_('Canvassers assigned at random to %d non-pledging families.'), $numFamilies);
 
         return $ret;
     }
