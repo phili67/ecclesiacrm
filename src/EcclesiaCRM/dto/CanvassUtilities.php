@@ -6,6 +6,7 @@
  *  last change : 2005-02-21
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2005 Michael Wilt
+ *                Copyright 2019 Philippe Logel
  *
  ******************************************************************************/
 
