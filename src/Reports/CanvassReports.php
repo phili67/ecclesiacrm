@@ -79,20 +79,21 @@ function CanvassProgressReport($iFYID)
 
     // Get all the canvassers
     $canvassGroups = ['Canvassers', 'BraveCanvassers'];
+
     foreach ($canvassGroups as $cgName) {
         $canvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
-        if (is_null($canvassers) == 0) {
+        if ( is_null($canvassers) ) {
             continue;
         }
 
         foreach ($canvassers as $canvasser) {
-            $rsCanvassees = FamilyQuery::create()->findByCanvasser($canvasser->getId());
+            $canvassees = FamilyQuery::create()->findByCanvasser($canvasser->getId());
 
-            $thisCanvasserToDo = $rsCanvassees->count();
+            $thisCanvasserToDo = $canvassees->count();
             $thisCanvasserDone = 0;
 
-            foreach ($rsCanvassees as $canvassee) {
-                $canvassData = CanvassDataQuery::create()->findByFamilyId($canvasser->getFamId());
+            foreach ($canvassees as $canvassee) {
+                $canvassData = CanvassDataQuery::create()->findByFamilyId($canvassee->getId());
 
                 if ($canvassData->count() == 1) {
                     ++$thisCanvasserDone;
@@ -103,7 +104,7 @@ function CanvassProgressReport($iFYID)
             $totalDone += $thisCanvasserDone;
 
             // Write the status output line for this canvasser
-            $pdf->WriteAt($nameX, $curY, $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName']);
+            $pdf->WriteAt($nameX, $curY, $canvasser->getFirstName().' '.$canvasser->getLastName());
             $pdf->WriteAt($doneX, $curY, $thisCanvasserDone);
             $pdf->WriteAt($toDoX, $curY, $thisCanvasserToDo);
             if ($thisCanvasserToDo > 0) {

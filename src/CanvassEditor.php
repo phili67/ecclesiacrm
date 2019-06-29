@@ -121,7 +121,11 @@ if (isset($_POST['Submit'])) {
         $iCanvassID         = $canvas->getId();
         $iCanvasser         = $canvas->getCanvasser();
         $iFYID              = $canvas->getFyid();
-        $dDate              = $canvas->getDate()->format('Y-m-d');
+        if (!is_null($canvas->getDate())) {
+            $dDate = $canvas->getDate()->format('Y-m-d');
+        } else {
+            $dDate = '';
+        }
         $tPositive          = $canvas->getPositive();
         $tCritical          = $canvas->getCritical();
         $tInsightful        = $canvas->getInsightful();
@@ -146,8 +150,8 @@ if (isset($_POST['Submit'])) {
 }
 
 // Get the lists of canvassers for the drop-down
-$rsCanvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
-$rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
+$canvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 
 require 'Include/Header.php';
 ?>
@@ -156,31 +160,31 @@ require 'Include/Header.php';
 <form method="post" action="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
 
 <?php
-    if (($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) ||
-        ($rsCanvassers != 0 && mysqli_num_rows($rsCanvassers) > 0)) {
+    if ((!is_null($canvassers) && $canvassers->count() > 0) ||
+        (!is_null($braveCanvassers) && $braveCanvassers->count() > 0)) {
 ?>
     <div class="row">
         <div class="col-lg-3">
           <?= _('Canvasser') ?>:
         </div>
         <div class="col-lg-9">
-           <select name='Canvasser'><option value="0"><?= _('None selected') ?></option>
+           <select name='Canvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
            <?php
-              if ($rsBraveCanvassers != 0) {
-                  while ($aCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
+              if (!is_null($braveCanvassers) && $braveCanvassers->count() != 0) {
+                  foreach ($braveCanvassers as $braveCanvasser) {
             ?>
-              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
-              </option>
+                      <option value="<?= $braveCanvasser->getId() ?>" <?= ($braveCanvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                          <?= $braveCanvasser->getFirstName().' '.$braveCanvasser->getLastName() ?>
+                      </option>
             <?php
                   }
               }
-              if ($rsCanvassers != 0) {
-                  while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+              if (!is_null($canvassers) && $canvassers->count() != 0) {
+                  foreach ($canvassers as $canvasser) {
               ?>
-              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                  <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
-              </option>
+                      <option value="<?= $canvasser->getId() ?>" <?= ($canvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                          <?= $canvasser->getFirstName().' '.$canvasser->getLastName() ?>
+                      </option>
             <?php
                   }
               }
