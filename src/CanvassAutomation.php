@@ -143,7 +143,7 @@ if ($processNews != '') {
                 <p><input type="checkbox" name="AssignCanvassersConfirm"><?= _('Check to confirm') ?></p>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Assign Canvassers') ?>"
+                    <input type="submit" class="btn btn-sm btn-success" value="<?= _('Assign Canvassers') ?>"
                            name="AssignCanvassers">
                 </td>
             </tr>
@@ -154,7 +154,7 @@ if ($processNews != '') {
                 <p><input type="checkbox" name="AssignNonPledgingConfirm"><?= _('Check to confirm') ?></p>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Assign To Non Pledging') ?>"
+                    <input type="submit" class="btn btn-sm btn-success" value="<?= _('Assign To Non Pledging') ?>"
                            name="AssignNonPledging">
                 </td>
             </tr>
@@ -165,7 +165,7 @@ if ($processNews != '') {
                 <input type="checkbox" name="ClearCanvasserAssignmentsConfirm"><?= _('Check to confirm') ?>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Clear Canvasser Assignments') ?>"
+                    <input type="submit" class="btn btn-sm btn-danger" value="<?= _('Clear Canvasser Assignments') ?>"
                            name="ClearCanvasserAssignments">
                 </td>
             </tr>
@@ -197,7 +197,7 @@ if ($processNews != '') {
                 <?= _('Generate a PDF containing briefing sheets for all Families, sorted by canvasser.') ?>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Briefing Sheets') ?>"
+                    <input type="submit" class="btn btn-sm btn-info" value="<?= _('Briefing Sheets') ?>"
                            name="BriefingSheets">
                 </td>
             </tr>
@@ -207,7 +207,7 @@ if ($processNews != '') {
                 <?= _('Generate a PDF containing a progress report.  The progress report includes information on the overall progress of the canvass, and the progress of individual canvassers.') ?>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Progress Report') ?>"
+                    <input type="submit" class="btn btn-sm btn-info" value="<?= _('Progress Report') ?>"
                            name="ProgressReport">
                 </td>
             </tr>
@@ -217,7 +217,7 @@ if ($processNews != '') {
                 <?= _('Generate a PDF containing a summary report.  The summary report includes comments extracted from the canvass data.') ?>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Summary Report') ?>"
+                    <input type="submit" class="btn btn-sm btn-info" value="<?= _('Summary Report') ?>"
                            name="SummaryReport">
                 </td>
             </tr>
@@ -227,7 +227,7 @@ if ($processNews != '') {
                 <?= _('Generate a PDF containing a report of the families marked &quot;Not Interested&quot; by the canvasser.') ?>
               </td>
                 <td align="center" width="25%">
-                    <input type="submit" class="btn btn-sm btn-primary" value="<?= _('Not Interested Report') ?>"
+                    <input type="submit" class="btn btn-sm btn-info" value="<?= _('Not Interested Report') ?>"
                            name="NotInterestedReport">
                 </td>
             </tr>

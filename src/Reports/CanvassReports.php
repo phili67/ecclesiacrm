@@ -16,6 +16,8 @@ use EcclesiaCRM\Reports\PDF_CanvassBriefingReport;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\dto\CanvassUtilities;
+use EcclesiaCRM\FamilyQuery;
+use EcclesiaCRM\CanvassDataQuery;
 
 //Get the Fiscal Year ID out of the querystring
 $iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
@@ -77,27 +79,23 @@ function CanvassProgressReport($iFYID)
 
     // Get all the canvassers
     $canvassGroups = ['Canvassers', 'BraveCanvassers'];
+
     foreach ($canvassGroups as $cgName) {
-        $rsCanvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
-        if ($rsCanvassers == 0) {
+        $canvassers = CanvassUtilities::CanvassGetCanvassers($cgName);
+        if ( is_null($canvassers) ) {
             continue;
         }
 
-        while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
-            // Get all the families for this canvasser
-            $sSQL = 'SELECT fam_ID from family_fam WHERE fam_Canvasser = '.$aCanvasser['per_ID'];
-            $rsCanvassees = RunQuery($sSQL);
+        foreach ($canvassers as $canvasser) {
+            $canvassees = FamilyQuery::create()->findByCanvasser($canvasser->getId());
 
-            $thisCanvasserToDo = mysqli_num_rows($rsCanvassees);
+            $thisCanvasserToDo = $canvassees->count();
             $thisCanvasserDone = 0;
 
-            while ($aCanvassee = mysqli_fetch_array($rsCanvassees)) {
-                // Get all the canvass input entered so far by this canvasser
-                $sSQL = 'SELECT can_ID from canvassdata_can WHERE can_famID='.$aCanvassee['fam_ID'].
-                            ' AND can_FYID='.$iFYID;
-                $rsCanvassData = RunQuery($sSQL);
+            foreach ($canvassees as $canvassee) {
+                $canvassData = CanvassDataQuery::create()->findByFamilyId($canvassee->getId());
 
-                if (mysqli_num_rows($rsCanvassData) == 1) {
+                if ($canvassData->count() == 1) {
                     ++$thisCanvasserDone;
                 }
             }
@@ -106,7 +104,7 @@ function CanvassProgressReport($iFYID)
             $totalDone += $thisCanvasserDone;
 
             // Write the status output line for this canvasser
-            $pdf->WriteAt($nameX, $curY, $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName']);
+            $pdf->WriteAt($nameX, $curY, $canvasser->getFirstName().' '.$canvasser->getLastName());
             $pdf->WriteAt($doneX, $curY, $thisCanvasserDone);
             $pdf->WriteAt($toDoX, $curY, $thisCanvasserToDo);
             if ($thisCanvasserToDo > 0) {
@@ -116,6 +114,7 @@ function CanvassProgressReport($iFYID)
             }
             $pdf->WriteAt($percentX, $curY, $percentStr);
             $curY += 6;
+
         }
     }
 

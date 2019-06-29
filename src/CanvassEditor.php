@@ -37,8 +37,8 @@ if (array_key_exists('CanvassID', $_GET)) {
     $iCanvassID = InputUtils::LegacyFilterInput($_GET['CanvassID'], 'int');
 }
 $linkBack = InputUtils::LegacyFilterInput($_GET['linkBack']);
-$iFamily = InputUtils::LegacyFilterInput($_GET['FamilyID']);
-$iFYID = InputUtils::LegacyFilterInput($_GET['FYID']);
+$iFamily  = InputUtils::LegacyFilterInput($_GET['FamilyID']);
+$iFYID    = InputUtils::LegacyFilterInput($_GET['FYID']);
 
 $sDateError = '';
 $bNotInterested = false;
@@ -121,7 +121,11 @@ if (isset($_POST['Submit'])) {
         $iCanvassID         = $canvas->getId();
         $iCanvasser         = $canvas->getCanvasser();
         $iFYID              = $canvas->getFyid();
-        $dDate              = $canvas->getDate()->format('Y-m-d');
+        if (!is_null($canvas->getDate())) {
+            $dDate = $canvas->getDate()->format('Y-m-d');
+        } else {
+            $dDate = '';
+        }
         $tPositive          = $canvas->getPositive();
         $tCritical          = $canvas->getCritical();
         $tInsightful        = $canvas->getInsightful();
@@ -146,8 +150,8 @@ if (isset($_POST['Submit'])) {
 }
 
 // Get the lists of canvassers for the drop-down
-$rsCanvassers = CanvassUtilities::CanvassGetCanvassers('Canvassers');
-$rsBraveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
+$canvassers      = CanvassUtilities::CanvassGetCanvassers('Canvassers');
+$braveCanvassers = CanvassUtilities::CanvassGetCanvassers('BraveCanvassers');
 
 require 'Include/Header.php';
 ?>
@@ -156,31 +160,31 @@ require 'Include/Header.php';
 <form method="post" action="<?= SystemURLs::getRootPath() ?>/CanvassEditor.php?<?= 'FamilyID='.$iFamily.'&FYID='.$iFYID.'&CanvassID='.$iCanvassID.'&linkBack='.$linkBack ?>" name="CanvassEditor">
 
 <?php
-    if (($rsBraveCanvassers != 0 && mysqli_num_rows($rsBraveCanvassers) > 0) ||
-        ($rsCanvassers != 0 && mysqli_num_rows($rsCanvassers) > 0)) {
+    if ((!is_null($canvassers) && $canvassers->count() > 0) ||
+        (!is_null($braveCanvassers) && $braveCanvassers->count() > 0)) {
 ?>
     <div class="row">
         <div class="col-lg-3">
           <?= _('Canvasser') ?>:
         </div>
         <div class="col-lg-9">
-           <select name='Canvasser'><option value="0"><?= _('None selected') ?></option>
+           <select name='Canvasser' class="form-control"><option value="0"><?= _('None selected') ?></option>
            <?php
-              if ($rsBraveCanvassers != 0) {
-                  while ($aCanvasser = mysqli_fetch_array($rsBraveCanvassers)) {
+              if (!is_null($braveCanvassers) && $braveCanvassers->count() != 0) {
+                  foreach ($braveCanvassers as $braveCanvasser) {
             ?>
-              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
-              </option>
+                      <option value="<?= $braveCanvasser->getId() ?>" <?= ($braveCanvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                          <?= $braveCanvasser->getFirstName().' '.$braveCanvasser->getLastName() ?>
+                      </option>
             <?php
                   }
               }
-              if ($rsCanvassers != 0) {
-                  while ($aCanvasser = mysqli_fetch_array($rsCanvassers)) {
+              if (!is_null($canvassers) && $canvassers->count() != 0) {
+                  foreach ($canvassers as $canvasser) {
               ?>
-              <option value="<?= $aCanvasser['per_ID'] ?>" <?= ($aCanvasser['per_ID'] == $iCanvasser)?' selected':'' ?>>
-                  <?= $aCanvasser['per_FirstName'].' '.$aCanvasser['per_LastName'] ?>
-              </option>
+                      <option value="<?= $canvasser->getId() ?>" <?= ($canvasser->getId() == $iCanvasser)?' selected':'' ?>>
+                          <?= $canvasser->getFirstName().' '.$canvasser->getLastName() ?>
+                      </option>
             <?php
                   }
               }
@@ -207,7 +211,7 @@ require 'Include/Header.php';
           <?= _('Positive') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Positive" rows="3" style="width:100%"><?= $tPositive ?></textarea>
+          <textarea name="Positive" rows="3" style="width:100%" class="form-control"><?= $tPositive ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -215,7 +219,7 @@ require 'Include/Header.php';
           <?= _('Critical') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Critical" rows="3" style="width:100%"><?= $tCritical ?></textarea>
+          <textarea name="Critical" rows="3" style="width:100%" class="form-control"><?= $tCritical ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -223,7 +227,7 @@ require 'Include/Header.php';
           <?= _('Insightful') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Insightful" rows="3" style="width:100%"><?= $tInsightful ?></textarea>
+          <textarea name="Insightful" rows="3" style="width:100%" class="form-control"><?= $tInsightful ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -231,7 +235,7 @@ require 'Include/Header.php';
           <?= _('Financial') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Financial" rows="3" style="width:100%"><?= $tFinancial ?></textarea>
+          <textarea name="Financial" rows="3" style="width:100%" class="form-control"><?= $tFinancial ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -239,7 +243,7 @@ require 'Include/Header.php';
           <?= _('Suggestions') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="Suggestion" rows="3" style="width:100%"><?= $tSuggestion ?></textarea>
+          <textarea name="Suggestion" rows="3" style="width:100%" class="form-control"><?= $tSuggestion ?></textarea>
         </div>
     </div>
     <div class="row">
@@ -255,7 +259,7 @@ require 'Include/Header.php';
           <?= _('Why Not Interested?') ?>
         </div>
         <div class="col-lg-9">
-          <textarea name="WhyNotInterested" rows="3" style="width:100%"><?= $tWhyNotInterested ?></textarea>
+          <textarea name="WhyNotInterested" rows="3" style="width:100%" class="form-control"><?= $tWhyNotInterested ?></textarea>
         </div>
     </div>
 
