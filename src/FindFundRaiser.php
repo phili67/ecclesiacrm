@@ -5,18 +5,27 @@
  *  last change : 2009-04-16
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2009 Michael Wilt
-  *
+ *                Copyright 2019 Philippe Logel
+ *
  ******************************************************************************/
 
 //Include the function library
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
-use EcclesiaCRM\Utils\InputUtils;
+use Propel\Runtime\Propel;
+
 use EcclesiaCRM\SessionUser;
+use EcclesiaCRM\UserQuery;
+
+use EcclesiaCRM\Utils\InputUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\dto\SystemConfig;
+use EcclesiaCRM\dto\SystemURLs;
 
 //Set the page title
-$sPageTitle = gettext('Fundraiser Listing');
+$sPageTitle = _('Fundraiser Listing');
 
 //Filter Values
 $dDateStart = '';
@@ -25,10 +34,10 @@ $iID = '';
 $sSort = '';
 
 if (array_key_exists('DateStart', $_GET)) {
-    $dDateStart = InputUtils::LegacyFilterInput($_GET['DateStart']);
+    $dDateStart = InputUtils::FilterDate($_GET['DateStart']);
 }
 if (array_key_exists('DateEnd', $_GET)) {
-    $dDateEnd = InputUtils::LegacyFilterInput($_GET['DateEnd']);
+    $dDateEnd = InputUtils::FilterDate($_GET['DateEnd']);
 }
 if (array_key_exists('ID', $_GET)) {
     $iID = InputUtils::LegacyFilterInput($_GET['ID']);
@@ -65,37 +74,47 @@ require 'Include/Header.php';
 
 ?>
 <div class="box box-body">
-<form method="get" action="FindFundRaiser.php" name="FindFundRaiser">
-<input name="sort" type="hidden" value="<?= $sSort ?>"
-<table cellpadding="3" align="center">
+  <form method="get" action="FindFundRaiser.php" name="FindFundRaiser">
+     <input name="sort" type="hidden" value="<?= $sSort ?>">
 
-	<tr>
-		<td>
-		<table cellpadding="3">
-			<tr>
-				<td class="LabelColumn"><?= gettext('Number') ?>:</td>
-				<td class="TextColumn"><input type="text" name="ID" id="ID" value="<?= $iID ?>"></td>
-			</tr>
+    <div class="row">
+           <div class="col-lg-2">
+               <?= _('Number') ?>:
+           </div>
+           <div class="col-lg-2">
+               <input type="text" name="ID" id="ID" value="<?= $iID ?>" class="form-control input-sm">
+           </div>
+    </div>
 
-			<tr>
-                <td class="LabelColumn"><?= gettext('Date Start') ?>:</td>
-				<td class="TextColumn"><input type="text" name="DateStart" maxlength="10" id="DateStart" size="11" value="<?= $dDateStart ?>" class="date-picker"></td>
-				<td align="center">
-					<input type="submit" class="btn btn-primary" value="<?= gettext('Apply Filters') ?>" name="FindFundRaiserSubmit">
-				</td>
-			</tr>
-			<tr>
-				<td class="LabelColumn"><?= gettext('Date End') ?>:</td>
-				<td class="TextColumn"><input type="text" name="DateEnd" maxlength="10" id="DateEnd" size="11" value="<?= $dDateEnd ?>" class="date-picker"></td>
-				<td align="center">
-					<input type="submit" class="btn btn-danger" value="<?= gettext('Clear Filters') ?>" name="FilterClear">
-				</td>
-			</tr>
-		</table>
-		</td>
-	</form>
-</table>
+    <div class="row">
+        <div class="col-lg-2">
+            <?= _('Date Start') ?>:
+        </div>
+        <div class="col-lg-2">
+            <input type="text" name="DateStart" maxlength="10" id="DateStart" size="11" value="<?= OutputUtils::change_date_for_place_holder($dDateStart) ?>" class="date-picker form-control input-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+        </div>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <input type="submit" class="btn btn-primary btn-sm" value="<?= _('Apply Filters') ?>" name="FindFundRaiserSubmit">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2">
+            <?= _('Date End') ?>:
+        </div>
+        <div class="col-lg-2">
+            <input type="text" name="DateEnd" maxlength="10" id="DateEnd" size="11" value="<?= OutputUtils::change_date_for_place_holder($dDateEnd) ?>" class="date-picker form-control input-sm" placeholder="<?= SystemConfig::getValue("sDatePickerPlaceHolder") ?>">
+        </div>
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-3">
+            <input type="submit" class="btn btn-danger btn-sm" value="<?= _('Clear Filters') ?>" name="FilterClear">
+        </div>
+    </div>
+  </form>
 </div>
+
 <div class="box box-body">
 <?php
 // List Fundraisers
@@ -119,12 +138,41 @@ switch ($sSort) {
 }
 
 // Append a LIMIT clause to the SQL statement
-$iPerPage = $_SESSION['SearchLimit'];
+$iPerPage = SessionUser::getUser()->getSearchLimit();
 if (empty($_GET['Result_Set'])) {
     $Result_Set = 0;
 } else {
     $Result_Set = InputUtils::LegacyFilterInput($_GET['Result_Set'], 'int');
 }
+
+if ($iPerPage != '5' && $iPerPage != '10' && $iPerPage != '20' && $iPerPage != '25'
+    && $iPerPage != '50' && $iPerPage != '100' && $iPerPage != '200' && $iPerPage != '500') {
+    $res = intval($iPerPage);
+    if ($res < 5) {
+        $iPerPage = '5';
+    } else if ($res < 10) {
+        $iPerPage = '10';
+    } else if ($res < 20) {
+        $iPerPage = '20';
+    } else if ($res < 25) {
+        $iPerPage = '25';
+    } else if ($res < 50) {
+        $iPerPage = '50';
+    } else if ($res < 100) {
+        $iPerPage = '100';
+    } else if ($res < 200) {
+        $iPerPage = '200';
+    } else if ($res < 500) {
+        $iPerPage = '500';
+    }
+
+    $tmpUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+    $tmpUser->setSearchLimit($iPerPage);
+    $tmpUser->save();
+
+    $_SESSION['user'] = $tmpUser;
+}
+
 $sLimitSQL = " LIMIT $Result_Set, $iPerPage";
 
 // Build SQL query
@@ -132,19 +180,28 @@ $sSQL = "SELECT fr_ID, fr_Date, fr_Title FROM fundraiser_fr $sCriteria $sOrderSQ
 $sSQLTotal = "SELECT COUNT(fr_ID) FROM fundraiser_fr $sCriteria";
 
 // Execute SQL statement and get total result
-$rsDep = RunQuery($sSQL);
-$rsTotal = RunQuery($sSQLTotal);
-list($Total) = mysqli_fetch_row($rsTotal);
+$connection = Propel::getConnection();
 
-echo '<div align="center">';
-echo  '<form action="FindFundRaiser.php" method="get" name="ListNumber">';
+$pdoDep = $connection->prepare($sSQL);
+$pdoDep->execute();
+
+$pdoTotal= $connection->prepare($sSQLTotal);
+list($Total) = $pdoTotal->fetch( \PDO::FETCH_BOTH );
+?>
+
+<div align="center">
+<form action="FindFundRaiser.php" method="get" name="ListNumber">
+
+<?php
 // Show previous-page link unless we're at the first page
 if ($Result_Set < $Total && $Result_Set > 0) {
     $thisLinkResult = $Result_Set - $iPerPage;
     if ($thisLinkResult < 0) {
         $thisLinkResult = 0;
     }
-    echo '<a href="FindFundRaiser.php?Result_Set='.$thisLinkResult.'&Sort='.$sSort.'">'.gettext('Previous Page').'</a>&nbsp;&nbsp;';
+?>
+    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>"><?= _('Previous Page') ?></a>&nbsp;&nbsp;
+<?php
 }
 
 // Calculate starting and ending Page-Number Links
@@ -160,7 +217,9 @@ if ($endpage >= ($Pages - 1)) {
 
 // Show Link "1 ..." if startpage does not start at 1
 if ($startpage != 1) {
-    echo "<a href=\"FindFundRaiser.php?Result_Set=0&Sort=$sSort&ID=$iID&DateStart=$dDateStart&DateEnd=$dDateEnd\">1</a> ... ";
+?>
+    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=0&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>">1</a> ...
+<?php
 }
 
 // Display page links
@@ -169,7 +228,9 @@ if ($Pages > 1) {
         $b = $c - 1;
         $thisLinkResult = $iPerPage * $b;
         if ($thisLinkResult != $Result_Set) {
-            echo "<a href=\"FindFundRaiser.php?Result_Set=$thisLinkResult&Sort=$sSort&ID=$iID&DateStart=$dDateStart&DateEnd=$dDateEnd\">$c</a>&nbsp;";
+?>
+    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= $c ?></a>&nbsp;
+<?php
         } else {
             echo '&nbsp;&nbsp;[ '.$c.' ]&nbsp;&nbsp;';
         }
@@ -179,14 +240,18 @@ if ($Pages > 1) {
 // Show Link "... xx" if endpage is not the maximum number of pages
 if ($endpage != $Pages) {
     $thisLinkResult = ($Pages - 1) * $iPerPage;
-    echo " <a href=\"FindFundRaiser.php?Result_Set=$thisLinkResult&Sort=$sSort&ID=$iID&DateStart=$dDateStart&DateEnd=$dDateEnd\">$Pages</a>";
+?>
+    <a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= $Pages ?></a>
+<?php
 }
 
 // Show next-page link unless we're at the last page
 if ($Result_Set >= 0 && $Result_Set < $Total) {
     $thisLinkResult = $Result_Set + $iPerPage;
     if ($thisLinkResult < $Total) {
-        echo "&nbsp;&nbsp;<a href='FindFundRaiser.php?Result_Set=$thisLinkResult&Sort=$sSort'>".gettext('Next Page').'</a>&nbsp;&nbsp;';
+?>
+        &nbsp;&nbsp;<a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Result_Set=<?= $thisLinkResult ?>&Sort=<?= $sSort ?>"><?= _('Next Page') ?></a>&nbsp;&nbsp;
+<?php
     }
 }
 
@@ -218,35 +283,53 @@ if ($_SESSION['SearchLimit'] == '50') {
     $sLimit50 = 'selected';
 }
 
-echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.gettext('Display:')."&nbsp;
-	<select class=\"SmallText\" name=\"Number\">
-		<option value=\"5\" $sLimit5>5</option>
-		<option value=\"10\" $sLimit10>10</option>
-		<option value=\"20\" $sLimit20>20</option>
-		<option value=\"25\" $sLimit25>25</option>
-		<option value=\"50\" $sLimit50>50</option>
-	</select>&nbsp;
-	<input type=\"submit\" class=\"icTinyButton\" value=\"".gettext('Go').'">
-	</form></div><br>';
-
-// Column Headings
-echo "<table cellpadding='4' align='center' cellspacing='0' width='100%'>\n
-	<tr class='TableHeader'>\n
-	<td width='25'>".gettext('Edit')."</td>\n
-	<td><a href='FindFundRaiser.php?Sort=number&ID=$iID&DateStart=$dDateStart&DateEnd=$dDateEnd'>".gettext('Number')."</a></td>\n
-	<td><a href='FindFundRaiser.php?Sort=date'&ID=$iID&DateStart=$dDateStart&DateEnd=$dDateEnd>".gettext('Date')."</a></td>\n
-	<td>".gettext('Title')."</td>\n
-	</tr>";
-
-// Display Deposits
-while (list($fr_ID, $fr_Date, $fr_Title) = mysqli_fetch_row($rsDep)) {
-    echo "<tr><td><a href='FundRaiserEditor.php?FundRaiserID=$fr_ID'>".gettext('Edit').'</td>';
-    echo "<td>$fr_ID</td>";
-    echo "<td>$fr_Date</td>";
-    // Get deposit total
-    echo "<td>$fr_Title</td>";
-}
-echo '</table>';
 ?>
+
+    <div class="row">
+        <div class="col-lg-2">
+            <?= _('Display:') ?>
+        </div>
+        <div class="col-lg-1">
+            <select name="Number" class="form-control input-sm">
+            <option value="5" <?= $sLimit5 ?>>5</option>
+            <option value="10" <?= $sLimit10 ?>>10</option>
+            <option value="20" <?=  $sLimit20 ?>>20</option>
+            <option value="25" <?=  $sLimit25 ?>>25</option>
+            <option value="50" <?=  $sLimit50 ?>>50</option>
+            </select>&nbsp;
+        </div>
+        <div class="col-lg-1">
+        <input type="submit" class="btn btn-primary" value="<?= _('Go') ?>">
+        </div>
+    </div>
+	</form>
 </div>
+    <br>
+ <table cellpadding='4' align='center' cellspacing='0' width='100%' id='fund-listing-table' class="table table-striped table-bordered dataTable no-footer dtr-inline">
+	<tr class='TableHeader'>
+	<td width='25'><?= _('Edit') ?></td>
+	<td><a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Sort=number&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= _('Number') ?></a></td>
+	<td><a href="<?= SystemURLs::getRootPath() ?>/FindFundRaiser.php?Sort=date'&ID=<?= $iID ?>&DateStart=<?= $dDateStart ?>&DateEnd=<?= $dDateEnd ?>"><?= _('Date') ?></a></td>
+	<td><?= _('Title') ?></td>
+	</tr>
+<?php
+// Display Deposits
+while (list($fr_ID, $fr_Date, $fr_Title) = $pdoDep->fetch( \PDO::FETCH_BOTH )) {
+?>
+    <tr>
+        <td>
+            <a href="<?= SystemURLs::getRootPath() ?>/FundRaiserEditor.php?FundRaiserID=<?= $fr_ID ?>">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </a>
+        </td>
+        <td><?= $fr_ID ?></td>
+        <td><?= OutputUtils::change_date_for_place_holder($fr_Date) ?></td>
+        <!-- Get deposit total -->
+        <td><?= $fr_Title ?></td>
+<?php
+}
+?>
+ </table>
+</div>
+
 <?php require 'Include/Footer.php' ?>
