@@ -12,8 +12,12 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemURLs;
+
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+
 use EcclesiaCRM\SessionUser;
 
 $linkBack = InputUtils::LegacyFilterInputArr($_GET, 'linkBack');
@@ -29,9 +33,9 @@ if ($iFundRaiserID > 0) {
 }
 
 if ($iFundRaiserID > 0) {
-    $sPageTitle = gettext('Fundraiser').' #'.$iFundRaiserID.' '.$fr_title;
+    $sPageTitle = _('Fundraiser').' #'.$iFundRaiserID.' '.$fr_title;
 } else {
-    $sPageTitle = gettext('Create New Fund Raiser');
+    $sPageTitle = _('Create New Fund Raiser');
 }
 
 $sDateError = '';
@@ -39,7 +43,7 @@ $sDateError = '';
 //Is this the second pass?
 if (isset($_POST['FundRaiserSubmit'])) {
     //Get all the variables from the request object and assign them locally
-    $dDate = InputUtils::LegacyFilterInputArr($_POST, 'Date');
+    $dDate = InputUtils::FilterDate($_POST['Date']);
     $sTitle = InputUtils::LegacyFilterInputArr($_POST, 'Title');
     $sDescription = InputUtils::LegacyFilterInputArr($_POST, 'Description');
 
@@ -50,7 +54,7 @@ if (isset($_POST['FundRaiserSubmit'])) {
     if (strlen($dDate) > 0) {
         list($iYear, $iMonth, $iDay) = sscanf($dDate, '%04d-%02d-%02d');
         if (!checkdate($iMonth, $iDay, $iYear)) {
-            $sDateError = '<span style="color: red; ">'.gettext('Not a valid date').'</span>';
+            $sDateError = '<span style="color: red; ">'._('Not a valid date').'</span>';
             $bErrorFlag = true;
         }
     }
@@ -140,21 +144,22 @@ require 'Include/Header.php';
 
 	<tr>
 		<td align="center">
-		<input type="submit" class="btn" value="<?= gettext('Save') ?>" name="FundRaiserSubmit">
-			<input type="button" class="btn" value="<?= gettext('Cancel') ?>" name="FundRaiserCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+		<input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>" name="FundRaiserSubmit">
+        <input type="button" class="btn btn-default btn-sm" value="<?= _('Cancel') ?>" name="FundRaiserCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
     echo $linkBack;
 } else {
     echo 'Menu.php';
 } ?>';">
 			<?php
                 if ($iFundRaiserID > 0) {
-                    echo '<input type=button class=btn value="'.gettext('Add Donated Item')."\" name=AddDonatedItem onclick=\"javascript:document.location='DonatedItemEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
-                    echo '<input type=button class=btn value="'.gettext('Generate Catalog')."\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                    echo '<input type=button class=btn value="'.gettext('Generate Bid Sheets')."\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                    echo '<input type=button class=btn value="'.gettext('Generate Certificates')."\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
-                    echo '<input type=button class=btn value="'.gettext('Batch Winner Entry')."\" name=BatchWinnerEntry onclick=\"javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                    echo '<input type=button class="btn btn-success btn-sm" value="'._('Add Donated Item')."\" name=AddDonatedItem onclick=\"javascript:document.location='DonatedItemEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+                    echo '<input type=button class="btn btn-success btn-sm" value="'._('Generate Catalog')."\" name=GenerateCatalog onclick=\"javascript:document.location='Reports/FRCatalog.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                    echo '<input type=button class="btn btn-info btn-sm" value="'._('Generate Bid Sheets')."\" name=GenerateBidSheets onclick=\"javascript:document.location='Reports/FRBidSheets.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                    echo '<input type=button class="btn btn-warning btn-sm" value="'._('Generate Certificates')."\" name=GenerateCertificates onclick=\"javascript:document.location='Reports/FRCertificates.php?CurrentFundraiser=$iFundRaiserID';\">\n";
+                    echo '<input type=button class="btn btn-success btn-sm" value="'._('Batch Winner Entry')."\" name=BatchWinnerEntry onclick=\"javascript:document.location='BatchWinnerEntry.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
                 }
             ?>
+            <br>
 		</td>
 	</tr>
 
@@ -162,18 +167,18 @@ require 'Include/Header.php';
 		<td>
 		<table cellpadding="3">
 			<tr>
-                <td class="LabelColumn"><?= gettext('Date') ?>:</td>
-				<td class="TextColumn"><input type="text" name="Date" value="<?= $dDate ?>" maxlength="10" id="Date" size="11" class="date-picker"><font color="red"><?php echo $sDateError ?></font></td>
+                <td class="LabelColumn"><?= _('Date') ?>:</td>
+				<td class="TextColumn"><input type="text" name="Date" value="<?= OutputUtils::change_date_for_place_holder($dDate) ?>" maxlength="10" id="Date" size="11" class="date-picker form-control input-sm"><font color="red"><?php echo $sDateError ?></font></td>
 			</tr>
 
 			<tr>
-				<td class="LabelColumn"><?= gettext('Title') ?>:</td>
-				<td class="TextColumn"><input type="text" name="Title" id="Title" value="<?= $sTitle ?>"></td>
+				<td class="LabelColumn"><?= _('Title') ?>:</td>
+				<td class="TextColumn"><input type="text" name="Title" id="Title" value="<?= $sTitle ?>" class="form-control input-sm"></td>
 			</tr>
 
 			<tr>
-				<td class="LabelColumn"><?= gettext('Description') ?>:</td>
-				<td class="TextColumn"><input type="text" name="Description" id="Description" value="<?= $sDescription ?>"></td>
+				<td class="LabelColumn"><?= _('Description') ?>:</td>
+				<td class="TextColumn"><input type="text" name="Description" id="Description" value="<?= $sDescription ?>" class="form-control input-sm"></td>
 			</tr>
 		</table>
 		</td>
@@ -183,22 +188,22 @@ require 'Include/Header.php';
 <br>
 </div>
 <div class="box box-body">
-<b><?= gettext('Donated items for this fundraiser') ?>:</b>
+<b><?= _('Donated items for this fundraiser') ?>:</b>
 <br>
 <div class="table-responsive">
-<table class="table" cellpadding="5" cellspacing="0" width="100%">
+<table class="table table-striped table-bordered dataTable no-footer dtr-inline" cellpadding="5" cellspacing="0" width="100%">
 
 <tr class="TableHeader">
-	<td><?= gettext('Item') ?></td>
-	<td><?= gettext('Multiple') ?></td>
-	<td><?= gettext('Donor') ?></td>
-	<td><?= gettext('Buyer') ?></td>
-	<td><?= gettext('Title') ?></td>
-	<td><?= gettext('Sale Price') ?></td>
-	<td><?= gettext('Estimated value') ?></td>
-	<td><?= gettext('Material Value') ?></td>
-	<td><?= gettext('Minimum Price') ?></td>
-	<td><?= gettext('Delete') ?></td>
+	<td><?= _('Item') ?></td>
+	<td><?= _('Multiple') ?></td>
+	<td><?= _('Donor') ?></td>
+	<td><?= _('Buyer') ?></td>
+	<td><?= _('Title') ?></td>
+	<td><?= _('Sale Price') ?></td>
+	<td><?= _('Estimated value') ?></td>
+	<td><?= _('Material Value') ?></td>
+	<td><?= _('Minimum Price') ?></td>
+	<td><?= _('Delete') ?></td>
 </tr>
 
 <?php
@@ -216,7 +221,7 @@ if ($rsDonatedItems != 0) {
         $sRowClass = 'RowColorA'; ?>
 		<tr class="<?= $sRowClass ?>">
 			<td>
-				<a href="DonatedItemEditor.php?DonatedItemID=<?= $di_ID.'&linkBack=FundRaiserEditor.php?FundRaiserID='.$iFundRaiserID ?>"><?= $di_Item ?></a>
+				<a href="<?= SystemURLs::getRootPath() ?>/DonatedItemEditor.php?DonatedItemID=<?= $di_ID.'&linkBack=FundRaiserEditor.php?FundRaiserID='.$iFundRaiserID ?>"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;<?= $di_Item ?></a>
 			</td>
 			<td>
 				<?php if ($di_multibuy) {
@@ -228,7 +233,7 @@ if ($rsDonatedItems != 0) {
 			</td>
 			<td>
 				<?php if ($di_multibuy) {
-            echo gettext('Multiple');
+            echo _('Multiple');
         } else {
             echo $buyerFirstName.' '.$buyerLastName;
         } ?>&nbsp;
@@ -249,7 +254,9 @@ if ($rsDonatedItems != 0) {
 				<?= $di_minimum ?>&nbsp;
 			</td>
 			<td>
-				<a href="DonatedItemDelete.php?DonatedItemID=<?= $di_ID.'&linkBack=FundRaiserEditor.php?FundRaiserID='.$iFundRaiserID ?>">Delete</a>
+				<a href="<?= SystemURLs::getRootPath() ?>/DonatedItemDelete.php?DonatedItemID=<?= $di_ID.'&linkBack=FundRaiserEditor.php?FundRaiserID='.$iFundRaiserID ?>">
+                    <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+                </a>
 			</td>
 		</tr>
 	<?php

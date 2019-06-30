@@ -14,7 +14,10 @@ require 'Include/Functions.php';
 
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\utils\RedirectUtils;
+use EcclesiaCRM\Utils\RedirectUtils;
+
+use EcclesiaCRM\dto\SystemURLs;
+
 use EcclesiaCRM\SessionUser;
 
 
@@ -147,12 +150,12 @@ require 'Include/Header.php';
 <table class="table" cellpadding="3" align="center">
 	<tr>
 		<td align="center">
-			<input type="submit" class="btn" value="<?= _('Save') ?>" name="PaddleNumSubmit">
-			<input type="submit" class="btn" value="<?= _('Generate Statement') ?>" name="GenerateStatement">
+			<input type="submit" class="btn btn-primary btn-sm" value="<?= _('Save') ?>" name="PaddleNumSubmit">
+			<input type="submit" class="btn btn-info btn-sm" value="<?= _('Generate Statement') ?>" name="GenerateStatement">
 			<?php if (SessionUser::getUser()->isAddRecordsEnabled()) {
-    echo '<input type="submit" class="btn" value="'._('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
+    echo '<input type="submit" class="btn btn-success btn-sm" value="'._('Save and Add')."\" name=\"PaddleNumSubmitAndAdd\">\n";
 } ?>
-			<input type="button" class="btn" value="<?= _('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
+			<input type="button" class="btn btn-default btn-sm" value="<?= _('Back') ?>" name="PaddleNumCancel" onclick="javascript:document.location='<?php if (strlen($linkBack) > 0) {
     echo $linkBack;
 } else {
     echo 'Menu.php';
@@ -168,14 +171,18 @@ require 'Include/Header.php';
 			<table cellpadding="3">
 				<tr>
 					<td class="LabelColumn"><?= _('Number') ?>:</td>
-					<td class="TextColumn"><input type="text" name="Num" id="Num" value="<?= $iNum ?>"></td>
+					<td class="TextColumn"><input type="text" name="Num" id="Num" value="<?= $iNum ?>" class="form-control input-sm"></td>
 				</tr>
+                <tr>
+                    <td><br></td>
+                    <td></td>
+                </tr>
 				
 				<tr>
 					<td class="LabelColumn"><?= _('Buyer') ?>:
 					</td>
 					<td class="TextColumn">
-						<select name="PerID">
+						<select name="PerID" class="form-control select2" id="Buyers">
 							<option value="0" selected><?= _('Unassigned') ?></option>
 							<?php
                             $rsPeople = RunQuery($sPeopleSQL);
@@ -197,6 +204,7 @@ require 'Include/Header.php';
 			</td>
 		
 			<td width="50%" valign="top" align="center">
+                <br>
 			<table cellpadding="3">
 					<?php
                     $rsMBItems = RunQuery($sMultibuyItemsSQL);
@@ -229,4 +237,11 @@ require 'Include/Header.php';
 </div>
 </form>
 </div>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    $(document).ready(function() {
+        $("#Buyers").select2();
+    });
+</script>
+
 <?php require 'Include/Footer.php' ?>

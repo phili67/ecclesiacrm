@@ -202,11 +202,6 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
 ?>
                             </select>
                         </div>
-<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-    $(document).ready(function() {
-    $("#Donor").select2();
-});
-</script>
 
                         <div class="form-group">
                             <label><?= gettext('Title') ?>:</label>
@@ -305,5 +300,11 @@ while ($aRow = mysqli_fetch_array($rsPeople)) {
         </div>
     </div>
 </form>
+
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    $(document).ready(function() {
+        $("#Donor").select2();
+    });
+</script>
 
 <?php require 'Include/Footer.php'; ?>

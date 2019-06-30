@@ -30,29 +30,29 @@ if ($iFundRaiserID > 0) {
     $rsPaddleNums = 0;
 }
 
-$sPageTitle = gettext('Buyers for this fundraiser:');
+$sPageTitle = _('Buyers for this fundraiser:');
 require 'Include/Header.php';
 ?>
 <div class="box box-body">
 <?php
 echo "<form method=\"post\" action=\"Reports/FundRaiserStatement.php?CurrentFundraiser=$iFundRaiserID&linkBack=FundRaiserEditor.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID\">\n";
 if ($iFundRaiserID > 0) {
-    echo '<input type=button class=btn value="'.gettext('Select all')."\" name=SelectAll onclick=\"javascript:document.location='PaddleNumList.php?CurrentFundraiser=$iFundRaiserID&SelectAll=1&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+    echo '<input type=button class="btn btn-default btn-sm" value="'._('Select all')."\" name=SelectAll onclick=\"javascript:document.location='PaddleNumList.php?CurrentFundraiser=$iFundRaiserID&SelectAll=1&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
 }
-    echo '<input type=button class=btn value="'.gettext('Select none')."\" name=SelectNone onclick=\"javascript:document.location='PaddleNumList.php?CurrentFundraiser=$iFundRaiserID&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
-    echo '<input type=button class=btn value="'.gettext('Add Buyer')."\" name=AddBuyer onclick=\"javascript:document.location='PaddleNumEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
-    echo '<input type=submit class=btn value="'.gettext('Generate Statements for Selected')."\" name=GenerateStatements>\n";
+    echo '<input type=button class="btn btn-default btn-sm" value="'._('Select none')."\" name=SelectNone onclick=\"javascript:document.location='PaddleNumList.php?CurrentFundraiser=$iFundRaiserID&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+    echo '<input type=button class="btn btn-primary btn-sm" value="'._('Add Buyer')."\" name=AddBuyer onclick=\"javascript:document.location='PaddleNumEditor.php?CurrentFundraiser=$iFundRaiserID&linkBack=PaddleNumList.php?FundRaiserID=$iFundRaiserID&CurrentFundraiser=$iFundRaiserID';\">\n";
+    echo '<input type=submit class="btn btn-info btn-sm" value="'._('Generate Statements for Selected')."\" name=GenerateStatements>\n";
 ?>
 </div>
 <div class="box box-body">
 
-<table cellpadding="5" cellspacing="5">
+<table cellpadding="5" cellspacing="5" class="table table-striped table-bordered dataTable no-footer dtr-inline">
 
 <tr class="TableHeader">
-	<td><?= gettext('Select') ?></td>
-	<td><?= gettext('Number') ?></td>
-	<td><?= gettext('Buyer') ?></td>
-	<td><?= gettext('Delete') ?></td>
+	<td><?= _('Select') ?></td>
+	<td><?= _('Number') ?></td>
+	<td><?= _('Buyer') ?></td>
+	<td><?= _('Delete') ?></td>
 </tr>
 
 <?php
@@ -79,7 +79,7 @@ if ($rsPaddleNums) {
 				<?= $buyerFirstName.' '.$buyerLastName ?>&nbsp;
 			</td>
 			<td>
-				<a href="PaddleNumDelete.php?PaddleNumID=<?= $pn_ID.'&linkBack=PaddleNumList.php?FundRaiserID='.$iFundRaiserID ?>">Delete</a>
+				<a href="PaddleNumDelete.php?PaddleNumID=<?= $pn_ID.'&linkBack=PaddleNumList.php?FundRaiserID='.$iFundRaiserID ?>"> <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i></a>
 			</td>
 		</tr>
 	<?php
