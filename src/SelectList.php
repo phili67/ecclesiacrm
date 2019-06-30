@@ -204,6 +204,34 @@ $sLimit100 = '';
 $sLimit200 = '';
 $sLimit500 = '';
 
+if ($iPerPage != '5' && $iPerPage != '10' && $iPerPage != '20' && $iPerPage != '25'
+    && $iPerPage != '50' && $iPerPage != '100' && $iPerPage != '200' && $iPerPage != '500') {
+    $res = intval($iPerPage);
+    if ($res < 5) {
+        $iPerPage = '5';
+    } else if ($res < 10) {
+        $iPerPage = '10';
+    } else if ($res < 20) {
+        $iPerPage = '20';
+    } else if ($res < 25) {
+        $iPerPage = '25';
+    } else if ($res < 50) {
+        $iPerPage = '50';
+    } else if ($res < 100) {
+        $iPerPage = '100';
+    } else if ($res < 200) {
+        $iPerPage = '200';
+    } else if ($res < 500) {
+        $iPerPage = '500';
+    }
+
+    $tmpUser = UserQuery::create()->findPk(SessionUser::getUser()->getPersonId());
+    $tmpUser->setSearchLimit($iPerPage);
+    $tmpUser->save();
+
+    $_SESSION['user'] = $tmpUser;
+}
+
 $connection = Propel::getConnection();
 
 // SQL for group-assignment helper
@@ -747,10 +775,11 @@ if ($iMode == 1) {
         <?php
         if ( SessionUser::getUser()->isShowCartEnabled() ) {
         ?>
-        <a id="AddAllToCart" class="btn btn-primary btn-sm" ><?= _('Add All to Cart') ?></a>
-        <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm" value="<?= _('Intersect with Cart') ?>">&nbsp;
-        <a id="RemoveAllFromCart" class="btn btn-danger btn-sm" ><?= _('Remove All from Cart') ?></a>
-
+            <a id="AddAllPageToCart" class="btn btn-primary btn-sm" ><?= _('Add This Page to Cart') ?></a>
+            <a id="RemoveAllPageFromCart" class="btn btn-danger btn-sm" ><?= _('Remove This Page from Cart') ?></a><br><br>
+            <a id="AddAllToCart" class="btn btn-primary btn-sm" ><?= _('Add All to Cart') ?></a>
+            <input name="IntersectCart" type="submit" class="btn btn-warning btn-sm" value="<?= _('Intersect with Cart') ?>">&nbsp;
+            <a id="RemoveAllFromCart" class="btn btn-danger btn-sm" ><?= _('Remove All from Cart') ?></a>
         <?php
         }
         ?>
