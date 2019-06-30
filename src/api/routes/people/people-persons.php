@@ -1,39 +1,44 @@
 <?php
 /* contributor Philippe Logel */
+
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 
 // Person APIs
 use Propel\Runtime\Propel;
-use EcclesiaCRM\PersonQuery;
 use Propel\Runtime\ActiveQuery\Criteria;
+
 use EcclesiaCRM\dto\Photo;
-use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\dto\Cart;
+use EcclesiaCRM\dto\SystemURLs;
+use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\dto\MenuEventsCount;
+
+use EcclesiaCRM\Utils\MiscUtils;
+use EcclesiaCRM\Utils\OutputUtils;
+
+use EcclesiaCRM\PersonQuery;
 use EcclesiaCRM\Record2propertyR2pQuery;
-use EcclesiaCRM\Map\Record2propertyR2pTableMap;
-use EcclesiaCRM\Property;
-use EcclesiaCRM\Map\PropertyTableMap;
-use EcclesiaCRM\Map\PropertyTypeTableMap;
 use EcclesiaCRM\Note;
 use EcclesiaCRM\NoteQuery;
-use EcclesiaCRM\Family;
 use EcclesiaCRM\VolunteerOpportunityQuery;
-use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
-use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 use EcclesiaCRM\PersonVolunteerOpportunityQuery;
 use EcclesiaCRM\PersonVolunteerOpportunity;
 use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\Service\MailChimpService;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\FamilyQuery;
-use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\UserQuery;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\SessionUser;
 use EcclesiaCRM\Emails\UpdateAccountEmail;
-use EcclesiaCRM\dto\SystemConfig;
+
+use EcclesiaCRM\Service\MailChimpService;
+
+use EcclesiaCRM\Map\Record2propertyR2pTableMap;
+use EcclesiaCRM\Map\PropertyTableMap;
+use EcclesiaCRM\Map\PropertyTypeTableMap;
+use EcclesiaCRM\Map\PersonVolunteerOpportunityTableMap;
+use EcclesiaCRM\Map\VolunteerOpportunityTableMap;
 
 
 
@@ -44,6 +49,11 @@ $app->group('/persons', function () {
  * #! param: ref->string :: query string ref
  */  
     $this->get('/search/{query}', "searchPerson" );
+
+/*
+ * @! Returns a list of the persons who are in the cart
+ */
+    $this->get('/cart/view', "personCartView" );
 
 /**
  *
@@ -159,6 +169,89 @@ function searchPerson (Request $request, Response $response, array $args) {
     }
     
     return $response->withJson($return);
+}
+
+function personCartView (Request $request, Response $response, array $args)
+{
+    // Create array with Classification Information (lst_ID = 1)
+    $ormClassifications = ListOptionQuery::Create()
+        ->orderByOptionSequence()
+        ->findById(1);
+
+    unset($aClassificationName);
+    $aClassificationName[0] = _('Unassigned');
+    foreach ($ormClassifications as $ormClassification) {
+        $aClassificationName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
+    }
+
+    // Create array with Family Role Information (lst_ID = 2)
+    $ormClassifications = ListOptionQuery::Create()
+        ->orderByOptionSequence()
+        ->findById(2);
+
+    unset($aFamilyRoleName);
+    $aFamilyRoleName[0] = _('Unassigned');
+    foreach ($ormClassifications as $ormClassification) {
+        $aFamilyRoleName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
+    }
+
+    $ormCartItems = PersonQuery::Create()->leftJoinFamily()->orderByLastName()->Where('Person.Id IN ?',$_SESSION['aPeopleCart'])->find();
+
+    $sEmailLink = '';
+    $iEmailNum = 0;
+    $email_array = [];
+
+    $res = [];
+    foreach ($ormCartItems as $person) {
+        $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), !is_null($person->getFamily())?$person->getFamily()->getEmail():null, false);
+        if (strlen($sEmail) == 0 && strlen($person->getWorkEmail()) > 0) {
+            $sEmail = $person->getWorkEmail();
+        }
+
+        if (strlen($sEmail)) {
+            $sValidEmail = _('Yes');
+            if (!stristr($sEmailLink, $sEmail)) {
+                $email_array[] = $sEmail;
+
+                if ($iEmailNum == 0) {
+                    // Comma is not needed before first email address
+                    $sEmailLink .= $sEmail;
+                    $iEmailNum++;
+                } else {
+                    $sEmailLink .= SessionUser::getUser()->MailtoDelimiter() . $sEmail;
+                }
+            }
+        } else {
+            $sValidEmail = _('No');
+        }
+
+        $sAddress1 = MiscUtils::SelectWhichInfo($person->getAddress1(), !is_null($person->getFamily())?$person->getFamily()->getAddress1():null, false);
+        $sAddress2 = MiscUtils::SelectWhichInfo($person->getAddress2(), !is_null($person->getFamily())?$person->getFamily()->getAddress2():null, false);
+
+        if (strlen($sAddress1) > 0 || strlen($sAddress2) > 0) {
+            $sValidAddy = _('Yes');
+        } else {
+            $sValidAddy = _('No');
+        }
+
+        $personName = $person->getFirstName() . ' ' . $person->getLastName();
+        $thumbnail = SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/thumbnail';
+
+        $res[] = ['personID'           => $person->getId(),
+                  'Address1'           => $sAddress1,
+                  'sAddress2'          => $sAddress2,
+                  'sEmail'             => $sEmail,
+                  'personName'         => $personName,
+                  'fullName'           => OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 1),
+                  'thumbnail'          => $thumbnail,
+                  'sValidAddy'         => $sValidAddy,
+                  'sValidEmail'        => $sValidEmail,
+                  'ClassificationName' => $aClassificationName[$person->getClsId()],
+                  'FamilyRoleName'     => $aFamilyRoleName[$person->getFmrId()]
+            ];
+    }
+
+    return $response->withJson(['CartPersons' => $res]);
 }
 
 function volunteersPerPersonId(Request $request, Response $response, array $args) {

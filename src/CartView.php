@@ -5,7 +5,8 @@
  *  website     : http://www.ecclesiacrm.com
  *
  *  Copyright 2001-2003 Phillip Hullquist, Deane Barker, Chris Gebhardt
-
+ *  Copyright 2019 Philippe Logel
+ *
  ******************************************************************************/
 
 require 'Include/Config.php';
@@ -14,9 +15,6 @@ require 'Include/Functions.php';
 use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\Cart;
 use EcclesiaCRM\dto\SystemConfig;
-use EcclesiaCRM\ListOptionQuery;
-use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
 use EcclesiaCRM\Utils\LabelUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
@@ -54,31 +52,6 @@ if (!Cart::HasPeople()) {
     </div>
 <?php
 } else {
-
-    // Create array with Classification Information (lst_ID = 1)
-    $ormClassifications = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(1);
-    
-    unset($aClassificationName);
-    $aClassificationName[0] = _('Unassigned');
-    foreach ($ormClassifications as $ormClassification) {
-      $aClassificationName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
-    }
-    
-    // Create array with Family Role Information (lst_ID = 2)
-    $ormClassifications = ListOptionQuery::Create()
-              ->orderByOptionSequence()
-              ->findById(2);
-    
-    unset($aFamilyRoleName);
-    $aFamilyRoleName[0] = _('Unassigned');
-    foreach ($ormClassifications as $ormClassification) {
-      $aFamilyRoleName[intval($ormClassification->getOptionId())] = $ormClassification->getOptionName();
-    }
-
-    $ormCartItems = PersonQuery::Create()->leftJoinFamily()->orderByLastName()->Where('Person.Id IN ?',$_SESSION['aPeopleCart'])->find();
-
     $iNumPersons = Cart::CountPeople();
     $iNumFamilies = Cart::CountFamilies();
 
@@ -143,11 +116,11 @@ if (!Cart::HasPeople()) {
                         LEFT JOIN family_fam ON per_fam_ID = family_fam.fam_ID
                     WHERE per_ID NOT IN (SELECT per_ID FROM person_per INNER JOIN record2property_r2p ON r2p_record_ID = per_ID INNER JOIN property_pro ON r2p_pro_ID = pro_ID AND pro_Name = 'Do Not Email') AND per_ID IN (" . Cart::ConvertCartToString($_SESSION['aPeopleCart']) . ')';
                 
-                $statement = $connection->prepare($sSQL);
-                $statement->execute();
+                $statementEmails = $connection->prepare($sSQL);
+                $statementEmails->execute();
 
                 $sEmailLink = '';
-                while ($row = $statement->fetch( \PDO::FETCH_BOTH )) {
+                while ($row = $statementEmails->fetch( \PDO::FETCH_BOTH )) {
                     $sEmail = MiscUtils::SelectWhichInfo($row['per_Email'], $per_Email['fam_Email'], false);
                     if ($sEmail) {
                         /* if ($sEmailLink) // Don't put delimiter before first email
@@ -321,114 +294,15 @@ if (!Cart::HasPeople()) {
             </div>
             <div class="box-body">
                 <table class="table table-hover dt-responsive" id="cart-listing-table" style="width:100%;">
-                  <thead>
-                    <tr>
-                        <th><?= _('Name') ?></th>
-                        <th><?= _('Address') ?></th>
-                        <th><?= _('Email') ?></th>
-                        <th><?= _('Remove') ?></th>
-                        <th><?= _('Classification') ?></th>
-                        <th><?= _('Family Role') ?></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                    $sEmailLink = '';
-                    $iEmailNum = 0;
-                    $email_array = [];
 
-                    foreach ($ormCartItems as $person) {
-                        $sEmail = MiscUtils::SelectWhichInfo($person->getEmail(), !is_null($person->getFamily())?$person->getFamily()->getEmail():null, false);
-                        if (strlen($sEmail) == 0 && strlen($person->getWorkEmail()) > 0) {
-                            $sEmail = $person->getWorkEmail();
-                        }
-
-                        if (strlen($sEmail)) {
-                            $sValidEmail = _('Yes');
-                            if (!stristr($sEmailLink, $sEmail)) {
-                                $email_array[] = $sEmail;
-
-                                if ($iEmailNum == 0) {
-                                    // Comma is not needed before first email address
-                                    $sEmailLink .= $sEmail;
-                                    $iEmailNum++;
-                                } else {
-                                    $sEmailLink .= SessionUser::getUser()->MailtoDelimiter() . $sEmail;
-                                }
-                            }
-                        } else {
-                            $sValidEmail = _('No');
-                        }
-
-                        $sAddress1 = MiscUtils::SelectWhichInfo($person->getAddress1(), !is_null($person->getFamily())?$person->getFamily()->getAddress1():null, false);
-                        $sAddress2 = MiscUtils::SelectWhichInfo($person->getAddress2(), !is_null($person->getFamily())?$person->getFamily()->getAddress2():null, false);
-
-                        if (strlen($sAddress1) > 0 || strlen($sAddress2) > 0) {
-                            $sValidAddy = _('Yes');
-                        } else {
-                            $sValidAddy = _('No');
-                        }
-
-                        $personName = $person->getFirstName() . ' ' . $person->getLastName();
-                        $thumbnail = SystemURLs::getRootPath() . '/api/persons/' . $person->getId() . '/thumbnail'; ?>
-
-                        <tr>
-                            <td>
-                                <img src="<?= $thumbnail ?>" class="direct-chat-img initials-image">&nbsp
-                                <a href="<?= SystemURLs::getRootPath() ?>/PersonView.php?PersonID=<?= $person->getId() ?>">
-                                    <?= OutputUtils::FormatFullName($person->getTitle(), $person->getFirstName(), $person->getMiddleName(), $person->getLastName(), $person->getSuffix(), 1) ?>
-                                </a>
-                            </td>
-                            <td><?= $sValidAddy ?></td>
-                            <td><?= $sValidEmail ?></td>
-                            <td><a class="RemoveFromPeopleCart btn btn-danger" data-personid="<?= $person->getId() ?>"><?= _('Remove') ?></a>
-                            </td>
-                            <td><?= $aClassificationName[$person->getClsId()] ?></td>
-                            <td><?= $aFamilyRoleName[$person->getFmrId()] ?></td>
-                        </tr>
-                        <?php
-                    } ?>
-
-                    </tbody>
                 </table>
             </div>
         </div>
     <?php endif; ?>
     <!-- END CART LISTING -->
 
-    <script nonce="<?= SystemURLs::getCSPNonce() ?>" >
-        $(document).ready(function () {
-          $("#cart-listing-table").DataTable(window.CRM.plugin.dataTable);
-          $("#cart-label-table").DataTable({
-            responsive:true,
-            paging: false,
-            searching: false,
-            ordering: false,
-            info:     false,
-            //dom: window.CRM.plugin.dataTable.dom,
-            fnDrawCallback: function( settings ) {
-              $("#selector thead").remove(); 
-            }
-          });
+<script src="<?= SystemURLs::getRootPath() ?>/skin/js/CartView.js"></script>
 
-          $(document).on("click", ".emptyCart", function (e) {
-            window.CRM.cart.empty(function(){
-              document.location.reload();
-            });
-          });
-
-          $(document).on("click", ".RemoveFromPeopleCart", function (e) {
-            clickedButton = $(this);
-            e.stopPropagation();
-            window.CRM.cart.removePerson([clickedButton.data("personid")],function() {
-              document.location.reload();
-            });
-          });
-
-         });
-    </script>
-
-    <?php
-
+<?php
 require 'Include/Footer.php';
 ?>
