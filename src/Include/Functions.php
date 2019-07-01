@@ -116,7 +116,7 @@ if (isset($_GET['PDFEmailed'])) {
     }
 }
 
-if (isset($_POST['BulkAddToCart'])) {
+if (isset($_POST['BulkAddToCart'])) {// for the QueryView.php
     $aItemsToProcess = explode(',', $_POST['BulkAddToCart']);
 
     if (isset($_POST['AndToCartSubmit'])) {
@@ -128,6 +128,7 @@ if (isset($_POST['BulkAddToCart'])) {
             $_SESSION['aPeopleCart'] = array_diff($_SESSION['aPeopleCart'], $aItemsToProcess);
         }
     } else {
+        $aItemsToProcess = array_filter($aItemsToProcess);
         for ($iCount = 0; $iCount < count($aItemsToProcess); $iCount++) {
             Cart::AddPerson(str_replace(',', '', $aItemsToProcess[$iCount]));
         }

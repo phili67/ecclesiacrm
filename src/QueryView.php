@@ -13,6 +13,7 @@
 require 'Include/Config.php';
 require 'Include/Functions.php';
 
+use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\RedirectUtils;
@@ -205,8 +206,7 @@ function DoQuery()
 <div class="box box-primary">
     
     <div class="box-body">
-        <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-bordered dataTable no-footer dtr-inline" id="query-table" style="width:100%">
             <thead>
                 <?php
                     //Loop through the fields and write the header row
@@ -230,9 +230,7 @@ function DoQuery()
         $qry_real_Count++;
 
         //Alternate the background color of the row
-        $sRowClass = MiscUtils::AlternateRowStyle($sRowClass);
-
-        echo '<tr class="'.$sRowClass.'">';
+        echo '<tr>';
 
         //Loop through the fields and write each one
         for ($iCount = 0; $iCount < mysqli_num_fields($rsQueryResults); $iCount++) {
@@ -252,8 +250,7 @@ function DoQuery()
     } ?>
             </tbody>
         </table>
-        </div>
-        
+
         <p class="text-right">
             <?= $qry_Count ? $qry_real_Count._(' record(s) returned') : ''; ?>
         </p>
@@ -288,6 +285,7 @@ function DoQuery()
         <code><?= str_replace(chr(13), '<br>', htmlspecialchars($qry_SQL)); ?></code>
     </div>
 </div>
+
 <?php
 }
 
@@ -402,8 +400,19 @@ if (mysqli_num_rows($rsParameters)) {
     </div>
     
 </div>
+
 <?php
 }
+?>
 
+<script nonce="<?= SystemURLs::getCSPNonce() ?>" >
+    $(document).ready(function () {
+        $("#query-table").DataTable(window.CRM.plugin.dataTable);
+    });
+</script>
+
+<?php
 require 'Include/Footer.php';
 ?>
+
+
