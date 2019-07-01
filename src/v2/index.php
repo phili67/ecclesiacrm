@@ -61,6 +61,7 @@ require __DIR__ . '/routes/sidebar/propertylist.php';
 require __DIR__ . '/routes/sidebar/propertytypelist.php';
 
 // people
+require __DIR__ . '/routes/people/people.php';
 require __DIR__ . '/routes/people/pastoralcare.php';
 require __DIR__ . '/routes/people/familylist.php';
 require __DIR__ . '/routes/people/personlist.php';

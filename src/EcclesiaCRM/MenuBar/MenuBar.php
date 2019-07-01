@@ -274,11 +274,8 @@ class MenuBar {
       // the People menu
       $menu = new Menu (_("People")." & "._("Families"),"fa fa-users","#",true);
       
-        $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","PeopleDashboard.php",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
+        $menuItem = new Menu (_("Dashboard"),"fa fa-circle-o","v2/people/dashboard",SessionUser::getUser()->isAddRecordsEnabled(),$menu);
 
-        if ( SessionUser::getUser()->isShowMapEnabled() ) {
-          $menuItem->addLink("v2/map/-1");
-        }
         $menuItem->addLink("GeoPage.php");
         $menuItem->addLink("UpdateAllLatLon.php");
         
