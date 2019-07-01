@@ -34,7 +34,7 @@ if ($iPaddleNumID > 0) {
 }
 
 if ($iCurrentFundraiser == '') {
-    system_failure('No active Fundraiser', 'System Error');
+    RedirectUtils::Redirect('FindFundRaiser.php');
 }
 
 // Get the current fundraiser data
