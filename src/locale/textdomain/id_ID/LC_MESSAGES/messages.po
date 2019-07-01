@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 11:21+0200\n"
+"POT-Creation-Date: 2019-06-30 23:23+0200\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 
-#: api/routes/calendar/calendar-calendarV2.php:204 AutoPaymentEditor.php:894
+#: api/routes/calendar/calendar-calendarV2.php:292 AutoPaymentEditor.php:894
 #: CartToBadge.php:134 EcclesiaCRM/utils/OutputUtils.php:252
 #: EditEventTypes.php:119 EditEventTypes.php:131 EventNames.php:124
 #: EventNames.php:136 EventNames.php:190 GroupReports.php:66
@@ -19,90 +19,90 @@ msgstr ""
 msgid "None"
 msgstr "Tidak ada"
 
-#: api/routes/calendar/calendar-calendarV2.php:260
+#: api/routes/calendar/calendar-calendarV2.php:348
 msgid "Owner"
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:263
-#: api/routes/calendar/calendar-calendarV2.php:265
+#: api/routes/calendar/calendar-calendarV2.php:351
+#: api/routes/calendar/calendar-calendarV2.php:353
 msgid "Access"
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:263
+#: api/routes/calendar/calendar-calendarV2.php:351
 msgid "Full access in Read and write for all the events of this calendar."
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:265
+#: api/routes/calendar/calendar-calendarV2.php:353
 msgid "You can only read the events of this calendar."
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:269
+#: api/routes/calendar/calendar-calendarV2.php:357
 msgid "This address can be used only with a CalDav server."
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:269
+#: api/routes/calendar/calendar-calendarV2.php:357
 msgid "For thunderbird the URL is"
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:270
+#: api/routes/calendar/calendar-calendarV2.php:358
 msgid "For a share calendar (only in read mode)"
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:272
+#: api/routes/calendar/calendar-calendarV2.php:360
 msgid "You've to activate the \"bEnableExternalCalendarAPI\" setting in"
 msgstr ""
 
-#: api/routes/calendar/calendar-calendarV2.php:272
+#: api/routes/calendar/calendar-calendarV2.php:360
 #, fuzzy
 msgid "General Settings/Integration"
 msgstr "Finansial"
 
-#: api/routes/calendar/calendar-calendarV2.php:517
-#: api/routes/calendar/calendar-calendarV2.php:571
-#: api/routes/calendar/calendar-calendarV2.php:625
+#: api/routes/calendar/calendar-calendarV2.php:605
+#: api/routes/calendar/calendar-calendarV2.php:659
+#: api/routes/calendar/calendar-calendarV2.php:713
 msgid "You can visualize it in your account, in the Calendar."
 msgstr ""
 
-#: api/routes/cart.php:81
+#: api/routes/cart.php:79
 msgid "POST to cart requires a Persons array, FamilyID, or GroupID"
 msgstr ""
 
-#: api/routes/cart.php:95 api/routes/cart.php:108
+#: api/routes/cart.php:93 api/routes/cart.php:106
 msgid "records(s) successfully added to selected Group."
 msgstr ""
 
-#: api/routes/cart.php:136 api/routes/cart.php:149 api/routes/cart.php:162
+#: api/routes/cart.php:134 api/routes/cart.php:147 api/routes/cart.php:160
 msgid "records(s) successfully deleted from the selected Group."
 msgstr ""
 
-#: api/routes/cart.php:178 api/routes/cart.php:211 api/routes/cart.php:242
+#: api/routes/cart.php:176 api/routes/cart.php:209 api/routes/cart.php:240
 #, fuzzy
 msgid "Your cart is empty"
 msgstr "Cart kosong !"
 
-#: api/routes/cart.php:186
+#: api/routes/cart.php:184
 msgid "You can't delete admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:189
+#: api/routes/cart.php:187
 msgid "Your cart and CRM has been successfully deleted"
 msgstr ""
 
-#: api/routes/cart.php:219
+#: api/routes/cart.php:217
 msgid "You can't deactivate admin through the cart"
 msgstr ""
 
-#: api/routes/cart.php:222
+#: api/routes/cart.php:220
 msgid "Your cart and CRM has been successfully deactivated"
 msgstr ""
 
-#: api/routes/cart.php:245
+#: api/routes/cart.php:243
 msgid "Your cart has been successfully emptied"
 msgstr ""
 
 #: api/routes/documents/documents-ckeditor.php:172
 #: api/routes/documents/documents-filemanager.php:626
-#: api/routes/people/people-persons.php:548 uploader/upload.php:80
+#: api/routes/people/people-persons.php:641 uploader/upload.php:80
 #, fuzzy
 msgid "Create file"
 msgstr "Buat File"
@@ -211,14 +211,14 @@ msgstr "Buat label"
 
 #: api/routes/mailchimp.php:127 api/routes/people/people.php:72
 #: api/routes/people/people.php:124 api/routes/search.php:72
-#: EcclesiaCRM/MenuBar/MenuBar.php:287
+#: EcclesiaCRM/MenuBar/MenuBar.php:293
 #, fuzzy
 msgid "Persons"
 msgstr "orang dari"
 
 #: api/routes/mailchimp.php:167 api/routes/people/people.php:163
-#: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:269
-#: EcclesiaCRM/MenuBar/MenuBar.php:293 members/online-pending-verify.php:24
+#: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:275
+#: EcclesiaCRM/MenuBar/MenuBar.php:299 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
 #: PeopleDashboard.php:163
 #: v2/templates/sundayschool/sundayschooldashboard.php:59
@@ -278,28 +278,68 @@ msgstr "Pilih Group"
 msgid "Added to group"
 msgstr "Tambahkan ke Group"
 
-#: api/routes/people/people-persons.php:467
-#: api/routes/people/people-persons.php:474 api/routes/user/user-users.php:127
-#: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:279
-#: EcclesiaCRM/dto/Cart.php:285
+#: api/routes/people/people-persons.php:182
+#: api/routes/people/people-persons.php:193 AutoPaymentEditor.php:822
+#: BatchWinnerEntry.php:84 BatchWinnerEntry.php:96 CSVImport.php:389
+#: DirectoryReports.php:94 DonatedItemEditor.php:190 DonatedItemEditor.php:236
+#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
+#: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
+#: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
+#: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
+#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:187
+#: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
+#: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
+#: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
+#: SelectList.php:65 SelectList.php:1239 SelectList.php:1319
+#: SystemSettings.php:213 v2/templates/group/grouplist.php:31
+#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
+#: v2/templates/map/MapUsingGoogle.php:67
+#: v2/templates/map/MapUsingGoogle.php:112
+#: v2/templates/map/MapUsingLeaflet.php:61
+#: v2/templates/map/MapUsingLeaflet.php:108
+msgid "Unassigned"
+msgstr "Belum Ditetapkan"
+
+#: api/routes/people/people-persons.php:212
+#: api/routes/people/people-persons.php:232
+#: api/routes/system/system-gdrp.php:65 EcclesiaCRM/utils/OutputUtils.php:209
+#: EcclesiaCRM/utils/OutputUtils.php:309 FinancialReports.php:425
+#: ListEvents.php:569 Reports/ConfirmReport.php:235
+#: Reports/GDPR/GDPRListExport.php:88
+msgid "Yes"
+msgstr "Ya"
+
+#: api/routes/people/people-persons.php:225
+#: api/routes/people/people-persons.php:234
+#: api/routes/system/system-gdrp.php:65 EcclesiaCRM/utils/OutputUtils.php:211
+#: EcclesiaCRM/utils/OutputUtils.php:310 FinancialReports.php:426
+#: ListEvents.php:569 Reports/ConfirmReport.php:237
+#: Reports/GDPR/GDPRListExport.php:88
+msgid "No"
+msgstr "Tidak"
+
+#: api/routes/people/people-persons.php:560
+#: api/routes/people/people-persons.php:567 api/routes/user/user-users.php:127
+#: api/routes/user/user-users.php:133 EcclesiaCRM/dto/Cart.php:275
+#: EcclesiaCRM/dto/Cart.php:281
 #, fuzzy
 msgid "Account Deactivated"
 msgstr "Non-aktif"
 
-#: api/routes/people/people-persons.php:497
+#: api/routes/people/people-persons.php:590
 #, fuzzy
 msgid "Person Deactivated"
 msgstr "Non-aktif"
 
-#: api/routes/people/people-persons.php:497
+#: api/routes/people/people-persons.php:590
 #, fuzzy
 msgid "Person Activated"
 msgstr "Non-aktif"
 
 #: api/routes/search.php:118 AutoPaymentEditor.php:924
 #: AutoPaymentEditor.php:932 CartToFamily.php:317 CartToFamily.php:322
-#: CartView.php:327 CSVExport.php:93 CSVExport.php:98 CSVImport.php:243
-#: CSVImport.php:244 DirectoryReports.php:188 DirectoryReports.php:274
+#: CSVExport.php:93 CSVExport.php:98 CSVImport.php:243 CSVImport.php:244
+#: DirectoryReports.php:188 DirectoryReports.php:274
 #: external/templates/registration/family-register-done.php:29
 #: external/templates/registration/family-register.php:37 FamilyEditor.php:731
 #: FamilyEditor.php:735 FamilyView.php:276 GeoPage.php:359 GroupReports.php:148
@@ -348,7 +388,7 @@ msgstr "E-mail pribadi"
 #: members/404.php:16 PersonView.php:712 PledgeEditor.php:586
 #: PrintPastoralCare.php:325 PrintView.php:336
 #: Reports/GDPR/GDPRDataStructureExport.php:123 Reports/PDFLabel.php:174
-#: SelectList.php:1125 v2/routes/sidebar/propertylist.php:36
+#: SelectList.php:1159 v2/routes/sidebar/propertylist.php:36
 #: v2/templates/gdpr/gdprdatastructure.php:100
 #, fuzzy
 msgid "Family"
@@ -420,20 +460,6 @@ msgstr ""
 msgid "The people and families has been cleared from the database."
 msgstr ""
 
-#: api/routes/system/system-gdrp.php:65 CartView.php:347 CartView.php:367
-#: EcclesiaCRM/utils/OutputUtils.php:209 EcclesiaCRM/utils/OutputUtils.php:309
-#: FinancialReports.php:425 ListEvents.php:569 Reports/ConfirmReport.php:235
-#: Reports/GDPR/GDPRListExport.php:88
-msgid "Yes"
-msgstr "Ya"
-
-#: api/routes/system/system-gdrp.php:65 CartView.php:360 CartView.php:369
-#: EcclesiaCRM/utils/OutputUtils.php:211 EcclesiaCRM/utils/OutputUtils.php:310
-#: FinancialReports.php:426 ListEvents.php:569 Reports/ConfirmReport.php:237
-#: Reports/GDPR/GDPRListExport.php:88
-msgid "No"
-msgstr "Tidak"
-
 #: api/routes/user/user-role.php:51 api/routes/user/user-role.php:74
 #: api/routes/user/user-role.php:94 api/routes/user/user-role.php:123
 msgid "POST to UserRole name, global variable, userPerms and userValues"
@@ -472,27 +498,6 @@ msgid ""
 "WARNING ! You've to select a person or a family to create an auto-payment."
 msgstr ""
 
-#: AutoPaymentEditor.php:822 BatchWinnerEntry.php:84 BatchWinnerEntry.php:96
-#: CartView.php:64 CartView.php:75 CSVImport.php:389 DirectoryReports.php:94
-#: DonatedItemEditor.php:190 DonatedItemEditor.php:241
-#: EcclesiaCRM/dto/CountryDropDown.php:16 EcclesiaCRM/dto/StateDropDown.php:19
-#: EcclesiaCRM/MenuBar/MenuBar.php:99 EcclesiaCRM/MenuBar/MenuBar.php:168
-#: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
-#: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:179
-#: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
-#: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
-#: PrintView.php:356 SelectDelete.php:233 SelectList.php:40 SelectList.php:50
-#: SelectList.php:66 SelectList.php:1205 SelectList.php:1285
-#: SystemSettings.php:213 v2/templates/group/grouplist.php:31
-#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
-#: v2/templates/map/MapUsingGoogle.php:67
-#: v2/templates/map/MapUsingGoogle.php:112
-#: v2/templates/map/MapUsingLeaflet.php:61
-#: v2/templates/map/MapUsingLeaflet.php:108
-msgid "Unassigned"
-msgstr "Belum Ditetapkan"
-
 #: AutoPaymentEditor.php:838
 msgid "Automatic payment type"
 msgstr "Jenis Pembayaran Otomatis"
@@ -511,8 +516,8 @@ msgstr "Kartu Kredit"
 msgid "Disable "
 msgstr ""
 
-#: AutoPaymentEditor.php:856 CanvassEditor.php:196 DepositSlipEditor.php:98
-#: EditEventAttendees.php:58 FindFundRaiser.php:237 FundRaiserEditor.php:165
+#: AutoPaymentEditor.php:856 CanvassEditor.php:200 DepositSlipEditor.php:98
+#: EditEventAttendees.php:58 FindFundRaiser.php:312 FundRaiserEditor.php:170
 #: Include/Functions.php:88 PledgeEditor.php:596 Reports/ReminderReport.php:308
 #: Reports/ReminderReport.php:389 Reports/TaxReport.php:379
 #: SelectDelete.php:311 v2/templates/email/mailchimp/campaign.php:94
@@ -606,8 +611,8 @@ msgstr "Negara"
 msgid "Phone"
 msgstr "Telepon"
 
-#: AutoPaymentEditor.php:980 CartToFamily.php:396 CartView.php:328
-#: CSVExport.php:143 CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:315
+#: AutoPaymentEditor.php:980 CartToFamily.php:396 CSVExport.php:143
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:321
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:72
@@ -618,7 +623,7 @@ msgstr "Telepon"
 #: FamilyView.php:346 FamilyView.php:412 FamilyView.php:476
 #: GroupReports.php:152 PersonEditor.php:1356 PersonEditor.php:1360
 #: PersonView.php:514 PersonView.php:607 PersonView.php:883
-#: PrintPastoralCare.php:385 PrintView.php:396 Reports/CanvassReports.php:241
+#: PrintPastoralCare.php:385 PrintView.php:396 Reports/CanvassReports.php:240
 #: Reports/ConfirmReportEmail.php:191 Reports/ConfirmReportEmail.php:209
 #: Reports/ConfirmReport.php:190 Reports/ConfirmReport.php:209
 #: Reports/DirectoryReport.php:316 Reports/GroupReport.php:138
@@ -665,22 +670,22 @@ msgstr "Metode Rekening Bank Vanco"
 msgid "Store Private Data at Vanco"
 msgstr ""
 
-#: AutoPaymentEditor.php:1093 CanvassEditor.php:263 DepositSlipEditor.php:113
-#: DonatedItemEditor.php:297 FamilyEditor.php:714 FamilyEditor.php:801
+#: AutoPaymentEditor.php:1093 CanvassEditor.php:267 DepositSlipEditor.php:113
+#: DonatedItemEditor.php:292 FamilyEditor.php:714 FamilyEditor.php:801
 #: FamilyEditor.php:862 FamilyEditor.php:937 FamilyEditor.php:957
-#: FamilyEditor.php:1031 FamilyEditor.php:1235 FundRaiserEditor.php:143
-#: GroupEditor.php:176 PaddleNumEditor.php:150 PersonEditor.php:823
+#: FamilyEditor.php:1031 FamilyEditor.php:1235 FundRaiserEditor.php:147
+#: GroupEditor.php:176 PaddleNumEditor.php:154 PersonEditor.php:823
 #: PersonEditor.php:956 PersonEditor.php:1065 PersonEditor.php:1474
 #: PersonEditor.php:1547 PersonEditor.php:1633 PledgeEditor.php:771
 #: UserEditor.php:866 UserPasswordChange.php:224
 msgid "Save"
 msgstr "Simpan"
 
-#: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:113 CanvassEditor.php:264
+#: AutoPaymentEditor.php:1096 BatchWinnerEntry.php:113 CanvassEditor.php:268
 #: Checkin.php:390 Checkin.php:500 Checkin.php:519 DirectoryReports.php:314
-#: DonatedItemEditor.php:301 EventNames.php:261
+#: DonatedItemEditor.php:296 EventNames.php:261
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
-#: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:144
+#: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:148
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
 #: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1581
 #: PledgeEditor.php:778 ReminderReport.php:55 SettingsIndividual.php:127
@@ -782,11 +787,11 @@ msgstr "Backup Database"
 msgid "No Backup Running"
 msgstr ""
 
-#: BatchWinnerEntry.php:36 FundRaiserEditor.php:155
+#: BatchWinnerEntry.php:36 FundRaiserEditor.php:159
 msgid "Batch Winner Entry"
 msgstr "Masukkan Sekumpulan Pemenang"
 
-#: BatchWinnerEntry.php:75 DonatedItemEditor.php:176 FundRaiserEditor.php:192
+#: BatchWinnerEntry.php:75 DonatedItemEditor.php:176 FundRaiserEditor.php:197
 msgid "Item"
 msgstr "Rincian"
 
@@ -825,7 +830,7 @@ msgstr "Buat File"
 #: DepositSlipEditor.php:291 EditEventAttendees.php:111
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:951
-#: FindDepositSlip.php:131 FundRaiserEditor.php:201 ListEvents.php:415
+#: FindDepositSlip.php:131 FundRaiserEditor.php:206 ListEvents.php:415
 #: PaddleNumList.php:55 PersonView.php:1505 PersonView.php:1582
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
@@ -847,7 +852,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: CanvassAutomation.php:22 ReportList.php:58
+#: CanvassAutomation.php:22 ReportList.php:56
 msgid "Canvass Automation"
 msgstr ""
 
@@ -882,116 +887,116 @@ msgstr "Rincian Setoran"
 msgid "Fiscal Year:"
 msgstr ""
 
-#: CanvassAutomation.php:132
-msgid "Set default fiscal year"
-msgstr "Atur tahun fiskal"
-
-#: CanvassAutomation.php:136 CanvassAutomation.php:147
-#: CanvassAutomation.php:158 CanvassAutomation.php:169
-#: CanvassAutomation.php:180 CanvassAutomation.php:191
+#: CanvassAutomation.php:132 CanvassAutomation.php:143
+#: CanvassAutomation.php:154 CanvassAutomation.php:165
+#: CanvassAutomation.php:176 CanvassAutomation.php:187
 msgid "Check to confirm"
 msgstr "Tandai sebagai konfirmasi"
 
-#: CanvassAutomation.php:142
-#, fuzzy
-msgid "Assign Canvassers"
-msgstr "Peminta dukungan"
+#: CanvassAutomation.php:135
+msgid "Set default fiscal year"
+msgstr "Atur tahun fiskal"
 
-#: CanvassAutomation.php:146
+#: CanvassAutomation.php:142
 msgid ""
 "Randomly assign canvassers to all Families.  The Canvassers are taken from "
 "the &quot;Canvassers&quot; Group."
 msgstr ""
 
-#: CanvassAutomation.php:153
+#: CanvassAutomation.php:146
 #, fuzzy
-msgid "Assign To Non Pledging"
-msgstr "Tentukan peran"
+msgid "Assign Canvassers"
+msgstr "Peminta dukungan"
 
-#: CanvassAutomation.php:157
+#: CanvassAutomation.php:153
 msgid ""
 "Randomly assign canvassers to non-pledging Families.  The Canvassers are "
 "taken from the &quot;BraveCanvassers&quot; Group."
 msgstr ""
 
-#: CanvassAutomation.php:164
-msgid "Clear Canvasser Assignments"
-msgstr ""
+#: CanvassAutomation.php:157
+#, fuzzy
+msgid "Assign To Non Pledging"
+msgstr "Tentukan peran"
 
-#: CanvassAutomation.php:168
+#: CanvassAutomation.php:164
 msgid "Clear all the canvasser assignments for all families."
 msgstr ""
 
-#: CanvassAutomation.php:168
+#: CanvassAutomation.php:164
 msgid ""
 "Important note: this will lose any canvasser assignments that have been made "
 "by hand."
 msgstr ""
 
-#: CanvassAutomation.php:175
-msgid "Enable Canvass for All Families"
+#: CanvassAutomation.php:168
+msgid "Clear Canvasser Assignments"
 msgstr ""
 
-#: CanvassAutomation.php:179
+#: CanvassAutomation.php:175
 msgid "Turn on the &quot;Ok To Canvass&quot; field for all Families."
 msgstr ""
 
-#: CanvassAutomation.php:179 CanvassAutomation.php:190
+#: CanvassAutomation.php:175 CanvassAutomation.php:186
 msgid ""
 "Important note: this will lose any &quot;Ok To Canvass&quot; fields that "
 "have been set by hand."
 msgstr ""
 
-#: CanvassAutomation.php:186
-msgid "Disable Canvass for All Families"
+#: CanvassAutomation.php:179
+msgid "Enable Canvass for All Families"
 msgstr ""
 
-#: CanvassAutomation.php:190
+#: CanvassAutomation.php:186
 msgid "Turn off the &quot;Ok To Canvass&quot; field for all Families"
 msgstr ""
 
-#: CanvassAutomation.php:197
-msgid "Briefing Sheets"
+#: CanvassAutomation.php:190
+msgid "Disable Canvass for All Families"
 msgstr ""
 
-#: CanvassAutomation.php:201
+#: CanvassAutomation.php:197
 msgid ""
 "Generate a PDF containing briefing sheets for all Families, sorted by "
 "canvasser."
 msgstr ""
 
-#: CanvassAutomation.php:207
-#, fuzzy
-msgid "Progress Report"
-msgstr "Lakukan Impor"
+#: CanvassAutomation.php:200
+msgid "Briefing Sheets"
+msgstr ""
 
-#: CanvassAutomation.php:211
+#: CanvassAutomation.php:207
 msgid ""
 "Generate a PDF containing a progress report.  The progress report includes "
 "information on the overall progress of the canvass, and the progress of "
 "individual canvassers."
 msgstr ""
 
-#: CanvassAutomation.php:217
-msgid "Summary Report"
-msgstr ""
+#: CanvassAutomation.php:210
+#, fuzzy
+msgid "Progress Report"
+msgstr "Lakukan Impor"
 
-#: CanvassAutomation.php:221
+#: CanvassAutomation.php:217
 msgid ""
 "Generate a PDF containing a summary report.  The summary report includes "
 "comments extracted from the canvass data."
 msgstr ""
 
-#: CanvassAutomation.php:227
-#, fuzzy
-msgid "Not Interested Report"
-msgstr "Tidak berminat"
+#: CanvassAutomation.php:220
+msgid "Summary Report"
+msgstr ""
 
-#: CanvassAutomation.php:231
+#: CanvassAutomation.php:227
 msgid ""
 "Generate a PDF containing a report of the families marked &quot;Not "
 "Interested&quot; by the canvasser."
 msgstr ""
+
+#: CanvassAutomation.php:230
+#, fuzzy
+msgid "Not Interested Report"
+msgstr "Tidak berminat"
 
 #: CanvassEditor.php:51
 #, fuzzy
@@ -1007,40 +1012,40 @@ msgstr "keluarga"
 msgid " "
 msgstr ""
 
-#: CanvassEditor.php:164 Reports/CanvassReports.php:168 UserEditor.php:758
+#: CanvassEditor.php:168 Reports/CanvassReports.php:167 UserEditor.php:758
 msgid "Canvasser"
 msgstr "Peminta dukungan"
 
-#: CanvassEditor.php:167 FamilyEditor.php:894 FamilyEditor.php:914
+#: CanvassEditor.php:171 FamilyEditor.php:894 FamilyEditor.php:914
 #, fuzzy
 msgid "None selected"
 msgstr "Belum memilih Group"
 
-#: CanvassEditor.php:207 Reports/CanvassReports.php:345
+#: CanvassEditor.php:211 Reports/CanvassReports.php:344
 msgid "Positive"
 msgstr "Positif"
 
-#: CanvassEditor.php:215 Reports/CanvassReports.php:345
+#: CanvassEditor.php:219 Reports/CanvassReports.php:344
 msgid "Critical"
 msgstr "Kritis"
 
-#: CanvassEditor.php:223 Reports/CanvassReports.php:345
+#: CanvassEditor.php:227 Reports/CanvassReports.php:344
 msgid "Insightful"
 msgstr "Berwawasan"
 
-#: CanvassEditor.php:231 Reports/CanvassReports.php:345
+#: CanvassEditor.php:235 Reports/CanvassReports.php:344
 msgid "Financial"
 msgstr "Finansial"
 
-#: CanvassEditor.php:239
+#: CanvassEditor.php:243
 msgid "Suggestions"
 msgstr "Saran-saran"
 
-#: CanvassEditor.php:247
+#: CanvassEditor.php:251
 msgid "Not Interested"
 msgstr "Tidak berminat"
 
-#: CanvassEditor.php:255
+#: CanvassEditor.php:259
 msgid "Why Not Interested?"
 msgstr "Mengapa tidak berminat ?"
 
@@ -1061,8 +1066,8 @@ msgid "Generate Badges"
 msgstr "Buat label"
 
 #: CartToBadge.php:59 CartToBadge.php:62 CSVExport.php:73 CSVImport.php:236
-#: DonatedItemEditor.php:212 FindFundRaiser.php:238 FundRaiserEditor.php:170
-#: FundRaiserEditor.php:196 PersonEditor.php:839
+#: DonatedItemEditor.php:207 FindFundRaiser.php:313 FundRaiserEditor.php:175
+#: FundRaiserEditor.php:201 PersonEditor.php:839
 #: Reports/GDPR/GDPRListExport.php:66
 #: v2/templates/email/mailchimp/dashboard.php:21
 msgid "Title"
@@ -1161,7 +1166,7 @@ msgstr "Nama keluarga masih kosong"
 msgid "Add Cart to Family"
 msgstr "Tambahkan Cart di Keluarga"
 
-#: CartToFamily.php:223 CartView.php:326 Checkin.php:548 Checkin.php:549
+#: CartToFamily.php:223 Checkin.php:548 Checkin.php:549
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:57 EditEventAttendees.php:71 EventAttendance.php:184
 #: EventNames.php:293 FamilyCustomFieldsEditor.php:340
@@ -1171,9 +1176,9 @@ msgstr "Tambahkan Cart di Keluarga"
 #: ListEvents.php:302 PersonCustomFieldsEditor.php:337
 #: PersonCustomFieldsEditor.php:464 PrintPastoralCare.php:447
 #: PrintPastoralCare.php:612 PrintView.php:458 PrintView.php:621
-#: Reports/CanvassReports.php:67 Reports/CanvassReports.php:235
+#: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
 #: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
-#: Reports/PDFLabel.php:859 SelectList.php:1053
+#: Reports/PDFLabel.php:859 SelectList.php:1087
 #: v2/templates/people/familylist.php:48 v2/templates/people/personlist.php:48
 #: v2/templates/user/userlist.php:48 queryparameteroptions_qpo.php:4
 msgid "Name"
@@ -1270,130 +1275,112 @@ msgstr "Telepon Selular"
 msgid "Your cart is empty!"
 msgstr "Cart kosong !"
 
-#: CartView.php:30
+#: CartView.php:28
 msgid "View Your Cart"
 msgstr "Tampilkan Cart"
 
-#: CartView.php:43
+#: CartView.php:41
 msgid "You have no items in your cart."
 msgstr "Cart anda masih kosong"
 
-#: CartView.php:53
+#: CartView.php:51
 msgid "Back to Menu"
 msgstr "Kembali ke Menu"
 
-#: CartView.php:100
+#: CartView.php:73
 msgid "Cart Functions"
 msgstr ""
 
-#: CartView.php:103
+#: CartView.php:76
 msgid "Empty Cart"
 msgstr "Kosongkan Cart"
 
-#: CartView.php:106
+#: CartView.php:79
 msgid "Empty Cart to Group"
 msgstr "Kosongkan Cart di Group"
 
-#: CartView.php:112
+#: CartView.php:85
 msgid "Empty Cart to Family"
 msgstr "Kosongkan Cart di Keluarga"
 
-#: CartView.php:116
+#: CartView.php:89
 msgid "Empty Cart to Event"
 msgstr "Kosongkan Cart di Acara"
 
-#: CartView.php:121
+#: CartView.php:94
 msgid "Map Cart"
 msgstr "Peta-kan Cart"
 
-#: CartView.php:128 CSVExport.php:55 UserEditor.php:789
+#: CartView.php:101 CSVExport.php:55 UserEditor.php:789
 msgid "CSV Export"
 msgstr "Ekspor CSV"
 
-#: CartView.php:132
+#: CartView.php:105
 msgid "Name Tags"
 msgstr "Tag Nama"
 
-#: CartView.php:133
+#: CartView.php:106
 #, fuzzy
 msgid "Badges"
 msgstr "Kehadiran di Acara"
 
-#: CartView.php:175
+#: CartView.php:148
 msgid "Email Cart"
 msgstr "Cart Email"
 
-#: CartView.php:176 FamilyView.php:413 GroupView.php:184 PersonView.php:608
+#: CartView.php:149 FamilyView.php:413 GroupView.php:184 PersonView.php:608
 #: v2/templates/sundayschool/sundayschoolview.php:47
 msgid "Email (BCC)"
 msgstr "Email (BCC)"
 
-#: CartView.php:211 CartView.php:219
+#: CartView.php:184 CartView.php:192
 #, fuzzy
 msgid "Text Cart"
 msgstr "Kosongkan Cart"
 
-#: CartView.php:217
+#: CartView.php:190
 msgid "Copy Paste the Texts"
 msgstr ""
 
-#: CartView.php:226
+#: CartView.php:199
 msgid "Create Directory From Cart"
 msgstr "Buat Direktori dari Cart"
 
-#: CartView.php:231
+#: CartView.php:204
 #, fuzzy
 msgid "Delete Persons From CRM"
 msgstr "Hapus"
 
-#: CartView.php:234
+#: CartView.php:207
 #, fuzzy
 msgid "Deactivate Persons From Cart"
 msgstr "Buat keluarga baru"
 
-#: CartView.php:261 CartView.php:299
+#: CartView.php:234 CartView.php:272
 msgid "Generate Labels"
 msgstr "Buat label"
 
-#: CartView.php:270
+#: CartView.php:243
 msgid "Bulk Mail Presort"
 msgstr ""
 
-#: CartView.php:278
+#: CartView.php:251
 msgid "Quiet Presort"
 msgstr ""
 
-#: CartView.php:319
+#: CartView.php:292
 #, fuzzy
 msgid "Your cart contains"
 msgstr "Cart kosong !"
 
-#: CartView.php:319
+#: CartView.php:292
 msgid "persons from"
 msgstr "orang dari"
 
-#: CartView.php:319 Include/Functions.php:108
+#: CartView.php:292 Include/Functions.php:108
 #, fuzzy
 msgid "families"
 msgstr "Keluarga"
-
-#: CartView.php:329 CartView.php:384 EditEventTypes.php:207
-#: v2/templates/people/familylist.php:62 v2/templates/people/familylist.php:116
-#: v2/templates/people/personlist.php:58 v2/templates/people/personlist.php:108
-msgid "Remove"
-msgstr "Hapus"
-
-#: CartView.php:330 CSVExport.php:168 CSVExport.php:283 CSVImport.php:403
-#: FamilyEditor.php:1058 FamilyView.php:474 FinancialReports.php:153
-#: OptionManager.php:110 PeopleDashboard.php:377 PersonEditor.php:1480
-#: PrintPastoralCare.php:400 PrintView.php:411 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "Penggolongan"
-
-#: CartView.php:331 CSVExport.php:173 CSVExport.php:308 OptionManager.php:103
-#: PrintPastoralCare.php:338 PrintView.php:349 queryparameters_qrp.php:5
-msgid "Family Role"
-msgstr "Peran Keluarga"
 
 #: Checkin.php:25
 msgid "Event Checkin"
@@ -1502,7 +1489,7 @@ msgstr ""
 msgid "CheckOut"
 msgstr "Pulang"
 
-#: Checkin.php:541 SelectList.php:767
+#: Checkin.php:541 SelectList.php:801
 msgid "Listing"
 msgstr ""
 
@@ -1568,7 +1555,7 @@ msgid "Return to Events"
 msgstr "Kosongkan Cart di Acara"
 
 #: Checkin.php:813 EcclesiaCRM/model/EcclesiaCRM/Group.php:166
-#: PersonView.php:406 Reports/CanvassReports.php:239
+#: PersonView.php:406 Reports/CanvassReports.php:238
 #: Reports/VotingMembers.php:84 SelectDelete.php:372
 #: queryparameteroptions_qpo.php:15
 msgid "Member"
@@ -1634,6 +1621,18 @@ msgstr "Tanggal Lahir / Ulang Tahun"
 msgid "Age / Years Married"
 msgstr "Umur / Tahun Menikah"
 
+#: CSVExport.php:168 CSVExport.php:283 CSVImport.php:403 FamilyEditor.php:1058
+#: FamilyView.php:474 FinancialReports.php:153 OptionManager.php:110
+#: PeopleDashboard.php:377 PersonEditor.php:1480 PrintPastoralCare.php:400
+#: PrintView.php:411 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "Penggolongan"
+
+#: CSVExport.php:173 CSVExport.php:308 OptionManager.php:103
+#: PrintPastoralCare.php:338 PrintView.php:349 queryparameters_qrp.php:5
+msgid "Family Role"
+msgstr "Peran Keluarga"
+
 #: CSVExport.php:176
 msgid "Depends whether using person or family output method"
 msgstr "Tergantung apakah menggunakan metode produksi pribadi atau keluarga"
@@ -1688,7 +1687,7 @@ msgstr "Jangan disaring"
 #: external/templates/registration/family-register-members.php:60
 #: FamilyEditor.php:1103 PersonEditor.php:834 PrintPastoralCare.php:315
 #: PrintPastoralCare.php:479 PrintView.php:326 PrintView.php:490
-#: SelectList.php:583 SelectList.php:1247 queryparameteroptions_qpo.php:2
+#: SelectList.php:614 SelectList.php:1281 queryparameteroptions_qpo.php:2
 msgid "Male"
 msgstr "Pria"
 
@@ -1698,7 +1697,7 @@ msgstr "Pria"
 #: external/templates/registration/family-register-members.php:61
 #: FamilyEditor.php:1106 PersonEditor.php:835 PrintPastoralCare.php:315
 #: PrintPastoralCare.php:479 PrintView.php:326 PrintView.php:490
-#: SelectList.php:584 SelectList.php:1249 queryparameteroptions_qpo.php:3
+#: SelectList.php:615 SelectList.php:1283 queryparameteroptions_qpo.php:3
 msgid "Female"
 msgstr "Wanita"
 
@@ -2077,7 +2076,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:284
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:290
 msgid "Directory reports"
 msgstr "Laporan direktori"
 
@@ -2206,64 +2205,64 @@ msgstr ""
 msgid "Multiple items"
 msgstr ""
 
-#: DonatedItemEditor.php:188 FundRaiserEditor.php:194
+#: DonatedItemEditor.php:188 FundRaiserEditor.php:199
 msgid "Donor"
 msgstr ""
 
-#: DonatedItemEditor.php:217
+#: DonatedItemEditor.php:212
 msgid "Estimated Price"
 msgstr ""
 
-#: DonatedItemEditor.php:222 FundRaiserEditor.php:199
+#: DonatedItemEditor.php:217 FundRaiserEditor.php:204
 msgid "Material Value"
 msgstr ""
 
-#: DonatedItemEditor.php:227 FundRaiserEditor.php:200
+#: DonatedItemEditor.php:222 FundRaiserEditor.php:205
 msgid "Minimum Price"
 msgstr ""
 
-#: DonatedItemEditor.php:235 FundRaiserEditor.php:195 PaddleNumEditor.php:175
+#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:183
 #: PaddleNumList.php:54
 msgid "Buyer"
 msgstr ""
 
-#: DonatedItemEditor.php:237 FundRaiserEditor.php:193 FundRaiserEditor.php:231
+#: DonatedItemEditor.php:232 FundRaiserEditor.php:198 FundRaiserEditor.php:236
 msgid "Multiple"
 msgstr ""
 
-#: DonatedItemEditor.php:259
+#: DonatedItemEditor.php:254
 #, fuzzy
 msgid "Final Price"
 msgstr "Hadiah"
 
-#: DonatedItemEditor.php:264
+#: DonatedItemEditor.php:259
 msgid "Replicate item"
 msgstr ""
 
-#: DonatedItemEditor.php:268 external/templates/password/enter-username.php:36
-#: FindFundRaiser.php:229
+#: DonatedItemEditor.php:263 external/templates/password/enter-username.php:36
+#: FindFundRaiser.php:302
 msgid "Go"
 msgstr ""
 
-#: DonatedItemEditor.php:278 EditEventAttendees.php:59 FundRaiserEditor.php:175
+#: DonatedItemEditor.php:273 EditEventAttendees.php:59 FundRaiserEditor.php:180
 #: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:347
 #: GroupPropsFormEditor.php:474 GroupView.php:423 ListEvents.php:360
 msgid "Description"
 msgstr ""
 
-#: DonatedItemEditor.php:283
+#: DonatedItemEditor.php:278
 msgid "Picture URL"
 msgstr ""
 
-#: DonatedItemEditor.php:299 FamilyEditor.php:1239 PaddleNumEditor.php:153
+#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:157
 #: PersonEditor.php:1637 PledgeEditor.php:773
 msgid "Save and Add"
 msgstr "Simpan dan tambahkan"
 
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:52
 #: EcclesiaCRM/Dashboard/FamilyDashboardItem.php:81 FamilyView.php:457
-#: PersonView.php:684 PrintPastoralCare.php:654 SelectList.php:1266
-#: SelectList.php:1289 SelectList.php:1378
+#: PersonView.php:684 PrintPastoralCare.php:654 SelectList.php:1300
+#: SelectList.php:1323 SelectList.php:1412
 #: v2/templates/people/familylist.php:99 v2/templates/people/familylist.php:100
 #: v2/templates/people/familylist.php:101
 #: v2/templates/people/familylist.php:102
@@ -3338,29 +3337,41 @@ msgstr ""
 msgid "Zimbabwe"
 msgstr ""
 
-#: EcclesiaCRM/dto/CanvassUtilities.php:74
+#: EcclesiaCRM/dto/CanvassUtilities.php:100
+#: EcclesiaCRM/dto/CanvassUtilities.php:136 PrintPastoralCare.php:515
+#: PrintView.php:524
+#, fuzzy
+msgid "Group Name"
+msgstr "Keanggotaan Kelompok"
+
+#: EcclesiaCRM/dto/CanvassUtilities.php:100
+#: EcclesiaCRM/dto/CanvassUtilities.php:136
+msgid "doesn't exist !"
+msgstr ""
+
+#: EcclesiaCRM/dto/CanvassUtilities.php:115
 msgid "No families need canvassers assigned"
 msgstr ""
 
-#: EcclesiaCRM/dto/CanvassUtilities.php:86
+#: EcclesiaCRM/dto/CanvassUtilities.php:126
 #, php-format
 msgid "Canvassers assigned at random to %d families."
 msgstr ""
 
-#: EcclesiaCRM/dto/CanvassUtilities.php:120
+#: EcclesiaCRM/dto/CanvassUtilities.php:171
 #, php-format
 msgid "Canvassers assigned at random to %d non-pledging families."
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:104 EcclesiaCRM/dto/Cart.php:167
+#: EcclesiaCRM/dto/Cart.php:100 EcclesiaCRM/dto/Cart.php:163
 msgid "PersonID for Cart must be numeric"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:124 EcclesiaCRM/dto/Cart.php:313
+#: EcclesiaCRM/dto/Cart.php:120 EcclesiaCRM/dto/Cart.php:309
 msgid "GroupID for Cart must be numeric"
 msgstr ""
 
-#: EcclesiaCRM/dto/Cart.php:142 EcclesiaCRM/dto/Cart.php:224
+#: EcclesiaCRM/dto/Cart.php:138 EcclesiaCRM/dto/Cart.php:220
 msgid "FamilyID for Cart must be numeric"
 msgstr ""
 
@@ -4254,7 +4265,7 @@ msgstr ""
 msgid "Localization"
 msgstr ""
 
-#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:238
+#: EcclesiaCRM/dto/SystemConfig.php:278 EcclesiaCRM/MenuBar/MenuBar.php:244
 #: Menu.php:110 v2/routes/email/mailchimp/mailchimp.php:141
 #: v2/routes/email/mailchimp/mailchimp.php:142
 msgid "GDPR"
@@ -4426,80 +4437,80 @@ msgstr ""
 msgid "List Groups"
 msgstr "Pilih Group"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:108 SelectList.php:179
+#: EcclesiaCRM/MenuBar/MenuBar.php:111 SelectList.php:177
 msgid "Group Assignment Helper"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:115
+#: EcclesiaCRM/MenuBar/MenuBar.php:118
 #: v2/routes/sundayschool/sundayschool.php:141
 msgid "Sunday School"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:117 EcclesiaCRM/MenuBar/MenuBar.php:209
-#: EcclesiaCRM/MenuBar/MenuBar.php:239 EcclesiaCRM/MenuBar/MenuBar.php:271
-#: EcclesiaCRM/MenuBar/MenuBar.php:321 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:120 EcclesiaCRM/MenuBar/MenuBar.php:215
+#: EcclesiaCRM/MenuBar/MenuBar.php:245 EcclesiaCRM/MenuBar/MenuBar.php:277
+#: EcclesiaCRM/MenuBar/MenuBar.php:327 Include/Header.php:201
 #, fuzzy
 msgid "Dashboard"
 msgstr "Dasbor Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:190 EcclesiaCRM/MenuBar/MenuBar.php:197
+#: EcclesiaCRM/MenuBar/MenuBar.php:196 EcclesiaCRM/MenuBar/MenuBar.php:203
 #: Include/Footer.php:170
 msgid "Global Custom Menus"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:208
+#: EcclesiaCRM/MenuBar/MenuBar.php:214
 #, fuzzy
 msgid "Custom Menus"
 msgstr "Area Keluarga Kustom"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:219 Include/Header.php:126
+#: EcclesiaCRM/MenuBar/MenuBar.php:225 Include/Header.php:126
 msgid "Private Space"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:221 EcclesiaCRM/utils/MiscUtils.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:227 EcclesiaCRM/utils/MiscUtils.php:398
 #: external/templates/registration/family-register-members.php:96
 msgid "Home"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:222 Include/Header.php:128
+#: EcclesiaCRM/MenuBar/MenuBar.php:228 Include/Header.php:128
 #: PersonView.php:618
 #, fuzzy
 msgid "Change Password"
 msgstr "Ketik Ulang Kata Sandi"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:223 Include/Header.php:130
+#: EcclesiaCRM/MenuBar/MenuBar.php:229 Include/Header.php:130
 #: PersonView.php:617
 msgid "Change Settings"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:224 FamilyView.php:584 PersonView.php:757
+#: EcclesiaCRM/MenuBar/MenuBar.php:230 FamilyView.php:584 PersonView.php:757
 #, fuzzy
 msgid "Documents"
 msgstr "Tambah Pembayaran"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:227 PersonView.php:765 UserEditor.php:726
+#: EcclesiaCRM/MenuBar/MenuBar.php:233 PersonView.php:765 UserEditor.php:726
 msgid "EDrive"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:240
+#: EcclesiaCRM/MenuBar/MenuBar.php:246
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:241 EcclesiaCRM/MenuBar/MenuBar.php:291
+#: EcclesiaCRM/MenuBar/MenuBar.php:247 EcclesiaCRM/MenuBar/MenuBar.php:297
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "Lihat semua Keluarga"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:242 EcclesiaCRM/MenuBar/MenuBar.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:303
 #, fuzzy
 msgid "View Inactive Families"
 msgstr "Lihat semua Keluarga"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:249
+#: EcclesiaCRM/MenuBar/MenuBar.php:255
 msgid "Events"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:255 ListEvents.php:362
+#: EcclesiaCRM/MenuBar/MenuBar.php:261 ListEvents.php:362
 #: v2/templates/map/MapUsingBing.php:75 v2/templates/map/MapUsingBing.php:121
 #: v2/templates/map/MapUsingGoogle.php:72
 #: v2/templates/map/MapUsingGoogle.php:118
@@ -4508,137 +4519,137 @@ msgstr ""
 msgid "Calendar"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:258 EcclesiaCRM/MenuBar/MenuBar.php:281
+#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/MenuBar/MenuBar.php:287
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
 msgstr "Tampilkan Cart"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:261
+#: EcclesiaCRM/MenuBar/MenuBar.php:267
 msgid "List Church Events"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:262
+#: EcclesiaCRM/MenuBar/MenuBar.php:268
 msgid "List Event Types"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:263
+#: EcclesiaCRM/MenuBar/MenuBar.php:269
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:269 Menu.php:415 PeopleDashboard.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:415 PeopleDashboard.php:184
 #, fuzzy
 msgid "People"
 msgstr "Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:279
+#: EcclesiaCRM/MenuBar/MenuBar.php:285
 msgid "View All Persons"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:288 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:294 v2/templates/people/personlist.php:23
 #, fuzzy
 msgid "Add New Person"
 msgstr "Tambah Event Baru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:289
+#: EcclesiaCRM/MenuBar/MenuBar.php:295
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:294
+#: EcclesiaCRM/MenuBar/MenuBar.php:300
 #, fuzzy
 msgid "Add New Family"
 msgstr "Tambahkan ke Keluarga"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:295
+#: EcclesiaCRM/MenuBar/MenuBar.php:301
 #, fuzzy
 msgid "View Active Families"
 msgstr "CSV Gabungkan Keluarga"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:299
+#: EcclesiaCRM/MenuBar/MenuBar.php:305
 #, fuzzy
 msgid "Empty Addresses"
 msgstr "Alamat"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:319 FamilyView.php:352 UserEditor.php:837
+#: EcclesiaCRM/MenuBar/MenuBar.php:325 FamilyView.php:352 UserEditor.php:837
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:326
+#: EcclesiaCRM/MenuBar/MenuBar.php:332
 #, fuzzy
 msgid "Email Lists"
 msgstr "Keluarga"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:350 FinancialReports.php:437
+#: EcclesiaCRM/MenuBar/MenuBar.php:356 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
 #: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
 #: Reports/AdvancedDeposit.php:523
 msgid "Deposit"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:364
+#: EcclesiaCRM/MenuBar/MenuBar.php:370
 msgid "Current"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:367 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:373 ManageEnvelopes.php:25
 #, fuzzy
 msgid "Envelope Manager"
 msgstr "Amplop"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:368
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 #, fuzzy
 msgid "View All Deposits"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:369 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:375 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:370
+#: EcclesiaCRM/MenuBar/MenuBar.php:376
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Laporan Slip Setoran"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:371
+#: EcclesiaCRM/MenuBar/MenuBar.php:377
 #, fuzzy
 msgid "Edit Deposit Slip"
 msgstr "Laporan Slip Setoran"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:378 FundRaiserEditor.php:32
+#: EcclesiaCRM/MenuBar/MenuBar.php:384 FundRaiserEditor.php:36
 msgid "Fundraiser"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:380
+#: EcclesiaCRM/MenuBar/MenuBar.php:386
 #, fuzzy
 msgid "View All Fundraisers"
 msgstr "Lihat semua Orang"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:381
+#: EcclesiaCRM/MenuBar/MenuBar.php:387
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Buat keluarga baru"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:382
+#: EcclesiaCRM/MenuBar/MenuBar.php:388
 msgid "Edit Fundraiser"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:383
+#: EcclesiaCRM/MenuBar/MenuBar.php:389
 msgid "View Buyers"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384
+#: EcclesiaCRM/MenuBar/MenuBar.php:390
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:396
 msgid "Data/Reports"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:392
+#: EcclesiaCRM/MenuBar/MenuBar.php:398
 msgid "Reports Menu"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:393 UserEditor.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:399 UserEditor.php:773
 msgid "Query Menu"
 msgstr ""
 
@@ -5162,7 +5173,7 @@ msgstr ""
 msgid "SSE"
 msgstr ""
 
-#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:53
+#: EcclesiaCRM/utils/InputUtils.php:32 FundRaiserEditor.php:57
 #: PledgeEditor.php:371
 msgid "Not a valid date"
 msgstr ""
@@ -5344,7 +5355,7 @@ msgid "Attendees for Event ID:"
 msgstr "Tidak ada yang hadir pada acara"
 
 #: EditEventAttendees.php:108 EditEventAttendees.php:109
-#: EventAttendance.php:202 EventAttendance.php:203 SelectList.php:1171
+#: EventAttendance.php:202 EventAttendance.php:203 SelectList.php:1205
 msgid "Not Available"
 msgstr ""
 
@@ -5408,6 +5419,12 @@ msgstr ""
 #: EditEventTypes.php:198 EventNames.php:296
 msgid "Attendance Counts"
 msgstr ""
+
+#: EditEventTypes.php:207 v2/templates/people/familylist.php:62
+#: v2/templates/people/familylist.php:116 v2/templates/people/personlist.php:58
+#: v2/templates/people/personlist.php:108
+msgid "Remove"
+msgstr "Hapus"
 
 #: EditEventTypes.php:215
 msgid "New Attendance Count"
@@ -5481,9 +5498,9 @@ msgid "Add a New Electronic Payment Method"
 msgstr ""
 
 #: ElectronicPaymentList.php:215 ElectronicPaymentList.php:258
-#: EventNames.php:321 FamilyView.php:264 FindFundRaiser.php:235
-#: FindFundRaiser.php:243 ListEvents.php:379 PersonView.php:414
-#: SelectList.php:1144 SelectList.php:1297
+#: EventNames.php:321 FamilyView.php:264 FindFundRaiser.php:310
+#: ListEvents.php:379 PersonView.php:414 SelectList.php:1178
+#: SelectList.php:1331
 msgid "Edit"
 msgstr ""
 
@@ -5815,7 +5832,7 @@ msgid "Member(s)"
 msgstr "Anggota"
 
 #: external/templates/registration/family-register-done.php:43
-#: Reports/CanvassReports.php:68
+#: Reports/CanvassReports.php:70
 msgid "Done"
 msgstr ""
 
@@ -6130,7 +6147,7 @@ msgstr "Nama Belakang"
 #: FamilyEditor.php:1054 FamilyView.php:473 OptionManager.php:101
 #: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:449
 #: PrintPastoralCare.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:237 Reports/GroupReport.php:107
+#: Reports/CanvassReports.php:236 Reports/GroupReport.php:107
 #: sundayschool/SundaySchoolClassListExport.php:48
 msgid "Role"
 msgstr ""
@@ -6262,7 +6279,7 @@ msgstr ""
 msgid "Remove from Cart"
 msgstr ""
 
-#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1312
+#: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1346
 #, fuzzy
 msgid "Add to Cart"
 msgstr "Tambahkan ke Group"
@@ -6337,7 +6354,7 @@ msgid "select an option"
 msgstr ""
 
 #: FamilyView.php:736 GroupView.php:382 PersonView.php:1145 PersonView.php:1197
-#: SelectList.php:1156
+#: SelectList.php:1190
 #, fuzzy
 msgid "Assign"
 msgstr "Tentukan peran"
@@ -6407,7 +6424,7 @@ msgstr ""
 msgid "Verified In Person"
 msgstr "Lihat semua Orang"
 
-#: FinancialReports.php:48 ReportList.php:48
+#: FinancialReports.php:48 ReportList.php:46
 #, fuzzy
 msgid "Financial Reports"
 msgstr "Finansial"
@@ -6630,7 +6647,7 @@ msgid ""
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:488 PaddleNumEditor.php:155
+#: FinancialReports.php:488 PaddleNumEditor.php:159
 msgid "Back"
 msgstr ""
 
@@ -6703,82 +6720,82 @@ msgstr ""
 msgid "Please ensure this what you want to do."
 msgstr ""
 
-#: FindFundRaiser.php:19
+#: FindFundRaiser.php:28
 msgid "Fundraiser Listing"
 msgstr ""
 
-#: FindFundRaiser.php:76 FindFundRaiser.php:236 Include/Functions.php:94
-#: PaddleNumEditor.php:170 PaddleNumList.php:53
+#: FindFundRaiser.php:82 FindFundRaiser.php:311 Include/Functions.php:94
+#: PaddleNumEditor.php:174 PaddleNumList.php:53
 #, fuzzy
 msgid "Number"
 msgstr "Anggota"
 
-#: FindFundRaiser.php:81
+#: FindFundRaiser.php:91
 msgid "Date Start"
 msgstr ""
 
-#: FindFundRaiser.php:84
+#: FindFundRaiser.php:99
 #, fuzzy
 msgid "Apply Filters"
 msgstr "Penyaring"
 
-#: FindFundRaiser.php:88
+#: FindFundRaiser.php:104
 msgid "Date End"
 msgstr ""
 
-#: FindFundRaiser.php:91 SelectList.php:740
+#: FindFundRaiser.php:112 SelectList.php:773
 #, fuzzy
 msgid "Clear Filters"
 msgstr "Penyaring"
 
-#: FindFundRaiser.php:147 SelectList.php:824
+#: FindFundRaiser.php:203 SelectList.php:858
 msgid "Previous Page"
 msgstr ""
 
-#: FindFundRaiser.php:189 SelectList.php:885
+#: FindFundRaiser.php:253 SelectList.php:919
 #, fuzzy
 msgid "Next Page"
 msgstr "Gunakan halaman judul"
 
-#: FindFundRaiser.php:221 SelectList.php:981
+#: FindFundRaiser.php:290 SelectList.php:1015
 msgid "Display:"
 msgstr ""
 
-#: FundRaiserEditor.php:34
+#: FundRaiserEditor.php:38
 #, fuzzy
 msgid "Create New Fund Raiser"
 msgstr "Buat keluarga baru"
 
-#: FundRaiserEditor.php:151
+#: FundRaiserEditor.php:155
 #, fuzzy
 msgid "Add Donated Item"
 msgstr "Pengedit rincian donasi"
 
-#: FundRaiserEditor.php:152
+#: FundRaiserEditor.php:156
 #, fuzzy
 msgid "Generate Catalog"
 msgstr "Buat label"
 
-#: FundRaiserEditor.php:153
+#: FundRaiserEditor.php:157
 #, fuzzy
 msgid "Generate Bid Sheets"
 msgstr "Buat label"
 
-#: FundRaiserEditor.php:154
+#: FundRaiserEditor.php:158
 #, fuzzy
 msgid "Generate Certificates"
 msgstr "Buat label"
 
-#: FundRaiserEditor.php:186
+#: FundRaiserEditor.php:191
 msgid "Donated items for this fundraiser"
 msgstr ""
 
-#: FundRaiserEditor.php:197
+#: FundRaiserEditor.php:202
 #, fuzzy
 msgid "Sale Price"
 msgstr "Hadiah"
 
-#: FundRaiserEditor.php:198
+#: FundRaiserEditor.php:203
 msgid "Estimated value"
 msgstr ""
 
@@ -6854,16 +6871,16 @@ msgstr ""
 msgid "Direction"
 msgstr "Aksi"
 
-#: GeoPage.php:414 SelectList.php:745
+#: GeoPage.php:414 SelectList.php:780
 #, fuzzy
 msgid "Add All to Cart"
 msgstr "Tambahkan Individu ke Keranjang."
 
-#: GeoPage.php:418 SelectList.php:746
+#: GeoPage.php:418 SelectList.php:781
 msgid "Intersect with Cart"
 msgstr ""
 
-#: GeoPage.php:421 SelectList.php:747
+#: GeoPage.php:421 SelectList.php:782
 msgid "Remove All from Cart"
 msgstr ""
 
@@ -7039,7 +7056,7 @@ msgstr "Pilih klasifikasi yang akan dimasukkan"
 msgid "Standard Info"
 msgstr ""
 
-#: GroupReports.php:151 Reports/CanvassReports.php:240
+#: GroupReports.php:151 Reports/CanvassReports.php:239
 #: Reports/ConfirmReportEmail.php:193 Reports/ConfirmReportEmail.php:211
 #: v2/templates/people/familylist.php:51 v2/templates/people/personlist.php:52
 #, fuzzy
@@ -7448,7 +7465,7 @@ msgstr ""
 msgid "Change columns"
 msgstr ""
 
-#: Include/Header-function.php:178 SelectList.php:1152 SelectList.php:1359
+#: Include/Header-function.php:178 SelectList.php:1186 SelectList.php:1393
 msgid "Print"
 msgstr ""
 
@@ -7727,7 +7744,7 @@ msgstr ""
 #: PledgeEditor.php:697 Reports/AdvancedDeposit.php:402
 #: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:509
 #: Reports/AdvancedDeposit.php:523 Reports/AdvancedDeposit.php:685
-#: Reports/CanvassReports.php:125
+#: Reports/CanvassReports.php:124
 msgid "Total"
 msgstr ""
 
@@ -8138,11 +8155,11 @@ msgstr ""
 msgid " by that name already exists."
 msgstr ""
 
-#: PaddleNumEditor.php:48
+#: PaddleNumEditor.php:52
 msgid "Buyer Number Editor"
 msgstr ""
 
-#: PaddleNumEditor.php:151
+#: PaddleNumEditor.php:155
 #, fuzzy
 msgid "Generate Statement"
 msgstr "Buat label"
@@ -8719,15 +8736,10 @@ msgstr ""
 msgid "Printable View"
 msgstr ""
 
-#: PrintPastoralCare.php:450 PrintView.php:461 Reports/CanvassReports.php:238
+#: PrintPastoralCare.php:450 PrintView.php:461 Reports/CanvassReports.php:237
 #: v2/templates/sundayschool/sundayschooldashboard.php:194
 msgid "Age"
 msgstr ""
-
-#: PrintPastoralCare.php:515 PrintView.php:524
-#, fuzzy
-msgid "Group Name"
-msgstr "Keanggotaan Kelompok"
 
 #: PrintPastoralCare.php:556 PrintView.php:565
 #: v2/templates/sidebar/propertylist.php:23 queryparameters_qrp.php:6
@@ -8848,15 +8860,15 @@ msgstr ""
 msgid "Execute Query"
 msgstr "Tidak bisa jalankan kueri."
 
-#: ReportList.php:33
+#: ReportList.php:31
 msgid "Report Menu"
 msgstr ""
 
-#: ReportList.php:59
+#: ReportList.php:57
 msgid "Automated support for conducting an every-member canvass."
 msgstr ""
 
-#: ReportList.php:80
+#: ReportList.php:78
 msgid "Event Attendance Reports"
 msgstr ""
 
@@ -8943,60 +8955,60 @@ msgstr ""
 msgid "Report Total"
 msgstr "Rincian Setoran"
 
-#: Reports/CanvassReports.php:45
+#: Reports/CanvassReports.php:47
 msgid "Canvass Progress Report"
 msgstr ""
 
-#: Reports/CanvassReports.php:69
+#: Reports/CanvassReports.php:71
 #, fuzzy
 msgid "Assigned"
 msgstr "Belum Ditetapkan"
 
-#: Reports/CanvassReports.php:70
+#: Reports/CanvassReports.php:72
 msgid "Percent"
 msgstr ""
 
-#: Reports/CanvassReports.php:202
+#: Reports/CanvassReports.php:201
 msgid "Did not pledge"
 msgstr ""
 
-#: Reports/CanvassReports.php:206
+#: Reports/CanvassReports.php:205
 msgid "Top pledger"
 msgstr ""
 
-#: Reports/CanvassReports.php:208
+#: Reports/CanvassReports.php:207
 msgid "Pledged"
 msgstr ""
 
-#: Reports/CanvassReports.php:215
+#: Reports/CanvassReports.php:214
 msgid "Pledge status"
 msgstr ""
 
-#: Reports/CanvassReports.php:236 Reports/ConfirmReportEmail.php:189
+#: Reports/CanvassReports.php:235 Reports/ConfirmReportEmail.php:189
 #: Reports/ConfirmReportEmail.php:207 Reports/ConfirmReport.php:188
 #: Reports/ConfirmReport.php:207
 msgid "M/F"
 msgstr ""
 
-#: Reports/CanvassReports.php:321
+#: Reports/CanvassReports.php:320
 msgid "Canvass Summary Report"
 msgstr ""
 
-#: Reports/CanvassReports.php:345
+#: Reports/CanvassReports.php:344
 #, fuzzy
 msgid "Suggestion"
 msgstr "Saran-saran"
 
-#: Reports/CanvassReports.php:345
+#: Reports/CanvassReports.php:344
 #, fuzzy
 msgid "WhyNotInterested"
 msgstr "Mengapa tidak berminat ?"
 
-#: Reports/CanvassReports.php:348
+#: Reports/CanvassReports.php:347
 msgid "Comments"
 msgstr ""
 
-#: Reports/CanvassReports.php:375
+#: Reports/CanvassReports.php:374
 #, fuzzy
 msgid "Canvass Not Interested Report"
 msgstr "Tidak berminat"
@@ -9555,106 +9567,116 @@ msgstr ""
 msgid "Delete Person Record"
 msgstr "Hapus"
 
-#: SelectList.php:148
+#: SelectList.php:146
 msgid "Person Listing"
 msgstr ""
 
-#: SelectList.php:511
+#: SelectList.php:543
 msgid "Filter and Cart"
 msgstr ""
 
-#: SelectList.php:525
+#: SelectList.php:555
 msgid "Show people <b>not</b> in this group type:"
 msgstr ""
 
-#: SelectList.php:546
+#: SelectList.php:577
 msgid "Sort order"
 msgstr ""
 
-#: SelectList.php:550
+#: SelectList.php:581
 #, fuzzy
 msgid "By Name"
 msgstr "Nama Bank"
 
-#: SelectList.php:553
+#: SelectList.php:584
 #, fuzzy
 msgid "By Family"
 msgstr "keluarga"
 
-#: SelectList.php:556
+#: SelectList.php:587
 msgid "By Zip Code"
 msgstr ""
 
-#: SelectList.php:559
+#: SelectList.php:590
 msgid "By Newest Entries"
 msgstr ""
 
-#: SelectList.php:562
+#: SelectList.php:593
 msgid "By Recently Edited"
 msgstr ""
 
-#: SelectList.php:567
+#: SelectList.php:598
 #, fuzzy
 msgid "Apply Filter"
 msgstr "Penyaring"
 
-#: SelectList.php:582
+#: SelectList.php:613
 #, fuzzy
 msgid "Male & Female"
 msgstr "Wanita"
 
-#: SelectList.php:590
+#: SelectList.php:621
 #, fuzzy
 msgid "All Classifications"
 msgstr "Penggolongan"
 
-#: SelectList.php:611
+#: SelectList.php:642
 #, fuzzy
 msgid "All Family Roles"
 msgstr "Peran Keluarga"
 
-#: SelectList.php:630
+#: SelectList.php:661
 msgid "All Contact Properties"
 msgstr ""
 
-#: SelectList.php:655
+#: SelectList.php:686
 msgid "All Group Types"
 msgstr ""
 
-#: SelectList.php:685
+#: SelectList.php:719
 #, fuzzy
 msgid "All Groups"
 msgstr "Pilih Group"
 
-#: SelectList.php:726
+#: SelectList.php:759
 #, fuzzy
 msgid "All Roles"
 msgstr "Semua Keluarga"
 
-#: SelectList.php:774
+#: SelectList.php:778
+#, fuzzy
+msgid "Add This Page to Cart"
+msgstr "Tambahkan Individu ke Keranjang."
+
+#: SelectList.php:779
+#, fuzzy
+msgid "Remove This Page from Cart"
+msgstr "Buat Direktori dari Cart"
+
+#: SelectList.php:808
 msgid "record returned"
 msgstr ""
 
-#: SelectList.php:776
+#: SelectList.php:810
 msgid "records returned"
 msgstr ""
 
-#: SelectList.php:783
+#: SelectList.php:817
 #, fuzzy
 msgid "View All"
 msgstr "Lihat semua Orang"
 
-#: SelectList.php:1051
+#: SelectList.php:1085
 #, fuzzy
 msgid "Photo"
 msgstr "Foto"
 
-#: SelectList.php:1148
+#: SelectList.php:1182
 #, fuzzy
 msgid "Cart"
 msgstr "Peta-kan Cart"
 
-#: SelectList.php:1368
+#: SelectList.php:1402
 msgid "Add to Group"
 msgstr "Tambahkan ke Group"
 
