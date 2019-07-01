@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-30 21:16+0200\n"
+"POT-Creation-Date: 2019-07-01 08:01+0200\n"
 "Language: fr-CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -276,7 +276,7 @@ msgstr "Ajouté au groupe"
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:186
+#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:187
 #: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
 #: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
 #: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
@@ -656,7 +656,7 @@ msgstr "Stocker des Données Privés à Vanco"
 #: DonatedItemEditor.php:292 FamilyEditor.php:714 FamilyEditor.php:801
 #: FamilyEditor.php:862 FamilyEditor.php:937 FamilyEditor.php:957
 #: FamilyEditor.php:1031 FamilyEditor.php:1235 FundRaiserEditor.php:147
-#: GroupEditor.php:176 PaddleNumEditor.php:153 PersonEditor.php:823
+#: GroupEditor.php:176 PaddleNumEditor.php:154 PersonEditor.php:823
 #: PersonEditor.php:956 PersonEditor.php:1065 PersonEditor.php:1474
 #: PersonEditor.php:1547 PersonEditor.php:1633 PledgeEditor.php:771
 #: UserEditor.php:866 UserPasswordChange.php:224
@@ -883,8 +883,8 @@ msgid ""
 "Randomly assign canvassers to all Families.  The Canvassers are taken from "
 "the &quot;Canvassers&quot; Group."
 msgstr ""
-"Affecter un sondeur de manière aléatoire à toutes les familles. Les "
-"sondeurs sont choisis dans le groupe &quot;Sondeurs&quot;."
+"Affecter un sondeur de manière aléatoire à toutes les familles. Les sondeurs "
+"sont choisis dans le groupe &quot;Sondeurs&quot;."
 
 #: CanvassAutomation.php:146
 msgid "Assign Canvassers"
@@ -921,7 +921,8 @@ msgstr "Effacer les missions de sondeurs"
 #: CanvassAutomation.php:175
 msgid "Turn on the &quot;Ok To Canvass&quot; field for all Families."
 msgstr ""
-"Activer le champ &quot;Ok pour la Contribution&quot; pour toutes les familles."
+"Activer le champ &quot;Ok pour la Contribution&quot; pour toutes les "
+"familles."
 
 #: CanvassAutomation.php:175 CanvassAutomation.php:186
 msgid ""
@@ -2208,7 +2209,7 @@ msgstr "Valeur matérielle"
 msgid "Minimum Price"
 msgstr "Prix ​​minimum"
 
-#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:182
+#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:183
 #: PaddleNumList.php:54
 msgid "Buyer"
 msgstr "Acheteur"
@@ -2240,7 +2241,7 @@ msgstr "Description"
 msgid "Picture URL"
 msgstr "URL de l'image"
 
-#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:156
+#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:157
 #: PersonEditor.php:1637 PledgeEditor.php:773
 msgid "Save and Add"
 msgstr "Enregistrer et Ajouter"
@@ -6583,7 +6584,7 @@ msgstr ""
 "Les membres votants doivent avoir fait <br>un don au cours de ces dernières "
 "années<br> (0 si aucun don n&#39;est requis)"
 
-#: FinancialReports.php:488 PaddleNumEditor.php:158
+#: FinancialReports.php:488 PaddleNumEditor.php:159
 msgid "Back"
 msgstr "Revenir"
 
@@ -6653,7 +6654,7 @@ msgid "Fundraiser Listing"
 msgstr "Liste des collectes de fonds"
 
 #: FindFundRaiser.php:82 FindFundRaiser.php:311 Include/Functions.php:94
-#: PaddleNumEditor.php:173 PaddleNumList.php:53
+#: PaddleNumEditor.php:174 PaddleNumList.php:53
 msgid "Number"
 msgstr "Nombre"
 
@@ -8038,11 +8039,11 @@ msgstr "Erreur: Un "
 msgid " by that name already exists."
 msgstr " par ce nom existe déjà."
 
-#: PaddleNumEditor.php:51
+#: PaddleNumEditor.php:52
 msgid "Buyer Number Editor"
 msgstr "Gestionnaire du nombre d'acheteur"
 
-#: PaddleNumEditor.php:154
+#: PaddleNumEditor.php:155
 msgid "Generate Statement"
 msgstr "Générer une déclaration"
 
