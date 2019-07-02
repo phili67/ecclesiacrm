@@ -5,6 +5,7 @@
  *  last change : 2003-04-16
  *  website     : http://www.ecclesiacrm.com
  *  copyright   : Copyright 2003 Chris Gebhardt
+ *                Copyright 2019 Philippe Logel
  *
  *  OptionName : Interface for editing simple selection options such as those
  *              : used for Family Roles, Classifications, and Group Types
@@ -24,9 +25,7 @@ use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\ListOption;
 use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\FamilyCustomMasterQuery;
-use EcclesiaCRM\FamilyCustomMaster;
 use EcclesiaCRM\PersonCustomMasterQuery;
-use EcclesiaCRM\PersonCustomMaster;
 use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
@@ -418,12 +417,12 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
             if ($row != 1) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/api/generalrole/Action/<?= $mode ?>/<?= $aSeqs[$row] ?>/<?= $listID ?>/<?= $aIDs[$row] ?>/up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
             <?php
             }
             if ($row < $numRows) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <a href="<?= SystemURLs::getRootPath() ?>/api/generalrole/Action/<?= $mode ?>/<?= $aSeqs[$row] ?>/<?= $listID ?>/<?= $aIDs[$row] ?>/down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
             <?php
             }
             if ($numRows > 0) {
