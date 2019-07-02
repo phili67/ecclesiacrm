@@ -54,8 +54,12 @@ $("document").ready(function(){
             '            <div class="user-profile-inner">\n' +
             '            <h4 class="white">' + data.teachers[i]['per_FirstName'] + ' ' + data.teachers[i]['per_LastName'] + '</h4>\n' +
             '        <img src="' +  window.CRM.root + '/api/persons/' + data.teachers[i]['per_ID'] + '/thumbnail"\n' +
-            '        alt="User Image" class="user-image initials-image" width="85" height="85" />\n' +
-            '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" type="button" class="btn btn-primary btn-sm btn-block"><i\n' +
+            '        alt="User Image" class="user-image initials-image" width="85" height="85" />\n';
+        if (data.teachersProps[i][data.teachers[i]['per_ID']] != false) {
+          res += '   <p>' + data.teachersProps[i][data.teachers[i]['per_ID']] + '</p>';
+
+        }
+        res += '            <a href="mailto:' + data.teachers[i]['per_Email'] + '" type="button" class="btn btn-primary btn-sm btn-block"><i\n' +
             '      class="fa fa-envelope"></i>' + i18next.t('Send Message') + '</a>' +
             '        <a href="' +  window.CRM.root + '/PersonView.php?PersonID=' + data.teachers[i]['per_ID'] + '" type="button"\n' +
             '      class="btn btn-primary btn-info btn-sm btn-block"><i class="fa fa-q"></i>' + i18next.t('View Profile') +'</a>\n' +
