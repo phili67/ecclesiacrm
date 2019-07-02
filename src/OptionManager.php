@@ -417,12 +417,12 @@ for ($row = 1; $row <= $numRows; $row++) {
             <?php
             if ($row != 1) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/api/generalrole/Action/<?= $mode ?>/<?= $aSeqs[$row] ?>/<?= $listID ?>/<?= $aIDs[$row] ?>/up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
+                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="up"><img src="<?= SystemURLs::getRootPath() ?>/Images/uparrow.gif" border="0"></a>
             <?php
             }
             if ($row < $numRows) {
             ?>
-                <a href="<?= SystemURLs::getRootPath() ?>/api/generalrole/Action/<?= $mode ?>/<?= $aSeqs[$row] ?>/<?= $listID ?>/<?= $aIDs[$row] ?>/down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
+                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="down"><img src="<?= SystemURLs::getRootPath() ?>/Images/downarrow.gif" border="0"></a>
             <?php
             }
             if ($numRows > 0) {
@@ -430,7 +430,7 @@ for ($row = 1; $row <= $numRows; $row++) {
               <?php
               if ($embedded) {
               ?>                
-                <a href="<?= SystemURLs::getRootPath() ?>/OptionManagerRowOps.php?mode=<?= $mode ?>&Order=<?= $aSeqs[$row] ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row] ?>&Action=delete"><img src="Images/x.gif" border="0"></a>
+                <a href="#" class="row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="delete"><img src="Images/x.gif" border="0"></a>
               <?php
                 } else {
               ?>

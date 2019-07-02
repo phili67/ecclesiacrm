@@ -7,7 +7,6 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 use EcclesiaCRM\Utils\InputUtils;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\GroupManagerPersonQuery;
 use EcclesiaCRM\ListOptionIconQuery;
@@ -17,7 +16,6 @@ use EcclesiaCRM\Map\ListOptionTableMap;
 use EcclesiaCRM\FamilyCustomMasterQuery;
 use EcclesiaCRM\PersonCustomMasterQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\utils\RedirectUtils;
 use EcclesiaCRM\SessionUser;
 use LogicException;
 
@@ -25,17 +23,24 @@ use LogicException;
 $app->group('/generalrole', function () {
     
     $this->get('/all/{mode}', 'getAllGeneralRoles' );
-    $this->get('/action/{mode}/{Order:[0-9]}/{ListID:[0-9]}/{ID:[0-9]}/{Action}', 'generalRoleAssign' );
+/*
+ * @! set gerneral role for the family, classification, etc ...
+ * #! param: ref->str :: mode 'famroles' 'classes' 'grptypes' 'grptypesSundSchool' 'grproles' 'famcustom' 'groupcustom'
+ * #! param: ref->int :: Order
+ * #! param: id->int  :: ID as id
+ * #! param: res->str :: Action 'up' 'down'
+ */
+    $this->post('/action', 'generalRoleAssign' );
     
 });
 
 function getAllGeneralRoles (Request $request, Response $response, array $args) {
 
-    $mode = trim($args['mode']);
+  $mode = trim($args['mode']);
 
-    $listID = 0;
+  $listID = 0;
 
-    $list_type = 'normal';
+  $list_type = 'normal';
 
 // Check security for the mode selected.
     switch ($mode) {
@@ -275,6 +280,10 @@ function getAllGeneralRoles (Request $request, Response $response, array $args) 
             $aSeqs[$row]          = $ormList->getOptionSequence();
 
             $aNameFields[$row]    = InputUtils::LegacyFilterInput($_POST[$row.'name']);
+            
+            $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
+            
+            $aIcon[$row]          = $icon->toArray();
 
             $row++;
         }
@@ -329,192 +338,208 @@ function getAllGeneralRoles (Request $request, Response $response, array $args) 
 
         $aIDs[$row] = $ormList->getOptionId();
         //addition save off sequence also
-        $aSeqs[$row++] = $ormList->getOptionSequence();
+        $aSeqs[$row] = $ormList->getOptionSequence();
+        
+        $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
+        
+        if (!is_null ($icon) && $icon->getUrl() != '') {
+          $aIcon[$row]          = ['isOnlyPersonViewVisible' => true, 'url' => $icon->getUrl()];
+        } else {
+        
+          $aIcon[$row] = null;
+        }
+        $row++;
     }
 
 
 
-    return $response->withJson($mode );
+    return $response->withJson(['noun' => $noun, 'adjplusname' => $adjplusname, 'adjplusnameplural'=> $adjplusnameplural, 'iNewNameError' => $iNewNameError, 'embedded' => $embedded, 'listID' => $listID, 'iDefaultRole' => $iDefaultRole, 'numRows' => $numRows, 'aIDs' => $aIDs, 'aIcon' => $aIcon, 'aSeqs' => $aSeqs, 'aNameFields' => $aNameFields]);
 }
 
 function generalRoleAssign (Request $request, Response $response, array $args) {
-    // Get the Order, ID, Mode, and Action from the querystring
-    $mode = trim($args['mode']);
-    $iOrder = InputUtils::LegacyFilterInput($args['Order'], 'int');
-    $iID = InputUtils::LegacyFilterInput($args['ID'], 'int');  // the option ID
-    $sAction = $_GET['Action'];
+
+    $input = (object)$request->getParsedBody();
+
+    if ( isset ($input->mode) && isset ($input->Order) && isset ($input->ID)
+        && isset ($input->Action) && isset ($input->ListID) ) {
+        // Get the Order, ID, Mode, and Action from the querystring
+        $mode    = trim($input->mode);
+        $iOrder  = InputUtils::LegacyFilterInput($input->Order, 'int');
+        $iID     = InputUtils::LegacyFilterInput($input->ID, 'int');  // the option ID
+        $sAction = $input->Action;
 
 // Check security for the mode selected.
-    switch ($mode) {
-        case 'famroles':
-        case 'classes':
-            if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
-                return $response->withJson(['success' => false]);
-            }
-            break;
+        switch ($mode) {
+            case 'famroles':
+            case 'classes':
+                if (!SessionUser::getUser()->isMenuOptionsEnabled()) {
+                    return $response->withJson(['success' => false]);
+                }
+                break;
 
-        case 'grptypes':
-        case 'grptypesSundSchool':
-        case 'grproles':
-            if (!SessionUser::getUser()->isManageGroupsEnabled()) {
-                return $response->withJson(['success' => false]);
-            }
-            break;
+            case 'grptypes':
+            case 'grptypesSundSchool':
+            case 'grproles':
+                if (!SessionUser::getUser()->isManageGroupsEnabled()) {
+                    return $response->withJson(['success' => false]);
+                }
+                break;
 
-        case 'custom':
-        case 'famcustom':
-        case 'groupcustom':
-            if (!SessionUser::getUser()->isAdmin()) {
+            case 'custom':
+            case 'famcustom':
+            case 'groupcustom':
+                if (!SessionUser::getUser()->isAdmin()) {
+                    return $response->withJson(['success' => false]);
+                }
+                break;
+            default:
                 return $response->withJson(['success' => false]);
-            }
-            break;
-        default:
-            return $response->withJson(['success' => false]);
-    }
+        }
 
 // Set appropriate table and field names for the editor mode
-    $list_type = 'normal';
+        $list_type = 'normal';
 
-    switch ($mode) {
-        case 'famroles':
-            $deleteCleanupTable = 'person_per';
-            $deleteCleanupColumn = 'per_fmr_ID';
-            $deleteCleanupResetTo = 0;
-            $listID = 2;
-            break;
-        case 'classes':
-            $deleteCleanupTable = 'person_per';
-            $deleteCleanupColumn = 'per_cls_ID';
-            $deleteCleanupResetTo = 0;
-            $listID = 1;
-            break;
-        case 'grptypes':
-        case 'grptypesSundSchool':
-            $deleteCleanupTable = 'group_grp';
-            $deleteCleanupColumn = 'grp_Type';
-            $deleteCleanupResetTo = 0;
-            $listID = 3;
-            $list_type = ($mode == 'grptypesSundSchool')?'sunday_school':'normal';
-            break;
-        case 'grproles':
-            $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
+        switch ($mode) {
+            case 'famroles':
+                $deleteCleanupTable = 'person_per';
+                $deleteCleanupColumn = 'per_fmr_ID';
+                $deleteCleanupResetTo = 0;
+                $listID = 2;
+                break;
+            case 'classes':
+                $deleteCleanupTable = 'person_per';
+                $deleteCleanupColumn = 'per_cls_ID';
+                $deleteCleanupResetTo = 0;
+                $listID = 1;
+                break;
+            case 'grptypes':
+            case 'grptypesSundSchool':
+                $deleteCleanupTable = 'group_grp';
+                $deleteCleanupColumn = 'grp_Type';
+                $deleteCleanupResetTo = 0;
+                $listID = 3;
+                $list_type = ($mode == 'grptypesSundSchool') ? 'sunday_school' : 'normal';
+                break;
+            case 'grproles':
+                $listID = InputUtils::LegacyFilterInput($input->ListID, 'int');
 
-            // Validate that this list ID is really for a group roles list. (for security)
+                // Validate that this list ID is really for a group roles list. (for security)
 
-            $ormGroupList = GroupQuery::Create()->findByRoleListId($listID);
-            if ($ormGroupList->count() == 0) {
+                $ormGroupList = GroupQuery::Create()->findByRoleListId($listID);
+                if ($ormGroupList->count() == 0) {
+                    return $response->withJson(['success' => false]);
+                }
+
+                break;
+            case 'custom':
+            case 'famcustom':
+            case 'groupcustom':
+                $listID = InputUtils::LegacyFilterInput($input->ListID, 'int');
+                break;
+        }
+
+        switch ($sAction) {
+            // Move a field up:  Swap the OptionSequence (ordering) of the selected row and the one above it
+            case 'up':
+                $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder - 1);
+                $list1->setOptionSequence($iOrder)->save();
+
+                $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
+                $list2->setOptionSequence($iOrder - 1)->save();
+                break;
+
+            // Move a field down:  Swap the OptionSequence (ordering) of the selected row and the one below it
+            case 'down':
+                $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder + 1);
+                $list1->setOptionSequence($iOrder)->save();
+
+                $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
+                $list2->setOptionSequence($iOrder + 1)->save();
+                break;
+
+            // Delete a field from the form
+            case 'delete':
+                $list = ListOptionQuery::Create()->findById($listID);
+                $numRows = $list->count();
+
+                // Make sure we never delete the only option
+                if ($list->count() > 1) {
+                    $list = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder);
+                    $list->delete();
+
+
+                    if ($listID == 1) { // we are in the case of custom icon for person classification, so we have to delete the icon in list_icon
+                        $icon = ListOptionIconQuery::Create()->filterByListId($listID)->findOneByListOptionId($iID);
+                        if (!is_null($icon)) {
+                            $icon->delete();
+                        }
+                    }
+
+                    // Shift the remaining rows up by one
+                    for ($reorderRow = $iOrder + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
+                        $list_upd = ListOptionQuery::Create()->filterById($listID)->findOneByOptionSequence($reorderRow);
+                        if (!is_null($list_upd)) {
+                            $list_upd->setOptionSequence($reorderRow - 1)->save();
+                        }
+                    }
+
+                    // If group roles mode, check if we've deleted the old group default role.  If so, reset default to role ID 1
+                    // Next, if any group members were using the deleted role, reset their role to the group default.
+                    if ($mode == 'grproles') {// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+                        // Reset if default role was just removed.
+                        $grp = GroupQuery::Create()->filterByRoleListId($listID)->findOneByDefaultRole($iID);
+
+                        if (!is_null($grp)) {
+                            $grp->setDefaultRole(1)->save();
+                        }
+
+                        // Get the current default role and Group ID (so we can update the p2g2r table)
+                        // This seems backwards, but grp_RoleListID is unique, having a 1-1 relationship with grp_ID.
+                        $grp = GroupQuery::Create()->findOneByRoleListId($listID);
+
+
+                        $persons = Person2group2roleP2g2rQuery::Create()->filterByGroupId($grp->getId())->findByRoleId($iID);
+
+                        foreach ($persons as $person) {
+                            $person->setRoleId($grp->getDefaultRole());
+                            $person->save();
+                        }
+
+                        /*$sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = ".$grp->getDefaultRole()." WHERE p2g2r_grp_ID = ".$grp->getId()." AND p2g2r_rle_ID = $iID";
+                        RunKuery($sSQL);*/
+                    } else if ($mode == 'grptypes' || $mode == 'grptypesSundSchool') {
+                        // we've to delete the
+
+                        $groupTypes = GroupTypeQuery::Create()->findByListOptionId($iID);
+
+                        foreach ($groupTypes as $groupType) {
+                            $groupType->setListOptionId(0);
+                            $groupType->save();
+                        }
+                    } // Otherwise, for other types of assignees having a deleted option, reset them to default of 0 (undefined).
+                    else {
+                        if ($deleteCleanupTable != 0) {
+                            $connection = Propel::getConnection();
+                            $sSQL = "UPDATE $deleteCleanupTable SET $deleteCleanupColumn = $deleteCleanupResetTo WHERE $deleteCleanupColumn = " . $iID;
+                            $connection->exec($sSQL);
+                        }
+                    }
+                }
+                break;
+
+            // Currently this is used solely for group roles
+            case 'makedefault':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
+                $grp = GroupQuery::Create()->findOneByRoleListId($listID);
+                $grp->setDefaultRole($iID)->save();
+                break;
+
+            // If no valid action was specified, abort
+            default:
                 return $response->withJson(['success' => false]);
-            }
+        }
 
-            break;
-        case 'custom':
-        case 'famcustom':
-        case 'groupcustom':
-            $listID = InputUtils::LegacyFilterInput($_GET['ListID'], 'int');
-            break;
+        return $response->withJson(['success' => true]);
     }
 
-    switch ($sAction) {
-        // Move a field up:  Swap the OptionSequence (ordering) of the selected row and the one above it
-        case 'up':
-            $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder - 1);
-            $list1->setOptionSequence($iOrder)->save();
-
-            $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
-            $list2->setOptionSequence($iOrder - 1)->save();
-            break;
-
-        // Move a field down:  Swap the OptionSequence (ordering) of the selected row and the one below it
-        case 'down':
-            $list1 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder + 1);
-            $list1->setOptionSequence($iOrder)->save();
-
-            $list2 = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionId($iID);
-            $list2->setOptionSequence($iOrder + 1)->save();
-            break;
-
-        // Delete a field from the form
-        case 'delete':
-            $list = ListOptionQuery::Create()->findById($listID);
-            $numRows = $list->count();
-
-            // Make sure we never delete the only option
-            if ($list->count() > 1) {
-                $list = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($iOrder);
-                $list->delete();
-
-
-                if ($listID == 1) { // we are in the case of custom icon for person classification, so we have to delete the icon in list_icon
-                    $icon = ListOptionIconQuery::Create()->filterByOptionType($list_type)->filterByListId($listID)->findOneByListOptionId ($iID);
-
-                    if (!is_null($icon)) {
-                        $icon->delete();
-                    }
-                }
-
-                // Shift the remaining rows up by one
-                for ($reorderRow = $iOrder + 1; $reorderRow <= $numRows + 1; $reorderRow++) {
-                    $list_upd = ListOptionQuery::Create()->filterByOptionType($list_type)->filterById($listID)->findOneByOptionSequence($reorderRow);
-                    if (!is_null($list_upd)) {
-                        $list_upd->setOptionSequence($reorderRow - 1)->save();
-                    }
-                }
-
-                // If group roles mode, check if we've deleted the old group default role.  If so, reset default to role ID 1
-                // Next, if any group members were using the deleted role, reset their role to the group default.
-                if ($mode == 'grproles') {// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
-                    // Reset if default role was just removed.
-                    $grp = GroupQuery::Create()->filterByRoleListId($listID)->findOneByDefaultRole($iID);
-
-                    if (!is_null($grp)){
-                        $grp->setDefaultRole(1)->save();
-                    }
-
-                    // Get the current default role and Group ID (so we can update the p2g2r table)
-                    // This seems backwards, but grp_RoleListID is unique, having a 1-1 relationship with grp_ID.
-                    $grp = GroupQuery::Create()->findOneByRoleListId($listID);
-
-
-                    $persons = Person2group2roleP2g2rQuery::Create()->filterByGroupId($grp->getId())->findByRoleId($iID);
-
-                    foreach ($persons as $person) {
-                        $person->setRoleId($grp->getDefaultRole());
-                        $person->save();
-                    }
-
-                    /*$sSQL = "UPDATE person2group2role_p2g2r SET p2g2r_rle_ID = ".$grp->getDefaultRole()." WHERE p2g2r_grp_ID = ".$grp->getId()." AND p2g2r_rle_ID = $iID";
-                    RunKuery($sSQL);*/
-                } else if ($mode == 'grptypes' || $mode == 'grptypesSundSchool') {
-                    // we've to delete the
-
-                    $groupTypes = GroupTypeQuery::Create ()->findByListOptionId ($iID);
-
-                    foreach ($groupTypes as $groupType) {
-                        $groupType->setListOptionId (0);
-                        $groupType->save();
-                    }
-                }
-
-
-                // Otherwise, for other types of assignees having a deleted option, reset them to default of 0 (undefined).
-                else {
-                    if ($deleteCleanupTable != 0) {
-                        $connection = Propel::getConnection();
-                        $sSQL = "UPDATE $deleteCleanupTable SET $deleteCleanupColumn = $deleteCleanupResetTo WHERE $deleteCleanupColumn = ".$iID;
-                        $connection->exec($sSQL);
-                    }
-                }
-            }
-            break;
-
-        // Currently this is used solely for group roles
-        case 'makedefault':// unusefull : dead code : This can be defined in GroupEditor.php?GroupID=id
-            $grp = GroupQuery::Create()->findOneByRoleListId($listID);
-            $grp->setDefaultRole($iID)->save();
-            break;
-
-        // If no valid action was specified, abort
-        default:
-            return $response->withJson(['success' => false]);
-    }
+    return $response->withJson(['success' => $input]);
 }

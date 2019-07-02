@@ -18,10 +18,28 @@ $('.checkOnlyPersonView').click('focus', function (e) {
   });
 });
 
+$('.row-action').click('focus', function (e) {
+    var mode = $(this).data('mode');
+    var Order = $(this).data('order');
+    var ListID = $(this).data('listid');
+    var ID = $(this).data('id');
+    var Action = $(this).data('action');
+
+    $.ajax({
+        method: "POST",
+        url: window.CRM.root + '/api/generalrole/action',               //call the groups api handler located at window.CRM.root
+        data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":Action}),                      // stringify the object we created earlier, and add it to the data payload
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    }).done(function (data) {                               //yippie, we got something good back from the server
+        location.reload();
+    });
+});
+
 $('.RemoveClassification').click('focus', function (e) {
   var mode = $(this).data('mode');
-  var order = $(this).data('order');
-  var listID = $(this).data('listid');
+  var Order = $(this).data('order');
+  var ListID = $(this).data('listid');
   var ID = $(this).data('id');
   var name = $(this).data('name');
   
@@ -39,7 +57,15 @@ $('.RemoveClassification').click('focus', function (e) {
       callback: function (result) {
         if (result)
         {
-            window.location.href = window.CRM.root+"/OptionManagerRowOps.php?mode="+mode+"&Order="+order+"&ListID="+listID+"&ID="+ID+"&Action=delete";
+            $.ajax({
+                method: "POST",
+                url: window.CRM.root + '/api/generalrole/action',               //call the groups api handler located at window.CRM.root
+                data: JSON.stringify({"mode":mode,"Order":Order,"ListID":ListID,"ID":ID,"Action":"delete"}),                      // stringify the object we created earlier, and add it to the data payload
+                contentType: "application/json; charset=utf-8",
+                dataType: "json"
+            }).done(function (data) {                               //yippie, we got something good back from the server
+                location.reload();
+            });
         }
       }
     });
