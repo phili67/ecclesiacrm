@@ -749,7 +749,7 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
         $props = '';
         if ( $ormPropLists->count() > 0 ) {
             $person = PersonQuery::create()->findOneById($teacher['per_ID']);
-            $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
+            $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily()))?$person->getFamily()->getCountry():null, false);
 
             $sSQL = 'SELECT * FROM groupprop_' . $iGroupId . ' WHERE per_ID = ' . $teacher['per_ID'];
 
@@ -769,7 +769,7 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
                             $prop_Special = $sPhoneCountry;
                         }
 
-                        $props = $ormPropList->getName() . ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) . ", ";
+                        $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
                     }
                 }
             }

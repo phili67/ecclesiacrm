@@ -10,6 +10,7 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
+use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
@@ -18,6 +19,7 @@ use EcclesiaCRM\GroupQuery;
 use EcclesiaCRM\Map\PersonTableMap;
 use EcclesiaCRM\ListOptionQuery;
 use EcclesiaCRM\Person2group2roleP2g2rQuery;
+use Propel\Runtime\Propel;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
 $aGrp = explode(',', $iGroupID);
@@ -65,9 +67,9 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->SetFont('Times', '', 14);
         $this->SetAutoPageBreak(false);
         $this->AddPage();
-        $this->drawGroupMebersByRole("Teacher", _("Teachers"));
+        $this->drawGroupMembersByRole("Teacher", _("Teachers"));
         $this->AddPage();
-        $this->drawGroupMebersByRole("Student", _("Students"));
+        $this->drawGroupMembersByRole("Student", _("Students"));
     }
     
     public function setFontSizeLastName($ifontSize)
@@ -142,7 +144,7 @@ class PDF_PhotoBook extends ChurchInfoReport
         $this->currentX += $this->personMarginR;
     }
   
-    private function drawGroupMebersByRole($roleName, $roleDisplayName)
+    private function drawGroupMembersByRole($roleName, $roleDisplayName)
     {
         $RoleListID =$this->group->getRoleListId();
         $groupRole = ListOptionQuery::create()->filterById($RoleListID)->filterByOptionName($roleName)->findOne();
@@ -156,12 +158,47 @@ class PDF_PhotoBook extends ChurchInfoReport
                             ->orderBy(PersonTableMap::COL_PER_LASTNAME)
                             ->_and()->orderBy(PersonTableMap::COL_PER_FIRSTNAME)
                             ->find();
+
+        $ormPropLists = GroupPropMasterQuery::Create()
+            ->filterByPersonDisplay('true')
+            ->orderByPropId()
+            ->findByGroupId($this->group->getId());
+
         $this->drawPageHeader((_("PhotoBook").' - '.$this->group->getName().' - '.$roleDisplayName." (".$groupRoleMemberships->count().")"));
         $this->currentX = $this->pageMarginL;
         $this->currentY += 10;
         foreach ($groupRoleMemberships as $roleMembership) {
             $person = $roleMembership->getPerson();
-            $this->drawPersonBlock($person->getLastName(),$person->getFirstName()." ".$person->getMiddleName(), $person->getPhoto()->getPhotoURI());
+
+            $props = '';
+            if ( $ormPropLists->count() > 0 ) {
+                $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), (!is_null($person->getFamily()))?$person->getFamily()->getCountry():null, false);
+
+                $sSQL = 'SELECT * FROM groupprop_' . $this->group->getId() . ' WHERE per_ID = ' . $person->getId();
+
+                $connection = Propel::getConnection();
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+                $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+
+                if ($ormPropLists->count() > 0) {
+                    foreach ($ormPropLists as $ormPropList) {
+                        $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                        if (strlen($currentData) > 0) {
+                            $prop_Special = $ormPropList->getSpecial();
+
+                            if ($ormPropList->getTypeId() == 11) {
+                                $prop_Special = $sPhoneCountry;
+                            }
+
+                            $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
+                        }
+                    }
+                }
+            }
+
+            $this->drawPersonBlock($person->getLastName(). ((mb_strlen($props) >0)?" (" . substr($props, 0, -2).")":''),$person->getFirstName()." ".$person->getMiddleName(), $person->getPhoto()->getPhotoURI());
             if ($this->currentX + $this->personMarginL + $this->personImageWidth + $this->personMarginR  >= $this->GetPageWidth() - $this->pageMarginR) { //can we fit another on the page?
                 $this->currentY += 50;
                 $this->currentX = $this->pageMarginL;
