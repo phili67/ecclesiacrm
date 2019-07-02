@@ -10,29 +10,26 @@
 require '../Include/Config.php';
 require '../Include/Functions.php';
 
+use EcclesiaCRM\GroupPropMasterQuery;
 use EcclesiaCRM\Reports\ChurchInfoReport;
 use EcclesiaCRM\dto\SystemConfig;
 use EcclesiaCRM\Utils\InputUtils;
 use EcclesiaCRM\Utils\OutputUtils;
 use EcclesiaCRM\Utils\MiscUtils;
-use EcclesiaCRM\dto\SystemURLs;
 use EcclesiaCRM\PersonQuery;
-use EcclesiaCRM\Person;
-use EcclesiaCRM\FamilyQuery;
 use EcclesiaCRM\GroupQuery;
-use EcclesiaCRM\Person2group2roleP2g2r;
 use EcclesiaCRM\Record2propertyR2pQuery;
 use EcclesiaCRM\PropertyQuery;
 use EcclesiaCRM\Map\PersonTableMap;
-use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
 
 $iGroupID = InputUtils::LegacyFilterInput($_GET['GroupID']);
-$aGrp = explode(',', $iGroupID);
-$nGrps = count($aGrp);
+$aGrp     = explode(',', $iGroupID);
+$nGrps    = count($aGrp);
 
-$iFYID = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
+$iFYID        = InputUtils::LegacyFilterInput($_GET['FYID'], 'int');
 $dFirstSunday = InputUtils::LegacyFilterInput($_GET['FirstSunday']);
-$dLastSunday = InputUtils::LegacyFilterInput($_GET['LastSunday']);
+$dLastSunday  = InputUtils::LegacyFilterInput($_GET['LastSunday']);
 $withPictures = InputUtils::LegacyFilterInput($_GET['pictures']);
 
 class PDF_ClassList extends ChurchInfoReport
@@ -42,7 +39,7 @@ class PDF_ClassList extends ChurchInfoReport
     {
         parent::__construct('P', 'mm', $this->paperFormat);
 
-        $this->SetMargins(0, 0);
+        $this->SetMargins(10, 0,10);
 
         $this->SetFont('Times', '', 14);
         $this->SetAutoPageBreak(false);
@@ -103,6 +100,11 @@ for ($i = 0; $i < $nGrps; $i++) {
 
     $students = [];
 
+    $ormPropLists = GroupPropMasterQuery::Create()
+        ->filterByPersonDisplay('true')
+        ->orderByPropId()
+        ->findByGroupId($iGroupID);
+
     foreach ($groupRoleMemberships as $groupRoleMembership) {
         $person = $groupRoleMembership->getPerson();
         $family = $person->getFamily();
@@ -117,6 +119,18 @@ for ($i = 0; $i < $nGrps; $i++) {
             
             if (empty($homePhone)) {
                 $homePhone = $family->getWorkPhone();
+            }
+        }
+
+
+        if (empty($homePhone)) {
+            $homePhone = $person->getHomePhone();
+
+            if (empty($homePhone)) {
+                $homePhone = $person->getCellPhone();
+            }
+            if (empty($homePhone)) {
+                $homePhone = $person->getWorkPhone();
             }
         }
 
@@ -135,7 +149,38 @@ for ($i = 0; $i < $nGrps; $i++) {
                 if (!$bFirstTeacher1) {
                     $teacherString1 .= ', ';
                 }
-                $teacherString1 .= $person->getFullName().' '.$phone;
+
+            $props = '';
+            if ( $ormPropLists->count() > 0 ) {
+                $per = PersonQuery::create()->findOneById($person->getId());
+                $sPhoneCountry = MiscUtils::SelectWhichInfo($per->getCountry(), (!is_null($per->getFamily()))?$per->getFamily()->getCountry():null, false);
+
+                $sSQL = 'SELECT * FROM groupprop_' . $iGroupID . ' WHERE per_ID = ' . $per->getId();
+
+                $connection = Propel::getConnection();
+                $statement = $connection->prepare($sSQL);
+                $statement->execute();
+                $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+
+                if ($ormPropLists->count() > 0) {
+                    foreach ($ormPropLists as $ormPropList) {
+                        $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                        if (strlen($currentData) > 0) {
+                            $prop_Special = $ormPropList->getSpecial();
+
+                            if ($ormPropList->getTypeId() == 11) {
+                                $prop_Special = $sPhoneCountry;
+                            }
+
+                            $props = $ormPropList->getName() /*. ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special)*/ . ", ";
+                        }
+                    }
+                }
+            }
+
+
+                $teacherString1 .= $person->getFullName().' '.((mb_strlen($props) != 0)?"(".substr($props, 0, -2).') ':'').$phone;
                 $bFirstTeacher1 = false;
             //}
             ++$teacherCount;
