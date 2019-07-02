@@ -1,5 +1,6 @@
 <?php
 // Routes
+use EcclesiaCRM\Utils\OutputUtils;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -736,8 +737,40 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
         }
     }
 
+    $teachersProps = [];
     foreach ($rsTeachers as $teacher) {
         array_push($TeachersEmails, $teacher['per_Email']);
+
+        $ormPropLists = GroupPropMasterQuery::Create()
+            ->filterByPersonDisplay('true')
+            ->orderByPropId()
+            ->findByGroupId($iGroupId);
+
+        $sSQL = 'SELECT * FROM groupprop_'.$iGroupId.' WHERE per_ID = '.$teacher['per_ID'];
+
+        $connection = Propel::getConnection();
+        $statement = $connection->prepare($sSQL);
+        $statement->execute();
+        $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );
+
+        $props = '';
+
+        if ( $ormPropLists->count() > 0 ) {
+            foreach ($ormPropLists as $ormPropList) {
+                $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                if (strlen($currentData) > 0) {
+                    $prop_Special = $ormPropList->getSpecial();
+
+                    if ($ormPropList->getTypeId() == 11) {
+                        $prop_Special = $sPhoneCountry;
+                    }
+
+                    $props = $ormPropList->getName().":".OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special).", ";
+                }
+            }
+        }
+
+        array_push($teachersProps, [$teacher['per_ID'] => substr($props, 0, -2)]);
     }
 
     $allEmails = array_unique(array_merge($ParentsEmails, $KidsEmails, $TeachersEmails));
@@ -757,5 +790,5 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
     $dropDown->allNormal    = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:');
     $dropDown->allNormalBCC = MiscUtils::generateGroupRoleEmailDropdown($roleEmails, 'mailto:?bcc=');
 
-    return $response->withJson(['success' => true, "teachers" => $rsTeachers, "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
+    return $response->withJson(['success' => true, "teachers" => $rsTeachers, "teachersProps" => $teachersProps,  "kids" => $thisClassChildren, "roleEmails" => $roleEmails, "emailLink" => $emailLink, "dropDown" => $dropDown]);
 }
