@@ -148,9 +148,14 @@ require 'Include/Header.php'; ?>
                      ->addDescendingOrderByColumn('field')
                      ->limit(1)
                      ->findOne ();
-                     
-                  $newFieldNum = mb_substr($lastPerCst->getCustomField(), 1) + 1;
-                  $last = PersonCustomMasterQuery::Create()->orderByCustomOrder('desc')->limit(1)->findOne ()->getCustomOrder();
+
+                  $newFieldNum = 1;
+                  $last = 0;
+
+                  if ( !is_null($lastPerCst) ) {
+                      $newFieldNum = mb_substr($lastPerCst->getCustomField(), 1) + 1;
+                      $last = PersonCustomMasterQuery::Create()->orderByCustomOrder('desc')->limit(1)->findOne()->getCustomOrder();
+                  }
                   
                   if ($newFieldSide == 0) {
                       $newFieldSide = 'left';

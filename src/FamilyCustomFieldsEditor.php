@@ -152,10 +152,15 @@ if (isset($_POST['SaveChanges'])) {
                    ->addDescendingOrderByColumn('field')
                    ->limit(1)
                    ->findOne ();
-                     
-                $newFieldNum = mb_substr($lastFamCst->getCustomField(), 1) + 1;
-                $last = FamilyCustomMasterQuery::Create()->orderByCustomOrder('desc')->limit(1)->findOne ()->getCustomOrder();
-                
+
+                $newFieldNum = 1;
+                $last = 0;
+
+                if ( !is_null($lastFamCst) ) {
+                    $newFieldNum = mb_substr($lastFamCst->getCustomField(), 1) + 1;
+                    $last = FamilyCustomMasterQuery::Create()->orderByCustomOrder('desc')->limit(1)->findOne ()->getCustomOrder();
+                }
+
                 if ($newFieldSide == 0) {
                     $newFieldSide = 'left';
                 } else {
