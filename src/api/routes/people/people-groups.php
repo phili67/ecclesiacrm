@@ -746,26 +746,31 @@ function groupSundaySchool (Request $request, Response $response, array $args) {
             ->orderByPropId()
             ->findByGroupId($iGroupId);
 
-        $sSQL = 'SELECT * FROM groupprop_'.$iGroupId.' WHERE per_ID = '.$teacher['per_ID'];
-
-        $connection = Propel::getConnection();
-        $statement = $connection->prepare($sSQL);
-        $statement->execute();
-        $aPersonProps = $statement->fetch( PDO::FETCH_BOTH );
-
         $props = '';
-
         if ( $ormPropLists->count() > 0 ) {
-            foreach ($ormPropLists as $ormPropList) {
-                $currentData = trim($aPersonProps[$ormPropList->getField()]);
-                if (strlen($currentData) > 0) {
-                    $prop_Special = $ormPropList->getSpecial();
+            $person = PersonQuery::create()->findOneById($teacher['per_ID']);
+            $sPhoneCountry = MiscUtils::SelectWhichInfo($person->getCountry(), $person->getFamily()->getCountry(), false);
 
-                    if ($ormPropList->getTypeId() == 11) {
-                        $prop_Special = $sPhoneCountry;
+            $sSQL = 'SELECT * FROM groupprop_' . $iGroupId . ' WHERE per_ID = ' . $teacher['per_ID'];
+
+            $connection = Propel::getConnection();
+            $statement = $connection->prepare($sSQL);
+            $statement->execute();
+            $aPersonProps = $statement->fetch(PDO::FETCH_BOTH);
+
+
+            if ($ormPropLists->count() > 0) {
+                foreach ($ormPropLists as $ormPropList) {
+                    $currentData = trim($aPersonProps[$ormPropList->getField()]);
+                    if (strlen($currentData) > 0) {
+                        $prop_Special = $ormPropList->getSpecial();
+
+                        if ($ormPropList->getTypeId() == 11) {
+                            $prop_Special = $sPhoneCountry;
+                        }
+
+                        $props = $ormPropList->getName() . ":" . OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) . ", ";
                     }
-
-                    $props = $ormPropList->getName().":".OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special).", ";
                 }
             }
         }
