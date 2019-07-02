@@ -186,9 +186,12 @@ if (isset($_POST['SaveChanges'])) {
                    ->addDescendingOrderByColumn('field')
                    ->limit(1)
                    ->findOneByGroupId ($iGroupID);
-                     
-                $newFieldNum = mb_substr($lastProps->getField(), 1) + 1;
-                
+
+                $newFieldNum = 1;
+                if ( !is_null($lastProps) ) {
+                    $newFieldNum = mb_substr($lastProps->getField(), 1) + 1;
+                }
+
                 // If we're inserting a new custom-list type field, create a new list and get its ID
                 if ($newFieldType == 12) {
                     // Get the first available lst_ID for insertion.  lst_ID 0-9 are reserved for permanent lists.
