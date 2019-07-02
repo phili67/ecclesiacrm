@@ -1035,11 +1035,12 @@ if (!empty($person->getDateDeactivated())) {
                             <ul>
                         <?php
                               foreach ($ormPropLists as $ormPropList) {
+                                $prop_Special = $ormPropList->getSpecial();
                                 if ($ormPropList->getTypeId() == 11) {
                                   $prop_Special = $sPhoneCountry;
                                 }  
                         ?>
-                                <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $ormPropList->getSpecial()) ?></li>
+                                <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $ormPropList->getDescription(), $prop_Special) ?></li>
                         <?php
                               }
                         ?>
@@ -1063,11 +1064,12 @@ if (!empty($person->getDateDeactivated())) {
                               foreach ($ormPropLists as $ormPropList) {
                                 $currentData = trim($aPersonProps[$ormPropList->getField()]);
                                 if (strlen($currentData) > 0) {
-                                    if ($type_ID == 11) {
+                                    $prop_Special = $ormPropList->getSpecial();
+                                    if ($ormPropList->getTypeId() == 11) {
                                         $prop_Special = $sPhoneCountry;
                                     }
                             ?>
-                                    <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $ormPropList->getSpecial()) ?></li>
+                                    <li><strong><?= $ormPropList->getName() ?></strong>: <?= OutputUtils::displayCustomField($ormPropList->getTypeId(), $currentData, $prop_Special) ?></li>
                             <?php
                                 }
                               }
