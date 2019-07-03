@@ -364,7 +364,7 @@ function initDataTable() {
           })[0];
 
           if (isShowable) {
-            return ((thisRole != undefined)?thisRole.OptionName:'') + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
+            return ((thisRole != undefined)?i18next.t(thisRole.OptionName):'') + '<button class="changeMembership" data-personid=' + full.PersonId + '><i class="fa fa-pencil"></i></button>';
           } else {
             return i18next.t("Private Data");
           }
