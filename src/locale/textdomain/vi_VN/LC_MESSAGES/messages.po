@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EcclesiaCRM\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-30 23:23+0200\n"
+"POT-Creation-Date: 2019-07-03 18:40+0200\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,7 +198,7 @@ msgstr ""
 msgid "Checks"
 msgstr ""
 
-#: api/routes/mailchimp.php:78 PeopleDashboard.php:104
+#: api/routes/mailchimp.php:78 v2/templates/people/peopledashboard.php:25
 msgid "All People"
 msgstr "Tất cả thành viên"
 
@@ -206,26 +206,27 @@ msgstr "Tất cả thành viên"
 msgid "newsletter"
 msgstr ""
 
-#: api/routes/mailchimp.php:127 api/routes/people/people.php:72
-#: api/routes/people/people.php:124 api/routes/search.php:72
-#: EcclesiaCRM/MenuBar/MenuBar.php:293
+#: api/routes/mailchimp.php:127 api/routes/people/people.php:66
+#: api/routes/people/people.php:118 api/routes/search.php:72
+#: EcclesiaCRM/MenuBar/MenuBar.php:290
 #, fuzzy
 msgid "Persons"
 msgstr "Xem tất cả thành viên"
 
-#: api/routes/mailchimp.php:167 api/routes/people/people.php:163
+#: api/routes/mailchimp.php:167 api/routes/people/people.php:157
 #: api/routes/search.php:169 EcclesiaCRM/MenuBar/MenuBar.php:275
-#: EcclesiaCRM/MenuBar/MenuBar.php:299 members/online-pending-verify.php:24
+#: EcclesiaCRM/MenuBar/MenuBar.php:296 members/online-pending-verify.php:24
 #: members/self-register.php:24 members/self-verify-updates.php:24 Menu.php:396
-#: PeopleDashboard.php:163
+#: v2/templates/people/peopledashboard.php:84
 #: v2/templates/sundayschool/sundayschooldashboard.php:59
 msgid "Families"
 msgstr "Gia đình"
 
-#: api/routes/mailchimp.php:205 api/routes/people/people.php:200
+#: api/routes/mailchimp.php:205 api/routes/people/people.php:194
 #: api/routes/search.php:208 EcclesiaCRM/MenuBar/MenuBar.php:49
 #: external/templates/verify/verify-family-info.php:108 Menu.php:459
-#: PeopleDashboard.php:226 v2/templates/calendar/calendar.php:153
+#: v2/templates/calendar/calendar.php:153
+#: v2/templates/people/peopledashboard.php:147
 msgid "Groups"
 msgstr "Ban/Mục vụ"
 
@@ -265,13 +266,13 @@ msgstr "Không hoạt động"
 msgid "Family Activated"
 msgstr "Kích hoạt"
 
-#: api/routes/people/people-groups.php:460
+#: api/routes/people/people-groups.php:461
 #, fuzzy
 msgid "Deleted from group"
 msgstr "Lựa chọn Ban/Mục vụ"
 
-#: api/routes/people/people-groups.php:492
-#: api/routes/people/people-groups.php:526
+#: api/routes/people/people-groups.php:493
+#: api/routes/people/people-groups.php:527
 #, fuzzy
 msgid "Added to group"
 msgstr "Thêm vào Ban/Mục vụ"
@@ -284,14 +285,14 @@ msgstr "Thêm vào Ban/Mục vụ"
 #: EcclesiaCRM/MenuBar/MenuBar.php:102 EcclesiaCRM/MenuBar/MenuBar.php:174
 #: EcclesiaCRM/utils/OutputUtils.php:398 EcclesiaCRM/utils/OutputUtils.php:456
 #: eGive.php:345 FamilyEditor.php:1205 GeoPage.php:100 GeoPage.php:112
-#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:187
+#: GroupEditor.php:103 GroupView.php:47 PaddleNumEditor.php:186
 #: PersonEditor.php:963 PersonEditor.php:978 PersonEditor.php:1482
 #: PrintPastoralCare.php:332 PrintPastoralCare.php:345 PrintView.php:343
 #: PrintView.php:356 SelectDelete.php:233 SelectList.php:45 SelectList.php:54
 #: SelectList.php:65 SelectList.php:1239 SelectList.php:1319
-#: SystemSettings.php:213 v2/templates/group/grouplist.php:31
-#: v2/templates/map/MapUsingBing.php:70 v2/templates/map/MapUsingBing.php:115
-#: v2/templates/map/MapUsingGoogle.php:67
+#: SystemSettings.php:213 v2/routes/group/groups.php:63
+#: v2/templates/group/grouplist.php:31 v2/templates/map/MapUsingBing.php:70
+#: v2/templates/map/MapUsingBing.php:115 v2/templates/map/MapUsingGoogle.php:67
 #: v2/templates/map/MapUsingGoogle.php:112
 #: v2/templates/map/MapUsingLeaflet.php:61
 #: v2/templates/map/MapUsingLeaflet.php:108
@@ -366,6 +367,181 @@ msgstr "Số tiền thanh toán"
 msgid "Pastoral Care"
 msgstr ""
 
+#: api/routes/sidebar/sidebar-general-roles.php:108
+#: api/routes/sidebar/sidebar-general-roles.php:149 FamilyEditor.php:1054
+#: FamilyView.php:473 OptionManager.php:100 OptionManager.php:141
+#: PersonView.php:881 PrintPastoralCare.php:449 PrintPastoralCare.php:516
+#: PrintView.php:460 PrintView.php:525 Reports/CanvassReports.php:236
+#: Reports/GroupReport.php:107 sundayschool/SundaySchoolClassListExport.php:48
+msgid "Role"
+msgstr "Vai trò"
+
+#: api/routes/sidebar/sidebar-general-roles.php:110 CSVExport.php:173
+#: CSVExport.php:308 OptionManager.php:102 PrintPastoralCare.php:338
+#: PrintView.php:349 queryparameters_qrp.php:5
+#, fuzzy
+msgid "Family Role"
+msgstr "Vai trò trong gia đình"
+
+#: api/routes/sidebar/sidebar-general-roles.php:111 Include/Footer.php:62
+#: OptionManager.php:103 v2/templates/people/peopledashboard.php:248
+#, fuzzy
+msgid "Family Roles"
+msgstr "Vai trò trong gia đình"
+
+#: api/routes/sidebar/sidebar-general-roles.php:112 OptionManager.php:104
+#, fuzzy
+msgid "Family Roles Editor"
+msgstr "Vai trò trong gia đình"
+
+#: api/routes/sidebar/sidebar-general-roles.php:117 CSVExport.php:168
+#: CSVExport.php:283 CSVImport.php:403 FamilyEditor.php:1058 FamilyView.php:474
+#: FinancialReports.php:153 OptionManager.php:109 PersonEditor.php:1480
+#: PrintPastoralCare.php:400 PrintView.php:411
+#: v2/templates/people/peopledashboard.php:298 queryparameters_qrp.php:19
+msgid "Classification"
+msgstr "Phân loại:"
+
+#: api/routes/sidebar/sidebar-general-roles.php:118 OptionManager.php:110
+#, fuzzy
+msgid "Person Classification"
+msgstr "Phân loại:"
+
+#: api/routes/sidebar/sidebar-general-roles.php:119 OptionManager.php:111
+#, fuzzy
+msgid "Person Classifications"
+msgstr "Tất cả các loại"
+
+#: api/routes/sidebar/sidebar-general-roles.php:120 OptionManager.php:112
+#, fuzzy
+msgid "Person Classifications Editor"
+msgstr "Tất cả các loại"
+
+#: api/routes/sidebar/sidebar-general-roles.php:125
+#: api/routes/sidebar/sidebar-general-roles.php:133
+#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:344
+#: FamilyCustomFieldsEditor.php:464 GroupPropsFormEditor.php:348
+#: GroupPropsFormEditor.php:475 GroupView.php:421 OptionManager.php:117
+#: OptionManager.php:125 PersonCustomFieldsEditor.php:340
+#: PersonCustomFieldsEditor.php:465 Reports/GDPR/GDPRDataStructureExport.php:74
+#: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
+#: v2/templates/gdpr/gdprdatastructure.php:42
+#: v2/templates/group/groupview.php:366
+msgid "Type"
+msgstr "Thể loại"
+
+#: api/routes/sidebar/sidebar-general-roles.php:126 OptionManager.php:118
+#, fuzzy
+msgid "Sunday School Group Type"
+msgstr "Trường Chúa Nhật"
+
+#: api/routes/sidebar/sidebar-general-roles.php:127 Include/Footer.php:121
+#: OptionManager.php:119
+#, fuzzy
+msgid "Sunday School Group Types"
+msgstr "Trường Chúa Nhật"
+
+#: api/routes/sidebar/sidebar-general-roles.php:128 OptionManager.php:120
+#, fuzzy
+msgid "Sunday School Group Types Editor"
+msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:134 OptionManager.php:126
+msgid "Group Type"
+msgstr "Thể loại Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:135 Include/Footer.php:111
+#: OptionManager.php:127
+msgid "Group Types"
+msgstr "Thể loại Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:136 OptionManager.php:128
+msgid "Group Types Editor"
+msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:141
+#: api/routes/sidebar/sidebar-properties.php:72
+#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:94
+#: OptionManager.php:133 v2/routes/sidebar/propertylist.php:40
+msgid "Group"
+msgstr "Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:142 OptionManager.php:134
+#, fuzzy
+msgid "Security Group"
+msgstr "Lựa chọn Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:143 OptionManager.php:135
+#, fuzzy
+msgid "Security Groups"
+msgstr "Lựa chọn Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:144 OptionManager.php:136
+#, fuzzy
+msgid "Security Groups Editor"
+msgstr "Chỉnh sửa Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:150 OptionManager.php:142
+#, fuzzy
+msgid "Group Member Role"
+msgstr "Vai trò thành viên trong Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:151 GroupEditor.php:121
+#: OptionManager.php:143
+msgid "Group Member Roles"
+msgstr "Vai trò thành viên trong Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:152 OptionManager.php:144
+#, fuzzy
+msgid "Group Member Roles Editor"
+msgstr "Vai trò thành viên trong Ban/Mục vụ"
+
+#: api/routes/sidebar/sidebar-general-roles.php:165
+#: api/routes/sidebar/sidebar-general-roles.php:180
+#: api/routes/sidebar/sidebar-general-roles.php:195 OptionManager.php:158
+#: OptionManager.php:174 OptionManager.php:190
+msgid "Option"
+msgstr "Tùy chọn"
+
+#: api/routes/sidebar/sidebar-general-roles.php:166 OptionManager.php:159
+msgid "Person Custom List Option"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-general-roles.php:167 OptionManager.php:160
+msgid "Person Custom List Options"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-general-roles.php:168 OptionManager.php:161
+msgid "Person Custom List Options Editor"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-general-roles.php:181 OptionManager.php:175
+#, fuzzy
+msgid "Custom List Option"
+msgstr "Tùy chỉnh trường lựa chọn"
+
+#: api/routes/sidebar/sidebar-general-roles.php:182 OptionManager.php:176
+#, fuzzy
+msgid "Custom List Options"
+msgstr "Tùy chỉnh trường lựa chọn"
+
+#: api/routes/sidebar/sidebar-general-roles.php:183 OptionManager.php:177
+msgid "Custom List Options Editor"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-general-roles.php:196 OptionManager.php:191
+#, fuzzy
+msgid "Family Custom List Option"
+msgstr "Danh sách gia đình"
+
+#: api/routes/sidebar/sidebar-general-roles.php:197 OptionManager.php:192
+msgid "Family Custom List Options"
+msgstr ""
+
+#: api/routes/sidebar/sidebar-general-roles.php:198 OptionManager.php:193
+msgid "Family Custom List Options Editor"
+msgstr ""
+
 #: api/routes/sidebar/sidebar-properties.php:72
 #: api/routes/sidebar/sidebar-properties.php:211 AutoPaymentEditor.php:808
 #: AutoPaymentEditor.php:817 Include/Footer.php:76 PledgeEditor.php:586
@@ -390,12 +566,6 @@ msgstr "Chỉnh sửa thành viên"
 #: v2/templates/gdpr/gdprdatastructure.php:100
 msgid "Family"
 msgstr "Gia đình"
-
-#: api/routes/sidebar/sidebar-properties.php:72
-#: api/routes/sidebar/sidebar-properties.php:211 Include/Footer.php:94
-#: OptionManager.php:134 v2/routes/sidebar/propertylist.php:40
-msgid "Group"
-msgstr "Ban/Mục vụ"
 
 #: api/routes/sidebar/sidebar-properties.php:336
 #: api/routes/sidebar/sidebar-properties.php:399
@@ -477,7 +647,7 @@ msgid "Account Activated"
 msgstr "Kích hoạt"
 
 #: AutoPaymentClearAccounts.php:24 CatchCreatePayment.php:72
-#: Include/Functions.php:148
+#: Include/Functions.php:149
 msgid "Cannot execute query."
 msgstr "Không thể thực hiện truy vấn."
 
@@ -617,7 +787,7 @@ msgid "Phone"
 msgstr "Điện thoại"
 
 #: AutoPaymentEditor.php:980 CartToFamily.php:396 CSVExport.php:143
-#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:321
+#: CSVImport.php:252 EcclesiaCRM/MenuBar/MenuBar.php:318
 #: EcclesiaCRM/Reports/PDF_Directory.php:334
 #: EcclesiaCRM/Reports/PDF_Directory.php:410
 #: EcclesiaCRM/Reports/PDF_Directory.php:467 EditEventAttendees.php:72
@@ -681,7 +851,7 @@ msgstr ""
 #: DonatedItemEditor.php:292 FamilyEditor.php:714 FamilyEditor.php:801
 #: FamilyEditor.php:862 FamilyEditor.php:937 FamilyEditor.php:957
 #: FamilyEditor.php:1031 FamilyEditor.php:1235 FundRaiserEditor.php:147
-#: GroupEditor.php:176 PaddleNumEditor.php:154 PersonEditor.php:823
+#: GroupEditor.php:176 PaddleNumEditor.php:153 PersonEditor.php:823
 #: PersonEditor.php:956 PersonEditor.php:1065 PersonEditor.php:1474
 #: PersonEditor.php:1547 PersonEditor.php:1633 PledgeEditor.php:771
 #: UserEditor.php:866 UserPasswordChange.php:224
@@ -694,7 +864,7 @@ msgstr "Lưu lại"
 #: external/templates/verify/verify-family-info.php:165 FamilyEditor.php:1242
 #: FamilyView.php:950 FinancialReports.php:92 FundRaiserEditor.php:148
 #: GroupReports.php:104 GroupReports.php:178 LettersAndLabels.php:83
-#: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1581
+#: ManageEnvelopes.php:144 PersonEditor.php:1641 PersonView.php:1583
 #: PledgeEditor.php:778 ReminderReport.php:55 SettingsIndividual.php:127
 #: SettingsIndividual.php:218 TaxReport.php:53 UserEditor.php:867
 #: UserEditor.php:1011 v2/templates/sundayschool/sundayschooldashboard.php:263
@@ -821,7 +991,7 @@ msgstr ""
 msgid "File Manager"
 msgstr "Địa chỉ nhận thư:"
 
-#: browser/browse.php:34 PersonView.php:1489
+#: browser/browse.php:34 PersonView.php:1491
 #, fuzzy
 msgid "Upload a file in EDrive"
 msgstr "Tải lên tập tin CSV"
@@ -830,7 +1000,7 @@ msgstr "Tải lên tập tin CSV"
 msgid "Download"
 msgstr ""
 
-#: browser/browse.php:47 PersonView.php:1498
+#: browser/browse.php:47 PersonView.php:1500
 #, fuzzy
 msgid "Create a Folder"
 msgstr "Tạo tập tin"
@@ -840,7 +1010,7 @@ msgstr "Tạo tập tin"
 #: ElectronicPaymentList.php:216 ElectronicPaymentList.php:260
 #: ElectronicPaymentList.php:318 EventNames.php:327 FamilyView.php:951
 #: FindDepositSlip.php:131 FundRaiserEditor.php:206 ListEvents.php:415
-#: PaddleNumList.php:55 PersonView.php:1505 PersonView.php:1582
+#: PaddleNumList.php:55 PersonView.php:1507 PersonView.php:1584
 #: v2/templates/email/mailchimp/campaign.php:33
 #: v2/templates/email/mailchimp/managelist.php:42
 #: v2/templates/email/mailchimp/managelist.php:94
@@ -849,15 +1019,15 @@ msgstr "Tạo tập tin"
 msgid "Delete"
 msgstr "Xóa bỏ"
 
-#: browser/browse.php:61 PersonView.php:1512
+#: browser/browse.php:61 PersonView.php:1514
 msgid "Up One Level"
 msgstr ""
 
-#: browser/browse.php:67 PersonView.php:1518
+#: browser/browse.php:67 PersonView.php:1520
 msgid "Actualize files"
 msgstr ""
 
-#: browser/browse.php:80 PersonView.php:1536
+#: browser/browse.php:80 PersonView.php:1538
 msgid "Preview"
 msgstr ""
 
@@ -1138,9 +1308,9 @@ msgstr ""
 msgid "Image Position"
 msgstr ""
 
-#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:427
-#: FamilyCustomFieldsEditor.php:511 PersonCustomFieldsEditor.php:425
-#: PersonCustomFieldsEditor.php:510
+#: CartToBadge.php:160 FamilyCustomFieldsEditor.php:432
+#: FamilyCustomFieldsEditor.php:516 PersonCustomFieldsEditor.php:429
+#: PersonCustomFieldsEditor.php:514
 #: v2/templates/sundayschool/sundayschoolbadge.php:149
 msgid "Left"
 msgstr ""
@@ -1149,9 +1319,9 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
-#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:428
-#: FamilyCustomFieldsEditor.php:512 PersonCustomFieldsEditor.php:426
-#: PersonCustomFieldsEditor.php:511
+#: CartToBadge.php:162 FamilyCustomFieldsEditor.php:433
+#: FamilyCustomFieldsEditor.php:517 PersonCustomFieldsEditor.php:430
+#: PersonCustomFieldsEditor.php:515
 #: v2/templates/sundayschool/sundayschoolbadge.php:151
 msgid "Right"
 msgstr ""
@@ -1179,18 +1349,19 @@ msgstr "Thêm vào giỏ hàng rồi gửi đến Gia đình"
 #: CartToFamily.php:223 Checkin.php:548 Checkin.php:549
 #: EcclesiaCRM/Emails/notifications/NewPersonOrFamilyEmail.php:63
 #: EditEventAttendees.php:57 EditEventAttendees.php:71 EventAttendance.php:184
-#: EventNames.php:293 FamilyCustomFieldsEditor.php:340
-#: FamilyCustomFieldsEditor.php:462 GeoPage.php:358 GroupEditor.php:86
-#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:346
-#: GroupPropsFormEditor.php:473 GroupView.php:422 ListEvents.php:300
-#: ListEvents.php:302 PersonCustomFieldsEditor.php:337
-#: PersonCustomFieldsEditor.php:464 PrintPastoralCare.php:447
+#: EventNames.php:293 FamilyCustomFieldsEditor.php:345
+#: FamilyCustomFieldsEditor.php:467 GeoPage.php:358 GroupEditor.php:86
+#: GroupPropsEditor.php:236 GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:476 GroupView.php:422 ListEvents.php:300
+#: ListEvents.php:302 PersonCustomFieldsEditor.php:341
+#: PersonCustomFieldsEditor.php:468 PrintPastoralCare.php:447
 #: PrintPastoralCare.php:612 PrintView.php:458 PrintView.php:621
 #: Reports/CanvassReports.php:69 Reports/CanvassReports.php:234
 #: Reports/FamilyPledgeSummary.php:220 Reports/FRBidSheets.php:87
 #: Reports/PDFLabel.php:859 SelectList.php:1087
-#: v2/templates/people/familylist.php:48 v2/templates/people/personlist.php:48
-#: v2/templates/user/userlist.php:48 queryparameteroptions_qpo.php:4
+#: v2/templates/group/groupview.php:367 v2/templates/people/familylist.php:48
+#: v2/templates/people/personlist.php:48 v2/templates/user/userlist.php:48
+#: queryparameteroptions_qpo.php:4
 msgid "Name"
 msgstr "Tên"
 
@@ -1346,6 +1517,7 @@ msgid "Email Cart"
 msgstr "Email xuất ra"
 
 #: CartView.php:149 FamilyView.php:413 GroupView.php:184 PersonView.php:608
+#: v2/templates/group/groupview.php:129
 #: v2/templates/sundayschool/sundayschoolview.php:47
 #, fuzzy
 msgid "Email (BCC)"
@@ -1425,12 +1597,12 @@ msgstr "Lựa chọn sự kiện"
 msgid "Select event"
 msgstr "Lựa chọn sự kiện"
 
-#: Checkin.php:245 FamilyView.php:778 PersonView.php:1252
+#: Checkin.php:245 FamilyView.php:778 PersonView.php:1254
 #, fuzzy
 msgid "From"
 msgstr "Gửi từ:"
 
-#: Checkin.php:245 FamilyView.php:784 PersonView.php:1258
+#: Checkin.php:245 FamilyView.php:784 PersonView.php:1260
 #, fuzzy
 msgid "To"
 msgstr "Gửi đến:"
@@ -1520,8 +1692,8 @@ msgstr "Danh sách"
 #: Checkin.php:550 CSVExport.php:333 CSVImport.php:241 FamilyEditor.php:1053
 #: PersonEditor.php:830 PrintPastoralCare.php:311 PrintPastoralCare.php:448
 #: PrintView.php:322 PrintView.php:459
-#: v2/templates/sundayschool/sundayschoolview.php:186
-#: v2/templates/sundayschool/sundayschoolview.php:277 queryparameters_qrp.php:4
+#: v2/templates/sundayschool/sundayschoolview.php:187
+#: v2/templates/sundayschool/sundayschoolview.php:278 queryparameters_qrp.php:4
 msgid "Gender"
 msgstr "Giới tính"
 
@@ -1651,19 +1823,6 @@ msgstr "Ngày sinh / Kỷ niệm"
 #, fuzzy
 msgid "Age / Years Married"
 msgstr "Tuổi / năm kết hôn"
-
-#: CSVExport.php:168 CSVExport.php:283 CSVImport.php:403 FamilyEditor.php:1058
-#: FamilyView.php:474 FinancialReports.php:153 OptionManager.php:110
-#: PeopleDashboard.php:377 PersonEditor.php:1480 PrintPastoralCare.php:400
-#: PrintView.php:411 queryparameters_qrp.php:19
-msgid "Classification"
-msgstr "Phân loại:"
-
-#: CSVExport.php:173 CSVExport.php:308 OptionManager.php:103
-#: PrintPastoralCare.php:338 PrintView.php:349 queryparameters_qrp.php:5
-#, fuzzy
-msgid "Family Role"
-msgstr "Vai trò trong gia đình"
 
 #: CSVExport.php:176
 msgid "Depends whether using person or family output method"
@@ -1823,7 +1982,7 @@ msgstr "Email làm việc/khác"
 #: CSVImport.php:254 PersonView.php:474 PrintPastoralCare.php:320
 #: PrintView.php:331 sundayschool/SundaySchoolClassListExport.php:51
 #: v2/templates/sundayschool/sundayschooldashboard.php:193
-#: v2/templates/sundayschool/sundayschoolview.php:276
+#: v2/templates/sundayschool/sundayschoolview.php:277
 msgid "Birth Date"
 msgstr "Năm sinh"
 
@@ -2097,7 +2256,7 @@ msgid "Return to Deposit Listing"
 msgstr "Quay về sự kiện"
 
 #: DepositSlipEditor.php:282 FamilyView.php:943 FindDepositSlip.php:121
-#: PersonView.php:1571
+#: PersonView.php:1573
 #, fuzzy
 msgid "Confirm Delete"
 msgstr "Xác nhận xóa bỏ Ban/Mục vụ này"
@@ -2122,7 +2281,7 @@ msgstr ""
 msgid "Close"
 msgstr "Đóng lại"
 
-#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:290
+#: DirectoryReports.php:33 EcclesiaCRM/MenuBar/MenuBar.php:287
 #, fuzzy
 msgid "Directory reports"
 msgstr "Tạo báo cáo"
@@ -2280,7 +2439,7 @@ msgstr ""
 msgid "Minimum Price"
 msgstr ""
 
-#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:183
+#: DonatedItemEditor.php:230 FundRaiserEditor.php:200 PaddleNumEditor.php:182
 #: PaddleNumList.php:54
 msgid "Buyer"
 msgstr ""
@@ -2303,8 +2462,9 @@ msgid "Go"
 msgstr ""
 
 #: DonatedItemEditor.php:273 EditEventAttendees.php:59 FundRaiserEditor.php:180
-#: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:347
-#: GroupPropsFormEditor.php:474 GroupView.php:423 ListEvents.php:360
+#: GroupEditor.php:92 GroupPropsEditor.php:237 GroupPropsFormEditor.php:350
+#: GroupPropsFormEditor.php:477 GroupView.php:423 ListEvents.php:360
+#: v2/templates/group/groupview.php:368
 msgid "Description"
 msgstr "Mô tả"
 
@@ -2312,7 +2472,7 @@ msgstr "Mô tả"
 msgid "Picture URL"
 msgstr "Đường dẫn hình ảnh"
 
-#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:157
+#: DonatedItemEditor.php:294 FamilyEditor.php:1239 PaddleNumEditor.php:156
 #: PersonEditor.php:1637 PledgeEditor.php:773
 msgid "Save and Add"
 msgstr ""
@@ -4496,7 +4656,7 @@ msgid "Your EcclesiaCRM account was updated"
 msgstr ""
 
 #: EcclesiaCRM/Emails/users/UpdateAccountEmail.php:31 GroupView.php:289
-#: v2/templates/user/userlist.php:55
+#: v2/templates/group/groupview.php:234 v2/templates/user/userlist.php:55
 msgid "Status"
 msgstr "Trạng thái"
 
@@ -4519,7 +4679,7 @@ msgstr "Trường Chúa Nhật"
 
 #: EcclesiaCRM/MenuBar/MenuBar.php:120 EcclesiaCRM/MenuBar/MenuBar.php:215
 #: EcclesiaCRM/MenuBar/MenuBar.php:245 EcclesiaCRM/MenuBar/MenuBar.php:277
-#: EcclesiaCRM/MenuBar/MenuBar.php:327 Include/Header.php:201
+#: EcclesiaCRM/MenuBar/MenuBar.php:324 Include/Header.php:201
 msgid "Dashboard"
 msgstr ""
 
@@ -4567,12 +4727,12 @@ msgstr ""
 msgid "Data Structure"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:247 EcclesiaCRM/MenuBar/MenuBar.php:297
+#: EcclesiaCRM/MenuBar/MenuBar.php:247 EcclesiaCRM/MenuBar/MenuBar.php:294
 #, fuzzy
 msgid "View Inactive Persons"
 msgstr "Xem gia đình không hoạt động"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:303
+#: EcclesiaCRM/MenuBar/MenuBar.php:248 EcclesiaCRM/MenuBar/MenuBar.php:300
 msgid "View Inactive Families"
 msgstr "Xem gia đình không hoạt động"
 
@@ -4589,7 +4749,7 @@ msgstr "Sự kiện"
 msgid "Calendar"
 msgstr "Lịch"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/MenuBar/MenuBar.php:287
+#: EcclesiaCRM/MenuBar/MenuBar.php:264 EcclesiaCRM/MenuBar/MenuBar.php:284
 #: v2/routes/map/map.php:62
 #, fuzzy
 msgid "View on Map"
@@ -4608,117 +4768,118 @@ msgstr ""
 msgid "Check-in and Check-out"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:415 PeopleDashboard.php:184
+#: EcclesiaCRM/MenuBar/MenuBar.php:275 Menu.php:415
+#: v2/templates/people/peopledashboard.php:105
 msgid "People"
 msgstr "Thành viên"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:285
+#: EcclesiaCRM/MenuBar/MenuBar.php:282
 msgid "View All Persons"
 msgstr "Xem tất cả thành viên"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:294 v2/templates/people/personlist.php:23
+#: EcclesiaCRM/MenuBar/MenuBar.php:291 v2/templates/people/personlist.php:23
 msgid "Add New Person"
 msgstr "Thêm thành viên mới"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:295
+#: EcclesiaCRM/MenuBar/MenuBar.php:292
 #, fuzzy
 msgid "View Active Persons"
 msgstr "Xem tất cả thành viên"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:300
+#: EcclesiaCRM/MenuBar/MenuBar.php:297
 msgid "Add New Family"
 msgstr "Thêm gia đình mới"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:301
+#: EcclesiaCRM/MenuBar/MenuBar.php:298
 msgid "View Active Families"
 msgstr "Xem gia đình đang hoạt động"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:305
+#: EcclesiaCRM/MenuBar/MenuBar.php:302
 #, fuzzy
 msgid "Empty Addresses"
 msgstr "Địa chỉ Hội Thánh"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:325 FamilyView.php:352 UserEditor.php:837
+#: EcclesiaCRM/MenuBar/MenuBar.php:322 FamilyView.php:352 UserEditor.php:837
 msgid "MailChimp"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:332
+#: EcclesiaCRM/MenuBar/MenuBar.php:329
 #, fuzzy
 msgid "Email Lists"
 msgstr "Danh sách gia đình"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:356 FinancialReports.php:437
+#: EcclesiaCRM/MenuBar/MenuBar.php:353 FinancialReports.php:437
 #: Reports/AdvancedDeposit.php:269 Reports/AdvancedDeposit.php:389
 #: Reports/AdvancedDeposit.php:420 Reports/AdvancedDeposit.php:432
 #: Reports/AdvancedDeposit.php:523
 msgid "Deposit"
 msgstr "Khoản "
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:370
+#: EcclesiaCRM/MenuBar/MenuBar.php:367
 #, fuzzy
 msgid "Current"
 msgstr "Vai trò hiện tại"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:373 ManageEnvelopes.php:25
+#: EcclesiaCRM/MenuBar/MenuBar.php:370 ManageEnvelopes.php:25
 #, fuzzy
 msgid "Envelope Manager"
 msgstr "Địa chỉ nhận thư:"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:374
+#: EcclesiaCRM/MenuBar/MenuBar.php:371
 msgid "View All Deposits"
 msgstr "Xem tất cả khoản thu"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:375 ElectronicPaymentList.php:55
+#: EcclesiaCRM/MenuBar/MenuBar.php:372 ElectronicPaymentList.php:55
 msgid "Electronic Payment Listing"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:376
+#: EcclesiaCRM/MenuBar/MenuBar.php:373
 #, fuzzy
 msgid "Deposit Reports"
 msgstr "Tạo báo cáo"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:377
+#: EcclesiaCRM/MenuBar/MenuBar.php:374
 msgid "Edit Deposit Slip"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:384 FundRaiserEditor.php:36
+#: EcclesiaCRM/MenuBar/MenuBar.php:381 FundRaiserEditor.php:36
 #, fuzzy
 msgid "Fundraiser"
 msgstr "Xem tất cả khoản đóng góp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:386
+#: EcclesiaCRM/MenuBar/MenuBar.php:383
 msgid "View All Fundraisers"
 msgstr "Xem tất cả khoản đóng góp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:387
+#: EcclesiaCRM/MenuBar/MenuBar.php:384
 #, fuzzy
 msgid "Create New Fundraiser"
 msgstr "Xem tất cả khoản đóng góp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:388
+#: EcclesiaCRM/MenuBar/MenuBar.php:385
 #, fuzzy
 msgid "Edit Fundraiser"
 msgstr "Xem tất cả khoản đóng góp"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:389
+#: EcclesiaCRM/MenuBar/MenuBar.php:386
 msgid "View Buyers"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:390
+#: EcclesiaCRM/MenuBar/MenuBar.php:387
 msgid "Add Donors to Buyer List"
 msgstr ""
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:396
+#: EcclesiaCRM/MenuBar/MenuBar.php:393
 #, fuzzy
 msgid "Data/Reports"
 msgstr "Báo cáo"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:398
+#: EcclesiaCRM/MenuBar/MenuBar.php:395
 #, fuzzy
 msgid "Reports Menu"
 msgstr "Báo cáo"
 
-#: EcclesiaCRM/MenuBar/MenuBar.php:399 UserEditor.php:773
+#: EcclesiaCRM/MenuBar/MenuBar.php:396 UserEditor.php:773
 msgid "Query Menu"
 msgstr ""
 
@@ -4971,10 +5132,10 @@ msgstr ""
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:98
 #: Reports/ClassAttendance.php:102 Reports/ClassAttendance.php:261
-#: Reports/ClassList.php:173 Reports/PhotoBook.php:68
+#: Reports/ClassList.php:218 Reports/PhotoBook.php:70
 #: v2/templates/sundayschool/sundayschooldashboard.php:36
 #: v2/templates/sundayschool/sundayschooldashboard.php:141
-#: v2/templates/sundayschool/sundayschoolview.php:117
+#: v2/templates/sundayschool/sundayschoolview.php:118
 msgid "Teachers"
 msgstr "Giáo viên"
 
@@ -4993,11 +5154,11 @@ msgid "Girl"
 msgstr "Nữ"
 
 #: EcclesiaCRM/Reports/PDF_RealAttendance.php:194
-#: Reports/ClassAttendance.php:249 Reports/ClassList.php:173
-#: Reports/PhotoBook.php:70
+#: Reports/ClassAttendance.php:249 Reports/ClassList.php:218
+#: Reports/PhotoBook.php:72
 #: v2/templates/sundayschool/sundayschooldashboard.php:47
 #: v2/templates/sundayschool/sundayschooldashboard.php:142
-#: v2/templates/sundayschool/sundayschoolview.php:209
+#: v2/templates/sundayschool/sundayschoolview.php:210
 msgid "Students"
 msgstr "Học sinh"
 
@@ -5453,7 +5614,7 @@ msgid "Delele All Attendees"
 msgstr "Người tham dự sự kiện"
 
 #: EditEventAttendees.php:147 EditEventAttendees.php:149 ListEvents.php:493
-#: ListEvents.php:494 v2/templates/sundayschool/sundayschoolview.php:71
+#: ListEvents.php:494 v2/templates/sundayschool/sundayschoolview.php:72
 msgid "Make Check-out"
 msgstr ""
 
@@ -5590,16 +5751,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: ElectronicPaymentList.php:218 FamilyCustomFieldsEditor.php:339
-#: FamilyCustomFieldsEditor.php:459 GroupPropsFormEditor.php:345
-#: GroupPropsFormEditor.php:472 GroupView.php:421 OptionManager.php:118
-#: OptionManager.php:126 PersonCustomFieldsEditor.php:336
-#: PersonCustomFieldsEditor.php:461 Reports/GDPR/GDPRDataStructureExport.php:74
-#: Reports/GDPR/GDPRListExport.php:68 SelectDelete.php:308
-#: v2/templates/gdpr/gdprdatastructure.php:42
-msgid "Type"
-msgstr "Thể loại"
-
 #: ElectronicPaymentList.php:220
 #, fuzzy
 msgid "Next Date"
@@ -5649,6 +5800,7 @@ msgid "Bank ACH"
 msgstr "Tên ngân hàng"
 
 #: ElectronicPaymentList.php:271 GroupEditor.php:166 GroupView.php:289
+#: v2/templates/group/groupview.php:234
 msgid "Disabled"
 msgstr "Vô hiệu hóa"
 
@@ -5816,9 +5968,9 @@ msgstr ""
 msgid "Every event type includes a Total count, you do not need to include it."
 msgstr ""
 
-#: EventNames.php:264 FamilyCustomFieldsEditor.php:441 GroupPropsEditor.php:302
-#: GroupPropsFormEditor.php:445 OptionManager.php:496
-#: PersonCustomFieldsEditor.php:438
+#: EventNames.php:264 FamilyCustomFieldsEditor.php:446 GroupPropsEditor.php:302
+#: GroupPropsFormEditor.php:448 OptionManager.php:495
+#: PersonCustomFieldsEditor.php:442
 msgid "Save Changes"
 msgstr "Lưu thay đổi"
 
@@ -6042,90 +6194,90 @@ msgstr ""
 msgid "Custom Family Fields Editor"
 msgstr "Tùy chỉnh trường gia đình"
 
-#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:44
+#: FamilyCustomFieldsEditor.php:45 PersonCustomFieldsEditor.php:43
 msgid ""
 "Warning: Arrow and delete buttons take effect immediately.  Field name "
 "changes will be lost if you do not 'Save Changes' before using an up, down, "
 "delete or 'add new' button!"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:188 GroupPropsFormEditor.php:217
-#: PersonCustomFieldsEditor.php:182
+#: FamilyCustomFieldsEditor.php:193 GroupPropsFormEditor.php:220
+#: PersonCustomFieldsEditor.php:186
 #, fuzzy
 msgid "Default Option"
 msgstr "Vai trò mặc định"
 
-#: FamilyCustomFieldsEditor.php:323
+#: FamilyCustomFieldsEditor.php:328
 #, fuzzy
 msgid "No custom Family fields have been added yet"
 msgstr "Không có Cộng tác viên nào được thêm vào đây"
 
-#: FamilyCustomFieldsEditor.php:332 GroupPropsEditor.php:227
-#: GroupPropsFormEditor.php:336 OptionManager.php:390
-#: PersonCustomFieldsEditor.php:326 PersonEditor.php:815
+#: FamilyCustomFieldsEditor.php:337 GroupPropsEditor.php:227
+#: GroupPropsFormEditor.php:339 OptionManager.php:389
+#: PersonCustomFieldsEditor.php:330 PersonEditor.php:815
 msgid ""
 "Invalid fields or selections. Changes not saved! Please correct and try "
 "again!"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:341 GroupPropsEditor.php:238
-#: GroupPropsFormEditor.php:348 PersonCustomFieldsEditor.php:338
+#: FamilyCustomFieldsEditor.php:346 GroupPropsEditor.php:238
+#: GroupPropsFormEditor.php:351 PersonCustomFieldsEditor.php:342
 #, fuzzy
 msgid "Special option"
 msgstr "lựa chọn giá trị này"
 
-#: FamilyCustomFieldsEditor.php:342 FamilyCustomFieldsEditor.php:465
-#: PersonCustomFieldsEditor.php:339 PersonCustomFieldsEditor.php:470
+#: FamilyCustomFieldsEditor.php:347 FamilyCustomFieldsEditor.php:470
+#: PersonCustomFieldsEditor.php:343 PersonCustomFieldsEditor.php:474
 #, fuzzy
 msgid "Security Option"
 msgstr "Mô tả"
 
-#: FamilyCustomFieldsEditor.php:343
+#: FamilyCustomFieldsEditor.php:348
 #, fuzzy
 msgid "Family-View Side"
 msgstr "Xem gia đình"
 
-#: FamilyCustomFieldsEditor.php:373 FamilyCustomFieldsEditor.php:496
-#: FamilyEditor.php:259 GroupPropsFormEditor.php:381
-#: GroupPropsFormEditor.php:497 OptionManager.php:452
-#: PersonCustomFieldsEditor.php:373 PersonCustomFieldsEditor.php:498
+#: FamilyCustomFieldsEditor.php:378 FamilyCustomFieldsEditor.php:501
+#: FamilyEditor.php:259 GroupPropsFormEditor.php:384
+#: GroupPropsFormEditor.php:500 OptionManager.php:451
+#: PersonCustomFieldsEditor.php:377 PersonCustomFieldsEditor.php:502
 #, fuzzy
 msgid "You must enter a name"
 msgstr "Bạn cần lựa chọn thể loại"
 
-#: FamilyCustomFieldsEditor.php:384 GroupEditor.php:129
-#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:399
-#: PersonCustomFieldsEditor.php:383
+#: FamilyCustomFieldsEditor.php:389 GroupEditor.php:129
+#: GroupPropsEditor.php:266 GroupPropsFormEditor.php:402
+#: PersonCustomFieldsEditor.php:387
 msgid "Select a group"
 msgstr "Lựa chọn Ban/Mục vụ"
 
-#: FamilyCustomFieldsEditor.php:398 GroupPropsEditor.php:279
-#: GroupPropsFormEditor.php:416 PersonCustomFieldsEditor.php:397
+#: FamilyCustomFieldsEditor.php:403 GroupPropsEditor.php:279
+#: GroupPropsFormEditor.php:419 PersonCustomFieldsEditor.php:401
 #, fuzzy
 msgid "You must select a group."
 msgstr "Bạn cần lựa chọn thể loại"
 
-#: FamilyCustomFieldsEditor.php:404 GroupPropsEditor.php:283
-#: GroupPropsFormEditor.php:421 PersonCustomFieldsEditor.php:402
+#: FamilyCustomFieldsEditor.php:409 GroupPropsEditor.php:283
+#: GroupPropsFormEditor.php:424 PersonCustomFieldsEditor.php:406
 msgid "Edit List Options"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:468 PersonCustomFieldsEditor.php:467
+#: FamilyCustomFieldsEditor.php:473 PersonCustomFieldsEditor.php:471
 msgid "Side"
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:489 GroupPropsFormEditor.php:490
-#: PersonCustomFieldsEditor.php:491
+#: FamilyCustomFieldsEditor.php:494 GroupPropsFormEditor.php:493
+#: PersonCustomFieldsEditor.php:495
 msgid "Help on types.."
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:501 GroupPropsFormEditor.php:502
-#: PersonCustomFieldsEditor.php:503
+#: FamilyCustomFieldsEditor.php:506 GroupPropsFormEditor.php:505
+#: PersonCustomFieldsEditor.php:507
 msgid "That field name already exists."
 msgstr ""
 
-#: FamilyCustomFieldsEditor.php:516 GroupPropsFormEditor.php:513
-#: PersonCustomFieldsEditor.php:518
+#: FamilyCustomFieldsEditor.php:521 GroupPropsFormEditor.php:516
+#: PersonCustomFieldsEditor.php:522
 #, fuzzy
 msgid "Add New Field"
 msgstr "Thêm gia đình mới"
@@ -6235,14 +6387,6 @@ msgstr "Tên đệm"
 #: FamilyEditor.php:1051
 msgid "Last"
 msgstr "Họ"
-
-#: FamilyEditor.php:1054 FamilyView.php:473 OptionManager.php:101
-#: OptionManager.php:142 PersonView.php:881 PrintPastoralCare.php:449
-#: PrintPastoralCare.php:516 PrintView.php:460 PrintView.php:525
-#: Reports/CanvassReports.php:236 Reports/GroupReport.php:107
-#: sundayschool/SundaySchoolClassListExport.php:48
-msgid "Role"
-msgstr "Vai trò"
 
 #: FamilyEditor.php:1056
 msgid "Day"
@@ -6362,10 +6506,12 @@ msgid "EcclesiaCRM text message"
 msgstr ""
 
 #: FamilyView.php:395 GroupView.php:100 PersonView.php:595
+#: v2/templates/group/groupview.php:45
 msgid "Remove from Cart"
 msgstr "Xóa khỏi giỏ"
 
 #: FamilyView.php:399 GroupView.php:104 PersonView.php:600 SelectList.php:1346
+#: v2/templates/group/groupview.php:49
 msgid "Add to Cart"
 msgstr "Thêm vào giỏ"
 
@@ -6409,6 +6555,7 @@ msgstr "Dòng thời gian"
 
 #: FamilyView.php:575 GroupView.php:348 GroupView.php:406 PersonView.php:732
 #: PrintPastoralCare.php:594 PrintView.php:603
+#: v2/templates/group/groupview.php:293 v2/templates/group/groupview.php:351
 msgid "Assigned Properties"
 msgstr "Thuộc tính được chỉ định"
 
@@ -6421,59 +6568,60 @@ msgstr "Loại hình thanh toán tự động"
 msgid "Pledges and Payments"
 msgstr ""
 
-#: FamilyView.php:715 GroupView.php:361 PersonView.php:1124
+#: FamilyView.php:715 GroupView.php:361 PersonView.php:1126
+#: v2/templates/group/groupview.php:306
 msgid "Assign a New Property"
 msgstr "Gán thuộc tính mới"
 
-#: FamilyView.php:720 PaddleNumList.php:52 PersonView.php:1128
-#: PersonView.php:1183 PersonView.php:1310
+#: FamilyView.php:720 PaddleNumList.php:52 PersonView.php:1130
+#: PersonView.php:1185 PersonView.php:1312
 msgid "Select"
 msgstr "Lựa chọn"
 
-#: FamilyView.php:721 GroupView.php:366 PersonView.php:1129 QueryView.php:333
-#: QueryView.php:350
+#: FamilyView.php:721 GroupView.php:366 PersonView.php:1131 QueryView.php:331
+#: QueryView.php:348 v2/templates/group/groupview.php:311
 msgid "select an option"
 msgstr "lựa chọn giá trị này"
 
-#: FamilyView.php:736 GroupView.php:382 PersonView.php:1145 PersonView.php:1197
-#: SelectList.php:1190
+#: FamilyView.php:736 GroupView.php:382 PersonView.php:1147 PersonView.php:1199
+#: SelectList.php:1190 v2/templates/group/groupview.php:327
 #, fuzzy
 msgid "Assign"
 msgstr "Gán vai trò"
 
-#: FamilyView.php:762 PersonView.php:1225
+#: FamilyView.php:762 PersonView.php:1227
 #, fuzzy
 msgid "Add a new automatic payment"
 msgstr "Loại hình thanh toán tự động"
 
-#: FamilyView.php:771 PersonView.php:1245
+#: FamilyView.php:771 PersonView.php:1247
 msgid "Show Pledges"
 msgstr ""
 
-#: FamilyView.php:775 PersonView.php:1249
+#: FamilyView.php:775 PersonView.php:1251
 msgid "Show Payments"
 msgstr ""
 
-#: FamilyView.php:802 PersonView.php:1267
+#: FamilyView.php:802 PersonView.php:1269
 #, fuzzy
 msgid "Add a new pledge"
 msgstr "Thêm vai trò mới"
 
-#: FamilyView.php:804 PersonView.php:1269
+#: FamilyView.php:804 PersonView.php:1271
 #, fuzzy
 msgid "Add a new payment"
 msgstr "Thêm sự kiện mới"
 
-#: FamilyView.php:812 PersonView.php:1285
+#: FamilyView.php:812 PersonView.php:1287
 msgid " Canvass Entry"
 msgstr ""
 
-#: FamilyView.php:946 PersonView.php:1575
+#: FamilyView.php:946 PersonView.php:1577
 msgid ""
 "You are about to delete the profile photo, this procedure is irreversible."
 msgstr ""
 
-#: FamilyView.php:947 PersonView.php:1577
+#: FamilyView.php:947 PersonView.php:1579
 msgid "Do you want to proceed?"
 msgstr ""
 
@@ -6694,7 +6842,8 @@ msgstr "Tạo báo cáo"
 msgid "Only Families with unpaid pledges"
 msgstr ""
 
-#: FinancialReports.php:406 GeoPage.php:313 PeopleDashboard.php:140
+#: FinancialReports.php:406 GeoPage.php:313
+#: v2/templates/people/peopledashboard.php:61
 msgid "All Families"
 msgstr "Tất cả gia đình"
 
@@ -6737,7 +6886,7 @@ msgid ""
 "to not require a donation):"
 msgstr ""
 
-#: FinancialReports.php:488 PaddleNumEditor.php:159
+#: FinancialReports.php:488 PaddleNumEditor.php:158
 msgid "Back"
 msgstr "Quay lại"
 
@@ -6812,7 +6961,7 @@ msgid "Fundraiser Listing"
 msgstr "Danh sách thành viên"
 
 #: FindFundRaiser.php:82 FindFundRaiser.php:311 Include/Functions.php:94
-#: PaddleNumEditor.php:174 PaddleNumList.php:53
+#: PaddleNumEditor.php:173 PaddleNumList.php:53
 #, fuzzy
 msgid "Number"
 msgstr "Tháng 11"
@@ -7002,10 +7151,6 @@ msgstr "Cài đặt Ban/Mục vụ"
 msgid "Type of Group and Menu Category"
 msgstr ""
 
-#: GroupEditor.php:121 OptionManager.php:144
-msgid "Group Member Roles"
-msgstr "Vai trò thành viên trong Ban/Mục vụ"
-
 #: GroupEditor.php:123
 #, fuzzy
 msgid "Clone roles"
@@ -7028,7 +7173,7 @@ msgstr "Kích hoạt"
 msgid "Disable Group Specific Properties"
 msgstr "Vô hiệu thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupEditor.php:160 GroupView.php:455
+#: GroupEditor.php:160 GroupView.php:455 v2/templates/group/groupview.php:400
 #, fuzzy
 msgid "Edit Group-Specific Properties Form"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
@@ -7073,7 +7218,7 @@ msgstr ""
 msgid "Group-Person-Specific Properties"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:325
+#: GroupPropsEditor.php:216 GroupPropsFormEditor.php:328
 #, fuzzy
 msgid "No properties have been added yet"
 msgstr "Không có Cộng tác viên nào được thêm vào đây"
@@ -7084,29 +7229,30 @@ msgid "Return to Person"
 msgstr "Quay về sự kiện"
 
 #: GroupPropsFormEditor.php:69 GroupView.php:400
+#: v2/templates/group/groupview.php:345
 #, fuzzy
 msgid "Group-Specific Properties"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupPropsFormEditor.php:326 GroupPropsFormEditor.php:442
+#: GroupPropsFormEditor.php:329 GroupPropsFormEditor.php:445
 #, fuzzy
 msgid "Return to Group"
 msgstr "Thêm vào Ban/Mục vụ"
 
-#: GroupPropsFormEditor.php:349
+#: GroupPropsFormEditor.php:352
 msgid "Show in"
 msgstr ""
 
-#: GroupPropsFormEditor.php:349 PersonView.php:304
+#: GroupPropsFormEditor.php:352 PersonView.php:304
 msgid "Person Profile"
 msgstr "Hồ sơ cá nhân"
 
-#: GroupPropsFormEditor.php:462
+#: GroupPropsFormEditor.php:465
 #, fuzzy
 msgid "Add Group-Specific Properties"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupReports.php:38 GroupView.php:122
+#: GroupReports.php:38 GroupView.php:122 v2/templates/group/groupview.php:67
 #, fuzzy
 msgid "Group reports"
 msgstr "Cài đặt Ban/Mục vụ"
@@ -7171,163 +7317,166 @@ msgstr "Vai trò Ban/Mục vụ"
 msgid "Group-Specific Property Fields"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupView.php:79
+#: GroupView.php:79 v2/routes/group/groups.php:95
 msgid "Group View"
 msgstr "Xem Ban/Mục vụ"
 
-#: GroupView.php:86
+#: GroupView.php:86 v2/templates/group/groupview.php:31
 msgid "Group Functions"
 msgstr "Tính năng Ban/Mục vụ"
 
-#: GroupView.php:92
+#: GroupView.php:92 v2/templates/group/groupview.php:37
 msgid "Map this group"
 msgstr "Bản đồ của Ban/Mục vụ"
 
-#: GroupView.php:111
+#: GroupView.php:111 v2/templates/group/groupview.php:56
 msgid "Edit this Group"
 msgstr "Chỉnh sửa"
 
-#: GroupView.php:112
+#: GroupView.php:112 v2/templates/group/groupview.php:57
 msgid "Delete this Group"
 msgstr "Xóa bỏ"
 
-#: GroupView.php:173
+#: GroupView.php:173 v2/templates/group/groupview.php:118
 msgid "Email Group"
 msgstr "Email Ban/Mục vụ"
 
-#: GroupView.php:231
+#: GroupView.php:231 v2/templates/group/groupview.php:176
 #, fuzzy
 msgid "Text Group"
 msgstr "Lựa chọn Ban/Mục vụ"
 
-#: GroupView.php:232
+#: GroupView.php:232 v2/templates/group/groupview.php:177
 msgid "Press CTRL + C to copy all group members\\' phone numbers"
 msgstr ""
 
-#: GroupView.php:244
+#: GroupView.php:244 v2/templates/group/groupview.php:189
 msgid "Type of Group"
 msgstr "Phân loại Ban/Mục vụ"
 
-#: GroupView.php:250
+#: GroupView.php:250 v2/templates/group/groupview.php:195
 msgid "Default Role"
 msgstr "Vai trò mặc định"
 
-#: GroupView.php:256
+#: GroupView.php:256 v2/templates/group/groupview.php:201
 msgid "Total Members"
 msgstr "Tổng số thành viên"
 
-#: GroupView.php:262
+#: GroupView.php:262 v2/templates/group/groupview.php:207
 #, fuzzy
 msgid "Address Book"
 msgstr "Địa chỉ"
 
-#: GroupView.php:282
+#: GroupView.php:282 v2/templates/group/groupview.php:227
 msgid "Quick Settings"
 msgstr "Cài đặt nhanh"
 
 #: GroupView.php:289 KioskManager.php:30 ListEvents.php:367
+#: v2/templates/group/groupview.php:234
 msgid "Active"
 msgstr "Kích hoạt"
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 msgid "Email export"
 msgstr "Email xuất ra"
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 msgid "Include"
 msgstr ""
 
-#: GroupView.php:290
+#: GroupView.php:290 v2/templates/group/groupview.php:235
 msgid "Exclude"
 msgstr ""
 
-#: GroupView.php:298
+#: GroupView.php:298 v2/templates/group/groupview.php:243
 msgid ""
 "Assign a group manager only for This Group. He can add or remove member from "
 "This Group, but not create Members."
 msgstr ""
 
-#: GroupView.php:298
+#: GroupView.php:298 v2/templates/group/groupview.php:243
 #, fuzzy
 msgid "Group Managers"
 msgstr "Thành viên Ban/Mục vụ:"
 
-#: GroupView.php:304
+#: GroupView.php:304 v2/templates/group/groupview.php:249
 #, fuzzy
 msgid "Assigned Managers"
 msgstr "Thêm vào Ban/Mục vụ"
 
-#: GroupView.php:319
+#: GroupView.php:319 v2/templates/group/groupview.php:264
 msgid "No assigned Manager"
 msgstr ""
 
-#: GroupView.php:324
+#: GroupView.php:324 v2/templates/group/groupview.php:269
 #, fuzzy
 msgid "Add Manager"
 msgstr "Thêm mới"
 
-#: GroupView.php:342
+#: GroupView.php:342 v2/templates/group/groupview.php:287
 msgid ""
 "Assign properties for This Group. This properties are global properties and "
 "this can be changed in the admin right side bar &rarr; Group Properties"
 msgstr ""
 
 #: GroupView.php:342 Include/Footer.php:101
+#: v2/templates/group/groupview.php:287
 #, fuzzy
 msgid "Group Properties"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: GroupView.php:400
+#: GroupView.php:400 v2/templates/group/groupview.php:345
 msgid ""
 "Assign properties for all members of the group. This properties are visible "
 "in each Person Profile &rarr; Assigned Group"
 msgstr ""
 
-#: GroupView.php:414
+#: GroupView.php:414 v2/templates/group/groupview.php:359
 #, fuzzy
 msgid "No member properties have been created"
 msgstr "Không có Cộng tác viên nào được thêm vào đây"
 
-#: GroupView.php:446
+#: GroupView.php:446 v2/templates/group/groupview.php:391
 #, fuzzy
 msgid "Disabled for this group."
 msgstr "Xóa bỏ"
 
-#: GroupView.php:446
+#: GroupView.php:446 v2/templates/group/groupview.php:391
 msgid ""
 "You should Edit the group and \"Enable Group Specific Properties\". To do "
 "this, press the button above : \"Edit this Group\""
 msgstr ""
 
-#: GroupView.php:470
+#: GroupView.php:470 v2/templates/group/groupview.php:415
 msgid "Group Members:"
 msgstr "Thành viên Ban/Mục vụ:"
 
-#: GroupView.php:484
+#: GroupView.php:484 v2/templates/group/groupview.php:429
 #, fuzzy
 msgid "Manage Group Members"
 msgstr "Thành viên Ban/Mục vụ:"
 
-#: GroupView.php:489 v2/templates/sundayschool/sundayschooldashboard.php:265
-#: v2/templates/sundayschool/sundayschoolview.php:138
-#: v2/templates/sundayschool/sundayschoolview.php:252
+#: GroupView.php:489 v2/templates/group/groupview.php:434
+#: v2/templates/sundayschool/sundayschooldashboard.php:265
+#: v2/templates/sundayschool/sundayschoolview.php:139
+#: v2/templates/sundayschool/sundayschoolview.php:253
 #, fuzzy
 msgid "Add"
 msgstr "Địa chỉ"
 
-#: GroupView.php:495
+#: GroupView.php:495 v2/templates/group/groupview.php:440
 msgid "Remove Selected Members from group"
 msgstr "Xóa bỏ thành viên đã lựa chọn từ Ban/Mục vụ"
 
-#: GroupView.php:502
+#: GroupView.php:502 v2/templates/group/groupview.php:447
 msgid "Add Selected Members to Cart"
 msgstr "Thêm thành viên đã lựa chọn đến giỏ"
 
-#: GroupView.php:508
+#: GroupView.php:508 v2/templates/group/groupview.php:453
 msgid "Add Selected Members to Group"
 msgstr "Thêm thành viên đã lựa chọn đến Ban/Mục vụ"
 
-#: GroupView.php:509
+#: GroupView.php:509 v2/templates/group/groupview.php:454
 msgid "Move Selected Members to Group"
 msgstr "Di chuyển thành viên đã lựa chọn đến Ban/Mục vụ"
 
@@ -7342,11 +7491,6 @@ msgstr "Bảo lưu tất cả các quyền"
 #: Include/Footer.php:26
 msgid "Version"
 msgstr "Phiên bản"
-
-#: Include/Footer.php:62 OptionManager.php:104 PeopleDashboard.php:327
-#, fuzzy
-msgid "Family Roles"
-msgstr "Vai trò trong gia đình"
 
 #: Include/Footer.php:67
 #, fuzzy
@@ -7372,15 +7516,6 @@ msgstr "Cập nhật thuộc tính"
 #, fuzzy
 msgid "Edit Custom Person Fields"
 msgstr "Tùy chỉnh trường thành viên"
-
-#: Include/Footer.php:111 OptionManager.php:128
-msgid "Group Types"
-msgstr "Thể loại Ban/Mục vụ"
-
-#: Include/Footer.php:121 OptionManager.php:120
-#, fuzzy
-msgid "Sunday School Group Types"
-msgstr "Trường Chúa Nhật"
 
 #: Include/Footer.php:132
 #, fuzzy
@@ -7495,7 +7630,7 @@ msgstr ""
 msgid "Failed to email PDF to family members."
 msgstr ""
 
-#: Include/Functions.php:134
+#: Include/Functions.php:135
 msgid "item(s) added to the Cart."
 msgstr ""
 
@@ -7712,7 +7847,7 @@ msgstr "Hủy kích hoạt"
 msgid "Active Kiosks"
 msgstr "Kích hoạt"
 
-#: LettersAndLabels.php:26 PeopleDashboard.php:274
+#: LettersAndLabels.php:26 v2/templates/people/peopledashboard.php:195
 msgid "Letters and Mailing Labels"
 msgstr ""
 
@@ -7953,7 +8088,8 @@ msgstr ""
 msgid "return to member dashboard"
 msgstr ""
 
-#: members/online-pending-verify.php:13 PeopleDashboard.php:315
+#: members/online-pending-verify.php:13
+#: v2/templates/people/peopledashboard.php:236
 msgid "Pending Self Verify"
 msgstr ""
 
@@ -8025,11 +8161,11 @@ msgstr "Ngày kỷ niệm"
 msgid "Unclassified birthdates"
 msgstr ""
 
-#: Menu.php:403 PeopleDashboard.php:170
+#: Menu.php:403 v2/templates/people/peopledashboard.php:91
 msgid "See all Families"
 msgstr "Xem tất cả gia đình"
 
-#: Menu.php:422 PeopleDashboard.php:191
+#: Menu.php:422 v2/templates/people/peopledashboard.php:112
 msgid "See All People"
 msgstr "Xem tất cả thành viên"
 
@@ -8037,8 +8173,9 @@ msgstr "Xem tất cả thành viên"
 msgid "Sunday School Classes"
 msgstr "Lớp học Trường Chúa Nhật"
 
-#: Menu.php:444 Menu.php:466 Menu.php:493 PeopleDashboard.php:212
-#: PeopleDashboard.php:233
+#: Menu.php:444 Menu.php:466 Menu.php:493
+#: v2/templates/people/peopledashboard.php:133
+#: v2/templates/people/peopledashboard.php:154
 msgid "More info"
 msgstr "Xem thêm"
 
@@ -8072,193 +8209,87 @@ msgstr "Đã cập nhật thành viên"
 msgid "Tracking"
 msgstr "Tiền dâng hiến: "
 
-#: OptionManager.php:105
-#, fuzzy
-msgid "Family Roles Editor"
-msgstr "Vai trò trong gia đình"
-
-#: OptionManager.php:111
-#, fuzzy
-msgid "Person Classification"
-msgstr "Phân loại:"
-
-#: OptionManager.php:112
-#, fuzzy
-msgid "Person Classifications"
-msgstr "Tất cả các loại"
-
-#: OptionManager.php:113
-#, fuzzy
-msgid "Person Classifications Editor"
-msgstr "Tất cả các loại"
-
-#: OptionManager.php:119
-#, fuzzy
-msgid "Sunday School Group Type"
-msgstr "Trường Chúa Nhật"
-
-#: OptionManager.php:121
-#, fuzzy
-msgid "Sunday School Group Types Editor"
-msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
-
-#: OptionManager.php:127
-msgid "Group Type"
-msgstr "Thể loại Ban/Mục vụ"
-
-#: OptionManager.php:129
-msgid "Group Types Editor"
-msgstr "Chỉnh sửa thể loại Ban/Mục vụ"
-
-#: OptionManager.php:135
-#, fuzzy
-msgid "Security Group"
-msgstr "Lựa chọn Ban/Mục vụ"
-
-#: OptionManager.php:136
-#, fuzzy
-msgid "Security Groups"
-msgstr "Lựa chọn Ban/Mục vụ"
-
-#: OptionManager.php:137
-#, fuzzy
-msgid "Security Groups Editor"
-msgstr "Chỉnh sửa Ban/Mục vụ"
-
-#: OptionManager.php:143
-#, fuzzy
-msgid "Group Member Role"
-msgstr "Vai trò thành viên trong Ban/Mục vụ"
-
-#: OptionManager.php:145
-#, fuzzy
-msgid "Group Member Roles Editor"
-msgstr "Vai trò thành viên trong Ban/Mục vụ"
-
-#: OptionManager.php:159 OptionManager.php:175 OptionManager.php:191
-msgid "Option"
-msgstr "Tùy chọn"
-
-#: OptionManager.php:160
-msgid "Person Custom List Option"
-msgstr ""
-
-#: OptionManager.php:161
-msgid "Person Custom List Options"
-msgstr ""
-
-#: OptionManager.php:162
-msgid "Person Custom List Options Editor"
-msgstr ""
-
-#: OptionManager.php:176
-#, fuzzy
-msgid "Custom List Option"
-msgstr "Tùy chỉnh trường lựa chọn"
-
-#: OptionManager.php:177
-#, fuzzy
-msgid "Custom List Options"
-msgstr "Tùy chỉnh trường lựa chọn"
-
-#: OptionManager.php:178
-msgid "Custom List Options Editor"
-msgstr ""
-
-#: OptionManager.php:192
-#, fuzzy
-msgid "Family Custom List Option"
-msgstr "Danh sách gia đình"
-
-#: OptionManager.php:193
-msgid "Family Custom List Options"
-msgstr ""
-
-#: OptionManager.php:194
-msgid "Family Custom List Options Editor"
-msgstr ""
-
-#: OptionManager.php:357
+#: OptionManager.php:356
 msgid ""
 "Warning: Removing will reset all assignments for all persons with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:361
+#: OptionManager.php:360
 msgid ""
 "Warning: Removing will reset all assignments for all family roles with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:365
+#: OptionManager.php:364
 msgid ""
 "Warning: Removing will reset all assignments for all menus with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:369
+#: OptionManager.php:368
 msgid ""
 "Warning: Removing will reset all assignments for all group roles with the "
 "assignment!"
 msgstr ""
 
-#: OptionManager.php:386
+#: OptionManager.php:385
 msgid "Error: Duplicate"
 msgstr ""
 
-#: OptionManager.php:386
+#: OptionManager.php:385
 msgid "are not allowed."
 msgstr ""
 
-#: OptionManager.php:407
+#: OptionManager.php:406
 #, fuzzy
 msgid "Default"
 msgstr "Vai trò mặc định"
 
-#: OptionManager.php:456
+#: OptionManager.php:455
 msgid "Duplicate name found."
 msgstr ""
 
-#: OptionManager.php:463
+#: OptionManager.php:462
 msgid "Make Default"
 msgstr ""
 
-#: OptionManager.php:474 OptionManager.php:482
+#: OptionManager.php:473 OptionManager.php:481
 msgid "Visible only in PersonView"
 msgstr ""
 
-#: OptionManager.php:501 OptionManager.php:505
+#: OptionManager.php:500 OptionManager.php:504
 #: v2/templates/sundayschool/sundayschoolview.php:23
 msgid "Exit"
 msgstr ""
 
-#: OptionManager.php:513
+#: OptionManager.php:512
 msgid "Name for New"
 msgstr ""
 
-#: OptionManager.php:518
+#: OptionManager.php:517
 msgid "Add New"
 msgstr "Thêm mới"
 
-#: OptionManager.php:526
+#: OptionManager.php:525
 #, fuzzy
 msgid "Error: You must enter a name"
 msgstr "Bạn cần lựa chọn thể loại"
 
-#: OptionManager.php:530
+#: OptionManager.php:529
 msgid "Error: A "
 msgstr ""
 
-#: OptionManager.php:530
+#: OptionManager.php:529
 msgid " by that name already exists."
 msgstr ""
 
-#: PaddleNumEditor.php:52
+#: PaddleNumEditor.php:51
 #, fuzzy
 msgid "Buyer Number Editor"
 msgstr "Chỉnh sửa ghi chú"
 
-#: PaddleNumEditor.php:155
+#: PaddleNumEditor.php:154
 #, fuzzy
 msgid "Generate Statement"
 msgstr "Tạo báo cáo"
@@ -8284,170 +8315,17 @@ msgstr "Thêm mới"
 msgid "Generate Statements for Selected"
 msgstr ""
 
-#: PeopleDashboard.php:93
-#, fuzzy
-msgid "People Dashboard"
-msgstr "Bảng điều khiển"
-
-#: PeopleDashboard.php:101
-#, fuzzy
-msgid "People Functions"
-msgstr "Tính năng Ban/Mục vụ"
-
-#: PeopleDashboard.php:116
-msgid "Email All"
-msgstr "Email cho tất cả"
-
-#: PeopleDashboard.php:126
-msgid "Email All (BCC)"
-msgstr "Email cho tất cả (BCC)"
-
-#: PeopleDashboard.php:144
-msgid "Family Geographic"
-msgstr "Trợ giúp địa lý"
-
-#: PeopleDashboard.php:145
-msgid "Family Map"
-msgstr "Bản đồ gia đình"
-
-#: PeopleDashboard.php:146
-#, fuzzy
-msgid "Update All Family Coordinates"
-msgstr "Gia đình vừa cập nhật"
-
-#: PeopleDashboard.php:205
-msgid "Sunday School Kids"
-msgstr "Trường Chúa Nhật thiếu nhi"
-
-#: PeopleDashboard.php:244 PeopleDashboard.php:297 PeopleDashboard.php:305
-#: v2/templates/sundayschool/sundayschooldashboard.php:109
-msgid "Reports"
-msgstr "Báo cáo"
-
-#: PeopleDashboard.php:251
-msgid "Reports on groups and roles"
-msgstr "Báo cáo trong Ban/Mục vụ và vai trò"
-
-#: PeopleDashboard.php:253
-msgid "Report on group and roles selected (it may be a multi-page PDF)."
-msgstr ""
-
-#: PeopleDashboard.php:259
-msgid "People Directory"
-msgstr ""
-
-#: PeopleDashboard.php:259
-msgid "Printable directory of all people, grouped by family where assigned"
-msgstr ""
-
-#: PeopleDashboard.php:268 ReminderReport.php:28
-msgid "Pledge Reminder Report"
-msgstr ""
-
-#: PeopleDashboard.php:268
-msgid ""
-"Printable Pledge Reminder of all people, grouped by family where assigned"
-msgstr ""
-
-#: PeopleDashboard.php:275
-msgid "Generate letters and mailing labels."
-msgstr ""
-
-#: PeopleDashboard.php:282
-msgid "US Address Verification Report"
-msgstr ""
-
-#: PeopleDashboard.php:285
-msgid ""
-"Generate report comparing all US family addresses with United States Postal "
-"Service Standard Address Format.<br>"
-msgstr ""
-
-#: PeopleDashboard.php:297
-#, fuzzy
-msgid "Self Update"
-msgstr "Cập nhật"
-
-#: PeopleDashboard.php:305
-msgid "Self Register"
-msgstr ""
-
-#: PeopleDashboard.php:307
-msgid "List families that were created via self registration."
-msgstr ""
-
-#: PeopleDashboard.php:311
-msgid "Self Verify Updates"
-msgstr ""
-
-#: PeopleDashboard.php:311
-msgid "Families who commented via self verify links"
-msgstr ""
-
-#: PeopleDashboard.php:315
-msgid "Families with valid self verify links"
-msgstr ""
-
-#: PeopleDashboard.php:338
-msgid "Role / Gender"
-msgstr "Vai trò / Giới tính"
-
-#: PeopleDashboard.php:339 PeopleDashboard.php:378
-#, fuzzy
-msgid "of People"
-msgstr "Thành viên"
-
-#: PeopleDashboard.php:340 PeopleDashboard.php:379
-msgid "Count"
-msgstr "Số lượng"
-
-#: PeopleDashboard.php:367
-#, fuzzy
-msgid "People Classification"
-msgstr "Tất cả các loại"
-
-#: PeopleDashboard.php:406
-msgid "Gender Demographics"
-msgstr ""
-
-#: PeopleDashboard.php:423
-msgid "# Age Histogram"
-msgstr ""
-
-#: PeopleDashboard.php:452
-msgid "Men"
-msgstr "Đàn ông"
-
-#: PeopleDashboard.php:457
-msgid "Women"
-msgstr "Phụ nữ"
-
-#: PeopleDashboard.php:466
-#: v2/templates/sundayschool/sundayschooldashboard.php:71
-msgid "Boys"
-msgstr "Nam"
-
-#: PeopleDashboard.php:471
-#: v2/templates/sundayschool/sundayschooldashboard.php:83
-msgid "Girls"
-msgstr "Nữ"
-
-#: PeopleDashboard.php:537
-#, fuzzy
-msgid "# number of people"
-msgstr "Phân loại Ban/Mục vụ"
-
-#: PersonCustomFieldsEditor.php:38
+#: PersonCustomFieldsEditor.php:37
 #, fuzzy
 msgid "Custom Person Fields Editor"
 msgstr "Tùy chỉnh trường thành viên"
 
-#: PersonCustomFieldsEditor.php:317
+#: PersonCustomFieldsEditor.php:321
 #, fuzzy
 msgid "No custom person fields have been added yet"
 msgstr "Không có Cộng tác viên nào được thêm vào đây"
 
-#: PersonCustomFieldsEditor.php:340
+#: PersonCustomFieldsEditor.php:344
 #, fuzzy
 msgid "Person-View Side"
 msgstr "Hồ sơ cá nhân"
@@ -8668,52 +8546,52 @@ msgstr "Cập nhật thuộc tính"
 msgid "Group Informations"
 msgstr "Tính năng Ban/Mục vụ"
 
-#: PersonView.php:1060
+#: PersonView.php:1061
 #, fuzzy
 msgid "Person Informations"
 msgstr "Thông tin Hội Thánh"
 
-#: PersonView.php:1077
+#: PersonView.php:1079
 #, fuzzy
 msgid "Modify Specific Properties"
 msgstr "Thuộc tính Ban/Mục vụ đặc biệt"
 
-#: PersonView.php:1111 PrintPastoralCare.php:606 PrintView.php:615
+#: PersonView.php:1113 PrintPastoralCare.php:606 PrintView.php:615
 msgid "No property assignments."
 msgstr "Không có thuộc tính nào được gán vào đây"
 
-#: PersonView.php:1167
+#: PersonView.php:1169
 msgid "No volunteer opportunity assignments."
 msgstr "Không có công việc nào được giao cho cộng tác viên"
 
-#: PersonView.php:1179
+#: PersonView.php:1181
 #, fuzzy
 msgid "Assign a New Volunteer Opportunity"
 msgstr "Cộng tác viên"
 
-#: PersonView.php:1230 PersonView.php:1274
+#: PersonView.php:1232 PersonView.php:1276
 msgid "You must set an address for this person"
 msgstr ""
 
-#: PersonView.php:1307
+#: PersonView.php:1309
 msgid "Show"
 msgstr ""
 
-#: PersonView.php:1311
+#: PersonView.php:1313
 #, fuzzy
 msgid "All type"
 msgstr "Tất cả thành viên"
 
-#: PersonView.php:1316
+#: PersonView.php:1318
 msgid "Shared documents"
 msgstr ""
 
-#: PersonView.php:1421
+#: PersonView.php:1423
 #, fuzzy
 msgid "Last modification by"
 msgstr "Trợ giúp địa lý"
 
-#: PersonView.php:1482
+#: PersonView.php:1484
 #, fuzzy
 msgid "All Files"
 msgstr "Tất cả gia đình"
@@ -8879,7 +8757,7 @@ msgstr ""
 msgid "An error occured: "
 msgstr ""
 
-#: QuerySQL.php:119 QueryView.php:187 QueryView.php:258
+#: QuerySQL.php:119 QueryView.php:188 QueryView.php:255
 msgid " record(s) returned"
 msgstr ""
 
@@ -8902,55 +8780,59 @@ msgstr "Xóa khỏi giỏ"
 msgid "Return to Query Menu"
 msgstr "Quay về sự kiện"
 
-#: QueryView.php:30
+#: QueryView.php:31
 #, fuzzy
 msgid "Query View"
 msgstr "Xem Ban/Mục vụ"
 
-#: QueryView.php:100
+#: QueryView.php:101
 msgid "This value is required."
 msgstr ""
 
-#: QueryView.php:113
+#: QueryView.php:114
 msgid "This value must be numeric."
 msgstr ""
 
-#: QueryView.php:118
+#: QueryView.php:119
 msgid "This value must be at least "
 msgstr ""
 
-#: QueryView.php:123 QueryView.php:136
+#: QueryView.php:124 QueryView.php:137
 msgid "This value cannot be more than "
 msgstr ""
 
-#: QueryView.php:136 QueryView.php:141
+#: QueryView.php:137 QueryView.php:142
 msgid " characters long"
 msgstr ""
 
-#: QueryView.php:141
+#: QueryView.php:142
 msgid "This value cannot be less than "
 msgstr ""
 
-#: QueryView.php:268
+#: QueryView.php:265
 msgid "Add To Cart"
 msgstr "Thêm vào giỏ"
 
-#: QueryView.php:269
+#: QueryView.php:266
 msgid "Intersect With Cart"
 msgstr ""
 
-#: QueryView.php:270
+#: QueryView.php:267
 msgid "Remove From Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: QueryView.php:277
+#: QueryView.php:274
 msgid "Run Query Again"
 msgstr ""
 
-#: QueryView.php:395
+#: QueryView.php:393
 #, fuzzy
 msgid "Execute Query"
 msgstr "Không thể thực hiện truy vấn."
+
+#: ReminderReport.php:28 v2/templates/people/peopledashboard.php:189
+msgid "Pledge Reminder Report"
+msgstr ""
 
 #: ReportList.php:31
 #, fuzzy
@@ -9109,7 +8991,7 @@ msgid "Canvass Not Interested Report"
 msgstr "Không quan tâm"
 
 #: Reports/ClassAttendance.php:228 Reports/ClassAttendance.php:229
-#: Reports/ClassList.php:142 Reports/ClassList.php:143
+#: Reports/ClassList.php:187 Reports/ClassList.php:188
 msgid "Liaison"
 msgstr ""
 
@@ -9394,7 +9276,7 @@ msgstr ""
 msgid "Greeting"
 msgstr "Cài đặt Ban/Mục vụ"
 
-#: Reports/PhotoBook.php:159 Reports/PhotoBook.php:171
+#: Reports/PhotoBook.php:167 Reports/PhotoBook.php:208
 #: v2/templates/sundayschool/sundayschoolreports.php:142
 msgid "PhotoBook"
 msgstr ""
@@ -10321,7 +10203,7 @@ msgstr "Bảng điều khiển"
 msgid "GDPR Data Structure"
 msgstr ""
 
-#: v2/routes/group/groups.php:27
+#: v2/routes/group/groups.php:34
 msgid "Group Listing"
 msgstr "Danh sách Ban/Mục vụ"
 
@@ -10333,6 +10215,11 @@ msgstr "Địa chỉ"
 #: v2/routes/people/pastoralcare.php:69
 msgid "Pastoral care for"
 msgstr ""
+
+#: v2/routes/people/people.php:112
+#, fuzzy
+msgid "People Dashboard"
+msgstr "Bảng điều khiển"
 
 #: v2/routes/sidebar/fundlist.php:32
 msgid "Donation Fund Editor"
@@ -10780,6 +10667,154 @@ msgstr ""
 msgid "Modify"
 msgstr ""
 
+#: v2/templates/people/peopledashboard.php:22
+#, fuzzy
+msgid "People Functions"
+msgstr "Tính năng Ban/Mục vụ"
+
+#: v2/templates/people/peopledashboard.php:37
+msgid "Email All"
+msgstr "Email cho tất cả"
+
+#: v2/templates/people/peopledashboard.php:47
+msgid "Email All (BCC)"
+msgstr "Email cho tất cả (BCC)"
+
+#: v2/templates/people/peopledashboard.php:65
+msgid "Family Geographic"
+msgstr "Trợ giúp địa lý"
+
+#: v2/templates/people/peopledashboard.php:66
+msgid "Family Map"
+msgstr "Bản đồ gia đình"
+
+#: v2/templates/people/peopledashboard.php:67
+#, fuzzy
+msgid "Update All Family Coordinates"
+msgstr "Gia đình vừa cập nhật"
+
+#: v2/templates/people/peopledashboard.php:126
+msgid "Sunday School Kids"
+msgstr "Trường Chúa Nhật thiếu nhi"
+
+#: v2/templates/people/peopledashboard.php:165
+#: v2/templates/people/peopledashboard.php:218
+#: v2/templates/people/peopledashboard.php:226
+#: v2/templates/sundayschool/sundayschooldashboard.php:109
+msgid "Reports"
+msgstr "Báo cáo"
+
+#: v2/templates/people/peopledashboard.php:172
+msgid "Reports on groups and roles"
+msgstr "Báo cáo trong Ban/Mục vụ và vai trò"
+
+#: v2/templates/people/peopledashboard.php:174
+msgid "Report on group and roles selected (it may be a multi-page PDF)."
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:180
+msgid "People Directory"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:180
+msgid "Printable directory of all people, grouped by family where assigned"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:189
+msgid ""
+"Printable Pledge Reminder of all people, grouped by family where assigned"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:196
+msgid "Generate letters and mailing labels."
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:203
+msgid "US Address Verification Report"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:206
+msgid ""
+"Generate report comparing all US family addresses with United States Postal "
+"Service Standard Address Format.<br>"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:218
+#, fuzzy
+msgid "Self Update"
+msgstr "Cập nhật"
+
+#: v2/templates/people/peopledashboard.php:226
+msgid "Self Register"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:228
+msgid "List families that were created via self registration."
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:232
+msgid "Self Verify Updates"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:232
+msgid "Families who commented via self verify links"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:236
+msgid "Families with valid self verify links"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:259
+msgid "Role / Gender"
+msgstr "Vai trò / Giới tính"
+
+#: v2/templates/people/peopledashboard.php:260
+#: v2/templates/people/peopledashboard.php:299
+#, fuzzy
+msgid "of People"
+msgstr "Thành viên"
+
+#: v2/templates/people/peopledashboard.php:261
+#: v2/templates/people/peopledashboard.php:300
+msgid "Count"
+msgstr "Số lượng"
+
+#: v2/templates/people/peopledashboard.php:288
+#, fuzzy
+msgid "People Classification"
+msgstr "Tất cả các loại"
+
+#: v2/templates/people/peopledashboard.php:327
+msgid "Gender Demographics"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:344
+msgid "# Age Histogram"
+msgstr ""
+
+#: v2/templates/people/peopledashboard.php:373
+msgid "Men"
+msgstr "Đàn ông"
+
+#: v2/templates/people/peopledashboard.php:378
+msgid "Women"
+msgstr "Phụ nữ"
+
+#: v2/templates/people/peopledashboard.php:387
+#: v2/templates/sundayschool/sundayschooldashboard.php:71
+msgid "Boys"
+msgstr "Nam"
+
+#: v2/templates/people/peopledashboard.php:392
+#: v2/templates/sundayschool/sundayschooldashboard.php:83
+msgid "Girls"
+msgstr "Nữ"
+
+#: v2/templates/people/peopledashboard.php:458
+#, fuzzy
+msgid "# number of people"
+msgstr "Phân loại Ban/Mục vụ"
+
 #: v2/templates/people/personlist.php:36
 msgid ""
 "WARNING: Some persons may have some records of donations and may NOT be "
@@ -10987,9 +11022,8 @@ msgid "Toggle Dropdown"
 msgstr ""
 
 #: v2/templates/sundayschool/sundayschoolview.php:59
-#, fuzzy
-msgid "Add Students"
-msgstr "Học sinh"
+msgid "Show More Props"
+msgstr ""
 
 #: v2/templates/sundayschool/sundayschoolview.php:63
 #, fuzzy
@@ -11001,77 +11035,77 @@ msgstr "Chỉnh sửa"
 msgid "Delete this Class"
 msgstr "Chỉnh sửa"
 
-#: v2/templates/sundayschool/sundayschoolview.php:78
-#: v2/templates/sundayschool/sundayschoolview.php:83
+#: v2/templates/sundayschool/sundayschoolview.php:79
+#: v2/templates/sundayschool/sundayschoolview.php:84
 #, fuzzy
 msgid "Export Attendance"
 msgstr "Người tham dự sự kiện"
 
-#: v2/templates/sundayschool/sundayschoolview.php:85
+#: v2/templates/sundayschool/sundayschoolview.php:86
 #, fuzzy
 msgid "Student Badges"
 msgstr "Học sinh"
 
-#: v2/templates/sundayschool/sundayschoolview.php:92
+#: v2/templates/sundayschool/sundayschoolview.php:93
 #, fuzzy
 msgid "Remove Students from Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:96
+#: v2/templates/sundayschool/sundayschoolview.php:97
 #, fuzzy
 msgid "Add Students to Cart"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:103
+#: v2/templates/sundayschool/sundayschoolview.php:104
 #, fuzzy
 msgid "Remove Teachers from Cart"
 msgstr "Xóa khỏi giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:107
+#: v2/templates/sundayschool/sundayschoolview.php:108
 #, fuzzy
 msgid "Add Teachers to Cart"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:133
+#: v2/templates/sundayschool/sundayschoolview.php:134
 #, fuzzy
 msgid "Add Teachers to the Team"
 msgstr "Thêm vào giỏ"
 
-#: v2/templates/sundayschool/sundayschoolview.php:156
+#: v2/templates/sundayschool/sundayschoolview.php:157
 #, fuzzy
 msgid "Quick Status"
 msgstr "Cài đặt nhanh"
 
-#: v2/templates/sundayschool/sundayschoolview.php:171
+#: v2/templates/sundayschool/sundayschoolview.php:172
 msgid "Birthdays by Month"
 msgstr "Ngày sinh theo tháng"
 
-#: v2/templates/sundayschool/sundayschoolview.php:198
+#: v2/templates/sundayschool/sundayschoolview.php:199
 msgid "Click the chart or Donut parts to interact with the table below."
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 #, fuzzy
 msgid "Edition Mode"
 msgstr "Tháng hết hạn"
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 msgid "On"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:211
+#: v2/templates/sundayschool/sundayschoolview.php:212
 msgid "Off"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:216
+#: v2/templates/sundayschool/sundayschoolview.php:217
 msgid "Showing students with birthdays in"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:217
+#: v2/templates/sundayschool/sundayschoolview.php:218
 msgid "Showing students with gender"
 msgstr ""
 
-#: v2/templates/sundayschool/sundayschoolview.php:247
+#: v2/templates/sundayschool/sundayschoolview.php:248
 #, fuzzy
 msgid "Add Members to Sunday Group"
 msgstr "Thêm thành viên đã lựa chọn đến Ban/Mục vụ"
@@ -11805,6 +11839,10 @@ msgstr ""
 #, fuzzy
 msgid "Empty"
 msgstr "Xóa bỏ giỏ hàng"
+
+#, fuzzy
+#~ msgid "Add Students"
+#~ msgstr "Học sinh"
 
 #, fuzzy
 #~ msgid "Send Message"
