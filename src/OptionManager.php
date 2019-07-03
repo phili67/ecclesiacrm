@@ -459,7 +459,7 @@ for ($row = 1; $row <= $numRows; $row++) {
         <?php
         if ($mode == 'grproles') {//dead code
         ?>
-            <td class="TextColumn"><input class="btn btn-success btn-xs" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default" onclick="javascript:document.location='OptionManagerRowOps.php?mode=<?= $mode ?>&ListID=<?= $listID ?>&ID=<?= $aIDs[$row]?>&Action=makedefault';" ></td>
+            <td class="TextColumn"><input class="btn btn-success btn-xs row-action" data-mode="<?= $mode ?>" data-order="<?= $aSeqs[$row] ?>" data-listid="<?= $listID ?>" data-id="<?= $aIDs[$row] ?>" data-action="makedefault" type="button" class="btn btn-default" value="<?= _('Make Default')?>" Name="default"></td>
         <?php
         } else if ($mode == 'classes') {
           $icon = ListOptionIconQuery::Create()->filterByListId(1)->findOneByListOptionId($aIDs[$row]);
